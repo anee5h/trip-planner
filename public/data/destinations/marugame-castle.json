@@ -51,7 +51,7 @@
     "mid": 6000,
     "high": 12000
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Marugame_Castle_Tenshu.jpg/1280px-Marugame_Castle_Tenshu.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/1280px-Marugame_Castle01.jpg",
   "galleryImages": [
     "https://upload.wikimedia.org/wikipedia/commons/5/56/Marugame_Castle01.jpg"
   ],
@@ -79,9 +79,9 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {},
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Marugame_Castle_Tenshu.jpg/1280px-Marugame_Castle_Tenshu.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/1280px-Marugame_Castle01.jpg",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Marugame_Castle_Tenshu.jpg/1280px-Marugame_Castle_Tenshu.jpg"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/1280px-Marugame_Castle01.jpg"
   ],
   "budgetBreakdown": {
     "transport": 3000,

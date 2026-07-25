@@ -7,10 +7,10 @@
   "prefecture": "Shiga",
   "region": "Kansai",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Skyline_of_Otsu_City20210828.jpg/1280px-Skyline_of_Otsu_City20210828.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Skyline_of_Otsu_City20210828.jpg/1280px-Skyline_of_Otsu_City20210828.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Skyline_of_Otsu_City20210828.jpg/1280px-Skyline_of_Otsu_City20210828.jpg"
   ],
   "description": "Port city on southern tip of Lake Biwa, featuring Ishiyamadera Temple and Enryaku-ji Temple on Mt. Hiei.",
   "highlights": ["Explore Otsu City", "Local Culture & Cuisine"],

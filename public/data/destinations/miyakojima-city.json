@@ -7,10 +7,10 @@
   "prefecture": "Okinawa",
   "region": "Okinawa",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Miyako_maipama_1.jpg/1280px-Miyako_maipama_1.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Miyako_maipama_1.jpg/1280px-Miyako_maipama_1.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Miyako_maipama_1.jpg/1280px-Miyako_maipama_1.jpg"
   ],
   "description": "Island paradise famous for 'Miyako Blue' crystal waters, Yonaha Maehama Beach, and spectacular sea bridges.",
   "highlights": ["Explore Miyakojima City", "Local Culture & Cuisine"],

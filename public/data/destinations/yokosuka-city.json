@@ -7,10 +7,10 @@
   "prefecture": "Kanagawa",
   "region": "Kanto",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Verny_Park_-_01.jpg/1280px-Verny_Park_-_01.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Verny_Park_-_01.jpg/1280px-Verny_Park_-_01.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Verny_Park_-_01.jpg/1280px-Verny_Park_-_01.jpg"
   ],
   "description": "Naval port city on Tokyo Bay famous for Mikasa Battleship Park and Dobuita Street curry.",
   "highlights": ["Explore Yokosuka City", "Local Culture & Cuisine"],

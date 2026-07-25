@@ -7,10 +7,10 @@
   "prefecture": "Nagano",
   "region": "Chubu",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Street_in_Karuizawa.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Street_in_Karuizawa.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Mt.Asama%2C_Karuizawa.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Mt.Asama%2C_Karuizawa.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/a/a8/Mt.Asama%2C_Karuizawa.jpg"
   ],
   "description": "Elegant alpine mountain resort town featuring Kyu-Karuizawa Ginza shopping street and Prince Shopping Plaza.",
   "highlights": ["Explore Karuizawa Town", "Local Culture & Cuisine"],

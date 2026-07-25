@@ -7,10 +7,10 @@
   "prefecture": "Shizuoka",
   "region": "Chubu",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Hamamatsu_Montage2.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Hamamatsu_Montage2.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/8/8f/Hamamatsu_Montage2.jpg"
   ],
   "description": "Industrial and musical city featuring Lake Hamana, Nakatajima Sand Dunes, and gyoza dumplings.",
   "highlights": ["Explore Hamamatsu City", "Local Culture & Cuisine"],

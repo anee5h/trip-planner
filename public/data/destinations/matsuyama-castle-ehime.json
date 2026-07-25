@@ -56,7 +56,7 @@
     "mid": 8000,
     "high": 16000
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Matsuyama_Castle_05.jpg/1280px-Matsuyama_Castle_05.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
   "galleryImages": [
     "https://upload.wikimedia.org/wikipedia/commons/c/c9/Matsuyama_castle%28Iyo%296.JPG"
   ],
@@ -84,9 +84,9 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {},
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Matsuyama_Castle_05.jpg/1280px-Matsuyama_Castle_05.jpg",
+  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Matsuyama_Castle_05.jpg/1280px-Matsuyama_Castle_05.jpg"
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
   ],
   "budgetBreakdown": {
     "transport": 3000,

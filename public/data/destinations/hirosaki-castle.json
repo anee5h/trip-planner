@@ -56,7 +56,7 @@
     "mid": 8000,
     "high": 15000
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Hirosaki_Castle_Keep_2019.jpg/1280px-Hirosaki_Castle_Keep_2019.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg",
   "galleryImages": [
     "https://upload.wikimedia.org/wikipedia/commons/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg"
   ],
@@ -84,9 +84,9 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {},
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Hirosaki_Castle_Keep_2019.jpg/1280px-Hirosaki_Castle_Keep_2019.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Hirosaki_Castle_Keep_2019.jpg/1280px-Hirosaki_Castle_Keep_2019.jpg"
+    "https://upload.wikimedia.org/wikipedia/commons/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg"
   ],
   "budgetBreakdown": {
     "transport": 3000,

@@ -7,10 +7,10 @@
   "prefecture": "Yamaguchi",
   "region": "Chugoku",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Dan-no-ura_kosen-jo.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Dan-no-ura_kosen-jo.JPG",
   "gallery": [
-    "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/c/ca/Dan-no-ura_kosen-jo.JPG"
   ],
   "description": "Strait port city at the tip of Honshu, world-famous for Karato Fish Market and fugu blowfish cuisine.",
   "highlights": ["Explore Shimonoseki City", "Local Culture & Cuisine"],

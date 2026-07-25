@@ -7,10 +7,10 @@
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Travel Hub", "Special Ward"],
-  "heroImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Gate_City_Osaki.jpg/1280px-Gate_City_Osaki.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Gate_City_Osaki.jpg/1280px-Gate_City_Osaki.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Gate_City_Osaki.jpg/1280px-Gate_City_Osaki.jpg"
   ],
   "description": "Transportation gate connecting Shinkansen railways, Maxell Aqua Park, and historic Tokaido highway post towns.",
   "highlights": ["Explore Shinagawa City", "Local Culture & Cuisine"],

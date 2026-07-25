@@ -22,7 +22,7 @@
     "lat": 35.8617,
     "lng": 139.6455
   },
-  "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Saitama_city_montage.jpg",
   "prefecture": "Saitama",
   "budgetMin": 3000,
   "budgetMax": 11000,
@@ -57,7 +57,7 @@
   "description": "Saitama is the capital and largest city of Saitama Prefecture, Japan. Its area incorporates the former cities of Urawa, Ōmiya, Yono and Iwatsuki. It is a city designated by government ordinance. As of 1 February 2021, the city had an estimated population of 1,324,854, and a population density of 6,093 people per km2. Its total area is 217.43 square kilometres (83.95 sq mi).",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "gallery": [
-    "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/e/ec/Saitama_city_montage.jpg"
   ],
   "budgetBreakdown": {
     "transport": 2400,
@@ -105,7 +105,7 @@
   ],
   "notes": "A fantastic trip to Saitama City. Known for its bonsai and railway museum vibes, it offers a great escape with an overall score of 7.8.",
   "schemaVersion": 2,
-  "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Saitama_city_montage.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",

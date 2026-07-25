@@ -7,10 +7,10 @@
   "prefecture": "Nara",
   "region": "Kansai",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Horyu-ji10s3200.jpg/1280px-Horyu-ji10s3200.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Horyu-ji10s3200.jpg/1280px-Horyu-ji10s3200.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Horyu-ji10s3200.jpg/1280px-Horyu-ji10s3200.jpg"
   ],
   "description": "Historic town home to Horyu-ji Temple, containing the world's oldest surviving wooden structures.",
   "highlights": ["Explore Ikaruga Town", "Local Culture & Cuisine"],

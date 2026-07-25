@@ -1,8 +1,8 @@
 {
   "version": "1.6.0",
   "qaFrameworkVersion": "1.0.0",
-  "gitCommit": "73f7eea",
-  "generatedAt": "2026-07-25T03:52:19.743Z",
+  "gitCommit": "a1992aa",
+  "generatedAt": "2026-07-25T06:14:24.459Z",
   "validators": [
     {
       "name": "Catalog Destinations",
@@ -577,7 +577,8 @@
         "totalChecked": 262,
         "errorsCount": 0,
         "warningsCount": 94,
-        "infoCount": 0
+        "infoCount": 0,
+        "durationMs": 2
       }
     },
     {
@@ -588,7 +589,8 @@
         "totalChecked": 15,
         "errorsCount": 0,
         "warningsCount": 0,
-        "infoCount": 0
+        "infoCount": 0,
+        "durationMs": 1
       }
     },
     {
@@ -599,7 +601,8 @@
         "totalChecked": 262,
         "errorsCount": 0,
         "warningsCount": 0,
-        "infoCount": 0
+        "infoCount": 0,
+        "durationMs": 1
       }
     },
     {
@@ -645,7 +648,13 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'abeno-harukas-300-osaka' (gallery[0]) reuses image URL already used by 'abeno-harukas-300-osaka'.",
+          "message": "Destination 'abeno-harukas-300-osaka' (heroImage) reuses image URL already used by 'hakone-town'.",
+          "targetId": "abeno-harukas-300-osaka"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'abeno-harukas-300-osaka' (gallery[0]) reuses image URL already used by 'hakone-town'.",
           "targetId": "abeno-harukas-300-osaka"
         },
         {
@@ -813,7 +822,13 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'disneysea' (gallery[0]) reuses image URL already used by 'disneysea'.",
+          "message": "Destination 'disneysea' (heroImage) reuses image URL already used by 'hakone-town'.",
+          "targetId": "disneysea"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'disneysea' (gallery[0]) reuses image URL already used by 'hakone-town'.",
           "targetId": "disneysea"
         },
         {
@@ -969,13 +984,13 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'gifu-shirakawa-go' (heroImage) reuses image URL already used by 'shirakawa-village'.",
+          "message": "Destination 'gifu-shirakawa-go' (heroImage) reuses image URL already used by 'hakone-town'.",
           "targetId": "gifu-shirakawa-go"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'gifu-shirakawa-go' (gallery[0]) reuses image URL already used by 'shirakawa-village'.",
+          "message": "Destination 'gifu-shirakawa-go' (gallery[0]) reuses image URL already used by 'hakone-town'.",
           "targetId": "gifu-shirakawa-go"
         },
         {
@@ -999,7 +1014,13 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'gunma-ikaho-onsen' (gallery[0]) reuses image URL already used by 'akasaka-minato'.",
+          "message": "Destination 'gunma-ikaho-onsen' (heroImage) reuses image URL already used by 'hakone-town'.",
+          "targetId": "gunma-ikaho-onsen"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'gunma-ikaho-onsen' (gallery[0]) reuses image URL already used by 'hakone-town'.",
           "targetId": "gunma-ikaho-onsen"
         },
         {
@@ -1047,7 +1068,13 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'hakkeijima' (gallery[0]) reuses image URL already used by 'hakkeijima'.",
+          "message": "Destination 'hakkeijima' (heroImage) reuses image URL already used by 'hakone-town'.",
+          "targetId": "hakkeijima"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'hakkeijima' (gallery[0]) reuses image URL already used by 'hakone-town'.",
           "targetId": "hakkeijima"
         },
         {
@@ -1209,13 +1236,7 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kakegawa-castle-shizuoka' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "kakegawa-castle-shizuoka"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kakegawa-castle-shizuoka' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'kakegawa-castle-shizuoka' (gallery[0]) reuses image URL already used by 'kakegawa-castle-shizuoka'.",
           "targetId": "kakegawa-castle-shizuoka"
         },
         {
@@ -1239,13 +1260,7 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kanazawa-castle-ishikawa' (heroImage) reuses image URL already used by 'hakkeijima'.",
-          "targetId": "kanazawa-castle-ishikawa"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kanazawa-castle-ishikawa' (gallery[0]) reuses image URL already used by 'hakkeijima'.",
+          "message": "Destination 'kanazawa-castle-ishikawa' (gallery[0]) reuses image URL already used by 'kanazawa-castle-ishikawa'.",
           "targetId": "kanazawa-castle-ishikawa"
         },
         {
@@ -1257,61 +1272,49 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kegon-falls-nikko' (gallery[0]) reuses image URL already used by 'kegon-falls-nikko'.",
+          "message": "Destination 'kegon-falls-nikko' (heroImage) reuses image URL already used by 'osaka-city'.",
           "targetId": "kegon-falls-nikko"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kinugawa-onsen' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'kegon-falls-nikko' (gallery[0]) reuses image URL already used by 'osaka-city'.",
+          "targetId": "kegon-falls-nikko"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'kinugawa-onsen' (gallery[0]) reuses image URL already used by 'kinugawa-onsen'.",
           "targetId": "kinugawa-onsen"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kinugawa-onsen' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "kinugawa-onsen"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kiso' (heroImage) reuses image URL already used by 'ginza-urban'.",
+          "message": "Destination 'kiso' (gallery[0]) reuses image URL already used by 'kiso'.",
           "targetId": "kiso"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kiso' (gallery[0]) reuses image URL already used by 'ginza-urban'.",
-          "targetId": "kiso"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kochi-castle' (gallery[0]) reuses image URL already used by 'kochi-castle'.",
+          "message": "Destination 'kochi-castle' (heroImage) reuses image URL already used by 'hakone-town'.",
           "targetId": "kochi-castle"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kurobe-gorge' (heroImage) reuses image URL already used by 'hakkeijima'.",
+          "message": "Destination 'kochi-castle' (gallery[0]) reuses image URL already used by 'hakone-town'.",
+          "targetId": "kochi-castle"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'kurobe-gorge' (gallery[0]) reuses image URL already used by 'kurobe-gorge'.",
           "targetId": "kurobe-gorge"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kurobe-gorge' (gallery[0]) reuses image URL already used by 'hakkeijima'.",
-          "targetId": "kurobe-gorge"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'lake-hamanako' (heroImage) reuses image URL already used by 'kegon-falls-nikko'.",
-          "targetId": "lake-hamanako"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'lake-hamanako' (gallery[0]) reuses image URL already used by 'kegon-falls-nikko'.",
+          "message": "Destination 'lake-hamanako' (gallery[0]) reuses image URL already used by 'lake-hamanako'.",
           "targetId": "lake-hamanako"
         },
         {
@@ -1335,7 +1338,7 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'machida-tokyo' (gallery[0]) reuses image URL already used by 'boso-peninsula'.",
+          "message": "Destination 'machida-tokyo' (gallery[0]) reuses image URL already used by 'machida-tokyo'.",
           "targetId": "machida-tokyo"
         },
         {
@@ -1371,7 +1374,13 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'matsuyama-castle-ehime' (gallery[0]) reuses image URL already used by 'matsuyama-castle-ehime'.",
+          "message": "Destination 'matsuyama-castle-ehime' (heroImage) reuses image URL already used by 'hakone-town'.",
+          "targetId": "matsuyama-castle-ehime"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'matsuyama-castle-ehime' (gallery[0]) reuses image URL already used by 'hakone-town'.",
           "targetId": "matsuyama-castle-ehime"
         },
         {
@@ -1449,13 +1458,7 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'mount-inasa-nagasaki' (heroImage) reuses image URL already used by 'ginza-urban'.",
-          "targetId": "mount-inasa-nagasaki"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'mount-inasa-nagasaki' (gallery[0]) reuses image URL already used by 'ginza-urban'.",
+          "message": "Destination 'mount-inasa-nagasaki' (gallery[0]) reuses image URL already used by 'mount-inasa-nagasaki'.",
           "targetId": "mount-inasa-nagasaki"
         },
         {
@@ -1467,13 +1470,7 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nachi-falls-wakayama' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.",
-          "targetId": "nachi-falls-wakayama"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nachi-falls-wakayama' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'nachi-falls-wakayama' (gallery[0]) reuses image URL already used by 'nachi-falls-wakayama'.",
           "targetId": "nachi-falls-wakayama"
         },
         {
@@ -1605,25 +1602,13 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nara-park-todaiji' (heroImage) reuses image URL already used by 'ginza-urban'.",
+          "message": "Destination 'nara-park-todaiji' (gallery[0]) reuses image URL already used by 'nara-park-todaiji'.",
           "targetId": "nara-park-todaiji"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nara-park-todaiji' (gallery[0]) reuses image URL already used by 'ginza-urban'.",
-          "targetId": "nara-park-todaiji"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nijo-castle-kyoto' (heroImage) reuses image URL already used by 'hakkeijima'.",
-          "targetId": "nijo-castle-kyoto"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nijo-castle-kyoto' (gallery[0]) reuses image URL already used by 'hakkeijima'.",
+          "message": "Destination 'nijo-castle-kyoto' (gallery[0]) reuses image URL already used by 'nijo-castle-kyoto'.",
           "targetId": "nijo-castle-kyoto"
         },
         {
@@ -1647,13 +1632,7 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'oarai-marine-tower' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "oarai-marine-tower"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'oarai-marine-tower' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'oarai-marine-tower' (gallery[0]) reuses image URL already used by 'oarai-marine-tower'.",
           "targetId": "oarai-marine-tower"
         },
         {
@@ -1677,31 +1656,25 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'odawara' (heroImage) reuses image URL already used by 'hakkeijima'.",
+          "message": "Destination 'odawara' (heroImage) reuses image URL already used by 'nagoya-city'.",
           "targetId": "odawara"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'odawara' (gallery[0]) reuses image URL already used by 'hakkeijima'.",
+          "message": "Destination 'odawara' (gallery[0]) reuses image URL already used by 'nagoya-city'.",
           "targetId": "odawara"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'okuhida' (heroImage) reuses image URL already used by 'kawagoe-castle-saitama'.",
+          "message": "Destination 'okuhida' (gallery[0]) reuses image URL already used by 'okuhida'.",
           "targetId": "okuhida"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'okuhida' (gallery[0]) reuses image URL already used by 'kawagoe-castle-saitama'.",
-          "targetId": "okuhida"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'ome-tokyo' (gallery[0]) reuses image URL already used by 'akihabara-chiyoda'.",
+          "message": "Destination 'ome-tokyo' (gallery[0]) reuses image URL already used by 'ome-tokyo'.",
           "targetId": "ome-tokyo"
         },
         {
@@ -1719,85 +1692,49 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'omiya-railway' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'omiya-railway' (gallery[0]) reuses image URL already used by 'omiya-railway'.",
           "targetId": "omiya-railway"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'omiya-railway' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "omiya-railway"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'osaka-castle' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'osaka-castle' (heroImage) reuses image URL already used by 'hakone-town'.",
           "targetId": "osaka-castle"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'osaka-castle' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'osaka-castle' (gallery[0]) reuses image URL already used by 'hakone-town'.",
           "targetId": "osaka-castle"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'oze-national-park' (heroImage) reuses image URL already used by 'ginza-urban'.",
+          "message": "Destination 'oze-national-park' (gallery[0]) reuses image URL already used by 'oze-national-park'.",
           "targetId": "oze-national-park"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'oze-national-park' (gallery[0]) reuses image URL already used by 'ginza-urban'.",
-          "targetId": "oze-national-park"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'roppongi-hills-tokyo-city-view' (heroImage) reuses image URL already used by 'mount-yoshino-nara'.",
+          "message": "Destination 'roppongi-hills-tokyo-city-view' (gallery[0]) reuses image URL already used by 'roppongi-hills-tokyo-city-view'.",
           "targetId": "roppongi-hills-tokyo-city-view"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'roppongi-hills-tokyo-city-view' (gallery[0]) reuses image URL already used by 'mount-yoshino-nara'.",
-          "targetId": "roppongi-hills-tokyo-city-view"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'sado-island' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'sado-island' (gallery[0]) reuses image URL already used by 'sado-island'.",
           "targetId": "sado-island"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'sado-island' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
-          "targetId": "sado-island"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'saitama-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'saitama-city' (gallery[0]) reuses image URL already used by 'saitama-city'.",
           "targetId": "saitama-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'saitama-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "saitama-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'saitama-nagatoro' (heroImage) reuses image URL already used by 'hachioji-tokyo'.",
-          "targetId": "saitama-nagatoro"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'saitama-nagatoro' (gallery[0]) reuses image URL already used by 'hachioji-tokyo'.",
+          "message": "Destination 'saitama-nagatoro' (gallery[0]) reuses image URL already used by 'saitama-nagatoro'.",
           "targetId": "saitama-nagatoro"
         },
         {
@@ -1821,7 +1758,7 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'shibuya-sky-shibuya' (gallery[0]) reuses image URL already used by 'art-tower-mito'.",
+          "message": "Destination 'shibuya-sky-shibuya' (gallery[0]) reuses image URL already used by 'shibuya-sky-shibuya'.",
           "targetId": "shibuya-sky-shibuya"
         },
         {
@@ -1839,13 +1776,7 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'sunshine-60-observatory-ikebukuro' (heroImage) reuses image URL already used by 'kegon-falls-nikko'.",
-          "targetId": "sunshine-60-observatory-ikebukuro"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'sunshine-60-observatory-ikebukuro' (gallery[0]) reuses image URL already used by 'kegon-falls-nikko'.",
+          "message": "Destination 'sunshine-60-observatory-ikebukuro' (gallery[0]) reuses image URL already used by 'sunshine-60-observatory-ikebukuro'.",
           "targetId": "sunshine-60-observatory-ikebukuro"
         },
         {
@@ -1887,43 +1818,37 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'takaoka' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'takaoka' (heroImage) reuses image URL already used by 'hakone-town'.",
           "targetId": "takaoka"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'takaoka' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'takaoka' (gallery[0]) reuses image URL already used by 'hakone-town'.",
           "targetId": "takaoka"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'takato-castle-nagano' (heroImage) reuses image URL already used by 'mount-yoshino-nara'.",
+          "message": "Destination 'takato-castle-nagano' (gallery[0]) reuses image URL already used by 'takato-castle-nagano'.",
           "targetId": "takato-castle-nagano"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'takato-castle-nagano' (gallery[0]) reuses image URL already used by 'mount-yoshino-nara'.",
-          "targetId": "takato-castle-nagano"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'takeda-castle-yamanashi' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'takeda-castle-yamanashi' (gallery[0]) reuses image URL already used by 'takeda-castle-yamanashi'.",
           "targetId": "takeda-castle-yamanashi"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'takeda-castle-yamanashi' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
-          "targetId": "takeda-castle-yamanashi"
+          "message": "Destination 'teamlab-planets' (heroImage) reuses image URL already used by 'hakone-town'.",
+          "targetId": "teamlab-planets"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'teamlab-planets' (gallery[0]) reuses image URL already used by 'enoshima-island'.",
+          "message": "Destination 'teamlab-planets' (gallery[0]) reuses image URL already used by 'hakone-town'.",
           "targetId": "teamlab-planets"
         },
         {
@@ -1941,61 +1866,37 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'toki-messe-tower-niigata' (heroImage) reuses image URL already used by 'hachioji-tokyo'.",
+          "message": "Destination 'toki-messe-tower-niigata' (heroImage) reuses image URL already used by 'hakone-town'.",
           "targetId": "toki-messe-tower-niigata"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'toki-messe-tower-niigata' (gallery[0]) reuses image URL already used by 'hachioji-tokyo'.",
+          "message": "Destination 'toki-messe-tower-niigata' (gallery[0]) reuses image URL already used by 'hakone-town'.",
           "targetId": "toki-messe-tower-niigata"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'tokyo-hinohara' (heroImage) reuses image URL already used by 'hakkeijima'.",
+          "message": "Destination 'tokyo-hinohara' (gallery[0]) reuses image URL already used by 'tokyo-hinohara'.",
           "targetId": "tokyo-hinohara"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'tokyo-hinohara' (gallery[0]) reuses image URL already used by 'hakkeijima'.",
-          "targetId": "tokyo-hinohara"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'tokyo-metropolitan-government-building-shinjuku' (heroImage) reuses image URL already used by 'kawagoe-castle-saitama'.",
+          "message": "Destination 'tokyo-metropolitan-government-building-shinjuku' (gallery[0]) reuses image URL already used by 'tokyo-metropolitan-government-building-shinjuku'.",
           "targetId": "tokyo-metropolitan-government-building-shinjuku"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'tokyo-metropolitan-government-building-shinjuku' (gallery[0]) reuses image URL already used by 'kawagoe-castle-saitama'.",
-          "targetId": "tokyo-metropolitan-government-building-shinjuku"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'tokyo-mt-mitake' (heroImage) reuses image URL already used by 'kegon-falls-nikko'.",
+          "message": "Destination 'tokyo-mt-mitake' (gallery[0]) reuses image URL already used by 'tokyo-mt-mitake'.",
           "targetId": "tokyo-mt-mitake"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'tokyo-mt-mitake' (gallery[0]) reuses image URL already used by 'kegon-falls-nikko'.",
-          "targetId": "tokyo-mt-mitake"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'tokyo-okutama' (heroImage) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.",
-          "targetId": "tokyo-okutama"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'tokyo-okutama' (gallery[0]) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.",
+          "message": "Destination 'tokyo-okutama' (gallery[0]) reuses image URL already used by 'tokyo-okutama'.",
           "targetId": "tokyo-okutama"
         },
         {
@@ -2049,13 +1950,7 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'toyama-alpine' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.",
-          "targetId": "toyama-alpine"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'toyama-alpine' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'toyama-alpine' (gallery[0]) reuses image URL already used by 'toyama-alpine'.",
           "targetId": "toyama-alpine"
         },
         {
@@ -2079,13 +1974,13 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'ueno-taito' (heroImage) reuses image URL already used by 'hachioji-tokyo'.",
+          "message": "Destination 'ueno-taito' (heroImage) reuses image URL already used by 'hakone-town'.",
           "targetId": "ueno-taito"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'ueno-taito' (gallery[0]) reuses image URL already used by 'hachioji-tokyo'.",
+          "message": "Destination 'ueno-taito' (gallery[0]) reuses image URL already used by 'hakone-town'.",
           "targetId": "ueno-taito"
         },
         {
@@ -2109,13 +2004,13 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'utsunomiya-oya' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'utsunomiya-oya' (heroImage) reuses image URL already used by 'hakone-town'.",
           "targetId": "utsunomiya-oya"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'utsunomiya-oya' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'utsunomiya-oya' (gallery[0]) reuses image URL already used by 'hakone-town'.",
           "targetId": "utsunomiya-oya"
         },
         {
@@ -2199,13 +2094,13 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'yokohama-landmark-tower-sky-garden' (heroImage) reuses image URL already used by 'ginza-urban'.",
+          "message": "Destination 'yokohama-landmark-tower-sky-garden' (heroImage) reuses image URL already used by 'hakone-town'.",
           "targetId": "yokohama-landmark-tower-sky-garden"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'yokohama-landmark-tower-sky-garden' (gallery[0]) reuses image URL already used by 'ginza-urban'.",
+          "message": "Destination 'yokohama-landmark-tower-sky-garden' (gallery[0]) reuses image URL already used by 'hakone-town'.",
           "targetId": "yokohama-landmark-tower-sky-garden"
         },
         {
@@ -2229,79 +2124,49 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'yomiuriland' (heroImage) reuses image URL already used by 'mount-yoshino-nara'.",
+          "message": "Destination 'yomiuriland' (gallery[0]) reuses image URL already used by 'yomiuriland'.",
           "targetId": "yomiuriland"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'yomiuriland' (gallery[0]) reuses image URL already used by 'mount-yoshino-nara'.",
-          "targetId": "yomiuriland"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'zushi' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'zushi' (gallery[0]) reuses image URL already used by 'zushi'.",
           "targetId": "zushi"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'zushi' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
-          "targetId": "zushi"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'chiyoda-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'chiyoda-city' (gallery[0]) reuses image URL already used by 'chiyoda-city'.",
           "targetId": "chiyoda-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'chiyoda-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "chiyoda-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'chuo-city' (heroImage) reuses image URL already used by 'kegon-falls-nikko'.",
+          "message": "Destination 'chuo-city' (heroImage) reuses image URL already used by 'ginza-urban'.",
           "targetId": "chuo-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'chuo-city' (gallery[0]) reuses image URL already used by 'kegon-falls-nikko'.",
+          "message": "Destination 'chuo-city' (gallery[0]) reuses image URL already used by 'ginza-urban'.",
           "targetId": "chuo-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'minato-city' (heroImage) reuses image URL already used by 'mount-yoshino-nara'.",
+          "message": "Destination 'minato-city' (gallery[0]) reuses image URL already used by 'minato-city'.",
           "targetId": "minato-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'minato-city' (gallery[0]) reuses image URL already used by 'mount-yoshino-nara'.",
-          "targetId": "minato-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'shinjuku-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.",
+          "message": "Destination 'shinjuku-city' (gallery[0]) reuses image URL already used by 'shinjuku-city'.",
           "targetId": "shinjuku-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'bunkyo-city' (heroImage) reuses image URL already used by 'ginza-urban'.",
-          "targetId": "bunkyo-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'bunkyo-city' (gallery[0]) reuses image URL already used by 'ginza-urban'.",
+          "message": "Destination 'bunkyo-city' (gallery[0]) reuses image URL already used by 'bunkyo-city'.",
           "targetId": "bunkyo-city"
         },
         {
@@ -2313,13 +2178,13 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'sumida-city' (heroImage) reuses image URL already used by 'hachioji-tokyo'.",
+          "message": "Destination 'sumida-city' (heroImage) reuses image URL already used by 'tokyo-skytree-sumida'.",
           "targetId": "sumida-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'sumida-city' (gallery[0]) reuses image URL already used by 'hachioji-tokyo'.",
+          "message": "Destination 'sumida-city' (gallery[0]) reuses image URL already used by 'tokyo-skytree-sumida'.",
           "targetId": "sumida-city"
         },
         {
@@ -2331,13 +2196,7 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'shinagawa-city' (heroImage) reuses image URL already used by 'kawagoe-castle-saitama'.",
-          "targetId": "shinagawa-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'shinagawa-city' (gallery[0]) reuses image URL already used by 'kawagoe-castle-saitama'.",
+          "message": "Destination 'shinagawa-city' (gallery[0]) reuses image URL already used by 'shinagawa-city'.",
           "targetId": "shinagawa-city"
         },
         {
@@ -2349,163 +2208,85 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'setagaya-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'setagaya-city' (gallery[0]) reuses image URL already used by 'setagaya-city'.",
           "targetId": "setagaya-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'setagaya-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "setagaya-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nakano-city' (heroImage) reuses image URL already used by 'hakkeijima'.",
+          "message": "Destination 'nakano-city' (gallery[0]) reuses image URL already used by 'nakano-city'.",
           "targetId": "nakano-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nakano-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.",
-          "targetId": "nakano-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'suginami-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'suginami-city' (gallery[0]) reuses image URL already used by 'suginami-city'.",
           "targetId": "suginami-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'suginami-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "suginami-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'toshima-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'toshima-city' (gallery[0]) reuses image URL already used by 'toshima-city'.",
           "targetId": "toshima-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'toshima-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "toshima-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kita-city' (heroImage) reuses image URL already used by 'meguro-city'.",
+          "message": "Destination 'kita-city' (gallery[0]) reuses image URL already used by 'kita-city'.",
           "targetId": "kita-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kita-city' (gallery[0]) reuses image URL already used by 'meguro-city'.",
-          "targetId": "kita-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'arakawa-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'arakawa-city' (gallery[0]) reuses image URL already used by 'arakawa-city'.",
           "targetId": "arakawa-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'arakawa-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
-          "targetId": "arakawa-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'itabashi-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'itabashi-city' (gallery[0]) reuses image URL already used by 'itabashi-city'.",
           "targetId": "itabashi-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'itabashi-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "itabashi-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nerima-city' (heroImage) reuses image URL already used by 'kawagoe-castle-saitama'.",
+          "message": "Destination 'nerima-city' (gallery[0]) reuses image URL already used by 'nerima-city'.",
           "targetId": "nerima-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nerima-city' (gallery[0]) reuses image URL already used by 'kawagoe-castle-saitama'.",
-          "targetId": "nerima-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'adachi-city' (heroImage) reuses image URL already used by 'meguro-city'.",
+          "message": "Destination 'adachi-city' (gallery[0]) reuses image URL already used by 'adachi-city'.",
           "targetId": "adachi-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'adachi-city' (gallery[0]) reuses image URL already used by 'meguro-city'.",
-          "targetId": "adachi-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'katsushika-city' (heroImage) reuses image URL already used by 'taito-city'.",
+          "message": "Destination 'katsushika-city' (gallery[0]) reuses image URL already used by 'katsushika-city'.",
           "targetId": "katsushika-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'katsushika-city' (gallery[0]) reuses image URL already used by 'taito-city'.",
-          "targetId": "katsushika-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'edogawa-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'edogawa-city' (gallery[0]) reuses image URL already used by 'edogawa-city'.",
           "targetId": "edogawa-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kawasaki-city' (heroImage) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.",
+          "message": "Destination 'kawasaki-city' (gallery[0]) reuses image URL already used by 'kawasaki-city'.",
           "targetId": "kawasaki-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kawasaki-city' (gallery[0]) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.",
-          "targetId": "kawasaki-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kamakura-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'kamakura-city' (gallery[0]) reuses image URL already used by 'kamakura-city'.",
           "targetId": "kamakura-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kamakura-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "kamakura-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'yokosuka-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "yokosuka-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'yokosuka-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'yokosuka-city' (gallery[0]) reuses image URL already used by 'yokosuka-city'.",
           "targetId": "yokosuka-city"
         },
         {
@@ -2535,85 +2316,43 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'narita-city' (heroImage) reuses image URL already used by 'hakkeijima'.",
+          "message": "Destination 'narita-city' (gallery[0]) reuses image URL already used by 'narita-city'.",
           "targetId": "narita-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'narita-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.",
-          "targetId": "narita-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'urayasu-city' (heroImage) reuses image URL already used by 'kawagoe-castle-saitama'.",
+          "message": "Destination 'urayasu-city' (gallery[0]) reuses image URL already used by 'urayasu-city'.",
           "targetId": "urayasu-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'urayasu-city' (gallery[0]) reuses image URL already used by 'kawagoe-castle-saitama'.",
-          "targetId": "urayasu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'funabashi-city' (heroImage) reuses image URL already used by 'kegon-falls-nikko'.",
+          "message": "Destination 'funabashi-city' (gallery[0]) reuses image URL already used by 'funabashi-city'.",
           "targetId": "funabashi-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'funabashi-city' (gallery[0]) reuses image URL already used by 'kegon-falls-nikko'.",
-          "targetId": "funabashi-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'matsudo-city' (heroImage) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.",
+          "message": "Destination 'matsudo-city' (gallery[0]) reuses image URL already used by 'matsudo-city'.",
           "targetId": "matsudo-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'matsudo-city' (gallery[0]) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.",
-          "targetId": "matsudo-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kisarazu-city' (heroImage) reuses image URL already used by 'koto-city'.",
+          "message": "Destination 'kisarazu-city' (gallery[0]) reuses image URL already used by 'kisarazu-city'.",
           "targetId": "kisarazu-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kisarazu-city' (gallery[0]) reuses image URL already used by 'koto-city'.",
-          "targetId": "kisarazu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kawagoe-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'kawagoe-city' (gallery[0]) reuses image URL already used by 'kawagoe-city'.",
           "targetId": "kawagoe-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kawagoe-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "kawagoe-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kawaguchi-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "kawaguchi-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kawaguchi-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'kawaguchi-city' (gallery[0]) reuses image URL already used by 'kawaguchi-city'.",
           "targetId": "kawaguchi-city"
         },
         {
@@ -2625,43 +2364,25 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'chichibu-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'chichibu-city' (gallery[0]) reuses image URL already used by 'chichibu-city'.",
           "targetId": "chichibu-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'chichibu-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "chichibu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'mito-city' (gallery[0]) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.",
+          "message": "Destination 'mito-city' (gallery[0]) reuses image URL already used by 'mito-city'.",
           "targetId": "mito-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'tsukuba-city' (heroImage) reuses image URL already used by 'ota-city'.",
+          "message": "Destination 'tsukuba-city' (gallery[0]) reuses image URL already used by 'tsukuba-city'.",
           "targetId": "tsukuba-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'tsukuba-city' (gallery[0]) reuses image URL already used by 'ota-city'.",
-          "targetId": "tsukuba-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nikko-city' (heroImage) reuses image URL already used by 'hakkeijima'.",
-          "targetId": "nikko-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nikko-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.",
+          "message": "Destination 'nikko-city' (gallery[0]) reuses image URL already used by 'nikko-city'.",
           "targetId": "nikko-city"
         },
         {
@@ -2673,121 +2394,61 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kusatsu-town' (heroImage) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.",
+          "message": "Destination 'kusatsu-town' (gallery[0]) reuses image URL already used by 'kusatsu-town'.",
           "targetId": "kusatsu-town"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kusatsu-town' (gallery[0]) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.",
-          "targetId": "kusatsu-town"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'minakami-town' (heroImage) reuses image URL already used by 'tokorozawa-city'.",
+          "message": "Destination 'minakami-town' (gallery[0]) reuses image URL already used by 'minakami-town'.",
           "targetId": "minakami-town"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'minakami-town' (gallery[0]) reuses image URL already used by 'tokorozawa-city'.",
-          "targetId": "minakami-town"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'inuyama-city' (heroImage) reuses image URL already used by 'ginza-urban'.",
+          "message": "Destination 'inuyama-city' (gallery[0]) reuses image URL already used by 'inuyama-city'.",
           "targetId": "inuyama-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'inuyama-city' (gallery[0]) reuses image URL already used by 'ginza-urban'.",
-          "targetId": "inuyama-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'toyota-city' (heroImage) reuses image URL already used by 'mount-yoshino-nara'.",
+          "message": "Destination 'toyota-city' (gallery[0]) reuses image URL already used by 'toyota-city'.",
           "targetId": "toyota-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'toyota-city' (gallery[0]) reuses image URL already used by 'mount-yoshino-nara'.",
-          "targetId": "toyota-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'okazaki-city' (heroImage) reuses image URL already used by 'hakkeijima'.",
+          "message": "Destination 'okazaki-city' (gallery[0]) reuses image URL already used by 'okazaki-city'.",
           "targetId": "okazaki-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'okazaki-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.",
-          "targetId": "okazaki-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'gifu-city' (heroImage) reuses image URL already used by 'hakkeijima'.",
+          "message": "Destination 'gifu-city' (gallery[0]) reuses image URL already used by 'gifu-city'.",
           "targetId": "gifu-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'gifu-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.",
-          "targetId": "gifu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'takayama-city' (heroImage) reuses image URL already used by 'hachioji-tokyo'.",
+          "message": "Destination 'takayama-city' (gallery[0]) reuses image URL already used by 'takayama-city'.",
           "targetId": "takayama-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'takayama-city' (gallery[0]) reuses image URL already used by 'hachioji-tokyo'.",
-          "targetId": "takayama-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'gero-city' (heroImage) reuses image URL already used by 'hakkeijima'.",
+          "message": "Destination 'gero-city' (gallery[0]) reuses image URL already used by 'gero-city'.",
           "targetId": "gero-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'gero-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.",
-          "targetId": "gero-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'shizuoka-city' (heroImage) reuses image URL already used by 'kawagoe-castle-saitama'.",
+          "message": "Destination 'shizuoka-city' (gallery[0]) reuses image URL already used by 'shizuoka-city'.",
           "targetId": "shizuoka-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'shizuoka-city' (gallery[0]) reuses image URL already used by 'kawagoe-castle-saitama'.",
-          "targetId": "shizuoka-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'hamamatsu-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.",
-          "targetId": "hamamatsu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'hamamatsu-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'hamamatsu-city' (gallery[0]) reuses image URL already used by 'hamamatsu-city'.",
           "targetId": "hamamatsu-city"
         },
         {
@@ -2799,289 +2460,157 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'ito-city' (heroImage) reuses image URL already used by 'tokorozawa-city'.",
+          "message": "Destination 'ito-city' (gallery[0]) reuses image URL already used by 'ito-city'.",
           "targetId": "ito-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'ito-city' (gallery[0]) reuses image URL already used by 'tokorozawa-city'.",
-          "targetId": "ito-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'gotemba-city' (heroImage) reuses image URL already used by 'taito-city'.",
+          "message": "Destination 'gotemba-city' (gallery[0]) reuses image URL already used by 'gotemba-city'.",
           "targetId": "gotemba-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'gotemba-city' (gallery[0]) reuses image URL already used by 'taito-city'.",
-          "targetId": "gotemba-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'fujinomiya-city' (heroImage) reuses image URL already used by 'mount-yoshino-nara'.",
+          "message": "Destination 'fujinomiya-city' (gallery[0]) reuses image URL already used by 'fujinomiya-city'.",
           "targetId": "fujinomiya-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'fujinomiya-city' (gallery[0]) reuses image URL already used by 'mount-yoshino-nara'.",
-          "targetId": "fujinomiya-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'numazu-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'numazu-city' (gallery[0]) reuses image URL already used by 'numazu-city'.",
           "targetId": "numazu-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'numazu-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
-          "targetId": "numazu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kofu-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'kofu-city' (gallery[0]) reuses image URL already used by 'kofu-city'.",
           "targetId": "kofu-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kofu-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "kofu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'fujikawaguchiko-town' (heroImage) reuses image URL already used by 'hachioji-tokyo'.",
+          "message": "Destination 'fujikawaguchiko-town' (heroImage) reuses image URL already used by 'hakone-town'.",
           "targetId": "fujikawaguchiko-town"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'fujikawaguchiko-town' (gallery[0]) reuses image URL already used by 'hachioji-tokyo'.",
+          "message": "Destination 'fujikawaguchiko-town' (gallery[0]) reuses image URL already used by 'hakone-town'.",
           "targetId": "fujikawaguchiko-town"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'matsumoto-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.",
+          "message": "Destination 'matsumoto-city' (gallery[0]) reuses image URL already used by 'matsumoto-city'.",
           "targetId": "matsumoto-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'karuizawa-town' (gallery[0]) reuses image URL already used by 'meguro-city'.",
+          "message": "Destination 'karuizawa-town' (gallery[0]) reuses image URL already used by 'karuizawa-town'.",
           "targetId": "karuizawa-town"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'hakuba-village' (heroImage) reuses image URL already used by 'tokorozawa-city'.",
+          "message": "Destination 'hakuba-village' (gallery[0]) reuses image URL already used by 'hakuba-village'.",
           "targetId": "hakuba-village"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'hakuba-village' (gallery[0]) reuses image URL already used by 'tokorozawa-city'.",
-          "targetId": "hakuba-village"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'uji-city' (heroImage) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.",
+          "message": "Destination 'uji-city' (gallery[0]) reuses image URL already used by 'uji-city'.",
           "targetId": "uji-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'uji-city' (gallery[0]) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.",
-          "targetId": "uji-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'miyazu-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'miyazu-city' (gallery[0]) reuses image URL already used by 'miyazu-city'.",
           "targetId": "miyazu-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'miyazu-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
-          "targetId": "miyazu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'sakai-city' (heroImage) reuses image URL already used by 'kegon-falls-nikko'.",
+          "message": "Destination 'sakai-city' (gallery[0]) reuses image URL already used by 'sakai-city'.",
           "targetId": "sakai-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'sakai-city' (gallery[0]) reuses image URL already used by 'kegon-falls-nikko'.",
-          "targetId": "sakai-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kobe-city' (heroImage) reuses image URL already used by 'mount-yoshino-nara'.",
+          "message": "Destination 'kobe-city' (gallery[0]) reuses image URL already used by 'kobe-city'.",
           "targetId": "kobe-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kobe-city' (gallery[0]) reuses image URL already used by 'mount-yoshino-nara'.",
-          "targetId": "kobe-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'himeji-city' (heroImage) reuses image URL already used by 'hakkeijima'.",
+          "message": "Destination 'himeji-city' (gallery[0]) reuses image URL already used by 'himeji-city'.",
           "targetId": "himeji-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'himeji-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.",
-          "targetId": "himeji-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nara-city' (heroImage) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.",
+          "message": "Destination 'nara-city' (gallery[0]) reuses image URL already used by 'nara-city'.",
           "targetId": "nara-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nara-city' (gallery[0]) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.",
-          "targetId": "nara-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'ikaruga-town' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'ikaruga-town' (gallery[0]) reuses image URL already used by 'ikaruga-town'.",
           "targetId": "ikaruga-town"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'ikaruga-town' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "ikaruga-town"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'otsu-city' (heroImage) reuses image URL already used by 'hakkeijima'.",
+          "message": "Destination 'otsu-city' (gallery[0]) reuses image URL already used by 'otsu-city'.",
           "targetId": "otsu-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'otsu-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.",
-          "targetId": "otsu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'hikone-city' (heroImage) reuses image URL already used by 'hakkeijima'.",
+          "message": "Destination 'hikone-city' (gallery[0]) reuses image URL already used by 'hikone-city'.",
           "targetId": "hikone-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'hikone-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.",
-          "targetId": "hikone-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'wakayama-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'wakayama-city' (gallery[0]) reuses image URL already used by 'wakayama-city'.",
           "targetId": "wakayama-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'wakayama-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "wakayama-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'shirahama-town' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'shirahama-town' (gallery[0]) reuses image URL already used by 'shirahama-town'.",
           "targetId": "shirahama-town"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'shirahama-town' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
-          "targetId": "shirahama-town"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'koya-town' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'koya-town' (gallery[0]) reuses image URL already used by 'koya-town'.",
           "targetId": "koya-town"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'koya-town' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "koya-town"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'hiroshima-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'hiroshima-city' (gallery[0]) reuses image URL already used by 'hiroshima-city'.",
           "targetId": "hiroshima-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'hiroshima-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "hiroshima-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'onomichi-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'onomichi-city' (gallery[0]) reuses image URL already used by 'onomichi-city'.",
           "targetId": "onomichi-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'onomichi-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
-          "targetId": "onomichi-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'hatsukaichi-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'hatsukaichi-city' (gallery[0]) reuses image URL already used by 'hatsukaichi-city'.",
           "targetId": "hatsukaichi-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'hatsukaichi-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "hatsukaichi-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'okayama-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "okayama-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'okayama-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'okayama-city' (gallery[0]) reuses image URL already used by 'okayama-city'.",
           "targetId": "okayama-city"
         },
         {
@@ -3093,49 +2622,25 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'matsue-city' (heroImage) reuses image URL already used by 'hakkeijima'.",
+          "message": "Destination 'matsue-city' (gallery[0]) reuses image URL already used by 'matsue-city'.",
           "targetId": "matsue-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'matsue-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.",
-          "targetId": "matsue-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'izumo-city' (heroImage) reuses image URL already used by 'kawagoe-castle-saitama'.",
+          "message": "Destination 'izumo-city' (gallery[0]) reuses image URL already used by 'izumo-city'.",
           "targetId": "izumo-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'izumo-city' (gallery[0]) reuses image URL already used by 'kawagoe-castle-saitama'.",
-          "targetId": "izumo-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'tottori-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'tottori-city' (gallery[0]) reuses image URL already used by 'tottori-city'.",
           "targetId": "tottori-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'tottori-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
-          "targetId": "tottori-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'shimonoseki-city' (heroImage) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.",
-          "targetId": "shimonoseki-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'shimonoseki-city' (gallery[0]) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.",
+          "message": "Destination 'shimonoseki-city' (gallery[0]) reuses image URL already used by 'shimonoseki-city'.",
           "targetId": "shimonoseki-city"
         },
         {
@@ -3153,49 +2658,25 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kochi-city' (heroImage) reuses image URL already used by 'mount-yoshino-nara'.",
+          "message": "Destination 'kochi-city' (gallery[0]) reuses image URL already used by 'kochi-city'.",
           "targetId": "kochi-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kochi-city' (gallery[0]) reuses image URL already used by 'mount-yoshino-nara'.",
-          "targetId": "kochi-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'tokushima-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'tokushima-city' (gallery[0]) reuses image URL already used by 'tokushima-city'.",
           "targetId": "tokushima-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'tokushima-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
-          "targetId": "tokushima-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'naruto-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.",
+          "message": "Destination 'naruto-city' (gallery[0]) reuses image URL already used by 'naruto-city'.",
           "targetId": "naruto-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'naruto-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
-          "targetId": "naruto-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'fukuoka-city' (heroImage) reuses image URL already used by 'hachioji-tokyo'.",
-          "targetId": "fukuoka-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'fukuoka-city' (gallery[0]) reuses image URL already used by 'hachioji-tokyo'.",
+          "message": "Destination 'fukuoka-city' (gallery[0]) reuses image URL already used by 'fukuoka-city'.",
           "targetId": "fukuoka-city"
         },
         {
@@ -3207,13 +2688,7 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'dazaifu-city' (heroImage) reuses image URL already used by 'kawagoe-castle-saitama'.",
-          "targetId": "dazaifu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'dazaifu-city' (gallery[0]) reuses image URL already used by 'kawagoe-castle-saitama'.",
+          "message": "Destination 'dazaifu-city' (gallery[0]) reuses image URL already used by 'dazaifu-city'.",
           "targetId": "dazaifu-city"
         },
         {
@@ -3231,73 +2706,37 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'aso-city' (heroImage) reuses image URL already used by 'tokorozawa-city'.",
+          "message": "Destination 'aso-city' (gallery[0]) reuses image URL already used by 'aso-city'.",
           "targetId": "aso-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'aso-city' (gallery[0]) reuses image URL already used by 'tokorozawa-city'.",
-          "targetId": "aso-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'beppu-city' (heroImage) reuses image URL already used by 'ginza-urban'.",
+          "message": "Destination 'beppu-city' (gallery[0]) reuses image URL already used by 'beppu-city'.",
           "targetId": "beppu-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'beppu-city' (gallery[0]) reuses image URL already used by 'ginza-urban'.",
-          "targetId": "beppu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'yufu-city' (heroImage) reuses image URL already used by 'tokorozawa-city'.",
+          "message": "Destination 'yufu-city' (gallery[0]) reuses image URL already used by 'yufu-city'.",
           "targetId": "yufu-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'yufu-city' (gallery[0]) reuses image URL already used by 'tokorozawa-city'.",
-          "targetId": "yufu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'miyazaki-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'miyazaki-city' (gallery[0]) reuses image URL already used by 'miyazaki-city'.",
           "targetId": "miyazaki-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'miyazaki-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
-          "targetId": "miyazaki-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'takachiho-town' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'takachiho-town' (gallery[0]) reuses image URL already used by 'takachiho-town'.",
           "targetId": "takachiho-town"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'takachiho-town' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
-          "targetId": "takachiho-town"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kagoshima-city' (heroImage) reuses image URL already used by 'tokorozawa-city'.",
-          "targetId": "kagoshima-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kagoshima-city' (gallery[0]) reuses image URL already used by 'tokorozawa-city'.",
+          "message": "Destination 'kagoshima-city' (gallery[0]) reuses image URL already used by 'kagoshima-city'.",
           "targetId": "kagoshima-city"
         },
         {
@@ -3315,37 +2754,19 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'otaru-city' (heroImage) reuses image URL already used by 'kegon-falls-nikko'.",
+          "message": "Destination 'otaru-city' (gallery[0]) reuses image URL already used by 'otaru-city'.",
           "targetId": "otaru-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'otaru-city' (gallery[0]) reuses image URL already used by 'kegon-falls-nikko'.",
-          "targetId": "otaru-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'hakodate-city' (heroImage) reuses image URL already used by 'mount-yoshino-nara'.",
+          "message": "Destination 'hakodate-city' (gallery[0]) reuses image URL already used by 'hakodate-city'.",
           "targetId": "hakodate-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'hakodate-city' (gallery[0]) reuses image URL already used by 'mount-yoshino-nara'.",
-          "targetId": "hakodate-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'asahikawa-city' (heroImage) reuses image URL already used by 'tokorozawa-city'.",
-          "targetId": "asahikawa-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'asahikawa-city' (gallery[0]) reuses image URL already used by 'tokorozawa-city'.",
+          "message": "Destination 'asahikawa-city' (gallery[0]) reuses image URL already used by 'asahikawa-city'.",
           "targetId": "asahikawa-city"
         },
         {
@@ -3363,49 +2784,25 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'biei-town' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'biei-town' (gallery[0]) reuses image URL already used by 'biei-town'.",
           "targetId": "biei-town"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'biei-town' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
-          "targetId": "biei-town"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'niseko-town' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'niseko-town' (gallery[0]) reuses image URL already used by 'niseko-town'.",
           "targetId": "niseko-town"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'niseko-town' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
-          "targetId": "niseko-town"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kushiro-city' (heroImage) reuses image URL already used by 'tokorozawa-city'.",
+          "message": "Destination 'kushiro-city' (gallery[0]) reuses image URL already used by 'kushiro-city'.",
           "targetId": "kushiro-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kushiro-city' (gallery[0]) reuses image URL already used by 'tokorozawa-city'.",
-          "targetId": "kushiro-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'abashiri-city' (heroImage) reuses image URL already used by 'tokorozawa-city'.",
-          "targetId": "abashiri-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'abashiri-city' (gallery[0]) reuses image URL already used by 'tokorozawa-city'.",
+          "message": "Destination 'abashiri-city' (gallery[0]) reuses image URL already used by 'abashiri-city'.",
           "targetId": "abashiri-city"
         },
         {
@@ -3417,49 +2814,25 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nago-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'nago-city' (gallery[0]) reuses image URL already used by 'nago-city'.",
           "targetId": "nago-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nago-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
-          "targetId": "nago-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'motobu-town' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'motobu-town' (gallery[0]) reuses image URL already used by 'motobu-town'.",
           "targetId": "motobu-town"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'motobu-town' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
-          "targetId": "motobu-town"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'ishigaki-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'ishigaki-city' (gallery[0]) reuses image URL already used by 'ishigaki-city'.",
           "targetId": "ishigaki-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'ishigaki-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
-          "targetId": "ishigaki-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'miyakojima-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.",
-          "targetId": "miyakojima-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'miyakojima-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.",
+          "message": "Destination 'miyakojima-city' (gallery[0]) reuses image URL already used by 'miyakojima-city'.",
           "targetId": "miyakojima-city"
         },
         {
@@ -3489,8 +2862,74 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'inuyama-castle-aichi' (gallery[0]) reuses image URL already used by 'inuyama-castle-aichi'.",
+          "message": "Destination 'inuyama-castle-aichi' (heroImage) reuses image URL already used by 'inuyama-city'.",
           "targetId": "inuyama-castle-aichi"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'inuyama-castle-aichi' (gallery[0]) reuses image URL already used by 'inuyama-city'.",
+          "targetId": "inuyama-castle-aichi"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'chofu-tokyo' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/1/17/Cyofushiyakusyo.jpg",
+          "targetId": "chofu-tokyo"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'chofu-tokyo' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/1/17/Cyofushiyakusyo.jpg",
+          "targetId": "chofu-tokyo"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'choshi-chiba' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/c/c2/Choshi_Montage_2.jpg",
+          "targetId": "choshi-chiba"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'choshi-chiba' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/c/c2/Choshi_Montage_2.jpg",
+          "targetId": "choshi-chiba"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'enoshima-island' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/8/83/EnoshimaAeralPhoto1988JP14.jpg",
+          "targetId": "enoshima-island"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'enoshima-island' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/8/83/EnoshimaAeralPhoto1988JP14.jpg",
+          "targetId": "enoshima-island"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'edo-castle-tokyo' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/5/5f/Edo_P_detail.jpg",
+          "targetId": "edo-castle-tokyo"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'edo-castle-tokyo' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/5/5f/Edo_P_detail.jpg",
+          "targetId": "edo-castle-tokyo"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'disneyland' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Tokyo_Disneyland_Cinderella_Castle_2023-07-02.jpg/1920px-Tokyo_Disneyland_Cinderella_Castle_2023-07-02.jpg",
+          "targetId": "disneyland"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'disneyland' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Tokyo_Disneyland_Cinderella_Castle_2023-07-02.jpg/1920px-Tokyo_Disneyland_Cinderella_Castle_2023-07-02.jpg",
+          "targetId": "disneyland"
         },
         {
           "severity": "warning",
@@ -3507,8 +2946,32 @@
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'fukui' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/b/bd/Skyline_of_Fukui_City02.jpg",
+          "targetId": "fukui"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'fukui' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/b/bd/Skyline_of_Fukui_City02.jpg",
+          "targetId": "fukui"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
           "message": "Destination 'gero-onsen' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg/3840px-260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg",
           "targetId": "gero-onsen"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'ghibli-museum' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Ghibli_Museum_2024.JPG/3840px-Ghibli_Museum_2024.JPG",
+          "targetId": "ghibli-museum"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'ghibli-museum' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Ghibli_Museum_2024.JPG/3840px-Ghibli_Museum_2024.JPG",
+          "targetId": "ghibli-museum"
         },
         {
           "severity": "warning",
@@ -3525,6 +2988,60 @@
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'gifu-gujo-hachiman' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/1/12/Gujo_hachiman_castle_P8117454.jpg",
+          "targetId": "gifu-gujo-hachiman"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'gifu-gujo-hachiman' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/1/12/Gujo_hachiman_castle_P8117454.jpg",
+          "targetId": "gifu-gujo-hachiman"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'gifu-castle-gifu' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/0/01/Gifu_Castle.jpg",
+          "targetId": "gifu-castle-gifu"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'gifu-castle-gifu' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/0/01/Gifu_Castle.jpg",
+          "targetId": "gifu-castle-gifu"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'gunma-kusatsu-onsen' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/7/7a/Bath_in_kusatsu.jpg",
+          "targetId": "gunma-kusatsu-onsen"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'gunma-kusatsu-onsen' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/7/7a/Bath_in_kusatsu.jpg",
+          "targetId": "gunma-kusatsu-onsen"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'hakodate-night-view' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg/3840px-Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg",
+          "targetId": "hakodate-night-view"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'hachioji-tokyo' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Takao-san-Top_10.11.13_saturday.JPG/1280px-Takao-san-Top_10.11.13_saturday.JPG",
+          "targetId": "hachioji-tokyo"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'hachioji-tokyo' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Takao-san-Top_10.11.13_saturday.JPG/1280px-Takao-san-Top_10.11.13_saturday.JPG",
+          "targetId": "hachioji-tokyo"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
           "message": "Destination 'gunma-shima-onsen' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/%E5%9B%9B%E4%B8%87%E6%B8%A9%E6%B3%89_%E4%B8%AD%E4%B9%8B%E6%9D%A1_2013_%289993444756%29.jpg/3840px-%E5%9B%9B%E4%B8%87%E6%B8%A9%E6%B3%89_%E4%B8%AD%E4%B9%8B%E6%9D%A1_2013_%289993444756%29.jpg",
           "targetId": "gunma-shima-onsen"
         },
@@ -3537,44 +3054,62 @@
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'hikone-castle-shiga' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Hikone_castle_in_May_2015.jpg/1280px-Hikone_castle_in_May_2015.jpg",
-          "targetId": "hikone-castle-shiga"
+          "message": "Destination 'himeji-castle' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/1280px-Himeji_castle_in_may_2015.jpg",
+          "targetId": "himeji-castle"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'hikone-castle-shiga' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Hikone_castle_in_May_2015.jpg/1280px-Hikone_castle_in_May_2015.jpg",
-          "targetId": "hikone-castle-shiga"
+          "message": "Destination 'himeji-castle' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/1280px-Himeji_castle_in_may_2015.jpg",
+          "targetId": "himeji-castle"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'hirosaki-castle' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Hirosaki_Castle_Keep_2019.jpg/1280px-Hirosaki_Castle_Keep_2019.jpg",
-          "targetId": "hirosaki-castle"
+          "message": "Destination 'ibaraki-fukuroda-falls' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Fukuroda_Falls_-_%E8%A2%8B%E7%94%B0%E3%81%AE%E6%BB%9D%28%E3%81%B5%E3%81%8F%E3%82%8D%E3%81%A0%E3%81%AE%E3%81%9F%E3%81%8D%29.jpg/3840px-Fukuroda_Falls_-_%E8%A2%8B%E7%94%B0%E3%81%AE%E6%BB%9D%28%E3%81%B5%E3%81%8F%E3%82%8D%E3%81%A0%E3%81%AE%E3%81%9F%E3%81%8D%29.jpg",
+          "targetId": "ibaraki-fukuroda-falls"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'hirosaki-castle' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Hirosaki_Castle_Keep_2019.jpg/1280px-Hirosaki_Castle_Keep_2019.jpg",
-          "targetId": "hirosaki-castle"
+          "message": "Destination 'ibaraki-fukuroda-falls' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Fukuroda_Falls_-_%E8%A2%8B%E7%94%B0%E3%81%AE%E6%BB%9D%28%E3%81%B5%E3%81%8F%E3%82%8D%E3%81%A0%E3%81%AE%E3%81%9F%E3%81%8D%29.jpg/3840px-Fukuroda_Falls_-_%E8%A2%8B%E7%94%B0%E3%81%AE%E6%BB%9D%28%E3%81%B5%E3%81%8F%E3%82%8D%E3%81%A0%E3%81%AE%E3%81%9F%E3%81%8D%29.jpg",
+          "targetId": "ibaraki-fukuroda-falls"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'ikebukuro-toshima' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sunshine_60_Observatory_%40_Sunshine_Building_%40_Ikebukuro_%2811547419543%29.jpg/3840px-Sunshine_60_Observatory_%40_Sunshine_Building_%40_Ikebukuro_%2811547419543%29.jpg",
-          "targetId": "ikebukuro-toshima"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'ikebukuro-toshima' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sunshine_60_Observatory_%40_Sunshine_Building_%40_Ikebukuro_%2811547419543%29.jpg/3840px-Sunshine_60_Observatory_%40_Sunshine_Building_%40_Ikebukuro_%2811547419543%29.jpg",
-          "targetId": "ikebukuro-toshima"
+          "message": "Destination 'izumo-taisha' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Izumo-taisha14bs4592.jpg/3840px-Izumo-taisha14bs4592.jpg",
+          "targetId": "izumo-taisha"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
           "message": "Destination 'kairakuen-mito' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/3840px-Kairaku-en%2C_Ibaraki_24.jpg",
           "targetId": "kairakuen-mito"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kanazawa-castle-ishikawa' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Kanazawa-M-5932.jpg/1280px-Kanazawa-M-5932.jpg",
+          "targetId": "kanazawa-castle-ishikawa"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kanazawa-castle-ishikawa' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Kanazawa-M-5932.jpg/1280px-Kanazawa-M-5932.jpg",
+          "targetId": "kanazawa-castle-ishikawa"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kakegawa-castle-shizuoka' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Kakegawajo_20090321.jpg/1280px-Kakegawajo_20090321.jpg",
+          "targetId": "kakegawa-castle-shizuoka"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kakegawa-castle-shizuoka' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Kakegawajo_20090321.jpg/1280px-Kakegawajo_20090321.jpg",
+          "targetId": "kakegawa-castle-shizuoka"
         },
         {
           "severity": "warning",
@@ -3591,20 +3126,38 @@
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'kumamoto-castle' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/3840px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg",
-          "targetId": "kumamoto-castle"
+          "message": "Destination 'kobe-maya-night-view' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg/3840px-View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg",
+          "targetId": "kobe-maya-night-view"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'kochi-castle' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Kochi_Castle_2020.jpg/1280px-Kochi_Castle_2020.jpg",
-          "targetId": "kochi-castle"
+          "message": "Destination 'kinosaki-onsen' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Kinosaki_Onsen_by_day.jpg/3840px-Kinosaki_Onsen_by_day.jpg",
+          "targetId": "kinosaki-onsen"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'kochi-castle' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Kochi_Castle_2020.jpg/1280px-Kochi_Castle_2020.jpg",
-          "targetId": "kochi-castle"
+          "message": "Destination 'kiso' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Kiso_Valley_from_Doppyo.jpg/1280px-Kiso_Valley_from_Doppyo.jpg",
+          "targetId": "kiso"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kiso' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Kiso_Valley_from_Doppyo.jpg/1280px-Kiso_Valley_from_Doppyo.jpg",
+          "targetId": "kiso"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kinugawa-onsen' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Kinugawa_Onsen_03.JPG/1280px-Kinugawa_Onsen_03.JPG",
+          "targetId": "kinugawa-onsen"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kinugawa-onsen' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Kinugawa_Onsen_03.JPG/1280px-Kinugawa_Onsen_03.JPG",
+          "targetId": "kinugawa-onsen"
         },
         {
           "severity": "warning",
@@ -3615,44 +3168,68 @@
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'marugame-castle' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Marugame_Castle_Tenshu.jpg/1280px-Marugame_Castle_Tenshu.jpg",
+          "message": "Destination 'kumamoto-castle' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/3840px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg",
+          "targetId": "kumamoto-castle"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kurobe-gorge' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Kurobe_kyokoku_view_from_Kurobe_Dam.jpg/1280px-Kurobe_kyokoku_view_from_Kurobe_Dam.jpg",
+          "targetId": "kurobe-gorge"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kurobe-gorge' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Kurobe_kyokoku_view_from_Kurobe_Dam.jpg/1280px-Kurobe_kyokoku_view_from_Kurobe_Dam.jpg",
+          "targetId": "kurobe-gorge"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'lake-sagami' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Lake_Sagami_-_2005_Nov_10_various_10.jpg/3840px-Lake_Sagami_-_2005_Nov_10_various_10.jpg",
+          "targetId": "lake-sagami"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'lake-sagami' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Lake_Sagami_-_2005_Nov_10_various_10.jpg/3840px-Lake_Sagami_-_2005_Nov_10_various_10.jpg",
+          "targetId": "lake-sagami"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'machida-tokyo' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Machida_city.jpg/1280px-Machida_city.jpg",
+          "targetId": "machida-tokyo"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'machida-tokyo' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Machida_city.jpg/1280px-Machida_city.jpg",
+          "targetId": "machida-tokyo"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'lake-hamanako' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lake_Hamana_Aerial_photograph.2006.jpg/1280px-Lake_Hamana_Aerial_photograph.2006.jpg",
+          "targetId": "lake-hamanako"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'lake-hamanako' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lake_Hamana_Aerial_photograph.2006.jpg/1280px-Lake_Hamana_Aerial_photograph.2006.jpg",
+          "targetId": "lake-hamanako"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'marugame-castle' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/1280px-Marugame_Castle01.jpg",
           "targetId": "marugame-castle"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'marugame-castle' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Marugame_Castle_Tenshu.jpg/1280px-Marugame_Castle_Tenshu.jpg",
+          "message": "Destination 'marugame-castle' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/1280px-Marugame_Castle01.jpg",
           "targetId": "marugame-castle"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'kyoto-historic' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/3/3c/Kiyomizu.jpg",
-          "targetId": "kyoto-historic"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'matsuyama-castle-ehime' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Matsuyama_Castle_05.jpg/1280px-Matsuyama_Castle_05.jpg",
-          "targetId": "matsuyama-castle-ehime"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'matsuyama-castle-ehime' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Matsuyama_Castle_05.jpg/1280px-Matsuyama_Castle_05.jpg",
-          "targetId": "matsuyama-castle-ehime"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'maruoka-castle-fukui' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Maruoka_Castle_Keep_Tower.jpg/1280px-Maruoka_Castle_Keep_Tower.jpg",
-          "targetId": "maruoka-castle-fukui"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'maruoka-castle-fukui' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Maruoka_Castle_Keep_Tower.jpg/1280px-Maruoka_Castle_Keep_Tower.jpg",
-          "targetId": "maruoka-castle-fukui"
         },
         {
           "severity": "warning",
@@ -3669,6 +3246,54 @@
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'matsue-castle' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg/1280px-080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg",
+          "targetId": "matsue-castle"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'matsue-castle' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg/1280px-080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg",
+          "targetId": "matsue-castle"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'maruoka-castle-fukui' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg/1280px-Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg",
+          "targetId": "maruoka-castle-fukui"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'maruoka-castle-fukui' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg/1280px-Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg",
+          "targetId": "maruoka-castle-fukui"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'matsushima-bay' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg/3840px-211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg",
+          "targetId": "matsushima-bay"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'miyajima-itsukushima' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/3840px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg",
+          "targetId": "miyajima-itsukushima"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'mount-fuji' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/View_of_Mount_Fuji_from_%C5%8Cwakudani_20211202.jpg/3840px-View_of_Mount_Fuji_from_%C5%8Cwakudani_20211202.jpg",
+          "targetId": "mount-fuji"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'mount-fuji' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/View_of_Mount_Fuji_from_%C5%8Cwakudani_20211202.jpg/3840px-View_of_Mount_Fuji_from_%C5%8Cwakudani_20211202.jpg",
+          "targetId": "mount-fuji"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
           "message": "Destination 'mito-castle-ibaraki' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Mito_castle_sannomaru_karabori.jpg/3840px-Mito_castle_sannomaru_karabori.jpg",
           "targetId": "mito-castle-ibaraki"
         },
@@ -3681,38 +3306,38 @@
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'nagano-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/160501_Zenkoji_Nagano_Japan06s3.jpg/3840px-160501_Zenkoji_Nagano_Japan06s3.jpg",
-          "targetId": "nagano-city"
+          "message": "Destination 'mount-yoshino-nara' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Cherry_blossoms_at_Yoshinoyama_01.jpg/1280px-Cherry_blossoms_at_Yoshinoyama_01.jpg",
+          "targetId": "mount-yoshino-nara"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'nagano-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/160501_Zenkoji_Nagano_Japan06s3.jpg/3840px-160501_Zenkoji_Nagano_Japan06s3.jpg",
-          "targetId": "nagano-city"
+          "message": "Destination 'mount-yoshino-nara' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Cherry_blossoms_at_Yoshinoyama_01.jpg/1280px-Cherry_blossoms_at_Yoshinoyama_01.jpg",
+          "targetId": "mount-yoshino-nara"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'nagano-tsumago-juku' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/1_tsumago_juku_2024.jpg/3840px-1_tsumago_juku_2024.jpg",
-          "targetId": "nagano-tsumago-juku"
+          "message": "Destination 'mount-inasa-nagasaki' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/1280px-Mt.Inasa_2010.jpg",
+          "targetId": "mount-inasa-nagasaki"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'nagano-tsumago-juku' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/1_tsumago_juku_2024.jpg/3840px-1_tsumago_juku_2024.jpg",
-          "targetId": "nagano-tsumago-juku"
+          "message": "Destination 'mount-inasa-nagasaki' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/1280px-Mt.Inasa_2010.jpg",
+          "targetId": "mount-inasa-nagasaki"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'nagano-narai-juku' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/1_naraijuku_2024.jpg/3840px-1_naraijuku_2024.jpg",
-          "targetId": "nagano-narai-juku"
+          "message": "Destination 'nachi-falls-wakayama' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Kumano_Kodo_World_heritage_Nachi-no-taki_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E9%82%A3%E6%99%BA%E5%A4%A7%E6%BB%9D10.JPG/1280px-Kumano_Kodo_World_heritage_Nachi-no-taki_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E9%82%A3%E6%99%BA%E5%A4%A7%E6%BB%9D10.JPG",
+          "targetId": "nachi-falls-wakayama"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'nagano-narai-juku' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/1_naraijuku_2024.jpg/3840px-1_naraijuku_2024.jpg",
-          "targetId": "nagano-narai-juku"
+          "message": "Destination 'nachi-falls-wakayama' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Kumano_Kodo_World_heritage_Nachi-no-taki_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E9%82%A3%E6%99%BA%E5%A4%A7%E6%BB%9D10.JPG/1280px-Kumano_Kodo_World_heritage_Nachi-no-taki_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E9%82%A3%E6%99%BA%E5%A4%A7%E6%BB%9D10.JPG",
+          "targetId": "nachi-falls-wakayama"
         },
         {
           "severity": "warning",
@@ -3729,6 +3354,150 @@
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagano-narai-juku' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/1_naraijuku_2024.jpg/3840px-1_naraijuku_2024.jpg",
+          "targetId": "nagano-narai-juku"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagano-narai-juku' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/1_naraijuku_2024.jpg/3840px-1_naraijuku_2024.jpg",
+          "targetId": "nagano-narai-juku"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagano-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/160501_Zenkoji_Nagano_Japan06s3.jpg/3840px-160501_Zenkoji_Nagano_Japan06s3.jpg",
+          "targetId": "nagano-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagano-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/160501_Zenkoji_Nagano_Japan06s3.jpg/3840px-160501_Zenkoji_Nagano_Japan06s3.jpg",
+          "targetId": "nagano-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagano-suwa' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Lake_Suwa_as_seen_from_Tateishi_Park_%28east%29.jpg/3840px-Lake_Suwa_as_seen_from_Tateishi_Park_%28east%29.jpg",
+          "targetId": "nagano-suwa"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagano-suwa' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Lake_Suwa_as_seen_from_Tateishi_Park_%28east%29.jpg/3840px-Lake_Suwa_as_seen_from_Tateishi_Park_%28east%29.jpg",
+          "targetId": "nagano-suwa"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagano-tsumago-juku' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/1_tsumago_juku_2024.jpg/3840px-1_tsumago_juku_2024.jpg",
+          "targetId": "nagano-tsumago-juku"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagano-tsumago-juku' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/1_tsumago_juku_2024.jpg/3840px-1_tsumago_juku_2024.jpg",
+          "targetId": "nagano-tsumago-juku"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagoya-port-tower' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Nagoya_port_Sea-Train_Land_01.JPG/1280px-Nagoya_port_Sea-Train_Land_01.JPG",
+          "targetId": "nagoya-port-tower"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagoya-port-tower' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Nagoya_port_Sea-Train_Land_01.JPG/1280px-Nagoya_port_Sea-Train_Land_01.JPG",
+          "targetId": "nagoya-port-tower"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nijo-castle-kyoto' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg/1280px-%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg",
+          "targetId": "nijo-castle-kyoto"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nijo-castle-kyoto' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg/1280px-%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg",
+          "targetId": "nijo-castle-kyoto"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'noto' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/3/3b/Noto_Peninsula_Ishikawa_Japan_SRTM.jpg",
+          "targetId": "noto"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'noto' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/3/3b/Noto_Peninsula_Ishikawa_Japan_SRTM.jpg",
+          "targetId": "noto"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'odaiba-minato' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg/3840px-Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg",
+          "targetId": "odaiba-minato"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'odaiba-minato' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg/3840px-Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg",
+          "targetId": "odaiba-minato"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'oarai-marine-tower' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Oarai_Marine_Tower.jpg/1280px-Oarai_Marine_Tower.jpg",
+          "targetId": "oarai-marine-tower"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'oarai-marine-tower' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Oarai_Marine_Tower.jpg/1280px-Oarai_Marine_Tower.jpg",
+          "targetId": "oarai-marine-tower"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'roppongi-hills-tokyo-city-view' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Roppongi_Hills_2013-12-01.jpg/1280px-Roppongi_Hills_2013-12-01.jpg",
+          "targetId": "roppongi-hills-tokyo-city-view"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'roppongi-hills-tokyo-city-view' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Roppongi_Hills_2013-12-01.jpg/1280px-Roppongi_Hills_2013-12-01.jpg",
+          "targetId": "roppongi-hills-tokyo-city-view"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'omiya-railway' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Logo_of_Railway_museum%28Saitama%29.svg/1280px-Logo_of_Railway_museum%28Saitama%29.svg.png",
+          "targetId": "omiya-railway"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'omiya-railway' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Logo_of_Railway_museum%28Saitama%29.svg/1280px-Logo_of_Railway_museum%28Saitama%29.svg.png",
+          "targetId": "omiya-railway"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'sado-island' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/MapSado.png/1280px-MapSado.png",
+          "targetId": "sado-island"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'sado-island' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/MapSado.png/1280px-MapSado.png",
+          "targetId": "sado-island"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
           "message": "Destination 'sakura-castle-chiba' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Sakura_Castle_2.JPG/3840px-Sakura_Castle_2.JPG",
           "targetId": "sakura-castle-chiba"
         },
@@ -3737,6 +3506,30 @@
           "code": "IMAGE_FETCH_WARNING",
           "message": "Destination 'sakura-castle-chiba' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Sakura_Castle_2.JPG/3840px-Sakura_Castle_2.JPG",
           "targetId": "sakura-castle-chiba"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'shibuya-sky-shibuya' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/SHIBUYA_SCRAMBLE_SQUARE_East_Tower.jpg/1280px-SHIBUYA_SCRAMBLE_SQUARE_East_Tower.jpg",
+          "targetId": "shibuya-sky-shibuya"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'shibuya-sky-shibuya' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/SHIBUYA_SCRAMBLE_SQUARE_East_Tower.jpg/1280px-SHIBUYA_SCRAMBLE_SQUARE_East_Tower.jpg",
+          "targetId": "shibuya-sky-shibuya"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tachikawa-tokyo' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg/1280px-Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg",
+          "targetId": "tachikawa-tokyo"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tachikawa-tokyo' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg/1280px-Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg",
+          "targetId": "tachikawa-tokyo"
         },
         {
           "severity": "warning",
@@ -3753,14 +3546,110 @@
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'tokyo-station-chiyoda' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Tokyo-STA_Marunouchi-Entrance_2023.jpg/3840px-Tokyo-STA_Marunouchi-Entrance_2023.jpg",
-          "targetId": "tokyo-station-chiyoda"
+          "message": "Destination 'tokyo-metropolitan-government-building-shinjuku' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Tokyo_Metropolitan_Government_Building_No.1_200908.jpg/1280px-Tokyo_Metropolitan_Government_Building_No.1_200908.jpg",
+          "targetId": "tokyo-metropolitan-government-building-shinjuku"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'tokyo-station-chiyoda' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Tokyo-STA_Marunouchi-Entrance_2023.jpg/3840px-Tokyo-STA_Marunouchi-Entrance_2023.jpg",
-          "targetId": "tokyo-station-chiyoda"
+          "message": "Destination 'tokyo-metropolitan-government-building-shinjuku' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Tokyo_Metropolitan_Government_Building_No.1_200908.jpg/1280px-Tokyo_Metropolitan_Government_Building_No.1_200908.jpg",
+          "targetId": "tokyo-metropolitan-government-building-shinjuku"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'takato-castle-nagano' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/TakatoCastle%EF%BC%88%E9%AB%98%E9%81%A0%E5%9F%8E%EF%BC%89.JPG/1280px-TakatoCastle%EF%BC%88%E9%AB%98%E9%81%A0%E5%9F%8E%EF%BC%89.JPG",
+          "targetId": "takato-castle-nagano"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'takato-castle-nagano' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/TakatoCastle%EF%BC%88%E9%AB%98%E9%81%A0%E5%9F%8E%EF%BC%89.JPG/1280px-TakatoCastle%EF%BC%88%E9%AB%98%E9%81%A0%E5%9F%8E%EF%BC%89.JPG",
+          "targetId": "takato-castle-nagano"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'takeda-castle-yamanashi' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Takedasi-Yakata20251017.jpg/1280px-Takedasi-Yakata20251017.jpg",
+          "targetId": "takeda-castle-yamanashi"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'takeda-castle-yamanashi' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Takedasi-Yakata20251017.jpg/1280px-Takedasi-Yakata20251017.jpg",
+          "targetId": "takeda-castle-yamanashi"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tokyo-hinohara' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Hossawa_Falls.jpg/1280px-Hossawa_Falls.jpg",
+          "targetId": "tokyo-hinohara"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tokyo-hinohara' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Hossawa_Falls.jpg/1280px-Hossawa_Falls.jpg",
+          "targetId": "tokyo-hinohara"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tokyo-okutama' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/LakeOkutama.jpg/1280px-LakeOkutama.jpg",
+          "targetId": "tokyo-okutama"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tokyo-okutama' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/LakeOkutama.jpg/1280px-LakeOkutama.jpg",
+          "targetId": "tokyo-okutama"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tokyo-mt-mitake' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mt._Mitake.jpg/1280px-Mt._Mitake.jpg",
+          "targetId": "tokyo-mt-mitake"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tokyo-mt-mitake' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mt._Mitake.jpg/1280px-Mt._Mitake.jpg",
+          "targetId": "tokyo-mt-mitake"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'ueda-castle-nagano' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Ueda_Castle_Amagafuchi.jpg/3840px-Ueda_Castle_Amagafuchi.jpg",
+          "targetId": "ueda-castle-nagano"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'ueda-castle-nagano' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Ueda_Castle_Amagafuchi.jpg/3840px-Ueda_Castle_Amagafuchi.jpg",
+          "targetId": "ueda-castle-nagano"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'toyama-alpine' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/c/cb/Murodoh.jpg",
+          "targetId": "toyama-alpine"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'toyama-alpine' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/c/cb/Murodoh.jpg",
+          "targetId": "toyama-alpine"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tokyo-tower-minato' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/5/58/Tokyo_Tower_2023.jpg",
+          "targetId": "tokyo-tower-minato"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tokyo-tower-minato' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/5/58/Tokyo_Tower_2023.jpg",
+          "targetId": "tokyo-tower-minato"
         },
         {
           "severity": "warning",
@@ -3777,8 +3666,392 @@
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'yokohama-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Minato_Mirai_In_Blue_%28cropped%29.jpg/1280px-Minato_Mirai_In_Blue_%28cropped%29.jpg",
+          "targetId": "yokohama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'yokohama-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Minato_Mirai_In_Blue_%28cropped%29.jpg/1280px-Minato_Mirai_In_Blue_%28cropped%29.jpg",
+          "targetId": "yokohama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'zushi' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/%E5%A4%AA%E9%99%BD%E3%81%AE%E5%A1%94%E3%81%A8%E9%80%97%E5%AD%90%E6%B5%B7%E5%B2%B8.jpg/1280px-%E5%A4%AA%E9%99%BD%E3%81%AE%E5%A1%94%E3%81%A8%E9%80%97%E5%AD%90%E6%B5%B7%E5%B2%B8.jpg",
+          "targetId": "zushi"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'zushi' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/%E5%A4%AA%E9%99%BD%E3%81%AE%E5%A1%94%E3%81%A8%E9%80%97%E5%AD%90%E6%B5%B7%E5%B2%B8.jpg/1280px-%E5%A4%AA%E9%99%BD%E3%81%AE%E5%A1%94%E3%81%A8%E9%80%97%E5%AD%90%E6%B5%B7%E5%B2%B8.jpg",
+          "targetId": "zushi"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'yomiuriland' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Yomiuriland-20100411.jpg/1280px-Yomiuriland-20100411.jpg",
+          "targetId": "yomiuriland"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'yomiuriland' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Yomiuriland-20100411.jpg/1280px-Yomiuriland-20100411.jpg",
+          "targetId": "yomiuriland"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'bunkyo-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Akamon%2C_University_of_Tokyo_2019.jpg/1280px-Akamon%2C_University_of_Tokyo_2019.jpg",
+          "targetId": "bunkyo-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'bunkyo-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Akamon%2C_University_of_Tokyo_2019.jpg/1280px-Akamon%2C_University_of_Tokyo_2019.jpg",
+          "targetId": "bunkyo-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'minato-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/9/9a/20110405-TokyoTower-Sakura01.jpg",
+          "targetId": "minato-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'minato-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/9/9a/20110405-TokyoTower-Sakura01.jpg",
+          "targetId": "minato-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'shinagawa-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Gate_City_Osaki.jpg/1280px-Gate_City_Osaki.jpg",
+          "targetId": "shinagawa-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'shinagawa-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Gate_City_Osaki.jpg/1280px-Gate_City_Osaki.jpg",
+          "targetId": "shinagawa-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
           "message": "Destination 'meguro-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Cherry_Blossoms_in_Meguro_River_Park_-_Lanterns_along_the_River_%2840844860114%29.jpg/3840px-Cherry_Blossoms_in_Meguro_River_Park_-_Lanterns_along_the_River_%2840844860114%29.jpg",
           "targetId": "meguro-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'ota-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Tokyo-International-Airport_Satellite.jpg/1280px-Tokyo-International-Airport_Satellite.jpg",
+          "targetId": "ota-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'ota-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Tokyo-International-Airport_Satellite.jpg/1280px-Tokyo-International-Airport_Satellite.jpg",
+          "targetId": "ota-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'suginami-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/a/a9/2018_K%C5%8Denji.jpg",
+          "targetId": "suginami-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'suginami-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/a/a9/2018_K%C5%8Denji.jpg",
+          "targetId": "suginami-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'toshima-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg/1280px-Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg",
+          "targetId": "toshima-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'toshima-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg/1280px-Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg",
+          "targetId": "toshima-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kita-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Kyu-Furukawa_House_1.jpg/1280px-Kyu-Furukawa_House_1.jpg",
+          "targetId": "kita-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kita-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Kyu-Furukawa_House_1.jpg/1280px-Kyu-Furukawa_House_1.jpg",
+          "targetId": "kita-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'arakawa-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Entsuji_%28Arakawa%29_08.jpg/1280px-Entsuji_%28Arakawa%29_08.jpg",
+          "targetId": "arakawa-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'arakawa-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Entsuji_%28Arakawa%29_08.jpg/1280px-Entsuji_%28Arakawa%29_08.jpg",
+          "targetId": "arakawa-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'itabashi-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Itabashi-at-nakajuku.JPG/1280px-Itabashi-at-nakajuku.JPG",
+          "targetId": "itabashi-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'itabashi-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Itabashi-at-nakajuku.JPG/1280px-Itabashi-at-nakajuku.JPG",
+          "targetId": "itabashi-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'adachi-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Nishiarai_Daishi.jpg/1280px-Nishiarai_Daishi.jpg",
+          "targetId": "adachi-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'adachi-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Nishiarai_Daishi.jpg/1280px-Nishiarai_Daishi.jpg",
+          "targetId": "adachi-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'edogawa-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/%E6%B1%9F%E6%88%B8%E5%B7%9D%E5%8C%BA%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A%E3%83%BB%E5%B8%82%E5%B7%9D%E5%B8%82%E6%B0%91%E7%B4%8D%E6%B6%BC%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A2019.jpg/1280px-%E6%B1%9F%E6%88%B8%E5%B7%9D%E5%8C%BA%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A%E3%83%BB%E5%B8%82%E5%B7%9D%E5%B8%82%E6%B0%91%E7%B4%8D%E6%B6%BC%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A2019.jpg",
+          "targetId": "edogawa-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'edogawa-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/%E6%B1%9F%E6%88%B8%E5%B7%9D%E5%8C%BA%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A%E3%83%BB%E5%B8%82%E5%B7%9D%E5%B8%82%E6%B0%91%E7%B4%8D%E6%B6%BC%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A2019.jpg/1280px-%E6%B1%9F%E6%88%B8%E5%B7%9D%E5%8C%BA%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A%E3%83%BB%E5%B8%82%E5%B7%9D%E5%B8%82%E6%B0%91%E7%B4%8D%E6%B6%BC%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A2019.jpg",
+          "targetId": "edogawa-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kawasaki-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kawasaki_Daishi_Main_Hall.jpg/1280px-Kawasaki_Daishi_Main_Hall.jpg",
+          "targetId": "kawasaki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kawasaki-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kawasaki_Daishi_Main_Hall.jpg/1280px-Kawasaki_Daishi_Main_Hall.jpg",
+          "targetId": "kawasaki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'yokosuka-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Verny_Park_-_01.jpg/1280px-Verny_Park_-_01.jpg",
+          "targetId": "yokosuka-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'yokosuka-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Verny_Park_-_01.jpg/1280px-Verny_Park_-_01.jpg",
+          "targetId": "yokosuka-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'chigasaki-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Chigasaki_City_Hall_20170721.JPG/3840px-Chigasaki_City_Hall_20170721.JPG",
+          "targetId": "chigasaki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'chigasaki-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Chigasaki_City_Hall_20170721.JPG/3840px-Chigasaki_City_Hall_20170721.JPG",
+          "targetId": "chigasaki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'narita-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Narita_montage2.jpg/1280px-Narita_montage2.jpg",
+          "targetId": "narita-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'narita-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Narita_montage2.jpg/1280px-Narita_montage2.jpg",
+          "targetId": "narita-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'sagamihara-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/9/95/Sagamihara_montage.jpg",
+          "targetId": "sagamihara-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'sagamihara-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/9/95/Sagamihara_montage.jpg",
+          "targetId": "sagamihara-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'matsudo-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Matsudo_montage.jpg/1280px-Matsudo_montage.jpg",
+          "targetId": "matsudo-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'matsudo-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Matsudo_montage.jpg/1280px-Matsudo_montage.jpg",
+          "targetId": "matsudo-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kisarazu-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Kisarazu_montage.jpg/1280px-Kisarazu_montage.jpg",
+          "targetId": "kisarazu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kisarazu-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Kisarazu_montage.jpg/1280px-Kisarazu_montage.jpg",
+          "targetId": "kisarazu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'funabashi-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Funabashi_montage.jpg/1280px-Funabashi_montage.jpg",
+          "targetId": "funabashi-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'funabashi-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Funabashi_montage.jpg/1280px-Funabashi_montage.jpg",
+          "targetId": "funabashi-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'urayasu-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Tokyo_disney_resort.jpg/1280px-Tokyo_disney_resort.jpg",
+          "targetId": "urayasu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'urayasu-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Tokyo_disney_resort.jpg/1280px-Tokyo_disney_resort.jpg",
+          "targetId": "urayasu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kawaguchi-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Kawaguchi_Jinja_%28Kawaguchi%29.JPG/1280px-Kawaguchi_Jinja_%28Kawaguchi%29.JPG",
+          "targetId": "kawaguchi-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kawaguchi-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Kawaguchi_Jinja_%28Kawaguchi%29.JPG/1280px-Kawaguchi_Jinja_%28Kawaguchi%29.JPG",
+          "targetId": "kawaguchi-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tsukuba-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Tsukuba_Center_%26_Mt.Tsukuba01.jpg/1280px-Tsukuba_Center_%26_Mt.Tsukuba01.jpg",
+          "targetId": "tsukuba-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tsukuba-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Tsukuba_Center_%26_Mt.Tsukuba01.jpg/1280px-Tsukuba_Center_%26_Mt.Tsukuba01.jpg",
+          "targetId": "tsukuba-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'mito-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/1280px-Kairaku-en%2C_Ibaraki_24.jpg",
+          "targetId": "mito-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'mito-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/1280px-Kairaku-en%2C_Ibaraki_24.jpg",
+          "targetId": "mito-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'minakami-town' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Tanigawa01.JPG/1280px-Tanigawa01.JPG",
+          "targetId": "minakami-town"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'minakami-town' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Tanigawa01.JPG/1280px-Tanigawa01.JPG",
+          "targetId": "minakami-town"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'inuyama-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG",
+          "targetId": "inuyama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'inuyama-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG",
+          "targetId": "inuyama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'inuyama-castle-aichi' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG",
+          "targetId": "inuyama-castle-aichi"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'inuyama-castle-aichi' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG",
+          "targetId": "inuyama-castle-aichi"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'gifu-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Gifu_City_Tower_43_and_Gifu_Sky_Wing_37_from_Twinarch138.jpg/1280px-Gifu_City_Tower_43_and_Gifu_Sky_Wing_37_from_Twinarch138.jpg",
+          "targetId": "gifu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'gifu-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Gifu_City_Tower_43_and_Gifu_Sky_Wing_37_from_Twinarch138.jpg/1280px-Gifu_City_Tower_43_and_Gifu_Sky_Wing_37_from_Twinarch138.jpg",
+          "targetId": "gifu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'takayama-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/%E5%8F%A4%E3%81%84%E7%94%BA%E4%B8%A6%E3%81%BF_-_panoramio_-_%E3%81%8F%E3%82%8D%E3%81%B5%E3%81%AD_%281%29.jpg/1280px-%E5%8F%A4%E3%81%84%E7%94%BA%E4%B8%A6%E3%81%BF_-_panoramio_-_%E3%81%8F%E3%82%8D%E3%81%B5%E3%81%AD_%281%29.jpg",
+          "targetId": "takayama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'takayama-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/%E5%8F%A4%E3%81%84%E7%94%BA%E4%B8%A6%E3%81%BF_-_panoramio_-_%E3%81%8F%E3%82%8D%E3%81%B5%E3%81%AD_%281%29.jpg/1280px-%E5%8F%A4%E3%81%84%E7%94%BA%E4%B8%A6%E3%81%BF_-_panoramio_-_%E3%81%8F%E3%82%8D%E3%81%B5%E3%81%AD_%281%29.jpg",
+          "targetId": "takayama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'gero-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg/1280px-260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg",
+          "targetId": "gero-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'gero-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg/1280px-260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg",
+          "targetId": "gero-city"
         },
         {
           "severity": "warning",
@@ -3795,14 +4068,230 @@
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'kurashiki-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/251101_Mount_Tsurugata_Kurashiki_Okayama_pref_Japan02s3.jpg/3840px-251101_Mount_Tsurugata_Kurashiki_Okayama_pref_Japan02s3.jpg",
+          "message": "Destination 'hakuba-village' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Nagano_Matsukawa.jpg/1280px-Nagano_Matsukawa.jpg",
+          "targetId": "hakuba-village"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'hakuba-village' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Nagano_Matsukawa.jpg/1280px-Nagano_Matsukawa.jpg",
+          "targetId": "hakuba-village"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'uji-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Phoenix_Hall.jpg/1280px-Phoenix_Hall.jpg",
+          "targetId": "uji-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'uji-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Phoenix_Hall.jpg/1280px-Phoenix_Hall.jpg",
+          "targetId": "uji-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'matsumoto-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/d/dd/Matsumoto_Montage.jpg",
+          "targetId": "matsumoto-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'matsumoto-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/d/dd/Matsumoto_Montage.jpg",
+          "targetId": "matsumoto-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'karuizawa-town' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/a/a8/Mt.Asama%2C_Karuizawa.jpg",
+          "targetId": "karuizawa-town"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'karuizawa-town' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/a/a8/Mt.Asama%2C_Karuizawa.jpg",
+          "targetId": "karuizawa-town"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'miyazu-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Amanohashidate_view_from_Mt_Moju02s3s4592.jpg/1280px-Amanohashidate_view_from_Mt_Moju02s3s4592.jpg",
+          "targetId": "miyazu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'miyazu-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Amanohashidate_view_from_Mt_Moju02s3s4592.jpg/1280px-Amanohashidate_view_from_Mt_Moju02s3s4592.jpg",
+          "targetId": "miyazu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'ikaruga-town' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Horyu-ji10s3200.jpg/1280px-Horyu-ji10s3200.jpg",
+          "targetId": "ikaruga-town"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'ikaruga-town' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Horyu-ji10s3200.jpg/1280px-Horyu-ji10s3200.jpg",
+          "targetId": "ikaruga-town"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'otsu-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Skyline_of_Otsu_City20210828.jpg/1280px-Skyline_of_Otsu_City20210828.jpg",
+          "targetId": "otsu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'otsu-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Skyline_of_Otsu_City20210828.jpg/1280px-Skyline_of_Otsu_City20210828.jpg",
+          "targetId": "otsu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'koya-town' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Danjogaran_Koyasan16n4272.jpg/1280px-Danjogaran_Koyasan16n4272.jpg",
+          "targetId": "koya-town"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'koya-town' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Danjogaran_Koyasan16n4272.jpg/1280px-Danjogaran_Koyasan16n4272.jpg",
+          "targetId": "koya-town"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'okayama-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/2/20/Okayama_Montage2.jpg",
+          "targetId": "okayama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'okayama-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/2/20/Okayama_Montage2.jpg",
+          "targetId": "okayama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kurashiki-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/211203_Kurashikikan_Kurashiki_Okayama_pref_Japan02s3.jpg/1280px-211203_Kurashikikan_Kurashiki_Okayama_pref_Japan02s3.jpg",
           "targetId": "kurashiki-city"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'kurashiki-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/251101_Mount_Tsurugata_Kurashiki_Okayama_pref_Japan02s3.jpg/3840px-251101_Mount_Tsurugata_Kurashiki_Okayama_pref_Japan02s3.jpg",
+          "message": "Destination 'kurashiki-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/211203_Kurashikikan_Kurashiki_Okayama_pref_Japan02s3.jpg/1280px-211203_Kurashikikan_Kurashiki_Okayama_pref_Japan02s3.jpg",
           "targetId": "kurashiki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'shimonoseki-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/c/ca/Dan-no-ura_kosen-jo.JPG",
+          "targetId": "shimonoseki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'shimonoseki-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/c/ca/Dan-no-ura_kosen-jo.JPG",
+          "targetId": "shimonoseki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'matsue-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/0/00/Matsue_montage.jpg",
+          "targetId": "matsue-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'matsue-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/0/00/Matsue_montage.jpg",
+          "targetId": "matsue-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tokushima-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/5/51/Tokushima_Montage2.jpg",
+          "targetId": "tokushima-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tokushima-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/5/51/Tokushima_Montage2.jpg",
+          "targetId": "tokushima-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'takamatsu-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/8/8b/%E9%A6%99%E5%B7%9D%E7%9C%8C%E3%81%AE%E9%A2%A8%E6%99%AF.jpg",
+          "targetId": "takamatsu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'takamatsu-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/8/8b/%E9%A6%99%E5%B7%9D%E7%9C%8C%E3%81%AE%E9%A2%A8%E6%99%AF.jpg",
+          "targetId": "takamatsu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kochi-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/c/c9/Kochi_montage.jpg",
+          "targetId": "kochi-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kochi-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/c/c9/Kochi_montage.jpg",
+          "targetId": "kochi-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'matsuyama-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/9/9f/Matsuyama_montage.jpg",
+          "targetId": "matsuyama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'matsuyama-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/9/9f/Matsuyama_montage.jpg",
+          "targetId": "matsuyama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'fukuoka-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/7/72/Fukuoka_City_-_Montage_-_01.JPG",
+          "targetId": "fukuoka-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'fukuoka-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/7/72/Fukuoka_City_-_Montage_-_01.JPG",
+          "targetId": "fukuoka-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kitakyushu-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/3/34/Kitakyushu_Montage.jpg",
+          "targetId": "kitakyushu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kitakyushu-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/3/34/Kitakyushu_Montage.jpg",
+          "targetId": "kitakyushu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'beppu-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/c/cd/Beppu_Montage_2.jpg",
+          "targetId": "beppu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'beppu-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/c/cd/Beppu_Montage_2.jpg",
+          "targetId": "beppu-city"
         },
         {
           "severity": "warning",
@@ -3819,26 +4308,146 @@
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'nagoya-castle-aichi' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nagoya_Castle_May_2019.jpg/3840px-Nagoya_Castle_May_2019.jpg",
+          "message": "Destination 'yufu-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/3/3b/Yuhudake.jpg",
+          "targetId": "yufu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'yufu-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/3/3b/Yuhudake.jpg",
+          "targetId": "yufu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'miyazaki-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/4/4e/Miyazaki_Montage.jpg",
+          "targetId": "miyazaki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'miyazaki-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/4/4e/Miyazaki_Montage.jpg",
+          "targetId": "miyazaki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'takachiho-town' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/TakachihokyoWithManaiFalls.JPG/1280px-TakachihokyoWithManaiFalls.JPG",
+          "targetId": "takachiho-town"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'takachiho-town' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/TakachihokyoWithManaiFalls.JPG/1280px-TakachihokyoWithManaiFalls.JPG",
+          "targetId": "takachiho-town"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'otaru-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/0/08/Otaru_Montage.jpg",
+          "targetId": "otaru-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'otaru-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/0/08/Otaru_Montage.jpg",
+          "targetId": "otaru-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'yakushima-town' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/6/68/Yakushima.jpg",
+          "targetId": "yakushima-town"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'yakushima-town' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/6/68/Yakushima.jpg",
+          "targetId": "yakushima-town"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'niseko-town' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Niseko-Annupuri.JPG/1280px-Niseko-Annupuri.JPG",
+          "targetId": "niseko-town"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'niseko-town' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Niseko-Annupuri.JPG/1280px-Niseko-Annupuri.JPG",
+          "targetId": "niseko-town"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nago-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg/1280px-Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg",
+          "targetId": "nago-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nago-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg/1280px-Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg",
+          "targetId": "nago-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'motobu-town' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/2/2a/Ocean_Expo_Park.JPG",
+          "targetId": "motobu-town"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'motobu-town' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/2/2a/Ocean_Expo_Park.JPG",
+          "targetId": "motobu-town"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagoya-castle-aichi' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Nagoya_Castle_7.jpg/1280px-Nagoya_Castle_7.jpg",
           "targetId": "nagoya-castle-aichi"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'nagoya-castle-aichi' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nagoya_Castle_May_2019.jpg/3840px-Nagoya_Castle_May_2019.jpg",
+          "message": "Destination 'nagoya-castle-aichi' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Nagoya_Castle_7.jpg/1280px-Nagoya_Castle_7.jpg",
           "targetId": "nagoya-castle-aichi"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'nikko-toshogu-shrine-tochigi' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Nikko_Toshogu_Yomeimon_Gate_2022.jpg/3840px-Nikko_Toshogu_Yomeimon_Gate_2022.jpg",
-          "targetId": "nikko-toshogu-shrine-tochigi"
+          "message": "Destination 'miyakojima-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Miyako_maipama_1.jpg/1280px-Miyako_maipama_1.jpg",
+          "targetId": "miyakojima-city"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'nikko-toshogu-shrine-tochigi' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Nikko_Toshogu_Yomeimon_Gate_2022.jpg/3840px-Nikko_Toshogu_Yomeimon_Gate_2022.jpg",
-          "targetId": "nikko-toshogu-shrine-tochigi"
+          "message": "Destination 'miyakojima-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Miyako_maipama_1.jpg/1280px-Miyako_maipama_1.jpg",
+          "targetId": "miyakojima-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'hachioji-castle-tokyo' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Hachioji_Castle_Hikibashi.JPG/1280px-Hachioji_Castle_Hikibashi.JPG",
+          "targetId": "hachioji-castle-tokyo"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'hachioji-castle-tokyo' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Hachioji_Castle_Hikibashi.JPG/1280px-Hachioji_Castle_Hikibashi.JPG",
+          "targetId": "hachioji-castle-tokyo"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'ishigaki-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Ishigaki_montage.JPG/1280px-Ishigaki_montage.JPG",
+          "targetId": "ishigaki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'ishigaki-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Ishigaki_montage.JPG/1280px-Ishigaki_montage.JPG",
+          "targetId": "ishigaki-city"
         },
         {
           "severity": "warning",
@@ -3855,33 +4464,22 @@
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'hachioji-castle-tokyo' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Hachioji_castle_ruins_bridge.jpg/3840px-Hachioji_castle_ruins_bridge.jpg",
-          "targetId": "hachioji-castle-tokyo"
+          "message": "Destination 'nikko-toshogu-shrine-tochigi' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Nikko_Toshogu_Yomeimon_Gate_2024.jpg/1280px-Nikko_Toshogu_Yomeimon_Gate_2024.jpg",
+          "targetId": "nikko-toshogu-shrine-tochigi"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'hachioji-castle-tokyo' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Hachioji_castle_ruins_bridge.jpg/3840px-Hachioji_castle_ruins_bridge.jpg",
-          "targetId": "hachioji-castle-tokyo"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'inuyama-castle-aichi' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG",
-          "targetId": "inuyama-castle-aichi"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'inuyama-castle-aichi' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG",
-          "targetId": "inuyama-castle-aichi"
+          "message": "Destination 'nikko-toshogu-shrine-tochigi' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Nikko_Toshogu_Yomeimon_Gate_2024.jpg/1280px-Nikko_Toshogu_Yomeimon_Gate_2024.jpg",
+          "targetId": "nikko-toshogu-shrine-tochigi"
         }
       ],
       "metrics": {
-        "totalChecked": 160,
+        "totalChecked": 262,
         "errorsCount": 0,
-        "warningsCount": 545,
-        "infoCount": 0
+        "warningsCount": 644,
+        "infoCount": 0,
+        "durationMs": 87058
       }
     },
     {
@@ -3892,7 +4490,8 @@
         "totalChecked": 4,
         "errorsCount": 0,
         "warningsCount": 0,
-        "infoCount": 0
+        "infoCount": 0,
+        "durationMs": 2
       }
     },
     {
@@ -3903,7 +4502,8 @@
         "totalChecked": 277,
         "errorsCount": 0,
         "warningsCount": 0,
-        "infoCount": 0
+        "infoCount": 0,
+        "durationMs": 1
       }
     }
   ]

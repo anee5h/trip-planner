@@ -7,10 +7,10 @@
   "prefecture": "Nagano",
   "region": "Chubu",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Matsumoto_Castle_Keep_Tower.jpg/3840px-Matsumoto_Castle_Keep_Tower.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Matsumoto_Castle_Keep_Tower.jpg/3840px-Matsumoto_Castle_Keep_Tower.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Matsumoto_Montage.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Matsumoto_Montage.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/d/dd/Matsumoto_Montage.jpg"
   ],
   "description": "Alpine castle city featuring National Treasure Matsumoto 'Crow' Castle and gateway to Kamikochi.",
   "highlights": ["Explore Matsumoto City", "Local Culture & Cuisine"],

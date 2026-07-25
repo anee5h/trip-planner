@@ -7,10 +7,10 @@
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Travel Hub", "Special Ward"],
-  "heroImage": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg/1280px-Tokyo_Skytree_2014_%E2%85%A2.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg/1280px-Tokyo_Skytree_2014_%E2%85%A2.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg/1280px-Tokyo_Skytree_2014_%E2%85%A2.jpg"
   ],
   "description": "Riverside district anchored by Tokyo Skytree, Edo-Tokyo Museum, and historic sumo arenas in Ryogoku.",
   "highlights": ["Explore Sumida City", "Local Culture & Cuisine"],

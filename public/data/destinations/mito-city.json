@@ -7,10 +7,10 @@
   "prefecture": "Ibaraki",
   "region": "Kanto",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1000&auto=format&fit=crop",
-  "image": "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1000&auto=format&fit=crop",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/1280px-Kairaku-en%2C_Ibaraki_24.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/1280px-Kairaku-en%2C_Ibaraki_24.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/1280px-Kairaku-en%2C_Ibaraki_24.jpg"
   ],
   "description": "Historic Mito feudal clan capital featuring Kairakuen Garden (Three Great Gardens of Japan) and plum blossoms.",
   "highlights": ["Explore Mito City", "Local Culture & Cuisine"],

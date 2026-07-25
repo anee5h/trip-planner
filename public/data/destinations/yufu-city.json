@@ -7,10 +7,10 @@
   "prefecture": "Oita",
   "region": "Kyushu",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Yuhudake.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Yuhudake.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/3/3b/Yuhudake.jpg"
   ],
   "description": "Charming alpine hot spring town (Yufuin) framed by Mount Yufu peak, boutique cafes, and Kinrin Lake.",
   "highlights": ["Explore Yufu City", "Local Culture & Cuisine"],

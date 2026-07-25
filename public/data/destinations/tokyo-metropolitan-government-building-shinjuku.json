@@ -4,8 +4,8 @@
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Observation Deck", "Landmark", "Architecture", "Free"],
-  "heroImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Tokyo_Metropolitan_Government_Building_No.1_200908.jpg/1280px-Tokyo_Metropolitan_Government_Building_No.1_200908.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Tokyo_Metropolitan_Government_Building_No.1_200908.jpg/1280px-Tokyo_Metropolitan_Government_Building_No.1_200908.jpg",
   "totalTripHours": 3,
   "budgetMin": 1500,
   "budgetRecommended": 4250,
@@ -66,7 +66,7 @@
   ],
   "description": "Perched 202 meters above Shinjuku on the 45th floors of Kenzo Tange iconic twin-tower skyscraper, offering free 360-degree views of Mt. Fuji and Tokyo lights.",
   "gallery": [
-    "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Tokyo_Metropolitan_Government_Building_No.1_200908.jpg/1280px-Tokyo_Metropolitan_Government_Building_No.1_200908.jpg"
   ],
   "budgetBreakdown": {
     "transport": 300,

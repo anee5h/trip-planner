@@ -7,10 +7,10 @@
   "prefecture": "Saitama",
   "region": "Kanto",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Kawaguchi_Jinja_%28Kawaguchi%29.JPG/1280px-Kawaguchi_Jinja_%28Kawaguchi%29.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Kawaguchi_Jinja_%28Kawaguchi%29.JPG/1280px-Kawaguchi_Jinja_%28Kawaguchi%29.JPG",
   "gallery": [
-    "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Kawaguchi_Jinja_%28Kawaguchi%29.JPG/1280px-Kawaguchi_Jinja_%28Kawaguchi%29.JPG"
   ],
   "description": "Industrial and residential hub bordering Tokyo across the Arakawa River.",
   "highlights": ["Explore Kawaguchi City", "Local Culture & Cuisine"],

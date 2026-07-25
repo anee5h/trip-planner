@@ -4,9 +4,9 @@
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Urban", "Shopping", "Parks"],
-  "heroImage": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1000",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Machida_city.jpg/1280px-Machida_city.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Machida_city.jpg/1280px-Machida_city.jpg",
     "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600",
     "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=600"
   ],
@@ -102,7 +102,7 @@
   "relationships": {
     "parentDestinationId": "chiyoda-city"
   },
-  "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1000",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Machida_city.jpg/1280px-Machida_city.jpg",
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,

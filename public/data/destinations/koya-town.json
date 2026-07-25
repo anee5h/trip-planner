@@ -7,10 +7,10 @@
   "prefecture": "Wakayama",
   "region": "Kansai",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Danjogaran_Koyasan16n4272.jpg/1280px-Danjogaran_Koyasan16n4272.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Danjogaran_Koyasan16n4272.jpg/1280px-Danjogaran_Koyasan16n4272.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Danjogaran_Koyasan16n4272.jpg/1280px-Danjogaran_Koyasan16n4272.jpg"
   ],
   "description": "Sacred mountain monastic complex (Mount Koya / Koyasan), headquarters of Shingon Buddhism and Okunoin cemetery.",
   "highlights": ["Explore Koya Town", "Local Culture & Cuisine"],

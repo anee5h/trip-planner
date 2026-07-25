@@ -7,10 +7,10 @@
   "prefecture": "Hyogo",
   "region": "Kansai",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/67/Himeji_montage2.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/6/67/Himeji_montage2.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/6/67/Himeji_montage2.jpg"
   ],
   "description": "Historic castle city home to UNESCO World Heritage Himeji 'White Heron' Castle and Koko-en Garden.",
   "highlights": ["Explore Himeji City", "Local Culture & Cuisine"],

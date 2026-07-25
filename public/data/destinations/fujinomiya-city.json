@@ -7,10 +7,10 @@
   "prefecture": "Shizuoka",
   "region": "Chubu",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/070127_tanuki-fuji.jpg/1280px-070127_tanuki-fuji.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/070127_tanuki-fuji.jpg/1280px-070127_tanuki-fuji.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/070127_tanuki-fuji.jpg/1280px-070127_tanuki-fuji.jpg"
   ],
   "description": "Mount Fuji gateway featuring Fujisan Hongu Sengen Taisha Shrine and Shiraito Falls.",
   "highlights": ["Explore Fujinomiya City", "Local Culture & Cuisine"],

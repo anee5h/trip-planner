@@ -7,10 +7,10 @@
   "prefecture": "Saitama",
   "region": "Kanto",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/03/Tokorozawa_Aviation_Commemorative_Park.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/0/03/Tokorozawa_Aviation_Commemorative_Park.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/0/03/Tokorozawa_Aviation_Commemorative_Park.jpg"
   ],
   "description": "Cultural hub home to Kadokawa Musashino Museum, Totoro's Forest in Sayama Hills, and Belluna Dome.",
   "highlights": ["Explore Tokorozawa City", "Local Culture & Cuisine"],

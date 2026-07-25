@@ -7,10 +7,10 @@
   "prefecture": "Okinawa",
   "region": "Okinawa",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Ocean_Expo_Park.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Ocean_Expo_Park.JPG",
   "gallery": [
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/2/2a/Ocean_Expo_Park.JPG"
   ],
   "description": "Oceanic resort town home to Okinawa Churaumi Aquarium, Emerald Beach, and Bise Fukugi Tree Avenue.",
   "highlights": ["Explore Motobu Town", "Local Culture & Cuisine"],

@@ -7,10 +7,10 @@
   "prefecture": "Miyazaki",
   "region": "Kyushu",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/TakachihokyoWithManaiFalls.JPG/1280px-TakachihokyoWithManaiFalls.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/TakachihokyoWithManaiFalls.JPG/1280px-TakachihokyoWithManaiFalls.JPG",
   "gallery": [
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/TakachihokyoWithManaiFalls.JPG/1280px-TakachihokyoWithManaiFalls.JPG"
   ],
   "description": "Mythological gorge town featuring Takachiho Gorge basalt chasm, boat rentals, and Amano Iwato Shrine.",
   "highlights": ["Explore Takachiho Town", "Local Culture & Cuisine"],

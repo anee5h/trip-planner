@@ -7,10 +7,10 @@
   "prefecture": "Fukuoka",
   "region": "Kyushu",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/20100719_Dazaifu_Tenmangu_Shrine_3328.jpg/1280px-20100719_Dazaifu_Tenmangu_Shrine_3328.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/20100719_Dazaifu_Tenmangu_Shrine_3328.jpg/1280px-20100719_Dazaifu_Tenmangu_Shrine_3328.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/20100719_Dazaifu_Tenmangu_Shrine_3328.jpg/1280px-20100719_Dazaifu_Tenmangu_Shrine_3328.jpg"
   ],
   "description": "Ancient administrative center home to Dazaifu Tenmangu Shrine, dedicated to the deity of learning.",
   "highlights": ["Explore Dazaifu City", "Local Culture & Cuisine"],

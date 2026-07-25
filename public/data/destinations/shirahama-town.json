@@ -7,10 +7,10 @@
   "prefecture": "Wakayama",
   "region": "Kansai",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Shirahama_montages.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Shirahama_montages.JPG",
   "gallery": [
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/a/a5/Shirahama_montages.JPG"
   ],
   "description": "Subtropical resort town famous for white sand beaches, outdoor hot springs, and Engetsuto Island sunset views.",
   "highlights": ["Explore Shirahama Town", "Local Culture & Cuisine"],

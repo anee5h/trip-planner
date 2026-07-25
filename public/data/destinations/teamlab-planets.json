@@ -4,7 +4,7 @@
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Art", "Theme Park", "Indoor"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg/960px-Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg",
+  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
   "totalTripHours": 4,
   "budgetMin": 11600,
   "budgetRecommended": 15600,
@@ -47,7 +47,7 @@
     "rainFriendly": 10,
     "walkingIntensity": 3
   },
-  "image": "https://loremflickr.com/1000/800/japan,teamlab/all?lock=1018",
+  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
   "transportOptions": {
     "train": 50
   },
@@ -58,7 +58,7 @@
   ],
   "description": "teamLab Planets is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
   "gallery": [
-    "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=600",
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
     "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600",
     "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600"
   ],

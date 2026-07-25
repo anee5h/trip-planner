@@ -8,10 +8,10 @@
   "prefecture": "Kanagawa",
   "region": "Kanto",
   "categories": ["Onsen Town", "Mountain Resort", "Mount Fuji View", "Nature"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/View_of_Mount_Fuji_from_Lake_Ashi.jpg/3840px-View_of_Mount_Fuji_from_Lake_Ashi.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/View_of_Mount_Fuji_from_Lake_Ashi.jpg/3840px-View_of_Mount_Fuji_from_Lake_Ashi.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/View_of_Mount_Fuji_from_Lake_Ashi.jpg/3840px-View_of_Mount_Fuji_from_Lake_Ashi.jpg"
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
   ],
   "description": "Famous hot spring resort town nestled in the Fuji-Hakone-Izu National Park, celebrated for volcanic sulfur valleys, Lake Ashi pirate ships, and art museums.",
   "highlights": [

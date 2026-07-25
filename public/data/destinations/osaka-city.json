@@ -8,10 +8,10 @@
   "prefecture": "Osaka",
   "region": "Kansai",
   "categories": ["Urban Hub", "Culinary", "Nightlife", "Modern"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Osaka_Castle_and_Osaka_Business_Park_skyscraper_20260610.jpg/3840px-Osaka_Castle_and_Osaka_Business_Park_skyscraper_20260610.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Osaka_Castle_and_Osaka_Business_Park_skyscraper_20260610.jpg/3840px-Osaka_Castle_and_Osaka_Business_Park_skyscraper_20260610.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Osaka_Castle_and_Osaka_Business_Park_skyscraper_20260610.jpg/3840px-Osaka_Castle_and_Osaka_Business_Park_skyscraper_20260610.jpg"
+    "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200"
   ],
   "description": "Kansai's vibrant commercial metropolis, famous for neon-lit Dotonbori canals, Osaka Castle, street food culture, and warm hospitality.",
   "highlights": ["Dotonbori", "Osaka Castle", "Abeno Harukas 300", "Shinsekai"],

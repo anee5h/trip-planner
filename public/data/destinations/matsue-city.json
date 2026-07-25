@@ -7,10 +7,10 @@
   "prefecture": "Shimane",
   "region": "Chugoku",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/00/Matsue_montage.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/0/00/Matsue_montage.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/0/00/Matsue_montage.jpg"
   ],
   "description": "Water city on Lake Shinji featuring original wooden Matsue Castle and Lafcadio Hearn historic residence.",
   "highlights": ["Explore Matsue City", "Local Culture & Cuisine"],

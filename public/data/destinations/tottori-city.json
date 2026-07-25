@@ -7,10 +7,10 @@
   "prefecture": "Tottori",
   "region": "Chugoku",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Tottori_montage.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Tottori_montage.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/d/d2/Tottori_montage.jpg"
   ],
   "description": "Coastal capital famous for Tottori Sand Dunes (Japan's largest sand dunes) and Sand Museum.",
   "highlights": ["Explore Tottori City", "Local Culture & Cuisine"],

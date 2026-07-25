@@ -7,10 +7,10 @@
   "prefecture": "Gunma",
   "region": "Kanto",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E6%B9%AF%E7%95%912.jpg/1280px-%E6%B9%AF%E7%95%912.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E6%B9%AF%E7%95%912.jpg/1280px-%E6%B9%AF%E7%95%912.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E6%B9%AF%E7%95%912.jpg/1280px-%E6%B9%AF%E7%95%912.jpg"
   ],
   "description": "One of Japan's top three hot spring resorts, centered around the steaming Yubatake hot spring field.",
   "highlights": ["Explore Kusatsu Town", "Local Culture & Cuisine"],

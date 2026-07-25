@@ -22,7 +22,7 @@
     "lat": 34.75,
     "lng": 137.6
   },
-  "heroImage": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lake_Hamana_Aerial_photograph.2006.jpg/1280px-Lake_Hamana_Aerial_photograph.2006.jpg",
   "prefecture": "Shizuoka",
   "budgetMin": 7000,
   "budgetMax": 15000,
@@ -59,7 +59,7 @@
   "description": "Discover Lake Hamanako, a prominent destination in Shizuoka. With its rich mix of eel, cycling, onsen, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "gallery": [
-    "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lake_Hamana_Aerial_photograph.2006.jpg/1280px-Lake_Hamana_Aerial_photograph.2006.jpg"
   ],
   "budgetBreakdown": {
     "transport": 4000,
@@ -113,5 +113,5 @@
   },
   "collections": [],
   "relationships": {},
-  "image": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lake_Hamana_Aerial_photograph.2006.jpg/1280px-Lake_Hamana_Aerial_photograph.2006.jpg"
 }

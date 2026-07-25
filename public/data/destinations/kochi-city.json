@@ -7,10 +7,10 @@
   "prefecture": "Kochi",
   "region": "Shikoku",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Kochi_montage.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Kochi_montage.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/c/c9/Kochi_montage.jpg"
   ],
   "description": "Southern Pacific coastal city featuring original wooden Kochi Castle, Katsurahama Beach, and Hirome Market.",
   "highlights": ["Explore Kochi City", "Local Culture & Cuisine"],

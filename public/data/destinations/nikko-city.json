@@ -7,10 +7,10 @@
   "prefecture": "Tochigi",
   "region": "Kanto",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/NikkoYomeimon5005.jpg/1280px-NikkoYomeimon5005.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/NikkoYomeimon5005.jpg/1280px-NikkoYomeimon5005.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/NikkoYomeimon5005.jpg/1280px-NikkoYomeimon5005.jpg"
   ],
   "description": "World Heritage mountain sanctuary featuring ornate Toshogu Shrine, Kegon Falls, and Lake Chuzenji.",
   "highlights": ["Explore Nikko City", "Local Culture & Cuisine"],

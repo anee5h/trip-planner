@@ -7,10 +7,10 @@
   "prefecture": "Hokkaido",
   "region": "Hokkaido",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Niseko-Annupuri.JPG/1280px-Niseko-Annupuri.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Niseko-Annupuri.JPG/1280px-Niseko-Annupuri.JPG",
   "gallery": [
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Niseko-Annupuri.JPG/1280px-Niseko-Annupuri.JPG"
   ],
   "description": "World-class powder snow winter ski resort town framed by Mount Yotei ('Hokkaido's Mt. Fuji').",
   "highlights": ["Explore Niseko Town", "Local Culture & Cuisine"],

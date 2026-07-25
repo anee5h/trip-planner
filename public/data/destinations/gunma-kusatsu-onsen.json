@@ -4,9 +4,9 @@
   "prefecture": "Gunma",
   "region": "Kanto",
   "categories": ["Relaxation", "Nature"],
-  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Bath_in_kusatsu.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/7/7a/Bath_in_kusatsu.jpg"
   ],
   "description": "Ranked among Japan's top three hot spring towns, famous for its steam-billowing Yubatake central field and acidic, healing baths.",
   "highlights": [
@@ -104,7 +104,7 @@
       ]
     }
   ],
-  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Bath_in_kusatsu.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",

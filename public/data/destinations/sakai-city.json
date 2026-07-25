@@ -7,10 +7,10 @@
   "prefecture": "Osaka",
   "region": "Kansai",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Sakai_montage.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Sakai_montage.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/3/3d/Sakai_montage.jpg"
   ],
   "description": "Ancient port city famous for Mozu Kofun Burial Mounds (UNESCO) and traditional Japanese kitchen knives.",
   "highlights": ["Explore Sakai City", "Local Culture & Cuisine"],

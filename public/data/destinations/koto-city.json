@@ -7,10 +7,10 @@
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Travel Hub", "Special Ward"],
-  "heroImage": "https://images.unsplash.com/photo-1492571350019-22de08371fd3?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1492571350019-22de08371fd3?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Tomioka_Hachiman-gu_201708.jpg/1280px-Tomioka_Hachiman-gu_201708.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Tomioka_Hachiman-gu_201708.jpg/1280px-Tomioka_Hachiman-gu_201708.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1492571350019-22de08371fd3?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Tomioka_Hachiman-gu_201708.jpg/1280px-Tomioka_Hachiman-gu_201708.jpg"
   ],
   "description": "Waterfront bay area featuring teamLab Planets, Toyosu Fish Market, and Kiyosumi Shirakawa cafe arcades.",
   "highlights": ["Explore Koto City", "Local Culture & Cuisine"],

@@ -7,10 +7,10 @@
   "prefecture": "Okinawa",
   "region": "Okinawa",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Ishigaki_montage.JPG/1280px-Ishigaki_montage.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Ishigaki_montage.JPG/1280px-Ishigaki_montage.JPG",
   "gallery": [
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Ishigaki_montage.JPG/1280px-Ishigaki_montage.JPG"
   ],
   "description": "Yaeyama archipelago tropical island hub, famous for Kabira Bay turquoise waters, coral reefs, and stargazing.",
   "highlights": ["Explore Ishigaki City", "Local Culture & Cuisine"],

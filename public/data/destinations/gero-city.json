@@ -7,10 +7,10 @@
   "prefecture": "Gifu",
   "region": "Chubu",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg/1280px-260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg/1280px-260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg/1280px-260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg"
   ],
   "description": "Renowned hot spring resort ranked among Japan's Three Famous Springs along the Hida River.",
   "highlights": ["Explore Gero City", "Local Culture & Cuisine"],

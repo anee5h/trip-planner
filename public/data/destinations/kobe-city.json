@@ -7,10 +7,10 @@
   "prefecture": "Hyogo",
   "region": "Kansai",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/99/Kobe_montage1.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/9/99/Kobe_montage1.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/9/99/Kobe_montage1.jpg"
   ],
   "description": "Cosmopolitan port city framed by Mt. Rokko, world-famous for Kobe Beef, Harborland, and Arima Onsen.",
   "highlights": ["Explore Kobe City", "Local Culture & Cuisine"],

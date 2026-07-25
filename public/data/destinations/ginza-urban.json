@@ -4,7 +4,7 @@
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["City", "Shopping", "Art", "History"],
-  "heroImage": "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg",
   "totalTripHours": 6,
   "budgetMin": 8000,
   "budgetRecommended": 12000,
@@ -47,7 +47,7 @@
     "rainFriendly": 8,
     "walkingIntensity": 7
   },
-  "image": "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg",
   "transportOptions": {
     "train": 40
   },
@@ -59,7 +59,7 @@
   ],
   "description": "Ginza is a district of Chūō, Tokyo, located south of Yaesu and Kyōbashi, west of Tsukiji, east of Yūrakuchō and Uchisaiwaichō, and north of Shinbashi. It is a popular upscale shopping area of Tokyo, with numerous internationally renowned department stores, boutiques, restaurants and coffeehouses located in the vicinity.",
   "gallery": [
-    "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg"
   ],
   "budgetBreakdown": {
     "transport": 1000,

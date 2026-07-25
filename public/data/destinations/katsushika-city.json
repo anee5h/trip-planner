@@ -7,10 +7,10 @@
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Travel Hub", "Special Ward"],
-  "heroImage": "https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Shibamata_Taishakuten_March_11_2021_various_20_44_16_882000.jpeg/1280px-Shibamata_Taishakuten_March_11_2021_various_20_44_16_882000.jpeg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Shibamata_Taishakuten_March_11_2021_various_20_44_16_882000.jpeg/1280px-Shibamata_Taishakuten_March_11_2021_various_20_44_16_882000.jpeg",
   "gallery": [
-    "https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Shibamata_Taishakuten_March_11_2021_various_20_44_16_882000.jpeg/1280px-Shibamata_Taishakuten_March_11_2021_various_20_44_16_882000.jpeg"
   ],
   "description": "Historic temple town Shibamata featuring Taishakuten Temple and nostalgic retro shopping streets.",
   "highlights": ["Explore Katsushika City", "Local Culture & Cuisine"],

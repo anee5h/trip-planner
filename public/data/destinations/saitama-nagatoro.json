@@ -4,9 +4,9 @@
   "prefecture": "Saitama",
   "region": "Kanto",
   "categories": ["Nature", "River"],
-  "heroImage": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Nagatoro1.jpg/1280px-Nagatoro1.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Nagatoro1.jpg/1280px-Nagatoro1.jpg"
   ],
   "description": "Famous for its crystal-clear Arakawa River boat cruises, spectacular Iwadatami rock formations, and Mount Hodo ropeway.",
   "highlights": [
@@ -103,7 +103,7 @@
       ]
     }
   ],
-  "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Nagatoro1.jpg/1280px-Nagatoro1.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",

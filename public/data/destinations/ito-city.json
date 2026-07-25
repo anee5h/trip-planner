@@ -7,10 +7,10 @@
   "prefecture": "Shizuoka",
   "region": "Chubu",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Mount_%C5%8Cmuro_%28Izu_Peninsula%29_%26_Mt.Fuji.jpg/1280px-Mount_%C5%8Cmuro_%28Izu_Peninsula%29_%26_Mt.Fuji.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Mount_%C5%8Cmuro_%28Izu_Peninsula%29_%26_Mt.Fuji.jpg/1280px-Mount_%C5%8Cmuro_%28Izu_Peninsula%29_%26_Mt.Fuji.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Mount_%C5%8Cmuro_%28Izu_Peninsula%29_%26_Mt.Fuji.jpg/1280px-Mount_%C5%8Cmuro_%28Izu_Peninsula%29_%26_Mt.Fuji.jpg"
   ],
   "description": "Izu Peninsula hot spring resort town featuring Mount Omuro extinct volcano cone and Jogasaki Coast.",
   "highlights": ["Explore Ito City", "Local Culture & Cuisine"],

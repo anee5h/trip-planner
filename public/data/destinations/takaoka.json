@@ -22,7 +22,7 @@
     "lat": 36.7417,
     "lng": 137.015
   },
-  "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
   "prefecture": "Toyama",
   "budgetMin": 5000,
   "budgetMax": 13000,
@@ -59,7 +59,7 @@
   "description": "Discover Takaoka, a prominent destination in Shizuoka. With its rich mix of great buddha, doraemon, crafts, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "gallery": [
-    "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200"
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
   ],
   "budgetBreakdown": {
     "transport": 3200,
@@ -115,5 +115,5 @@
     }
   ],
   "relationships": {},
-  "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200"
+  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
 }

@@ -7,10 +7,10 @@
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Travel Hub", "Special Ward"],
-  "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/National_Diet_Building_02.jpg/1280px-National_Diet_Building_02.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/National_Diet_Building_02.jpg/1280px-National_Diet_Building_02.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/National_Diet_Building_02.jpg/1280px-National_Diet_Building_02.jpg"
   ],
   "description": "Tokyo's political and historic center featuring Imperial Palace East Gardens, Hibiya Park, and Akihabara electric town.",
   "highlights": ["Explore Chiyoda City", "Local Culture & Cuisine"],

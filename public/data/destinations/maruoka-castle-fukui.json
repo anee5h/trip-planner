@@ -4,8 +4,8 @@
   "prefecture": "Fukui",
   "region": "Chubu",
   "categories": ["Castle", "History", "National Treasure", "Landmark"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Maruoka_Castle_Keep_Tower.jpg/1280px-Maruoka_Castle_Keep_Tower.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Maruoka_Castle_Keep_Tower.jpg/1280px-Maruoka_Castle_Keep_Tower.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg/1280px-Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg/1280px-Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg",
   "totalTripHours": 3,
   "budgetMin": 3000,
   "budgetRecommended": 6250,
@@ -68,7 +68,7 @@
   ],
   "description": "Built in 1576, Maruoka Castle is one of Japan's 12 original surviving castle keeps and features the oldest architectural keep style in Japan, complete with rare stone roof tiles.",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Maruoka_Castle_Keep_Tower.jpg/1280px-Maruoka_Castle_Keep_Tower.jpg"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg/1280px-Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg"
   ],
   "budgetBreakdown": {
     "transport": 1800,

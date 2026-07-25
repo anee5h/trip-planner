@@ -4,8 +4,8 @@
   "prefecture": "Saitama",
   "region": "Kanto",
   "categories": ["Castle", "History", "Architecture", "Landmark"],
-  "heroImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Kawagoe-Castle_Honmaru-Goten.jpg/1280px-Kawagoe-Castle_Honmaru-Goten.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Kawagoe-Castle_Honmaru-Goten.jpg/1280px-Kawagoe-Castle_Honmaru-Goten.jpg",
   "totalTripHours": 3,
   "budgetMin": 2500,
   "budgetRecommended": 5500,
@@ -61,7 +61,7 @@
   ],
   "description": "Built in 1848, this rare structure is the only surviving original samurai lord's Honmaru Goten palace in eastern Japan, featuring tatami council chambers and garden verandas.",
   "gallery": [
-    "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Kawagoe-Castle_Honmaru-Goten.jpg/1280px-Kawagoe-Castle_Honmaru-Goten.jpg"
   ],
   "budgetBreakdown": {
     "transport": 700,

@@ -7,10 +7,10 @@
   "prefecture": "Hiroshima",
   "region": "Chugoku",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Onomichi_Jodoji_05.JPG/1280px-Onomichi_Jodoji_05.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Onomichi_Jodoji_05.JPG/1280px-Onomichi_Jodoji_05.JPG",
   "gallery": [
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Onomichi_Jodoji_05.JPG/1280px-Onomichi_Jodoji_05.JPG"
   ],
   "description": "Picturesque hillside port city overlooking the Seto Inland Sea, famous for Senkoji Temple, temple walks, and Shimanami Kaido cycling route.",
   "highlights": ["Explore Onomichi City", "Local Culture & Cuisine"],

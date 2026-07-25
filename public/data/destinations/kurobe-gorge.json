@@ -22,7 +22,7 @@
     "lat": 36.6833,
     "lng": 137.6667
   },
-  "heroImage": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Kurobe_kyokoku_view_from_Kurobe_Dam.jpg/1280px-Kurobe_kyokoku_view_from_Kurobe_Dam.jpg",
   "prefecture": "Toyama",
   "budgetMin": 17000,
   "budgetMax": 25000,
@@ -59,7 +59,7 @@
   "description": "Discover Kurobe Gorge, a prominent destination in Shizuoka. With its rich mix of scenic railway, ravine, onsen, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "gallery": [
-    "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Kurobe_kyokoku_view_from_Kurobe_Dam.jpg/1280px-Kurobe_kyokoku_view_from_Kurobe_Dam.jpg"
   ],
   "budgetBreakdown": {
     "transport": 6000,
@@ -107,7 +107,7 @@
   ],
   "notes": "A fantastic trip to Kurobe Gorge. Known for its scenic railway and ravine vibes, it offers a great escape with an overall score of 8.9.",
   "schemaVersion": 2,
-  "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Kurobe_kyokoku_view_from_Kurobe_Dam.jpg/1280px-Kurobe_kyokoku_view_from_Kurobe_Dam.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",

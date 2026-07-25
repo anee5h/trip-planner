@@ -7,10 +7,10 @@
   "prefecture": "Nagano",
   "region": "Chubu",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Nagano_Matsukawa.jpg/1280px-Nagano_Matsukawa.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Nagano_Matsukawa.jpg/1280px-Nagano_Matsukawa.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Nagano_Matsukawa.jpg/1280px-Nagano_Matsukawa.jpg"
   ],
   "description": "World-famous Japan Alps winter ski resort village celebrated for deep powder snow and alpine peaks.",
   "highlights": ["Explore Hakuba Village", "Local Culture & Cuisine"],

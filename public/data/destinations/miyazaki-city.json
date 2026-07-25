@@ -7,10 +7,10 @@
   "prefecture": "Miyazaki",
   "region": "Kyushu",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Miyazaki_Montage.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Miyazaki_Montage.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/4/4e/Miyazaki_Montage.jpg"
   ],
   "description": "Subtropical resort city on Pacific coast, famous for Aoshima Island, palm trees, and Miyazaki beef.",
   "highlights": ["Explore Miyazaki City", "Local Culture & Cuisine"],

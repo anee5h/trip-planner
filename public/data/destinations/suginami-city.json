@@ -7,10 +7,10 @@
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Travel Hub", "Special Ward"],
-  "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a9/2018_K%C5%8Denji.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/a/a9/2018_K%C5%8Denji.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/a/a9/2018_K%C5%8Denji.jpg"
   ],
   "description": "Artistic neighborhood boasting Koenji vintage stores, indie live houses, and anime production studios.",
   "highlights": ["Explore Suginami City", "Local Culture & Cuisine"],

@@ -7,10 +7,10 @@
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Travel Hub", "Special Ward"],
-  "heroImage": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9a/20110405-TokyoTower-Sakura01.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/9/9a/20110405-TokyoTower-Sakura01.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/9/9a/20110405-TokyoTower-Sakura01.jpg"
   ],
   "description": "Tokyo's international waterfront hub encompassing Tokyo Tower, Roppongi Hills, Odaiba, and Azabudai Hills.",
   "highlights": ["Explore Minato City", "Local Culture & Cuisine"],

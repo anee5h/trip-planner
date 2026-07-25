@@ -7,10 +7,10 @@
   "prefecture": "Hiroshima",
   "region": "Chugoku",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/dc/%E5%BB%BF%E6%97%A5%E5%B8%82%E5%B8%82.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/%E5%BB%BF%E6%97%A5%E5%B8%82%E5%B8%82.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/d/dc/%E5%BB%BF%E6%97%A5%E5%B8%82%E5%B8%82.jpg"
   ],
   "description": "Coastal city encompassing sacred Miyajima Island and UNESCO World Heritage Itsukushima Floating Torii Gate.",
   "highlights": ["Explore Hatsukaichi City", "Local Culture & Cuisine"],

@@ -7,10 +7,10 @@
   "prefecture": "Kagoshima",
   "region": "Kyushu",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Kagoshima_Montage.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Kagoshima_Montage.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/7/7a/Kagoshima_Montage.jpg"
   ],
   "description": "Southern coastal city known as 'Naples of Japan', facing active Sakurajima volcano across Kagoshima Bay.",
   "highlights": ["Explore Kagoshima City", "Local Culture & Cuisine"],

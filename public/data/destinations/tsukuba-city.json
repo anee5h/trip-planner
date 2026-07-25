@@ -7,10 +7,10 @@
   "prefecture": "Ibaraki",
   "region": "Kanto",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Tsukuba_Center_%26_Mt.Tsukuba01.jpg/1280px-Tsukuba_Center_%26_Mt.Tsukuba01.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Tsukuba_Center_%26_Mt.Tsukuba01.jpg/1280px-Tsukuba_Center_%26_Mt.Tsukuba01.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Tsukuba_Center_%26_Mt.Tsukuba01.jpg/1280px-Tsukuba_Center_%26_Mt.Tsukuba01.jpg"
   ],
   "description": "Japan's premier science city, featuring JAXA Space Center, Science Square, and Mount Tsukuba twin peaks.",
   "highlights": ["Explore Tsukuba City", "Local Culture & Cuisine"],

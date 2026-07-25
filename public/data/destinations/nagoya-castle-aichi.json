@@ -7,10 +7,10 @@
   "prefecture": "Aichi",
   "region": "Chubu",
   "categories": ["Castle", "History", "Landmark"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nagoya_Castle_May_2019.jpg/3840px-Nagoya_Castle_May_2019.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nagoya_Castle_May_2019.jpg/3840px-Nagoya_Castle_May_2019.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Nagoya_Castle_7.jpg/1280px-Nagoya_Castle_7.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Nagoya_Castle_7.jpg/1280px-Nagoya_Castle_7.jpg",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nagoya_Castle_May_2019.jpg/3840px-Nagoya_Castle_May_2019.jpg"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Nagoya_Castle_7.jpg/1280px-Nagoya_Castle_7.jpg"
   ],
   "description": "Iconic landmark of Nagoya featuring reconstructed Hommaru Palace and golden shachihoko roof ornaments.",
   "highlights": ["Hommaru Palace", "Golden Shachihoko", "Ninja Performance"],

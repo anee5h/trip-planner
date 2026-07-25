@@ -4,9 +4,9 @@
   "prefecture": "Gunma",
   "region": "Kanto",
   "categories": ["Relaxation", "History"],
-  "heroImage": "https://images.unsplash.com/photo-1528164344705-47542687000d?q=80&w=1000",
+  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
   "gallery": [
-    "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600",
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
     "https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?q=80&w=600",
     "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600"
   ],
@@ -118,5 +118,5 @@
     }
   ],
   "relationships": {},
-  "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?q=80&w=1000"
+  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
 }
