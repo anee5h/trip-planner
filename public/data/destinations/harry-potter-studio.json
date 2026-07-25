@@ -4,7 +4,7 @@
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Theme Park", "Indoor"],
-  "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Warner_Bros._Studio_Tour_Tokyo_entrance_%282%29_2023-08-17.jpg/330px-Warner_Bros._Studio_Tour_Tokyo_entrance_%282%29_2023-08-17.jpg",
   "totalTripHours": 8,
   "budgetMin": 17900,
   "budgetRecommended": 21900,
@@ -47,14 +47,14 @@
     "rainFriendly": 9.5,
     "walkingIntensity": 6
   },
-  "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Warner_Bros._Studio_Tour_Tokyo_entrance_%282%29_2023-08-17.jpg/330px-Warner_Bros._Studio_Tour_Tokyo_entrance_%282%29_2023-08-17.jpg",
   "transportOptions": {
     "train": 45
   },
   "highlights": ["Great Hall", "Diagon Alley"],
   "description": "Harry Potter Studio is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
   "gallery": [
-    "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Warner_Bros._Studio_Tour_Tokyo_entrance_%282%29_2023-08-17.jpg/330px-Warner_Bros._Studio_Tour_Tokyo_entrance_%282%29_2023-08-17.jpg"
   ],
   "budgetBreakdown": {
     "transport": 1000,

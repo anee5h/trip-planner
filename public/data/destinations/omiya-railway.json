@@ -4,7 +4,7 @@
   "prefecture": "Saitama",
   "region": "Kanto",
   "categories": ["Museum", "Indoor"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Logo_of_Railway_museum%28Saitama%29.svg/1280px-Logo_of_Railway_museum%28Saitama%29.svg.png",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Namakubi0kei.JPG/330px-Namakubi0kei.JPG",
   "totalTripHours": 8,
   "budgetMin": 9700,
   "budgetRecommended": 13700,
@@ -47,14 +47,14 @@
     "rainFriendly": 9.5,
     "walkingIntensity": 4
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Logo_of_Railway_museum%28Saitama%29.svg/1280px-Logo_of_Railway_museum%28Saitama%29.svg.png",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Namakubi0kei.JPG/330px-Namakubi0kei.JPG",
   "transportOptions": {
     "train": 100
   },
   "highlights": ["Train Simulators", "Historic Cars"],
   "description": "Ōmiya is one of ten wards of the city of Saitama, in Saitama Prefecture, Japan, and is located in the northeastern part of the city. As of 1 March 2021, the ward had an estimated population of 119,298 and a population density of 9,300 persons per km2. Its total area was 12.80 square kilometres (4.94 sq mi). Although Urawa-ku is the governmental center of Saitama City, Ōmiya-ku is the most active commercial and business centre in both Saitama City and Saitama Prefecture thanks to its transport infrastructure, especially railways connected at Ōmiya Station.",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Logo_of_Railway_museum%28Saitama%29.svg/1280px-Logo_of_Railway_museum%28Saitama%29.svg.png"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Namakubi0kei.JPG/330px-Namakubi0kei.JPG"
   ],
   "budgetBreakdown": {
     "transport": 3000,

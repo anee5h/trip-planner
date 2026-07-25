@@ -4,9 +4,9 @@
   "prefecture": "Gunma",
   "region": "Kanto",
   "categories": ["Relaxation", "History"],
-  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ikaho_Onsen_03.jpg/250px-Ikaho_Onsen_03.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ikaho_Onsen_03.jpg/250px-Ikaho_Onsen_03.jpg",
     "https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?q=80&w=600",
     "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600"
   ],
@@ -118,5 +118,5 @@
     }
   ],
   "relationships": {},
-  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ikaho_Onsen_03.jpg/250px-Ikaho_Onsen_03.jpg"
 }

@@ -22,7 +22,7 @@
     "lat": 35.3375,
     "lng": 139.6453
   },
-  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Yokohama_Hakkeijima_Sea_Paradise_-_01.jpg/330px-Yokohama_Hakkeijima_Sea_Paradise_-_01.jpg",
   "prefecture": "Kanagawa",
   "budgetMin": 17800,
   "budgetMax": 25800,
@@ -58,7 +58,7 @@
   "description": "Discover Hakkeijima Sea Paradise, a prominent destination in Kanagawa. With its rich mix of family, entertainment, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "gallery": [
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Yokohama_Hakkeijima_Sea_Paradise_-_01.jpg/330px-Yokohama_Hakkeijima_Sea_Paradise_-_01.jpg"
   ],
   "budgetBreakdown": {
     "transport": 4800,
@@ -112,5 +112,5 @@
   },
   "collections": [],
   "relationships": {},
-  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Yokohama_Hakkeijima_Sea_Paradise_-_01.jpg/330px-Yokohama_Hakkeijima_Sea_Paradise_-_01.jpg"
 }

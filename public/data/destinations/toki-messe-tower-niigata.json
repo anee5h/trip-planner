@@ -4,8 +4,8 @@
   "prefecture": "Niigata",
   "region": "Chubu",
   "categories": ["Tower", "Landmark", "Observation Deck", "Coastal"],
-  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://media.istockphoto.com/id/1707386560/ja/%E3%82%B9%E3%83%88%E3%83%83%E3%82%AF%E3%83%95%E3%82%A9%E3%83%88/%E3%82%B9%E3%83%AD%E3%83%90%E3%82%AD%E3%82%A2%E3%81%AE%E3%82%BF%E3%83%88%E3%83%A9%E5%B1%B1%E3%81%AB%E3%81%82%E3%82%8B%E5%A4%A9%E6%96%87%E8%A6%B3%E6%B8%AC%E8%80%85%E3%81%AE%E5%BB%BA%E7%89%A9.jpg?s=2048x2048&w=is&k=20&c=PGN1QnPNdRCMtsy6jNAm4F_J59flQUHKgfV5UhNrrN4=",
+  "image": "https://media.istockphoto.com/id/1707386560/ja/%E3%82%B9%E3%83%88%E3%83%83%E3%82%AF%E3%83%95%E3%82%A9%E3%83%88/%E3%82%B9%E3%83%AD%E3%83%90%E3%82%AD%E3%82%A2%E3%81%AE%E3%82%BF%E3%83%88%E3%83%A9%E5%B1%B1%E3%81%AB%E3%81%82%E3%82%8B%E5%A4%A9%E6%96%87%E8%A6%B3%E6%B8%AC%E8%80%85%E3%81%AE%E5%BB%BA%E7%89%A9.jpg?s=2048x2048&w=is&k=20&c=PGN1QnPNdRCMtsy6jNAm4F_J59flQUHKgfV5UhNrrN4=",
   "totalTripHours": 3,
   "budgetMin": 2000,
   "budgetRecommended": 5000,
@@ -67,7 +67,7 @@
   ],
   "description": "Located on the 31st floor of Toki Messe (140.5m high), this free-admission 360-degree observation deck is the highest viewpoint along the Sea of Japan coast.",
   "gallery": [
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
+    "https://media.istockphoto.com/id/1707386560/ja/%E3%82%B9%E3%83%88%E3%83%83%E3%82%AF%E3%83%95%E3%82%A9%E3%83%88/%E3%82%B9%E3%83%AD%E3%83%90%E3%82%AD%E3%82%A2%E3%81%AE%E3%82%BF%E3%83%88%E3%83%A9%E5%B1%B1%E3%81%AB%E3%81%82%E3%82%8B%E5%A4%A9%E6%96%87%E8%A6%B3%E6%B8%AC%E8%80%85%E3%81%AE%E5%BB%BA%E7%89%A9.jpg?s=2048x2048&w=is&k=20&c=PGN1QnPNdRCMtsy6jNAm4F_J59flQUHKgfV5UhNrrN4="
   ],
   "budgetBreakdown": {
     "transport": 1500,

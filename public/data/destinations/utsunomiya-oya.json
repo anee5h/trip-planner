@@ -4,7 +4,7 @@
   "prefecture": "Tochigi",
   "region": "Kanto",
   "categories": ["History", "Food"],
-  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Utsunomiya_montage.jpg/250px-Utsunomiya_montage.jpg",
   "totalTripHours": 10,
   "budgetMin": 9600,
   "budgetRecommended": 13600,
@@ -47,7 +47,7 @@
     "rainFriendly": 8,
     "walkingIntensity": 5
   },
-  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Utsunomiya_montage.jpg/250px-Utsunomiya_montage.jpg",
   "transportOptions": {
     "train": 100,
     "car": 150
@@ -55,7 +55,7 @@
   "highlights": ["Oya History Museum", "Utsunomiya Gyoza"],
   "description": "Utsunomiya & Oya is a scenic destination in the Tochigi region of Japan, offering rich history and cultural attractions.",
   "gallery": [
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Utsunomiya_montage.jpg/250px-Utsunomiya_montage.jpg"
   ],
   "budgetBreakdown": {
     "transport": 3000,

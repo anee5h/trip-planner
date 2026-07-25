@@ -49,7 +49,7 @@
     "mid": 6000,
     "high": 12000
   },
-  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Osaka-zu_byobu.jpg/500px-Osaka-zu_byobu.jpg",
   "galleryImages": [
     "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Osaka_Castle_03bs3200.jpg/800px-Osaka_Castle_03bs3200.jpg"
   ],
@@ -76,9 +76,9 @@
   "relationships": {
     "parentDestinationId": "osaka-city"
   },
-  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Osaka-zu_byobu.jpg/500px-Osaka-zu_byobu.jpg",
   "gallery": [
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Osaka-zu_byobu.jpg/500px-Osaka-zu_byobu.jpg"
   ],
   "budgetBreakdown": {
     "transport": 3000,
