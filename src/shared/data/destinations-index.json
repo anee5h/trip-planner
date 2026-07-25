@@ -83,7 +83,6 @@
       "featuredDestinationIds": [
         "atsuta-shrine-nagoya",
         "higashiyama-sky-tower-nagoya",
-        "nagoya",
         "nagoya-port-tower",
         "nagoya-castle-aichi"
       ],
@@ -217,7 +216,7 @@
         "nijo-castle-kyoto"
       ],
       "nearbyDestinationIds": ["osaka-city", "uji-city", "miyazu-city"],
-      "relatedDestinationIds": ["kanazawa-city", "nara-city"]
+      "relatedDestinationIds": ["nara-city"]
     },
     "budgetBreakdown": {
       "transport": 3000,
@@ -310,7 +309,7 @@
     "relationships": {
       "featuredDestinationIds": ["abeno-harukas-300-osaka", "osaka-castle"],
       "nearbyDestinationIds": ["kyoto-city", "uji-city", "miyazu-city"],
-      "relatedDestinationIds": ["tokyo-city", "fukuoka-city"]
+      "relatedDestinationIds": ["fukuoka-city"]
     },
     "budgetBreakdown": {
       "transport": 3000,
@@ -399,9 +398,9 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": ["shibuya-sky-shibuya", "shibuya-ward"],
+      "featuredDestinationIds": ["shibuya-sky-shibuya"],
       "nearbyDestinationIds": ["hakone-town", "chiba-city", "saitama-city"],
-      "relatedDestinationIds": ["shinjuku-city", "ginza-city"]
+      "relatedDestinationIds": ["shinjuku-city"]
     },
     "itineraries": [
       {
@@ -530,7 +529,7 @@
       }
     ],
     "relationships": {
-      "featuredDestinationIds": ["ashigara", "hakone-onsen", "jogashima"],
+      "featuredDestinationIds": ["ashigara", "jogashima"],
       "nearbyDestinationIds": ["shibuya-city", "chiba-city", "saitama-city"],
       "relatedDestinationIds": ["kusatsu-town", "yufu-city"]
     },
@@ -672,7 +671,7 @@
     "relationships": {
       "featuredDestinationIds": ["gifu-shirakawa-go"],
       "nearbyDestinationIds": ["nagoya-city", "nagano-city", "inuyama-city"],
-      "relatedDestinationIds": ["gokayama-village", "takayama-city"]
+      "relatedDestinationIds": ["takayama-city"]
     },
     "budgetBreakdown": {
       "transport": 3000,
@@ -7704,7 +7703,7 @@
       "lat": 36.8167,
       "lng": 139.7167
     },
-    "heroImage": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
+    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
     "prefecture": "Tochigi",
     "budgetMin": 13400,
     "budgetMax": 21400,
@@ -7741,7 +7740,7 @@
     "description": "Discover Kinugawa Onsen, a prominent destination in Kanagawa. With its rich mix of onsen, edo wonderland, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "gallery": [
-      "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200"
+      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200"
     ],
     "budgetBreakdown": {
       "transport": 5200,
@@ -7789,7 +7788,7 @@
     ],
     "notes": "A fantastic trip to Kinugawa Onsen. Known for its onsen and edo wonderland vibes, it offers a great escape with an overall score of 8.",
     "schemaVersion": 2,
-    "image": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
+    "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
     "imageMetadata": {
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
@@ -12214,7 +12213,7 @@
       "mid": 6000,
       "high": 12000
     },
-    "heroImage": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
+    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
     "galleryImages": [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Osaka_Castle_03bs3200.jpg/800px-Osaka_Castle_03bs3200.jpg"
     ],
@@ -12241,9 +12240,9 @@
     "relationships": {
       "parentDestinationId": "osaka-city"
     },
-    "image": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
+    "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
     "gallery": [
-      "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200"
+      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200"
     ],
     "budgetBreakdown": {
       "transport": 3000,
@@ -12751,9 +12750,9 @@
     "relationships": {
       "featuredDestinationIds": [
         "kawagoe-castle-saitama",
-        "kawagoe-edo",
+        "kawagoe-city",
         "omiya-railway",
-        "saitama-chichibu"
+        "chichibu-city"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
@@ -16756,7 +16755,7 @@
         "akihabara-chiyoda",
         "chofu-tokyo",
         "edo-castle-tokyo",
-        "edogawa-ward",
+        "edogawa-city",
         "ghibli-museum"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
@@ -17013,7 +17012,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": ["shinjuku-ward"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "itineraries": [
@@ -17879,10 +17878,10 @@
     "prefecture": "Tokyo",
     "region": "Kanto",
     "categories": ["Travel Hub", "Special Ward"],
-    "heroImage": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
-    "image": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
+    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+    "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
     "gallery": [
-      "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200"
+      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200"
     ],
     "description": "Artistic neighborhood boasting Koenji vintage stores, indie live houses, and anime production studios.",
     "highlights": ["Explore Suginami City", "Local Culture & Cuisine"],
@@ -18777,7 +18776,7 @@
         "ashigara",
         "enoshima-island",
         "hakkeijima",
-        "hakone-onsen"
+        "hakone-town"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
@@ -18825,10 +18824,10 @@
     "prefecture": "Kanagawa",
     "region": "Kanto",
     "categories": ["Travel Hub", "City Hub"],
-    "heroImage": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
-    "image": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
+    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+    "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
     "gallery": [
-      "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200"
+      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200"
     ],
     "description": "Ancient samurai capital nestled between hills and sea, famous for the Great Buddha (Daibutsu) and hydrangeas.",
     "highlights": ["Explore Kamakura City", "Local Culture & Cuisine"],
@@ -18901,7 +18900,7 @@
       }
     ],
     "relationships": {
-      "featuredDestinationIds": ["kamakura-history"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "itineraries": [
@@ -19043,7 +19042,7 @@
         "ashigara",
         "enoshima-island",
         "hakkeijima",
-        "hakone-onsen"
+        "hakone-town"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
@@ -19132,7 +19131,7 @@
         "ashigara",
         "enoshima-island",
         "hakkeijima",
-        "hakone-onsen"
+        "hakone-town"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
@@ -19222,7 +19221,7 @@
         "ashigara",
         "enoshima-island",
         "hakkeijima",
-        "hakone-onsen"
+        "hakone-town"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
@@ -19311,7 +19310,7 @@
         "ashigara",
         "enoshima-island",
         "hakkeijima",
-        "hakone-onsen"
+        "hakone-town"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
@@ -19400,7 +19399,7 @@
         "ashigara",
         "enoshima-island",
         "hakkeijima",
-        "hakone-onsen"
+        "hakone-town"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
@@ -19966,9 +19965,8 @@
     "relationships": {
       "featuredDestinationIds": [
         "kawagoe-castle-saitama",
-        "kawagoe-edo",
         "omiya-railway",
-        "saitama-chichibu"
+        "chichibu-city"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
@@ -20109,9 +20107,9 @@
     "relationships": {
       "featuredDestinationIds": [
         "kawagoe-castle-saitama",
-        "kawagoe-edo",
+        "kawagoe-city",
         "omiya-railway",
-        "saitama-chichibu"
+        "chichibu-city"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
@@ -20198,9 +20196,9 @@
     "relationships": {
       "featuredDestinationIds": [
         "kawagoe-castle-saitama",
-        "kawagoe-edo",
+        "kawagoe-city",
         "omiya-railway",
-        "saitama-chichibu"
+        "chichibu-city"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
@@ -20287,9 +20285,8 @@
     "relationships": {
       "featuredDestinationIds": [
         "kawagoe-castle-saitama",
-        "kawagoe-edo",
-        "omiya-railway",
-        "saitama-chichibu"
+        "kawagoe-city",
+        "omiya-railway"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
@@ -20340,7 +20337,7 @@
     "heroImage": "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1000&auto=format&fit=crop",
     "image": "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1000&auto=format&fit=crop",
     "gallery": [
-      "https://images.unsplash.com/photo-1528164344705-475426879e0d?auto=format&fit=crop&q=80&w=1200"
+      "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200"
     ],
     "description": "Historic Mito feudal clan capital featuring Kairakuen Garden (Three Great Gardens of Japan) and plum blossoms.",
     "highlights": ["Explore Mito City", "Local Culture & Cuisine"],
@@ -20611,8 +20608,7 @@
     "relationships": {
       "featuredDestinationIds": [
         "nikko-toshogu-shrine-tochigi",
-        "kegon-falls-nikko",
-        "nikko-heritage"
+        "kegon-falls-nikko"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
@@ -20755,7 +20751,7 @@
       "featuredDestinationIds": [
         "kegon-falls-nikko",
         "kinugawa-onsen",
-        "nikko-heritage",
+        "nikko-city",
         "utsunomiya-oya"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
@@ -21019,10 +21015,6 @@
     },
     "collections": [
       {
-        "collectionId": "original-12-castles",
-        "confirmed": true
-      },
-      {
         "collectionId": "national-treasures",
         "sortOrder": 2,
         "confirmed": true
@@ -21032,7 +21024,6 @@
       "featuredDestinationIds": [
         "atsuta-shrine-nagoya",
         "higashiyama-sky-tower-nagoya",
-        "inuyama",
         "mirai-tower-nagoya"
       ],
       "nearbyDestinationIds": [
@@ -21153,7 +21144,7 @@
       "featuredDestinationIds": [
         "atsuta-shrine-nagoya",
         "higashiyama-sky-tower-nagoya",
-        "inuyama",
+        "inuyama-city",
         "mirai-tower-nagoya"
       ],
       "nearbyDestinationIds": [
@@ -21246,7 +21237,7 @@
       "featuredDestinationIds": [
         "atsuta-shrine-nagoya",
         "higashiyama-sky-tower-nagoya",
-        "inuyama",
+        "inuyama-city",
         "mirai-tower-nagoya"
       ],
       "nearbyDestinationIds": [
@@ -21436,7 +21427,7 @@
       }
     ],
     "relationships": {
-      "featuredDestinationIds": ["gifu-takayama"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -21646,7 +21637,12 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": ["atami-resort", "fujinomiya", "ito", "izu"],
+      "featuredDestinationIds": [
+        "atami-city",
+        "fujinomiya-city",
+        "ito-city",
+        "izu"
+      ],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -21763,7 +21759,12 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": ["atami-resort", "fujinomiya", "ito", "izu"],
+      "featuredDestinationIds": [
+        "atami-city",
+        "fujinomiya-city",
+        "ito-city",
+        "izu"
+      ],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -21852,7 +21853,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": ["atami-resort", "fujinomiya", "ito", "izu"],
+      "featuredDestinationIds": ["fujinomiya-city", "ito-city", "izu"],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -21994,7 +21995,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": ["atami-resort", "fujinomiya", "ito", "izu"],
+      "featuredDestinationIds": ["atami-city", "fujinomiya-city", "izu"],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -22110,7 +22111,12 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": ["atami-resort", "fujinomiya", "ito", "izu"],
+      "featuredDestinationIds": [
+        "atami-city",
+        "fujinomiya-city",
+        "ito-city",
+        "izu"
+      ],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -22198,7 +22204,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": ["atami-resort", "fujinomiya", "ito", "izu"],
+      "featuredDestinationIds": ["atami-city", "ito-city", "izu"],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -22314,7 +22320,12 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": ["atami-resort", "fujinomiya", "ito", "izu"],
+      "featuredDestinationIds": [
+        "atami-city",
+        "fujinomiya-city",
+        "ito-city",
+        "izu"
+      ],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -22404,7 +22415,6 @@
     "relationships": {
       "featuredDestinationIds": [
         "fuji-5-lake",
-        "kofu",
         "takeda-castle-yamanashi",
         "yamanashi-fujiyoshida"
       ],
@@ -22525,7 +22535,7 @@
     "relationships": {
       "featuredDestinationIds": [
         "fuji-5-lake",
-        "kofu",
+        "kofu-city",
         "takeda-castle-yamanashi",
         "yamanashi-fujiyoshida"
       ],
@@ -22616,10 +22626,6 @@
     },
     "collections": [
       {
-        "collectionId": "original-12-castles",
-        "confirmed": true
-      },
-      {
         "collectionId": "national-treasures",
         "sortOrder": 1,
         "confirmed": true
@@ -22627,9 +22633,8 @@
     ],
     "relationships": {
       "featuredDestinationIds": [
-        "karuizawa",
+        "karuizawa-town",
         "kiso",
-        "matsumoto",
         "nagano-bessho-onsen"
       ],
       "nearbyDestinationIds": [
@@ -22775,9 +22780,8 @@
     "collections": [],
     "relationships": {
       "featuredDestinationIds": [
-        "karuizawa",
         "kiso",
-        "matsumoto",
+        "matsumoto-city",
         "nagano-bessho-onsen"
       ],
       "nearbyDestinationIds": [
@@ -22922,9 +22926,9 @@
     "collections": [],
     "relationships": {
       "featuredDestinationIds": [
-        "karuizawa",
+        "karuizawa-town",
         "kiso",
-        "matsumoto",
+        "matsumoto-city",
         "nagano-bessho-onsen"
       ],
       "nearbyDestinationIds": [
@@ -23882,10 +23886,10 @@
     "prefecture": "Wakayama",
     "region": "Kansai",
     "categories": ["Travel Hub", "City Hub"],
-    "heroImage": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
-    "image": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
+    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+    "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
     "gallery": [
-      "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200"
+      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200"
     ],
     "description": "Sacred mountain monastic complex (Mount Koya / Koyasan), headquarters of Shingon Buddhism and Okunoin cemetery.",
     "highlights": ["Explore Koya Town", "Local Culture & Cuisine"],
@@ -27470,7 +27474,11 @@
         "collectionId": "japan-top-castles",
         "name": "Japan's Top Castles"
       }
-    ]
+    ],
+    "coordinates": {
+      "lat": 35.1855,
+      "lng": 136.8991
+    }
   },
   {
     "id": "hachioji-castle-tokyo",
@@ -27526,14 +27534,18 @@
       "confidence": "high"
     },
     "relationships": {
-      "parentDestinationId": "tokyo-hachioji"
+      "parentDestinationId": "hachioji-tokyo"
     },
     "collections": [
       {
         "collectionId": "japan-top-castles",
         "name": "Japan's Top Castles"
       }
-    ]
+    ],
+    "coordinates": {
+      "lat": 35.6564,
+      "lng": 139.2553
+    }
   },
   {
     "id": "nikko-toshogu-shrine-tochigi",
@@ -27605,7 +27617,11 @@
     "relationships": {
       "parentDestinationId": "nikko-city"
     },
-    "collections": []
+    "collections": [],
+    "coordinates": {
+      "lat": 36.7581,
+      "lng": 139.5989
+    }
   },
   {
     "id": "matsumoto-castle-nagano",
@@ -27669,7 +27685,11 @@
         "collectionId": "japan-top-castles",
         "name": "Japan's Top Castles"
       }
-    ]
+    ],
+    "coordinates": {
+      "lat": 36.2381,
+      "lng": 137.9686
+    }
   },
   {
     "id": "inuyama-castle-aichi",
@@ -27733,6 +27753,10 @@
         "collectionId": "japan-top-castles",
         "name": "Japan's Top Castles"
       }
-    ]
+    ],
+    "coordinates": {
+      "lat": 35.3883,
+      "lng": 136.9392
+    }
   }
 ]

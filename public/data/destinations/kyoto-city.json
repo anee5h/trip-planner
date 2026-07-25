@@ -86,7 +86,7 @@
       "nijo-castle-kyoto"
     ],
     "nearbyDestinationIds": ["osaka-city", "uji-city", "miyazu-city"],
-    "relatedDestinationIds": ["kanazawa-city", "nara-city"]
+    "relatedDestinationIds": ["nara-city"]
   },
   "budgetBreakdown": {
     "transport": 3000,

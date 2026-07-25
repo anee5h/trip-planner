@@ -68,5 +68,9 @@
   "relationships": {
     "parentDestinationId": "nikko-city"
   },
-  "collections": []
+  "collections": [],
+  "coordinates": {
+    "lat": 36.7581,
+    "lng": 139.5989
+  }
 }

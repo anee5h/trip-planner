@@ -7,10 +7,10 @@
   "prefecture": "Kanagawa",
   "region": "Kanto",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://images.unsplash.com/photo-1570191830504-370011e97e85?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1570191830504-370011e97e85?auto=format&fit=crop&q=80&w=1200",
   "gallery": [
-    "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200"
+    "https://images.unsplash.com/photo-1570191830504-370011e97e85?auto=format&fit=crop&q=80&w=1200"
   ],
   "description": "Ancient samurai capital nestled between hills and sea, famous for the Great Buddha (Daibutsu) and hydrangeas.",
   "highlights": ["Explore Kamakura City", "Local Culture & Cuisine"],
@@ -83,7 +83,7 @@
     }
   ],
   "relationships": {
-    "featuredDestinationIds": ["kamakura-history"],
+    "featuredDestinationIds": [],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },
   "itineraries": [

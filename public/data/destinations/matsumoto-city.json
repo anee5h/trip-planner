@@ -72,22 +72,13 @@
   },
   "collections": [
     {
-      "collectionId": "original-12-castles",
-      "confirmed": true
-    },
-    {
       "collectionId": "national-treasures",
       "sortOrder": 1,
       "confirmed": true
     }
   ],
   "relationships": {
-    "featuredDestinationIds": [
-      "karuizawa",
-      "kiso",
-      "matsumoto",
-      "nagano-bessho-onsen"
-    ],
+    "featuredDestinationIds": ["karuizawa-town", "kiso", "nagano-bessho-onsen"],
     "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]
   },
   "itineraries": [

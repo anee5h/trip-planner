@@ -75,7 +75,7 @@
   "relationships": {
     "featuredDestinationIds": ["gifu-shirakawa-go"],
     "nearbyDestinationIds": ["nagoya-city", "nagano-city", "inuyama-city"],
-    "relatedDestinationIds": ["gokayama-village", "takayama-city"]
+    "relatedDestinationIds": ["takayama-city"]
   },
   "budgetBreakdown": {
     "transport": 3000,

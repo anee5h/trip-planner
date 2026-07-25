@@ -75,8 +75,7 @@
   "relationships": {
     "featuredDestinationIds": [
       "nikko-toshogu-shrine-tochigi",
-      "kegon-falls-nikko",
-      "nikko-heritage"
+      "kegon-falls-nikko"
     ],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },

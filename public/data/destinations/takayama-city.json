@@ -79,7 +79,7 @@
     }
   ],
   "relationships": {
-    "featuredDestinationIds": ["gifu-takayama"],
+    "featuredDestinationIds": [],
     "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]
   },
   "itineraries": [

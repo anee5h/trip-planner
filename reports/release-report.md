@@ -1,0 +1,681 @@
+# TabiMap v1.6.0 Data Quality Release Report
+
+- **Generated At**: `2026-07-25T03:52:19.743Z`
+- **Git Commit**: `73f7eea`
+- **QA Framework Version**: `v1.0.0`
+
+## Executive Summary
+
+| Validator              |  Status   | Total Checked | Errors | Warnings | Info |
+| :--------------------- | :-------: | :-----------: | :----: | :------: | :--: |
+| Catalog Destinations   | ✅ PASSED |      262      |   0    |    94    |  0   |
+| Catalog Collections    | ✅ PASSED |      15       |   0    |    0     |  0   |
+| Catalog Relationships  | ✅ PASSED |      262      |   0    |    0     |  0   |
+| Catalog Images         | ✅ PASSED |      160      |   0    |   545    |  0   |
+| Catalog Search         | ✅ PASSED |       4       |   0    |    0     |  0   |
+| Catalog Routes & Links | ✅ PASSED |      277      |   0    |    0     |  0   |
+
+---
+
+## Issues Breakdown
+
+### Catalog Destinations
+
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'abeno-harukas-300-osaka' budgetBreakdown sum (¥8500) differs from recommended (¥8750) by ¥250 (tolerance: ¥175).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'akasaka-minato' budgetBreakdown sum (¥10600) differs from recommended (¥11600) by ¥1000 (tolerance: ¥232).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'akihabara-chiyoda' budgetBreakdown sum (¥9000) differs from recommended (¥10000) by ¥1000 (tolerance: ¥200).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'art-tower-mito' budgetBreakdown sum (¥5000) differs from recommended (¥5750) by ¥750 (tolerance: ¥115).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'asakusa-taito' budgetBreakdown sum (¥9500) differs from recommended (¥10500) by ¥1000 (tolerance: ¥210).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'ashigara' budgetBreakdown sum (¥4000) differs from recommended (¥5500) by ¥1500 (tolerance: ¥110).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'atsuta-shrine-nagoya' budgetBreakdown sum (¥7000) differs from recommended (¥4000) by ¥3000 (tolerance: ¥100).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'boso-peninsula' budgetBreakdown sum (¥15000) differs from recommended (¥16000) by ¥1000 (tolerance: ¥320).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'chiba-city' budgetBreakdown sum (¥7000) differs from recommended (¥8000) by ¥1000 (tolerance: ¥160).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'chiba-nokogiriyama' budgetBreakdown sum (¥6500) differs from recommended (¥6250) by ¥250 (tolerance: ¥125).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'chiba-port-tower' budgetBreakdown sum (¥5000) differs from recommended (¥5500) by ¥500 (tolerance: ¥110).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'disneyland' budgetBreakdown sum (¥29800) differs from recommended (¥30800) by ¥1000 (tolerance: ¥616).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'disneysea' budgetBreakdown sum (¥29800) differs from recommended (¥30800) by ¥1000 (tolerance: ¥616).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'edo-castle-tokyo' budgetBreakdown sum (¥4500) differs from recommended (¥5500) by ¥1000 (tolerance: ¥110).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'enoshima-island' budgetBreakdown sum (¥11000) differs from recommended (¥12000) by ¥1000 (tolerance: ¥240).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'fuji-5-lake' budgetBreakdown sum (¥11000) differs from recommended (¥12000) by ¥1000 (tolerance: ¥240).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'fukui' budgetBreakdown sum (¥10000) differs from recommended (¥11000) by ¥1000 (tolerance: ¥220).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'gala-yuzawa' budgetBreakdown sum (¥29000) differs from recommended (¥30000) by ¥1000 (tolerance: ¥600).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'ghibli-museum' budgetBreakdown sum (¥9900) differs from recommended (¥10900) by ¥1000 (tolerance: ¥218).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'gifu-castle-gifu' budgetBreakdown sum (¥6000) differs from recommended (¥6500) by ¥500 (tolerance: ¥130).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'gifu-shirakawa-go' budgetBreakdown sum (¥10500) differs from recommended (¥10750) by ¥250 (tolerance: ¥215).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'ginza-urban' budgetBreakdown sum (¥11000) differs from recommended (¥12000) by ¥1000 (tolerance: ¥240).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'gunma-kusatsu-onsen' budgetBreakdown sum (¥11000) differs from recommended (¥10500) by ¥500 (tolerance: ¥210).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'gunma-shima-onsen' budgetBreakdown sum (¥9000) differs from recommended (¥9250) by ¥250 (tolerance: ¥185).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'hakkeijima' budgetBreakdown sum (¥20800) differs from recommended (¥21800) by ¥1000 (tolerance: ¥436).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'hakodate-night-view' budgetBreakdown sum (¥7000) differs from recommended (¥6500) by ¥500 (tolerance: ¥130).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'harry-potter-studio' budgetBreakdown sum (¥20900) differs from recommended (¥21900) by ¥1000 (tolerance: ¥438).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'higashiyama-sky-tower-nagoya' budgetBreakdown sum (¥5000) differs from recommended (¥5500) by ¥500 (tolerance: ¥110).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'hikone-castle-shiga' budgetBreakdown sum (¥7000) differs from recommended (¥7750) by ¥750 (tolerance: ¥155).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'ikebukuro-toshima' budgetBreakdown sum (¥12000) differs from recommended (¥13000) by ¥1000 (tolerance: ¥260).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'imperial-palace-chiyoda' budgetBreakdown sum (¥3600) differs from recommended (¥5300) by ¥1700 (tolerance: ¥106).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'izu' budgetBreakdown sum (¥12000) differs from recommended (¥13000) by ¥1000 (tolerance: ¥260).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'izumo-taisha' budgetBreakdown sum (¥7000) differs from recommended (¥6500) by ¥500 (tolerance: ¥130).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'jogashima' budgetBreakdown sum (¥5000) differs from recommended (¥6000) by ¥1000 (tolerance: ¥120).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'joypolis' budgetBreakdown sum (¥19000) differs from recommended (¥20000) by ¥1000 (tolerance: ¥400).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'kairakuen-mito' budgetBreakdown sum (¥7000) differs from recommended (¥5000) by ¥2000 (tolerance: ¥100).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'kakegawa-castle-shizuoka' budgetBreakdown sum (¥5500) differs from recommended (¥6250) by ¥750 (tolerance: ¥125).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'kanazawa' budgetBreakdown sum (¥12000) differs from recommended (¥13000) by ¥1000 (tolerance: ¥260).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'kanazawa-castle-ishikawa' budgetBreakdown sum (¥6500) differs from recommended (¥7000) by ¥500 (tolerance: ¥140).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'kawagoe-castle-saitama' budgetBreakdown sum (¥5000) differs from recommended (¥5500) by ¥500 (tolerance: ¥110).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'kegon-falls-nikko' budgetBreakdown sum (¥7000) differs from recommended (¥4000) by ¥3000 (tolerance: ¥100).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'kinugawa-onsen' budgetBreakdown sum (¥16400) differs from recommended (¥17400) by ¥1000 (tolerance: ¥348).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'kiso' budgetBreakdown sum (¥10000) differs from recommended (¥11000) by ¥1000 (tolerance: ¥220).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'kobe-maya-night-view' budgetBreakdown sum (¥7000) differs from recommended (¥6000) by ¥1000 (tolerance: ¥120).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'kurobe-gorge' budgetBreakdown sum (¥20000) differs from recommended (¥21000) by ¥1000 (tolerance: ¥420).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'lake-hamanako' budgetBreakdown sum (¥10000) differs from recommended (¥11000) by ¥1000 (tolerance: ¥220).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'lake-sagami' budgetBreakdown sum (¥9000) differs from recommended (¥10000) by ¥1000 (tolerance: ¥200).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'maruoka-castle-fukui' budgetBreakdown sum (¥5500) differs from recommended (¥6250) by ¥750 (tolerance: ¥125).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'mirai-tower-nagoya' budgetBreakdown sum (¥6000) differs from recommended (¥7000) by ¥1000 (tolerance: ¥140).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'mito-castle-ibaraki' budgetBreakdown sum (¥5500) differs from recommended (¥6250) by ¥750 (tolerance: ¥125).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'mount-fuji' budgetBreakdown sum (¥5000) differs from recommended (¥6000) by ¥1000 (tolerance: ¥120).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'mount-inasa-nagasaki' budgetBreakdown sum (¥7000) differs from recommended (¥6500) by ¥500 (tolerance: ¥130).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'nachi-falls-wakayama' budgetBreakdown sum (¥7000) differs from recommended (¥6500) by ¥500 (tolerance: ¥130).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'nagano-city' budgetBreakdown sum (¥9000) differs from recommended (¥10000) by ¥1000 (tolerance: ¥200).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'nagoya-port-tower' budgetBreakdown sum (¥5000) differs from recommended (¥5500) by ¥500 (tolerance: ¥110).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'nara-park-todaiji' budgetBreakdown sum (¥7000) differs from recommended (¥5000) by ¥2000 (tolerance: ¥100).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'nijo-castle-kyoto' budgetBreakdown sum (¥7000) differs from recommended (¥6500) by ¥500 (tolerance: ¥130).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'noto' budgetBreakdown sum (¥11000) differs from recommended (¥12000) by ¥1000 (tolerance: ¥240).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'oarai-marine-tower' budgetBreakdown sum (¥4500) differs from recommended (¥5000) by ¥500 (tolerance: ¥100).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'odaiba-minato' budgetBreakdown sum (¥12000) differs from recommended (¥13000) by ¥1000 (tolerance: ¥260).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'odawara' budgetBreakdown sum (¥8000) differs from recommended (¥9000) by ¥1000 (tolerance: ¥180).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'okuhida' budgetBreakdown sum (¥18000) differs from recommended (¥19000) by ¥1000 (tolerance: ¥380).
+- **[🟠 WARN]** `DUPLICATE_COORDINATES`: Destination 'omiya-railway' shares exact coordinates (35.6762,139.6503) with 'joypolis'.
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'omiya-railway' budgetBreakdown sum (¥12700) differs from recommended (¥13700) by ¥1000 (tolerance: ¥274).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'osaka-castle' budgetBreakdown sum (¥7000) differs from recommended (¥6500) by ¥500 (tolerance: ¥130).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'oze-national-park' budgetBreakdown sum (¥6400) differs from recommended (¥7400) by ¥1000 (tolerance: ¥148).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'roppongi-hills-tokyo-city-view' budgetBreakdown sum (¥7000) differs from recommended (¥8250) by ¥1250 (tolerance: ¥165).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'sado-island' budgetBreakdown sum (¥15000) differs from recommended (¥16000) by ¥1000 (tolerance: ¥320).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'saitama-city' budgetBreakdown sum (¥6000) differs from recommended (¥7000) by ¥1000 (tolerance: ¥140).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'sakura-castle-chiba' budgetBreakdown sum (¥5000) differs from recommended (¥5500) by ¥500 (tolerance: ¥110).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'shibuya-sky-shibuya' budgetBreakdown sum (¥7000) differs from recommended (¥8250) by ¥1250 (tolerance: ¥165).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'sunshine-60-observatory-ikebukuro' budgetBreakdown sum (¥5000) differs from recommended (¥5750) by ¥750 (tolerance: ¥115).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'takanawa-gateway-minato' budgetBreakdown sum (¥5100) differs from recommended (¥6500) by ¥1400 (tolerance: ¥130).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'takaoka' budgetBreakdown sum (¥8000) differs from recommended (¥9000) by ¥1000 (tolerance: ¥180).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'takato-castle-nagano' budgetBreakdown sum (¥6000) differs from recommended (¥6500) by ¥500 (tolerance: ¥130).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'takeda-castle-yamanashi' budgetBreakdown sum (¥5000) differs from recommended (¥5750) by ¥750 (tolerance: ¥115).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'teamlab-planets' budgetBreakdown sum (¥14600) differs from recommended (¥15600) by ¥1000 (tolerance: ¥312).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'toki-messe-tower-niigata' budgetBreakdown sum (¥4500) differs from recommended (¥5000) by ¥500 (tolerance: ¥100).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'tokyo-metropolitan-government-building-shinjuku' budgetBreakdown sum (¥3500) differs from recommended (¥4250) by ¥750 (tolerance: ¥100).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'tokyo-mt-mitake' budgetBreakdown sum (¥5500) differs from recommended (¥5750) by ¥250 (tolerance: ¥115).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'tokyo-skytree-sumida' budgetBreakdown sum (¥8500) differs from recommended (¥9500) by ¥1000 (tolerance: ¥190).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'tokyo-station-chiyoda' budgetBreakdown sum (¥7500) differs from recommended (¥10000) by ¥2500 (tolerance: ¥200).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'tokyo-tower-minato' budgetBreakdown sum (¥7000) differs from recommended (¥7750) by ¥750 (tolerance: ¥155).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'toyama-alpine' budgetBreakdown sum (¥23000) differs from recommended (¥24000) by ¥1000 (tolerance: ¥480).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'ueda-castle-nagano' budgetBreakdown sum (¥5000) differs from recommended (¥5750) by ¥750 (tolerance: ¥115).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'ueno-taito' budgetBreakdown sum (¥8000) differs from recommended (¥9000) by ¥1000 (tolerance: ¥180).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'ushiku-daibutsu' budgetBreakdown sum (¥6500) differs from recommended (¥7500) by ¥1000 (tolerance: ¥150).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'utsunomiya-oya' budgetBreakdown sum (¥12600) differs from recommended (¥13600) by ¥1000 (tolerance: ¥272).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'yokohama-city' budgetBreakdown sum (¥11000) differs from recommended (¥12000) by ¥1000 (tolerance: ¥240).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'yokohama-landmark-tower-sky-garden' budgetBreakdown sum (¥6000) differs from recommended (¥7000) by ¥1000 (tolerance: ¥140).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'yokohama-marine-tower' budgetBreakdown sum (¥6000) differs from recommended (¥6500) by ¥500 (tolerance: ¥130).
+- **[🟠 WARN]** `DUPLICATE_COORDINATES`: Destination 'yomiuriland' shares exact coordinates (35.6762,139.6503) with 'joypolis'.
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'yomiuriland' budgetBreakdown sum (¥12000) differs from recommended (¥13000) by ¥1000 (tolerance: ¥260).
+- **[🟠 WARN]** `BUDGET_BREAKDOWN_MISMATCH`: Destination 'zushi' budgetBreakdown sum (¥6000) differs from recommended (¥7000) by ¥1000 (tolerance: ¥140).
+
+### Catalog Collections
+
+_Zero issues detected._
+
+### Catalog Relationships
+
+_Zero issues detected._
+
+### Catalog Images
+
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagoya-city' (gallery[0]) reuses image URL already used by 'nagoya-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kyoto-city' (gallery[0]) reuses image URL already used by 'kyoto-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'osaka-city' (gallery[0]) reuses image URL already used by 'osaka-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'shibuya-city' (gallery[0]) reuses image URL already used by 'shibuya-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'hakone-town' (gallery[0]) reuses image URL already used by 'hakone-town'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'shirakawa-village' (gallery[0]) reuses image URL already used by 'shirakawa-village'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'abeno-harukas-300-osaka' (gallery[0]) reuses image URL already used by 'abeno-harukas-300-osaka'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'akasaka-minato' (gallery[2]) reuses image URL already used by 'abeno-harukas-300-osaka'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'akihabara-chiyoda' (gallery[0]) reuses image URL already used by 'akihabara-chiyoda'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'akihabara-chiyoda' (gallery[1]) reuses image URL already used by 'abeno-harukas-300-osaka'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'art-tower-mito' (gallery[0]) reuses image URL already used by 'art-tower-mito'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'art-tower-mito' (gallery[2]) reuses image URL already used by 'akasaka-minato'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'asakusa-taito' (gallery[0]) reuses image URL already used by 'asakusa-taito'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'asakusa-taito' (gallery[1]) reuses image URL already used by 'akihabara-chiyoda'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ashigara' (gallery[0]) reuses image URL already used by 'ashigara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ashigara' (gallery[1]) reuses image URL already used by 'akihabara-chiyoda'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ashigara' (gallery[2]) reuses image URL already used by 'asakusa-taito'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'bitchu-matsuyama-castle' (gallery[0]) reuses image URL already used by 'bitchu-matsuyama-castle'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'boso-peninsula' (gallery[0]) reuses image URL already used by 'boso-peninsula'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'chiba-city' (gallery[0]) reuses image URL already used by 'chiba-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'chiba-nokogiriyama' (gallery[0]) reuses image URL already used by 'chiba-nokogiriyama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'chiba-nokogiriyama' (gallery[2]) reuses image URL already used by 'boso-peninsula'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'chiba-port-tower' (gallery[0]) reuses image URL already used by 'chiba-port-tower'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'chiba-port-tower' (gallery[1]) reuses image URL already used by 'art-tower-mito'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'chiba-port-tower' (gallery[2]) reuses image URL already used by 'abeno-harukas-300-osaka'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'chiba-sawara' (gallery[0]) reuses image URL already used by 'akihabara-chiyoda'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'chiba-sawara' (gallery[1]) reuses image URL already used by 'asakusa-taito'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'chofu-tokyo' (gallery[0]) reuses image URL already used by 'chofu-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'chofu-tokyo' (gallery[2]) reuses image URL already used by 'chiba-nokogiriyama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'choshi-chiba' (gallery[0]) reuses image URL already used by 'choshi-chiba'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'choshi-chiba' (gallery[1]) reuses image URL already used by 'chiba-nokogiriyama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'disneyland' (gallery[0]) reuses image URL already used by 'disneyland'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'disneyland' (gallery[1]) reuses image URL already used by 'choshi-chiba'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'disneyland' (gallery[2]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'disneysea' (gallery[0]) reuses image URL already used by 'disneysea'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'disneysea' (gallery[1]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'disneysea' (gallery[2]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'edo-castle-tokyo' (gallery[0]) reuses image URL already used by 'edo-castle-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'edo-castle-tokyo' (gallery[1]) reuses image URL already used by 'akasaka-minato'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'edo-castle-tokyo' (gallery[2]) reuses image URL already used by 'abeno-harukas-300-osaka'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'enoshima-island' (gallery[0]) reuses image URL already used by 'enoshima-island'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'enoshima-island' (gallery[1]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'fuji-5-lake' (gallery[0]) reuses image URL already used by 'fuji-5-lake'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'fuji-5-lake' (gallery[1]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'fuji-5-lake' (gallery[2]) reuses image URL already used by 'enoshima-island'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'fukui' (gallery[0]) reuses image URL already used by 'fukui'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'fukui' (gallery[1]) reuses image URL already used by 'asakusa-taito'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gala-yuzawa' (gallery[0]) reuses image URL already used by 'gala-yuzawa'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gala-yuzawa' (gallery[1]) reuses image URL already used by 'fukui'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ghibli-museum' (gallery[0]) reuses image URL already used by 'ghibli-museum'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ghibli-museum' (gallery[2]) reuses image URL already used by 'akasaka-minato'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gifu-castle-gifu' (gallery[0]) reuses image URL already used by 'gifu-castle-gifu'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gifu-castle-gifu' (gallery[1]) reuses image URL already used by 'abeno-harukas-300-osaka'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gifu-castle-gifu' (gallery[2]) reuses image URL already used by 'abeno-harukas-300-osaka'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gifu-gujo-hachiman' (gallery[0]) reuses image URL already used by 'gifu-gujo-hachiman'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gifu-gujo-hachiman' (gallery[1]) reuses image URL already used by 'asakusa-taito'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gifu-gujo-hachiman' (gallery[2]) reuses image URL already used by 'chiba-sawara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gifu-magome-juku' (gallery[0]) reuses image URL already used by 'gifu-magome-juku'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gifu-magome-juku' (gallery[1]) reuses image URL already used by 'chiba-sawara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gifu-magome-juku' (gallery[2]) reuses image URL already used by 'asakusa-taito'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gifu-shirakawa-go' (heroImage) reuses image URL already used by 'shirakawa-village'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gifu-shirakawa-go' (gallery[0]) reuses image URL already used by 'shirakawa-village'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gifu-shirakawa-go' (gallery[1]) reuses image URL already used by 'gala-yuzawa'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gifu-shirakawa-go' (gallery[2]) reuses image URL already used by 'ghibli-museum'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ginza-urban' (gallery[0]) reuses image URL already used by 'ginza-urban'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gunma-ikaho-onsen' (gallery[0]) reuses image URL already used by 'akasaka-minato'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gunma-ikaho-onsen' (gallery[1]) reuses image URL already used by 'akasaka-minato'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gunma-ikaho-onsen' (gallery[2]) reuses image URL already used by 'abeno-harukas-300-osaka'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gunma-kusatsu-onsen' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gunma-shima-onsen' (gallery[0]) reuses image URL already used by 'gunma-shima-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gunma-shima-onsen' (gallery[1]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gunma-shima-onsen' (gallery[2]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'hachioji-tokyo' (gallery[0]) reuses image URL already used by 'hachioji-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'hakkeijima' (gallery[0]) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'harry-potter-studio' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'higashiyama-sky-tower-nagoya' (gallery[0]) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'hikone-castle-shiga' (gallery[0]) reuses image URL already used by 'hikone-castle-shiga'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'himeji-castle' (gallery[0]) reuses image URL already used by 'himeji-castle'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'hirosaki-castle' (gallery[0]) reuses image URL already used by 'hirosaki-castle'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ibaraki-fukuroda-falls' (gallery[0]) reuses image URL already used by 'ibaraki-fukuroda-falls'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ibaraki-fukuroda-falls' (gallery[1]) reuses image URL already used by 'chiba-nokogiriyama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ibaraki-fukuroda-falls' (gallery[2]) reuses image URL already used by 'boso-peninsula'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ibaraki-hitachi-seaside-park' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ibaraki-hitachi-seaside-park' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ibaraki-mount-tsukuba' (gallery[0]) reuses image URL already used by 'ibaraki-mount-tsukuba'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ibaraki-mount-tsukuba' (gallery[1]) reuses image URL already used by 'chofu-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ibaraki-mount-tsukuba' (gallery[2]) reuses image URL already used by 'choshi-chiba'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ikebukuro-toshima' (gallery[0]) reuses image URL already used by 'ikebukuro-toshima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ikebukuro-toshima' (gallery[2]) reuses image URL already used by 'chofu-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'imperial-palace-chiyoda' (gallery[0]) reuses image URL already used by 'ikebukuro-toshima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'imperial-palace-chiyoda' (gallery[1]) reuses image URL already used by 'chofu-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'imperial-palace-chiyoda' (gallery[2]) reuses image URL already used by 'chiba-nokogiriyama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'izu' (gallery[0]) reuses image URL already used by 'izu'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'izu' (gallery[1]) reuses image URL already used by 'choshi-chiba'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'izu' (gallery[2]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'jogashima' (gallery[0]) reuses image URL already used by 'jogashima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'jogashima' (gallery[1]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'jogashima' (gallery[2]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'joypolis' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'joypolis' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kakegawa-castle-shizuoka' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kakegawa-castle-shizuoka' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kanazawa' (gallery[0]) reuses image URL already used by 'kanazawa'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kanazawa' (gallery[1]) reuses image URL already used by 'asakusa-taito'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kanazawa' (gallery[2]) reuses image URL already used by 'fukui'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kanazawa-castle-ishikawa' (heroImage) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kanazawa-castle-ishikawa' (gallery[0]) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kawagoe-castle-saitama' (gallery[0]) reuses image URL already used by 'kawagoe-castle-saitama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kegon-falls-nikko' (gallery[0]) reuses image URL already used by 'kegon-falls-nikko'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kinugawa-onsen' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kinugawa-onsen' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kiso' (heroImage) reuses image URL already used by 'ginza-urban'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kiso' (gallery[0]) reuses image URL already used by 'ginza-urban'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kochi-castle' (gallery[0]) reuses image URL already used by 'kochi-castle'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kurobe-gorge' (heroImage) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kurobe-gorge' (gallery[0]) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'lake-hamanako' (heroImage) reuses image URL already used by 'kegon-falls-nikko'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'lake-hamanako' (gallery[0]) reuses image URL already used by 'kegon-falls-nikko'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'lake-sagami' (gallery[0]) reuses image URL already used by 'lake-sagami'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'lake-sagami' (gallery[1]) reuses image URL already used by 'boso-peninsula'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'lake-sagami' (gallery[2]) reuses image URL already used by 'boso-peninsula'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'machida-tokyo' (gallery[0]) reuses image URL already used by 'boso-peninsula'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'machida-tokyo' (gallery[1]) reuses image URL already used by 'ikebukuro-toshima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'machida-tokyo' (gallery[2]) reuses image URL already used by 'chofu-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'marugame-castle' (gallery[0]) reuses image URL already used by 'marugame-castle'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'maruoka-castle-fukui' (gallery[0]) reuses image URL already used by 'maruoka-castle-fukui'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'matsue-castle' (gallery[0]) reuses image URL already used by 'matsue-castle'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'matsuyama-castle-ehime' (gallery[0]) reuses image URL already used by 'matsuyama-castle-ehime'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'mirai-tower-nagoya' (gallery[0]) reuses image URL already used by 'mirai-tower-nagoya'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'mirai-tower-nagoya' (gallery[1]) reuses image URL already used by 'akasaka-minato'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'mirai-tower-nagoya' (gallery[2]) reuses image URL already used by 'abeno-harukas-300-osaka'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'mito-castle-ibaraki' (gallery[0]) reuses image URL already used by 'mito-castle-ibaraki'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'mito-castle-ibaraki' (gallery[1]) reuses image URL already used by 'abeno-harukas-300-osaka'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'mito-castle-ibaraki' (gallery[2]) reuses image URL already used by 'abeno-harukas-300-osaka'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'mother-farm-chiba' (gallery[0]) reuses image URL already used by 'choshi-chiba'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'mother-farm-chiba' (gallery[1]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'mother-farm-chiba' (gallery[2]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'mount-fuji' (gallery[0]) reuses image URL already used by 'mount-fuji'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'mount-fuji' (gallery[1]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'mount-fuji' (gallery[2]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'mount-inasa-nagasaki' (heroImage) reuses image URL already used by 'ginza-urban'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'mount-inasa-nagasaki' (gallery[0]) reuses image URL already used by 'ginza-urban'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'mount-yoshino-nara' (gallery[0]) reuses image URL already used by 'mount-yoshino-nara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nachi-falls-wakayama' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nachi-falls-wakayama' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagano-bessho-onsen' (gallery[0]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagano-bessho-onsen' (gallery[1]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagano-bessho-onsen' (gallery[2]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagano-city' (gallery[0]) reuses image URL already used by 'nagano-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagano-city' (gallery[1]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagano-city' (gallery[2]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagano-kamikochi' (gallery[0]) reuses image URL already used by 'nagano-kamikochi'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagano-kamikochi' (gallery[1]) reuses image URL already used by 'choshi-chiba'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagano-kamikochi' (gallery[2]) reuses image URL already used by 'chiba-nokogiriyama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagano-narai-juku' (gallery[0]) reuses image URL already used by 'nagano-narai-juku'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagano-narai-juku' (gallery[1]) reuses image URL already used by 'chiba-nokogiriyama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagano-narai-juku' (gallery[2]) reuses image URL already used by 'boso-peninsula'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagano-suwa' (gallery[0]) reuses image URL already used by 'nagano-suwa'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagano-suwa' (gallery[1]) reuses image URL already used by 'akasaka-minato'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagano-suwa' (gallery[2]) reuses image URL already used by 'abeno-harukas-300-osaka'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagano-tsumago-juku' (gallery[0]) reuses image URL already used by 'nagano-tsumago-juku'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagano-tsumago-juku' (gallery[1]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagano-tsumago-juku' (gallery[2]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagoya-port-tower' (gallery[0]) reuses image URL already used by 'nagoya-port-tower'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagoya-port-tower' (gallery[1]) reuses image URL already used by 'art-tower-mito'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagoya-port-tower' (gallery[2]) reuses image URL already used by 'abeno-harukas-300-osaka'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nara-park-todaiji' (heroImage) reuses image URL already used by 'ginza-urban'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nara-park-todaiji' (gallery[0]) reuses image URL already used by 'ginza-urban'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nijo-castle-kyoto' (heroImage) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nijo-castle-kyoto' (gallery[0]) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'noto' (gallery[0]) reuses image URL already used by 'noto'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'noto' (gallery[1]) reuses image URL already used by 'gala-yuzawa'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'noto' (gallery[2]) reuses image URL already used by 'ghibli-museum'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'oarai-marine-tower' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'oarai-marine-tower' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'odaiba-minato' (gallery[0]) reuses image URL already used by 'odaiba-minato'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'odaiba-minato' (gallery[1]) reuses image URL already used by 'akasaka-minato'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'odaiba-minato' (gallery[2]) reuses image URL already used by 'akasaka-minato'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'odawara' (heroImage) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'odawara' (gallery[0]) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'okuhida' (heroImage) reuses image URL already used by 'kawagoe-castle-saitama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'okuhida' (gallery[0]) reuses image URL already used by 'kawagoe-castle-saitama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ome-tokyo' (gallery[0]) reuses image URL already used by 'akihabara-chiyoda'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ome-tokyo' (gallery[1]) reuses image URL already used by 'asakusa-taito'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ome-tokyo' (gallery[2]) reuses image URL already used by 'chiba-sawara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'omiya-railway' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'omiya-railway' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'osaka-castle' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'osaka-castle' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'oze-national-park' (heroImage) reuses image URL already used by 'ginza-urban'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'oze-national-park' (gallery[0]) reuses image URL already used by 'ginza-urban'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'roppongi-hills-tokyo-city-view' (heroImage) reuses image URL already used by 'mount-yoshino-nara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'roppongi-hills-tokyo-city-view' (gallery[0]) reuses image URL already used by 'mount-yoshino-nara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'sado-island' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'sado-island' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'saitama-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'saitama-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'saitama-nagatoro' (heroImage) reuses image URL already used by 'hachioji-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'saitama-nagatoro' (gallery[0]) reuses image URL already used by 'hachioji-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'sakura-castle-chiba' (gallery[0]) reuses image URL already used by 'sakura-castle-chiba'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'sakura-castle-chiba' (gallery[1]) reuses image URL already used by 'abeno-harukas-300-osaka'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'sakura-castle-chiba' (gallery[2]) reuses image URL already used by 'akasaka-minato'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'shibuya-sky-shibuya' (gallery[0]) reuses image URL already used by 'art-tower-mito'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'shibuya-sky-shibuya' (gallery[1]) reuses image URL already used by 'abeno-harukas-300-osaka'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'shibuya-sky-shibuya' (gallery[2]) reuses image URL already used by 'akasaka-minato'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'sunshine-60-observatory-ikebukuro' (heroImage) reuses image URL already used by 'kegon-falls-nikko'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'sunshine-60-observatory-ikebukuro' (gallery[0]) reuses image URL already used by 'kegon-falls-nikko'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tachikawa-tokyo' (gallery[0]) reuses image URL already used by 'tachikawa-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tachikawa-tokyo' (gallery[1]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tachikawa-tokyo' (gallery[2]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'takanawa-gateway-minato' (gallery[0]) reuses image URL already used by 'takanawa-gateway-minato'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'takanawa-gateway-minato' (gallery[1]) reuses image URL already used by 'akasaka-minato'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'takanawa-gateway-minato' (gallery[2]) reuses image URL already used by 'abeno-harukas-300-osaka'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'takaoka' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'takaoka' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'takato-castle-nagano' (heroImage) reuses image URL already used by 'mount-yoshino-nara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'takato-castle-nagano' (gallery[0]) reuses image URL already used by 'mount-yoshino-nara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'takeda-castle-yamanashi' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'takeda-castle-yamanashi' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'teamlab-planets' (gallery[0]) reuses image URL already used by 'enoshima-island'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'teamlab-planets' (gallery[1]) reuses image URL already used by 'asakusa-taito'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'teamlab-planets' (gallery[2]) reuses image URL already used by 'fukui'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'toki-messe-tower-niigata' (heroImage) reuses image URL already used by 'hachioji-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'toki-messe-tower-niigata' (gallery[0]) reuses image URL already used by 'hachioji-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tokyo-hinohara' (heroImage) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tokyo-hinohara' (gallery[0]) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tokyo-metropolitan-government-building-shinjuku' (heroImage) reuses image URL already used by 'kawagoe-castle-saitama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tokyo-metropolitan-government-building-shinjuku' (gallery[0]) reuses image URL already used by 'kawagoe-castle-saitama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tokyo-mt-mitake' (heroImage) reuses image URL already used by 'kegon-falls-nikko'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tokyo-mt-mitake' (gallery[0]) reuses image URL already used by 'kegon-falls-nikko'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tokyo-okutama' (heroImage) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tokyo-okutama' (gallery[0]) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tokyo-skytree-sumida' (gallery[0]) reuses image URL already used by 'tokyo-skytree-sumida'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tokyo-skytree-sumida' (gallery[1]) reuses image URL already used by 'abeno-harukas-300-osaka'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tokyo-skytree-sumida' (gallery[2]) reuses image URL already used by 'akasaka-minato'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tokyo-station-chiyoda' (gallery[0]) reuses image URL already used by 'tokyo-station-chiyoda'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tokyo-station-chiyoda' (gallery[2]) reuses image URL already used by 'akasaka-minato'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tokyo-tower-minato' (gallery[0]) reuses image URL already used by 'tokyo-tower-minato'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tokyo-tower-minato' (gallery[1]) reuses image URL already used by 'akasaka-minato'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tokyo-tower-minato' (gallery[2]) reuses image URL already used by 'akasaka-minato'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'toyama-alpine' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'toyama-alpine' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ueda-castle-nagano' (gallery[0]) reuses image URL already used by 'ueda-castle-nagano'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ueda-castle-nagano' (gallery[1]) reuses image URL already used by 'abeno-harukas-300-osaka'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ueda-castle-nagano' (gallery[2]) reuses image URL already used by 'akasaka-minato'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ueno-taito' (heroImage) reuses image URL already used by 'hachioji-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ueno-taito' (gallery[0]) reuses image URL already used by 'hachioji-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ushiku-daibutsu' (gallery[0]) reuses image URL already used by 'ushiku-daibutsu'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ushiku-daibutsu' (gallery[1]) reuses image URL already used by 'ghibli-museum'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ushiku-daibutsu' (gallery[2]) reuses image URL already used by 'akasaka-minato'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'utsunomiya-oya' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'utsunomiya-oya' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'uwajima-castle' (gallery[0]) reuses image URL already used by 'uwajima-castle'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yamanashi-fujiyoshida' (heroImage) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yamanashi-fujiyoshida' (gallery[0]) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yamanashi-nishizawa-valley' (heroImage) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yamanashi-nishizawa-valley' (gallery[0]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yamanashi-nishizawa-valley' (gallery[1]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yamanashi-nishizawa-valley' (gallery[2]) reuses image URL already used by 'chiba-yoro-valley'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yamanashi-shosenkyo-gorge' (gallery[0]) reuses image URL already used by 'chofu-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yamanashi-shosenkyo-gorge' (gallery[1]) reuses image URL already used by 'chiba-nokogiriyama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yamanashi-shosenkyo-gorge' (gallery[2]) reuses image URL already used by 'boso-peninsula'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yokohama-city' (gallery[0]) reuses image URL already used by 'yokohama-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yokohama-city' (gallery[1]) reuses image URL already used by 'abeno-harukas-300-osaka'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yokohama-city' (gallery[2]) reuses image URL already used by 'akihabara-chiyoda'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yokohama-landmark-tower-sky-garden' (heroImage) reuses image URL already used by 'ginza-urban'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yokohama-landmark-tower-sky-garden' (gallery[0]) reuses image URL already used by 'ginza-urban'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yokohama-marine-tower' (gallery[0]) reuses image URL already used by 'yokohama-marine-tower'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yokohama-marine-tower' (gallery[1]) reuses image URL already used by 'abeno-harukas-300-osaka'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yokohama-marine-tower' (gallery[2]) reuses image URL already used by 'abeno-harukas-300-osaka'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yomiuriland' (heroImage) reuses image URL already used by 'mount-yoshino-nara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yomiuriland' (gallery[0]) reuses image URL already used by 'mount-yoshino-nara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'zushi' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'zushi' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'chiyoda-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'chiyoda-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'chuo-city' (heroImage) reuses image URL already used by 'kegon-falls-nikko'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'chuo-city' (gallery[0]) reuses image URL already used by 'kegon-falls-nikko'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'minato-city' (heroImage) reuses image URL already used by 'mount-yoshino-nara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'minato-city' (gallery[0]) reuses image URL already used by 'mount-yoshino-nara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'shinjuku-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'bunkyo-city' (heroImage) reuses image URL already used by 'ginza-urban'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'bunkyo-city' (gallery[0]) reuses image URL already used by 'ginza-urban'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'taito-city' (gallery[0]) reuses image URL already used by 'taito-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'sumida-city' (heroImage) reuses image URL already used by 'hachioji-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'sumida-city' (gallery[0]) reuses image URL already used by 'hachioji-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'koto-city' (gallery[0]) reuses image URL already used by 'koto-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'shinagawa-city' (heroImage) reuses image URL already used by 'kawagoe-castle-saitama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'shinagawa-city' (gallery[0]) reuses image URL already used by 'kawagoe-castle-saitama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ota-city' (gallery[0]) reuses image URL already used by 'ota-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'setagaya-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'setagaya-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nakano-city' (heroImage) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nakano-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'suginami-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'suginami-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'toshima-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'toshima-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kita-city' (heroImage) reuses image URL already used by 'meguro-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kita-city' (gallery[0]) reuses image URL already used by 'meguro-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'arakawa-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'arakawa-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'itabashi-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'itabashi-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nerima-city' (heroImage) reuses image URL already used by 'kawagoe-castle-saitama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nerima-city' (gallery[0]) reuses image URL already used by 'kawagoe-castle-saitama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'adachi-city' (heroImage) reuses image URL already used by 'meguro-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'adachi-city' (gallery[0]) reuses image URL already used by 'meguro-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'katsushika-city' (heroImage) reuses image URL already used by 'taito-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'katsushika-city' (gallery[0]) reuses image URL already used by 'taito-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'edogawa-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kawasaki-city' (heroImage) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kawasaki-city' (gallery[0]) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kamakura-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kamakura-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yokosuka-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yokosuka-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'fujisawa-city' (gallery[0]) reuses image URL already used by 'fujisawa-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'odawara-city' (gallery[0]) reuses image URL already used by 'odawara-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'chigasaki-city' (gallery[0]) reuses image URL already used by 'chigasaki-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'sagamihara-city' (gallery[0]) reuses image URL already used by 'sagamihara-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'narita-city' (heroImage) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'narita-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'urayasu-city' (heroImage) reuses image URL already used by 'kawagoe-castle-saitama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'urayasu-city' (gallery[0]) reuses image URL already used by 'kawagoe-castle-saitama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'funabashi-city' (heroImage) reuses image URL already used by 'kegon-falls-nikko'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'funabashi-city' (gallery[0]) reuses image URL already used by 'kegon-falls-nikko'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'matsudo-city' (heroImage) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'matsudo-city' (gallery[0]) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kisarazu-city' (heroImage) reuses image URL already used by 'koto-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kisarazu-city' (gallery[0]) reuses image URL already used by 'koto-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kawagoe-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kawagoe-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kawaguchi-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kawaguchi-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tokorozawa-city' (gallery[0]) reuses image URL already used by 'tokorozawa-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'chichibu-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'chichibu-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'mito-city' (gallery[0]) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tsukuba-city' (heroImage) reuses image URL already used by 'ota-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tsukuba-city' (gallery[0]) reuses image URL already used by 'ota-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nikko-city' (heroImage) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nikko-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'utsunomiya-city' (gallery[0]) reuses image URL already used by 'utsunomiya-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kusatsu-town' (heroImage) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kusatsu-town' (gallery[0]) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'minakami-town' (heroImage) reuses image URL already used by 'tokorozawa-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'minakami-town' (gallery[0]) reuses image URL already used by 'tokorozawa-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'inuyama-city' (heroImage) reuses image URL already used by 'ginza-urban'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'inuyama-city' (gallery[0]) reuses image URL already used by 'ginza-urban'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'toyota-city' (heroImage) reuses image URL already used by 'mount-yoshino-nara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'toyota-city' (gallery[0]) reuses image URL already used by 'mount-yoshino-nara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'okazaki-city' (heroImage) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'okazaki-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gifu-city' (heroImage) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gifu-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'takayama-city' (heroImage) reuses image URL already used by 'hachioji-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'takayama-city' (gallery[0]) reuses image URL already used by 'hachioji-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gero-city' (heroImage) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gero-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'shizuoka-city' (heroImage) reuses image URL already used by 'kawagoe-castle-saitama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'shizuoka-city' (gallery[0]) reuses image URL already used by 'kawagoe-castle-saitama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'hamamatsu-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'hamamatsu-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'atami-city' (gallery[0]) reuses image URL already used by 'atami-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ito-city' (heroImage) reuses image URL already used by 'tokorozawa-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ito-city' (gallery[0]) reuses image URL already used by 'tokorozawa-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gotemba-city' (heroImage) reuses image URL already used by 'taito-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'gotemba-city' (gallery[0]) reuses image URL already used by 'taito-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'fujinomiya-city' (heroImage) reuses image URL already used by 'mount-yoshino-nara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'fujinomiya-city' (gallery[0]) reuses image URL already used by 'mount-yoshino-nara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'numazu-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'numazu-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kofu-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kofu-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'fujikawaguchiko-town' (heroImage) reuses image URL already used by 'hachioji-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'fujikawaguchiko-town' (gallery[0]) reuses image URL already used by 'hachioji-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'matsumoto-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'karuizawa-town' (gallery[0]) reuses image URL already used by 'meguro-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'hakuba-village' (heroImage) reuses image URL already used by 'tokorozawa-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'hakuba-village' (gallery[0]) reuses image URL already used by 'tokorozawa-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'uji-city' (heroImage) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'uji-city' (gallery[0]) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'miyazu-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'miyazu-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'sakai-city' (heroImage) reuses image URL already used by 'kegon-falls-nikko'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'sakai-city' (gallery[0]) reuses image URL already used by 'kegon-falls-nikko'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kobe-city' (heroImage) reuses image URL already used by 'mount-yoshino-nara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kobe-city' (gallery[0]) reuses image URL already used by 'mount-yoshino-nara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'himeji-city' (heroImage) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'himeji-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nara-city' (heroImage) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nara-city' (gallery[0]) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ikaruga-town' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ikaruga-town' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'otsu-city' (heroImage) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'otsu-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'hikone-city' (heroImage) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'hikone-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'wakayama-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'wakayama-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'shirahama-town' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'shirahama-town' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'koya-town' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'koya-town' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'hiroshima-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'hiroshima-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'onomichi-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'onomichi-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'hatsukaichi-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'hatsukaichi-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'okayama-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'okayama-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kurashiki-city' (gallery[0]) reuses image URL already used by 'kurashiki-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'matsue-city' (heroImage) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'matsue-city' (gallery[0]) reuses image URL already used by 'hakkeijima'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'izumo-city' (heroImage) reuses image URL already used by 'kawagoe-castle-saitama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'izumo-city' (gallery[0]) reuses image URL already used by 'kawagoe-castle-saitama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tottori-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tottori-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'shimonoseki-city' (heroImage) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'shimonoseki-city' (gallery[0]) reuses image URL already used by 'higashiyama-sky-tower-nagoya'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'takamatsu-city' (gallery[0]) reuses image URL already used by 'takamatsu-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'matsuyama-city' (gallery[0]) reuses image URL already used by 'matsuyama-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kochi-city' (heroImage) reuses image URL already used by 'mount-yoshino-nara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kochi-city' (gallery[0]) reuses image URL already used by 'mount-yoshino-nara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tokushima-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'tokushima-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'naruto-city' (heroImage) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'naruto-city' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'fukuoka-city' (heroImage) reuses image URL already used by 'hachioji-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'fukuoka-city' (gallery[0]) reuses image URL already used by 'hachioji-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kitakyushu-city' (gallery[0]) reuses image URL already used by 'kitakyushu-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'dazaifu-city' (heroImage) reuses image URL already used by 'kawagoe-castle-saitama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'dazaifu-city' (gallery[0]) reuses image URL already used by 'kawagoe-castle-saitama'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagasaki-city' (gallery[0]) reuses image URL already used by 'nagasaki-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kumamoto-city' (gallery[0]) reuses image URL already used by 'kumamoto-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'aso-city' (heroImage) reuses image URL already used by 'tokorozawa-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'aso-city' (gallery[0]) reuses image URL already used by 'tokorozawa-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'beppu-city' (heroImage) reuses image URL already used by 'ginza-urban'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'beppu-city' (gallery[0]) reuses image URL already used by 'ginza-urban'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yufu-city' (heroImage) reuses image URL already used by 'tokorozawa-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yufu-city' (gallery[0]) reuses image URL already used by 'tokorozawa-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'miyazaki-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'miyazaki-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'takachiho-town' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'takachiho-town' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kagoshima-city' (heroImage) reuses image URL already used by 'tokorozawa-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kagoshima-city' (gallery[0]) reuses image URL already used by 'tokorozawa-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'yakushima-town' (gallery[0]) reuses image URL already used by 'yakushima-town'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'sapporo-city' (gallery[0]) reuses image URL already used by 'sapporo-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'otaru-city' (heroImage) reuses image URL already used by 'kegon-falls-nikko'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'otaru-city' (gallery[0]) reuses image URL already used by 'kegon-falls-nikko'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'hakodate-city' (heroImage) reuses image URL already used by 'mount-yoshino-nara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'hakodate-city' (gallery[0]) reuses image URL already used by 'mount-yoshino-nara'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'asahikawa-city' (heroImage) reuses image URL already used by 'tokorozawa-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'asahikawa-city' (gallery[0]) reuses image URL already used by 'tokorozawa-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'furano-city' (heroImage) reuses image URL already used by 'meguro-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'furano-city' (gallery[0]) reuses image URL already used by 'meguro-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'biei-town' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'biei-town' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'niseko-town' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'niseko-town' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kushiro-city' (heroImage) reuses image URL already used by 'tokorozawa-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'kushiro-city' (gallery[0]) reuses image URL already used by 'tokorozawa-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'abashiri-city' (heroImage) reuses image URL already used by 'tokorozawa-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'abashiri-city' (gallery[0]) reuses image URL already used by 'tokorozawa-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'naha-city' (gallery[0]) reuses image URL already used by 'naha-city'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nago-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nago-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'motobu-town' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'motobu-town' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ishigaki-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'ishigaki-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'miyakojima-city' (heroImage) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'miyakojima-city' (gallery[0]) reuses image URL already used by 'gunma-kusatsu-onsen'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nagoya-castle-aichi' (gallery[0]) reuses image URL already used by 'nagoya-castle-aichi'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'hachioji-castle-tokyo' (gallery[0]) reuses image URL already used by 'hachioji-castle-tokyo'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'nikko-toshogu-shrine-tochigi' (gallery[0]) reuses image URL already used by 'nikko-toshogu-shrine-tochigi'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'matsumoto-castle-nagano' (gallery[0]) reuses image URL already used by 'matsumoto-castle-nagano'.
+- **[🟠 WARN]** `DUPLICATE_IMAGE_URL`: Destination 'inuyama-castle-aichi' (gallery[0]) reuses image URL already used by 'inuyama-castle-aichi'.
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'fuji-5-lake' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/a/a7/Fuji_Five_Lakes_and_Mount_Fuji.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'fuji-5-lake' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/a/a7/Fuji_Five_Lakes_and_Mount_Fuji.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'gero-onsen' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg/3840px-260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'gifu-magome-juku' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/1_magome_juku_2024.jpg/3840px-1_magome_juku_2024.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'gifu-magome-juku' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/1_magome_juku_2024.jpg/3840px-1_magome_juku_2024.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'gunma-shima-onsen' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/%E5%9B%9B%E4%B8%87%E6%B8%A9%E6%B3%89_%E4%B8%AD%E4%B9%8B%E6%9D%A1_2013_%289993444756%29.jpg/3840px-%E5%9B%9B%E4%B8%87%E6%B8%A9%E6%B3%89_%E4%B8%AD%E4%B9%8B%E6%9D%A1_2013_%289993444756%29.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'gunma-shima-onsen' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/%E5%9B%9B%E4%B8%87%E6%B8%A9%E6%B3%89_%E4%B8%AD%E4%B9%8B%E6%9D%A1_2013_%289993444756%29.jpg/3840px-%E5%9B%9B%E4%B8%87%E6%B8%A9%E6%B3%89_%E4%B8%AD%E4%B9%8B%E6%9D%A1_2013_%289993444756%29.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'hikone-castle-shiga' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Hikone_castle_in_May_2015.jpg/1280px-Hikone_castle_in_May_2015.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'hikone-castle-shiga' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Hikone_castle_in_May_2015.jpg/1280px-Hikone_castle_in_May_2015.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'hirosaki-castle' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Hirosaki_Castle_Keep_2019.jpg/1280px-Hirosaki_Castle_Keep_2019.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'hirosaki-castle' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Hirosaki_Castle_Keep_2019.jpg/1280px-Hirosaki_Castle_Keep_2019.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'ikebukuro-toshima' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sunshine_60_Observatory_%40_Sunshine_Building_%40_Ikebukuro_%2811547419543%29.jpg/3840px-Sunshine_60_Observatory_%40_Sunshine_Building_%40_Ikebukuro_%2811547419543%29.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'ikebukuro-toshima' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sunshine_60_Observatory_%40_Sunshine_Building_%40_Ikebukuro_%2811547419543%29.jpg/3840px-Sunshine_60_Observatory_%40_Sunshine_Building_%40_Ikebukuro_%2811547419543%29.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'kairakuen-mito' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/3840px-Kairaku-en%2C_Ibaraki_24.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'kanazawa' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Stone_lantern_Kenrokuen.jpg/3840px-Stone_lantern_Kenrokuen.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'kanazawa' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Stone_lantern_Kenrokuen.jpg/3840px-Stone_lantern_Kenrokuen.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'kumamoto-castle' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/3840px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'kochi-castle' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Kochi_Castle_2020.jpg/1280px-Kochi_Castle_2020.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'kochi-castle' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Kochi_Castle_2020.jpg/1280px-Kochi_Castle_2020.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'korakuen-okayama' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/250505_Korakuen_Okayama_Japan06s3.jpg/3840px-250505_Korakuen_Okayama_Japan06s3.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'marugame-castle' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Marugame_Castle_Tenshu.jpg/1280px-Marugame_Castle_Tenshu.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'marugame-castle' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Marugame_Castle_Tenshu.jpg/1280px-Marugame_Castle_Tenshu.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'kyoto-historic' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/3/3c/Kiyomizu.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'matsuyama-castle-ehime' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Matsuyama_Castle_05.jpg/1280px-Matsuyama_Castle_05.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'matsuyama-castle-ehime' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Matsuyama_Castle_05.jpg/1280px-Matsuyama_Castle_05.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'maruoka-castle-fukui' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Maruoka_Castle_Keep_Tower.jpg/1280px-Maruoka_Castle_Keep_Tower.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'maruoka-castle-fukui' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Maruoka_Castle_Keep_Tower.jpg/1280px-Maruoka_Castle_Keep_Tower.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'mirai-tower-nagoya' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Nagoya_TV_Tower2.jpg/3840px-Nagoya_TV_Tower2.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'mirai-tower-nagoya' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Nagoya_TV_Tower2.jpg/3840px-Nagoya_TV_Tower2.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'mito-castle-ibaraki' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Mito_castle_sannomaru_karabori.jpg/3840px-Mito_castle_sannomaru_karabori.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'mito-castle-ibaraki' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Mito_castle_sannomaru_karabori.jpg/3840px-Mito_castle_sannomaru_karabori.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'nagano-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/160501_Zenkoji_Nagano_Japan06s3.jpg/3840px-160501_Zenkoji_Nagano_Japan06s3.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'nagano-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/160501_Zenkoji_Nagano_Japan06s3.jpg/3840px-160501_Zenkoji_Nagano_Japan06s3.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'nagano-tsumago-juku' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/1_tsumago_juku_2024.jpg/3840px-1_tsumago_juku_2024.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'nagano-tsumago-juku' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/1_tsumago_juku_2024.jpg/3840px-1_tsumago_juku_2024.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'nagano-narai-juku' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/1_naraijuku_2024.jpg/3840px-1_naraijuku_2024.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'nagano-narai-juku' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/1_naraijuku_2024.jpg/3840px-1_naraijuku_2024.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'nagano-kamikochi' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Kamikochi_-_Kamikochi6538.jpg/3840px-Kamikochi_-_Kamikochi6538.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'nagano-kamikochi' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Kamikochi_-_Kamikochi6538.jpg/3840px-Kamikochi_-_Kamikochi6538.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'sakura-castle-chiba' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Sakura_Castle_2.JPG/3840px-Sakura_Castle_2.JPG
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'sakura-castle-chiba' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Sakura_Castle_2.JPG/3840px-Sakura_Castle_2.JPG
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'takanawa-gateway-minato' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Takanawa-Gateway-City---2025-06-18_170.jpg/3840px-Takanawa-Gateway-City---2025-06-18_170.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'takanawa-gateway-minato' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Takanawa-Gateway-City---2025-06-18_170.jpg/3840px-Takanawa-Gateway-City---2025-06-18_170.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'tokyo-station-chiyoda' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Tokyo-STA_Marunouchi-Entrance_2023.jpg/3840px-Tokyo-STA_Marunouchi-Entrance_2023.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'tokyo-station-chiyoda' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Tokyo-STA_Marunouchi-Entrance_2023.jpg/3840px-Tokyo-STA_Marunouchi-Entrance_2023.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'uwajima-castle' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/1280px-Uwajima_Castle_Keep_Tower_20170611.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'uwajima-castle' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/1280px-Uwajima_Castle_Keep_Tower_20170611.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'meguro-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Cherry_Blossoms_in_Meguro_River_Park_-_Lanterns_along_the_River_%2840844860114%29.jpg/3840px-Cherry_Blossoms_in_Meguro_River_Park_-_Lanterns_along_the_River_%2840844860114%29.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'atami-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Atami_20170211-1.jpg/3840px-Atami_20170211-1.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'atami-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Atami_20170211-1.jpg/3840px-Atami_20170211-1.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'kurashiki-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/251101_Mount_Tsurugata_Kurashiki_Okayama_pref_Japan02s3.jpg/3840px-251101_Mount_Tsurugata_Kurashiki_Okayama_pref_Japan02s3.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'kurashiki-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/251101_Mount_Tsurugata_Kurashiki_Okayama_pref_Japan02s3.jpg/3840px-251101_Mount_Tsurugata_Kurashiki_Okayama_pref_Japan02s3.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'nagasaki-city' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/a/a1/Nagasaki_City_View_from_Glover_Garden%2C_Nagasaki_2014.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'nagasaki-city' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/a/a1/Nagasaki_City_View_from_Glover_Garden%2C_Nagasaki_2014.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'nagoya-castle-aichi' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nagoya_Castle_May_2019.jpg/3840px-Nagoya_Castle_May_2019.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'nagoya-castle-aichi' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nagoya_Castle_May_2019.jpg/3840px-Nagoya_Castle_May_2019.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'nikko-toshogu-shrine-tochigi' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Nikko_Toshogu_Yomeimon_Gate_2022.jpg/3840px-Nikko_Toshogu_Yomeimon_Gate_2022.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'nikko-toshogu-shrine-tochigi' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Nikko_Toshogu_Yomeimon_Gate_2022.jpg/3840px-Nikko_Toshogu_Yomeimon_Gate_2022.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'matsumoto-castle-nagano' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Matsumoto_Castle_Keep_Tower.jpg/1280px-Matsumoto_Castle_Keep_Tower.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'matsumoto-castle-nagano' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Matsumoto_Castle_Keep_Tower.jpg/1280px-Matsumoto_Castle_Keep_Tower.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'hachioji-castle-tokyo' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Hachioji_castle_ruins_bridge.jpg/3840px-Hachioji_castle_ruins_bridge.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'hachioji-castle-tokyo' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Hachioji_castle_ruins_bridge.jpg/3840px-Hachioji_castle_ruins_bridge.jpg
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'inuyama-castle-aichi' (heroImage) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG
+- **[🟠 WARN]** `IMAGE_FETCH_WARNING`: Destination 'inuyama-castle-aichi' (gallery[0]) image check result: HTTP 429 -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG
+
+### Catalog Search
+
+_Zero issues detected._
+
+### Catalog Routes & Links
+
+_Zero issues detected._

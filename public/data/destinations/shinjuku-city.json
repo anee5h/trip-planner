@@ -72,7 +72,7 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["shinjuku-ward"],
+    "featuredDestinationIds": [],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },
   "itineraries": [

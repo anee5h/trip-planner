@@ -74,9 +74,9 @@
   "relationships": {
     "featuredDestinationIds": [
       "kawagoe-castle-saitama",
-      "kawagoe-edo",
+      "kawagoe-city",
       "omiya-railway",
-      "saitama-chichibu"
+      "chichibu-city"
     ],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },

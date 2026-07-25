@@ -77,7 +77,7 @@
   "relationships": {
     "featuredDestinationIds": ["abeno-harukas-300-osaka", "osaka-castle"],
     "nearbyDestinationIds": ["kyoto-city", "uji-city", "miyazu-city"],
-    "relatedDestinationIds": ["tokyo-city", "fukuoka-city"]
+    "relatedDestinationIds": ["fukuoka-city"]
   },
   "budgetBreakdown": {
     "transport": 3000,

@@ -73,12 +73,7 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": [
-      "karuizawa",
-      "kiso",
-      "matsumoto",
-      "nagano-bessho-onsen"
-    ],
+    "featuredDestinationIds": ["kiso", "matsumoto-city", "nagano-bessho-onsen"],
     "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]
   },
   "itineraries": [

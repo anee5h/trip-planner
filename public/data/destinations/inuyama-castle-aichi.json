@@ -60,5 +60,9 @@
       "collectionId": "japan-top-castles",
       "name": "Japan's Top Castles"
     }
-  ]
+  ],
+  "coordinates": {
+    "lat": 35.3883,
+    "lng": 136.9392
+  }
 }

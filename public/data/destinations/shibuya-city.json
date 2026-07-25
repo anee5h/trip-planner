@@ -78,9 +78,9 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["shibuya-sky-shibuya", "shibuya-ward"],
+    "featuredDestinationIds": ["shibuya-sky-shibuya"],
     "nearbyDestinationIds": ["hakone-town", "chiba-city", "saitama-city"],
-    "relatedDestinationIds": ["shinjuku-city", "ginza-city"]
+    "relatedDestinationIds": ["shinjuku-city"]
   },
   "itineraries": [
     {

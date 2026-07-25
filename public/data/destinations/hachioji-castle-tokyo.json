@@ -52,12 +52,16 @@
     "confidence": "high"
   },
   "relationships": {
-    "parentDestinationId": "tokyo-hachioji"
+    "parentDestinationId": "hachioji-tokyo"
   },
   "collections": [
     {
       "collectionId": "japan-top-castles",
       "name": "Japan's Top Castles"
     }
-  ]
+  ],
+  "coordinates": {
+    "lat": 35.6564,
+    "lng": 139.2553
+  }
 }

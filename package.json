@@ -13,6 +13,13 @@
     "test:run": "vitest run",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "validate-all": "tsx scripts/validate-all.ts",
+    "validate-destinations": "tsx scripts/cli/validate-destinations.ts",
+    "validate-collections": "tsx scripts/cli/validate-collections.ts",
+    "validate-relationships": "tsx scripts/cli/validate-relationships.ts",
+    "validate-images": "tsx scripts/cli/validate-images.ts",
+    "validate-search": "tsx scripts/cli/validate-search.ts",
+    "validate-links": "tsx scripts/cli/validate-links.ts",
     "prepare": "husky"
   },
   "dependencies": {
@@ -44,6 +51,7 @@
     "postcss": "^8.5.19",
     "prettier": "^3.9.5",
     "tailwindcss": "^3.4.19",
+    "tsx": "^4.23.1",
     "typescript": "~6.0.2",
     "vite": "^8.1.1",
     "vitest": "^4.1.10"

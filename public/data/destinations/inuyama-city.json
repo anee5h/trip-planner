@@ -72,10 +72,6 @@
   },
   "collections": [
     {
-      "collectionId": "original-12-castles",
-      "confirmed": true
-    },
-    {
       "collectionId": "national-treasures",
       "sortOrder": 2,
       "confirmed": true
@@ -85,7 +81,6 @@
     "featuredDestinationIds": [
       "atsuta-shrine-nagoya",
       "higashiyama-sky-tower-nagoya",
-      "inuyama",
       "mirai-tower-nagoya"
     ],
     "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]

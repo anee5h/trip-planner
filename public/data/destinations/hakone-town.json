@@ -85,7 +85,7 @@
     }
   ],
   "relationships": {
-    "featuredDestinationIds": ["ashigara", "hakone-onsen", "jogashima"],
+    "featuredDestinationIds": ["ashigara", "jogashima"],
     "nearbyDestinationIds": ["shibuya-city", "chiba-city", "saitama-city"],
     "relatedDestinationIds": ["kusatsu-town", "yufu-city"]
   },

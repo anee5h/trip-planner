@@ -18,13 +18,6 @@ dist-ssr
 !.vscode/extensions.json
 .idea
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-*.xml
-*.md
 repomix-output.xml
 .gemini
 # .env

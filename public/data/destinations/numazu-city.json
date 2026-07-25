@@ -72,7 +72,12 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["atami-resort", "fujinomiya", "ito", "izu"],
+    "featuredDestinationIds": [
+      "atami-city",
+      "fujinomiya-city",
+      "ito-city",
+      "izu"
+    ],
     "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]
   },
   "budgetBreakdown": {
