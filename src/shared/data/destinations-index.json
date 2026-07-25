@@ -11547,132 +11547,6 @@
     }
   },
   {
-    "id": "odawara",
-    "name": "Odawara & Manazuru",
-    "region": "Kanto",
-    "categories": ["Castle", "History", "Coast"],
-    "tags": ["Historic", "Seafood", "Relaxing"],
-    "budgetRecommended": 9000,
-    "ratings": {
-      "overall": 8.2,
-      "photography": 8,
-      "food": 8.5,
-      "summer": 7,
-      "couple": 8,
-      "winter": 7,
-      "rain": 6,
-      "relaxation": 8,
-      "value": 8,
-      "uniqueness": 8
-    },
-    "indoorPercent": 30,
-    "coordinates": {
-      "lat": 35.2,
-      "lng": 139.14
-    },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Aerial_views_of_Odawara_Japan.jpg/250px-Aerial_views_of_Odawara_Japan.jpg",
-    "prefecture": "Kanagawa",
-    "budgetMin": 5000,
-    "budgetMax": 13000,
-    "totalTripHours": 8,
-    "walkingMin": 10000,
-    "walkingSunMin": 4000,
-    "walkingShadeMin": 6000,
-    "comfort": {
-      "heatTolerance": 5,
-      "rainFriendly": 4,
-      "walkingIntensity": 5
-    },
-    "transportOptions": {
-      "train": 40
-    },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 4,
-      "holiday": 5
-    },
-    "season": {
-      "spring": 4,
-      "summer": 4,
-      "autumn": 4,
-      "winter": 4
-    },
-    "highlights": [
-      "Explore top-rated castle locations",
-      "Enjoy regional specialties and local culture",
-      "Perfect for a active day out"
-    ],
-    "description": "Discover Odawara & Manazuru, a prominent destination in Kanagawa. With its rich mix of historic, seafood, relaxing, it's a highly recommended spot for a 8-hour getaway.",
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Aerial_views_of_Odawara_Japan.jpg/250px-Aerial_views_of_Odawara_Japan.jpg"
-    ],
-    "budgetBreakdown": {
-      "transport": 3200,
-      "tickets": 1600,
-      "food": 2400,
-      "cafe": 800
-    },
-    "itineraries": [
-      {
-        "name": "Classic Day Trip",
-        "description": "The most efficient way to see the highlights of Odawara & Manazuru in one day.",
-        "steps": [
-          {
-            "time": "10:00 AM",
-            "activity": "Arrive at the main station and get oriented."
-          },
-          {
-            "time": "11:00 AM",
-            "activity": "Visit the primary castle attraction."
-          },
-          {
-            "time": "1:00 PM",
-            "activity": "Grab a delicious regional lunch."
-          },
-          {
-            "time": "2:30 PM",
-            "activity": "Continue exploring the scenic sights."
-          },
-          {
-            "time": "4:30 PM",
-            "activity": "Relax at a local café before heading back."
-          }
-        ]
-      }
-    ],
-    "restaurants": [
-      "Odawara Traditional Dining",
-      "Local Kanagawa Specialty Restaurant",
-      "The Odawara Grill & Izakaya"
-    ],
-    "cafes": [
-      "Café de Odawara",
-      "Riverside Roasters",
-      "Station Matcha & Sweets"
-    ],
-    "notes": "A fantastic trip to Odawara & Manazuru. Known for its historic and seafood vibes, it offers a great escape with an overall score of 8.2.",
-    "schemaVersion": 2,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Aerial_views_of_Odawara_Japan.jpg/250px-Aerial_views_of_Odawara_Japan.jpg",
-    "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Odawara Castle via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Odawara%20Castle"
-    },
-    "status": "verified",
-    "travelEstimate": {
-      "confidence": "high"
-    },
-    "collections": [
-      {
-        "collectionId": "japan-top-castles",
-        "confirmed": true
-      }
-    ],
-    "relationships": {}
-  },
-  {
     "id": "okuhida",
     "name": "Okuhida",
     "region": "Chubu",
@@ -11941,8 +11815,8 @@
     "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     "tags": ["Indoor", "Family-friendly"],
     "coordinates": {
-      "lat": 35.6762,
-      "lng": 139.6503
+      "lat": 35.9189,
+      "lng": 139.6247
     },
     "comfort": {
       "heatTolerance": 9.5,
@@ -16356,8 +16230,8 @@
     "bestMonths": [11, 12, 1, 2],
     "tags": ["Theme Park", "Illumination", "Thrill Rides"],
     "coordinates": {
-      "lat": 35.6762,
-      "lng": 139.6503
+      "lat": 35.6247,
+      "lng": 139.5169
     },
     "comfort": {
       "heatTolerance": 7,

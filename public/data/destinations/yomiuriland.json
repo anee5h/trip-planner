@@ -39,8 +39,8 @@
   "bestMonths": [11, 12, 1, 2],
   "tags": ["Theme Park", "Illumination", "Thrill Rides"],
   "coordinates": {
-    "lat": 35.6762,
-    "lng": 139.6503
+    "lat": 35.6247,
+    "lng": 139.5169
   },
   "comfort": {
     "heatTolerance": 7,
