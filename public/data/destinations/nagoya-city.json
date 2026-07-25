@@ -66,7 +66,7 @@
   },
   "transportOptions": {
     "train": 200,
-    "shinkansen": 10000
+    "shinkansen": 90
   },
   "reservation": "None required",
   "parking": "Paid parking available citywide",
@@ -77,18 +77,14 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [
-    {
-      "collectionId": "japan-top-castles",
-      "confirmed": true
-    }
-  ],
+  "collections": [],
   "relationships": {
     "featuredDestinationIds": [
       "atsuta-shrine-nagoya",
       "higashiyama-sky-tower-nagoya",
       "nagoya",
-      "nagoya-port-tower"
+      "nagoya-port-tower",
+      "nagoya-castle-aichi"
     ],
     "nearbyDestinationIds": [
       "shirakawa-village",
@@ -124,5 +120,11 @@
         }
       ]
     }
-  ]
+  ],
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 1500,
+    "food": 4875,
+    "cafe": 2625
+  }
 }

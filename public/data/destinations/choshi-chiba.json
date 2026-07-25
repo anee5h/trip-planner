@@ -105,5 +105,11 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {}
+  "relationships": {},
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 2000,
+    "food": 6175,
+    "cafe": 3325
+  }
 }

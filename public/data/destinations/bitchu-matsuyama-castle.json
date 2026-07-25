@@ -56,7 +56,7 @@
     "mid": 7000,
     "high": 14000
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Bitchu_Matsuyama_Castle_1.JPG",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Bitchu_Matsuyama_Castle_1.JPG/1280px-Bitchu_Matsuyama_Castle_1.JPG",
   "galleryImages": [
     "https://upload.wikimedia.org/wikipedia/commons/9/9e/Bitchu_Matsuyama_Castle_1.JPG"
   ],
@@ -84,5 +84,14 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {},
-  "image": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Bitchu_Matsuyama_Castle_1.JPG"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Bitchu_Matsuyama_Castle_1.JPG/1280px-Bitchu_Matsuyama_Castle_1.JPG",
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 2000,
+    "food": 2600,
+    "cafe": 1400
+  },
+  "gallery": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Bitchu_Matsuyama_Castle_1.JPG/1280px-Bitchu_Matsuyama_Castle_1.JPG"
+  ]
 }

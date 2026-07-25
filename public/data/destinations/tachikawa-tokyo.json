@@ -107,5 +107,11 @@
   "collections": [],
   "relationships": {
     "parentDestinationId": "chiyoda-city"
+  },
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 2000,
+    "food": 3250,
+    "cafe": 1750
   }
 }

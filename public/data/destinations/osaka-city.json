@@ -61,7 +61,8 @@
   },
   "transportOptions": {
     "train": 190,
-    "bus": 210
+    "bus": 210,
+    "shinkansen": 150
   },
   "reservation": "None required",
   "parking": "Paid parking garages",
@@ -77,5 +78,11 @@
     "featuredDestinationIds": ["abeno-harukas-300-osaka", "osaka-castle"],
     "nearbyDestinationIds": ["kyoto-city", "uji-city", "miyazu-city"],
     "relatedDestinationIds": ["tokyo-city", "fukuoka-city"]
+  },
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 1500,
+    "food": 4875,
+    "cafe": 2625
   }
 }

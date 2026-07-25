@@ -76,10 +76,6 @@
       "confirmed": true
     },
     {
-      "collectionId": "japan-top-castles",
-      "confirmed": true
-    },
-    {
       "collectionId": "national-treasures",
       "sortOrder": 1,
       "confirmed": true
@@ -147,5 +143,11 @@
         }
       ]
     }
-  ]
+  ],
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 1500,
+    "food": 4875,
+    "cafe": 2625
+  }
 }

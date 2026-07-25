@@ -1,0 +1,72 @@
+{
+  "id": "nikko-toshogu-shrine-tochigi",
+  "name": "Shrines and Temples of Nikko (Toshogu & UNESCO Heritage)",
+  "kind": "shrine",
+  "role": "poi",
+  "importance": "major",
+  "prefecture": "Tochigi",
+  "region": "Kanto",
+  "categories": [
+    "UNESCO World Heritage Japan",
+    "National Treasures of Japan",
+    "Shrines",
+    "History"
+  ],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Nikko_Toshogu_Yomeimon_Gate_2022.jpg/3840px-Nikko_Toshogu_Yomeimon_Gate_2022.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Nikko_Toshogu_Yomeimon_Gate_2022.jpg/3840px-Nikko_Toshogu_Yomeimon_Gate_2022.jpg",
+  "gallery": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Nikko_Toshogu_Yomeimon_Gate_2022.jpg/3840px-Nikko_Toshogu_Yomeimon_Gate_2022.jpg"
+  ],
+  "description": "UNESCO World Heritage complex housing the lavishly gilded Yomeimon Gate, Tokugawa Ieyasu's mausoleum, and three wise monkeys wood carving.",
+  "highlights": [
+    "Yomeimon Gate",
+    "Three Wise Monkeys",
+    "Sleeping Cat (Nemuri-neko)"
+  ],
+  "totalTripHours": 3,
+  "budgetMin": 1300,
+  "budgetRecommended": 3000,
+  "budgetMax": 5000,
+  "walkingMin": 120,
+  "indoorPercent": 20,
+  "ratings": {
+    "overall": 9.8,
+    "couple": 9.5,
+    "summer": 9.2,
+    "winter": 9,
+    "rain": 8.8,
+    "food": 9,
+    "photography": 9.9,
+    "relaxation": 9.2,
+    "value": 9.6,
+    "uniqueness": 9.9
+  },
+  "crowd": {
+    "weekday": 6,
+    "weekend": 9,
+    "holiday": 10
+  },
+  "season": {
+    "spring": 9.5,
+    "summer": 8.8,
+    "autumn": 9.9,
+    "winter": 8.8
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Autumn / Spring",
+  "weatherDependence": "medium",
+  "tags": [
+    "UNESCO World Heritage",
+    "Nikko Toshogu",
+    "Tokugawa Ieyasu",
+    "National Treasure"
+  ],
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "high"
+  },
+  "relationships": {
+    "parentDestinationId": "nikko-city"
+  },
+  "collections": []
+}

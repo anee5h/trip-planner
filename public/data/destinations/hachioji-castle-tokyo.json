@@ -1,0 +1,63 @@
+{
+  "id": "hachioji-castle-tokyo",
+  "name": "Hachioji Castle Ruins (Mount Castle)",
+  "kind": "castle",
+  "role": "poi",
+  "importance": "notable",
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "categories": ["Castle", "History", "Hiking"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Hachioji_castle_ruins_bridge.jpg/3840px-Hachioji_castle_ruins_bridge.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Hachioji_castle_ruins_bridge.jpg/3840px-Hachioji_castle_ruins_bridge.jpg",
+  "gallery": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Hachioji_castle_ruins_bridge.jpg/3840px-Hachioji_castle_ruins_bridge.jpg"
+  ],
+  "description": "Atmospheric hilltop mountain castle ruins in western Tokyo built by Hojo Ujiteru.",
+  "highlights": ["Reconstructed Bridge", "Honmaru Ruins", "Mountain Trail"],
+  "totalTripHours": 3,
+  "budgetMin": 0,
+  "budgetRecommended": 1000,
+  "budgetMax": 2000,
+  "walkingMin": 150,
+  "indoorPercent": 10,
+  "ratings": {
+    "overall": 9.1,
+    "couple": 8.8,
+    "summer": 8.5,
+    "winter": 8.8,
+    "rain": 7,
+    "food": 8,
+    "photography": 9.2,
+    "relaxation": 9.1,
+    "value": 9.5,
+    "uniqueness": 9.3
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9.5,
+    "summer": 8,
+    "autumn": 9.8,
+    "winter": 8.5
+  },
+  "bestMonths": [3, 4, 10, 11],
+  "bestSeason": "Autumn",
+  "weatherDependence": "high",
+  "tags": ["Hachioji Castle", "Japan's Top Castles", "Tokyo History"],
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "high"
+  },
+  "relationships": {
+    "parentDestinationId": "tokyo-hachioji"
+  },
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "name": "Japan's Top Castles"
+    }
+  ]
+}

@@ -59,7 +59,8 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 200
+    "train": 200,
+    "shinkansen": 65
   },
   "reservation": "None required",
   "parking": "Public parking available",
@@ -133,5 +134,11 @@
         }
       ]
     }
-  ]
+  ],
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 1500,
+    "food": 4875,
+    "cafe": 2625
+  }
 }

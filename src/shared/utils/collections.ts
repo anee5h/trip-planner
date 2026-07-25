@@ -15,7 +15,7 @@ export function getDestinationsForCollection(
 ): Destination[] {
   const all = getDestinationList() as Destination[];
   return all.filter((dest) =>
-    dest.collections.some((m) => m.collectionId === collectionId),
+    dest.collections?.some((m) => m.collectionId === collectionId),
   );
 }
 

@@ -649,7 +649,7 @@ export default function DestinationFilters({
                         : "border-slate-200 text-slate-600 dark:border-slate-800 dark:text-slate-400"
                     }`}
                   >
-                    <TrainFront className="w-3 h-3" /> Bullet
+                    <TrainFront className="w-3 h-3" /> Shinkansen
                   </button>
                   <button
                     onClick={() =>

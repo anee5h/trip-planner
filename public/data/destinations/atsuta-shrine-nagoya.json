@@ -76,5 +76,11 @@
   "relationships": {
     "parentDestinationId": "nagoya-city"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Atsuta_Shrine.jpg/3840px-Atsuta_Shrine.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Atsuta_Shrine.jpg/3840px-Atsuta_Shrine.jpg",
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 2000,
+    "food": 1300,
+    "cafe": 700
+  }
 }

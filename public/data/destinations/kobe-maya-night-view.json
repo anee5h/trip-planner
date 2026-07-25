@@ -80,5 +80,11 @@
   "relationships": {
     "parentDestinationId": "kobe-city"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg/3840px-View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg/3840px-View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg",
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 2000,
+    "food": 1300,
+    "cafe": 700
+  }
 }

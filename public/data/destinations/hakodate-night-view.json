@@ -80,5 +80,11 @@
   "relationships": {
     "parentDestinationId": "hakodate-city"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg/3840px-Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg/3840px-Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg",
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 2000,
+    "food": 1300,
+    "cafe": 700
+  }
 }

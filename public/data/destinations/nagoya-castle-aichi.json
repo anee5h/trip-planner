@@ -1,0 +1,63 @@
+{
+  "id": "nagoya-castle-aichi",
+  "name": "Nagoya Castle (Golden Shachihoko)",
+  "kind": "castle",
+  "role": "poi",
+  "importance": "major",
+  "prefecture": "Aichi",
+  "region": "Chubu",
+  "categories": ["Castle", "History", "Landmark"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nagoya_Castle_May_2019.jpg/3840px-Nagoya_Castle_May_2019.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nagoya_Castle_May_2019.jpg/3840px-Nagoya_Castle_May_2019.jpg",
+  "gallery": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nagoya_Castle_May_2019.jpg/3840px-Nagoya_Castle_May_2019.jpg"
+  ],
+  "description": "Iconic landmark of Nagoya featuring reconstructed Hommaru Palace and golden shachihoko roof ornaments.",
+  "highlights": ["Hommaru Palace", "Golden Shachihoko", "Ninja Performance"],
+  "totalTripHours": 3,
+  "budgetMin": 500,
+  "budgetRecommended": 1500,
+  "budgetMax": 3000,
+  "walkingMin": 120,
+  "indoorPercent": 40,
+  "ratings": {
+    "overall": 9.5,
+    "couple": 9.3,
+    "summer": 9,
+    "winter": 9.1,
+    "rain": 8.8,
+    "food": 9,
+    "photography": 9.6,
+    "relaxation": 9,
+    "value": 9.4,
+    "uniqueness": 9.5
+  },
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9.8,
+    "summer": 8.5,
+    "autumn": 9.5,
+    "winter": 8.8
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Spring / Autumn",
+  "weatherDependence": "medium",
+  "tags": ["Nagoya Castle", "Japan's Top Castles", "Aichi Landmark"],
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "high"
+  },
+  "relationships": {
+    "parentDestinationId": "nagoya-city"
+  },
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "name": "Japan's Top Castles"
+    }
+  ]
+}

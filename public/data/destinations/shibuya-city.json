@@ -109,5 +109,11 @@
         }
       ]
     }
-  ]
+  ],
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 1500,
+    "food": 3575,
+    "cafe": 1925
+  }
 }

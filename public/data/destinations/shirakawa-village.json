@@ -7,7 +7,7 @@
   "aliases": ["Shirakawa-go", "白川郷", "白川村"],
   "prefecture": "Gifu",
   "region": "Chubu",
-  "categories": ["UNESCO Village", "Traditional", "Historic", "Mountain"],
+  "categories": ["Traditional", "Historic", "Mountain"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg",
   "gallery": [
@@ -49,12 +49,7 @@
   "bestMonths": [1, 2, 5, 10, 11, 12],
   "bestSeason": "Winter Snow Season",
   "weatherDependence": "medium",
-  "tags": [
-    "Shirakawa-go",
-    "Gassho-Zukuri",
-    "UNESCO Heritage",
-    "Alpine Village"
-  ],
+  "tags": ["Shirakawa-go", "Gassho-Zukuri", "Alpine Village"],
   "coordinates": {
     "lat": 36.2563,
     "lng": 136.9042
@@ -81,5 +76,11 @@
     "featuredDestinationIds": ["gifu-shirakawa-go"],
     "nearbyDestinationIds": ["nagoya-city", "nagano-city", "inuyama-city"],
     "relatedDestinationIds": ["gokayama-village", "takayama-city"]
+  },
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 1500,
+    "food": 2925,
+    "cafe": 1575
   }
 }

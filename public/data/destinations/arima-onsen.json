@@ -74,5 +74,11 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {},
-  "image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/170811_Rokko-Arima_Ropeway_Kobe_Japan00n.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/170811_Rokko-Arima_Ropeway_Kobe_Japan00n.jpg",
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 2000,
+    "food": 8450,
+    "cafe": 4550
+  }
 }

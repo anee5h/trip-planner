@@ -101,5 +101,11 @@
   "relationships": {
     "parentDestinationId": "chiyoda-city"
   },
-  "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?q=80&w=1000"
+  "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?q=80&w=1000",
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 2000,
+    "food": 4225,
+    "cafe": 2275
+  }
 }

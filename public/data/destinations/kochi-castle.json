@@ -51,7 +51,7 @@
     "mid": 9000,
     "high": 18000
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Kochi_Castle_2025.jpg/1920px-Kochi_Castle_2025.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Kochi_Castle_2020.jpg/1280px-Kochi_Castle_2020.jpg",
   "galleryImages": [
     "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Kochi_Castle_2025.jpg/1920px-Kochi_Castle_2025.jpg"
   ],
@@ -79,5 +79,14 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {},
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Kochi_Castle_2025.jpg/1920px-Kochi_Castle_2025.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Kochi_Castle_2020.jpg/1280px-Kochi_Castle_2020.jpg",
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 2000,
+    "food": 4225,
+    "cafe": 2275
+  },
+  "gallery": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Kochi_Castle_2020.jpg/1280px-Kochi_Castle_2020.jpg"
+  ]
 }

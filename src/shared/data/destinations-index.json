@@ -67,7 +67,7 @@
     },
     "transportOptions": {
       "train": 200,
-      "shinkansen": 10000
+      "shinkansen": 90
     },
     "reservation": "None required",
     "parking": "Paid parking available citywide",
@@ -78,18 +78,14 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [
-      {
-        "collectionId": "japan-top-castles",
-        "confirmed": true
-      }
-    ],
+    "collections": [],
     "relationships": {
       "featuredDestinationIds": [
         "atsuta-shrine-nagoya",
         "higashiyama-sky-tower-nagoya",
         "nagoya",
-        "nagoya-port-tower"
+        "nagoya-port-tower",
+        "nagoya-castle-aichi"
       ],
       "nearbyDestinationIds": [
         "shirakawa-village",
@@ -125,7 +121,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
+    }
   },
   {
     "id": "kyoto-city",
@@ -136,7 +138,7 @@
     "aliases": ["Kyoto", "京都", "京都市"],
     "prefecture": "Kyoto",
     "region": "Kansai",
-    "categories": ["Cultural Capital", "Historic Hub", "UNESCO", "Temples"],
+    "categories": ["Cultural Capital", "Historic Hub", "Temples"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Kyoto%2C_Japan_%2849667780482%29.jpg/3840px-Kyoto%2C_Japan_%2849667780482%29.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Kyoto%2C_Japan_%2849667780482%29.jpg/3840px-Kyoto%2C_Japan_%2849667780482%29.jpg",
     "gallery": [
@@ -183,7 +185,7 @@
     "bestMonths": [3, 4, 5, 10, 11, 12],
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "low",
-    "tags": ["Imperial Capital", "Kyoto City", "UNESCO World Heritage"],
+    "tags": ["Imperial Capital", "Kyoto City"],
     "coordinates": {
       "lat": 35.0116,
       "lng": 135.7681
@@ -195,7 +197,8 @@
     },
     "transportOptions": {
       "train": 230,
-      "bus": 230
+      "bus": 230,
+      "shinkansen": 130
     },
     "reservation": "None required",
     "parking": "Limited city center parking",
@@ -215,6 +218,12 @@
       ],
       "nearbyDestinationIds": ["osaka-city", "uji-city", "miyazu-city"],
       "relatedDestinationIds": ["kanazawa-city", "nara-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 6825,
+      "cafe": 3675
     }
   },
   {
@@ -285,7 +294,8 @@
     },
     "transportOptions": {
       "train": 190,
-      "bus": 210
+      "bus": 210,
+      "shinkansen": 150
     },
     "reservation": "None required",
     "parking": "Paid parking garages",
@@ -301,6 +311,12 @@
       "featuredDestinationIds": ["abeno-harukas-300-osaka", "osaka-castle"],
       "nearbyDestinationIds": ["kyoto-city", "uji-city", "miyazu-city"],
       "relatedDestinationIds": ["tokyo-city", "fukuoka-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -414,7 +430,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 3575,
+      "cafe": 1925
+    }
   },
   {
     "id": "hakone-town",
@@ -565,7 +587,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 8775,
+      "cafe": 4725
+    }
   },
   {
     "id": "shirakawa-village",
@@ -576,7 +604,7 @@
     "aliases": ["Shirakawa-go", "白川郷", "白川村"],
     "prefecture": "Gifu",
     "region": "Chubu",
-    "categories": ["UNESCO Village", "Traditional", "Historic", "Mountain"],
+    "categories": ["Traditional", "Historic", "Mountain"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg",
     "gallery": [
@@ -618,12 +646,7 @@
     "bestMonths": [1, 2, 5, 10, 11, 12],
     "bestSeason": "Winter Snow Season",
     "weatherDependence": "medium",
-    "tags": [
-      "Shirakawa-go",
-      "Gassho-Zukuri",
-      "UNESCO Heritage",
-      "Alpine Village"
-    ],
+    "tags": ["Shirakawa-go", "Gassho-Zukuri", "Alpine Village"],
     "coordinates": {
       "lat": 36.2563,
       "lng": 136.9042
@@ -650,6 +673,12 @@
       "featuredDestinationIds": ["gifu-shirakawa-go"],
       "nearbyDestinationIds": ["nagoya-city", "nagano-city", "inuyama-city"],
       "relatedDestinationIds": ["gokayama-village", "takayama-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 2925,
+      "cafe": 1575
     }
   },
   {
@@ -1087,7 +1116,13 @@
     "relationships": {
       "parentDestinationId": "kyoto-city"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Amanohashidate_aerial_view_2026.jpg/3840px-Amanohashidate_aerial_view_2026.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Amanohashidate_aerial_view_2026.jpg/3840px-Amanohashidate_aerial_view_2026.jpg",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 1625,
+      "cafe": 875
+    }
   },
   {
     "id": "arima-onsen",
@@ -1169,7 +1204,13 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/170811_Rokko-Arima_Ropeway_Kobe_Japan00n.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/170811_Rokko-Arima_Ropeway_Kobe_Japan00n.jpg",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 8450,
+      "cafe": 4550
+    }
   },
   {
     "id": "art-tower-mito",
@@ -1606,7 +1647,13 @@
     "relationships": {
       "parentDestinationId": "nagoya-city"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Atsuta_Shrine.jpg/3840px-Atsuta_Shrine.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Atsuta_Shrine.jpg/3840px-Atsuta_Shrine.jpg",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 1300,
+      "cafe": 700
+    }
   },
   {
     "id": "bitchu-matsuyama-castle",
@@ -1666,7 +1713,7 @@
       "mid": 7000,
       "high": 14000
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Bitchu_Matsuyama_Castle_1.JPG",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Bitchu_Matsuyama_Castle_1.JPG/1280px-Bitchu_Matsuyama_Castle_1.JPG",
     "galleryImages": [
       "https://upload.wikimedia.org/wikipedia/commons/9/9e/Bitchu_Matsuyama_Castle_1.JPG"
     ],
@@ -1694,7 +1741,16 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Bitchu_Matsuyama_Castle_1.JPG"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Bitchu_Matsuyama_Castle_1.JPG/1280px-Bitchu_Matsuyama_Castle_1.JPG",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 2600,
+      "cafe": 1400
+    },
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Bitchu_Matsuyama_Castle_1.JPG/1280px-Bitchu_Matsuyama_Castle_1.JPG"
+    ]
   },
   {
     "id": "boso-peninsula",
@@ -2561,6 +2617,12 @@
     "collections": [],
     "relationships": {
       "parentDestinationId": "chiyoda-city"
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 2763,
+      "cafe": 1488
     }
   },
   {
@@ -2670,7 +2732,13 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {}
+    "relationships": {},
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 6175,
+      "cafe": 3325
+    }
   },
   {
     "id": "disneyland",
@@ -3615,7 +3683,13 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg/3840px-260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg/3840px-260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 6500,
+      "cafe": 3500
+    }
   },
   {
     "id": "ghibli-museum",
@@ -4852,6 +4926,12 @@
     ],
     "relationships": {
       "parentDestinationId": "chiyoda-city"
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 3738,
+      "cafe": 2012
     }
   },
   {
@@ -5052,7 +5132,13 @@
     "relationships": {
       "parentDestinationId": "hakodate-city"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg/3840px-Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg/3840px-Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 1300,
+      "cafe": 700
+    }
   },
   {
     "id": "harry-potter-studio",
@@ -5323,8 +5409,8 @@
     "prefecture": "Shiga",
     "region": "Chubu",
     "categories": ["Castle", "History", "National Treasure", "Landmark"],
-    "heroImage": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
-    "image": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Hikone_castle_in_May_2015.jpg/1280px-Hikone_castle_in_May_2015.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Hikone_castle_in_May_2015.jpg/1280px-Hikone_castle_in_May_2015.jpg",
     "totalTripHours": 4,
     "budgetMin": 3500,
     "budgetRecommended": 7750,
@@ -5388,7 +5474,7 @@
     ],
     "description": "Completed in 1622, Hikone Castle is one of Japan's five original surviving National Treasure keeps, overlooking Lake Biwa with pristine feudal turrets and Genkyuen garden.",
     "gallery": [
-      "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Hikone_castle_in_May_2015.jpg/1280px-Hikone_castle_in_May_2015.jpg"
     ],
     "budgetBreakdown": {
       "transport": 1800,
@@ -5525,7 +5611,7 @@
       "mid": 6000,
       "high": 12000
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/3840px-Himeji_castle_in_may_2015.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/1280px-Himeji_castle_in_may_2015.jpg",
     "galleryImages": [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/3840px-Himeji_castle_in_may_2015.jpg"
     ],
@@ -5555,7 +5641,16 @@
     "relationships": {
       "parentDestinationId": "himeji-city"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/3840px-Himeji_castle_in_may_2015.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/1280px-Himeji_castle_in_may_2015.jpg",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 1625,
+      "cafe": 875
+    },
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/1280px-Himeji_castle_in_may_2015.jpg"
+    ]
   },
   {
     "id": "hirosaki-castle",
@@ -5615,7 +5710,7 @@
       "mid": 8000,
       "high": 15000
     },
-    "heroImage": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Hirosaki_Castle_Keep_2019.jpg/1280px-Hirosaki_Castle_Keep_2019.jpg",
     "galleryImages": [
       "https://upload.wikimedia.org/wikipedia/commons/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg"
     ],
@@ -5643,10 +5738,16 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
-    "image": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Hirosaki_Castle_Keep_2019.jpg/1280px-Hirosaki_Castle_Keep_2019.jpg",
     "gallery": [
-      "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200"
-    ]
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Hirosaki_Castle_Keep_2019.jpg/1280px-Hirosaki_Castle_Keep_2019.jpg"
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 2925,
+      "cafe": 1575
+    }
   },
   {
     "id": "ibaraki-fukuroda-falls",
@@ -6336,7 +6437,13 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Naiku_04.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Naiku_04.jpg",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 1625,
+      "cafe": 875
+    }
   },
   {
     "id": "izu",
@@ -6543,7 +6650,13 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Izumo-taisha14bs4592.jpg/3840px-Izumo-taisha14bs4592.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Izumo-taisha14bs4592.jpg/3840px-Izumo-taisha14bs4592.jpg",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 1300,
+      "cafe": 700
+    }
   },
   {
     "id": "jogashima",
@@ -6883,7 +6996,13 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/3840px-Kairaku-en%2C_Ibaraki_24.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/3840px-Kairaku-en%2C_Ibaraki_24.jpg",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 1300,
+      "cafe": 700
+    }
   },
   {
     "id": "kakegawa-castle-shizuoka",
@@ -7469,7 +7588,13 @@
     "image": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
     "gallery": [
       "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200"
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 1300,
+      "cafe": 700
+    }
   },
   {
     "id": "kinosaki-onsen",
@@ -7547,7 +7672,13 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Kinosaki_Onsen_by_day.jpg/3840px-Kinosaki_Onsen_by_day.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Kinosaki_Onsen_by_day.jpg/3840px-Kinosaki_Onsen_by_day.jpg",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 8125,
+      "cafe": 4375
+    }
   },
   {
     "id": "kinugawa-onsen",
@@ -7883,7 +8014,13 @@
     "relationships": {
       "parentDestinationId": "kobe-city"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg/3840px-View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg/3840px-View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 1300,
+      "cafe": 700
+    }
   },
   {
     "id": "kochi-castle",
@@ -7938,7 +8075,7 @@
       "mid": 9000,
       "high": 18000
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Kochi_Castle_2025.jpg/1920px-Kochi_Castle_2025.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Kochi_Castle_2020.jpg/1280px-Kochi_Castle_2020.jpg",
     "galleryImages": [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Kochi_Castle_2025.jpg/1920px-Kochi_Castle_2025.jpg"
     ],
@@ -7966,7 +8103,16 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Kochi_Castle_2025.jpg/1920px-Kochi_Castle_2025.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Kochi_Castle_2020.jpg/1280px-Kochi_Castle_2020.jpg",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 4225,
+      "cafe": 2275
+    },
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Kochi_Castle_2020.jpg/1280px-Kochi_Castle_2020.jpg"
+    ]
   },
   {
     "id": "korakuen-okayama",
@@ -8044,7 +8190,13 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/250505_Korakuen_Okayama_Japan06s3.jpg/3840px-250505_Korakuen_Okayama_Japan06s3.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/250505_Korakuen_Okayama_Japan06s3.jpg/3840px-250505_Korakuen_Okayama_Japan06s3.jpg",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 1625,
+      "cafe": 875
+    }
   },
   {
     "id": "kumamoto-castle",
@@ -8122,7 +8274,13 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/3840px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/3840px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 1950,
+      "cafe": 1050
+    }
   },
   {
     "id": "kurobe-gorge",
@@ -8335,7 +8493,13 @@
     "relationships": {
       "parentDestinationId": "kyoto-city"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Kiyomizu.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Kiyomizu.jpg",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 2600,
+      "cafe": 1400
+    }
   },
   {
     "id": "lake-hamanako",
@@ -8682,7 +8846,13 @@
     "relationships": {
       "parentDestinationId": "chiyoda-city"
     },
-    "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1000"
+    "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1000",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 2275,
+      "cafe": 1225
+    }
   },
   {
     "id": "marugame-castle",
@@ -8737,7 +8907,7 @@
       "mid": 6000,
       "high": 12000
     },
-    "heroImage": "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Marugame_Castle_Tenshu.jpg/1280px-Marugame_Castle_Tenshu.jpg",
     "galleryImages": [
       "https://upload.wikimedia.org/wikipedia/commons/5/56/Marugame_Castle01.jpg"
     ],
@@ -8765,10 +8935,16 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
-    "image": "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Marugame_Castle_Tenshu.jpg/1280px-Marugame_Castle_Tenshu.jpg",
     "gallery": [
-      "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200"
-    ]
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Marugame_Castle_Tenshu.jpg/1280px-Marugame_Castle_Tenshu.jpg"
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 1625,
+      "cafe": 875
+    }
   },
   {
     "id": "maruoka-castle-fukui",
@@ -8776,8 +8952,8 @@
     "prefecture": "Fukui",
     "region": "Chubu",
     "categories": ["Castle", "History", "National Treasure", "Landmark"],
-    "heroImage": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200",
-    "image": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Maruoka_Castle_Keep_Tower.jpg/1280px-Maruoka_Castle_Keep_Tower.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Maruoka_Castle_Keep_Tower.jpg/1280px-Maruoka_Castle_Keep_Tower.jpg",
     "totalTripHours": 3,
     "budgetMin": 3000,
     "budgetRecommended": 6250,
@@ -8840,7 +9016,7 @@
     ],
     "description": "Built in 1576, Maruoka Castle is one of Japan's 12 original surviving castle keeps and features the oldest architectural keep style in Japan, complete with rare stone roof tiles.",
     "gallery": [
-      "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Maruoka_Castle_Keep_Tower.jpg/1280px-Maruoka_Castle_Keep_Tower.jpg"
     ],
     "budgetBreakdown": {
       "transport": 1800,
@@ -8963,7 +9139,7 @@
       "mid": 8000,
       "high": 15000
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg/3840px-080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg/1280px-080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg",
     "galleryImages": [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg/3840px-080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg"
     ],
@@ -8991,7 +9167,16 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg/3840px-080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg/1280px-080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 2925,
+      "cafe": 1575
+    },
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg/1280px-080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg"
+    ]
   },
   {
     "id": "matsushima-bay",
@@ -9069,7 +9254,13 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg/3840px-211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg/3840px-211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 1625,
+      "cafe": 875
+    }
   },
   {
     "id": "matsuyama-castle-ehime",
@@ -9129,7 +9320,7 @@
       "mid": 8000,
       "high": 16000
     },
-    "heroImage": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Matsuyama_Castle_05.jpg/1280px-Matsuyama_Castle_05.jpg",
     "galleryImages": [
       "https://upload.wikimedia.org/wikipedia/commons/c/c9/Matsuyama_castle%28Iyo%296.JPG"
     ],
@@ -9157,10 +9348,16 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
-    "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Matsuyama_Castle_05.jpg/1280px-Matsuyama_Castle_05.jpg",
     "gallery": [
-      "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200"
-    ]
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Matsuyama_Castle_05.jpg/1280px-Matsuyama_Castle_05.jpg"
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 3250,
+      "cafe": 1750
+    }
   },
   {
     "id": "mirai-tower-nagoya",
@@ -9502,7 +9699,13 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/3840px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/3840px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 1625,
+      "cafe": 875
+    }
   },
   {
     "id": "mother-farm-chiba",
@@ -9601,7 +9804,13 @@
     },
     "collections": [],
     "relationships": {},
-    "image": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1000"
+    "image": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1000",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 5200,
+      "cafe": 2800
+    }
   },
   {
     "id": "mount-fuji",
@@ -9817,7 +10026,13 @@
     "image": "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200",
     "gallery": [
       "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200"
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 1300,
+      "cafe": 700
+    }
   },
   {
     "id": "mount-yoshino-nara",
@@ -9907,7 +10122,13 @@
     "image": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200",
     "gallery": [
       "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200"
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 1625,
+      "cafe": 875
+    }
   },
   {
     "id": "nachi-falls-wakayama",
@@ -9997,7 +10218,13 @@
     "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
     "gallery": [
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 1300,
+      "cafe": 700
+    }
   },
   {
     "id": "nagano-bessho-onsen",
@@ -10154,7 +10381,7 @@
     "transportOptions": {
       "train": 120,
       "car": 180,
-      "shinkansen": 72
+      "shinkansen": 85
     },
     "crowd": {
       "weekday": 3,
@@ -10967,7 +11194,13 @@
     "image": "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200",
     "gallery": [
       "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200"
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 1300,
+      "cafe": 700
+    }
   },
   {
     "id": "nijo-castle-kyoto",
@@ -11065,7 +11298,13 @@
     "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200",
     "gallery": [
       "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200"
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 1300,
+      "cafe": 700
+    }
   },
   {
     "id": "noto",
@@ -11777,7 +12016,13 @@
     "relationships": {
       "parentDestinationId": "chiyoda-city"
     },
-    "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?q=80&w=1000"
+    "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?q=80&w=1000",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 4225,
+      "cafe": 2275
+    }
   },
   {
     "id": "omiya-railway",
@@ -11999,7 +12244,13 @@
     "image": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
     "gallery": [
       "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200"
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 1300,
+      "cafe": 700
+    }
   },
   {
     "id": "oze-national-park",
@@ -13106,6 +13357,12 @@
     "collections": [],
     "relationships": {
       "parentDestinationId": "chiyoda-city"
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 3250,
+      "cafe": 1750
     }
   },
   {
@@ -15400,7 +15657,7 @@
       "mid": 8000,
       "high": 15000
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/3840px-Uwajima_Castle_Keep_Tower_20170611.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/1280px-Uwajima_Castle_Keep_Tower_20170611.jpg",
     "galleryImages": [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/3840px-Uwajima_Castle_Keep_Tower_20170611.jpg"
     ],
@@ -15428,7 +15685,16 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/3840px-Uwajima_Castle_Keep_Tower_20170611.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/1280px-Uwajima_Castle_Keep_Tower_20170611.jpg",
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 2000,
+      "food": 2925,
+      "cafe": 1575
+    },
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/1280px-Uwajima_Castle_Keep_Tower_20170611.jpg"
+    ]
   },
   {
     "id": "yamanashi-fujiyoshida",
@@ -15830,7 +16096,8 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Minato_Mirai.jpg/3840px-Minato_Mirai.jpg",
     "transportOptions": {
-      "train": 30
+      "train": 30,
+      "shinkansen": 20
     },
     "highlights": ["Chinatown", "Red Brick Warehouse", "Cup Noodle Museum"],
     "description": "Yokohama is a scenic destination in the Kanagawa region of Japan, offering rich history and cultural attractions.",
@@ -16493,6 +16760,12 @@
         "ghibli-museum"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -16571,6 +16844,12 @@
     "relationships": {
       "featuredDestinationIds": ["ginza-urban"],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -16652,6 +16931,12 @@
         "tokyo-tower-minato"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -16758,7 +17043,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
+    }
   },
   {
     "id": "bunkyo-city",
@@ -16841,6 +17132,12 @@
         "chofu-tokyo"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -16919,6 +17216,12 @@
     "relationships": {
       "featuredDestinationIds": ["asakusa-taito", "ueno-taito"],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -16997,6 +17300,12 @@
     "relationships": {
       "featuredDestinationIds": ["tokyo-skytree-sumida"],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -17080,6 +17389,12 @@
         "chofu-tokyo"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -17163,6 +17478,12 @@
         "chofu-tokyo"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -17274,7 +17595,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
+    }
   },
   {
     "id": "ota-city",
@@ -17357,6 +17684,12 @@
         "chofu-tokyo"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -17440,6 +17773,12 @@
         "chofu-tokyo"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -17523,6 +17862,12 @@
         "chofu-tokyo"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -17606,6 +17951,12 @@
         "chofu-tokyo"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -17689,6 +18040,12 @@
         "chofu-tokyo"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -17772,6 +18129,12 @@
         "chofu-tokyo"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -17855,6 +18218,12 @@
         "chofu-tokyo"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -17938,6 +18307,12 @@
         "chofu-tokyo"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -18021,6 +18396,12 @@
         "chofu-tokyo"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -18104,6 +18485,12 @@
         "chofu-tokyo"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -18187,6 +18574,12 @@
         "chofu-tokyo"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -18298,7 +18691,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
+    }
   },
   {
     "id": "kawasaki-city",
@@ -18409,7 +18808,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
+    }
   },
   {
     "id": "kamakura-city",
@@ -18552,7 +18957,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
+    }
   },
   {
     "id": "yokosuka-city",
@@ -18635,6 +19046,12 @@
         "hakone-onsen"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -18718,6 +19135,12 @@
         "hakone-onsen"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -18781,7 +19204,8 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200
+      "train": 200,
+      "shinkansen": 35
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -18801,6 +19225,12 @@
         "hakone-onsen"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -18884,6 +19314,12 @@
         "hakone-onsen"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -18967,6 +19403,12 @@
         "hakone-onsen"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -19078,7 +19520,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
+    }
   },
   {
     "id": "urayasu-city",
@@ -19161,6 +19609,12 @@
         "chiba-sawara"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -19244,6 +19698,12 @@
         "chiba-sawara"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -19327,6 +19787,12 @@
         "chiba-sawara"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -19410,6 +19876,12 @@
         "chiba-sawara"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -19553,7 +20025,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
+    }
   },
   {
     "id": "kawaguchi-city",
@@ -19636,6 +20114,12 @@
         "saitama-chichibu"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -19719,6 +20203,12 @@
         "saitama-chichibu"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -19830,7 +20320,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
+    }
   },
   {
     "id": "mito-city",
@@ -19941,7 +20437,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
+    }
   },
   {
     "id": "tsukuba-city",
@@ -20024,6 +20526,12 @@
         "ibaraki-mount-tsukuba"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -20087,7 +20595,8 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200
+      "train": 200,
+      "shinkansen": 110
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -20098,15 +20607,13 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [
-      {
-        "collectionId": "unesco-japan",
-        "sortOrder": 6,
-        "confirmed": true
-      }
-    ],
+    "collections": [],
     "relationships": {
-      "featuredDestinationIds": ["kegon-falls-nikko", "nikko-heritage"],
+      "featuredDestinationIds": [
+        "nikko-toshogu-shrine-tochigi",
+        "kegon-falls-nikko",
+        "nikko-heritage"
+      ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "itineraries": [
@@ -20162,7 +20669,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
+    }
   },
   {
     "id": "utsunomiya-city",
@@ -20225,7 +20738,8 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200
+      "train": 200,
+      "shinkansen": 50
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -20245,6 +20759,12 @@
         "utsunomiya-oya"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -20328,6 +20848,12 @@
         "oze-national-park"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -20411,6 +20937,12 @@
         "oze-national-park"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -20491,10 +21023,6 @@
         "confirmed": true
       },
       {
-        "collectionId": "japan-top-castles",
-        "confirmed": true
-      },
-      {
         "collectionId": "national-treasures",
         "sortOrder": 2,
         "confirmed": true
@@ -20540,7 +21068,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
+    }
   },
   {
     "id": "toyota-city",
@@ -20627,6 +21161,12 @@
         "shirakawa-village",
         "nagano-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -20714,6 +21254,12 @@
         "shirakawa-village",
         "nagano-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -20801,6 +21347,12 @@
         "shirakawa-village",
         "nagano-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -20864,7 +21416,8 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200
+      "train": 200,
+      "shinkansen": 130
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -20917,7 +21470,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
+    }
   },
   {
     "id": "gero-city",
@@ -21004,6 +21563,12 @@
         "shirakawa-village",
         "nagano-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -21067,7 +21632,8 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200
+      "train": 200,
+      "shinkansen": 60
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -21114,7 +21680,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
+    }
   },
   {
     "id": "hamamatsu-city",
@@ -21177,7 +21749,8 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200
+      "train": 200,
+      "shinkansen": 80
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -21196,6 +21769,12 @@
         "shirakawa-village",
         "nagano-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -21259,7 +21838,8 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200
+      "train": 200,
+      "shinkansen": 40
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -21332,7 +21912,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
+    }
   },
   {
     "id": "ito-city",
@@ -21442,7 +22028,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
+    }
   },
   {
     "id": "gotemba-city",
@@ -21524,6 +22116,12 @@
         "shirakawa-village",
         "nagano-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -21634,7 +22232,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
+    }
   },
   {
     "id": "numazu-city",
@@ -21716,6 +22320,12 @@
         "shirakawa-village",
         "nagano-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -21831,7 +22441,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
+    }
   },
   {
     "id": "fujikawaguchiko-town",
@@ -21918,6 +22534,12 @@
         "shirakawa-village",
         "nagano-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -21998,10 +22620,6 @@
         "confirmed": true
       },
       {
-        "collectionId": "japan-top-castles",
-        "confirmed": true
-      },
-      {
         "collectionId": "national-treasures",
         "sortOrder": 1,
         "confirmed": true
@@ -22073,7 +22691,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
+    }
   },
   {
     "id": "karuizawa-town",
@@ -22136,7 +22760,8 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200
+      "train": 200,
+      "shinkansen": 65
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -22214,7 +22839,13 @@
           }
         ]
       }
-    ]
+    ],
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
+    }
   },
   {
     "id": "hakuba-village",
@@ -22301,6 +22932,12 @@
         "shirakawa-village",
         "nagano-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -22383,6 +23020,12 @@
         "nijo-castle-kyoto"
       ],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "miyazu-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -22465,6 +23108,12 @@
         "nijo-castle-kyoto"
       ],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -22543,6 +23192,12 @@
     "relationships": {
       "featuredDestinationIds": ["abeno-harukas-300-osaka", "osaka-castle"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -22606,7 +23261,8 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200
+      "train": 200,
+      "shinkansen": 170
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -22621,6 +23277,12 @@
     "relationships": {
       "featuredDestinationIds": ["kobe-maya-night-view"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -22699,6 +23361,12 @@
     "relationships": {
       "featuredDestinationIds": ["himeji-castle"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -22777,6 +23445,12 @@
     "relationships": {
       "featuredDestinationIds": ["nara-park-todaiji"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -22855,6 +23529,12 @@
     "relationships": {
       "featuredDestinationIds": ["mount-yoshino-nara", "nara-park-todaiji"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -22933,6 +23613,12 @@
     "relationships": {
       "featuredDestinationIds": ["hikone-castle-shiga"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -23011,6 +23697,12 @@
     "relationships": {
       "featuredDestinationIds": ["hikone-castle-shiga"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -23089,6 +23781,12 @@
     "relationships": {
       "featuredDestinationIds": ["nachi-falls-wakayama"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -23167,6 +23865,12 @@
     "relationships": {
       "featuredDestinationIds": ["nachi-falls-wakayama"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -23245,6 +23949,12 @@
     "relationships": {
       "featuredDestinationIds": ["nachi-falls-wakayama"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -23308,7 +24018,8 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200
+      "train": 200,
+      "shinkansen": 240
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -23327,6 +24038,12 @@
         "hatsukaichi-city",
         "okayama-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -23409,6 +24126,12 @@
         "hatsukaichi-city",
         "okayama-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -23491,6 +24214,12 @@
         "onomichi-city",
         "okayama-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -23554,7 +24283,8 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200
+      "train": 200,
+      "shinkansen": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -23573,6 +24303,12 @@
         "onomichi-city",
         "hatsukaichi-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -23655,6 +24391,12 @@
         "onomichi-city",
         "hatsukaichi-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -23737,6 +24479,12 @@
         "onomichi-city",
         "hatsukaichi-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -23819,6 +24567,12 @@
         "onomichi-city",
         "hatsukaichi-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -23901,6 +24655,12 @@
         "onomichi-city",
         "hatsukaichi-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -23983,6 +24743,12 @@
         "onomichi-city",
         "hatsukaichi-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -24061,6 +24827,12 @@
     "relationships": {
       "featuredDestinationIds": ["marugame-castle"],
       "nearbyDestinationIds": ["matsuyama-city", "kochi-city", "tokushima-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -24139,6 +24911,12 @@
     "relationships": {
       "featuredDestinationIds": ["matsuyama-castle-ehime", "uwajima-castle"],
       "nearbyDestinationIds": ["takamatsu-city", "kochi-city", "tokushima-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -24221,6 +24999,12 @@
         "matsuyama-city",
         "tokushima-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -24299,6 +25083,12 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -24377,6 +25167,12 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -24440,7 +25236,8 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200
+      "train": 200,
+      "shinkansen": 300
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -24459,6 +25256,12 @@
         "dazaifu-city",
         "nagasaki-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -24537,6 +25340,12 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["fukuoka-city", "dazaifu-city", "nagasaki-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -24619,6 +25428,12 @@
         "kitakyushu-city",
         "nagasaki-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -24701,6 +25516,12 @@
         "kitakyushu-city",
         "dazaifu-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -24783,6 +25604,12 @@
         "kitakyushu-city",
         "dazaifu-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -24865,6 +25692,12 @@
         "kitakyushu-city",
         "dazaifu-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -24947,6 +25780,12 @@
         "kitakyushu-city",
         "dazaifu-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -25029,6 +25868,12 @@
         "kitakyushu-city",
         "dazaifu-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -25111,6 +25956,12 @@
         "kitakyushu-city",
         "dazaifu-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -25193,6 +26044,12 @@
         "kitakyushu-city",
         "dazaifu-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -25275,6 +26132,12 @@
         "kitakyushu-city",
         "dazaifu-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -25357,6 +26220,12 @@
         "kitakyushu-city",
         "dazaifu-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -25435,6 +26304,12 @@
     "relationships": {
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": ["otaru-city", "hakodate-city", "asahikawa-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -25517,6 +26392,12 @@
         "hakodate-city",
         "asahikawa-city"
       ]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -25580,7 +26461,8 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200
+      "train": 200,
+      "shinkansen": 260
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -25595,6 +26477,12 @@
     "relationships": {
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "asahikawa-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -25673,6 +26561,12 @@
     "relationships": {
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -25751,6 +26645,12 @@
     "relationships": {
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -25829,6 +26729,12 @@
     "relationships": {
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -25907,6 +26813,12 @@
     "relationships": {
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -25985,6 +26897,12 @@
     "relationships": {
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -26063,6 +26981,12 @@
     "relationships": {
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -26141,6 +27065,12 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["nago-city", "motobu-town", "ishigaki-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -26219,6 +27149,12 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["naha-city", "motobu-town", "ishigaki-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -26297,6 +27233,12 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["naha-city", "nago-city", "ishigaki-city"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -26375,6 +27317,12 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["naha-city", "nago-city", "motobu-town"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
   },
   {
@@ -26453,6 +27401,338 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["naha-city", "nago-city", "motobu-town"]
+    },
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4875,
+      "cafe": 2625
     }
+  },
+  {
+    "id": "nagoya-castle-aichi",
+    "name": "Nagoya Castle (Golden Shachihoko)",
+    "kind": "castle",
+    "role": "poi",
+    "importance": "major",
+    "prefecture": "Aichi",
+    "region": "Chubu",
+    "categories": ["Castle", "History", "Landmark"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nagoya_Castle_May_2019.jpg/3840px-Nagoya_Castle_May_2019.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nagoya_Castle_May_2019.jpg/3840px-Nagoya_Castle_May_2019.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nagoya_Castle_May_2019.jpg/3840px-Nagoya_Castle_May_2019.jpg"
+    ],
+    "description": "Iconic landmark of Nagoya featuring reconstructed Hommaru Palace and golden shachihoko roof ornaments.",
+    "highlights": ["Hommaru Palace", "Golden Shachihoko", "Ninja Performance"],
+    "totalTripHours": 3,
+    "budgetMin": 500,
+    "budgetRecommended": 1500,
+    "budgetMax": 3000,
+    "walkingMin": 120,
+    "indoorPercent": 40,
+    "ratings": {
+      "overall": 9.5,
+      "couple": 9.3,
+      "summer": 9,
+      "winter": 9.1,
+      "rain": 8.8,
+      "food": 9,
+      "photography": 9.6,
+      "relaxation": 9,
+      "value": 9.4,
+      "uniqueness": 9.5
+    },
+    "crowd": {
+      "weekday": 5,
+      "weekend": 8,
+      "holiday": 9
+    },
+    "season": {
+      "spring": 9.8,
+      "summer": 8.5,
+      "autumn": 9.5,
+      "winter": 8.8
+    },
+    "bestMonths": [3, 4, 5, 10, 11],
+    "bestSeason": "Spring / Autumn",
+    "weatherDependence": "medium",
+    "tags": ["Nagoya Castle", "Japan's Top Castles", "Aichi Landmark"],
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "high"
+    },
+    "relationships": {
+      "parentDestinationId": "nagoya-city"
+    },
+    "collections": [
+      {
+        "collectionId": "japan-top-castles",
+        "name": "Japan's Top Castles"
+      }
+    ]
+  },
+  {
+    "id": "hachioji-castle-tokyo",
+    "name": "Hachioji Castle Ruins (Mount Castle)",
+    "kind": "castle",
+    "role": "poi",
+    "importance": "notable",
+    "prefecture": "Tokyo",
+    "region": "Kanto",
+    "categories": ["Castle", "History", "Hiking"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Hachioji_castle_ruins_bridge.jpg/3840px-Hachioji_castle_ruins_bridge.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Hachioji_castle_ruins_bridge.jpg/3840px-Hachioji_castle_ruins_bridge.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Hachioji_castle_ruins_bridge.jpg/3840px-Hachioji_castle_ruins_bridge.jpg"
+    ],
+    "description": "Atmospheric hilltop mountain castle ruins in western Tokyo built by Hojo Ujiteru.",
+    "highlights": ["Reconstructed Bridge", "Honmaru Ruins", "Mountain Trail"],
+    "totalTripHours": 3,
+    "budgetMin": 0,
+    "budgetRecommended": 1000,
+    "budgetMax": 2000,
+    "walkingMin": 150,
+    "indoorPercent": 10,
+    "ratings": {
+      "overall": 9.1,
+      "couple": 8.8,
+      "summer": 8.5,
+      "winter": 8.8,
+      "rain": 7,
+      "food": 8,
+      "photography": 9.2,
+      "relaxation": 9.1,
+      "value": 9.5,
+      "uniqueness": 9.3
+    },
+    "crowd": {
+      "weekday": 3,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 9.5,
+      "summer": 8,
+      "autumn": 9.8,
+      "winter": 8.5
+    },
+    "bestMonths": [3, 4, 10, 11],
+    "bestSeason": "Autumn",
+    "weatherDependence": "high",
+    "tags": ["Hachioji Castle", "Japan's Top Castles", "Tokyo History"],
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "high"
+    },
+    "relationships": {
+      "parentDestinationId": "tokyo-hachioji"
+    },
+    "collections": [
+      {
+        "collectionId": "japan-top-castles",
+        "name": "Japan's Top Castles"
+      }
+    ]
+  },
+  {
+    "id": "nikko-toshogu-shrine-tochigi",
+    "name": "Shrines and Temples of Nikko (Toshogu & UNESCO Heritage)",
+    "kind": "shrine",
+    "role": "poi",
+    "importance": "major",
+    "prefecture": "Tochigi",
+    "region": "Kanto",
+    "categories": [
+      "UNESCO World Heritage Japan",
+      "National Treasures of Japan",
+      "Shrines",
+      "History"
+    ],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Nikko_Toshogu_Yomeimon_Gate_2022.jpg/3840px-Nikko_Toshogu_Yomeimon_Gate_2022.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Nikko_Toshogu_Yomeimon_Gate_2022.jpg/3840px-Nikko_Toshogu_Yomeimon_Gate_2022.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Nikko_Toshogu_Yomeimon_Gate_2022.jpg/3840px-Nikko_Toshogu_Yomeimon_Gate_2022.jpg"
+    ],
+    "description": "UNESCO World Heritage complex housing the lavishly gilded Yomeimon Gate, Tokugawa Ieyasu's mausoleum, and three wise monkeys wood carving.",
+    "highlights": [
+      "Yomeimon Gate",
+      "Three Wise Monkeys",
+      "Sleeping Cat (Nemuri-neko)"
+    ],
+    "totalTripHours": 3,
+    "budgetMin": 1300,
+    "budgetRecommended": 3000,
+    "budgetMax": 5000,
+    "walkingMin": 120,
+    "indoorPercent": 20,
+    "ratings": {
+      "overall": 9.8,
+      "couple": 9.5,
+      "summer": 9.2,
+      "winter": 9,
+      "rain": 8.8,
+      "food": 9,
+      "photography": 9.9,
+      "relaxation": 9.2,
+      "value": 9.6,
+      "uniqueness": 9.9
+    },
+    "crowd": {
+      "weekday": 6,
+      "weekend": 9,
+      "holiday": 10
+    },
+    "season": {
+      "spring": 9.5,
+      "summer": 8.8,
+      "autumn": 9.9,
+      "winter": 8.8
+    },
+    "bestMonths": [3, 4, 5, 10, 11],
+    "bestSeason": "Autumn / Spring",
+    "weatherDependence": "medium",
+    "tags": [
+      "UNESCO World Heritage",
+      "Nikko Toshogu",
+      "Tokugawa Ieyasu",
+      "National Treasure"
+    ],
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "high"
+    },
+    "relationships": {
+      "parentDestinationId": "nikko-city"
+    },
+    "collections": []
+  },
+  {
+    "id": "matsumoto-castle-nagano",
+    "name": "Matsumoto Castle (Crow Castle)",
+    "kind": "castle",
+    "role": "poi",
+    "importance": "major",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": ["Castle", "National Treasure", "History"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Matsumoto_Castle_Keep_Tower.jpg/1280px-Matsumoto_Castle_Keep_Tower.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Matsumoto_Castle_Keep_Tower.jpg/1280px-Matsumoto_Castle_Keep_Tower.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Matsumoto_Castle_Keep_Tower.jpg/1280px-Matsumoto_Castle_Keep_Tower.jpg"
+    ],
+    "description": "Matsumoto Castle (Crow Castle) is one of Japan's 12 original surviving castle keeps.",
+    "highlights": ["Original Keep", "Historic Architecture", "Panoramic Views"],
+    "totalTripHours": 3,
+    "budgetMin": 600,
+    "budgetRecommended": 1500,
+    "budgetMax": 3000,
+    "walkingMin": 120,
+    "indoorPercent": 40,
+    "ratings": {
+      "overall": 9.6,
+      "couple": 9.3,
+      "summer": 9,
+      "winter": 9.1,
+      "rain": 8.8,
+      "food": 9,
+      "photography": 9.7,
+      "relaxation": 9.1,
+      "value": 9.5,
+      "uniqueness": 9.8
+    },
+    "crowd": {
+      "weekday": 5,
+      "weekend": 8,
+      "holiday": 9
+    },
+    "season": {
+      "spring": 9.8,
+      "summer": 8.5,
+      "autumn": 9.6,
+      "winter": 8.8
+    },
+    "bestMonths": [3, 4, 5, 10, 11],
+    "bestSeason": "Spring / Autumn",
+    "weatherDependence": "medium",
+    "tags": ["12 Original Keeps", "Japan's Top Castles", "National Treasure"],
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "original-12-castles",
+        "name": "Original 12 Surviving Castles"
+      },
+      {
+        "collectionId": "japan-top-castles",
+        "name": "Japan's Top Castles"
+      }
+    ]
+  },
+  {
+    "id": "inuyama-castle-aichi",
+    "name": "Inuyama Castle (National Treasure Keep)",
+    "kind": "castle",
+    "role": "poi",
+    "importance": "major",
+    "prefecture": "Aichi",
+    "region": "Chubu",
+    "categories": ["Castle", "National Treasure", "History"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG"
+    ],
+    "description": "Inuyama Castle (National Treasure Keep) is one of Japan's 12 original surviving castle keeps.",
+    "highlights": ["Original Keep", "Historic Architecture", "Panoramic Views"],
+    "totalTripHours": 3,
+    "budgetMin": 600,
+    "budgetRecommended": 1500,
+    "budgetMax": 3000,
+    "walkingMin": 120,
+    "indoorPercent": 40,
+    "ratings": {
+      "overall": 9.6,
+      "couple": 9.3,
+      "summer": 9,
+      "winter": 9.1,
+      "rain": 8.8,
+      "food": 9,
+      "photography": 9.7,
+      "relaxation": 9.1,
+      "value": 9.5,
+      "uniqueness": 9.8
+    },
+    "crowd": {
+      "weekday": 5,
+      "weekend": 8,
+      "holiday": 9
+    },
+    "season": {
+      "spring": 9.8,
+      "summer": 8.5,
+      "autumn": 9.6,
+      "winter": 8.8
+    },
+    "bestMonths": [3, 4, 5, 10, 11],
+    "bestSeason": "Spring / Autumn",
+    "weatherDependence": "medium",
+    "tags": ["12 Original Keeps", "Japan's Top Castles", "National Treasure"],
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "original-12-castles",
+        "name": "Original 12 Surviving Castles"
+      },
+      {
+        "collectionId": "japan-top-castles",
+        "name": "Japan's Top Castles"
+      }
+    ]
   }
 ]

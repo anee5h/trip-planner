@@ -7,7 +7,7 @@
   "aliases": ["Kyoto", "京都", "京都市"],
   "prefecture": "Kyoto",
   "region": "Kansai",
-  "categories": ["Cultural Capital", "Historic Hub", "UNESCO", "Temples"],
+  "categories": ["Cultural Capital", "Historic Hub", "Temples"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Kyoto%2C_Japan_%2849667780482%29.jpg/3840px-Kyoto%2C_Japan_%2849667780482%29.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Kyoto%2C_Japan_%2849667780482%29.jpg/3840px-Kyoto%2C_Japan_%2849667780482%29.jpg",
   "gallery": [
@@ -54,7 +54,7 @@
   "bestMonths": [3, 4, 5, 10, 11, 12],
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "low",
-  "tags": ["Imperial Capital", "Kyoto City", "UNESCO World Heritage"],
+  "tags": ["Imperial Capital", "Kyoto City"],
   "coordinates": {
     "lat": 35.0116,
     "lng": 135.7681
@@ -66,7 +66,8 @@
   },
   "transportOptions": {
     "train": 230,
-    "bus": 230
+    "bus": 230,
+    "shinkansen": 130
   },
   "reservation": "None required",
   "parking": "Limited city center parking",
@@ -86,5 +87,11 @@
     ],
     "nearbyDestinationIds": ["osaka-city", "uji-city", "miyazu-city"],
     "relatedDestinationIds": ["kanazawa-city", "nara-city"]
+  },
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 1500,
+    "food": 6825,
+    "cafe": 3675
   }
 }

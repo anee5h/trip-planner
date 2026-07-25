@@ -178,9 +178,29 @@ export function getAdjustedBudget(
   return otherCosts + transportCost;
 }
 
+export function getEffectiveBudgetBreakdown(dest: Destination): {
+  transport: number;
+  tickets: number;
+  food: number;
+  cafe: number;
+} {
+  if (dest.budgetBreakdown) {
+    return dest.budgetBreakdown;
+  }
+  const totalRec = dest.budgetRecommended || dest.budgetMin || 12000;
+  const transport = 3000;
+  const tickets = dest.role === "hub" ? 1500 : 2000;
+  const remaining = Math.max(2000, totalRec - transport - tickets);
+  const food = Math.round(remaining * 0.65);
+  const cafe = Math.round(remaining * 0.35);
+
+  return { transport, tickets, food, cafe };
+}
+
 // Class wrapper kept for DestinationDetails.tsx which calls budgetService.getTransportCost()
 // TODO: remove once DestinationDetails is updated to named imports
 export const budgetService = {
   getTransportCost,
   getAdjustedBudget,
+  getEffectiveBudgetBreakdown,
 };

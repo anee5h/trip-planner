@@ -1,0 +1,64 @@
+{
+  "id": "inuyama-castle-aichi",
+  "name": "Inuyama Castle (National Treasure Keep)",
+  "kind": "castle",
+  "role": "poi",
+  "importance": "major",
+  "prefecture": "Aichi",
+  "region": "Chubu",
+  "categories": ["Castle", "National Treasure", "History"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG",
+  "gallery": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG"
+  ],
+  "description": "Inuyama Castle (National Treasure Keep) is one of Japan's 12 original surviving castle keeps.",
+  "highlights": ["Original Keep", "Historic Architecture", "Panoramic Views"],
+  "totalTripHours": 3,
+  "budgetMin": 600,
+  "budgetRecommended": 1500,
+  "budgetMax": 3000,
+  "walkingMin": 120,
+  "indoorPercent": 40,
+  "ratings": {
+    "overall": 9.6,
+    "couple": 9.3,
+    "summer": 9,
+    "winter": 9.1,
+    "rain": 8.8,
+    "food": 9,
+    "photography": 9.7,
+    "relaxation": 9.1,
+    "value": 9.5,
+    "uniqueness": 9.8
+  },
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9.8,
+    "summer": 8.5,
+    "autumn": 9.6,
+    "winter": 8.8
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Spring / Autumn",
+  "weatherDependence": "medium",
+  "tags": ["12 Original Keeps", "Japan's Top Castles", "National Treasure"],
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "original-12-castles",
+      "name": "Original 12 Surviving Castles"
+    },
+    {
+      "collectionId": "japan-top-castles",
+      "name": "Japan's Top Castles"
+    }
+  ]
+}

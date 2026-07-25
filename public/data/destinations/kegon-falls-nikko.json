@@ -83,5 +83,11 @@
   "image": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
   "gallery": [
     "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200"
-  ]
+  ],
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 2000,
+    "food": 1300,
+    "cafe": 700
+  }
 }

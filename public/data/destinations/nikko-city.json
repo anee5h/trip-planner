@@ -59,7 +59,8 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 200
+    "train": 200,
+    "shinkansen": 110
   },
   "reservation": "None required",
   "parking": "Public parking available",
@@ -70,15 +71,13 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [
-    {
-      "collectionId": "unesco-japan",
-      "sortOrder": 6,
-      "confirmed": true
-    }
-  ],
+  "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["kegon-falls-nikko", "nikko-heritage"],
+    "featuredDestinationIds": [
+      "nikko-toshogu-shrine-tochigi",
+      "kegon-falls-nikko",
+      "nikko-heritage"
+    ],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },
   "itineraries": [
@@ -134,5 +133,11 @@
         }
       ]
     }
-  ]
+  ],
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 1500,
+    "food": 4875,
+    "cafe": 2625
+  }
 }

@@ -59,7 +59,8 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 200
+    "train": 200,
+    "shinkansen": 300
   },
   "reservation": "None required",
   "parking": "Public parking available",
@@ -74,5 +75,11 @@
   "relationships": {
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["kitakyushu-city", "dazaifu-city", "nagasaki-city"]
+  },
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 1500,
+    "food": 4875,
+    "cafe": 2625
   }
 }

@@ -884,60 +884,63 @@ export default function DestinationDetails() {
                         </div>
                       )}
 
-                      {destination.budgetBreakdown && (
-                        <div className="space-y-2 mt-auto">
-                          <div className="flex justify-between text-sm border-b border-slate-100 dark:border-slate-800 pb-1.5 mt-1.5 first:mt-0">
-                            <span className="text-slate-500">
-                              {
-                                (
-                                  {
-                                    train: "🚆 Local Train",
-                                    shinkansen: "🚄 Shinkansen",
-                                    car: "🚗 Rental Car & Tolls",
-                                    my_car: "🚗 My Car (Gas & Tolls)",
-                                    bus: "🚌 Highway Bus",
-                                  } as Record<string, string>
-                                )[selectedTransport]
-                              }
-                            </span>
-                            <span className="font-semibold text-slate-700 dark:text-slate-300">
-                              ¥
-                              {budgetService
-                                .getTransportCost(
-                                  destination,
-                                  selectedTransport,
-                                  partySize,
-                                )
-                                .toLocaleString()}
-                            </span>
-                          </div>
+                      {(() => {
+                        const breakdown =
+                          budgetService.getEffectiveBudgetBreakdown(
+                            destination,
+                          );
+                        return (
+                          <div className="space-y-2 mt-auto">
+                            <div className="flex justify-between text-sm border-b border-slate-100 dark:border-slate-800 pb-1.5 mt-1.5 first:mt-0">
+                              <span className="text-slate-500">
+                                {
+                                  (
+                                    {
+                                      train: "🚆 Local Train",
+                                      shinkansen: "🚄 Shinkansen",
+                                      car: "🚗 Rental Car & Tolls",
+                                      my_car: "🚗 My Car (Gas & Tolls)",
+                                      bus: "🚌 Highway Bus",
+                                    } as Record<string, string>
+                                  )[selectedTransport]
+                                }
+                              </span>
+                              <span className="font-semibold text-slate-700 dark:text-slate-300">
+                                ¥
+                                {budgetService
+                                  .getTransportCost(
+                                    destination,
+                                    selectedTransport,
+                                    partySize,
+                                  )
+                                  .toLocaleString()}
+                              </span>
+                            </div>
 
-                          <div className="flex justify-between text-sm border-b border-slate-100 dark:border-slate-800 pb-1.5 mt-1.5">
-                            <span className="text-slate-500">🎟 Tickets</span>
-                            <span className="font-semibold text-slate-700 dark:text-slate-300">
-                              ¥
-                              {Math.round(
-                                (destination.budgetBreakdown.tickets / 2) *
-                                  partySize,
-                              ).toLocaleString()}
-                            </span>
+                            <div className="flex justify-between text-sm border-b border-slate-100 dark:border-slate-800 pb-1.5 mt-1.5">
+                              <span className="text-slate-500">🎟 Tickets</span>
+                              <span className="font-semibold text-slate-700 dark:text-slate-300">
+                                ¥
+                                {Math.round(
+                                  (breakdown.tickets / 2) * partySize,
+                                ).toLocaleString()}
+                              </span>
+                            </div>
+                            <div className="flex justify-between text-sm mt-1.5">
+                              <span className="text-slate-500">
+                                🍜 Food & Cafe
+                              </span>
+                              <span className="font-semibold text-slate-700 dark:text-slate-300">
+                                ¥
+                                {Math.round(
+                                  ((breakdown.food + breakdown.cafe) / 2) *
+                                    partySize,
+                                ).toLocaleString()}
+                              </span>
+                            </div>
                           </div>
-                          <div className="flex justify-between text-sm mt-1.5">
-                            <span className="text-slate-500">
-                              🍜 Food & Cafe
-                            </span>
-                            <span className="font-semibold text-slate-700 dark:text-slate-300">
-                              ¥
-                              {Math.round(
-                                ((destination.budgetBreakdown.food +
-                                  destination.budgetBreakdown.cafe) /
-                                  2) *
-                                  partySize,
-                              ).toLocaleString()}
-                            </span>
-                          </div>
-                        </div>
-                      )}
+                        );
+                      })()}
                     </CardContent>
                   </Card>
 

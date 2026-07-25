@@ -232,7 +232,7 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
                   }`}
                 >
                   <TrainFront className="w-5 h-5" />
-                  <span className="text-xs font-medium">Bullet</span>
+                  <span className="text-xs font-medium">Shinkansen</span>
                 </button>
                 <button
                   type="button"

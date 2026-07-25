@@ -76,5 +76,11 @@
   "relationships": {
     "parentDestinationId": "kyoto-city"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Amanohashidate_aerial_view_2026.jpg/3840px-Amanohashidate_aerial_view_2026.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Amanohashidate_aerial_view_2026.jpg/3840px-Amanohashidate_aerial_view_2026.jpg",
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 2000,
+    "food": 1625,
+    "cafe": 875
+  }
 }

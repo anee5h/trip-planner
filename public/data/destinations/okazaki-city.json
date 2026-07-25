@@ -79,5 +79,11 @@
       "mirai-tower-nagoya"
     ],
     "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]
+  },
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 1500,
+    "food": 4875,
+    "cafe": 2625
   }
 }

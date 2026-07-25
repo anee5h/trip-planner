@@ -86,5 +86,11 @@
   "relationships": {
     "parentDestinationId": "kyoto-city"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Kiyomizu.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Kiyomizu.jpg",
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 2000,
+    "food": 2600,
+    "cafe": 1400
+  }
 }
