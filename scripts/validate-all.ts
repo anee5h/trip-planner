@@ -22,8 +22,12 @@ async function runAll() {
 
   for (const validator of validators) {
     console.log(`▶ Running [${validator.name}]...`);
+    const startTime = performance.now();
     try {
       const res = await validator.validate(context);
+      const durationMs = Math.round(performance.now() - startTime);
+      res.metrics.durationMs = durationMs;
+
       results.push(res);
 
       totalErrors += res.metrics.errorsCount;
@@ -32,7 +36,7 @@ async function runAll() {
 
       const statusSymbol = res.passed ? "✅ PASSED" : "❌ FAILED";
       console.log(
-        `  └─ ${statusSymbol} | Checked: ${res.metrics.totalChecked} | Errors: ${res.metrics.errorsCount} | Warnings: ${res.metrics.warningsCount}\n`,
+        `  └─ ${statusSymbol} | Checked: ${res.metrics.totalChecked} | Errors: ${res.metrics.errorsCount} | Warnings: ${res.metrics.warningsCount} | Time: ${durationMs}ms\n`,
       );
 
       if (res.issues.length > 0) {
@@ -96,12 +100,12 @@ async function runAll() {
   mdReport += `- **Git Commit**: \`${gitCommit}\`\n`;
   mdReport += `- **QA Framework Version**: \`v${QA_FRAMEWORK_VERSION}\`\n\n`;
   mdReport += `## Executive Summary\n\n`;
-  mdReport += `| Validator | Status | Total Checked | Errors | Warnings | Info |\n`;
-  mdReport += `| :--- | :---: | :---: | :---: | :---: | :---: |\n`;
+  mdReport += `| Validator | Status | Duration (ms) | Total Checked | Errors | Warnings | Info |\n`;
+  mdReport += `| :--- | :---: | :---: | :---: | :---: | :---: | :---: |\n`;
 
   for (const r of results) {
     const icon = r.passed ? "✅ PASSED" : "❌ FAILED";
-    mdReport += `| ${r.name} | ${icon} | ${r.metrics.totalChecked} | ${r.metrics.errorsCount} | ${r.metrics.warningsCount} | ${r.metrics.infoCount} |\n`;
+    mdReport += `| ${r.name} | ${icon} | ${r.metrics.durationMs}ms | ${r.metrics.totalChecked} | ${r.metrics.errorsCount} | ${r.metrics.warningsCount} | ${r.metrics.infoCount} |\n`;
   }
 
   mdReport += `\n---\n\n## Issues Breakdown\n\n`;

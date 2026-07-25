@@ -21,6 +21,7 @@ export interface ValidationResult {
     errorsCount: number;
     warningsCount: number;
     infoCount: number;
+    durationMs: number;
   };
 }
 

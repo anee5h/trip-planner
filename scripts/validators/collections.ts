@@ -119,6 +119,7 @@ export const collectionsValidator: ValidatorModule = {
         errorsCount,
         warningsCount,
         infoCount,
+        durationMs: 0,
       },
     };
   },

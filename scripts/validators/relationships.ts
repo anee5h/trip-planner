@@ -154,6 +154,7 @@ export const relationshipsValidator: ValidatorModule = {
         errorsCount,
         warningsCount,
         infoCount,
+        durationMs: 0,
       },
     };
   },

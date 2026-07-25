@@ -83,6 +83,7 @@ export const linksValidator: ValidatorModule = {
         errorsCount,
         warningsCount,
         infoCount,
+        durationMs: 0,
       },
     };
   },

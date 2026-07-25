@@ -182,6 +182,7 @@ export const imagesValidator: ValidatorModule = {
         errorsCount,
         warningsCount,
         infoCount,
+        durationMs: 0,
       },
     };
   },

@@ -177,6 +177,7 @@ export const destinationsValidator: ValidatorModule = {
         errorsCount,
         warningsCount,
         infoCount,
+        durationMs: 0,
       },
     };
   },
