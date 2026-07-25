@@ -4,8 +4,8 @@
   "prefecture": "Shiga",
   "region": "Chubu",
   "categories": ["Castle", "History", "National Treasure", "Landmark"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Hikone_Castle_November_2016_-02.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Hikone_Castle_November_2016_-02.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
   "totalTripHours": 4,
   "budgetMin": 3500,
   "budgetRecommended": 7750,
@@ -69,9 +69,7 @@
   ],
   "description": "Completed in 1622, Hikone Castle is one of Japan's five original surviving National Treasure keeps, overlooking Lake Biwa with pristine feudal turrets and Genkyuen garden.",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/9/9f/Hikone_Castle_November_2016_-02.jpg",
-    "https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?q=80&w=600",
-    "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600"
+    "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200"
   ],
   "budgetBreakdown": {
     "transport": 1800,

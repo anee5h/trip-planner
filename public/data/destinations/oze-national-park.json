@@ -22,7 +22,7 @@
     "lat": 36.9333,
     "lng": 139.2333
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Mt.Shibutsu_16.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200",
   "prefecture": "Gunma",
   "budgetMin": 3400,
   "budgetMax": 11400,
@@ -59,9 +59,7 @@
   "description": "Oze National Park , is an area consisting of open greenland in Fukushima, Tochigi, Gunma and Niigata Prefectures in Japan. The park is 372 km2 in area and is the 29th national park in Japan.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/e/ef/Mt.Shibutsu_16.jpg",
-    "https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600",
-    "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600"
+    "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200"
   ],
   "budgetBreakdown": {
     "transport": 3200,
@@ -109,7 +107,7 @@
   ],
   "notes": "A fantastic trip to Oze National Park. Known for its hiking and marshlands vibes, it offers a great escape with an overall score of 8.8.",
   "schemaVersion": 2,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Mt.Shibutsu_16.jpg",
+  "image": "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",

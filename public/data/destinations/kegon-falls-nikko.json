@@ -53,7 +53,7 @@
     "mid": 5000,
     "high": 10000
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Lake_chuzenji_and_kegon_waterfall.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
   "galleryImages": [
     "https://upload.wikimedia.org/wikipedia/commons/8/8a/Lake_chuzenji_and_kegon_waterfall.jpg"
   ],
@@ -80,5 +80,8 @@
   "relationships": {
     "parentDestinationId": "nikko-city"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Lake_chuzenji_and_kegon_waterfall.jpg"
+  "image": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
+  "gallery": [
+    "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200"
+  ]
 }

@@ -7,10 +7,10 @@
   "prefecture": "Saitama",
   "region": "Kanto",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Central_Chichibu_view_from_Hitsujiyama_Park.JPG",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Central_Chichibu_view_from_Hitsujiyama_Park.JPG",
+  "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
   "gallery": [
-    "https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&q=80&w=1200"
+    "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200"
   ],
   "description": "Mountain valley city famous for Hitsujiyama Park pink moss phlox, Chichibu Shrine, and steam train locomotives.",
   "highlights": ["Explore Chichibu City", "Local Culture & Cuisine"],

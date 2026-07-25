@@ -7,10 +7,10 @@
   "prefecture": "Kyoto",
   "region": "Kansai",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200",
   "gallery": [
-    "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200"
+    "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200"
   ],
   "description": "Historic green tea capital south of Kyoto, featuring UNESCO World Heritage Byodoin Temple (10-yen coin temple).",
   "highlights": ["Explore Uji City", "Local Culture & Cuisine"],

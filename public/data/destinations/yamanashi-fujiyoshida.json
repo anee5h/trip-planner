@@ -4,11 +4,9 @@
   "prefecture": "Yamanashi",
   "region": "Chubu",
   "categories": ["History", "Nature", "Theme Park"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Fujiyoshida_montage.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/6/6e/Fujiyoshida_montage.jpg",
-    "https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600",
-    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600"
+    "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200"
   ],
   "description": "Lying at Mt. Fuji's base, Fujiyoshida boasts the iconic Chureito Pagoda views, Fuji-Q Highland amusement rides, and historic shrines.",
   "highlights": [
@@ -105,7 +103,7 @@
       ]
     }
   ],
-  "image": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Fujiyoshida_montage.jpg",
+  "image": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",

@@ -4,11 +4,9 @@
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Nature", "Hiking", "Lake"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/fd/%E5%A5%A5%E5%A4%9A%E6%91%A9%E7%94%BA%E5%BD%B9%E5%A0%B42.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/f/fd/%E5%A5%A5%E5%A4%9A%E6%91%A9%E7%94%BA%E5%BD%B9%E5%A0%B42.jpg",
-    "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600",
-    "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600"
+    "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200"
   ],
   "description": "A scenic mountainous escape in western Tokyo, offering dense forests, Nippara Limestone Caves, and peaceful lake views.",
   "highlights": [
@@ -105,7 +103,7 @@
       ]
     }
   ],
-  "image": "https://upload.wikimedia.org/wikipedia/commons/f/fd/%E5%A5%A5%E5%A4%9A%E6%91%A9%E7%94%BA%E5%BD%B9%E5%A0%B42.jpg",
+  "image": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",

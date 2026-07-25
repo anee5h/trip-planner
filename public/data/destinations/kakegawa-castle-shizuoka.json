@@ -4,8 +4,8 @@
   "prefecture": "Shizuoka",
   "region": "Chubu",
   "categories": ["Castle", "History", "National Treasure", "Landmark"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/44/Kakegawacastleapril2006.JPG",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/4/44/Kakegawacastleapril2006.JPG",
+  "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
   "totalTripHours": 3,
   "budgetMin": 3000,
   "budgetRecommended": 6250,
@@ -67,9 +67,7 @@
   ],
   "description": "Rebuilt in 1994 using traditional Japanese carpentry techniques, Kakegawa Castle is Japan's first authentically reconstructed wooden keep, featuring the original 1855 Ninomaru Goten palace.",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/4/44/Kakegawacastleapril2006.JPG",
-    "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
-    "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600"
+    "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200"
   ],
   "budgetBreakdown": {
     "transport": 1200,

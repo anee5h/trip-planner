@@ -22,7 +22,7 @@
     "lat": 35.2,
     "lng": 139.14
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Odawara-jo.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200",
   "prefecture": "Kanagawa",
   "budgetMin": 5000,
   "budgetMax": 13000,
@@ -57,9 +57,7 @@
   "description": "Discover Odawara & Manazuru, a prominent destination in Kanagawa. With its rich mix of historic, seafood, relaxing, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/b/b0/Odawara-jo.jpg",
-    "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600",
-    "https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?q=80&w=600"
+    "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200"
   ],
   "budgetBreakdown": {
     "transport": 3200,
@@ -103,7 +101,7 @@
   "cafes": ["Café de Odawara", "Riverside Roasters", "Station Matcha & Sweets"],
   "notes": "A fantastic trip to Odawara & Manazuru. Known for its historic and seafood vibes, it offers a great escape with an overall score of 8.2.",
   "schemaVersion": 2,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Odawara-jo.jpg",
+  "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",

@@ -7,10 +7,10 @@
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Travel Hub", "Special Ward"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Sakura_at_Wadabori_Koen_Park_In_Suginami%2C_Tokyo_Japan.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Sakura_at_Wadabori_Koen_Park_In_Suginami%2C_Tokyo_Japan.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/a/ab/Sakura_at_Wadabori_Koen_Park_In_Suginami%2C_Tokyo_Japan.jpg"
+    "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200"
   ],
   "description": "Artistic neighborhood boasting Koenji vintage stores, indie live houses, and anime production studios.",
   "highlights": ["Explore Suginami City", "Local Culture & Cuisine"],

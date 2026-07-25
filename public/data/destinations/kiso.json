@@ -22,7 +22,7 @@
     "lat": 35.7933,
     "lng": 137.6531
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/88/Kiso_Valley_from_Doppyo.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200",
   "prefecture": "Nagano",
   "budgetMin": 7000,
   "budgetMax": 15000,
@@ -59,9 +59,7 @@
   "description": "Discover Kiso Valley, a prominent destination in Shizuoka. With its rich mix of nakasendo, post towns, tsumago, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/8/88/Kiso_Valley_from_Doppyo.jpg",
-    "https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?q=80&w=600",
-    "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600"
+    "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200"
   ],
   "budgetBreakdown": {
     "transport": 4000,
@@ -109,7 +107,7 @@
   ],
   "notes": "A fantastic trip to Kiso Valley. Known for its nakasendo and post towns vibes, it offers a great escape with an overall score of 9.1.",
   "schemaVersion": 2,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/Kiso_Valley_from_Doppyo.jpg",
+  "image": "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",

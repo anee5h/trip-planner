@@ -7,10 +7,10 @@
   "prefecture": "Gifu",
   "region": "Chubu",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Takayama%27s_Early_Winter_Welcome_%28NE%29.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Takayama%27s_Early_Winter_Welcome_%28NE%29.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/f/f8/Takayama%27s_Early_Winter_Welcome_%28NE%29.jpg"
+    "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200"
   ],
   "description": "Preserved Edo-period mountain city featuring Sanmachi Suji wooden merchant streets and Hida beef cuisine.",
   "highlights": ["Explore Takayama City", "Local Culture & Cuisine"],

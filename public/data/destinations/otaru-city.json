@@ -7,10 +7,10 @@
   "prefecture": "Hokkaido",
   "region": "Hokkaido",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/08/Otaru_Montage.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/0/08/Otaru_Montage.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/0/08/Otaru_Montage.jpg"
+    "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200"
   ],
   "description": "Nostalgic canal port town near Sapporo, famous for stone warehouses, glasscraft shops, and fresh seafood sushi.",
   "highlights": ["Explore Otaru City", "Local Culture & Cuisine"],

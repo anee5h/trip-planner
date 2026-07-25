@@ -4,8 +4,8 @@
   "prefecture": "Ishikawa",
   "region": "Chubu",
   "categories": ["Castle", "History", "Landmark", "Park"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/88/Kanazawa-M-5937.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/Kanazawa-M-5937.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200",
   "totalTripHours": 4,
   "budgetMin": 3000,
   "budgetRecommended": 7000,
@@ -67,9 +67,7 @@
   ],
   "description": "The magnificent seat of the powerful Maeda clan (Kaga Domain), featuring meticulously reconstructed wooden turrets, white lead tile roofs, and Gyokusen'inmaru feudal garden adjacent to Kenrokuen.",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/8/88/Kanazawa-M-5937.jpg",
-    "https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?q=80&w=600",
-    "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600"
+    "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200"
   ],
   "budgetBreakdown": {
     "transport": 1800,

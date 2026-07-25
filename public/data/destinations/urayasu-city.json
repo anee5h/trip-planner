@@ -7,10 +7,10 @@
   "prefecture": "Chiba",
   "region": "Kanto",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Urayasu-city.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Urayasu-city.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/a/a6/Urayasu-city.jpg"
+    "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200"
   ],
   "description": "Bayfront resort city famous worldwide as the home of Tokyo Disney Resort and Ikspiari.",
   "highlights": ["Explore Urayasu City", "Local Culture & Cuisine"],

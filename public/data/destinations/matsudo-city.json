@@ -7,10 +7,10 @@
   "prefecture": "Chiba",
   "region": "Kanto",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/53/Matsudo_montage.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/5/53/Matsudo_montage.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/5/53/Matsudo_montage.jpg"
+    "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200"
   ],
   "description": "Suburban hub featuring Tojo-tei Edo-period villa gardens and Yagiri no Watashi ferry.",
   "highlights": ["Explore Matsudo City", "Local Culture & Cuisine"],

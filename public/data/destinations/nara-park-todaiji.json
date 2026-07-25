@@ -64,7 +64,7 @@
     "mid": 6000,
     "high": 12000
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2f/T%C5%8Ddai-ji_Kon-d%C5%8D.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200",
   "galleryImages": [
     "https://upload.wikimedia.org/wikipedia/commons/2/2f/T%C5%8Ddai-ji_Kon-d%C5%8D.jpg"
   ],
@@ -91,5 +91,8 @@
   "relationships": {
     "parentDestinationId": "nara-city"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/2/2f/T%C5%8Ddai-ji_Kon-d%C5%8D.jpg"
+  "image": "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200",
+  "gallery": [
+    "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200"
+  ]
 }

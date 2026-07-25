@@ -56,7 +56,7 @@
     "mid": 8000,
     "high": 15000
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200",
   "galleryImages": [
     "https://upload.wikimedia.org/wikipedia/commons/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg"
   ],
@@ -84,5 +84,8 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {},
-  "image": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg"
+  "image": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200",
+  "gallery": [
+    "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200"
+  ]
 }

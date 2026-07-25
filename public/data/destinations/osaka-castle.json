@@ -49,7 +49,7 @@
     "mid": 6000,
     "high": 12000
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Osaka_Castle_03bs3200.jpg/800px-Osaka_Castle_03bs3200.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
   "galleryImages": [
     "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Osaka_Castle_03bs3200.jpg/800px-Osaka_Castle_03bs3200.jpg"
   ],
@@ -76,5 +76,8 @@
   "relationships": {
     "parentDestinationId": "osaka-city"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Osaka_Castle_03bs3200.jpg/800px-Osaka_Castle_03bs3200.jpg"
+  "image": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
+  "gallery": [
+    "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200"
+  ]
 }

@@ -4,8 +4,8 @@
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Observation Deck", "Landmark", "Family", "Park"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Sunshine_60.JPG",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Sunshine_60.JPG",
+  "heroImage": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
   "totalTripHours": 3,
   "budgetMin": 2500,
   "budgetRecommended": 5750,
@@ -61,9 +61,7 @@
   ],
   "description": "Located on the 60th floor of Sunshine 60 (251m height) in Ikebukuro, featuring an indoor sky park with real turf lawns, picnic mats, and panoramic vistas.",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/2/2f/Sunshine_60.JPG",
-    "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
-    "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600"
+    "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200"
   ],
   "budgetBreakdown": {
     "transport": 400,

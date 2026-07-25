@@ -4,8 +4,8 @@
   "prefecture": "Ibaraki",
   "region": "Kanto",
   "categories": ["Tower", "Landmark", "Observation Deck", "Coastal"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Oarai_Town_Hall.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Oarai_Town_Hall.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
   "totalTripHours": 3,
   "budgetMin": 2000,
   "budgetRecommended": 5000,
@@ -62,9 +62,7 @@
   ],
   "description": "Standing 60 meters tall on the Ibaraki coastline, this distinctive triangular glass observation tower overlooks Oarai Port and the vast Pacific Ocean.",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/4/4c/Oarai_Town_Hall.jpg",
-    "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600",
-    "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600"
+    "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200"
   ],
   "budgetBreakdown": {
     "transport": 1200,

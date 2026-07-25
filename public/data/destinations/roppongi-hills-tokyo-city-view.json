@@ -4,8 +4,8 @@
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Observation Deck", "Landmark", "Art", "Night View"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/47/Views_from_Azabudai_Hills_Mori_JP_Tower_13.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/4/47/Views_from_Azabudai_Hills_Mori_JP_Tower_13.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200",
   "totalTripHours": 3,
   "budgetMin": 3500,
   "budgetRecommended": 8250,
@@ -66,9 +66,7 @@
   ],
   "description": "Located on the 52nd floor and rooftop of Mori Tower (270m height), offering the iconic front-row view of Tokyo Tower framed against the Tokyo Bay skyline.",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/4/47/Views_from_Azabudai_Hills_Mori_JP_Tower_13.jpg",
-    "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
-    "https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?q=80&w=600"
+    "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200"
   ],
   "budgetBreakdown": {
     "transport": 300,

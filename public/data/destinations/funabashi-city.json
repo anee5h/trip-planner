@@ -7,10 +7,10 @@
   "prefecture": "Chiba",
   "region": "Kanto",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Funabashi_montage.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Funabashi_montage.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/d/dc/Funabashi_montage.jpg"
+    "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200"
   ],
   "description": "Commercial hub on Tokyo Bay featuring Andersen Park and vibrant shopping complexes.",
   "highlights": ["Explore Funabashi City", "Local Culture & Cuisine"],

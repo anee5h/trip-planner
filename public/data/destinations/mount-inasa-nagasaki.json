@@ -53,7 +53,7 @@
     "mid": 7000,
     "high": 14000
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/800px-Mt.Inasa_2010.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200",
   "galleryImages": [
     "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/800px-Mt.Inasa_2010.jpg"
   ],
@@ -78,5 +78,8 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {},
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/800px-Mt.Inasa_2010.jpg"
+  "image": "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200",
+  "gallery": [
+    "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200"
+  ]
 }

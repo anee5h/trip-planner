@@ -7,10 +7,10 @@
   "prefecture": "Shimane",
   "region": "Chugoku",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200",
   "gallery": [
-    "https://images.unsplash.com/photo-1576675784201-0e169823bb03?auto=format&fit=crop&q=80&w=1200"
+    "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200"
   ],
   "description": "Sacred realm home to Izumo Taisha, one of Japan's oldest and most important Shinto shrines.",
   "highlights": ["Explore Izumo City", "Local Culture & Cuisine"],

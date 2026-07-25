@@ -7,10 +7,10 @@
   "prefecture": "Chiba",
   "region": "Kanto",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Narita_montage.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Narita_montage.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/a/a7/Narita_montage.jpg"
+    "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200"
   ],
   "description": "Global gateway featuring Narita International Airport and thousand-year-old Naritasan Shinshoji Temple.",
   "highlights": ["Explore Narita City", "Local Culture & Cuisine"],

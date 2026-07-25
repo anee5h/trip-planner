@@ -22,7 +22,7 @@
     "lat": 38.0333,
     "lng": 138.3833
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/89/MapSado.png",
+  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
   "prefecture": "Niigata",
   "budgetMin": 12000,
   "budgetMax": 20000,
@@ -60,9 +60,7 @@
   "description": "Sado Island is an island located in the eastern part of the Sea of Japan, under the jurisdiction of Sado City, Niigata Prefecture, Japan, with a coastline of 262.7 kilometres (163.2 mi). In October 2017, Sado Island had a population of 55,212 people. Sado Island covers an area of 854.76 km2 (330.02 sq mi), and is the sixth largest island in Japan, excluding the disputed Southern Kurils. The shortest distance between Sado Island and Honshu is 32 km (20 mi). The highest peak on Sado Island is Mount Kinpoku, with an elevation of 1,172 m (3,845 ft).",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/8/89/MapSado.png",
-    "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600",
-    "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600"
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
   ],
   "budgetBreakdown": {
     "transport": 6000,
@@ -110,7 +108,7 @@
   ],
   "notes": "A fantastic trip to Sado Island. Known for its gold mine and tub boats vibes, it offers a great escape with an overall score of 8.4.",
   "schemaVersion": 2,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/MapSado.png",
+  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",

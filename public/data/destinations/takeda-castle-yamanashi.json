@@ -4,8 +4,8 @@
   "prefecture": "Yamanashi",
   "region": "Chubu",
   "categories": ["Castle", "History", "Shrine", "Landmark"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/5c/KofuTakedaJinja3.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/5/5c/KofuTakedaJinja3.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
   "totalTripHours": 3,
   "budgetMin": 2500,
   "budgetRecommended": 5750,
@@ -62,9 +62,7 @@
   ],
   "description": "The fortified residence of legendary Sengoku warlord Takeda Shingen, featuring original earthwork ramparts, triple moats, and Takeda Shrine.",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/5/5c/KofuTakedaJinja3.jpg",
-    "https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?q=80&w=600",
-    "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600"
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
   ],
   "budgetBreakdown": {
     "transport": 1500,

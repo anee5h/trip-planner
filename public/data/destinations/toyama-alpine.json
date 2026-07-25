@@ -22,7 +22,7 @@
     "lat": 36.5667,
     "lng": 137.6
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Murodoh.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
   "prefecture": "Toyama",
   "budgetMin": 20000,
   "budgetMax": 28000,
@@ -59,9 +59,7 @@
   "description": "Discover Tateyama Kurobe Alpine Route, a prominent destination in Shizuoka. With its rich mix of snow wall, dam, scenic, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/c/cb/Murodoh.jpg",
-    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600",
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600"
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
   ],
   "budgetBreakdown": {
     "transport": 10000,
@@ -109,7 +107,7 @@
   ],
   "notes": "A fantastic trip to Tateyama Kurobe Alpine Route. Known for its snow wall and dam vibes, it offers a great escape with an overall score of 9.3.",
   "schemaVersion": 2,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Murodoh.jpg",
+  "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",

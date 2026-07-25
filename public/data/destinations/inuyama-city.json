@@ -7,10 +7,10 @@
   "prefecture": "Aichi",
   "region": "Chubu",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Castle_in_Inuyama.JPG",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Castle_in_Inuyama.JPG",
+  "heroImage": "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200",
   "gallery": [
-    "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&q=80&w=1200"
+    "https://images.unsplash.com/photo-1565099824688-e93eb20fe622?auto=format&fit=crop&q=80&w=1200"
   ],
   "description": "Historic castle town featuring National Treasure Inuyama Castle overlooking the Kiso River.",
   "highlights": ["Explore Inuyama City", "Local Culture & Cuisine"],

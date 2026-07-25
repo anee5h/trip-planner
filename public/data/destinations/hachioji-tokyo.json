@@ -4,11 +4,9 @@
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Nature", "Hiking", "Culture"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Hachioji_Castle_Gosyuden_entrance.JPG",
+  "heroImage": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/2/2e/Hachioji_Castle_Gosyuden_entrance.JPG",
-    "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
-    "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=600"
+    "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200"
   ],
   "description": "Historic castle town and mountain gateway at the base of Mt. Takao, offering scenic nature trails and Yakiniku food culture.",
   "highlights": [
@@ -93,7 +91,7 @@
       ]
     }
   ],
-  "image": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Hachioji_Castle_Gosyuden_entrance.JPG",
+  "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",

@@ -7,10 +7,10 @@
   "prefecture": "Aichi",
   "region": "Chubu",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Toyota_City_Skyline_02%2C_Kozaka-hon-machi_Toyota_2019.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Toyota_City_Skyline_02%2C_Kozaka-hon-machi_Toyota_2019.jpg",
+  "heroImage": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200",
   "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/3/3f/Toyota_City_Skyline_02%2C_Kozaka-hon-machi_Toyota_2019.jpg"
+    "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&q=80&w=1200"
   ],
   "description": "Automotive industrial capital featuring Toyota Kaikan Museum and Korankei autumn foliage valley.",
   "highlights": ["Explore Toyota City", "Local Culture & Cuisine"],
