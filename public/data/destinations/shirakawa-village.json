@@ -71,9 +71,19 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true
+    },
+    {
+      "collectionId": "historic-towns-japan",
+      "sortOrder": 7,
+      "confirmed": true
+    }
+  ],
   "relationships": {
-    "featuredDestinationIds": ["gifu-shirakawa-go"],
+    "featuredDestinationIds": [],
     "nearbyDestinationIds": ["nagoya-city", "nagano-city", "inuyama-city"],
     "relatedDestinationIds": ["takayama-city"]
   },
