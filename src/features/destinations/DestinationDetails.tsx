@@ -377,7 +377,7 @@ export default function DestinationDetails() {
           </h1>
 
           {/* 2. Location & Parent Container Badge */}
-          <div className="flex flex-wrap items-center gap-3 text-sm text-slate-200 mb-3">
+          <div className="flex flex-wrap items-center gap-3 text-sm text-slate-200/85 mb-3">
             <div className="flex items-center font-medium">
               <MapPin className="w-4 h-4 mr-1 text-emerald-400" />{" "}
               {destination.prefecture}, Japan
@@ -397,7 +397,7 @@ export default function DestinationDetails() {
 
           {/* 3. Badges & Category Tags Row */}
           <div className="flex flex-wrap items-center gap-2 mb-4">
-            <Badge className="bg-emerald-600 hover:bg-emerald-500 border-none shrink-0">
+            <Badge className="bg-emerald-600 hover:bg-emerald-500 border-none shrink-0 px-2.5 py-0.5 text-xs font-semibold">
               {destination.region}
             </Badge>
             {/* Curated Collection Badges */}
@@ -422,7 +422,7 @@ export default function DestinationDetails() {
                   return (
                     <Badge
                       key={tag}
-                      className="bg-sky-600 hover:bg-sky-700 text-white font-bold border-sky-300 shadow-md shrink-0"
+                      className="bg-sky-600 hover:bg-sky-700 text-white font-bold border-sky-300 shadow-md shrink-0 px-2.5 py-0.5 text-xs"
                     >
                       🗼 World's Tallest Tower
                     </Badge>
@@ -432,7 +432,7 @@ export default function DestinationDetails() {
                   return (
                     <Badge
                       key={tag}
-                      className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold border-emerald-300 shadow-md shrink-0"
+                      className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold border-emerald-300 shadow-md shrink-0 px-2.5 py-0.5 text-xs"
                     >
                       🏙️ Free Observatory
                     </Badge>
@@ -453,7 +453,7 @@ export default function DestinationDetails() {
                 <Badge
                   key={cat}
                   variant="outline"
-                  className="text-white border-white/30 backdrop-blur-md bg-white/10 shrink-0"
+                  className="text-white border-white/20 backdrop-blur-md bg-white/10 shrink-0 px-2.5 py-0.5 text-xs font-medium"
                 >
                   {cat}
                 </Badge>
@@ -461,17 +461,17 @@ export default function DestinationDetails() {
           </div>
 
           {/* Option A Action Controls: Single Primary CTA + Compact Circular Icons Row */}
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2.5">
             {/* Primary CTA: Add to Itinerary */}
             <button
               onClick={handleAddToItinerary}
-              className="inline-flex items-center text-sm font-bold bg-emerald-600 hover:bg-emerald-500 text-white h-11 px-5 rounded-xl transition-all active:scale-95 shadow-lg"
+              className="inline-flex items-center text-sm font-semibold bg-emerald-600 hover:bg-emerald-500 text-white h-10 px-4 rounded-xl transition-all active:scale-95 shadow-md"
             >
-              <Plus className="w-4 h-4 mr-2" />
+              <Plus className="w-4 h-4 mr-1.5" />
               Add to Itinerary
             </button>
 
-            {/* Compact Circular Icon Buttons Row */}
+            {/* Compact Circular Icon Buttons Row (40x40px) */}
             <div className="flex items-center gap-2">
               {/* Want to Visit / Bucket List Toggle */}
               <button
@@ -486,14 +486,14 @@ export default function DestinationDetails() {
                     ? "On Bucket List"
                     : "Want to Visit"
                 }
-                className={`w-11 h-11 rounded-full flex items-center justify-center transition-all active:scale-95 backdrop-blur-md border ${
+                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 backdrop-blur-md border ${
                   isFavorite(destination.id)
                     ? "bg-rose-500 text-white border-rose-400 shadow-md"
                     : "bg-white/15 hover:bg-white/25 text-slate-100 border-white/20"
                 }`}
               >
                 <Heart
-                  className={`w-4.5 h-4.5 ${isFavorite(destination.id) ? "fill-current" : ""}`}
+                  className={`w-4 h-4 ${isFavorite(destination.id) ? "fill-current" : ""}`}
                 />
               </button>
 
@@ -516,13 +516,13 @@ export default function DestinationDetails() {
                     ? `Visited ${getVisitCount(destination.id)} time${getVisitCount(destination.id) === 1 ? "" : "s"}`
                     : "Mark as Visited"
                 }
-                className={`w-11 h-11 rounded-full flex items-center justify-center transition-all active:scale-95 backdrop-blur-md border ${
+                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 backdrop-blur-md border ${
                   isVisited(destination.id)
                     ? "bg-emerald-500 text-white border-emerald-400 shadow-md"
                     : "bg-white/15 hover:bg-white/25 text-slate-100 border-white/20"
                 }`}
               >
-                <CheckCircle2 className="w-4.5 h-4.5" />
+                <CheckCircle2 className="w-4 h-4" />
               </button>
 
               {/* Symbol-Only Get Directions Button */}
@@ -532,9 +532,9 @@ export default function DestinationDetails() {
                 rel="noopener noreferrer"
                 aria-label="Get Directions"
                 title="Get Directions"
-                className="w-11 h-11 rounded-full flex items-center justify-center transition-all active:scale-95 bg-white/15 hover:bg-white/25 text-slate-100 backdrop-blur-md border border-white/20"
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 bg-white/15 hover:bg-white/25 text-slate-100 backdrop-blur-md border border-white/20"
               >
-                <MapPin className="w-4.5 h-4.5 text-emerald-400" />
+                <MapPin className="w-4 h-4 text-emerald-400" />
               </a>
 
               {/* Symbol-Only Share Button */}
@@ -562,9 +562,9 @@ export default function DestinationDetails() {
                 }}
                 aria-label="Share destination"
                 title="Share Destination"
-                className="w-11 h-11 rounded-full flex items-center justify-center transition-all active:scale-95 bg-white/15 hover:bg-white/25 text-slate-100 backdrop-blur-md border border-white/20"
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 bg-white/15 hover:bg-white/25 text-slate-100 backdrop-blur-md border border-white/20"
               >
-                <Share2 className="w-4.5 h-4.5" />
+                <Share2 className="w-4 h-4" />
               </button>
 
               {/* Symbol-Only Copy Link Button */}
@@ -580,9 +580,9 @@ export default function DestinationDetails() {
                 }}
                 aria-label="Copy destination link"
                 title="Copy Link"
-                className="w-11 h-11 rounded-full flex items-center justify-center transition-all active:scale-95 bg-white/15 hover:bg-white/25 text-slate-100 backdrop-blur-md border border-white/20"
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 bg-white/15 hover:bg-white/25 text-slate-100 backdrop-blur-md border border-white/20"
               >
-                <Copy className="w-4.5 h-4.5" />
+                <Copy className="w-4 h-4" />
               </button>
             </div>
           </div>
@@ -593,7 +593,7 @@ export default function DestinationDetails() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content Column */}
           <div className="lg:col-span-2 space-y-8">
-            <section className="bg-white dark:bg-slate-900 rounded-2xl p-6 md:p-8 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <section className="bg-white dark:bg-slate-900 rounded-2xl p-5 md:p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-bold tracking-tight">Overview</h2>
                 {wikiSummary && !destination.description && (
@@ -613,7 +613,7 @@ export default function DestinationDetails() {
               {(destination.description ||
                 wikiSummary?.extract ||
                 destination.notes) && (
-                <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                <p className="text-base text-slate-600 dark:text-slate-300 leading-7 mb-5">
                   {destination.description ||
                     wikiSummary?.extract ||
                     destination.notes}
