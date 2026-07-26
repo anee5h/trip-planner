@@ -168,29 +168,62 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
         }
 
         const childDates = normalizeVisitDates(visitedDates[id]);
-        const parentDates = normalizeVisitDates(updatedDates[parentHubId]);
-        const datesToAdd =
-          childDates.length > 0
-            ? childDates
-            : [new Date().toISOString().split("T")[0]];
+        if (childDates.length > 0) {
+          const parentDates = normalizeVisitDates(updatedDates[parentHubId]);
+          let datesChanged = false;
+          const mergedDates = [...parentDates];
+          for (const d of childDates) {
+            if (!mergedDates.includes(d)) {
+              mergedDates.push(d);
+              datesChanged = true;
+            }
+          }
 
-        let datesChanged = false;
-        const mergedDates = [...parentDates];
-        for (const d of datesToAdd) {
-          if (!mergedDates.includes(d)) {
-            mergedDates.push(d);
-            datesChanged = true;
+          if (datesChanged) {
+            updatedDates[parentHubId] = mergedDates.sort((a, b) =>
+              a.localeCompare(b),
+            );
+            hasChanges = true;
           }
         }
 
-        if (datesChanged) {
-          updatedDates[parentHubId] = mergedDates.sort((a, b) =>
-            a.localeCompare(b),
-          );
-          hasChanges = true;
-        }
-
         currentId = parentHubId;
+      }
+    }
+
+    // Self-healing cleanup: Remove erroneous dates from parent hubs if no visited child POI has that date
+    for (const hubId of updatedVisited) {
+      const hubDest = destinationsIndex.find((d) => d.id === hubId);
+      if (hubDest?.role !== "hub") continue;
+
+      const hubDates = normalizeVisitDates(updatedDates[hubId]);
+      if (hubDates.length === 0) continue;
+
+      const childIds = destinationsIndex
+        .filter(
+          (d) =>
+            d.relationships?.parentDestinationId === hubId &&
+            visited.includes(d.id),
+        )
+        .map((d) => d.id);
+
+      if (childIds.length === 0) continue;
+
+      const validChildDates = new Set<string>();
+      childIds.forEach((cId) => {
+        normalizeVisitDates(visitedDates[cId]).forEach((d) =>
+          validChildDates.add(d),
+        );
+      });
+
+      const cleanedHubDates = hubDates.filter((d) => validChildDates.has(d));
+      if (cleanedHubDates.length !== hubDates.length) {
+        if (cleanedHubDates.length === 0) {
+          delete updatedDates[hubId];
+        } else {
+          updatedDates[hubId] = cleanedHubDates;
+        }
+        hasChanges = true;
       }
     }
 

@@ -69,11 +69,13 @@ describe("useTripStore - Parent Hub Cascade & Retrospective Migration Unit Tests
         }
 
         const childDates = visitedDates[id] || [];
-        const parentDates = updatedDates[parentHubId] || [];
-        const mergedDates = Array.from(
-          new Set([...parentDates, ...childDates]),
-        ).sort();
-        updatedDates[parentHubId] = mergedDates;
+        if (childDates.length > 0) {
+          const parentDates = updatedDates[parentHubId] || [];
+          const mergedDates = Array.from(
+            new Set([...parentDates, ...childDates]),
+          ).sort();
+          updatedDates[parentHubId] = mergedDates;
+        }
 
         currentId = parentHubId;
       }
@@ -83,5 +85,51 @@ describe("useTripStore - Parent Hub Cascade & Retrospective Migration Unit Tests
     expect(updatedVisited).toContain("hakodate-city");
     expect(updatedDates["hakodate-city"]).toEqual(["2026-05-10"]);
     expect(updatedPrefectures).toContain("Hokkaido\x8D");
+  });
+
+  it("leaves parent hub undated when child POI visit has no explicit visit dates", () => {
+    const visited = ["hakodate-night-view"];
+    const visitedDates: Record<string, string[]> = {};
+    const visitedPrefectures: string[] = [];
+
+    const updatedVisited = [...visited];
+    const updatedDates = { ...visitedDates };
+    const updatedPrefectures = [...visitedPrefectures];
+
+    for (const id of visited) {
+      const targetDest = destinationsIndex.find((d) => d.id === id);
+      if (targetDest) {
+        const prefId = formatPrefectureId(targetDest.prefecture);
+        if (!updatedPrefectures.includes(prefId)) {
+          updatedPrefectures.push(prefId);
+        }
+      }
+
+      let currentId: string | undefined = id;
+      while (currentId) {
+        const dest = destinationsIndex.find((d) => d.id === currentId);
+        const parentHubId = dest?.relationships?.parentDestinationId;
+        if (!parentHubId) break;
+
+        if (!updatedVisited.includes(parentHubId)) {
+          updatedVisited.push(parentHubId);
+        }
+
+        const childDates = visitedDates[id] || [];
+        if (childDates.length > 0) {
+          const parentDates = updatedDates[parentHubId] || [];
+          const mergedDates = Array.from(
+            new Set([...parentDates, ...childDates]),
+          ).sort();
+          updatedDates[parentHubId] = mergedDates;
+        }
+
+        currentId = parentHubId;
+      }
+    }
+
+    // Parent hub is visited, but remains undated
+    expect(updatedVisited).toContain("hakodate-city");
+    expect(updatedDates["hakodate-city"]).toBeUndefined();
   });
 });
