@@ -1,0 +1,10 @@
+# Ignore build outputs & dependencies
+dist
+build
+node_modules
+.gemini
+
+# Ignore local docs and HTML reports
+docs
+reports
+*.html
