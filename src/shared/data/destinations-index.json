@@ -535,9 +535,9 @@
     "prefecture": "Kagoshima",
     "region": "Kyushu",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1280&auto=format&fit=crop",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/93/View_of_Katetsu_cove_from_nearby_Manen-zaki.jpg",
     "gallery": [
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1280&auto=format&fit=crop"
+      "https://upload.wikimedia.org/wikipedia/commons/9/93/View_of_Katetsu_cove_from_nearby_Manen-zaki.jpg"
     ],
     "description": "Amami-Oshima, Tokunoshima, Northern Okinawa & Iriomote is a UNESCO World Heritage Site in Kagoshima, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -623,7 +623,7 @@
         ]
       }
     ],
-    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1280&auto=format&fit=crop",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/93/View_of_Katetsu_cove_from_nearby_Manen-zaki.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -5161,10 +5161,10 @@
     "prefecture": "Gifu",
     "region": "Chubu",
     "categories": ["Travel Hub", "City Hub"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg/1280px-260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg/1280px-260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gero_Station_ac.jpg/1920px-Gero_Station_ac.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gero_Station_ac.jpg/1920px-Gero_Station_ac.jpg",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg/1280px-260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gero_Station_ac.jpg/1920px-Gero_Station_ac.jpg"
     ],
     "description": "Renowned hot spring resort ranked among Japan's Three Famous Springs along the Hida River.",
     "highlights": ["Explore Gero City", "Local Culture & Cuisine"],
@@ -7114,10 +7114,10 @@
       "Mount Fuji View",
       "Nature"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/View_of_Mount_Fuji_from_Lake_Ashi.jpg/330px-View_of_Mount_Fuji_from_Lake_Ashi.jpg",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/View_of_Mount_Fuji_from_Lake_Ashi.jpg/330px-View_of_Mount_Fuji_from_Lake_Ashi.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hakone_Town_Hall.JPG/1920px-Hakone_Town_Hall.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hakone_Town_Hall.JPG/1920px-Hakone_Town_Hall.JPG",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/View_of_Mount_Fuji_from_Lake_Ashi.jpg/330px-View_of_Mount_Fuji_from_Lake_Ashi.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hakone_Town_Hall.JPG/1920px-Hakone_Town_Hall.JPG"
     ],
     "description": "Famous hot spring resort town nestled in the Fuji-Hakone-Izu National Park, celebrated for volcanic sulfur valleys, Lake Ashi pirate ships, and art museums.",
     "highlights": [
@@ -8091,7 +8091,7 @@
       "mid": 6000,
       "high": 12000
     },
-    "heroImage": "https://images.unsplash.com/photo-1576675784201-0e142b423952?q=80&w=1280&auto=format&fit=crop",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/1280px-Himeji_castle_in_may_2015.jpg",
     "galleryImages": [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/3840px-Himeji_castle_in_may_2015.jpg"
     ],
@@ -8121,7 +8121,7 @@
     "relationships": {
       "parentDestinationId": "himeji-city"
     },
-    "image": "https://images.unsplash.com/photo-1576675784201-0e142b423952?q=80&w=1280&auto=format&fit=crop",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/1280px-Himeji_castle_in_may_2015.jpg",
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -8129,7 +8129,7 @@
       "cafe": 875
     },
     "gallery": [
-      "https://images.unsplash.com/photo-1576675784201-0e142b423952?q=80&w=1280&auto=format&fit=crop"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/1280px-Himeji_castle_in_may_2015.jpg"
     ]
   },
   {
@@ -9533,10 +9533,10 @@
     "prefecture": "Aichi",
     "region": "Chubu",
     "categories": ["Travel Hub", "City Hub"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Inuyama_City_Hall_ac.jpg/1920px-Inuyama_City_Hall_ac.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Inuyama_City_Hall_ac.jpg/1920px-Inuyama_City_Hall_ac.jpg",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Inuyama_City_Hall_ac.jpg/1920px-Inuyama_City_Hall_ac.jpg"
     ],
     "description": "Historic castle town featuring National Treasure Inuyama Castle overlooking the Kiso River.",
     "highlights": ["Explore Inuyama City", "Local Culture & Cuisine"],
@@ -10577,7 +10577,7 @@
     "prefecture": "Tokyo",
     "region": "Kanto",
     "categories": ["Indoor Park", "Gaming"],
-    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Sega_Joypolis_Odaiba.jpg/1920px-Sega_Joypolis_Odaiba.jpg",
     "totalTripHours": 8,
     "budgetMin": 16000,
     "budgetRecommended": 20000,
@@ -10620,14 +10620,14 @@
       "rainFriendly": 9,
       "walkingIntensity": 4
     },
-    "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Sega_Joypolis_Odaiba.jpg/1920px-Sega_Joypolis_Odaiba.jpg",
     "transportOptions": {
       "train": 90
     },
     "highlights": ["Halfpipe Tokyo", "VR Attractions"],
     "description": "Joypolis Odaiba is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
     "gallery": [
-      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Sega_Joypolis_Odaiba.jpg/1920px-Sega_Joypolis_Odaiba.jpg"
     ],
     "budgetBreakdown": {
       "transport": 1000,
@@ -11925,10 +11925,10 @@
     "prefecture": "Saitama",
     "region": "Kanto",
     "categories": ["Travel Hub", "City Hub"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Kawaguchi_Jinja_%28Kawaguchi%29.JPG/1280px-Kawaguchi_Jinja_%28Kawaguchi%29.JPG",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Kawaguchi_Jinja_%28Kawaguchi%29.JPG/1280px-Kawaguchi_Jinja_%28Kawaguchi%29.JPG",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg/1920px-Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg/1920px-Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Kawaguchi_Jinja_%28Kawaguchi%29.JPG/1280px-Kawaguchi_Jinja_%28Kawaguchi%29.JPG"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg/1920px-Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg"
     ],
     "description": "Industrial and residential hub bordering Tokyo across the Arakawa River.",
     "highlights": ["Explore Kawaguchi City", "Local Culture & Cuisine"],
@@ -19448,9 +19448,9 @@
     "prefecture": "Tokyo",
     "region": "Kanto",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/National_museum_of_western_art05s3200.jpg/1280px-National_museum_of_western_art05s3200.jpg",
     "gallery": [
-      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/National_museum_of_western_art05s3200.jpg/1280px-National_museum_of_western_art05s3200.jpg"
     ],
     "description": "The Architectural Work of Le Corbusier (NMWA Tokyo) is a UNESCO World Heritage Site in Tokyo, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -19536,7 +19536,7 @@
         ]
       }
     ],
-    "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/National_museum_of_western_art05s3200.jpg/1280px-National_museum_of_western_art05s3200.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -20735,9 +20735,9 @@
     "prefecture": "Tokyo",
     "region": "Kanto",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1280&auto=format&fit=crop",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/43/Minamijima.jpg",
     "gallery": [
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1280&auto=format&fit=crop"
+      "https://upload.wikimedia.org/wikipedia/commons/4/43/Minamijima.jpg"
     ],
     "description": "Ogasawara Islands is a UNESCO World Heritage Site in Tokyo, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -20819,7 +20819,7 @@
         ]
       }
     ],
-    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1280&auto=format&fit=crop",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/43/Minamijima.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -21174,7 +21174,7 @@
       "lat": 36.2667,
       "lng": 137.55
     },
-    "heroImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/05/YariKamikohchiTagged.jpg",
     "prefecture": "Gifu",
     "budgetMin": 15000,
     "budgetMax": 23000,
@@ -21211,7 +21211,7 @@
     "description": "Discover Okuhida, a prominent destination in Shizuoka. With its rich mix of onsen, ropeway, alps, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "gallery": [
-      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200"
+      "https://upload.wikimedia.org/wikipedia/commons/0/05/YariKamikohchiTagged.jpg"
     ],
     "budgetBreakdown": {
       "transport": 7200,
@@ -21265,7 +21265,7 @@
     },
     "collections": [],
     "relationships": {},
-    "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/05/YariKamikohchiTagged.jpg"
   },
   {
     "id": "ome-tokyo",
@@ -23122,9 +23122,9 @@
     "prefecture": "Aomori",
     "region": "Tohoku",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/140913_Sannai-Maruyama_site_Aomori_Japan01bs6bs6.jpg/1920px-140913_Sannai-Maruyama_site_Aomori_Japan01bs6bs6.jpg",
     "gallery": [
-      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/140913_Sannai-Maruyama_site_Aomori_Japan01bs6bs6.jpg/1920px-140913_Sannai-Maruyama_site_Aomori_Japan01bs6bs6.jpg"
     ],
     "description": "Jomon Prehistoric Sites in Northern Japan is a UNESCO World Heritage Site in Aomori, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -23210,7 +23210,7 @@
         ]
       }
     ],
-    "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/140913_Sannai-Maruyama_site_Aomori_Japan01bs6bs6.jpg/1920px-140913_Sannai-Maruyama_site_Aomori_Japan01bs6bs6.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -24273,10 +24273,10 @@
     "prefecture": "Gifu",
     "region": "Chubu",
     "categories": ["Traditional", "Historic", "Mountain"],
-    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
-    "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg/1920px-Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg/1920px-Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg",
     "gallery": [
-      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg/1920px-Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg"
     ],
     "description": "UNESCO World Heritage alpine village famous for steep thatched-roof gassho-zukuri farmhouses built to withstand heavy winter snowfalls.",
     "highlights": ["Ogimachi Village", "Shiroyama Viewpoint", "Wada House"],
@@ -24366,9 +24366,9 @@
     "prefecture": "Hokkaido",
     "region": "Hokkaido",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1280&auto=format&fit=crop",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Shiretoko_Peninsula_Hokkaido_Japan_SRTM.jpg/1280px-Shiretoko_Peninsula_Hokkaido_Japan_SRTM.jpg",
     "gallery": [
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1280&auto=format&fit=crop"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Shiretoko_Peninsula_Hokkaido_Japan_SRTM.jpg/1280px-Shiretoko_Peninsula_Hokkaido_Japan_SRTM.jpg"
     ],
     "description": "Shiretoko is a UNESCO World Heritage Site in Hokkaido, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -24450,7 +24450,7 @@
         ]
       }
     ],
-    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1280&auto=format&fit=crop",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Shiretoko_Peninsula_Hokkaido_Japan_SRTM.jpg/1280px-Shiretoko_Peninsula_Hokkaido_Japan_SRTM.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -28439,10 +28439,10 @@
     "prefecture": "Tochigi",
     "region": "Kanto",
     "categories": ["Travel Hub", "City Hub"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Utsunomiya_montage.jpg",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Utsunomiya_montage.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Utsunomiya-STA_East_LRT.jpg/1920px-Utsunomiya-STA_East_LRT.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Utsunomiya-STA_East_LRT.jpg/1920px-Utsunomiya-STA_East_LRT.jpg",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/7/7e/Utsunomiya_montage.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Utsunomiya-STA_East_LRT.jpg/1920px-Utsunomiya-STA_East_LRT.jpg"
     ],
     "description": "Prefectural capital acclaimed as Japan's Gyoza dumpling capital, featuring Oya Stone Underground Quarry.",
     "highlights": ["Explore Utsunomiya City", "Local Culture & Cuisine"],
