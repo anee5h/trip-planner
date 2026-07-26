@@ -535,9 +535,9 @@
     "prefecture": "Kagoshima",
     "region": "Kyushu",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Amami_Oshima_Mangrove_Forest.jpg/1280px-Amami_Oshima_Mangrove_Forest.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Amami_Oshima_Mangrove_Forest.jpg/1280px-Amami_Oshima_Mangrove_Forest.jpg"
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "Amami-Oshima, Tokunoshima, Northern Okinawa & Iriomote is a UNESCO World Heritage Site in Kagoshima, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -623,7 +623,7 @@
         ]
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Amami_Oshima_Mangrove_Forest.jpg/1280px-Amami_Oshima_Mangrove_Forest.jpg",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -1444,9 +1444,9 @@
     "prefecture": "Nara",
     "region": "Kansai",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Ishibutai_Kofun_Asuka_Nara01s.jpg/1280px-Ishibutai_Kofun_Asuka_Nara01s.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Ishibutai_Kofun_Asuka_Nara01s.jpg/1280px-Ishibutai_Kofun_Asuka_Nara01s.jpg"
+      "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "Ancient Capitals of Asuka and Fujiwara is a UNESCO World Heritage Site in Nara, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -1532,7 +1532,7 @@
         ]
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Ishibutai_Kofun_Asuka_Nara01s.jpg/1280px-Ishibutai_Kofun_Asuka_Nara01s.jpg",
+    "image": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -6140,9 +6140,9 @@
     "prefecture": "Nagasaki",
     "region": "Kyushu",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hashima_island_2019.jpg/1280px-Hashima_island_2019.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hashima_island_2019.jpg/1280px-Hashima_island_2019.jpg"
+      "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "Sites of Japan’s Meiji Industrial Revolution (Gunkanjima) is a UNESCO World Heritage Site in Nagasaki, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -6228,7 +6228,7 @@
         ]
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hashima_island_2019.jpg/1280px-Hashima_island_2019.jpg",
+    "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -8091,7 +8091,7 @@
       "mid": 6000,
       "high": 12000
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/1280px-Himeji_castle_in_may_2015.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1576675784201-0e142b423952?q=80&w=1280&auto=format&fit=crop",
     "galleryImages": [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/3840px-Himeji_castle_in_may_2015.jpg"
     ],
@@ -8121,7 +8121,7 @@
     "relationships": {
       "parentDestinationId": "himeji-city"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/1280px-Himeji_castle_in_may_2015.jpg",
+    "image": "https://images.unsplash.com/photo-1576675784201-0e142b423952?q=80&w=1280&auto=format&fit=crop",
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -8129,7 +8129,7 @@
       "cafe": 875
     },
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/1280px-Himeji_castle_in_may_2015.jpg"
+      "https://images.unsplash.com/photo-1576675784201-0e142b423952?q=80&w=1280&auto=format&fit=crop"
     ]
   },
   {
@@ -8222,9 +8222,9 @@
     "prefecture": "Iwate",
     "region": "Tohoku",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Chusonji_Konjikido_Hiraizumi.jpg/1280px-Chusonji_Konjikido_Hiraizumi.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Chusonji_Konjikido_Hiraizumi.jpg/1280px-Chusonji_Konjikido_Hiraizumi.jpg"
+      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "Hiraizumi – Temples, Gardens and Archaeological Sites is a UNESCO World Heritage Site in Iwate, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -8310,7 +8310,7 @@
         ]
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Chusonji_Konjikido_Hiraizumi.jpg/1280px-Chusonji_Konjikido_Hiraizumi.jpg",
+    "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -8532,9 +8532,9 @@
     "prefecture": "Hiroshima",
     "region": "Chugoku",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Hiroshima_Peace_Memorial_Dome_2021.jpg/1280px-Hiroshima_Peace_Memorial_Dome_2021.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1578637387939-43c525550085?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Hiroshima_Peace_Memorial_Dome_2021.jpg/1280px-Hiroshima_Peace_Memorial_Dome_2021.jpg"
+      "https://images.unsplash.com/photo-1578637387939-43c525550085?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "Hiroshima Peace Memorial (Genbaku Dome) is a UNESCO World Heritage Site in Hiroshima, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -8620,7 +8620,7 @@
         ]
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Hiroshima_Peace_Memorial_Dome_2021.jpg/1280px-Hiroshima_Peace_Memorial_Dome_2021.jpg",
+    "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -8651,9 +8651,9 @@
     "prefecture": "Nara",
     "region": "Kansai",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Horyu-ji03s3200.jpg/1280px-Horyu-ji03s3200.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Horyu-ji03s3200.jpg/1280px-Horyu-ji03s3200.jpg"
+      "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "Buddhist Monuments in the Horyu-ji Area is a UNESCO World Heritage Site in Nara, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -8739,7 +8739,7 @@
         ]
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Horyu-ji03s3200.jpg/1280px-Horyu-ji03s3200.jpg",
+    "image": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -10038,9 +10038,9 @@
     "prefecture": "Shimane",
     "region": "Chugoku",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Iwami_Ginzan_Silver_Mine_Ryugenji_Mabu.jpg/1280px-Iwami_Ginzan_Silver_Mine_Ryugenji_Mabu.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Iwami_Ginzan_Silver_Mine_Ryugenji_Mabu.jpg/1280px-Iwami_Ginzan_Silver_Mine_Ryugenji_Mabu.jpg"
+      "https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "Iwami Ginzan Silver Mine and its Cultural Landscape is a UNESCO World Heritage Site in Shimane, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -10126,7 +10126,7 @@
         ]
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Iwami_Ginzan_Silver_Mine_Ryugenji_Mabu.jpg/1280px-Iwami_Ginzan_Silver_Mine_Ryugenji_Mabu.jpg",
+    "image": "https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -13743,9 +13743,9 @@
     "prefecture": "Wakayama",
     "region": "Kansai",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Kumano_Kodo_Daimon-zaka.jpg/1280px-Kumano_Kodo_Daimon-zaka.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Kumano_Kodo_Daimon-zaka.jpg/1280px-Kumano_Kodo_Daimon-zaka.jpg"
+      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "Sacred Sites and Pilgrimage Routes in the Kii Mountain Range is a UNESCO World Heritage Site in Wakayama, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -13831,7 +13831,7 @@
         ]
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Kumano_Kodo_Daimon-zaka.jpg/1280px-Kumano_Kodo_Daimon-zaka.jpg",
+    "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -14403,7 +14403,7 @@
       "mid": 8000,
       "high": 18000
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Kiyomizu.jpg/1280px-Kiyomizu.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1280&auto=format&fit=crop",
     "galleryImages": [
       "https://upload.wikimedia.org/wikipedia/commons/3/3c/Kiyomizu.jpg"
     ],
@@ -14430,7 +14430,7 @@
     "relationships": {
       "parentDestinationId": "kyoto-city"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Kiyomizu.jpg/1280px-Kiyomizu.jpg",
+    "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1280&auto=format&fit=crop",
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -14438,7 +14438,7 @@
       "cafe": 1400
     },
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Kiyomizu.jpg/1280px-Kiyomizu.jpg"
+      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1280&auto=format&fit=crop"
     ]
   },
   {
@@ -16508,7 +16508,7 @@
       "mid": 8000,
       "high": 16000
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Itsukushima_Torii_Miyajima_2019.jpg/1280px-Itsukushima_Torii_Miyajima_2019.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1590559899731-a382839e5549?q=80&w=1280&auto=format&fit=crop",
     "galleryImages": [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/3840px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg"
     ],
@@ -16533,7 +16533,7 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Itsukushima_Torii_Miyajima_2019.jpg/1280px-Itsukushima_Torii_Miyajima_2019.jpg",
+    "image": "https://images.unsplash.com/photo-1590559899731-a382839e5549?q=80&w=1280&auto=format&fit=crop",
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -16541,7 +16541,7 @@
       "cafe": 875
     },
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Itsukushima_Torii_Miyajima_2019.jpg/1280px-Itsukushima_Torii_Miyajima_2019.jpg"
+      "https://images.unsplash.com/photo-1590559899731-a382839e5549?q=80&w=1280&auto=format&fit=crop"
     ]
   },
   {
@@ -17017,7 +17017,7 @@
       "lat": 35.3606,
       "lng": 138.7274
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/080103_hokusai_fuji.jpg/1280px-080103_hokusai_fuji.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=1280&auto=format&fit=crop",
     "prefecture": "Shizuoka",
     "budgetMin": 2000,
     "budgetMax": 10000,
@@ -17054,7 +17054,7 @@
     "description": "Mount Fuji is an active stratovolcano located on the Japanese island of Honshu, with a summit elevation of 3,776.24 m. It is the highest mountain in Japan, the second-highest volcano on any Asian island, and the seventh-highest peak of an island on Earth. Mount Fuji last erupted from 1707 to 1708.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/080103_hokusai_fuji.jpg/1280px-080103_hokusai_fuji.jpg"
+      "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=1280&auto=format&fit=crop"
     ],
     "budgetBreakdown": {
       "transport": 2000,
@@ -17102,7 +17102,7 @@
     ],
     "notes": "A fantastic trip to Mount Fuji. Known for its iconic and climbing vibes, it offers a great escape with an overall score of 9.6.",
     "schemaVersion": 2,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/080103_hokusai_fuji.jpg/1280px-080103_hokusai_fuji.jpg",
+    "image": "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
@@ -17311,9 +17311,9 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Nintoku_Tomb_Sakai_Osaka.jpg/1280px-Nintoku_Tomb_Sakai_Osaka.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1590559899731-a382839e5549?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Nintoku_Tomb_Sakai_Osaka.jpg/1280px-Nintoku_Tomb_Sakai_Osaka.jpg"
+      "https://images.unsplash.com/photo-1590559899731-a382839e5549?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan is a UNESCO World Heritage Site in Osaka, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -17399,7 +17399,7 @@
         ]
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Nintoku_Tomb_Sakai_Osaka.jpg/1280px-Nintoku_Tomb_Sakai_Osaka.jpg",
+    "image": "https://images.unsplash.com/photo-1590559899731-a382839e5549?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -19029,9 +19029,9 @@
     "prefecture": "Nara",
     "region": "Kansai",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Todaiji_Daibutsuden_Nara02s3200.jpg/1280px-Todaiji_Daibutsuden_Nara02s3200.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Todaiji_Daibutsuden_Nara02s3200.jpg/1280px-Todaiji_Daibutsuden_Nara02s3200.jpg"
+      "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "Historic Monuments of Ancient Nara is a UNESCO World Heritage Site in Nara, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -19117,7 +19117,7 @@
         ]
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Todaiji_Daibutsuden_Nara02s3200.jpg/1280px-Todaiji_Daibutsuden_Nara02s3200.jpg",
+    "image": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -19448,9 +19448,9 @@
     "prefecture": "Tokyo",
     "region": "Kanto",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/National_Museum_of_Western_Art_Tokyo_2019.jpg/1280px-National_Museum_of_Western_Art_Tokyo_2019.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/National_Museum_of_Western_Art_Tokyo_2019.jpg/1280px-National_Museum_of_Western_Art_Tokyo_2019.jpg"
+      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "The Architectural Work of Le Corbusier (NMWA Tokyo) is a UNESCO World Heritage Site in Tokyo, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -19536,7 +19536,7 @@
         ]
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/National_Museum_of_Western_Art_Tokyo_2019.jpg/1280px-National_Museum_of_Western_Art_Tokyo_2019.jpg",
+    "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -19658,9 +19658,9 @@
     "prefecture": "Niigata",
     "region": "Chubu",
     "categories": ["Cities", "Hub", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Niigata_from_Bandaijima_Building_20200906_P4.jpg/1280px-Niigata_from_Bandaijima_Building_20200906_P4.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Niigata_from_Bandaijima_Building_20200906_P4.jpg/1280px-Niigata_from_Bandaijima_Building_20200906_P4.jpg"
+      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "Niigata City is one of Japan's 20 ordinance-designated core metropolis hubs, featuring rich regional history, vibrant food markets, and high-speed rail transit connectivity.",
     "highlights": [
@@ -19746,7 +19746,7 @@
         ]
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Niigata_from_Bandaijima_Building_20200906_P4.jpg/1280px-Niigata_from_Bandaijima_Building_20200906_P4.jpg",
+    "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -20025,10 +20025,10 @@
       "Shrines",
       "History"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Nikko_Toshogu_Yomeimon_2017.jpg/1280px-Nikko_Toshogu_Yomeimon_2017.jpg",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Nikko_Toshogu_Yomeimon_2017.jpg/1280px-Nikko_Toshogu_Yomeimon_2017.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1578637387939-43c525550085?q=80&w=1280&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Nikko_Toshogu_Yomeimon_2017.jpg/1280px-Nikko_Toshogu_Yomeimon_2017.jpg"
+      "https://images.unsplash.com/photo-1578637387939-43c525550085?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "UNESCO World Heritage complex housing the lavishly gilded Yomeimon Gate, Tokugawa Ieyasu's mausoleum, and three wise monkeys wood carving.",
     "highlights": [
@@ -20735,9 +20735,9 @@
     "prefecture": "Tokyo",
     "region": "Kanto",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Ogasawara_Chichijima_Kominato_Coast.jpg/1280px-Ogasawara_Chichijima_Kominato_Coast.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Ogasawara_Chichijima_Kominato_Coast.jpg/1280px-Ogasawara_Chichijima_Kominato_Coast.jpg"
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "Ogasawara Islands is a UNESCO World Heritage Site in Tokyo, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -20819,7 +20819,7 @@
         ]
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Ogasawara_Chichijima_Kominato_Coast.jpg/1280px-Ogasawara_Chichijima_Kominato_Coast.jpg",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -21037,9 +21037,9 @@
     "prefecture": "Fukuoka",
     "region": "Kyushu",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Munakata_Taisha_Hetsumiya.jpg/1280px-Munakata_Taisha_Hetsumiya.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Munakata_Taisha_Hetsumiya.jpg/1280px-Munakata_Taisha_Hetsumiya.jpg"
+      "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "Sacred Island of Okinoshima and Associated Sites in Munakata is a UNESCO World Heritage Site in Fukuoka, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -21125,7 +21125,7 @@
         ]
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Munakata_Taisha_Hetsumiya.jpg/1280px-Munakata_Taisha_Hetsumiya.jpg",
+    "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -22057,9 +22057,9 @@
     "prefecture": "Nagasaki",
     "region": "Kyushu",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Oura_Church_Nagasaki.jpg/1280px-Oura_Church_Nagasaki.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Oura_Church_Nagasaki.jpg/1280px-Oura_Church_Nagasaki.jpg"
+      "https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "Hidden Christian Sites in the Nagasaki Region is a UNESCO World Heritage Site in Nagasaki, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -22145,7 +22145,7 @@
         ]
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Oura_Church_Nagasaki.jpg/1280px-Oura_Church_Nagasaki.jpg",
+    "image": "https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -22444,7 +22444,7 @@
       "lat": 38.0333,
       "lng": 138.3833
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Sado_Gold_Mine_Doyu_no_Wari.jpg/1280px-Sado_Gold_Mine_Doyu_no_Wari.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
     "prefecture": "Niigata",
     "budgetMin": 12000,
     "budgetMax": 20000,
@@ -22482,7 +22482,7 @@
     "description": "Sado Island is an island located in the eastern part of the Sea of Japan, under the jurisdiction of Sado City, Niigata Prefecture, Japan, with a coastline of 262.7 kilometres (163.2 mi). In October 2017, Sado Island had a population of 55,212 people. Sado Island covers an area of 854.76 km2 (330.02 sq mi), and is the sixth largest island in Japan, excluding the disputed Southern Kurils. The shortest distance between Sado Island and Honshu is 32 km (20 mi). The highest peak on Sado Island is Mount Kinpoku, with an elevation of 1,172 m (3,845 ft).",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Sado_Gold_Mine_Doyu_no_Wari.jpg/1280px-Sado_Gold_Mine_Doyu_no_Wari.jpg"
+      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop"
     ],
     "budgetBreakdown": {
       "transport": 6000,
@@ -22530,7 +22530,7 @@
     ],
     "notes": "A fantastic trip to Sado Island. Known for its gold mine and tub boats vibes, it offers a great escape with an overall score of 8.4.",
     "schemaVersion": 2,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Sado_Gold_Mine_Doyu_no_Wari.jpg/1280px-Sado_Gold_Mine_Doyu_no_Wari.jpg",
+    "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
@@ -23122,9 +23122,9 @@
     "prefecture": "Aomori",
     "region": "Tohoku",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Sannai_Maruyama_site_2021.jpg/1280px-Sannai_Maruyama_site_2021.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Sannai_Maruyama_site_2021.jpg/1280px-Sannai_Maruyama_site_2021.jpg"
+      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "Jomon Prehistoric Sites in Northern Japan is a UNESCO World Heritage Site in Aomori, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -23210,7 +23210,7 @@
         ]
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Sannai_Maruyama_site_2021.jpg/1280px-Sannai_Maruyama_site_2021.jpg",
+    "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -23332,9 +23332,9 @@
     "prefecture": "Miyagi",
     "region": "Tohoku",
     "categories": ["Cities", "Hub", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/SendaiCity_Skylines_from_Mukaiyama2018.jpg/1280px-SendaiCity_Skylines_from_Mukaiyama2018.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/SendaiCity_Skylines_from_Mukaiyama2018.jpg/1280px-SendaiCity_Skylines_from_Mukaiyama2018.jpg"
+      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "Sendai City is one of Japan's 20 ordinance-designated core metropolis hubs, featuring rich regional history, vibrant food markets, and high-speed rail transit connectivity.",
     "highlights": [
@@ -23420,7 +23420,7 @@
         ]
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/SendaiCity_Skylines_from_Mukaiyama2018.jpg/1280px-SendaiCity_Skylines_from_Mukaiyama2018.jpg",
+    "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -24154,9 +24154,9 @@
     "prefecture": "Aomori",
     "region": "Tohoku",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Shirakami-sanchi_Anmon_Falls.jpg/1280px-Shirakami-sanchi_Anmon_Falls.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Shirakami-sanchi_Anmon_Falls.jpg/1280px-Shirakami-sanchi_Anmon_Falls.jpg"
+      "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "Shirakami-Sanchi is a UNESCO World Heritage Site in Aomori, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -24238,7 +24238,7 @@
         ]
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Shirakami-sanchi_Anmon_Falls.jpg/1280px-Shirakami-sanchi_Anmon_Falls.jpg",
+    "image": "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -24273,10 +24273,10 @@
     "prefecture": "Gifu",
     "region": "Chubu",
     "categories": ["Traditional", "Historic", "Mountain"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Shirakawa-go_33.jpg/1280px-Shirakawa-go_33.jpg",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Shirakawa-go_33.jpg/1280px-Shirakawa-go_33.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Shirakawa-go_33.jpg/1280px-Shirakawa-go_33.jpg"
+      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "UNESCO World Heritage alpine village famous for steep thatched-roof gassho-zukuri farmhouses built to withstand heavy winter snowfalls.",
     "highlights": ["Ogimachi Village", "Shiroyama Viewpoint", "Wada House"],
@@ -24366,9 +24366,9 @@
     "prefecture": "Hokkaido",
     "region": "Hokkaido",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Shiretoko_Five_Lakes_2019.jpg/1280px-Shiretoko_Five_Lakes_2019.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Shiretoko_Five_Lakes_2019.jpg/1280px-Shiretoko_Five_Lakes_2019.jpg"
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "Shiretoko is a UNESCO World Heritage Site in Hokkaido, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -24450,7 +24450,7 @@
         ]
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Shiretoko_Five_Lakes_2019.jpg/1280px-Shiretoko_Five_Lakes_2019.jpg",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -24608,9 +24608,9 @@
     "prefecture": "Okinawa",
     "region": "Kyushu",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Shuri_castle02s3200.jpg/1280px-Shuri_castle02s3200.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Shuri_castle02s3200.jpg/1280px-Shuri_castle02s3200.jpg"
+      "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "Gusuku Sites and Related Properties of the Kingdom of Ryukyu is a UNESCO World Heritage Site in Okinawa, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -24696,7 +24696,7 @@
         ]
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Shuri_castle02s3200.jpg/1280px-Shuri_castle02s3200.jpg",
+    "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -27294,9 +27294,9 @@
     "prefecture": "Gunma",
     "region": "Kanto",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Tomioka_Silk_Mill_2019.jpg/1280px-Tomioka_Silk_Mill_2019.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Tomioka_Silk_Mill_2019.jpg/1280px-Tomioka_Silk_Mill_2019.jpg"
+      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "Tomioka Silk Mill and Related Sites is a UNESCO World Heritage Site in Gunma, designated for its outstanding universal cultural or natural value.",
     "highlights": [
@@ -27382,7 +27382,7 @@
         ]
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Tomioka_Silk_Mill_2019.jpg/1280px-Tomioka_Silk_Mill_2019.jpg",
+    "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
@@ -28845,10 +28845,10 @@
     "prefecture": "Kagoshima",
     "region": "Kyushu",
     "categories": ["Travel Hub", "City Hub"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Jomon_Sugi_Yakushima.jpg/1280px-Jomon_Sugi_Yakushima.jpg",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Jomon_Sugi_Yakushima.jpg/1280px-Jomon_Sugi_Yakushima.jpg",
+    "heroImage": "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1280&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1280&auto=format&fit=crop",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Jomon_Sugi_Yakushima.jpg/1280px-Jomon_Sugi_Yakushima.jpg"
+      "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1280&auto=format&fit=crop"
     ],
     "description": "Subtropical island World Heritage wilderness covered in ancient Yaku cedar forests and mossy gorges.",
     "highlights": ["Explore Yakushima Town", "Local Culture & Cuisine"],
