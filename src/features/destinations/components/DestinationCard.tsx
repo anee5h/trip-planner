@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { LazyImage } from "@/shared/components/ui/LazyImage";
 import { ItineraryPickerModal } from "@/features/trips/components/ItineraryPickerModal";
 import { MarkVisitedModal } from "./MarkVisitedModal";
 import { VisitedDateModal } from "./VisitedDateModal";
@@ -95,12 +96,11 @@ export default function DestinationCard({
 
   return (
     <Card className="overflow-hidden flex flex-col h-full group rounded-card shadow-card hover:shadow-hover hover:-translate-y-1 transition-all duration-300 border-slate-200 dark:border-slate-800">
-      <div className="relative h-56 overflow-hidden">
-        <img
+      <div className="relative h-56 aspect-[16/10] overflow-hidden">
+        <LazyImage
           src={destination.heroImage}
           alt={destination.name}
-          loading="lazy"
-          decoding="async"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ${visited ? "grayscale opacity-80" : ""}`}
         />
         {visited && (

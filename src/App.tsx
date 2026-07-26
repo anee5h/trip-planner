@@ -46,9 +46,11 @@ import CompareModal from "./features/compare/components/CompareModal";
 import CompareFloatingBar from "./features/compare/components/CompareFloatingBar";
 
 import { ThemeProvider } from "./shared/context/ThemeContext";
+import { useIdlePrefetch } from "./shared/hooks/useIdlePrefetch";
 
 function App() {
   const [compareModalOpen, setCompareModalOpen] = useState(false);
+  useIdlePrefetch();
 
   return (
     <AuthProvider>
