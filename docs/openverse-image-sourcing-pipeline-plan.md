@@ -13,6 +13,7 @@ GET https://api.openverse.org/v1/images/?q={Destination+Name}+Japan&license_type
 ```
 
 ### Features:
+
 1. **License Filtering**: Filter API results to commercial-safe licenses (`CC0`, `CC-BY`, `CC-BY-SA`, Public Domain).
 2. **Attribution & Metadata**: Store `imageMetadata` (source, license type, creator attribution, source URL) directly inside destination JSON objects:
    ```json
@@ -22,11 +23,13 @@ GET https://api.openverse.org/v1/images/?q={Destination+Name}+Japan&license_type
      "attribution": "Photo by John Doe via Openverse / Wikimedia",
      "sourceUrl": "https://openverse.org/image/..."
    }
-  ```
+   ```
+
+````
 3. **Automated Fallback Chain**:
-   - Openverse API (Primary: Wikimedia Commons, Flickr CC-BY)
-   - Wikipedia Lead Image API (Secondary)
-   - Unsplash / Pexels (Tertiary)
+ - Openverse API (Primary: Wikimedia Commons, Flickr CC-BY)
+ - Wikipedia Lead Image API (Secondary)
+ - Unsplash / Pexels (Tertiary)
 
 ---
 
@@ -57,11 +60,12 @@ Audit `src/shared/data/destinations-index.json` and all 129 files in `public/dat
 
 ### Automated Tests
 - Run pipeline with validation flags:
-  ```bash
-  node scripts/pipeline.cjs --validate-only
-  npx vitest run
-  npm run build
-  ```
+```bash
+node scripts/pipeline.cjs --validate-only
+npx vitest run
+npm run build
+````
 
 ### Manual Verification
+
 - Check `/destinations` to confirm 100% unique image coverage with zero duplicate URLs across the entire 129-destination catalog.

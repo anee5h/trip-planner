@@ -14,10 +14,10 @@ Collections introduce curated groupings of destinations that exist alongside the
 
 Collections are intended to:
 
-* improve destination discovery
-* group related destinations
-* provide official and historical categorizations
-* enable progress tracking
+- improve destination discovery
+- group related destinations
+- provide official and historical categorizations
+- enable progress tracking
 
 ---
 
@@ -61,21 +61,21 @@ interface Collection {
 
 # 4. Curated Collections Catalog & Provenance
 
-| Collection ID | Collection Name | Type | Official / Historical Source |
-| ------------- | --------------- | ---- | ---------------------------- |
-| `original-12-castles` | Original 12 Surviving Castles | historical | Japan Castle Foundation |
-| `unesco-japan` | UNESCO World Heritage Japan | official | UNESCO World Heritage Centre |
-| `national-treasures` | National Treasures of Japan | official | Agency for Cultural Affairs (国宝) |
-| `top-100-castles` | Top 100 Castles of Japan | official | Japan Castle Foundation (日本100名城) |
-| `three-great-gardens` | Three Great Gardens of Japan | historical | Japan National Tourism Organization (日本三名園) |
-| `three-great-views` | Three Great Scenic Views of Japan | historical | Japan National Tourism Organization (日本三景) |
-| `three-great-waterfalls` | Three Great Waterfalls of Japan | historical | Japan National Tourism Organization (日本三名瀑) |
-| `three-great-buddhas` | Three Great Buddha Statues of Japan | historical | Agency for Cultural Affairs (日本三大仏) |
-| `three-great-shrines` | Three Great Shrines of Japan | official | Association of Shinto Shrines (神社本庁) |
-| `three-cherry-blossom-spots` | Three Great Cherry Blossom Spots | historical | Japan Cherry Blossom Association (日本さくらの会) |
-| `top-onsen-japan` | Top Hot Springs & Onsen Towns | official | Japan Onsen Association (温泉協会) |
-| `historic-towns-japan` | Preserved Historic Towns | historical | Important Preservation District for Groups of Traditional Buildings |
-| `great-night-views` | Japan's Great Night Views & Observatories | official | Night View Convention & Tourism Bureau |
+| Collection ID                | Collection Name                           | Type       | Official / Historical Source                                        |
+| ---------------------------- | ----------------------------------------- | ---------- | ------------------------------------------------------------------- |
+| `original-12-castles`        | Original 12 Surviving Castles             | historical | Japan Castle Foundation                                             |
+| `unesco-japan`               | UNESCO World Heritage Japan               | official   | UNESCO World Heritage Centre                                        |
+| `national-treasures`         | National Treasures of Japan               | official   | Agency for Cultural Affairs (国宝)                                  |
+| `top-100-castles`            | Top 100 Castles of Japan                  | official   | Japan Castle Foundation (日本100名城)                               |
+| `three-great-gardens`        | Three Great Gardens of Japan              | historical | Japan National Tourism Organization (日本三名園)                    |
+| `three-great-views`          | Three Great Scenic Views of Japan         | historical | Japan National Tourism Organization (日本三景)                      |
+| `three-great-waterfalls`     | Three Great Waterfalls of Japan           | historical | Japan National Tourism Organization (日本三名瀑)                    |
+| `three-great-buddhas`        | Three Great Buddha Statues of Japan       | historical | Agency for Cultural Affairs (日本三大仏)                            |
+| `three-great-shrines`        | Three Great Shrines of Japan              | official   | Association of Shinto Shrines (神社本庁)                            |
+| `three-cherry-blossom-spots` | Three Great Cherry Blossom Spots          | historical | Japan Cherry Blossom Association (日本さくらの会)                   |
+| `top-onsen-japan`            | Top Hot Springs & Onsen Towns             | official   | Japan Onsen Association (温泉協会)                                  |
+| `historic-towns-japan`       | Preserved Historic Towns                  | historical | Important Preservation District for Groups of Traditional Buildings |
+| `great-night-views`          | Japan's Great Night Views & Observatories | official   | Night View Convention & Tourism Bureau                              |
 
 ---
 
@@ -83,10 +83,10 @@ interface Collection {
 
 `scripts/pipeline.cjs` validates at build time:
 
-* All `collectionId` references exist in `collections-index.json`.
-* Duplicate collection IDs or slugs throw errors.
-* Duplicate memberships per destination throw errors.
-* `confirmed=false` produces validation warnings.
+- All `collectionId` references exist in `collections-index.json`.
+- Duplicate collection IDs or slugs throw errors.
+- Duplicate memberships per destination throw errors.
+- `confirmed=false` produces validation warnings.
 
 ---
 

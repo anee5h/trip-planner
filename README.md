@@ -141,7 +141,6 @@ To keep the application fast:
 
 ---
 
-
 # Challenges
 
 One of the biggest challenges was balancing recommendation quality with frontend performance.
