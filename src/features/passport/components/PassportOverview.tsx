@@ -159,39 +159,39 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
         {/* Main Column (8 Cols) */}
         <div className="lg:col-span-8 space-y-8">
           {/* Hero KPI Card — Japan Exploration Focus */}
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-600 via-emerald-700 to-teal-800 text-white p-6 md:p-8 shadow-xl shadow-emerald-900/10">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-600 via-emerald-700 to-teal-800 text-white p-5 md:p-6 shadow-lg shadow-emerald-900/10">
             {/* Background Decorative Rings */}
             <div className="absolute -right-10 -bottom-10 w-64 h-64 rounded-full bg-white/5 blur-2xl pointer-events-none" />
             <div className="absolute right-20 -top-20 w-48 h-48 rounded-full bg-teal-400/10 blur-xl pointer-events-none" />
 
-            <div className="relative z-10 space-y-6">
+            <div className="relative z-10 space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-white">
+                  <div className="w-9 h-9 rounded-xl bg-white/15 backdrop-blur-md flex items-center justify-center text-white">
                     <Compass className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-emerald-200">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-200">
                       Japan Exploration Status
                     </span>
-                    <h2 className="text-xl md:text-2xl font-extrabold tracking-tight">
+                    <h2 className="text-lg md:text-xl font-extrabold tracking-tight">
                       Prefectures Visited
                     </h2>
                   </div>
                 </div>
 
                 <div className="text-right">
-                  <span className="text-3xl md:text-4xl font-extrabold tracking-tight">
+                  <span className="text-2xl md:text-3xl font-extrabold tracking-tight">
                     {japanPct}%
                   </span>
-                  <p className="text-xs font-medium text-emerald-200">
+                  <p className="text-[11px] font-medium text-emerald-200">
                     of Japan Explored
                   </p>
                 </div>
               </div>
 
               {/* Progress Bar */}
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <div className="flex justify-between items-center text-xs font-bold">
                   <span className="text-emerald-100 flex items-center gap-1.5">
                     <MapPin className="w-3.5 h-3.5" />
@@ -201,7 +201,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                     {47 - visitedPrefectures.length} remaining
                   </span>
                 </div>
-                <div className="w-full h-3 rounded-full bg-black/20 backdrop-blur-sm p-0.5 overflow-hidden">
+                <div className="w-full h-2.5 rounded-full bg-black/20 backdrop-blur-sm p-0.5 overflow-hidden">
                   <div
                     className="h-full rounded-full bg-gradient-to-r from-emerald-300 to-teal-200 shadow-sm transition-all duration-700 ease-out"
                     style={{ width: `${Math.max(japanPct, 4)}%` }}
@@ -213,12 +213,12 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
               <div className="pt-2 flex items-center justify-between border-t border-white/15">
                 <p className="text-xs text-emerald-100/90 font-medium">
                   {visitedPrefectures.length > 0
-                    ? `Awesome start! You have logged visits in ${visitedPrefectures.length} prefecture${visitedPrefectures.length > 1 ? "s" : ""}.`
+                    ? `Awesome start! Logged visits in ${visitedPrefectures.length} prefecture${visitedPrefectures.length > 1 ? "s" : ""}.`
                     : "Start logging your travel history on the interactive map!"}
                 </p>
                 <button
                   onClick={() => onSelectTab("japan-map")}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white/20 hover:bg-white/30 text-white font-bold text-xs backdrop-blur-md transition-all shrink-0"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white/20 hover:bg-white/30 text-white font-bold text-xs backdrop-blur-md transition-all shrink-0"
                 >
                   Interactive Map <ArrowRight className="w-3.5 h-3.5" />
                 </button>
@@ -227,7 +227,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
           </div>
 
           {/* Next Goal & Motivation Section */}
-          <div className="p-6 rounded-3xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 space-y-4">
+          <div className="p-5 rounded-3xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
                 <div className="p-2 rounded-xl bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400">
@@ -244,7 +244,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
               </div>
 
               {nextRegionGoal.remaining > 0 && (
-                <span className="text-xs font-extrabold px-3 py-1 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300">
+                <span className="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300">
                   {nextRegionGoal.remaining} prefecture
                   {nextRegionGoal.remaining > 1 ? "s" : ""} away
                 </span>
@@ -373,14 +373,14 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                 className="cursor-pointer flex items-center justify-between p-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400">
+                  <div className="p-2.5 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 shadow-xs">
                     <Sparkles className="w-4 h-4" />
                   </div>
                   <div>
                     <div className="text-xs text-slate-500 dark:text-slate-400">
                       Visited Destinations
                     </div>
-                    <div className="text-base font-extrabold text-slate-900 dark:text-white">
+                    <div className="text-lg font-extrabold text-slate-900 dark:text-white">
                       {visited.length}
                     </div>
                   </div>
@@ -393,14 +393,14 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                 className="cursor-pointer flex items-center justify-between p-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400">
+                  <div className="p-2.5 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 shadow-xs">
                     <Trophy className="w-4 h-4" />
                   </div>
                   <div>
                     <div className="text-xs text-slate-500 dark:text-slate-400">
                       Achievements Unlocked
                     </div>
-                    <div className="text-base font-extrabold text-slate-900 dark:text-white">
+                    <div className="text-lg font-extrabold text-slate-900 dark:text-white">
                       {visited.length >= 1 ? "1" : "0"} / 6 Milestones
                     </div>
                   </div>
@@ -413,14 +413,14 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                 className="cursor-pointer flex items-center justify-between p-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">
+                  <div className="p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 shadow-xs">
                     <Award className="w-4 h-4" />
                   </div>
                   <div>
                     <div className="text-xs text-slate-500 dark:text-slate-400">
                       Enamel Pin Badges
                     </div>
-                    <div className="text-base font-extrabold text-slate-900 dark:text-white">
+                    <div className="text-lg font-extrabold text-slate-900 dark:text-white">
                       22 Travel Badges
                     </div>
                   </div>
@@ -433,14 +433,14 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                 className="cursor-pointer flex items-center justify-between p-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400">
+                  <div className="p-2.5 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 shadow-xs">
                     <Calendar className="w-4 h-4" />
                   </div>
                   <div>
                     <div className="text-xs text-slate-500 dark:text-slate-400">
                       Planned Trips
                     </div>
-                    <div className="text-base font-extrabold text-slate-900 dark:text-white">
+                    <div className="text-lg font-extrabold text-slate-900 dark:text-white">
                       {trips.length} Itineraries
                     </div>
                   </div>

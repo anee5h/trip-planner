@@ -36,7 +36,7 @@ export function ScrollContainer({ children, className }: ScrollContainerProps) {
     <div className="relative w-full">
       {canScrollLeft && (
         <div
-          className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"
+          className="absolute left-0 top-0 bottom-0 w-3.5 bg-gradient-to-r from-background/90 via-background/40 to-transparent z-10 pointer-events-none"
           aria-hidden="true"
         />
       )}
@@ -54,7 +54,7 @@ export function ScrollContainer({ children, className }: ScrollContainerProps) {
       </div>
       {canScrollRight && (
         <div
-          className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"
+          className="absolute right-0 top-0 bottom-0 w-3.5 bg-gradient-to-l from-background/90 via-background/40 to-transparent z-10 pointer-events-none"
           aria-hidden="true"
         />
       )}

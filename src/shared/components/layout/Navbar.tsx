@@ -15,6 +15,7 @@ import {
   ChevronDown,
   HelpCircle,
   MessageSquare,
+  Layers,
 } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { useAuth } from "@/shared/hooks/useAuth";
@@ -502,12 +503,24 @@ export default function Navbar() {
               to="/destinations"
               onClick={() => setMenuOpen(false)}
               className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold transition-colors ${
-                isDiscoverActive
+                location.pathname.startsWith("/destinations")
                   ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 font-bold"
                   : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
               }`}
             >
               <Map className="w-5 h-5 text-emerald-500" /> Discover
+            </Link>
+
+            <Link
+              to="/collections"
+              onClick={() => setMenuOpen(false)}
+              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold transition-colors ${
+                location.pathname.startsWith("/collections")
+                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 font-bold"
+                  : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
+              }`}
+            >
+              <Layers className="w-5 h-5 text-teal-500" /> Collections
             </Link>
 
             <Link
@@ -519,7 +532,7 @@ export default function Navbar() {
                   : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
               }`}
             >
-              <Calendar className="w-5 h-5 text-emerald-500" /> Plan
+              <Calendar className="w-5 h-5 text-emerald-500" /> Trip Planner
             </Link>
 
             <Link

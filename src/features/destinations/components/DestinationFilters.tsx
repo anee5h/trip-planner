@@ -23,6 +23,7 @@ import {
   Filter,
   ChevronDown,
   ChevronUp,
+  RotateCcw,
   MapPin,
   X,
 } from "lucide-react";
@@ -564,10 +565,12 @@ export default function DestinationFilters({
 
         {/* Quick Reset */}
         <button
+          type="button"
           onClick={onReset}
-          className="h-10 px-3 text-xs font-semibold text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 transition-colors"
-          title="Reset all filters"
+          className="h-10 px-3.5 rounded-xl border border-slate-200 dark:border-slate-800 text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all flex items-center gap-1.5 shrink-0"
+          title="Reset all active filters"
         >
+          <RotateCcw className="w-3.5 h-3.5 text-slate-400" />
           Reset
         </button>
       </div>
