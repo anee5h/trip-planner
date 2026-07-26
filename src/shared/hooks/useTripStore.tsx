@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect } from "react";
 import type { ReactNode } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 import { useAuth } from "@/shared/hooks/useAuth";
@@ -116,6 +116,59 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     trips,
     setTrips,
   });
+
+  // Retrospective self-healing migration: Ensure existing visited child records cascade to parent hubs
+  useEffect(() => {
+    if (!visited || visited.length === 0) return;
+
+    let updatedVisited = [...visited];
+    let updatedDates = { ...visitedDates };
+    let hasChanges = false;
+
+    for (const id of visited) {
+      let currentId: string | undefined = id;
+      while (currentId) {
+        const dest = destinationsIndex.find((d) => d.id === currentId);
+        const parentHubId = dest?.relationships?.parentDestinationId;
+        if (!parentHubId) break;
+
+        if (!updatedVisited.includes(parentHubId)) {
+          updatedVisited.push(parentHubId);
+          hasChanges = true;
+        }
+
+        const childDates = normalizeVisitDates(visitedDates[id]);
+        const parentDates = normalizeVisitDates(updatedDates[parentHubId]);
+        const datesToAdd =
+          childDates.length > 0
+            ? childDates
+            : [new Date().toISOString().split("T")[0]];
+
+        let datesChanged = false;
+        const mergedDates = [...parentDates];
+        for (const d of datesToAdd) {
+          if (!mergedDates.includes(d)) {
+            mergedDates.push(d);
+            datesChanged = true;
+          }
+        }
+
+        if (datesChanged) {
+          updatedDates[parentHubId] = mergedDates.sort((a, b) =>
+            a.localeCompare(b),
+          );
+          hasChanges = true;
+        }
+
+        currentId = parentHubId;
+      }
+    }
+
+    if (hasChanges) {
+      setVisited(updatedVisited);
+      setVisitedDates(updatedDates);
+    }
+  }, []);
 
   const toggleFavorite = (id: string) => {
     setFavorites((prev) =>
