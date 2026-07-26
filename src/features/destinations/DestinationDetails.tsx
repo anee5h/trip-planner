@@ -344,7 +344,7 @@ export default function DestinationDetails() {
   }
 
   return (
-    <div className="bg-slate-50 dark:bg-background min-h-screen pb-20 pt-16">
+    <div className="bg-slate-50 dark:bg-background min-h-screen pb-20">
       {/* Hero Image Header */}
       <div className="relative h-72 md:h-[400px] w-full">
         <img
