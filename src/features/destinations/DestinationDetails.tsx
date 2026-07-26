@@ -17,6 +17,8 @@ import { createRecommendationMatch } from "@/shared/services/recommendation/Reco
 import { ItineraryPickerModal } from "@/features/trips/components/ItineraryPickerModal";
 import { MarkVisitedModal } from "./components/MarkVisitedModal";
 import { VisitedDateModal } from "./components/VisitedDateModal";
+import { DestinationDetailsSkeleton } from "@/shared/components/ui/Skeleton";
+import { useDelayedSkeleton } from "@/shared/hooks/useDelayedSkeleton";
 import {
   ArrowLeft,
   MapPin,
@@ -324,12 +326,13 @@ export default function DestinationDetails() {
       ? selectedTransportState
       : defaultMode;
 
+  const showSkeleton = useDelayedSkeleton(destLoading, 120);
+
   if (destLoading) {
-    return (
-      <div className="container mx-auto px-4 py-20 text-center">
-        <div className="text-emerald-500 animate-pulse text-xl">Loading...</div>
-      </div>
-    );
+    if (showSkeleton) {
+      return <DestinationDetailsSkeleton />;
+    }
+    return null;
   }
 
   if (!destination) {
