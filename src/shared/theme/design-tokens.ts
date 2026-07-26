@@ -2,7 +2,8 @@ export const designTokens = {
   spacing: {
     xs: "4px", // 4px
     sm: "8px", // 8px
-    md: "12px", // 12px
+    md: "12px", // 12px (deprecated - migrate to sm or base)
+    base: "16px", // 16px
     lg: "16px", // 16px
     xl: "24px", // 24px
     xxl: "32px", // 32px
@@ -30,9 +31,9 @@ export const designTokens = {
     info: "#3b82f6",
   },
   typography: {
-    hero: "text-[48px] font-black leading-tight tracking-tight",
-    sectionTitle: "text-[32px] font-extrabold leading-snug",
-    pageTitle: "text-[28px] font-extrabold leading-snug",
+    hero: "text-[48px] font-extrabold leading-tight tracking-tight",
+    sectionTitle: "text-[32px] font-bold leading-snug",
+    pageTitle: "text-[28px] font-bold leading-snug",
     cardTitle: "text-[20px] font-bold leading-normal",
     body: "text-[16px] font-normal leading-relaxed",
     secondary:

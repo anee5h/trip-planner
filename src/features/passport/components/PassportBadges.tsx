@@ -69,7 +69,7 @@ export function PassportBadges() {
           <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
             Badges Earned
           </div>
-          <div className="text-xl font-black text-emerald-700 dark:text-emerald-300">
+          <div className="text-xl font-extrabold text-emerald-700 dark:text-emerald-300">
             {totalUnlocked}{" "}
             <span className="text-xs font-normal text-slate-400">
               / {BADGES_CATALOG.length}

@@ -100,7 +100,7 @@ export default function RouletteModal({
               className={`w-6 h-6 text-amber-300 ${spinning ? "animate-spin" : ""}`}
             />
           </div>
-          <h2 className="text-2xl font-black tracking-tight">
+          <h2 className="text-2xl font-extrabold tracking-tight">
             Destination Roulette
           </h2>
           <p className="text-xs text-emerald-100 mt-1 font-medium">
@@ -172,7 +172,7 @@ export default function RouletteModal({
                     <p className="text-xs font-semibold text-emerald-300 uppercase tracking-wider">
                       {currentDisplay?.prefecture} Prefecture
                     </p>
-                    <h3 className="text-xl font-black leading-tight drop-shadow-md">
+                    <h3 className="text-xl font-extrabold leading-tight drop-shadow-md">
                       {currentDisplay?.name}
                     </h3>
                   </div>

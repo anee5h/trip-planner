@@ -7,8 +7,9 @@ import DestinationCard from "@/features/destinations/components/DestinationCard"
 import TripCard from "@/features/trips/components/TripCard";
 import TripEditor from "@/features/trips/components/TripEditor";
 import TripDetails from "@/features/trips/TripDetails";
-import { Sparkles, Plus, Calendar, Bookmark, Compass } from "lucide-react";
+import { Sparkles, Plus, Calendar, Bookmark } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
+import { PageHeader } from "@/shared/components/ui/PageHeader";
 
 export default function MyTrips() {
   const location = useLocation();
@@ -75,44 +76,32 @@ export default function MyTrips() {
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-7xl space-y-8">
-      {/* Page Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center pb-6 border-b border-slate-200 dark:border-slate-800 gap-4">
-        <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 text-xs font-bold mb-2 border border-emerald-200 dark:border-emerald-800">
-            {activeTab === "bucketlist" ? (
-              <>
-                <Bookmark className="w-3.5 h-3.5 text-amber-500" />
-                <span>Saved Destinations</span>
-              </>
-            ) : (
-              <>
-                <Compass className="w-3.5 h-3.5" />
-                <span>Travel Planner</span>
-              </>
-            )}
-          </div>
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-            {activeTab === "bucketlist"
-              ? `My Bucket List (${favoriteDestinations.length})`
-              : `My Travel Itineraries (${trips.length})`}
-          </h1>
-          <p className="text-slate-500 dark:text-slate-400 mt-1.5 text-sm md:text-base max-w-xl">
-            {activeTab === "bucketlist"
-              ? "Explore saved destinations you would like to visit across Japan."
-              : "Manage your custom travel itineraries and daily route plans."}
-          </p>
-        </div>
-
-        {activeTab === "planned" && (
-          <Button
-            onClick={() => setIsAddingTrip(true)}
-            className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-bold px-6 shadow-md"
-          >
-            <Plus className="w-4 h-4 mr-1.5" />
-            Plan New Trip
-          </Button>
-        )}
-      </div>
+      <PageHeader
+        title={
+          activeTab === "bucketlist"
+            ? `My Bucket List (${favoriteDestinations.length})`
+            : `My Travel Itineraries (${trips.length})`
+        }
+        subtitle={
+          activeTab === "bucketlist" ? "Saved Destinations" : "Travel Planner"
+        }
+        description={
+          activeTab === "bucketlist"
+            ? "Explore saved destinations you would like to visit across Japan."
+            : "Manage your custom travel itineraries and daily route plans."
+        }
+        actions={
+          activeTab === "planned" ? (
+            <Button
+              onClick={() => setIsAddingTrip(true)}
+              className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-bold px-6 shadow-md"
+            >
+              <Plus className="w-4 h-4 mr-1.5" />
+              Plan New Trip
+            </Button>
+          ) : undefined
+        }
+      />
 
       {/* Planned Itineraries Sub-Page */}
       {activeTab === "planned" && (

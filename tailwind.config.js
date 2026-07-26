@@ -58,7 +58,8 @@ module.exports = {
       spacing: {
         xs: "4px",
         sm: "8px",
-        md: "12px",
+        md: "12px", // deprecated - use base (16px) or sm (8px)
+        base: "16px",
         lg: "16px",
         xl: "24px",
         xxl: "32px",

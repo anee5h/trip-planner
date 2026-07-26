@@ -87,7 +87,7 @@ export default function Profile() {
       <div className="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="flex items-center gap-5">
-            <div className="w-20 h-20 rounded-3xl bg-emerald-600 flex items-center justify-center text-white text-3xl font-black shadow-xl shadow-emerald-600/20 ring-4 ring-emerald-500/20 shrink-0">
+            <div className="w-20 h-20 rounded-3xl bg-emerald-600 flex items-center justify-center text-white text-3xl font-extrabold shadow-xl shadow-emerald-600/20 ring-4 ring-emerald-500/20 shrink-0">
               {userInitial}
             </div>
             <div className="space-y-1">
@@ -110,7 +110,7 @@ export default function Profile() {
         {/* 4-Stat Pill Bar */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
           <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
-            <div className="text-xl font-black text-slate-900 dark:text-white">
+            <div className="text-xl font-extrabold text-slate-900 dark:text-white">
               {visitedPrefectures.length}{" "}
               <span className="text-xs font-normal text-slate-400">/ 47</span>
             </div>
@@ -118,21 +118,21 @@ export default function Profile() {
           </div>
 
           <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
-            <div className="text-xl font-black text-slate-900 dark:text-white">
+            <div className="text-xl font-extrabold text-slate-900 dark:text-white">
               {visited.length}
             </div>
             <Caption>Destinations</Caption>
           </div>
 
           <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
-            <div className="text-xl font-black text-slate-900 dark:text-white">
+            <div className="text-xl font-extrabold text-slate-900 dark:text-white">
               6
             </div>
             <Caption>Badges</Caption>
           </div>
 
           <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
-            <div className="text-xl font-black text-slate-900 dark:text-white">
+            <div className="text-xl font-extrabold text-slate-900 dark:text-white">
               2
             </div>
             <Caption>Achievements</Caption>

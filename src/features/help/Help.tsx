@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Icons } from "@/shared/icons";
 import {
-  PageTitle,
   SectionTitle,
   CardTitle,
   BodyText,
   Caption,
 } from "@/shared/components/ui/Typography";
 import { FeedbackModal } from "@/shared/components/feedback/FeedbackModal";
+import { PageHeader } from "@/shared/components/ui/PageHeader";
 
 type HelpSection = "getting-started" | "faq" | "shortcuts" | "changelog";
 
@@ -62,28 +62,20 @@ export default function Help() {
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 max-w-6xl space-y-8 animate-in fade-in duration-200">
-      {/* Header */}
-      <div className="pb-6 border-b border-slate-200 dark:border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div>
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-1">
-            <FaqIcon className="w-4 h-4" />
-            Documentation & Support
-          </div>
-          <PageTitle>Help Center</PageTitle>
-          <BodyText className="mt-1">
-            Learn feature workflows, view keyboard shortcuts, check release
-            notes, or send feedback.
-          </BodyText>
-        </div>
-
-        <button
-          onClick={() => setFeedbackOpen(true)}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md transition-all self-start md:self-auto"
-        >
-          <FeedbackIcon className="w-4 h-4" />
-          Send Feedback
-        </button>
-      </div>
+      <PageHeader
+        title="Help Center"
+        subtitle="Documentation & Support"
+        description="Learn feature workflows, view keyboard shortcuts, check release notes, or send feedback."
+        actions={
+          <button
+            onClick={() => setFeedbackOpen(true)}
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md transition-all"
+          >
+            <FeedbackIcon className="w-4 h-4" />
+            Send Feedback
+          </button>
+        }
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Navigation Sidebar */}
@@ -140,7 +132,7 @@ export default function Help() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
                   <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 space-y-2">
-                    <div className="w-8 h-8 rounded-xl bg-emerald-500 text-white font-black text-sm flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-xl bg-emerald-500 text-white font-extrabold text-sm flex items-center justify-center">
                       1
                     </div>
                     <CardTitle>Discover & Bookmark</CardTitle>
@@ -151,7 +143,7 @@ export default function Help() {
                   </div>
 
                   <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 space-y-2">
-                    <div className="w-8 h-8 rounded-xl bg-emerald-500 text-white font-black text-sm flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-xl bg-emerald-500 text-white font-extrabold text-sm flex items-center justify-center">
                       2
                     </div>
                     <CardTitle>Plan Itineraries</CardTitle>
@@ -162,7 +154,7 @@ export default function Help() {
                   </div>
 
                   <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 space-y-2">
-                    <div className="w-8 h-8 rounded-xl bg-emerald-500 text-white font-black text-sm flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-xl bg-emerald-500 text-white font-extrabold text-sm flex items-center justify-center">
                       3
                     </div>
                     <CardTitle>Track Progression</CardTitle>

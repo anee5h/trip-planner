@@ -20,6 +20,7 @@
     "validate-images": "tsx scripts/cli/validate-images.ts",
     "validate-search": "tsx scripts/cli/validate-search.ts",
     "validate-links": "tsx scripts/cli/validate-links.ts",
+    "audit-spacing": "node scripts/audit-spacing.cjs",
     "prepare": "husky"
   },
   "dependencies": {

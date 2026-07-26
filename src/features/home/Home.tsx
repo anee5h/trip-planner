@@ -172,7 +172,7 @@ export default function Home() {
                   <p className="text-slate-500 dark:text-slate-400 font-bold mb-2 tracking-widest uppercase text-xs">
                     {currentSituation.dateLabel}
                   </p>
-                  <div className="flex items-center text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-4">
+                  <div className="flex items-center text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
                     <span>{currentSituation.temp}°C</span>
                     <span className="mx-4 text-slate-200 dark:text-slate-800">
                       |
@@ -567,7 +567,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {topRecommendations.map((dest: any, index: number) => (
               <div key={dest.id} className="relative flex flex-col h-full">
-                <div className="absolute -top-4 -left-4 w-10 h-10 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full flex items-center justify-center font-black text-xl z-10 shadow-lg border-4 border-white dark:border-background">
+                <div className="absolute -top-4 -left-4 w-10 h-10 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full flex items-center justify-center font-extrabold text-xl z-10 shadow-lg border-4 border-white dark:border-background">
                   #{index + 1}
                 </div>
                 <div className="flex-grow">

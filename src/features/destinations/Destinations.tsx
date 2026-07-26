@@ -32,6 +32,8 @@ import {
   isAccessible,
 } from "@/shared/services/recommendation/RecommendationFilters";
 
+import { PageHeader } from "@/shared/components/ui/PageHeader";
+
 export default function Destinations() {
   const { homeStationCoords } = useTripStore();
   const allDestinations = getDestinationList() as Destination[];
@@ -265,47 +267,40 @@ export default function Destinations() {
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
-        <div>
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-2">
-            Destinations
-          </h1>
-          <p className="text-slate-600 dark:text-slate-400 max-w-2xl">
-            Find the perfect adventure across Japan. Filter by region,
-            prefecture, collections, budget, and vibe.
-          </p>
-          <div className="mt-4">
-            <StationInput />
+      <PageHeader
+        title="Destinations"
+        description="Find the perfect adventure across Japan. Filter by region, prefecture, collections, budget, and vibe."
+        actions={
+          <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-lg">
+            <button
+              onClick={() => setViewMode("grid")}
+              aria-label="Switch to grid view"
+              className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                viewMode === "grid"
+                  ? "bg-white dark:bg-slate-900 shadow-sm text-emerald-600"
+                  : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
+              }`}
+            >
+              <Grid className="w-4 h-4 mr-2" />
+              Grid
+            </button>
+            <button
+              onClick={() => setViewMode("map")}
+              aria-label="Switch to map view"
+              className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                viewMode === "map"
+                  ? "bg-white dark:bg-slate-900 shadow-sm text-emerald-600"
+                  : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
+              }`}
+            >
+              <MapIcon className="w-4 h-4 mr-2" />
+              Map
+            </button>
           </div>
-        </div>
-
-        {/* View Toggle */}
-        <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-lg">
-          <button
-            onClick={() => setViewMode("grid")}
-            aria-label="Switch to grid view"
-            className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-              viewMode === "grid"
-                ? "bg-white dark:bg-slate-900 shadow-sm text-emerald-600"
-                : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
-            }`}
-          >
-            <Grid className="w-4 h-4 mr-2" />
-            Grid
-          </button>
-          <button
-            onClick={() => setViewMode("map")}
-            aria-label="Switch to map view"
-            className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-              viewMode === "map"
-                ? "bg-white dark:bg-slate-900 shadow-sm text-emerald-600"
-                : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
-            }`}
-          >
-            <MapIcon className="w-4 h-4 mr-2" />
-            Map
-          </button>
-        </div>
+        }
+      />
+      <div className="mt-2 mb-6">
+        <StationInput />
       </div>
 
       <DestinationFilters

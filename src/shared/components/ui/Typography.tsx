@@ -9,7 +9,7 @@ export function PageTitle({
 }) {
   return (
     <h1
-      className={`text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight ${className}`}
+      className={`text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight ${className}`}
     >
       {children}
     </h1>

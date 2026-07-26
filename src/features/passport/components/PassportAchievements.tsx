@@ -41,7 +41,7 @@ export function PassportAchievements() {
           <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
             Unlocked
           </div>
-          <div className="text-xl font-black text-amber-600 dark:text-amber-400">
+          <div className="text-xl font-extrabold text-amber-600 dark:text-amber-400">
             {totalUnlocked}{" "}
             <span className="text-xs font-normal text-slate-400">
               / {ACHIEVEMENTS_CATALOG.length}

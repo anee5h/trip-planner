@@ -227,7 +227,7 @@ export default function DestinationCard({
               <span className="font-bold text-slate-700 dark:text-slate-300">
                 Match Confidence
               </span>
-              <span className="text-2xl font-black text-emerald-500">
+              <span className="text-2xl font-extrabold text-emerald-500">
                 {(destination as any).match.confidence}%
               </span>
             </div>

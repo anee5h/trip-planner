@@ -6,8 +6,10 @@ import {
   getCollectionProgress,
 } from "@/shared/utils/collections";
 import CollectionBadge from "@/shared/components/ui/CollectionBadge";
-import { ExternalLink, Layers, CheckCircle2 } from "lucide-react";
+import { ExternalLink, CheckCircle2 } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
+
+import { PageHeader } from "@/shared/components/ui/PageHeader";
 
 export default function CollectionsDirectory() {
   const collections = getCollections();
@@ -15,19 +17,11 @@ export default function CollectionsDirectory() {
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl">
-      <div className="mb-10 text-center max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 text-xs font-bold mb-4">
-          <Layers className="w-4 h-4 text-emerald-500" />
-          Curated Travel Guides
-        </div>
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4">
-          Explore Curated Collections
-        </h1>
-        <p className="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed">
-          Discover Japan through hand-picked historical rankings, official
-          UNESCO heritage lists, and legendary cultural landmarks.
-        </p>
-      </div>
+      <PageHeader
+        title="Explore Curated Collections"
+        subtitle="Curated Travel Guides"
+        description="Discover Japan through hand-picked historical rankings, official UNESCO heritage lists, and legendary cultural landmarks."
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {collections.map((col) => {

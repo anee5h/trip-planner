@@ -31,7 +31,7 @@ const RARITY_LABELS: Record<Badge["rarity"], { label: string; style: string }> =
     legendary: {
       label: "Legendary",
       style:
-        "bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 border-amber-300 dark:border-amber-700 font-black",
+        "bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 border-amber-300 dark:border-amber-700 font-extrabold",
     },
   };
 

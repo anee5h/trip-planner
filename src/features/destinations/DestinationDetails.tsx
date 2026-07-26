@@ -843,7 +843,7 @@ export default function DestinationDetails() {
                           <h4 className="font-bold text-slate-900 dark:text-white leading-tight">
                             {budgetLabel}
                           </h4>
-                          <div className="text-emerald-600 font-black text-lg">
+                          <div className="text-emerald-600 font-extrabold text-lg">
                             ¥
                             {budgetService
                               .getAdjustedBudget(
@@ -1108,7 +1108,7 @@ export default function DestinationDetails() {
                           </p>
                         </div>
                         <div className="flex items-center gap-3">
-                          <span className="text-4xl font-black text-emerald-500">
+                          <span className="text-4xl font-extrabold text-emerald-500">
                             {matchDetails.confidence}%
                           </span>
                           <div className="w-24 h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden shrink-0">
@@ -1174,7 +1174,7 @@ export default function DestinationDetails() {
           <div className="space-y-6">
             <Card className="bg-emerald-600 text-white border-none shadow-lg">
               <CardContent className="p-6 flex flex-col items-center text-center">
-                <div className="text-5xl font-black mb-2">
+                <div className="text-5xl font-extrabold mb-2">
                   {destination.ratings.overall}
                 </div>
                 <div className="text-emerald-100 font-medium tracking-widest uppercase text-sm mb-4">

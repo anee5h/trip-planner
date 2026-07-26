@@ -5,7 +5,6 @@ import { useTheme } from "@/shared/context/ThemeContext";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import StationInput from "@/shared/components/StationInput";
 import {
-  Sliders,
   MapPin,
   Car,
   Sun,
@@ -15,6 +14,7 @@ import {
   Loader2,
 } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
+import { PageHeader } from "@/shared/components/ui/PageHeader";
 import { toast } from "sonner";
 
 type SettingsSection =
@@ -169,20 +169,11 @@ export default function Settings() {
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 max-w-6xl space-y-8 animate-in fade-in duration-200">
-      {/* Header */}
-      <div className="pb-6 border-b border-slate-200 dark:border-slate-800">
-        <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-1">
-          <Sliders className="w-4 h-4" />
-          Application Configuration
-        </div>
-        <h1 className="text-3xl font-black text-slate-900 dark:text-white">
-          Settings & Preferences
-        </h1>
-        <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 mt-1">
-          Customize your Base Location, travel preferences, transit defaults,
-          and UI accessibility.
-        </p>
-      </div>
+      <PageHeader
+        title="Settings & Preferences"
+        subtitle="Application Configuration"
+        description="Customize your Base Location, travel preferences, transit defaults, and UI accessibility."
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Settings Navigation Sidebar */}

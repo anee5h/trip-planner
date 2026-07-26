@@ -214,7 +214,7 @@ export default function ItineraryPlanner({
                 key={stop.id}
                 className="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4.5 rounded-2xl flex items-center justify-between shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="absolute -left-[2.25rem] top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-black text-sm shadow-md ring-4 ring-slate-50 dark:ring-background">
+                <div className="absolute -left-[2.25rem] top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-extrabold text-sm shadow-md ring-4 ring-slate-50 dark:ring-background">
                   {index + 1}
                 </div>
 
