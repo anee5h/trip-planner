@@ -40,7 +40,7 @@
       "lastVerified": "2026-07",
       "verificationSource": "UNESCO World Heritage Centre",
       "reviewIntervalMonths": 12,
-      "expectedMembers": 25
+      "expectedMembers": 27
     }
   },
   {
@@ -326,6 +326,28 @@
       "lastVerified": "2026-07",
       "verificationSource": "Night View Convention & Tourism Bureau (夜景サミット)",
       "reviewIntervalMonths": 24,
+      "expectedMembers": 20
+    }
+  },
+  {
+    "id": "core-cities-japan",
+    "slug": "core-cities-japan",
+    "name": "Core Designated Cities of Japan",
+    "description": "Japan's 20 major government ordinance-designated metropolis hubs with statutory city-level autonomy.",
+    "category": "Cities & Metropolis",
+    "type": "official",
+    "isAchievement": true,
+    "icon": "Building",
+    "badgeColor": "sky",
+    "sortOrder": 16,
+    "officialSource": "Ministry of Internal Affairs and Communications (政令指定都市)",
+    "sourceUrl": "https://www.soumu.go.jp/",
+    "metadata": {
+      "authority": "government",
+      "status": "active",
+      "lastVerified": "2026-07",
+      "verificationSource": "Ministry of Internal Affairs and Communications",
+      "reviewIntervalMonths": 12,
       "expectedMembers": 20
     }
   }

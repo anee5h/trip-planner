@@ -67,6 +67,16 @@
     }
   },
   {
+    "id": "amami-iriomote-natural-site",
+    "name": "Amami-Oshima, Tokunoshima, Northern Okinawa & Iriomote",
+    "prefecture": "Kagoshima",
+    "region": "Kyushu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "amanohashidate-kyoto",
     "name": "Amanohashidate (Bridge to Heaven)",
     "prefecture": "Kyoto",
@@ -167,6 +177,16 @@
         "dazaifu-city"
       ]
     }
+  },
+  {
+    "id": "asuka-fujiwara-nara",
+    "name": "Ancient Capitals of Asuka and Fujiwara",
+    "prefecture": "Nara",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "atami-city",
@@ -752,6 +772,16 @@
     }
   },
   {
+    "id": "gunkanjima-hashima-nagasaki",
+    "name": "Sites of Japan’s Meiji Industrial Revolution (Gunkanjima)",
+    "prefecture": "Nagasaki",
+    "region": "Kyushu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "gunma-ikaho-onsen",
     "name": "Ikaho Onsen",
     "prefecture": "Gunma",
@@ -973,6 +1003,16 @@
     }
   },
   {
+    "id": "himeji-castle-hyogo",
+    "name": "Himeji-jo",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "himeji-city",
     "name": "Himeji City",
     "prefecture": "Hyogo",
@@ -984,6 +1024,16 @@
       "featuredDestinationIds": ["himeji-castle"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
     }
+  },
+  {
+    "id": "hiraizumi-chusonji-iwate",
+    "name": "Hiraizumi – Temples, Gardens and Archaeological Sites",
+    "prefecture": "Iwate",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "hirosaki-castle",
@@ -1011,6 +1061,26 @@
         "okayama-city"
       ]
     }
+  },
+  {
+    "id": "hiroshima-peace-memorial",
+    "name": "Hiroshima Peace Memorial (Genbaku Dome)",
+    "prefecture": "Hiroshima",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
+    "id": "horyuji-temple-nara",
+    "name": "Buddhist Monuments in the Horyu-ji Area",
+    "prefecture": "Nara",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "ibaraki-fukuroda-falls",
@@ -1167,6 +1237,16 @@
         "nagano-city"
       ]
     }
+  },
+  {
+    "id": "iwami-ginzan-shimane",
+    "name": "Iwami Ginzan Silver Mine and its Cultural Landscape",
+    "prefecture": "Shimane",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "izu",
@@ -1632,6 +1712,16 @@
     }
   },
   {
+    "id": "kumano-kodo-koya-wakayama",
+    "name": "Sacred Sites and Pilgrimage Routes in the Kii Mountain Range",
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "kurashiki-city",
     "name": "Kurashiki City",
     "prefecture": "Okayama",
@@ -2079,6 +2169,16 @@
     "relationships": {}
   },
   {
+    "id": "mozufuruichi-kofun-osaka",
+    "name": "Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan",
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "nachi-falls-wakayama",
     "name": "Nachi Falls & Pagoda",
     "prefecture": "Wakayama",
@@ -2279,6 +2379,16 @@
     }
   },
   {
+    "id": "nara-historic",
+    "name": "Historic Monuments of Ancient Nara",
+    "prefecture": "Nara",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "nara-park-todaiji",
     "name": "Historic Nara (Todai-ji Great Buddha)",
     "prefecture": "Nara",
@@ -2322,6 +2432,16 @@
     }
   },
   {
+    "id": "national-museum-western-art-tokyo",
+    "name": "The Architectural Work of Le Corbusier (NMWA Tokyo)",
+    "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "nerima-city",
     "name": "Nerima City",
     "prefecture": "Tokyo",
@@ -2338,6 +2458,16 @@
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
+  },
+  {
+    "id": "niigata-city",
+    "name": "Niigata City",
+    "prefecture": "Niigata",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "nijo-castle-kyoto",
@@ -2465,6 +2595,16 @@
     }
   },
   {
+    "id": "ogasawara-islands-tokyo",
+    "name": "Ogasawara Islands",
+    "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "okayama-city",
     "name": "Okayama City",
     "prefecture": "Okayama",
@@ -2502,6 +2642,16 @@
         "nagano-city"
       ]
     }
+  },
+  {
+    "id": "okinoshima-munakata-fukuoka",
+    "name": "Sacred Island of Okinoshima and Associated Sites in Munakata",
+    "prefecture": "Fukuoka",
+    "region": "Kyushu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "okuhida",
@@ -2625,6 +2775,16 @@
     }
   },
   {
+    "id": "oura-church-nagasaki",
+    "name": "Hidden Christian Sites in the Nagasaki Region",
+    "prefecture": "Nagasaki",
+    "region": "Kyushu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "oze-national-park",
     "name": "Oze National Park",
     "prefecture": "Gunma",
@@ -2726,6 +2886,16 @@
     "relationships": {}
   },
   {
+    "id": "sannai-maruyama-jomon-aomori",
+    "name": "Jomon Prehistoric Sites in Northern Japan",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "sapporo-city",
     "name": "Sapporo City",
     "prefecture": "Hokkaido",
@@ -2737,6 +2907,16 @@
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": ["otaru-city", "hakodate-city", "asahikawa-city"]
     }
+  },
+  {
+    "id": "sendai-city",
+    "name": "Sendai City",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "role": "hub",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "setagaya-city",
@@ -2844,6 +3024,16 @@
     }
   },
   {
+    "id": "shirakami-sanchi-aomori",
+    "name": "Shirakami-Sanchi",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "shirakawa-village",
     "name": "Shirakawa Village",
     "prefecture": "Gifu",
@@ -2856,6 +3046,16 @@
       "nearbyDestinationIds": ["nagoya-city", "nagano-city", "inuyama-city"],
       "relatedDestinationIds": ["takayama-city"]
     }
+  },
+  {
+    "id": "shiretoko-national-park-hokkaido",
+    "name": "Shiretoko",
+    "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "shizuoka-city",
@@ -2878,6 +3078,16 @@
         "nagano-city"
       ]
     }
+  },
+  {
+    "id": "shuri-castle-okinawa",
+    "name": "Gusuku Sites and Related Properties of the Kingdom of Ryukyu",
+    "prefecture": "Okinawa",
+    "region": "Kyushu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "suginami-city",
@@ -3164,6 +3374,16 @@
     "relationships": {
       "parentDestinationId": "minato-city"
     }
+  },
+  {
+    "id": "tomioka-silk-mill-gunma",
+    "name": "Tomioka Silk Mill and Related Sites",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "toshima-city",
