@@ -568,13 +568,11 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {topRecommendations.map((dest: any, index: number) => (
-              <div key={dest.id} className="relative flex flex-col h-full">
-                <div className="absolute -top-4 -left-4 w-10 h-10 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full flex items-center justify-center font-extrabold text-xl z-10 shadow-lg border-4 border-white dark:border-background">
-                  #{index + 1}
-                </div>
+              <div key={dest.id} className="flex flex-col h-full">
                 <div className="flex-grow">
                   <DestinationCard
                     destination={dest as Destination}
+                    rank={index + 1}
                     partySize={partySize}
                     carMode={carMode}
                     publicModes={publicModes}

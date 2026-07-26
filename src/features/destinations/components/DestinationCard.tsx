@@ -36,6 +36,7 @@ import { getAdjustedBudget } from "@/shared/utils/utils";
 
 interface DestinationCardProps {
   destination: Destination;
+  rank?: number;
   activeTransportMode?: string;
   partySize?: number;
   carMode?: string;
@@ -44,6 +45,7 @@ interface DestinationCardProps {
 
 export default function DestinationCard({
   destination,
+  rank,
   activeTransportMode = "all",
   partySize = 2,
   carMode,
@@ -111,7 +113,12 @@ export default function DestinationCard({
             </Badge>
           </div>
         )}
-        <div className="absolute top-3 left-3 flex gap-2 flex-wrap z-10 max-w-[80%]">
+        <div className="absolute top-3 left-3 flex gap-2 flex-wrap z-20 max-w-[85%] items-center">
+          {rank !== undefined && (
+            <Badge className="bg-slate-900/90 dark:bg-white text-white dark:text-slate-950 font-black text-xs sm:text-sm py-1 px-2.5 backdrop-blur-md border border-white/20 shadow-md">
+              #{rank}
+            </Badge>
+          )}
           {destination.kind && (
             <Badge className="bg-emerald-600/90 text-white font-extrabold capitalize backdrop-blur-md border border-white/20 shadow-md">
               {destination.kind}
