@@ -121,11 +121,11 @@ async function generateQASheet() {
   <div class="controls">
     <div class="control-group">
       <div class="filter-pills">
-        <button class="filter-pill active" data-filter="ALL" onclick="setFilter('ALL')">All (<span id="cnt-all">0</span>)</button>
-        <button class="filter-pill ok" data-filter="OK" onclick="setFilter('OK')">✅ OK (<span id="cnt-ok">0</span>)</button>
-        <button class="filter-pill wrong" data-filter="WRONG_LANDMARK" onclick="setFilter('WRONG_LANDMARK')">📍 WRONG (<span id="cnt-wrong">0</span>)</button>
-        <button class="filter-pill low" data-filter="BAD_CONTENT" onclick="setFilter('BAD_CONTENT')">⚠️ LOW QUALITY (<span id="cnt-low">0</span>)</button>
-        <button class="filter-pill broken" data-filter="BROKEN" onclick="setFilter('BROKEN')">❌ BROKEN (<span id="cnt-broken">0</span>)</button>
+        <button class="filter-pill active" data-filter="ALL" onclick="toggleFilter('ALL')">All (<span id="cnt-all">0</span>)</button>
+        <button class="filter-pill ok active" data-filter="OK" onclick="toggleFilter('OK')">✅ OK (<span id="cnt-ok">0</span>)</button>
+        <button class="filter-pill wrong active" data-filter="WRONG_LANDMARK" onclick="toggleFilter('WRONG_LANDMARK')">📍 WRONG (<span id="cnt-wrong">0</span>)</button>
+        <button class="filter-pill low active" data-filter="BAD_CONTENT" onclick="toggleFilter('BAD_CONTENT')">⚠️ LOW (<span id="cnt-low">0</span>)</button>
+        <button class="filter-pill broken active" data-filter="BROKEN" onclick="toggleFilter('BROKEN')">❌ BROKEN (<span id="cnt-broken">0</span>)</button>
       </div>
     </div>
 
@@ -137,10 +137,15 @@ async function generateQASheet() {
         <option value="pref">🗺️ Prefecture</option>
       </select>
 
-      <input type="text" id="searchInput" placeholder="Search destination, ID, prefecture..." oninput="renderGrid()" style="width: 220px;" />
+      <input type="text" id="searchInput" placeholder="Search destination, ID, prefecture..." oninput="renderGrid()" style="width: 200px;" />
 
+      <button class="export-btn" style="background: #059669;" onclick="manualSaveProgress()">💾 Save Progress</button>
       <button class="export-btn" onclick="exportUpdatedCSV()">📥 Export CSV</button>
     </div>
+  </div>
+
+  <div id="saveToast" style="display: none; position: fixed; bottom: 20px; right: 20px; background: #059669; color: white; padding: 12px 20px; border-radius: 8px; font-weight: bold; font-size: 13px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 2000; transition: all 0.3s;">
+    ✅ QA Progress Saved to Browser Storage!
   </div>
 
   <div class="grid" id="destGrid"></div>
@@ -148,9 +153,11 @@ async function generateQASheet() {
   <script>
     const destinations = ${JSON.stringify(destinationsWithOrder)};
     const grid = document.getElementById('destGrid');
-    let currentFilter = 'ALL';
+    
+    // Multi-select filters state (default ALL enabled)
+    let activeFilters = new Set(['OK', 'WRONG_LANDMARK', 'BAD_CONTENT', 'BROKEN']);
 
-    // Load saved statuses from localStorage
+    // Load saved statuses & notes from localStorage
     const savedState = JSON.parse(localStorage.getItem('tabimap_qa_state') || '{}');
 
     destinations.forEach(d => {
@@ -169,6 +176,25 @@ async function generateQASheet() {
         state[d.id] = { status: d.qaStatus, notes: d.qaNotes };
       });
       localStorage.setItem('tabimap_qa_state', JSON.stringify(state));
+    }
+
+    function manualSaveProgress() {
+      saveState();
+      const toast = document.getElementById('saveToast');
+      toast.style.display = 'block';
+      toast.style.opacity = '1';
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.style.display = 'none', 300);
+      }, 2000);
+    }
+
+    function updateNotes(destId, val) {
+      const d = destinations.find(x => x.id === destId);
+      if (d) {
+        d.qaNotes = val;
+        saveState();
+      }
     }
 
     function updateCounters() {
@@ -208,11 +234,30 @@ async function generateQASheet() {
       }
     }
 
-    function setFilter(filter) {
-      currentFilter = filter;
+    function toggleFilter(filter) {
+      if (filter === 'ALL') {
+        if (activeFilters.size === 4) {
+          activeFilters.clear();
+        } else {
+          activeFilters = new Set(['OK', 'WRONG_LANDMARK', 'BAD_CONTENT', 'BROKEN']);
+        }
+      } else {
+        if (activeFilters.has(filter)) {
+          activeFilters.delete(filter);
+        } else {
+          activeFilters.add(filter);
+        }
+      }
+
       document.querySelectorAll('.filter-pill').forEach(pill => {
-        pill.classList.toggle('active', pill.dataset.filter === filter);
+        const f = pill.dataset.filter;
+        if (f === 'ALL') {
+          pill.classList.toggle('active', activeFilters.size === 4);
+        } else {
+          pill.classList.toggle('active', activeFilters.has(f));
+        }
       });
+
       renderGrid();
     }
 
@@ -243,7 +288,7 @@ async function generateQASheet() {
         card.style.border = '2px solid #f59e0b';
       }
 
-      if (currentFilter !== 'ALL' && currentFilter !== status) {
+      if (!activeFilters.has(status)) {
         card.style.display = 'none';
       }
     }
@@ -268,7 +313,7 @@ async function generateQASheet() {
 
       // Filter
       list.forEach(d => {
-        if (currentFilter !== 'ALL' && d.qaStatus !== currentFilter) return;
+        if (!activeFilters.has(d.qaStatus)) return;
 
         if (searchVal) {
           const matchName = d.name.toLowerCase().includes(searchVal);
@@ -307,7 +352,7 @@ async function generateQASheet() {
               <button class="action-btn btn-wrong \${d.qaStatus === 'WRONG_LANDMARK' ? 'active-wrong' : ''}" data-btn-type="wrong" onclick="setStatus(this, '\${d.id}', 'WRONG_LANDMARK')">📍 WRONG</button>
               <button class="action-btn btn-low \${d.qaStatus === 'BAD_CONTENT' ? 'active-low' : ''}" data-btn-type="low" onclick="setStatus(this, '\${d.id}', 'BAD_CONTENT')">⚠️ LOW</button>
             </div>
-            <input type="text" class="qa-replacement" placeholder="Notes / Replacement URL..." value="\${d.qaNotes}" onchange="d.qaNotes = this.value; saveState();" />
+            <input type="text" class="qa-replacement" placeholder="Notes / Replacement URL..." value="\${d.qaNotes}" oninput="updateNotes('\${d.id}', this.value)" />
           </div>
         \`;
         grid.appendChild(card);
@@ -317,6 +362,7 @@ async function generateQASheet() {
     }
 
     function exportUpdatedCSV() {
+      saveState();
       const headers = ["Destination ID", "Name", "Kind", "Role", "Prefecture", "Region", "Hero Image URL", "Image Status (OK / BROKEN / BAD_CONTENT / WRONG_LANDMARK)", "Replacement Image URL or Notes"];
       const rows = [headers.map(h => '"' + h + '"').join(",")];
 
