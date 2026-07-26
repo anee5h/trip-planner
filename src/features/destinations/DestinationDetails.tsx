@@ -17,7 +17,6 @@ import { createRecommendationMatch } from "@/shared/services/recommendation/Reco
 import { ItineraryPickerModal } from "@/features/trips/components/ItineraryPickerModal";
 import { MarkVisitedModal } from "./components/MarkVisitedModal";
 import { VisitedDateModal } from "./components/VisitedDateModal";
-import { formatVisitedDate } from "@/shared/utils/date";
 import {
   ArrowLeft,
   MapPin,
@@ -104,7 +103,6 @@ export default function DestinationDetails() {
     isFavorite,
     toggleFavorite,
     isVisited,
-    getLatestVisitedDate,
     getVisitCount,
     homeStation,
     homeStationCoords,
@@ -364,9 +362,9 @@ export default function DestinationDetails() {
         <div className="absolute bottom-0 left-0 w-full container mx-auto px-4 pb-8 text-white">
           <Link
             to="/destinations"
-            className="inline-flex items-center text-sm font-medium hover:text-emerald-400 transition-colors mb-3 text-slate-300 drop-shadow-sm"
+            className="inline-flex items-center text-xs font-semibold px-3 py-1.5 rounded-full bg-white/15 hover:bg-white/25 text-slate-100 backdrop-blur-md border border-white/20 transition-all mb-4"
           >
-            <ArrowLeft className="w-4 h-4 mr-1" /> Back
+            <ArrowLeft className="w-3.5 h-3.5 mr-1" /> Back
           </Link>
           <div className="flex flex-wrap items-center gap-2 mb-3">
             <Badge className="bg-emerald-600 hover:bg-emerald-500 border-none shrink-0">
@@ -439,8 +437,8 @@ export default function DestinationDetails() {
               </span>
             )}
           </h1>
-          <div className="flex flex-wrap items-center gap-3 text-lg text-slate-200 mt-3">
-            <div className="flex items-center text-sm font-medium mr-1">
+          <div className="flex flex-wrap items-center gap-3 text-sm text-slate-200 mb-5">
+            <div className="flex items-center font-medium">
               <MapPin className="w-4 h-4 mr-1 text-emerald-400" />{" "}
               {destination.prefecture}, Japan
             </div>
@@ -449,139 +447,139 @@ export default function DestinationDetails() {
             {parentDestination && (
               <Link
                 to={`/destinations/${parentDestination.id}`}
-                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-white/20 hover:bg-white/30 text-white font-extrabold text-xs backdrop-blur-md transition-all border border-white/30"
+                className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-white/15 hover:bg-white/25 text-white font-extrabold text-xs backdrop-blur-md transition-all border border-white/20"
               >
-                <MapPin className="w-3.5 h-3.5 text-emerald-400" />
+                <MapPin className="w-3 h-3 text-emerald-400" />
                 Located In: {parentDestination.name}
               </Link>
             )}
+          </div>
 
-            {/* + Add to Itinerary Text Button */}
+          {/* Option A Action Controls: Single Primary CTA + Compact Circular Icons Row */}
+          <div className="flex flex-wrap items-center gap-3">
+            {/* Primary CTA: Add to Itinerary */}
             <button
               onClick={handleAddToItinerary}
-              className="inline-flex items-center text-sm font-bold bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-xl transition-all active:scale-95 shadow-md"
+              className="inline-flex items-center text-sm font-bold bg-emerald-600 hover:bg-emerald-500 text-white h-11 px-5 rounded-xl transition-all active:scale-95 shadow-lg"
             >
-              <Plus className="w-4 h-4 mr-1.5" />
+              <Plus className="w-4 h-4 mr-2" />
               Add to Itinerary
             </button>
 
-            {/* Symbol-Only Get Directions Button */}
-            <a
-              href={`https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(homeStation)}&destination=${encodeURIComponent(destination.name + ", " + destination.prefecture + ", Japan")}&travelmode=transit`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Get Directions"
-              title="Get Directions"
-              className="p-2.5 rounded-xl transition-all active:scale-95 bg-white/10 text-white hover:bg-white/20 backdrop-blur-md border border-white/30"
-            >
-              <MapPin className="w-4.5 h-4.5 text-emerald-400" />
-            </a>
-
-            {/* Want to Visit / Bucket List Toggle */}
-            <button
-              onClick={() => toggleFavorite(destination.id)}
-              aria-label={
-                isFavorite(destination.id)
-                  ? "Remove from bucket list"
-                  : "Add to bucket list"
-              }
-              title={
-                isFavorite(destination.id) ? "On Bucket List" : "Want to Visit"
-              }
-              className={`inline-flex items-center text-sm font-medium px-3.5 py-2 rounded-xl transition-all active:scale-95 ${
-                isFavorite(destination.id)
-                  ? "bg-rose-500 text-white hover:bg-rose-600 shadow-md"
-                  : "bg-white/10 text-white hover:bg-white/20 backdrop-blur-md border border-white/30"
-              }`}
-            >
-              <Heart
-                className={`w-4 h-4 mr-1.5 ${isFavorite(destination.id) ? "fill-current" : ""}`}
-              />
-              {isFavorite(destination.id) ? "Saved" : "Want to Visit"}
-            </button>
-
-            {/* Visited Toggle */}
-            <button
-              onClick={() => {
-                if (isVisited(destination.id)) {
-                  setVisitedHistoryOpen(true);
-                } else {
-                  setMarkVisitedOpen(true);
+            {/* Compact Circular Icon Buttons Row */}
+            <div className="flex items-center gap-2">
+              {/* Want to Visit / Bucket List Toggle */}
+              <button
+                onClick={() => toggleFavorite(destination.id)}
+                aria-label={
+                  isFavorite(destination.id)
+                    ? "Remove from bucket list"
+                    : "Add to bucket list"
                 }
-              }}
-              aria-label={
-                isVisited(destination.id)
-                  ? "Manage Visit History"
-                  : "Mark destination as visited"
-              }
-              title={
-                isVisited(destination.id)
-                  ? `Visited ${getVisitCount(destination.id)} time${getVisitCount(destination.id) === 1 ? "" : "s"}`
-                  : "Mark as Visited"
-              }
-              className={`inline-flex items-center text-sm font-medium px-3.5 py-2 rounded-xl transition-all active:scale-95 ${
-                isVisited(destination.id)
-                  ? "bg-blue-500 text-white hover:bg-blue-600 shadow-md"
-                  : "bg-white/10 text-white hover:bg-white/20 backdrop-blur-md border border-white/30"
-              }`}
-            >
-              <CheckCircle2 className="w-4 h-4 mr-1.5" />
-              {isVisited(destination.id)
-                ? getVisitCount(destination.id) > 1
-                  ? `Visited ${getVisitCount(destination.id)}x`
-                  : getLatestVisitedDate(destination.id)
-                    ? `Visited ${formatVisitedDate(getLatestVisitedDate(destination.id))}`
-                    : "Visited"
-                : "Mark Visited"}
-            </button>
+                title={
+                  isFavorite(destination.id)
+                    ? "On Bucket List"
+                    : "Want to Visit"
+                }
+                className={`w-11 h-11 rounded-full flex items-center justify-center transition-all active:scale-95 backdrop-blur-md border ${
+                  isFavorite(destination.id)
+                    ? "bg-rose-500 text-white border-rose-400 shadow-md"
+                    : "bg-white/15 hover:bg-white/25 text-slate-100 border-white/20"
+                }`}
+              >
+                <Heart
+                  className={`w-4.5 h-4.5 ${isFavorite(destination.id) ? "fill-current" : ""}`}
+                />
+              </button>
 
-            {/* Symbol-Only Share Button */}
-            <button
-              onClick={async () => {
-                const cleanUrl = `${window.location.origin}/destinations/${destination.id}`;
-                const shareData = {
-                  title: destination.name,
-                  text: `Check out ${destination.name} in ${destination.prefecture}, Japan on TabiMap!`,
-                  url: cleanUrl,
-                };
-                if (navigator.share) {
-                  try {
-                    await navigator.share(shareData);
-                  } catch (err: any) {
-                    if (err.name !== "AbortError") {
-                      await navigator.clipboard.writeText(cleanUrl);
-                      toast.success("Link copied to clipboard!");
-                    }
+              {/* Visited Toggle */}
+              <button
+                onClick={() => {
+                  if (isVisited(destination.id)) {
+                    setVisitedHistoryOpen(true);
+                  } else {
+                    setMarkVisitedOpen(true);
                   }
-                } else {
-                  await navigator.clipboard.writeText(cleanUrl);
-                  toast.success("Link copied to clipboard!");
+                }}
+                aria-label={
+                  isVisited(destination.id)
+                    ? "Manage Visit History"
+                    : "Mark destination as visited"
                 }
-              }}
-              aria-label="Share destination"
-              title="Share destination"
-              className="p-2.5 rounded-xl transition-all active:scale-95 bg-white/10 text-white hover:bg-white/20 backdrop-blur-md border border-white/30"
-            >
-              <Share2 className="w-4.5 h-4.5" />
-            </button>
+                title={
+                  isVisited(destination.id)
+                    ? `Visited ${getVisitCount(destination.id)} time${getVisitCount(destination.id) === 1 ? "" : "s"}`
+                    : "Mark as Visited"
+                }
+                className={`w-11 h-11 rounded-full flex items-center justify-center transition-all active:scale-95 backdrop-blur-md border ${
+                  isVisited(destination.id)
+                    ? "bg-emerald-500 text-white border-emerald-400 shadow-md"
+                    : "bg-white/15 hover:bg-white/25 text-slate-100 border-white/20"
+                }`}
+              >
+                <CheckCircle2 className="w-4.5 h-4.5" />
+              </button>
 
-            {/* Symbol-Only Copy Link Button */}
-            <button
-              onClick={async () => {
-                const cleanUrl = `${window.location.origin}/destinations/${destination.id}`;
-                try {
-                  await navigator.clipboard.writeText(cleanUrl);
-                  toast.success("Link copied to clipboard!");
-                } catch {
-                  toast.error("Failed to copy link.");
-                }
-              }}
-              aria-label="Copy destination link"
-              title="Copy Link"
-              className="p-2.5 rounded-xl transition-all active:scale-95 bg-white/10 text-white hover:bg-white/20 backdrop-blur-md border border-white/30"
-            >
-              <Copy className="w-4.5 h-4.5" />
-            </button>
+              {/* Symbol-Only Get Directions Button */}
+              <a
+                href={`https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(homeStation)}&destination=${encodeURIComponent(destination.name + ", " + destination.prefecture + ", Japan")}&travelmode=transit`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Get Directions"
+                title="Get Directions"
+                className="w-11 h-11 rounded-full flex items-center justify-center transition-all active:scale-95 bg-white/15 hover:bg-white/25 text-slate-100 backdrop-blur-md border border-white/20"
+              >
+                <MapPin className="w-4.5 h-4.5 text-emerald-400" />
+              </a>
+
+              {/* Symbol-Only Share Button */}
+              <button
+                onClick={async () => {
+                  const cleanUrl = `${window.location.origin}/destinations/${destination.id}`;
+                  const shareData = {
+                    title: destination.name,
+                    text: `Check out ${destination.name} in ${destination.prefecture}, Japan on TabiMap!`,
+                    url: cleanUrl,
+                  };
+                  if (navigator.share) {
+                    try {
+                      await navigator.share(shareData);
+                    } catch (err: any) {
+                      if (err.name !== "AbortError") {
+                        await navigator.clipboard.writeText(cleanUrl);
+                        toast.success("Link copied to clipboard!");
+                      }
+                    }
+                  } else {
+                    await navigator.clipboard.writeText(cleanUrl);
+                    toast.success("Link copied to clipboard!");
+                  }
+                }}
+                aria-label="Share destination"
+                title="Share Destination"
+                className="w-11 h-11 rounded-full flex items-center justify-center transition-all active:scale-95 bg-white/15 hover:bg-white/25 text-slate-100 backdrop-blur-md border border-white/20"
+              >
+                <Share2 className="w-4.5 h-4.5" />
+              </button>
+
+              {/* Symbol-Only Copy Link Button */}
+              <button
+                onClick={async () => {
+                  const cleanUrl = `${window.location.origin}/destinations/${destination.id}`;
+                  try {
+                    await navigator.clipboard.writeText(cleanUrl);
+                    toast.success("Link copied to clipboard!");
+                  } catch {
+                    toast.error("Failed to copy link.");
+                  }
+                }}
+                aria-label="Copy destination link"
+                title="Copy Link"
+                className="w-11 h-11 rounded-full flex items-center justify-center transition-all active:scale-95 bg-white/15 hover:bg-white/25 text-slate-100 backdrop-blur-md border border-white/20"
+              >
+                <Copy className="w-4.5 h-4.5" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
