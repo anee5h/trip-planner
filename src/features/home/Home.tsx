@@ -243,13 +243,15 @@ export default function Home() {
 
             {/* Smart Planner Card */}
             <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800 relative">
-              <div className="absolute -top-4 -right-4 bg-emerald-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg transform rotate-3">
-                Find your trip in 30s
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center">
+                  <Navigation className="w-6 h-6 mr-2 text-emerald-500" />
+                  Trip Planner
+                </h3>
+                <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-200 dark:border-emerald-800">
+                  Find your match in 30s
+                </span>
               </div>
-              <h3 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white flex items-center">
-                <Navigation className="w-6 h-6 mr-2 text-emerald-500" />
-                Trip Planner
-              </h3>
 
               <div className="space-y-6">
                 {/* Trip Type */}

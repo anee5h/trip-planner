@@ -34,10 +34,6 @@ export default function Navbar() {
   const [discoverOpen, setDiscoverOpen] = useState(false);
   const [planOpen, setPlanOpen] = useState(false);
 
-  // Mobile accordion state
-  const [mobileDiscoverOpen, setMobileDiscoverOpen] = useState(true);
-  const [mobilePlanOpen, setMobilePlanOpen] = useState(true);
-
   // DOM refs for click-outside and focus management
   const userMenuRef = useRef<HTMLDivElement>(null);
   const discoverRef = useRef<HTMLDivElement>(null);
@@ -45,6 +41,8 @@ export default function Navbar() {
 
   const discoverBtnRef = useRef<HTMLButtonElement>(null);
   const planBtnRef = useRef<HTMLButtonElement>(null);
+  const hamburgerBtnRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   // Hover grace window timers (180ms delay)
   const discoverTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -56,6 +54,52 @@ export default function Navbar() {
     setDiscoverOpen(false);
     setPlanOpen(false);
   }, [location.pathname]);
+
+  // Body scroll lock on mobile drawer open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.touchAction = "none";
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    };
+  }, [menuOpen]);
+
+  // Focus trap & focus restore for mobile drawer
+  useEffect(() => {
+    if (!menuOpen || !mobileMenuRef.current) return;
+
+    const focusable = mobileMenuRef.current.querySelectorAll<HTMLElement>(
+      'a, button, input, [tabindex]:not([tabindex="-1"])',
+    );
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    first?.focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        hamburgerBtnRef.current?.focus();
+        return;
+      }
+      if (e.key !== "Tab") return;
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last?.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first?.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [menuOpen]);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -421,6 +465,7 @@ export default function Navbar() {
 
           {/* Hamburger button — mobile only */}
           <button
+            ref={hamburgerBtnRef}
             className="md:hidden p-2 text-slate-700 dark:text-slate-300 ml-1"
             onClick={() => setMenuOpen((o) => !o)}
             aria-label="Toggle menu"
@@ -434,96 +479,62 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Mobile drawer backdrop */}
+      {menuOpen && (
+        <div
+          className="md:hidden fixed inset-0 top-16 bg-black/60 backdrop-blur-sm z-40"
+          onClick={() => {
+            setMenuOpen(false);
+            hamburgerBtnRef.current?.focus();
+          }}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Mobile slide-down menu */}
       {menuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-16 z-40 bg-background/95 backdrop-blur-md border-b shadow-lg max-h-[calc(100vh-4rem)] overflow-y-auto">
-          <nav className="container mx-auto px-4 py-4 flex flex-col gap-3">
-            {/* Discover Section Accordion */}
-            <div className="border-b border-slate-100 dark:border-slate-800 pb-2">
-              <button
-                onClick={() => setMobileDiscoverOpen((o) => !o)}
-                className="w-full flex items-center justify-between px-3 py-2 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400"
-              >
-                <span>Discover</span>
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${
-                    mobileDiscoverOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
+        <div
+          ref={mobileMenuRef}
+          className="md:hidden fixed inset-x-0 top-16 z-40 bg-background border-b shadow-lg max-h-[calc(100vh-4rem)] overflow-y-auto"
+        >
+          <nav className="container mx-auto px-4 py-4 flex flex-col gap-2">
+            <Link
+              to="/destinations"
+              onClick={() => setMenuOpen(false)}
+              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold transition-colors ${
+                isDiscoverActive
+                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 font-bold"
+                  : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
+              }`}
+            >
+              <Map className="w-5 h-5 text-emerald-500" /> Discover
+            </Link>
 
-              {mobileDiscoverOpen && (
-                <div className="flex flex-col gap-1 mt-1 pl-2">
-                  <Link
-                    to="/destinations"
-                    onClick={() => setMenuOpen(false)}
-                    className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                  >
-                    <Map className="w-4 h-4 text-emerald-500" /> Destinations
-                  </Link>
-                  <Link
-                    to="/collections"
-                    onClick={() => setMenuOpen(false)}
-                    className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                  >
-                    <CheckCircle2 className="w-4 h-4 text-teal-500" />{" "}
-                    Collections
-                  </Link>
-                </div>
-              )}
-            </div>
+            <Link
+              to="/my-trips"
+              onClick={() => setMenuOpen(false)}
+              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold transition-colors ${
+                isPlanActive
+                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 font-bold"
+                  : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
+              }`}
+            >
+              <Calendar className="w-5 h-5 text-emerald-500" /> Plan
+            </Link>
 
-            {/* Plan Section Accordion */}
-            <div className="border-b border-slate-100 dark:border-slate-800 pb-2">
-              <button
-                onClick={() => setMobilePlanOpen((o) => !o)}
-                className="w-full flex items-center justify-between px-3 py-2 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400"
-              >
-                <span>Plan</span>
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${
-                    mobilePlanOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
+            <Link
+              to="/passport"
+              onClick={() => setMenuOpen(false)}
+              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold transition-colors ${
+                isPassportActive
+                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 font-bold"
+                  : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
+              }`}
+            >
+              <Compass className="w-5 h-5 text-emerald-500" /> Passport
+            </Link>
 
-              {mobilePlanOpen && (
-                <div className="flex flex-col gap-1 mt-1 pl-2">
-                  <Link
-                    to="/my-trips"
-                    onClick={() => setMenuOpen(false)}
-                    className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                  >
-                    <Calendar className="w-4 h-4 text-emerald-500" /> My Trips
-                  </Link>
-                  <Link
-                    to="/bucket-list"
-                    onClick={() => setMenuOpen(false)}
-                    className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                  >
-                    <Bookmark className="w-4 h-4 text-amber-500" /> Bucket List
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            {/* Passport Section */}
-            <div className="pb-2">
-              <Link
-                to="/passport"
-                onClick={() => setMenuOpen(false)}
-                className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
-                  isPassportActive
-                    ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 font-bold"
-                    : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
-                }`}
-              >
-                <Compass className="w-4 h-4 text-emerald-500" />
-                <span>Passport</span>
-              </Link>
-            </div>
-
-            <div className="my-2 border-t border-slate-200 dark:border-slate-800" />
+            <div className="my-1 border-t border-slate-200 dark:border-slate-800" />
 
             {loading ? (
               <div className="w-8 h-8 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin self-center my-4" />
@@ -543,7 +554,7 @@ export default function Navbar() {
                 <Link
                   to="/profile"
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
                 >
                   <User className="w-5 h-5 text-slate-500" /> Profile
                 </Link>
@@ -551,7 +562,7 @@ export default function Navbar() {
                 <Link
                   to="/settings"
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
                 >
                   <Sliders className="w-5 h-5 text-slate-500" /> Settings
                 </Link>
@@ -559,7 +570,7 @@ export default function Navbar() {
                 <Link
                   to="/help"
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
                 >
                   <HelpCircle className="w-5 h-5 text-slate-500" /> Help
                 </Link>
@@ -569,7 +580,7 @@ export default function Navbar() {
                     setMenuOpen(false);
                     setFeedbackOpen(true);
                   }}
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-left"
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-left"
                 >
                   <MessageSquare className="w-5 h-5 text-slate-500" /> Send
                   Feedback
@@ -580,7 +591,7 @@ export default function Navbar() {
                     setMenuOpen(false);
                     signOut?.();
                   }}
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-base font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors text-left"
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors text-left"
                 >
                   <LogOut className="w-5 h-5 text-red-500" /> Sign Out
                 </button>

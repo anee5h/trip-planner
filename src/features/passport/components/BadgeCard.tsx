@@ -49,9 +49,9 @@ export function BadgeCard({
     <div
       onClick={() => onClick(badge)}
       title={isUnlocked && earnedAt ? `Unlocked on ${earnedAt}` : undefined}
-      className={`group relative flex flex-col items-center text-center p-5 rounded-3xl transition-all duration-300 cursor-pointer border ${
+      className={`group relative flex flex-col items-center text-center p-4 rounded-2xl transition-all duration-300 cursor-pointer border ${
         isUnlocked
-          ? "bg-white dark:bg-slate-900 border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-md hover:-translate-y-1"
+          ? "bg-white dark:bg-slate-900 border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-md hover:-translate-y-0.5"
           : "bg-slate-50/50 dark:bg-slate-900/40 border-slate-200/40 dark:border-slate-800/40 opacity-75 hover:opacity-100"
       }`}
     >
@@ -63,7 +63,7 @@ export function BadgeCard({
             e.stopPropagation();
             onToggleFavorite(badge.id);
           }}
-          className={`absolute top-3 right-3 p-1.5 rounded-full transition-all ${
+          className={`absolute top-2.5 right-2.5 p-1.5 rounded-full transition-all ${
             isFavorite
               ? "bg-amber-100 text-amber-600 dark:bg-amber-950 dark:text-amber-400"
               : "bg-slate-100 dark:bg-slate-800 text-slate-400 opacity-0 group-hover:opacity-100"
@@ -77,12 +77,12 @@ export function BadgeCard({
       )}
 
       {/* Circular Enamel Pin Artwork */}
-      <div className="mb-3">
+      <div className="mb-2">
         <BadgeIllustration
           illustrationId={badge.illustrationId}
           rarity={badge.rarity}
           isUnlocked={isUnlocked}
-          size="md"
+          size="sm"
         />
       </div>
 
