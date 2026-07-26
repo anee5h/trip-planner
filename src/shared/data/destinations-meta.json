@@ -1,0 +1,2491 @@
+[
+  {
+    "id": "abashiri-city",
+    "name": "Abashiri City",
+    "prefecture": "Hokkaido",
+    "relationships": {
+      "featuredDestinationIds": ["hakodate-night-view"],
+      "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
+    }
+  },
+  {
+    "id": "abeno-harukas-300-osaka",
+    "name": "Abeno Harukas 300 (Osaka Skyline)",
+    "prefecture": "Osaka",
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    }
+  },
+  {
+    "id": "adachi-city",
+    "name": "Adachi City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": [
+        "akasaka-minato",
+        "akihabara-chiyoda",
+        "asakusa-taito",
+        "chofu-tokyo"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "akasaka-minato",
+    "name": "Akasaka (Minato)",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "chiyoda-city"
+    }
+  },
+  {
+    "id": "akihabara-chiyoda",
+    "name": "Akihabara (Chiyoda)",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "chiyoda-city"
+    }
+  },
+  {
+    "id": "amanohashidate-kyoto",
+    "name": "Amanohashidate (Bridge to Heaven)",
+    "prefecture": "Kyoto",
+    "relationships": {}
+  },
+  {
+    "id": "arakawa-city",
+    "name": "Arakawa City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": [
+        "akasaka-minato",
+        "akihabara-chiyoda",
+        "asakusa-taito",
+        "chofu-tokyo"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "arima-onsen",
+    "name": "Arima Onsen",
+    "prefecture": "Hyogo",
+    "relationships": {}
+  },
+  {
+    "id": "art-tower-mito",
+    "name": "Art Tower Mito",
+    "prefecture": "Ibaraki",
+    "relationships": {}
+  },
+  {
+    "id": "asahikawa-city",
+    "name": "Asahikawa City",
+    "prefecture": "Hokkaido",
+    "relationships": {
+      "featuredDestinationIds": ["hakodate-night-view"],
+      "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
+    }
+  },
+  {
+    "id": "asakusa-taito",
+    "name": "Asakusa (Taito)",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "taito-city"
+    }
+  },
+  {
+    "id": "ashigara",
+    "name": "Ashigara",
+    "prefecture": "Kanagawa",
+    "relationships": {
+      "parentDestinationId": "hakone-town"
+    }
+  },
+  {
+    "id": "aso-city",
+    "name": "Aso City",
+    "prefecture": "Kumamoto",
+    "relationships": {
+      "featuredDestinationIds": ["kumamoto-castle"],
+      "nearbyDestinationIds": [
+        "fukuoka-city",
+        "kitakyushu-city",
+        "dazaifu-city"
+      ]
+    }
+  },
+  {
+    "id": "atami-city",
+    "name": "Atami City",
+    "prefecture": "Shizuoka",
+    "relationships": {
+      "featuredDestinationIds": ["fujinomiya-city", "ito-city", "izu"],
+      "nearbyDestinationIds": [
+        "nagoya-city",
+        "shirakawa-village",
+        "nagano-city"
+      ]
+    }
+  },
+  {
+    "id": "atsuta-shrine-nagoya",
+    "name": "Atsuta Shrine (Nagoya)",
+    "prefecture": "Aichi",
+    "relationships": {
+      "parentDestinationId": "nagoya-city"
+    }
+  },
+  {
+    "id": "beppu-city",
+    "name": "Beppu City",
+    "prefecture": "Oita",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [
+        "fukuoka-city",
+        "kitakyushu-city",
+        "dazaifu-city"
+      ]
+    }
+  },
+  {
+    "id": "biei-town",
+    "name": "Biei Town",
+    "prefecture": "Hokkaido",
+    "relationships": {
+      "featuredDestinationIds": ["hakodate-night-view"],
+      "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
+    }
+  },
+  {
+    "id": "bitchu-matsuyama-castle",
+    "name": "Bitchu Matsuyama Castle",
+    "prefecture": "Okayama",
+    "relationships": {}
+  },
+  {
+    "id": "boso-peninsula",
+    "name": "Boso Peninsula",
+    "prefecture": "Chiba",
+    "relationships": {}
+  },
+  {
+    "id": "bunkyo-city",
+    "name": "Bunkyo City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": [
+        "akasaka-minato",
+        "akihabara-chiyoda",
+        "asakusa-taito",
+        "chofu-tokyo"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "chiba-city",
+    "name": "Chiba City",
+    "prefecture": "Chiba",
+    "relationships": {
+      "featuredDestinationIds": [
+        "boso-peninsula",
+        "chiba-nokogiriyama",
+        "chiba-port-tower",
+        "chiba-sawara"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "saitama-city"]
+    }
+  },
+  {
+    "id": "chiba-nokogiriyama",
+    "name": "Nokogiriyama",
+    "prefecture": "Chiba",
+    "relationships": {}
+  },
+  {
+    "id": "chiba-port-tower",
+    "name": "Chiba Port Tower",
+    "prefecture": "Chiba",
+    "relationships": {}
+  },
+  {
+    "id": "chiba-sawara",
+    "name": "Sawara",
+    "prefecture": "Chiba",
+    "relationships": {}
+  },
+  {
+    "id": "chiba-yoro-valley",
+    "name": "Yoro Valley",
+    "prefecture": "Chiba",
+    "relationships": {}
+  },
+  {
+    "id": "chichibu-city",
+    "name": "Chichibu City",
+    "prefecture": "Saitama",
+    "relationships": {
+      "featuredDestinationIds": [
+        "kawagoe-castle-saitama",
+        "kawagoe-city",
+        "omiya-railway"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "chigasaki-city",
+    "name": "Chigasaki City",
+    "prefecture": "Kanagawa",
+    "relationships": {
+      "featuredDestinationIds": [
+        "ashigara",
+        "enoshima-island",
+        "hakkeijima",
+        "hakone-town"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "chiyoda-city",
+    "name": "Chiyoda City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": [
+        "akasaka-minato",
+        "akihabara-chiyoda",
+        "chofu-tokyo",
+        "edo-castle-tokyo",
+        "edogawa-city",
+        "ghibli-museum"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "chofu-tokyo",
+    "name": "Chofu",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "chiyoda-city"
+    }
+  },
+  {
+    "id": "choshi-chiba",
+    "name": "Choshi",
+    "prefecture": "Chiba",
+    "relationships": {}
+  },
+  {
+    "id": "chuo-city",
+    "name": "Chuo City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": ["ginza-urban"],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "dazaifu-city",
+    "name": "Dazaifu City",
+    "prefecture": "Fukuoka",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [
+        "fukuoka-city",
+        "kitakyushu-city",
+        "nagasaki-city"
+      ]
+    }
+  },
+  {
+    "id": "disneyland",
+    "name": "Tokyo Disneyland",
+    "prefecture": "Chiba",
+    "relationships": {}
+  },
+  {
+    "id": "disneysea",
+    "name": "DisneySea",
+    "prefecture": "Chiba",
+    "relationships": {}
+  },
+  {
+    "id": "edo-castle-tokyo",
+    "name": "Edo Castle Ruins (Imperial Palace)",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "chiyoda-city"
+    }
+  },
+  {
+    "id": "edogawa-city",
+    "name": "Edogawa City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": [
+        "akasaka-minato",
+        "akihabara-chiyoda",
+        "asakusa-taito",
+        "chofu-tokyo"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "enoshima-island",
+    "name": "Enoshima",
+    "prefecture": "Kanagawa",
+    "relationships": {}
+  },
+  {
+    "id": "fuji-5-lake",
+    "name": "Fuji Five Lakes",
+    "prefecture": "Yamanashi",
+    "relationships": {}
+  },
+  {
+    "id": "fujikawaguchiko-town",
+    "name": "Fujikawaguchiko Town",
+    "prefecture": "Yamanashi",
+    "relationships": {
+      "featuredDestinationIds": [
+        "fuji-5-lake",
+        "kofu-city",
+        "takeda-castle-yamanashi",
+        "yamanashi-fujiyoshida"
+      ],
+      "nearbyDestinationIds": [
+        "nagoya-city",
+        "shirakawa-village",
+        "nagano-city"
+      ]
+    }
+  },
+  {
+    "id": "fujinomiya-city",
+    "name": "Fujinomiya City",
+    "prefecture": "Shizuoka",
+    "relationships": {
+      "featuredDestinationIds": ["atami-city", "ito-city", "izu"],
+      "nearbyDestinationIds": [
+        "nagoya-city",
+        "shirakawa-village",
+        "nagano-city"
+      ]
+    }
+  },
+  {
+    "id": "fujisawa-city",
+    "name": "Fujisawa City",
+    "prefecture": "Kanagawa",
+    "relationships": {
+      "featuredDestinationIds": [
+        "ashigara",
+        "enoshima-island",
+        "hakkeijima",
+        "hakone-town"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "fukui",
+    "name": "Fukui",
+    "prefecture": "Fukui",
+    "relationships": {}
+  },
+  {
+    "id": "fukuoka-city",
+    "name": "Fukuoka City",
+    "prefecture": "Fukuoka",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [
+        "kitakyushu-city",
+        "dazaifu-city",
+        "nagasaki-city"
+      ]
+    }
+  },
+  {
+    "id": "funabashi-city",
+    "name": "Funabashi City",
+    "prefecture": "Chiba",
+    "relationships": {
+      "featuredDestinationIds": [
+        "boso-peninsula",
+        "chiba-nokogiriyama",
+        "chiba-port-tower",
+        "chiba-sawara"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "furano-city",
+    "name": "Furano City",
+    "prefecture": "Hokkaido",
+    "relationships": {
+      "featuredDestinationIds": ["hakodate-night-view"],
+      "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
+    }
+  },
+  {
+    "id": "gala-yuzawa",
+    "name": "Gala Yuzawa",
+    "prefecture": "Niigata",
+    "relationships": {}
+  },
+  {
+    "id": "gero-city",
+    "name": "Gero City",
+    "prefecture": "Gifu",
+    "relationships": {
+      "featuredDestinationIds": [
+        "gero-onsen",
+        "gifu-castle-gifu",
+        "gifu-gujo-hachiman",
+        "gifu-magome-juku"
+      ],
+      "nearbyDestinationIds": [
+        "nagoya-city",
+        "shirakawa-village",
+        "nagano-city"
+      ]
+    }
+  },
+  {
+    "id": "gero-onsen",
+    "name": "Gero Onsen",
+    "prefecture": "Gifu",
+    "relationships": {}
+  },
+  {
+    "id": "ghibli-museum",
+    "name": "Ghibli Museum",
+    "prefecture": "Tokyo",
+    "relationships": {}
+  },
+  {
+    "id": "gifu-castle-gifu",
+    "name": "Gifu Castle (Mt. Kinka)",
+    "prefecture": "Gifu",
+    "relationships": {}
+  },
+  {
+    "id": "gifu-city",
+    "name": "Gifu City",
+    "prefecture": "Gifu",
+    "relationships": {
+      "featuredDestinationIds": [
+        "gero-onsen",
+        "gifu-castle-gifu",
+        "gifu-gujo-hachiman",
+        "gifu-magome-juku"
+      ],
+      "nearbyDestinationIds": [
+        "nagoya-city",
+        "shirakawa-village",
+        "nagano-city"
+      ]
+    }
+  },
+  {
+    "id": "gifu-gujo-hachiman",
+    "name": "Gujo Hachiman",
+    "prefecture": "Gifu",
+    "relationships": {}
+  },
+  {
+    "id": "gifu-magome-juku",
+    "name": "Magome-juku",
+    "prefecture": "Gifu",
+    "relationships": {}
+  },
+  {
+    "id": "ginza-urban",
+    "name": "Ginza",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "chuo-city"
+    }
+  },
+  {
+    "id": "gotemba-city",
+    "name": "Gotemba City",
+    "prefecture": "Shizuoka",
+    "relationships": {
+      "featuredDestinationIds": [
+        "atami-city",
+        "fujinomiya-city",
+        "ito-city",
+        "izu"
+      ],
+      "nearbyDestinationIds": [
+        "nagoya-city",
+        "shirakawa-village",
+        "nagano-city"
+      ]
+    }
+  },
+  {
+    "id": "gunma-ikaho-onsen",
+    "name": "Ikaho Onsen",
+    "prefecture": "Gunma",
+    "relationships": {}
+  },
+  {
+    "id": "gunma-kusatsu-onsen",
+    "name": "Kusatsu Onsen",
+    "prefecture": "Gunma",
+    "relationships": {}
+  },
+  {
+    "id": "gunma-shima-onsen",
+    "name": "Shima Onsen",
+    "prefecture": "Gunma",
+    "relationships": {}
+  },
+  {
+    "id": "hachioji-castle-tokyo",
+    "name": "Hachioji Castle Ruins (Mount Castle)",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "hachioji-tokyo"
+    }
+  },
+  {
+    "id": "hachioji-tokyo",
+    "name": "Hachioji",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "chiyoda-city"
+    }
+  },
+  {
+    "id": "hakkeijima",
+    "name": "Hakkeijima Sea Paradise",
+    "prefecture": "Kanagawa",
+    "relationships": {}
+  },
+  {
+    "id": "hakodate-city",
+    "name": "Hakodate City",
+    "prefecture": "Hokkaido",
+    "relationships": {
+      "featuredDestinationIds": ["hakodate-night-view"],
+      "nearbyDestinationIds": ["sapporo-city", "otaru-city", "asahikawa-city"]
+    }
+  },
+  {
+    "id": "hakodate-night-view",
+    "name": "Mount Hakodate Night View",
+    "prefecture": "Hokkaido",
+    "relationships": {
+      "parentDestinationId": "hakodate-city"
+    }
+  },
+  {
+    "id": "hakone-town",
+    "name": "Hakone Town",
+    "prefecture": "Kanagawa",
+    "relationships": {
+      "featuredDestinationIds": ["ashigara", "jogashima"],
+      "nearbyDestinationIds": ["shibuya-city", "chiba-city", "saitama-city"],
+      "relatedDestinationIds": ["kusatsu-town", "yufu-city"]
+    }
+  },
+  {
+    "id": "hakuba-village",
+    "name": "Hakuba Village",
+    "prefecture": "Nagano",
+    "relationships": {
+      "featuredDestinationIds": [
+        "karuizawa-town",
+        "kiso",
+        "matsumoto-city",
+        "nagano-bessho-onsen"
+      ],
+      "nearbyDestinationIds": [
+        "nagoya-city",
+        "shirakawa-village",
+        "nagano-city"
+      ]
+    }
+  },
+  {
+    "id": "hamamatsu-city",
+    "name": "Hamamatsu City",
+    "prefecture": "Shizuoka",
+    "relationships": {
+      "featuredDestinationIds": [
+        "atami-city",
+        "fujinomiya-city",
+        "ito-city",
+        "izu"
+      ],
+      "nearbyDestinationIds": [
+        "nagoya-city",
+        "shirakawa-village",
+        "nagano-city"
+      ]
+    }
+  },
+  {
+    "id": "harry-potter-studio",
+    "name": "Harry Potter Studio",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "chiyoda-city"
+    }
+  },
+  {
+    "id": "hatsukaichi-city",
+    "name": "Hatsukaichi City",
+    "prefecture": "Hiroshima",
+    "relationships": {
+      "featuredDestinationIds": ["miyajima-itsukushima"],
+      "nearbyDestinationIds": [
+        "hiroshima-city",
+        "onomichi-city",
+        "okayama-city"
+      ]
+    }
+  },
+  {
+    "id": "higashiyama-sky-tower-nagoya",
+    "name": "Higashiyama Sky Tower",
+    "prefecture": "Aichi",
+    "relationships": {
+      "parentDestinationId": "nagoya-city"
+    }
+  },
+  {
+    "id": "hikone-castle-shiga",
+    "name": "Hikone Castle (National Treasure)",
+    "prefecture": "Shiga",
+    "relationships": {}
+  },
+  {
+    "id": "hikone-city",
+    "name": "Hikone City",
+    "prefecture": "Shiga",
+    "relationships": {
+      "featuredDestinationIds": ["hikone-castle-shiga"],
+      "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    }
+  },
+  {
+    "id": "himeji-castle",
+    "name": "Himeji Castle (White Heron Castle)",
+    "prefecture": "Hyogo",
+    "relationships": {
+      "parentDestinationId": "himeji-city"
+    }
+  },
+  {
+    "id": "himeji-city",
+    "name": "Himeji City",
+    "prefecture": "Hyogo",
+    "relationships": {
+      "featuredDestinationIds": ["himeji-castle"],
+      "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    }
+  },
+  {
+    "id": "hirosaki-castle",
+    "name": "Hirosaki Castle",
+    "prefecture": "Aomori",
+    "relationships": {}
+  },
+  {
+    "id": "hiroshima-city",
+    "name": "Hiroshima City",
+    "prefecture": "Hiroshima",
+    "relationships": {
+      "featuredDestinationIds": ["miyajima-itsukushima"],
+      "nearbyDestinationIds": [
+        "onomichi-city",
+        "hatsukaichi-city",
+        "okayama-city"
+      ]
+    }
+  },
+  {
+    "id": "ibaraki-fukuroda-falls",
+    "name": "Fukuroda Falls",
+    "prefecture": "Ibaraki",
+    "relationships": {}
+  },
+  {
+    "id": "ibaraki-hitachi-seaside-park",
+    "name": "Hitachi Seaside Park",
+    "prefecture": "Ibaraki",
+    "relationships": {}
+  },
+  {
+    "id": "ibaraki-mount-tsukuba",
+    "name": "Mount Tsukuba",
+    "prefecture": "Ibaraki",
+    "relationships": {}
+  },
+  {
+    "id": "ikaruga-town",
+    "name": "Ikaruga Town",
+    "prefecture": "Nara",
+    "relationships": {
+      "featuredDestinationIds": ["mount-yoshino-nara", "nara-park-todaiji"],
+      "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    }
+  },
+  {
+    "id": "ikebukuro-toshima",
+    "name": "Ikebukuro (Toshima)",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "toshima-city"
+    }
+  },
+  {
+    "id": "imperial-palace-chiyoda",
+    "name": "Imperial Palace (Chiyoda)",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "chiyoda-city"
+    }
+  },
+  {
+    "id": "inuyama-castle-aichi",
+    "name": "Inuyama Castle (National Treasure Keep)",
+    "prefecture": "Aichi",
+    "relationships": {}
+  },
+  {
+    "id": "inuyama-city",
+    "name": "Inuyama City",
+    "prefecture": "Aichi",
+    "relationships": {
+      "featuredDestinationIds": [
+        "atsuta-shrine-nagoya",
+        "higashiyama-sky-tower-nagoya",
+        "mirai-tower-nagoya"
+      ],
+      "nearbyDestinationIds": [
+        "nagoya-city",
+        "shirakawa-village",
+        "nagano-city"
+      ]
+    }
+  },
+  {
+    "id": "ise-grand-shrine",
+    "name": "Ise Grand Shrine (Ise Jingu)",
+    "prefecture": "Mie",
+    "relationships": {}
+  },
+  {
+    "id": "ishigaki-city",
+    "name": "Ishigaki City",
+    "prefecture": "Okinawa",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["naha-city", "nago-city", "motobu-town"]
+    }
+  },
+  {
+    "id": "itabashi-city",
+    "name": "Itabashi City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": [
+        "akasaka-minato",
+        "akihabara-chiyoda",
+        "asakusa-taito",
+        "chofu-tokyo"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "ito-city",
+    "name": "Ito City",
+    "prefecture": "Shizuoka",
+    "relationships": {
+      "featuredDestinationIds": ["atami-city", "fujinomiya-city", "izu"],
+      "nearbyDestinationIds": [
+        "nagoya-city",
+        "shirakawa-village",
+        "nagano-city"
+      ]
+    }
+  },
+  {
+    "id": "izu",
+    "name": "Izu Peninsula",
+    "prefecture": "Shizuoka",
+    "relationships": {}
+  },
+  {
+    "id": "izumo-city",
+    "name": "Izumo City",
+    "prefecture": "Shimane",
+    "relationships": {
+      "featuredDestinationIds": ["izumo-taisha", "matsue-castle"],
+      "nearbyDestinationIds": [
+        "hiroshima-city",
+        "onomichi-city",
+        "hatsukaichi-city"
+      ]
+    }
+  },
+  {
+    "id": "izumo-taisha",
+    "name": "Izumo Taisha Grand Shrine",
+    "prefecture": "Shimane",
+    "relationships": {}
+  },
+  {
+    "id": "jogashima",
+    "name": "Miura Peninsula & Jogashima",
+    "prefecture": "Kanagawa",
+    "relationships": {}
+  },
+  {
+    "id": "joypolis",
+    "name": "Joypolis Odaiba",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "minato-city"
+    }
+  },
+  {
+    "id": "kagoshima-city",
+    "name": "Kagoshima City",
+    "prefecture": "Kagoshima",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [
+        "fukuoka-city",
+        "kitakyushu-city",
+        "dazaifu-city"
+      ]
+    }
+  },
+  {
+    "id": "kairakuen-mito",
+    "name": "Kairakuen Garden",
+    "prefecture": "Ibaraki",
+    "relationships": {}
+  },
+  {
+    "id": "kakegawa-castle-shizuoka",
+    "name": "Kakegawa Castle & Ninomaru Goten",
+    "prefecture": "Shizuoka",
+    "relationships": {}
+  },
+  {
+    "id": "kamakura-city",
+    "name": "Kamakura City",
+    "prefecture": "Kanagawa",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "kanazawa",
+    "name": "Kanazawa",
+    "prefecture": "Ishikawa",
+    "relationships": {}
+  },
+  {
+    "id": "kanazawa-castle-ishikawa",
+    "name": "Kanazawa Castle Park",
+    "prefecture": "Ishikawa",
+    "relationships": {}
+  },
+  {
+    "id": "karuizawa-town",
+    "name": "Karuizawa Town",
+    "prefecture": "Nagano",
+    "relationships": {
+      "featuredDestinationIds": [
+        "kiso",
+        "matsumoto-city",
+        "nagano-bessho-onsen"
+      ],
+      "nearbyDestinationIds": [
+        "nagoya-city",
+        "shirakawa-village",
+        "nagano-city"
+      ]
+    }
+  },
+  {
+    "id": "katsushika-city",
+    "name": "Katsushika City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": [
+        "akasaka-minato",
+        "akihabara-chiyoda",
+        "asakusa-taito",
+        "chofu-tokyo"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "kawagoe-castle-saitama",
+    "name": "Kawagoe Castle Honmaru Goten",
+    "prefecture": "Saitama",
+    "relationships": {}
+  },
+  {
+    "id": "kawagoe-city",
+    "name": "Kawagoe City",
+    "prefecture": "Saitama",
+    "relationships": {
+      "featuredDestinationIds": [
+        "kawagoe-castle-saitama",
+        "omiya-railway",
+        "chichibu-city"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "kawaguchi-city",
+    "name": "Kawaguchi City",
+    "prefecture": "Saitama",
+    "relationships": {
+      "featuredDestinationIds": [
+        "kawagoe-castle-saitama",
+        "kawagoe-city",
+        "omiya-railway",
+        "chichibu-city"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "kawasaki-city",
+    "name": "Kawasaki City",
+    "prefecture": "Kanagawa",
+    "relationships": {
+      "featuredDestinationIds": [
+        "ashigara",
+        "enoshima-island",
+        "hakkeijima",
+        "hakone-town"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "kegon-falls-nikko",
+    "name": "Kegon Falls (Nikko)",
+    "prefecture": "Tochigi",
+    "relationships": {
+      "parentDestinationId": "nikko-city"
+    }
+  },
+  {
+    "id": "kinosaki-onsen",
+    "name": "Kinosaki Onsen",
+    "prefecture": "Hyogo",
+    "relationships": {}
+  },
+  {
+    "id": "kinugawa-onsen",
+    "name": "Kinugawa Onsen",
+    "prefecture": "Tochigi",
+    "relationships": {}
+  },
+  {
+    "id": "kisarazu-city",
+    "name": "Kisarazu City",
+    "prefecture": "Chiba",
+    "relationships": {
+      "featuredDestinationIds": [
+        "boso-peninsula",
+        "chiba-nokogiriyama",
+        "chiba-port-tower",
+        "chiba-sawara"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "kiso",
+    "name": "Kiso Valley",
+    "prefecture": "Nagano",
+    "relationships": {}
+  },
+  {
+    "id": "kita-city",
+    "name": "Kita City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": [
+        "akasaka-minato",
+        "akihabara-chiyoda",
+        "asakusa-taito",
+        "chofu-tokyo"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "kitakyushu-city",
+    "name": "Kitakyushu City",
+    "prefecture": "Fukuoka",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["fukuoka-city", "dazaifu-city", "nagasaki-city"]
+    }
+  },
+  {
+    "id": "kobe-city",
+    "name": "Kobe City",
+    "prefecture": "Hyogo",
+    "relationships": {
+      "featuredDestinationIds": ["kobe-maya-night-view"],
+      "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    }
+  },
+  {
+    "id": "kobe-maya-night-view",
+    "name": "Mount Maya Kikuseidai (Kobe)",
+    "prefecture": "Hyogo",
+    "relationships": {
+      "parentDestinationId": "kobe-city"
+    }
+  },
+  {
+    "id": "kochi-castle",
+    "name": "Kochi Castle",
+    "prefecture": "Kochi",
+    "relationships": {}
+  },
+  {
+    "id": "kochi-city",
+    "name": "Kochi City",
+    "prefecture": "Kochi",
+    "relationships": {
+      "featuredDestinationIds": ["kochi-castle"],
+      "nearbyDestinationIds": [
+        "takamatsu-city",
+        "matsuyama-city",
+        "tokushima-city"
+      ]
+    }
+  },
+  {
+    "id": "kofu-city",
+    "name": "Kofu City",
+    "prefecture": "Yamanashi",
+    "relationships": {
+      "featuredDestinationIds": [
+        "fuji-5-lake",
+        "takeda-castle-yamanashi",
+        "yamanashi-fujiyoshida"
+      ],
+      "nearbyDestinationIds": [
+        "nagoya-city",
+        "shirakawa-village",
+        "nagano-city"
+      ]
+    }
+  },
+  {
+    "id": "korakuen-okayama",
+    "name": "Korakuen Garden",
+    "prefecture": "Okayama",
+    "relationships": {}
+  },
+  {
+    "id": "koto-city",
+    "name": "Koto City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": [
+        "akasaka-minato",
+        "akihabara-chiyoda",
+        "asakusa-taito",
+        "chofu-tokyo"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "koya-town",
+    "name": "Koya Town",
+    "prefecture": "Wakayama",
+    "relationships": {
+      "featuredDestinationIds": ["nachi-falls-wakayama"],
+      "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    }
+  },
+  {
+    "id": "kumamoto-castle",
+    "name": "Kumamoto Castle",
+    "prefecture": "Kumamoto",
+    "relationships": {}
+  },
+  {
+    "id": "kumamoto-city",
+    "name": "Kumamoto City",
+    "prefecture": "Kumamoto",
+    "relationships": {
+      "featuredDestinationIds": ["kumamoto-castle"],
+      "nearbyDestinationIds": [
+        "fukuoka-city",
+        "kitakyushu-city",
+        "dazaifu-city"
+      ]
+    }
+  },
+  {
+    "id": "kurashiki-city",
+    "name": "Kurashiki City",
+    "prefecture": "Okayama",
+    "relationships": {
+      "featuredDestinationIds": ["bitchu-matsuyama-castle", "korakuen-okayama"],
+      "nearbyDestinationIds": [
+        "hiroshima-city",
+        "onomichi-city",
+        "hatsukaichi-city"
+      ]
+    }
+  },
+  {
+    "id": "kurobe-gorge",
+    "name": "Kurobe Gorge",
+    "prefecture": "Toyama",
+    "relationships": {}
+  },
+  {
+    "id": "kusatsu-town",
+    "name": "Kusatsu Town",
+    "prefecture": "Gunma",
+    "relationships": {
+      "featuredDestinationIds": [
+        "gunma-ikaho-onsen",
+        "gunma-kusatsu-onsen",
+        "gunma-shima-onsen",
+        "oze-national-park"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "kushiro-city",
+    "name": "Kushiro City",
+    "prefecture": "Hokkaido",
+    "relationships": {
+      "featuredDestinationIds": ["hakodate-night-view"],
+      "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
+    }
+  },
+  {
+    "id": "kyoto-city",
+    "name": "Kyoto City",
+    "prefecture": "Kyoto",
+    "relationships": {
+      "featuredDestinationIds": [
+        "amanohashidate-kyoto",
+        "kyoto-historic",
+        "nijo-castle-kyoto"
+      ],
+      "nearbyDestinationIds": ["osaka-city", "uji-city", "miyazu-city"],
+      "relatedDestinationIds": ["nara-city"]
+    }
+  },
+  {
+    "id": "kyoto-historic",
+    "name": "Historic Kyoto (Kiyomizu-dera & Kinkaku-ji)",
+    "prefecture": "Kyoto",
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    }
+  },
+  {
+    "id": "lake-hamanako",
+    "name": "Lake Hamanako",
+    "prefecture": "Shizuoka",
+    "relationships": {}
+  },
+  {
+    "id": "lake-sagami",
+    "name": "Lake Sagami",
+    "prefecture": "Kanagawa",
+    "relationships": {}
+  },
+  {
+    "id": "machida-tokyo",
+    "name": "Machida",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "chiyoda-city"
+    }
+  },
+  {
+    "id": "marugame-castle",
+    "name": "Marugame Castle",
+    "prefecture": "Kagawa",
+    "relationships": {}
+  },
+  {
+    "id": "maruoka-castle-fukui",
+    "name": "Maruoka Castle (Original Keep 1576)",
+    "prefecture": "Fukui",
+    "relationships": {}
+  },
+  {
+    "id": "matsudo-city",
+    "name": "Matsudo City",
+    "prefecture": "Chiba",
+    "relationships": {
+      "featuredDestinationIds": [
+        "boso-peninsula",
+        "chiba-nokogiriyama",
+        "chiba-port-tower",
+        "chiba-sawara"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "matsue-castle",
+    "name": "Matsue Castle",
+    "prefecture": "Shimane",
+    "relationships": {}
+  },
+  {
+    "id": "matsue-city",
+    "name": "Matsue City",
+    "prefecture": "Shimane",
+    "relationships": {
+      "featuredDestinationIds": ["izumo-taisha", "matsue-castle"],
+      "nearbyDestinationIds": [
+        "hiroshima-city",
+        "onomichi-city",
+        "hatsukaichi-city"
+      ]
+    }
+  },
+  {
+    "id": "matsumoto-castle-nagano",
+    "name": "Matsumoto Castle (Crow Castle)",
+    "prefecture": "Nagano",
+    "relationships": {}
+  },
+  {
+    "id": "matsumoto-city",
+    "name": "Matsumoto City",
+    "prefecture": "Nagano",
+    "relationships": {
+      "featuredDestinationIds": [
+        "karuizawa-town",
+        "kiso",
+        "nagano-bessho-onsen"
+      ],
+      "nearbyDestinationIds": [
+        "nagoya-city",
+        "shirakawa-village",
+        "nagano-city"
+      ]
+    }
+  },
+  {
+    "id": "matsushima-bay",
+    "name": "Matsushima Bay",
+    "prefecture": "Miyagi",
+    "relationships": {}
+  },
+  {
+    "id": "matsuyama-castle-ehime",
+    "name": "Iyo Matsuyama Castle",
+    "prefecture": "Ehime",
+    "relationships": {}
+  },
+  {
+    "id": "matsuyama-city",
+    "name": "Matsuyama City",
+    "prefecture": "Ehime",
+    "relationships": {
+      "featuredDestinationIds": ["matsuyama-castle-ehime", "uwajima-castle"],
+      "nearbyDestinationIds": ["takamatsu-city", "kochi-city", "tokushima-city"]
+    }
+  },
+  {
+    "id": "meguro-city",
+    "name": "Meguro City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": [
+        "akasaka-minato",
+        "akihabara-chiyoda",
+        "asakusa-taito",
+        "chofu-tokyo"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "minakami-town",
+    "name": "Minakami Town",
+    "prefecture": "Gunma",
+    "relationships": {
+      "featuredDestinationIds": [
+        "gunma-ikaho-onsen",
+        "gunma-kusatsu-onsen",
+        "gunma-shima-onsen",
+        "oze-national-park"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "minato-city",
+    "name": "Minato City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": [
+        "roppongi-hills-tokyo-city-view",
+        "tokyo-tower-minato"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "mirai-tower-nagoya",
+    "name": "Chubu Electric Power MIRAI TOWER",
+    "prefecture": "Aichi",
+    "relationships": {}
+  },
+  {
+    "id": "mito-castle-ibaraki",
+    "name": "Mito Castle Ruins & Kodokan",
+    "prefecture": "Ibaraki",
+    "relationships": {}
+  },
+  {
+    "id": "mito-city",
+    "name": "Mito City",
+    "prefecture": "Ibaraki",
+    "relationships": {
+      "featuredDestinationIds": [
+        "art-tower-mito",
+        "ibaraki-fukuroda-falls",
+        "ibaraki-hitachi-seaside-park",
+        "ibaraki-mount-tsukuba"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "miyajima-itsukushima",
+    "name": "Itsukushima Shrine (Miyajima Island)",
+    "prefecture": "Hiroshima",
+    "relationships": {}
+  },
+  {
+    "id": "miyakojima-city",
+    "name": "Miyakojima City",
+    "prefecture": "Okinawa",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["naha-city", "nago-city", "motobu-town"]
+    }
+  },
+  {
+    "id": "miyazaki-city",
+    "name": "Miyazaki City",
+    "prefecture": "Miyazaki",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [
+        "fukuoka-city",
+        "kitakyushu-city",
+        "dazaifu-city"
+      ]
+    }
+  },
+  {
+    "id": "miyazu-city",
+    "name": "Miyazu City",
+    "prefecture": "Kyoto",
+    "relationships": {
+      "featuredDestinationIds": [
+        "amanohashidate-kyoto",
+        "kyoto-historic",
+        "nijo-castle-kyoto"
+      ],
+      "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    }
+  },
+  {
+    "id": "mother-farm-chiba",
+    "name": "Mother Farm (Futtsu)",
+    "prefecture": "Chiba",
+    "relationships": {}
+  },
+  {
+    "id": "motobu-town",
+    "name": "Motobu Town",
+    "prefecture": "Okinawa",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["naha-city", "nago-city", "ishigaki-city"]
+    }
+  },
+  {
+    "id": "mount-fuji",
+    "name": "Mount Fuji",
+    "prefecture": "Shizuoka",
+    "relationships": {}
+  },
+  {
+    "id": "mount-inasa-nagasaki",
+    "name": "Mount Inasa (Nagasaki Night View)",
+    "prefecture": "Nagasaki",
+    "relationships": {}
+  },
+  {
+    "id": "mount-yoshino-nara",
+    "name": "Mount Yoshino (Yoshinoyama)",
+    "prefecture": "Nara",
+    "relationships": {}
+  },
+  {
+    "id": "nachi-falls-wakayama",
+    "name": "Nachi Falls & Pagoda",
+    "prefecture": "Wakayama",
+    "relationships": {}
+  },
+  {
+    "id": "nagano-bessho-onsen",
+    "name": "Bessho Onsen",
+    "prefecture": "Nagano",
+    "relationships": {}
+  },
+  {
+    "id": "nagano-city",
+    "name": "Nagano & Snow Monkeys",
+    "prefecture": "Nagano",
+    "relationships": {
+      "featuredDestinationIds": ["nagano-narai-juku"],
+      "nearbyDestinationIds": [
+        "nagoya-city",
+        "shirakawa-village",
+        "inuyama-city"
+      ]
+    }
+  },
+  {
+    "id": "nagano-kamikochi",
+    "name": "Kamikochi",
+    "prefecture": "Nagano",
+    "relationships": {}
+  },
+  {
+    "id": "nagano-narai-juku",
+    "name": "Narai-juku",
+    "prefecture": "Nagano",
+    "relationships": {
+      "parentDestinationId": "nagano-city"
+    }
+  },
+  {
+    "id": "nagano-suwa",
+    "name": "Suwa",
+    "prefecture": "Nagano",
+    "relationships": {}
+  },
+  {
+    "id": "nagano-tsumago-juku",
+    "name": "Tsumago-juku",
+    "prefecture": "Nagano",
+    "relationships": {}
+  },
+  {
+    "id": "nagasaki-city",
+    "name": "Nagasaki City",
+    "prefecture": "Nagasaki",
+    "relationships": {
+      "featuredDestinationIds": ["mount-inasa-nagasaki"],
+      "nearbyDestinationIds": [
+        "fukuoka-city",
+        "kitakyushu-city",
+        "dazaifu-city"
+      ]
+    }
+  },
+  {
+    "id": "nago-city",
+    "name": "Nago City",
+    "prefecture": "Okinawa",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["naha-city", "motobu-town", "ishigaki-city"]
+    }
+  },
+  {
+    "id": "nagoya-castle-aichi",
+    "name": "Nagoya Castle (Golden Shachihoko)",
+    "prefecture": "Aichi",
+    "relationships": {
+      "parentDestinationId": "nagoya-city"
+    }
+  },
+  {
+    "id": "nagoya-city",
+    "name": "Nagoya City",
+    "prefecture": "Aichi",
+    "relationships": {
+      "featuredDestinationIds": [
+        "atsuta-shrine-nagoya",
+        "higashiyama-sky-tower-nagoya",
+        "nagoya-port-tower",
+        "nagoya-castle-aichi"
+      ],
+      "nearbyDestinationIds": [
+        "shirakawa-village",
+        "nagano-city",
+        "inuyama-city"
+      ],
+      "relatedDestinationIds": ["kyoto-city", "osaka-city"]
+    }
+  },
+  {
+    "id": "nagoya-port-tower",
+    "name": "Nagoya Port Building (Maritime Tower)",
+    "prefecture": "Aichi",
+    "relationships": {
+      "parentDestinationId": "nagoya-city"
+    }
+  },
+  {
+    "id": "naha-city",
+    "name": "Naha City",
+    "prefecture": "Okinawa",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["nago-city", "motobu-town", "ishigaki-city"]
+    }
+  },
+  {
+    "id": "nakano-city",
+    "name": "Nakano City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": [
+        "akasaka-minato",
+        "akihabara-chiyoda",
+        "asakusa-taito",
+        "chofu-tokyo"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "nara-city",
+    "name": "Nara City",
+    "prefecture": "Nara",
+    "relationships": {
+      "featuredDestinationIds": ["nara-park-todaiji"],
+      "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    }
+  },
+  {
+    "id": "nara-park-todaiji",
+    "name": "Historic Nara (Todai-ji Great Buddha)",
+    "prefecture": "Nara",
+    "relationships": {
+      "parentDestinationId": "nara-city"
+    }
+  },
+  {
+    "id": "narita-city",
+    "name": "Narita City",
+    "prefecture": "Chiba",
+    "relationships": {
+      "featuredDestinationIds": [
+        "boso-peninsula",
+        "chiba-nokogiriyama",
+        "chiba-port-tower",
+        "chiba-sawara"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "naruto-city",
+    "name": "Naruto City",
+    "prefecture": "Tokushima",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]
+    }
+  },
+  {
+    "id": "nerima-city",
+    "name": "Nerima City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": [
+        "akasaka-minato",
+        "akihabara-chiyoda",
+        "asakusa-taito",
+        "chofu-tokyo"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "nijo-castle-kyoto",
+    "name": "Nijo Castle (Kyoto)",
+    "prefecture": "Kyoto",
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    }
+  },
+  {
+    "id": "nikko-city",
+    "name": "Nikko City",
+    "prefecture": "Tochigi",
+    "relationships": {
+      "featuredDestinationIds": [
+        "nikko-toshogu-shrine-tochigi",
+        "kegon-falls-nikko"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "nikko-toshogu-shrine-tochigi",
+    "name": "Shrines and Temples of Nikko (Toshogu & UNESCO Heritage)",
+    "prefecture": "Tochigi",
+    "relationships": {
+      "parentDestinationId": "nikko-city"
+    }
+  },
+  {
+    "id": "niseko-town",
+    "name": "Niseko Town",
+    "prefecture": "Hokkaido",
+    "relationships": {
+      "featuredDestinationIds": ["hakodate-night-view"],
+      "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
+    }
+  },
+  {
+    "id": "noto",
+    "name": "Noto Peninsula",
+    "prefecture": "Ishikawa",
+    "relationships": {}
+  },
+  {
+    "id": "numazu-city",
+    "name": "Numazu City",
+    "prefecture": "Shizuoka",
+    "relationships": {
+      "featuredDestinationIds": [
+        "atami-city",
+        "fujinomiya-city",
+        "ito-city",
+        "izu"
+      ],
+      "nearbyDestinationIds": [
+        "nagoya-city",
+        "shirakawa-village",
+        "nagano-city"
+      ]
+    }
+  },
+  {
+    "id": "oarai-marine-tower",
+    "name": "Oarai Marine Tower",
+    "prefecture": "Ibaraki",
+    "relationships": {}
+  },
+  {
+    "id": "odaiba-minato",
+    "name": "Odaiba (Minato)",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "minato-city"
+    }
+  },
+  {
+    "id": "odawara-city",
+    "name": "Odawara City",
+    "prefecture": "Kanagawa",
+    "relationships": {
+      "featuredDestinationIds": [
+        "ashigara",
+        "enoshima-island",
+        "hakkeijima",
+        "hakone-town"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "okayama-city",
+    "name": "Okayama City",
+    "prefecture": "Okayama",
+    "relationships": {
+      "featuredDestinationIds": ["bitchu-matsuyama-castle", "korakuen-okayama"],
+      "nearbyDestinationIds": [
+        "hiroshima-city",
+        "onomichi-city",
+        "hatsukaichi-city"
+      ]
+    }
+  },
+  {
+    "id": "okazaki-city",
+    "name": "Okazaki City",
+    "prefecture": "Aichi",
+    "relationships": {
+      "featuredDestinationIds": [
+        "atsuta-shrine-nagoya",
+        "higashiyama-sky-tower-nagoya",
+        "inuyama-city",
+        "mirai-tower-nagoya"
+      ],
+      "nearbyDestinationIds": [
+        "nagoya-city",
+        "shirakawa-village",
+        "nagano-city"
+      ]
+    }
+  },
+  {
+    "id": "okuhida",
+    "name": "Okuhida",
+    "prefecture": "Gifu",
+    "relationships": {}
+  },
+  {
+    "id": "ome-tokyo",
+    "name": "Ome",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "chiyoda-city"
+    }
+  },
+  {
+    "id": "omiya-railway",
+    "name": "Omiya Railway Museum",
+    "prefecture": "Saitama",
+    "relationships": {}
+  },
+  {
+    "id": "onomichi-city",
+    "name": "Onomichi City",
+    "prefecture": "Hiroshima",
+    "relationships": {
+      "featuredDestinationIds": ["miyajima-itsukushima"],
+      "nearbyDestinationIds": [
+        "hiroshima-city",
+        "hatsukaichi-city",
+        "okayama-city"
+      ]
+    }
+  },
+  {
+    "id": "osaka-castle",
+    "name": "Osaka Castle (Osaka-jo)",
+    "prefecture": "Osaka",
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    }
+  },
+  {
+    "id": "osaka-city",
+    "name": "Osaka City",
+    "prefecture": "Osaka",
+    "relationships": {
+      "featuredDestinationIds": ["abeno-harukas-300-osaka", "osaka-castle"],
+      "nearbyDestinationIds": ["kyoto-city", "uji-city", "miyazu-city"],
+      "relatedDestinationIds": ["fukuoka-city"]
+    }
+  },
+  {
+    "id": "ota-city",
+    "name": "Ota City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": [
+        "akasaka-minato",
+        "akihabara-chiyoda",
+        "asakusa-taito",
+        "chofu-tokyo"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "otaru-city",
+    "name": "Otaru City",
+    "prefecture": "Hokkaido",
+    "relationships": {
+      "featuredDestinationIds": ["hakodate-night-view"],
+      "nearbyDestinationIds": [
+        "sapporo-city",
+        "hakodate-city",
+        "asahikawa-city"
+      ]
+    }
+  },
+  {
+    "id": "otsu-city",
+    "name": "Otsu City",
+    "prefecture": "Shiga",
+    "relationships": {
+      "featuredDestinationIds": ["hikone-castle-shiga"],
+      "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    }
+  },
+  {
+    "id": "oze-national-park",
+    "name": "Oze National Park",
+    "prefecture": "Gunma",
+    "relationships": {}
+  },
+  {
+    "id": "roppongi-hills-tokyo-city-view",
+    "name": "Roppongi Hills Observation Deck (Tokyo City View)",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "minato-city"
+    }
+  },
+  {
+    "id": "sado-island",
+    "name": "Sado Island",
+    "prefecture": "Niigata",
+    "relationships": {}
+  },
+  {
+    "id": "sagamihara-city",
+    "name": "Sagamihara City",
+    "prefecture": "Kanagawa",
+    "relationships": {
+      "featuredDestinationIds": [
+        "ashigara",
+        "enoshima-island",
+        "hakkeijima",
+        "hakone-town"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "saitama-city",
+    "name": "Saitama City",
+    "prefecture": "Saitama",
+    "relationships": {
+      "featuredDestinationIds": [
+        "kawagoe-castle-saitama",
+        "kawagoe-city",
+        "omiya-railway",
+        "chichibu-city"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "saitama-nagatoro",
+    "name": "Nagatoro",
+    "prefecture": "Saitama",
+    "relationships": {}
+  },
+  {
+    "id": "sakai-city",
+    "name": "Sakai City",
+    "prefecture": "Osaka",
+    "relationships": {
+      "featuredDestinationIds": ["abeno-harukas-300-osaka", "osaka-castle"],
+      "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    }
+  },
+  {
+    "id": "sakura-castle-chiba",
+    "name": "Sakura Castle Park & Ruins",
+    "prefecture": "Chiba",
+    "relationships": {}
+  },
+  {
+    "id": "sapporo-city",
+    "name": "Sapporo City",
+    "prefecture": "Hokkaido",
+    "relationships": {
+      "featuredDestinationIds": ["hakodate-night-view"],
+      "nearbyDestinationIds": ["otaru-city", "hakodate-city", "asahikawa-city"]
+    }
+  },
+  {
+    "id": "setagaya-city",
+    "name": "Setagaya City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": [
+        "akasaka-minato",
+        "akihabara-chiyoda",
+        "asakusa-taito",
+        "chofu-tokyo"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "shibuya-city",
+    "name": "Shibuya City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": ["shibuya-sky-shibuya"],
+      "nearbyDestinationIds": ["hakone-town", "chiba-city", "saitama-city"],
+      "relatedDestinationIds": ["shinjuku-city"]
+    }
+  },
+  {
+    "id": "shibuya-sky-shibuya",
+    "name": "Shibuya Sky (Rooftop Observatory)",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "shibuya-city"
+    }
+  },
+  {
+    "id": "shimonoseki-city",
+    "name": "Shimonoseki City",
+    "prefecture": "Yamaguchi",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [
+        "hiroshima-city",
+        "onomichi-city",
+        "hatsukaichi-city"
+      ]
+    }
+  },
+  {
+    "id": "shinagawa-city",
+    "name": "Shinagawa City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": [
+        "akasaka-minato",
+        "akihabara-chiyoda",
+        "asakusa-taito",
+        "chofu-tokyo"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "shinjuku-city",
+    "name": "Shinjuku City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "shirahama-town",
+    "name": "Shirahama Town",
+    "prefecture": "Wakayama",
+    "relationships": {
+      "featuredDestinationIds": ["nachi-falls-wakayama"],
+      "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    }
+  },
+  {
+    "id": "shirakawa-village",
+    "name": "Shirakawa Village",
+    "prefecture": "Gifu",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["nagoya-city", "nagano-city", "inuyama-city"],
+      "relatedDestinationIds": ["takayama-city"]
+    }
+  },
+  {
+    "id": "shizuoka-city",
+    "name": "Shizuoka City",
+    "prefecture": "Shizuoka",
+    "relationships": {
+      "featuredDestinationIds": [
+        "atami-city",
+        "fujinomiya-city",
+        "ito-city",
+        "izu"
+      ],
+      "nearbyDestinationIds": [
+        "nagoya-city",
+        "shirakawa-village",
+        "nagano-city"
+      ]
+    }
+  },
+  {
+    "id": "suginami-city",
+    "name": "Suginami City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": [
+        "akasaka-minato",
+        "akihabara-chiyoda",
+        "asakusa-taito",
+        "chofu-tokyo"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "sumida-city",
+    "name": "Sumida City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": ["tokyo-skytree-sumida"],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "sunshine-60-observatory-ikebukuro",
+    "name": "Sunshine 60 Observatory (Tenbou Park)",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "toshima-city"
+    }
+  },
+  {
+    "id": "tachikawa-tokyo",
+    "name": "Tachikawa",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "chiyoda-city"
+    }
+  },
+  {
+    "id": "taito-city",
+    "name": "Taito City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": ["asakusa-taito", "ueno-taito"],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "takachiho-town",
+    "name": "Takachiho Town",
+    "prefecture": "Miyazaki",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [
+        "fukuoka-city",
+        "kitakyushu-city",
+        "dazaifu-city"
+      ]
+    }
+  },
+  {
+    "id": "takamatsu-city",
+    "name": "Takamatsu City",
+    "prefecture": "Kagawa",
+    "relationships": {
+      "featuredDestinationIds": ["marugame-castle"],
+      "nearbyDestinationIds": ["matsuyama-city", "kochi-city", "tokushima-city"]
+    }
+  },
+  {
+    "id": "takanawa-gateway-minato",
+    "name": "Takanawa Gateway",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "chiyoda-city"
+    }
+  },
+  {
+    "id": "takaoka",
+    "name": "Takaoka",
+    "prefecture": "Toyama",
+    "relationships": {}
+  },
+  {
+    "id": "takato-castle-nagano",
+    "name": "Takato Castle Park",
+    "prefecture": "Nagano",
+    "relationships": {}
+  },
+  {
+    "id": "takayama-city",
+    "name": "Takayama City",
+    "prefecture": "Gifu",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [
+        "nagoya-city",
+        "shirakawa-village",
+        "nagano-city"
+      ]
+    }
+  },
+  {
+    "id": "takeda-castle-yamanashi",
+    "name": "Tsutsujigasaki Castle (Takeda Shrine)",
+    "prefecture": "Yamanashi",
+    "relationships": {}
+  },
+  {
+    "id": "teamlab-planets",
+    "name": "teamLab Planets",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "chiyoda-city"
+    }
+  },
+  {
+    "id": "toki-messe-tower-niigata",
+    "name": "Befco Bakauke Observatory (Toki Messe)",
+    "prefecture": "Niigata",
+    "relationships": {}
+  },
+  {
+    "id": "tokorozawa-city",
+    "name": "Tokorozawa City",
+    "prefecture": "Saitama",
+    "relationships": {
+      "featuredDestinationIds": [
+        "kawagoe-castle-saitama",
+        "kawagoe-city",
+        "omiya-railway",
+        "chichibu-city"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "tokushima-city",
+    "name": "Tokushima City",
+    "prefecture": "Tokushima",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]
+    }
+  },
+  {
+    "id": "tokyo-hinohara",
+    "name": "Hinohara",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "chiyoda-city"
+    }
+  },
+  {
+    "id": "tokyo-metropolitan-government-building-shinjuku",
+    "name": "Tokyo Metropolitan Government Building Observatories",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "shinjuku-city"
+    }
+  },
+  {
+    "id": "tokyo-mt-mitake",
+    "name": "Mt. Mitake",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "chiyoda-city"
+    }
+  },
+  {
+    "id": "tokyo-okutama",
+    "name": "Okutama",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "chiyoda-city"
+    }
+  },
+  {
+    "id": "tokyo-skytree-sumida",
+    "name": "Tokyo Skytree",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "sumida-city"
+    }
+  },
+  {
+    "id": "tokyo-station-chiyoda",
+    "name": "Tokyo Station",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "chiyoda-city"
+    }
+  },
+  {
+    "id": "tokyo-tower-minato",
+    "name": "Tokyo Tower",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "minato-city"
+    }
+  },
+  {
+    "id": "toshima-city",
+    "name": "Toshima City",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "featuredDestinationIds": [
+        "akasaka-minato",
+        "akihabara-chiyoda",
+        "asakusa-taito",
+        "chofu-tokyo"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "tottori-city",
+    "name": "Tottori City",
+    "prefecture": "Tottori",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [
+        "hiroshima-city",
+        "onomichi-city",
+        "hatsukaichi-city"
+      ]
+    }
+  },
+  {
+    "id": "toyama-alpine",
+    "name": "Tateyama Kurobe Alpine Route",
+    "prefecture": "Toyama",
+    "relationships": {}
+  },
+  {
+    "id": "toyota-city",
+    "name": "Toyota City",
+    "prefecture": "Aichi",
+    "relationships": {
+      "featuredDestinationIds": [
+        "atsuta-shrine-nagoya",
+        "higashiyama-sky-tower-nagoya",
+        "inuyama-city",
+        "mirai-tower-nagoya"
+      ],
+      "nearbyDestinationIds": [
+        "nagoya-city",
+        "shirakawa-village",
+        "nagano-city"
+      ]
+    }
+  },
+  {
+    "id": "tsukuba-city",
+    "name": "Tsukuba City",
+    "prefecture": "Ibaraki",
+    "relationships": {
+      "featuredDestinationIds": [
+        "art-tower-mito",
+        "ibaraki-fukuroda-falls",
+        "ibaraki-hitachi-seaside-park",
+        "ibaraki-mount-tsukuba"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "ueda-castle-nagano",
+    "name": "Ueda Castle Park",
+    "prefecture": "Nagano",
+    "relationships": {}
+  },
+  {
+    "id": "ueno-taito",
+    "name": "Ueno (Taito)",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "taito-city"
+    }
+  },
+  {
+    "id": "uji-city",
+    "name": "Uji City",
+    "prefecture": "Kyoto",
+    "relationships": {
+      "featuredDestinationIds": [
+        "amanohashidate-kyoto",
+        "kyoto-historic",
+        "nijo-castle-kyoto"
+      ],
+      "nearbyDestinationIds": ["kyoto-city", "osaka-city", "miyazu-city"]
+    }
+  },
+  {
+    "id": "urayasu-city",
+    "name": "Urayasu City",
+    "prefecture": "Chiba",
+    "relationships": {
+      "featuredDestinationIds": [
+        "boso-peninsula",
+        "chiba-nokogiriyama",
+        "chiba-port-tower",
+        "chiba-sawara"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "ushiku-daibutsu",
+    "name": "Ushiku Daibutsu",
+    "prefecture": "Ibaraki",
+    "relationships": {}
+  },
+  {
+    "id": "utsunomiya-city",
+    "name": "Utsunomiya City",
+    "prefecture": "Tochigi",
+    "relationships": {
+      "featuredDestinationIds": [
+        "kegon-falls-nikko",
+        "kinugawa-onsen",
+        "nikko-city",
+        "utsunomiya-oya"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "utsunomiya-oya",
+    "name": "Utsunomiya & Oya",
+    "prefecture": "Tochigi",
+    "relationships": {}
+  },
+  {
+    "id": "uwajima-castle",
+    "name": "Uwajima Castle",
+    "prefecture": "Ehime",
+    "relationships": {}
+  },
+  {
+    "id": "wakayama-city",
+    "name": "Wakayama City",
+    "prefecture": "Wakayama",
+    "relationships": {
+      "featuredDestinationIds": ["nachi-falls-wakayama"],
+      "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
+    }
+  },
+  {
+    "id": "yakushima-town",
+    "name": "Yakushima Town",
+    "prefecture": "Kagoshima",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [
+        "fukuoka-city",
+        "kitakyushu-city",
+        "dazaifu-city"
+      ]
+    }
+  },
+  {
+    "id": "yamanashi-fujiyoshida",
+    "name": "Fujiyoshida",
+    "prefecture": "Yamanashi",
+    "relationships": {}
+  },
+  {
+    "id": "yamanashi-nishizawa-valley",
+    "name": "Nishizawa Valley",
+    "prefecture": "Yamanashi",
+    "relationships": {}
+  },
+  {
+    "id": "yamanashi-shosenkyo-gorge",
+    "name": "Shosenkyo Gorge",
+    "prefecture": "Yamanashi",
+    "relationships": {}
+  },
+  {
+    "id": "yokohama-city",
+    "name": "Yokohama",
+    "prefecture": "Kanagawa",
+    "relationships": {
+      "featuredDestinationIds": [
+        "yokohama-landmark-tower-sky-garden",
+        "yokohama-marine-tower"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "yokohama-landmark-tower-sky-garden",
+    "name": "Yokohama Landmark Tower (Sky Garden)",
+    "prefecture": "Kanagawa",
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    }
+  },
+  {
+    "id": "yokohama-marine-tower",
+    "name": "Yokohama Marine Tower",
+    "prefecture": "Kanagawa",
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    }
+  },
+  {
+    "id": "yokosuka-city",
+    "name": "Yokosuka City",
+    "prefecture": "Kanagawa",
+    "relationships": {
+      "featuredDestinationIds": [
+        "ashigara",
+        "enoshima-island",
+        "hakkeijima",
+        "hakone-town"
+      ],
+      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "yomiuriland",
+    "name": "Yomiuriland",
+    "prefecture": "Tokyo",
+    "relationships": {
+      "parentDestinationId": "chiyoda-city"
+    }
+  },
+  {
+    "id": "yufu-city",
+    "name": "Yufu City",
+    "prefecture": "Oita",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [
+        "fukuoka-city",
+        "kitakyushu-city",
+        "dazaifu-city"
+      ]
+    }
+  },
+  {
+    "id": "zushi",
+    "name": "Zushi & Yokosuka",
+    "prefecture": "Kanagawa",
+    "relationships": {}
+  }
+]

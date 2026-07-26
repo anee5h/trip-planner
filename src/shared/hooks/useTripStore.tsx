@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { useTripSync } from "@/shared/hooks/useTripSync";
-import destinationsIndex from "@/shared/data/destinations-index.json";
+import destinationsIndex from "@/shared/data/destinations-meta.json";
 import type { Trip, TripStop } from "@/shared/types/trip";
 import * as TripService from "@/shared/services/trips/TripService";
 import { generateUUID } from "@/shared/utils/uuid";

@@ -544,8 +544,19 @@ async function runPipeline() {
   }
 
   fs.writeFileSync(outputPath, JSON.stringify(rawData, null, 2) + "\n");
+  const metaPath = path.join(
+    __dirname,
+    "../src/shared/data/destinations-meta.json",
+  );
+  const metaData = rawData.map((d) => ({
+    id: d.id,
+    name: d.name,
+    prefecture: d.prefecture,
+    relationships: d.relationships || {},
+  }));
+  fs.writeFileSync(metaPath, JSON.stringify(metaData, null, 2) + "\n");
   console.log(
-    `\x1b[32m✔ Successfully wrote ${rawData.length} processed destinations to ${outputPath}\x1b[0m\n`,
+    `\x1b[32m✔ Successfully wrote ${rawData.length} processed destinations to ${outputPath} and ${metaPath}\x1b[0m\n`,
   );
 
   // Print Completeness Report

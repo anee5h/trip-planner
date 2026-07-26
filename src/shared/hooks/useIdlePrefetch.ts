@@ -9,6 +9,13 @@ const PREFETCH_MAP: Record<string, () => Promise<unknown>> = {
   "/my-trips": () => import("@/features/profile/MyTrips"),
 };
 
+/** Prefetches an image asset into the browser cache during idle time */
+export function prefetchImage(src: string) {
+  if (!src || typeof window === "undefined") return;
+  const img = new Image();
+  img.src = src;
+}
+
 export function useIdlePrefetch() {
   useEffect(() => {
     if (!("requestIdleCallback" in window)) return;
