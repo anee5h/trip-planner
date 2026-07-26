@@ -625,7 +625,7 @@ export default function Navbar() {
 
             {/* Mobile Drawer Secondary Links & Footer */}
             <div className="mt-3 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 px-2 pb-1">
-              <span>TabiMap Japan v1.7.11</span>
+              <span>TabiMap Japan v1.7.12</span>
               <a
                 href="https://github.com/aneesh-patil/trip-planner"
                 target="_blank"
