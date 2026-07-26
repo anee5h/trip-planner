@@ -366,7 +366,37 @@ export default function DestinationDetails() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-900/60 to-transparent/10"></div>
         <div className="absolute bottom-0 left-0 w-full container mx-auto px-4 pb-6 md:pb-8 text-white z-10">
-          <div className="flex flex-wrap items-center gap-2 mb-3">
+          {/* 1. Destination Title & Japanese Kanji */}
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-1.5 flex flex-wrap items-baseline gap-3 [text-shadow:_0_2px_8px_rgba(0,0,0,0.85)] drop-shadow-md">
+            <span>{destination.name}</span>
+            {wikiSummary?.japaneseTitle && (
+              <span className="text-xl md:text-3xl font-semibold text-emerald-400 font-sans tracking-wide">
+                {wikiSummary.japaneseTitle}
+              </span>
+            )}
+          </h1>
+
+          {/* 2. Location & Parent Container Badge */}
+          <div className="flex flex-wrap items-center gap-3 text-sm text-slate-200 mb-3">
+            <div className="flex items-center font-medium">
+              <MapPin className="w-4 h-4 mr-1 text-emerald-400" />{" "}
+              {destination.prefecture}, Japan
+            </div>
+
+            {/* "Located In" Parent Container Badge */}
+            {parentDestination && (
+              <Link
+                to={`/destinations/${parentDestination.id}`}
+                className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-white/15 hover:bg-white/25 text-white font-extrabold text-xs backdrop-blur-md transition-all border border-white/20"
+              >
+                <MapPin className="w-3 h-3 text-emerald-400" />
+                Located In: {parentDestination.name}
+              </Link>
+            )}
+          </div>
+
+          {/* 3. Badges & Category Tags Row */}
+          <div className="flex flex-wrap items-center gap-2 mb-4">
             <Badge className="bg-emerald-600 hover:bg-emerald-500 border-none shrink-0">
               {destination.region}
             </Badge>
@@ -428,31 +458,6 @@ export default function DestinationDetails() {
                   {cat}
                 </Badge>
               ))}
-          </div>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-2.5 flex flex-wrap items-baseline gap-3 [text-shadow:_0_2px_8px_rgba(0,0,0,0.85)] drop-shadow-md">
-            <span>{destination.name}</span>
-            {wikiSummary?.japaneseTitle && (
-              <span className="text-xl md:text-3xl font-semibold text-emerald-400 font-sans tracking-wide">
-                {wikiSummary.japaneseTitle}
-              </span>
-            )}
-          </h1>
-          <div className="flex flex-wrap items-center gap-3 text-sm text-slate-200 mb-5">
-            <div className="flex items-center font-medium">
-              <MapPin className="w-4 h-4 mr-1 text-emerald-400" />{" "}
-              {destination.prefecture}, Japan
-            </div>
-
-            {/* "Located In" Parent Container Badge */}
-            {parentDestination && (
-              <Link
-                to={`/destinations/${parentDestination.id}`}
-                className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-white/15 hover:bg-white/25 text-white font-extrabold text-xs backdrop-blur-md transition-all border border-white/20"
-              >
-                <MapPin className="w-3 h-3 text-emerald-400" />
-                Located In: {parentDestination.name}
-              </Link>
-            )}
           </div>
 
           {/* Option A Action Controls: Single Primary CTA + Compact Circular Icons Row */}
