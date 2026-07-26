@@ -1,8 +1,8 @@
 {
-  "version": "1.7.11",
+  "version": "1.7.17",
   "qaFrameworkVersion": "1.0.0",
-  "gitCommit": "6b6691b",
-  "generatedAt": "2026-07-26T06:00:15.300Z",
+  "gitCommit": "74b2b62",
+  "generatedAt": "2026-07-26T13:49:08.458Z",
   "validators": [
     {
       "name": "Catalog Destinations",
@@ -11,8 +11,20 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'abashiri-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "abashiri-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'abeno-harukas-300-osaka' budgetBreakdown sum (¥8500) differs from recommended (¥8750) by ¥250 (tolerance: ¥175).",
           "targetId": "abeno-harukas-300-osaka"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'adachi-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "adachi-city"
         },
         {
           "severity": "warning",
@@ -29,8 +41,20 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'arakawa-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "arakawa-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'art-tower-mito' budgetBreakdown sum (¥5000) differs from recommended (¥5750) by ¥750 (tolerance: ¥115).",
           "targetId": "art-tower-mito"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'asahikawa-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "asahikawa-city"
         },
         {
           "severity": "warning",
@@ -47,14 +71,44 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'aso-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "aso-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'atami-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "atami-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'atsuta-shrine-nagoya' budgetBreakdown sum (¥7000) differs from recommended (¥4000) by ¥3000 (tolerance: ¥100).",
           "targetId": "atsuta-shrine-nagoya"
         },
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'beppu-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "beppu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'biei-town' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "biei-town"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'boso-peninsula' budgetBreakdown sum (¥15000) differs from recommended (¥16000) by ¥1000 (tolerance: ¥320).",
           "targetId": "boso-peninsula"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'bunkyo-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "bunkyo-city"
         },
         {
           "severity": "warning",
@@ -77,6 +131,36 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'chichibu-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "chichibu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'chigasaki-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "chigasaki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'chiyoda-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "chiyoda-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'chuo-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "chuo-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'dazaifu-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "dazaifu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'disneyland' budgetBreakdown sum (¥29800) differs from recommended (¥30800) by ¥1000 (tolerance: ¥616).",
           "targetId": "disneyland"
         },
@@ -95,6 +179,12 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'edogawa-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "edogawa-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'enoshima-island' budgetBreakdown sum (¥11000) differs from recommended (¥12000) by ¥1000 (tolerance: ¥240).",
           "targetId": "enoshima-island"
         },
@@ -107,14 +197,56 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'fujikawaguchiko-town' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "fujikawaguchiko-town"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'fujinomiya-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "fujinomiya-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'fujisawa-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "fujisawa-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'fukui' budgetBreakdown sum (¥10000) differs from recommended (¥11000) by ¥1000 (tolerance: ¥220).",
           "targetId": "fukui"
         },
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'fukuoka-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "fukuoka-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'funabashi-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "funabashi-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'furano-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "furano-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'gala-yuzawa' budgetBreakdown sum (¥29000) differs from recommended (¥30000) by ¥1000 (tolerance: ¥600).",
           "targetId": "gala-yuzawa"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'gero-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "gero-city"
         },
         {
           "severity": "warning",
@@ -131,8 +263,20 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'gifu-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "gifu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'ginza-urban' budgetBreakdown sum (¥11000) differs from recommended (¥12000) by ¥1000 (tolerance: ¥240).",
           "targetId": "ginza-urban"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'gotemba-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "gotemba-city"
         },
         {
           "severity": "warning",
@@ -155,14 +299,44 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'hakodate-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "hakodate-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'hakodate-night-view' budgetBreakdown sum (¥7000) differs from recommended (¥6500) by ¥500 (tolerance: ¥130).",
           "targetId": "hakodate-night-view"
         },
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'hakone-town' budgetBreakdown sum (¥18000) differs from recommended (¥25500) by ¥7500 (tolerance: ¥510).",
+          "targetId": "hakone-town"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'hakuba-village' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "hakuba-village"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'hamamatsu-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "hamamatsu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'harry-potter-studio' budgetBreakdown sum (¥20900) differs from recommended (¥21900) by ¥1000 (tolerance: ¥438).",
           "targetId": "harry-potter-studio"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'hatsukaichi-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "hatsukaichi-city"
         },
         {
           "severity": "warning",
@@ -179,6 +353,30 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'hikone-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "hikone-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'himeji-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "himeji-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'hiroshima-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "hiroshima-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'ikaruga-town' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "ikaruga-town"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'ikebukuro-toshima' budgetBreakdown sum (¥12000) differs from recommended (¥13000) by ¥1000 (tolerance: ¥260).",
           "targetId": "ikebukuro-toshima"
         },
@@ -191,8 +389,38 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'inuyama-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "inuyama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'ishigaki-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "ishigaki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'itabashi-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "itabashi-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'ito-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "ito-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'izu' budgetBreakdown sum (¥12000) differs from recommended (¥13000) by ¥1000 (tolerance: ¥260).",
           "targetId": "izu"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'izumo-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "izumo-city"
         },
         {
           "severity": "warning",
@@ -215,6 +443,12 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'kagoshima-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "kagoshima-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'kairakuen-mito' budgetBreakdown sum (¥7000) differs from recommended (¥5000) by ¥2000 (tolerance: ¥100).",
           "targetId": "kairakuen-mito"
         },
@@ -223,6 +457,12 @@
           "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'kakegawa-castle-shizuoka' budgetBreakdown sum (¥5500) differs from recommended (¥6250) by ¥750 (tolerance: ¥125).",
           "targetId": "kakegawa-castle-shizuoka"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'kamakura-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "kamakura-city"
         },
         {
           "severity": "warning",
@@ -239,8 +479,38 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'karuizawa-town' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "karuizawa-town"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'katsushika-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "katsushika-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'kawagoe-castle-saitama' budgetBreakdown sum (¥5000) differs from recommended (¥5500) by ¥500 (tolerance: ¥110).",
           "targetId": "kawagoe-castle-saitama"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'kawagoe-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "kawagoe-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'kawaguchi-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "kawaguchi-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'kawasaki-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "kawasaki-city"
         },
         {
           "severity": "warning",
@@ -257,8 +527,32 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'kisarazu-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "kisarazu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'kiso' budgetBreakdown sum (¥10000) differs from recommended (¥11000) by ¥1000 (tolerance: ¥220).",
           "targetId": "kiso"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'kita-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "kita-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'kitakyushu-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "kitakyushu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'kobe-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "kobe-city"
         },
         {
           "severity": "warning",
@@ -269,8 +563,62 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'kochi-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "kochi-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'kofu-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "kofu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'koto-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "koto-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'koya-town' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "koya-town"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'kumamoto-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "kumamoto-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'kurashiki-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "kurashiki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'kurobe-gorge' budgetBreakdown sum (¥20000) differs from recommended (¥21000) by ¥1000 (tolerance: ¥420).",
           "targetId": "kurobe-gorge"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'kusatsu-town' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "kusatsu-town"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'kushiro-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "kushiro-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'kyoto-city' budgetBreakdown sum (¥15000) differs from recommended (¥20000) by ¥5000 (tolerance: ¥400).",
+          "targetId": "kyoto-city"
         },
         {
           "severity": "warning",
@@ -293,6 +641,48 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'matsudo-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "matsudo-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'matsue-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "matsue-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'matsumoto-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "matsumoto-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'matsuyama-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "matsuyama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'meguro-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "meguro-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'minakami-town' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "minakami-town"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'minato-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "minato-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'mirai-tower-nagoya' budgetBreakdown sum (¥6000) differs from recommended (¥7000) by ¥1000 (tolerance: ¥140).",
           "targetId": "mirai-tower-nagoya"
         },
@@ -301,6 +691,36 @@
           "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'mito-castle-ibaraki' budgetBreakdown sum (¥5500) differs from recommended (¥6250) by ¥750 (tolerance: ¥125).",
           "targetId": "mito-castle-ibaraki"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'mito-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "mito-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'miyakojima-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "miyakojima-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'miyazaki-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "miyazaki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'miyazu-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "miyazu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'motobu-town' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "motobu-town"
         },
         {
           "severity": "warning",
@@ -329,8 +749,44 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'nagasaki-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "nagasaki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'nago-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "nago-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'nagoya-city' budgetBreakdown sum (¥12000) differs from recommended (¥14500) by ¥2500 (tolerance: ¥290).",
+          "targetId": "nagoya-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'nagoya-port-tower' budgetBreakdown sum (¥5000) differs from recommended (¥5500) by ¥500 (tolerance: ¥110).",
           "targetId": "nagoya-port-tower"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'naha-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "naha-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'nakano-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "nakano-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'nara-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "nara-city"
         },
         {
           "severity": "warning",
@@ -341,14 +797,50 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'narita-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "narita-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'naruto-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "naruto-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'nerima-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "nerima-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'nijo-castle-kyoto' budgetBreakdown sum (¥7000) differs from recommended (¥6500) by ¥500 (tolerance: ¥130).",
           "targetId": "nijo-castle-kyoto"
         },
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'nikko-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "nikko-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'niseko-town' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "niseko-town"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'noto' budgetBreakdown sum (¥11000) differs from recommended (¥12000) by ¥1000 (tolerance: ¥240).",
           "targetId": "noto"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'numazu-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "numazu-city"
         },
         {
           "severity": "warning",
@@ -365,6 +857,24 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'odawara-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "odawara-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'okayama-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "okayama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'okazaki-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "okazaki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'okuhida' budgetBreakdown sum (¥18000) differs from recommended (¥19000) by ¥1000 (tolerance: ¥380).",
           "targetId": "okuhida"
         },
@@ -377,8 +887,38 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'onomichi-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "onomichi-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'osaka-castle' budgetBreakdown sum (¥7000) differs from recommended (¥6500) by ¥500 (tolerance: ¥130).",
           "targetId": "osaka-castle"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'osaka-city' budgetBreakdown sum (¥12000) differs from recommended (¥17000) by ¥5000 (tolerance: ¥340).",
+          "targetId": "osaka-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'ota-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "ota-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'otaru-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "otaru-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'otsu-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "otsu-city"
         },
         {
           "severity": "warning",
@@ -401,8 +941,20 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'sagamihara-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "sagamihara-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'saitama-city' budgetBreakdown sum (¥6000) differs from recommended (¥7000) by ¥1000 (tolerance: ¥140).",
           "targetId": "saitama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'sakai-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "sakai-city"
         },
         {
           "severity": "warning",
@@ -413,14 +965,98 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'sapporo-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "sapporo-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'setagaya-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "setagaya-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'shibuya-city' budgetBreakdown sum (¥10000) differs from recommended (¥14000) by ¥4000 (tolerance: ¥280).",
+          "targetId": "shibuya-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'shibuya-sky-shibuya' budgetBreakdown sum (¥7000) differs from recommended (¥8250) by ¥1250 (tolerance: ¥165).",
           "targetId": "shibuya-sky-shibuya"
         },
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'shimonoseki-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "shimonoseki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'shinagawa-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "shinagawa-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'shinjuku-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "shinjuku-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'shirahama-town' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "shirahama-town"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'shirakawa-village' budgetBreakdown sum (¥9000) differs from recommended (¥11500) by ¥2500 (tolerance: ¥230).",
+          "targetId": "shirakawa-village"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'shizuoka-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "shizuoka-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'suginami-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "suginami-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'sumida-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "sumida-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'sunshine-60-observatory-ikebukuro' budgetBreakdown sum (¥5000) differs from recommended (¥5750) by ¥750 (tolerance: ¥115).",
           "targetId": "sunshine-60-observatory-ikebukuro"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'taito-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "taito-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'takachiho-town' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "takachiho-town"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'takamatsu-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "takamatsu-city"
         },
         {
           "severity": "warning",
@@ -443,6 +1079,12 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'takayama-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "takayama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'takeda-castle-yamanashi' budgetBreakdown sum (¥5000) differs from recommended (¥5750) by ¥750 (tolerance: ¥115).",
           "targetId": "takeda-castle-yamanashi"
         },
@@ -457,6 +1099,18 @@
           "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'toki-messe-tower-niigata' budgetBreakdown sum (¥4500) differs from recommended (¥5000) by ¥500 (tolerance: ¥100).",
           "targetId": "toki-messe-tower-niigata"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'tokorozawa-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "tokorozawa-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'tokushima-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "tokushima-city"
         },
         {
           "severity": "warning",
@@ -491,8 +1145,32 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'toshima-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "toshima-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'tottori-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "tottori-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'toyama-alpine' budgetBreakdown sum (¥23000) differs from recommended (¥24000) by ¥1000 (tolerance: ¥480).",
           "targetId": "toyama-alpine"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'toyota-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "toyota-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'tsukuba-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "tsukuba-city"
         },
         {
           "severity": "warning",
@@ -509,14 +1187,44 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'uji-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "uji-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'urayasu-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "urayasu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'ushiku-daibutsu' budgetBreakdown sum (¥6500) differs from recommended (¥7500) by ¥1000 (tolerance: ¥150).",
           "targetId": "ushiku-daibutsu"
         },
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'utsunomiya-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "utsunomiya-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'utsunomiya-oya' budgetBreakdown sum (¥12600) differs from recommended (¥13600) by ¥1000 (tolerance: ¥272).",
           "targetId": "utsunomiya-oya"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'wakayama-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "wakayama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'yakushima-town' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "yakushima-town"
         },
         {
           "severity": "warning",
@@ -539,8 +1247,20 @@
         {
           "severity": "warning",
           "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'yokosuka-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "yokosuka-city"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
           "message": "Destination 'yomiuriland' budgetBreakdown sum (¥12000) differs from recommended (¥13000) by ¥1000 (tolerance: ¥260).",
           "targetId": "yomiuriland"
+        },
+        {
+          "severity": "warning",
+          "code": "BUDGET_BREAKDOWN_MISMATCH",
+          "message": "Destination 'yufu-city' budgetBreakdown sum (¥12000) differs from recommended (¥14250) by ¥2250 (tolerance: ¥285).",
+          "targetId": "yufu-city"
         },
         {
           "severity": "warning",
@@ -552,7 +1272,7 @@
       "metrics": {
         "totalChecked": 260,
         "errorsCount": 0,
-        "warningsCount": 90,
+        "warningsCount": 210,
         "infoCount": 0,
         "durationMs": 2
       }
@@ -566,7 +1286,7 @@
         "errorsCount": 0,
         "warningsCount": 0,
         "infoCount": 0,
-        "durationMs": 2
+        "durationMs": 1
       }
     },
     {
@@ -578,7 +1298,7 @@
         "errorsCount": 0,
         "warningsCount": 0,
         "infoCount": 0,
-        "durationMs": 2
+        "durationMs": 1
       }
     },
     {
@@ -588,44 +1308,20 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nagoya-city' (gallery[0]) reuses image URL already used by 'nagoya-city'.",
-          "targetId": "nagoya-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kyoto-city' (gallery[0]) reuses image URL already used by 'kyoto-city'.",
-          "targetId": "kyoto-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'osaka-city' (gallery[0]) reuses image URL already used by 'osaka-city'.",
-          "targetId": "osaka-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'shibuya-city' (gallery[0]) reuses image URL already used by 'shibuya-city'.",
-          "targetId": "shibuya-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'hakone-town' (gallery[0]) reuses image URL already used by 'hakone-town'.",
-          "targetId": "hakone-town"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'shirakawa-village' (gallery[0]) reuses image URL already used by 'shirakawa-village'.",
-          "targetId": "shirakawa-village"
+          "message": "Destination 'abashiri-city' (gallery[0]) reuses image URL already used by 'abashiri-city'.",
+          "targetId": "abashiri-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'abeno-harukas-300-osaka' (gallery[0]) reuses image URL already used by 'abeno-harukas-300-osaka'.",
           "targetId": "abeno-harukas-300-osaka"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'adachi-city' (gallery[0]) reuses image URL already used by 'adachi-city'.",
+          "targetId": "adachi-city"
         },
         {
           "severity": "warning",
@@ -648,6 +1344,12 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'arakawa-city' (gallery[0]) reuses image URL already used by 'arakawa-city'.",
+          "targetId": "arakawa-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'art-tower-mito' (gallery[0]) reuses image URL already used by 'art-tower-mito'.",
           "targetId": "art-tower-mito"
         },
@@ -656,6 +1358,12 @@
           "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'art-tower-mito' (gallery[2]) reuses image URL already used by 'akasaka-minato'.",
           "targetId": "art-tower-mito"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'asahikawa-city' (gallery[0]) reuses image URL already used by 'asahikawa-city'.",
+          "targetId": "asahikawa-city"
         },
         {
           "severity": "warning",
@@ -690,6 +1398,30 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'aso-city' (gallery[0]) reuses image URL already used by 'aso-city'.",
+          "targetId": "aso-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'atami-city' (gallery[0]) reuses image URL already used by 'atami-city'.",
+          "targetId": "atami-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'beppu-city' (gallery[0]) reuses image URL already used by 'beppu-city'.",
+          "targetId": "beppu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'biei-town' (gallery[0]) reuses image URL already used by 'biei-town'.",
+          "targetId": "biei-town"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'bitchu-matsuyama-castle' (gallery[0]) reuses image URL already used by 'bitchu-matsuyama-castle'.",
           "targetId": "bitchu-matsuyama-castle"
         },
@@ -698,6 +1430,12 @@
           "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'boso-peninsula' (gallery[0]) reuses image URL already used by 'boso-peninsula'.",
           "targetId": "boso-peninsula"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'bunkyo-city' (gallery[0]) reuses image URL already used by 'bunkyo-city'.",
+          "targetId": "bunkyo-city"
         },
         {
           "severity": "warning",
@@ -750,6 +1488,24 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'chichibu-city' (gallery[0]) reuses image URL already used by 'chichibu-city'.",
+          "targetId": "chichibu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'chigasaki-city' (gallery[0]) reuses image URL already used by 'chigasaki-city'.",
+          "targetId": "chigasaki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'chiyoda-city' (gallery[0]) reuses image URL already used by 'chiyoda-city'.",
+          "targetId": "chiyoda-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'chofu-tokyo' (gallery[0]) reuses image URL already used by 'chofu-tokyo'.",
           "targetId": "chofu-tokyo"
         },
@@ -770,6 +1526,18 @@
           "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'choshi-chiba' (gallery[1]) reuses image URL already used by 'chiba-nokogiriyama'.",
           "targetId": "choshi-chiba"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'chuo-city' (gallery[0]) reuses image URL already used by 'chuo-city'.",
+          "targetId": "chuo-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'dazaifu-city' (gallery[0]) reuses image URL already used by 'dazaifu-city'.",
+          "targetId": "dazaifu-city"
         },
         {
           "severity": "warning",
@@ -828,6 +1596,12 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'edogawa-city' (gallery[0]) reuses image URL already used by 'edogawa-city'.",
+          "targetId": "edogawa-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'enoshima-island' (gallery[0]) reuses image URL already used by 'enoshima-island'.",
           "targetId": "enoshima-island"
         },
@@ -858,6 +1632,24 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'fujikawaguchiko-town' (gallery[0]) reuses image URL already used by 'fujikawaguchiko-town'.",
+          "targetId": "fujikawaguchiko-town"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'fujinomiya-city' (gallery[0]) reuses image URL already used by 'fujinomiya-city'.",
+          "targetId": "fujinomiya-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'fujisawa-city' (gallery[0]) reuses image URL already used by 'fujisawa-city'.",
+          "targetId": "fujisawa-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'fukui' (gallery[0]) reuses image URL already used by 'fukui'.",
           "targetId": "fukui"
         },
@@ -870,6 +1662,24 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'fukuoka-city' (gallery[0]) reuses image URL already used by 'fukuoka-city'.",
+          "targetId": "fukuoka-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'funabashi-city' (gallery[0]) reuses image URL already used by 'funabashi-city'.",
+          "targetId": "funabashi-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'furano-city' (gallery[0]) reuses image URL already used by 'furano-city'.",
+          "targetId": "furano-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'gala-yuzawa' (gallery[0]) reuses image URL already used by 'gala-yuzawa'.",
           "targetId": "gala-yuzawa"
         },
@@ -878,6 +1688,12 @@
           "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'gala-yuzawa' (gallery[1]) reuses image URL already used by 'fukui'.",
           "targetId": "gala-yuzawa"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'gero-city' (gallery[0]) reuses image URL already used by 'gero-city'.",
+          "targetId": "gero-city"
         },
         {
           "severity": "warning",
@@ -908,6 +1724,12 @@
           "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'gifu-castle-gifu' (gallery[2]) reuses image URL already used by 'abeno-harukas-300-osaka'.",
           "targetId": "gifu-castle-gifu"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'gifu-city' (gallery[0]) reuses image URL already used by 'gifu-city'.",
+          "targetId": "gifu-city"
         },
         {
           "severity": "warning",
@@ -948,8 +1770,20 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'ginza-urban' (gallery[0]) reuses image URL already used by 'ginza-urban'.",
+          "message": "Destination 'ginza-urban' (heroImage) reuses image URL already used by 'chuo-city'.",
           "targetId": "ginza-urban"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'ginza-urban' (gallery[0]) reuses image URL already used by 'chuo-city'.",
+          "targetId": "ginza-urban"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'gotemba-city' (gallery[0]) reuses image URL already used by 'gotemba-city'.",
+          "targetId": "gotemba-city"
         },
         {
           "severity": "warning",
@@ -996,6 +1830,12 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'hachioji-castle-tokyo' (gallery[0]) reuses image URL already used by 'hachioji-castle-tokyo'.",
+          "targetId": "hachioji-castle-tokyo"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'hachioji-tokyo' (gallery[0]) reuses image URL already used by 'hachioji-tokyo'.",
           "targetId": "hachioji-tokyo"
         },
@@ -1008,8 +1848,38 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'hakodate-city' (gallery[0]) reuses image URL already used by 'hakodate-city'.",
+          "targetId": "hakodate-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'hakone-town' (gallery[0]) reuses image URL already used by 'hakone-town'.",
+          "targetId": "hakone-town"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'hakuba-village' (gallery[0]) reuses image URL already used by 'hakuba-village'.",
+          "targetId": "hakuba-village"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'hamamatsu-city' (gallery[0]) reuses image URL already used by 'hamamatsu-city'.",
+          "targetId": "hamamatsu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'harry-potter-studio' (gallery[0]) reuses image URL already used by 'harry-potter-studio'.",
           "targetId": "harry-potter-studio"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'hatsukaichi-city' (gallery[0]) reuses image URL already used by 'hatsukaichi-city'.",
+          "targetId": "hatsukaichi-city"
         },
         {
           "severity": "warning",
@@ -1026,14 +1896,32 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'hikone-city' (gallery[0]) reuses image URL already used by 'hikone-city'.",
+          "targetId": "hikone-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'himeji-castle' (gallery[0]) reuses image URL already used by 'himeji-castle'.",
           "targetId": "himeji-castle"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'himeji-city' (gallery[0]) reuses image URL already used by 'himeji-city'.",
+          "targetId": "himeji-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'hirosaki-castle' (gallery[0]) reuses image URL already used by 'hirosaki-castle'.",
           "targetId": "hirosaki-castle"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'hiroshima-city' (gallery[0]) reuses image URL already used by 'hiroshima-city'.",
+          "targetId": "hiroshima-city"
         },
         {
           "severity": "warning",
@@ -1080,6 +1968,12 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'ikaruga-town' (gallery[0]) reuses image URL already used by 'ikaruga-town'.",
+          "targetId": "ikaruga-town"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'ikebukuro-toshima' (gallery[0]) reuses image URL already used by 'ikebukuro-toshima'.",
           "targetId": "ikebukuro-toshima"
         },
@@ -1110,6 +2004,42 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'inuyama-castle-aichi' (gallery[0]) reuses image URL already used by 'inuyama-castle-aichi'.",
+          "targetId": "inuyama-castle-aichi"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'inuyama-city' (heroImage) reuses image URL already used by 'inuyama-castle-aichi'.",
+          "targetId": "inuyama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'inuyama-city' (gallery[0]) reuses image URL already used by 'inuyama-castle-aichi'.",
+          "targetId": "inuyama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'ishigaki-city' (gallery[0]) reuses image URL already used by 'ishigaki-city'.",
+          "targetId": "ishigaki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'itabashi-city' (gallery[0]) reuses image URL already used by 'itabashi-city'.",
+          "targetId": "itabashi-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'ito-city' (gallery[0]) reuses image URL already used by 'ito-city'.",
+          "targetId": "ito-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'izu' (gallery[0]) reuses image URL already used by 'izu'.",
           "targetId": "izu"
         },
@@ -1124,6 +2054,12 @@
           "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'izu' (gallery[2]) reuses image URL already used by 'chiba-yoro-valley'.",
           "targetId": "izu"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'izumo-city' (gallery[0]) reuses image URL already used by 'izumo-city'.",
+          "targetId": "izumo-city"
         },
         {
           "severity": "warning",
@@ -1152,8 +2088,20 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'kagoshima-city' (gallery[0]) reuses image URL already used by 'kagoshima-city'.",
+          "targetId": "kagoshima-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'kakegawa-castle-shizuoka' (gallery[0]) reuses image URL already used by 'kakegawa-castle-shizuoka'.",
           "targetId": "kakegawa-castle-shizuoka"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'kamakura-city' (gallery[0]) reuses image URL already used by 'kamakura-city'.",
+          "targetId": "kamakura-city"
         },
         {
           "severity": "warning",
@@ -1182,19 +2130,43 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'karuizawa-town' (gallery[0]) reuses image URL already used by 'karuizawa-town'.",
+          "targetId": "karuizawa-town"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'katsushika-city' (gallery[0]) reuses image URL already used by 'katsushika-city'.",
+          "targetId": "katsushika-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'kawagoe-castle-saitama' (gallery[0]) reuses image URL already used by 'kawagoe-castle-saitama'.",
           "targetId": "kawagoe-castle-saitama"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kegon-falls-nikko' (heroImage) reuses image URL already used by 'osaka-city'.",
-          "targetId": "kegon-falls-nikko"
+          "message": "Destination 'kawagoe-city' (gallery[0]) reuses image URL already used by 'kawagoe-city'.",
+          "targetId": "kawagoe-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kegon-falls-nikko' (gallery[0]) reuses image URL already used by 'osaka-city'.",
+          "message": "Destination 'kawaguchi-city' (gallery[0]) reuses image URL already used by 'kawaguchi-city'.",
+          "targetId": "kawaguchi-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'kawasaki-city' (gallery[0]) reuses image URL already used by 'kawasaki-city'.",
+          "targetId": "kawasaki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'kegon-falls-nikko' (gallery[0]) reuses image URL already used by 'kegon-falls-nikko'.",
           "targetId": "kegon-falls-nikko"
         },
         {
@@ -1206,8 +2178,32 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'kisarazu-city' (gallery[0]) reuses image URL already used by 'kisarazu-city'.",
+          "targetId": "kisarazu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'kiso' (gallery[0]) reuses image URL already used by 'kiso'.",
           "targetId": "kiso"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'kita-city' (gallery[0]) reuses image URL already used by 'kita-city'.",
+          "targetId": "kita-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'kitakyushu-city' (gallery[0]) reuses image URL already used by 'kitakyushu-city'.",
+          "targetId": "kitakyushu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'kobe-city' (gallery[0]) reuses image URL already used by 'kobe-city'.",
+          "targetId": "kobe-city"
         },
         {
           "severity": "warning",
@@ -1218,8 +2214,62 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'kochi-city' (gallery[0]) reuses image URL already used by 'kochi-city'.",
+          "targetId": "kochi-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'kofu-city' (gallery[0]) reuses image URL already used by 'kofu-city'.",
+          "targetId": "kofu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'koto-city' (gallery[0]) reuses image URL already used by 'koto-city'.",
+          "targetId": "koto-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'koya-town' (gallery[0]) reuses image URL already used by 'koya-town'.",
+          "targetId": "koya-town"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'kumamoto-city' (gallery[0]) reuses image URL already used by 'kumamoto-city'.",
+          "targetId": "kumamoto-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'kurashiki-city' (gallery[0]) reuses image URL already used by 'kurashiki-city'.",
+          "targetId": "kurashiki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'kurobe-gorge' (gallery[0]) reuses image URL already used by 'kurobe-gorge'.",
           "targetId": "kurobe-gorge"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'kusatsu-town' (gallery[0]) reuses image URL already used by 'kusatsu-town'.",
+          "targetId": "kusatsu-town"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'kushiro-city' (gallery[0]) reuses image URL already used by 'kushiro-city'.",
+          "targetId": "kushiro-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'kyoto-city' (gallery[0]) reuses image URL already used by 'kyoto-city'.",
+          "targetId": "kyoto-city"
         },
         {
           "severity": "warning",
@@ -1278,14 +2328,62 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'matsudo-city' (gallery[0]) reuses image URL already used by 'matsudo-city'.",
+          "targetId": "matsudo-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'matsue-castle' (gallery[0]) reuses image URL already used by 'matsue-castle'.",
           "targetId": "matsue-castle"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'matsue-city' (gallery[0]) reuses image URL already used by 'matsue-city'.",
+          "targetId": "matsue-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'matsumoto-castle-nagano' (gallery[0]) reuses image URL already used by 'matsumoto-castle-nagano'.",
+          "targetId": "matsumoto-castle-nagano"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'matsumoto-city' (gallery[0]) reuses image URL already used by 'matsumoto-city'.",
+          "targetId": "matsumoto-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'matsuyama-castle-ehime' (gallery[0]) reuses image URL already used by 'matsuyama-castle-ehime'.",
           "targetId": "matsuyama-castle-ehime"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'matsuyama-city' (gallery[0]) reuses image URL already used by 'matsuyama-city'.",
+          "targetId": "matsuyama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'meguro-city' (gallery[0]) reuses image URL already used by 'furano-city'.",
+          "targetId": "meguro-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'minakami-town' (gallery[0]) reuses image URL already used by 'minakami-town'.",
+          "targetId": "minakami-town"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'minato-city' (gallery[0]) reuses image URL already used by 'minato-city'.",
+          "targetId": "minato-city"
         },
         {
           "severity": "warning",
@@ -1326,6 +2424,30 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'mito-city' (gallery[0]) reuses image URL already used by 'mito-city'.",
+          "targetId": "mito-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'miyakojima-city' (gallery[0]) reuses image URL already used by 'miyakojima-city'.",
+          "targetId": "miyakojima-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'miyazaki-city' (gallery[0]) reuses image URL already used by 'miyazaki-city'.",
+          "targetId": "miyazaki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'miyazu-city' (gallery[0]) reuses image URL already used by 'miyazu-city'.",
+          "targetId": "miyazu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'mother-farm-chiba' (gallery[0]) reuses image URL already used by 'choshi-chiba'.",
           "targetId": "mother-farm-chiba"
         },
@@ -1340,6 +2462,12 @@
           "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'mother-farm-chiba' (gallery[2]) reuses image URL already used by 'chiba-yoro-valley'.",
           "targetId": "mother-farm-chiba"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'motobu-town' (gallery[0]) reuses image URL already used by 'motobu-town'.",
+          "targetId": "motobu-town"
         },
         {
           "severity": "warning",
@@ -1488,6 +2616,30 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'nagasaki-city' (gallery[0]) reuses image URL already used by 'nagasaki-city'.",
+          "targetId": "nagasaki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'nago-city' (gallery[0]) reuses image URL already used by 'nago-city'.",
+          "targetId": "nago-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'nagoya-castle-aichi' (gallery[0]) reuses image URL already used by 'nagoya-castle-aichi'.",
+          "targetId": "nagoya-castle-aichi"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'nagoya-city' (gallery[0]) reuses image URL already used by 'nagoya-city'.",
+          "targetId": "nagoya-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'nagoya-port-tower' (gallery[0]) reuses image URL already used by 'nagoya-port-tower'.",
           "targetId": "nagoya-port-tower"
         },
@@ -1506,14 +2658,68 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'naha-city' (gallery[0]) reuses image URL already used by 'naha-city'.",
+          "targetId": "naha-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'nakano-city' (gallery[0]) reuses image URL already used by 'nakano-city'.",
+          "targetId": "nakano-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'nara-city' (gallery[0]) reuses image URL already used by 'nara-city'.",
+          "targetId": "nara-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'nara-park-todaiji' (gallery[0]) reuses image URL already used by 'nara-park-todaiji'.",
           "targetId": "nara-park-todaiji"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'narita-city' (gallery[0]) reuses image URL already used by 'narita-city'.",
+          "targetId": "narita-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'naruto-city' (gallery[0]) reuses image URL already used by 'naruto-city'.",
+          "targetId": "naruto-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'nerima-city' (gallery[0]) reuses image URL already used by 'nerima-city'.",
+          "targetId": "nerima-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'nijo-castle-kyoto' (gallery[0]) reuses image URL already used by 'nijo-castle-kyoto'.",
           "targetId": "nijo-castle-kyoto"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'nikko-city' (gallery[0]) reuses image URL already used by 'nikko-city'.",
+          "targetId": "nikko-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'nikko-toshogu-shrine-tochigi' (gallery[0]) reuses image URL already used by 'nikko-toshogu-shrine-tochigi'.",
+          "targetId": "nikko-toshogu-shrine-tochigi"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'niseko-town' (gallery[0]) reuses image URL already used by 'niseko-town'.",
+          "targetId": "niseko-town"
         },
         {
           "severity": "warning",
@@ -1532,6 +2738,12 @@
           "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'noto' (gallery[2]) reuses image URL already used by 'ghibli-museum'.",
           "targetId": "noto"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'numazu-city' (gallery[0]) reuses image URL already used by 'numazu-city'.",
+          "targetId": "numazu-city"
         },
         {
           "severity": "warning",
@@ -1556,6 +2768,24 @@
           "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'odaiba-minato' (gallery[2]) reuses image URL already used by 'akasaka-minato'.",
           "targetId": "odaiba-minato"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'odawara-city' (gallery[0]) reuses image URL already used by 'odawara-city'.",
+          "targetId": "odawara-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'okayama-city' (gallery[0]) reuses image URL already used by 'okayama-city'.",
+          "targetId": "okayama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'okazaki-city' (gallery[0]) reuses image URL already used by 'okazaki-city'.",
+          "targetId": "okazaki-city"
         },
         {
           "severity": "warning",
@@ -1590,8 +2820,44 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'onomichi-city' (gallery[0]) reuses image URL already used by 'onomichi-city'.",
+          "targetId": "onomichi-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'osaka-castle' (gallery[0]) reuses image URL already used by 'osaka-castle'.",
           "targetId": "osaka-castle"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'osaka-city' (heroImage) reuses image URL already used by 'kegon-falls-nikko'.",
+          "targetId": "osaka-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'osaka-city' (gallery[0]) reuses image URL already used by 'kegon-falls-nikko'.",
+          "targetId": "osaka-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'ota-city' (gallery[0]) reuses image URL already used by 'ota-city'.",
+          "targetId": "ota-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'otaru-city' (gallery[0]) reuses image URL already used by 'otaru-city'.",
+          "targetId": "otaru-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'otsu-city' (gallery[0]) reuses image URL already used by 'otsu-city'.",
+          "targetId": "otsu-city"
         },
         {
           "severity": "warning",
@@ -1614,6 +2880,12 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'sagamihara-city' (gallery[0]) reuses image URL already used by 'sagamihara-city'.",
+          "targetId": "sagamihara-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'saitama-city' (gallery[0]) reuses image URL already used by 'saitama-city'.",
           "targetId": "saitama-city"
         },
@@ -1622,6 +2894,12 @@
           "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'saitama-nagatoro' (gallery[0]) reuses image URL already used by 'saitama-nagatoro'.",
           "targetId": "saitama-nagatoro"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'sakai-city' (gallery[0]) reuses image URL already used by 'sakai-city'.",
+          "targetId": "sakai-city"
         },
         {
           "severity": "warning",
@@ -1644,6 +2922,24 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'sapporo-city' (gallery[0]) reuses image URL already used by 'sapporo-city'.",
+          "targetId": "sapporo-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'setagaya-city' (gallery[0]) reuses image URL already used by 'setagaya-city'.",
+          "targetId": "setagaya-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'shibuya-city' (gallery[0]) reuses image URL already used by 'shibuya-city'.",
+          "targetId": "shibuya-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'shibuya-sky-shibuya' (gallery[0]) reuses image URL already used by 'shibuya-sky-shibuya'.",
           "targetId": "shibuya-sky-shibuya"
         },
@@ -1658,6 +2954,54 @@
           "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'shibuya-sky-shibuya' (gallery[2]) reuses image URL already used by 'akasaka-minato'.",
           "targetId": "shibuya-sky-shibuya"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'shimonoseki-city' (gallery[0]) reuses image URL already used by 'shimonoseki-city'.",
+          "targetId": "shimonoseki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'shinagawa-city' (gallery[0]) reuses image URL already used by 'shinagawa-city'.",
+          "targetId": "shinagawa-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'shinjuku-city' (gallery[0]) reuses image URL already used by 'shinjuku-city'.",
+          "targetId": "shinjuku-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'shirahama-town' (gallery[0]) reuses image URL already used by 'shirahama-town'.",
+          "targetId": "shirahama-town"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'shirakawa-village' (gallery[0]) reuses image URL already used by 'shirakawa-village'.",
+          "targetId": "shirakawa-village"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'shizuoka-city' (gallery[0]) reuses image URL already used by 'shizuoka-city'.",
+          "targetId": "shizuoka-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'suginami-city' (gallery[0]) reuses image URL already used by 'suginami-city'.",
+          "targetId": "suginami-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'sumida-city' (gallery[0]) reuses image URL already used by 'sumida-city'.",
+          "targetId": "sumida-city"
         },
         {
           "severity": "warning",
@@ -1682,6 +3026,24 @@
           "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'tachikawa-tokyo' (gallery[2]) reuses image URL already used by 'chiba-yoro-valley'.",
           "targetId": "tachikawa-tokyo"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'taito-city' (gallery[0]) reuses image URL already used by 'taito-city'.",
+          "targetId": "taito-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'takachiho-town' (gallery[0]) reuses image URL already used by 'takachiho-town'.",
+          "targetId": "takachiho-town"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'takamatsu-city' (gallery[0]) reuses image URL already used by 'takamatsu-city'.",
+          "targetId": "takamatsu-city"
         },
         {
           "severity": "warning",
@@ -1716,6 +3078,12 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'takayama-city' (gallery[0]) reuses image URL already used by 'takayama-city'.",
+          "targetId": "takayama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'takeda-castle-yamanashi' (gallery[0]) reuses image URL already used by 'takeda-castle-yamanashi'.",
           "targetId": "takeda-castle-yamanashi"
         },
@@ -1746,6 +3114,18 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'tokorozawa-city' (gallery[0]) reuses image URL already used by 'tokorozawa-city'.",
+          "targetId": "tokorozawa-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'tokushima-city' (gallery[0]) reuses image URL already used by 'tokushima-city'.",
+          "targetId": "tokushima-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'tokyo-hinohara' (gallery[0]) reuses image URL already used by 'tokyo-hinohara'.",
           "targetId": "tokyo-hinohara"
         },
@@ -1770,7 +3150,13 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'tokyo-skytree-sumida' (gallery[0]) reuses image URL already used by 'tokyo-skytree-sumida'.",
+          "message": "Destination 'tokyo-skytree-sumida' (heroImage) reuses image URL already used by 'sumida-city'.",
+          "targetId": "tokyo-skytree-sumida"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'tokyo-skytree-sumida' (gallery[0]) reuses image URL already used by 'sumida-city'.",
           "targetId": "tokyo-skytree-sumida"
         },
         {
@@ -1818,8 +3204,32 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'toshima-city' (gallery[0]) reuses image URL already used by 'toshima-city'.",
+          "targetId": "toshima-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'tottori-city' (gallery[0]) reuses image URL already used by 'tottori-city'.",
+          "targetId": "tottori-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'toyama-alpine' (gallery[0]) reuses image URL already used by 'toyama-alpine'.",
           "targetId": "toyama-alpine"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'toyota-city' (gallery[0]) reuses image URL already used by 'toyota-city'.",
+          "targetId": "toyota-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'tsukuba-city' (gallery[0]) reuses image URL already used by 'tsukuba-city'.",
+          "targetId": "tsukuba-city"
         },
         {
           "severity": "warning",
@@ -1848,6 +3258,18 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'uji-city' (gallery[0]) reuses image URL already used by 'uji-city'.",
+          "targetId": "uji-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'urayasu-city' (gallery[0]) reuses image URL already used by 'urayasu-city'.",
+          "targetId": "urayasu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'ushiku-daibutsu' (gallery[0]) reuses image URL already used by 'ushiku-daibutsu'.",
           "targetId": "ushiku-daibutsu"
         },
@@ -1866,6 +3288,12 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'utsunomiya-city' (gallery[0]) reuses image URL already used by 'utsunomiya-city'.",
+          "targetId": "utsunomiya-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'utsunomiya-oya' (gallery[0]) reuses image URL already used by 'utsunomiya-oya'.",
           "targetId": "utsunomiya-oya"
         },
@@ -1874,6 +3302,18 @@
           "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'uwajima-castle' (gallery[0]) reuses image URL already used by 'uwajima-castle'.",
           "targetId": "uwajima-castle"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'wakayama-city' (gallery[0]) reuses image URL already used by 'wakayama-city'.",
+          "targetId": "wakayama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "DUPLICATE_IMAGE_URL",
+          "message": "Destination 'yakushima-town' (gallery[0]) reuses image URL already used by 'yakushima-town'.",
+          "targetId": "yakushima-town"
         },
         {
           "severity": "warning",
@@ -1974,590 +3414,14 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'yomiuriland' (gallery[0]) reuses image URL already used by 'yomiuriland'.",
-          "targetId": "yomiuriland"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'zushi' (gallery[0]) reuses image URL already used by 'zushi'.",
-          "targetId": "zushi"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'chiyoda-city' (gallery[0]) reuses image URL already used by 'chiyoda-city'.",
-          "targetId": "chiyoda-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'chuo-city' (heroImage) reuses image URL already used by 'ginza-urban'.",
-          "targetId": "chuo-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'chuo-city' (gallery[0]) reuses image URL already used by 'ginza-urban'.",
-          "targetId": "chuo-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'minato-city' (gallery[0]) reuses image URL already used by 'minato-city'.",
-          "targetId": "minato-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'shinjuku-city' (gallery[0]) reuses image URL already used by 'shinjuku-city'.",
-          "targetId": "shinjuku-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'bunkyo-city' (gallery[0]) reuses image URL already used by 'bunkyo-city'.",
-          "targetId": "bunkyo-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'taito-city' (gallery[0]) reuses image URL already used by 'taito-city'.",
-          "targetId": "taito-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'sumida-city' (heroImage) reuses image URL already used by 'tokyo-skytree-sumida'.",
-          "targetId": "sumida-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'sumida-city' (gallery[0]) reuses image URL already used by 'tokyo-skytree-sumida'.",
-          "targetId": "sumida-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'koto-city' (gallery[0]) reuses image URL already used by 'koto-city'.",
-          "targetId": "koto-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'shinagawa-city' (gallery[0]) reuses image URL already used by 'shinagawa-city'.",
-          "targetId": "shinagawa-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'ota-city' (gallery[0]) reuses image URL already used by 'ota-city'.",
-          "targetId": "ota-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'setagaya-city' (gallery[0]) reuses image URL already used by 'setagaya-city'.",
-          "targetId": "setagaya-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nakano-city' (gallery[0]) reuses image URL already used by 'nakano-city'.",
-          "targetId": "nakano-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'suginami-city' (gallery[0]) reuses image URL already used by 'suginami-city'.",
-          "targetId": "suginami-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'toshima-city' (gallery[0]) reuses image URL already used by 'toshima-city'.",
-          "targetId": "toshima-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kita-city' (gallery[0]) reuses image URL already used by 'kita-city'.",
-          "targetId": "kita-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'arakawa-city' (gallery[0]) reuses image URL already used by 'arakawa-city'.",
-          "targetId": "arakawa-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'itabashi-city' (gallery[0]) reuses image URL already used by 'itabashi-city'.",
-          "targetId": "itabashi-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nerima-city' (gallery[0]) reuses image URL already used by 'nerima-city'.",
-          "targetId": "nerima-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'adachi-city' (gallery[0]) reuses image URL already used by 'adachi-city'.",
-          "targetId": "adachi-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'katsushika-city' (gallery[0]) reuses image URL already used by 'katsushika-city'.",
-          "targetId": "katsushika-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'edogawa-city' (gallery[0]) reuses image URL already used by 'edogawa-city'.",
-          "targetId": "edogawa-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kawasaki-city' (gallery[0]) reuses image URL already used by 'kawasaki-city'.",
-          "targetId": "kawasaki-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kamakura-city' (gallery[0]) reuses image URL already used by 'kamakura-city'.",
-          "targetId": "kamakura-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
           "message": "Destination 'yokosuka-city' (gallery[0]) reuses image URL already used by 'yokosuka-city'.",
           "targetId": "yokosuka-city"
         },
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'fujisawa-city' (gallery[0]) reuses image URL already used by 'fujisawa-city'.",
-          "targetId": "fujisawa-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'odawara-city' (gallery[0]) reuses image URL already used by 'odawara-city'.",
-          "targetId": "odawara-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'chigasaki-city' (gallery[0]) reuses image URL already used by 'chigasaki-city'.",
-          "targetId": "chigasaki-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'sagamihara-city' (gallery[0]) reuses image URL already used by 'sagamihara-city'.",
-          "targetId": "sagamihara-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'narita-city' (gallery[0]) reuses image URL already used by 'narita-city'.",
-          "targetId": "narita-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'urayasu-city' (gallery[0]) reuses image URL already used by 'urayasu-city'.",
-          "targetId": "urayasu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'funabashi-city' (gallery[0]) reuses image URL already used by 'funabashi-city'.",
-          "targetId": "funabashi-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'matsudo-city' (gallery[0]) reuses image URL already used by 'matsudo-city'.",
-          "targetId": "matsudo-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kisarazu-city' (gallery[0]) reuses image URL already used by 'kisarazu-city'.",
-          "targetId": "kisarazu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kawagoe-city' (gallery[0]) reuses image URL already used by 'kawagoe-city'.",
-          "targetId": "kawagoe-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kawaguchi-city' (gallery[0]) reuses image URL already used by 'kawaguchi-city'.",
-          "targetId": "kawaguchi-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'tokorozawa-city' (gallery[0]) reuses image URL already used by 'tokorozawa-city'.",
-          "targetId": "tokorozawa-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'chichibu-city' (gallery[0]) reuses image URL already used by 'chichibu-city'.",
-          "targetId": "chichibu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'mito-city' (gallery[0]) reuses image URL already used by 'mito-city'.",
-          "targetId": "mito-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'tsukuba-city' (gallery[0]) reuses image URL already used by 'tsukuba-city'.",
-          "targetId": "tsukuba-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nikko-city' (gallery[0]) reuses image URL already used by 'nikko-city'.",
-          "targetId": "nikko-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'utsunomiya-city' (gallery[0]) reuses image URL already used by 'utsunomiya-city'.",
-          "targetId": "utsunomiya-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kusatsu-town' (gallery[0]) reuses image URL already used by 'kusatsu-town'.",
-          "targetId": "kusatsu-town"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'minakami-town' (gallery[0]) reuses image URL already used by 'minakami-town'.",
-          "targetId": "minakami-town"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'inuyama-city' (gallery[0]) reuses image URL already used by 'inuyama-city'.",
-          "targetId": "inuyama-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'toyota-city' (gallery[0]) reuses image URL already used by 'toyota-city'.",
-          "targetId": "toyota-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'okazaki-city' (gallery[0]) reuses image URL already used by 'okazaki-city'.",
-          "targetId": "okazaki-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'gifu-city' (gallery[0]) reuses image URL already used by 'gifu-city'.",
-          "targetId": "gifu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'takayama-city' (gallery[0]) reuses image URL already used by 'takayama-city'.",
-          "targetId": "takayama-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'gero-city' (gallery[0]) reuses image URL already used by 'gero-city'.",
-          "targetId": "gero-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'shizuoka-city' (gallery[0]) reuses image URL already used by 'shizuoka-city'.",
-          "targetId": "shizuoka-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'hamamatsu-city' (gallery[0]) reuses image URL already used by 'hamamatsu-city'.",
-          "targetId": "hamamatsu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'atami-city' (gallery[0]) reuses image URL already used by 'atami-city'.",
-          "targetId": "atami-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'ito-city' (gallery[0]) reuses image URL already used by 'ito-city'.",
-          "targetId": "ito-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'gotemba-city' (gallery[0]) reuses image URL already used by 'gotemba-city'.",
-          "targetId": "gotemba-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'fujinomiya-city' (gallery[0]) reuses image URL already used by 'fujinomiya-city'.",
-          "targetId": "fujinomiya-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'numazu-city' (gallery[0]) reuses image URL already used by 'numazu-city'.",
-          "targetId": "numazu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kofu-city' (gallery[0]) reuses image URL already used by 'kofu-city'.",
-          "targetId": "kofu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'fujikawaguchiko-town' (gallery[0]) reuses image URL already used by 'fujikawaguchiko-town'.",
-          "targetId": "fujikawaguchiko-town"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'matsumoto-city' (gallery[0]) reuses image URL already used by 'matsumoto-city'.",
-          "targetId": "matsumoto-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'karuizawa-town' (gallery[0]) reuses image URL already used by 'karuizawa-town'.",
-          "targetId": "karuizawa-town"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'hakuba-village' (gallery[0]) reuses image URL already used by 'hakuba-village'.",
-          "targetId": "hakuba-village"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'uji-city' (gallery[0]) reuses image URL already used by 'uji-city'.",
-          "targetId": "uji-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'miyazu-city' (gallery[0]) reuses image URL already used by 'miyazu-city'.",
-          "targetId": "miyazu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'sakai-city' (gallery[0]) reuses image URL already used by 'sakai-city'.",
-          "targetId": "sakai-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kobe-city' (gallery[0]) reuses image URL already used by 'kobe-city'.",
-          "targetId": "kobe-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'himeji-city' (gallery[0]) reuses image URL already used by 'himeji-city'.",
-          "targetId": "himeji-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nara-city' (gallery[0]) reuses image URL already used by 'nara-city'.",
-          "targetId": "nara-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'ikaruga-town' (gallery[0]) reuses image URL already used by 'ikaruga-town'.",
-          "targetId": "ikaruga-town"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'otsu-city' (gallery[0]) reuses image URL already used by 'otsu-city'.",
-          "targetId": "otsu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'hikone-city' (gallery[0]) reuses image URL already used by 'hikone-city'.",
-          "targetId": "hikone-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'wakayama-city' (gallery[0]) reuses image URL already used by 'wakayama-city'.",
-          "targetId": "wakayama-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'shirahama-town' (gallery[0]) reuses image URL already used by 'shirahama-town'.",
-          "targetId": "shirahama-town"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'koya-town' (gallery[0]) reuses image URL already used by 'koya-town'.",
-          "targetId": "koya-town"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'hiroshima-city' (gallery[0]) reuses image URL already used by 'hiroshima-city'.",
-          "targetId": "hiroshima-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'onomichi-city' (gallery[0]) reuses image URL already used by 'onomichi-city'.",
-          "targetId": "onomichi-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'hatsukaichi-city' (gallery[0]) reuses image URL already used by 'hatsukaichi-city'.",
-          "targetId": "hatsukaichi-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'okayama-city' (gallery[0]) reuses image URL already used by 'okayama-city'.",
-          "targetId": "okayama-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kurashiki-city' (gallery[0]) reuses image URL already used by 'kurashiki-city'.",
-          "targetId": "kurashiki-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'matsue-city' (gallery[0]) reuses image URL already used by 'matsue-city'.",
-          "targetId": "matsue-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'izumo-city' (gallery[0]) reuses image URL already used by 'izumo-city'.",
-          "targetId": "izumo-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'tottori-city' (gallery[0]) reuses image URL already used by 'tottori-city'.",
-          "targetId": "tottori-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'shimonoseki-city' (gallery[0]) reuses image URL already used by 'shimonoseki-city'.",
-          "targetId": "shimonoseki-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'takamatsu-city' (gallery[0]) reuses image URL already used by 'takamatsu-city'.",
-          "targetId": "takamatsu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'matsuyama-city' (gallery[0]) reuses image URL already used by 'matsuyama-city'.",
-          "targetId": "matsuyama-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kochi-city' (gallery[0]) reuses image URL already used by 'kochi-city'.",
-          "targetId": "kochi-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'tokushima-city' (gallery[0]) reuses image URL already used by 'tokushima-city'.",
-          "targetId": "tokushima-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'naruto-city' (gallery[0]) reuses image URL already used by 'naruto-city'.",
-          "targetId": "naruto-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'fukuoka-city' (gallery[0]) reuses image URL already used by 'fukuoka-city'.",
-          "targetId": "fukuoka-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kitakyushu-city' (gallery[0]) reuses image URL already used by 'kitakyushu-city'.",
-          "targetId": "kitakyushu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'dazaifu-city' (gallery[0]) reuses image URL already used by 'dazaifu-city'.",
-          "targetId": "dazaifu-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nagasaki-city' (gallery[0]) reuses image URL already used by 'nagasaki-city'.",
-          "targetId": "nagasaki-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kumamoto-city' (gallery[0]) reuses image URL already used by 'kumamoto-city'.",
-          "targetId": "kumamoto-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'aso-city' (gallery[0]) reuses image URL already used by 'aso-city'.",
-          "targetId": "aso-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'beppu-city' (gallery[0]) reuses image URL already used by 'beppu-city'.",
-          "targetId": "beppu-city"
+          "message": "Destination 'yomiuriland' (gallery[0]) reuses image URL already used by 'yomiuriland'.",
+          "targetId": "yomiuriland"
         },
         {
           "severity": "warning",
@@ -2568,152 +3432,290 @@
         {
           "severity": "warning",
           "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'miyazaki-city' (gallery[0]) reuses image URL already used by 'miyazaki-city'.",
-          "targetId": "miyazaki-city"
+          "message": "Destination 'zushi' (gallery[0]) reuses image URL already used by 'zushi'.",
+          "targetId": "zushi"
         },
         {
           "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'takachiho-town' (gallery[0]) reuses image URL already used by 'takachiho-town'.",
-          "targetId": "takachiho-town"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kagoshima-city' (gallery[0]) reuses image URL already used by 'kagoshima-city'.",
-          "targetId": "kagoshima-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'yakushima-town' (gallery[0]) reuses image URL already used by 'yakushima-town'.",
-          "targetId": "yakushima-town"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'sapporo-city' (gallery[0]) reuses image URL already used by 'sapporo-city'.",
-          "targetId": "sapporo-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'otaru-city' (gallery[0]) reuses image URL already used by 'otaru-city'.",
-          "targetId": "otaru-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'hakodate-city' (gallery[0]) reuses image URL already used by 'hakodate-city'.",
-          "targetId": "hakodate-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'asahikawa-city' (gallery[0]) reuses image URL already used by 'asahikawa-city'.",
-          "targetId": "asahikawa-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'furano-city' (heroImage) reuses image URL already used by 'meguro-city'.",
-          "targetId": "furano-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'furano-city' (gallery[0]) reuses image URL already used by 'meguro-city'.",
-          "targetId": "furano-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'biei-town' (gallery[0]) reuses image URL already used by 'biei-town'.",
-          "targetId": "biei-town"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'niseko-town' (gallery[0]) reuses image URL already used by 'niseko-town'.",
-          "targetId": "niseko-town"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'kushiro-city' (gallery[0]) reuses image URL already used by 'kushiro-city'.",
-          "targetId": "kushiro-city"
-        },
-        {
-          "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'abashiri-city' (gallery[0]) reuses image URL already used by 'abashiri-city'.",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'abashiri-city' (heroImage) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&q=80&w=1200",
           "targetId": "abashiri-city"
         },
         {
           "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'naha-city' (gallery[0]) reuses image URL already used by 'naha-city'.",
-          "targetId": "naha-city"
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'abashiri-city' (gallery[0]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&q=80&w=1200",
+          "targetId": "abashiri-city"
         },
         {
           "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nago-city' (gallery[0]) reuses image URL already used by 'nago-city'.",
-          "targetId": "nago-city"
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'abeno-harukas-300-osaka' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
+          "targetId": "abeno-harukas-300-osaka"
         },
         {
           "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'motobu-town' (gallery[0]) reuses image URL already used by 'motobu-town'.",
-          "targetId": "motobu-town"
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'akasaka-minato' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
+          "targetId": "akasaka-minato"
         },
         {
           "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'ishigaki-city' (gallery[0]) reuses image URL already used by 'ishigaki-city'.",
-          "targetId": "ishigaki-city"
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'akihabara-chiyoda' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
+          "targetId": "akihabara-chiyoda"
         },
         {
           "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'miyakojima-city' (gallery[0]) reuses image URL already used by 'miyakojima-city'.",
-          "targetId": "miyakojima-city"
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'chiba-port-tower' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
+          "targetId": "chiba-port-tower"
         },
         {
           "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nagoya-castle-aichi' (gallery[0]) reuses image URL already used by 'nagoya-castle-aichi'.",
-          "targetId": "nagoya-castle-aichi"
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'gifu-castle-gifu' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
+          "targetId": "gifu-castle-gifu"
         },
         {
           "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'hachioji-castle-tokyo' (gallery[0]) reuses image URL already used by 'hachioji-castle-tokyo'.",
-          "targetId": "hachioji-castle-tokyo"
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'gunma-ikaho-onsen' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
+          "targetId": "gunma-ikaho-onsen"
         },
         {
           "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'nikko-toshogu-shrine-tochigi' (gallery[0]) reuses image URL already used by 'nikko-toshogu-shrine-tochigi'.",
-          "targetId": "nikko-toshogu-shrine-tochigi"
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'mito-castle-ibaraki' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
+          "targetId": "mito-castle-ibaraki"
         },
         {
           "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'matsumoto-castle-nagano' (gallery[0]) reuses image URL already used by 'matsumoto-castle-nagano'.",
-          "targetId": "matsumoto-castle-nagano"
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagano-suwa' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
+          "targetId": "nagano-suwa"
         },
         {
           "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'inuyama-castle-aichi' (heroImage) reuses image URL already used by 'inuyama-city'.",
-          "targetId": "inuyama-castle-aichi"
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'sakura-castle-chiba' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
+          "targetId": "sakura-castle-chiba"
         },
         {
           "severity": "warning",
-          "code": "DUPLICATE_IMAGE_URL",
-          "message": "Destination 'inuyama-castle-aichi' (gallery[0]) reuses image URL already used by 'inuyama-city'.",
-          "targetId": "inuyama-castle-aichi"
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'takanawa-gateway-minato' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
+          "targetId": "takanawa-gateway-minato"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'ueda-castle-nagano' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
+          "targetId": "ueda-castle-nagano"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'yokohama-city' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
+          "targetId": "yokohama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'yokohama-marine-tower' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
+          "targetId": "yokohama-marine-tower"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'abeno-harukas-300-osaka' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600",
+          "targetId": "abeno-harukas-300-osaka"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'edo-castle-tokyo' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600",
+          "targetId": "edo-castle-tokyo"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'gifu-castle-gifu' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600",
+          "targetId": "gifu-castle-gifu"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'mirai-tower-nagoya' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600",
+          "targetId": "mirai-tower-nagoya"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'mito-castle-ibaraki' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600",
+          "targetId": "mito-castle-ibaraki"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagoya-port-tower' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600",
+          "targetId": "nagoya-port-tower"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'shibuya-sky-shibuya' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600",
+          "targetId": "shibuya-sky-shibuya"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tokyo-skytree-sumida' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600",
+          "targetId": "tokyo-skytree-sumida"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'yokohama-marine-tower' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600",
+          "targetId": "yokohama-marine-tower"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'akihabara-chiyoda' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=600",
+          "targetId": "akihabara-chiyoda"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'asakusa-taito' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=600",
+          "targetId": "asakusa-taito"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'ashigara' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=600",
+          "targetId": "ashigara"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'yokohama-city' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=600",
+          "targetId": "yokohama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'art-tower-mito' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/c/c2/Mito_Art_Tower.JPG",
+          "targetId": "art-tower-mito"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'art-tower-mito' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/c/c2/Mito_Art_Tower.JPG",
+          "targetId": "art-tower-mito"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'asakusa-taito' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600",
+          "targetId": "asakusa-taito"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'ashigara' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600",
+          "targetId": "ashigara"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'chiba-sawara' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600",
+          "targetId": "chiba-sawara"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'fukui' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600",
+          "targetId": "fukui"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'gifu-gujo-hachiman' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600",
+          "targetId": "gifu-gujo-hachiman"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'gifu-magome-juku' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600",
+          "targetId": "gifu-magome-juku"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kanazawa' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600",
+          "targetId": "kanazawa"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'ome-tokyo' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600",
+          "targetId": "ome-tokyo"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'teamlab-planets' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600",
+          "targetId": "teamlab-planets"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'ashigara' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/0/0c/Wizyta_japo%C5%84skiego_kr%C4%85%C5%BCownika_Ashigara_w_Niemczech_%281-E-8502%29.jpg",
+          "targetId": "ashigara"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'ashigara' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/0/0c/Wizyta_japo%C5%84skiego_kr%C4%85%C5%BCownika_Ashigara_w_Niemczech_%281-E-8502%29.jpg",
+          "targetId": "ashigara"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'beppu-city' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/c/cd/Beppu_Montage_2.jpg",
+          "targetId": "beppu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'beppu-city' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/c/cd/Beppu_Montage_2.jpg",
+          "targetId": "beppu-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'boso-peninsula' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600",
+          "targetId": "boso-peninsula"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'lake-sagami' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600",
+          "targetId": "lake-sagami"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'bitchu-matsuyama-castle' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Bitchu_Matsuyama_Castle_1.JPG/1280px-Bitchu_Matsuyama_Castle_1.JPG",
+          "targetId": "bitchu-matsuyama-castle"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'bitchu-matsuyama-castle' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Bitchu_Matsuyama_Castle_1.JPG/1280px-Bitchu_Matsuyama_Castle_1.JPG",
+          "targetId": "bitchu-matsuyama-castle"
         },
         {
           "severity": "warning",
@@ -2754,74 +3756,296 @@
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'chiba-city' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/d/d9/Chiba_montage.jpg",
-          "targetId": "chiba-city"
+          "message": "Destination 'chiba-sawara' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600",
+          "targetId": "chiba-sawara"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'chiba-city' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/d/d9/Chiba_montage.jpg",
-          "targetId": "chiba-city"
+          "message": "Destination 'gifu-gujo-hachiman' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600",
+          "targetId": "gifu-gujo-hachiman"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'boso-peninsula' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600",
-          "targetId": "boso-peninsula"
+          "message": "Destination 'gifu-magome-juku' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600",
+          "targetId": "gifu-magome-juku"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'lake-sagami' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600",
-          "targetId": "lake-sagami"
+          "message": "Destination 'ome-tokyo' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600",
+          "targetId": "ome-tokyo"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'chiba-nokogiriyama' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600",
-          "targetId": "chiba-nokogiriyama"
+          "message": "Destination 'chiba-yoro-valley' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600",
+          "targetId": "chiba-yoro-valley"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'chofu-tokyo' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600",
-          "targetId": "chofu-tokyo"
+          "message": "Destination 'disneysea' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600",
+          "targetId": "disneysea"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'choshi-chiba' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600",
-          "targetId": "choshi-chiba"
+          "message": "Destination 'gunma-shima-onsen' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600",
+          "targetId": "gunma-shima-onsen"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'ibaraki-fukuroda-falls' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600",
-          "targetId": "ibaraki-fukuroda-falls"
+          "message": "Destination 'jogashima' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600",
+          "targetId": "jogashima"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'imperial-palace-chiyoda' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600",
-          "targetId": "imperial-palace-chiyoda"
+          "message": "Destination 'mother-farm-chiba' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600",
+          "targetId": "mother-farm-chiba"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'nagano-kamikochi' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600",
-          "targetId": "nagano-kamikochi"
+          "message": "Destination 'mount-fuji' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600",
+          "targetId": "mount-fuji"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'nagano-narai-juku' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600",
-          "targetId": "nagano-narai-juku"
+          "message": "Destination 'nagano-bessho-onsen' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600",
+          "targetId": "nagano-bessho-onsen"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'yamanashi-shosenkyo-gorge' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600",
-          "targetId": "yamanashi-shosenkyo-gorge"
+          "message": "Destination 'nagano-city' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600",
+          "targetId": "nagano-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagano-tsumago-juku' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600",
+          "targetId": "nagano-tsumago-juku"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tachikawa-tokyo' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600",
+          "targetId": "tachikawa-tokyo"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'yamanashi-nishizawa-valley' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600",
+          "targetId": "yamanashi-nishizawa-valley"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'chiba-yoro-valley' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1463438690606-f6778b8c1d10?q=80&w=600",
+          "targetId": "chiba-yoro-valley"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'enoshima-island' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1463438690606-f6778b8c1d10?q=80&w=600",
+          "targetId": "enoshima-island"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'fuji-5-lake' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1463438690606-f6778b8c1d10?q=80&w=600",
+          "targetId": "fuji-5-lake"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'gunma-shima-onsen' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1463438690606-f6778b8c1d10?q=80&w=600",
+          "targetId": "gunma-shima-onsen"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagano-bessho-onsen' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1463438690606-f6778b8c1d10?q=80&w=600",
+          "targetId": "nagano-bessho-onsen"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagano-city' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1463438690606-f6778b8c1d10?q=80&w=600",
+          "targetId": "nagano-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagano-tsumago-juku' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1463438690606-f6778b8c1d10?q=80&w=600",
+          "targetId": "nagano-tsumago-juku"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tachikawa-tokyo' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1463438690606-f6778b8c1d10?q=80&w=600",
+          "targetId": "tachikawa-tokyo"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'yamanashi-nishizawa-valley' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1463438690606-f6778b8c1d10?q=80&w=600",
+          "targetId": "yamanashi-nishizawa-valley"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'chiba-yoro-valley' (gallery[0]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600",
+          "targetId": "chiba-yoro-valley"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'disneyland' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600",
+          "targetId": "disneyland"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'disneysea' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600",
+          "targetId": "disneysea"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'izu' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600",
+          "targetId": "izu"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'jogashima' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600",
+          "targetId": "jogashima"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'mother-farm-chiba' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600",
+          "targetId": "mother-farm-chiba"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'mount-fuji' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600",
+          "targetId": "mount-fuji"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagano-bessho-onsen' (gallery[0]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600",
+          "targetId": "nagano-bessho-onsen"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'yamanashi-nishizawa-valley' (gallery[0]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600",
+          "targetId": "yamanashi-nishizawa-valley"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'chiba-yoro-valley' (heroImage) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000",
+          "targetId": "chiba-yoro-valley"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'yamanashi-nishizawa-valley' (heroImage) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000",
+          "targetId": "yamanashi-nishizawa-valley"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'edo-castle-tokyo' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/5/5f/Edo_P_detail.jpg",
+          "targetId": "edo-castle-tokyo"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'edo-castle-tokyo' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/5/5f/Edo_P_detail.jpg",
+          "targetId": "edo-castle-tokyo"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'enoshima-island' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=600",
+          "targetId": "enoshima-island"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'fuji-5-lake' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=600",
+          "targetId": "fuji-5-lake"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'fujikawaguchiko-town' (heroImage) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1749498682646-45e7c11506ec?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "targetId": "fujikawaguchiko-town"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'fujikawaguchiko-town' (gallery[0]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1749498682646-45e7c11506ec?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "targetId": "fujikawaguchiko-town"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'fukui' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600",
+          "targetId": "fukui"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'gala-yuzawa' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600",
+          "targetId": "gala-yuzawa"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'kanazawa' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600",
+          "targetId": "kanazawa"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'teamlab-planets' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600",
+          "targetId": "teamlab-planets"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'furano-city' (heroImage) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&q=80&w=1200",
+          "targetId": "furano-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'furano-city' (gallery[0]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&q=80&w=1200",
+          "targetId": "furano-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'meguro-city' (gallery[0]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&q=80&w=1200",
+          "targetId": "meguro-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'gero-onsen' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg/3840px-260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg",
+          "targetId": "gero-onsen"
         },
         {
           "severity": "warning",
@@ -2838,26 +4062,32 @@
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'gifu-gujo-hachiman' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/1/12/Gujo_hachiman_castle_P8117454.jpg",
-          "targetId": "gifu-gujo-hachiman"
+          "message": "Destination 'ghibli-museum' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=600",
+          "targetId": "ghibli-museum"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'gifu-gujo-hachiman' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/1/12/Gujo_hachiman_castle_P8117454.jpg",
-          "targetId": "gifu-gujo-hachiman"
+          "message": "Destination 'noto' (gallery[2]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=600",
+          "targetId": "noto"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'gunma-kusatsu-onsen' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/7/7a/Bath_in_kusatsu.jpg",
-          "targetId": "gunma-kusatsu-onsen"
+          "message": "Destination 'ushiku-daibutsu' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=600",
+          "targetId": "ushiku-daibutsu"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'gunma-kusatsu-onsen' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/7/7a/Bath_in_kusatsu.jpg",
-          "targetId": "gunma-kusatsu-onsen"
+          "message": "Destination 'gotemba-city' (heroImage) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&q=80&w=1200",
+          "targetId": "gotemba-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'gotemba-city' (gallery[0]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&q=80&w=1200",
+          "targetId": "gotemba-city"
         },
         {
           "severity": "warning",
@@ -2886,18 +4116,6 @@
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'ibaraki-mount-tsukuba' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/2/2a/Mount_Tsukuba_seen_from_the_WSW_%282006%29.jpg",
-          "targetId": "ibaraki-mount-tsukuba"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'ibaraki-mount-tsukuba' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/2/2a/Mount_Tsukuba_seen_from_the_WSW_%282006%29.jpg",
-          "targetId": "ibaraki-mount-tsukuba"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
           "message": "Destination 'ikebukuro-toshima' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600",
           "targetId": "ikebukuro-toshima"
         },
@@ -2916,140 +4134,26 @@
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'kyoto-historic' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/3/3c/Kiyomizu.jpg",
-          "targetId": "kyoto-historic"
+          "message": "Destination 'joypolis' (heroImage) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+          "targetId": "joypolis"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'lake-hamanako' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lake_Hamana_Aerial_photograph.2006.jpg/1280px-Lake_Hamana_Aerial_photograph.2006.jpg",
-          "targetId": "lake-hamanako"
+          "message": "Destination 'joypolis' (gallery[0]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+          "targetId": "joypolis"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'lake-hamanako' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lake_Hamana_Aerial_photograph.2006.jpg/1280px-Lake_Hamana_Aerial_photograph.2006.jpg",
-          "targetId": "lake-hamanako"
+          "message": "Destination 'kamakura-city' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/5/5e/TsurugaokaHachiman-M8867.jpg",
+          "targetId": "kamakura-city"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'mother-farm-chiba' (heroImage) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1000",
-          "targetId": "mother-farm-chiba"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'nagano-bessho-onsen' (heroImage) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1000",
-          "targetId": "nagano-bessho-onsen"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'odaiba-minato' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg/3840px-Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg",
-          "targetId": "odaiba-minato"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'odaiba-minato' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg/3840px-Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg",
-          "targetId": "odaiba-minato"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'okuhida' (heroImage) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200",
-          "targetId": "okuhida"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'okuhida' (gallery[0]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200",
-          "targetId": "okuhida"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'noto' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/3/3b/Noto_Peninsula_Ishikawa_Japan_SRTM.jpg",
-          "targetId": "noto"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'noto' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/3/3b/Noto_Peninsula_Ishikawa_Japan_SRTM.jpg",
-          "targetId": "noto"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'oarai-marine-tower' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Oarai_Marine_Tower.jpg/1280px-Oarai_Marine_Tower.jpg",
-          "targetId": "oarai-marine-tower"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'oarai-marine-tower' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Oarai_Marine_Tower.jpg/1280px-Oarai_Marine_Tower.jpg",
-          "targetId": "oarai-marine-tower"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'oze-national-park' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Mt.Shibutsu_16.jpg/1280px-Mt.Shibutsu_16.jpg",
-          "targetId": "oze-national-park"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'oze-national-park' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Mt.Shibutsu_16.jpg/1280px-Mt.Shibutsu_16.jpg",
-          "targetId": "oze-national-park"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'takeda-castle-yamanashi' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Takedasi-Yakata20251017.jpg/1280px-Takedasi-Yakata20251017.jpg",
-          "targetId": "takeda-castle-yamanashi"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'takeda-castle-yamanashi' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Takedasi-Yakata20251017.jpg/1280px-Takedasi-Yakata20251017.jpg",
-          "targetId": "takeda-castle-yamanashi"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'yamanashi-shosenkyo-gorge' (heroImage) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000",
-          "targetId": "yamanashi-shosenkyo-gorge"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'yokohama-landmark-tower-sky-garden' (heroImage) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1609375855883-411e45d77365?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          "targetId": "yokohama-landmark-tower-sky-garden"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'yokohama-landmark-tower-sky-garden' (gallery[0]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1609375855883-411e45d77365?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          "targetId": "yokohama-landmark-tower-sky-garden"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'meguro-city' (gallery[0]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&q=80&w=1200",
-          "targetId": "meguro-city"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'furano-city' (heroImage) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&q=80&w=1200",
-          "targetId": "furano-city"
-        },
-        {
-          "severity": "warning",
-          "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'furano-city' (gallery[0]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&q=80&w=1200",
-          "targetId": "furano-city"
+          "message": "Destination 'kamakura-city' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/5/5e/TsurugaokaHachiman-M8867.jpg",
+          "targetId": "kamakura-city"
         },
         {
           "severity": "warning",
@@ -3066,58 +4170,274 @@
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'kisarazu-city' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Kisarazu_montage.jpg/1280px-Kisarazu_montage.jpg",
-          "targetId": "kisarazu-city"
+          "message": "Destination 'kawaguchi-city' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Kawaguchi_Jinja_%28Kawaguchi%29.JPG/1280px-Kawaguchi_Jinja_%28Kawaguchi%29.JPG",
+          "targetId": "kawaguchi-city"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'kisarazu-city' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Kisarazu_montage.jpg/1280px-Kisarazu_montage.jpg",
-          "targetId": "kisarazu-city"
+          "message": "Destination 'kawaguchi-city' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Kawaguchi_Jinja_%28Kawaguchi%29.JPG/1280px-Kawaguchi_Jinja_%28Kawaguchi%29.JPG",
+          "targetId": "kawaguchi-city"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'fujikawaguchiko-town' (heroImage) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1749498682646-45e7c11506ec?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          "targetId": "fujikawaguchiko-town"
+          "message": "Destination 'kofu-city' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/1/17/Kofu_montage.jpg",
+          "targetId": "kofu-city"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'fujikawaguchiko-town' (gallery[0]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1749498682646-45e7c11506ec?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          "targetId": "fujikawaguchiko-town"
+          "message": "Destination 'kofu-city' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/1/17/Kofu_montage.jpg",
+          "targetId": "kofu-city"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'kitakyushu-city' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/3/34/Kitakyushu_Montage.jpg",
-          "targetId": "kitakyushu-city"
+          "message": "Destination 'kusatsu-town' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E6%B9%AF%E7%95%912.jpg/1280px-%E6%B9%AF%E7%95%912.jpg",
+          "targetId": "kusatsu-town"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'kitakyushu-city' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/3/34/Kitakyushu_Montage.jpg",
-          "targetId": "kitakyushu-city"
+          "message": "Destination 'kusatsu-town' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E6%B9%AF%E7%95%912.jpg/1280px-%E6%B9%AF%E7%95%912.jpg",
+          "targetId": "kusatsu-town"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'abashiri-city' (heroImage) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&q=80&w=1200",
-          "targetId": "abashiri-city"
+          "message": "Destination 'kushiro-city' (heroImage) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
+          "targetId": "kushiro-city"
         },
         {
           "severity": "warning",
           "code": "IMAGE_FETCH_WARNING",
-          "message": "Destination 'abashiri-city' (gallery[0]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&q=80&w=1200",
-          "targetId": "abashiri-city"
+          "message": "Destination 'kushiro-city' (gallery[0]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
+          "targetId": "kushiro-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'miyajima-itsukushima' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/3840px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg",
+          "targetId": "miyajima-itsukushima"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagasaki-city' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/a/a1/Nagasaki_City_View_from_Glover_Garden%2C_Nagasaki_2014.jpg",
+          "targetId": "nagasaki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagasaki-city' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/a/a1/Nagasaki_City_View_from_Glover_Garden%2C_Nagasaki_2014.jpg",
+          "targetId": "nagasaki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagano-tsumago-juku' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/1_tsumago_juku_2024.jpg/3840px-1_tsumago_juku_2024.jpg",
+          "targetId": "nagano-tsumago-juku"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagano-tsumago-juku' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/1_tsumago_juku_2024.jpg/3840px-1_tsumago_juku_2024.jpg",
+          "targetId": "nagano-tsumago-juku"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagano-suwa' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Lake_Suwa_as_seen_from_Tateishi_Park_%28east%29.jpg/3840px-Lake_Suwa_as_seen_from_Tateishi_Park_%28east%29.jpg",
+          "targetId": "nagano-suwa"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagano-suwa' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Lake_Suwa_as_seen_from_Tateishi_Park_%28east%29.jpg/3840px-Lake_Suwa_as_seen_from_Tateishi_Park_%28east%29.jpg",
+          "targetId": "nagano-suwa"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagoya-castle-aichi' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Nagoya_Castle_7.jpg/1280px-Nagoya_Castle_7.jpg",
+          "targetId": "nagoya-castle-aichi"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagoya-castle-aichi' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Nagoya_Castle_7.jpg/1280px-Nagoya_Castle_7.jpg",
+          "targetId": "nagoya-castle-aichi"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagoya-city' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Nagoya_Station_-_View_from_the_Main_Building_in_Nagoya_Campus_of_Aichi_University_2022-6-29.jpg/330px-Nagoya_Station_-_View_from_the_Main_Building_in_Nagoya_Campus_of_Aichi_University_2022-6-29.jpg",
+          "targetId": "nagoya-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagoya-city' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Nagoya_Station_-_View_from_the_Main_Building_in_Nagoya_Campus_of_Aichi_University_2022-6-29.jpg/330px-Nagoya_Station_-_View_from_the_Main_Building_in_Nagoya_Campus_of_Aichi_University_2022-6-29.jpg",
+          "targetId": "nagoya-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagoya-port-tower' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Nagoya_port_Sea-Train_Land_01.JPG/1280px-Nagoya_port_Sea-Train_Land_01.JPG",
+          "targetId": "nagoya-port-tower"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nagoya-port-tower' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Nagoya_port_Sea-Train_Land_01.JPG/1280px-Nagoya_port_Sea-Train_Land_01.JPG",
+          "targetId": "nagoya-port-tower"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nago-city' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg/1280px-Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg",
+          "targetId": "nago-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'nago-city' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg/1280px-Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg",
+          "targetId": "nago-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'okuhida' (heroImage) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200",
+          "targetId": "okuhida"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'okuhida' (gallery[0]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1200",
+          "targetId": "okuhida"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'ome-tokyo' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Mitake_Shrine.jpg/1280px-Mitake_Shrine.jpg",
+          "targetId": "ome-tokyo"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'ome-tokyo' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Mitake_Shrine.jpg/1280px-Mitake_Shrine.jpg",
+          "targetId": "ome-tokyo"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'okayama-city' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/2/20/Okayama_Montage2.jpg",
+          "targetId": "okayama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'okayama-city' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/2/20/Okayama_Montage2.jpg",
+          "targetId": "okayama-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'okazaki-city' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Okazakijo-3-cropped.jpg/1280px-Okazakijo-3-cropped.jpg",
+          "targetId": "okazaki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'okazaki-city' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Okazakijo-3-cropped.jpg/1280px-Okazakijo-3-cropped.jpg",
+          "targetId": "okazaki-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'saitama-nagatoro' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Nagatoro1.jpg/1280px-Nagatoro1.jpg",
+          "targetId": "saitama-nagatoro"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'saitama-nagatoro' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Nagatoro1.jpg/1280px-Nagatoro1.jpg",
+          "targetId": "saitama-nagatoro"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'setagaya-city' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/7/75/Seijo_namikimichi_231011.jpg",
+          "targetId": "setagaya-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'setagaya-city' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/7/75/Seijo_namikimichi_231011.jpg",
+          "targetId": "setagaya-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'teamlab-planets' (heroImage) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1593073862407-a3ce22748763?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVhbWxhYiUyMHBsYW5ldHMlMjB0b2t5b3xlbnwwfHwwfHx8MA%3D%3D",
+          "targetId": "teamlab-planets"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'teamlab-planets' (gallery[0]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1593073862407-a3ce22748763?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVhbWxhYiUyMHBsYW5ldHMlMjB0b2t5b3xlbnwwfHwwfHx8MA%3D%3D",
+          "targetId": "teamlab-planets"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tokyo-station-chiyoda' (gallery[1]) image check result: Timeout after 4000ms -> https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=600",
+          "targetId": "tokyo-station-chiyoda"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tokyo-tower-minato' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/5/58/Tokyo_Tower_2023.jpg",
+          "targetId": "tokyo-tower-minato"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tokyo-tower-minato' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/5/58/Tokyo_Tower_2023.jpg",
+          "targetId": "tokyo-tower-minato"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'toshima-city' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg/1280px-Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg",
+          "targetId": "toshima-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'toshima-city' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg/1280px-Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg",
+          "targetId": "toshima-city"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tokyo-station-chiyoda' (heroImage) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Tokyo-STA_Marunouchi-Entrance_2023.jpg/3840px-Tokyo-STA_Marunouchi-Entrance_2023.jpg",
+          "targetId": "tokyo-station-chiyoda"
+        },
+        {
+          "severity": "warning",
+          "code": "IMAGE_FETCH_WARNING",
+          "message": "Destination 'tokyo-station-chiyoda' (gallery[0]) image check result: Timeout after 4000ms -> https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Tokyo-STA_Marunouchi-Entrance_2023.jpg/3840px-Tokyo-STA_Marunouchi-Entrance_2023.jpg",
+          "targetId": "tokyo-station-chiyoda"
         }
       ],
       "metrics": {
         "totalChecked": 278,
         "errorsCount": 0,
-        "warningsCount": 421,
+        "warningsCount": 521,
         "infoCount": 0,
-        "durationMs": 390454
+        "durationMs": 414234
       }
     },
     {
@@ -3129,7 +4449,7 @@
         "errorsCount": 0,
         "warningsCount": 0,
         "infoCount": 0,
-        "durationMs": 3
+        "durationMs": 10
       }
     },
     {

@@ -6432,12 +6432,7 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [
-      {
-        "collectionId": "japan-top-castles",
-        "confirmed": true
-      }
-    ],
+    "collections": [],
     "relationships": {},
     "budgetBreakdown": {
       "transport": 3000,
