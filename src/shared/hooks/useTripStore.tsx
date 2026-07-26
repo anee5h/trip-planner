@@ -8,6 +8,16 @@ import type { Trip, TripStop } from "@/shared/types/trip";
 import * as TripService from "@/shared/services/trips/TripService";
 import { generateUUID } from "@/shared/utils/uuid";
 
+/**
+ * Formats a prefecture name into the exact SVG key required by @react-map/japan@1.0.10.
+ * Note: @react-map/japan v1.0.10 has an upstream encoding artifact ("Hokkaido\x8D") in its map key data.
+ * This helper ensures application prefecture state aligns 100% with SVG map rendering.
+ */
+export function formatPrefectureId(prefectureName: string): string {
+  if (prefectureName === "Hokkaido") return "Hokkaido\x8D";
+  return prefectureName;
+}
+
 interface TripStoreContextType {
   favorites: string[];
   toggleFavorite: (id: string) => void;
@@ -117,15 +127,26 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     setTrips,
   });
 
-  // Retrospective self-healing migration: Ensure existing visited child records cascade to parent hubs
+  // Retrospective self-healing migration: Ensure existing visited child records cascade to parent hubs & visitedPrefectures
   useEffect(() => {
     if (!visited || visited.length === 0) return;
 
     let updatedVisited = [...visited];
     let updatedDates = { ...visitedDates };
+    let updatedPrefectures = [...visitedPrefectures];
     let hasChanges = false;
 
     for (const id of visited) {
+      // Ensure target destination's prefecture is in visitedPrefectures
+      const targetDest = destinationsIndex.find((d) => d.id === id);
+      if (targetDest) {
+        const prefId = formatPrefectureId(targetDest.prefecture);
+        if (!updatedPrefectures.includes(prefId)) {
+          updatedPrefectures.push(prefId);
+          hasChanges = true;
+        }
+      }
+
       let currentId: string | undefined = id;
       while (currentId) {
         const dest = destinationsIndex.find((d) => d.id === currentId);
@@ -135,6 +156,15 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
         if (!updatedVisited.includes(parentHubId)) {
           updatedVisited.push(parentHubId);
           hasChanges = true;
+        }
+
+        const parentDest = destinationsIndex.find((d) => d.id === parentHubId);
+        if (parentDest) {
+          const prefId = formatPrefectureId(parentDest.prefecture);
+          if (!updatedPrefectures.includes(prefId)) {
+            updatedPrefectures.push(prefId);
+            hasChanges = true;
+          }
         }
 
         const childDates = normalizeVisitDates(visitedDates[id]);
@@ -167,6 +197,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     if (hasChanges) {
       setVisited(updatedVisited);
       setVisitedDates(updatedDates);
+      setVisitedPrefectures(updatedPrefectures);
     }
   }, []);
 
@@ -190,13 +221,11 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
 
     const destination = destinationsIndex.find((d) => d.id === id);
     if (destination) {
-      let prefId = destination.prefecture;
-      if (prefId === "Hokkaido") prefId = "Hokkaido\x8D";
+      const prefId = formatPrefectureId(destination.prefecture);
       const hasOtherVisitedInPref = remainingVisitedIds.some((vId) => {
         const otherDest = destinationsIndex.find((d) => d.id === vId);
         if (!otherDest) return false;
-        let otherPref = otherDest.prefecture;
-        if (otherPref === "Hokkaido") otherPref = "Hokkaido\x8D";
+        const otherPref = formatPrefectureId(otherDest.prefecture);
         return otherPref === prefId;
       });
       if (!hasOtherVisitedInPref) {
@@ -248,8 +277,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
 
       const destination = destinationsIndex.find((d) => d.id === id);
       if (destination) {
-        let prefId = destination.prefecture;
-        if (prefId === "Hokkaido") prefId = "Hokkaido\x8D";
+        const prefId = formatPrefectureId(destination.prefecture);
         setVisitedPrefectures((prevPrefs) =>
           prevPrefs.includes(prefId) ? prevPrefs : [...prevPrefs, prefId],
         );
@@ -279,8 +307,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
 
         const parentDest = destinationsIndex.find((d) => d.id === parentHubId);
         if (parentDest) {
-          let prefId = parentDest.prefecture;
-          if (prefId === "Hokkaido") prefId = "Hokkaido\x8D";
+          const prefId = formatPrefectureId(parentDest.prefecture);
           setVisitedPrefectures((prevPrefs) =>
             prevPrefs.includes(prefId) ? prevPrefs : [...prevPrefs, prefId],
           );
