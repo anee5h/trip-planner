@@ -18,6 +18,7 @@ import { ItineraryPickerModal } from "@/features/trips/components/ItineraryPicke
 import { MarkVisitedModal } from "./components/MarkVisitedModal";
 import { VisitedDateModal } from "./components/VisitedDateModal";
 import { DestinationDetailsSkeleton } from "@/shared/components/ui/Skeleton";
+import { BucketListButton } from "@/shared/components/ui/BucketListButton";
 import { useDelayedSkeleton } from "@/shared/hooks/useDelayedSkeleton";
 import {
   ArrowLeft,
@@ -101,14 +102,8 @@ export default function DestinationDetails() {
         ? "Couple Budget"
         : `Group Budget (${partySize} people)`;
 
-  const {
-    isFavorite,
-    toggleFavorite,
-    isVisited,
-    getVisitCount,
-    homeStation,
-    homeStationCoords,
-  } = useTripStore();
+  const { isVisited, getVisitCount, homeStation, homeStationCoords } =
+    useTripStore();
   const [destination, setDestination] = useState<Destination | null>(null);
   const [destLoading, setDestLoading] = useState(true);
 
@@ -477,28 +472,11 @@ export default function DestinationDetails() {
             {/* Compact Circular Icon Buttons Row (40x40px) */}
             <div className="flex items-center gap-2">
               {/* Want to Visit / Bucket List Toggle */}
-              <button
-                onClick={() => toggleFavorite(destination.id)}
-                aria-label={
-                  isFavorite(destination.id)
-                    ? "Remove from bucket list"
-                    : "Add to bucket list"
-                }
-                title={
-                  isFavorite(destination.id)
-                    ? "On Bucket List"
-                    : "Want to Visit"
-                }
-                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 backdrop-blur-md border ${
-                  isFavorite(destination.id)
-                    ? "bg-rose-500 text-white border-rose-400 shadow-md"
-                    : "bg-white/15 hover:bg-white/25 text-slate-100 border-white/20"
-                }`}
-              >
-                <Heart
-                  className={`w-4 h-4 ${isFavorite(destination.id) ? "fill-current" : ""}`}
-                />
-              </button>
+              <BucketListButton
+                destinationId={destination.id}
+                destinationName={destination.name}
+                variant="hero"
+              />
 
               {/* Visited Toggle */}
               <button

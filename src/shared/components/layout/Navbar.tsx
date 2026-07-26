@@ -24,6 +24,7 @@ import { useAuth } from "@/shared/hooks/useAuth";
 import { AuthModal } from "@/shared/components/auth/AuthModal";
 import { GlobalSearch } from "@/features/search/GlobalSearch";
 import { FeedbackModal } from "@/shared/components/feedback/FeedbackModal";
+import { ReleaseNotesModal } from "@/shared/components/ui/ReleaseNotesModal";
 
 export default function Navbar() {
   const location = useLocation();
@@ -31,6 +32,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
   const [feedbackOpen, setFeedbackOpen] = useState(false);
+  const [releaseNotesOpen, setReleaseNotesOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   // Desktop dropdown state
@@ -625,7 +627,19 @@ export default function Navbar() {
 
             {/* Mobile Drawer Secondary Links & Footer */}
             <div className="mt-3 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 px-2 pb-1">
-              <span>TabiMap Japan v1.7.20</span>
+              <button
+                onClick={() => {
+                  setMenuOpen(false);
+                  setReleaseNotesOpen(true);
+                }}
+                className="hover:text-emerald-500 font-bold transition-colors cursor-pointer flex items-center gap-1"
+                title="View Release Notes"
+              >
+                <span>TabiMap Japan v1.7.21</span>
+                <span className="text-[10px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-1.5 py-0.5 rounded font-extrabold border border-emerald-500/20">
+                  Notes
+                </span>
+              </button>
               <a
                 href="https://github.com/aneesh-patil/trip-planner"
                 target="_blank"
@@ -639,6 +653,13 @@ export default function Navbar() {
           </nav>
         </div>
       )}
+
+      {/* Release Notes Modal */}
+      <ReleaseNotesModal
+        isOpen={releaseNotesOpen}
+        onClose={() => setReleaseNotesOpen(false)}
+        version="v1.7.21"
+      />
     </header>
   );
 }

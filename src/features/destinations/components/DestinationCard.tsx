@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { LazyImage } from "@/shared/components/ui/LazyImage";
+import { BucketListButton } from "@/shared/components/ui/BucketListButton";
 import { ItineraryPickerModal } from "@/features/trips/components/ItineraryPickerModal";
 import { MarkVisitedModal } from "./MarkVisitedModal";
 import { VisitedDateModal } from "./VisitedDateModal";
@@ -51,15 +52,7 @@ export default function DestinationCard({
   carMode,
   publicModes,
 }: DestinationCardProps) {
-  const {
-    isFavorite,
-    toggleFavorite,
-    isVisited,
-    isComparing,
-    toggleCompare,
-    compareList,
-  } = useTripStore();
-  const favorite = isFavorite(destination.id);
+  const { isVisited, isComparing, toggleCompare, compareList } = useTripStore();
   const visited = isVisited(destination.id);
   const comparing = isComparing(destination.id);
 
@@ -157,18 +150,10 @@ export default function DestinationCard({
           >
             <Plus className="w-5 h-5" />
           </button>
-          <button
-            onClick={() => toggleFavorite(destination.id)}
-            aria-label={
-              favorite ? "Remove from bucket list" : "Add to bucket list"
-            }
-            className="p-2 bg-white/70 hover:bg-white backdrop-blur-sm rounded-full transition-all active:scale-95 duration-150 shadow-sm text-slate-700"
-            title="Want to Visit"
-          >
-            <Bookmark
-              className={`w-5 h-5 ${favorite ? "fill-rose-500 text-rose-500" : ""}`}
-            />
-          </button>
+          <BucketListButton
+            destinationId={destination.id}
+            destinationName={destination.name}
+          />
           <button
             onClick={handleVisitedClick}
             aria-label={

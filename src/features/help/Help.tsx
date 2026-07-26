@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Search } from "lucide-react";
 import { Icons } from "@/shared/icons";
 import {
   SectionTitle,
@@ -52,6 +53,7 @@ export default function Help() {
     useState<HelpSection>("getting-started");
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [feedbackOpen, setFeedbackOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const GettingStartedIcon = Icons.gettingStarted;
   const FaqIcon = Icons.help;
@@ -59,6 +61,18 @@ export default function Help() {
   const ChangelogIcon = Icons.timeline;
   const FeedbackIcon = Icons.feedback;
   const ChevronIcon = Icons.chevronDown;
+
+  const filteredFaqs = FAQS.filter(
+    (f) =>
+      f.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      f.answer.toLowerCase().includes(searchQuery.toLowerCase()),
+  );
+
+  const filteredShortcuts = SHORTCUTS.filter(
+    (s) =>
+      s.key.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      s.description.toLowerCase().includes(searchQuery.toLowerCase()),
+  );
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 max-w-6xl space-y-8 animate-in fade-in duration-200">
@@ -69,13 +83,33 @@ export default function Help() {
         actions={
           <button
             onClick={() => setFeedbackOpen(true)}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md transition-all"
+            className="px-4 py-2.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-sm shadow-md transition-all active:scale-95 flex items-center gap-2"
           >
             <FeedbackIcon className="w-4 h-4" />
-            Send Feedback
+            <span>Send Feedback</span>
           </button>
         }
       />
+
+      {/* Live Search Input */}
+      <div className="relative max-w-2xl">
+        <Search className="absolute left-4 top-3.5 w-5 h-5 text-slate-400" />
+        <input
+          type="text"
+          placeholder="Search help topics, FAQs, or keyboard shortcuts..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="w-full pl-12 pr-4 py-3 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm"
+        />
+        {searchQuery && (
+          <button
+            onClick={() => setSearchQuery("")}
+            className="absolute right-4 top-3.5 text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 font-bold"
+          >
+            Clear
+          </button>
+        )}
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Navigation Sidebar */}
@@ -178,7 +212,7 @@ export default function Help() {
                 </div>
 
                 <div className="space-y-3 pt-2">
-                  {FAQS.map((faq, idx) => {
+                  {filteredFaqs.map((faq, idx) => {
                     const isOpen = openFaqIndex === idx;
                     return (
                       <div
@@ -221,7 +255,7 @@ export default function Help() {
                 </div>
 
                 <div className="space-y-2 pt-2">
-                  {SHORTCUTS.map((s, idx) => (
+                  {filteredShortcuts.map((s, idx) => (
                     <div
                       key={idx}
                       className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60"

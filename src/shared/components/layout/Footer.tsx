@@ -35,6 +35,12 @@ export default function Footer() {
           >
             Cookies
           </Link>
+          <Link
+            to="/qa"
+            className="hover:text-emerald-500 transition-colors font-semibold"
+          >
+            QA Dashboard
+          </Link>
           <a
             href="mailto:kaihatsu.studio@gmail.com"
             className="hover:text-emerald-500 transition-colors"
