@@ -346,7 +346,13 @@ export default function DestinationDetails() {
   return (
     <div className="bg-slate-50 dark:bg-background min-h-screen pb-20">
       {/* Hero Image Header */}
-      <div className="relative h-72 md:h-[400px] w-full">
+      <div className="relative h-[380px] sm:h-[400px] md:h-[440px] w-full overflow-hidden">
+        <Link
+          to="/destinations"
+          className="absolute top-4 left-4 sm:left-6 z-20 inline-flex items-center text-xs font-semibold px-3 py-1.5 rounded-full bg-black/40 hover:bg-black/60 text-slate-100 backdrop-blur-md border border-white/20 transition-all shadow-md"
+        >
+          <ArrowLeft className="w-3.5 h-3.5 mr-1" /> Back
+        </Link>
         <img
           src={destination.heroImage}
           alt={destination.name}
@@ -359,13 +365,7 @@ export default function DestinationDetails() {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-900/60 to-transparent/10"></div>
-        <div className="absolute bottom-0 left-0 w-full container mx-auto px-4 pb-8 text-white">
-          <Link
-            to="/destinations"
-            className="inline-flex items-center text-xs font-semibold px-3 py-1.5 rounded-full bg-white/15 hover:bg-white/25 text-slate-100 backdrop-blur-md border border-white/20 transition-all mb-4"
-          >
-            <ArrowLeft className="w-3.5 h-3.5 mr-1" /> Back
-          </Link>
+        <div className="absolute bottom-0 left-0 w-full container mx-auto px-4 pb-6 md:pb-8 text-white z-10">
           <div className="flex flex-wrap items-center gap-2 mb-3">
             <Badge className="bg-emerald-600 hover:bg-emerald-500 border-none shrink-0">
               {destination.region}
