@@ -96,7 +96,7 @@ export const imagesValidator: ValidatorModule = {
             {
               headers: {
                 "User-Agent":
-                  "TabiMapBot/1.6.0 (https://github.com/aneesh-patil/trip-planner; contact@tabimap.app)",
+                  "TabiMapBot/1.7.0 (https://github.com/aneesh-patil/trip-planner; contact@tabimap.app)",
                 Accept:
                   "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
               },
