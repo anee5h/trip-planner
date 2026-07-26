@@ -21,3 +21,4 @@ dist-ssr
 repomix-output.xml
 .gemini
 # .env
+docs/
