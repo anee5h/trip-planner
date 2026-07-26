@@ -238,9 +238,8 @@ export function PassportTimelineCalendar() {
               b.localeCompare(a),
             );
 
-            // Active month inside year
-            const activeMonthKey =
-              selectedMonthKey[yearStr] || monthKeys[0] || null;
+            // Active month inside year (null/undefined means "All")
+            const activeMonthKey = selectedMonthKey[yearStr] ?? null;
 
             const activeEvents = activeMonthKey
               ? monthsMap[activeMonthKey] || []
@@ -300,7 +299,7 @@ export function PassportTimelineCalendar() {
                             }))
                           }
                           className={`px-3 py-1.5 rounded-xl text-xs font-bold shrink-0 transition-all ${
-                            selectedMonthKey[yearStr] === null
+                            selectedMonthKey[yearStr] == null
                               ? "bg-emerald-600 text-white shadow-sm"
                               : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
                           }`}
