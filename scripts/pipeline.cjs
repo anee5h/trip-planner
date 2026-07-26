@@ -311,7 +311,8 @@ async function runPipeline() {
     }
   });
 
-  // Validate Destination Collection Memberships
+  // Validate Destination Collection Memberships & Relationships
+  const destMap = new Map(rawData.map((d) => [d.id, d]));
   rawData.forEach((dest, index) => {
     const label = dest.name || dest.id || `Item #${index + 1}`;
 
@@ -365,6 +366,53 @@ async function runPipeline() {
             `  \x1b[33m⚠️  [${label}] Unconfirmed collection membership for '${m.collectionId}'\x1b[0m`,
           );
           collectionWarnings++;
+        }
+      });
+    }
+
+    // Validate Destination Parent-Child & Related Relationships
+    const parentId = dest.relationships?.parentDestinationId;
+    if (parentId) {
+      const parent = destMap.get(parentId);
+      if (!parent) {
+        console.error(
+          `  \x1b[31m❌ [${label}] parentDestinationId '${parentId}' does not exist\x1b[0m`,
+        );
+        collectionErrors++;
+      } else {
+        if (parent.role !== "hub") {
+          console.warn(
+            `  \x1b[33m⚠️  [${label}] Parent '${parentId}' role is '${parent.role}', expected 'hub'\x1b[0m`,
+          );
+          collectionWarnings++;
+        }
+        if (parent.prefecture !== dest.prefecture) {
+          console.error(
+            `  \x1b[31m❌ [${label}] Prefecture mismatch with parent: child '${dest.prefecture}' vs parent '${parent.prefecture}'\x1b[0m`,
+          );
+          collectionErrors++;
+        }
+      }
+    }
+
+    if (dest.relationships?.relatedDestinationIds) {
+      dest.relationships.relatedDestinationIds.forEach((relId) => {
+        if (!destMap.has(relId)) {
+          console.error(
+            `  \x1b[31m❌ [${label}] relatedDestinationId '${relId}' does not exist\x1b[0m`,
+          );
+          collectionErrors++;
+        }
+      });
+    }
+
+    if (dest.relationships?.nearbyDestinationIds) {
+      dest.relationships.nearbyDestinationIds.forEach((nearId) => {
+        if (!destMap.has(nearId)) {
+          console.error(
+            `  \x1b[31m❌ [${label}] nearbyDestinationId '${nearId}' does not exist\x1b[0m`,
+          );
+          collectionErrors++;
         }
       });
     }
@@ -552,6 +600,10 @@ async function runPipeline() {
     id: d.id,
     name: d.name,
     prefecture: d.prefecture,
+    region: d.region || "Other",
+    role: d.role || "poi",
+    kind: d.kind || "attraction",
+    status: d.status || "verified",
     relationships: d.relationships || {},
   }));
   fs.writeFileSync(metaPath, JSON.stringify(metaData, null, 2) + "\n");

@@ -3,6 +3,10 @@
     "id": "abashiri-city",
     "name": "Abashiri City",
     "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
@@ -12,6 +16,10 @@
     "id": "abeno-harukas-300-osaka",
     "name": "Abeno Harukas 300 (Osaka Skyline)",
     "prefecture": "Osaka",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "viewpoint",
+    "status": "beta",
     "relationships": {
       "parentDestinationId": "osaka-city"
     }
@@ -20,6 +28,10 @@
     "id": "adachi-city",
     "name": "Adachi City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "akasaka-minato",
@@ -34,14 +46,22 @@
     "id": "akasaka-minato",
     "name": "Akasaka (Minato)",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
-      "parentDestinationId": "chiyoda-city"
+      "parentDestinationId": "minato-city"
     }
   },
   {
     "id": "akihabara-chiyoda",
     "name": "Akihabara (Chiyoda)",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "chiyoda-city"
     }
@@ -50,12 +70,20 @@
     "id": "amanohashidate-kyoto",
     "name": "Amanohashidate (Bridge to Heaven)",
     "prefecture": "Kyoto",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {}
   },
   {
     "id": "arakawa-city",
     "name": "Arakawa City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "akasaka-minato",
@@ -70,18 +98,30 @@
     "id": "arima-onsen",
     "name": "Arima Onsen",
     "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {}
   },
   {
     "id": "art-tower-mito",
     "name": "Art Tower Mito",
     "prefecture": "Ibaraki",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "asahikawa-city",
     "name": "Asahikawa City",
     "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
@@ -91,6 +131,10 @@
     "id": "asakusa-taito",
     "name": "Asakusa (Taito)",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "taito-city"
     }
@@ -99,6 +143,10 @@
     "id": "ashigara",
     "name": "Ashigara",
     "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "hakone-town"
     }
@@ -107,6 +155,10 @@
     "id": "aso-city",
     "name": "Aso City",
     "prefecture": "Kumamoto",
+    "region": "Kyushu",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["kumamoto-castle"],
       "nearbyDestinationIds": [
@@ -120,6 +172,10 @@
     "id": "atami-city",
     "name": "Atami City",
     "prefecture": "Shizuoka",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": ["fujinomiya-city", "ito-city", "izu"],
       "nearbyDestinationIds": [
@@ -133,6 +189,10 @@
     "id": "atsuta-shrine-nagoya",
     "name": "Atsuta Shrine (Nagoya)",
     "prefecture": "Aichi",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "nagoya-city"
     }
@@ -141,6 +201,10 @@
     "id": "beppu-city",
     "name": "Beppu City",
     "prefecture": "Oita",
+    "region": "Kyushu",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [
@@ -154,6 +218,10 @@
     "id": "biei-town",
     "name": "Biei Town",
     "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "hub",
+    "kind": "town",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
@@ -163,18 +231,30 @@
     "id": "bitchu-matsuyama-castle",
     "name": "Bitchu Matsuyama Castle",
     "prefecture": "Okayama",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {}
   },
   {
     "id": "boso-peninsula",
     "name": "Boso Peninsula",
     "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "bunkyo-city",
     "name": "Bunkyo City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "akasaka-minato",
@@ -189,6 +269,10 @@
     "id": "chiba-city",
     "name": "Chiba City",
     "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "boso-peninsula",
@@ -203,30 +287,50 @@
     "id": "chiba-nokogiriyama",
     "name": "Nokogiriyama",
     "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "chiba-port-tower",
     "name": "Chiba Port Tower",
     "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "chiba-sawara",
     "name": "Sawara",
     "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "chiba-yoro-valley",
     "name": "Yoro Valley",
     "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "chichibu-city",
     "name": "Chichibu City",
     "prefecture": "Saitama",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "kawagoe-castle-saitama",
@@ -240,6 +344,10 @@
     "id": "chigasaki-city",
     "name": "Chigasaki City",
     "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "ashigara",
@@ -254,6 +362,10 @@
     "id": "chiyoda-city",
     "name": "Chiyoda City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "akasaka-minato",
@@ -270,20 +382,30 @@
     "id": "chofu-tokyo",
     "name": "Chofu",
     "prefecture": "Tokyo",
-    "relationships": {
-      "parentDestinationId": "chiyoda-city"
-    }
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "choshi-chiba",
     "name": "Choshi",
     "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "chuo-city",
     "name": "Chuo City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": ["ginza-urban"],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
@@ -293,6 +415,10 @@
     "id": "dazaifu-city",
     "name": "Dazaifu City",
     "prefecture": "Fukuoka",
+    "region": "Kyushu",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [
@@ -306,18 +432,30 @@
     "id": "disneyland",
     "name": "Tokyo Disneyland",
     "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "disneysea",
     "name": "DisneySea",
     "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "edo-castle-tokyo",
     "name": "Edo Castle Ruins (Imperial Palace)",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "chiyoda-city"
     }
@@ -326,6 +464,10 @@
     "id": "edogawa-city",
     "name": "Edogawa City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "akasaka-minato",
@@ -340,18 +482,30 @@
     "id": "enoshima-island",
     "name": "Enoshima",
     "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "fuji-5-lake",
     "name": "Fuji Five Lakes",
     "prefecture": "Yamanashi",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "fujikawaguchiko-town",
     "name": "Fujikawaguchiko Town",
     "prefecture": "Yamanashi",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "town",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "fuji-5-lake",
@@ -370,6 +524,10 @@
     "id": "fujinomiya-city",
     "name": "Fujinomiya City",
     "prefecture": "Shizuoka",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": ["atami-city", "ito-city", "izu"],
       "nearbyDestinationIds": [
@@ -383,6 +541,10 @@
     "id": "fujisawa-city",
     "name": "Fujisawa City",
     "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "ashigara",
@@ -397,12 +559,20 @@
     "id": "fukui",
     "name": "Fukui",
     "prefecture": "Fukui",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "fukuoka-city",
     "name": "Fukuoka City",
     "prefecture": "Fukuoka",
+    "region": "Kyushu",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [
@@ -416,6 +586,10 @@
     "id": "funabashi-city",
     "name": "Funabashi City",
     "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "boso-peninsula",
@@ -430,6 +604,10 @@
     "id": "furano-city",
     "name": "Furano City",
     "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
@@ -439,12 +617,20 @@
     "id": "gala-yuzawa",
     "name": "Gala Yuzawa",
     "prefecture": "Niigata",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "gero-city",
     "name": "Gero City",
     "prefecture": "Gifu",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "gero-onsen",
@@ -463,24 +649,40 @@
     "id": "gero-onsen",
     "name": "Gero Onsen",
     "prefecture": "Gifu",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "ghibli-museum",
     "name": "Ghibli Museum",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "gifu-castle-gifu",
     "name": "Gifu Castle (Mt. Kinka)",
     "prefecture": "Gifu",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "gifu-city",
     "name": "Gifu City",
     "prefecture": "Gifu",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "gero-onsen",
@@ -499,18 +701,30 @@
     "id": "gifu-gujo-hachiman",
     "name": "Gujo Hachiman",
     "prefecture": "Gifu",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "gifu-magome-juku",
     "name": "Magome-juku",
     "prefecture": "Gifu",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "ginza-urban",
     "name": "Ginza",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "chuo-city"
     }
@@ -519,6 +733,10 @@
     "id": "gotemba-city",
     "name": "Gotemba City",
     "prefecture": "Shizuoka",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "atami-city",
@@ -537,24 +755,40 @@
     "id": "gunma-ikaho-onsen",
     "name": "Ikaho Onsen",
     "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "gunma-kusatsu-onsen",
     "name": "Kusatsu Onsen",
     "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "gunma-shima-onsen",
     "name": "Shima Onsen",
     "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "hachioji-castle-tokyo",
     "name": "Hachioji Castle Ruins (Mount Castle)",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "castle",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "hachioji-tokyo"
     }
@@ -563,20 +797,30 @@
     "id": "hachioji-tokyo",
     "name": "Hachioji",
     "prefecture": "Tokyo",
-    "relationships": {
-      "parentDestinationId": "chiyoda-city"
-    }
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "hakkeijima",
     "name": "Hakkeijima Sea Paradise",
     "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "hakodate-city",
     "name": "Hakodate City",
     "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "asahikawa-city"]
@@ -586,6 +830,10 @@
     "id": "hakodate-night-view",
     "name": "Mount Hakodate Night View",
     "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {
       "parentDestinationId": "hakodate-city"
     }
@@ -594,6 +842,10 @@
     "id": "hakone-town",
     "name": "Hakone Town",
     "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "town",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": ["ashigara", "jogashima"],
       "nearbyDestinationIds": ["shibuya-city", "chiba-city", "saitama-city"],
@@ -604,6 +856,10 @@
     "id": "hakuba-village",
     "name": "Hakuba Village",
     "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "village",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "karuizawa-town",
@@ -622,6 +878,10 @@
     "id": "hamamatsu-city",
     "name": "Hamamatsu City",
     "prefecture": "Shizuoka",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "atami-city",
@@ -640,14 +900,22 @@
     "id": "harry-potter-studio",
     "name": "Harry Potter Studio",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
-      "parentDestinationId": "chiyoda-city"
+      "parentDestinationId": "nerima-city"
     }
   },
   {
     "id": "hatsukaichi-city",
     "name": "Hatsukaichi City",
     "prefecture": "Hiroshima",
+    "region": "Chugoku",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["miyajima-itsukushima"],
       "nearbyDestinationIds": [
@@ -661,6 +929,10 @@
     "id": "higashiyama-sky-tower-nagoya",
     "name": "Higashiyama Sky Tower",
     "prefecture": "Aichi",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "nagoya-city"
     }
@@ -669,12 +941,20 @@
     "id": "hikone-castle-shiga",
     "name": "Hikone Castle (National Treasure)",
     "prefecture": "Shiga",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "hikone-city",
     "name": "Hikone City",
     "prefecture": "Shiga",
+    "region": "Kansai",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["hikone-castle-shiga"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
@@ -684,6 +964,10 @@
     "id": "himeji-castle",
     "name": "Himeji Castle (White Heron Castle)",
     "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {
       "parentDestinationId": "himeji-city"
     }
@@ -692,6 +976,10 @@
     "id": "himeji-city",
     "name": "Himeji City",
     "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["himeji-castle"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
@@ -701,12 +989,20 @@
     "id": "hirosaki-castle",
     "name": "Hirosaki Castle",
     "prefecture": "Aomori",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {}
   },
   {
     "id": "hiroshima-city",
     "name": "Hiroshima City",
     "prefecture": "Hiroshima",
+    "region": "Chugoku",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["miyajima-itsukushima"],
       "nearbyDestinationIds": [
@@ -720,24 +1016,40 @@
     "id": "ibaraki-fukuroda-falls",
     "name": "Fukuroda Falls",
     "prefecture": "Ibaraki",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "ibaraki-hitachi-seaside-park",
     "name": "Hitachi Seaside Park",
     "prefecture": "Ibaraki",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "ibaraki-mount-tsukuba",
     "name": "Mount Tsukuba",
     "prefecture": "Ibaraki",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "ikaruga-town",
     "name": "Ikaruga Town",
     "prefecture": "Nara",
+    "region": "Kansai",
+    "role": "hub",
+    "kind": "town",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["mount-yoshino-nara", "nara-park-todaiji"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
@@ -747,6 +1059,10 @@
     "id": "ikebukuro-toshima",
     "name": "Ikebukuro (Toshima)",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "toshima-city"
     }
@@ -755,6 +1071,10 @@
     "id": "imperial-palace-chiyoda",
     "name": "Imperial Palace (Chiyoda)",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "chiyoda-city"
     }
@@ -763,12 +1083,20 @@
     "id": "inuyama-castle-aichi",
     "name": "Inuyama Castle (National Treasure Keep)",
     "prefecture": "Aichi",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "castle",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "inuyama-city",
     "name": "Inuyama City",
     "prefecture": "Aichi",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "atsuta-shrine-nagoya",
@@ -786,12 +1114,20 @@
     "id": "ise-grand-shrine",
     "name": "Ise Grand Shrine (Ise Jingu)",
     "prefecture": "Mie",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {}
   },
   {
     "id": "ishigaki-city",
     "name": "Ishigaki City",
     "prefecture": "Okinawa",
+    "region": "Okinawa",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["naha-city", "nago-city", "motobu-town"]
@@ -801,6 +1137,10 @@
     "id": "itabashi-city",
     "name": "Itabashi City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "akasaka-minato",
@@ -815,6 +1155,10 @@
     "id": "ito-city",
     "name": "Ito City",
     "prefecture": "Shizuoka",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": ["atami-city", "fujinomiya-city", "izu"],
       "nearbyDestinationIds": [
@@ -828,12 +1172,20 @@
     "id": "izu",
     "name": "Izu Peninsula",
     "prefecture": "Shizuoka",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "izumo-city",
     "name": "Izumo City",
     "prefecture": "Shimane",
+    "region": "Chugoku",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["izumo-taisha", "matsue-castle"],
       "nearbyDestinationIds": [
@@ -847,18 +1199,30 @@
     "id": "izumo-taisha",
     "name": "Izumo Taisha Grand Shrine",
     "prefecture": "Shimane",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {}
   },
   {
     "id": "jogashima",
     "name": "Miura Peninsula & Jogashima",
     "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "joypolis",
     "name": "Joypolis Odaiba",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "minato-city"
     }
@@ -867,6 +1231,10 @@
     "id": "kagoshima-city",
     "name": "Kagoshima City",
     "prefecture": "Kagoshima",
+    "region": "Kyushu",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [
@@ -880,18 +1248,30 @@
     "id": "kairakuen-mito",
     "name": "Kairakuen Garden",
     "prefecture": "Ibaraki",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "kakegawa-castle-shizuoka",
     "name": "Kakegawa Castle & Ninomaru Goten",
     "prefecture": "Shizuoka",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "kamakura-city",
     "name": "Kamakura City",
     "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
@@ -901,18 +1281,30 @@
     "id": "kanazawa",
     "name": "Kanazawa",
     "prefecture": "Ishikawa",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "kanazawa-castle-ishikawa",
     "name": "Kanazawa Castle Park",
     "prefecture": "Ishikawa",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "karuizawa-town",
     "name": "Karuizawa Town",
     "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "town",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "kiso",
@@ -930,6 +1322,10 @@
     "id": "katsushika-city",
     "name": "Katsushika City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "akasaka-minato",
@@ -944,12 +1340,20 @@
     "id": "kawagoe-castle-saitama",
     "name": "Kawagoe Castle Honmaru Goten",
     "prefecture": "Saitama",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "kawagoe-city",
     "name": "Kawagoe City",
     "prefecture": "Saitama",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "kawagoe-castle-saitama",
@@ -963,6 +1367,10 @@
     "id": "kawaguchi-city",
     "name": "Kawaguchi City",
     "prefecture": "Saitama",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "kawagoe-castle-saitama",
@@ -977,6 +1385,10 @@
     "id": "kawasaki-city",
     "name": "Kawasaki City",
     "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "ashigara",
@@ -991,6 +1403,10 @@
     "id": "kegon-falls-nikko",
     "name": "Kegon Falls (Nikko)",
     "prefecture": "Tochigi",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "nikko-city"
     }
@@ -999,18 +1415,30 @@
     "id": "kinosaki-onsen",
     "name": "Kinosaki Onsen",
     "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {}
   },
   {
     "id": "kinugawa-onsen",
     "name": "Kinugawa Onsen",
     "prefecture": "Tochigi",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "kisarazu-city",
     "name": "Kisarazu City",
     "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "boso-peninsula",
@@ -1025,12 +1453,20 @@
     "id": "kiso",
     "name": "Kiso Valley",
     "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "kita-city",
     "name": "Kita City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "akasaka-minato",
@@ -1045,6 +1481,10 @@
     "id": "kitakyushu-city",
     "name": "Kitakyushu City",
     "prefecture": "Fukuoka",
+    "region": "Kyushu",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["fukuoka-city", "dazaifu-city", "nagasaki-city"]
@@ -1054,6 +1494,10 @@
     "id": "kobe-city",
     "name": "Kobe City",
     "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["kobe-maya-night-view"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
@@ -1063,6 +1507,10 @@
     "id": "kobe-maya-night-view",
     "name": "Mount Maya Kikuseidai (Kobe)",
     "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {
       "parentDestinationId": "kobe-city"
     }
@@ -1071,12 +1519,20 @@
     "id": "kochi-castle",
     "name": "Kochi Castle",
     "prefecture": "Kochi",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {}
   },
   {
     "id": "kochi-city",
     "name": "Kochi City",
     "prefecture": "Kochi",
+    "region": "Shikoku",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["kochi-castle"],
       "nearbyDestinationIds": [
@@ -1090,6 +1546,10 @@
     "id": "kofu-city",
     "name": "Kofu City",
     "prefecture": "Yamanashi",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "fuji-5-lake",
@@ -1107,12 +1567,20 @@
     "id": "korakuen-okayama",
     "name": "Korakuen Garden",
     "prefecture": "Okayama",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {}
   },
   {
     "id": "koto-city",
     "name": "Koto City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "akasaka-minato",
@@ -1127,6 +1595,10 @@
     "id": "koya-town",
     "name": "Koya Town",
     "prefecture": "Wakayama",
+    "region": "Kansai",
+    "role": "hub",
+    "kind": "town",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["nachi-falls-wakayama"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
@@ -1136,12 +1608,20 @@
     "id": "kumamoto-castle",
     "name": "Kumamoto Castle",
     "prefecture": "Kumamoto",
+    "region": "Kyushu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {}
   },
   {
     "id": "kumamoto-city",
     "name": "Kumamoto City",
     "prefecture": "Kumamoto",
+    "region": "Kyushu",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["kumamoto-castle"],
       "nearbyDestinationIds": [
@@ -1155,6 +1635,10 @@
     "id": "kurashiki-city",
     "name": "Kurashiki City",
     "prefecture": "Okayama",
+    "region": "Chugoku",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["bitchu-matsuyama-castle", "korakuen-okayama"],
       "nearbyDestinationIds": [
@@ -1168,12 +1652,20 @@
     "id": "kurobe-gorge",
     "name": "Kurobe Gorge",
     "prefecture": "Toyama",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "kusatsu-town",
     "name": "Kusatsu Town",
     "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "town",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "gunma-ikaho-onsen",
@@ -1188,6 +1680,10 @@
     "id": "kushiro-city",
     "name": "Kushiro City",
     "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
@@ -1197,6 +1693,10 @@
     "id": "kyoto-city",
     "name": "Kyoto City",
     "prefecture": "Kyoto",
+    "region": "Kansai",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [
         "amanohashidate-kyoto",
@@ -1211,6 +1711,10 @@
     "id": "kyoto-historic",
     "name": "Historic Kyoto (Kiyomizu-dera & Kinkaku-ji)",
     "prefecture": "Kyoto",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {
       "parentDestinationId": "kyoto-city"
     }
@@ -1219,38 +1723,60 @@
     "id": "lake-hamanako",
     "name": "Lake Hamanako",
     "prefecture": "Shizuoka",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "lake-sagami",
     "name": "Lake Sagami",
     "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "machida-tokyo",
     "name": "Machida",
     "prefecture": "Tokyo",
-    "relationships": {
-      "parentDestinationId": "chiyoda-city"
-    }
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "marugame-castle",
     "name": "Marugame Castle",
     "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {}
   },
   {
     "id": "maruoka-castle-fukui",
     "name": "Maruoka Castle (Original Keep 1576)",
     "prefecture": "Fukui",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "matsudo-city",
     "name": "Matsudo City",
     "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "boso-peninsula",
@@ -1265,12 +1791,20 @@
     "id": "matsue-castle",
     "name": "Matsue Castle",
     "prefecture": "Shimane",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {}
   },
   {
     "id": "matsue-city",
     "name": "Matsue City",
     "prefecture": "Shimane",
+    "region": "Chugoku",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["izumo-taisha", "matsue-castle"],
       "nearbyDestinationIds": [
@@ -1284,12 +1818,20 @@
     "id": "matsumoto-castle-nagano",
     "name": "Matsumoto Castle (Crow Castle)",
     "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "castle",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "matsumoto-city",
     "name": "Matsumoto City",
     "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "karuizawa-town",
@@ -1307,18 +1849,30 @@
     "id": "matsushima-bay",
     "name": "Matsushima Bay",
     "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {}
   },
   {
     "id": "matsuyama-castle-ehime",
     "name": "Iyo Matsuyama Castle",
     "prefecture": "Ehime",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {}
   },
   {
     "id": "matsuyama-city",
     "name": "Matsuyama City",
     "prefecture": "Ehime",
+    "region": "Shikoku",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["matsuyama-castle-ehime", "uwajima-castle"],
       "nearbyDestinationIds": ["takamatsu-city", "kochi-city", "tokushima-city"]
@@ -1328,6 +1882,10 @@
     "id": "meguro-city",
     "name": "Meguro City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "akasaka-minato",
@@ -1342,6 +1900,10 @@
     "id": "minakami-town",
     "name": "Minakami Town",
     "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "town",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "gunma-ikaho-onsen",
@@ -1356,6 +1918,10 @@
     "id": "minato-city",
     "name": "Minato City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "roppongi-hills-tokyo-city-view",
@@ -1368,18 +1934,30 @@
     "id": "mirai-tower-nagoya",
     "name": "Chubu Electric Power MIRAI TOWER",
     "prefecture": "Aichi",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "mito-castle-ibaraki",
     "name": "Mito Castle Ruins & Kodokan",
     "prefecture": "Ibaraki",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "mito-city",
     "name": "Mito City",
     "prefecture": "Ibaraki",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "art-tower-mito",
@@ -1394,12 +1972,20 @@
     "id": "miyajima-itsukushima",
     "name": "Itsukushima Shrine (Miyajima Island)",
     "prefecture": "Hiroshima",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {}
   },
   {
     "id": "miyakojima-city",
     "name": "Miyakojima City",
     "prefecture": "Okinawa",
+    "region": "Okinawa",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["naha-city", "nago-city", "motobu-town"]
@@ -1409,6 +1995,10 @@
     "id": "miyazaki-city",
     "name": "Miyazaki City",
     "prefecture": "Miyazaki",
+    "region": "Kyushu",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [
@@ -1422,6 +2012,10 @@
     "id": "miyazu-city",
     "name": "Miyazu City",
     "prefecture": "Kyoto",
+    "region": "Kansai",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [
         "amanohashidate-kyoto",
@@ -1435,12 +2029,20 @@
     "id": "mother-farm-chiba",
     "name": "Mother Farm (Futtsu)",
     "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "motobu-town",
     "name": "Motobu Town",
     "prefecture": "Okinawa",
+    "region": "Okinawa",
+    "role": "hub",
+    "kind": "town",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["naha-city", "nago-city", "ishigaki-city"]
@@ -1450,36 +2052,60 @@
     "id": "mount-fuji",
     "name": "Mount Fuji",
     "prefecture": "Shizuoka",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "mount-inasa-nagasaki",
     "name": "Mount Inasa (Nagasaki Night View)",
     "prefecture": "Nagasaki",
+    "region": "Kyushu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {}
   },
   {
     "id": "mount-yoshino-nara",
     "name": "Mount Yoshino (Yoshinoyama)",
     "prefecture": "Nara",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {}
   },
   {
     "id": "nachi-falls-wakayama",
     "name": "Nachi Falls & Pagoda",
     "prefecture": "Wakayama",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {}
   },
   {
     "id": "nagano-bessho-onsen",
     "name": "Bessho Onsen",
     "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "nagano-city",
     "name": "Nagano & Snow Monkeys",
     "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": ["nagano-narai-juku"],
       "nearbyDestinationIds": [
@@ -1493,12 +2119,20 @@
     "id": "nagano-kamikochi",
     "name": "Kamikochi",
     "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "nagano-narai-juku",
     "name": "Narai-juku",
     "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "nagano-city"
     }
@@ -1507,18 +2141,30 @@
     "id": "nagano-suwa",
     "name": "Suwa",
     "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "nagano-tsumago-juku",
     "name": "Tsumago-juku",
     "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "nagasaki-city",
     "name": "Nagasaki City",
     "prefecture": "Nagasaki",
+    "region": "Kyushu",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["mount-inasa-nagasaki"],
       "nearbyDestinationIds": [
@@ -1532,6 +2178,10 @@
     "id": "nago-city",
     "name": "Nago City",
     "prefecture": "Okinawa",
+    "region": "Okinawa",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["naha-city", "motobu-town", "ishigaki-city"]
@@ -1541,6 +2191,10 @@
     "id": "nagoya-castle-aichi",
     "name": "Nagoya Castle (Golden Shachihoko)",
     "prefecture": "Aichi",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "castle",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "nagoya-city"
     }
@@ -1549,6 +2203,10 @@
     "id": "nagoya-city",
     "name": "Nagoya City",
     "prefecture": "Aichi",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "atsuta-shrine-nagoya",
@@ -1568,6 +2226,10 @@
     "id": "nagoya-port-tower",
     "name": "Nagoya Port Building (Maritime Tower)",
     "prefecture": "Aichi",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "nagoya-city"
     }
@@ -1576,6 +2238,10 @@
     "id": "naha-city",
     "name": "Naha City",
     "prefecture": "Okinawa",
+    "region": "Okinawa",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["nago-city", "motobu-town", "ishigaki-city"]
@@ -1585,6 +2251,10 @@
     "id": "nakano-city",
     "name": "Nakano City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "akasaka-minato",
@@ -1599,6 +2269,10 @@
     "id": "nara-city",
     "name": "Nara City",
     "prefecture": "Nara",
+    "region": "Kansai",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["nara-park-todaiji"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
@@ -1608,6 +2282,10 @@
     "id": "nara-park-todaiji",
     "name": "Historic Nara (Todai-ji Great Buddha)",
     "prefecture": "Nara",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {
       "parentDestinationId": "nara-city"
     }
@@ -1616,6 +2294,10 @@
     "id": "narita-city",
     "name": "Narita City",
     "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "boso-peninsula",
@@ -1630,6 +2312,10 @@
     "id": "naruto-city",
     "name": "Naruto City",
     "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]
@@ -1639,6 +2325,10 @@
     "id": "nerima-city",
     "name": "Nerima City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "akasaka-minato",
@@ -1653,6 +2343,10 @@
     "id": "nijo-castle-kyoto",
     "name": "Nijo Castle (Kyoto)",
     "prefecture": "Kyoto",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {
       "parentDestinationId": "kyoto-city"
     }
@@ -1661,6 +2355,10 @@
     "id": "nikko-city",
     "name": "Nikko City",
     "prefecture": "Tochigi",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "nikko-toshogu-shrine-tochigi",
@@ -1673,6 +2371,10 @@
     "id": "nikko-toshogu-shrine-tochigi",
     "name": "Shrines and Temples of Nikko (Toshogu & UNESCO Heritage)",
     "prefecture": "Tochigi",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "shrine",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "nikko-city"
     }
@@ -1681,6 +2383,10 @@
     "id": "niseko-town",
     "name": "Niseko Town",
     "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "hub",
+    "kind": "town",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
@@ -1690,12 +2396,20 @@
     "id": "noto",
     "name": "Noto Peninsula",
     "prefecture": "Ishikawa",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "numazu-city",
     "name": "Numazu City",
     "prefecture": "Shizuoka",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "atami-city",
@@ -1714,12 +2428,20 @@
     "id": "oarai-marine-tower",
     "name": "Oarai Marine Tower",
     "prefecture": "Ibaraki",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "odaiba-minato",
     "name": "Odaiba (Minato)",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "minato-city"
     }
@@ -1728,6 +2450,10 @@
     "id": "odawara-city",
     "name": "Odawara City",
     "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "ashigara",
@@ -1742,6 +2468,10 @@
     "id": "okayama-city",
     "name": "Okayama City",
     "prefecture": "Okayama",
+    "region": "Chugoku",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["bitchu-matsuyama-castle", "korakuen-okayama"],
       "nearbyDestinationIds": [
@@ -1755,6 +2485,10 @@
     "id": "okazaki-city",
     "name": "Okazaki City",
     "prefecture": "Aichi",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "atsuta-shrine-nagoya",
@@ -1773,26 +2507,40 @@
     "id": "okuhida",
     "name": "Okuhida",
     "prefecture": "Gifu",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "ome-tokyo",
     "name": "Ome",
     "prefecture": "Tokyo",
-    "relationships": {
-      "parentDestinationId": "chiyoda-city"
-    }
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "omiya-railway",
     "name": "Omiya Railway Museum",
     "prefecture": "Saitama",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "onomichi-city",
     "name": "Onomichi City",
     "prefecture": "Hiroshima",
+    "region": "Chugoku",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["miyajima-itsukushima"],
       "nearbyDestinationIds": [
@@ -1806,6 +2554,10 @@
     "id": "osaka-castle",
     "name": "Osaka Castle (Osaka-jo)",
     "prefecture": "Osaka",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {
       "parentDestinationId": "osaka-city"
     }
@@ -1814,6 +2566,10 @@
     "id": "osaka-city",
     "name": "Osaka City",
     "prefecture": "Osaka",
+    "region": "Kansai",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["abeno-harukas-300-osaka", "osaka-castle"],
       "nearbyDestinationIds": ["kyoto-city", "uji-city", "miyazu-city"],
@@ -1824,6 +2580,10 @@
     "id": "ota-city",
     "name": "Ota City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "akasaka-minato",
@@ -1838,6 +2598,10 @@
     "id": "otaru-city",
     "name": "Otaru City",
     "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": [
@@ -1851,6 +2615,10 @@
     "id": "otsu-city",
     "name": "Otsu City",
     "prefecture": "Shiga",
+    "region": "Kansai",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["hikone-castle-shiga"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
@@ -1860,12 +2628,20 @@
     "id": "oze-national-park",
     "name": "Oze National Park",
     "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "roppongi-hills-tokyo-city-view",
     "name": "Roppongi Hills Observation Deck (Tokyo City View)",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "minato-city"
     }
@@ -1874,12 +2650,20 @@
     "id": "sado-island",
     "name": "Sado Island",
     "prefecture": "Niigata",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "sagamihara-city",
     "name": "Sagamihara City",
     "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "ashigara",
@@ -1894,6 +2678,10 @@
     "id": "saitama-city",
     "name": "Saitama City",
     "prefecture": "Saitama",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "kawagoe-castle-saitama",
@@ -1908,12 +2696,20 @@
     "id": "saitama-nagatoro",
     "name": "Nagatoro",
     "prefecture": "Saitama",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "sakai-city",
     "name": "Sakai City",
     "prefecture": "Osaka",
+    "region": "Kansai",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["abeno-harukas-300-osaka", "osaka-castle"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
@@ -1923,12 +2719,20 @@
     "id": "sakura-castle-chiba",
     "name": "Sakura Castle Park & Ruins",
     "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "sapporo-city",
     "name": "Sapporo City",
     "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": ["otaru-city", "hakodate-city", "asahikawa-city"]
@@ -1938,6 +2742,10 @@
     "id": "setagaya-city",
     "name": "Setagaya City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "akasaka-minato",
@@ -1952,6 +2760,10 @@
     "id": "shibuya-city",
     "name": "Shibuya City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": ["shibuya-sky-shibuya"],
       "nearbyDestinationIds": ["hakone-town", "chiba-city", "saitama-city"],
@@ -1962,6 +2774,10 @@
     "id": "shibuya-sky-shibuya",
     "name": "Shibuya Sky (Rooftop Observatory)",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "shibuya-city"
     }
@@ -1970,6 +2786,10 @@
     "id": "shimonoseki-city",
     "name": "Shimonoseki City",
     "prefecture": "Yamaguchi",
+    "region": "Chugoku",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [
@@ -1983,6 +2803,10 @@
     "id": "shinagawa-city",
     "name": "Shinagawa City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "akasaka-minato",
@@ -1997,6 +2821,10 @@
     "id": "shinjuku-city",
     "name": "Shinjuku City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
@@ -2006,6 +2834,10 @@
     "id": "shirahama-town",
     "name": "Shirahama Town",
     "prefecture": "Wakayama",
+    "region": "Kansai",
+    "role": "hub",
+    "kind": "town",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["nachi-falls-wakayama"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
@@ -2015,6 +2847,10 @@
     "id": "shirakawa-village",
     "name": "Shirakawa Village",
     "prefecture": "Gifu",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "village",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["nagoya-city", "nagano-city", "inuyama-city"],
@@ -2025,6 +2861,10 @@
     "id": "shizuoka-city",
     "name": "Shizuoka City",
     "prefecture": "Shizuoka",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "atami-city",
@@ -2043,6 +2883,10 @@
     "id": "suginami-city",
     "name": "Suginami City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "akasaka-minato",
@@ -2057,6 +2901,10 @@
     "id": "sumida-city",
     "name": "Sumida City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": ["tokyo-skytree-sumida"],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
@@ -2066,6 +2914,10 @@
     "id": "sunshine-60-observatory-ikebukuro",
     "name": "Sunshine 60 Observatory (Tenbou Park)",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "toshima-city"
     }
@@ -2074,14 +2926,20 @@
     "id": "tachikawa-tokyo",
     "name": "Tachikawa",
     "prefecture": "Tokyo",
-    "relationships": {
-      "parentDestinationId": "chiyoda-city"
-    }
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "taito-city",
     "name": "Taito City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": ["asakusa-taito", "ueno-taito"],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
@@ -2091,6 +2949,10 @@
     "id": "takachiho-town",
     "name": "Takachiho Town",
     "prefecture": "Miyazaki",
+    "region": "Kyushu",
+    "role": "hub",
+    "kind": "town",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [
@@ -2104,6 +2966,10 @@
     "id": "takamatsu-city",
     "name": "Takamatsu City",
     "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["marugame-castle"],
       "nearbyDestinationIds": ["matsuyama-city", "kochi-city", "tokushima-city"]
@@ -2113,26 +2979,42 @@
     "id": "takanawa-gateway-minato",
     "name": "Takanawa Gateway",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
-      "parentDestinationId": "chiyoda-city"
+      "parentDestinationId": "minato-city"
     }
   },
   {
     "id": "takaoka",
     "name": "Takaoka",
     "prefecture": "Toyama",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "takato-castle-nagano",
     "name": "Takato Castle Park",
     "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "takayama-city",
     "name": "Takayama City",
     "prefecture": "Gifu",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [
@@ -2146,26 +3028,42 @@
     "id": "takeda-castle-yamanashi",
     "name": "Tsutsujigasaki Castle (Takeda Shrine)",
     "prefecture": "Yamanashi",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "teamlab-planets",
     "name": "teamLab Planets",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
-      "parentDestinationId": "chiyoda-city"
+      "parentDestinationId": "koto-city"
     }
   },
   {
     "id": "toki-messe-tower-niigata",
     "name": "Befco Bakauke Observatory (Toki Messe)",
     "prefecture": "Niigata",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "tokorozawa-city",
     "name": "Tokorozawa City",
     "prefecture": "Saitama",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "kawagoe-castle-saitama",
@@ -2180,6 +3078,10 @@
     "id": "tokushima-city",
     "name": "Tokushima City",
     "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]
@@ -2189,14 +3091,20 @@
     "id": "tokyo-hinohara",
     "name": "Hinohara",
     "prefecture": "Tokyo",
-    "relationships": {
-      "parentDestinationId": "chiyoda-city"
-    }
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "tokyo-metropolitan-government-building-shinjuku",
     "name": "Tokyo Metropolitan Government Building Observatories",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "shinjuku-city"
     }
@@ -2205,22 +3113,30 @@
     "id": "tokyo-mt-mitake",
     "name": "Mt. Mitake",
     "prefecture": "Tokyo",
-    "relationships": {
-      "parentDestinationId": "chiyoda-city"
-    }
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "tokyo-okutama",
     "name": "Okutama",
     "prefecture": "Tokyo",
-    "relationships": {
-      "parentDestinationId": "chiyoda-city"
-    }
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "tokyo-skytree-sumida",
     "name": "Tokyo Skytree",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "sumida-city"
     }
@@ -2229,6 +3145,10 @@
     "id": "tokyo-station-chiyoda",
     "name": "Tokyo Station",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "chiyoda-city"
     }
@@ -2237,6 +3157,10 @@
     "id": "tokyo-tower-minato",
     "name": "Tokyo Tower",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "minato-city"
     }
@@ -2245,6 +3169,10 @@
     "id": "toshima-city",
     "name": "Toshima City",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "ward",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "akasaka-minato",
@@ -2259,6 +3187,10 @@
     "id": "tottori-city",
     "name": "Tottori City",
     "prefecture": "Tottori",
+    "region": "Chugoku",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [
@@ -2272,12 +3204,20 @@
     "id": "toyama-alpine",
     "name": "Tateyama Kurobe Alpine Route",
     "prefecture": "Toyama",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "toyota-city",
     "name": "Toyota City",
     "prefecture": "Aichi",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "atsuta-shrine-nagoya",
@@ -2296,6 +3236,10 @@
     "id": "tsukuba-city",
     "name": "Tsukuba City",
     "prefecture": "Ibaraki",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "art-tower-mito",
@@ -2310,12 +3254,20 @@
     "id": "ueda-castle-nagano",
     "name": "Ueda Castle Park",
     "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "ueno-taito",
     "name": "Ueno (Taito)",
     "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "taito-city"
     }
@@ -2324,6 +3276,10 @@
     "id": "uji-city",
     "name": "Uji City",
     "prefecture": "Kyoto",
+    "region": "Kansai",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [
         "amanohashidate-kyoto",
@@ -2337,6 +3293,10 @@
     "id": "urayasu-city",
     "name": "Urayasu City",
     "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "boso-peninsula",
@@ -2351,12 +3311,20 @@
     "id": "ushiku-daibutsu",
     "name": "Ushiku Daibutsu",
     "prefecture": "Ibaraki",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "utsunomiya-city",
     "name": "Utsunomiya City",
     "prefecture": "Tochigi",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "kegon-falls-nikko",
@@ -2371,18 +3339,30 @@
     "id": "utsunomiya-oya",
     "name": "Utsunomiya & Oya",
     "prefecture": "Tochigi",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "uwajima-castle",
     "name": "Uwajima Castle",
     "prefecture": "Ehime",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
     "relationships": {}
   },
   {
     "id": "wakayama-city",
     "name": "Wakayama City",
     "prefecture": "Wakayama",
+    "region": "Kansai",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": ["nachi-falls-wakayama"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
@@ -2392,6 +3372,10 @@
     "id": "yakushima-town",
     "name": "Yakushima Town",
     "prefecture": "Kagoshima",
+    "region": "Kyushu",
+    "role": "hub",
+    "kind": "town",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [
@@ -2405,24 +3389,40 @@
     "id": "yamanashi-fujiyoshida",
     "name": "Fujiyoshida",
     "prefecture": "Yamanashi",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "yamanashi-nishizawa-valley",
     "name": "Nishizawa Valley",
     "prefecture": "Yamanashi",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "yamanashi-shosenkyo-gorge",
     "name": "Shosenkyo Gorge",
     "prefecture": "Yamanashi",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   },
   {
     "id": "yokohama-city",
     "name": "Yokohama",
     "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "yokohama-landmark-tower-sky-garden",
@@ -2435,6 +3435,10 @@
     "id": "yokohama-landmark-tower-sky-garden",
     "name": "Yokohama Landmark Tower (Sky Garden)",
     "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "yokohama-city"
     }
@@ -2443,6 +3447,10 @@
     "id": "yokohama-marine-tower",
     "name": "Yokohama Marine Tower",
     "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {
       "parentDestinationId": "yokohama-city"
     }
@@ -2451,6 +3459,10 @@
     "id": "yokosuka-city",
     "name": "Yokosuka City",
     "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
         "ashigara",
@@ -2465,14 +3477,20 @@
     "id": "yomiuriland",
     "name": "Yomiuriland",
     "prefecture": "Tokyo",
-    "relationships": {
-      "parentDestinationId": "chiyoda-city"
-    }
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "yufu-city",
     "name": "Yufu City",
     "prefecture": "Oita",
+    "region": "Kyushu",
+    "role": "hub",
+    "kind": "city",
+    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [
@@ -2486,6 +3504,10 @@
     "id": "zushi",
     "name": "Zushi & Yokosuka",
     "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
     "relationships": {}
   }
 ]
