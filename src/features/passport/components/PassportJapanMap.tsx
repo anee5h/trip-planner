@@ -114,7 +114,7 @@ export function PassportJapanMap() {
   );
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 md:p-8 shadow-sm animate-in fade-in duration-200">
+    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-4 md:p-6 shadow-sm animate-in fade-in duration-200">
       <div className="flex flex-col items-center">
         <div className="text-center mb-6">
           <h2 className="text-xl font-bold text-slate-900 dark:text-white">

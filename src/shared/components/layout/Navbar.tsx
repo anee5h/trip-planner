@@ -16,6 +16,8 @@ import {
   HelpCircle,
   MessageSquare,
   Layers,
+  Code2,
+  ExternalLink,
 } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { useAuth } from "@/shared/hooks/useAuth";
@@ -620,6 +622,20 @@ export default function Navbar() {
                 <LogIn className="w-5 h-5" /> Sign In
               </button>
             )}
+
+            {/* Mobile Drawer Secondary Links & Footer */}
+            <div className="mt-3 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 px-2 pb-1">
+              <span>TabiMap Japan v1.7.1</span>
+              <a
+                href="https://github.com/aneesh-patil/trip-planner"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 hover:text-emerald-500 transition-colors font-semibold"
+              >
+                <Code2 className="w-3.5 h-3.5" /> GitHub{" "}
+                <ExternalLink className="w-3 h-3 text-slate-400" />
+              </a>
+            </div>
           </nav>
         </div>
       )}

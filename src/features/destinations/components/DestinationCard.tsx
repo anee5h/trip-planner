@@ -128,7 +128,7 @@ export default function DestinationCard({
                 "bg-sky-600 hover:bg-sky-700 text-white border-sky-300 font-bold shadow-md";
             } else if (tag === "Top 100 Castle") {
               badgeStyle =
-                "bg-rose-600 hover:bg-rose-700 text-white border-rose-300 font-bold shadow-md";
+                "bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold border-amber-300 shadow-md";
             } else if (tag === "Free Observatory") {
               badgeStyle =
                 "bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-300 font-bold shadow-md";

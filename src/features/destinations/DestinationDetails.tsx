@@ -360,11 +360,11 @@ export default function DestinationDetails() {
           }}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-900/60 to-transparent/10"></div>
         <div className="absolute bottom-0 left-0 w-full container mx-auto px-4 pb-8 text-white">
           <Link
             to="/destinations"
-            className="inline-flex items-center text-sm font-medium hover:text-emerald-400 transition-colors mb-4 text-slate-300"
+            className="inline-flex items-center text-sm font-medium hover:text-emerald-400 transition-colors mb-3 text-slate-300 drop-shadow-sm"
           >
             <ArrowLeft className="w-4 h-4 mr-1" /> Back
           </Link>
@@ -431,10 +431,10 @@ export default function DestinationDetails() {
                 </Badge>
               ))}
           </div>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-2 flex flex-wrap items-baseline gap-3">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-2.5 flex flex-wrap items-baseline gap-3 [text-shadow:_0_2px_8px_rgba(0,0,0,0.85)] drop-shadow-md">
             <span>{destination.name}</span>
             {wikiSummary?.japaneseTitle && (
-              <span className="text-xl md:text-3xl font-medium text-emerald-400 font-sans tracking-wide">
+              <span className="text-xl md:text-3xl font-semibold text-emerald-400 font-sans tracking-wide">
                 {wikiSummary.japaneseTitle}
               </span>
             )}
