@@ -1003,16 +1003,6 @@
     }
   },
   {
-    "id": "himeji-castle-hyogo",
-    "name": "Himeji-jo",
-    "prefecture": "Hyogo",
-    "region": "Kansai",
-    "role": "poi",
-    "kind": "attraction",
-    "status": "verified",
-    "relationships": {}
-  },
-  {
     "id": "himeji-city",
     "name": "Himeji City",
     "prefecture": "Hyogo",

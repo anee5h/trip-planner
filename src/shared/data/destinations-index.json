@@ -645,7 +645,8 @@
       "tickets": 2000,
       "food": 3000,
       "cafe": 1500
-    }
+    },
+    "nameJa": "奄美大島、徳之島、沖縄島北部及び西表島"
   },
   {
     "id": "amanohashidate-kyoto",
@@ -1553,7 +1554,8 @@
       "tickets": 2000,
       "food": 3000,
       "cafe": 1500
-    }
+    },
+    "nameJa": "飛鳥・藤原の宮都とその関連資産群"
   },
   {
     "id": "atami-city",
@@ -6248,7 +6250,8 @@
       "tickets": 2000,
       "food": 3000,
       "cafe": 1500
-    }
+    },
+    "nameJa": "明治日本の産業革命遺産 製鉄・製鋼、造船、石炭産業"
   },
   {
     "id": "gunma-ikaho-onsen",
@@ -8130,120 +8133,6 @@
     ]
   },
   {
-    "id": "himeji-castle-hyogo",
-    "name": "Himeji-jo",
-    "prefecture": "Hyogo",
-    "region": "Kansai",
-    "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Himeji_Castle_Keep_201505.jpg/1280px-Himeji_Castle_Keep_201505.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Himeji_Castle_Keep_201505.jpg/1280px-Himeji_Castle_Keep_201505.jpg"
-    ],
-    "description": "Himeji-jo is a UNESCO World Heritage Site in Hyogo, designated for its outstanding universal cultural or natural value.",
-    "highlights": [
-      "UNESCO Heritage Monument",
-      "Historic Landmark",
-      "Cultural Preservation Area"
-    ],
-    "budgetMin": 4000,
-    "budgetMax": 15000,
-    "budgetRecommended": 9500,
-    "transportOptions": {
-      "train": 45,
-      "bus": 50,
-      "car": 60
-    },
-    "totalTripHours": 6,
-    "walkingMin": 120,
-    "walkingSunMin": 70,
-    "walkingShadeMin": 50,
-    "indoorPercent": 35,
-    "ratings": {
-      "overall": 9.2,
-      "couple": 9,
-      "summer": 8.8,
-      "winter": 8.6,
-      "rain": 8.2,
-      "food": 8.7,
-      "photography": 9.4,
-      "relaxation": 9,
-      "value": 9.2,
-      "uniqueness": 9.5
-    },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 4,
-      "holiday": 5
-    },
-    "season": {
-      "spring": 5,
-      "summer": 4,
-      "autumn": 5,
-      "winter": 4
-    },
-    "bestMonths": [3, 4, 5, 10, 11],
-    "bestSeason": "Autumn",
-    "weatherDependence": "moderate",
-    "tags": ["UNESCO World Heritage", "Himeji-jo", "Hyogo"],
-    "reservation": "Not required",
-    "parking": "Available nearby",
-    "restaurants": ["Local Heritage Teahouse", "Regional Cuisine"],
-    "cafes": ["UNESCO Visitor Cafe"],
-    "notes": "Official UNESCO World Heritage Site.",
-    "coordinates": {
-      "lat": 34.8394,
-      "lng": 134.6939
-    },
-    "schemaVersion": 2,
-    "itineraries": [
-      {
-        "name": "Heritage Exploration",
-        "description": "Full day tour of the World Heritage site and surrounding grounds.",
-        "steps": [
-          {
-            "time": "09:30 AM",
-            "activity": "Arrive at Himeji-jo visitor center"
-          },
-          {
-            "time": "11:30 AM",
-            "activity": "Explore main heritage monuments and historic grounds"
-          },
-          {
-            "time": "01:30 PM",
-            "activity": "Traditional Japanese lunch at nearby heritage village"
-          },
-          {
-            "time": "03:30 PM",
-            "activity": "Visit regional museum or scenic viewpoint"
-          }
-        ]
-      }
-    ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Himeji_Castle_Keep_201505.jpg/1280px-Himeji_Castle_Keep_201505.jpg",
-    "imageMetadata": {
-      "source": "Wikimedia Commons",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Himeji-jo via Wikipedia/Wikimedia Commons"
-    },
-    "status": "verified",
-    "travelEstimate": {
-      "confidence": "high"
-    },
-    "collections": [
-      {
-        "collectionId": "unesco-japan",
-        "confirmed": true
-      }
-    ],
-    "relationships": {},
-    "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 2000,
-      "food": 3000,
-      "cafe": 1500
-    }
-  },
-  {
     "id": "himeji-city",
     "name": "Himeji City",
     "kind": "city",
@@ -8443,7 +8332,8 @@
       "tickets": 2000,
       "food": 3000,
       "cafe": 1500
-    }
+    },
+    "nameJa": "平泉―仏国土を表す建築・庭園及び考古学的遺跡群―"
   },
   {
     "id": "hirosaki-castle",
@@ -8752,7 +8642,8 @@
       "tickets": 2000,
       "food": 3000,
       "cafe": 1500
-    }
+    },
+    "nameJa": "原爆ドーム"
   },
   {
     "id": "horyuji-temple-nara",
@@ -8870,7 +8761,8 @@
       "tickets": 2000,
       "food": 3000,
       "cafe": 1500
-    }
+    },
+    "nameJa": "法隆寺地域の仏教建造物"
   },
   {
     "id": "ibaraki-fukuroda-falls",
@@ -10256,7 +10148,8 @@
       "tickets": 2000,
       "food": 3000,
       "cafe": 1500
-    }
+    },
+    "nameJa": "石見銀山遺跡とその文化的景観"
   },
   {
     "id": "izu",
@@ -13960,7 +13853,8 @@
       "tickets": 2000,
       "food": 3000,
       "cafe": 1500
-    }
+    },
+    "nameJa": "紀伊山地の霊場と参詣道"
   },
   {
     "id": "kurashiki-city",
@@ -14509,7 +14403,7 @@
       "mid": 8000,
       "high": 18000
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Kiyomizu.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Kiyomizu.jpg/1280px-Kiyomizu.jpg",
     "galleryImages": [
       "https://upload.wikimedia.org/wikipedia/commons/3/3c/Kiyomizu.jpg"
     ],
@@ -14536,13 +14430,16 @@
     "relationships": {
       "parentDestinationId": "kyoto-city"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Kiyomizu.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Kiyomizu.jpg/1280px-Kiyomizu.jpg",
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
       "food": 2600,
       "cafe": 1400
-    }
+    },
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Kiyomizu.jpg/1280px-Kiyomizu.jpg"
+    ]
   },
   {
     "id": "lake-hamanako",
@@ -16611,7 +16508,7 @@
       "mid": 8000,
       "high": 16000
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/3840px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Itsukushima_Torii_Miyajima_2019.jpg/1280px-Itsukushima_Torii_Miyajima_2019.jpg",
     "galleryImages": [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/3840px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg"
     ],
@@ -16636,13 +16533,16 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/3840px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Itsukushima_Torii_Miyajima_2019.jpg/1280px-Itsukushima_Torii_Miyajima_2019.jpg",
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
       "food": 1625,
       "cafe": 875
-    }
+    },
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Itsukushima_Torii_Miyajima_2019.jpg/1280px-Itsukushima_Torii_Miyajima_2019.jpg"
+    ]
   },
   {
     "id": "miyakojima-city",
@@ -17117,7 +17017,7 @@
       "lat": 35.3606,
       "lng": 138.7274
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/View_of_Mount_Fuji_from_%C5%8Cwakudani_20211202.jpg/3840px-View_of_Mount_Fuji_from_%C5%8Cwakudani_20211202.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/080103_hokusai_fuji.jpg/1280px-080103_hokusai_fuji.jpg",
     "prefecture": "Shizuoka",
     "budgetMin": 2000,
     "budgetMax": 10000,
@@ -17154,9 +17054,7 @@
     "description": "Mount Fuji is an active stratovolcano located on the Japanese island of Honshu, with a summit elevation of 3,776.24 m. It is the highest mountain in Japan, the second-highest volcano on any Asian island, and the seventh-highest peak of an island on Earth. Mount Fuji last erupted from 1707 to 1708.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/View_of_Mount_Fuji_from_%C5%8Cwakudani_20211202.jpg/3840px-View_of_Mount_Fuji_from_%C5%8Cwakudani_20211202.jpg",
-      "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600",
-      "https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/080103_hokusai_fuji.jpg/1280px-080103_hokusai_fuji.jpg"
     ],
     "budgetBreakdown": {
       "transport": 2000,
@@ -17204,7 +17102,7 @@
     ],
     "notes": "A fantastic trip to Mount Fuji. Known for its iconic and climbing vibes, it offers a great escape with an overall score of 9.6.",
     "schemaVersion": 2,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/View_of_Mount_Fuji_from_%C5%8Cwakudani_20211202.jpg/3840px-View_of_Mount_Fuji_from_%C5%8Cwakudani_20211202.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/080103_hokusai_fuji.jpg/1280px-080103_hokusai_fuji.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
@@ -17222,7 +17120,8 @@
         "confirmed": true
       }
     ],
-    "relationships": {}
+    "relationships": {},
+    "nameJa": "富士山―信仰の対象と芸術の源泉"
   },
   {
     "id": "mount-inasa-nagasaki",
@@ -17357,11 +17256,6 @@
       {
         "collectionId": "three-cherry-blossom-spots",
         "sortOrder": 3,
-        "confirmed": true
-      },
-      {
-        "collectionId": "unesco-japan",
-        "sortOrder": 10,
         "confirmed": true
       }
     ],
@@ -17527,7 +17421,8 @@
       "tickets": 2000,
       "food": 3000,
       "cafe": 1500
-    }
+    },
+    "nameJa": "百舌鳥・古市古墳群-古代日本の墳墓群-"
   },
   {
     "id": "nachi-falls-wakayama",
@@ -17571,11 +17466,6 @@
       {
         "collectionId": "three-great-waterfalls",
         "sortOrder": 2,
-        "confirmed": true
-      },
-      {
-        "collectionId": "unesco-japan",
-        "sortOrder": 9,
         "confirmed": true
       }
     ],
@@ -19249,7 +19139,8 @@
       "tickets": 2000,
       "food": 3000,
       "cafe": 1500
-    }
+    },
+    "nameJa": "古都奈良の文化財"
   },
   {
     "id": "nara-park-todaiji",
@@ -19291,11 +19182,6 @@
       "confidence": "beta"
     },
     "collections": [
-      {
-        "collectionId": "unesco-japan",
-        "sortOrder": 4,
-        "confirmed": true
-      },
       {
         "collectionId": "national-treasures",
         "sortOrder": 6,
@@ -19672,7 +19558,8 @@
       "tickets": 2000,
       "food": 3000,
       "cafe": 1500
-    }
+    },
+    "nameJa": "ル・コルビュジエの建築作品-近代建築運動への顕著な貢献-"
   },
   {
     "id": "nerima-city",
@@ -19924,11 +19811,6 @@
     },
     "collections": [
       {
-        "collectionId": "unesco-japan",
-        "sortOrder": 11,
-        "confirmed": true
-      },
-      {
         "collectionId": "japan-top-castles",
         "sortOrder": 28,
         "confirmed": true
@@ -20143,10 +20025,10 @@
       "Shrines",
       "History"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Nikko_Toshogu_Yomeimon_Gate_2024.jpg/1280px-Nikko_Toshogu_Yomeimon_Gate_2024.jpg",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Nikko_Toshogu_Yomeimon_Gate_2024.jpg/1280px-Nikko_Toshogu_Yomeimon_Gate_2024.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Nikko_Toshogu_Yomeimon_2017.jpg/1280px-Nikko_Toshogu_Yomeimon_2017.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Nikko_Toshogu_Yomeimon_2017.jpg/1280px-Nikko_Toshogu_Yomeimon_2017.jpg",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Nikko_Toshogu_Yomeimon_Gate_2024.jpg/1280px-Nikko_Toshogu_Yomeimon_Gate_2024.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Nikko_Toshogu_Yomeimon_2017.jpg/1280px-Nikko_Toshogu_Yomeimon_2017.jpg"
     ],
     "description": "UNESCO World Heritage complex housing the lavishly gilded Yomeimon Gate, Tokugawa Ieyasu's mausoleum, and three wise monkeys wood carving.",
     "highlights": [
@@ -20213,7 +20095,8 @@
       "train": 120
     },
     "walkingSunMin": 72,
-    "walkingShadeMin": 48
+    "walkingShadeMin": 48,
+    "nameJa": "日光の社寺"
   },
   {
     "id": "niseko-town",
@@ -20958,7 +20841,8 @@
       "tickets": 2000,
       "food": 3000,
       "cafe": 1500
-    }
+    },
+    "nameJa": "小笠原諸島"
   },
   {
     "id": "okayama-city",
@@ -21263,7 +21147,8 @@
       "tickets": 2000,
       "food": 3000,
       "cafe": 1500
-    }
+    },
+    "nameJa": "「神宿る島」宗像・沖ノ島と関連遺産群"
   },
   {
     "id": "okuhida",
@@ -22282,7 +22167,8 @@
       "tickets": 2000,
       "food": 3000,
       "cafe": 1500
-    }
+    },
+    "nameJa": "長崎と天草地方の潜伏キリシタン関連遺産"
   },
   {
     "id": "oze-national-park",
@@ -22558,7 +22444,7 @@
       "lat": 38.0333,
       "lng": 138.3833
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/MapSado.png/1280px-MapSado.png",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Sado_Gold_Mine_Doyu_no_Wari.jpg/1280px-Sado_Gold_Mine_Doyu_no_Wari.jpg",
     "prefecture": "Niigata",
     "budgetMin": 12000,
     "budgetMax": 20000,
@@ -22596,7 +22482,7 @@
     "description": "Sado Island is an island located in the eastern part of the Sea of Japan, under the jurisdiction of Sado City, Niigata Prefecture, Japan, with a coastline of 262.7 kilometres (163.2 mi). In October 2017, Sado Island had a population of 55,212 people. Sado Island covers an area of 854.76 km2 (330.02 sq mi), and is the sixth largest island in Japan, excluding the disputed Southern Kurils. The shortest distance between Sado Island and Honshu is 32 km (20 mi). The highest peak on Sado Island is Mount Kinpoku, with an elevation of 1,172 m (3,845 ft).",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/MapSado.png/1280px-MapSado.png"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Sado_Gold_Mine_Doyu_no_Wari.jpg/1280px-Sado_Gold_Mine_Doyu_no_Wari.jpg"
     ],
     "budgetBreakdown": {
       "transport": 6000,
@@ -22644,7 +22530,7 @@
     ],
     "notes": "A fantastic trip to Sado Island. Known for its gold mine and tub boats vibes, it offers a great escape with an overall score of 8.4.",
     "schemaVersion": 2,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/MapSado.png/1280px-MapSado.png",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Sado_Gold_Mine_Doyu_no_Wari.jpg/1280px-Sado_Gold_Mine_Doyu_no_Wari.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
@@ -22661,7 +22547,8 @@
         "confirmed": true
       }
     ],
-    "relationships": {}
+    "relationships": {},
+    "nameJa": "佐渡島（さどしま）の金山"
   },
   {
     "id": "sagamihara-city",
@@ -23345,7 +23232,8 @@
       "tickets": 2000,
       "food": 3000,
       "cafe": 1500
-    }
+    },
+    "nameJa": "北海道・北東北の縄文遺跡群"
   },
   {
     "id": "sapporo-city",
@@ -24372,7 +24260,8 @@
       "tickets": 2000,
       "food": 3000,
       "cafe": 1500
-    }
+    },
+    "nameJa": "白神山地"
   },
   {
     "id": "shirakawa-village",
@@ -24384,10 +24273,10 @@
     "prefecture": "Gifu",
     "region": "Chubu",
     "categories": ["Traditional", "Historic", "Mountain"],
-    "heroImage": "https://plus.unsplash.com/premium_photo-1661947436461-a9ab4ecdd37a?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "image": "https://plus.unsplash.com/premium_photo-1661947436461-a9ab4ecdd37a?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Shirakawa-go_33.jpg/1280px-Shirakawa-go_33.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Shirakawa-go_33.jpg/1280px-Shirakawa-go_33.jpg",
     "gallery": [
-      "https://plus.unsplash.com/premium_photo-1661947436461-a9ab4ecdd37a?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Shirakawa-go_33.jpg/1280px-Shirakawa-go_33.jpg"
     ],
     "description": "UNESCO World Heritage alpine village famous for steep thatched-roof gassho-zukuri farmhouses built to withstand heavy winter snowfalls.",
     "highlights": ["Ogimachi Village", "Shiroyama Viewpoint", "Wada House"],
@@ -24468,7 +24357,8 @@
       "tickets": 1500,
       "food": 2925,
       "cafe": 1575
-    }
+    },
+    "nameJa": "白川郷・五箇山の合掌造り集落"
   },
   {
     "id": "shiretoko-national-park-hokkaido",
@@ -24582,7 +24472,8 @@
       "tickets": 2000,
       "food": 3000,
       "cafe": 1500
-    }
+    },
+    "nameJa": "知床"
   },
   {
     "id": "shizuoka-city",
@@ -24827,7 +24718,8 @@
       "tickets": 2000,
       "food": 3000,
       "cafe": 1500
-    }
+    },
+    "nameJa": "琉球王国のグスク及び関連遺産群"
   },
   {
     "id": "suginami-city",
@@ -27512,7 +27404,8 @@
       "tickets": 2000,
       "food": 3000,
       "cafe": 1500
-    }
+    },
+    "nameJa": "富岡製糸場と絹産業遺産群"
   },
   {
     "id": "toshima-city",
@@ -28952,10 +28845,10 @@
     "prefecture": "Kagoshima",
     "region": "Kyushu",
     "categories": ["Travel Hub", "City Hub"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/68/Yakushima.jpg",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/6/68/Yakushima.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Jomon_Sugi_Yakushima.jpg/1280px-Jomon_Sugi_Yakushima.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Jomon_Sugi_Yakushima.jpg/1280px-Jomon_Sugi_Yakushima.jpg",
     "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/6/68/Yakushima.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Jomon_Sugi_Yakushima.jpg/1280px-Jomon_Sugi_Yakushima.jpg"
     ],
     "description": "Subtropical island World Heritage wilderness covered in ancient Yaku cedar forests and mossy gorges.",
     "highlights": ["Explore Yakushima Town", "Local Culture & Cuisine"],
@@ -29034,7 +28927,8 @@
       "tickets": 1500,
       "food": 4875,
       "cafe": 2625
-    }
+    },
+    "nameJa": "屋久島"
   },
   {
     "id": "yamanashi-fujiyoshida",
