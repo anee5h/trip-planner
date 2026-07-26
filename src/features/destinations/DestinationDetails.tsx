@@ -364,7 +364,7 @@ export default function DestinationDetails() {
           }}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-900/60 to-transparent/10"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-transparent/10"></div>
         <div className="absolute bottom-0 left-0 w-full container mx-auto px-4 pb-6 md:pb-8 text-white z-10">
           {/* 1. Destination Title & Japanese Kanji */}
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-1.5 flex flex-wrap items-baseline gap-3 [text-shadow:_0_2px_8px_rgba(0,0,0,0.85)] drop-shadow-md">

@@ -96,7 +96,7 @@ export default function DestinationCard({
 
   return (
     <Card className="overflow-hidden flex flex-col h-full group rounded-card shadow-card hover:shadow-hover hover:-translate-y-1 transition-all duration-300 border-slate-200 dark:border-slate-800">
-      <div className="relative h-56 aspect-[16/10] overflow-hidden">
+      <div className="relative h-60 sm:h-64 aspect-[16/10] overflow-hidden">
         <LazyImage
           src={destination.heroImage}
           alt={destination.name}

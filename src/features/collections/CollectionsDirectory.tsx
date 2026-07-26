@@ -23,7 +23,7 @@ export default function CollectionsDirectory() {
         description="Discover Japan through hand-picked historical rankings, official UNESCO heritage lists, and legendary cultural landmarks."
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {collections.map((col) => {
           const destinations = getDestinationsForCollection(col.id);
           const progress = getCollectionProgress(col.id, visited);
