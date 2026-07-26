@@ -211,6 +211,42 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
         [id]: [...existing, dateToAdd].sort((a, b) => a.localeCompare(b)),
       };
     });
+
+    // Cascade visit up parent hub chain
+    let currentId: string | undefined = id;
+    while (currentId) {
+      const dest = destinationsIndex.find((d) => d.id === currentId);
+      const parentHubId = dest?.relationships?.parentDestinationId;
+      if (!parentHubId) break;
+
+      if (!visited.includes(parentHubId)) {
+        setVisited((prev) =>
+          prev.includes(parentHubId) ? prev : [...prev, parentHubId],
+        );
+
+        const parentDest = destinationsIndex.find((d) => d.id === parentHubId);
+        if (parentDest) {
+          let prefId = parentDest.prefecture;
+          if (prefId === "Hokkaido") prefId = "Hokkaido\x8D";
+          setVisitedPrefectures((prevPrefs) =>
+            prevPrefs.includes(prefId) ? prevPrefs : [...prevPrefs, prefId],
+          );
+        }
+      }
+
+      setVisitedDates((prev) => {
+        const existing = normalizeVisitDates(prev[parentHubId]);
+        if (existing.includes(dateToAdd)) return prev;
+        return {
+          ...prev,
+          [parentHubId]: [...existing, dateToAdd].sort((a, b) =>
+            a.localeCompare(b),
+          ),
+        };
+      });
+
+      currentId = parentHubId;
+    }
   };
 
   const removeVisitedDate = (id: string, dateStr: string) => {

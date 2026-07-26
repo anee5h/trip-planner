@@ -1122,9 +1122,7 @@
     "indoorPercent": 20,
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "relationships": {
-      "parentDestinationId": "kyoto-city"
-    },
+    "relationships": {},
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Amanohashidate_aerial_view_2026.jpg/3840px-Amanohashidate_aerial_view_2026.jpg",
     "budgetBreakdown": {
       "transport": 3000,
@@ -3819,9 +3817,7 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {
-      "parentDestinationId": "chiyoda-city"
-    }
+    "relationships": {}
   },
   {
     "id": "gifu-castle-gifu",
@@ -6108,7 +6104,7 @@
     },
     "collections": [],
     "relationships": {
-      "parentDestinationId": "chiyoda-city"
+      "parentDestinationId": "toshima-city"
     }
   },
   {
@@ -6650,9 +6646,7 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {
-      "parentDestinationId": "hakone-town"
-    },
+    "relationships": {},
     "image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Miura_Peninsula_Kanagawa_Japan_SRTM.jpg"
   },
   {
@@ -6793,7 +6787,7 @@
     },
     "collections": [],
     "relationships": {
-      "parentDestinationId": "chiyoda-city"
+      "parentDestinationId": "minato-city"
     }
   },
   {
@@ -11543,7 +11537,7 @@
     },
     "collections": [],
     "relationships": {
-      "parentDestinationId": "chiyoda-city"
+      "parentDestinationId": "minato-city"
     }
   },
   {
@@ -12995,7 +12989,7 @@
     },
     "collections": [],
     "relationships": {
-      "parentDestinationId": "chiyoda-city"
+      "parentDestinationId": "toshima-city"
     }
   },
   {
@@ -14101,7 +14095,7 @@
     },
     "collections": [],
     "relationships": {
-      "parentDestinationId": "chiyoda-city"
+      "parentDestinationId": "shinjuku-city"
     }
   },
   {
