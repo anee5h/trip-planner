@@ -14,8 +14,6 @@ import {
   HelpCircle,
   MessageSquare,
   Layers,
-  Code2,
-  ExternalLink,
 } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { useAuth } from "@/shared/hooks/useAuth";
@@ -483,20 +481,11 @@ export default function Navbar() {
                 className="hover:text-emerald-500 font-bold transition-colors cursor-pointer flex items-center gap-1"
                 title="View Release Notes"
               >
-                <span>TabiMap Japan v1.7.43</span>
+                <span>TabiMap Japan v1.7.44</span>
                 <span className="text-[10px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-1.5 py-0.5 rounded font-extrabold border border-emerald-500/20">
                   Notes
                 </span>
               </button>
-              <a
-                href="https://github.com/aneesh-patil/trip-planner"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 hover:text-emerald-500 transition-colors font-semibold"
-              >
-                <Code2 className="w-3.5 h-3.5" /> GitHub{" "}
-                <ExternalLink className="w-3 h-3 text-slate-400" />
-              </a>
             </div>
           </nav>
         </div>

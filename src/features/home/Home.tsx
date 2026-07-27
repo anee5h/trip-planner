@@ -101,7 +101,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero & Planner Section */}
-      <section className="relative pt-20 pb-16 lg:pt-28 lg:pb-24 overflow-hidden bg-slate-50 dark:bg-slate-950">
+      <section className="relative pt-8 pb-12 sm:pt-12 lg:pt-16 lg:pb-20 overflow-hidden bg-slate-50 dark:bg-slate-950">
         <div className="absolute inset-0 bg-grid-slate-200/50 dark:bg-grid-slate-800/50 [mask-image:linear-gradient(0deg,transparent,black)] -z-10" />
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -136,7 +136,7 @@ export default function Home() {
                           }
                           setActiveTabId(tab.id);
                         }}
-                        className={`px-4 py-1.5 rounded-full text-sm font-bold transition-all focus:outline-none ${
+                        className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold h-9 flex items-center transition-all focus:outline-none ${
                           activeTabId === tab.id
                             ? "bg-emerald-600 text-white shadow-md"
                             : "bg-slate-100 text-slate-500 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700"
@@ -148,7 +148,7 @@ export default function Home() {
 
                     {/* Custom Date Picker (Bounded to Open-Meteo 10-day forecast) */}
                     {weatherContext && (
-                      <div className="relative inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full px-3 py-1 text-xs font-bold text-slate-600 dark:text-slate-300 shadow-sm hover:border-emerald-500 transition-colors">
+                      <div className="relative inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3.5 py-1.5 h-9 text-xs font-semibold text-slate-600 dark:text-slate-300 shadow-sm hover:border-emerald-500 transition-colors">
                         <Calendar className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                         <input
                           type="date"
@@ -162,7 +162,7 @@ export default function Home() {
                               handleCustomDateSelect(val);
                             }
                           }}
-                          className="bg-transparent border-none p-0 text-xs font-bold text-slate-700 dark:text-slate-200 focus:outline-none cursor-pointer"
+                          className="bg-transparent border-none p-0 text-xs font-semibold text-slate-700 dark:text-slate-200 focus:outline-none cursor-pointer"
                           title="Pick custom forecast date"
                         />
                       </div>

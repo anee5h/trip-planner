@@ -217,25 +217,27 @@ export default function StationInput({ embedded = false }: StationInputProps) {
     <div
       className={`flex flex-col gap-3 p-3.5 rounded-2xl border border-slate-200/80 dark:border-slate-800 ${embedded ? "bg-slate-50/50 dark:bg-slate-900/40 w-full" : "bg-white/70 dark:bg-slate-900/70 w-fit backdrop-blur-md shadow-sm"}`}
     >
-      <div className="flex items-center gap-3">
-        <MapPin className="w-5 h-5 text-emerald-500 shrink-0" />
-        <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 shrink-0">
-          Select Base Station:
-        </span>
-        <div className="flex bg-slate-200 dark:bg-slate-800 rounded-lg p-0.5 border border-slate-300 dark:border-slate-700">
+      <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3">
+        <div className="flex items-center gap-2 shrink-0">
+          <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-500 shrink-0" />
+          <span className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300">
+            Select Base Station:
+          </span>
+        </div>
+        <div className="flex bg-slate-200 dark:bg-slate-800 rounded-lg p-0.5 border border-slate-300 dark:border-slate-700 w-full sm:w-auto">
           <button
             type="button"
             onClick={() => setMode("station")}
-            className={`px-3 py-1 text-xs font-medium rounded-md transition-colors ${mode === "station" ? "bg-white dark:bg-slate-950 text-emerald-600 shadow-sm" : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"}`}
+            className={`flex-1 sm:flex-initial px-3 py-1 text-xs font-medium rounded-md transition-colors text-center ${mode === "station" ? "bg-white dark:bg-slate-950 text-emerald-600 shadow-sm" : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"}`}
           >
             Station
           </button>
           <button
             type="button"
             onClick={() => setMode("zip")}
-            className={`px-3 py-1 text-xs font-medium rounded-md transition-colors ${mode === "zip" ? "bg-white dark:bg-slate-950 text-emerald-600 shadow-sm" : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"}`}
+            className={`flex-1 sm:flex-initial px-3 py-1 text-xs font-medium rounded-md transition-colors text-center ${mode === "zip" ? "bg-white dark:bg-slate-950 text-emerald-600 shadow-sm" : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"}`}
           >
-            Zip Code
+            ZIP / Postal
           </button>
         </div>
       </div>

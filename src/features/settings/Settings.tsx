@@ -192,8 +192,8 @@ export default function Settings() {
                 onClick={() => setActiveSection(sec.id as SettingsSection)}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-xs font-bold transition-all text-left ${
                   isActive
-                    ? "bg-emerald-600 text-white shadow-sm"
-                    : "bg-slate-50 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                    ? "bg-emerald-600 text-white shadow-md shadow-emerald-500/20 border-l-4 border-emerald-400 pl-3"
+                    : "bg-slate-50 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border-l-4 border-transparent"
                 }`}
               >
                 <span>{sec.label}</span>
@@ -429,16 +429,18 @@ export default function Settings() {
               </div>
             )}
 
-            <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end">
-              <Button
-                type="submit"
-                disabled={loading}
-                className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {loading && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
-                Save Settings
-              </Button>
-            </div>
+            {activeSection !== "data" && (
+              <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end">
+                <Button
+                  type="submit"
+                  disabled={loading}
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {loading && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
+                  Save Settings
+                </Button>
+              </div>
+            )}
           </form>
         </div>
       </div>

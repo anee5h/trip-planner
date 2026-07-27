@@ -8,8 +8,24 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.43",
+    version: "v1.7.44",
     tag: "Current",
+    date: "July 2026",
+    title: "Mobile UI Polish & UX Improvements",
+    highlights: [
+      "Reduced homepage top section padding to bring Base Location card closer to navbar",
+      "Fixed Station/ZIP toggle mobile overflow with responsive flex wrapping and full-width layout",
+      "Conditionally hid 'Save Settings' button on non-form tabs like Data & Export",
+      "Constrained Release Notes modal height (max-h-[90vh]) with sticky header and scrollable timeline",
+      "Replaced Feedback dialog emojis with clean Lucide icons and added loading/success submission UX",
+      "Removed external GitHub link from mobile drawer navigation footer",
+      "Enhanced active tab sidebar indicator in Settings with emerald left accent border and shadow glow",
+      "Harmonized homepage date filter pills and custom Date Picker sizing, height, and typography",
+      "Increased footer top margin and padding for improved mobile breathing room",
+    ],
+  },
+  {
+    version: "v1.7.43",
     date: "July 2026",
     title: "\u2728 Recommended Default Sort on Destinations",
     highlights: [
@@ -231,11 +247,11 @@ export function ReleaseNotesModal({
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-xl max-h-[85vh] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl overflow-hidden flex flex-col"
+        className="relative w-full max-w-xl max-h-[90vh] sm:max-h-[85vh] m-4 sm:m-0 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl overflow-hidden flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="p-6 bg-gradient-to-r from-slate-900 via-slate-800 to-indigo-950 text-white flex items-center justify-between border-b border-white/10">
+        <div className="p-4 sm:p-6 shrink-0 bg-gradient-to-r from-slate-900 via-slate-800 to-indigo-950 text-white flex items-center justify-between border-b border-white/10">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-2xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-400">
               <Sparkles className="w-5 h-5" />
@@ -264,7 +280,7 @@ export function ReleaseNotesModal({
         </div>
 
         {/* Timeline list */}
-        <div className="p-6 overflow-y-auto space-y-6 flex-1 text-slate-800 dark:text-slate-200">
+        <div className="p-4 sm:p-6 overflow-y-auto min-h-0 flex-1 space-y-6 text-slate-800 dark:text-slate-200">
           {RELEASES.map((rel) => (
             <div
               key={rel.version}
