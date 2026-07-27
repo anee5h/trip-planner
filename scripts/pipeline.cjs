@@ -178,21 +178,6 @@ async function runPipeline() {
     if (!dest.heroImage || dest.heroImage.trim() === "") {
       missingHeroCount++;
     }
-    if (dest.gallery) {
-      if (dest.gallery.length < 3) {
-        console.warn(
-          `  \x1b[33m⚠️  [${label}] Gallery has fewer than 3 images: ${dest.gallery.length}\x1b[0m`,
-        );
-        schemaWarnings++;
-      }
-      const uniqueUrls = new Set(dest.gallery);
-      if (uniqueUrls.size !== dest.gallery.length) {
-        console.warn(
-          `  \x1b[33m⚠️  [${label}] Duplicate URLs detected in gallery\x1b[0m`,
-        );
-        schemaWarnings++;
-      }
-    }
   });
 
   if (schemaErrors > 0) {

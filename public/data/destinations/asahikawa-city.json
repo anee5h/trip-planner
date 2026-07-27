@@ -9,9 +9,6 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200",
   "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200",
-  "gallery": [
-    "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200"
-  ],
   "description": "Hokkaido's second-largest city, home to Asahiyama Zoo, soy ramen, and gateway to Daisetsuzan National Park.",
   "highlights": ["Explore Asahikawa City", "Local Culture & Cuisine"],
   "totalTripHours": 6,

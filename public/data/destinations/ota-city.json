@@ -9,9 +9,6 @@
   "categories": ["Travel Hub", "Special Ward"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Tokyo-International-Airport_Satellite.jpg/1280px-Tokyo-International-Airport_Satellite.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Tokyo-International-Airport_Satellite.jpg/1280px-Tokyo-International-Airport_Satellite.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Tokyo-International-Airport_Satellite.jpg/1280px-Tokyo-International-Airport_Satellite.jpg"
-  ],
   "description": "Gateway ward encompassing Tokyo International Haneda Airport, Ikegami Honmonji Temple, and coastal parks.",
   "highlights": ["Explore Ota City", "Local Culture & Cuisine"],
   "totalTripHours": 6,

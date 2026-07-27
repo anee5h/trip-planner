@@ -8,8 +8,17 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.37",
+    version: "v1.7.38",
     tag: "Current",
+    date: "July 2026",
+    title: "Dataset Refinement & Internal QA Route Privacy",
+    highlights: [
+      "Removed unused gallery arrays from destinations dataset to optimize memory footprint",
+      "Removed public Footer link to QA Dashboard while preserving direct route access for developers",
+    ],
+  },
+  {
+    version: "v1.7.37",
     date: "July 2026",
     title: "Account Switch State Reset & Production Log Cleanup",
     highlights: [

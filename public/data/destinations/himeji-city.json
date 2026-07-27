@@ -9,9 +9,6 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/67/Himeji_montage2.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/6/67/Himeji_montage2.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/6/67/Himeji_montage2.jpg"
-  ],
   "description": "Historic castle city home to UNESCO World Heritage Himeji 'White Heron' Castle and Koko-en Garden.",
   "highlights": ["Explore Himeji City", "Local Culture & Cuisine"],
   "totalTripHours": 6,

@@ -9,9 +9,6 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/dc/%E5%BB%BF%E6%97%A5%E5%B8%82%E5%B8%82.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/%E5%BB%BF%E6%97%A5%E5%B8%82%E5%B8%82.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/d/dc/%E5%BB%BF%E6%97%A5%E5%B8%82%E5%B8%82.jpg"
-  ],
   "description": "Coastal city encompassing sacred Miyajima Island and UNESCO World Heritage Itsukushima Floating Torii Gate.",
   "highlights": ["Explore Hatsukaichi City", "Local Culture & Cuisine"],
   "totalTripHours": 6,

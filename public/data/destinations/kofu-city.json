@@ -9,9 +9,6 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/17/Kofu_montage.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/1/17/Kofu_montage.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/1/17/Kofu_montage.jpg"
-  ],
   "description": "Historic home of samurai warlord Takeda Shingen, featuring Maizuru Castle Park and Shosenkyo Gorge.",
   "highlights": ["Explore Kofu City", "Local Culture & Cuisine"],
   "totalTripHours": 6,

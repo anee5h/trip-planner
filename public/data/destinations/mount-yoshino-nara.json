@@ -59,9 +59,6 @@
     "high": 16000
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Cherry_blossoms_at_Yoshinoyama_01.jpg/1280px-Cherry_blossoms_at_Yoshinoyama_01.jpg",
-  "galleryImages": [
-    "https://upload.wikimedia.org/wikipedia/commons/1/1a/Cherry_blossoms_at_Yoshinoyama_02.jpg"
-  ],
   "description": "Mount Yoshino is Japan's most famous cherry blossom mountain, carpeted by over 30,000 Yamazakura trees blooming sequentially across four mountain elevations.",
   "notes": "Part of the Sacred Sites and Pilgrimage Routes in the Kii Mountain Range UNESCO site.",
   "budgetRecommended": 7500,
@@ -84,9 +81,6 @@
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {},
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Cherry_blossoms_at_Yoshinoyama_01.jpg/1280px-Cherry_blossoms_at_Yoshinoyama_01.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Cherry_blossoms_at_Yoshinoyama_01.jpg/1280px-Cherry_blossoms_at_Yoshinoyama_01.jpg"
-  ],
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,

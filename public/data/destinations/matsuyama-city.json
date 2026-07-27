@@ -9,9 +9,6 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Matsuyama_montage.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Matsuyama_montage.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/9/9f/Matsuyama_montage.jpg"
-  ],
   "description": "Largest city in Shikoku, featuring historic Matsuyama Castle atop Mt. Katsuyama and 3,000-year-old Dogo Onsen.",
   "highlights": ["Explore Matsuyama City", "Local Culture & Cuisine"],
   "totalTripHours": 6,

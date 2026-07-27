@@ -9,9 +9,6 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Wakayama_montage.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Wakayama_montage.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/0/0f/Wakayama_montage.jpg"
-  ],
   "description": "Coastal castle city famous for Wakayama Castle, Kuroshio Seafood Market, and Wakayama ramen.",
   "highlights": ["Explore Wakayama City", "Local Culture & Cuisine"],
   "totalTripHours": 6,

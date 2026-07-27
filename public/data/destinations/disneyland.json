@@ -53,11 +53,6 @@
   },
   "highlights": ["Cinderella Castle", "Space Mountain", "Electrical Parade"],
   "description": "Tokyo Disneyland is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Tokyo_Disneyland_Cinderella_Castle_2023-07-02.jpg/1920px-Tokyo_Disneyland_Cinderella_Castle_2023-07-02.jpg",
-    "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=600",
-    "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600"
-  ],
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 18800,

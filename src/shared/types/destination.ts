@@ -76,7 +76,6 @@ export interface Destination {
   region: string;
   categories: string[];
   heroImage: string;
-  gallery: string[];
   description: string;
   highlights: string[];
   budgetRecommended: number;

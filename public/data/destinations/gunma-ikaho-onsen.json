@@ -5,11 +5,6 @@
   "region": "Kanto",
   "categories": ["Relaxation", "History"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ikaho_Onsen_03.jpg/250px-Ikaho_Onsen_03.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ikaho_Onsen_03.jpg/250px-Ikaho_Onsen_03.jpg",
-    "https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?q=80&w=600",
-    "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600"
-  ],
   "description": "An onsen town located on Mount Haruna's slopes, known for its steep 365 stone steps, golden iron-rich spring waters, and local food stalls.",
   "highlights": [
     "365 Stone Steps (Stone Stairs)",

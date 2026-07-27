@@ -54,9 +54,6 @@
     "high": 14000
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/1280px-Mt.Inasa_2010.jpg",
-  "galleryImages": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/800px-Mt.Inasa_2010.jpg"
-  ],
   "description": "Mount Inasa in Nagasaki is designated as one of the World's New Three Great Night Views, offering a 360° illuminated bowl view of Nagasaki harbor and surrounding hills.",
   "notes": "333 meters high, connected by Nagasaki Ropeway.",
   "budgetRecommended": 6500,
@@ -79,9 +76,6 @@
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {},
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/1280px-Mt.Inasa_2010.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/1280px-Mt.Inasa_2010.jpg"
-  ],
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,

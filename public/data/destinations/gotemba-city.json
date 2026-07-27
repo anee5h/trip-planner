@@ -9,9 +9,6 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&q=80&w=1200",
   "image": "https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&q=80&w=1200",
-  "gallery": [
-    "https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&q=80&w=1200"
-  ],
   "description": "Resort city at the foot of Mount Fuji, famous for Gotemba Premium Outlets and scenic volcano panoramas.",
   "highlights": ["Explore Gotemba City", "Local Culture & Cuisine"],
   "totalTripHours": 6,

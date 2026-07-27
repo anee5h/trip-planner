@@ -57,11 +57,6 @@
   ],
   "description": "Discover Izu Peninsula, a prominent destination in Shizuoka. With its rich mix of beaches, onsen, scuba, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/a/ad/Izu_Peninsula_Shizuoka_Japan_SRTM.jpg",
-    "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=600",
-    "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600"
-  ],
   "budgetBreakdown": {
     "transport": 4800,
     "tickets": 2400,

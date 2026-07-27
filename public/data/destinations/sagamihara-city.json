@@ -9,9 +9,6 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/95/Sagamihara_montage.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/9/95/Sagamihara_montage.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/9/95/Sagamihara_montage.jpg"
-  ],
   "description": "Inland city featuring Lake Sagami, JAXA space exploration campus, and mountain hiking trails.",
   "highlights": ["Explore Sagamihara City", "Local Culture & Cuisine"],
   "totalTripHours": 6,

@@ -58,11 +58,6 @@
   ],
   "description": "Mount Fuji is an active stratovolcano located on the Japanese island of Honshu, with a summit elevation of 3,776.24 m. It is the highest mountain in Japan, the second-highest volcano on any Asian island, and the seventh-highest peak of an island on Earth. Mount Fuji last erupted from 1707 to 1708.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/View_of_Mount_Fuji_from_%C5%8Cwakudani_20211202.jpg/3840px-View_of_Mount_Fuji_from_%C5%8Cwakudani_20211202.jpg",
-    "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600",
-    "https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600"
-  ],
   "budgetBreakdown": {
     "transport": 2000,
     "tickets": 1000,

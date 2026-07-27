@@ -10,9 +10,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&q=80&w=1200",
     "image": "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&q=80&w=1200",
-    "gallery": [
-      "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&q=80&w=1200"
-    ],
     "description": "Okhotsk coastal city famous for winter sea drift ice cruise ships (Garinko) and Abashiri Prison Museum.",
     "highlights": ["Explore Abashiri City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -157,11 +154,6 @@
       "Abeno Harukas Kintetsu Department Store"
     ],
     "description": "Rising 300 meters above Osaka, Abeno Harukas is Japan's tallest skyscraper, featuring a 3-story glass observatory and open-air wooden atrium garden.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Abeno_Harukas_Osaka_Japan01-r.jpg/330px-Abeno_Harukas_Osaka_Japan01-r.jpg",
-      "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
-      "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 2500,
       "tickets": 1800,
@@ -227,9 +219,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Nishiarai_Daishi.jpg/1280px-Nishiarai_Daishi.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Nishiarai_Daishi.jpg/1280px-Nishiarai_Daishi.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Nishiarai_Daishi.jpg/1280px-Nishiarai_Daishi.jpg"
-    ],
     "description": "Northeastern borough home to Nishiarai Daishi Temple and scenic Arakawa riverbank parks.",
     "highlights": ["Explore Adachi City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -360,11 +349,6 @@
     },
     "highlights": ["Hie Shrine", "Tokyo Midtown (nearby)", "TBS Studio area"],
     "description": "An upscale commercial and residential district with excellent dining, high-end hotels, and Hie Shrine.",
-    "gallery": [
-      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600",
-      "https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?q=80&w=600",
-      "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 1000,
       "tickets": 1600,
@@ -469,11 +453,6 @@
     },
     "highlights": ["Electric Town", "Maid Cafes", "Radio Kaikan"],
     "description": "Akihabara is a neighborhood in the Chiyoda ward of Tokyo, Japan, generally considered to be the area surrounding Akihabara Station. This area is part of the Sotokanda (外神田) and Kanda-Sakumachō districts of Chiyoda. There is an administrative district called Akihabara, located north of Akihabara Electric Town surrounding Akihabara Neribei Park.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Sotokanda%2C_Akihabara_Electric_Town_at_night_20231114.png/3840px-Sotokanda%2C_Akihabara_Electric_Town_at_night_20231114.png",
-      "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
-      "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 1000,
       "tickets": 0,
@@ -536,9 +515,6 @@
     "region": "Kyushu",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/93/View_of_Katetsu_cove_from_nearby_Manen-zaki.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/9/93/View_of_Katetsu_cove_from_nearby_Manen-zaki.jpg"
-    ],
     "description": "Amami-Oshima, Tokunoshima, Northern Okinawa & Iriomote is a UNESCO World Heritage Site in Kagoshima, designated for its outstanding universal cultural or natural value.",
     "highlights": [
       "UNESCO Heritage Monument",
@@ -700,9 +676,6 @@
       "high": 16000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Amanohashidate_aerial_view_2026.jpg/3840px-Amanohashidate_aerial_view_2026.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Amanohashidate_aerial_view_2026.jpg/3840px-Amanohashidate_aerial_view_2026.jpg"
-    ],
     "description": "Amanohashidate is a natural 3.3-kilometer pine-covered sandbar spanning Miyazu Bay, famed for the Matanozoki upside-down viewing technique making it look like a bridge floating into heaven.",
     "notes": "Planted with nearly 7,000 pine trees.",
     "budgetRecommended": 7500,
@@ -743,9 +716,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Entsuji_%28Arakawa%29_08.jpg/1280px-Entsuji_%28Arakawa%29_08.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Entsuji_%28Arakawa%29_08.jpg/1280px-Entsuji_%28Arakawa%29_08.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Entsuji_%28Arakawa%29_08.jpg/1280px-Entsuji_%28Arakawa%29_08.jpg"
-    ],
     "description": "Nostalgic shitamachi district serviced by the retro Tokyo Sakura Tram (Arakawa Line).",
     "highlights": ["Explore Arakawa City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -877,9 +847,6 @@
       "high": 32000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2c/170811_Rokko-Arima_Ropeway_Kobe_Japan00n.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/2/2c/170811_Rokko-Arima_Ropeway_Kobe_Japan00n.jpg"
-    ],
     "description": "Arima Onsen is Japan's oldest recorded hot spring resort, nestled behind Mount Rokko and famous for its iron-rich golden 'Kinsen' and clear radium 'Ginsen' waters.",
     "notes": "Favored by Toyotomi Hideyoshi who built private baths here.",
     "budgetRecommended": 18000,
@@ -972,11 +939,6 @@
       "Concert Hall & Theater"
     ],
     "description": "Designed by Pritzker Prize laureate Arata Isozaki to commemorate Mito's 100th municipal anniversary, this 100-meter helix tower is composed of 57 titanium tetrahedrons spiraling skyward.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/c/c2/Mito_Art_Tower.JPG",
-      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=600",
-      "https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 1500,
       "tickets": 200,
@@ -1037,9 +999,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200",
     "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200",
-    "gallery": [
-      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200"
-    ],
     "description": "Hokkaido's second-largest city, home to Asahiyama Zoo, soy ramen, and gateway to Daisetsuzan National Park.",
     "highlights": ["Explore Asahikawa City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -1169,11 +1128,6 @@
       "Sumida River Cruise"
     ],
     "description": "Asakusa is a district in Taitō, Tokyo, Japan. It is known for Sensō-ji, a Buddhist temple dedicated to the bodhisattva Kannon. There are several other temples in Asakusa, as well as various festivals, such as Sanja Matsuri.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Day2-2_%2840909714314%29.jpg/3840px-Day2-2_%2840909714314%29.jpg",
-      "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=600",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 1000,
       "tickets": 1600,
@@ -1289,11 +1243,6 @@
     ],
     "description": "Discover Ashigara, a prominent destination in Kanagawa. With its rich mix of hiking, quiet, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/0/0c/Wizyta_japo%C5%84skiego_kr%C4%85%C5%BCownika_Ashigara_w_Niemczech_%281-E-8502%29.jpg",
-      "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=600",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 1600,
       "tickets": 800,
@@ -1361,9 +1310,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Mt.Aso_and_caldera01.jpg/1280px-Mt.Aso_and_caldera01.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Mt.Aso_and_caldera01.jpg/1280px-Mt.Aso_and_caldera01.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Mt.Aso_and_caldera01.jpg/1280px-Mt.Aso_and_caldera01.jpg"
-    ],
     "description": "Volcanic basin city inside Mount Aso caldera (one of the world's largest active volcano calderas).",
     "highlights": ["Explore Aso City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -1445,9 +1391,6 @@
     "region": "Kansai",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Takamat1.jpg/960px-Takamat1.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Takamat1.jpg/960px-Takamat1.jpg"
-    ],
     "description": "Ancient Capitals of Asuka and Fujiwara is a UNESCO World Heritage Site in Nara, designated for its outstanding universal cultural or natural value.",
     "highlights": [
       "UNESCO Heritage Monument",
@@ -1568,9 +1511,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Atami_20170211-1.jpg/3840px-Atami_20170211-1.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Atami_20170211-1.jpg/3840px-Atami_20170211-1.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Atami_20170211-1.jpg/3840px-Atami_20170211-1.jpg"
-    ],
     "description": "Coastal hot spring resort city on the Izu Peninsula famous for seaside fireworks festivals and MOA Museum of Art.",
     "highlights": ["Explore Atami City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -1752,9 +1692,6 @@
       "high": 10000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Atsuta_Shrine.jpg/3840px-Atsuta_Shrine.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Atsuta_Shrine.jpg/3840px-Atsuta_Shrine.jpg"
-    ],
     "description": "Atsuta Shrine in central Nagoya is a sacred ancient Shinto sanctuary surrounded by a tranquil cedar forest, enshrining the legendary Kusanagi-no-Tsurugi sacred sword.",
     "notes": "Founded nearly 2,000 years ago during the reign of Emperor Keiko.",
     "budgetRecommended": 4000,
@@ -1797,9 +1734,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Beppu_Montage_2.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Beppu_Montage_2.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/c/cd/Beppu_Montage_2.jpg"
-    ],
     "description": "Japan's premier hot spring discharge resort, famous for the Seven Hells of Beppu (Jigoku Meguri).",
     "highlights": ["Explore Beppu City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -1885,9 +1819,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200",
     "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200",
-    "gallery": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200"
-    ],
     "description": "Scenic landscape town renowned for the Shirogane Blue Pond, Patchwork Road hills, and Panoramic Flower Gardens.",
     "highlights": ["Explore Biei Town", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -2017,9 +1948,6 @@
       "high": 14000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Bitchu_Matsuyama_Castle_1.JPG/1280px-Bitchu_Matsuyama_Castle_1.JPG",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/9/9e/Bitchu_Matsuyama_Castle_1.JPG"
-    ],
     "description": "Bitchu Matsuyama Castle is Japan's highest original mountain castle (430 meters above sea level), celebrated for floating above a sea of clouds on autumn mornings.",
     "notes": "Built in 1240, the current keep dates to 1683.",
     "categories": ["history", "culture", "sightseeing"],
@@ -2050,10 +1978,7 @@
       "tickets": 2000,
       "food": 2600,
       "cafe": 1400
-    },
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Bitchu_Matsuyama_Castle_1.JPG/1280px-Bitchu_Matsuyama_Castle_1.JPG"
-    ]
+    }
   },
   {
     "id": "boso-peninsula",
@@ -2112,11 +2037,6 @@
     },
     "highlights": ["Coastal Drive", "Seafood", "Nokogiriyama"],
     "description": "Boso Peninsula is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/B%C5%8Ds%C5%8D_Peninsula_by_Sentinel-2%2C_2018-10-30.jpg/3840px-B%C5%8Ds%C5%8D_Peninsula_by_Sentinel-2%2C_2018-10-30.jpg",
-      "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600",
-      "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 7000,
       "tickets": 0,
@@ -2215,9 +2135,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Akamon%2C_University_of_Tokyo_2019.jpg/1280px-Akamon%2C_University_of_Tokyo_2019.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Akamon%2C_University_of_Tokyo_2019.jpg/1280px-Akamon%2C_University_of_Tokyo_2019.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Akamon%2C_University_of_Tokyo_2019.jpg/1280px-Akamon%2C_University_of_Tokyo_2019.jpg"
-    ],
     "description": "Tokyo's academic and garden borough featuring Tokyo Dome City, Rikugien Garden, and Koishikawa Korakuen.",
     "highlights": ["Explore Bunkyo City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -2352,9 +2269,6 @@
     ],
     "description": "Discover Chiba City, a prominent destination in Kanagawa. With its rich mix of urban, shopping, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/d/d9/Chiba_montage.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 2800,
       "tickets": 1400,
@@ -2438,11 +2352,6 @@
     "region": "Kanto",
     "categories": ["History", "Hiking", "Nature"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/35/The_port_of_Kanaya.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/3/35/The_port_of_Kanaya.jpg",
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600",
-      "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600"
-    ],
     "description": "A saw-toothed mountain showcasing Nihon-ji temple, a massive 31-meter tall stone carving of Buddha, and the dizzying 'View of Hell' cliff overlook.",
     "highlights": [
       "Jigoku Nozoki (Hell Peek)",
@@ -2615,11 +2524,6 @@
       "Chiba Port Park Beach"
     ],
     "description": "Clad in over 5,500 heat-reflecting glass mirrors, this 125-meter waterfront tower stands in Chiba Port Park, offering panoramic sunset views across Tokyo Bay to Mt. Fuji.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/1/15/Chiba_Port_Tower_2023-1.jpg",
-      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=600",
-      "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 800,
       "tickets": 420,
@@ -2676,11 +2580,6 @@
     "region": "Kanto",
     "categories": ["History", "Canal"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Inou-tadataka-house%2Ckatori-city%2Cjapan.JPG/330px-Inou-tadataka-house%2Ckatori-city%2Cjapan.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Inou-tadataka-house%2Ckatori-city%2Cjapan.JPG/330px-Inou-tadataka-house%2Ckatori-city%2Cjapan.JPG",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600",
-      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600"
-    ],
     "description": "Commonly nicknamed 'Little Edo', Sawara features a beautifully preserved historic canal district lined with traditional merchant houses.",
     "highlights": [
       "Ono River Historic District",
@@ -2797,11 +2696,6 @@
     "region": "Kanto",
     "categories": ["Nature", "Hiking"],
     "heroImage": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000",
-    "gallery": [
-      "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600",
-      "https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600",
-      "https://images.unsplash.com/photo-1463438690606-f6778b8c1d10?q=80&w=600"
-    ],
     "description": "A scenic forested river valley in the heart of Chiba, famous for its autumn leaves hikes and unique Awamata double waterfall cascades.",
     "highlights": [
       "Awamata Falls",
@@ -2916,9 +2810,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/20/Chichibu_Yomatsuri.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/2/20/Chichibu_Yomatsuri.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/2/20/Chichibu_Yomatsuri.jpg"
-    ],
     "description": "Mountain valley city famous for Hitsujiyama Park pink moss phlox, Chichibu Shrine, and steam train locomotives.",
     "highlights": ["Explore Chichibu City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -3032,9 +2923,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Chigasaki_City_Hall_20170721.JPG/3840px-Chigasaki_City_Hall_20170721.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Chigasaki_City_Hall_20170721.JPG/3840px-Chigasaki_City_Hall_20170721.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Chigasaki_City_Hall_20170721.JPG/3840px-Chigasaki_City_Hall_20170721.JPG"
-    ],
     "description": "Shonan coastal resort city celebrated for Southern Beach, Eboshi Rock, and beach culture.",
     "highlights": ["Explore Chigasaki City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -3121,9 +3009,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/National_Diet_Building_02.jpg/1280px-National_Diet_Building_02.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/National_Diet_Building_02.jpg/1280px-National_Diet_Building_02.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/National_Diet_Building_02.jpg/1280px-National_Diet_Building_02.jpg"
-    ],
     "description": "Tokyo's political and historic center featuring Imperial Palace East Gardens, Hibiya Park, and Akihabara electric town.",
     "highlights": ["Explore Chiyoda City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -3208,11 +3093,6 @@
     "region": "Kanto",
     "categories": ["Culture", "Nature", "Food"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/17/Cyofushiyakusyo.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/1/17/Cyofushiyakusyo.jpg",
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=600",
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600"
-    ],
     "description": "Leafy suburban Tokyo town famous for Jindaiji Temple, hand-made Soba noodles, and GeGeGe no Kitaro anime heritage.",
     "highlights": [
       "Jindaiji Temple",
@@ -3323,11 +3203,6 @@
     "region": "Kanto",
     "categories": ["Nature", "Food", "Ocean"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Choshi_Montage_2.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/c/c2/Choshi_Montage_2.jpg",
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600",
-      "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=600"
-    ],
     "description": "Easternmost coastal cape of the Kanto region, renowned for first sunrises, Inubosaki Lighthouse, and fresh seafood markets.",
     "highlights": [
       "Inubosaki Lighthouse",
@@ -3442,9 +3317,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg"
-    ],
     "description": "Historic mercantile district housing luxury Ginza shopping avenues, Tsukiji outer seafood markets, and Nihonbashi zero-mile marker.",
     "highlights": ["Explore Chuo City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -3526,9 +3398,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/20100719_Dazaifu_Tenmangu_Shrine_3328.jpg/1280px-20100719_Dazaifu_Tenmangu_Shrine_3328.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/20100719_Dazaifu_Tenmangu_Shrine_3328.jpg/1280px-20100719_Dazaifu_Tenmangu_Shrine_3328.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/20100719_Dazaifu_Tenmangu_Shrine_3328.jpg/1280px-20100719_Dazaifu_Tenmangu_Shrine_3328.jpg"
-    ],
     "description": "Ancient administrative center home to Dazaifu Tenmangu Shrine, dedicated to the deity of learning.",
     "highlights": ["Explore Dazaifu City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -3658,11 +3527,6 @@
     },
     "highlights": ["Cinderella Castle", "Space Mountain", "Electrical Parade"],
     "description": "Tokyo Disneyland is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Tokyo_Disneyland_Cinderella_Castle_2023-07-02.jpg/1920px-Tokyo_Disneyland_Cinderella_Castle_2023-07-02.jpg",
-      "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=600",
-      "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 18800,
@@ -3779,11 +3643,6 @@
     },
     "highlights": ["DisneySea Transit Steamer", "Soaring"],
     "description": "DisneySea is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Tokyo_Disney_Sea_Aerial_2019.png/330px-Tokyo_Disney_Sea_Aerial_2019.png",
-      "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600",
-      "https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 18800,
@@ -3938,11 +3797,6 @@
       "Ninomaru Garden"
     ],
     "description": "The historic seat of the Tokugawa Shogunate and current Imperial Palace, featuring massive cyclopean stone ramparts, historic watchtowers, and the Imperial Palace East Gardens.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/5/5f/Edo_P_detail.jpg",
-      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600",
-      "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 400,
       "tickets": 0,
@@ -4010,9 +3864,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/%E6%B1%9F%E6%88%B8%E5%B7%9D%E5%8C%BA%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A%E3%83%BB%E5%B8%82%E5%B7%9D%E5%B8%82%E6%B0%91%E7%B4%8D%E6%B6%BC%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A2019.jpg/1280px-%E6%B1%9F%E6%88%B8%E5%B7%9D%E5%8C%BA%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A%E3%83%BB%E5%B8%82%E5%B7%9D%E5%B8%82%E6%B0%91%E7%B4%8D%E6%B6%BC%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A2019.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/%E6%B1%9F%E6%88%B8%E5%B7%9D%E5%8C%BA%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A%E3%83%BB%E5%B8%82%E5%B7%9D%E5%B8%82%E6%B0%91%E7%B4%8D%E6%B6%BC%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A2019.jpg/1280px-%E6%B1%9F%E6%88%B8%E5%B7%9D%E5%8C%BA%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A%E3%83%BB%E5%B8%82%E5%B7%9D%E5%B8%82%E6%B0%91%E7%B4%8D%E6%B6%BC%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A2019.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/%E6%B1%9F%E6%88%B8%E5%B7%9D%E5%8C%BA%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A%E3%83%BB%E5%B8%82%E5%B7%9D%E5%B8%82%E6%B0%91%E7%B4%8D%E6%B6%BC%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A2019.jpg/1280px-%E6%B1%9F%E6%88%B8%E5%B7%9D%E5%8C%BA%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A%E3%83%BB%E5%B8%82%E5%B7%9D%E5%B8%82%E6%B0%91%E7%B4%8D%E6%B6%BC%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A2019.jpg"
-    ],
     "description": "Eastern coastal ward home to Kasai Rinkai Park, Diamond and Flower Ferris Wheel, and Tokyo Bay views.",
     "highlights": ["Explore Edogawa City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -4171,11 +4022,6 @@
     },
     "highlights": ["Enoshima Shrine", "Iwaya Caves", "Enoshima Sea Candle"],
     "description": "A delightfully pleasant island just off the coast, full of shrines, coastal cliffs, and sweeping views of Mt. Fuji.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/8/83/EnoshimaAeralPhoto1988JP14.jpg",
-      "https://images.unsplash.com/photo-1463438690606-f6778b8c1d10?q=80&w=600",
-      "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 3000,
@@ -4289,11 +4135,6 @@
     ],
     "description": "Discover Fuji Five Lakes, a prominent destination in Shizuoka. With its rich mix of fuji views, fuji-q, cycling, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/a/a7/Fuji_Five_Lakes_and_Mount_Fuji.jpg",
-      "https://images.unsplash.com/photo-1463438690606-f6778b8c1d10?q=80&w=600",
-      "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 4400,
       "tickets": 2200,
@@ -4365,9 +4206,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://images.unsplash.com/photo-1749498682646-45e7c11506ec?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "image": "https://images.unsplash.com/photo-1749498682646-45e7c11506ec?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "gallery": [
-      "https://images.unsplash.com/photo-1749498682646-45e7c11506ec?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    ],
     "description": "Premier Mount Fuji viewing resort town centered around Lake Kawaguchiko, Chureito Pagoda, and Fuji-Q Highland.",
     "highlights": ["Explore Fujikawaguchiko Town", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -4458,9 +4296,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/070127_tanuki-fuji.jpg/1280px-070127_tanuki-fuji.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/070127_tanuki-fuji.jpg/1280px-070127_tanuki-fuji.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/070127_tanuki-fuji.jpg/1280px-070127_tanuki-fuji.jpg"
-    ],
     "description": "Mount Fuji gateway featuring Fujisan Hongu Sengen Taisha Shrine and Shiraito Falls.",
     "highlights": ["Explore Fujinomiya City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -4574,9 +4409,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/22/Fujisawa_montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/2/22/Fujisawa_montage.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/2/22/Fujisawa_montage.jpg"
-    ],
     "description": "Coastal getaway gateway to Enoshima Island, surf beaches, and scenic Enoden coastal railway.",
     "highlights": ["Explore Fujisawa City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -4712,11 +4544,6 @@
     ],
     "description": "Discover Fukui, a prominent destination in Shizuoka. With its rich mix of dinosaurs, cliffs, crab, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/b/bd/Skyline_of_Fukui_City02.jpg",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 4000,
       "tickets": 2000,
@@ -4778,9 +4605,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/72/Fukuoka_City_-_Montage_-_01.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/7/72/Fukuoka_City_-_Montage_-_01.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/7/72/Fukuoka_City_-_Montage_-_01.JPG"
-    ],
     "description": "Kyushu's largest metropolis, famous for Nakasu yatai food stalls, Hakata Tonkotsu ramen, and Ohori Park.",
     "highlights": ["Explore Fukuoka City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -4872,9 +4696,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Funabashi_montage.jpg/1280px-Funabashi_montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Funabashi_montage.jpg/1280px-Funabashi_montage.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Funabashi_montage.jpg/1280px-Funabashi_montage.jpg"
-    ],
     "description": "Commercial hub on Tokyo Bay featuring Andersen Park and vibrant shopping complexes.",
     "highlights": ["Explore Funabashi City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -4961,9 +4782,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&q=80&w=1200",
     "image": "https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&q=80&w=1200",
-    "gallery": [
-      "https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&q=80&w=1200"
-    ],
     "description": "Central Hokkaido floral valley famous for rolling purple lavender fields (Farm Tomita) and winter ski slopes.",
     "highlights": ["Explore Furano City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -5093,11 +4911,6 @@
     ],
     "description": "Discover Gala Yuzawa, a prominent destination in Shizuoka. With its rich mix of skiing, snow, shinkansen access, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/7/73/F8_Tanigawa_79_Gala-Yuzawa_20060115.JPG",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600",
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 8000,
       "tickets": 13000,
@@ -5163,9 +4976,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gero_Station_ac.jpg/1920px-Gero_Station_ac.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gero_Station_ac.jpg/1920px-Gero_Station_ac.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gero_Station_ac.jpg/1920px-Gero_Station_ac.jpg"
-    ],
     "description": "Renowned hot spring resort ranked among Japan's Three Famous Springs along the Hida River.",
     "highlights": ["Explore Gero City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -5297,9 +5107,6 @@
       "high": 28000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg/3840px-260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg/3840px-260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg"
-    ],
     "description": "Gero Onsen is one of Japan's Three Great Hot Springs (Nihon Sanmeisen), famed since the 9th century for its silky alkaline waters known as 'beauty baths'.",
     "notes": "Situated along the Hida River between Nagoya and Takayama.",
     "budgetRecommended": 15000,
@@ -5388,11 +5195,6 @@
       "Exclusive Short Films"
     ],
     "description": "Ghibli Museum is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Ghibli_Museum_2024.JPG/3840px-Ghibli_Museum_2024.JPG",
-      "https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=600",
-      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 1000,
       "tickets": 2000,
@@ -5518,11 +5320,6 @@
       "Kinka-zan Squirrel Village"
     ],
     "description": "Perched 329 meters atop Mt. Kinka, Gifu Castle was Oda Nobunaga's formidable mountain stronghold, offering panoramic views over the Nagara River and Nobi Plain.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/0/01/Gifu_Castle.jpg",
-      "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
-      "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 1200,
       "tickets": 1100,
@@ -5588,9 +5385,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Gifu_City_Tower_43_and_Gifu_Sky_Wing_37_from_Twinarch138.jpg/1280px-Gifu_City_Tower_43_and_Gifu_Sky_Wing_37_from_Twinarch138.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Gifu_City_Tower_43_and_Gifu_Sky_Wing_37_from_Twinarch138.jpg/1280px-Gifu_City_Tower_43_and_Gifu_Sky_Wing_37_from_Twinarch138.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Gifu_City_Tower_43_and_Gifu_Sky_Wing_37_from_Twinarch138.jpg/1280px-Gifu_City_Tower_43_and_Gifu_Sky_Wing_37_from_Twinarch138.jpg"
-    ],
     "description": "Historic river city famous for Oda Nobunaga's Gifu Castle atop Mt. Kinka and Nagara River cormorant fishing.",
     "highlights": ["Explore Gifu City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -5677,11 +5471,6 @@
     "region": "Chubu",
     "categories": ["History", "Waterfalls"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/12/Gujo_hachiman_castle_P8117454.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/1/12/Gujo_hachiman_castle_P8117454.jpg",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600",
-      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600"
-    ],
     "description": "Known for its pure water canals, historic town center, and Gujo Odori, a 30-night summer dance festival.",
     "highlights": [
       "Gujo Hachiman Castle",
@@ -5803,11 +5592,6 @@
     "region": "Chubu",
     "categories": ["History", "Nature"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/1_magome_juku_2024.jpg/3840px-1_magome_juku_2024.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/1_magome_juku_2024.jpg/3840px-1_magome_juku_2024.jpg",
-      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600"
-    ],
     "description": "A steeply sloped post town along the Nakasendo, boasting a fully restored stone path, waterwheel, and expansive mountain valley views.",
     "highlights": [
       "Magome Waterwheel",
@@ -5983,9 +5767,6 @@
       "Pedestrian Paradise (Weekends)"
     ],
     "description": "Ginza is a district of Chūō, Tokyo, located south of Yaesu and Kyōbashi, west of Tsukiji, east of Yūrakuchō and Uchisaiwaichō, and north of Shinbashi. It is a popular upscale shopping area of Tokyo, with numerous internationally renowned department stores, boutiques, restaurants and coffeehouses located in the vicinity.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 1000,
       "tickets": 2000,
@@ -6052,9 +5833,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&q=80&w=1200",
     "image": "https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&q=80&w=1200",
-    "gallery": [
-      "https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&q=80&w=1200"
-    ],
     "description": "Resort city at the foot of Mount Fuji, famous for Gotemba Premium Outlets and scenic volcano panoramas.",
     "highlights": ["Explore Gotemba City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -6141,9 +5919,6 @@
     "region": "Kyushu",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Hashima_Nagasaki_Japan.jpg/960px-Hashima_Nagasaki_Japan.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Hashima_Nagasaki_Japan.jpg/960px-Hashima_Nagasaki_Japan.jpg"
-    ],
     "description": "Sites of Japan’s Meiji Industrial Revolution (Gunkanjima) is a UNESCO World Heritage Site in Nagasaki, designated for its outstanding universal cultural or natural value.",
     "highlights": [
       "UNESCO Heritage Monument",
@@ -6260,11 +6035,6 @@
     "region": "Kanto",
     "categories": ["Relaxation", "History"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ikaho_Onsen_03.jpg/250px-Ikaho_Onsen_03.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ikaho_Onsen_03.jpg/250px-Ikaho_Onsen_03.jpg",
-      "https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?q=80&w=600",
-      "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600"
-    ],
     "description": "An onsen town located on Mount Haruna's slopes, known for its steep 365 stone steps, golden iron-rich spring waters, and local food stalls.",
     "highlights": [
       "365 Stone Steps (Stone Stairs)",
@@ -6382,9 +6152,6 @@
     "region": "Kanto",
     "categories": ["Relaxation", "Nature"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Bath_in_kusatsu.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/7/7a/Bath_in_kusatsu.jpg"
-    ],
     "description": "Ranked among Japan's top three hot spring towns, famous for its steam-billowing Yubatake central field and acidic, healing baths.",
     "highlights": [
       "Yubatake (Hot Water Field)",
@@ -6508,11 +6275,6 @@
     "region": "Kanto",
     "categories": ["Relaxation", "Nature"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/%E5%9B%9B%E4%B8%87%E6%B8%A9%E6%B3%89_%E4%B8%AD%E4%B9%8B%E6%9D%A1_2013_%289993444756%29.jpg/3840px-%E5%9B%9B%E4%B8%87%E6%B8%A9%E6%B3%89_%E4%B8%AD%E4%B9%8B%E6%9D%A1_2013_%289993444756%29.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/%E5%9B%9B%E4%B8%87%E6%B8%A9%E6%B3%89_%E4%B8%AD%E4%B9%8B%E6%9D%A1_2013_%289993444756%29.jpg/3840px-%E5%9B%9B%E4%B8%87%E6%B8%A9%E6%B3%89_%E4%B8%AD%E4%B9%8B%E6%9D%A1_2013_%289993444756%29.jpg",
-      "https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600",
-      "https://images.unsplash.com/photo-1463438690606-f6778b8c1d10?q=80&w=600"
-    ],
     "description": "A peaceful hot spring village surrounded by lush forests and Shima blue rivers, boasting Sekizenkan, Japan's oldest wooden ryokan.",
     "highlights": [
       "Sekizenkan Ryokan (Spirited Away Inspiration)",
@@ -6633,9 +6395,6 @@
     "categories": ["Castle", "History", "Hiking"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Hachioji_Castle_Hikibashi.JPG/1280px-Hachioji_Castle_Hikibashi.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Hachioji_Castle_Hikibashi.JPG/1280px-Hachioji_Castle_Hikibashi.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Hachioji_Castle_Hikibashi.JPG/1280px-Hachioji_Castle_Hikibashi.JPG"
-    ],
     "description": "Atmospheric hilltop mountain castle ruins in western Tokyo built by Hojo Ujiteru.",
     "highlights": ["Reconstructed Bridge", "Honmaru Ruins", "Mountain Trail"],
     "totalTripHours": 3,
@@ -6702,9 +6461,6 @@
     "region": "Kanto",
     "categories": ["Nature", "Hiking", "Culture"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Takao-san-Top_10.11.13_saturday.JPG/1280px-Takao-san-Top_10.11.13_saturday.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Takao-san-Top_10.11.13_saturday.JPG/1280px-Takao-san-Top_10.11.13_saturday.JPG"
-    ],
     "description": "Historic castle town and mountain gateway at the base of Mt. Takao, offering scenic nature trails and Yakiniku food culture.",
     "highlights": [
       "Mount Takao Cable Car",
@@ -6867,9 +6623,6 @@
     ],
     "description": "Discover Hakkeijima Sea Paradise, a prominent destination in Kanagawa. With its rich mix of family, entertainment, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Yokohama_Hakkeijima_Sea_Paradise_-_01.jpg/330px-Yokohama_Hakkeijima_Sea_Paradise_-_01.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 4800,
       "tickets": 11200,
@@ -6935,9 +6688,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/69/Hakodate_montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/6/69/Hakodate_montage.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/6/69/Hakodate_montage.jpg"
-    ],
     "description": "Southern Hokkaido port city celebrated for Mt. Hakodate night view, Goryokaku star fort, and Morning Market.",
     "highlights": ["Explore Hakodate City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -7065,9 +6815,6 @@
       "high": 12000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg/3840px-Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg/3840px-Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg"
-    ],
     "description": "Mount Hakodate offers one of Japan's Three Great Night Views, overlooking a stunning hourglass-shaped peninsula illuminated between Tsugaru Strait and Hakodate Bay.",
     "notes": "Accessible via the Mount Hakodate Ropeway in just 3 minutes.",
     "budgetRecommended": 6500,
@@ -7116,9 +6863,6 @@
     ],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hakone_Town_Hall.JPG/1920px-Hakone_Town_Hall.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hakone_Town_Hall.JPG/1920px-Hakone_Town_Hall.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hakone_Town_Hall.JPG/1920px-Hakone_Town_Hall.JPG"
-    ],
     "description": "Famous hot spring resort town nestled in the Fuji-Hakone-Izu National Park, celebrated for volcanic sulfur valleys, Lake Ashi pirate ships, and art museums.",
     "highlights": [
       "Owakudani",
@@ -7267,9 +7011,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Nagano_Matsukawa.jpg/1280px-Nagano_Matsukawa.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Nagano_Matsukawa.jpg/1280px-Nagano_Matsukawa.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Nagano_Matsukawa.jpg/1280px-Nagano_Matsukawa.jpg"
-    ],
     "description": "World-famous Japan Alps winter ski resort village celebrated for deep powder snow and alpine peaks.",
     "highlights": ["Explore Hakuba Village", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -7360,9 +7101,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Hamamatsu_Montage2.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Hamamatsu_Montage2.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/8/8f/Hamamatsu_Montage2.jpg"
-    ],
     "description": "Industrial and musical city featuring Lake Hamana, Nakatajima Sand Dunes, and gyoza dumplings.",
     "highlights": ["Explore Hamamatsu City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -7503,9 +7241,6 @@
     },
     "highlights": ["Great Hall", "Diagon Alley"],
     "description": "Harry Potter Studio is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Warner_Bros._Studio_Tour_Tokyo_entrance_%282%29_2023-08-17.jpg/330px-Warner_Bros._Studio_Tour_Tokyo_entrance_%282%29_2023-08-17.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 1000,
       "tickets": 13000,
@@ -7600,9 +7335,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/dc/%E5%BB%BF%E6%97%A5%E5%B8%82%E5%B8%82.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/%E5%BB%BF%E6%97%A5%E5%B8%82%E5%B8%82.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/d/dc/%E5%BB%BF%E6%97%A5%E5%B8%82%E5%B8%82.jpg"
-    ],
     "description": "Coastal city encompassing sacred Miyajima Island and UNESCO World Heritage Itsukushima Floating Torii Gate.",
     "highlights": ["Explore Hatsukaichi City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -7745,9 +7477,6 @@
       "Japan Top 100 Night Views"
     ],
     "description": "Perched atop an 80m hill inside Higashiyama Zoo & Botanical Gardens, this 134-meter pencil tower reaches a total elevation of 214 meters, offering panoramic views of Central Japan Alps.",
-    "gallery": [
-      "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200"
-    ],
     "budgetBreakdown": {
       "transport": 1000,
       "tickets": 300,
@@ -7869,9 +7598,6 @@
       "Hikonyan Mascot Show"
     ],
     "description": "Completed in 1622, Hikone Castle is one of Japan's five original surviving National Treasure keeps, overlooking Lake Biwa with pristine feudal turrets and Genkyuen garden.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Hikone_Castle_November_2016_-02.jpg/1280px-Hikone_Castle_November_2016_-02.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 1800,
       "tickets": 800,
@@ -7950,9 +7676,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Hikone_Castle_and_Sakura2_DSCN3761_20070410.JPG/1280px-Hikone_Castle_and_Sakura2_DSCN3761_20070410.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Hikone_Castle_and_Sakura2_DSCN3761_20070410.JPG/1280px-Hikone_Castle_and_Sakura2_DSCN3761_20070410.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Hikone_Castle_and_Sakura2_DSCN3761_20070410.JPG/1280px-Hikone_Castle_and_Sakura2_DSCN3761_20070410.JPG"
-    ],
     "description": "Castle town on Lake Biwa featuring original National Treasure Hikone Castle and Genkyuen Garden.",
     "highlights": ["Explore Hikone City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -8092,9 +7815,6 @@
       "high": 12000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/1280px-Himeji_castle_in_may_2015.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/3840px-Himeji_castle_in_may_2015.jpg"
-    ],
     "description": "Himeji Castle is Japan's premier surviving feudal castle complex and a UNESCO World Heritage site, famous for its brilliant white plaster walls resembling a taking-off heron.",
     "notes": "Completed in 1609, it survived World War II bombings and major earthquakes completely intact.",
     "categories": ["history", "culture", "sightseeing"],
@@ -8127,10 +7847,7 @@
       "tickets": 2000,
       "food": 1625,
       "cafe": 875
-    },
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/1280px-Himeji_castle_in_may_2015.jpg"
-    ]
+    }
   },
   {
     "id": "himeji-city",
@@ -8143,9 +7860,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/67/Himeji_montage2.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/6/67/Himeji_montage2.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/6/67/Himeji_montage2.jpg"
-    ],
     "description": "Historic castle city home to UNESCO World Heritage Himeji 'White Heron' Castle and Koko-en Garden.",
     "highlights": ["Explore Himeji City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -8223,9 +7937,6 @@
     "region": "Tohoku",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/230728_Motsuji_Hiraizumi_Iwate_pref_Japan04s3.jpg/960px-230728_Motsuji_Hiraizumi_Iwate_pref_Japan04s3.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/230728_Motsuji_Hiraizumi_Iwate_pref_Japan04s3.jpg/960px-230728_Motsuji_Hiraizumi_Iwate_pref_Japan04s3.jpg"
-    ],
     "description": "Hiraizumi – Temples, Gardens and Archaeological Sites is a UNESCO World Heritage Site in Iwate, designated for its outstanding universal cultural or natural value.",
     "highlights": [
       "UNESCO Heritage Monument",
@@ -8394,9 +8105,6 @@
       "high": 15000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg"
-    ],
     "description": "Hirosaki Castle in Aomori is the northernmost original keep in Japan, surrounded by over 2,600 cherry trees making it one of Japan's most celebrated spring destinations.",
     "notes": "Built in 1611 by the Tsugaru clan.",
     "categories": ["history", "culture", "sightseeing"],
@@ -8422,9 +8130,6 @@
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
     "image": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -8443,9 +8148,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg/1280px-Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg/1280px-Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg/1280px-Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg"
-    ],
     "description": "City of Peace and resilience, famous for Hiroshima Peace Memorial Park, Atomic Bomb Dome, and Hiroshima-style Okonomiyaki.",
     "highlights": ["Explore Hiroshima City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -8533,9 +8235,6 @@
     "region": "Chugoku",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Genbaku_Dome04-r.JPG/960px-Genbaku_Dome04-r.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Genbaku_Dome04-r.JPG/960px-Genbaku_Dome04-r.JPG"
-    ],
     "description": "Hiroshima Peace Memorial (Genbaku Dome) is a UNESCO World Heritage Site in Hiroshima, designated for its outstanding universal cultural or natural value.",
     "highlights": [
       "UNESCO Heritage Monument",
@@ -8652,9 +8351,6 @@
     "region": "Kansai",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Horyu-ji10s3200.jpg/960px-Horyu-ji10s3200.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Horyu-ji10s3200.jpg/960px-Horyu-ji10s3200.jpg"
-    ],
     "description": "Buddhist Monuments in the Horyu-ji Area is a UNESCO World Heritage Site in Nara, designated for its outstanding universal cultural or natural value.",
     "highlights": [
       "UNESCO Heritage Monument",
@@ -8771,11 +8467,6 @@
     "region": "Kanto",
     "categories": ["Nature", "Waterfalls"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Fukuroda_Falls_-_%E8%A2%8B%E7%94%B0%E3%81%AE%E6%BB%9D%28%E3%81%B5%E3%81%8F%E3%82%8D%E3%81%A0%E3%81%AE%E3%81%9F%E3%81%8D%29.jpg/3840px-Fukuroda_Falls_-_%E8%A2%8B%E7%94%B0%E3%81%AE%E6%BB%9D%28%E3%81%B5%E3%81%8F%E3%82%8D%E3%81%A0%E3%81%AE%E3%81%9F%E3%81%8D%29.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Fukuroda_Falls_-_%E8%A2%8B%E7%94%B0%E3%81%AE%E6%BB%9D%28%E3%81%B5%E3%81%8F%E3%82%8D%E3%81%A0%E3%81%AE%E3%81%9F%E3%81%8D%29.jpg/3840px-Fukuroda_Falls_-_%E8%A2%8B%E7%94%B0%E3%81%AE%E6%BB%9D%28%E3%81%B5%E3%81%8F%E3%82%8D%E3%81%A0%E3%81%AE%E3%81%9F%E3%81%8D%29.jpg",
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600",
-      "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600"
-    ],
     "description": "One of Japan's Top Three Waterfalls, featuring a massive 120-meter drop across four tiers that freezes over completely during cold winters.",
     "highlights": [
       "Fukuroda Falls Tunnel & Deck",
@@ -8898,9 +8589,6 @@
     "region": "Kanto",
     "categories": ["Nature", "Parks"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Ferris_wheel_of_the_Hitachi_beach_park%2Chitachi-kaihin-koen%2Chitachinaka-city%2Cjapan.JPG/330px-Ferris_wheel_of_the_Hitachi_beach_park%2Chitachi-kaihin-koen%2Chitachinaka-city%2Cjapan.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Ferris_wheel_of_the_Hitachi_beach_park%2Chitachi-kaihin-koen%2Chitachinaka-city%2Cjapan.JPG/330px-Ferris_wheel_of_the_Hitachi_beach_park%2Chitachi-kaihin-koen%2Chitachinaka-city%2Cjapan.JPG"
-    ],
     "description": "A massive coastal park world-renowned for its rolling Miharashi Hill, covered in blue Nemophila flowers in spring and fluffy red Kochia bushes in autumn.",
     "highlights": [
       "Miharashi Hill",
@@ -9017,11 +8705,6 @@
     "region": "Kanto",
     "categories": ["Hiking", "Nature"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mount_Tsukuba_seen_from_the_WSW_%282006%29.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mount_Tsukuba_seen_from_the_WSW_%282006%29.jpg",
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=600",
-      "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=600"
-    ],
     "description": "An iconic double-peaked mountain (Nantaimasan & Nyotaimasan) offering distinct rock trails, a shrine, cable cars, and open views over the Kanto plain.",
     "highlights": [
       "Tsukuba Shrine",
@@ -9142,9 +8825,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Horyu-ji10s3200.jpg/1280px-Horyu-ji10s3200.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Horyu-ji10s3200.jpg/1280px-Horyu-ji10s3200.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Horyu-ji10s3200.jpg/1280px-Horyu-ji10s3200.jpg"
-    ],
     "description": "Historic town home to Horyu-ji Temple, containing the world's oldest surviving wooden structures.",
     "highlights": ["Explore Ikaruga Town", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -9274,11 +8954,6 @@
       "Otome Road"
     ],
     "description": "Ikebukuro (Toshima) is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sunshine_60_Observatory_%40_Sunshine_Building_%40_Ikebukuro_%2811547419543%29.jpg/3840px-Sunshine_60_Observatory_%40_Sunshine_Building_%40_Ikebukuro_%2811547419543%29.jpg",
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600",
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 1000,
       "tickets": 8000,
@@ -9393,11 +9068,6 @@
       "Chidorigafuchi (Spring)"
     ],
     "description": "Imperial Palace (Chiyoda) is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
-    "gallery": [
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600",
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=600",
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 1000,
       "tickets": 1600,
@@ -9462,9 +9132,6 @@
     "categories": ["Castle", "National Treasure", "History"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG"
-    ],
     "description": "Inuyama Castle (National Treasure Keep) is one of Japan's 12 original surviving castle keeps.",
     "highlights": ["Original Keep", "Historic Architecture", "Panoramic Views"],
     "totalTripHours": 3,
@@ -9535,9 +9202,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Inuyama_City_Hall_ac.jpg/1920px-Inuyama_City_Hall_ac.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Inuyama_City_Hall_ac.jpg/1920px-Inuyama_City_Hall_ac.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Inuyama_City_Hall_ac.jpg/1920px-Inuyama_City_Hall_ac.jpg"
-    ],
     "description": "Historic castle town featuring National Treasure Inuyama Castle overlooking the Kiso River.",
     "highlights": ["Explore Inuyama City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -9711,9 +9375,6 @@
       "high": 16000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Naiku_04.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/8/8d/Naiku_04.jpg"
-    ],
     "description": "Ise Grand Shrine is the spiritual heart of Shinto, dedicated to the Sun Goddess Amaterasu and rebuilt every 20 years in accordance with ancient Shikinen Sengu ritual.",
     "notes": "Home to the Sacred Mirror (Yata no Kagami), one of Japan's Three Imperial Regalia.",
     "budgetRecommended": 7500,
@@ -9754,9 +9415,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Ishigaki_montage.JPG/1280px-Ishigaki_montage.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Ishigaki_montage.JPG/1280px-Ishigaki_montage.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Ishigaki_montage.JPG/1280px-Ishigaki_montage.JPG"
-    ],
     "description": "Yaeyama archipelago tropical island hub, famous for Kabira Bay turquoise waters, coral reefs, and stargazing.",
     "highlights": ["Explore Ishigaki City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -9838,9 +9496,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Itabashi-at-nakajuku.JPG/1280px-Itabashi-at-nakajuku.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Itabashi-at-nakajuku.JPG/1280px-Itabashi-at-nakajuku.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Itabashi-at-nakajuku.JPG/1280px-Itabashi-at-nakajuku.JPG"
-    ],
     "description": "Residential borough famous for Tokyo Great Buddha at Jorenji Temple and fireworks festivals.",
     "highlights": ["Explore Itabashi City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -9927,9 +9582,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Mount_%C5%8Cmuro_%28Izu_Peninsula%29_%26_Mt.Fuji.jpg/1280px-Mount_%C5%8Cmuro_%28Izu_Peninsula%29_%26_Mt.Fuji.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Mount_%C5%8Cmuro_%28Izu_Peninsula%29_%26_Mt.Fuji.jpg/1280px-Mount_%C5%8Cmuro_%28Izu_Peninsula%29_%26_Mt.Fuji.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Mount_%C5%8Cmuro_%28Izu_Peninsula%29_%26_Mt.Fuji.jpg/1280px-Mount_%C5%8Cmuro_%28Izu_Peninsula%29_%26_Mt.Fuji.jpg"
-    ],
     "description": "Izu Peninsula hot spring resort town featuring Mount Omuro extinct volcano cone and Jogasaki Coast.",
     "highlights": ["Explore Ito City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -10039,9 +9691,6 @@
     "region": "Chugoku",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Shimizudani_Refinery_Ruins_at_Iwami_Ginzan_Silver_Mine_001.jpg/960px-Shimizudani_Refinery_Ruins_at_Iwami_Ginzan_Silver_Mine_001.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Shimizudani_Refinery_Ruins_at_Iwami_Ginzan_Silver_Mine_001.jpg/960px-Shimizudani_Refinery_Ruins_at_Iwami_Ginzan_Silver_Mine_001.jpg"
-    ],
     "description": "Iwami Ginzan Silver Mine and its Cultural Landscape is a UNESCO World Heritage Site in Shimane, designated for its outstanding universal cultural or natural value.",
     "highlights": [
       "UNESCO Heritage Monument",
@@ -10210,11 +9859,6 @@
     ],
     "description": "Discover Izu Peninsula, a prominent destination in Shizuoka. With its rich mix of beaches, onsen, scuba, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/a/ad/Izu_Peninsula_Shizuoka_Japan_SRTM.jpg",
-      "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=600",
-      "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 4800,
       "tickets": 2400,
@@ -10286,9 +9930,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Haiden_of_Izumo-taisha-1.JPG/1280px-Haiden_of_Izumo-taisha-1.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Haiden_of_Izumo-taisha-1.JPG/1280px-Haiden_of_Izumo-taisha-1.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Haiden_of_Izumo-taisha-1.JPG/1280px-Haiden_of_Izumo-taisha-1.JPG"
-    ],
     "description": "Sacred realm home to Izumo Taisha, one of Japan's oldest and most important Shinto shrines.",
     "highlights": ["Explore Izumo City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -10420,9 +10061,6 @@
       "high": 16000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Izumo-taisha14bs4592.jpg/3840px-Izumo-taisha14bs4592.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Izumo-taisha14bs4592.jpg/3840px-Izumo-taisha14bs4592.jpg"
-    ],
     "description": "Izumo Taisha is one of Japan's oldest Shinto shrines, famed for its massive 5.2-ton straw Shimenawa rope hanging at the Kaguraden hall and its deity of marriage and destiny.",
     "notes": "In October (Kamiarizuki), all 8 million Shinto gods gather at Izumo Taisha.",
     "budgetRecommended": 6500,
@@ -10512,11 +10150,6 @@
     ],
     "description": "Discover Miura Peninsula & Jogashima, a prominent destination in Kanagawa. With its rich mix of ocean, scenic, hiking, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/d/d2/Miura_Peninsula_Kanagawa_Japan_SRTM.jpg",
-      "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600",
-      "https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 2000,
       "tickets": 1000,
@@ -10626,9 +10259,6 @@
     },
     "highlights": ["Halfpipe Tokyo", "VR Attractions"],
     "description": "Joypolis Odaiba is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Sega_Joypolis_Odaiba.jpg/1920px-Sega_Joypolis_Odaiba.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 1000,
       "tickets": 10000,
@@ -10723,9 +10353,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Kagoshima_Montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Kagoshima_Montage.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/7/7a/Kagoshima_Montage.jpg"
-    ],
     "description": "Southern coastal city known as 'Naples of Japan', facing active Sakurajima volcano across Kagoshima Bay.",
     "highlights": ["Explore Kagoshima City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -10849,9 +10476,6 @@
       "high": 8000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/3840px-Kairaku-en%2C_Ibaraki_24.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/3840px-Kairaku-en%2C_Ibaraki_24.jpg"
-    ],
     "description": "Kairakuen in Mito is one of Japan's Three Great Gardens, famous for its over 3,000 plum trees of 100 different varieties that bloom brilliantly in early spring.",
     "notes": "Founded in 1842 by Tokugawa Nariaki, designed as a public park for citizens to relax.",
     "categories": ["history", "culture", "sightseeing"],
@@ -10952,9 +10576,6 @@
       "Otemon Gate"
     ],
     "description": "Rebuilt in 1994 using traditional Japanese carpentry techniques, Kakegawa Castle is Japan's first authentically reconstructed wooden keep, featuring the original 1855 Ninomaru Goten palace.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Kakegawajo_20090321.jpg/1280px-Kakegawajo_20090321.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 1200,
       "tickets": 410,
@@ -11020,9 +10641,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/5e/TsurugaokaHachiman-M8867.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/5/5e/TsurugaokaHachiman-M8867.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/5/5e/TsurugaokaHachiman-M8867.jpg"
-    ],
     "description": "Ancient samurai capital nestled between hills and sea, famous for the Great Buddha (Daibutsu) and hydrangeas.",
     "highlights": ["Explore Kamakura City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -11218,11 +10836,6 @@
     ],
     "description": "Kanazawa is the capital of Ishikawa Prefecture in central Japan. As of 1 January 2018, the city had an estimated population of 466,029 in 203,271 households, and a population density of 990 persons per km2. The total area of the city was 468.64 square kilometres (180.94 sq mi).",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Stone_lantern_Kenrokuen.jpg/3840px-Stone_lantern_Kenrokuen.jpg",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 4800,
       "tickets": 2400,
@@ -11356,9 +10969,6 @@
       "Ishikawamon Gate"
     ],
     "description": "The magnificent seat of the powerful Maeda clan (Kaga Domain), featuring meticulously reconstructed wooden turrets, white lead tile roofs, and Gyokusen'inmaru feudal garden adjacent to Kenrokuen.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Kanazawa-M-5932.jpg/1280px-Kanazawa-M-5932.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 1800,
       "tickets": 320,
@@ -11424,9 +11034,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Mt.Asama%2C_Karuizawa.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Mt.Asama%2C_Karuizawa.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/a/a8/Mt.Asama%2C_Karuizawa.jpg"
-    ],
     "description": "Elegant alpine mountain resort town featuring Kyu-Karuizawa Ginza shopping street and Prince Shopping Plaza.",
     "highlights": ["Explore Karuizawa Town", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -11571,9 +11178,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Shibamata_Taishakuten_March_11_2021_various_20_44_16_882000.jpeg/1280px-Shibamata_Taishakuten_March_11_2021_various_20_44_16_882000.jpeg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Shibamata_Taishakuten_March_11_2021_various_20_44_16_882000.jpeg/1280px-Shibamata_Taishakuten_March_11_2021_various_20_44_16_882000.jpeg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Shibamata_Taishakuten_March_11_2021_various_20_44_16_882000.jpeg/1280px-Shibamata_Taishakuten_March_11_2021_various_20_44_16_882000.jpeg"
-    ],
     "description": "Historic temple town Shibamata featuring Taishakuten Temple and nostalgic retro shopping streets.",
     "highlights": ["Explore Katsushika City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -11711,9 +11315,6 @@
       "Little Edo Warehouse District (nearby)"
     ],
     "description": "Built in 1848, this rare structure is the only surviving original samurai lord's Honmaru Goten palace in eastern Japan, featuring tatami council chambers and garden verandas.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Kawagoe-Castle_Honmaru-Goten.jpg/1280px-Kawagoe-Castle_Honmaru-Goten.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 700,
       "tickets": 100,
@@ -11779,9 +11380,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/7a/TokiNoKane_Kawagoe_2013Feb.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/TokiNoKane_Kawagoe_2013Feb.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/7/7a/TokiNoKane_Kawagoe_2013Feb.JPG"
-    ],
     "description": "Nostalgic 'Little Edo' castle town featuring Kurazukuri clay warehouse streets, Bell of Time, and Candy Alley.",
     "highlights": ["Explore Kawagoe City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -11927,9 +11525,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg/1920px-Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg/1920px-Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg/1920px-Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg"
-    ],
     "description": "Industrial and residential hub bordering Tokyo across the Arakawa River.",
     "highlights": ["Explore Kawaguchi City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -12016,9 +11611,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kawasaki_Daishi_Main_Hall.jpg/1280px-Kawasaki_Daishi_Main_Hall.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kawasaki_Daishi_Main_Hall.jpg/1280px-Kawasaki_Daishi_Main_Hall.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kawasaki_Daishi_Main_Hall.jpg/1280px-Kawasaki_Daishi_Main_Hall.jpg"
-    ],
     "description": "Industrial and cultural city between Tokyo and Yokohama, home to Kawasaki Daishi Temple and Fujiko F Fujio Museum.",
     "highlights": ["Explore Kawasaki City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -12183,9 +11775,6 @@
       "high": 10000
     },
     "heroImage": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/8/8a/Lake_chuzenji_and_kegon_waterfall.jpg"
-    ],
     "description": "Kegon Falls is Japan's most famous 97-meter waterfall, carrying the outlet waters of Lake Chuzenji down a dramatic cliff in Nikko National Park.",
     "notes": "Accessible via an 100-meter underground elevator to the lower observation deck.",
     "budgetRecommended": 4000,
@@ -12210,9 +11799,6 @@
       "parentDestinationId": "nikko-city"
     },
     "image": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
-    "gallery": [
-      "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200"
-    ],
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -12272,9 +11858,6 @@
       "high": 30000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Kinosaki_Onsen_by_day.jpg/3840px-Kinosaki_Onsen_by_day.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Kinosaki_Onsen_by_day.jpg/3840px-Kinosaki_Onsen_by_day.jpg"
-    ],
     "description": "Kinosaki Onsen is a quintessential hot spring town centered around a willow-lined canal, where visitors stroll between seven distinct public bathhouses in traditional yukata robes.",
     "notes": "Founded over 1,300 years ago when a stork was observed healing its wounded leg in the thermal springs.",
     "budgetRecommended": 17500,
@@ -12364,9 +11947,6 @@
     ],
     "description": "Discover Kinugawa Onsen, a prominent destination in Kanagawa. With its rich mix of onsen, edo wonderland, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Kinugawa_Onsen_03.JPG/1280px-Kinugawa_Onsen_03.JPG"
-    ],
     "budgetBreakdown": {
       "transport": 5200,
       "tickets": 6000,
@@ -12444,9 +12024,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Kisarazu_montage.jpg/1280px-Kisarazu_montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Kisarazu_montage.jpg/1280px-Kisarazu_montage.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Kisarazu_montage.jpg/1280px-Kisarazu_montage.jpg"
-    ],
     "description": "Tokyo Bay Aqua-Line bridge terminal featuring Umihotaru floating parking island and Mitsui Outlet Park.",
     "highlights": ["Explore Kisarazu City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -12582,9 +12159,6 @@
     ],
     "description": "Discover Kiso Valley, a prominent destination in Shizuoka. With its rich mix of nakasendo, post towns, tsumago, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Kiso_Valley_from_Doppyo.jpg/1280px-Kiso_Valley_from_Doppyo.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 4000,
       "tickets": 2000,
@@ -12656,9 +12230,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Kyu-Furukawa_House_1.jpg/1280px-Kyu-Furukawa_House_1.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Kyu-Furukawa_House_1.jpg/1280px-Kyu-Furukawa_House_1.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Kyu-Furukawa_House_1.jpg/1280px-Kyu-Furukawa_House_1.jpg"
-    ],
     "description": "Northern riverside borough featuring Asukayama Park cherry blossoms and Akabane izakaya alleys.",
     "highlights": ["Explore Kita City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -12745,9 +12316,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kitakyushu_Montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kitakyushu_Montage.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/3/34/Kitakyushu_Montage.jpg"
-    ],
     "description": "Northern Kyushu port city featuring Kokura Castle, Mojiko Retro district, and Kawachi Wisteria Garden.",
     "highlights": ["Explore Kitakyushu City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -12834,9 +12402,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/99/Kobe_montage1.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/9/99/Kobe_montage1.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/9/99/Kobe_montage1.jpg"
-    ],
     "description": "Cosmopolitan port city framed by Mt. Rokko, world-famous for Kobe Beef, Harborland, and Arima Onsen.",
     "highlights": ["Explore Kobe City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -12969,9 +12534,6 @@
       "high": 10000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg/3840px-View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg/3840px-View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg"
-    ],
     "description": "Known as the Ten Million Dollar Night View, Kikuseidai observatory on Mount Maya captures a breathtaking sparkling panorama spanning Kobe, Osaka Bay, and Kansai.",
     "notes": "Kikuseidai literally means a platform where you can scoop up stars with your hands.",
     "budgetRecommended": 6000,
@@ -13057,9 +12619,6 @@
       "high": 18000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Kochi_Castle%2C_Outemon-3.jpg/1280px-Kochi_Castle%2C_Outemon-3.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Kochi_Castle%2C_Outemon-3.jpg/1280px-Kochi_Castle%2C_Outemon-3.jpg"
-    ],
     "description": "Kochi Castle is unique among Japan's 12 original keep castles for retaining both its main keep and the original feudal palace (Honmaru Goten) intact.",
     "notes": "Built by Yamauchi Kazutoyo following the Battle of Sekigahara.",
     "categories": ["history", "culture", "sightseeing"],
@@ -13090,10 +12649,7 @@
       "tickets": 2000,
       "food": 4225,
       "cafe": 2275
-    },
-    "gallery": [
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200"
-    ]
+    }
   },
   {
     "id": "kochi-city",
@@ -13106,9 +12662,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Kochi_montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Kochi_montage.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/c/c9/Kochi_montage.jpg"
-    ],
     "description": "Southern Pacific coastal city featuring original wooden Kochi Castle, Katsurahama Beach, and Hirome Market.",
     "highlights": ["Explore Kochi City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -13194,9 +12747,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/17/Kofu_montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/1/17/Kofu_montage.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/1/17/Kofu_montage.jpg"
-    ],
     "description": "Historic home of samurai warlord Takeda Shingen, featuring Maizuru Castle Park and Shosenkyo Gorge.",
     "highlights": ["Explore Kofu City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -13352,9 +12902,6 @@
       "high": 12000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/250505_Korakuen_Okayama_Japan06s3.jpg/3840px-250505_Korakuen_Okayama_Japan06s3.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/250505_Korakuen_Okayama_Japan06s3.jpg/3840px-250505_Korakuen_Okayama_Japan06s3.jpg"
-    ],
     "description": "Korakuen in Okayama is a celebrated landscape garden built by feudal lord Ikeda Tsunamasa in 1700, featuring spacious lawns, ponds, tea trees, and borrowed scenery of Okayama Castle.",
     "notes": "Located right across the Asahi River from Okayama Castle.",
     "categories": ["history", "culture", "sightseeing"],
@@ -13398,9 +12945,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Tomioka_Hachiman-gu_201708.jpg/1280px-Tomioka_Hachiman-gu_201708.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Tomioka_Hachiman-gu_201708.jpg/1280px-Tomioka_Hachiman-gu_201708.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Tomioka_Hachiman-gu_201708.jpg/1280px-Tomioka_Hachiman-gu_201708.jpg"
-    ],
     "description": "Waterfront bay area featuring teamLab Planets, Toyosu Fish Market, and Kiyosumi Shirakawa cafe arcades.",
     "highlights": ["Explore Koto City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -13487,9 +13031,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Danjogaran_Koyasan16n4272.jpg/1280px-Danjogaran_Koyasan16n4272.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Danjogaran_Koyasan16n4272.jpg/1280px-Danjogaran_Koyasan16n4272.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Danjogaran_Koyasan16n4272.jpg/1280px-Danjogaran_Koyasan16n4272.jpg"
-    ],
     "description": "Sacred mountain monastic complex (Mount Koya / Koyasan), headquarters of Shingon Buddhism and Okunoin cemetery.",
     "highlights": ["Explore Koya Town", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -13612,9 +13153,6 @@
       "high": 16000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/3840px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/3840px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg"
-    ],
     "description": "Kumamoto Castle is one of Japan's most formidable castles, engineered by master builder Kato Kiyomasa with steep curved Musha-gaeshi stone walls designed to prevent ninja scaling.",
     "notes": "Main keep fully restored following the 2016 Kumamoto earthquakes.",
     "budgetRecommended": 8000,
@@ -13655,9 +13193,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Mount_Tatsuda-yama_%28Kumamoto%29_1.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Mount_Tatsuda-yama_%28Kumamoto%29_1.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/0/0d/Mount_Tatsuda-yama_%28Kumamoto%29_1.jpg"
-    ],
     "description": "Historic castle metropolis home to magnificent Kumamoto Castle and Suizenji Jojuen Garden.",
     "highlights": ["Explore Kumamoto City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -13744,9 +13279,6 @@
     "region": "Kansai",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Danjogaran_Koyasan12n3200.jpg/960px-Danjogaran_Koyasan12n3200.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Danjogaran_Koyasan12n3200.jpg/960px-Danjogaran_Koyasan12n3200.jpg"
-    ],
     "description": "Sacred Sites and Pilgrimage Routes in the Kii Mountain Range is a UNESCO World Heritage Site in Wakayama, designated for its outstanding universal cultural or natural value.",
     "highlights": [
       "UNESCO Heritage Monument",
@@ -13867,9 +13399,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/211203_Kurashikikan_Kurashiki_Okayama_pref_Japan02s3.jpg/1280px-211203_Kurashikikan_Kurashiki_Okayama_pref_Japan02s3.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/211203_Kurashikikan_Kurashiki_Okayama_pref_Japan02s3.jpg/1280px-211203_Kurashikikan_Kurashiki_Okayama_pref_Japan02s3.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/211203_Kurashikikan_Kurashiki_Okayama_pref_Japan02s3.jpg/1280px-211203_Kurashikikan_Kurashiki_Okayama_pref_Japan02s3.jpg"
-    ],
     "description": "Preserved canal town featuring Kurashiki Bikan Historical Quarter, willow-lined canals, and Ohara Museum of Art.",
     "highlights": ["Explore Kurashiki City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -14004,9 +13533,6 @@
     ],
     "description": "Discover Kurobe Gorge, a prominent destination in Shizuoka. With its rich mix of scenic railway, ravine, onsen, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Kurobe_kyokoku_view_from_Kurobe_Dam.jpg/1280px-Kurobe_kyokoku_view_from_Kurobe_Dam.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 6000,
       "tickets": 8000,
@@ -14078,9 +13604,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E6%B9%AF%E7%95%912.jpg/1280px-%E6%B9%AF%E7%95%912.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E6%B9%AF%E7%95%912.jpg/1280px-%E6%B9%AF%E7%95%912.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E6%B9%AF%E7%95%912.jpg/1280px-%E6%B9%AF%E7%95%912.jpg"
-    ],
     "description": "One of Japan's top three hot spring resorts, centered around the steaming Yubatake hot spring field.",
     "highlights": ["Explore Kusatsu Town", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -14167,9 +13690,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
     "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
-    "gallery": [
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200"
-    ],
     "description": "Eastern Hokkaido port city featuring Kushiro Marsh National Park (home to Japanese red-crowned cranes).",
     "highlights": ["Explore Kushiro City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -14252,9 +13772,6 @@
     "categories": ["Cultural Capital", "Historic Hub", "Temples"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kiyomizu-dera%2C_Kyoto%2C_November_2016_-02.jpg/1280px-Kiyomizu-dera%2C_Kyoto%2C_November_2016_-02.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kiyomizu-dera%2C_Kyoto%2C_November_2016_-02.jpg/1280px-Kiyomizu-dera%2C_Kyoto%2C_November_2016_-02.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kiyomizu-dera%2C_Kyoto%2C_November_2016_-02.jpg/1280px-Kiyomizu-dera%2C_Kyoto%2C_November_2016_-02.jpg"
-    ],
     "description": "Japan's ancient imperial capital, renowned for thousands of classical Buddhist temples, Shinto shrines, traditional wooden machiya, and zen gardens.",
     "highlights": [
       "Kinkaku-ji",
@@ -14404,9 +13921,6 @@
       "high": 18000
     },
     "heroImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1280&auto=format&fit=crop",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/3/3c/Kiyomizu.jpg"
-    ],
     "description": "Kyoto, Japan's imperial capital for over a millennium, encompasses 17 UNESCO World Heritage monuments including the wooden balcony of Kiyomizu-dera and the shimmering Golden Pavilion.",
     "notes": "Home to over 2,000 temples and shrines.",
     "budgetRecommended": 9000,
@@ -14436,10 +13950,7 @@
       "tickets": 2000,
       "food": 2600,
       "cafe": 1400
-    },
-    "gallery": [
-      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1280&auto=format&fit=crop"
-    ]
+    }
   },
   {
     "id": "lake-hamanako",
@@ -14501,9 +14012,6 @@
     ],
     "description": "Discover Lake Hamanako, a prominent destination in Shizuoka. With its rich mix of eel, cycling, onsen, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lake_Hamana_Aerial_photograph.2006.jpg/1280px-Lake_Hamana_Aerial_photograph.2006.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 4000,
       "tickets": 2000,
@@ -14617,11 +14125,6 @@
     ],
     "description": "Discover Lake Sagami, a prominent destination in Kanagawa. With its rich mix of illumination, outdoors, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Lake_Sagami_-_2005_Nov_10_various_10.jpg/3840px-Lake_Sagami_-_2005_Nov_10_various_10.jpg",
-      "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600",
-      "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 3600,
       "tickets": 1800,
@@ -14689,11 +14192,6 @@
     "region": "Kanto",
     "categories": ["Urban", "Shopping", "Parks"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Machida_city.jpg/1280px-Machida_city.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Machida_city.jpg/1280px-Machida_city.jpg",
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600",
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=600"
-    ],
     "description": "Vibrant shopping and commercial hub in western Tokyo bordering Kanagawa, famous for Serigaya Park and Squirrel Garden.",
     "highlights": [
       "Machida Squirrel Garden",
@@ -14846,9 +14344,6 @@
       "high": 12000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/1280px-Marugame_Castle01.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/5/56/Marugame_Castle01.jpg"
-    ],
     "description": "Marugame Castle features Japan's tallest combined stone wall foundations (60 meters high in total), supporting a compact original three-story wooden keep.",
     "notes": "Famous for its sweeping curve stone wall technique known as Ogura-tsumi.",
     "categories": ["history", "culture", "sightseeing"],
@@ -14874,9 +14369,6 @@
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/1280px-Marugame_Castle01.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/1280px-Marugame_Castle01.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -14953,9 +14445,6 @@
       "Mist Legend Park"
     ],
     "description": "Built in 1576, Maruoka Castle is one of Japan's 12 original surviving castle keeps and features the oldest architectural keep style in Japan, complete with rare stone roof tiles.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg/1280px-Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 1800,
       "tickets": 450,
@@ -15025,9 +14514,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Matsudo_montage.jpg/1280px-Matsudo_montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Matsudo_montage.jpg/1280px-Matsudo_montage.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Matsudo_montage.jpg/1280px-Matsudo_montage.jpg"
-    ],
     "description": "Suburban hub featuring Tojo-tei Edo-period villa gardens and Yagiri no Watashi ferry.",
     "highlights": ["Explore Matsudo City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -15167,9 +14653,6 @@
       "high": 15000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg/1280px-080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg/3840px-080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg"
-    ],
     "description": "Matsue Castle, completed in 1611, is one of Japan's five castles designated as National Treasures, featuring striking black wooden siding nicknamed the Black Plover Castle.",
     "notes": "Surrounded by historic moat boat tours (Horikawa Pleasure Boat).",
     "categories": ["history", "culture", "sightseeing"],
@@ -15200,10 +14683,7 @@
       "tickets": 2000,
       "food": 2925,
       "cafe": 1575
-    },
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg/1280px-080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg"
-    ]
+    }
   },
   {
     "id": "matsue-city",
@@ -15216,9 +14696,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/00/Matsue_montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/0/00/Matsue_montage.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/0/00/Matsue_montage.jpg"
-    ],
     "description": "Water city on Lake Shinji featuring original wooden Matsue Castle and Lafcadio Hearn historic residence.",
     "highlights": ["Explore Matsue City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -15304,9 +14781,6 @@
     "categories": ["Castle", "National Treasure", "History"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Matsumoto_Castle_Keep_Tower.jpg/1280px-Matsumoto_Castle_Keep_Tower.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Matsumoto_Castle_Keep_Tower.jpg/1280px-Matsumoto_Castle_Keep_Tower.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Matsumoto_Castle_Keep_Tower.jpg/1280px-Matsumoto_Castle_Keep_Tower.jpg"
-    ],
     "description": "Matsumoto Castle (Crow Castle) is one of Japan's 12 original surviving castle keeps.",
     "highlights": ["Original Keep", "Historic Architecture", "Panoramic Views"],
     "totalTripHours": 3,
@@ -15377,9 +14851,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Matsumoto_Montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Matsumoto_Montage.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/d/dd/Matsumoto_Montage.jpg"
-    ],
     "description": "Alpine castle city featuring National Treasure Matsumoto 'Crow' Castle and gateway to Kamikochi.",
     "highlights": ["Explore Matsumoto City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -15570,9 +15041,6 @@
       "high": 16000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg/3840px-211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg/3840px-211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg"
-    ],
     "description": "Matsushima Bay is one of Japan's Three Great Views (Nihon Sankei), celebrated for over 260 pine-clad islands scattered across tranquil coastal waters.",
     "notes": "Famed poet Matsuo Basho was left speechless by its beauty in Oku no Hosomichi.",
     "budgetRecommended": 7500,
@@ -15661,9 +15129,6 @@
       "high": 16000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Matsuyama_castle%28Iyo%296.JPG/330px-Matsuyama_castle%28Iyo%296.JPG",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/c/c9/Matsuyama_castle%28Iyo%296.JPG"
-    ],
     "description": "Iyo Matsuyama Castle is one of Japan's most complex surviving hilltop castles, accessible via scenic chairlift or ropeway overlooking the Seto Inland Sea.",
     "notes": "Features 21 historically designated important cultural properties.",
     "categories": ["history", "culture", "sightseeing"],
@@ -15689,9 +15154,6 @@
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Matsuyama_castle%28Iyo%296.JPG/330px-Matsuyama_castle%28Iyo%296.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Matsuyama_castle%28Iyo%296.JPG/330px-Matsuyama_castle%28Iyo%296.JPG"
-    ],
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -15710,9 +15172,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Matsuyama_montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Matsuyama_montage.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/9/9f/Matsuyama_montage.jpg"
-    ],
     "description": "Largest city in Shikoku, featuring historic Matsuyama Castle atop Mt. Katsuyama and 3,000-year-old Dogo Onsen.",
     "highlights": ["Explore Matsuyama City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -15794,9 +15253,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Cherry_Blossoms_in_Meguro_River_Park_-_Lanterns_along_the_River_%2840844860114%29.jpg/3840px-Cherry_Blossoms_in_Meguro_River_Park_-_Lanterns_along_the_River_%2840844860114%29.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Cherry_Blossoms_in_Meguro_River_Park_-_Lanterns_along_the_River_%2840844860114%29.jpg/3840px-Cherry_Blossoms_in_Meguro_River_Park_-_Lanterns_along_the_River_%2840844860114%29.jpg",
-    "gallery": [
-      "https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&q=80&w=1200"
-    ],
     "description": "Trendy residential ward celebrated for Meguro River cherry blossoms, Nakameguro cafes, and boutique design studios.",
     "highlights": ["Explore Meguro City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -15911,9 +15367,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Tanigawa01.JPG/1280px-Tanigawa01.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Tanigawa01.JPG/1280px-Tanigawa01.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Tanigawa01.JPG/1280px-Tanigawa01.JPG"
-    ],
     "description": "Alpine outdoor adventure resort famous for Tone River white-water rafting, Tanigawadake peak, and thermal baths.",
     "highlights": ["Explore Minakami Town", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -16000,9 +15453,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9a/20110405-TokyoTower-Sakura01.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/9/9a/20110405-TokyoTower-Sakura01.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/9/9a/20110405-TokyoTower-Sakura01.jpg"
-    ],
     "description": "Tokyo's international waterfront hub encompassing Tokyo Tower, Roppongi Hills, Odaiba, and Azabudai Hills.",
     "highlights": ["Explore Minato City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -16144,11 +15594,6 @@
       "Tower Hotel Nagoya"
     ],
     "description": "Completed in 1954 as Japan's first TV broadcasting tower, this 180-meter Registered Tangible Cultural Property in Nagoya's Hisaya-odori Park features outdoor observation decks and projection mapping art.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Nagoya_TV_Tower2.jpg/3840px-Nagoya_TV_Tower2.jpg",
-      "https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?q=80&w=600",
-      "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 1200,
       "tickets": 1300,
@@ -16266,11 +15711,6 @@
       "Plum Blossom Gardens"
     ],
     "description": "The seat of the Mito Tokugawa family, featuring the restored wooden Otemon Gate, dry moat earthworks, and the 1841 Kodokan—Japan's largest Mito clan samurai school.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Mito_castle_sannomaru_karabori.jpg/3840px-Mito_castle_sannomaru_karabori.jpg",
-      "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600",
-      "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 1500,
       "tickets": 400,
@@ -16336,9 +15776,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/1280px-Kairaku-en%2C_Ibaraki_24.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/1280px-Kairaku-en%2C_Ibaraki_24.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/1280px-Kairaku-en%2C_Ibaraki_24.jpg"
-    ],
     "description": "Historic Mito feudal clan capital featuring Kairakuen Garden (Three Great Gardens of Japan) and plum blossoms.",
     "highlights": ["Explore Mito City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -16509,9 +15946,6 @@
       "high": 16000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/960px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/3840px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg"
-    ],
     "description": "Itsukushima Shrine on Miyajima Island is world-renowned for its iconic vermilion O-Torii gate that appears to float magically upon the Seto Inland Sea during high tide.",
     "notes": "Designated as one of the Three Views of Japan (Nihon Sankei).",
     "budgetRecommended": 7500,
@@ -16539,10 +15973,7 @@
       "tickets": 2000,
       "food": 1625,
       "cafe": 875
-    },
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/960px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg"
-    ]
+    }
   },
   {
     "id": "miyakojima-city",
@@ -16555,9 +15986,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Miyako_maipama_1.jpg/1280px-Miyako_maipama_1.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Miyako_maipama_1.jpg/1280px-Miyako_maipama_1.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Miyako_maipama_1.jpg/1280px-Miyako_maipama_1.jpg"
-    ],
     "description": "Island paradise famous for 'Miyako Blue' crystal waters, Yonaha Maehama Beach, and spectacular sea bridges.",
     "highlights": ["Explore Miyakojima City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -16639,9 +16067,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Miyazaki_Montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Miyazaki_Montage.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/4/4e/Miyazaki_Montage.jpg"
-    ],
     "description": "Subtropical resort city on Pacific coast, famous for Aoshima Island, palm trees, and Miyazaki beef.",
     "highlights": ["Explore Miyazaki City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -16727,9 +16152,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Amanohashidate_view_from_Mt_Moju02s3s4592.jpg/1280px-Amanohashidate_view_from_Mt_Moju02s3s4592.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Amanohashidate_view_from_Mt_Moju02s3s4592.jpg/1280px-Amanohashidate_view_from_Mt_Moju02s3s4592.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Amanohashidate_view_from_Mt_Moju02s3s4592.jpg/1280px-Amanohashidate_view_from_Mt_Moju02s3s4592.jpg"
-    ],
     "description": "Coastal city home to Amanohashidate pine sandbar, ranked among Japan's Three Scenic Views.",
     "highlights": ["Explore Miyazu City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -16811,11 +16233,6 @@
     "region": "Kanto",
     "categories": ["Nature", "Family", "Animals"],
     "heroImage": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1000",
-    "gallery": [
-      "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=600",
-      "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600",
-      "https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600"
-    ],
     "description": "Sprawling 250-hectare mountain farm overlooking Tokyo Bay with alpaca feeding, sheep shearing shows, and flower fields.",
     "highlights": ["Sheep Shearing Show", "Alpaca Farm", "Flower Fields"],
     "budgetMin": 8000,
@@ -16920,9 +16337,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Ocean_Expo_Park.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Ocean_Expo_Park.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/2/2a/Ocean_Expo_Park.JPG"
-    ],
     "description": "Oceanic resort town home to Okinawa Churaumi Aquarium, Emerald Beach, and Bise Fukugi Tree Avenue.",
     "highlights": ["Explore Motobu Town", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -17053,9 +16467,6 @@
     ],
     "description": "Mount Fuji is an active stratovolcano located on the Japanese island of Honshu, with a summit elevation of 3,776.24 m. It is the highest mountain in Japan, the second-highest volcano on any Asian island, and the seventh-highest peak of an island on Earth. Mount Fuji last erupted from 1707 to 1708.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=1280&auto=format&fit=crop"
-    ],
     "budgetBreakdown": {
       "transport": 2000,
       "tickets": 1000,
@@ -17179,9 +16590,6 @@
       "high": 14000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/1280px-Mt.Inasa_2010.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/800px-Mt.Inasa_2010.jpg"
-    ],
     "description": "Mount Inasa in Nagasaki is designated as one of the World's New Three Great Night Views, offering a 360° illuminated bowl view of Nagasaki harbor and surrounding hills.",
     "notes": "333 meters high, connected by Nagasaki Ropeway.",
     "budgetRecommended": 6500,
@@ -17204,9 +16612,6 @@
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/1280px-Mt.Inasa_2010.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/1280px-Mt.Inasa_2010.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -17270,9 +16675,6 @@
       "high": 16000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Cherry_blossoms_at_Yoshinoyama_01.jpg/1280px-Cherry_blossoms_at_Yoshinoyama_01.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/1/1a/Cherry_blossoms_at_Yoshinoyama_02.jpg"
-    ],
     "description": "Mount Yoshino is Japan's most famous cherry blossom mountain, carpeted by over 30,000 Yamazakura trees blooming sequentially across four mountain elevations.",
     "notes": "Part of the Sacred Sites and Pilgrimage Routes in the Kii Mountain Range UNESCO site.",
     "budgetRecommended": 7500,
@@ -17295,9 +16697,6 @@
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Cherry_blossoms_at_Yoshinoyama_01.jpg/1280px-Cherry_blossoms_at_Yoshinoyama_01.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Cherry_blossoms_at_Yoshinoyama_01.jpg/1280px-Cherry_blossoms_at_Yoshinoyama_01.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -17312,9 +16711,6 @@
     "region": "Kansai",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Kondagobyoyama_Kofun_air.jpg/960px-Kondagobyoyama_Kofun_air.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Kondagobyoyama_Kofun_air.jpg/960px-Kondagobyoyama_Kofun_air.jpg"
-    ],
     "description": "Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan is a UNESCO World Heritage Site in Osaka, designated for its outstanding universal cultural or natural value.",
     "highlights": [
       "UNESCO Heritage Monument",
@@ -17480,9 +16876,6 @@
       "high": 16000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Kumano_Kodo_World_heritage_Nachi-no-taki_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E9%82%A3%E6%99%BA%E5%A4%A7%E6%BB%9D10.JPG/1280px-Kumano_Kodo_World_heritage_Nachi-no-taki_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E9%82%A3%E6%99%BA%E5%A4%A7%E6%BB%9D10.JPG",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/d/d5/Kumano_Kodo_World_heritage_Nachi-no-taki_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E9%82%A3%E6%99%BA%E5%A4%A7%E6%BB%9D10.JPG"
-    ],
     "description": "Nachi Falls is Japan's tallest uninterrupted single-drop waterfall (133 meters), framing the three-story red Seiganto-ji pagoda against the sacred Nachi primeval forest.",
     "notes": "Part of the UNESCO Sacred Sites and Pilgrimage Routes in the Kii Mountain Range.",
     "budgetRecommended": 6500,
@@ -17505,9 +16898,6 @@
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {},
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Kumano_Kodo_World_heritage_Nachi-no-taki_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E9%82%A3%E6%99%BA%E5%A4%A7%E6%BB%9D10.JPG/1280px-Kumano_Kodo_World_heritage_Nachi-no-taki_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E9%82%A3%E6%99%BA%E5%A4%A7%E6%BB%9D10.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Kumano_Kodo_World_heritage_Nachi-no-taki_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E9%82%A3%E6%99%BA%E5%A4%A7%E6%BB%9D10.JPG/1280px-Kumano_Kodo_World_heritage_Nachi-no-taki_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E9%82%A3%E6%99%BA%E5%A4%A7%E6%BB%9D10.JPG"
-    ],
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -17522,11 +16912,6 @@
     "region": "Chubu",
     "categories": ["Relaxation", "History"],
     "heroImage": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1000",
-    "gallery": [
-      "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600",
-      "https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600",
-      "https://images.unsplash.com/photo-1463438690606-f6778b8c1d10?q=80&w=600"
-    ],
     "description": "Known as the 'Kamakura of Shinshu', Bessho is Nagano's oldest hot spring town, boasting historic temples and therapeutic sulfur baths.",
     "highlights": [
       "Anraku-ji Temple (Octagonal Pagoda)",
@@ -17690,11 +17075,6 @@
     ],
     "description": "Discover Nagano & Snow Monkeys, a prominent destination in Shizuoka. With its rich mix of zenkoji, olympics, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/160501_Zenkoji_Nagano_Japan06s3.jpg/3840px-160501_Zenkoji_Nagano_Japan06s3.jpg",
-      "https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600",
-      "https://images.unsplash.com/photo-1463438690606-f6778b8c1d10?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 3600,
       "tickets": 1800,
@@ -17772,11 +17152,6 @@
     "region": "Chubu",
     "categories": ["Nature", "Hiking", "Mountains"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Kamikochi_-_Kamikochi6538.jpg/3840px-Kamikochi_-_Kamikochi6538.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Kamikochi_-_Kamikochi6538.jpg/3840px-Kamikochi_-_Kamikochi6538.jpg",
-      "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=600",
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600"
-    ],
     "description": "A pristine, highland valley in the Hida Mountains, boasting crystal-clear Azusa River flows, larch forests, and active volcano views.",
     "highlights": [
       "Kappa Bridge (Kappabashi)",
@@ -17893,11 +17268,6 @@
     "region": "Chubu",
     "categories": ["History", "Urban"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/1_naraijuku_2024.jpg/3840px-1_naraijuku_2024.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/1_naraijuku_2024.jpg/3840px-1_naraijuku_2024.jpg",
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600",
-      "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600"
-    ],
     "description": "Known as 'Narai of a Thousand Houses', this is the longest preserved post town along the historic Nakasendo trade route.",
     "highlights": [
       "Nakasendo Historic Street",
@@ -18022,11 +17392,6 @@
     "region": "Chubu",
     "categories": ["History", "Nature", "Relaxation"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Lake_Suwa_as_seen_from_Tateishi_Park_%28east%29.jpg/3840px-Lake_Suwa_as_seen_from_Tateishi_Park_%28east%29.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Lake_Suwa_as_seen_from_Tateishi_Park_%28east%29.jpg/3840px-Lake_Suwa_as_seen_from_Tateishi_Park_%28east%29.jpg",
-      "https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?q=80&w=600",
-      "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600"
-    ],
     "description": "Centred around Lake Suwa, this town is famous for the grand Suwa Taisha Shinto shrines, hot springs, sake breweries, and summer fireworks.",
     "highlights": [
       "Lake Suwa Geyser Center",
@@ -18143,11 +17508,6 @@
     "region": "Chubu",
     "categories": ["History", "Nature"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/1_tsumago_juku_2024.jpg/3840px-1_tsumago_juku_2024.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/1_tsumago_juku_2024.jpg/3840px-1_tsumago_juku_2024.jpg",
-      "https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600",
-      "https://images.unsplash.com/photo-1463438690606-f6778b8c1d10?q=80&w=600"
-    ],
     "description": "A historic Nakasendo post town that banned modern updates, preserving its Edo-era wooden shops, inns, and stone paths.",
     "highlights": [
       "Waki-Honjin Okuya Inn",
@@ -18274,9 +17634,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Nagasaki_City_View_from_Glover_Garden%2C_Nagasaki_2014.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Nagasaki_City_View_from_Glover_Garden%2C_Nagasaki_2014.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/a/a1/Nagasaki_City_View_from_Glover_Garden%2C_Nagasaki_2014.jpg"
-    ],
     "description": "Historic international port city featuring Glover Garden, Dejima Dutch trading post, and Peace Park.",
     "highlights": ["Explore Nagasaki City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -18362,9 +17719,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg/1280px-Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg/1280px-Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg/1280px-Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg"
-    ],
     "description": "Northern main island city featuring Busena Marine Park, Orion Happy Park brewery, and cherry blossom festivals.",
     "highlights": ["Explore Nago City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -18446,9 +17800,6 @@
     "categories": ["Castle", "History", "Landmark"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Nagoya_Castle_7.jpg/1280px-Nagoya_Castle_7.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Nagoya_Castle_7.jpg/1280px-Nagoya_Castle_7.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Nagoya_Castle_7.jpg/1280px-Nagoya_Castle_7.jpg"
-    ],
     "description": "Iconic landmark of Nagoya featuring reconstructed Hommaru Palace and golden shachihoko roof ornaments.",
     "highlights": ["Hommaru Palace", "Golden Shachihoko", "Ninja Performance"],
     "totalTripHours": 3,
@@ -18520,9 +17871,6 @@
     "categories": ["City Hub", "Urban", "Culinary", "Historical"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Nagoya_Station_-_View_from_the_Main_Building_in_Nagoya_Campus_of_Aichi_University_2022-6-29.jpg/330px-Nagoya_Station_-_View_from_the_Main_Building_in_Nagoya_Campus_of_Aichi_University_2022-6-29.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Nagoya_Station_-_View_from_the_Main_Building_in_Nagoya_Campus_of_Aichi_University_2022-6-29.jpg/330px-Nagoya_Station_-_View_from_the_Main_Building_in_Nagoya_Campus_of_Aichi_University_2022-6-29.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Nagoya_Station_-_View_from_the_Main_Building_in_Nagoya_Campus_of_Aichi_University_2022-6-29.jpg/330px-Nagoya_Station_-_View_from_the_Main_Building_in_Nagoya_Campus_of_Aichi_University_2022-6-29.jpg"
-    ],
     "description": "A major economic and cultural metropolis in central Japan, famous for feudal samurai castles, world-class railway heritage, and rich regional culinary delights.",
     "highlights": [
       "Nagoya Castle",
@@ -18710,11 +18058,6 @@
       "Antarctic Research Ship Fuji"
     ],
     "description": "Designed in the shape of a white ocean sailboat, this 63-meter maritime tower offers 360-degree views over Nagoya Port, Meiko Triton bridges, and cargo container docks.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Nagoya_port_Sea-Train_Land_01.JPG/1280px-Nagoya_port_Sea-Train_Land_01.JPG",
-      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=600",
-      "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 1100,
       "tickets": 300,
@@ -18777,9 +18120,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/67/Naha_montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/6/67/Naha_montage.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/6/67/Naha_montage.jpg"
-    ],
     "description": "Okinawa's capital and subtropical gateway, featuring Kokusai-dori shopping boulevard and historic Shuri Castle.",
     "highlights": ["Explore Naha City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -18861,9 +18201,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Tetsugakudo_Park%28Philosophy_Hall_Park%29_-_%E5%93%B2%E5%AD%A6%E5%A0%82%E5%85%AC%E5%9C%92_-_panoramio_%281%29.jpg/1280px-Tetsugakudo_Park%28Philosophy_Hall_Park%29_-_%E5%93%B2%E5%AD%A6%E5%A0%82%E5%85%AC%E5%9C%92_-_panoramio_%281%29.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Tetsugakudo_Park%28Philosophy_Hall_Park%29_-_%E5%93%B2%E5%AD%A6%E5%A0%82%E5%85%AC%E5%9C%92_-_panoramio_%281%29.jpg/1280px-Tetsugakudo_Park%28Philosophy_Hall_Park%29_-_%E5%93%B2%E5%AD%A6%E5%A0%82%E5%85%AC%E5%9C%92_-_panoramio_%281%29.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Tetsugakudo_Park%28Philosophy_Hall_Park%29_-_%E5%93%B2%E5%AD%A6%E5%A0%82%E5%85%AC%E5%9C%92_-_panoramio_%281%29.jpg/1280px-Tetsugakudo_Park%28Philosophy_Hall_Park%29_-_%E5%93%B2%E5%AD%A6%E5%A0%82%E5%85%AC%E5%9C%92_-_panoramio_%281%29.jpg"
-    ],
     "description": "Subcultural haven famous for Nakano Broadway subculture shopping complex and vibrant ramen arcades.",
     "highlights": ["Explore Nakano City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -18950,9 +18287,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Nara_montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Nara_montage.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/c/cf/Nara_montage.jpg"
-    ],
     "description": "Japan's 8th-century capital, renowned for free-roaming sacred deer in Nara Park and Todai-ji Great Buddha.",
     "highlights": ["Explore Nara City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -19030,9 +18364,6 @@
     "region": "Kansai",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=1280&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=1280&auto=format&fit=crop"
-    ],
     "description": "Historic Monuments of Ancient Nara is a UNESCO World Heritage Site in Nara, designated for its outstanding universal cultural or natural value.",
     "highlights": [
       "UNESCO Heritage Monument",
@@ -19204,9 +18535,6 @@
       "high": 12000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/%E6%9D%B1%E5%A4%A7%E5%AF%BA_%E5%A4%A7%E4%BB%8F%E6%AE%BF%EF%BC%882024%E5%B9%B4%EF%BC%89.jpg/1280px-%E6%9D%B1%E5%A4%A7%E5%AF%BA_%E5%A4%A7%E4%BB%8F%E6%AE%BF%EF%BC%882024%E5%B9%B4%EF%BC%89.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/2/2f/T%C5%8Ddai-ji_Kon-d%C5%8D.jpg"
-    ],
     "description": "Nara Park houses the world's largest wooden building (Todai-ji Daibutsuden), sheltering the 15-meter bronze Great Buddha alongside over 1,200 friendly freely roaming sika deer.",
     "notes": "Nara was Japan's first permanent capital (710–784 AD).",
     "budgetRecommended": 5000,
@@ -19231,9 +18559,6 @@
       "parentDestinationId": "nara-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/%E6%9D%B1%E5%A4%A7%E5%AF%BA_%E5%A4%A7%E4%BB%8F%E6%AE%BF%EF%BC%882024%E5%B9%B4%EF%BC%89.jpg/1280px-%E6%9D%B1%E5%A4%A7%E5%AF%BA_%E5%A4%A7%E4%BB%8F%E6%AE%BF%EF%BC%882024%E5%B9%B4%EF%BC%89.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/%E6%9D%B1%E5%A4%A7%E5%AF%BA_%E5%A4%A7%E4%BB%8F%E6%AE%BF%EF%BC%882024%E5%B9%B4%EF%BC%89.jpg/1280px-%E6%9D%B1%E5%A4%A7%E5%AF%BA_%E5%A4%A7%E4%BB%8F%E6%AE%BF%EF%BC%882024%E5%B9%B4%EF%BC%89.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -19252,9 +18577,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Narita_montage2.jpg/1280px-Narita_montage2.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Narita_montage2.jpg/1280px-Narita_montage2.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Narita_montage2.jpg/1280px-Narita_montage2.jpg"
-    ],
     "description": "Global gateway featuring Narita International Airport and thousand-year-old Naritasan Shinshoji Temple.",
     "highlights": ["Explore Narita City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -19369,9 +18691,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Naruto_Whirlpools_taken_4-21-2008.jpg/1280px-Naruto_Whirlpools_taken_4-21-2008.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Naruto_Whirlpools_taken_4-21-2008.jpg/1280px-Naruto_Whirlpools_taken_4-21-2008.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Naruto_Whirlpools_taken_4-21-2008.jpg/1280px-Naruto_Whirlpools_taken_4-21-2008.jpg"
-    ],
     "description": "Strait city famous for Naruto Whirlpools, Otsuka Museum of Art, and Naruto Bridge walk.",
     "highlights": ["Explore Naruto City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -19449,9 +18768,6 @@
     "region": "Kanto",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/National_museum_of_western_art05s3200.jpg/1280px-National_museum_of_western_art05s3200.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/National_museum_of_western_art05s3200.jpg/1280px-National_museum_of_western_art05s3200.jpg"
-    ],
     "description": "The Architectural Work of Le Corbusier (NMWA Tokyo) is a UNESCO World Heritage Site in Tokyo, designated for its outstanding universal cultural or natural value.",
     "highlights": [
       "UNESCO Heritage Monument",
@@ -19572,9 +18888,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/%E4%B8%89%E5%AE%9D%E5%AF%BA%E6%B1%A0%E3%81%A8%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE%EF%BC%882021%E5%B9%B45%E6%9C%88%EF%BC%89.jpg/1280px-%E4%B8%89%E5%AE%9D%E5%AF%BA%E6%B1%A0%E3%81%A8%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE%EF%BC%882021%E5%B9%B45%E6%9C%88%EF%BC%89.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/%E4%B8%89%E5%AE%9D%E5%AF%BA%E6%B1%A0%E3%81%A8%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE%EF%BC%882021%E5%B9%B45%E6%9C%88%EF%BC%89.jpg/1280px-%E4%B8%89%E5%AE%9D%E5%AF%BA%E6%B1%A0%E3%81%A8%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE%EF%BC%882021%E5%B9%B45%E6%9C%88%EF%BC%89.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/%E4%B8%89%E5%AE%9D%E5%AF%BA%E6%B1%A0%E3%81%A8%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE%EF%BC%882021%E5%B9%B45%E6%9C%88%EF%BC%89.jpg/1280px-%E4%B8%89%E5%AE%9D%E5%AF%BA%E6%B1%A0%E3%81%A8%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE%EF%BC%882021%E5%B9%B45%E6%9C%88%EF%BC%89.jpg"
-    ],
     "description": "Green outer ward recognized as the birthplace of Japanese television anime and Warner Bros Studio Tour.",
     "highlights": ["Explore Nerima City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -19659,9 +18972,6 @@
     "region": "Chubu",
     "categories": ["Cities", "Hub", "Sightseeing"],
     "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop"
-    ],
     "description": "Niigata City is one of Japan's 20 ordinance-designated core metropolis hubs, featuring rich regional history, vibrant food markets, and high-speed rail transit connectivity.",
     "highlights": [
       "Central Station Plaza",
@@ -19832,9 +19142,6 @@
       "high": 14000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg/1280px-%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/NinomaruPalace.jpg/800px-NinomaruPalace.jpg"
-    ],
     "description": "Nijo Castle in Kyoto was the residence of Tokugawa Ieyasu, famous for its Ninomaru Palace featuring squeaking 'nightingale floors' designed to alert guards to intruders.",
     "notes": "Site where Shogun Tokugawa Yoshinobu returned power to Emperor Meiji in 1867.",
     "budgetRecommended": 6500,
@@ -19859,9 +19166,6 @@
       "parentDestinationId": "kyoto-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg/1280px-%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg/1280px-%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -19880,9 +19184,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/NikkoYomeimon5005.jpg/1280px-NikkoYomeimon5005.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/NikkoYomeimon5005.jpg/1280px-NikkoYomeimon5005.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/NikkoYomeimon5005.jpg/1280px-NikkoYomeimon5005.jpg"
-    ],
     "description": "World Heritage mountain sanctuary featuring ornate Toshogu Shrine, Kegon Falls, and Lake Chuzenji.",
     "highlights": ["Explore Nikko City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -20027,9 +19328,6 @@
     ],
     "heroImage": "https://images.unsplash.com/photo-1578637387939-43c525550085?q=80&w=1280&auto=format&fit=crop",
     "image": "https://images.unsplash.com/photo-1578637387939-43c525550085?q=80&w=1280&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1578637387939-43c525550085?q=80&w=1280&auto=format&fit=crop"
-    ],
     "description": "UNESCO World Heritage complex housing the lavishly gilded Yomeimon Gate, Tokugawa Ieyasu's mausoleum, and three wise monkeys wood carving.",
     "highlights": [
       "Yomeimon Gate",
@@ -20109,9 +19407,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Niseko-Annupuri.JPG/1280px-Niseko-Annupuri.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Niseko-Annupuri.JPG/1280px-Niseko-Annupuri.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Niseko-Annupuri.JPG/1280px-Niseko-Annupuri.JPG"
-    ],
     "description": "World-class powder snow winter ski resort town framed by Mount Yotei ('Hokkaido's Mt. Fuji').",
     "highlights": ["Explore Niseko Town", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -20242,11 +19537,6 @@
     ],
     "description": "Discover Noto Peninsula, a prominent destination in Shizuoka. With its rich mix of scenic drive, seafood, rugged, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/3/3b/Noto_Peninsula_Ishikawa_Japan_SRTM.jpg",
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=600",
-      "https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 4400,
       "tickets": 2200,
@@ -20318,9 +19608,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Numazu_Montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Numazu_Montage.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/f/f7/Numazu_Montage.jpg"
-    ],
     "description": "Suruga Bay port city famous for Numazu Deep Sea Aquarium and fresh seafood dining.",
     "highlights": ["Explore Numazu City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -20468,9 +19755,6 @@
       "Oarai Seafood Market (nearby)"
     ],
     "description": "Standing 60 meters tall on the Ibaraki coastline, this distinctive triangular glass observation tower overlooks Oarai Port and the vast Pacific Ocean.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Oarai_Marine_Tower.jpg/1280px-Oarai_Marine_Tower.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 1200,
       "tickets": 340,
@@ -20579,11 +19863,6 @@
       "Rainbow Bridge View"
     ],
     "description": "A high-tech entertainment hub on an artificial island in Tokyo Bay, featuring shopping malls, beaches, and a giant Gundam.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg/3840px-Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg",
-      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600",
-      "https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 1000,
       "tickets": 8000,
@@ -20650,9 +19929,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Odawara_montage.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Odawara_montage.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/a/a5/Odawara_montage.JPG"
-    ],
     "description": "Historic castle town and gateway to Hakone, featuring Odawara Castle keep and kamaboko seafood delicacies.",
     "highlights": ["Explore Odawara City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -20736,9 +20012,6 @@
     "region": "Kanto",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/43/Minamijima.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/4/43/Minamijima.jpg"
-    ],
     "description": "Ogasawara Islands is a UNESCO World Heritage Site in Tokyo, designated for its outstanding universal cultural or natural value.",
     "highlights": [
       "UNESCO Heritage Monument",
@@ -20855,9 +20128,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/20/Okayama_Montage2.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/2/20/Okayama_Montage2.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/2/20/Okayama_Montage2.jpg"
-    ],
     "description": "Sunny city featuring Korakuen Garden (Three Great Gardens of Japan), Okayama 'Crow' Castle, and Momotaro folklore.",
     "highlights": ["Explore Okayama City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -20949,9 +20219,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Okazakijo-3-cropped.jpg/1280px-Okazakijo-3-cropped.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Okazakijo-3-cropped.jpg/1280px-Okazakijo-3-cropped.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Okazakijo-3-cropped.jpg/1280px-Okazakijo-3-cropped.jpg"
-    ],
     "description": "Birthplace of Shogun Tokugawa Ieyasu, featuring Okazaki Castle and Hatcho Miso breweries.",
     "highlights": ["Explore Okazaki City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -21038,9 +20305,6 @@
     "region": "Kyushu",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/%E5%AE%97%E5%83%8F%E5%A4%A7%E7%A4%BE%E6%B2%96%E6%B4%A5%E5%AE%AE.JPG/960px-%E5%AE%97%E5%83%8F%E5%A4%A7%E7%A4%BE%E6%B2%96%E6%B4%A5%E5%AE%AE.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/%E5%AE%97%E5%83%8F%E5%A4%A7%E7%A4%BE%E6%B2%96%E6%B4%A5%E5%AE%AE.JPG/960px-%E5%AE%97%E5%83%8F%E5%A4%A7%E7%A4%BE%E6%B2%96%E6%B4%A5%E5%AE%AE.JPG"
-    ],
     "description": "Sacred Island of Okinoshima and Associated Sites in Munakata is a UNESCO World Heritage Site in Fukuoka, designated for its outstanding universal cultural or natural value.",
     "highlights": [
       "UNESCO Heritage Monument",
@@ -21210,9 +20474,6 @@
     ],
     "description": "Discover Okuhida, a prominent destination in Shizuoka. With its rich mix of onsen, ropeway, alps, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/0/05/YariKamikohchiTagged.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 7200,
       "tickets": 3600,
@@ -21274,11 +20535,6 @@
     "region": "Kanto",
     "categories": ["Nature", "Culture", "Hiking"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Mitake_Shrine.jpg/1280px-Mitake_Shrine.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Mitake_Shrine.jpg/1280px-Mitake_Shrine.jpg",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600",
-      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600"
-    ],
     "description": "Nostalgic Showa-era movie poster town in western Tokyo surrounded by Mitake Gorge, river rafting, and mountain shrines.",
     "highlights": [
       "Mitake Gorge",
@@ -21431,9 +20687,6 @@
     },
     "highlights": ["Train Simulators", "Historic Cars"],
     "description": "Ōmiya is one of ten wards of the city of Saitama, in Saitama Prefecture, Japan, and is located in the northeastern part of the city. As of 1 March 2021, the ward had an estimated population of 119,298 and a population density of 9,300 persons per km2. Its total area was 12.80 square kilometres (4.94 sq mi). Although Urawa-ku is the governmental center of Saitama City, Ōmiya-ku is the most active commercial and business centre in both Saitama City and Saitama Prefecture thanks to its transport infrastructure, especially railways connected at Ōmiya Station.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Namakubi0kei.JPG/330px-Namakubi0kei.JPG"
-    ],
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2800,
@@ -21526,9 +20779,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Onomichi_Jodoji_05.JPG/1280px-Onomichi_Jodoji_05.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Onomichi_Jodoji_05.JPG/1280px-Onomichi_Jodoji_05.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Onomichi_Jodoji_05.JPG/1280px-Onomichi_Jodoji_05.JPG"
-    ],
     "description": "Picturesque hillside port city overlooking the Seto Inland Sea, famous for Senkoji Temple, temple walks, and Shimanami Kaido cycling route.",
     "highlights": ["Explore Onomichi City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -21655,9 +20905,6 @@
       "high": 12000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Osaka-zu_byobu.jpg/500px-Osaka-zu_byobu.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Osaka_Castle_03bs3200.jpg/800px-Osaka_Castle_03bs3200.jpg"
-    ],
     "description": "Osaka Castle is an iconic 16th-century fortress constructed by Toyotomi Hideyoshi, featuring golden roof ornaments, massive stone ramparts, and a lush park surrounded by moats.",
     "notes": "Reconstructed in 1931 with an elevator-serviced interior museum.",
     "budgetRecommended": 6500,
@@ -21682,9 +20929,6 @@
       "parentDestinationId": "osaka-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Osaka-zu_byobu.jpg/500px-Osaka-zu_byobu.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Osaka-zu_byobu.jpg/500px-Osaka-zu_byobu.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -21704,9 +20948,6 @@
     "categories": ["Urban Hub", "Culinary", "Nightlife", "Modern"],
     "heroImage": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
     "image": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
-    "gallery": [
-      "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200"
-    ],
     "description": "Kansai's vibrant commercial metropolis, famous for neon-lit Dotonbori canals, Osaka Castle, street food culture, and warm hospitality.",
     "highlights": [
       "Dotonbori",
@@ -21801,9 +21042,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Tokyo-International-Airport_Satellite.jpg/1280px-Tokyo-International-Airport_Satellite.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Tokyo-International-Airport_Satellite.jpg/1280px-Tokyo-International-Airport_Satellite.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Tokyo-International-Airport_Satellite.jpg/1280px-Tokyo-International-Airport_Satellite.jpg"
-    ],
     "description": "Gateway ward encompassing Tokyo International Haneda Airport, Ikegami Honmonji Temple, and coastal parks.",
     "highlights": ["Explore Ota City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -21890,9 +21128,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/08/Otaru_Montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/0/08/Otaru_Montage.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/0/08/Otaru_Montage.jpg"
-    ],
     "description": "Nostalgic canal port town near Sapporo, famous for stone warehouses, glasscraft shops, and fresh seafood sushi.",
     "highlights": ["Explore Otaru City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -21978,9 +21213,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Skyline_of_Otsu_City20210828.jpg/1280px-Skyline_of_Otsu_City20210828.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Skyline_of_Otsu_City20210828.jpg/1280px-Skyline_of_Otsu_City20210828.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Skyline_of_Otsu_City20210828.jpg/1280px-Skyline_of_Otsu_City20210828.jpg"
-    ],
     "description": "Port city on southern tip of Lake Biwa, featuring Ishiyamadera Temple and Enryaku-ji Temple on Mt. Hiei.",
     "highlights": ["Explore Otsu City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -22058,9 +21290,6 @@
     "region": "Kyushu",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Nh%C3%A0_th%E1%BB%9D_ch%C3%ADnh_t%C3%B2a_Oura.jpg/960px-Nh%C3%A0_th%E1%BB%9D_ch%C3%ADnh_t%C3%B2a_Oura.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Nh%C3%A0_th%E1%BB%9D_ch%C3%ADnh_t%C3%B2a_Oura.jpg/960px-Nh%C3%A0_th%E1%BB%9D_ch%C3%ADnh_t%C3%B2a_Oura.jpg"
-    ],
     "description": "Hidden Christian Sites in the Nagasaki Region is a UNESCO World Heritage Site in Nagasaki, designated for its outstanding universal cultural or natural value.",
     "highlights": [
       "UNESCO Heritage Monument",
@@ -22230,9 +21459,6 @@
     ],
     "description": "Oze National Park , is an area consisting of open greenland in Fukushima, Tochigi, Gunma and Niigata Prefectures in Japan. The park is 372 km2 in area and is the 29th national park in Japan.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Mt.Shibutsu_16.jpg/1280px-Mt.Shibutsu_16.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 3200,
       "tickets": 0,
@@ -22360,9 +21586,6 @@
       "Mori Art Museum Access"
     ],
     "description": "Located on the 52nd floor and rooftop of Mori Tower (270m height), offering the iconic front-row view of Tokyo Tower framed against the Tokyo Bay skyline.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Roppongi_Hills_2013-12-01.jpg/1280px-Roppongi_Hills_2013-12-01.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 300,
       "tickets": 2000,
@@ -22481,9 +21704,6 @@
     ],
     "description": "Sado Island is an island located in the eastern part of the Sea of Japan, under the jurisdiction of Sado City, Niigata Prefecture, Japan, with a coastline of 262.7 kilometres (163.2 mi). In October 2017, Sado Island had a population of 55,212 people. Sado Island covers an area of 854.76 km2 (330.02 sq mi), and is the sixth largest island in Japan, excluding the disputed Southern Kurils. The shortest distance between Sado Island and Honshu is 32 km (20 mi). The highest peak on Sado Island is Mount Kinpoku, with an elevation of 1,172 m (3,845 ft).",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/%E4%BA%8C%E3%83%84%E4%BA%80.jpg/960px-%E4%BA%8C%E3%83%84%E4%BA%80.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 6000,
       "tickets": 3000,
@@ -22561,9 +21781,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/95/Sagamihara_montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/9/95/Sagamihara_montage.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/9/95/Sagamihara_montage.jpg"
-    ],
     "description": "Inland city featuring Lake Sagami, JAXA space exploration campus, and mountain hiking trails.",
     "highlights": ["Explore Sagamihara City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -22702,9 +21919,6 @@
     ],
     "description": "Saitama is the capital and largest city of Saitama Prefecture, Japan. Its area incorporates the former cities of Urawa, Ōmiya, Yono and Iwatsuki. It is a city designated by government ordinance. As of 1 February 2021, the city had an estimated population of 1,324,854, and a population density of 6,093 people per km2. Its total area is 217.43 square kilometres (83.95 sq mi).",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/e/ec/Saitama_city_montage.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 2400,
       "tickets": 1200,
@@ -22788,9 +22002,6 @@
     "region": "Kanto",
     "categories": ["Nature", "River"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Nagatoro1.jpg/1280px-Nagatoro1.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Nagatoro1.jpg/1280px-Nagatoro1.jpg"
-    ],
     "description": "Famous for its crystal-clear Arakawa River boat cruises, spectacular Iwadatami rock formations, and Mount Hodo ropeway.",
     "highlights": [
       "Nagatoro Line Kudari (Boat Cruise)",
@@ -22911,9 +22122,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Sakai_montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Sakai_montage.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/3/3d/Sakai_montage.jpg"
-    ],
     "description": "Ancient port city famous for Mozu Kofun Burial Mounds (UNESCO) and traditional Japanese kitchen knives.",
     "highlights": ["Explore Sakai City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -23057,11 +22265,6 @@
       "Cherry Blossom Moats"
     ],
     "description": "Constructed in 1611 by Doi Toshikatsu, Sakura Castle features impressive preserved earthen ramparts, deep dry moats, and over 1,100 cherry trees surrounding Rekihaku museum.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Sakura_Castle_2.JPG/3840px-Sakura_Castle_2.JPG",
-      "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
-      "https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 900,
       "tickets": 600,
@@ -23123,9 +22326,6 @@
     "region": "Tohoku",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/140913_Sannai-Maruyama_site_Aomori_Japan01bs6bs6.jpg/1920px-140913_Sannai-Maruyama_site_Aomori_Japan01bs6bs6.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/140913_Sannai-Maruyama_site_Aomori_Japan01bs6bs6.jpg/1920px-140913_Sannai-Maruyama_site_Aomori_Japan01bs6bs6.jpg"
-    ],
     "description": "Jomon Prehistoric Sites in Northern Japan is a UNESCO World Heritage Site in Aomori, designated for its outstanding universal cultural or natural value.",
     "highlights": [
       "UNESCO Heritage Monument",
@@ -23246,9 +22446,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/54/SapporoCity_Skylines2020.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/5/54/SapporoCity_Skylines2020.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/5/54/SapporoCity_Skylines2020.jpg"
-    ],
     "description": "Hokkaido's vibrant capital metropolis, famous for Sapporo Snow Festival, Odori Park, Susukino, and miso ramen.",
     "highlights": ["Explore Sapporo City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -23333,9 +22530,6 @@
     "region": "Tohoku",
     "categories": ["Cities", "Hub", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1d/SendaiCity_Skylines_from_Mukaiyama2018.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/1/1d/SendaiCity_Skylines_from_Mukaiyama2018.jpg"
-    ],
     "description": "Sendai City is one of Japan's 20 ordinance-designated core metropolis hubs, featuring rich regional history, vibrant food markets, and high-speed rail transit connectivity.",
     "highlights": [
       "Central Station Plaza",
@@ -23455,9 +22649,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/75/Seijo_namikimichi_231011.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/7/75/Seijo_namikimichi_231011.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/7/75/Seijo_namikimichi_231011.jpg"
-    ],
     "description": "Sprawling green ward known for Shimokitazawa vintage fashion alleys, Todoroki Ravine, and Gotokuji lucky cat temple.",
     "highlights": ["Explore Setagaya City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -23545,9 +22736,6 @@
     "categories": ["Urban Ward", "Shopping", "Nightlife", "Fashion"],
     "heroImage": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200",
     "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200",
-    "gallery": [
-      "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200"
-    ],
     "description": "Tokyo's pulse of youth culture, fashion, technology, and entertainment, featuring Shibuya Scramble Crossing, Meiji Shrine, and Harajuku.",
     "highlights": [
       "Shibuya Scramble Crossing",
@@ -23719,11 +22907,6 @@
       "Paradise Lounge Bar"
     ],
     "description": "Perched 229 meters directly above Shibuya Crossing atop Shibuya Scramble Square, featuring an open-air rooftop glass-edge deck with 360-degree views of Tokyo Tower and Mt. Fuji.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/SHIBUYA_SCRAMBLE_SQUARE_East_Tower.jpg/1280px-SHIBUYA_SCRAMBLE_SQUARE_East_Tower.jpg",
-      "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600",
-      "https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 200,
       "tickets": 2500,
@@ -23786,9 +22969,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Dan-no-ura_kosen-jo.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Dan-no-ura_kosen-jo.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/c/ca/Dan-no-ura_kosen-jo.JPG"
-    ],
     "description": "Strait port city at the tip of Honshu, world-famous for Karato Fish Market and fugu blowfish cuisine.",
     "highlights": ["Explore Shimonoseki City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -23874,9 +23054,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Gate_City_Osaki.jpg/1280px-Gate_City_Osaki.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Gate_City_Osaki.jpg/1280px-Gate_City_Osaki.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Gate_City_Osaki.jpg/1280px-Gate_City_Osaki.jpg"
-    ],
     "description": "Transportation gate connecting Shinkansen railways, Maxell Aqua Park, and historic Tokaido highway post towns.",
     "highlights": ["Explore Shinagawa City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -23963,9 +23140,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/1280px-Skyscrapers_of_Shinjuku_2009_January.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/1280px-Skyscrapers_of_Shinjuku_2009_January.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/1280px-Skyscrapers_of_Shinjuku_2009_January.jpg"
-    ],
     "description": "Bustling skyscraper ward, home to Tokyo Metropolitan Government Building, Shinjuku Gyoen National Garden, and Omoide Yokocho.",
     "highlights": ["Explore Shinjuku City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -24075,9 +23249,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Shirahama_montages.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Shirahama_montages.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/a/a5/Shirahama_montages.JPG"
-    ],
     "description": "Subtropical resort town famous for white sand beaches, outdoor hot springs, and Engetsuto Island sunset views.",
     "highlights": ["Explore Shirahama Town", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -24155,9 +23326,6 @@
     "region": "Tohoku",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1280&auto=format&fit=crop",
-    "gallery": [
-      "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1280&auto=format&fit=crop"
-    ],
     "description": "Shirakami-Sanchi is a UNESCO World Heritage Site in Aomori, designated for its outstanding universal cultural or natural value.",
     "highlights": [
       "UNESCO Heritage Monument",
@@ -24275,9 +23443,6 @@
     "categories": ["Traditional", "Historic", "Mountain"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg/1920px-Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg/1920px-Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg/1920px-Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg"
-    ],
     "description": "UNESCO World Heritage alpine village famous for steep thatched-roof gassho-zukuri farmhouses built to withstand heavy winter snowfalls.",
     "highlights": ["Ogimachi Village", "Shiroyama Viewpoint", "Wada House"],
     "totalTripHours": 5,
@@ -24367,9 +23532,6 @@
     "region": "Hokkaido",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Shiretoko_Peninsula_Hokkaido_Japan_SRTM.jpg/1280px-Shiretoko_Peninsula_Hokkaido_Japan_SRTM.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Shiretoko_Peninsula_Hokkaido_Japan_SRTM.jpg/1280px-Shiretoko_Peninsula_Hokkaido_Japan_SRTM.jpg"
-    ],
     "description": "Shiretoko is a UNESCO World Heritage Site in Hokkaido, designated for its outstanding universal cultural or natural value.",
     "highlights": [
       "UNESCO Heritage Monument",
@@ -24486,9 +23648,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Higashi-Shizuoka_Panorama_02.jpg/1280px-Higashi-Shizuoka_Panorama_02.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Higashi-Shizuoka_Panorama_02.jpg/1280px-Higashi-Shizuoka_Panorama_02.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Higashi-Shizuoka_Panorama_02.jpg/1280px-Higashi-Shizuoka_Panorama_02.jpg"
-    ],
     "description": "Prefectural capital famous for Sunpu Castle Park, Nihondaira Mount Fuji vistas, and green tea plantations.",
     "highlights": ["Explore Shizuoka City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -24609,9 +23768,6 @@
     "region": "Kyushu",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Naha_Shuri_Castle16s5s3200.jpg/960px-Naha_Shuri_Castle16s5s3200.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Naha_Shuri_Castle16s5s3200.jpg/960px-Naha_Shuri_Castle16s5s3200.jpg"
-    ],
     "description": "Gusuku Sites and Related Properties of the Kingdom of Ryukyu is a UNESCO World Heritage Site in Okinawa, designated for its outstanding universal cultural or natural value.",
     "highlights": [
       "UNESCO Heritage Monument",
@@ -24732,9 +23888,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a9/2018_K%C5%8Denji.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/a/a9/2018_K%C5%8Denji.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/a/a9/2018_K%C5%8Denji.jpg"
-    ],
     "description": "Artistic neighborhood boasting Koenji vintage stores, indie live houses, and anime production studios.",
     "highlights": ["Explore Suginami City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -24821,9 +23974,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg/1280px-Tokyo_Skytree_2014_%E2%85%A2.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg/1280px-Tokyo_Skytree_2014_%E2%85%A2.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg/1280px-Tokyo_Skytree_2014_%E2%85%A2.jpg"
-    ],
     "description": "Riverside district anchored by Tokyo Skytree, Edo-Tokyo Museum, and historic sumo arenas in Ryogoku.",
     "highlights": ["Explore Sumida City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -24961,9 +24111,6 @@
       "360-Degree Kanto View"
     ],
     "description": "Located on the 60th floor of Sunshine 60 (251m height) in Ikebukuro, featuring an indoor sky park with real turf lawns, picnic mats, and panoramic vistas.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Sunshine_60.JPG/1280px-Sunshine_60.JPG"
-    ],
     "budgetBreakdown": {
       "transport": 400,
       "tickets": 900,
@@ -25022,11 +24169,6 @@
     "region": "Kanto",
     "categories": ["Nature", "Parks", "Urban"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg/1280px-Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg/1280px-Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg",
-      "https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600",
-      "https://images.unsplash.com/photo-1463438690606-f6778b8c1d10?q=80&w=600"
-    ],
     "description": "Major Tama region gateway featuring the massive Showa Kinen Park, seasonal flower festivals, and modern dining quarters.",
     "highlights": [
       "Showa Kinen Park",
@@ -25141,9 +24283,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Asakusa_Senso-ji_2021-12_ac_%282%29.jpg/1280px-Asakusa_Senso-ji_2021-12_ac_%282%29.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Asakusa_Senso-ji_2021-12_ac_%282%29.jpg/1280px-Asakusa_Senso-ji_2021-12_ac_%282%29.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Asakusa_Senso-ji_2021-12_ac_%282%29.jpg/1280px-Asakusa_Senso-ji_2021-12_ac_%282%29.jpg"
-    ],
     "description": "Shitamachi cultural hub featuring Sensō-ji Temple in Asakusa, Ueno Park museums, and Ameyoko shopping street.",
     "highlights": ["Explore Taito City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -25225,9 +24364,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/TakachihokyoWithManaiFalls.JPG/1280px-TakachihokyoWithManaiFalls.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/TakachihokyoWithManaiFalls.JPG/1280px-TakachihokyoWithManaiFalls.JPG",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/TakachihokyoWithManaiFalls.JPG/1280px-TakachihokyoWithManaiFalls.JPG"
-    ],
     "description": "Mythological gorge town featuring Takachiho Gorge basalt chasm, boat rentals, and Amano Iwato Shrine.",
     "highlights": ["Explore Takachiho Town", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -25313,9 +24449,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8b/%E9%A6%99%E5%B7%9D%E7%9C%8C%E3%81%AE%E9%A2%A8%E6%99%AF.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/8/8b/%E9%A6%99%E5%B7%9D%E7%9C%8C%E3%81%AE%E9%A2%A8%E6%99%AF.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/8/8b/%E9%A6%99%E5%B7%9D%E7%9C%8C%E3%81%AE%E9%A2%A8%E6%99%AF.jpg"
-    ],
     "description": "Gateway to Shikoku on Seto Inland Sea, famous for Ritsurin Garden landscape park and Sanuki Udon noodles.",
     "highlights": ["Explore Takamatsu City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -25451,11 +24584,6 @@
       "Sengakuji Temple (nearby)"
     ],
     "description": "Designed by world-renowned architect Kengo Kuma, Takanawa Gateway is the newest station on Tokyos iconic Yamanote Line, featuring a dramatic paper-origami glass roof, AI-powered unmanned stores, and futuristic urban planning.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Takanawa-Gateway-City---2025-06-18_170.jpg/3840px-Takanawa-Gateway-City---2025-06-18_170.jpg",
-      "https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?q=80&w=600",
-      "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 400,
       "tickets": 0,
@@ -25569,9 +24697,6 @@
     ],
     "description": "Discover Takaoka, a prominent destination in Shizuoka. With its rich mix of great buddha, doraemon, crafts, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Takaoka_montage.JPG/330px-Takaoka_montage.JPG"
-    ],
     "budgetBreakdown": {
       "transport": 3200,
       "tickets": 1600,
@@ -25700,9 +24825,6 @@
       "Shinshu Alps Backcountry"
     ],
     "description": "Renowned as one of Japan's top three cherry blossom viewing spots, Takato Castle ruins feature 1,500 rare reddish Kohigan cherry trees frame over ancient stone moats.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/TakatoCastle%EF%BC%88%E9%AB%98%E9%81%A0%E5%9F%8E%EF%BC%89.JPG/1280px-TakatoCastle%EF%BC%88%E9%AB%98%E9%81%A0%E5%9F%8E%EF%BC%89.JPG"
-    ],
     "budgetBreakdown": {
       "transport": 1800,
       "tickets": 500,
@@ -25773,9 +24895,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/%E5%8F%A4%E3%81%84%E7%94%BA%E4%B8%A6%E3%81%BF_-_panoramio_-_%E3%81%8F%E3%82%8D%E3%81%B5%E3%81%AD_%281%29.jpg/1280px-%E5%8F%A4%E3%81%84%E7%94%BA%E4%B8%A6%E3%81%BF_-_panoramio_-_%E3%81%8F%E3%82%8D%E3%81%B5%E3%81%AD_%281%29.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/%E5%8F%A4%E3%81%84%E7%94%BA%E4%B8%A6%E3%81%BF_-_panoramio_-_%E3%81%8F%E3%82%8D%E3%81%B5%E3%81%AD_%281%29.jpg/1280px-%E5%8F%A4%E3%81%84%E7%94%BA%E4%B8%A6%E3%81%BF_-_panoramio_-_%E3%81%8F%E3%82%8D%E3%81%B5%E3%81%AD_%281%29.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/%E5%8F%A4%E3%81%84%E7%94%BA%E4%B8%A6%E3%81%BF_-_panoramio_-_%E3%81%8F%E3%82%8D%E3%81%B5%E3%81%AD_%281%29.jpg/1280px-%E5%8F%A4%E3%81%84%E7%94%BA%E4%B8%A6%E3%81%BF_-_panoramio_-_%E3%81%8F%E3%82%8D%E3%81%B5%E3%81%AD_%281%29.jpg"
-    ],
     "description": "Preserved Edo-period mountain city featuring Sanmachi Suji wooden merchant streets and Hida beef cuisine.",
     "highlights": ["Explore Takayama City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -25953,9 +25072,6 @@
       "Princess Sanjo Well"
     ],
     "description": "The fortified residence of legendary Sengoku warlord Takeda Shingen, featuring original earthwork ramparts, triple moats, and Takeda Shrine.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Takedasi-Yakata20251017.jpg/1280px-Takedasi-Yakata20251017.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 1500,
       "tickets": 300,
@@ -26069,11 +25185,6 @@
       "Water Installations"
     ],
     "description": "teamLab Planets is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
-    "gallery": [
-      "https://images.unsplash.com/photo-1593073862407-a3ce22748763?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVhbWxhYiUyMHBsYW5ldHMlMjB0b2t5b3xlbnwwfHwwfHx8MA%3D%3D",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 1000,
       "tickets": 7600,
@@ -26195,9 +25306,6 @@
       "Hotel Nikko Niigata Lounge"
     ],
     "description": "Located on the 31st floor of Toki Messe (140.5m high), this free-admission 360-degree observation deck is the highest viewpoint along the Sea of Japan coast.",
-    "gallery": [
-      "https://media.istockphoto.com/id/1707386560/ja/%E3%82%B9%E3%83%88%E3%83%83%E3%82%AF%E3%83%95%E3%82%A9%E3%83%88/%E3%82%B9%E3%83%AD%E3%83%90%E3%82%AD%E3%82%A2%E3%81%AE%E3%82%BF%E3%83%88%E3%83%A9%E5%B1%B1%E3%81%AB%E3%81%82%E3%82%8B%E5%A4%A9%E6%96%87%E8%A6%B3%E6%B8%AC%E8%80%85%E3%81%AE%E5%BB%BA%E7%89%A9.jpg?s=2048x2048&w=is&k=20&c=PGN1QnPNdRCMtsy6jNAm4F_J59flQUHKgfV5UhNrrN4="
-    ],
     "budgetBreakdown": {
       "transport": 1500,
       "tickets": 0,
@@ -26267,9 +25375,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/03/Tokorozawa_Aviation_Commemorative_Park.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/0/03/Tokorozawa_Aviation_Commemorative_Park.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/0/03/Tokorozawa_Aviation_Commemorative_Park.jpg"
-    ],
     "description": "Cultural hub home to Kadokawa Musashino Museum, Totoro's Forest in Sayama Hills, and Belluna Dome.",
     "highlights": ["Explore Tokorozawa City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -26356,9 +25461,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/51/Tokushima_Montage2.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/5/51/Tokushima_Montage2.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/5/51/Tokushima_Montage2.jpg"
-    ],
     "description": "Eastern Shikoku city world-famous for Awa Odori summer dance festival and Mount Bizan cable car.",
     "highlights": ["Explore Tokushima City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -26436,9 +25538,6 @@
     "region": "Kanto",
     "categories": ["Nature", "Relaxation"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Hossawa_Falls.jpg/1280px-Hossawa_Falls.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Hossawa_Falls.jpg/1280px-Hossawa_Falls.jpg"
-    ],
     "description": "Tokyo mainland's only remaining village, beloved for its wild mountains, cascading Hossawa Falls, and deep forest tranquility.",
     "highlights": [
       "Hossawa Falls",
@@ -26615,9 +25714,6 @@
       "Toyo Ito Architecture"
     ],
     "description": "Perched 202 meters above Shinjuku on the 45th floors of Kenzo Tange iconic twin-tower skyscraper, offering free 360-degree views of Mt. Fuji and Tokyo lights.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Tokyo_Metropolitan_Government_Building_No.1_200908.jpg/1280px-Tokyo_Metropolitan_Government_Building_No.1_200908.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 300,
       "tickets": 0,
@@ -26676,9 +25772,6 @@
     "region": "Kanto",
     "categories": ["History", "Hiking", "Nature"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mt._Mitake.jpg/1280px-Mt._Mitake.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mt._Mitake.jpg/1280px-Mt._Mitake.jpg"
-    ],
     "description": "A sacred mountain located in Chichibu-Tama-Kai National Park, featuring a historic mountaintop Shinto shrine and scenic river hikes.",
     "highlights": [
       "Musashi Mitake Shrine",
@@ -26795,9 +25888,6 @@
     "region": "Kanto",
     "categories": ["Nature", "Hiking", "Lake"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/LakeOkutama.jpg/1280px-LakeOkutama.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/LakeOkutama.jpg/1280px-LakeOkutama.jpg"
-    ],
     "description": "A scenic mountainous escape in western Tokyo, offering dense forests, Nippara Limestone Caves, and peaceful lake views.",
     "highlights": [
       "Lake Okutama",
@@ -26975,11 +26065,6 @@
       "Planetarium Ten"
     ],
     "description": "Rising 634 meters over Tokyo, Tokyo Skytree is the world's tallest broadcasting tower, offering breath-taking 360-degree views of Mt. Fuji and the Kanto Plain from two observation decks.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg/1280px-Tokyo_Skytree_2014_%E2%85%A2.jpg",
-      "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600",
-      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 500,
       "tickets": 3100,
@@ -27104,11 +26189,6 @@
       "Character Street"
     ],
     "description": "Japans premier railway terminal, featuring the restored 1914 Marunouchi red-brick facade, subterranean shopping passages, world-class ramen eateries, and immediate proximity to the Imperial Palace grounds.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Tokyo-STA_Marunouchi-Entrance_2023.jpg/3840px-Tokyo-STA_Marunouchi-Entrance_2023.jpg",
-      "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=600",
-      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 500,
       "tickets": 0,
@@ -27232,11 +26312,6 @@
       "Landmark Light Night Illumination"
     ],
     "description": "Built in 1958 and standing 332.9 meters tall, Tokyo Tower is the beloved red-and-white lattice symbol of post-war Tokyo, offering glass-floor lookouts and romantic night views.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/5/58/Tokyo_Tower_2023.jpg",
-      "https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?q=80&w=600",
-      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 400,
       "tickets": 1200,
@@ -27295,9 +26370,6 @@
     "region": "Kanto",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/%E5%AF%8C%E5%B2%A1%E8%A3%BD%E7%B3%B8%E5%A0%B4%E3%83%BB%E7%B9%B0%E7%B3%B8%E5%A0%B4.jpg/960px-%E5%AF%8C%E5%B2%A1%E8%A3%BD%E7%B3%B8%E5%A0%B4%E3%83%BB%E7%B9%B0%E7%B3%B8%E5%A0%B4.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/%E5%AF%8C%E5%B2%A1%E8%A3%BD%E7%B3%B8%E5%A0%B4%E3%83%BB%E7%B9%B0%E7%B3%B8%E5%A0%B4.jpg/960px-%E5%AF%8C%E5%B2%A1%E8%A3%BD%E7%B3%B8%E5%A0%B4%E3%83%BB%E7%B9%B0%E7%B3%B8%E5%A0%B4.jpg"
-    ],
     "description": "Tomioka Silk Mill and Related Sites is a UNESCO World Heritage Site in Gunma, designated for its outstanding universal cultural or natural value.",
     "highlights": [
       "UNESCO Heritage Monument",
@@ -27418,9 +26490,6 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg/1280px-Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg/1280px-Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg/1280px-Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg"
-    ],
     "description": "Commercial hub of Ikebukuro, featuring Sunshine City skyscraper, Otome Road, and Pokemon Center Mega Tokyo.",
     "highlights": ["Explore Toshima City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -27507,9 +26576,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Tottori_montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Tottori_montage.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/d/d2/Tottori_montage.jpg"
-    ],
     "description": "Coastal capital famous for Tottori Sand Dunes (Japan's largest sand dunes) and Sand Museum.",
     "highlights": ["Explore Tottori City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -27644,9 +26710,6 @@
     ],
     "description": "Discover Tateyama Kurobe Alpine Route, a prominent destination in Shizuoka. With its rich mix of snow wall, dam, scenic, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/c/cb/Murodoh.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 10000,
       "tickets": 5000,
@@ -27718,9 +26781,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/TMC_Headquarters_Building%2C_Toyota-cho_Toyota_2019.jpg/1280px-TMC_Headquarters_Building%2C_Toyota-cho_Toyota_2019.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/TMC_Headquarters_Building%2C_Toyota-cho_Toyota_2019.jpg/1280px-TMC_Headquarters_Building%2C_Toyota-cho_Toyota_2019.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/TMC_Headquarters_Building%2C_Toyota-cho_Toyota_2019.jpg/1280px-TMC_Headquarters_Building%2C_Toyota-cho_Toyota_2019.jpg"
-    ],
     "description": "Automotive industrial capital featuring Toyota Kaikan Museum and Korankei autumn foliage valley.",
     "highlights": ["Explore Toyota City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -27811,9 +26871,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Tsukuba_Center_%26_Mt.Tsukuba01.jpg/1280px-Tsukuba_Center_%26_Mt.Tsukuba01.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Tsukuba_Center_%26_Mt.Tsukuba01.jpg/1280px-Tsukuba_Center_%26_Mt.Tsukuba01.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Tsukuba_Center_%26_Mt.Tsukuba01.jpg/1280px-Tsukuba_Center_%26_Mt.Tsukuba01.jpg"
-    ],
     "description": "Japan's premier science city, featuring JAXA Space Center, Science Square, and Mount Tsukuba twin peaks.",
     "highlights": ["Explore Tsukuba City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -27957,11 +27014,6 @@
       "Thousands of Cherry Trees"
     ],
     "description": "Built in 1583 by Sanada Masayuki, this impregnable fortress famously repelled the massive Tokugawa army twice, featuring surviving corner turrets and Sanada Shrine.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Ueda_Castle_Amagafuchi.jpg/3840px-Ueda_Castle_Amagafuchi.jpg",
-      "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
-      "https://images.unsplash.com/photo-1504618223053-559bdef9dd5a?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 1400,
       "tickets": 300,
@@ -28071,9 +27123,6 @@
     },
     "highlights": ["Tokyo National Museum", "Ueno Zoo", "Ameyoko Street"],
     "description": "A cultural hub featuring a massive park, Japan's oldest zoo, major national museums, and the bustling Ameyoko market.",
-    "gallery": [
-      "https://images.unsplash.com/photo-1556326059-3cfc41f90fb1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    ],
     "budgetBreakdown": {
       "transport": 1000,
       "tickets": 2000,
@@ -28140,9 +27189,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Phoenix_Hall.jpg/1280px-Phoenix_Hall.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Phoenix_Hall.jpg/1280px-Phoenix_Hall.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Phoenix_Hall.jpg/1280px-Phoenix_Hall.jpg"
-    ],
     "description": "Historic green tea capital south of Kyoto, featuring UNESCO World Heritage Byodoin Temple (10-yen coin temple).",
     "highlights": ["Explore Uji City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -28228,9 +27274,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Tokyo_disney_resort.jpg/1280px-Tokyo_disney_resort.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Tokyo_disney_resort.jpg/1280px-Tokyo_disney_resort.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Tokyo_disney_resort.jpg/1280px-Tokyo_disney_resort.jpg"
-    ],
     "description": "Bayfront resort city famous worldwide as the home of Tokyo Disney Resort and Ikspiari.",
     "highlights": ["Explore Urayasu City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -28365,11 +27408,6 @@
     ],
     "description": "Discover Ushiku Daibutsu, a prominent destination in Kanagawa. With its rich mix of giant statue, record breaking, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/en/6/62/Ushiku.jpg",
-      "https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=600",
-      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 2600,
       "tickets": 1300,
@@ -28441,9 +27479,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Utsunomiya-STA_East_LRT.jpg/1920px-Utsunomiya-STA_East_LRT.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Utsunomiya-STA_East_LRT.jpg/1920px-Utsunomiya-STA_East_LRT.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Utsunomiya-STA_East_LRT.jpg/1920px-Utsunomiya-STA_East_LRT.jpg"
-    ],
     "description": "Prefectural capital acclaimed as Japan's Gyoza dumpling capital, featuring Oya Stone Underground Quarry.",
     "highlights": ["Explore Utsunomiya City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -28576,9 +27611,6 @@
     },
     "highlights": ["Oya History Museum", "Utsunomiya Gyoza"],
     "description": "Utsunomiya & Oya is a scenic destination in the Tochigi region of Japan, offering rich history and cultural attractions.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Utsunomiya_montage.jpg/250px-Utsunomiya_montage.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 1600,
@@ -28714,9 +27746,6 @@
       "high": 15000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/1280px-Uwajima_Castle_Keep_Tower_20170611.jpg",
-    "galleryImages": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/3840px-Uwajima_Castle_Keep_Tower_20170611.jpg"
-    ],
     "description": "Uwajima Castle, constructed by master castle architect Todo Takatora, stands atop a coastal hill in southern Ehime with its pristine three-story original keep.",
     "notes": "Preserved by the Date clan who ruled Uwajima domain throughout the Edo period.",
     "categories": ["history", "culture", "sightseeing"],
@@ -28747,10 +27776,7 @@
       "tickets": 2000,
       "food": 2925,
       "cafe": 1575
-    },
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/1280px-Uwajima_Castle_Keep_Tower_20170611.jpg"
-    ]
+    }
   },
   {
     "id": "wakayama-city",
@@ -28763,9 +27789,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Wakayama_montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Wakayama_montage.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/0/0f/Wakayama_montage.jpg"
-    ],
     "description": "Coastal castle city famous for Wakayama Castle, Kuroshio Seafood Market, and Wakayama ramen.",
     "highlights": ["Explore Wakayama City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -28847,9 +27870,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Miyanoura_%2832273795996%29.jpg/960px-Miyanoura_%2832273795996%29.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Miyanoura_%2832273795996%29.jpg/960px-Miyanoura_%2832273795996%29.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Miyanoura_%2832273795996%29.jpg/960px-Miyanoura_%2832273795996%29.jpg"
-    ],
     "description": "Subtropical island World Heritage wilderness covered in ancient Yaku cedar forests and mossy gorges.",
     "highlights": ["Explore Yakushima Town", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -28937,9 +27957,6 @@
     "region": "Chubu",
     "categories": ["History", "Nature", "Theme Park"],
     "heroImage": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200",
-    "gallery": [
-      "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200"
-    ],
     "description": "Lying at Mt. Fuji's base, Fujiyoshida boasts the iconic Chureito Pagoda views, Fuji-Q Highland amusement rides, and historic shrines.",
     "highlights": [
       "Arakurayama Sengen Park (Chureito Pagoda)",
@@ -29056,11 +28073,6 @@
     "region": "Chubu",
     "categories": ["Nature", "Hiking"],
     "heroImage": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000",
-    "gallery": [
-      "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600",
-      "https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600",
-      "https://images.unsplash.com/photo-1463438690606-f6778b8c1d10?q=80&w=600"
-    ],
     "description": "A spectacular mountain valley featuring Nanatsugama Godan Falls, pristine forest trails, and therapeutic forest walking paths.",
     "highlights": [
       "Nanatsugama Godan Falls (Five-Tier Cascades)",
@@ -29171,11 +28183,6 @@
     "region": "Chubu",
     "categories": ["Nature", "Hiking"],
     "heroImage": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000",
-    "gallery": [
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=600",
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600",
-      "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600"
-    ],
     "description": "Touted as one of Japan's most beautiful gorges, showcasing dramatic granite cliffs, Kakusenmei suspension bridge, and Senga Falls.",
     "highlights": [
       "Senga Falls",
@@ -29335,11 +28342,6 @@
     },
     "highlights": ["Chinatown", "Red Brick Warehouse", "Cup Noodle Museum"],
     "description": "Yokohama is a scenic destination in the Kanagawa region of Japan, offering rich history and cultural attractions.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Minato_Mirai_In_Blue_%28cropped%29.jpg/1280px-Minato_Mirai_In_Blue_%28cropped%29.jpg",
-      "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
-      "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 0,
@@ -29500,9 +28502,6 @@
       "Sky Cafe Lounge"
     ],
     "description": "Ascend to the 69th floor (273m) in just 40 seconds aboard Japan's fastest elevator for 360-degree panoramas of Yokohama Bay Bridge, Minato Mirai, and Mt. Fuji.",
-    "gallery": [
-      "https://images.unsplash.com/photo-1609375855883-411e45d77365?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    ],
     "budgetBreakdown": {
       "transport": 600,
       "tickets": 1000,
@@ -29622,11 +28621,6 @@
       "Chinatown Proximity"
     ],
     "description": "Built in 1961 to mark Yokohama Port's 100th anniversary, this 106-meter historic steel lattice lighthouse tower offers sweeping vistas over Yokohama Bay Bridge and Minato Mirai.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/c/c9/Yokohama_Marine_Tower_Dscn1518a.jpg",
-      "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=600",
-      "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600"
-    ],
     "budgetBreakdown": {
       "transport": 600,
       "tickets": 1200,
@@ -29689,9 +28683,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Verny_Park_-_01.jpg/1280px-Verny_Park_-_01.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Verny_Park_-_01.jpg/1280px-Verny_Park_-_01.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Verny_Park_-_01.jpg/1280px-Verny_Park_-_01.jpg"
-    ],
     "description": "Naval port city on Tokyo Bay famous for Mikasa Battleship Park and Dobuita Street curry.",
     "highlights": ["Explore Yokosuka City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -29827,9 +28818,6 @@
       "Goodjoba!! Zone"
     ],
     "description": "Yomiuriland is an amusement park in Inagi, Tokyo and Tama-ku, Kawasaki, Kanagawa Prefecture, Japan that first opened on 19 March 1964. It is situated on hillsides, and features rides such as roller coasters and water flumes. It is home to Yomiuri Giants Stadium, one of the training fields for the Yomiuri Giants baseball team, and was the primary training ground before Tokyo Dome was completed. It is operated and run by Yomiuriland Co., Ltd., a wholly owned subsidiary of The Yomiuri Shimbun Holdings.",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Yomiuriland-20100411.jpg/1280px-Yomiuriland-20100411.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 1000,
       "tickets": 8000,
@@ -29902,9 +28890,6 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Yuhudake.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Yuhudake.jpg",
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/3/3b/Yuhudake.jpg"
-    ],
     "description": "Charming alpine hot spring town (Yufuin) framed by Mount Yufu peak, boutique cafes, and Kinrin Lake.",
     "highlights": ["Explore Yufu City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
@@ -30038,9 +29023,6 @@
     ],
     "description": "Discover Zushi & Yokosuka, a prominent destination in Kanagawa. With its rich mix of surfing, cafes, sunset, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "gallery": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/%E5%A4%AA%E9%99%BD%E3%81%AE%E5%A1%94%E3%81%A8%E9%80%97%E5%AD%90%E6%B5%B7%E5%B2%B8.jpg/1280px-%E5%A4%AA%E9%99%BD%E3%81%AE%E5%A1%94%E3%81%A8%E9%80%97%E5%AD%90%E6%B5%B7%E5%B2%B8.jpg"
-    ],
     "budgetBreakdown": {
       "transport": 2400,
       "tickets": 1200,

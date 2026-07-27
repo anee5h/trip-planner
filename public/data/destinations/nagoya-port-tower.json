@@ -66,11 +66,6 @@
     "Antarctic Research Ship Fuji"
   ],
   "description": "Designed in the shape of a white ocean sailboat, this 63-meter maritime tower offers 360-degree views over Nagoya Port, Meiko Triton bridges, and cargo container docks.",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Nagoya_port_Sea-Train_Land_01.JPG/1280px-Nagoya_port_Sea-Train_Land_01.JPG",
-    "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=600",
-    "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600"
-  ],
   "budgetBreakdown": {
     "transport": 1100,
     "tickets": 300,

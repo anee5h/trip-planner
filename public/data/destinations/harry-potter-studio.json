@@ -53,9 +53,6 @@
   },
   "highlights": ["Great Hall", "Diagon Alley"],
   "description": "Harry Potter Studio is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Warner_Bros._Studio_Tour_Tokyo_entrance_%282%29_2023-08-17.jpg/330px-Warner_Bros._Studio_Tour_Tokyo_entrance_%282%29_2023-08-17.jpg"
-  ],
   "budgetBreakdown": {
     "transport": 1000,
     "tickets": 13000,

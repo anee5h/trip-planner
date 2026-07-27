@@ -5,11 +5,6 @@
   "region": "Kanto",
   "categories": ["Nature", "Food", "Ocean"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Choshi_Montage_2.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/c/c2/Choshi_Montage_2.jpg",
-    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600",
-    "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=600"
-  ],
   "description": "Easternmost coastal cape of the Kanto region, renowned for first sunrises, Inubosaki Lighthouse, and fresh seafood markets.",
   "highlights": [
     "Inubosaki Lighthouse",

@@ -9,9 +9,6 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kitakyushu_Montage.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kitakyushu_Montage.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/3/34/Kitakyushu_Montage.jpg"
-  ],
   "description": "Northern Kyushu port city featuring Kokura Castle, Mojiko Retro district, and Kawachi Wisteria Garden.",
   "highlights": ["Explore Kitakyushu City", "Local Culture & Cuisine"],
   "totalTripHours": 6,

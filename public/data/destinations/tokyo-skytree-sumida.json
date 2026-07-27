@@ -66,11 +66,6 @@
     "Planetarium Ten"
   ],
   "description": "Rising 634 meters over Tokyo, Tokyo Skytree is the world's tallest broadcasting tower, offering breath-taking 360-degree views of Mt. Fuji and the Kanto Plain from two observation decks.",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg/1280px-Tokyo_Skytree_2014_%E2%85%A2.jpg",
-    "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=600",
-    "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600"
-  ],
   "budgetBreakdown": {
     "transport": 500,
     "tickets": 3100,

@@ -62,9 +62,6 @@
     "high": 15000
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg/1280px-080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg",
-  "galleryImages": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg/3840px-080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg"
-  ],
   "description": "Matsue Castle, completed in 1611, is one of Japan's five castles designated as National Treasures, featuring striking black wooden siding nicknamed the Black Plover Castle.",
   "notes": "Surrounded by historic moat boat tours (Horikawa Pleasure Boat).",
   "categories": ["history", "culture", "sightseeing"],
@@ -95,8 +92,5 @@
     "tickets": 2000,
     "food": 2925,
     "cafe": 1575
-  },
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg/1280px-080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg"
-  ]
+  }
 }

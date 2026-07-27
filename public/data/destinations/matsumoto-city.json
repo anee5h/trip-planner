@@ -9,9 +9,6 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Matsumoto_Montage.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Matsumoto_Montage.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/d/dd/Matsumoto_Montage.jpg"
-  ],
   "description": "Alpine castle city featuring National Treasure Matsumoto 'Crow' Castle and gateway to Kamikochi.",
   "highlights": ["Explore Matsumoto City", "Local Culture & Cuisine"],
   "totalTripHours": 6,

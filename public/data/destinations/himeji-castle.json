@@ -67,9 +67,6 @@
     "high": 12000
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/1280px-Himeji_castle_in_may_2015.jpg",
-  "galleryImages": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/3840px-Himeji_castle_in_may_2015.jpg"
-  ],
   "description": "Himeji Castle is Japan's premier surviving feudal castle complex and a UNESCO World Heritage site, famous for its brilliant white plaster walls resembling a taking-off heron.",
   "notes": "Completed in 1609, it survived World War II bombings and major earthquakes completely intact.",
   "categories": ["history", "culture", "sightseeing"],
@@ -102,8 +99,5 @@
     "tickets": 2000,
     "food": 1625,
     "cafe": 875
-  },
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/1280px-Himeji_castle_in_may_2015.jpg"
-  ]
+  }
 }

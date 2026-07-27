@@ -52,9 +52,6 @@
     "high": 15000
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/1280px-Uwajima_Castle_Keep_Tower_20170611.jpg",
-  "galleryImages": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/3840px-Uwajima_Castle_Keep_Tower_20170611.jpg"
-  ],
   "description": "Uwajima Castle, constructed by master castle architect Todo Takatora, stands atop a coastal hill in southern Ehime with its pristine three-story original keep.",
   "notes": "Preserved by the Date clan who ruled Uwajima domain throughout the Edo period.",
   "categories": ["history", "culture", "sightseeing"],
@@ -85,8 +82,5 @@
     "tickets": 2000,
     "food": 2925,
     "cafe": 1575
-  },
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/1280px-Uwajima_Castle_Keep_Tower_20170611.jpg"
-  ]
+  }
 }

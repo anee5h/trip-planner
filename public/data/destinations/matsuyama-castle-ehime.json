@@ -57,9 +57,6 @@
     "high": 16000
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Matsuyama_castle%28Iyo%296.JPG/330px-Matsuyama_castle%28Iyo%296.JPG",
-  "galleryImages": [
-    "https://upload.wikimedia.org/wikipedia/commons/c/c9/Matsuyama_castle%28Iyo%296.JPG"
-  ],
   "description": "Iyo Matsuyama Castle is one of Japan's most complex surviving hilltop castles, accessible via scenic chairlift or ropeway overlooking the Seto Inland Sea.",
   "notes": "Features 21 historically designated important cultural properties.",
   "categories": ["history", "culture", "sightseeing"],
@@ -85,9 +82,6 @@
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {},
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Matsuyama_castle%28Iyo%296.JPG/330px-Matsuyama_castle%28Iyo%296.JPG",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Matsuyama_castle%28Iyo%296.JPG/330px-Matsuyama_castle%28Iyo%296.JPG"
-  ],
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,

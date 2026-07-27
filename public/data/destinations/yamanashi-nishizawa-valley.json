@@ -5,11 +5,6 @@
   "region": "Chubu",
   "categories": ["Nature", "Hiking"],
   "heroImage": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000",
-  "gallery": [
-    "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600",
-    "https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600",
-    "https://images.unsplash.com/photo-1463438690606-f6778b8c1d10?q=80&w=600"
-  ],
   "description": "A spectacular mountain valley featuring Nanatsugama Godan Falls, pristine forest trails, and therapeutic forest walking paths.",
   "highlights": [
     "Nanatsugama Godan Falls (Five-Tier Cascades)",

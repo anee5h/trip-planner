@@ -46,9 +46,7 @@ async function generateQASheet() {
       escapeCsvCell(d.role),
       escapeCsvCell(d.prefecture),
       escapeCsvCell(d.region),
-      escapeCsvCell(
-        d.heroImage || d.image || (d.gallery && d.gallery[0]) || "",
-      ),
+      escapeCsvCell(d.heroImage || d.image || ""),
       `"OK"`,
       `""`,
     ];
@@ -322,7 +320,7 @@ async function generateQASheet() {
           if (!matchName && !matchId && !matchPref) return;
         }
 
-        const imgUrl = d.heroImage || d.image || (d.gallery && d.gallery[0]) || '';
+        const imgUrl = d.heroImage || d.image || '';
         const card = document.createElement('div');
         card.className = 'card';
         card.dataset.id = d.id;

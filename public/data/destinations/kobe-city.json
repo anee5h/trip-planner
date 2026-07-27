@@ -9,9 +9,6 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/99/Kobe_montage1.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/9/99/Kobe_montage1.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/9/99/Kobe_montage1.jpg"
-  ],
   "description": "Cosmopolitan port city framed by Mt. Rokko, world-famous for Kobe Beef, Harborland, and Arima Onsen.",
   "highlights": ["Explore Kobe City", "Local Culture & Cuisine"],
   "totalTripHours": 6,

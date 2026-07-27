@@ -9,9 +9,6 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Kisarazu_montage.jpg/1280px-Kisarazu_montage.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Kisarazu_montage.jpg/1280px-Kisarazu_montage.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Kisarazu_montage.jpg/1280px-Kisarazu_montage.jpg"
-  ],
   "description": "Tokyo Bay Aqua-Line bridge terminal featuring Umihotaru floating parking island and Mitsui Outlet Park.",
   "highlights": ["Explore Kisarazu City", "Local Culture & Cuisine"],
   "totalTripHours": 6,

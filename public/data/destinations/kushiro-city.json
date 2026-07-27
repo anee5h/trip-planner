@@ -9,9 +9,6 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
   "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
-  "gallery": [
-    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200"
-  ],
   "description": "Eastern Hokkaido port city featuring Kushiro Marsh National Park (home to Japanese red-crowned cranes).",
   "highlights": ["Explore Kushiro City", "Local Culture & Cuisine"],
   "totalTripHours": 6,

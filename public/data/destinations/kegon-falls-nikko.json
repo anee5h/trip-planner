@@ -54,9 +54,6 @@
     "high": 10000
   },
   "heroImage": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
-  "galleryImages": [
-    "https://upload.wikimedia.org/wikipedia/commons/8/8a/Lake_chuzenji_and_kegon_waterfall.jpg"
-  ],
   "description": "Kegon Falls is Japan's most famous 97-meter waterfall, carrying the outlet waters of Lake Chuzenji down a dramatic cliff in Nikko National Park.",
   "notes": "Accessible via an 100-meter underground elevator to the lower observation deck.",
   "budgetRecommended": 4000,
@@ -81,9 +78,6 @@
     "parentDestinationId": "nikko-city"
   },
   "image": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
-  "gallery": [
-    "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200"
-  ],
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,

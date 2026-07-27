@@ -5,11 +5,6 @@
   "region": "Kanto",
   "categories": ["Hiking", "Nature"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mount_Tsukuba_seen_from_the_WSW_%282006%29.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mount_Tsukuba_seen_from_the_WSW_%282006%29.jpg",
-    "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=600",
-    "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=600"
-  ],
   "description": "An iconic double-peaked mountain (Nantaimasan & Nyotaimasan) offering distinct rock trails, a shrine, cable cars, and open views over the Kanto plain.",
   "highlights": [
     "Tsukuba Shrine",

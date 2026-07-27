@@ -58,11 +58,6 @@
   ],
   "description": "Kanazawa is the capital of Ishikawa Prefecture in central Japan. As of 1 January 2018, the city had an estimated population of 466,029 in 203,271 households, and a population density of 990 persons per km2. The total area of the city was 468.64 square kilometres (180.94 sq mi).",
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Stone_lantern_Kenrokuen.jpg/3840px-Stone_lantern_Kenrokuen.jpg",
-    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600",
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600"
-  ],
   "budgetBreakdown": {
     "transport": 4800,
     "tickets": 2400,

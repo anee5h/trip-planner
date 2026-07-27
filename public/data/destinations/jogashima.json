@@ -58,11 +58,6 @@
   ],
   "description": "Discover Miura Peninsula & Jogashima, a prominent destination in Kanagawa. With its rich mix of ocean, scenic, hiking, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/d/d2/Miura_Peninsula_Kanagawa_Japan_SRTM.jpg",
-    "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600",
-    "https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?q=80&w=600"
-  ],
   "budgetBreakdown": {
     "transport": 2000,
     "tickets": 1000,

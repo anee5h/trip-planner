@@ -10,9 +10,6 @@
   "categories": ["Urban Hub", "Culinary", "Nightlife", "Modern"],
   "heroImage": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
   "image": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
-  "gallery": [
-    "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200"
-  ],
   "description": "Kansai's vibrant commercial metropolis, famous for neon-lit Dotonbori canals, Osaka Castle, street food culture, and warm hospitality.",
   "highlights": ["Dotonbori", "Osaka Castle", "Abeno Harukas 300", "Shinsekai"],
   "totalTripHours": 6,

@@ -50,9 +50,6 @@
     "high": 16000
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/3840px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg",
-  "galleryImages": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/3840px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg"
-  ],
   "description": "Kumamoto Castle is one of Japan's most formidable castles, engineered by master builder Kato Kiyomasa with steep curved Musha-gaeshi stone walls designed to prevent ninja scaling.",
   "notes": "Main keep fully restored following the 2016 Kumamoto earthquakes.",
   "budgetRecommended": 8000,

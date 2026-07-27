@@ -5,11 +5,6 @@
   "region": "Kanto",
   "categories": ["Nature", "Culture", "Hiking"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Mitake_Shrine.jpg/1280px-Mitake_Shrine.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Mitake_Shrine.jpg/1280px-Mitake_Shrine.jpg",
-    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600",
-    "https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600"
-  ],
   "description": "Nostalgic Showa-era movie poster town in western Tokyo surrounded by Mitake Gorge, river rafting, and mountain shrines.",
   "highlights": [
     "Mitake Gorge",

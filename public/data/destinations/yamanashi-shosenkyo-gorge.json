@@ -5,11 +5,6 @@
   "region": "Chubu",
   "categories": ["Nature", "Hiking"],
   "heroImage": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000",
-  "gallery": [
-    "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=600",
-    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600",
-    "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600"
-  ],
   "description": "Touted as one of Japan's most beautiful gorges, showcasing dramatic granite cliffs, Kakusenmei suspension bridge, and Senga Falls.",
   "highlights": [
     "Senga Falls",

@@ -9,9 +9,6 @@
   "categories": ["Travel Hub", "Special Ward"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Gate_City_Osaki.jpg/1280px-Gate_City_Osaki.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Gate_City_Osaki.jpg/1280px-Gate_City_Osaki.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Gate_City_Osaki.jpg/1280px-Gate_City_Osaki.jpg"
-  ],
   "description": "Transportation gate connecting Shinkansen railways, Maxell Aqua Park, and historic Tokaido highway post towns.",
   "highlights": ["Explore Shinagawa City", "Local Culture & Cuisine"],
   "totalTripHours": 6,

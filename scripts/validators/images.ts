@@ -38,21 +38,12 @@ export const imagesValidator: ValidatorModule = {
         urls.push({ url: dest.heroImage, field: "heroImage" });
       if (dest.image && dest.image !== dest.heroImage)
         urls.push({ url: dest.image, field: "image" });
-      if (dest.gallery && Array.isArray(dest.gallery)) {
-        dest.gallery.forEach((gUrl, idx) => {
-          if (gUrl) urls.push({ url: gUrl, field: `gallery[${idx}]` });
-        });
-      }
 
-      if (
-        !dest.heroImage &&
-        !dest.image &&
-        (!dest.gallery || dest.gallery.length === 0)
-      ) {
+      if (!dest.heroImage && !dest.image) {
         issues.push({
           severity: "error",
           code: "MISSING_DESTINATION_IMAGES",
-          message: `Destination '${dest.id}' has no heroImage, image, or gallery photos.`,
+          message: `Destination '${dest.id}' has no heroImage or image photos.`,
           targetId: dest.id,
         });
       }

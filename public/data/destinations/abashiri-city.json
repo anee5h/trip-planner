@@ -9,9 +9,6 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&q=80&w=1200",
   "image": "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&q=80&w=1200",
-  "gallery": [
-    "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&q=80&w=1200"
-  ],
   "description": "Okhotsk coastal city famous for winter sea drift ice cruise ships (Garinko) and Abashiri Prison Museum.",
   "highlights": ["Explore Abashiri City", "Local Culture & Cuisine"],
   "totalTripHours": 6,

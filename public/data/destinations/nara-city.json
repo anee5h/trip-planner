@@ -9,9 +9,6 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Nara_montage.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Nara_montage.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/c/cf/Nara_montage.jpg"
-  ],
   "description": "Japan's 8th-century capital, renowned for free-roaming sacred deer in Nara Park and Todai-ji Great Buddha.",
   "highlights": ["Explore Nara City", "Local Culture & Cuisine"],
   "totalTripHours": 6,

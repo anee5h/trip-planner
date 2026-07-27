@@ -9,9 +9,6 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG"
-  ],
   "description": "Historic castle town featuring National Treasure Inuyama Castle overlooking the Kiso River.",
   "highlights": ["Explore Inuyama City", "Local Culture & Cuisine"],
   "totalTripHours": 6,

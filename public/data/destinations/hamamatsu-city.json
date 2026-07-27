@@ -9,9 +9,6 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Hamamatsu_Montage2.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Hamamatsu_Montage2.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/8/8f/Hamamatsu_Montage2.jpg"
-  ],
   "description": "Industrial and musical city featuring Lake Hamana, Nakatajima Sand Dunes, and gyoza dumplings.",
   "highlights": ["Explore Hamamatsu City", "Local Culture & Cuisine"],
   "totalTripHours": 6,

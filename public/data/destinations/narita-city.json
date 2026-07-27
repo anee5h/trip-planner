@@ -9,9 +9,6 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Narita_montage2.jpg/1280px-Narita_montage2.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Narita_montage2.jpg/1280px-Narita_montage2.jpg",
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Narita_montage2.jpg/1280px-Narita_montage2.jpg"
-  ],
   "description": "Global gateway featuring Narita International Airport and thousand-year-old Naritasan Shinshoji Temple.",
   "highlights": ["Explore Narita City", "Local Culture & Cuisine"],
   "totalTripHours": 6,

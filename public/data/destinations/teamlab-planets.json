@@ -57,11 +57,6 @@
     "Water Installations"
   ],
   "description": "teamLab Planets is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
-  "gallery": [
-    "https://images.unsplash.com/photo-1593073862407-a3ce22748763?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVhbWxhYiUyMHBsYW5ldHMlMjB0b2t5b3xlbnwwfHwwfHx8MA%3D%3D",
-    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600",
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600"
-  ],
   "budgetBreakdown": {
     "transport": 1000,
     "tickets": 7600,

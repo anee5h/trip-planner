@@ -57,11 +57,6 @@
   ],
   "description": "Discover Lake Sagami, a prominent destination in Kanagawa. With its rich mix of illumination, outdoors, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "gallery": [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Lake_Sagami_-_2005_Nov_10_various_10.jpg/3840px-Lake_Sagami_-_2005_Nov_10_various_10.jpg",
-    "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600",
-    "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600"
-  ],
   "budgetBreakdown": {
     "transport": 3600,
     "tickets": 1800,

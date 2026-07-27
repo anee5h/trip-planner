@@ -30,7 +30,6 @@ export default function QaDashboard() {
       ids.add(d.id);
 
       if (!d.heroImage) missingHero++;
-      if (!d.gallery || d.gallery.length < 3) missingGallery++;
 
       if (
         !d.coordinates ||

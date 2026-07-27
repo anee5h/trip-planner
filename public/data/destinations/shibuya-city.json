@@ -10,9 +10,6 @@
   "categories": ["Urban Ward", "Shopping", "Nightlife", "Fashion"],
   "heroImage": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200",
   "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200",
-  "gallery": [
-    "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200"
-  ],
   "description": "Tokyo's pulse of youth culture, fashion, technology, and entertainment, featuring Shibuya Scramble Crossing, Meiji Shrine, and Harajuku.",
   "highlights": [
     "Shibuya Scramble Crossing",
