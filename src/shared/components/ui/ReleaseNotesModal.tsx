@@ -8,8 +8,19 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.47",
+    version: "v1.7.48",
     tag: "Current",
+    date: "July 2026",
+    title: "Top 20 Destinations & 8 Curated Collections Expansion",
+    highlights: [
+      "Added 20 top requested landmark destinations (Tottori Sand Dunes, Sakurajima, Ginzan Onsen, Motonosumi Shrine, etc.)",
+      "Created 8 new thematic collections (Caves, Coastal Drives, Scenic Bridges, Flower Parks, Waterfalls & Gorges, Islands, Art Islands, Pilgrimage Routes)",
+      "Audited dataset to prevent duplication, expanding catalog to 305 destinations",
+      "Enforced strict collection size boundary ensuring zero collections exceed 30 places",
+    ],
+  },
+  {
+    version: "v1.7.47",
     date: "July 2026",
     title: "Lazy Wikipedia Fetching & Skeleton Loader",
     highlights: [

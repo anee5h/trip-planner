@@ -350,5 +350,181 @@
       "reviewIntervalMonths": 12,
       "expectedMembers": 20
     }
+  },
+  {
+    "id": "caves-japan",
+    "slug": "caves-japan",
+    "name": "Subterranean Marvels & Caves of Japan",
+    "description": "Explore Japan’s dramatic limestone caverns, volcanic ice caves, and sacred underground stone quarries.",
+    "category": "Nature & Geological Marvels",
+    "type": "thematic",
+    "isAchievement": true,
+    "icon": "Compass",
+    "badgeColor": "purple",
+    "sortOrder": 17,
+    "officialSource": "Japan Cave Association",
+    "sourceUrl": "https://www.japan-caves.jp/",
+    "metadata": {
+      "authority": "national",
+      "status": "active",
+      "lastVerified": "2026-07",
+      "verificationSource": "Japan Cave Association",
+      "reviewIntervalMonths": 24,
+      "expectedMembers": 10
+    }
+  },
+  {
+    "id": "coastal-drives-japan",
+    "slug": "coastal-drives-japan",
+    "name": "Scenic Coastal Drives of Japan",
+    "description": "Experience breathtaking oceanic highways, sea cliff drives, and coastal bridges spanning Japan’s emerald coastlines.",
+    "category": "Scenic Drives & Ocean Views",
+    "type": "thematic",
+    "isAchievement": true,
+    "icon": "Car",
+    "badgeColor": "sky",
+    "sortOrder": 18,
+    "officialSource": "Japan Scenic Byways",
+    "sourceUrl": "https://www.jartic.or.jp/",
+    "metadata": {
+      "authority": "national",
+      "status": "active",
+      "lastVerified": "2026-07",
+      "verificationSource": "Japan Scenic Byways",
+      "reviewIntervalMonths": 24,
+      "expectedMembers": 10
+    }
+  },
+  {
+    "id": "scenic-bridges-japan",
+    "slug": "scenic-bridges-japan",
+    "name": "Scenic & Architectural Bridges of Japan",
+    "description": "Discover Japan’s iconic bridges, from historic wooden archways and vine bridges to sweeping ocean causeways.",
+    "category": "Architecture & Wonder",
+    "type": "thematic",
+    "isAchievement": true,
+    "icon": "Landmark",
+    "badgeColor": "amber",
+    "sortOrder": 19,
+    "officialSource": "Japan Society of Civil Engineers",
+    "sourceUrl": "https://www.jsce.or.jp/",
+    "metadata": {
+      "authority": "national",
+      "status": "active",
+      "lastVerified": "2026-07",
+      "verificationSource": "Japan Society of Civil Engineers",
+      "reviewIntervalMonths": 24,
+      "expectedMembers": 10
+    }
+  },
+  {
+    "id": "flower-parks-japan",
+    "slug": "flower-parks-japan",
+    "name": "Japan’s Spectacular Flower Parks & Gardens",
+    "description": "Immerse in vibrant seasonal blooms, cascading wisteria, lavender hills, and historic floral sanctuaries across Japan.",
+    "category": "Nature & Gardens",
+    "type": "thematic",
+    "isAchievement": true,
+    "icon": "Flower2",
+    "badgeColor": "rose",
+    "sortOrder": 20,
+    "officialSource": "Japan Botanical Gardens Association",
+    "sourceUrl": "http://www.syokubutsuen-kyokai.jp/",
+    "metadata": {
+      "authority": "national",
+      "status": "active",
+      "lastVerified": "2026-07",
+      "verificationSource": "Japan Botanical Gardens Association",
+      "reviewIntervalMonths": 24,
+      "expectedMembers": 10
+    }
+  },
+  {
+    "id": "waterfalls-gorges-japan",
+    "slug": "waterfalls-gorges-japan",
+    "name": "Majestic Waterfalls & River Gorges",
+    "description": "Journey through roaring alpine cascades, volcanic gorges, and serene moss-covered river valleys.",
+    "category": "Nature & Wilderness",
+    "type": "thematic",
+    "isAchievement": true,
+    "icon": "Waves",
+    "badgeColor": "emerald",
+    "sortOrder": 21,
+    "officialSource": "Ministry of the Environment Japan",
+    "sourceUrl": "https://www.env.go.jp/",
+    "metadata": {
+      "authority": "government",
+      "status": "active",
+      "lastVerified": "2026-07",
+      "verificationSource": "Ministry of the Environment Japan",
+      "reviewIntervalMonths": 24,
+      "expectedMembers": 10
+    }
+  },
+  {
+    "id": "islands-japan",
+    "slug": "islands-japan",
+    "name": "Enchanting Islands of Japan",
+    "description": "Discover Japan’s volcanic, subtropical, and historic islands, from primeval forests to ocean retreats.",
+    "category": "Islands & Nature",
+    "type": "thematic",
+    "isAchievement": true,
+    "icon": "Palmtree",
+    "badgeColor": "indigo",
+    "sortOrder": 22,
+    "officialSource": "Japan Remote Islands Center",
+    "sourceUrl": "https://www.nijinet.or.jp/",
+    "metadata": {
+      "authority": "national",
+      "status": "active",
+      "lastVerified": "2026-07",
+      "verificationSource": "Japan Remote Islands Center",
+      "reviewIntervalMonths": 24,
+      "expectedMembers": 10
+    }
+  },
+  {
+    "id": "art-islands-japan",
+    "slug": "art-islands-japan",
+    "name": "Japan’s Contemporary Art Islands & Open-Air Museums",
+    "description": "Experience world-renowned art sanctuaries where outdoor sculptures, modern galleries, and sea views harmonize.",
+    "category": "Art & Culture",
+    "type": "thematic",
+    "isAchievement": true,
+    "icon": "Sparkles",
+    "badgeColor": "purple",
+    "sortOrder": 23,
+    "officialSource": "Benesse Art Site Naoshima",
+    "sourceUrl": "https://benesse-artsite.jp/",
+    "metadata": {
+      "authority": "cultural",
+      "status": "active",
+      "lastVerified": "2026-07",
+      "verificationSource": "Benesse Art Site Naoshima",
+      "reviewIntervalMonths": 24,
+      "expectedMembers": 10
+    }
+  },
+  {
+    "id": "pilgrimage-routes-japan",
+    "slug": "pilgrimage-routes-japan",
+    "name": "Sacred Pilgrimage Routes of Japan",
+    "description": "Walk the sacred mountain paths, ancient spiritual routes, and historic temple trails walked by pilgrims for centuries.",
+    "category": "Spiritual & Cultural Heritage",
+    "type": "thematic",
+    "isAchievement": true,
+    "icon": "Map",
+    "badgeColor": "amber",
+    "sortOrder": 24,
+    "officialSource": "Agency for Cultural Affairs Japan",
+    "sourceUrl": "https://www.bunka.go.jp/",
+    "metadata": {
+      "authority": "government",
+      "status": "active",
+      "lastVerified": "2026-07",
+      "verificationSource": "Agency for Cultural Affairs Japan",
+      "reviewIntervalMonths": 24,
+      "expectedMembers": 10
+    }
   }
 ]

@@ -396,7 +396,9 @@
     "collections": [],
     "relationships": {
       "parentDestinationId": "minato-city"
-    }
+    },
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate"
   },
   {
     "id": "akihabara-chiyoda",
@@ -506,7 +508,9 @@
     "collections": [],
     "relationships": {
       "parentDestinationId": "chiyoda-city"
-    }
+    },
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate"
   },
   {
     "id": "amami-iriomote-natural-site",
@@ -613,6 +617,10 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true
+      },
+      {
+        "collectionId": "islands-japan",
+        "sortOrder": 10
       }
     ],
     "relationships": {},
@@ -622,7 +630,12 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "奄美大島、徳之島、沖縄島北部及び西表島"
+    "nameJa": "奄美大島、徳之島、沖縄島北部及び西表島",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    }
   },
   {
     "id": "amanohashidate-kyoto",
@@ -663,6 +676,14 @@
         "collectionId": "three-great-views",
         "sortOrder": 2,
         "confirmed": true
+      },
+      {
+        "collectionId": "coastal-drives-japan",
+        "sortOrder": 9
+      },
+      {
+        "collectionId": "scenic-bridges-japan",
+        "sortOrder": 5
       }
     ],
     "transportOptions": {
@@ -703,7 +724,22 @@
       "tickets": 2000,
       "food": 1625,
       "cafe": 875
-    }
+    },
+    "highlights": [
+      "Explore Amanohashidate (Bridge to Heaven)",
+      "Local Culture & Scenery"
+    ],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Amanohashidate (Bridge to Heaven) Dining Options"],
+    "cafes": ["Amanohashidate (Bridge to Heaven) Rest Area Cafe"]
   },
   {
     "id": "arakawa-city",
@@ -874,7 +910,19 @@
       "tickets": 2000,
       "food": 8450,
       "cafe": 4550
-    }
+    },
+    "highlights": ["Explore Arima Onsen", "Local Culture & Scenery"],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Arima Onsen Dining Options"],
+    "cafes": ["Arima Onsen Rest Area Cafe"]
   },
   {
     "id": "art-tower-mito",
@@ -985,7 +1033,12 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "art-islands-japan",
+        "sortOrder": 5
+      }
+    ],
     "relationships": {}
   },
   {
@@ -1181,7 +1234,9 @@
     "collections": [],
     "relationships": {
       "parentDestinationId": "taito-city"
-    }
+    },
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate"
   },
   {
     "id": "ashigara",
@@ -1297,7 +1352,11 @@
     "relationships": {
       "parentDestinationId": "hakone-town"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Wizyta_japo%C5%84skiego_kr%C4%85%C5%BCownika_Ashigara_w_Niemczech_%281-E-8502%29.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Wizyta_japo%C5%84skiego_kr%C4%85%C5%BCownika_Ashigara_w_Niemczech_%281-E-8502%29.jpg",
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "aso-city",
@@ -1498,7 +1557,12 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "飛鳥・藤原の宮都とその関連資産群"
+    "nameJa": "飛鳥・藤原の宮都とその関連資産群",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    }
   },
   {
     "id": "atami-city",
@@ -1721,7 +1785,19 @@
       "tickets": 2000,
       "food": 1300,
       "cafe": 700
-    }
+    },
+    "highlights": ["Explore Atsuta Shrine (Nagoya)", "Local Culture & Scenery"],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Atsuta Shrine (Nagoya) Dining Options"],
+    "cafes": ["Atsuta Shrine (Nagoya) Rest Area Cafe"]
   },
   {
     "id": "beppu-city",
@@ -1978,7 +2054,22 @@
       "tickets": 2000,
       "food": 2600,
       "cafe": 1400
-    }
+    },
+    "highlights": [
+      "Explore Bitchu Matsuyama Castle",
+      "Local Culture & Scenery"
+    ],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Bitchu Matsuyama Castle Dining Options"],
+    "cafes": ["Bitchu Matsuyama Castle Rest Area Cafe"]
   },
   {
     "id": "boso-peninsula",
@@ -2122,7 +2213,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {}
+    "relationships": {},
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate"
   },
   {
     "id": "bunkyo-city",
@@ -2343,7 +2436,11 @@
         "chiba-sawara"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "saitama-city"]
-    }
+    },
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "chiba-nokogiriyama",
@@ -2458,7 +2555,12 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "pilgrimage-routes-japan",
+        "sortOrder": 6
+      }
+    ],
     "relationships": {}
   },
   {
@@ -3194,6 +3296,11 @@
       "tickets": 2000,
       "food": 2763,
       "cafe": 1488
+    },
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
     }
   },
   {
@@ -3304,6 +3411,11 @@
       "tickets": 2000,
       "food": 6175,
       "cafe": 3325
+    },
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
     }
   },
   {
@@ -3586,7 +3698,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {}
+    "relationships": {},
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate"
   },
   {
     "id": "disneysea",
@@ -3728,7 +3842,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {}
+    "relationships": {},
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate"
   },
   {
     "id": "edo-castle-tokyo",
@@ -4073,7 +4189,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {}
+    "relationships": {},
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate"
   },
   {
     "id": "fuji-5-lake",
@@ -4193,7 +4311,11 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {}
+    "relationships": {},
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "fujikawaguchiko-town",
@@ -4592,7 +4714,11 @@
     },
     "collections": [],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Skyline_of_Fukui_City02.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Skyline_of_Fukui_City02.jpg",
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "fukuoka-city",
@@ -4840,7 +4966,12 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "flower-parks-japan",
+        "sortOrder": 4
+      }
+    ],
     "relationships": {
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
@@ -4963,7 +5094,11 @@
     },
     "collections": [],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/7/73/F8_Tanigawa_79_Gala-Yuzawa_20060115.JPG"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/73/F8_Tanigawa_79_Gala-Yuzawa_20060115.JPG",
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "gero-city",
@@ -5134,7 +5269,19 @@
       "tickets": 2000,
       "food": 6500,
       "cafe": 3500
-    }
+    },
+    "highlights": ["Explore Gero Onsen", "Local Culture & Scenery"],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Gero Onsen Dining Options"],
+    "cafes": ["Gero Onsen Rest Area Cafe"]
   },
   {
     "id": "ghibli-museum",
@@ -5250,7 +5397,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {}
+    "relationships": {},
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate"
   },
   {
     "id": "gifu-castle-gifu",
@@ -5820,7 +5969,9 @@
     "collections": [],
     "relationships": {
       "parentDestinationId": "chuo-city"
-    }
+    },
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate"
   },
   {
     "id": "gotemba-city",
@@ -6017,6 +6168,10 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true
+      },
+      {
+        "collectionId": "islands-japan",
+        "sortOrder": 5
       }
     ],
     "relationships": {},
@@ -6026,7 +6181,12 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "明治日本の産業革命遺産 製鉄・製鋼、造船、石炭産業"
+    "nameJa": "明治日本の産業革命遺産 製鉄・製鋼、造船、石炭産業",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    }
   },
   {
     "id": "gunma-ikaho-onsen",
@@ -6451,7 +6611,17 @@
       "train": 60
     },
     "walkingSunMin": 90,
-    "walkingShadeMin": 60
+    "walkingShadeMin": 60,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Hachioji Castle Ruins (Mount Castle) Dining Options"],
+    "cafes": ["Hachioji Castle Ruins (Mount Castle) Rest Area Cafe"],
+    "notes": "Hachioji Castle Ruins (Mount Castle) located in Tokyo Prefecture."
   },
   {
     "id": "hachioji-tokyo",
@@ -6562,6 +6732,11 @@
       "tickets": 2000,
       "food": 3738,
       "cafe": 2012
+    },
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
     }
   },
   {
@@ -6675,7 +6850,11 @@
     },
     "collections": [],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Yokohama_Hakkeijima_Sea_Paradise_-_01.jpg/330px-Yokohama_Hakkeijima_Sea_Paradise_-_01.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Yokohama_Hakkeijima_Sea_Paradise_-_01.jpg/330px-Yokohama_Hakkeijima_Sea_Paradise_-_01.jpg",
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "hakodate-city",
@@ -6844,7 +7023,22 @@
       "tickets": 2000,
       "food": 1300,
       "cafe": 700
-    }
+    },
+    "highlights": [
+      "Explore Mount Hakodate Night View",
+      "Local Culture & Scenery"
+    ],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Mount Hakodate Night View Dining Options"],
+    "cafes": ["Mount Hakodate Night View Rest Area Cafe"]
   },
   {
     "id": "hakone-town",
@@ -6932,6 +7126,10 @@
         "collectionId": "top-onsen-japan",
         "sortOrder": 2,
         "confirmed": true
+      },
+      {
+        "collectionId": "art-islands-japan",
+        "sortOrder": 4
       }
     ],
     "relationships": {
@@ -7322,7 +7520,9 @@
     "collections": [],
     "relationships": {
       "parentDestinationId": "nerima-city"
-    }
+    },
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate"
   },
   {
     "id": "hatsukaichi-city",
@@ -7847,7 +8047,22 @@
       "tickets": 2000,
       "food": 1625,
       "cafe": 875
-    }
+    },
+    "highlights": [
+      "Explore Himeji Castle (White Heron Castle)",
+      "Local Culture & Scenery"
+    ],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Himeji Castle (White Heron Castle) Dining Options"],
+    "cafes": ["Himeji Castle (White Heron Castle) Rest Area Cafe"]
   },
   {
     "id": "himeji-city",
@@ -8035,6 +8250,10 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true
+      },
+      {
+        "collectionId": "pilgrimage-routes-japan",
+        "sortOrder": 4
       }
     ],
     "relationships": {},
@@ -8044,7 +8263,12 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "平泉―仏国土を表す建築・庭園及び考古学的遺跡群―"
+    "nameJa": "平泉―仏国土を表す建築・庭園及び考古学的遺跡群―",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    }
   },
   {
     "id": "hirosaki-castle",
@@ -8135,7 +8359,19 @@
       "tickets": 2000,
       "food": 2925,
       "cafe": 1575
-    }
+    },
+    "highlights": ["Explore Hirosaki Castle", "Local Culture & Scenery"],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Hirosaki Castle Dining Options"],
+    "cafes": ["Hirosaki Castle Rest Area Cafe"]
   },
   {
     "id": "hiroshima-city",
@@ -8342,7 +8578,12 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "原爆ドーム"
+    "nameJa": "原爆ドーム",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    }
   },
   {
     "id": "horyuji-temple-nara",
@@ -8458,7 +8699,12 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "法隆寺地域の仏教建造物"
+    "nameJa": "法隆寺地域の仏教建造物",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    }
   },
   {
     "id": "ibaraki-fukuroda-falls",
@@ -8578,6 +8824,10 @@
         "collectionId": "three-great-waterfalls",
         "sortOrder": 3,
         "confirmed": true
+      },
+      {
+        "collectionId": "waterfalls-gorges-japan",
+        "sortOrder": 5
       }
     ],
     "relationships": {}
@@ -8695,7 +8945,12 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "flower-parks-japan",
+        "sortOrder": 2
+      }
+    ],
     "relationships": {}
   },
   {
@@ -9007,7 +9262,9 @@
     "collections": [],
     "relationships": {
       "parentDestinationId": "toshima-city"
-    }
+    },
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate"
   },
   {
     "id": "imperial-palace-chiyoda",
@@ -9119,7 +9376,9 @@
     "collections": [],
     "relationships": {
       "parentDestinationId": "chiyoda-city"
-    }
+    },
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate"
   },
   {
     "id": "inuyama-castle-aichi",
@@ -9189,7 +9448,21 @@
       "train": 110
     },
     "walkingSunMin": 72,
-    "walkingShadeMin": 48
+    "walkingShadeMin": 48,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Inuyama Castle (National Treasure Keep) Dining Options"],
+    "cafes": ["Inuyama Castle (National Treasure Keep) Rest Area Cafe"],
+    "notes": "Inuyama Castle (National Treasure Keep) located in Aichi Prefecture.",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
   },
   {
     "id": "inuyama-city",
@@ -9362,6 +9635,10 @@
         "collectionId": "national-treasures",
         "sortOrder": 10,
         "confirmed": true
+      },
+      {
+        "collectionId": "pilgrimage-routes-japan",
+        "sortOrder": 5
       }
     ],
     "transportOptions": {
@@ -9402,7 +9679,22 @@
       "tickets": 2000,
       "food": 1625,
       "cafe": 875
-    }
+    },
+    "highlights": [
+      "Explore Ise Grand Shrine (Ise Jingu)",
+      "Local Culture & Scenery"
+    ],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Ise Grand Shrine (Ise Jingu) Dining Options"],
+    "cafes": ["Ise Grand Shrine (Ise Jingu) Rest Area Cafe"]
   },
   {
     "id": "ishigaki-city",
@@ -9473,7 +9765,12 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "islands-japan",
+        "sortOrder": 9
+      }
+    ],
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["naha-city", "nago-city", "motobu-town"]
@@ -9798,7 +10095,12 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "石見銀山遺跡とその文化的景観"
+    "nameJa": "石見銀山遺跡とその文化的景観",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    }
   },
   {
     "id": "izu",
@@ -9917,7 +10219,11 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {}
+    "relationships": {},
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "izumo-city",
@@ -10088,7 +10394,22 @@
       "tickets": 2000,
       "food": 1300,
       "cafe": 700
-    }
+    },
+    "highlights": [
+      "Explore Izumo Taisha Grand Shrine",
+      "Local Culture & Scenery"
+    ],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Izumo Taisha Grand Shrine Dining Options"],
+    "cafes": ["Izumo Taisha Grand Shrine Rest Area Cafe"]
   },
   {
     "id": "jogashima",
@@ -10202,7 +10523,11 @@
     },
     "collections": [],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Miura_Peninsula_Kanagawa_Japan_SRTM.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Miura_Peninsula_Kanagawa_Japan_SRTM.jpg",
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "joypolis",
@@ -10265,7 +10590,7 @@
       "food": 6000,
       "cafe": 2000
     },
-    "reservation": "",
+    "reservation": "None required",
     "parking": "Yes",
     "itineraries": [
       {
@@ -10340,7 +10665,9 @@
     "collections": [],
     "relationships": {
       "parentDestinationId": "minato-city"
-    }
+    },
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate"
   },
   {
     "id": "kagoshima-city",
@@ -10463,6 +10790,10 @@
         "collectionId": "three-great-gardens",
         "sortOrder": 2,
         "confirmed": true
+      },
+      {
+        "collectionId": "flower-parks-japan",
+        "sortOrder": 4
       }
     ],
     "transportOptions": {
@@ -10506,7 +10837,19 @@
       "tickets": 2000,
       "food": 1300,
       "cafe": 700
-    }
+    },
+    "highlights": ["Explore Kairakuen Garden", "Local Culture & Scenery"],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Kairakuen Garden Dining Options"],
+    "cafes": ["Kairakuen Garden Rest Area Cafe"]
   },
   {
     "id": "kakegawa-castle-shizuoka",
@@ -10897,9 +11240,17 @@
       {
         "collectionId": "three-great-gardens",
         "confirmed": true
+      },
+      {
+        "collectionId": "flower-parks-japan",
+        "sortOrder": 5
       }
     ],
-    "relationships": {}
+    "relationships": {},
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "kanazawa-castle-ishikawa",
@@ -11762,6 +12113,10 @@
         "collectionId": "three-great-waterfalls",
         "sortOrder": 1,
         "confirmed": true
+      },
+      {
+        "collectionId": "waterfalls-gorges-japan",
+        "sortOrder": 4
       }
     ],
     "transportOptions": {
@@ -11804,7 +12159,19 @@
       "tickets": 2000,
       "food": 1300,
       "cafe": 700
-    }
+    },
+    "highlights": ["Explore Kegon Falls (Nikko)", "Local Culture & Scenery"],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Kegon Falls (Nikko) Dining Options"],
+    "cafes": ["Kegon Falls (Nikko) Rest Area Cafe"]
   },
   {
     "id": "kinosaki-onsen",
@@ -11885,7 +12252,19 @@
       "tickets": 2000,
       "food": 8125,
       "cafe": 4375
-    }
+    },
+    "highlights": ["Explore Kinosaki Onsen", "Local Culture & Scenery"],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Kinosaki Onsen Dining Options"],
+    "cafes": ["Kinosaki Onsen Rest Area Cafe"]
   },
   {
     "id": "kinugawa-onsen",
@@ -12011,7 +12390,11 @@
         "confirmed": true
       }
     ],
-    "relationships": {}
+    "relationships": {},
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "kisarazu-city",
@@ -12217,7 +12600,11 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {}
+    "relationships": {},
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "kita-city",
@@ -12563,7 +12950,22 @@
       "tickets": 2000,
       "food": 1300,
       "cafe": 700
-    }
+    },
+    "highlights": [
+      "Explore Mount Maya Kikuseidai (Kobe)",
+      "Local Culture & Scenery"
+    ],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Mount Maya Kikuseidai (Kobe) Dining Options"],
+    "cafes": ["Mount Maya Kikuseidai (Kobe) Rest Area Cafe"]
   },
   {
     "id": "kochi-castle",
@@ -12649,7 +13051,19 @@
       "tickets": 2000,
       "food": 4225,
       "cafe": 2275
-    }
+    },
+    "highlights": ["Explore Kochi Castle", "Local Culture & Scenery"],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Kochi Castle Dining Options"],
+    "cafes": ["Kochi Castle Rest Area Cafe"]
   },
   {
     "id": "kochi-city",
@@ -12889,6 +13303,10 @@
         "collectionId": "three-great-gardens",
         "sortOrder": 3,
         "confirmed": true
+      },
+      {
+        "collectionId": "flower-parks-japan",
+        "sortOrder": 3
       }
     ],
     "transportOptions": {
@@ -12932,7 +13350,19 @@
       "tickets": 2000,
       "food": 1625,
       "cafe": 875
-    }
+    },
+    "highlights": ["Explore Korakuen Garden", "Local Culture & Scenery"],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Korakuen Garden Dining Options"],
+    "cafes": ["Korakuen Garden Rest Area Cafe"]
   },
   {
     "id": "koto-city",
@@ -13089,7 +13519,12 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "pilgrimage-routes-japan",
+        "sortOrder": 3
+      }
+    ],
     "relationships": {
       "featuredDestinationIds": ["nachi-falls-wakayama"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
@@ -13180,7 +13615,19 @@
       "tickets": 2000,
       "food": 1950,
       "cafe": 1050
-    }
+    },
+    "highlights": ["Explore Kumamoto Castle", "Local Culture & Scenery"],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Kumamoto Castle Dining Options"],
+    "cafes": ["Kumamoto Castle Rest Area Cafe"]
   },
   {
     "id": "kumamoto-city",
@@ -13377,6 +13824,10 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true
+      },
+      {
+        "collectionId": "pilgrimage-routes-japan",
+        "sortOrder": 2
       }
     ],
     "relationships": {},
@@ -13386,7 +13837,12 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "紀伊山地の霊場と参詣道"
+    "nameJa": "紀伊山地の霊場と参詣道",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    }
   },
   {
     "id": "kurashiki-city",
@@ -13590,8 +14046,17 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [],
-    "relationships": {}
+    "collections": [
+      {
+        "collectionId": "waterfalls-gorges-japan",
+        "sortOrder": 7
+      }
+    ],
+    "relationships": {},
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "kusatsu-town",
@@ -13950,7 +14415,24 @@
       "tickets": 2000,
       "food": 2600,
       "cafe": 1400
-    }
+    },
+    "highlights": [
+      "Explore Historic Kyoto (Kiyomizu-dera & Kinkaku-ji)",
+      "Local Culture & Scenery"
+    ],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": [
+      "Historic Kyoto (Kiyomizu-dera & Kinkaku-ji) Dining Options"
+    ],
+    "cafes": ["Historic Kyoto (Kiyomizu-dera & Kinkaku-ji) Rest Area Cafe"]
   },
   {
     "id": "lake-hamanako",
@@ -14064,7 +14546,11 @@
     },
     "collections": [],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lake_Hamana_Aerial_photograph.2006.jpg/1280px-Lake_Hamana_Aerial_photograph.2006.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lake_Hamana_Aerial_photograph.2006.jpg/1280px-Lake_Hamana_Aerial_photograph.2006.jpg",
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "lake-sagami",
@@ -14183,7 +14669,11 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {}
+    "relationships": {},
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "machida-tokyo",
@@ -14288,6 +14778,11 @@
       "tickets": 2000,
       "food": 2275,
       "cafe": 1225
+    },
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
     }
   },
   {
@@ -14374,7 +14869,19 @@
       "tickets": 2000,
       "food": 1625,
       "cafe": 875
-    }
+    },
+    "highlights": ["Explore Marugame Castle", "Local Culture & Scenery"],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Marugame Castle Dining Options"],
+    "cafes": ["Marugame Castle Rest Area Cafe"]
   },
   {
     "id": "maruoka-castle-fukui",
@@ -14683,7 +15190,19 @@
       "tickets": 2000,
       "food": 2925,
       "cafe": 1575
-    }
+    },
+    "highlights": ["Explore Matsue Castle", "Local Culture & Scenery"],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Matsue Castle Dining Options"],
+    "cafes": ["Matsue Castle Rest Area Cafe"]
   },
   {
     "id": "matsue-city",
@@ -14838,7 +15357,21 @@
       "train": 160
     },
     "walkingSunMin": 72,
-    "walkingShadeMin": 48
+    "walkingShadeMin": 48,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Matsumoto Castle (Crow Castle) Dining Options"],
+    "cafes": ["Matsumoto Castle (Crow Castle) Rest Area Cafe"],
+    "notes": "Matsumoto Castle (Crow Castle) located in Nagano Prefecture.",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
   },
   {
     "id": "matsumoto-city",
@@ -15068,7 +15601,19 @@
       "tickets": 2000,
       "food": 1625,
       "cafe": 875
-    }
+    },
+    "highlights": ["Explore Matsushima Bay", "Local Culture & Scenery"],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Matsushima Bay Dining Options"],
+    "cafes": ["Matsushima Bay Rest Area Cafe"]
   },
   {
     "id": "matsuyama-castle-ehime",
@@ -15159,7 +15704,19 @@
       "tickets": 2000,
       "food": 3250,
       "cafe": 1750
-    }
+    },
+    "highlights": ["Explore Iyo Matsuyama Castle", "Local Culture & Scenery"],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Iyo Matsuyama Castle Dining Options"],
+    "cafes": ["Iyo Matsuyama Castle Rest Area Cafe"]
   },
   {
     "id": "matsuyama-city",
@@ -15933,6 +16490,10 @@
         "collectionId": "three-great-views",
         "sortOrder": 3,
         "confirmed": true
+      },
+      {
+        "collectionId": "islands-japan",
+        "sortOrder": 8
       }
     ],
     "transportOptions": {
@@ -15973,7 +16534,22 @@
       "tickets": 2000,
       "food": 1625,
       "cafe": 875
-    }
+    },
+    "highlights": [
+      "Explore Itsukushima Shrine (Miyajima Island)",
+      "Local Culture & Scenery"
+    ],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Itsukushima Shrine (Miyajima Island) Dining Options"],
+    "cafes": ["Itsukushima Shrine (Miyajima Island) Rest Area Cafe"]
   },
   {
     "id": "miyakojima-city",
@@ -16044,7 +16620,16 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "scenic-bridges-japan",
+        "sortOrder": 7
+      },
+      {
+        "collectionId": "islands-japan",
+        "sortOrder": 11
+      }
+    ],
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["naha-city", "nago-city", "motobu-town"]
@@ -16324,6 +16909,11 @@
       "tickets": 2000,
       "food": 5200,
       "cafe": 2800
+    },
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
     }
   },
   {
@@ -16532,7 +17122,11 @@
       }
     ],
     "relationships": {},
-    "nameJa": "富士山―信仰の対象と芸術の源泉"
+    "nameJa": "富士山―信仰の対象と芸術の源泉",
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "mount-inasa-nagasaki",
@@ -16617,7 +17211,22 @@
       "tickets": 2000,
       "food": 1300,
       "cafe": 700
-    }
+    },
+    "highlights": [
+      "Explore Mount Inasa (Nagasaki Night View)",
+      "Local Culture & Scenery"
+    ],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Mount Inasa (Nagasaki Night View) Dining Options"],
+    "cafes": ["Mount Inasa (Nagasaki Night View) Rest Area Cafe"]
   },
   {
     "id": "mount-yoshino-nara",
@@ -16702,7 +17311,22 @@
       "tickets": 2000,
       "food": 1625,
       "cafe": 875
-    }
+    },
+    "highlights": [
+      "Explore Mount Yoshino (Yoshinoyama)",
+      "Local Culture & Scenery"
+    ],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Mount Yoshino (Yoshinoyama) Dining Options"],
+    "cafes": ["Mount Yoshino (Yoshinoyama) Rest Area Cafe"]
   },
   {
     "id": "mozufuruichi-kofun-osaka",
@@ -16818,7 +17442,12 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "百舌鳥・古市古墳群-古代日本の墳墓群-"
+    "nameJa": "百舌鳥・古市古墳群-古代日本の墳墓群-",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    }
   },
   {
     "id": "nachi-falls-wakayama",
@@ -16863,6 +17492,10 @@
         "collectionId": "three-great-waterfalls",
         "sortOrder": 2,
         "confirmed": true
+      },
+      {
+        "collectionId": "waterfalls-gorges-japan",
+        "sortOrder": 3
       }
     ],
     "transportOptions": {
@@ -16903,7 +17536,19 @@
       "tickets": 2000,
       "food": 1300,
       "cafe": 700
-    }
+    },
+    "highlights": ["Explore Nachi Falls & Pagoda", "Local Culture & Scenery"],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Nachi Falls & Pagoda Dining Options"],
+    "cafes": ["Nachi Falls & Pagoda Rest Area Cafe"]
   },
   {
     "id": "nagano-bessho-onsen",
@@ -17143,7 +17788,11 @@
         "shirakawa-village",
         "inuyama-city"
       ]
-    }
+    },
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "nagano-kamikochi",
@@ -17857,7 +18506,17 @@
       "shinkansen": 40
     },
     "walkingSunMin": 72,
-    "walkingShadeMin": 48
+    "walkingShadeMin": 48,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Nagoya Castle (Golden Shachihoko) Dining Options"],
+    "cafes": ["Nagoya Castle (Golden Shachihoko) Rest Area Cafe"],
+    "notes": "Nagoya Castle (Golden Shachihoko) located in Aichi Prefecture."
   },
   {
     "id": "nagoya-city",
@@ -18471,7 +19130,12 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "古都奈良の文化財"
+    "nameJa": "古都奈良の文化財",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    }
   },
   {
     "id": "nara-park-todaiji",
@@ -18564,7 +19228,22 @@
       "tickets": 2000,
       "food": 1300,
       "cafe": 700
-    }
+    },
+    "highlights": [
+      "Explore Historic Nara (Todai-ji Great Buddha)",
+      "Local Culture & Scenery"
+    ],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Historic Nara (Todai-ji Great Buddha) Dining Options"],
+    "cafes": ["Historic Nara (Todai-ji Great Buddha) Rest Area Cafe"]
   },
   {
     "id": "narita-city",
@@ -18749,7 +19428,12 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "scenic-bridges-japan",
+        "sortOrder": 6
+      }
+    ],
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]
@@ -18875,7 +19559,12 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "ル・コルビュジエの建築作品-近代建築運動への顕著な貢献-"
+    "nameJa": "ル・コルビュジエの建築作品-近代建築運動への顕著な貢献-",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    }
   },
   {
     "id": "nerima-city",
@@ -19078,6 +19767,11 @@
       "tickets": 3000,
       "food": 4500,
       "cafe": 2500
+    },
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
     }
   },
   {
@@ -19171,7 +19865,19 @@
       "tickets": 2000,
       "food": 1300,
       "cafe": 700
-    }
+    },
+    "highlights": ["Explore Nijo Castle (Kyoto)", "Local Culture & Scenery"],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Nijo Castle (Kyoto) Dining Options"],
+    "cafes": ["Nijo Castle (Kyoto) Rest Area Cafe"]
   },
   {
     "id": "nikko-city",
@@ -19394,7 +20100,21 @@
     },
     "walkingSunMin": 72,
     "walkingShadeMin": 48,
-    "nameJa": "日光の社寺"
+    "nameJa": "日光の社寺",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": [
+      "Shrines and Temples of Nikko (Toshogu & UNESCO Heritage) Dining Options"
+    ],
+    "cafes": [
+      "Shrines and Temples of Nikko (Toshogu & UNESCO Heritage) Rest Area Cafe"
+    ],
+    "notes": "Shrines and Temples of Nikko (Toshogu & UNESCO Heritage) located in Tochigi Prefecture."
   },
   {
     "id": "niseko-town",
@@ -19594,8 +20314,17 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [],
-    "relationships": {}
+    "collections": [
+      {
+        "collectionId": "coastal-drives-japan",
+        "sortOrder": 7
+      }
+    ],
+    "relationships": {},
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "numazu-city",
@@ -19916,7 +20645,9 @@
     "collections": [],
     "relationships": {
       "parentDestinationId": "minato-city"
-    }
+    },
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate"
   },
   {
     "id": "odawara-city",
@@ -20115,7 +20846,12 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "小笠原諸島"
+    "nameJa": "小笠原諸島",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    }
   },
   {
     "id": "okayama-city",
@@ -20412,7 +21148,12 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "「神宿る島」宗像・沖ノ島と関連遺産群"
+    "nameJa": "「神宿る島」宗像・沖ノ島と関連遺産群",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    }
   },
   {
     "id": "okuhida",
@@ -20526,7 +21267,11 @@
     },
     "collections": [],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/0/05/YariKamikohchiTagged.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/05/YariKamikohchiTagged.jpg",
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "ome-tokyo",
@@ -20630,6 +21375,11 @@
       "tickets": 2000,
       "food": 4225,
       "cafe": 2275
+    },
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
     }
   },
   {
@@ -20693,7 +21443,7 @@
       "food": 4900,
       "cafe": 2000
     },
-    "reservation": "",
+    "reservation": "None required",
     "parking": "Yes",
     "itineraries": [
       {
@@ -20766,7 +21516,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {}
+    "relationships": {},
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate"
   },
   {
     "id": "onomichi-city",
@@ -20934,7 +21686,22 @@
       "tickets": 2000,
       "food": 1300,
       "cafe": 700
-    }
+    },
+    "highlights": [
+      "Explore Osaka Castle (Osaka-jo)",
+      "Local Culture & Scenery"
+    ],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Osaka Castle (Osaka-jo) Dining Options"],
+    "cafes": ["Osaka Castle (Osaka-jo) Rest Area Cafe"]
   },
   {
     "id": "osaka-city",
@@ -21397,7 +22164,12 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "長崎と天草地方の潜伏キリシタン関連遺産"
+    "nameJa": "長崎と天草地方の潜伏キリシタン関連遺産",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    }
   },
   {
     "id": "oze-national-park",
@@ -21517,7 +22289,11 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {}
+    "relationships": {},
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "roppongi-hills-tokyo-city-view",
@@ -21765,10 +22541,22 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true
+      },
+      {
+        "collectionId": "coastal-drives-japan",
+        "sortOrder": 8
+      },
+      {
+        "collectionId": "islands-japan",
+        "sortOrder": 7
       }
     ],
     "relationships": {},
-    "nameJa": "佐渡島（さどしま）の金山"
+    "nameJa": "佐渡島（さどしま）の金山",
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "sagamihara-city",
@@ -21993,7 +22781,11 @@
         "chichibu-city"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
-    }
+    },
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "saitama-nagatoro",
@@ -22433,7 +23225,12 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "北海道・北東北の縄文遺跡群"
+    "nameJa": "北海道・北東北の縄文遺跡群",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    }
   },
   {
     "id": "sapporo-city",
@@ -22636,6 +23433,11 @@
       "tickets": 3000,
       "food": 4500,
       "cafe": 2500
+    },
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
     }
   },
   {
@@ -23429,7 +24231,12 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "白神山地"
+    "nameJa": "白神山地",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    }
   },
   {
     "id": "shirakawa-village",
@@ -23626,6 +24433,10 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true
+      },
+      {
+        "collectionId": "coastal-drives-japan",
+        "sortOrder": 6
       }
     ],
     "relationships": {},
@@ -23635,7 +24446,12 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "知床"
+    "nameJa": "知床",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    }
   },
   {
     "id": "shizuoka-city",
@@ -23875,7 +24691,12 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "琉球王国のグスク及び関連遺産群"
+    "nameJa": "琉球王国のグスク及び関連遺産群",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    }
   },
   {
     "id": "suginami-city",
@@ -24270,6 +25091,11 @@
       "tickets": 2000,
       "food": 3250,
       "cafe": 1750
+    },
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
     }
   },
   {
@@ -24422,7 +25248,12 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "waterfalls-gorges-japan",
+        "sortOrder": 6
+      }
+    ],
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [
@@ -24755,7 +25586,11 @@
       }
     ],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Takaoka_montage.JPG/330px-Takaoka_montage.JPG"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Takaoka_montage.JPG/330px-Takaoka_montage.JPG",
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "takato-castle-nagano",
@@ -25233,10 +26068,17 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "art-islands-japan",
+        "sortOrder": 6
+      }
+    ],
     "relationships": {
       "parentDestinationId": "koto-city"
-    }
+    },
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate"
   },
   {
     "id": "toki-messe-tower-niigata",
@@ -25994,7 +26836,12 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "caves-japan",
+        "sortOrder": 5
+      }
+    ],
     "relationships": {}
   },
   {
@@ -26477,7 +27324,12 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "富岡製糸場と絹産業遺産群"
+    "nameJa": "富岡製糸場と絹産業遺産群",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    }
   },
   {
     "id": "toshima-city",
@@ -26768,7 +27620,11 @@
       "confidence": "beta"
     },
     "collections": [],
-    "relationships": {}
+    "relationships": {},
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "toyota-city",
@@ -27176,7 +28032,9 @@
     "collections": [],
     "relationships": {
       "parentDestinationId": "taito-city"
-    }
+    },
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate"
   },
   {
     "id": "uji-city",
@@ -27466,7 +28324,11 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {}
+    "relationships": {},
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
   },
   {
     "id": "utsunomiya-city",
@@ -27617,7 +28479,7 @@
       "food": 6000,
       "cafe": 2000
     },
-    "reservation": "",
+    "reservation": "None required",
     "parking": "Yes",
     "itineraries": [
       {
@@ -27689,8 +28551,15 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [],
-    "relationships": {}
+    "collections": [
+      {
+        "collectionId": "caves-japan",
+        "sortOrder": 4
+      }
+    ],
+    "relationships": {},
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate"
   },
   {
     "id": "uwajima-castle",
@@ -27776,7 +28645,19 @@
       "tickets": 2000,
       "food": 2925,
       "cafe": 1575
-    }
+    },
+    "highlights": ["Explore Uwajima Castle", "Local Culture & Scenery"],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Uwajima Castle Dining Options"],
+    "cafes": ["Uwajima Castle Rest Area Cafe"]
   },
   {
     "id": "wakayama-city",
@@ -27932,6 +28813,10 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true
+      },
+      {
+        "collectionId": "islands-japan",
+        "sortOrder": 6
       }
     ],
     "relationships": {
@@ -28282,7 +29167,12 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "waterfalls-gorges-japan",
+        "sortOrder": 8
+      }
+    ],
     "relationships": {},
     "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000"
   },
@@ -28433,7 +29323,9 @@
         "yokohama-marine-tower"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
-    }
+    },
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate"
   },
   {
     "id": "yokohama-landmark-tower-sky-garden",
@@ -28877,7 +29769,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {}
+    "relationships": {},
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate"
   },
   {
     "id": "yufu-city",
@@ -29071,6 +29965,1992 @@
     },
     "collections": [],
     "relationships": {},
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/%E5%A4%AA%E9%99%BD%E3%81%AE%E5%A1%94%E3%81%A8%E9%80%97%E5%AD%90%E6%B5%B7%E5%B2%B8.jpg/1280px-%E5%A4%AA%E9%99%BD%E3%81%AE%E5%A1%94%E3%81%A8%E9%80%97%E5%AD%90%E6%B5%B7%E5%B2%B8.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/%E5%A4%AA%E9%99%BD%E3%81%AE%E5%A1%94%E3%81%A8%E9%80%97%E5%AD%90%E6%B5%B7%E5%B2%B8.jpg/1280px-%E5%A4%AA%E9%99%BD%E3%81%AE%E5%A1%94%E3%81%A8%E9%80%97%E5%AD%90%E6%B5%B7%E5%B2%B8.jpg",
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Available on site"
+  },
+  {
+    "id": "tottori-sand-dunes",
+    "name": "Tottori Sand Dunes",
+    "nameJa": "鳥取砂丘",
+    "prefecture": "Tottori",
+    "category": "Nature & Parks",
+    "description": "Japan's largest coastal sand dunes, stretching over 16 kilometers along the Sea of Japan coast in Sanin Kaigan Geopark.",
+    "coordinates": {
+      "lat": 35.5401,
+      "lng": 134.2323
+    },
+    "nearestStation": "Tottori Station",
+    "heroImage": "https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["nature", "dunes", "coastal", "geopark", "tottori"],
+    "rating": 4.7,
+    "bestSeasons": ["Spring", "Autumn"],
+    "travelEstimate": {
+      "minutesFromBase": 180,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "coastal-drives-japan",
+        "sortOrder": 1
+      }
+    ],
+    "region": "Chugoku",
+    "categories": ["Nature & Parks"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": ["Explore Tottori Sand Dunes", "Local Culture & Scenery"],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Tottori Sand Dunes Dining Options"],
+    "cafes": ["Tottori Sand Dunes Rest Area Cafe"],
+    "notes": "Tottori Sand Dunes located in Tottori Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "sakurajima-volcano-kagoshima",
+    "name": "Sakurajima Stratovolcano",
+    "nameJa": "桜島",
+    "prefecture": "Kagoshima",
+    "category": "Nature & Parks",
+    "description": "One of Japan's most active stratovolcanoes, rising majestically out of Kagoshima Bay with ongoing minor ash eruptions.",
+    "coordinates": {
+      "lat": 31.5932,
+      "lng": 130.6572
+    },
+    "nearestStation": "Kagoshima-Chuo Station",
+    "heroImage": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["volcano", "nature", "island", "kagoshima", "viewpoint"],
+    "rating": 4.8,
+    "bestSeasons": ["Spring", "Autumn"],
+    "travelEstimate": {
+      "minutesFromBase": 240,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "islands-japan",
+        "sortOrder": 1
+      }
+    ],
+    "region": "Kyushu",
+    "categories": ["Nature & Parks"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": [
+      "Explore Sakurajima Stratovolcano",
+      "Local Culture & Scenery"
+    ],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Sakurajima Stratovolcano Dining Options"],
+    "cafes": ["Sakurajima Stratovolcano Rest Area Cafe"],
+    "notes": "Sakurajima Stratovolcano located in Kagoshima Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "takeda-castle-ruins-hyogo",
+    "name": "Takeda Castle Ruins",
+    "nameJa": "竹田城跡",
+    "prefecture": "Hyogo",
+    "category": "Castles & History",
+    "description": "Famous as Japan's 'Castle in the Sky', these breathtaking 15th-century mountain ruins float above a sea of morning autumn fog.",
+    "coordinates": {
+      "lat": 35.3005,
+      "lng": 134.8294
+    },
+    "nearestStation": "Takeda Station",
+    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["castle", "history", "viewpoint", "hyogo", "autumn"],
+    "rating": 4.7,
+    "bestSeasons": ["Autumn"],
+    "travelEstimate": {
+      "minutesFromBase": 150,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "japan-top-castles",
+        "sortOrder": 13
+      }
+    ],
+    "region": "Kansai",
+    "categories": ["Castles & History"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": ["Explore Takeda Castle Ruins", "Local Culture & Scenery"],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Takeda Castle Ruins Dining Options"],
+    "cafes": ["Takeda Castle Ruins Rest Area Cafe"],
+    "notes": "Takeda Castle Ruins located in Hyogo Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "mount-aso-kumamoto",
+    "name": "Mount Aso Active Caldera",
+    "nameJa": "阿蘇山",
+    "prefecture": "Kumamoto",
+    "category": "Nature & Parks",
+    "description": "One of the world's largest active volcanic calderas, featuring the smoking Nakadake Crater and vast emerald grasslands.",
+    "coordinates": {
+      "lat": 32.8842,
+      "lng": 131.1042
+    },
+    "nearestStation": "Aso Station",
+    "heroImage": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["volcano", "nature", "caldera", "kumamoto", "hiking"],
+    "rating": 4.8,
+    "bestSeasons": ["Spring", "Summer", "Autumn"],
+    "travelEstimate": {
+      "minutesFromBase": 210,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "national-parks-japan",
+        "sortOrder": 15
+      }
+    ],
+    "region": "Kyushu",
+    "categories": ["Nature & Parks"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": [
+      "Explore Mount Aso Active Caldera",
+      "Local Culture & Scenery"
+    ],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Mount Aso Active Caldera Dining Options"],
+    "cafes": ["Mount Aso Active Caldera Rest Area Cafe"],
+    "notes": "Mount Aso Active Caldera located in Kumamoto Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "ginzan-onsen-yamagata",
+    "name": "Ginzan Onsen",
+    "nameJa": "銀山温泉",
+    "prefecture": "Yamagata",
+    "category": "Onsen & Wellness",
+    "description": "A magical Taisho-era hot spring village nestled in Yamagata's mountains, lined with wooden ryokan and warm gas street lamps.",
+    "coordinates": {
+      "lat": 38.5704,
+      "lng": 140.5303
+    },
+    "nearestStation": "Oishida Station",
+    "heroImage": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["onsen", "yamagata", "winter", "snow", "historic"],
+    "rating": 4.9,
+    "bestSeasons": ["Winter", "Autumn"],
+    "travelEstimate": {
+      "minutesFromBase": 210,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "top-onsen-japan",
+        "sortOrder": 8
+      }
+    ],
+    "region": "Tohoku",
+    "categories": ["Onsen & Wellness"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": ["Explore Ginzan Onsen", "Local Culture & Scenery"],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Ginzan Onsen Dining Options"],
+    "cafes": ["Ginzan Onsen Rest Area Cafe"],
+    "notes": "Ginzan Onsen located in Yamagata Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "oirase-gorge-aomori",
+    "name": "Oirase Mountain Stream & Gorge",
+    "nameJa": "奥入瀬渓流",
+    "prefecture": "Aomori",
+    "category": "Nature & Parks",
+    "description": "A picturesque 14-kilometer mountain stream in Aomori famed for roaring waterfalls, mossy rocks, and autumn foliage.",
+    "coordinates": {
+      "lat": 40.5284,
+      "lng": 140.9708
+    },
+    "nearestStation": "Hachinohe Station",
+    "heroImage": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["gorge", "waterfall", "nature", "aomori", "hiking"],
+    "rating": 4.8,
+    "bestSeasons": ["Summer", "Autumn"],
+    "travelEstimate": {
+      "minutesFromBase": 240,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "waterfalls-gorges-japan",
+        "sortOrder": 1
+      }
+    ],
+    "region": "Tohoku",
+    "categories": ["Nature & Parks"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": [
+      "Explore Oirase Mountain Stream & Gorge",
+      "Local Culture & Scenery"
+    ],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Oirase Mountain Stream & Gorge Dining Options"],
+    "cafes": ["Oirase Mountain Stream & Gorge Rest Area Cafe"],
+    "notes": "Oirase Mountain Stream & Gorge located in Aomori Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "dogo-onsen-ehime",
+    "name": "Dogo Onsen Honkan",
+    "nameJa": "道後温泉本館",
+    "prefecture": "Ehime",
+    "category": "Onsen & Wellness",
+    "description": "One of Japan's oldest and most iconic hot spring bathhouses, celebrated as the architectural inspiration for Studio Ghibli's Spirited Away.",
+    "coordinates": {
+      "lat": 33.8521,
+      "lng": 132.7865
+    },
+    "nearestStation": "Dogo Onsen Station",
+    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["onsen", "ehime", "ghibli", "historic", "matsuyama"],
+    "rating": 4.8,
+    "bestSeasons": ["Spring", "Autumn", "Winter"],
+    "travelEstimate": {
+      "minutesFromBase": 220,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "top-onsen-japan",
+        "sortOrder": 9
+      }
+    ],
+    "region": "Shikoku",
+    "categories": ["Onsen & Wellness"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": ["Explore Dogo Onsen Honkan", "Local Culture & Scenery"],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Dogo Onsen Honkan Dining Options"],
+    "cafes": ["Dogo Onsen Honkan Rest Area Cafe"],
+    "notes": "Dogo Onsen Honkan located in Ehime Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "motonosumi-shrine-yamaguchi",
+    "name": "Motonosumi Shrine",
+    "nameJa": "元乃隅神社",
+    "prefecture": "Yamaguchi",
+    "category": "Shrines & Temples",
+    "description": "A striking seaside shrine in Yamaguchi featuring 123 vermilion torii gates curving dramatically along cliffs overlooking the Sea of Japan.",
+    "coordinates": {
+      "lat": 34.4116,
+      "lng": 131.0617
+    },
+    "nearestStation": "Nagato-Furuchi Station",
+    "heroImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["shrine", "torii", "coastal", "yamaguchi", "viewpoint"],
+    "rating": 4.7,
+    "bestSeasons": ["Spring", "Summer", "Autumn"],
+    "travelEstimate": {
+      "minutesFromBase": 270,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "coastal-drives-japan",
+        "sortOrder": 2
+      }
+    ],
+    "region": "Chugoku",
+    "categories": ["Shrines & Temples"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": ["Explore Motonosumi Shrine", "Local Culture & Scenery"],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Motonosumi Shrine Dining Options"],
+    "cafes": ["Motonosumi Shrine Rest Area Cafe"],
+    "notes": "Motonosumi Shrine located in Yamaguchi Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "tsunoshima-bridge-yamaguchi",
+    "name": "Tsunoshima Bridge",
+    "nameJa": "角島大橋",
+    "prefecture": "Yamaguchi",
+    "category": "Scenic Drives & Ocean Views",
+    "description": "A breathtaking 1,780-meter sea bridge spanning emerald-turquoise waters to Tsunoshima Island in Yamaguchi Prefecture.",
+    "coordinates": {
+      "lat": 34.3541,
+      "lng": 130.8872
+    },
+    "nearestStation": "Agawa Station",
+    "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["bridge", "coastal", "drive", "yamaguchi", "ocean"],
+    "rating": 4.8,
+    "bestSeasons": ["Spring", "Summer"],
+    "travelEstimate": {
+      "minutesFromBase": 260,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "scenic-bridges-japan",
+        "sortOrder": 1
+      },
+      {
+        "collectionId": "coastal-drives-japan",
+        "sortOrder": 3
+      }
+    ],
+    "region": "Chugoku",
+    "categories": ["Scenic Drives & Ocean Views"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": ["Explore Tsunoshima Bridge", "Local Culture & Scenery"],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Tsunoshima Bridge Dining Options"],
+    "cafes": ["Tsunoshima Bridge Rest Area Cafe"],
+    "notes": "Tsunoshima Bridge located in Yamaguchi Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "tojinbo-cliffs-fukui",
+    "name": "Tojinbo Basalt Sea Cliffs",
+    "nameJa": "東尋坊",
+    "prefecture": "Fukui",
+    "category": "Nature & Parks",
+    "description": "Dramatic one-kilometer stretch of precipitous hexagonal basalt sea cliffs carved by the raging waves of the Sea of Japan.",
+    "coordinates": {
+      "lat": 36.2372,
+      "lng": 136.1264
+    },
+    "nearestStation": "Mikuni-Minato Station",
+    "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["cliffs", "nature", "coastal", "fukui", "sea"],
+    "rating": 4.6,
+    "bestSeasons": ["Spring", "Autumn"],
+    "travelEstimate": {
+      "minutesFromBase": 190,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "coastal-drives-japan",
+        "sortOrder": 4
+      }
+    ],
+    "region": "Chubu",
+    "categories": ["Nature & Parks"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": [
+      "Explore Tojinbo Basalt Sea Cliffs",
+      "Local Culture & Scenery"
+    ],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Tojinbo Basalt Sea Cliffs Dining Options"],
+    "cafes": ["Tojinbo Basalt Sea Cliffs Rest Area Cafe"],
+    "notes": "Tojinbo Basalt Sea Cliffs located in Fukui Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "iya-valley-tokushima",
+    "name": "Iya Valley & Vine Bridges",
+    "nameJa": "祖谷渓・かずら橋",
+    "prefecture": "Tokushima",
+    "category": "Nature & History",
+    "description": "A secluded mountain valley in Shikoku renowned for its deep forested gorges and historic mountain vine bridges (Kazurabashi).",
+    "coordinates": {
+      "lat": 33.8732,
+      "lng": 133.8344
+    },
+    "nearestStation": "Oboke Station",
+    "heroImage": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["valley", "bridge", "nature", "shikoku", "tokushima"],
+    "rating": 4.7,
+    "bestSeasons": ["Spring", "Autumn"],
+    "travelEstimate": {
+      "minutesFromBase": 230,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "scenic-bridges-japan",
+        "sortOrder": 2
+      }
+    ],
+    "region": "Shikoku",
+    "categories": ["Nature & History"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": [
+      "Explore Iya Valley & Vine Bridges",
+      "Local Culture & Scenery"
+    ],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Iya Valley & Vine Bridges Dining Options"],
+    "cafes": ["Iya Valley & Vine Bridges Rest Area Cafe"],
+    "notes": "Iya Valley & Vine Bridges located in Tokushima Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "kiyotsu-gorge-niigata",
+    "name": "Kiyotsu Gorge Tunnel of Light",
+    "nameJa": "清津峡・光のトンネル",
+    "prefecture": "Niigata",
+    "category": "Art & Architecture",
+    "description": "One of Japan's three great gorges, housing MAD Architects' Tunnel of Light art installation mirroring column-joint cliffs in water.",
+    "coordinates": {
+      "lat": 36.9535,
+      "lng": 138.7492
+    },
+    "nearestStation": "Echigo-Yuzawa Station",
+    "heroImage": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["gorge", "art", "niigata", "architecture", "viewpoint"],
+    "rating": 4.8,
+    "bestSeasons": ["Spring", "Summer", "Autumn"],
+    "travelEstimate": {
+      "minutesFromBase": 140,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "waterfalls-gorges-japan",
+        "sortOrder": 2
+      },
+      {
+        "collectionId": "art-islands-japan",
+        "sortOrder": 1
+      }
+    ],
+    "region": "Chubu",
+    "categories": ["Art & Architecture"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": [
+      "Explore Kiyotsu Gorge Tunnel of Light",
+      "Local Culture & Scenery"
+    ],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Kiyotsu Gorge Tunnel of Light Dining Options"],
+    "cafes": ["Kiyotsu Gorge Tunnel of Light Rest Area Cafe"],
+    "notes": "Kiyotsu Gorge Tunnel of Light located in Niigata Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "naoshima-art-island-kagawa",
+    "name": "Naoshima Contemporary Art Island",
+    "nameJa": "直島",
+    "prefecture": "Kagawa",
+    "category": "Art & Culture",
+    "description": "World-famous art island in the Seto Inland Sea featuring Yayoi Kusama's iconic pumpkins, Tadao Ando architecture, and Chichu Art Museum.",
+    "coordinates": {
+      "lat": 34.4597,
+      "lng": 133.9961
+    },
+    "nearestStation": "Uno Station",
+    "heroImage": "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["art", "island", "kagawa", "museum", "architecture"],
+    "rating": 4.9,
+    "bestSeasons": ["Spring", "Autumn"],
+    "travelEstimate": {
+      "minutesFromBase": 210,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "art-islands-japan",
+        "sortOrder": 2
+      },
+      {
+        "collectionId": "islands-japan",
+        "sortOrder": 2
+      }
+    ],
+    "region": "Shikoku",
+    "categories": ["Art & Culture"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": [
+      "Explore Naoshima Contemporary Art Island",
+      "Local Culture & Scenery"
+    ],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Naoshima Contemporary Art Island Dining Options"],
+    "cafes": ["Naoshima Contemporary Art Island Rest Area Cafe"],
+    "notes": "Naoshima Contemporary Art Island located in Kagawa Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "beppu-hells-oita",
+    "name": "Beppu Hells (Jigoku Meguri)",
+    "nameJa": "別府地獄めぐり",
+    "prefecture": "Oita",
+    "category": "Onsen & Wellness",
+    "description": "Seven spectacular thermal springs in Beppu featuring cobalt-blue pools, steaming red mud, and geysers designated as National Scenic Spots.",
+    "coordinates": {
+      "lat": 33.3155,
+      "lng": 131.4682
+    },
+    "nearestStation": "Beppu Station",
+    "heroImage": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["onsen", "geothermal", "oita", "beppu", "nature"],
+    "rating": 4.7,
+    "bestSeasons": ["Spring", "Autumn", "Winter"],
+    "travelEstimate": {
+      "minutesFromBase": 240,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "top-onsen-japan",
+        "sortOrder": 10
+      }
+    ],
+    "region": "Kyushu",
+    "categories": ["Onsen & Wellness"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": [
+      "Explore Beppu Hells (Jigoku Meguri)",
+      "Local Culture & Scenery"
+    ],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Beppu Hells (Jigoku Meguri) Dining Options"],
+    "cafes": ["Beppu Hells (Jigoku Meguri) Rest Area Cafe"],
+    "notes": "Beppu Hells (Jigoku Meguri) located in Oita Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "arakurayama-sengen-park-yamanashi",
+    "name": "Arakurayama Sengen Park & Chureito Pagoda",
+    "nameJa": "新倉山浅間公園・忠霊塔",
+    "prefecture": "Yamanashi",
+    "category": "Viewpoints & Photography",
+    "description": "Japan's iconic postcard panorama featuring the five-story Chureito Pagoda framing Mount Fuji surrounded by cherry blossoms.",
+    "coordinates": {
+      "lat": 35.5013,
+      "lng": 138.8016
+    },
+    "nearestStation": "Shimoyoshida Station",
+    "heroImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["fuji", "pagoda", "cherry-blossoms", "yamanashi", "viewpoint"],
+    "rating": 4.9,
+    "bestSeasons": ["Spring", "Autumn"],
+    "travelEstimate": {
+      "minutesFromBase": 90,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "flower-parks-japan",
+        "sortOrder": 1
+      }
+    ],
+    "region": "Chubu",
+    "categories": ["Viewpoints & Photography"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": [
+      "Explore Arakurayama Sengen Park & Chureito Pagoda",
+      "Local Culture & Scenery"
+    ],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Arakurayama Sengen Park & Chureito Pagoda Dining Options"],
+    "cafes": ["Arakurayama Sengen Park & Chureito Pagoda Rest Area Cafe"],
+    "notes": "Arakurayama Sengen Park & Chureito Pagoda located in Yamanashi Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "kouri-island-okinawa",
+    "name": "Kouri Island & Heart Rock",
+    "nameJa": "古宇利島・ハートロック",
+    "prefecture": "Okinawa",
+    "category": "Islands & Beaches",
+    "description": "An enchanting island in northern Okinawa reached by a 2-kilometer sea bridge, famous for crystal emerald waters and Heart Rock beach.",
+    "coordinates": {
+      "lat": 26.6967,
+      "lng": 128.0245
+    },
+    "nearestStation": "Naha Airport",
+    "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["island", "beach", "okinawa", "bridge", "coastal"],
+    "rating": 4.7,
+    "bestSeasons": ["Spring", "Summer"],
+    "travelEstimate": {
+      "minutesFromBase": 300,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "islands-japan",
+        "sortOrder": 3
+      },
+      {
+        "collectionId": "coastal-drives-japan",
+        "sortOrder": 5
+      }
+    ],
+    "region": "Okinawa",
+    "categories": ["Islands & Beaches"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": [
+      "Explore Kouri Island & Heart Rock",
+      "Local Culture & Scenery"
+    ],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Kouri Island & Heart Rock Dining Options"],
+    "cafes": ["Kouri Island & Heart Rock Rest Area Cafe"],
+    "notes": "Kouri Island & Heart Rock located in Okinawa Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "kakunodate-samurai-district-akita",
+    "name": "Kakunodate Samurai District",
+    "nameJa": "角館武家屋敷通り",
+    "prefecture": "Akita",
+    "category": "Historic Towns & Districts",
+    "description": "Tohoku's 'Little Kyoto', a remarkably preserved Edo-period samurai district lined with dark wooden manor walls and weeping cherry trees.",
+    "coordinates": {
+      "lat": 39.5982,
+      "lng": 140.5621
+    },
+    "nearestStation": "Kakunodate Station",
+    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["samurai", "historic", "akita", "tohoku", "architecture"],
+    "rating": 4.7,
+    "bestSeasons": ["Spring", "Autumn"],
+    "travelEstimate": {
+      "minutesFromBase": 210,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "historic-towns-japan",
+        "sortOrder": 5
+      }
+    ],
+    "region": "Tohoku",
+    "categories": ["Historic Towns & Districts"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": [
+      "Explore Kakunodate Samurai District",
+      "Local Culture & Scenery"
+    ],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Kakunodate Samurai District Dining Options"],
+    "cafes": ["Kakunodate Samurai District Rest Area Cafe"],
+    "notes": "Kakunodate Samurai District located in Akita Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "akiyoshido-cave-yamaguchi",
+    "name": "Akiyoshido Cave",
+    "nameJa": "秋芳洞",
+    "prefecture": "Yamaguchi",
+    "category": "Nature & Parks",
+    "description": "Japan's largest limestone cave, stretching 10 km underground with 100-plateau limestone pools and soaring subterranean chambers.",
+    "coordinates": {
+      "lat": 34.2275,
+      "lng": 131.3021
+    },
+    "nearestStation": "Shin-Yamaguchi Station",
+    "heroImage": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["cave", "limestone", "nature", "yamaguchi", "geopark"],
+    "rating": 4.8,
+    "bestSeasons": ["Spring", "Summer", "Autumn"],
+    "travelEstimate": {
+      "minutesFromBase": 240,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "caves-japan",
+        "sortOrder": 1
+      }
+    ],
+    "region": "Chugoku",
+    "categories": ["Nature & Parks"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": ["Explore Akiyoshido Cave", "Local Culture & Scenery"],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Akiyoshido Cave Dining Options"],
+    "cafes": ["Akiyoshido Cave Rest Area Cafe"],
+    "notes": "Akiyoshido Cave located in Yamaguchi Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "ryugado-cave-kochi",
+    "name": "Ryugado Cave",
+    "nameJa": "龍河洞",
+    "prefecture": "Kochi",
+    "category": "Nature & Parks",
+    "description": "A 175-million-year-old limestone cavern in Shikoku containing ancient Yayoi earthenware encrusted in living stalagmites.",
+    "coordinates": {
+      "lat": 33.6033,
+      "lng": 133.7431
+    },
+    "nearestStation": "Tosa-Yamada Station",
+    "heroImage": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["cave", "history", "kochi", "shikoku", "nature"],
+    "rating": 4.6,
+    "bestSeasons": ["Spring", "Summer", "Autumn"],
+    "travelEstimate": {
+      "minutesFromBase": 250,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "caves-japan",
+        "sortOrder": 2
+      }
+    ],
+    "region": "Shikoku",
+    "categories": ["Nature & Parks"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": ["Explore Ryugado Cave", "Local Culture & Scenery"],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Ryugado Cave Dining Options"],
+    "cafes": ["Ryugado Cave Rest Area Cafe"],
+    "notes": "Ryugado Cave located in Kochi Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "abukuma-cave-fukushima",
+    "name": "Abukuma Cave",
+    "nameJa": "あぶくま洞",
+    "prefecture": "Fukushima",
+    "category": "Nature & Parks",
+    "description": "A vast subterranean limestone cave in Fukushima boasting magnificent 29-meter high stalactite halls and illuminated crystal formations.",
+    "coordinates": {
+      "lat": 37.3444,
+      "lng": 140.6728
+    },
+    "nearestStation": "Kanemata Station",
+    "heroImage": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["cave", "limestone", "fukushima", "nature", "tohoku"],
+    "rating": 4.6,
+    "bestSeasons": ["Spring", "Summer", "Autumn"],
+    "travelEstimate": {
+      "minutesFromBase": 180,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "caves-japan",
+        "sortOrder": 3
+      }
+    ],
+    "region": "Tohoku",
+    "categories": ["Nature & Parks"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": ["Explore Abukuma Cave", "Local Culture & Scenery"],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Abukuma Cave Dining Options"],
+    "cafes": ["Abukuma Cave Rest Area Cafe"],
+    "notes": "Abukuma Cave located in Fukushima Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "teshima-island-kagawa",
+    "name": "Teshima Art Island",
+    "nameJa": "豊島",
+    "prefecture": "Kagawa",
+    "category": "Art & Culture",
+    "description": "A tranquil island in the Seto Inland Sea home to the iconic Teshima Art Museum, where water droplets move across a seamless concrete shell.",
+    "coordinates": {
+      "lat": 34.4812,
+      "lng": 134.0723
+    },
+    "nearestStation": "Uno Station",
+    "heroImage": "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["art", "island", "kagawa", "museum", "architecture"],
+    "rating": 4.8,
+    "bestSeasons": ["Spring", "Autumn"],
+    "travelEstimate": {
+      "minutesFromBase": 220,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "art-islands-japan",
+        "sortOrder": 3
+      },
+      {
+        "collectionId": "islands-japan",
+        "sortOrder": 4
+      }
+    ],
+    "region": "Shikoku",
+    "categories": ["Art & Culture"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": ["Explore Teshima Art Island", "Local Culture & Scenery"],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Teshima Art Island Dining Options"],
+    "cafes": ["Teshima Art Island Rest Area Cafe"],
+    "notes": "Teshima Art Island located in Kagawa Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "dewa-sanzan-yamagata",
+    "name": "Dewa Sanzan Three Sacred Mountains",
+    "nameJa": "出羽三山",
+    "prefecture": "Yamagata",
+    "category": "Spiritual & Cultural Heritage",
+    "description": "Three sacred mountains (Haguro-san, Gassan, Yudono-san) representing rebirth, walked by Yamabushi mountain ascetics for over 1,400 years.",
+    "coordinates": {
+      "lat": 38.7051,
+      "lng": 139.9658
+    },
+    "nearestStation": "Tsuruoka Station",
+    "heroImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["pilgrimage", "shrine", "yamagata", "mountain", "sacred"],
+    "rating": 4.8,
+    "bestSeasons": ["Summer", "Autumn"],
+    "travelEstimate": {
+      "minutesFromBase": 240,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "pilgrimage-routes-japan",
+        "sortOrder": 1
+      }
+    ],
+    "region": "Tohoku",
+    "categories": ["Spiritual & Cultural Heritage"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": [
+      "Explore Dewa Sanzan Three Sacred Mountains",
+      "Local Culture & Scenery"
+    ],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Dewa Sanzan Three Sacred Mountains Dining Options"],
+    "cafes": ["Dewa Sanzan Three Sacred Mountains Rest Area Cafe"],
+    "notes": "Dewa Sanzan Three Sacred Mountains located in Yamagata Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "ashikaga-flower-park-tochigi",
+    "name": "Ashikaga Flower Park Wisteria",
+    "nameJa": "足利フラワーパーク",
+    "prefecture": "Tochigi",
+    "category": "Nature & Gardens",
+    "description": "Famed worldwide for its massive 150-year-old Great Wisteria tree and 80-meter white wisteria tunnel in Tochigi.",
+    "coordinates": {
+      "lat": 36.3142,
+      "lng": 139.5186
+    },
+    "nearestStation": "Ashikaga Flower Park Station",
+    "heroImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["flower", "wisteria", "park", "tochigi", "garden"],
+    "rating": 4.8,
+    "bestSeasons": ["Spring"],
+    "travelEstimate": {
+      "minutesFromBase": 90,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "flower-parks-japan",
+        "sortOrder": 1
+      }
+    ],
+    "region": "Kanto",
+    "categories": ["Nature & Gardens"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": [
+      "Explore Ashikaga Flower Park Wisteria",
+      "Local Culture & Scenery"
+    ],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Ashikaga Flower Park Wisteria Dining Options"],
+    "cafes": ["Ashikaga Flower Park Wisteria Rest Area Cafe"],
+    "notes": "Ashikaga Flower Park Wisteria located in Tochigi Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "kintai-bridge-yamaguchi",
+    "name": "Kintaikyo Wooden Arch Bridge",
+    "nameJa": "錦帯橋",
+    "prefecture": "Yamaguchi",
+    "category": "Architecture & History",
+    "description": "An extraordinary five-arched wooden bridge built in 1673 without using a single nail, spanning the Nishiki River in Iwakuni.",
+    "coordinates": {
+      "lat": 34.1678,
+      "lng": 132.1783
+    },
+    "nearestStation": "Iwakuni Station",
+    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["bridge", "wooden", "historic", "yamaguchi", "cherry-blossoms"],
+    "rating": 4.8,
+    "bestSeasons": ["Spring", "Autumn"],
+    "travelEstimate": {
+      "minutesFromBase": 240,
+      "confidence": "high"
+    },
+    "collections": [
+      {
+        "collectionId": "scenic-bridges-japan",
+        "sortOrder": 3
+      }
+    ],
+    "region": "Chugoku",
+    "categories": ["Architecture & History"],
+    "budgetMin": 1500,
+    "budgetMax": 6000,
+    "budgetRecommended": 3500,
+    "transportOptions": {
+      "train": 180
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.8,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 9.2
+    },
+    "highlights": [
+      "Explore Kintaikyo Wooden Arch Bridge",
+      "Local Culture & Scenery"
+    ],
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "indoorPercent": 30,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "reservation": "None required",
+    "parking": "Available on site",
+    "restaurants": ["Kintaikyo Wooden Arch Bridge Dining Options"],
+    "cafes": ["Kintaikyo Wooden Arch Bridge Rest Area Cafe"],
+    "notes": "Kintaikyo Wooden Arch Bridge located in Yamaguchi Prefecture.",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
   }
 ]
