@@ -51,6 +51,7 @@ export function getValidModes(
   dest: Destination,
   carMode: string = "none",
   publicModes: string[] = [],
+  homeCoords?: { lat: number; lng: number },
 ): string[] {
   let validModes: string[] = [];
   if (carMode === "rental" && dest.transportOptions?.car !== undefined)
@@ -60,7 +61,7 @@ export function getValidModes(
 
   for (const m of publicModes) {
     if (m === "flight") {
-      const flightEst = getFlightTransportEstimate(dest);
+      const flightEst = getFlightTransportEstimate(dest, homeCoords);
       if (flightEst) {
         validModes.push("flight");
       }

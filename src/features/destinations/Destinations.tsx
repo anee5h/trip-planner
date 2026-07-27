@@ -1,4 +1,5 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
+import { useSearchParams } from "react-router-dom";
 
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import type { Destination } from "@/shared/types/destination";
@@ -39,51 +40,159 @@ import {
 import { PageHeader } from "@/shared/components/ui/PageHeader";
 
 import { getWalkingIntensity } from "@/shared/utils/walking";
+import {
+  DEFAULT_DESTINATION_EXPLORER_STATE,
+  parseDestinationSearchParams,
+  serializeDestinationSearchParams,
+} from "./destinationSearchParams";
 
 export default function Destinations() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [initialExplorerState] = useState(() =>
+    parseDestinationSearchParams(searchParams),
+  );
+  const initialSearchParams = searchParams.toString();
+  const lastWrittenSearchRef = useRef(initialSearchParams);
+  const filtersInitializedRef = useRef(false);
+  const skipNextPageResetRef = useRef(false);
+  const [filtersReady, setFiltersReady] = useState(false);
   const { homeStationCoords, destinationRatings } = useTripStore();
   const allDestinations = getDestinationList() as Destination[];
-  const [searchQuery, setSearchQuery] = useState("");
-  const [maxBudget, setMaxBudget] = useState(100000);
-  const [sortBy, setSortBy] = useState("recommended");
-  const { user } = useAuth();
-  const [carMode, setCarMode] = useState("none");
-  const [publicModes, setPublicModes] = useState<string[]>([
-    "train",
-    "shinkansen",
-    "bus",
-    "flight",
-  ]);
-  const [partySize, setPartySize] = useState(2);
-  const [weather, setWeather] = useState("all");
-  const [walkingIntensity, setWalkingIntensity] = useState("all");
+  const [searchQuery, setSearchQuery] = useState(
+    initialExplorerState.searchQuery,
+  );
+  const [maxBudget, setMaxBudget] = useState(initialExplorerState.maxBudget);
+  const [sortBy, setSortBy] = useState(initialExplorerState.sortBy);
+  const { user, loading: authLoading } = useAuth();
+  const [carMode, setCarMode] = useState(initialExplorerState.carMode);
+  const [publicModes, setPublicModes] = useState<string[]>(
+    initialExplorerState.publicModes,
+  );
+  const [partySize, setPartySize] = useState(initialExplorerState.partySize);
+  const [weather, setWeather] = useState(initialExplorerState.weather);
+  const [walkingIntensity, setWalkingIntensity] = useState(
+    initialExplorerState.walkingIntensity,
+  );
 
-  const [suitabilities, setSuitabilities] = useState<string[]>([]);
-  const [interests, setInterests] = useState<string[]>([]);
-  const [viewMode, setViewMode] = useState<"grid" | "map">("grid");
-  const [currentPage, setCurrentPage] = useState(1);
+  const [suitabilities, setSuitabilities] = useState<string[]>(
+    initialExplorerState.suitabilities,
+  );
+  const [interests, setInterests] = useState<string[]>(
+    initialExplorerState.interests,
+  );
+  const [viewMode, setViewMode] = useState<"grid" | "map">(
+    initialExplorerState.viewMode,
+  );
+  const [currentPage, setCurrentPage] = useState(
+    initialExplorerState.currentPage,
+  );
   const ITEMS_PER_PAGE = 20;
 
-  const [selectedRegions, setSelectedRegions] = useState<string[]>([]);
-  const [selectedPrefectures, setSelectedPrefectures] = useState<string[]>([]);
-  const [selectedCollections, setSelectedCollections] = useState<string[]>([]);
+  const [selectedRegions, setSelectedRegions] = useState<string[]>(
+    initialExplorerState.selectedRegions,
+  );
+  const [selectedPrefectures, setSelectedPrefectures] = useState<string[]>(
+    initialExplorerState.selectedPrefectures,
+  );
+  const [selectedCollections, setSelectedCollections] = useState<string[]>(
+    initialExplorerState.selectedCollections,
+  );
   const query = searchQuery.toLowerCase().trim();
 
-  // Sync preferences on load
+  // Saved preferences provide defaults only when the URL has not specified one.
   useEffect(() => {
+    if (authLoading) return;
+
     if (user?.user_metadata?.preferences) {
-      setCarMode(user.user_metadata.preferences.carMode || "none");
-      setPublicModes(
-        user.user_metadata.preferences.publicModes || [
-          "train",
-          "shinkansen",
-          "bus",
-          "flight",
-        ],
-      );
-      setPartySize(user.user_metadata.preferences.partySize || 2);
+      if (!searchParams.has("car")) {
+        setCarMode(user.user_metadata.preferences.carMode || "none");
+      }
+      if (!searchParams.has("mode")) {
+        setPublicModes(
+          user.user_metadata.preferences.publicModes || [
+            "train",
+            "shinkansen",
+            "bus",
+            "flight",
+          ],
+        );
+      }
+      if (!searchParams.has("party")) {
+        setPartySize(user.user_metadata.preferences.partySize || 2);
+      }
     }
-  }, [user]);
+    setFiltersReady(true);
+  }, [authLoading, user, searchParams]);
+
+  // Restore Explorer state when the browser navigates to a different query.
+  useEffect(() => {
+    const currentSearch = searchParams.toString();
+    if (currentSearch === lastWrittenSearchRef.current) return;
+
+    const restored = parseDestinationSearchParams(searchParams);
+    skipNextPageResetRef.current = true;
+    setSearchQuery(restored.searchQuery);
+    setSelectedRegions(restored.selectedRegions);
+    setSelectedPrefectures(restored.selectedPrefectures);
+    setSelectedCollections(restored.selectedCollections);
+    setMaxBudget(restored.maxBudget);
+    setSortBy(restored.sortBy);
+    setCarMode(restored.carMode);
+    setPublicModes(restored.publicModes);
+    setPartySize(restored.partySize);
+    setWeather(restored.weather);
+    setWalkingIntensity(restored.walkingIntensity);
+    setSuitabilities(restored.suitabilities);
+    setInterests(restored.interests);
+    setViewMode(restored.viewMode);
+    setCurrentPage(restored.currentPage);
+    lastWrittenSearchRef.current = currentSearch;
+  }, [searchParams]);
+
+  // Keep every active Explorer control shareable and recoverable from the URL.
+  useEffect(() => {
+    if (!filtersReady) return;
+
+    const nextSearch = serializeDestinationSearchParams({
+      searchQuery,
+      selectedRegions,
+      selectedPrefectures,
+      selectedCollections,
+      maxBudget,
+      sortBy,
+      carMode,
+      publicModes,
+      partySize,
+      weather,
+      walkingIntensity,
+      suitabilities,
+      interests,
+      viewMode,
+      currentPage,
+    }).toString();
+
+    if (nextSearch === lastWrittenSearchRef.current) return;
+    lastWrittenSearchRef.current = nextSearch;
+    setSearchParams(nextSearch, { replace: true });
+  }, [
+    filtersReady,
+    searchQuery,
+    selectedRegions,
+    selectedPrefectures,
+    selectedCollections,
+    maxBudget,
+    sortBy,
+    carMode,
+    publicModes,
+    partySize,
+    weather,
+    walkingIntensity,
+    suitabilities,
+    interests,
+    viewMode,
+    currentPage,
+    setSearchParams,
+  ]);
 
   // Build context for catalog scoring ("Recommended" sort).
   // Sourced from saved Settings → Travel Preferences where available.
@@ -116,8 +225,18 @@ export default function Destinations() {
 
   // Reset page to 1 when filters change
   useEffect(() => {
+    if (!filtersReady) return;
+    if (!filtersInitializedRef.current) {
+      filtersInitializedRef.current = true;
+      return;
+    }
+    if (skipNextPageResetRef.current) {
+      skipNextPageResetRef.current = false;
+      return;
+    }
     setCurrentPage(1);
   }, [
+    filtersReady,
     searchQuery,
     selectedRegions,
     selectedPrefectures,
@@ -295,22 +414,31 @@ export default function Destinations() {
     walkingIntensity,
     homeStationCoords,
     catalogContext,
+    selectedRegions,
+    selectedPrefectures,
+    selectedCollections,
+    searchQuery,
+    suitabilities,
+    interests,
   ]);
 
   const resetFilters = () => {
-    setSearchQuery("");
-    setSelectedRegions([]);
-    setSelectedPrefectures([]);
-    setSelectedCollections([]);
-    setMaxBudget(100000);
-    setSortBy("recommended");
-    setCarMode("none");
-    setPublicModes(["train", "bus", "shinkansen"]);
-    setPartySize(2);
-    setWeather("all");
-    setWalkingIntensity("all");
-    setSuitabilities([]);
-    setInterests([]);
+    const defaults = DEFAULT_DESTINATION_EXPLORER_STATE;
+    setSearchQuery(defaults.searchQuery);
+    setSelectedRegions(defaults.selectedRegions);
+    setSelectedPrefectures(defaults.selectedPrefectures);
+    setSelectedCollections(defaults.selectedCollections);
+    setMaxBudget(defaults.maxBudget);
+    setSortBy(defaults.sortBy);
+    setCarMode(defaults.carMode);
+    setPublicModes(defaults.publicModes);
+    setPartySize(defaults.partySize);
+    setWeather(defaults.weather);
+    setWalkingIntensity(defaults.walkingIntensity);
+    setSuitabilities(defaults.suitabilities);
+    setInterests(defaults.interests);
+    setViewMode(defaults.viewMode);
+    setCurrentPage(defaults.currentPage);
   };
 
   return (
@@ -493,24 +621,6 @@ export default function Destinations() {
                   partySize={partySize}
                   carMode={carMode}
                   publicModes={publicModes}
-                  activeTransportMode={(() => {
-                    const validModes = getValidModes(
-                      dest,
-                      carMode,
-                      publicModes,
-                    );
-                    if (validModes.length === 0) return "train";
-                    let best = validModes[0];
-                    let lowest = 999999;
-                    for (const m of validModes) {
-                      const b = getAdjustedBudget(dest, m, partySize);
-                      if (b < lowest) {
-                        lowest = b;
-                        best = m;
-                      }
-                    }
-                    return best;
-                  })()}
                 />
               ))}
           </div>

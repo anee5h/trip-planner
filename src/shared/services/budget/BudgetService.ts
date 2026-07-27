@@ -51,6 +51,7 @@ export function getTransportCost(
   dest: Destination,
   mode: string,
   partySize: number = 2,
+  homeCoords?: { lat: number; lng: number },
 ): number {
   // 1. Explicit Route Fare Precedence (if specified in destination JSON)
   const explicitFare =
@@ -72,7 +73,7 @@ export function getTransportCost(
   const cfg = TRANSPORT_PRICING_CONFIG;
 
   if (mode === "flight") {
-    const flightEst = getFlightTransportEstimate(dest);
+    const flightEst = getFlightTransportEstimate(dest, homeCoords);
     if (flightEst) {
       const avgOneWayPerPerson = Math.round(
         (flightEst.costRange[0] + flightEst.costRange[1]) / 2,
@@ -161,6 +162,7 @@ export function getAdjustedBudget(
   dest: Destination,
   activeMode: string,
   partySize: number = 2,
+  homeCoords?: { lat: number; lng: number },
 ): number {
   let mode = "train";
 
@@ -182,7 +184,7 @@ export function getAdjustedBudget(
     }
   }
 
-  const transportCost = getTransportCost(dest, mode, partySize);
+  const transportCost = getTransportCost(dest, mode, partySize, homeCoords);
   const recBudget = dest.budgetRecommended || dest.budgetMin || 5000;
   const otherCostsCouple =
     recBudget - (dest.budgetBreakdown?.transport || 3000);

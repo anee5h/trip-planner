@@ -8,8 +8,18 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.58",
+    version: "v1.7.59",
     tag: "Current",
+    date: "July 2026",
+    title: "Preferred Travel Times & Persistent Destination Search",
+    highlights: [
+      "Destination cards now show the shortest trip time among your enabled travel methods, including flight when available",
+      "Travel-time cards pair each duration with the estimated cost for that same transport method",
+      "Destination Explorer filters, search, sorting, view, and page now persist in the URL when you explore a destination and return",
+    ],
+  },
+  {
+    version: "v1.7.58",
     date: "July 2026",
     title: "Mobile Overflow & Expandable Content Polish",
     highlights: [

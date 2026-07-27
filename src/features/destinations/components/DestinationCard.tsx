@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { LazyImage } from "@/shared/components/ui/LazyImage";
 import { BucketListButton } from "@/shared/components/ui/BucketListButton";
 import { ItineraryPickerModal } from "@/features/trips/components/ItineraryPickerModal";
@@ -24,6 +24,7 @@ import {
   TrainFront,
   Bus,
   Car,
+  Plane,
   DollarSign,
   Bookmark,
   CheckCircle2,
@@ -36,10 +37,13 @@ import {
 } from "lucide-react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { getAdjustedBudget } from "@/shared/utils/utils";
+import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
+import { formatTransportTime } from "@/shared/services/transport/formatters";
 
 interface DestinationCardProps {
   destination: Destination;
   rank?: number;
+  /** Retained for existing recommendation callers; cards now display the fastest preferred mode. */
   activeTransportMode?: string;
   partySize?: number;
   carMode?: string;
@@ -49,11 +53,11 @@ interface DestinationCardProps {
 export default function DestinationCard({
   destination,
   rank,
-  activeTransportMode = "all",
   partySize = 2,
   carMode,
   publicModes,
 }: DestinationCardProps) {
+  const location = useLocation();
   const {
     isVisited,
     isComparing,
@@ -61,6 +65,7 @@ export default function DestinationCard({
     compareList,
     getDestinationRating,
     setDestinationRating,
+    homeStationCoords,
   } = useTripStore();
   const visited = isVisited(destination.id);
   const comparing = isComparing(destination.id);
@@ -98,6 +103,13 @@ export default function DestinationCard({
   const sortedCollections = sortCollections(activeCollections);
   const visibleCollections = sortedCollections.slice(0, 3);
   const overflowCount = sortedCollections.length - visibleCollections.length;
+  const preferredTransport = getFastestPreferredTransport(
+    destination,
+    carMode,
+    publicModes,
+    partySize,
+    homeStationCoords ?? undefined,
+  );
 
   return (
     <Card className="overflow-hidden flex flex-col h-full group rounded-card shadow-card hover:shadow-hover hover:-translate-y-1 transition-all duration-300 border-slate-200 dark:border-slate-800">
@@ -261,39 +273,17 @@ export default function DestinationCard({
           <div className="space-y-5">
             <div className="grid grid-cols-2 gap-y-3 gap-x-2 text-sm font-semibold text-slate-700 dark:text-slate-300">
               {(() => {
-                const to = destination.transportOptions || {};
-                let mode = "train";
-                let time = 0;
-                if (
-                  activeTransportMode !== "all" &&
-                  to[activeTransportMode as keyof typeof to]
-                ) {
-                  mode = activeTransportMode;
-                  time = to[activeTransportMode as keyof typeof to]!;
-                } else {
-                  const entries = Object.entries(to).filter(
-                    ([_, v]) => v !== undefined,
-                  ) as [string, number][];
-                  if (entries.length > 0) {
-                    const fastest = entries.reduce((min, curr) =>
-                      curr[1] < min[1] ? curr : min,
-                    );
-                    mode = fastest[0];
-                    time = fastest[1];
-                  }
-                }
+                const mode = preferredTransport?.mode ?? "train";
 
                 let Icon = Train;
                 if (mode === "car" || mode === "my_car") Icon = Car;
                 if (mode === "bus") Icon = Bus;
                 if (mode === "shinkansen") Icon = TrainFront;
+                if (mode === "flight") Icon = Plane;
 
-                const formattedTime =
-                  time > 0
-                    ? time >= 60
-                      ? `${Math.floor(time / 60)}h ${time % 60}m`
-                      : `${time}m trip`
-                    : "N/A";
+                const formattedTime = preferredTransport
+                  ? formatTransportTime(preferredTransport.timeRange)
+                  : "N/A";
 
                 return (
                   <div className="flex items-center whitespace-nowrap min-w-0">
@@ -307,11 +297,13 @@ export default function DestinationCard({
                 <span className="truncate">
                   ¥
                   {(
-                    getAdjustedBudget(
-                      destination,
-                      activeTransportMode,
-                      partySize,
-                    ) / 1000
+                    (preferredTransport?.estimatedBudget ??
+                      getAdjustedBudget(
+                        destination,
+                        "all",
+                        partySize,
+                        homeStationCoords ?? undefined,
+                      )) / 1000
                   ).toFixed(0)}
                   k est.
                 </span>
@@ -424,7 +416,10 @@ export default function DestinationCard({
 
         {/* Explore - dominant CTA takes remaining space */}
         <Link
-          to={`/destinations/${destination.id}`}
+          to={{
+            pathname: `/destinations/${destination.id}`,
+            search: location.search,
+          }}
           state={linkState}
           className="flex-1"
         >
