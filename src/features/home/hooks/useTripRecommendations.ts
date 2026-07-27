@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import type { Destination } from "@/shared/types/destination";
 import type { WeatherTab } from "@/shared/services/weather/WeatherTabService";
 import { getRecommendations } from "@/shared/services/recommendation/RecommendationService";
+import { useTripStore } from "@/shared/hooks/useTripStore";
 
 interface UseTripRecommendationsProps {
   allDestinations: Destination[];
@@ -30,6 +31,8 @@ export function useTripRecommendations({
   homeStationCoords,
   isVisited,
 }: UseTripRecommendationsProps) {
+  const { destinationRatings } = useTripStore();
+
   const recommendedDestinations = useMemo(() => {
     let activeWeatherStr = weather;
     if (currentTab && weatherContextMap) {
@@ -48,6 +51,7 @@ export function useTripRecommendations({
       currentWeatherCondition: activeWeatherStr,
       visitedIds: [],
       homeStationCoords: homeStationCoords || { lat: 35.6812, lng: 139.7671 },
+      userRatings: destinationRatings,
     });
   }, [
     allDestinations,
@@ -60,6 +64,7 @@ export function useTripRecommendations({
     partySize,
     weather,
     homeStationCoords,
+    destinationRatings,
   ]);
 
   const rouletteCandidates = useMemo(() => {

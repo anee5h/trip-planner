@@ -70,6 +70,17 @@ interface TripStoreContextType {
     startIndex: number,
     endIndex: number,
   ) => void;
+
+  destinationRatings: Record<string, "up" | "down">;
+  setDestinationRatings: (
+    val:
+      | Record<string, "up" | "down">
+      | ((
+          prev: Record<string, "up" | "down">,
+        ) => Record<string, "up" | "down">),
+  ) => void;
+  setDestinationRating: (id: string, rating: "up" | "down" | null) => void;
+  getDestinationRating: (id: string) => "up" | "down" | null;
 }
 
 const TripStoreContext = createContext<TripStoreContextType | undefined>(
@@ -113,6 +124,24 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
   const [lastSyncedDate, setLastSyncedDate] = useState<string | null>(null);
 
   const [trips, setTrips] = useLocalStorage<Trip[]>("trip-planner-trips", []);
+  const [destinationRatings, setDestinationRatings] = useLocalStorage<
+    Record<string, "up" | "down">
+  >("trip-planner-ratings", {});
+
+  const setDestinationRating = (id: string, rating: "up" | "down" | null) => {
+    setDestinationRatings((prev) => {
+      const next = { ...prev };
+      if (rating === null) {
+        delete next[id];
+      } else {
+        next[id] = rating;
+      }
+      return next;
+    });
+  };
+
+  const getDestinationRating = (id: string): "up" | "down" | null =>
+    destinationRatings[id] ?? null;
 
   // Modular cloud persistence & initial load hook
   useTripSync({
@@ -134,6 +163,8 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     setHomeStationCoords,
     trips,
     setTrips,
+    destinationRatings,
+    setDestinationRatings,
   });
 
   // Retrospective self-healing migration: Ensure existing visited child records cascade to parent hubs & visitedPrefectures
@@ -527,6 +558,10 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
         removeStopFromTrip,
         updateTripStop,
         reorderTripStops,
+        destinationRatings,
+        setDestinationRatings,
+        setDestinationRating,
+        getDestinationRating,
       }}
     >
       {children}

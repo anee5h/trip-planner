@@ -61,4 +61,29 @@ describe("RecommendationScorer Unit Tests", () => {
     expect(res.score).toBeGreaterThan(0);
     expect(res.bestMode).toBe("train");
   });
+
+  it("applies +25 boost for thumbs up and -1000 penalty for thumbs down", () => {
+    const baseContext = {
+      tripType: "any",
+      budget: 20000,
+      carMode: "none",
+      publicModes: ["train"],
+      partySize: 1,
+      currentWeatherCondition: "any",
+      visitedIds: [],
+    };
+    const baseScore = calculateScore(mockDest, baseContext).score;
+
+    const upScore = calculateScore(mockDest, {
+      ...baseContext,
+      userRatings: { "test-dest": "up" },
+    }).score;
+    expect(upScore).toBe(baseScore + 25);
+
+    const downScore = calculateScore(mockDest, {
+      ...baseContext,
+      userRatings: { "test-dest": "down" },
+    }).score;
+    expect(downScore).toBe(baseScore - 1000);
+  });
 });

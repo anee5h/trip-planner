@@ -43,6 +43,14 @@ interface UseTripSyncProps {
   ) => void;
   trips?: Trip[];
   setTrips?: (val: Trip[] | ((prev: Trip[]) => Trip[])) => void;
+  destinationRatings?: Record<string, "up" | "down">;
+  setDestinationRatings?: (
+    val:
+      | Record<string, "up" | "down">
+      | ((
+          prev: Record<string, "up" | "down">,
+        ) => Record<string, "up" | "down">),
+  ) => void;
 }
 
 export function useTripSync({
@@ -62,6 +70,8 @@ export function useTripSync({
   setHomeStationCoords,
   trips = [],
   setTrips,
+  destinationRatings,
+  setDestinationRatings,
 }: UseTripSyncProps) {
   const isLoadedRef = useRef(false);
   const prevUserIdRef = useRef(user?.id);
@@ -85,6 +95,7 @@ export function useTripSync({
       if (setVisitedDates) setVisitedDates({});
       setCompareList([]);
       if (setTrips) setTrips([]);
+      if (setDestinationRatings) setDestinationRatings({});
       isLoadedRef.current = false;
     } else if (user?.id && user.id !== prevUserIdRef.current) {
       isLoadedRef.current = false;
@@ -98,6 +109,7 @@ export function useTripSync({
     setVisitedDates,
     setCompareList,
     setTrips,
+    setDestinationRatings,
   ]);
 
   // Fetch initial data on login
@@ -176,6 +188,12 @@ export function useTripSync({
                 return merged;
               });
             }
+            if (data.destination_ratings && setDestinationRatings) {
+              setDestinationRatings((prev) => ({
+                ...data.destination_ratings,
+                ...prev,
+              }));
+            }
             if (data.home_station && data.home_station !== "Tokyo Station") {
               setHomeStation(data.home_station);
 
@@ -247,6 +265,7 @@ export function useTripSync({
     setHomeStation,
     setHomeStationCoords,
     setTrips,
+    setDestinationRatings,
   ]);
 
   // Sync user metadata back to db when state changes
@@ -268,6 +287,9 @@ export function useTripSync({
         if (visitedDates && Object.keys(visitedDates).length > 0) {
           payload.visited_dates = visitedDates;
         }
+        if (destinationRatings && Object.keys(destinationRatings).length > 0) {
+          payload.destination_ratings = destinationRatings;
+        }
 
         client
           .from("user_data")
@@ -275,10 +297,11 @@ export function useTripSync({
           .then(({ error }) => {
             if (error) {
               console.warn(
-                "[TabiMap Sync] Primary upsert failed, retrying core payload without visited_dates...",
+                "[TabiMap Sync] Primary upsert failed, retrying core payload without visited_dates/destination_ratings...",
                 error,
               );
               delete payload.visited_dates;
+              delete payload.destination_ratings;
               client
                 .from("user_data")
                 .upsert(payload)
@@ -307,6 +330,7 @@ export function useTripSync({
     visited,
     visitedPrefectures,
     visitedDates,
+    destinationRatings,
     homeStation,
     user?.id,
   ]);

@@ -8,8 +8,20 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.51",
+    version: "v1.7.52",
     tag: "Current",
+    date: "July 2026",
+    title: "Netflix-Style Thumbs Up / Thumbs Down Recommendation Ratings",
+    highlights: [
+      "Added Netflix-style Thumbs Up (👍) and Thumbs Down (👎) rating controls to destination cards in recommendation views",
+      "Thumbs Down (👎) applies a -1000 score penalty so demoted destinations sink to the bottom of recommended lists",
+      "Thumbs Up (👍) applies a +25 score boost to elevate your preferred places",
+      "Persisted ratings in local storage and Cloud Sync across devices",
+      "Suppressed Match Confidence panel on detail pages for thumbs-downed places",
+    ],
+  },
+  {
+    version: "v1.7.51",
     date: "July 2026",
     title: "Manual QA Image Corrections for 28 Destinations",
     highlights: [

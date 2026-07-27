@@ -105,6 +105,7 @@ export function calculateScore(
     partySize,
     currentWeatherCondition,
     currentWeather,
+    userRatings,
   } = context;
 
   let score =
@@ -258,6 +259,13 @@ export function calculateScore(
   const currentSeason = getFixedSeason();
   const seasonScore = dest.season?.[currentSeason] ?? 5;
   score += seasonScore * SCORING_WEIGHTS.SEASON_MULTIPLIER;
+
+  // User Rating Adjustments (Netflix-style Thumbs Up / Down)
+  if (userRatings?.[dest.id] === "up") {
+    score += 25;
+  } else if (userRatings?.[dest.id] === "down") {
+    score -= 1000;
+  }
 
   return {
     score,

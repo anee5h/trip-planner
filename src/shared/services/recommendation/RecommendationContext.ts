@@ -8,4 +8,5 @@ export interface RecommendationContext {
   visitedIds: string[];
   currentWeather?: { temp: number; desc: string } | null;
   homeStationCoords?: { lat: number; lng: number } | null;
+  userRatings?: Record<string, "up" | "down">;
 }

@@ -31,6 +31,8 @@ import {
   CheckSquare,
   Sun,
   Plus,
+  ThumbsUp,
+  ThumbsDown,
 } from "lucide-react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { getAdjustedBudget } from "@/shared/utils/utils";
@@ -52,9 +54,17 @@ export default function DestinationCard({
   carMode,
   publicModes,
 }: DestinationCardProps) {
-  const { isVisited, isComparing, toggleCompare, compareList } = useTripStore();
+  const {
+    isVisited,
+    isComparing,
+    toggleCompare,
+    compareList,
+    getDestinationRating,
+    setDestinationRating,
+  } = useTripStore();
   const visited = isVisited(destination.id);
   const comparing = isComparing(destination.id);
+  const rating = getDestinationRating(destination.id);
 
   const [pickerOpen, setPickerOpen] = useState(false);
   const [markVisitedOpen, setMarkVisitedOpen] = useState(false);
@@ -336,14 +346,17 @@ export default function DestinationCard({
         )}
       </CardContent>
 
-      <CardFooter className="pt-0 flex justify-between items-center gap-2">
+      <CardFooter className="pt-0 flex justify-between items-center gap-1.5">
+        {/* Compare - icon-only button */}
         <Button
-          variant={comparing ? "default" : "outline"}
-          size="sm"
+          variant={comparing ? "default" : "ghost"}
+          size="icon-sm"
+          title={comparing ? "Remove from Compare" : "Add to Compare"}
+          aria-label={comparing ? "Remove from Compare" : "Add to Compare"}
           className={
             comparing
-              ? "bg-slate-900 hover:bg-slate-800 text-white w-1/2"
-              : "w-1/2"
+              ? "bg-slate-900 hover:bg-slate-800 text-white shrink-0"
+              : "shrink-0 text-slate-500"
           }
           onClick={() => {
             if (!comparing && compareList.length >= 4) {
@@ -354,16 +367,66 @@ export default function DestinationCard({
           }}
         >
           {comparing ? (
-            <CheckSquare className="w-4 h-4 mr-1.5" />
+            <CheckSquare className="w-4 h-4" />
           ) : (
-            <PlusSquare className="w-4 h-4 mr-1.5 text-slate-400" />
+            <PlusSquare className="w-4 h-4" />
           )}
-          {comparing ? "Added" : "Compare"}
         </Button>
+
+        {/* Thumbs Up - bare icon, no container */}
+        <Button
+          variant="ghost"
+          size="icon-sm"
+          title={rating === "up" ? "Remove Thumbs Up" : "Thumbs Up"}
+          aria-label={rating === "up" ? "Remove Thumbs Up" : "Thumbs Up"}
+          className={`shrink-0 ${
+            rating === "up"
+              ? "text-emerald-600"
+              : "text-slate-500 hover:text-emerald-600"
+          }`}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setDestinationRating(destination.id, rating === "up" ? null : "up");
+          }}
+        >
+          <ThumbsUp
+            className="w-4 h-4"
+            fill={rating === "up" ? "currentColor" : "none"}
+          />
+        </Button>
+
+        {/* Thumbs Down - bare icon, no container */}
+        <Button
+          variant="ghost"
+          size="icon-sm"
+          title={rating === "down" ? "Remove Thumbs Down" : "Thumbs Down"}
+          aria-label={rating === "down" ? "Remove Thumbs Down" : "Thumbs Down"}
+          className={`shrink-0 ${
+            rating === "down"
+              ? "text-rose-600"
+              : "text-slate-500 hover:text-rose-600"
+          }`}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setDestinationRating(
+              destination.id,
+              rating === "down" ? null : "down",
+            );
+          }}
+        >
+          <ThumbsDown
+            className="w-4 h-4"
+            fill={rating === "down" ? "currentColor" : "none"}
+          />
+        </Button>
+
+        {/* Explore - dominant CTA takes remaining space */}
         <Link
           to={`/destinations/${destination.id}`}
           state={linkState}
-          className="w-1/2"
+          className="flex-1"
         >
           <Button
             variant="default"

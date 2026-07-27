@@ -39,7 +39,7 @@ import {
 import { PageHeader } from "@/shared/components/ui/PageHeader";
 
 export default function Destinations() {
-  const { homeStationCoords } = useTripStore();
+  const { homeStationCoords, destinationRatings } = useTripStore();
   const allDestinations = getDestinationList() as Destination[];
   const [searchQuery, setSearchQuery] = useState("");
   const [maxBudget, setMaxBudget] = useState(100000);
@@ -100,8 +100,9 @@ export default function Destinations() {
       currentWeather: null,
       visitedIds: [],
       homeStationCoords: homeStationCoords ?? null,
+      userRatings: destinationRatings,
     };
-  }, [user, homeStationCoords]);
+  }, [user, homeStationCoords, destinationRatings]);
 
   // Reset page to 1 when filters change
   useEffect(() => {
