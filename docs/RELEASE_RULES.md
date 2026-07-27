@@ -94,10 +94,11 @@ npm run test:run && npm run pipeline -- --dry-run && npx tsc -b --noEmit && npm 
 ```bash
    git add .
 ```
-2. Commit with a standard conventional commit message:
+2. Commit with a simple, concise one-liner message prefixed with the version tag:
 ```bash
-   git commit -m "chore(release): bump version to X.Y.Z"
+   git commit -m "vX.Y.Z: short summary of feature or fix"
 ```
+   *Example*: `git commit -m "v1.7.50: add zoorasia, teamlab borderless, tama zoo & ueno zoo"`
 3. Create an annotated git tag:
 ```bash
    git tag -a vX.Y.Z -m "Release vX.Y.Z — Short release summary"
@@ -157,5 +158,5 @@ This document only works if it's actually run. Options, roughly in order of effo
 - [ ] New release entry with `tag: "Current"` added to `src/shared/components/ui/ReleaseNotesModal.tsx`; previous entry's `tag: "Current"` removed
 - [ ] `npm run release:verify` passes clean (tests, pipeline dry-run, tsc, lint, build, format:check)
 - [ ] If data was intentionally changed via a real (non-dry-run) `pipeline` run, it was formatted and committed **separately**, before the version bump
-- [ ] Committed and tagged (`vX.Y.Z`)
+- [ ] Committed with one-liner summary (`vX.Y.Z: description`) and tagged (`vX.Y.Z`)
 - [ ] Pushed to `dev`, `main`, `release`, and `--tags`
