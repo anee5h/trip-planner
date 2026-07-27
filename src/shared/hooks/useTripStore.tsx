@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 import { useAuth } from "@/shared/hooks/useAuth";
@@ -49,6 +49,9 @@ interface TripStoreContextType {
   toggleCompare: (id: string) => void;
   isComparing: (id: string) => boolean;
   clearCompare: () => void;
+
+  lastSyncedDate: string | null;
+  setLastSyncedDate: (date: string | null) => void;
 
   trips: Trip[];
   setTrips: (val: Trip[] | ((prev: Trip[]) => Trip[])) => void;
@@ -107,6 +110,8 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     { lat: 35.6812, lng: 139.7671 }, // Tokyo Station default
   );
 
+  const [lastSyncedDate, setLastSyncedDate] = useState<string | null>(null);
+
   const [trips, setTrips] = useLocalStorage<Trip[]>("trip-planner-trips", []);
 
   // Modular cloud persistence & initial load hook
@@ -120,6 +125,8 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     setVisitedPrefectures,
     visitedDates,
     setVisitedDates,
+    lastSyncedDate,
+    setLastSyncedDate,
     compareList,
     setCompareList,
     homeStation,
@@ -509,6 +516,8 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
         setHomeStation,
         homeStationCoords,
         setHomeStationCoords,
+        lastSyncedDate,
+        setLastSyncedDate,
         trips,
         setTrips,
         addTrip,

@@ -27,6 +27,8 @@ interface UseTripSyncProps {
           prev: Record<string, string[] | string>,
         ) => Record<string, string[] | string>),
   ) => void;
+  lastSyncedDate?: string | null;
+  setLastSyncedDate?: (date: string | null) => void;
   compareList: string[];
   setCompareList: (val: string[] | ((prev: string[]) => string[])) => void;
   homeStation: string;
@@ -53,6 +55,7 @@ export function useTripSync({
   setVisitedPrefectures,
   visitedDates,
   setVisitedDates,
+  setLastSyncedDate,
   setCompareList,
   homeStation,
   setHomeStation,
@@ -117,6 +120,13 @@ export function useTripSync({
               "[TabiMap Sync] Fetched visited length:",
               data.visited?.length ?? 0,
             );
+
+            if (data.updated_at && setLastSyncedDate) {
+              const syncDate = String(data.updated_at).split("T")[0];
+              if (/^\d{4}-\d{2}-\d{2}$/.test(syncDate)) {
+                setLastSyncedDate(syncDate);
+              }
+            }
 
             if (data.favorites) {
               setFavorites((prev) =>

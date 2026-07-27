@@ -30,7 +30,7 @@ interface ActivityEvent {
 }
 
 export function PassportTimelineCalendar() {
-  const { visited, getVisitedDates, trips } = useTripStore();
+  const { visited, getVisitedDates, trips, lastSyncedDate } = useTripStore();
 
   const [filterType, setFilterType] = useState<"all" | "visited" | "trips">(
     "all",
@@ -53,7 +53,8 @@ export function PassportTimelineCalendar() {
       );
       if (dest) {
         const dates = getVisitedDates(vId);
-        const datesToProcess = dates.length > 0 ? dates : [""];
+        const fallbackDate = lastSyncedDate || "";
+        const datesToProcess = dates.length > 0 ? dates : [fallbackDate];
 
         datesToProcess.forEach((dateStr, idx) => {
           let year = "Undated";
@@ -117,7 +118,7 @@ export function PassportTimelineCalendar() {
     });
 
     return events;
-  }, [visited, getVisitedDates, trips]);
+  }, [visited, getVisitedDates, trips, lastSyncedDate]);
 
   // Filter events
   const filteredEvents = useMemo(() => {
