@@ -43,9 +43,6 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
   });
   const minTravelTime = getMin(travelTimes);
 
-  const walking = compareDestinations.map((d) => d.walkingMin ?? 0);
-  const minWalking = getMin(walking);
-
   const coupleScores = compareDestinations.map((d) => d.ratings.couple);
   const maxCoupleScore = getMax(coupleScores);
 

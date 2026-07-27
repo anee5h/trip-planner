@@ -1138,15 +1138,24 @@ export default function DestinationDetails() {
                         label="Rain"
                         value={destination.ratings.rain}
                       />
-                      <RatingItem
-                        icon={Footprints}
-                        label="Walk Intensity"
-                        value={
-                          getWalkingIntensityMetadata(
-                            getWalkingIntensity(destination),
-                          ).label
-                        }
-                      />
+                      {(() => {
+                        const walkMeta = getWalkingIntensityMetadata(
+                          getWalkingIntensity(destination),
+                        );
+                        return (
+                          <div className="flex flex-col items-center text-center p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50">
+                            <Footprints className="w-6 h-6 text-emerald-600 mb-2" />
+                            <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
+                              Walk Intensity
+                            </span>
+                            <span
+                              className={`mt-1 px-2.5 py-0.5 rounded-full text-xs font-extrabold border ${walkMeta.badgeClass}`}
+                            >
+                              {walkMeta.icon} {walkMeta.label}
+                            </span>
+                          </div>
+                        );
+                      })()}
                       <RatingItem
                         icon={Camera}
                         label="Photography"

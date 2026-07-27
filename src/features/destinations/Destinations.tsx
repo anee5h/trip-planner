@@ -41,9 +41,6 @@ import { PageHeader } from "@/shared/components/ui/PageHeader";
 import { getWalkingIntensity } from "@/shared/utils/walking";
 
 export default function Destinations() {
-  const [searchParams] = useSearchParams();
-  const initialCategory = searchParams.get("category");
-
   const { homeStationCoords, destinationRatings } = useTripStore();
   const allDestinations = getDestinationList() as Destination[];
   const [searchQuery, setSearchQuery] = useState("");
