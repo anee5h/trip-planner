@@ -8,8 +8,20 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.52",
+    version: "v1.7.53",
     tag: "Current",
+    date: "July 2026",
+    title: "Normalized Transport Estimation System & Flight Mode",
+    highlights: [
+      "Introduced Flight (✈️) as a native transportation mode for long-distance travel in Japan (e.g. Tokyo -> Sapporo, Tokyo -> Kumamoto, Osaka -> Okinawa)",
+      "Built a normalized Transport Estimation System (`src/shared/services/transport/`) with mode-agnostic ground access orchestration",
+      "Dynamic coordinate-based departure airport selection using home station coordinates with zero manual region mapping required",
+      "Door-to-door journey time optimization comparing total travel time across candidate airports",
+      "Clean separation of pure data models and human-readable time/cost formatters",
+    ],
+  },
+  {
+    version: "v1.7.52",
     date: "July 2026",
     title: "Netflix-Style Thumbs Up / Thumbs Down Recommendation Ratings",
     highlights: [

@@ -52,7 +52,13 @@ import {
   BookOpen,
   ChevronDown,
   ChevronUp,
+  Plane,
 } from "lucide-react";
+import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
+import {
+  formatTransportTime,
+  formatTransportCost,
+} from "@/shared/services/transport/formatters";
 import { toast } from "sonner";
 import {
   WikipediaService,
@@ -238,6 +244,14 @@ export default function DestinationDetails() {
     const { score } = calculateScore(destination, context);
     return createRecommendationMatch(destination, context, score);
   }, [destination, navState, user, forecast, homeStationCoords]);
+
+  const flightEstimate = useMemo(() => {
+    if (!destination) return null;
+    return getFlightTransportEstimate(
+      destination,
+      homeStationCoords || undefined,
+    );
+  }, [destination, homeStationCoords]);
 
   const nearbyDestinations = useMemo(() => {
     if (!destination?.coordinates) return [];
@@ -883,6 +897,22 @@ export default function DestinationDetails() {
                               </div>
                             </div>
                           )}
+                        {flightEstimate && (
+                          <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
+                            <span className="text-slate-500 flex items-center">
+                              <Plane className="w-4 h-4 mr-1.5 text-sky-500" />{" "}
+                              Flight
+                            </span>
+                            <div className="text-right">
+                              <div className="font-semibold text-slate-700 dark:text-slate-300">
+                                {formatTransportTime(flightEstimate.timeRange)}
+                              </div>
+                              <div className="text-xs text-slate-400">
+                                {formatTransportCost(flightEstimate.costRange)}
+                              </div>
+                            </div>
+                          </div>
+                        )}
                         <div className="flex justify-between items-center text-sm">
                           <span className="text-slate-500">👣 Walk</span>
                           <span className="font-semibold text-slate-700 dark:text-slate-300">

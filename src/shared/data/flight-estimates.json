@@ -1,0 +1,143 @@
+{
+  "transportVersion": 1,
+  "routes": [
+    {
+      "from": "HND",
+      "to": "CTS",
+      "flightTime": [90, 105],
+      "fare": [9000, 18000]
+    },
+    {
+      "from": "HND",
+      "to": "FUK",
+      "flightTime": [110, 125],
+      "fare": [10000, 20000]
+    },
+    {
+      "from": "HND",
+      "to": "KMJ",
+      "flightTime": [100, 120],
+      "fare": [11000, 19000]
+    },
+    {
+      "from": "HND",
+      "to": "KOJ",
+      "flightTime": [105, 125],
+      "fare": [12000, 21000]
+    },
+    {
+      "from": "HND",
+      "to": "OKA",
+      "flightTime": [150, 175],
+      "fare": [14000, 26000]
+    },
+    {
+      "from": "HND",
+      "to": "ISG",
+      "flightTime": [195, 220],
+      "fare": [18000, 35000]
+    },
+    {
+      "from": "HND",
+      "to": "MMY",
+      "flightTime": [180, 205],
+      "fare": [17000, 32000]
+    },
+    {
+      "from": "HND",
+      "to": "HKD",
+      "flightTime": [80, 95],
+      "fare": [9000, 17000]
+    },
+    {
+      "from": "HND",
+      "to": "AKJ",
+      "flightTime": [95, 110],
+      "fare": [10000, 19000]
+    },
+    {
+      "from": "HND",
+      "to": "MYJ",
+      "flightTime": [85, 100],
+      "fare": [9500, 17500]
+    },
+    {
+      "from": "HND",
+      "to": "TAK",
+      "flightTime": [75, 90],
+      "fare": [8500, 16000]
+    },
+    {
+      "from": "HND",
+      "to": "HIJ",
+      "flightTime": [80, 95],
+      "fare": [9000, 17000]
+    },
+    {
+      "from": "NRT",
+      "to": "CTS",
+      "flightTime": [95, 110],
+      "fare": [7000, 15000]
+    },
+    {
+      "from": "NRT",
+      "to": "FUK",
+      "flightTime": [115, 130],
+      "fare": [8000, 16000]
+    },
+    {
+      "from": "NRT",
+      "to": "OKA",
+      "flightTime": [160, 185],
+      "fare": [9000, 19000]
+    },
+    {
+      "from": "ITM",
+      "to": "CTS",
+      "flightTime": [110, 125],
+      "fare": [11000, 22000]
+    },
+    {
+      "from": "ITM",
+      "to": "OKA",
+      "flightTime": [130, 150],
+      "fare": [13000, 25000]
+    },
+    {
+      "from": "ITM",
+      "to": "ISG",
+      "flightTime": [165, 185],
+      "fare": [17000, 33000]
+    },
+    {
+      "from": "KIX",
+      "to": "CTS",
+      "flightTime": [115, 130],
+      "fare": [8000, 18000]
+    },
+    {
+      "from": "KIX",
+      "to": "OKA",
+      "flightTime": [130, 150],
+      "fare": [9000, 20000]
+    },
+    {
+      "from": "NGO",
+      "to": "CTS",
+      "flightTime": [100, 115],
+      "fare": [10000, 20000]
+    },
+    {
+      "from": "NGO",
+      "to": "OKA",
+      "flightTime": [135, 155],
+      "fare": [12000, 23000]
+    },
+    {
+      "from": "NGO",
+      "to": "FUK",
+      "flightTime": [85, 100],
+      "fare": [9000, 17000]
+    }
+  ]
+}
