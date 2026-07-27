@@ -8,8 +8,73 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.21",
+    version: "v1.7.35",
     tag: "Current",
+    date: "July 2026",
+    title: "Intelligent Timeline Fallback Date & Custom SQL Sync",
+    highlights: [
+      "Extracted user_data.updated_at timestamp as intelligent fallback date for un-dated visits",
+      "Added visited_dates JSONB column support for full cross-device custom visit date synchronization",
+      "Added interactive inline date editor modal trigger on all Timeline cards",
+    ],
+  },
+  {
+    version: "v1.7.34",
+    date: "July 2026",
+    title: "Schema-Resilient Cloud Hydration",
+    highlights: [
+      "Replaced explicit column select with select('*') to prevent PGRST204 column schema errors",
+      "Implemented resilient upsert fallback to preserve user history across all database environments",
+      "Guaranteed visited destination and prefecture hydration on clean browsers",
+    ],
+  },
+  {
+    version: "v1.7.33",
+    date: "July 2026",
+    title: "Passport Prefecture Dynamic Re-Derivation",
+    highlights: [
+      "Updated useTripStore migration dependency array to re-derive 21 visited prefectures dynamically when cloud visited data finishes loading",
+      "Added console debug logging for Supabase cloud sync hydration state",
+    ],
+  },
+  {
+    version: "v1.7.32",
+    date: "July 2026",
+    title: "Cross-Browser Sync Race Condition Fix",
+    highlights: [
+      "Wrapped user_data and trips promises in Promise.allSettled() to prevent premature cloud state overwrite on initial login",
+      "Eliminated empty state cloud upsert on fresh Chrome and Firefox sessions",
+    ],
+  },
+  {
+    version: "v1.7.31",
+    date: "July 2026",
+    title: "Mobile Passport Timeline Date Synchronization",
+    highlights: [
+      "Added visitedDates and setVisitedDates to useTripSync cloud synchronization layer",
+      "Hardened PassportTimelineCalendar date parsing for ISO strings and date formats",
+    ],
+  },
+  {
+    version: "v1.7.30",
+    date: "July 2026",
+    title: "Landmark UNESCO Image Replacements & Sendai Hero",
+    highlights: [
+      "Replaced generic UNESCO stock images with 15 landmark-specific Wikimedia photographs (Gunkanjima, Genbaku Dome, Horyu-ji)",
+      "Updated Sendai City hero image toMukayama skyline view",
+    ],
+  },
+  {
+    version: "v1.7.28",
+    date: "July 2026",
+    title: "Image QA Dashboard Multi-Select & Auto-Save",
+    highlights: [
+      "Added multi-select filter pills and instant keystroke auto-saving to Image QA HTML Dashboard",
+      "Added manual Save Progress button with live toast notification",
+    ],
+  },
+  {
+    version: "v1.7.21",
     date: "July 2026",
     title: "Bucket List Standardization & Release Notes",
     highlights: [
