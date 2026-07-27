@@ -21,4 +21,5 @@ dist-ssr
 repomix-output.xml
 .gemini
 # .env
-docs/
+docs/*
+!docs/RELEASE_RULES.md

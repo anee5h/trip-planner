@@ -21,7 +21,8 @@
     "validate-search": "tsx scripts/cli/validate-search.ts",
     "validate-links": "tsx scripts/cli/validate-links.ts",
     "audit-spacing": "node scripts/audit-spacing.cjs",
-    "prepare": "husky"
+    "prepare": "husky",
+    "release:verify": "npm run test:run && npm run pipeline -- --dry-run && npx tsc -b --noEmit && npm run lint && npm run build && npm run format:check"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
