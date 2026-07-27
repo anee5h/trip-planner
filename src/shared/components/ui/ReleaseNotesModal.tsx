@@ -8,8 +8,19 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.41",
+    version: "v1.7.42",
     tag: "Current",
+    date: "July 2026",
+    title: "Navbar Micro-Polish & Translucent Glass Refinement",
+    highlights: [
+      "Elevated Navbar height to 68px and added translucent glass backdrop-blur-xl styling",
+      "Added OS-aware search shortcut badge rendering Ctrl K on Linux/Windows and ⌘K on macOS",
+      "Refined search bar with +4px icon padding, +15% placeholder text contrast, and 10% narrower width",
+      "Enhanced active navigation pill state with distinct emerald background and accent borders",
+    ],
+  },
+  {
+    version: "v1.7.41",
     date: "July 2026",
     title: "Nav Pill Relabel: Itineraries",
     highlights: [

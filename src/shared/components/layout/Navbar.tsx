@@ -109,8 +109,8 @@ export default function Navbar() {
   const isPassportActive = location.pathname.startsWith("/passport");
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between gap-2 md:gap-4">
+    <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-950/85 backdrop-blur-xl shadow-xs shadow-slate-900/5 dark:shadow-slate-950/20">
+      <div className="container mx-auto px-4 h-[68px] flex items-center justify-between gap-2 md:gap-4">
         {/* Logo */}
         <Link
           to="/"
@@ -132,8 +132,8 @@ export default function Navbar() {
                 to="/destinations"
                 className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
                   isDestinationsActive
-                    ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50/70 dark:bg-emerald-950/40 font-bold"
-                    : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400"
+                    ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
+                    : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
                 }`}
               >
                 <Map className="w-4 h-4" />
@@ -144,8 +144,8 @@ export default function Navbar() {
                 to="/collections"
                 className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
                   isCollectionsActive
-                    ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50/70 dark:bg-emerald-950/40 font-bold"
-                    : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400"
+                    ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
+                    : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
                 }`}
               >
                 <Layers className="w-4 h-4" />
@@ -162,8 +162,8 @@ export default function Navbar() {
                 to="/my-trips"
                 className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
                   isMyTripsActive
-                    ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50/70 dark:bg-emerald-950/40 font-bold"
-                    : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400"
+                    ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
+                    : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
                 }`}
               >
                 <Calendar className="w-4 h-4" />
@@ -174,8 +174,8 @@ export default function Navbar() {
                 to="/bucket-list"
                 className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
                   isBucketListActive
-                    ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50/70 dark:bg-emerald-950/40 font-bold"
-                    : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400"
+                    ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
+                    : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
                 }`}
               >
                 <Bookmark className="w-4 h-4" />
@@ -191,8 +191,8 @@ export default function Navbar() {
               to="/passport"
               className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
                 isPassportActive
-                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50/70 dark:bg-emerald-950/40 font-bold"
-                  : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400"
+                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
+                  : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
               }`}
             >
               <Compass className="w-4 h-4" />
@@ -323,7 +323,7 @@ export default function Navbar() {
       {/* Mobile drawer backdrop */}
       {menuOpen && (
         <div
-          className="md:hidden fixed inset-0 top-16 bg-black/60 backdrop-blur-sm z-40"
+          className="md:hidden fixed inset-0 top-[68px] bg-black/60 backdrop-blur-sm z-40"
           onClick={() => {
             setMenuOpen(false);
             hamburgerBtnRef.current?.focus();
@@ -336,7 +336,7 @@ export default function Navbar() {
       {menuOpen && (
         <div
           ref={mobileMenuRef}
-          className="md:hidden fixed inset-x-0 top-16 z-40 bg-background border-b shadow-lg max-h-[calc(100vh-4rem)] overflow-y-auto"
+          className="md:hidden fixed inset-x-0 top-[68px] z-40 bg-background border-b shadow-lg max-h-[calc(100vh-68px)] overflow-y-auto"
         >
           <nav className="container mx-auto px-4 py-4 flex flex-col gap-2">
             <Link
@@ -483,7 +483,7 @@ export default function Navbar() {
                 className="hover:text-emerald-500 font-bold transition-colors cursor-pointer flex items-center gap-1"
                 title="View Release Notes"
               >
-                <span>TabiMap Japan v1.7.41</span>
+                <span>TabiMap Japan v1.7.42</span>
                 <span className="text-[10px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-1.5 py-0.5 rounded font-extrabold border border-emerald-500/20">
                   Notes
                 </span>
