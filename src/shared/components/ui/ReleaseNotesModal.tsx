@@ -8,8 +8,20 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.53",
+    version: "v1.7.54",
     tag: "Current",
+    date: "July 2026",
+    title:
+      "Flight Budget Inclusion, Xh Ym Time Formatting & Default Flight Preferences",
+    highlights: [
+      "Included Flight (✈️) in Budget calculations and added a Flight selector pill to destination budget cards",
+      "Formatted all regular travel times over 60 minutes as clean human-readable 'Xh Ym' strings (e.g. 39h 12m instead of 2352m)",
+      "Enabled Flight in public transport preferences by default across search, catalog, and recommendation contexts",
+      "Added Flight toggle buttons to Destination Filters and User Preference settings modals",
+    ],
+  },
+  {
+    version: "v1.7.53",
     date: "July 2026",
     title: "Normalized Transport Estimation System & Flight Mode",
     highlights: [

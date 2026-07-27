@@ -48,8 +48,9 @@ export default function Destinations() {
   const [carMode, setCarMode] = useState("none");
   const [publicModes, setPublicModes] = useState<string[]>([
     "train",
-    "bus",
     "shinkansen",
+    "bus",
+    "flight",
   ]);
   const [partySize, setPartySize] = useState(2);
   const [weather, setWeather] = useState("all");
@@ -72,8 +73,9 @@ export default function Destinations() {
       setPublicModes(
         user.user_metadata.preferences.publicModes || [
           "train",
-          "bus",
           "shinkansen",
+          "bus",
+          "flight",
         ],
       );
       setPartySize(user.user_metadata.preferences.partySize || 2);
@@ -95,7 +97,12 @@ export default function Destinations() {
       budget: 50_000,
       partySize: prefs.partySize ?? 2,
       carMode: prefs.carMode ?? "none",
-      publicModes: prefs.publicModes ?? ["train"],
+      publicModes: prefs.publicModes ?? [
+        "train",
+        "shinkansen",
+        "bus",
+        "flight",
+      ],
       currentWeatherCondition: "",
       currentWeather: null,
       visitedIds: [],

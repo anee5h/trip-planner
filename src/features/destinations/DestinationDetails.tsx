@@ -215,7 +215,7 @@ export default function DestinationDetails() {
     const budget = navState?.budget || userPrefs.budget || 50000;
     const carMode = navState?.carMode || userPrefs.carMode || "none";
     const publicModes = navState?.publicModes ||
-      userPrefs.publicModes || ["train"];
+      userPrefs.publicModes || ["train", "shinkansen", "bus", "flight"];
     const partySize = navState?.partySize || userPrefs.partySize || 2;
 
     let currentWeatherCondition = "any";
@@ -316,7 +316,20 @@ export default function DestinationDetails() {
     return null;
   }, [destination, navState, user]);
 
+  const formatTravelTimeMinutes = (minutes: number | undefined): string => {
+    if (minutes === undefined || minutes <= 0) return "N/A";
+    if (minutes < 60) return `${minutes}m`;
+    const hours = Math.floor(minutes / 60);
+    const mins = minutes % 60;
+    return mins > 0 ? `${hours}h ${mins}m` : `${hours}h`;
+  };
+
   const isModeVisible = (mode: string) => {
+    if (mode === "flight") {
+      if (!flightEstimate) return false;
+      if (!activeModes) return true;
+      return activeModes.includes("flight");
+    }
     if (
       !destination?.transportOptions?.[
         mode as keyof typeof destination.transportOptions
@@ -331,18 +344,24 @@ export default function DestinationDetails() {
   };
 
   const availableModes = useMemo(() => {
-    if (!destination?.transportOptions) return [];
-    const allEntries = Object.entries(destination.transportOptions).filter(
-      ([_, v]) => v !== undefined,
-    ) as [string, number][];
-
-    if (!activeModes) {
-      return allEntries.map(([mode]) => mode);
+    const modes: string[] = [];
+    if (destination?.transportOptions) {
+      const allEntries = Object.entries(destination.transportOptions).filter(
+        ([_, v]) => v !== undefined,
+      ) as [string, number][];
+      for (const [mode] of allEntries) {
+        if (!activeModes || activeModes.includes(mode)) {
+          modes.push(mode);
+        }
+      }
     }
-    return allEntries
-      .map(([mode]) => mode)
-      .filter((mode) => activeModes.includes(mode));
-  }, [destination, activeModes]);
+    if (flightEstimate) {
+      if (!activeModes || activeModes.includes("flight")) {
+        modes.push("flight");
+      }
+    }
+    return modes;
+  }, [destination, activeModes, flightEstimate]);
 
   const defaultMode = useMemo(() => {
     if (!destination?.transportOptions || availableModes.length === 0)
@@ -784,7 +803,9 @@ export default function DestinationDetails() {
                               </span>
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                  {destination.transportOptions.train}m
+                                  {formatTravelTimeMinutes(
+                                    destination.transportOptions.train,
+                                  )}
                                 </div>
                                 <div className="text-xs text-slate-400">
                                   est. ¥
@@ -809,7 +830,9 @@ export default function DestinationDetails() {
                               </span>
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                  {destination.transportOptions.shinkansen}m
+                                  {formatTravelTimeMinutes(
+                                    destination.transportOptions.shinkansen,
+                                  )}
                                 </div>
                                 <div className="text-xs text-slate-400">
                                   est. ¥
@@ -833,7 +856,9 @@ export default function DestinationDetails() {
                               </span>
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                  {destination.transportOptions.bus}m
+                                  {formatTravelTimeMinutes(
+                                    destination.transportOptions.bus,
+                                  )}
                                 </div>
                                 <div className="text-xs text-slate-400">
                                   est. ¥
@@ -857,7 +882,9 @@ export default function DestinationDetails() {
                               </span>
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                  {destination.transportOptions.car}m
+                                  {formatTravelTimeMinutes(
+                                    destination.transportOptions.car,
+                                  )}
                                 </div>
                                 <div className="text-xs text-slate-400">
                                   est. ¥
@@ -881,7 +908,9 @@ export default function DestinationDetails() {
                               </span>
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                  {destination.transportOptions.my_car}m
+                                  {formatTravelTimeMinutes(
+                                    destination.transportOptions.my_car,
+                                  )}
                                 </div>
                                 <div className="text-xs text-slate-400">
                                   est. ¥
@@ -897,7 +926,7 @@ export default function DestinationDetails() {
                               </div>
                             </div>
                           )}
-                        {flightEstimate && (
+                        {flightEstimate && isModeVisible("flight") && (
                           <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
                             <span className="text-slate-500 flex items-center">
                               <Plane className="w-4 h-4 mr-1.5 text-sky-500" />{" "}
@@ -957,6 +986,7 @@ export default function DestinationDetails() {
                               car: "Rental Car",
                               my_car: "My Car",
                               bus: "Bus",
+                              flight: "Flight",
                             };
                             return (
                               <button
@@ -992,6 +1022,7 @@ export default function DestinationDetails() {
                                       car: "🚗 Rental Car & Tolls",
                                       my_car: "🚗 My Car (Gas & Tolls)",
                                       bus: "🚌 Highway Bus",
+                                      flight: "✈️ Flight (Air & Access)",
                                     } as Record<string, string>
                                   )[selectedTransport]
                                 }
@@ -1401,7 +1432,12 @@ export default function DestinationDetails() {
                   partySize={partySize}
                   carMode={navState?.carMode || "none"}
                   publicModes={
-                    navState?.publicModes || ["train", "shinkansen", "bus"]
+                    navState?.publicModes || [
+                      "train",
+                      "shinkansen",
+                      "bus",
+                      "flight",
+                    ]
                   }
                   activeTransportMode="all"
                 />

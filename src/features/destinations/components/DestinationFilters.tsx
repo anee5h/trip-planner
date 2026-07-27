@@ -14,6 +14,7 @@ import {
   Train,
   Bus,
   TrainFront,
+  Plane,
   Star,
   Heart,
   Footprints,
@@ -215,7 +216,7 @@ export default function DestinationFilters({
   // Active Advanced Filters Count
   const activeAdvancedCount =
     (carMode !== "none" ? 1 : 0) +
-    (publicModes.length < 3 ? 1 : 0) +
+    (publicModes.length < 4 ? 1 : 0) +
     (maxBudget < 100000 ? 1 : 0) +
     (maxWalking < 25000 ? 1 : 0) +
     (weather !== "all" ? 1 : 0) +
@@ -686,6 +687,22 @@ export default function DestinationFilters({
                     }`}
                   >
                     <Bus className="w-3 h-3" /> Bus
+                  </button>
+                  <button
+                    onClick={() =>
+                      setPublicModes(
+                        publicModes.includes("flight")
+                          ? publicModes.filter((m) => m !== "flight")
+                          : [...publicModes, "flight"],
+                      )
+                    }
+                    className={`flex-1 py-2 px-2 rounded-lg border text-xs font-bold flex items-center justify-center gap-1 transition-colors ${
+                      publicModes.includes("flight")
+                        ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400"
+                        : "border-slate-200 text-slate-600 dark:border-slate-800 dark:text-slate-400"
+                    }`}
+                  >
+                    <Plane className="w-3 h-3" /> Flight
                   </button>
                 </div>
               </div>

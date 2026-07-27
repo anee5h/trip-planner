@@ -2,6 +2,7 @@ import type { Destination } from "@/shared/types/destination";
 import type { RecommendationContext } from "./RecommendationContext";
 import { getAdjustedBudget } from "@/shared/services/budget/BudgetService";
 import { getFixedSeason } from "@/shared/utils/season";
+import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
 
 export const SCORING_WEIGHTS = {
   // Base & Ratings
@@ -58,7 +59,12 @@ export function getValidModes(
     validModes.push("my_car");
 
   for (const m of publicModes) {
-    if (
+    if (m === "flight") {
+      const flightEst = getFlightTransportEstimate(dest);
+      if (flightEst) {
+        validModes.push("flight");
+      }
+    } else if (
       dest.transportOptions?.[m as keyof typeof dest.transportOptions] !==
       undefined
     ) {

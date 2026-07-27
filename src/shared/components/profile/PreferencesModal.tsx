@@ -1,6 +1,15 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { X, Car, Train, Bus, TrainFront, Users, Loader2 } from "lucide-react";
+import {
+  X,
+  Car,
+  Train,
+  Bus,
+  TrainFront,
+  Plane,
+  Users,
+  Loader2,
+} from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { useAuth } from "@/shared/hooks/useAuth";
 
@@ -15,14 +24,26 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
   const [success, setSuccess] = useState(false);
 
   const [carMode, setCarMode] = useState("none");
-  const [publicModes, setPublicModes] = useState<string[]>(["train"]);
+  const [publicModes, setPublicModes] = useState<string[]>([
+    "train",
+    "shinkansen",
+    "bus",
+    "flight",
+  ]);
   const [partySize, setPartySize] = useState(2);
   const [carOwnership, setCarOwnership] = useState("all");
 
   useEffect(() => {
     if (user?.user_metadata?.preferences) {
       setCarMode(user.user_metadata.preferences.carMode || "none");
-      setPublicModes(user.user_metadata.preferences.publicModes || ["train"]);
+      setPublicModes(
+        user.user_metadata.preferences.publicModes || [
+          "train",
+          "shinkansen",
+          "bus",
+          "flight",
+        ],
+      );
       setPartySize(user.user_metadata.preferences.partySize || 2);
       setCarOwnership(user.user_metadata.preferences.carOwnership || "all");
     }
@@ -197,7 +218,7 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
               <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Public Transport
               </label>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-4 gap-2.5">
                 <button
                   type="button"
                   onClick={() =>
@@ -207,13 +228,13 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
                         : [...prev, "train"],
                     )
                   }
-                  className={`flex flex-col items-center justify-center gap-2 p-3 rounded-xl border-2 transition-all ${
+                  className={`flex flex-col items-center justify-center gap-1.5 p-2.5 rounded-xl border-2 transition-all ${
                     publicModes.includes("train")
                       ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
                       : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-emerald-200 dark:hover:border-emerald-800"
                   }`}
                 >
-                  <Train className="w-5 h-5" />
+                  <Train className="w-4 h-4" />
                   <span className="text-xs font-medium">Train</span>
                 </button>
                 <button
@@ -225,14 +246,14 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
                         : [...prev, "shinkansen"],
                     )
                   }
-                  className={`flex flex-col items-center justify-center gap-2 p-3 rounded-xl border-2 transition-all ${
+                  className={`flex flex-col items-center justify-center gap-1.5 p-2.5 rounded-xl border-2 transition-all ${
                     publicModes.includes("shinkansen")
                       ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
                       : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-emerald-200 dark:hover:border-emerald-800"
                   }`}
                 >
-                  <TrainFront className="w-5 h-5" />
-                  <span className="text-xs font-medium">Shinkansen</span>
+                  <TrainFront className="w-4 h-4" />
+                  <span className="text-xs font-medium">Bullet</span>
                 </button>
                 <button
                   type="button"
@@ -243,14 +264,32 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
                         : [...prev, "bus"],
                     )
                   }
-                  className={`flex flex-col items-center justify-center gap-2 p-3 rounded-xl border-2 transition-all ${
+                  className={`flex flex-col items-center justify-center gap-1.5 p-2.5 rounded-xl border-2 transition-all ${
                     publicModes.includes("bus")
                       ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
                       : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-emerald-200 dark:hover:border-emerald-800"
                   }`}
                 >
-                  <Bus className="w-5 h-5" />
+                  <Bus className="w-4 h-4" />
                   <span className="text-xs font-medium">Bus</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setPublicModes((prev) =>
+                      prev.includes("flight")
+                        ? prev.filter((m) => m !== "flight")
+                        : [...prev, "flight"],
+                    )
+                  }
+                  className={`flex flex-col items-center justify-center gap-1.5 p-2.5 rounded-xl border-2 transition-all ${
+                    publicModes.includes("flight")
+                      ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
+                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-emerald-200 dark:hover:border-emerald-800"
+                  }`}
+                >
+                  <Plane className="w-4 h-4" />
+                  <span className="text-xs font-medium">Flight</span>
                 </button>
               </div>
             </div>

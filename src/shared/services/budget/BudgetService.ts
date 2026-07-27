@@ -1,4 +1,5 @@
 import type { Destination } from "@/shared/types/destination";
+import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
 
 export const TRANSPORT_PRICING_CONFIG = {
   carRentalRates: {
@@ -69,6 +70,16 @@ export function getTransportCost(
 
   // 2. Duration-based Fallback Pricing Heuristics
   const cfg = TRANSPORT_PRICING_CONFIG;
+
+  if (mode === "flight") {
+    const flightEst = getFlightTransportEstimate(dest);
+    if (flightEst) {
+      const avgOneWayPerPerson = Math.round(
+        (flightEst.costRange[0] + flightEst.costRange[1]) / 2,
+      );
+      return Math.floor(avgOneWayPerPerson * 2 * partySize);
+    }
+  }
 
   if (
     mode === "shinkansen" &&
@@ -156,9 +167,10 @@ export function getAdjustedBudget(
   if (
     activeMode !== "all" &&
     activeMode !== "any" &&
-    dest.transportOptions?.[
+    (dest.transportOptions?.[
       activeMode as keyof typeof dest.transportOptions
-    ] !== undefined
+    ] !== undefined ||
+      activeMode === "flight")
   ) {
     mode = activeMode;
   } else {
