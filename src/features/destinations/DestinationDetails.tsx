@@ -46,6 +46,9 @@ import {
   Copy,
   ExternalLink,
   Plus,
+  BookOpen,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 import { toast } from "sonner";
 import {
@@ -150,6 +153,7 @@ export default function DestinationDetails() {
   }, [id, homeStationCoords]);
 
   const [wikiSummary, setWikiSummary] = useState<WikipediaSummary | null>(null);
+  const [isWikiExpanded, setIsWikiExpanded] = useState(false);
 
   useEffect(() => {
     if (!destination) return;
@@ -591,13 +595,9 @@ export default function DestinationDetails() {
               </div>
 
               {/* Primary Description */}
-              {(destination.description ||
-                wikiSummary?.extract ||
-                destination.notes) && (
+              {(destination.description || destination.notes) && (
                 <p className="text-base text-slate-600 dark:text-slate-300 leading-7 mb-5">
-                  {destination.description ||
-                    wikiSummary?.extract ||
-                    destination.notes}
+                  {destination.description || destination.notes}
                 </p>
               )}
 
@@ -612,23 +612,48 @@ export default function DestinationDetails() {
                 </div>
               )}
 
-              {/* Blended Wikipedia Context Box when local description is present */}
-              {destination.description && wikiSummary && (
-                <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 border border-slate-200/80 dark:border-slate-700/60 text-sm text-slate-600 dark:text-slate-300 mb-6 space-y-2">
-                  <div className="flex items-center justify-between font-bold text-xs text-slate-500 dark:text-slate-400">
-                    <span>Wikipedia Article Summary</span>
+              {/* Collapsible Secondary Wikipedia Reference Box */}
+              {wikiSummary && (
+                <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 border border-slate-200/80 dark:border-slate-700/60 mb-6 transition-all">
+                  <div className="flex items-center justify-between font-semibold text-xs text-slate-500 dark:text-slate-400 mb-2">
+                    <div className="flex items-center gap-1.5 font-bold text-slate-700 dark:text-slate-300">
+                      <BookOpen className="w-3.5 h-3.5 text-emerald-500" />
+                      <span>Wikipedia Reference</span>
+                    </div>
                     <a
                       href={wikiSummary.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                      className="inline-flex items-center gap-1 text-[11px] text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
                       title="Overview sourced from Wikipedia under CC BY-SA 4.0 License"
                     >
                       <ExternalLink className="w-3 h-3" /> Wikipedia (CC BY-SA
                       4.0)
                     </a>
                   </div>
-                  <p className="leading-relaxed">{wikiSummary.extract}</p>
+
+                  <p
+                    className={`text-xs text-slate-600 dark:text-slate-300 leading-relaxed transition-all ${
+                      !isWikiExpanded ? "line-clamp-2" : ""
+                    }`}
+                  >
+                    {wikiSummary.extract}
+                  </p>
+
+                  <button
+                    type="button"
+                    onClick={() => setIsWikiExpanded(!isWikiExpanded)}
+                    className="mt-2.5 inline-flex items-center gap-1 text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline focus:outline-none"
+                  >
+                    <span>
+                      {isWikiExpanded ? "Show less" : "Read More (Wikipedia)"}
+                    </span>
+                    {isWikiExpanded ? (
+                      <ChevronUp className="w-3.5 h-3.5" />
+                    ) : (
+                      <ChevronDown className="w-3.5 h-3.5" />
+                    )}
+                  </button>
                 </div>
               )}
 

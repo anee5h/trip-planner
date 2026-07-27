@@ -8,8 +8,19 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.44",
+    version: "v1.7.45",
     tag: "Current",
+    date: "July 2026",
+    title: "Collapsible Wikipedia Summary on Destination Details",
+    highlights: [
+      "Preserved custom 2–3 sentence travel overview as the primary text at top of destination pages",
+      "Moved secondary Wikipedia reference into a compact collapsible card defaulting to 2 lines",
+      "Added 'Read More (Wikipedia) ▼' / 'Show less ▲' interactive toggle button",
+      "Preserved official Wikipedia (CC BY-SA 4.0) attribution link",
+    ],
+  },
+  {
+    version: "v1.7.44",
     date: "July 2026",
     title: "Mobile UI Polish & UX Improvements",
     highlights: [
