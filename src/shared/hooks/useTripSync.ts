@@ -97,7 +97,7 @@ export function useTripSync({
       if (!supabase) return;
 
       // Load user metadata
-      supabase
+      const userDataPromise = supabase
         .from("user_data")
         .select(
           "favorites, visited, visited_prefectures, home_station, visited_dates",
@@ -110,10 +110,21 @@ export function useTripSync({
             return;
           }
           if (data) {
-            if (data.favorites) setFavorites(data.favorites);
-            if (data.visited) setVisited(data.visited);
-            if (data.visited_prefectures)
-              setVisitedPrefectures(data.visited_prefectures);
+            if (data.favorites) {
+              setFavorites((prev) =>
+                Array.from(new Set([...prev, ...data.favorites])),
+              );
+            }
+            if (data.visited) {
+              setVisited((prev) =>
+                Array.from(new Set([...prev, ...data.visited])),
+              );
+            }
+            if (data.visited_prefectures) {
+              setVisitedPrefectures((prev) =>
+                Array.from(new Set([...prev, ...data.visited_prefectures])),
+              );
+            }
             if (data.visited_dates && setVisitedDates) {
               setVisitedDates((prev) => {
                 const merged = { ...prev };
@@ -178,7 +189,7 @@ export function useTripSync({
 
       // Load trips using repository
       const tripRepo = new SupabaseTripRepository();
-      tripRepo
+      const tripsPromise = tripRepo
         .fetchTrips(user.id)
         .then((fetchedTrips) => {
           if (fetchedTrips && fetchedTrips.length > 0 && setTrips) {
@@ -191,12 +202,14 @@ export function useTripSync({
             "Could not load trips from server, using local copy.",
             err,
           );
-        })
-        .finally(() => {
-          setTimeout(() => {
-            isLoadedRef.current = true;
-          }, 0);
         });
+
+      // Synchronize both promises before marking hydration complete
+      Promise.allSettled([userDataPromise, tripsPromise]).finally(() => {
+        setTimeout(() => {
+          isLoadedRef.current = true;
+        }, 100);
+      });
     }
   }, [
     user?.id,
