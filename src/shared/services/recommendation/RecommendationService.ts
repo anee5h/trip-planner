@@ -70,3 +70,21 @@ export function getRecommendations(
     })
     .sort((a, b) => b.score - a.score);
 }
+
+/**
+ * Score a single destination for catalog sorting (no filtering).
+ *
+ * Use this for the Destinations page "Recommended" sort. Unlike
+ * getRecommendations(), this function never filters out destinations —
+ * it only computes a score so the caller can sort. Filtering is handled
+ * separately by the existing filter UI in Destinations.tsx.
+ *
+ * This ensures "Recommended" always shows the same destination count as
+ * any other sort option.
+ */
+export function scoreForCatalog(
+  dest: Destination,
+  context: RecommendationContext,
+): number {
+  return calculateScore(dest, context).score;
+}

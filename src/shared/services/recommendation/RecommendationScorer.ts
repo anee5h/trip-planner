@@ -1,6 +1,7 @@
 import type { Destination } from "@/shared/types/destination";
 import type { RecommendationContext } from "./RecommendationContext";
 import { getAdjustedBudget } from "@/shared/services/budget/BudgetService";
+import { getFixedSeason } from "@/shared/utils/season";
 
 export const SCORING_WEIGHTS = {
   // Base & Ratings
@@ -39,6 +40,10 @@ export const SCORING_WEIGHTS = {
   ENV_RAIN_POOR_INDOOR_PENALTY: 25,
   ENV_TEMP_MULTIPLIER: 5,
   ENV_TEMP_PENALTY: 25,
+
+  // Season (calendar-based, independent of live weather)
+  // A perfect 10/10 seasonal destination adds +30 — conservative starting value.
+  SEASON_MULTIPLIER: 3,
 };
 
 export function getValidModes(
@@ -245,6 +250,14 @@ export function calculateScore(
     score += (ratings.winter - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER;
     if (ratings.winter <= 4) score -= SCORING_WEIGHTS.ENV_TEMP_PENALTY;
   }
+
+  // Calendar Season Scoring
+  // Independent of live weather — a cold rainy July is still calendar-summer.
+  // Reads destination.season[currentSeason] (0-10 scale, fully populated on all destinations).
+  // Falls back to 5 (neutral mid-point) if the field is missing.
+  const currentSeason = getFixedSeason();
+  const seasonScore = dest.season?.[currentSeason] ?? 5;
+  score += seasonScore * SCORING_WEIGHTS.SEASON_MULTIPLIER;
 
   return {
     score,

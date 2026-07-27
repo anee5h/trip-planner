@@ -20,7 +20,11 @@ import {
   getDynamicTransportOptions,
 } from "@/shared/utils/distance";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import { getValidModes } from "@/shared/services/recommendation/RecommendationService";
+import {
+  getValidModes,
+  scoreForCatalog,
+} from "@/shared/services/recommendation/RecommendationService";
+import type { RecommendationContext } from "@/shared/services/recommendation/RecommendationContext";
 import {
   tokenizeQuery,
   matchesDestination,
@@ -39,7 +43,7 @@ export default function Destinations() {
   const allDestinations = getDestinationList() as Destination[];
   const [searchQuery, setSearchQuery] = useState("");
   const [maxBudget, setMaxBudget] = useState(100000);
-  const [sortBy, setSortBy] = useState("overall");
+  const [sortBy, setSortBy] = useState("recommended");
   const { user } = useAuth();
   const [carMode, setCarMode] = useState("none");
   const [publicModes, setPublicModes] = useState<string[]>([
@@ -75,6 +79,29 @@ export default function Destinations() {
       setPartySize(user.user_metadata.preferences.partySize || 2);
     }
   }, [user]);
+
+  // Build context for catalog scoring ("Recommended" sort).
+  // Sourced from saved Settings → Travel Preferences where available.
+  // Documented defaults when not saved:
+  //   tripType: "" — hits no switch case, zero trip-type impact (clean neutral)
+  //   budget:   50_000 JPY — mid-range, non-destructive fallback
+  //   partySize/carMode/publicModes: from saved preferences or fallback values
+  // currentWeatherCondition: "" — calendar season (via getFixedSeason in scorer)
+  //   handles the seasonal dimension; no ambient weather fetch needed.
+  const catalogContext = useMemo<RecommendationContext>(() => {
+    const prefs = user?.user_metadata?.preferences ?? {};
+    return {
+      tripType: "",
+      budget: 50_000,
+      partySize: prefs.partySize ?? 2,
+      carMode: prefs.carMode ?? "none",
+      publicModes: prefs.publicModes ?? ["train"],
+      currentWeatherCondition: "",
+      currentWeather: null,
+      visitedIds: [],
+      homeStationCoords: homeStationCoords ?? null,
+    };
+  }, [user, homeStationCoords]);
 
   // Reset page to 1 when filters change
   useEffect(() => {
@@ -197,6 +224,11 @@ export default function Destinations() {
     // 6. Sort
     result = [...result].sort((a, b) => {
       switch (sortBy) {
+        case "recommended":
+          return (
+            scoreForCatalog(b, catalogContext) -
+            scoreForCatalog(a, catalogContext)
+          );
         case "budget":
           return (
             Math.min(
@@ -247,6 +279,7 @@ export default function Destinations() {
     weather,
     maxWalking,
     homeStationCoords,
+    catalogContext,
   ]);
 
   const resetFilters = () => {
@@ -255,7 +288,7 @@ export default function Destinations() {
     setSelectedPrefectures([]);
     setSelectedCollections([]);
     setMaxBudget(100000);
-    setSortBy("overall");
+    setSortBy("recommended");
     setCarMode("none");
     setPublicModes(["train", "bus", "shinkansen"]);
     setPartySize(2);

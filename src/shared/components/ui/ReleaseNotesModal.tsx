@@ -8,13 +8,24 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.42",
+    version: "v1.7.43",
     tag: "Current",
+    date: "July 2026",
+    title: "\u2728 Recommended Default Sort on Destinations",
+    highlights: [
+      "Added 'Recommended' as the new default sort on the Destinations page — seasons, transport fit, and saved travel preferences all factor in",
+      "Calendar-season scoring added to the recommendation engine (spring/summer/autumn/winter, independent of live weather)",
+      "Sort never filters destinations — 'Recommended' always shows the same count as any other sort option",
+      "Saved Settings > Travel Preferences (carMode, publicModes, partySize) are automatically applied to scoring",
+    ],
+  },
+  {
+    version: "v1.7.42",
     date: "July 2026",
     title: "Navbar Micro-Polish & Translucent Glass Refinement",
     highlights: [
       "Elevated Navbar height to 68px and added translucent glass backdrop-blur-xl styling",
-      "Added OS-aware search shortcut badge rendering Ctrl K on Linux/Windows and ⌘K on macOS",
+      "Added OS-aware search shortcut badge rendering Ctrl K on Linux/Windows and \u2318K on macOS",
       "Refined search bar with +4px icon padding, +15% placeholder text contrast, and 10% narrower width",
       "Enhanced active navigation pill state with distinct emerald background and accent borders",
     ],

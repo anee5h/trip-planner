@@ -26,6 +26,7 @@ import {
   RotateCcw,
   MapPin,
   X,
+  Sparkles,
 } from "lucide-react";
 
 const REGION_PREFECTURES_MAP: Record<string, string[]> = {
@@ -429,6 +430,12 @@ export default function DestinationFilters({
             }}
           >
             <SelectTrigger className="h-10 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-colors rounded-xl font-medium text-xs">
+              {sortBy === "recommended" && (
+                <div className="flex items-center">
+                  <Sparkles className="w-3.5 h-3.5 mr-2 text-emerald-500" />{" "}
+                  Recommended
+                </div>
+              )}
               {sortBy === "overall" && (
                 <div className="flex items-center">
                   <Star className="w-3.5 h-3.5 mr-2 text-amber-500" /> Highest
@@ -473,6 +480,15 @@ export default function DestinationFilters({
               )}
             </SelectTrigger>
             <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
+              <SelectItem
+                value="recommended"
+                className="py-2 px-3 text-xs cursor-pointer"
+              >
+                <div className="flex items-center">
+                  <Sparkles className="w-3.5 h-3.5 mr-2 text-emerald-500" />{" "}
+                  Recommended
+                </div>
+              </SelectItem>
               <SelectItem
                 value="overall"
                 className="py-2 px-3 text-xs cursor-pointer"
