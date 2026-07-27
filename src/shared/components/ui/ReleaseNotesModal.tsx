@@ -8,8 +8,18 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.50",
+    version: "v1.7.51",
     tag: "Current",
+    date: "July 2026",
+    title: "Manual QA Image Corrections for 28 Destinations",
+    highlights: [
+      "Replaced incorrect and low-quality landmark images across 28 catalog destinations with high-definition Wikimedia and Unsplash assets",
+      "Corrected imagery for Kintai Bridge, Ashikaga Flower Park, Dewa Sanzan, Teshima, Abukuma Cave, Kakunodate, Akiyoshido, Ryugado, Kouri Island, and 19 others",
+      "Upscaled Wikimedia thumbnails to high-res 1920px crisp displays",
+    ],
+  },
+  {
+    version: "v1.7.50",
     date: "July 2026",
     title: "Zoorasia, teamLab Borderless, Tama Zoo & Ueno Zoo Expansion",
     highlights: [
