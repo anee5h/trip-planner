@@ -8,8 +8,18 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.35",
+    version: "v1.7.36",
     tag: "Current",
+    date: "July 2026",
+    title: "Standardized Release Ruleset & Protocol Enforcement",
+    highlights: [
+      "Established standard Release Ruleset document at docs/RELEASE_RULES.md",
+      "Synchronized all historical release notes from v1.7.22 up to v1.7.36 in ReleaseNotesModal",
+      "Mandated pre-commit Prettier formatting verification and multi-branch release sync",
+    ],
+  },
+  {
+    version: "v1.7.35",
     date: "July 2026",
     title: "Intelligent Timeline Fallback Date & Custom SQL Sync",
     highlights: [
