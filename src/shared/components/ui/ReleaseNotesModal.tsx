@@ -8,8 +8,20 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.49",
+    version: "v1.7.50",
     tag: "Current",
+    date: "July 2026",
+    title: "Zoorasia, teamLab Borderless, Tama Zoo & Ueno Zoo Expansion",
+    highlights: [
+      "Added Yokohama Zoorasia, Japan's premier 100-acre naturalistic zoological garden",
+      "Added teamLab Borderless at Azabudai Hills, featuring world-famous boundaryless digital art installations",
+      "Added Tama Zoological Park near Tachikawa, featuring open-range enclosures and Lion Bus safari",
+      "Added Ueno Zoo, Japan's historic 1882 zoo inside Ueno Park famous for giant pandas",
+      "Expanded catalog to 309 destinations across Japan",
+    ],
+  },
+  {
+    version: "v1.7.49",
     date: "July 2026",
     title: "Okinawa Region Filter & Regional Audit",
     highlights: [

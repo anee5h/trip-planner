@@ -25096,7 +25096,8 @@
       "heatTolerance": 7,
       "rainFriendly": 7,
       "walkingIntensity": 3
-    }
+    },
+    "role": "hub"
   },
   {
     "id": "taito-city",
@@ -27095,7 +27096,8 @@
     "collections": [],
     "relationships": {
       "parentDestinationId": "chiyoda-city"
-    }
+    },
+    "role": "hub"
   },
   {
     "id": "tokyo-tower-minato",
@@ -28034,7 +28036,8 @@
       "parentDestinationId": "taito-city"
     },
     "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate"
+    "weatherDependence": "moderate",
+    "role": "hub"
   },
   {
     "id": "uji-city",
@@ -31952,5 +31955,444 @@
       "featuredDestinationIds": [],
       "nearbyDestinationIds": []
     }
+  },
+  {
+    "id": "teamlab-borderless-azabudai",
+    "name": "teamLab Borderless",
+    "prefecture": "Tokyo",
+    "region": "Kanto",
+    "categories": ["Art", "Digital Art", "Museum", "Indoor"],
+    "heroImage": "https://images.unsplash.com/photo-1593073862407-a3ce22748763?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVhbWxhYiUyMHBsYW5ldHMlMjB0b2t5b3xlbnwwfHwwfHx8MA%3D%3D",
+    "totalTripHours": 4,
+    "budgetMin": 11600,
+    "budgetRecommended": 15600,
+    "budgetMax": 19600,
+    "walkingMin": 3000,
+    "walkingSunMin": 0,
+    "walkingShadeMin": 3000,
+    "indoorPercent": 100,
+    "ratings": {
+      "overall": 9.4,
+      "couple": 9.9,
+      "summer": 10,
+      "winter": 10,
+      "rain": 10,
+      "food": 8,
+      "photography": 10,
+      "relaxation": 8.5,
+      "value": 8.5,
+      "uniqueness": 10
+    },
+    "crowd": {
+      "weekday": 8,
+      "weekend": 10,
+      "holiday": 10
+    },
+    "season": {
+      "spring": 9,
+      "summer": 9,
+      "autumn": 9,
+      "winter": 9
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "tags": ["Digital Art", "Photogenic", "Date Spot", "Interactive Museum"],
+    "coordinates": {
+      "lat": 35.6603,
+      "lng": 139.741
+    },
+    "comfort": {
+      "heatTolerance": 10,
+      "rainFriendly": 10,
+      "walkingIntensity": 3
+    },
+    "image": "https://images.unsplash.com/photo-1593073862407-a3ce22748763?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVhbWxhYiUyMHBsYW5ldHMlMjB0b2t5b3xlbnwwfHwwfHx8MA%3D%3D",
+    "transportOptions": {
+      "train": 50
+    },
+    "highlights": [
+      "Borderless World",
+      "Light Sculpture",
+      "Athletic Forest",
+      "EN TEA HOUSE"
+    ],
+    "description": "teamLab Borderless at Azabudai Hills is a world-famous museum of artworks without boundaries, a grand world of interactive digital art continuously creating and shifting.",
+    "budgetBreakdown": {
+      "transport": 1000,
+      "tickets": 8600,
+      "food": 4200,
+      "cafe": 1800
+    },
+    "reservation": "Required online in advance.",
+    "parking": "Paid parking at Azabudai Hills.",
+    "itineraries": [
+      {
+        "name": "Classic Day Trip",
+        "description": "Immerse yourself in the borderless digital art experience at Azabudai Hills.",
+        "steps": [
+          {
+            "time": "10:00 AM",
+            "activity": "Arrive at Kamiyacho Station and walk to Azabudai Hills."
+          },
+          {
+            "time": "10:30 AM",
+            "activity": "Enter teamLab Borderless and explore the Borderless World."
+          },
+          {
+            "time": "1:00 PM",
+            "activity": "Enjoy tea with blooming digital flowers at EN TEA HOUSE."
+          },
+          {
+            "time": "2:30 PM",
+            "activity": "Explore Azabudai Hills architecture and shopping."
+          }
+        ]
+      }
+    ],
+    "restaurants": ["Janu Tokyo Dining", "Azabudai Hills Market"],
+    "cafes": ["EN TEA HOUSE", "Arabica Tokyo Azabudai Hills"],
+    "notes": "Timed entry tickets required. Some artworks feature mirror floors; pants recommended.",
+    "schemaVersion": 2,
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "high"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "tokyo-station-chiyoda"
+    },
+    "kind": "museum",
+    "role": "poi",
+    "bestSeason": "Year-round",
+    "weatherDependence": "indoor"
+  },
+  {
+    "id": "yokohama-zoorasia",
+    "name": "Yokohama Zoorasia",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "categories": ["Zoo", "Nature", "Family", "Outdoor"],
+    "heroImage": "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
+    "totalTripHours": 5,
+    "budgetMin": 5000,
+    "budgetRecommended": 8700,
+    "budgetMax": 12000,
+    "walkingMin": 7000,
+    "walkingSunMin": 5000,
+    "walkingShadeMin": 2000,
+    "indoorPercent": 20,
+    "ratings": {
+      "overall": 8.8,
+      "couple": 8.5,
+      "summer": 7.5,
+      "winter": 8,
+      "rain": 6.5,
+      "food": 7.5,
+      "photography": 8.8,
+      "relaxation": 8.5,
+      "value": 9.2,
+      "uniqueness": 8.8
+    },
+    "crowd": {
+      "weekday": 4,
+      "weekend": 8,
+      "holiday": 9
+    },
+    "season": {
+      "spring": 9.5,
+      "summer": 7,
+      "autumn": 9.5,
+      "winter": 7.5
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "tags": ["Animals", "Family Friendly", "Spacious Park", "Wildlife"],
+    "coordinates": {
+      "lat": 35.4965,
+      "lng": 139.5303
+    },
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "image": "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
+    "transportOptions": {
+      "train": 45,
+      "bus": 20
+    },
+    "highlights": [
+      "Asian Tropical Forest",
+      "African Savanna",
+      "Okapi Habitat",
+      "Subarctic Forest"
+    ],
+    "description": "Yokohama Zoological Gardens Zoorasia is one of Japan's largest and most modern zoos, featuring expansive naturalistic ecological zones created to mimic animal habitats worldwide.",
+    "budgetBreakdown": {
+      "transport": 1600,
+      "tickets": 1600,
+      "food": 4000,
+      "cafe": 1500
+    },
+    "reservation": "Not required for general admission.",
+    "parking": "Available on-site.",
+    "itineraries": [
+      {
+        "name": "Classic Day Trip",
+        "description": "Explore ecological climates of the world at Zoorasia.",
+        "steps": [
+          {
+            "time": "9:30 AM",
+            "activity": "Take Sotetsu Line to Tsurugamine or Mitsukyo Station and board the Zoorasia bus."
+          },
+          {
+            "time": "10:15 AM",
+            "activity": "Enter Zoorasia and tour Asian Tropical Forest and Subarctic zone."
+          },
+          {
+            "time": "12:30 PM",
+            "activity": "Lunch at Savanna Terrace overlooking the African plains."
+          },
+          {
+            "time": "2:00 PM",
+            "activity": "Observe rare Okapi and Amazon Jungle animals before heading back."
+          }
+        ]
+      }
+    ],
+    "restaurants": ["Savanna Terrace", "Aura Restaurant"],
+    "cafes": ["Zoorasia Ocean Cafe", "Forest Cafe"],
+    "notes": "Extensive walking required; comfortable walking shoes recommended.",
+    "schemaVersion": 2,
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "high"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    },
+    "kind": "zoo",
+    "role": "poi",
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "high"
+  },
+  {
+    "id": "tama-zoological-park",
+    "name": "Tama Zoological Park",
+    "aliases": ["Tama Zoo", "Tachikawa Zoo"],
+    "prefecture": "Tokyo",
+    "region": "Kanto",
+    "categories": ["Zoo", "Nature", "Family", "Outdoor"],
+    "heroImage": "https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
+    "totalTripHours": 5,
+    "budgetMin": 4500,
+    "budgetRecommended": 7400,
+    "budgetMax": 10000,
+    "walkingMin": 8000,
+    "walkingSunMin": 6000,
+    "walkingShadeMin": 2000,
+    "indoorPercent": 15,
+    "ratings": {
+      "overall": 8.9,
+      "couple": 8.4,
+      "summer": 7,
+      "winter": 8,
+      "rain": 6,
+      "food": 7.2,
+      "photography": 8.9,
+      "relaxation": 8.6,
+      "value": 9.4,
+      "uniqueness": 9
+    },
+    "crowd": {
+      "weekday": 4,
+      "weekend": 8,
+      "holiday": 9
+    },
+    "season": {
+      "spring": 9.5,
+      "summer": 6.5,
+      "autumn": 9.5,
+      "winter": 7.5
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "tags": ["Animals", "Monorail", "Lion Bus", "Insectarium"],
+    "coordinates": {
+      "lat": 35.6481,
+      "lng": 139.4002
+    },
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 7
+    },
+    "image": "https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
+    "transportOptions": {
+      "train": 35
+    },
+    "highlights": [
+      "Lion Bus Safari",
+      "Orangutan Skywalk",
+      "Insectarium Glasshouse",
+      "Cheetah Run"
+    ],
+    "description": "Tama Zoological Park near Tachikawa is a massive 125-acre natural park zoo featuring wide open enclosures, the famous Lion Bus safari, and high-wire orangutan skywalks.",
+    "budgetBreakdown": {
+      "transport": 1400,
+      "tickets": 1200,
+      "food": 3600,
+      "cafe": 1200
+    },
+    "reservation": "Not required for general admission.",
+    "parking": "Paid private parking nearby.",
+    "itineraries": [
+      {
+        "name": "Classic Day Trip",
+        "description": "Ride the Tama Monorail from Tachikawa for a day at Tama Zoo.",
+        "steps": [
+          {
+            "time": "9:30 AM",
+            "activity": "Take Tama Toshi Monorail from Tachikawa Station to Tama-Dobutsukoen Station."
+          },
+          {
+            "time": "10:00 AM",
+            "activity": "Enter Tama Zoo and ride the iconic Lion Bus."
+          },
+          {
+            "time": "12:30 PM",
+            "activity": "Lunch at the Asian Garden food court."
+          },
+          {
+            "time": "2:00 PM",
+            "activity": "Visit the Insectarium and watch the Orangutan Skywalk."
+          }
+        ]
+      }
+    ],
+    "restaurants": ["Asian Garden Rest House", "African Garden Cafe"],
+    "cafes": ["Tama Zoo Entrance Cafe", "Monorail View Cafe"],
+    "notes": "Built on hilly terrain; free internal shuttle buses available for elderly visitors and families.",
+    "schemaVersion": 2,
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "high"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "tachikawa-tokyo"
+    },
+    "kind": "zoo",
+    "role": "poi",
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "high"
+  },
+  {
+    "id": "ueno-zoo",
+    "name": "Ueno Zoo",
+    "aliases": ["Ueno Zoological Gardens"],
+    "prefecture": "Tokyo",
+    "region": "Kanto",
+    "categories": ["Zoo", "Nature", "Family", "Historic"],
+    "heroImage": "https://images.unsplash.com/photo-1564349683136-77e08dba1ef9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
+    "totalTripHours": 4,
+    "budgetMin": 4000,
+    "budgetRecommended": 7000,
+    "budgetMax": 10000,
+    "walkingMin": 5000,
+    "walkingSunMin": 3000,
+    "walkingShadeMin": 2000,
+    "indoorPercent": 25,
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.6,
+      "summer": 7.2,
+      "winter": 8.1,
+      "rain": 6.8,
+      "food": 7,
+      "photography": 8.7,
+      "relaxation": 8,
+      "value": 9.5,
+      "uniqueness": 8.6
+    },
+    "crowd": {
+      "weekday": 6,
+      "weekend": 9,
+      "holiday": 10
+    },
+    "season": {
+      "spring": 9.5,
+      "summer": 7,
+      "autumn": 9,
+      "winter": 7.5
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "tags": ["Panda", "Historic Zoo", "Ueno Park", "Family Friendly"],
+    "coordinates": {
+      "lat": 35.7164,
+      "lng": 139.7713
+    },
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 6,
+      "walkingIntensity": 5
+    },
+    "image": "https://images.unsplash.com/photo-1564349683136-77e08dba1ef9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
+    "transportOptions": {
+      "train": 15
+    },
+    "highlights": [
+      "Giant Panda Forest",
+      "Five-Story Pagoda of Former Kan'ei-ji",
+      "Shinobazu Pond Waterfowl",
+      "Gorilla Woods"
+    ],
+    "description": "Opened in 1882, Ueno Zoo is Japan's oldest zoo, located inside Ueno Park and world-famous for its giant pandas, five-story pagoda, and diverse wildlife exhibits.",
+    "budgetBreakdown": {
+      "transport": 800,
+      "tickets": 1200,
+      "food": 3600,
+      "cafe": 1400
+    },
+    "reservation": "Not required, but advance online tickets recommended during peak weekends.",
+    "parking": "No dedicated parking; use Ueno station public lots.",
+    "itineraries": [
+      {
+        "name": "Classic Day Trip",
+        "description": "Combine Ueno Zoo with a stroll through historic Ueno Park.",
+        "steps": [
+          {
+            "time": "9:30 AM",
+            "activity": "Arrive at JR Ueno Station (Park Gate)."
+          },
+          {
+            "time": "9:45 AM",
+            "activity": "Enter Ueno Zoo and visit the Giant Panda Forest."
+          },
+          {
+            "time": "12:00 PM",
+            "activity": "Lunch at Shinobazu Deck restaurant inside the zoo."
+          },
+          {
+            "time": "1:30 PM",
+            "activity": "Explore West Garden aquatic life and historic Kan'ei-ji pagoda."
+          }
+        ]
+      }
+    ],
+    "restaurants": ["Shinobazu Deck Rest House", "East Garden Cafe"],
+    "cafes": ["Ueno Park Starbucks", "Panda Soft Serve Kiosk"],
+    "notes": "Closed on Mondays (or Tuesday if Monday is a national holiday).",
+    "schemaVersion": 2,
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "high"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "ueno-taito"
+    },
+    "kind": "zoo",
+    "role": "poi",
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate"
   }
 ]
