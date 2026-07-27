@@ -8,8 +8,19 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.39",
+    version: "v1.7.40",
     tag: "Current",
+    date: "July 2026",
+    title: "Flattened Navbar Direct-Link Navigation & Mobile Sync",
+    highlights: [
+      "Flattened desktop navigation to 5 always-visible direct-link pills (Destinations, Collections, My Trips, Bucket List, Passport) with subtle cluster dividers",
+      "Unified active pill styling using clean background highlights",
+      "Synchronized mobile drawer navigation items and added missing Bucket List entry",
+      "Cleaned up legacy hover dropdown state, timers, and event handlers",
+    ],
+  },
+  {
+    version: "v1.7.39",
     date: "July 2026",
     title: "Inclusive Multi-Tab QA Engineering Studio",
     highlights: [
