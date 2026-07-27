@@ -234,7 +234,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
       setVisitedDates(updatedDates);
       setVisitedPrefectures(updatedPrefectures);
     }
-  }, []);
+  }, [visited, visitedDates]);
 
   const toggleFavorite = (id: string) => {
     setFavorites((prev) =>

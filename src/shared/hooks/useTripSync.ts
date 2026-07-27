@@ -5,6 +5,9 @@ import { toast } from "sonner";
 import type { Trip } from "@/shared/types/trip";
 import { SupabaseTripRepository } from "@/shared/services/trips/TripRepository";
 import { generateUUID, isValidUUID } from "@/shared/utils/uuid";
+import destinationsIndex from "@/shared/data/destinations-index.json";
+import type { Destination } from "@/shared/types/destination";
+import { formatPrefectureId } from "@/shared/hooks/useTripStore";
 
 interface UseTripSyncProps {
   user: User | null;
@@ -110,6 +113,13 @@ export function useTripSync({
             return;
           }
           if (data) {
+            console.log("[TabiMap Sync] Auth User:", user.id);
+            console.log("[TabiMap Sync] Fetched user_data:", data);
+            console.log(
+              "[TabiMap Sync] Fetched visited length:",
+              data.visited?.length ?? 0,
+            );
+
             if (data.favorites) {
               setFavorites((prev) =>
                 Array.from(new Set([...prev, ...data.favorites])),
@@ -120,11 +130,29 @@ export function useTripSync({
                 Array.from(new Set([...prev, ...data.visited])),
               );
             }
-            if (data.visited_prefectures) {
-              setVisitedPrefectures((prev) =>
-                Array.from(new Set([...prev, ...data.visited_prefectures])),
-              );
+
+            // Derive prefectures from visited destination IDs to ensure visitedPrefectures is never empty
+            const remotePrefs = data.visited_prefectures || [];
+            const derivedPrefs = new Set<string>(remotePrefs);
+            if (data.visited && Array.isArray(data.visited)) {
+              data.visited.forEach((id: string) => {
+                const dest = (destinationsIndex as Destination[]).find(
+                  (d) => d.id === id,
+                );
+                if (dest && dest.prefecture) {
+                  derivedPrefs.add(formatPrefectureId(dest.prefecture));
+                }
+              });
             }
+
+            console.log(
+              "[TabiMap Sync] Derived prefectures count:",
+              derivedPrefs.size,
+            );
+
+            setVisitedPrefectures((prev) =>
+              Array.from(new Set([...prev, ...derivedPrefs])),
+            );
             if (data.visited_dates && setVisitedDates) {
               setVisitedDates((prev) => {
                 const merged = { ...prev };
