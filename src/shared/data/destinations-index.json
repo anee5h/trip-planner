@@ -23332,9 +23332,9 @@
     "prefecture": "Miyagi",
     "region": "Tohoku",
     "categories": ["Cities", "Hub", "Sightseeing"],
-    "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1d/SendaiCity_Skylines_from_Mukaiyama2018.jpg",
     "gallery": [
-      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop"
+      "https://upload.wikimedia.org/wikipedia/commons/1/1d/SendaiCity_Skylines_from_Mukaiyama2018.jpg"
     ],
     "description": "Sendai City is one of Japan's 20 ordinance-designated core metropolis hubs, featuring rich regional history, vibrant food markets, and high-speed rail transit connectivity.",
     "highlights": [
@@ -23420,7 +23420,7 @@
         ]
       }
     ],
-    "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1280&auto=format&fit=crop",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/SendaiCity_Skylines_from_Mukaiyama2018.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
