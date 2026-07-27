@@ -8,8 +8,21 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.56",
+    version: "v1.7.57",
     tag: "Current",
+    date: "July 2026",
+    title: "Categorical Walking Intensity — Filter, Compare & Ratings",
+    highlights: [
+      "Replaced step-count walking metrics with Low / Moderate / High intensity badges across the entire app",
+      "Walking Intensity filter in Destination Filters upgraded from a slider to clean pill buttons (Any / 🟢 Low / 🟡 Moderate / 🔴 High)",
+      "Removed '👣 Walk ~X.Xk steps' row from Travel Time card — walking is now a filter-level signal, not a logistics metric",
+      "Walk Intensity badge shown in Comfort Metrics card and added as a dedicated item in Detailed Ratings grid",
+      "Compare page (table & mobile cards) and Compare Modal now display Walk Intensity badges instead of raw step counts",
+    ],
+  },
+  {
+    version: "v1.7.56",
+    tag: "",
     date: "July 2026",
     title: "Party Size Round-Trip Cost Scaling for Flight Travel Time Cards",
     highlights: [

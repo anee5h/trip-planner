@@ -53,9 +53,14 @@ import {
   ChevronDown,
   ChevronUp,
   Plane,
+  Footprints,
 } from "lucide-react";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
+import {
+  getWalkingIntensity,
+  getWalkingIntensityMetadata,
+} from "@/shared/utils/walking";
 import { toast } from "sonner";
 import {
   WikipediaService,
@@ -945,13 +950,6 @@ export default function DestinationDetails() {
                             </div>
                           </div>
                         )}
-                        <div className="flex justify-between items-center text-sm">
-                          <span className="text-slate-500">👣 Walk</span>
-                          <span className="font-semibold text-slate-700 dark:text-slate-300">
-                            ~{((destination.walkingMin ?? 0) / 1000).toFixed(1)}
-                            k steps
-                          </span>
-                        </div>
                       </div>
                     </CardContent>
                   </Card>
@@ -1097,14 +1095,23 @@ export default function DestinationDetails() {
                               {destination.comfort.rainFriendly}/10
                             </span>
                           </div>
-                          <div className="flex justify-between items-center text-sm">
-                            <span className="text-slate-500">
-                              🚶 Walk Intensity
-                            </span>
-                            <span className="font-semibold text-slate-700 dark:text-slate-300">
-                              {destination.comfort.walkingIntensity}/10
-                            </span>
-                          </div>
+                          {(() => {
+                            const walkMeta = getWalkingIntensityMetadata(
+                              getWalkingIntensity(destination),
+                            );
+                            return (
+                              <div className="flex justify-between items-center text-sm">
+                                <span className="text-slate-500">
+                                  🚶 Walk Intensity
+                                </span>
+                                <span
+                                  className={`px-2.5 py-0.5 rounded-full text-xs font-extrabold border ${walkMeta.badgeClass}`}
+                                >
+                                  {walkMeta.icon} {walkMeta.label}
+                                </span>
+                              </div>
+                            );
+                          })()}
                         </div>
                       </CardContent>
                     </Card>
@@ -1115,7 +1122,7 @@ export default function DestinationDetails() {
               <TabsContent value="ratings" className="mt-4">
                 <Card>
                   <CardContent className="p-6">
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                       <RatingItem
                         icon={Heart}
                         label="Couple"
@@ -1130,6 +1137,15 @@ export default function DestinationDetails() {
                         icon={Umbrella}
                         label="Rain"
                         value={destination.ratings.rain}
+                      />
+                      <RatingItem
+                        icon={Footprints}
+                        label="Walk Intensity"
+                        value={
+                          getWalkingIntensityMetadata(
+                            getWalkingIntensity(destination),
+                          ).label
+                        }
                       />
                       <RatingItem
                         icon={Camera}

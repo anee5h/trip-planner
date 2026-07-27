@@ -25,6 +25,19 @@
     }
   },
   {
+    "id": "abukuma-cave-fukushima",
+    "name": "Abukuma Cave",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
     "id": "adachi-city",
     "name": "Adachi City",
     "prefecture": "Tokyo",
@@ -67,6 +80,19 @@
     }
   },
   {
+    "id": "akiyoshido-cave-yamaguchi",
+    "name": "Akiyoshido Cave",
+    "prefecture": "Yamaguchi",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
     "id": "amami-iriomote-natural-site",
     "name": "Amami-Oshima, Tokunoshima, Northern Okinawa & Iriomote",
     "prefecture": "Kagoshima",
@@ -102,6 +128,19 @@
         "chofu-tokyo"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "arakurayama-sengen-park-yamanashi",
+    "name": "Arakurayama Sengen Park & Chureito Pagoda",
+    "prefecture": "Yamanashi",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
     }
   },
   {
@@ -159,6 +198,19 @@
     "status": "verified",
     "relationships": {
       "parentDestinationId": "hakone-town"
+    }
+  },
+  {
+    "id": "ashikaga-flower-park-tochigi",
+    "name": "Ashikaga Flower Park Wisteria",
+    "prefecture": "Tochigi",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
     }
   },
   {
@@ -232,6 +284,19 @@
         "kitakyushu-city",
         "dazaifu-city"
       ]
+    }
+  },
+  {
+    "id": "beppu-hells-oita",
+    "name": "Beppu Hells (Jigoku Meguri)",
+    "prefecture": "Oita",
+    "region": "Kyushu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
     }
   },
   {
@@ -449,6 +514,19 @@
     }
   },
   {
+    "id": "dewa-sanzan-yamagata",
+    "name": "Dewa Sanzan Three Sacred Mountains",
+    "prefecture": "Yamagata",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
     "id": "disneyland",
     "name": "Tokyo Disneyland",
     "prefecture": "Chiba",
@@ -467,6 +545,19 @@
     "kind": "attraction",
     "status": "verified",
     "relationships": {}
+  },
+  {
+    "id": "dogo-onsen-ehime",
+    "name": "Dogo Onsen Honkan",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
   },
   {
     "id": "edo-castle-tokyo",
@@ -747,6 +838,19 @@
     "status": "verified",
     "relationships": {
       "parentDestinationId": "chuo-city"
+    }
+  },
+  {
+    "id": "ginzan-onsen-yamagata",
+    "name": "Ginzan Onsen",
+    "prefecture": "Yamagata",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
     }
   },
   {
@@ -1147,7 +1251,10 @@
     "role": "poi",
     "kind": "castle",
     "status": "verified",
-    "relationships": {}
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
   },
   {
     "id": "inuyama-city",
@@ -1237,6 +1344,19 @@
     "kind": "attraction",
     "status": "verified",
     "relationships": {}
+  },
+  {
+    "id": "iya-valley-tokushima",
+    "name": "Iya Valley & Vine Bridges",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
   },
   {
     "id": "izu",
@@ -1333,6 +1453,19 @@
     "kind": "attraction",
     "status": "verified",
     "relationships": {}
+  },
+  {
+    "id": "kakunodate-samurai-district-akita",
+    "name": "Kakunodate Samurai District",
+    "prefecture": "Akita",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
   },
   {
     "id": "kamakura-city",
@@ -1492,6 +1625,19 @@
     "relationships": {}
   },
   {
+    "id": "kintai-bridge-yamaguchi",
+    "name": "Kintaikyo Wooden Arch Bridge",
+    "prefecture": "Yamaguchi",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
     "id": "kinugawa-onsen",
     "name": "Kinugawa Onsen",
     "prefecture": "Tochigi",
@@ -1558,6 +1704,19 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["fukuoka-city", "dazaifu-city", "nagasaki-city"]
+    }
+  },
+  {
+    "id": "kiyotsu-gorge-niigata",
+    "name": "Kiyotsu Gorge Tunnel of Light",
+    "prefecture": "Niigata",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
     }
   },
   {
@@ -1659,6 +1818,19 @@
         "chofu-tokyo"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "kouri-island-okinawa",
+    "name": "Kouri Island & Heart Rock",
+    "prefecture": "Okinawa",
+    "region": "Okinawa",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
     }
   },
   {
@@ -1902,7 +2074,10 @@
     "role": "poi",
     "kind": "castle",
     "status": "verified",
-    "relationships": {}
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
   },
   {
     "id": "matsumoto-city",
@@ -2126,6 +2301,32 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["naha-city", "nago-city", "ishigaki-city"]
+    }
+  },
+  {
+    "id": "motonosumi-shrine-yamaguchi",
+    "name": "Motonosumi Shrine",
+    "prefecture": "Yamaguchi",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "mount-aso-kumamoto",
+    "name": "Mount Aso Active Caldera",
+    "prefecture": "Kumamoto",
+    "region": "Kyushu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
     }
   },
   {
@@ -2353,6 +2554,19 @@
         "chofu-tokyo"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "naoshima-art-island-kagawa",
+    "name": "Naoshima Contemporary Art Island",
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
     }
   },
   {
@@ -2595,6 +2809,19 @@
     "relationships": {}
   },
   {
+    "id": "oirase-gorge-aomori",
+    "name": "Oirase Mountain Stream & Gorge",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
     "id": "okayama-city",
     "name": "Okayama City",
     "prefecture": "Okayama",
@@ -2797,6 +3024,19 @@
     }
   },
   {
+    "id": "ryugado-cave-kochi",
+    "name": "Ryugado Cave",
+    "prefecture": "Kochi",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
     "id": "sado-island",
     "name": "Sado Island",
     "prefecture": "Niigata",
@@ -2874,6 +3114,19 @@
     "kind": "attraction",
     "status": "verified",
     "relationships": {}
+  },
+  {
+    "id": "sakurajima-volcano-kagoshima",
+    "name": "Sakurajima Stratovolcano",
+    "prefecture": "Kagoshima",
+    "region": "Kyushu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
   },
   {
     "id": "sannai-maruyama-jomon-aomori",
@@ -3127,7 +3380,7 @@
     "name": "Tachikawa",
     "prefecture": "Tokyo",
     "region": "Kanto",
-    "role": "poi",
+    "role": "hub",
     "kind": "attraction",
     "status": "verified",
     "relationships": {}
@@ -3225,6 +3478,19 @@
     }
   },
   {
+    "id": "takeda-castle-ruins-hyogo",
+    "name": "Takeda Castle Ruins",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
     "id": "takeda-castle-yamanashi",
     "name": "Tsutsujigasaki Castle (Takeda Shrine)",
     "prefecture": "Yamanashi",
@@ -3233,6 +3499,30 @@
     "kind": "attraction",
     "status": "verified",
     "relationships": {}
+  },
+  {
+    "id": "tama-zoological-park",
+    "name": "Tama Zoological Park",
+    "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "zoo",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "tachikawa-tokyo"
+    }
+  },
+  {
+    "id": "teamlab-borderless-azabudai",
+    "name": "teamLab Borderless",
+    "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "museum",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "tokyo-station-chiyoda"
+    }
   },
   {
     "id": "teamlab-planets",
@@ -3244,6 +3534,32 @@
     "status": "verified",
     "relationships": {
       "parentDestinationId": "koto-city"
+    }
+  },
+  {
+    "id": "teshima-island-kagawa",
+    "name": "Teshima Art Island",
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "tojinbo-cliffs-fukui",
+    "name": "Tojinbo Basalt Sea Cliffs",
+    "prefecture": "Fukui",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
     }
   },
   {
@@ -3346,7 +3662,7 @@
     "name": "Tokyo Station",
     "prefecture": "Tokyo",
     "region": "Kanto",
-    "role": "poi",
+    "role": "hub",
     "kind": "attraction",
     "status": "verified",
     "relationships": {
@@ -3411,6 +3727,19 @@
     }
   },
   {
+    "id": "tottori-sand-dunes",
+    "name": "Tottori Sand Dunes",
+    "prefecture": "Tottori",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
     "id": "toyama-alpine",
     "name": "Tateyama Kurobe Alpine Route",
     "prefecture": "Toyama",
@@ -3461,6 +3790,19 @@
     }
   },
   {
+    "id": "tsunoshima-bridge-yamaguchi",
+    "name": "Tsunoshima Bridge",
+    "prefecture": "Yamaguchi",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": []
+    }
+  },
+  {
     "id": "ueda-castle-nagano",
     "name": "Ueda Castle Park",
     "prefecture": "Nagano",
@@ -3475,11 +3817,23 @@
     "name": "Ueno (Taito)",
     "prefecture": "Tokyo",
     "region": "Kanto",
-    "role": "poi",
+    "role": "hub",
     "kind": "attraction",
     "status": "verified",
     "relationships": {
       "parentDestinationId": "taito-city"
+    }
+  },
+  {
+    "id": "ueno-zoo",
+    "name": "Ueno Zoo",
+    "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "zoo",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "ueno-taito"
     }
   },
   {
@@ -3660,6 +4014,18 @@
     "region": "Kanto",
     "role": "poi",
     "kind": "attraction",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    }
+  },
+  {
+    "id": "yokohama-zoorasia",
+    "name": "Yokohama Zoorasia",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "zoo",
     "status": "verified",
     "relationships": {
       "parentDestinationId": "yokohama-city"

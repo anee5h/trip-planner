@@ -108,6 +108,7 @@ export interface Destination {
   };
   totalTripHours: number;
   walkingMin: number;
+  walkingIntensity?: "low" | "medium" | "high";
   walkingSunMin: number;
   walkingShadeMin: number;
   indoorPercent: number;

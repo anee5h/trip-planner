@@ -5,6 +5,10 @@ import type { Destination } from "@/shared/types/destination";
 import { Button } from "@/shared/components/ui/button";
 import { Badge } from "@/shared/components/ui/badge";
 import { getAdjustedBudget } from "@/shared/utils/utils";
+import {
+  getWalkingIntensity,
+  getWalkingIntensityMetadata,
+} from "@/shared/utils/walking";
 import { X, Trash2, Scale, ExternalLink } from "lucide-react";
 
 interface CompareModalProps {
@@ -289,10 +293,10 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                   </div>
                 </div>
 
-                {/* Metric 4: Walking Steps */}
+                {/* Metric 4: Walking Intensity */}
                 <div className="space-y-1.5">
                   <div className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                    Walking Distance
+                    Walk Intensity
                   </div>
                   <div
                     className={`grid gap-4 ${
@@ -304,21 +308,19 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                     }`}
                   >
                     {compareDestinations.map((dest) => {
-                      const steps = dest.walkingMin ?? 0;
-                      const isLeast = steps === minWalking;
+                      const walkMeta = getWalkingIntensityMetadata(
+                        getWalkingIntensity(dest),
+                      );
                       return (
                         <div
                           key={dest.id}
                           className="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 flex justify-between items-center min-w-0"
                         >
-                          <span className="font-semibold text-slate-800 dark:text-slate-200 text-xs">
-                            {(steps / 1000).toFixed(1)}k steps
+                          <span
+                            className={`px-2.5 py-0.5 rounded-full text-xs font-bold border ${walkMeta.badgeClass}`}
+                          >
+                            {walkMeta.icon} {walkMeta.label}
                           </span>
-                          {isLeast && (
-                            <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold shrink-0">
-                              Least
-                            </Badge>
-                          )}
                         </div>
                       );
                     })}

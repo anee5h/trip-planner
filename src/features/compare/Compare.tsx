@@ -15,6 +15,11 @@ import { Map, PlusSquare, Trash2 } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
 import { getAdjustedBudget } from "@/shared/utils/utils";
 
+import {
+  getWalkingIntensity,
+  getWalkingIntensityMetadata,
+} from "@/shared/utils/walking";
+
 export default function Compare() {
   const { compareList, toggleCompare, clearCompare } = useTripStore();
   const allDestinations = getDestinationList() as Destination[];
@@ -232,26 +237,22 @@ export default function Compare() {
             </TableRow>
             <TableRow>
               <TableCell className="font-semibold text-slate-700 dark:text-slate-300">
-                Walking Required
+                Walk Intensity
               </TableCell>
-              {compareDestinations.map((dest) => (
-                <TableCell key={dest.id}>
-                  <span
-                    className={
-                      (dest.walkingMin ?? 0) === minWalking
-                        ? "font-bold text-emerald-600 dark:text-emerald-400"
-                        : ""
-                    }
-                  >
-                    {((dest.walkingMin ?? 0) / 1000).toFixed(1)}k steps
-                  </span>
-                  {dest.walkingMin === minWalking && (
-                    <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
-                      Least
-                    </Badge>
-                  )}
-                </TableCell>
-              ))}
+              {compareDestinations.map((dest) => {
+                const walkMeta = getWalkingIntensityMetadata(
+                  getWalkingIntensity(dest),
+                );
+                return (
+                  <TableCell key={dest.id}>
+                    <span
+                      className={`px-2.5 py-0.5 rounded-full text-xs font-bold border ${walkMeta.badgeClass}`}
+                    >
+                      {walkMeta.icon} {walkMeta.label}
+                    </span>
+                  </TableCell>
+                );
+              })}
             </TableRow>
             <TableRow>
               <TableCell className="font-semibold text-slate-700 dark:text-slate-300">
@@ -418,15 +419,15 @@ export default function Compare() {
                 </div>
                 <div>
                   <p className="text-slate-400 font-semibold mb-0.5">
-                    Walking Minutes
+                    Walk Intensity
                   </p>
                   <p className="font-bold text-slate-900 dark:text-white">
-                    {dest.walkingMin ?? 0} min
-                    {(dest.walkingMin ?? 0) === minWalking && (
-                      <span className="ml-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
-                        Min
-                      </span>
-                    )}
+                    {(() => {
+                      const walkMeta = getWalkingIntensityMetadata(
+                        getWalkingIntensity(dest),
+                      );
+                      return `${walkMeta.icon} ${walkMeta.label}`;
+                    })()}
                   </p>
                 </div>
               </div>

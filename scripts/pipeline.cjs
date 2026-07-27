@@ -522,6 +522,17 @@ async function runPipeline() {
       d.walkingMin = 8000;
       filledFieldsCount++;
     }
+    if (!d.walkingIntensity) {
+      const steps = d.walkingMin ?? 4000;
+      if (steps <= 4000) {
+        d.walkingIntensity = "low";
+      } else if (steps <= 8000) {
+        d.walkingIntensity = "medium";
+      } else {
+        d.walkingIntensity = "high";
+      }
+      filledFieldsCount++;
+    }
     if (d.walkingSunMin === undefined || d.walkingSunMin === null) {
       d.walkingSunMin = Math.round(d.walkingMin * 0.6);
       filledFieldsCount++;

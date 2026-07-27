@@ -38,7 +38,12 @@ import {
 
 import { PageHeader } from "@/shared/components/ui/PageHeader";
 
+import { getWalkingIntensity } from "@/shared/utils/walking";
+
 export default function Destinations() {
+  const [searchParams] = useSearchParams();
+  const initialCategory = searchParams.get("category");
+
   const { homeStationCoords, destinationRatings } = useTripStore();
   const allDestinations = getDestinationList() as Destination[];
   const [searchQuery, setSearchQuery] = useState("");
@@ -54,7 +59,8 @@ export default function Destinations() {
   ]);
   const [partySize, setPartySize] = useState(2);
   const [weather, setWeather] = useState("all");
-  const [maxWalking, setMaxWalking] = useState(25000);
+  const [walkingIntensity, setWalkingIntensity] = useState("all");
+
   const [suitabilities, setSuitabilities] = useState<string[]>([]);
   const [interests, setInterests] = useState<string[]>([]);
   const [viewMode, setViewMode] = useState<"grid" | "map">("grid");
@@ -125,7 +131,7 @@ export default function Destinations() {
     publicModes,
     partySize,
     weather,
-    maxWalking,
+    walkingIntensity,
     suitabilities,
     interests,
   ]);
@@ -226,8 +232,12 @@ export default function Destinations() {
       result = result.filter((dest) => (dest.ratings?.winter ?? 0) >= 8);
     }
 
-    // 6. Filter by Max Walking
-    result = result.filter((dest) => (dest.walkingMin ?? 0) <= maxWalking);
+    // 6. Filter by Walking Intensity
+    if (walkingIntensity !== "all") {
+      result = result.filter(
+        (dest) => getWalkingIntensity(dest) === walkingIntensity,
+      );
+    }
 
     // 6. Sort
     result = [...result].sort((a, b) => {
@@ -285,7 +295,7 @@ export default function Destinations() {
     publicModes,
     partySize,
     weather,
-    maxWalking,
+    walkingIntensity,
     homeStationCoords,
     catalogContext,
   ]);
@@ -301,7 +311,7 @@ export default function Destinations() {
     setPublicModes(["train", "bus", "shinkansen"]);
     setPartySize(2);
     setWeather("all");
-    setMaxWalking(25000);
+    setWalkingIntensity("all");
     setSuitabilities([]);
     setInterests([]);
   };
@@ -365,8 +375,8 @@ export default function Destinations() {
         setPartySize={setPartySize}
         weather={weather}
         setWeather={setWeather}
-        maxWalking={maxWalking}
-        setMaxWalking={setMaxWalking}
+        walkingIntensity={walkingIntensity}
+        setWalkingIntensity={setWalkingIntensity}
         suitabilities={suitabilities}
         setSuitabilities={setSuitabilities}
         interests={interests}

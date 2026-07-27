@@ -96,8 +96,8 @@ interface DestinationFiltersProps {
   setPartySize: (val: number) => void;
   weather: string;
   setWeather: (val: string) => void;
-  maxWalking: number;
-  setMaxWalking: (val: number) => void;
+  walkingIntensity: string;
+  setWalkingIntensity: (val: string) => void;
   suitabilities: string[];
   setSuitabilities: (val: string[] | ((prev: string[]) => string[])) => void;
   interests: string[];
@@ -126,8 +126,8 @@ export default function DestinationFilters({
   setPartySize,
   weather,
   setWeather,
-  maxWalking,
-  setMaxWalking,
+  walkingIntensity,
+  setWalkingIntensity,
   suitabilities,
   setSuitabilities,
   interests,
@@ -218,7 +218,7 @@ export default function DestinationFilters({
     (carMode !== "none" ? 1 : 0) +
     (publicModes.length < 4 ? 1 : 0) +
     (maxBudget < 100000 ? 1 : 0) +
-    (maxWalking < 25000 ? 1 : 0) +
+    (walkingIntensity !== "all" ? 1 : 0) +
     (weather !== "all" ? 1 : 0) +
     (partySize !== 2 ? 1 : 0) +
     suitabilities.length +
@@ -790,26 +790,33 @@ export default function DestinationFilters({
             </div>
 
             <div className="space-y-2">
-              <div className="flex justify-between items-center text-xs">
-                <label className="font-bold text-slate-700 dark:text-slate-300">
-                  Max Walking
-                </label>
-                <span className="font-bold text-emerald-600 dark:text-emerald-400">
-                  {maxWalking >= 25000
-                    ? "Any amount"
-                    : `${(maxWalking / 1000).toFixed(1)}k steps`}
-                </span>
+              <label className="block text-xs font-bold text-slate-700 dark:text-slate-300">
+                Walking Intensity
+              </label>
+              <div className="grid grid-cols-4 gap-1.5">
+                {[
+                  { id: "all", label: "Any" },
+                  { id: "low", label: "🟢 Low" },
+                  { id: "medium", label: "🟡 Moderate" },
+                  { id: "high", label: "🔴 High" },
+                ].map((item) => {
+                  const isSelected = walkingIntensity === item.id;
+                  return (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => setWalkingIntensity(item.id)}
+                      className={`px-2 py-1.5 rounded-xl text-xs font-bold border transition-all ${
+                        isSelected
+                          ? "bg-emerald-500 text-white border-emerald-500 shadow-sm"
+                          : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-emerald-300"
+                      }`}
+                    >
+                      {item.label}
+                    </button>
+                  );
+                })}
               </div>
-              <Slider
-                value={[maxWalking]}
-                min={2000}
-                max={25000}
-                step={1000}
-                onValueChange={(val: number | readonly number[]) =>
-                  setMaxWalking(Array.isArray(val) ? val[0] : val)
-                }
-                className="w-full"
-              />
             </div>
           </div>
 
