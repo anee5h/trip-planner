@@ -64,6 +64,7 @@ const REGION_PREFECTURES_MAP: Record<string, string[]> = {
   Hokkaido: ["Hokkaido"],
   Chugoku: ["Hiroshima", "Okayama", "Yamaguchi", "Shimane", "Tottori"],
   Shikoku: ["Ehime", "Kagawa", "Kochi", "Tokushima"],
+  Okinawa: ["Okinawa"],
 };
 
 import { getCollections } from "@/shared/data/collections";

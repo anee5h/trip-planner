@@ -8,8 +8,18 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.48",
+    version: "v1.7.49",
     tag: "Current",
+    date: "July 2026",
+    title: "Okinawa Region Filter & Regional Audit",
+    highlights: [
+      "Added Okinawa to the Region & Prefecture filter dropdown in Destinations Explorer",
+      "Audited all 305 catalog destinations and 127 hubs for region integrity and mapping compliance",
+      "Added dedicated automated unit testing suite for region schema validation",
+    ],
+  },
+  {
+    version: "v1.7.48",
     date: "July 2026",
     title: "Top 20 Destinations & 8 Curated Collections Expansion",
     highlights: [
