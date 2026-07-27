@@ -177,7 +177,7 @@ export default function Settings() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Settings Navigation Sidebar */}
-        <div className="lg:col-span-3 space-y-1">
+        <div className="lg:col-span-3 flex overflow-x-auto lg:flex-col gap-2 pb-2 lg:pb-0 scrollbar-none">
           {[
             { id: "general", label: "General & Base Location", icon: MapPin },
             { id: "travel", label: "Travel Preferences", icon: Car },
@@ -186,16 +186,21 @@ export default function Settings() {
             { id: "data", label: "Data & Export", icon: Download },
           ].map((sec) => {
             const isActive = activeSection === sec.id;
+            const Icon = sec.icon;
             return (
               <button
                 key={sec.id}
+                type="button"
                 onClick={() => setActiveSection(sec.id as SettingsSection)}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-xs font-bold transition-all text-left ${
+                className={`w-full flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap shrink-0 text-left ${
                   isActive
-                    ? "bg-emerald-600 text-white shadow-md shadow-emerald-500/20 border-l-4 border-emerald-400 pl-3"
-                    : "bg-slate-50 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border-l-4 border-transparent"
+                    ? "bg-emerald-600 text-white shadow-md shadow-emerald-500/20 ring-2 ring-emerald-500/30"
+                    : "bg-slate-50 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
                 }`}
               >
+                <Icon
+                  className={`w-4 h-4 shrink-0 ${isActive ? "text-white" : "text-emerald-500"}`}
+                />
                 <span>{sec.label}</span>
               </button>
             );
@@ -237,10 +242,12 @@ export default function Settings() {
                     {/* Reusable StationInput Component */}
                     <StationInput embedded={true} />
 
-                    <p className="text-[11px] text-slate-400 mt-1">
-                      Used as single source of truth for homepage
-                      recommendations and travel time calculations.
-                    </p>
+                    <div className="mt-2.5 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 text-xs font-medium border border-emerald-200 dark:border-emerald-800">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                      <span>
+                        Base location changes save automatically upon selection.
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -429,7 +436,7 @@ export default function Settings() {
               </div>
             )}
 
-            {activeSection !== "data" && (
+            {activeSection !== "data" && activeSection !== "general" && (
               <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end">
                 <Button
                   type="submit"

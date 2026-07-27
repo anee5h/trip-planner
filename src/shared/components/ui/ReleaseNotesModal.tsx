@@ -8,8 +8,22 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.45",
+    version: "v1.7.46",
     tag: "Current",
+    date: "July 2026",
+    title: "Mobile UI, Modal Audit & Wikipedia Collapsible Trigger",
+    highlights: [
+      "Placed 'Read More (Wikipedia)' button directly below custom overview text, rendering Wikipedia summary ONLY when clicked",
+      "Fixed hero back button overlap on mobile with top action bar and font sizing",
+      "Redesigned settings sidebar tabs with Lucide icons, clean pill highlights, and mobile horizontal scrolling",
+      "Clarified base location auto-save behavior and hid redundant Save button on General tab",
+      "Persisted feedback submissions to localStorage with toast notification and direct email fallback",
+      "Fixed horizontal cropping of Base Location selector on mobile destinations page",
+      "Audited and standardized mobile modal responsiveness across AuthModal, FeedbackModal, MarkVisitedModal, and SearchDialog",
+    ],
+  },
+  {
+    version: "v1.7.45",
     date: "July 2026",
     title: "Collapsible Wikipedia Summary on Destination Details",
     highlights: [

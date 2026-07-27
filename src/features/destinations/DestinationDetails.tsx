@@ -348,13 +348,17 @@ export default function DestinationDetails() {
   return (
     <div className="bg-slate-50 dark:bg-background min-h-screen pb-20">
       {/* Hero Image Header */}
-      <div className="relative h-[380px] sm:h-[400px] md:h-[440px] w-full overflow-hidden">
-        <Link
-          to="/destinations"
-          className="absolute top-4 left-4 sm:left-6 z-20 inline-flex items-center text-xs font-semibold px-3 py-1.5 rounded-full bg-black/40 hover:bg-black/60 text-slate-100 backdrop-blur-md border border-white/20 transition-all shadow-md"
-        >
-          <ArrowLeft className="w-3.5 h-3.5 mr-1" /> Back
-        </Link>
+      <div className="relative min-h-[380px] sm:min-h-[400px] md:min-h-[440px] w-full overflow-hidden flex flex-col justify-between">
+        {/* Top Header Bar for Back & Action Buttons */}
+        <div className="absolute top-0 left-0 right-0 p-4 z-20 flex items-center justify-between pointer-events-none bg-gradient-to-b from-slate-950/80 via-slate-950/40 to-transparent">
+          <Link
+            to="/destinations"
+            className="pointer-events-auto inline-flex items-center text-xs font-semibold px-3 py-1.5 rounded-full bg-black/50 hover:bg-black/70 text-slate-100 backdrop-blur-md border border-white/20 transition-all shadow-md"
+          >
+            <ArrowLeft className="w-3.5 h-3.5 mr-1" /> Back
+          </Link>
+        </div>
+
         <img
           src={destination.heroImage}
           alt={destination.name}
@@ -364,15 +368,16 @@ export default function DestinationDetails() {
               (e.currentTarget as HTMLImageElement).src = wikiSummary.leadImage;
             }
           }}
-          className="w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-transparent/10"></div>
-        <div className="absolute bottom-0 left-0 w-full container mx-auto px-4 pb-6 md:pb-8 text-white z-10">
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-transparent/20" />
+
+        <div className="relative w-full container mx-auto px-4 pt-16 sm:pt-20 pb-6 md:pb-8 text-white z-10 mt-auto">
           {/* 1. Destination Title & Japanese Kanji */}
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-1.5 flex flex-wrap items-baseline gap-3 [text-shadow:_0_2px_8px_rgba(0,0,0,0.85)] drop-shadow-md">
+          <h1 className="text-2xl sm:text-4xl md:text-6xl font-extrabold tracking-tight mb-2 flex flex-wrap items-baseline gap-2.5 [text-shadow:_0_2px_8px_rgba(0,0,0,0.85)] drop-shadow-md">
             <span>{destination.name}</span>
             {wikiSummary?.japaneseTitle && (
-              <span className="text-xl md:text-3xl font-semibold text-emerald-400 font-sans tracking-wide">
+              <span className="text-lg sm:text-xl md:text-3xl font-semibold text-emerald-400 font-sans tracking-wide">
                 {wikiSummary.japaneseTitle}
               </span>
             )}
@@ -596,9 +601,30 @@ export default function DestinationDetails() {
 
               {/* Primary Description */}
               {(destination.description || destination.notes) && (
-                <p className="text-base text-slate-600 dark:text-slate-300 leading-7 mb-5">
+                <p className="text-base text-slate-600 dark:text-slate-300 leading-7 mb-4">
                   {destination.description || destination.notes}
                 </p>
+              )}
+
+              {/* Read More Wikipedia Button Trigger directly below custom overview text */}
+              {wikiSummary && (
+                <div className="mb-5">
+                  <button
+                    type="button"
+                    onClick={() => setIsWikiExpanded(!isWikiExpanded)}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/50 transition-colors border border-slate-200 dark:border-slate-700"
+                  >
+                    <BookOpen className="w-3.5 h-3.5" />
+                    <span>
+                      {isWikiExpanded ? "Show less" : "Read More (Wikipedia)"}
+                    </span>
+                    {isWikiExpanded ? (
+                      <ChevronUp className="w-3.5 h-3.5" />
+                    ) : (
+                      <ChevronDown className="w-3.5 h-3.5" />
+                    )}
+                  </button>
+                </div>
               )}
 
               {/* Reassuring Beta Travel Estimate Calibration Notice */}
@@ -612,13 +638,13 @@ export default function DestinationDetails() {
                 </div>
               )}
 
-              {/* Collapsible Secondary Wikipedia Reference Box */}
-              {wikiSummary && (
-                <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 border border-slate-200/80 dark:border-slate-700/60 mb-6 transition-all">
-                  <div className="flex items-center justify-between font-semibold text-xs text-slate-500 dark:text-slate-400 mb-2">
+              {/* Wikipedia Reference Box (Opened ONLY when Read More is clicked) */}
+              {wikiSummary && isWikiExpanded && (
+                <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 border border-slate-200/80 dark:border-slate-700/60 mb-6 space-y-2 animate-in fade-in duration-150">
+                  <div className="flex items-center justify-between font-semibold text-xs text-slate-500 dark:text-slate-400 border-b border-slate-200/60 dark:border-slate-700/60 pb-2">
                     <div className="flex items-center gap-1.5 font-bold text-slate-700 dark:text-slate-300">
                       <BookOpen className="w-3.5 h-3.5 text-emerald-500" />
-                      <span>Wikipedia Reference</span>
+                      <span>Wikipedia Summary</span>
                     </div>
                     <a
                       href={wikiSummary.url}
@@ -631,29 +657,9 @@ export default function DestinationDetails() {
                       4.0)
                     </a>
                   </div>
-
-                  <p
-                    className={`text-xs text-slate-600 dark:text-slate-300 leading-relaxed transition-all ${
-                      !isWikiExpanded ? "line-clamp-2" : ""
-                    }`}
-                  >
+                  <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed pt-1">
                     {wikiSummary.extract}
                   </p>
-
-                  <button
-                    type="button"
-                    onClick={() => setIsWikiExpanded(!isWikiExpanded)}
-                    className="mt-2.5 inline-flex items-center gap-1 text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline focus:outline-none"
-                  >
-                    <span>
-                      {isWikiExpanded ? "Show less" : "Read More (Wikipedia)"}
-                    </span>
-                    {isWikiExpanded ? (
-                      <ChevronUp className="w-3.5 h-3.5" />
-                    ) : (
-                      <ChevronDown className="w-3.5 h-3.5" />
-                    )}
-                  </button>
                 </div>
               )}
 

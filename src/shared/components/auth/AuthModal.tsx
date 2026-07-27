@@ -42,38 +42,30 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[100] p-4 overflow-y-auto"
-      style={{ background: "rgba(0,0,0,0.7)", backdropFilter: "blur(8px)" }}
+      className="fixed inset-0 z-[100] p-4 flex items-center justify-center bg-slate-950/70 backdrop-blur-md animate-in fade-in duration-200"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
-      <div className="min-h-full flex items-center justify-center">
-        <div
-          className="relative w-full max-w-md rounded-2xl p-8 my-8"
-          style={{
-            background: "rgba(15,23,42,0.95)",
-            border: "1px solid rgba(255,255,255,0.1)",
-            boxShadow: "0 25px 50px rgba(0,0,0,0.5)",
-          }}
+      <div className="relative w-full max-w-md max-h-[90vh] sm:max-h-[85vh] rounded-2xl p-6 sm:p-8 flex flex-col overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl">
+        {/* Close */}
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 z-10"
         >
-          {/* Close */}
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10"
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
           >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M18 6 6 18M6 6l12 12" />
-            </svg>
-          </button>
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
 
+        <div className="overflow-y-auto min-h-0 flex-1 pt-2">
           {/* Header */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-6">
             <div className="text-2xl font-bold mb-1">
               <span className="text-emerald-400">Tabi</span>
               <span className="text-white">Map</span>

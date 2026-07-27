@@ -73,14 +73,14 @@ export function MarkVisitedModal({
       }}
     >
       <div
-        className="w-full max-w-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl overflow-hidden transition-all animate-in zoom-in-95 duration-200 flex flex-col"
+        className="w-full max-w-md max-h-[90vh] sm:max-h-[85vh] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl overflow-hidden transition-all animate-in zoom-in-95 duration-200 flex flex-col"
         role="dialog"
         aria-modal="true"
         aria-labelledby="mark-visited-modal-title"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-slate-800">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-slate-800 shrink-0">
           <div>
             <h2
               id="mark-visited-modal-title"
@@ -107,7 +107,10 @@ export function MarkVisitedModal({
         </div>
 
         {/* Modal Body */}
-        <form onSubmit={handleSubmit} className="p-6 space-y-5">
+        <form
+          onSubmit={handleSubmit}
+          className="p-6 space-y-5 overflow-y-auto min-h-0 flex-1"
+        >
           {/* Precision Switcher */}
           <div>
             <label className="block text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider mb-2">

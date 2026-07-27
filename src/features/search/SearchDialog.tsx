@@ -31,7 +31,7 @@ export function SearchDialog({
   if (!isOpen) return null;
 
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 p-4">
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-4 sm:pt-16 p-3 sm:p-4">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity animate-in fade-in duration-150"
@@ -39,7 +39,7 @@ export function SearchDialog({
       />
 
       {/* Command Palette Card */}
-      <div className="relative w-full max-w-2xl bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 overflow-hidden animate-in fade-in zoom-in-95 duration-150 z-10">
+      <div className="relative w-full max-w-2xl max-h-[85vh] bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 overflow-hidden animate-in fade-in zoom-in-95 duration-150 z-10 flex flex-col">
         {/* Header Search Bar */}
         <div className="flex items-center gap-3 px-5 py-4 border-b border-slate-100 dark:border-slate-800">
           <Search className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
@@ -69,7 +69,7 @@ export function SearchDialog({
         </div>
 
         {/* Results Container */}
-        <div className="p-3">
+        <div className="p-3 overflow-y-auto flex-1 min-h-0">
           <SearchResults
             groups={groups}
             flatItems={flatItems}

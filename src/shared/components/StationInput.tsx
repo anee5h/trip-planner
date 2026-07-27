@@ -215,7 +215,7 @@ export default function StationInput({ embedded = false }: StationInputProps) {
 
   return (
     <div
-      className={`flex flex-col gap-3 p-3.5 rounded-2xl border border-slate-200/80 dark:border-slate-800 ${embedded ? "bg-slate-50/50 dark:bg-slate-900/40 w-full" : "bg-white/70 dark:bg-slate-900/70 w-fit backdrop-blur-md shadow-sm"}`}
+      className={`flex flex-col gap-3 p-3.5 rounded-2xl border border-slate-200/80 dark:border-slate-800 ${embedded ? "bg-slate-50/50 dark:bg-slate-900/40 w-full" : "bg-white/70 dark:bg-slate-900/70 w-full max-w-full sm:w-fit backdrop-blur-md shadow-sm"}`}
     >
       <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3">
         <div className="flex items-center gap-2 shrink-0">
