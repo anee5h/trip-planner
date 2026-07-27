@@ -8,8 +8,20 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.54",
+    version: "v1.7.55",
     tag: "Current",
+    date: "July 2026",
+    title:
+      "Always-On Flight Estimates & Domestic Flight Preference Settings Fix",
+    highlights: [
+      "Guaranteed Domestic Flight (✈️) visibility on destination logistics cards whenever a valid flight estimate exists",
+      "Added Domestic Flight option button and default selection to Settings & Preferences (/settings) page",
+      "Fixed Shinkansen mode key mapping bug in Settings page preferences form",
+      "Preserved flight estimates across custom saved user profiles with legacy transport modes",
+    ],
+  },
+  {
+    version: "v1.7.54",
     date: "July 2026",
     title:
       "Flight Budget Inclusion, Xh Ym Time Formatting & Default Flight Preferences",

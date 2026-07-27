@@ -45,7 +45,12 @@ export default function Settings() {
     user?.user_metadata?.preferences?.carMode || "none",
   );
   const [publicModes, setPublicModes] = useState<string[]>(
-    user?.user_metadata?.preferences?.publicModes || ["train"],
+    user?.user_metadata?.preferences?.publicModes || [
+      "train",
+      "shinkansen",
+      "bus",
+      "flight",
+    ],
   );
   const [partySize, setPartySize] = useState(
     user?.user_metadata?.preferences?.partySize || 2,
@@ -60,7 +65,14 @@ export default function Settings() {
     if (user?.user_metadata) {
       if (user.user_metadata.preferences) {
         setCarMode(user.user_metadata.preferences.carMode || "none");
-        setPublicModes(user.user_metadata.preferences.publicModes || ["train"]);
+        setPublicModes(
+          user.user_metadata.preferences.publicModes || [
+            "train",
+            "shinkansen",
+            "bus",
+            "flight",
+          ],
+        );
         setPartySize(user.user_metadata.preferences.partySize || 2);
       }
     }
@@ -297,11 +309,12 @@ export default function Settings() {
                     <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
                       Public Transport Modes
                     </label>
-                    <div className="grid grid-cols-3 gap-3">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                       {[
                         { id: "train", label: "Train / Subway" },
+                        { id: "shinkansen", label: "Shinkansen" },
                         { id: "bus", label: "Local Bus" },
-                        { id: "express", label: "Shinkansen" },
+                        { id: "flight", label: "Domestic Flight" },
                       ].map((tm) => (
                         <button
                           key={tm.id}

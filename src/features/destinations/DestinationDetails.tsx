@@ -326,9 +326,7 @@ export default function DestinationDetails() {
 
   const isModeVisible = (mode: string) => {
     if (mode === "flight") {
-      if (!flightEstimate) return false;
-      if (!activeModes) return true;
-      return activeModes.includes("flight");
+      return Boolean(flightEstimate);
     }
     if (
       !destination?.transportOptions?.[
