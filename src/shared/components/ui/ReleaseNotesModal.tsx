@@ -8,8 +8,18 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.38",
+    version: "v1.7.39",
     tag: "Current",
+    date: "July 2026",
+    title: "Inclusive Multi-Tab QA Engineering Studio",
+    highlights: [
+      "Upgraded /qa into an inclusive QA Studio with 5 dedicated audit tabs: Health, Image QA Studio, Hierarchy, Budget/Transport, and Collections",
+      "Integrated in-app Image QA Studio with visual cards, status flags (OK/BROKEN/WRONG_LANDMARK/LOW_QUALITY), custom URL replacement inputs, localStorage persistence, and 1-click CSV/JSON export",
+      "Added Hub & Relationship Inspector, Transport Mode Auditor, and Collection Coverage Auditor",
+    ],
+  },
+  {
+    version: "v1.7.38",
     date: "July 2026",
     title: "Dataset Refinement & Internal QA Route Privacy",
     highlights: [
