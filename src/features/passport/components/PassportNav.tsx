@@ -10,7 +10,7 @@ interface PassportNavProps {
 export function PassportNav({ activeTab, onSelectTab }: PassportNavProps) {
   return (
     <div className="sticky top-16 z-30 bg-background/95 backdrop-blur-md py-3 border-b border-slate-200/80 dark:border-slate-800/80">
-      <ScrollContainer className="flex items-center gap-2.5 py-0.5">
+      <ScrollContainer className="flex items-center gap-2.5 py-0.5 pr-5">
         {PASSPORT_SECTIONS.map((section) => {
           const isActive = activeTab === section.id;
           const Icon = section.icon;

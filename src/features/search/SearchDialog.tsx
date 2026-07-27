@@ -1,4 +1,5 @@
 import { createPortal } from "react-dom";
+import { useEffect, useState } from "react";
 import { Search, X } from "lucide-react";
 import type { SearchGroup, SearchDocument } from "./types";
 import { SearchResults } from "./SearchResults";
@@ -28,6 +29,25 @@ export function SearchDialog({
   onHoverIndex,
   onKeyDown,
 }: SearchDialogProps) {
+  const [viewportHeight, setViewportHeight] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const viewport = window.visualViewport;
+    if (!viewport) return;
+
+    const updateHeight = () => setViewportHeight(viewport.height);
+    updateHeight();
+    viewport.addEventListener("resize", updateHeight);
+    viewport.addEventListener("scroll", updateHeight);
+
+    return () => {
+      viewport.removeEventListener("resize", updateHeight);
+      viewport.removeEventListener("scroll", updateHeight);
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return createPortal(
@@ -39,7 +59,14 @@ export function SearchDialog({
       />
 
       {/* Command Palette Card */}
-      <div className="relative w-full max-w-2xl max-h-[85vh] bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 overflow-hidden animate-in fade-in zoom-in-95 duration-150 z-10 flex flex-col">
+      <div
+        className="relative w-full max-w-2xl max-h-[calc(100dvh-2rem)] bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 overflow-hidden animate-in fade-in zoom-in-95 duration-150 z-10 flex flex-col"
+        style={
+          viewportHeight
+            ? { maxHeight: `${Math.max(viewportHeight - 32, 160)}px` }
+            : undefined
+        }
+      >
         {/* Header Search Bar */}
         <div className="flex items-center gap-3 px-5 py-4 border-b border-slate-100 dark:border-slate-800">
           <Search className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
@@ -76,6 +103,7 @@ export function SearchDialog({
             selectedIndex={selectedIndex}
             onSelect={onSelect}
             onHoverIndex={onHoverIndex}
+            containerClassName="py-2 space-y-5 pr-1"
           />
         </div>
 

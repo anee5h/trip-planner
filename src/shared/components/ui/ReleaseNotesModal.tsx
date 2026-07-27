@@ -8,8 +8,18 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.57",
+    version: "v1.7.58",
     tag: "Current",
+    date: "July 2026",
+    title: "Mobile Overflow & Expandable Content Polish",
+    highlights: [
+      "Added clearer edge affordance and end padding to the Travel Passport tab bar so additional tabs are easier to discover",
+      "Made the mobile command palette keyboard-aware, keeping search results visible and scrollable above the on-screen keyboard",
+      "Smoothed the Destination Wikipedia disclosure with a compact loading state and animated expansion",
+    ],
+  },
+  {
+    version: "v1.7.57",
     date: "July 2026",
     title: "Categorical Walking Intensity — Filter, Compare & Ratings",
     highlights: [

@@ -17,10 +17,7 @@ import { createRecommendationMatch } from "@/shared/services/recommendation/Reco
 import { ItineraryPickerModal } from "@/features/trips/components/ItineraryPickerModal";
 import { MarkVisitedModal } from "./components/MarkVisitedModal";
 import { VisitedDateModal } from "./components/VisitedDateModal";
-import {
-  Skeleton,
-  DestinationDetailsSkeleton,
-} from "@/shared/components/ui/Skeleton";
+import { DestinationDetailsSkeleton } from "@/shared/components/ui/Skeleton";
 import { BucketListButton } from "@/shared/components/ui/BucketListButton";
 import { useDelayedSkeleton } from "@/shared/hooks/useDelayedSkeleton";
 import {
@@ -696,20 +693,21 @@ export default function DestinationDetails() {
                 </div>
               )}
 
-              {/* Wikipedia Reference Box (Opened ONLY when Read More is clicked) */}
-              {isWikiExpanded && (
-                <div className="mb-6">
+              {/* Wikipedia Reference Box */}
+              <div
+                className={`grid transition-[grid-template-rows,opacity,margin-bottom] duration-200 ease-out motion-reduce:transition-none ${
+                  isWikiExpanded
+                    ? "grid-rows-[1fr] opacity-100 mb-6"
+                    : "grid-rows-[0fr] opacity-0 mb-0 pointer-events-none"
+                }`}
+                aria-hidden={!isWikiExpanded}
+                inert={!isWikiExpanded}
+              >
+                <div className="min-h-0 overflow-hidden">
                   {isWikiLoading ? (
-                    <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 border border-slate-200/80 dark:border-slate-700/60 space-y-3 animate-pulse">
-                      <div className="flex items-center justify-between border-b border-slate-200/60 dark:border-slate-700/60 pb-2">
-                        <Skeleton className="h-4 w-36 bg-slate-200 dark:bg-slate-700 rounded" />
-                        <Skeleton className="h-3 w-24 bg-slate-200 dark:bg-slate-700 rounded" />
-                      </div>
-                      <div className="space-y-2 pt-1">
-                        <Skeleton className="h-3 w-full bg-slate-200 dark:bg-slate-700 rounded" />
-                        <Skeleton className="h-3 w-5/6 bg-slate-200 dark:bg-slate-700 rounded" />
-                        <Skeleton className="h-3 w-4/6 bg-slate-200 dark:bg-slate-700 rounded" />
-                      </div>
+                    <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 border border-slate-200/80 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2 animate-in fade-in duration-150 motion-reduce:animate-none">
+                      <BookOpen className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                      <span>Loading Wikipedia summary…</span>
                     </div>
                   ) : wikiSummary ? (
                     <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 border border-slate-200/80 dark:border-slate-700/60 space-y-2 animate-in fade-in duration-150">
@@ -740,7 +738,7 @@ export default function DestinationDetails() {
                     </div>
                   ) : null}
                 </div>
-              )}
+              </div>
 
               <div className="flex flex-wrap gap-2">
                 {destination.tags.map((tag) => (

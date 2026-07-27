@@ -7,6 +7,8 @@ interface SearchResultsProps {
   selectedIndex: number;
   onSelect: (item: SearchDocument) => void;
   onHoverIndex: (index: number) => void;
+  /** Allows parent dialogs to own the sole scroll region. */
+  containerClassName?: string;
 }
 
 export function SearchResults({
@@ -15,6 +17,7 @@ export function SearchResults({
   selectedIndex,
   onSelect,
   onHoverIndex,
+  containerClassName = "py-2 space-y-5 max-h-[60vh] overflow-y-auto pr-1 scrollbar-thin",
 }: SearchResultsProps) {
   const EnterIcon = Icons.enter;
   const ArrowRightIcon = Icons.arrowRight;
@@ -36,7 +39,7 @@ export function SearchResults({
   let cumulativeIndex = 0;
 
   return (
-    <div className="py-2 space-y-5 max-h-[60vh] overflow-y-auto pr-1 scrollbar-thin">
+    <div className={containerClassName}>
       {groups.map((group, groupIndex) => {
         const groupStartIndex = cumulativeIndex;
         cumulativeIndex += group.items.length;
