@@ -8,8 +8,17 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.40",
+    version: "v1.7.41",
     tag: "Current",
+    date: "July 2026",
+    title: "Nav Pill Relabel: Itineraries",
+    highlights: [
+      "Renamed 'My Trips' navigation pill label to 'Itineraries' across desktop nav and mobile drawer",
+      "Preserved canonical route at /my-trips",
+    ],
+  },
+  {
+    version: "v1.7.40",
     date: "July 2026",
     title: "Flattened Navbar Direct-Link Navigation & Mobile Sync",
     highlights: [

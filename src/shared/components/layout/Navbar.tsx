@@ -167,7 +167,7 @@ export default function Navbar() {
                 }`}
               >
                 <Calendar className="w-4 h-4" />
-                <span>My Trips</span>
+                <span>Itineraries</span>
               </Link>
 
               <Link
@@ -372,7 +372,7 @@ export default function Navbar() {
                   : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
               }`}
             >
-              <Calendar className="w-5 h-5 text-emerald-500" /> My Trips
+              <Calendar className="w-5 h-5 text-emerald-500" /> Itineraries
             </Link>
 
             <Link
@@ -483,7 +483,7 @@ export default function Navbar() {
                 className="hover:text-emerald-500 font-bold transition-colors cursor-pointer flex items-center gap-1"
                 title="View Release Notes"
               >
-                <span>TabiMap Japan v1.7.40</span>
+                <span>TabiMap Japan v1.7.41</span>
                 <span className="text-[10px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-1.5 py-0.5 rounded font-extrabold border border-emerald-500/20">
                   Notes
                 </span>
