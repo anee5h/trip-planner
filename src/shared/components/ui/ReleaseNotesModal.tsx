@@ -8,8 +8,18 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.36",
+    version: "v1.7.37",
     tag: "Current",
+    date: "July 2026",
+    title: "Account Switch State Reset & Production Log Cleanup",
+    highlights: [
+      "Fixed user account switch edge case by clearing local state when user.id changes without explicit sign-out",
+      "Stripped debug console.logs from useTripSync to protect user sync payload privacy",
+      "Added unit test suite for account switch state reset behavior",
+    ],
+  },
+  {
+    version: "v1.7.36",
     date: "July 2026",
     title: "Standardized Release Ruleset & Protocol Enforcement",
     highlights: [

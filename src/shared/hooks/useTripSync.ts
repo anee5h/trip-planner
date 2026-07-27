@@ -73,9 +73,12 @@ export function useTripSync({
   >(null);
   const prevTripsRef = useRef<Trip[]>(trips);
 
-  // Clear data on logout, reset load state on user change
+  // Clear data on logout or account switch
   useEffect(() => {
-    if (prevUserIdRef.current && !user?.id) {
+    const isUserSwitch =
+      prevUserIdRef.current && prevUserIdRef.current !== user?.id;
+
+    if (isUserSwitch || (prevUserIdRef.current && !user?.id)) {
       setFavorites([]);
       setVisited([]);
       setVisitedPrefectures([]);
@@ -114,13 +117,6 @@ export function useTripSync({
             return;
           }
           if (data) {
-            console.log("[TabiMap Sync] Auth User:", user.id);
-            console.log("[TabiMap Sync] Fetched user_data:", data);
-            console.log(
-              "[TabiMap Sync] Fetched visited length:",
-              data.visited?.length ?? 0,
-            );
-
             if (data.updated_at && setLastSyncedDate) {
               const syncDate = String(data.updated_at).split("T")[0];
               if (/^\d{4}-\d{2}-\d{2}$/.test(syncDate)) {
@@ -152,11 +148,6 @@ export function useTripSync({
                 }
               });
             }
-
-            console.log(
-              "[TabiMap Sync] Derived prefectures count:",
-              derivedPrefs.size,
-            );
 
             setVisitedPrefectures((prev) =>
               Array.from(new Set([...prev, ...derivedPrefs])),
