@@ -8,8 +8,17 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.55",
+    version: "v1.7.56",
     tag: "Current",
+    date: "July 2026",
+    title: "Party Size Round-Trip Cost Scaling for Flight Travel Time Cards",
+    highlights: [
+      "Scaled Flight cost estimates in Travel Time card by party size and round-trip journey",
+      "Unified cost formatting across Train, Shinkansen, Bus, Car, and Flight as 'est. ¥...k'",
+    ],
+  },
+  {
+    version: "v1.7.55",
     date: "July 2026",
     title:
       "Always-On Flight Estimates & Domestic Flight Preference Settings Fix",

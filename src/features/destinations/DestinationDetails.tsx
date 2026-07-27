@@ -55,10 +55,7 @@ import {
   Plane,
 } from "lucide-react";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
-import {
-  formatTransportTime,
-  formatTransportCost,
-} from "@/shared/services/transport/formatters";
+import { formatTransportTime } from "@/shared/services/transport/formatters";
 import { toast } from "sonner";
 import {
   WikipediaService,
@@ -935,7 +932,15 @@ export default function DestinationDetails() {
                                 {formatTransportTime(flightEstimate.timeRange)}
                               </div>
                               <div className="text-xs text-slate-400">
-                                {formatTransportCost(flightEstimate.costRange)}
+                                est. ¥
+                                {(
+                                  budgetService.getTransportCost(
+                                    destination,
+                                    "flight",
+                                    partySize,
+                                  ) / 1000
+                                ).toFixed(1)}
+                                k
                               </div>
                             </div>
                           </div>
