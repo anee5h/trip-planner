@@ -59,11 +59,16 @@ export function PassportTimelineCalendar() {
           let year = "Undated";
           let monthKey = "Undated";
 
-          if (/^\d{4}/.test(dateStr)) {
-            year = dateStr.substring(0, 4);
-          }
-          if (/^\d{4}-\d{2}/.test(dateStr)) {
-            monthKey = dateStr.substring(0, 7);
+          if (dateStr && dateStr.trim() !== "") {
+            const cleanStr = dateStr.trim().replace(/\//g, "-");
+            const yearMatch = cleanStr.match(/^(\d{4})/);
+            if (yearMatch) {
+              year = yearMatch[1];
+            }
+            const monthMatch = cleanStr.match(/^(\d{4}-\d{2})/);
+            if (monthMatch) {
+              monthKey = monthMatch[1];
+            }
           }
 
           events.push({
@@ -88,11 +93,14 @@ export function PassportTimelineCalendar() {
         let year = "Undated";
         let monthKey = "Undated";
 
-        if (/^\d{4}/.test(trip.startDate)) {
-          year = trip.startDate.substring(0, 4);
+        const cleanStr = trip.startDate.trim().replace(/\//g, "-");
+        const yearMatch = cleanStr.match(/^(\d{4})/);
+        if (yearMatch) {
+          year = yearMatch[1];
         }
-        if (/^\d{4}-\d{2}/.test(trip.startDate)) {
-          monthKey = trip.startDate.substring(0, 7);
+        const monthMatch = cleanStr.match(/^(\d{4}-\d{2})/);
+        if (monthMatch) {
+          monthKey = monthMatch[1];
         }
 
         events.push({

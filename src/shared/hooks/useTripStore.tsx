@@ -118,6 +118,8 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     setVisited,
     visitedPrefectures,
     setVisitedPrefectures,
+    visitedDates,
+    setVisitedDates,
     compareList,
     setCompareList,
     homeStation,

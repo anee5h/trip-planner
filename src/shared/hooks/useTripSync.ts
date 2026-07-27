@@ -16,6 +16,14 @@ interface UseTripSyncProps {
   setVisitedPrefectures: (
     val: string[] | ((prev: string[]) => string[]),
   ) => void;
+  visitedDates?: Record<string, string[] | string>;
+  setVisitedDates?: (
+    val:
+      | Record<string, string[] | string>
+      | ((
+          prev: Record<string, string[] | string>,
+        ) => Record<string, string[] | string>),
+  ) => void;
   compareList: string[];
   setCompareList: (val: string[] | ((prev: string[]) => string[])) => void;
   homeStation: string;
@@ -40,6 +48,8 @@ export function useTripSync({
   setVisited,
   visitedPrefectures,
   setVisitedPrefectures,
+  visitedDates,
+  setVisitedDates,
   setCompareList,
   homeStation,
   setHomeStation,
@@ -63,6 +73,7 @@ export function useTripSync({
       setFavorites([]);
       setVisited([]);
       setVisitedPrefectures([]);
+      if (setVisitedDates) setVisitedDates({});
       setCompareList([]);
       if (setTrips) setTrips([]);
       isLoadedRef.current = false;
@@ -75,6 +86,7 @@ export function useTripSync({
     setFavorites,
     setVisited,
     setVisitedPrefectures,
+    setVisitedDates,
     setCompareList,
     setTrips,
   ]);
@@ -87,7 +99,9 @@ export function useTripSync({
       // Load user metadata
       supabase
         .from("user_data")
-        .select("favorites, visited, visited_prefectures, home_station")
+        .select(
+          "favorites, visited, visited_prefectures, home_station, visited_dates",
+        )
         .eq("id", user.id)
         .single()
         .then(({ data, error }) => {
@@ -100,6 +114,30 @@ export function useTripSync({
             if (data.visited) setVisited(data.visited);
             if (data.visited_prefectures)
               setVisitedPrefectures(data.visited_prefectures);
+            if (data.visited_dates && setVisitedDates) {
+              setVisitedDates((prev) => {
+                const merged = { ...prev };
+                for (const [id, remoteVal] of Object.entries(
+                  data.visited_dates as Record<string, string[] | string>,
+                )) {
+                  const remoteDates = Array.isArray(remoteVal)
+                    ? remoteVal
+                    : [remoteVal];
+                  const localDates = merged[id]
+                    ? Array.isArray(merged[id])
+                      ? (merged[id] as string[])
+                      : [merged[id] as string]
+                    : [];
+                  const combined = Array.from(
+                    new Set([...localDates, ...remoteDates]),
+                  ).sort();
+                  if (combined.length > 0) {
+                    merged[id] = combined;
+                  }
+                }
+                return merged;
+              });
+            }
             if (data.home_station && data.home_station !== "Tokyo Station") {
               setHomeStation(data.home_station);
 
@@ -165,6 +203,7 @@ export function useTripSync({
     setFavorites,
     setVisited,
     setVisitedPrefectures,
+    setVisitedDates,
     setHomeStation,
     setHomeStationCoords,
     setTrips,
@@ -186,6 +225,7 @@ export function useTripSync({
             favorites,
             visited,
             visited_prefectures: visitedPrefectures,
+            visited_dates: visitedDates || {},
             home_station: homeStation,
           })
           .then(({ error }) => {
@@ -202,7 +242,14 @@ export function useTripSync({
     return () => {
       if (syncTimeoutRef.current) clearTimeout(syncTimeoutRef.current);
     };
-  }, [favorites, visited, visitedPrefectures, homeStation, user?.id]);
+  }, [
+    favorites,
+    visited,
+    visitedPrefectures,
+    visitedDates,
+    homeStation,
+    user?.id,
+  ]);
 
   // Sync trips back to db when trips state changes (debounced)
   useEffect(() => {
