@@ -99,17 +99,15 @@ export function useTripSync({
     if (user?.id && !isLoadedRef.current) {
       if (!supabase) return;
 
-      // Load user metadata
+      // Load user metadata with schema-resilient select("*")
       const userDataPromise = supabase
         .from("user_data")
-        .select(
-          "favorites, visited, visited_prefectures, home_station, visited_dates",
-        )
+        .select("*")
         .eq("id", user.id)
         .single()
         .then(({ data, error }) => {
           if (error && error.code !== "PGRST116") {
-            console.error("Failed to load user data", error);
+            console.error("[TabiMap Sync] Failed to load user_data:", error);
             return;
           }
           if (data) {
@@ -259,22 +257,42 @@ export function useTripSync({
       if (syncTimeoutRef.current) clearTimeout(syncTimeoutRef.current);
 
       syncTimeoutRef.current = setTimeout(() => {
+        const payload: Record<string, unknown> = {
+          id: user.id,
+          favorites,
+          visited,
+          visited_prefectures: visitedPrefectures,
+          home_station: homeStation,
+        };
+        if (visitedDates && Object.keys(visitedDates).length > 0) {
+          payload.visited_dates = visitedDates;
+        }
+
         client
           .from("user_data")
-          .upsert({
-            id: user.id,
-            favorites,
-            visited,
-            visited_prefectures: visitedPrefectures,
-            visited_dates: visitedDates || {},
-            home_station: homeStation,
-          })
+          .upsert(payload)
           .then(({ error }) => {
             if (error) {
-              console.error("Failed to sync user data", error);
-              toast.error("Failed to sync profile to cloud. Saved locally.", {
-                id: "user-data-sync-error",
-              });
+              console.warn(
+                "[TabiMap Sync] Primary upsert failed, retrying core payload without visited_dates...",
+                error,
+              );
+              delete payload.visited_dates;
+              client
+                .from("user_data")
+                .upsert(payload)
+                .then(({ error: retryErr }) => {
+                  if (retryErr) {
+                    console.error(
+                      "[TabiMap Sync] Core upsert failed:",
+                      retryErr,
+                    );
+                    toast.error(
+                      "Failed to sync profile to cloud. Saved locally.",
+                      { id: "user-data-sync-error" },
+                    );
+                  }
+                });
             }
           });
       }, 1000);
