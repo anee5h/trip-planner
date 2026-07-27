@@ -8,8 +8,19 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.46",
+    version: "v1.7.47",
     tag: "Current",
+    date: "July 2026",
+    title: "Lazy Wikipedia Fetching & Skeleton Loader",
+    highlights: [
+      "Deferred Wikipedia API network calls until the user clicks 'Read More (Wikipedia)'",
+      "Eliminated automatic network latency and rates on initial destination page mount",
+      "Rendered an animated inline skeleton loader during Wikipedia summary fetching",
+      "Cached fetched Wikipedia summaries in state for instant re-opening without re-fetching",
+    ],
+  },
+  {
+    version: "v1.7.46",
     date: "July 2026",
     title: "Mobile UI, Modal Audit & Wikipedia Collapsible Trigger",
     highlights: [
