@@ -8,8 +8,21 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.60",
+    version: "v1.7.61",
     tag: "Current",
+    date: "July 2026",
+    title: "Icon Polish, 30-min Walk Gate & Data Cleanup",
+    highlights: [
+      "Replaced all remaining emoji characters (☀️ ☔ 🚶 🍜 🎟 📅 💰 📍 ⏱ 🗼 🏙️ and transport icons) with Lucide icon components consistent with the rest of the app",
+      "Nearby Destinations section now only appears when at least one place is reachable on foot within 30 minutes — longer-distance graph neighbours are no longer shown as 'nearby'",
+      "Sidebar Suggested Visit icons replaced: Timer, CalendarDays, DollarSign, MapPin icons replace emoji spans; Highlights list uses CheckCircle2 instead of a text checkmark",
+      "Comfort Metrics labels now use inline Sun, Umbrella, and Footprints icons alongside each score",
+      "Budget breakdown transport row now renders the matching Lucide transport icon (Train / TrainFront / Car / Bus / Plane) next to the label",
+      "Data fix: linked 6 destinations to their correct hubs — Disneyland & DisneySea → urayasu-city, Matsumoto Castle → matsumoto-city, Kinosaki Onsen & Arima Onsen → kobe-city, Mount Fuji → fujinomiya-city",
+    ],
+  },
+  {
+    version: "v1.7.60",
     date: "July 2026",
     title: "Suggested Visit, Ratings Overhaul & Data Audit",
     highlights: [

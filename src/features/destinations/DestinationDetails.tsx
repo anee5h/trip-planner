@@ -56,6 +56,11 @@ import {
   Landmark,
   Flower2,
   Snowflake,
+  Ticket,
+  UtensilsCrossed,
+  Timer,
+  CalendarDays,
+  Building2,
 } from "lucide-react";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
@@ -295,6 +300,22 @@ export default function DestinationDetails() {
     return nearbyDestinations;
   }, [destination, nearbyDestinations]);
 
+  // Only show places reachable on foot within 30 minutes (≈2.5 km at 5 km/h)
+  const walkableNearbyDestinations = useMemo(() => {
+    if (!destination?.coordinates) return graphNearbyDestinations;
+    return graphNearbyDestinations.filter((d: Destination) => {
+      if (!d.coordinates) return true; // no coords → can't filter, keep
+      const distKm = getDistance(
+        destination.coordinates!.lat,
+        destination.coordinates!.lng,
+        d.coordinates.lat,
+        d.coordinates.lng,
+      );
+      const walkMins = Math.round((distKm / 5) * 60);
+      return walkMins <= 30;
+    });
+  }, [destination, graphNearbyDestinations]);
+
   const activeModes = useMemo(() => {
     if (!destination) return null;
     if (
@@ -489,9 +510,9 @@ export default function DestinationDetails() {
                   return (
                     <Badge
                       key={tag}
-                      className="bg-sky-600 hover:bg-sky-700 text-white font-bold border-sky-300 shadow-md shrink-0 px-2.5 py-0.5 text-xs"
+                      className="bg-sky-600 hover:bg-sky-700 text-white font-bold border-sky-300 shadow-md shrink-0 px-2.5 py-0.5 text-xs inline-flex items-center gap-1"
                     >
-                      🗼 World's Tallest Tower
+                      <Landmark className="w-3 h-3" /> World's Tallest Tower
                     </Badge>
                   );
                 }
@@ -499,9 +520,9 @@ export default function DestinationDetails() {
                   return (
                     <Badge
                       key={tag}
-                      className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold border-emerald-300 shadow-md shrink-0 px-2.5 py-0.5 text-xs"
+                      className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold border-emerald-300 shadow-md shrink-0 px-2.5 py-0.5 text-xs inline-flex items-center gap-1"
                     >
-                      🏙️ Free Observatory
+                      <Building2 className="w-3 h-3" /> Free Observatory
                     </Badge>
                   );
                 }
@@ -1008,16 +1029,34 @@ export default function DestinationDetails() {
                         return (
                           <div className="space-y-2 mt-auto">
                             <div className="flex justify-between text-sm border-b border-slate-100 dark:border-slate-800 pb-1.5 mt-1.5 first:mt-0">
-                              <span className="text-slate-500">
+                              <span className="text-slate-500 flex items-center gap-1.5">
+                                {selectedTransport === "train" && (
+                                  <Train className="w-3.5 h-3.5 shrink-0" />
+                                )}
+                                {selectedTransport === "shinkansen" && (
+                                  <TrainFront className="w-3.5 h-3.5 shrink-0" />
+                                )}
+                                {selectedTransport === "car" && (
+                                  <Car className="w-3.5 h-3.5 shrink-0" />
+                                )}
+                                {selectedTransport === "my_car" && (
+                                  <Car className="w-3.5 h-3.5 shrink-0" />
+                                )}
+                                {selectedTransport === "bus" && (
+                                  <Bus className="w-3.5 h-3.5 shrink-0" />
+                                )}
+                                {selectedTransport === "flight" && (
+                                  <Plane className="w-3.5 h-3.5 shrink-0" />
+                                )}
                                 {
                                   (
                                     {
-                                      train: "🚆 Local Train",
-                                      shinkansen: "🚄 Shinkansen",
-                                      car: "🚗 Rental Car & Tolls",
-                                      my_car: "🚗 My Car (Gas & Tolls)",
-                                      bus: "🚌 Highway Bus",
-                                      flight: "✈️ Flight (Air & Access)",
+                                      train: "Local Train",
+                                      shinkansen: "Shinkansen",
+                                      car: "Rental Car & Tolls",
+                                      my_car: "My Car (Gas & Tolls)",
+                                      bus: "Highway Bus",
+                                      flight: "Flight (Air & Access)",
                                     } as Record<string, string>
                                   )[selectedTransport]
                                 }
@@ -1035,7 +1074,10 @@ export default function DestinationDetails() {
                             </div>
 
                             <div className="flex justify-between text-sm border-b border-slate-100 dark:border-slate-800 pb-1.5 mt-1.5">
-                              <span className="text-slate-500">🎟 Tickets</span>
+                              <span className="text-slate-500 flex items-center gap-1.5">
+                                <Ticket className="w-3.5 h-3.5 shrink-0" />{" "}
+                                Tickets
+                              </span>
                               <span className="font-semibold text-slate-700 dark:text-slate-300">
                                 ¥
                                 {Math.round(
@@ -1044,8 +1086,9 @@ export default function DestinationDetails() {
                               </span>
                             </div>
                             <div className="flex justify-between text-sm mt-1.5">
-                              <span className="text-slate-500">
-                                🍜 Food & Cafe
+                              <span className="text-slate-500 flex items-center gap-1.5">
+                                <UtensilsCrossed className="w-3.5 h-3.5 shrink-0" />{" "}
+                                Food & Cafe
                               </span>
                               <span className="font-semibold text-slate-700 dark:text-slate-300">
                                 ¥
@@ -1074,16 +1117,18 @@ export default function DestinationDetails() {
                         </div>
                         <div className="space-y-2 flex-grow">
                           <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
-                            <span className="text-slate-500">
-                              ☀️ Heat Tolerance
+                            <span className="text-slate-500 flex items-center gap-1.5">
+                              <Sun className="w-3.5 h-3.5 text-amber-500 shrink-0" />{" "}
+                              Heat Tolerance
                             </span>
                             <span className="font-semibold text-slate-700 dark:text-slate-300">
                               {destination.comfort.heatTolerance}/10
                             </span>
                           </div>
                           <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
-                            <span className="text-slate-500">
-                              ☔ Rain Friendly
+                            <span className="text-slate-500 flex items-center gap-1.5">
+                              <Umbrella className="w-3.5 h-3.5 text-blue-500 shrink-0" />{" "}
+                              Rain Friendly
                             </span>
                             <span className="font-semibold text-slate-700 dark:text-slate-300">
                               {destination.comfort.rainFriendly}/10
@@ -1324,9 +1369,9 @@ export default function DestinationDetails() {
                                 <Badge
                                   key={pref}
                                   variant="secondary"
-                                  className="bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800 font-semibold"
+                                  className="bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800 font-semibold inline-flex items-center gap-1"
                                 >
-                                  ✓{" "}
+                                  <CheckCircle2 className="w-3 h-3" />{" "}
                                   {pref.charAt(0).toUpperCase() + pref.slice(1)}
                                 </Badge>
                               ))}
@@ -1365,7 +1410,9 @@ export default function DestinationDetails() {
                 <div className="space-y-3">
                   {destination.recommendedDuration && (
                     <div className="flex items-center gap-3">
-                      <span className="text-xl">⏱</span>
+                      <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">
+                        <Timer className="w-4 h-4" />
+                      </div>
                       <div>
                         <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                           Recommended Duration
@@ -1378,7 +1425,9 @@ export default function DestinationDetails() {
                   )}
                   {destination.bestSeason && (
                     <div className="flex items-center gap-3">
-                      <span className="text-xl">📅</span>
+                      <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">
+                        <CalendarDays className="w-4 h-4" />
+                      </div>
                       <div>
                         <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                           Best Season
@@ -1390,7 +1439,9 @@ export default function DestinationDetails() {
                     </div>
                   )}
                   <div className="flex items-center gap-3">
-                    <span className="text-xl">💰</span>
+                    <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">
+                      <DollarSign className="w-4 h-4" />
+                    </div>
                     <div>
                       <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                         Typical Budget
@@ -1403,7 +1454,9 @@ export default function DestinationDetails() {
                   </div>
                   {graphNearbyDestinations.length > 0 && (
                     <div className="flex items-center gap-3">
-                      <span className="text-xl">📍</span>
+                      <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">
+                        <MapPin className="w-4 h-4" />
+                      </div>
                       <div>
                         <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                           Nearby Attractions
@@ -1424,8 +1477,8 @@ export default function DestinationDetails() {
                 <ul className="space-y-3">
                   {(destination.highlights ?? []).map((h) => (
                     <li key={h} className="flex items-start">
-                      <div className="min-w-6 min-h-6 bg-slate-100 dark:bg-slate-800 text-emerald-600 rounded-full flex items-center justify-center mr-3 mt-0.5 text-xs font-bold">
-                        ✓
+                      <div className="min-w-6 min-h-6 bg-slate-100 dark:bg-slate-800 text-emerald-600 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                        <CheckCircle2 className="w-3.5 h-3.5" />
                       </div>
                       <span className="text-slate-600 dark:text-slate-300 text-sm leading-tight">
                         {h}
@@ -1548,7 +1601,7 @@ export default function DestinationDetails() {
         )}
 
         {/* Nearby Destinations Section */}
-        {graphNearbyDestinations.length > 0 && (
+        {walkableNearbyDestinations.length > 0 && (
           <div className="mt-16 pt-12 border-t border-slate-200 dark:border-slate-800">
             <div className="flex items-center justify-between mb-8">
               <div>
@@ -1562,7 +1615,7 @@ export default function DestinationDetails() {
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {graphNearbyDestinations.map((dest: Destination) => {
+              {walkableNearbyDestinations.map((dest: Destination) => {
                 let distLabel: string | null = null;
                 let walkMinutes: number | null = null;
                 if (dest.coordinates && destination.coordinates) {
