@@ -33,6 +33,7 @@ export default function Navbar() {
   const [feedbackOpen, setFeedbackOpen] = useState(false);
   const [releaseNotesOpen, setReleaseNotesOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
 
   // DOM refs for click-outside and focus management
   const userMenuRef = useRef<HTMLDivElement>(null);
@@ -142,17 +143,6 @@ export default function Navbar() {
         <GlobalSearch />
 
         <div className="flex items-center gap-3 shrink-0">
-          <button
-            type="button"
-            onClick={() => setLocale(locale === "en" ? "ja" : "en")}
-            className="rounded-md p-2 text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400"
-            aria-label={
-              locale === "en" ? "日本語に切り替え" : "Switch to English"
-            }
-            title={locale === "en" ? "日本語に切り替え" : "Switch to English"}
-          >
-            <Languages className="h-4 w-4" />
-          </button>
           <nav className="hidden md:flex items-center gap-1.5">
             {/* Discover Cluster */}
             <div className="flex items-center gap-1.5">
@@ -227,6 +217,39 @@ export default function Navbar() {
               <span>{nav.passport}</span>
             </Link>
           </nav>
+          <div className="relative hidden md:block">
+            <button
+              type="button"
+              onClick={() => setLanguageMenuOpen((open) => !open)}
+              className="rounded-lg p-2 text-slate-600 dark:text-slate-300 hover:text-emerald-600"
+              aria-label="Select language"
+            >
+              <Languages className="h-5 w-5" />
+            </button>
+            {languageMenuOpen && (
+              <div className="absolute right-0 mt-2 w-36 rounded-xl border border-slate-200 bg-white p-1 shadow-xl dark:border-slate-700 dark:bg-slate-900">
+                {[
+                  ["en", "English"],
+                  ["ja", "日本語"],
+                ].map(([value, label]) => (
+                  <button
+                    key={value}
+                    type="button"
+                    onClick={() => {
+                      setLocale(value as "en" | "ja");
+                      setLanguageMenuOpen(false);
+                    }}
+                    className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm hover:bg-slate-100 dark:hover:bg-slate-800"
+                  >
+                    {label}
+                    {locale === value && (
+                      <span className="text-emerald-500">✓</span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
 
           <div className="hidden sm:flex items-center gap-2">
             {loading ? (
@@ -511,7 +534,7 @@ export default function Navbar() {
                 className="hover:text-emerald-500 font-bold transition-colors cursor-pointer flex items-center gap-1"
                 title="View Release Notes"
               >
-                <span>TabiMap Japan v1.8.3</span>
+                <span>TabiMap Japan v1.8.4</span>
                 <span className="text-[10px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-1.5 py-0.5 rounded font-extrabold border border-emerald-500/20">
                   Notes
                 </span>

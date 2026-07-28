@@ -267,7 +267,15 @@ export default function Home() {
                   </div>
 
                   <p className="text-slate-500 dark:text-slate-400 font-bold mb-2 tracking-widest uppercase text-xs">
-                    {currentSituation.dateLabel}
+                    {locale === "ja" && currentTab?.dates[0]
+                      ? new Date(
+                          `${currentTab.dates[0]}T00:00:00`,
+                        ).toLocaleDateString("ja-JP", {
+                          month: "long",
+                          day: "numeric",
+                          weekday: "short",
+                        })
+                      : currentSituation.dateLabel}
                   </p>
                   <div className="flex items-center text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
                     <span>{currentSituation.temp}°C</span>

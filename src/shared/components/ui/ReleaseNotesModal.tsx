@@ -8,8 +8,18 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.8.3",
+    version: "v1.8.4",
     tag: "Current",
+    date: "July 2026",
+    title: "Yokohama Hubs, Account Settings & Japanese UI",
+    highlights: [
+      "Added reviewed Yokohama sights, hub discovery, curated top sights, and nearby city hubs",
+      "Consolidated account settings so Home City uses a verified city ID and displays prominently on its city page",
+      "Added browser-aware language defaults, an icon language menu, and expanded Japanese labels for weather, navigation, footer, and destination details",
+    ],
+  },
+  {
+    version: "v1.8.3",
     date: "July 2026",
     title: "Collections, Home City & Tohoku Coverage",
     highlights: [

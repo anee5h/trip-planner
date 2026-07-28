@@ -109,6 +109,15 @@ const DETAIL_COPY = {
     highlights: "Highlights",
     weather: "Upcoming Weekend Weather",
     parking: "Parking",
+    logistics: "Logistics",
+    ratings: "Detailed Ratings",
+    food: "Food & Drink",
+    match: "Why This Matches You",
+    overall: "Overall Score",
+    suggested: "Suggested Visit",
+    bestSeason: "Best Season",
+    nearby: "Nearby Attractions",
+    reservation: "Reservation Info",
     seeMore: "See all",
     showLess: "Show less",
     nearbyPlaces: "Nearby Places & Hubs",
@@ -120,6 +129,15 @@ const DETAIL_COPY = {
     highlights: "見どころ",
     weather: "今週末の天気",
     parking: "駐車場",
+    logistics: "交通・行き方",
+    ratings: "詳細評価",
+    food: "食事・カフェ",
+    match: "おすすめの理由",
+    overall: "総合評価",
+    suggested: "おすすめの滞在",
+    bestSeason: "ベストシーズン",
+    nearby: "近くの見どころ",
+    reservation: "予約情報",
     seeMore: "すべて見る",
     showLess: "閉じる",
     nearbyPlaces: "近くの場所と都市ハブ",
@@ -803,17 +821,17 @@ export default function DestinationDetails() {
                   value="logistics"
                   className="rounded-lg py-2.5 px-4"
                 >
-                  Logistics
+                  {copy.logistics}
                 </TabsTrigger>
                 <TabsTrigger value="ratings" className="rounded-lg py-2.5 px-4">
-                  Detailed Ratings
+                  {copy.ratings}
                 </TabsTrigger>
                 <TabsTrigger value="food" className="rounded-lg py-2.5 px-4">
-                  Food & Drink
+                  {copy.food}
                 </TabsTrigger>
                 {matchDetails && (
                   <TabsTrigger value="match" className="rounded-lg py-2.5 px-4">
-                    Why This Matches You
+                    {copy.match}
                   </TabsTrigger>
                 )}
               </TabsList>
@@ -1415,7 +1433,7 @@ export default function DestinationDetails() {
                   {destination.ratings.overall}
                 </div>
                 <div className="text-emerald-100 font-medium tracking-widest uppercase text-sm mb-4">
-                  Overall Score
+                  {copy.overall}
                 </div>
                 <div className="w-full h-px bg-white/20 mb-4"></div>
                 <p className="text-emerald-50 text-sm">{destination.notes}</p>
@@ -1426,7 +1444,7 @@ export default function DestinationDetails() {
             <Card>
               <CardContent className="p-6 space-y-4">
                 <h3 className="font-bold text-slate-900 dark:text-white">
-                  Suggested Visit
+                  {copy.suggested}
                 </h3>
                 <div className="space-y-3">
                   {destination.recommendedDuration && (
@@ -1451,7 +1469,7 @@ export default function DestinationDetails() {
                       </div>
                       <div>
                         <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                          Best Season
+                          {copy.bestSeason}
                         </div>
                         <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
                           {destination.bestSeason}
@@ -1481,10 +1499,12 @@ export default function DestinationDetails() {
                       </div>
                       <div>
                         <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                          Nearby Attractions
+                          {copy.nearby}
                         </div>
                         <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
-                          {nearbyPlaces.length} related places
+                          {locale === "ja"
+                            ? `${nearbyPlaces.length}件の関連スポット`
+                            : `${nearbyPlaces.length} related places`}
                         </div>
                       </div>
                     </div>
@@ -1527,8 +1547,10 @@ export default function DestinationDetails() {
                   <div className="space-y-4">
                     {forecast.map((day, idx) => {
                       const dateObj = new Date(day.date);
-                      const dayName =
-                        dateObj.getDay() === 6 ? "Saturday" : "Sunday";
+                      const dayName = dateObj.toLocaleDateString(
+                        locale === "ja" ? "ja-JP" : "en-US",
+                        { weekday: "long" },
+                      );
                       const desc = getWeatherDescription(day.weatherCode);
                       return (
                         <div
@@ -1542,7 +1564,17 @@ export default function DestinationDetails() {
                             <div>
                               <div className="text-sm font-bold">{dayName}</div>
                               <div className="text-xs text-slate-500">
-                                {desc.text}
+                                {locale === "ja"
+                                  ? {
+                                      Sunny: "晴れ",
+                                      Cloudy: "くもり",
+                                      Rain: "雨",
+                                      Rainy: "雨",
+                                      Thunderstorm: "雷雨",
+                                      Stormy: "嵐",
+                                      Snow: "雪",
+                                    }[desc.text] || desc.text
+                                  : desc.text}
                               </div>
                             </div>
                           </div>
@@ -1567,7 +1599,7 @@ export default function DestinationDetails() {
                 {destination.reservation && (
                   <div>
                     <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
-                      Reservation Info
+                      {copy.reservation}
                     </h4>
                     <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
                       {destination.reservation}
