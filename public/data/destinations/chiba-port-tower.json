@@ -84,6 +84,8 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "chiba-city"
+  },
   "walkingIntensity": "low"
 }

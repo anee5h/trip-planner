@@ -89,6 +89,8 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "nagoya-city"
+  },
   "walkingIntensity": "low"
 }

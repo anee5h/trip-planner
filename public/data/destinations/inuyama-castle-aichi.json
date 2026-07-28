@@ -79,7 +79,8 @@
   "notes": "Inuyama Castle (National Treasure Keep) located in Aichi Prefecture.",
   "relationships": {
     "featuredDestinationIds": [],
-    "nearbyDestinationIds": []
+    "nearbyDestinationIds": [],
+    "parentDestinationId": "inuyama-city"
   },
   "walkingIntensity": "low"
 }

@@ -81,9 +81,7 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {
-    "parentDestinationId": "hakone-town"
-  },
+  "relationships": {},
   "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Wizyta_japo%C5%84skiego_kr%C4%85%C5%BCownika_Ashigara_w_Niemczech_%281-E-8502%29.jpg",
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",

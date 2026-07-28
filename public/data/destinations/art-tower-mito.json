@@ -89,6 +89,8 @@
       "sortOrder": 5
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "mito-city"
+  },
   "walkingIntensity": "low"
 }

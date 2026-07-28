@@ -76,7 +76,7 @@
   },
   "collections": [],
   "relationships": {
-    "parentDestinationId": "tokyo-station-chiyoda"
+    "parentDestinationId": "minato-city"
   },
   "kind": "museum",
   "role": "poi",

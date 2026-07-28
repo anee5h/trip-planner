@@ -81,7 +81,9 @@
       "confirmed": true
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "ikaruga-town"
+  },
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,

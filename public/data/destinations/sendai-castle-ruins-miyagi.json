@@ -84,7 +84,8 @@
       "sendai-city",
       "matsushima-bay",
       "akiu-onsen-miyagi"
-    ]
+    ],
+    "parentDestinationId": "sendai-city"
   },
   "budgetBreakdown": null
 }

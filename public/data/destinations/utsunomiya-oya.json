@@ -84,7 +84,9 @@
       "sortOrder": 4
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "utsunomiya-city"
+  },
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "walkingIntensity": "medium"

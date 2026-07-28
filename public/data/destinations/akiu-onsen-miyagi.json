@@ -80,7 +80,8 @@
   "status": "beta",
   "relationships": {
     "featuredDestinationIds": [],
-    "nearbyDestinationIds": ["sendai-city", "matsushima-bay"]
+    "nearbyDestinationIds": ["sendai-city", "matsushima-bay"],
+    "parentDestinationId": "sendai-city"
   },
   "budgetBreakdown": null
 }

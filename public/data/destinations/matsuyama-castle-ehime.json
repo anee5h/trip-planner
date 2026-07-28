@@ -80,7 +80,9 @@
   "indoorPercent": 20,
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "matsuyama-city"
+  },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Matsuyama_castle%28Iyo%296.JPG/330px-Matsuyama_castle%28Iyo%296.JPG",
   "budgetBreakdown": {
     "transport": 3000,

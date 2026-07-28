@@ -105,6 +105,8 @@
       "confirmed": true
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "hikone-city"
+  },
   "walkingIntensity": "medium"
 }

@@ -94,9 +94,7 @@
       "confirmed": true
     }
   ],
-  "relationships": {
-    "parentDestinationId": "fujinomiya-city"
-  },
+  "relationships": {},
   "nameJa": "富士山―信仰の対象と芸術の源泉",
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",

@@ -76,9 +76,7 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {
-    "parentDestinationId": "tachikawa-tokyo"
-  },
+  "relationships": {},
   "kind": "zoo",
   "role": "poi",
   "bestSeason": "Spring & Autumn",

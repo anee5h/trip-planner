@@ -29,6 +29,9 @@ npm run validate-places
 
 # Align existing budget breakdowns with each destination's recommended total
 npm run normalize-destination-budgets
+
+# Apply only reviewed, municipality-level destination-to-hub relationships
+npm run apply-city-hub-relationships
 ```
 
 ---

@@ -16,6 +16,7 @@ export const relationshipsValidator: ValidatorModule = {
     "Zero self-referential graph links",
     "Zero dangling parent, nearby, featured, or related destination IDs",
     "Zero circular parent-child loops",
+    "Every assigned parent is a hub in the same prefecture",
   ],
   doesNotValidate: ["Search ranking", "HTTP image availability"],
   async validate(context: ValidationContext): Promise<ValidationResult> {
@@ -47,6 +48,24 @@ export const relationshipsValidator: ValidatorModule = {
             message: `Destination '${dest.id}' references non-existent parent ID '${rels.parentDestinationId}'.`,
             targetId: dest.id,
           });
+        } else {
+          const parent = destMap.get(rels.parentDestinationId)!;
+          if (parent.role !== "hub") {
+            issues.push({
+              severity: "error",
+              code: "NON_HUB_PARENT_ID",
+              message: `Destination '${dest.id}' has non-hub parent '${parent.id}'.`,
+              targetId: dest.id,
+            });
+          }
+          if (parent.prefecture !== dest.prefecture) {
+            issues.push({
+              severity: "error",
+              code: "CROSS_PREFECTURE_PARENT_ID",
+              message: `Destination '${dest.id}' in ${dest.prefecture} cannot have parent '${parent.id}' in ${parent.prefecture}.`,
+              targetId: dest.id,
+            });
+          }
         }
       }
 

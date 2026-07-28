@@ -98,6 +98,8 @@
       "confirmed": true
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "niigata-city"
+  },
   "walkingIntensity": "low"
 }
