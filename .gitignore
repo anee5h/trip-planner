@@ -20,6 +20,13 @@ dist-ssr
 .DS_Store
 repomix-output.xml
 .gemini
-# .env
+.env
+# Generated QA/release artifacts
+reports/
+
+# One-off migration scripts (use scripts/archive/ for reference)
+scripts/add-*.cjs
+scripts/fix-*.cjs
+
 docs/*
 !docs/RELEASE_RULES.md
