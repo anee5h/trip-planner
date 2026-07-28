@@ -32,7 +32,7 @@
   "categories": ["nature", "sightseeing"],
   "budgetMin": 2000,
   "budgetMax": 6000,
-  "status": "verified",
+  "status": "beta",
   "travelEstimate": {
     "confidence": "high"
   },
@@ -59,7 +59,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Lake_chuzenji_and_kegon_waterfall.jpg",
   "description": "Kegon Falls is Japan's most famous 97-meter waterfall, carrying the outlet waters of Lake Chuzenji down a dramatic cliff in Nikko National Park.",
-  "notes": "Accessible via an 100-meter underground elevator to the lower observation deck.",
+  "notes": "Kintaikyo Wooden Arch Bridge located in Yamaguchi Prefecture.",
   "budgetRecommended": 4000,
   "crowd": {
     "weekday": 3,
@@ -73,15 +73,17 @@
     "winter": 4
   },
   "walkingMin": 8000,
-  "walkingSunMin": 4800,
-  "walkingShadeMin": 3200,
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200,
   "indoorPercent": 20,
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": [],
     "parentDestinationId": "nikko-city"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Lake_chuzenji_and_kegon_waterfall.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Iwakuni%2C_ponte_kintai-kyo%2C_03%2C0.jpg/1920px-Iwakuni%2C_ponte_kintai-kyo%2C_03%2C0.jpg",
   "budgetBreakdown": {
     "transport": 1714,
     "tickets": 1143,
@@ -98,5 +100,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "medium"
+  "walkingIntensity": "low"
 }

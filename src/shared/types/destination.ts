@@ -93,6 +93,13 @@ export interface SourceReference {
   accessedAt: string;
 }
 
+export interface EditorialChange {
+  changedAt: string;
+  changedBy: string;
+  summary: string;
+  method: "manual" | "assisted";
+}
+
 export interface EditorialRecord {
   lifecycle: EditorialLifecycle;
   sources: SourceReference[];
@@ -101,6 +108,9 @@ export interface EditorialRecord {
   changeSummary?: string;
   freshness?: "current" | "review_due" | "stale" | "conflicting";
   checkedAt?: string;
+  /** Source references keyed by canonical field path for volatile facts. */
+  fieldSources?: Record<string, SourceReference[]>;
+  changes?: EditorialChange[];
 }
 
 export type DestinationImportance = "major" | "notable" | "standard";

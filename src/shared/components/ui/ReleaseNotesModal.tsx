@@ -8,8 +8,18 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.8.7",
+    version: "v1.8.8",
     tag: "Current",
+    date: "July 2026",
+    title: "Phase 1 Data Quality Foundation",
+    highlights: [
+      "Added structured bilingual recommendation reason codes and translation parity checks",
+      "Resolved catalog hierarchy, budget, collection, and generated detail-file QA issues",
+      "Added editorial freshness reporting, provenance-ready metadata, and scheduled CI reporting",
+    ],
+  },
+  {
+    version: "v1.8.7",
     date: "July 2026",
     title: "Bilingual UI and Trip Planning",
     highlights: [

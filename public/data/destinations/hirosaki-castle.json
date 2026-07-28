@@ -25,25 +25,14 @@
     "value": 4.7,
     "uniqueness": 4.8
   },
-  "status": "beta",
+  "status": "verified",
   "travelEstimate": {
     "confidence": "beta"
   },
   "collections": [
     {
       "collectionId": "original-12-castles",
-      "sortOrder": 5,
-      "confirmed": true
-    },
-    {
-      "collectionId": "japan-top-castles",
-      "sortOrder": 10,
-      "confirmed": true
-    },
-    {
-      "collectionId": "three-cherry-blossom-spots",
-      "sortOrder": 1,
-      "confirmed": true
+      "sortOrder": 1
     }
   ],
   "transportOptions": {
@@ -58,7 +47,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg",
   "description": "Hirosaki Castle in Aomori is the northernmost original keep in Japan, surrounded by over 2,600 cherry trees making it one of Japan's most celebrated spring destinations.",
-  "notes": "Built in 1611 by the Tsugaru clan.",
+  "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
   "categories": ["history", "culture", "sightseeing"],
   "budgetMin": 4000,
   "budgetMax": 15000,
@@ -81,6 +70,7 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
+    "featuredDestinationIds": [],
     "parentDestinationId": "hirosaki-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg",
@@ -99,6 +89,5 @@
     "walkingIntensity": 3
   },
   "reservation": "None required",
-  "parking": "Available on site",
-  "walkingIntensity": "medium"
+  "parking": "Available on site"
 }

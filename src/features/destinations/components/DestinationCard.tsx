@@ -47,7 +47,7 @@ import {
   formatPrefecture,
   localizePlaceLabel,
 } from "@/shared/utils/placeLabels";
-import { localizeRecommendationText } from "@/shared/utils/recommendationLabels";
+import { localizeRecommendationReason } from "@/shared/utils/recommendationLabels";
 
 interface DestinationCardProps {
   destination: Destination;
@@ -288,11 +288,11 @@ export default function DestinationCard({
                   <CheckCircle2 className="w-4 h-4 mr-2.5 text-emerald-500 shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold block">
-                      {localizeRecommendationText(r.title, locale)}
+                      {localizeRecommendationReason(r, locale).title}
                     </span>
                     {r.description && (
                       <span className="text-xs text-slate-500 dark:text-slate-400">
-                        {localizeRecommendationText(r.description, locale)}
+                        {localizeRecommendationReason(r, locale).description}
                       </span>
                     )}
                   </div>

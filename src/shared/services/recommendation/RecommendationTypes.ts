@@ -10,8 +10,29 @@ export type MatchReasonType =
   | "Interest"
   | "General";
 
+export type RecommendationReasonCode =
+  | "budgetGreatValue"
+  | "budgetWithin"
+  | "transportFastTrain"
+  | "transportEasyDrive"
+  | "transportShinkansen"
+  | "interestFood"
+  | "interestNature"
+  | "interestHistory"
+  | "interestArt"
+  | "interestSea"
+  | "interestCool"
+  | "interestThemepark"
+  | "weatherRainFriendly"
+  | "weatherCoolRetreat"
+  | "weatherWinterComfort"
+  | "generalHighlyRated"
+  | "generalSolidMatch";
+
 export interface MatchReason {
   type: MatchReasonType;
+  code: RecommendationReasonCode;
+  params?: Record<string, number | string>;
   title: string;
   description?: string;
 }

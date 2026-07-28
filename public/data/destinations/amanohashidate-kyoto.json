@@ -28,25 +28,11 @@
   "categories": ["nature", "sightseeing", "romance"],
   "budgetMin": 3000,
   "budgetMax": 12000,
-  "status": "beta",
+  "status": "verified",
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [
-    {
-      "collectionId": "three-great-views",
-      "sortOrder": 2,
-      "confirmed": true
-    },
-    {
-      "collectionId": "coastal-drives-japan",
-      "sortOrder": 9
-    },
-    {
-      "collectionId": "scenic-bridges-japan",
-      "sortOrder": 5
-    }
-  ],
+  "collections": [],
   "transportOptions": {
     "train": 160,
     "bus": 190,
@@ -59,7 +45,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Amanohashidate_aerial_view_2026.jpg/3840px-Amanohashidate_aerial_view_2026.jpg",
   "description": "Amanohashidate is a natural 3.3-kilometer pine-covered sandbar spanning Miyazu Bay, famed for the Matanozoki upside-down viewing technique making it look like a bridge floating into heaven.",
-  "notes": "Planted with nearly 7,000 pine trees.",
+  "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
   "budgetRecommended": 7500,
   "crowd": {
     "weekday": 3,
@@ -78,7 +64,10 @@
   "indoorPercent": 20,
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "relationships": {},
+  "relationships": {
+    "featuredDestinationIds": [],
+    "parentDestinationId": "miyazu-city"
+  },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Amanohashidate_aerial_view_2026.jpg/3840px-Amanohashidate_aerial_view_2026.jpg",
   "budgetBreakdown": {
     "transport": 3000,
@@ -98,8 +87,5 @@
     "walkingIntensity": 3
   },
   "reservation": "None required",
-  "parking": "Available on site",
-  "walkingIntensity": "medium",
-  "role": "standalone",
-  "placeType": "destination"
+  "parking": "Available on site"
 }

@@ -1,3 +1,6 @@
+import i18n from "@/i18n";
+import type { MatchReason } from "@/shared/services/recommendation/RecommendationTypes";
+
 const labels: Record<string, string> = {
   "Match Confidence": "マッチ度",
   "Why this matches you:": "あなたにおすすめの理由",
@@ -27,6 +30,30 @@ const labels: Record<string, string> = {
   cool: "涼しさ",
   themepark: "テーマパーク",
 };
+
+export function localizeRecommendationReason(
+  reason: MatchReason,
+  locale: "en" | "ja",
+) {
+  const t = i18n.getFixedT(locale, "common");
+  return {
+    title: t(`recommendation.reasons.${reason.code}.title`, reason.params),
+    description: t(
+      `recommendation.reasons.${reason.code}.description`,
+      reason.params,
+    ),
+  };
+}
+
+export function localizeRecommendationPreference(
+  preference: string,
+  locale: "en" | "ja",
+) {
+  return i18n.getFixedT(locale, "common")(
+    `recommendation.preferences.${preference}`,
+    { defaultValue: preference },
+  );
+}
 
 export function localizeRecommendationText(value: string, locale: "en" | "ja") {
   if (locale === "en") return value;

@@ -34,18 +34,8 @@
   },
   "collections": [
     {
-      "collectionId": "three-great-shrines",
-      "sortOrder": 1,
-      "confirmed": true
-    },
-    {
-      "collectionId": "national-treasures",
-      "sortOrder": 10,
-      "confirmed": true
-    },
-    {
-      "collectionId": "pilgrimage-routes-japan",
-      "sortOrder": 5
+      "collectionId": "islands-japan",
+      "sortOrder": 9
     }
   ],
   "transportOptions": {
@@ -60,7 +50,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Naiku_04.jpg",
   "description": "Ise Grand Shrine is the spiritual heart of Shinto, dedicated to the Sun Goddess Amaterasu and rebuilt every 20 years in accordance with ancient Shikinen Sengu ritual.",
-  "notes": "Home to the Sacred Mirror (Yata no Kagami), one of Japan's Three Imperial Regalia.",
+  "notes": "Ishigaki City travel hub in Okinawa Prefecture.",
   "budgetRecommended": 7500,
   "crowd": {
     "weekday": 3,
@@ -79,13 +69,17 @@
   "indoorPercent": 20,
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "relationships": {},
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": ["naha-city", "nago-city", "motobu-town"],
+    "parentDestinationId": "ise-city"
+  },
   "image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Naiku_04.jpg",
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 1625,
-    "cafe": 875
+    "transport": 1875,
+    "tickets": 937,
+    "food": 3047,
+    "cafe": 1641
   },
   "highlights": [
     "Explore Ise Grand Shrine (Ise Jingu)",
@@ -100,7 +94,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "medium",
-  "role": "standalone",
-  "placeType": "destination"
+  "walkingIntensity": "low"
 }

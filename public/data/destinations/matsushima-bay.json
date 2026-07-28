@@ -32,13 +32,7 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [
-    {
-      "collectionId": "three-great-views",
-      "sortOrder": 1,
-      "confirmed": true
-    }
-  ],
+  "collections": [],
   "transportOptions": {
     "train": 240,
     "bus": 280,
@@ -51,7 +45,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg/3840px-211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg",
   "description": "Matsushima Bay is one of Japan's Three Great Views (Nihon Sankei), celebrated for over 260 pine-clad islands scattered across tranquil coastal waters.",
-  "notes": "Famed poet Matsuo Basho was left speechless by its beauty in Oku no Hosomichi.",
+  "notes": "Matsuyama City travel hub in Ehime Prefecture.",
   "budgetRecommended": 7500,
   "crowd": {
     "weekday": 3,
@@ -70,13 +64,17 @@
   "indoorPercent": 20,
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "relationships": {},
+  "relationships": {
+    "featuredDestinationIds": ["matsuyama-castle-ehime", "uwajima-castle"],
+    "nearbyDestinationIds": ["takamatsu-city", "kochi-city", "tokushima-city"],
+    "parentDestinationId": "sendai-city"
+  },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg/3840px-211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg",
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 1625,
-    "cafe": 875
+    "transport": 1875,
+    "tickets": 937,
+    "food": 3047,
+    "cafe": 1641
   },
   "highlights": ["Explore Matsushima Bay", "Local Culture & Scenery"],
   "bestSeason": "Spring & Autumn",
@@ -88,7 +86,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "medium",
-  "role": "standalone",
-  "placeType": "destination"
+  "walkingIntensity": "low"
 }

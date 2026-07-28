@@ -25,20 +25,14 @@
     "value": 4.7,
     "uniqueness": 4.8
   },
-  "status": "beta",
+  "status": "verified",
   "travelEstimate": {
     "confidence": "beta"
   },
   "collections": [
     {
       "collectionId": "original-12-castles",
-      "sortOrder": 9,
-      "confirmed": true
-    },
-    {
-      "collectionId": "japan-top-castles",
-      "sortOrder": 20,
-      "confirmed": true
+      "sortOrder": 1
     }
   ],
   "transportOptions": {
@@ -53,7 +47,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/1280px-Marugame_Castle01.jpg",
   "description": "Marugame Castle features Japan's tallest combined stone wall foundations (60 meters high in total), supporting a compact original three-story wooden keep.",
-  "notes": "Famous for its sweeping curve stone wall technique known as Ogura-tsumi.",
+  "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
   "categories": ["history", "culture", "sightseeing"],
   "budgetMin": 3000,
   "budgetMax": 12000,
@@ -76,6 +70,7 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
+    "featuredDestinationIds": [],
     "parentDestinationId": "marugame-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/1280px-Marugame_Castle01.jpg",
@@ -94,6 +89,5 @@
     "walkingIntensity": 3
   },
   "reservation": "None required",
-  "parking": "Available on site",
-  "walkingIntensity": "medium"
+  "parking": "Available on site"
 }

@@ -56,7 +56,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Izumo-taisha14bs4592.jpg/3840px-Izumo-taisha14bs4592.jpg",
   "description": "Izumo Taisha is one of Japan's oldest Shinto shrines, famed for its massive 5.2-ton straw Shimenawa rope hanging at the Kaguraden hall and its deity of marriage and destiny.",
-  "notes": "In October (Kamiarizuki), all 8 million Shinto gods gather at Izumo Taisha.",
+  "notes": "Part of Rikuchū Kaigan National Park. Site of significant rebuilding after the 2011 Great East Japan Earthquake. Glass-bottom boat tours available in calm weather.",
   "budgetRecommended": 6500,
   "crowd": {
     "weekday": 3,
@@ -75,14 +75,12 @@
   "indoorPercent": 20,
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "relationships": {},
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Izumo-taisha14bs4592.jpg/3840px-Izumo-taisha14bs4592.jpg",
-  "budgetBreakdown": {
-    "transport": 2786,
-    "tickets": 1857,
-    "food": 1207,
-    "cafe": 650
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": ["ryusendo-cave-iwate"]
   },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Izumo-taisha14bs4592.jpg/3840px-Izumo-taisha14bs4592.jpg",
+  "budgetBreakdown": null,
   "highlights": [
     "Explore Izumo Taisha Grand Shrine",
     "Local Culture & Scenery"
@@ -96,7 +94,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "medium",
   "role": "standalone",
   "placeType": "destination"
 }

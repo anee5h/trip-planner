@@ -32,13 +32,7 @@
   "collections": [
     {
       "collectionId": "original-12-castles",
-      "sortOrder": 11,
-      "confirmed": true
-    },
-    {
-      "collectionId": "japan-top-castles",
-      "sortOrder": 25,
-      "confirmed": true
+      "sortOrder": 1
     }
   ],
   "transportOptions": {
@@ -53,7 +47,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/1280px-Uwajima_Castle_Keep_Tower_20170611.jpg",
   "description": "Uwajima Castle, constructed by master castle architect Todo Takatora, stands atop a coastal hill in southern Ehime with its pristine three-story original keep.",
-  "notes": "Preserved by the Date clan who ruled Uwajima domain throughout the Edo period.",
+  "notes": "Wakayama City travel hub in Wakayama Prefecture.",
   "categories": ["history", "culture", "sightseeing"],
   "budgetMin": 4000,
   "budgetMax": 15000,
@@ -75,13 +69,17 @@
   "indoorPercent": 20,
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "relationships": {},
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": ["nachi-falls-wakayama", "osaka-city"],
+    "parentDestinationId": "matsuyama-city"
+  },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/1280px-Uwajima_Castle_Keep_Tower_20170611.jpg",
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 2925,
-    "cafe": 1575
+    "transport": 2375,
+    "tickets": 1187,
+    "food": 3859,
+    "cafe": 2079
   },
   "highlights": ["Explore Uwajima Castle", "Local Culture & Scenery"],
   "bestSeason": "Spring & Autumn",
@@ -93,7 +91,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "medium",
-  "role": "standalone",
-  "placeType": "destination"
+  "walkingIntensity": "low"
 }

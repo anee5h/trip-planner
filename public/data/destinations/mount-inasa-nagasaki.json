@@ -55,7 +55,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/1280px-Mt.Inasa_2010.jpg",
   "description": "Mount Inasa in Nagasaki is designated as one of the World's New Three Great Night Views, offering a 360° illuminated bowl view of Nagasaki harbor and surrounding hills.",
-  "notes": "333 meters high, connected by Nagasaki Ropeway.",
+  "notes": "The Juhyo (snow monsters) are formed when supercooled water droplets from clouds freeze instantly on fir trees, building thick ice cocoons. Best viewed Jan 15–Feb 20. Zao Onsen village at the base has excellent hot springs.",
   "budgetRecommended": 6500,
   "crowd": {
     "weekday": 3,
@@ -75,15 +75,16 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": [
+      "okama-crater-yamagata",
+      "ginzan-onsen-yamagata",
+      "zao-fox-village-miyagi"
+    ],
     "parentDestinationId": "nagasaki-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/1280px-Mt.Inasa_2010.jpg",
-  "budgetBreakdown": {
-    "transport": 2786,
-    "tickets": 1857,
-    "food": 1207,
-    "cafe": 650
-  },
+  "budgetBreakdown": null,
   "highlights": [
     "Explore Mount Inasa (Nagasaki Night View)",
     "Local Culture & Scenery"
@@ -97,5 +98,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "medium"
+  "role": "standalone",
+  "placeType": "destination"
 }

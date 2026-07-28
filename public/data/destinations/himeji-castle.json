@@ -37,23 +37,7 @@
   "collections": [
     {
       "collectionId": "original-12-castles",
-      "sortOrder": 1,
-      "confirmed": true
-    },
-    {
-      "collectionId": "unesco-japan",
-      "sortOrder": 2,
-      "confirmed": true
-    },
-    {
-      "collectionId": "japan-top-castles",
-      "sortOrder": 1,
-      "confirmed": true
-    },
-    {
-      "collectionId": "national-treasures",
-      "sortOrder": 4,
-      "confirmed": true
+      "sortOrder": 1
     }
   ],
   "transportOptions": {
@@ -68,7 +52,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/1280px-Himeji_castle_in_may_2015.jpg",
   "description": "Himeji Castle is Japan's premier surviving feudal castle complex and a UNESCO World Heritage site, famous for its brilliant white plaster walls resembling a taking-off heron.",
-  "notes": "Completed in 1609, it survived World War II bombings and major earthquakes completely intact.",
+  "notes": "Himeji City travel hub in Hyogo Prefecture.",
   "categories": ["history", "culture", "sightseeing"],
   "budgetMin": 3000,
   "budgetMax": 12000,
@@ -91,14 +75,16 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"],
     "parentDestinationId": "himeji-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/1280px-Himeji_castle_in_may_2015.jpg",
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 1625,
-    "cafe": 875
+    "transport": 1875,
+    "tickets": 937,
+    "food": 3047,
+    "cafe": 1641
   },
   "highlights": [
     "Explore Himeji Castle (White Heron Castle)",
@@ -113,5 +99,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "medium"
+  "walkingIntensity": "low"
 }

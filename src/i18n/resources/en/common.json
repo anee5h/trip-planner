@@ -32,6 +32,92 @@
     "noAccount": "Don't have an account?",
     "hasAccount": "Already have an account?"
   },
+  "recommendation": {
+    "matchConfidence": "Match Confidence",
+    "matchReasons": "Match Reasons",
+    "matchedPreferences": "Matched Preferences",
+    "preferences": {
+      "budget": "Budget",
+      "transport": "Transport",
+      "food": "Food",
+      "nature": "Nature",
+      "history": "History",
+      "art": "Art",
+      "sea": "Sea",
+      "cool": "Cool",
+      "themepark": "Theme park"
+    },
+    "reasons": {
+      "budgetGreatValue": {
+        "title": "Great Value",
+        "description": "Well under budget (est. ¥{{cost}})"
+      },
+      "budgetWithin": {
+        "title": "Within Budget",
+        "description": "Est. ¥{{cost}} is within your range"
+      },
+      "transportFastTrain": {
+        "title": "Fast Train Access",
+        "description": "Only {{minutes}}m by train"
+      },
+      "transportEasyDrive": {
+        "title": "Easy Drive",
+        "description": "Only {{minutes}}m driving distance"
+      },
+      "transportShinkansen": {
+        "title": "Shinkansen Connected",
+        "description": "Quick shinkansen access ({{minutes}}m)"
+      },
+      "interestFood": {
+        "title": "Top-tier Food Scene",
+        "description": "Famous for exceptional local culinary experiences"
+      },
+      "interestNature": {
+        "title": "Nature Escape",
+        "description": "Beautiful scenic landscapes and nature views"
+      },
+      "interestHistory": {
+        "title": "Deep History",
+        "description": "Rich historical background and monuments"
+      },
+      "interestArt": {
+        "title": "Rich in Art & Culture",
+        "description": "Excellent museums and galleries to explore"
+      },
+      "interestSea": {
+        "title": "Coastal Vibe",
+        "description": "Refreshing oceanside beaches and views"
+      },
+      "interestCool": {
+        "title": "Cool Retreat",
+        "description": "Refreshing climate perfect for hot days"
+      },
+      "interestThemepark": {
+        "title": "Theme Park Fun",
+        "description": "Exciting attractions and theme park rides"
+      },
+      "weatherRainFriendly": {
+        "title": "Rain Friendly",
+        "description": "{{indoor}}% indoor space, perfect for rain"
+      },
+      "weatherCoolRetreat": {
+        "title": "Cool Mountain Air",
+        "description": "A cool escape from the hot city temperatures"
+      },
+      "weatherWinterComfort": {
+        "title": "Winter Comfort",
+        "description": "Excellent cold weather/onsen getaway spot"
+      },
+      "generalHighlyRated": {
+        "title": "Highly Rated Choice",
+        "description": "Highly recommended by other travelers"
+      },
+      "generalSolidMatch": {
+        "title": "Solid Match",
+        "description": "A solid match matching your base criteria"
+      }
+    }
+  },
   "ui": {
     "back": "Back",
     "cancel": "Cancel",

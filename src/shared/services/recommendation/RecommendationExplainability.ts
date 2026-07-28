@@ -66,12 +66,16 @@ export function createRecommendationMatch(
       if (budget - bestModeBudget >= 5000) {
         reasons.push({
           type: "Budget",
+          code: "budgetGreatValue",
+          params: { cost: bestModeBudget.toLocaleString() },
           title: "Great Value",
           description: `Well under budget (est. ¥${bestModeBudget.toLocaleString()})`,
         });
       } else {
         reasons.push({
           type: "Budget",
+          code: "budgetWithin",
+          params: { cost: bestModeBudget.toLocaleString() },
           title: "Within Budget",
           description: `Est. ¥${bestModeBudget.toLocaleString()} is within your range`,
         });
@@ -85,6 +89,8 @@ export function createRecommendationMatch(
   if (hasFastTrain) {
     reasons.push({
       type: "Transport",
+      code: "transportFastTrain",
+      params: { minutes: dest.transportOptions?.train || 0 },
       title: "Fast Train Access",
       description: `Only ${dest.transportOptions?.train}m by train`,
     });
@@ -92,6 +98,8 @@ export function createRecommendationMatch(
   if (hasEasyDrive) {
     reasons.push({
       type: "Transport",
+      code: "transportEasyDrive",
+      params: { minutes: dest.transportOptions?.car || 0 },
       title: "Easy Drive",
       description: `Only ${dest.transportOptions?.car}m driving distance`,
     });
@@ -99,6 +107,8 @@ export function createRecommendationMatch(
   if (bestMode === "shinkansen") {
     reasons.push({
       type: "Transport",
+      code: "transportShinkansen",
+      params: { minutes: dest.transportOptions?.shinkansen || 0 },
       title: "Shinkansen Connected",
       description: `Quick shinkansen access (${dest.transportOptions?.shinkansen}m)`,
     });
@@ -121,6 +131,7 @@ export function createRecommendationMatch(
         matchedPreferences.push("food");
         reasons.push({
           type: "Interest",
+          code: "interestFood",
           title: "Top-tier Food Scene",
           description: "Famous for exceptional local culinary experiences",
         });
@@ -131,6 +142,7 @@ export function createRecommendationMatch(
         matchedPreferences.push("nature");
         reasons.push({
           type: "Interest",
+          code: "interestNature",
           title: "Nature Escape",
           description: "Beautiful scenic landscapes and nature views",
         });
@@ -147,6 +159,7 @@ export function createRecommendationMatch(
         matchedPreferences.push("history");
         reasons.push({
           type: "Interest",
+          code: "interestHistory",
           title: "Deep History",
           description: "Rich historical background and monuments",
         });
@@ -159,6 +172,7 @@ export function createRecommendationMatch(
         matchedPreferences.push("art");
         reasons.push({
           type: "Interest",
+          code: "interestArt",
           title: "Rich in Art & Culture",
           description: "Excellent museums and galleries to explore",
         });
@@ -175,6 +189,7 @@ export function createRecommendationMatch(
         matchedPreferences.push("sea");
         reasons.push({
           type: "Interest",
+          code: "interestSea",
           title: "Coastal Vibe",
           description: "Refreshing oceanside beaches and views",
         });
@@ -187,6 +202,7 @@ export function createRecommendationMatch(
         matchedPreferences.push("cool");
         reasons.push({
           type: "Weather",
+          code: "interestCool",
           title: "Cool Retreat",
           description: "Refreshing climate perfect for hot days",
         });
@@ -197,6 +213,7 @@ export function createRecommendationMatch(
         matchedPreferences.push("themepark");
         reasons.push({
           type: "Interest",
+          code: "interestThemepark",
           title: "Theme Park Fun",
           description: "Exciting attractions and theme park rides",
         });
@@ -223,6 +240,8 @@ export function createRecommendationMatch(
     if (indoor >= 70) {
       reasons.push({
         type: "Weather",
+        code: "weatherRainFriendly",
+        params: { indoor: Math.round(indoor) },
         title: "Rain Friendly",
         description: `${Math.round(indoor)}% indoor space, perfect for rain`,
       });
@@ -231,6 +250,7 @@ export function createRecommendationMatch(
   if (isHot && ratings.summer >= 8.5) {
     reasons.push({
       type: "Weather",
+      code: "weatherCoolRetreat",
       title: "Cool Mountain Air",
       description: "A cool escape from the hot city temperatures",
     });
@@ -238,6 +258,7 @@ export function createRecommendationMatch(
   if (isCold && ratings.winter >= 8.5) {
     reasons.push({
       type: "Weather",
+      code: "weatherWinterComfort",
       title: "Winter Comfort",
       description: "Excellent cold weather/onsen getaway spot",
     });
@@ -246,6 +267,7 @@ export function createRecommendationMatch(
   if (reasons.length === 0) {
     reasons.push({
       type: "General",
+      code: ratings.overall >= 8.5 ? "generalHighlyRated" : "generalSolidMatch",
       title: ratings.overall >= 8.5 ? "Highly Rated Choice" : "Solid Match",
       description:
         ratings.overall >= 8.5

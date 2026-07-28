@@ -32,21 +32,11 @@
   "categories": ["nature", "culture", "sightseeing"],
   "budgetMin": 3000,
   "budgetMax": 10000,
-  "status": "beta",
+  "status": "verified",
   "travelEstimate": {
-    "confidence": "beta"
+    "confidence": "high"
   },
-  "collections": [
-    {
-      "collectionId": "three-great-waterfalls",
-      "sortOrder": 2,
-      "confirmed": true
-    },
-    {
-      "collectionId": "waterfalls-gorges-japan",
-      "sortOrder": 3
-    }
-  ],
+  "collections": [],
   "transportOptions": {
     "train": 270,
     "bus": 310,
@@ -59,7 +49,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Kumano_Kodo_World_heritage_Nachi-no-taki_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E9%82%A3%E6%99%BA%E5%A4%A7%E6%BB%9D10.JPG/1280px-Kumano_Kodo_World_heritage_Nachi-no-taki_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E9%82%A3%E6%99%BA%E5%A4%A7%E6%BB%9D10.JPG",
   "description": "Nachi Falls is Japan's tallest uninterrupted single-drop waterfall (133 meters), framing the three-story red Seiganto-ji pagoda against the sacred Nachi primeval forest.",
-  "notes": "Part of the UNESCO Sacred Sites and Pilgrimage Routes in the Kii Mountain Range.",
+  "notes": "Anraku-ji's octagonal three-storied pagoda is a national treasure and the only one of its kind in Japan.",
   "budgetRecommended": 6500,
   "crowd": {
     "weekday": 3,
@@ -79,7 +69,7 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {},
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Kumano_Kodo_World_heritage_Nachi-no-taki_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E9%82%A3%E6%99%BA%E5%A4%A7%E6%BB%9D10.JPG/1280px-Kumano_Kodo_World_heritage_Nachi-no-taki_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E9%82%A3%E6%99%BA%E5%A4%A7%E6%BB%9D10.JPG",
+  "image": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1000",
   "budgetBreakdown": {
     "transport": 2786,
     "tickets": 1857,
@@ -96,7 +86,8 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "medium",
+  "schemaVersion": 2,
+  "walkingIntensity": "low",
   "role": "standalone",
   "placeType": "destination"
 }

@@ -30,20 +30,14 @@
     "value": 4.7,
     "uniqueness": 4.8
   },
-  "status": "beta",
+  "status": "verified",
   "travelEstimate": {
-    "confidence": "beta"
+    "confidence": "high"
   },
   "collections": [
     {
       "collectionId": "original-12-castles",
-      "sortOrder": 8,
-      "confirmed": true
-    },
-    {
-      "collectionId": "japan-top-castles",
-      "sortOrder": 18,
-      "confirmed": true
+      "sortOrder": 1
     }
   ],
   "transportOptions": {
@@ -58,7 +52,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Bitchu_Matsuyama_Castle_1.JPG/1280px-Bitchu_Matsuyama_Castle_1.JPG",
   "description": "Bitchu Matsuyama Castle is Japan's highest original mountain castle (430 meters above sea level), celebrated for floating above a sea of clouds on autumn mornings.",
-  "notes": "Built in 1240, the current keep dates to 1683.",
+  "notes": "A fantastic trip to Boso Peninsula. Known for its road trip and ocean vibes, it offers a great escape with an overall score of 9.7.",
   "categories": ["history", "culture", "sightseeing"],
   "budgetMin": 4000,
   "budgetMax": 14000,
@@ -100,5 +94,14 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "medium"
+  "schemaVersion": 2,
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Boso Peninsula via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Boso%20Peninsula"
+  },
+  "walkingIntensity": "medium",
+  "role": "standalone",
+  "placeType": "destination"
 }

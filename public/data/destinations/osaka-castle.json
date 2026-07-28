@@ -34,8 +34,7 @@
   },
   "collections": [
     {
-      "collectionId": "japan-top-castles",
-      "sortOrder": 27,
+      "collectionId": "core-cities-japan",
       "confirmed": true
     }
   ],
@@ -51,7 +50,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Osaka-zu_byobu.jpg/500px-Osaka-zu_byobu.jpg",
   "description": "Osaka Castle is an iconic 16th-century fortress constructed by Toyotomi Hideyoshi, featuring golden roof ornaments, massive stone ramparts, and a lush park surrounded by moats.",
-  "notes": "Reconstructed in 1931 with an elevator-serviced interior museum.",
+  "notes": "Food capital of Japan (Kuidaore culture).",
   "budgetRecommended": 6500,
   "crowd": {
     "weekday": 3,
@@ -71,14 +70,17 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
+    "featuredDestinationIds": ["abeno-harukas-300-osaka"],
+    "nearbyDestinationIds": ["kyoto-city", "uji-city", "miyazu-city"],
+    "relatedDestinationIds": ["fukuoka-city"],
     "parentDestinationId": "osaka-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Osaka-zu_byobu.jpg/500px-Osaka-zu_byobu.jpg",
   "budgetBreakdown": {
-    "transport": 2786,
-    "tickets": 1857,
-    "food": 1207,
-    "cafe": 650
+    "transport": 1625,
+    "tickets": 813,
+    "food": 2641,
+    "cafe": 1421
   },
   "highlights": ["Explore Osaka Castle (Osaka-jo)", "Local Culture & Scenery"],
   "bestSeason": "Spring & Autumn",

@@ -32,6 +32,92 @@
     "noAccount": "アカウントをお持ちでないですか？",
     "hasAccount": "すでにアカウントをお持ちですか？"
   },
+  "recommendation": {
+    "matchConfidence": "マッチ度",
+    "matchReasons": "おすすめの理由",
+    "matchedPreferences": "一致した条件",
+    "preferences": {
+      "budget": "予算",
+      "transport": "交通",
+      "food": "グルメ",
+      "nature": "自然",
+      "history": "歴史",
+      "art": "アート",
+      "sea": "海",
+      "cool": "涼しさ",
+      "themepark": "テーマパーク"
+    },
+    "reasons": {
+      "budgetGreatValue": {
+        "title": "お得な旅",
+        "description": "予算を大きく下回ります（目安 ¥{{cost}}）"
+      },
+      "budgetWithin": {
+        "title": "予算内",
+        "description": "目安 ¥{{cost}}で予算内です"
+      },
+      "transportFastTrain": {
+        "title": "電車でアクセス便利",
+        "description": "電車で{{minutes}}分です"
+      },
+      "transportEasyDrive": {
+        "title": "車でアクセス便利",
+        "description": "車で{{minutes}}分です"
+      },
+      "transportShinkansen": {
+        "title": "新幹線でアクセス",
+        "description": "新幹線で{{minutes}}分です"
+      },
+      "interestFood": {
+        "title": "食の魅力",
+        "description": "地域ならではの食文化を楽しめます"
+      },
+      "interestNature": {
+        "title": "自然を満喫",
+        "description": "美しい景観と自然を楽しめます"
+      },
+      "interestHistory": {
+        "title": "豊かな歴史",
+        "description": "歴史的な背景と文化財に触れられます"
+      },
+      "interestArt": {
+        "title": "芸術と文化",
+        "description": "美術館やギャラリーを楽しめます"
+      },
+      "interestSea": {
+        "title": "海辺の魅力",
+        "description": "海辺の景色と開放感を楽しめます"
+      },
+      "interestCool": {
+        "title": "涼しい避暑地",
+        "description": "暑い日に涼しく過ごせます"
+      },
+      "interestThemepark": {
+        "title": "テーマパーク",
+        "description": "アトラクションや乗り物を楽しめます"
+      },
+      "weatherRainFriendly": {
+        "title": "雨の日向き",
+        "description": "屋内{{indoor}}%で雨の日にも向いています"
+      },
+      "weatherCoolRetreat": {
+        "title": "涼しい空気",
+        "description": "暑い都市を離れて涼しく過ごせます"
+      },
+      "weatherWinterComfort": {
+        "title": "冬も快適",
+        "description": "寒い季節や温泉旅行に向いています"
+      },
+      "generalHighlyRated": {
+        "title": "高評価の目的地",
+        "description": "多くの旅行者におすすめされています"
+      },
+      "generalSolidMatch": {
+        "title": "おすすめの目的地",
+        "description": "基本条件に合うおすすめです"
+      }
+    }
+  },
   "ui": {
     "back": "戻る",
     "cancel": "キャンセル",

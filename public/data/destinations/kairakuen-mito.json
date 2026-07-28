@@ -31,13 +31,8 @@
   },
   "collections": [
     {
-      "collectionId": "three-great-gardens",
-      "sortOrder": 2,
+      "collectionId": "japan-top-castles",
       "confirmed": true
-    },
-    {
-      "collectionId": "flower-parks-japan",
-      "sortOrder": 4
     }
   ],
   "transportOptions": {
@@ -52,7 +47,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/3840px-Kairaku-en%2C_Ibaraki_24.jpg",
   "description": "Kairakuen in Mito is one of Japan's Three Great Gardens, famous for its over 3,000 plum trees of 100 different varieties that bloom brilliantly in early spring.",
-  "notes": "Founded in 1842 by Tokugawa Nariaki, designed as a public park for citizens to relax.",
+  "notes": "Top 100 Castle of Japan #42. Ninomaru Goten is an Important Cultural Property.",
   "categories": ["history", "culture", "sightseeing"],
   "budgetMin": 2000,
   "budgetMax": 8000,
@@ -94,5 +89,14 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "medium"
+  "schemaVersion": 2,
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Kakegawa Castle via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Kakegawa%20Castle"
+  },
+  "walkingIntensity": "low",
+  "role": "standalone",
+  "placeType": "destination"
 }

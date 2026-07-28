@@ -28,15 +28,14 @@
   "categories": ["onsen", "relaxation", "culture"],
   "budgetMin": 6000,
   "budgetMax": 30000,
-  "status": "beta",
+  "status": "verified",
   "travelEstimate": {
-    "confidence": "beta"
+    "confidence": "high"
   },
   "collections": [
     {
-      "collectionId": "top-onsen-japan",
-      "sortOrder": 4,
-      "confirmed": true
+      "collectionId": "art-islands-japan",
+      "sortOrder": 5
     }
   ],
   "transportOptions": {
@@ -51,7 +50,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2c/170811_Rokko-Arima_Ropeway_Kobe_Japan00n.jpg",
   "description": "Arima Onsen is Japan's oldest recorded hot spring resort, nestled behind Mount Rokko and famous for its iron-rich golden 'Kinsen' and clear radium 'Ginsen' waters.",
-  "notes": "Favored by Toyotomi Hideyoshi who built private baths here.",
+  "notes": "The tower contains round porthole windows providing unique framed perspectives of Mito City.",
   "budgetRecommended": 18000,
   "crowd": {
     "weekday": 3,
@@ -90,5 +89,12 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "medium"
+  "schemaVersion": 2,
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Art Tower Mito via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Art%20Tower%20Mito"
+  },
+  "walkingIntensity": "low"
 }

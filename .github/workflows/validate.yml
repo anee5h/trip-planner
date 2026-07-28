@@ -33,3 +33,9 @@ jobs:
 
       - name: Run Data Quality Framework
         run: npm run validate-all
+
+      - name: Check Translation Resource Parity
+        run: npm run check:translation-parity
+
+      - name: Generate Editorial Freshness Report
+        run: npm run report:editorial-freshness

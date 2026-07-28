@@ -36,17 +36,7 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [
-    {
-      "collectionId": "great-night-views",
-      "sortOrder": 2,
-      "confirmed": true
-    },
-    {
-      "collectionId": "japan-observatories-towers",
-      "confirmed": true
-    }
-  ],
+  "collections": [],
   "transportOptions": {
     "train": 210,
     "bus": 240,
@@ -59,7 +49,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg/3840px-View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg",
   "description": "Known as the Ten Million Dollar Night View, Kikuseidai observatory on Mount Maya captures a breathtaking sparkling panorama spanning Kobe, Osaka Bay, and Kansai.",
-  "notes": "Kikuseidai literally means a platform where you can scoop up stars with your hands.",
+  "notes": "Kochi City travel hub in Kochi Prefecture.",
   "budgetRecommended": 6000,
   "crowd": {
     "weekday": 3,
@@ -79,14 +69,20 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
+    "featuredDestinationIds": ["kochi-castle"],
+    "nearbyDestinationIds": [
+      "takamatsu-city",
+      "matsuyama-city",
+      "tokushima-city"
+    ],
     "parentDestinationId": "kobe-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg/3840px-View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg",
   "budgetBreakdown": {
-    "transport": 2571,
-    "tickets": 1714,
-    "food": 1114,
-    "cafe": 601
+    "transport": 1500,
+    "tickets": 750,
+    "food": 2437,
+    "cafe": 1313
   },
   "highlights": [
     "Explore Mount Maya Kikuseidai (Kobe)",
@@ -101,5 +97,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "medium"
+  "walkingIntensity": "low"
 }

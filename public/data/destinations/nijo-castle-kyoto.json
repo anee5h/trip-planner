@@ -33,22 +33,11 @@
   "categories": ["history", "culture", "sightseeing"],
   "budgetMin": 3000,
   "budgetMax": 10000,
-  "status": "beta",
+  "status": "verified",
   "travelEstimate": {
-    "confidence": "beta"
+    "confidence": "high"
   },
-  "collections": [
-    {
-      "collectionId": "japan-top-castles",
-      "sortOrder": 28,
-      "confirmed": true
-    },
-    {
-      "collectionId": "national-treasures",
-      "sortOrder": 12,
-      "confirmed": true
-    }
-  ],
+  "collections": [],
   "transportOptions": {
     "train": 140,
     "bus": 160,
@@ -61,7 +50,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg/1280px-%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg",
   "description": "Nijo Castle in Kyoto was the residence of Tokugawa Ieyasu, famous for its Ninomaru Palace featuring squeaking 'nightingale floors' designed to alert guards to intruders.",
-  "notes": "Site where Shogun Tokugawa Yoshinobu returned power to Emperor Meiji in 1867.",
+  "notes": "Nikko City travel hub in Tochigi Prefecture.",
   "budgetRecommended": 6500,
   "crowd": {
     "weekday": 3,
@@ -81,14 +70,19 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
+    "featuredDestinationIds": [
+      "nikko-toshogu-shrine-tochigi",
+      "kegon-falls-nikko"
+    ],
+    "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"],
     "parentDestinationId": "kyoto-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg/1280px-%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg",
   "budgetBreakdown": {
-    "transport": 2786,
-    "tickets": 1857,
-    "food": 1207,
-    "cafe": 650
+    "transport": 1625,
+    "tickets": 812,
+    "food": 2641,
+    "cafe": 1422
   },
   "highlights": ["Explore Nijo Castle (Kyoto)", "Local Culture & Scenery"],
   "bestSeason": "Spring & Autumn",
@@ -100,5 +94,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "medium"
+  "walkingIntensity": "low"
 }

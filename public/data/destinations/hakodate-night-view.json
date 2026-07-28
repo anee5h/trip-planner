@@ -32,19 +32,19 @@
   "categories": ["sightseeing", "nature", "romance"],
   "budgetMin": 3000,
   "budgetMax": 10000,
-  "status": "beta",
+  "status": "verified",
   "travelEstimate": {
-    "confidence": "beta"
+    "confidence": "high"
   },
   "collections": [
     {
-      "collectionId": "great-night-views",
-      "sortOrder": 1,
+      "collectionId": "top-onsen-japan",
+      "sortOrder": 2,
       "confirmed": true
     },
     {
-      "collectionId": "japan-observatories-towers",
-      "confirmed": true
+      "collectionId": "art-islands-japan",
+      "sortOrder": 4
     }
   ],
   "transportOptions": {
@@ -59,7 +59,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg/3840px-Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg",
   "description": "Mount Hakodate offers one of Japan's Three Great Night Views, overlooking a stunning hourglass-shaped peninsula illuminated between Tsugaru Strait and Hakodate Bay.",
-  "notes": "Accessible via the Mount Hakodate Ropeway in just 3 minutes.",
+  "notes": "Premier mountain hot spring resort near Tokyo.",
   "budgetRecommended": 6500,
   "crowd": {
     "weekday": 3,
@@ -79,14 +79,17 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
-    "parentDestinationId": "hakodate-city"
+    "parentDestinationId": "hakodate-city",
+    "featuredDestinationIds": ["ashigara", "jogashima"],
+    "nearbyDestinationIds": ["shibuya-city", "chiba-city", "saitama-city"],
+    "relatedDestinationIds": ["kusatsu-town", "yufu-city"]
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg/3840px-Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg",
   "budgetBreakdown": {
-    "transport": 2786,
-    "tickets": 1857,
-    "food": 1207,
-    "cafe": 650
+    "transport": 1083,
+    "tickets": 542,
+    "food": 3169,
+    "cafe": 1706
   },
   "highlights": [
     "Explore Mount Hakodate Night View",
@@ -101,5 +104,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "medium"
+  "walkingIntensity": "low"
 }

@@ -39,23 +39,12 @@
   },
   "collections": [
     {
-      "collectionId": "unesco-japan",
-      "sortOrder": 5,
-      "confirmed": true
-    },
-    {
-      "collectionId": "national-treasures",
-      "sortOrder": 7,
-      "confirmed": true
-    },
-    {
-      "collectionId": "three-great-views",
-      "sortOrder": 3,
-      "confirmed": true
+      "collectionId": "scenic-bridges-japan",
+      "sortOrder": 7
     },
     {
       "collectionId": "islands-japan",
-      "sortOrder": 8
+      "sortOrder": 11
     }
   ],
   "transportOptions": {
@@ -70,7 +59,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/960px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg",
   "description": "Itsukushima Shrine on Miyajima Island is world-renowned for its iconic vermilion O-Torii gate that appears to float magically upon the Seto Inland Sea during high tide.",
-  "notes": "Designated as one of the Three Views of Japan (Nihon Sankei).",
+  "notes": "Miyakojima City travel hub in Okinawa Prefecture.",
   "budgetRecommended": 7500,
   "crowd": {
     "weekday": 3,
@@ -90,14 +79,16 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": ["naha-city", "nago-city", "motobu-town"],
     "parentDestinationId": "hatsukaichi-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/960px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg",
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 1625,
-    "cafe": 875
+    "transport": 1875,
+    "tickets": 937,
+    "food": 3047,
+    "cafe": 1641
   },
   "highlights": [
     "Explore Itsukushima Shrine (Miyajima Island)",
@@ -112,5 +103,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "medium"
+  "walkingIntensity": "low"
 }

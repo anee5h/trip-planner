@@ -73,7 +73,10 @@ import {
   formatPrefecture,
   localizePlaceLabel,
 } from "@/shared/utils/placeLabels";
-import { localizeRecommendationText } from "@/shared/utils/recommendationLabels";
+import {
+  localizeRecommendationPreference,
+  localizeRecommendationReason,
+} from "@/shared/utils/recommendationLabels";
 
 import { toast } from "sonner";
 import {
@@ -1403,10 +1406,7 @@ export default function DestinationDetails() {
                         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-slate-100 dark:border-slate-800">
                           <div>
                             <h4 className="text-xl font-bold mb-1">
-                              {localizeRecommendationText(
-                                "Match Confidence",
-                                locale,
-                              )}
+                              {t("recommendation.matchConfidence")}
                             </h4>
                             <p className="text-slate-500 dark:text-slate-400 text-sm">
                               {locale === "ja"
@@ -1429,10 +1429,7 @@ export default function DestinationDetails() {
 
                         <div className="space-y-4">
                           <h5 className="font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider text-xs">
-                            {localizeRecommendationText(
-                              "Match Reasons",
-                              locale,
-                            )}
+                            {t("recommendation.matchReasons")}
                           </h5>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {matchDetails.reasons.map((r, idx) => (
@@ -1443,17 +1440,17 @@ export default function DestinationDetails() {
                                 <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
                                 <div>
                                   <span className="font-bold text-sm block text-slate-900 dark:text-slate-100">
-                                    {localizeRecommendationText(
-                                      r.title,
-                                      locale,
-                                    )}
+                                    {
+                                      localizeRecommendationReason(r, locale)
+                                        .title
+                                    }
                                   </span>
                                   {r.description && (
                                     <span className="text-xs text-slate-500 dark:text-slate-400">
-                                      {localizeRecommendationText(
-                                        r.description,
-                                        locale,
-                                      )}
+                                      {
+                                        localizeRecommendationReason(r, locale)
+                                          .description
+                                      }
                                     </span>
                                   )}
                                 </div>
@@ -1465,10 +1462,7 @@ export default function DestinationDetails() {
                         {matchDetails.matchedPreferences.length > 0 && (
                           <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
                             <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">
-                              {localizeRecommendationText(
-                                "Matched Preferences",
-                                locale,
-                              )}
+                              {t("recommendation.matchedPreferences")}
                             </span>
                             <div className="flex flex-wrap gap-2">
                               {matchDetails.matchedPreferences.map((pref) => (
@@ -1478,7 +1472,10 @@ export default function DestinationDetails() {
                                   className="bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800 font-semibold inline-flex items-center gap-1"
                                 >
                                   <CheckCircle2 className="w-3 h-3" />{" "}
-                                  {localizeRecommendationText(pref, locale)}
+                                  {localizeRecommendationPreference(
+                                    pref,
+                                    locale,
+                                  )}
                                 </Badge>
                               ))}
                             </div>
