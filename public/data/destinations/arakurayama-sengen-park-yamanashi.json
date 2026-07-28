@@ -1,0 +1,87 @@
+{
+  "id": "arakurayama-sengen-park-yamanashi",
+  "name": "Arakurayama Sengen Park & Chureito Pagoda",
+  "nameJa": "新倉山浅間公園・忠霊塔",
+  "prefecture": "Yamanashi",
+  "category": "Viewpoints & Photography",
+  "description": "Japan's iconic postcard panorama featuring the five-story Chureito Pagoda framing Mount Fuji surrounded by cherry blossoms.",
+  "coordinates": {
+    "lat": 35.5013,
+    "lng": 138.8016
+  },
+  "nearestStation": "Shimoyoshida Station",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Chuurei-tou_Fujiyoshida_17025277650_c59733d6ba_o.jpg/1920px-Chuurei-tou_Fujiyoshida_17025277650_c59733d6ba_o.jpg",
+  "tags": ["fuji", "pagoda", "cherry-blossoms", "yamanashi", "viewpoint"],
+  "rating": 4.9,
+  "bestSeasons": ["Spring", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 90,
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "flower-parks-japan",
+      "sortOrder": 1
+    }
+  ],
+  "region": "Chubu",
+  "categories": ["Viewpoints & Photography"],
+  "budgetMin": 1500,
+  "budgetMax": 6000,
+  "budgetRecommended": 3750,
+  "transportOptions": {
+    "train": 180
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "highlights": [
+    "Explore Arakurayama Sengen Park & Chureito Pagoda",
+    "Local Culture & Scenery"
+  ],
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Arakurayama Sengen Park & Chureito Pagoda Dining Options"],
+  "cafes": ["Arakurayama Sengen Park & Chureito Pagoda Rest Area Cafe"],
+  "notes": "Arakurayama Sengen Park & Chureito Pagoda located in Yamanashi Prefecture.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Chuurei-tou_Fujiyoshida_17025277650_c59733d6ba_o.jpg/1920px-Chuurei-tou_Fujiyoshida_17025277650_c59733d6ba_o.jpg",
+  "walkingIntensity": "low",
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200
+}

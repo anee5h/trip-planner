@@ -1,0 +1,86 @@
+{
+  "id": "okama-crater-yamagata",
+  "name": "Okama Crater Lake",
+  "nameJa": "お釜",
+  "prefecture": "Yamagata",
+  "region": "Tohoku",
+  "category": "Nature & Parks",
+  "categories": ["Nature & Parks"],
+  "description": "An active volcanic crater lake on Mount Zao glowing an eerie emerald-green from dissolved sulfur compounds. Its colour shifts through shades of blue and green depending on the weather, earning the nickname \"Five Colour Pond\".",
+  "highlights": [
+    "Surreal emerald-green volcanic lake",
+    "Colour-shifting water throughout the day",
+    "Zao Echo Line scenic drive access",
+    "Panoramic summit views"
+  ],
+  "coordinates": {
+    "lat": 38.1228,
+    "lng": 140.4344
+  },
+  "nearestStation": "Yamagata Station (then bus/car)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Zao.jpg/250px-Zao.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Zao.jpg/250px-Zao.jpg",
+  "tags": ["crater", "lake", "volcano", "yamagata", "scenic", "tohoku"],
+  "rating": 4.8,
+  "bestSeasons": ["Summer", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 130,
+    "confidence": "high"
+  },
+  "collections": [],
+  "budgetMin": 0,
+  "budgetRecommended": 2500,
+  "budgetMax": 5000,
+  "transportOptions": {
+    "shinkansen": 80,
+    "car": 60
+  },
+  "ratings": {
+    "overall": 9.2,
+    "couple": 9.3,
+    "summer": 9.5,
+    "winter": 4,
+    "rain": 5,
+    "food": 7,
+    "photography": 9.8,
+    "relaxation": 8.5,
+    "value": 9.3,
+    "uniqueness": 9.8
+  },
+  "totalTripHours": 2,
+  "walkingMin": 1500,
+  "walkingSunMin": 1200,
+  "walkingShadeMin": 300,
+  "indoorPercent": 5,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7,
+    "summer": 10,
+    "autumn": 9,
+    "winter": 2
+  },
+  "bestMonths": [6, 7, 8, 9, 10],
+  "bestSeason": "Summer",
+  "weatherDependence": "very high",
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 3,
+    "walkingIntensity": 2
+  },
+  "walkingIntensity": "low",
+  "reservation": "None required",
+  "parking": "Katta Pass observation deck parking",
+  "restaurants": ["Zao Echo Line Roadside Rest Stop"],
+  "cafes": ["Summit Observation Café"],
+  "notes": "Access via Zao Echo Line toll road (closed Nov–Apr due to snow). On cloudy days the lake can be completely hidden. Best views are on clear summer mornings. Often visited same day as Mount Zao ropeway.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": ["mount-zao-yamagata"]
+  },
+  "budgetBreakdown": null
+}

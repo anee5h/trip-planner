@@ -1,5 +1,6 @@
 {
   "id": "hachioji-tokyo",
+  "role": "hub",
   "name": "Hachioji",
   "prefecture": "Tokyo",
   "region": "Kanto",
@@ -60,34 +61,6 @@
     "lng": 139.3163653
   },
   "schemaVersion": 2,
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Hachioji in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at Hachioji and get oriented at the base area."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Explore the primary sights: Mount Takao Cable Car and Hachioji Castle Ruins."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Enjoy a local lunch featuring regional specialties."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic landmarks: Takao 599 Museum."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a nearby local café or park before heading back."
-        }
-      ]
-    }
-  ],
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Takao-san-Top_10.11.13_saturday.JPG/1280px-Takao-san-Top_10.11.13_saturday.JPG",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -99,19 +72,18 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [
-    {
-      "collectionId": "japan-top-castles",
-      "confirmed": true
-    }
-  ],
-  "relationships": {
-    "parentDestinationId": "chiyoda-city"
-  },
+  "collections": [],
+  "relationships": {},
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,
     "food": 3738,
     "cafe": 2012
-  }
+  },
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "walkingIntensity": "low"
 }

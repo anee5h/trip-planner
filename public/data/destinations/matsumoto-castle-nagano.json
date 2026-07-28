@@ -13,7 +13,7 @@
   "highlights": ["Original Keep", "Historic Architecture", "Panoramic Views"],
   "totalTripHours": 3,
   "budgetMin": 600,
-  "budgetRecommended": 1500,
+  "budgetRecommended": 1800,
   "budgetMax": 3000,
   "walkingMin": 120,
   "indoorPercent": 40,
@@ -61,5 +61,26 @@
   "coordinates": {
     "lat": 36.2381,
     "lng": 137.9686
-  }
+  },
+  "transportOptions": {
+    "train": 160
+  },
+  "walkingSunMin": 72,
+  "walkingShadeMin": 48,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Matsumoto Castle (Crow Castle) Dining Options"],
+  "cafes": ["Matsumoto Castle (Crow Castle) Rest Area Cafe"],
+  "notes": "Matsumoto Castle (Crow Castle) located in Nagano Prefecture.",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": [],
+    "parentDestinationId": "matsumoto-city"
+  },
+  "walkingIntensity": "low"
 }

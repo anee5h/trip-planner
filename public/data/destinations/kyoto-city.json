@@ -19,7 +19,7 @@
   ],
   "totalTripHours": 8,
   "budgetMin": 5000,
-  "budgetRecommended": 15000,
+  "budgetRecommended": 20000,
   "budgetMax": 35000,
   "walkingMin": 6000,
   "walkingSunMin": 2500,
@@ -75,7 +75,12 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "core-cities-japan",
+      "confirmed": true
+    }
+  ],
   "relationships": {
     "featuredDestinationIds": [
       "amanohashidate-kyoto",
@@ -86,9 +91,10 @@
     "relatedDestinationIds": ["nara-city"]
   },
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 1500,
-    "food": 6825,
-    "cafe": 3675
-  }
+    "transport": 4000,
+    "tickets": 2000,
+    "food": 9100,
+    "cafe": 4900
+  },
+  "walkingIntensity": "medium"
 }

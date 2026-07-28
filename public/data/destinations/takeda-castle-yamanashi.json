@@ -62,37 +62,13 @@
   ],
   "description": "The fortified residence of legendary Sengoku warlord Takeda Shingen, featuring original earthwork ramparts, triple moats, and Takeda Shrine.",
   "budgetBreakdown": {
-    "transport": 1500,
-    "tickets": 300,
-    "food": 2400,
-    "cafe": 800
+    "transport": 1725,
+    "tickets": 345,
+    "food": 2760,
+    "cafe": 920
   },
   "reservation": "No reservation required.",
   "parking": "Free parking lot at Takeda Shrine entrance.",
-  "itineraries": [
-    {
-      "name": "Takeda Shingen Stronghold Walk",
-      "description": "Explore warlord Shingen's castle moats and sample Yamanashi Houtou noodles.",
-      "steps": [
-        {
-          "time": "10:30 AM",
-          "activity": "Arrive at Kofu Station and bus 10 mins to Takeda Shrine."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Cross the moat bridge and explore original 16th-century stone walls."
-        },
-        {
-          "time": "12:30 PM",
-          "activity": "Visit the Treasure Museum displaying Shingen's battle armor and sword."
-        },
-        {
-          "time": "2:00 PM",
-          "activity": "Dine at Koshu Houtou Fudo near Kofu Station for flat iron-pot udon."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Koshu Houtou Fudo", "Kofu Torimotsu-ni"],
   "cafes": ["Shingen-mochi Cafe", "Kofu Station Teahouse"],
   "notes": "Top 100 Castle of Japan #24. Shingen-ko Festival held every April features 1,000 armor-clad samurai parade.",
@@ -113,5 +89,6 @@
       "confirmed": true
     }
   ],
-  "relationships": {}
+  "relationships": {},
+  "walkingIntensity": "low"
 }

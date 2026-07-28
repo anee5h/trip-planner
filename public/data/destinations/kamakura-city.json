@@ -13,7 +13,7 @@
   "highlights": ["Explore Kamakura City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
   "budgetMin": 3500,
-  "budgetRecommended": 12000,
+  "budgetRecommended": 14250,
   "budgetMax": 25000,
   "walkingMin": 4000,
   "walkingSunMin": 1500,
@@ -83,64 +83,11 @@
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },
-  "itineraries": [
-    {
-      "name": "Plan A: Samurai Heritage Tour",
-      "description": "The classic Kamakura route focusing on the most famous shrines and the Great Buddha.",
-      "steps": [
-        {
-          "time": "09:30",
-          "activity": "Arrive at Kamakura Station and walk up the iconic Wakamiya Oji approach."
-        },
-        {
-          "time": "10:00",
-          "activity": "Visit Tsurugaoka Hachimangu, the most important Shinto shrine in Kamakura."
-        },
-        {
-          "time": "11:30",
-          "activity": "Street food and souvenir shopping along Komachi-dori street."
-        },
-        {
-          "time": "13:30",
-          "activity": "Take the Enoden train to Hase Station. Visit the giant bronze Great Buddha."
-        },
-        {
-          "time": "15:00",
-          "activity": "Explore Hase-dera temple and its beautiful hillside gardens and ocean views."
-        }
-      ]
-    },
-    {
-      "name": "Plan B: Bamboo Groves & Ocean Breezes",
-      "description": "Avoid the main crowds by exploring eastern Kamakura and the nearby island of Enoshima.",
-      "steps": [
-        {
-          "time": "10:00",
-          "activity": "Take a bus to Hokoku-ji Temple. Enjoy matcha tea in the serene bamboo grove."
-        },
-        {
-          "time": "12:00",
-          "activity": "Lunch at a quiet local cafe in the Jomyoji area."
-        },
-        {
-          "time": "14:00",
-          "activity": "Ride the Enoden train all the way to Enoshima."
-        },
-        {
-          "time": "15:30",
-          "activity": "Walk across the bridge to Enoshima Island and explore the shrine and caves."
-        },
-        {
-          "time": "18:00",
-          "activity": "Watch the sunset over Mt. Fuji from the Enoshima Sea Candle."
-        }
-      ]
-    }
-  ],
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 1500,
-    "food": 4875,
-    "cafe": 2625
-  }
+    "transport": 3563,
+    "tickets": 1781,
+    "food": 5789,
+    "cafe": 3117
+  },
+  "walkingIntensity": "low"
 }

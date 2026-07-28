@@ -1,0 +1,86 @@
+{
+  "id": "ryusendo-cave-iwate",
+  "name": "Ryusendo Cave",
+  "nameJa": "龍泉洞",
+  "prefecture": "Iwate",
+  "region": "Tohoku",
+  "category": "Nature & Parks",
+  "categories": ["Nature & Parks"],
+  "description": "One of Japan's top three limestone caves, featuring an ethereal underground lake so clear and deep it glows brilliant cobalt blue. The cave maintains a constant 10°C year-round and stretches at least 5 km into the mountain.",
+  "highlights": [
+    "Deep cobalt-blue underground lake",
+    "Constant 10°C cool escape",
+    "Stalactite and limestone formations",
+    "Year-round accessibility"
+  ],
+  "coordinates": {
+    "lat": 39.7389,
+    "lng": 141.7972
+  },
+  "nearestStation": "Iwaizumi Station (then bus)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Ryusendo.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Ryusendo.jpg",
+  "tags": ["cave", "limestone", "iwate", "nature", "underground", "tohoku"],
+  "rating": 4.7,
+  "bestSeasons": ["Summer", "All Year"],
+  "travelEstimate": {
+    "minutesFromBase": 240,
+    "confidence": "high"
+  },
+  "collections": [],
+  "budgetMin": 1100,
+  "budgetRecommended": 3050,
+  "budgetMax": 5000,
+  "transportOptions": {
+    "train": 160,
+    "car": 170
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 8.8,
+    "summer": 9.5,
+    "winter": 8.8,
+    "rain": 9.8,
+    "food": 7.5,
+    "photography": 9.2,
+    "relaxation": 8,
+    "value": 8.8,
+    "uniqueness": 9.3
+  },
+  "totalTripHours": 2,
+  "walkingMin": 1800,
+  "walkingSunMin": 0,
+  "walkingShadeMin": 1800,
+  "indoorPercent": 100,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 10,
+    "autumn": 9,
+    "winter": 9
+  },
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "comfort": {
+    "heatTolerance": 10,
+    "rainFriendly": 10,
+    "walkingIntensity": 2
+  },
+  "walkingIntensity": "low",
+  "reservation": "None required",
+  "parking": "Free at cave entrance",
+  "restaurants": ["Ryusendo Cave Visitor Restaurant"],
+  "cafes": ["Cave Entrance Café"],
+  "notes": "One of Japan's three great limestone caves along with Akiyoshido and Ryugado. Admission ¥1,100. The third underground lake is 98 m deep with visibility to the bottom.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": ["jodogahama-beach-iwate"]
+  },
+  "budgetBreakdown": null
+}

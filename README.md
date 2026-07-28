@@ -64,7 +64,7 @@ making it easier to decide whether a destination fits your budget.
 
 ### 🗺️ Explore Japan
 
-- Curated destinations across Japan
+- 327 curated destinations across Japan
 - Detailed destination pages
 - Suggested itineraries
 - Travel logistics

@@ -8,13 +8,13 @@
   "prefecture": "Gifu",
   "region": "Chubu",
   "categories": ["Traditional", "Historic", "Mountain"],
-  "heroImage": "https://plus.unsplash.com/premium_photo-1661947436461-a9ab4ecdd37a?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "image": "https://plus.unsplash.com/premium_photo-1661947436461-a9ab4ecdd37a?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg/1920px-Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg/1920px-Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg",
   "description": "UNESCO World Heritage alpine village famous for steep thatched-roof gassho-zukuri farmhouses built to withstand heavy winter snowfalls.",
   "highlights": ["Ogimachi Village", "Shiroyama Viewpoint", "Wada House"],
   "totalTripHours": 5,
   "budgetMin": 3000,
-  "budgetRecommended": 9000,
+  "budgetRecommended": 11500,
   "budgetMax": 20000,
   "walkingMin": 3500,
   "walkingSunMin": 1500,
@@ -85,9 +85,11 @@
     "relatedDestinationIds": ["takayama-city"]
   },
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 1500,
-    "food": 2925,
-    "cafe": 1575
-  }
+    "transport": 3833,
+    "tickets": 1917,
+    "food": 3737,
+    "cafe": 2013
+  },
+  "nameJa": "白川郷・五箇山の合掌造り集落",
+  "walkingIntensity": "low"
 }

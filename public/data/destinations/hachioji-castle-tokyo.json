@@ -60,5 +60,21 @@
   "coordinates": {
     "lat": 35.6564,
     "lng": 139.2553
-  }
+  },
+  "transportOptions": {
+    "train": 60
+  },
+  "walkingSunMin": 90,
+  "walkingShadeMin": 60,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Hachioji Castle Ruins (Mount Castle) Dining Options"],
+  "cafes": ["Hachioji Castle Ruins (Mount Castle) Rest Area Cafe"],
+  "notes": "Hachioji Castle Ruins (Mount Castle) located in Tokyo Prefecture.",
+  "walkingIntensity": "low"
 }

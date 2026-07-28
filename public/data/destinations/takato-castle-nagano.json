@@ -62,37 +62,13 @@
   ],
   "description": "Renowned as one of Japan's top three cherry blossom viewing spots, Takato Castle ruins feature 1,500 rare reddish Kohigan cherry trees frame over ancient stone moats.",
   "budgetBreakdown": {
-    "transport": 1800,
-    "tickets": 500,
-    "food": 2700,
-    "cafe": 1000
+    "transport": 1950,
+    "tickets": 542,
+    "food": 2925,
+    "cafe": 1083
   },
   "reservation": "No reservation required.",
   "parking": "Large temporary parking lots open during cherry blossom festival.",
-  "itineraries": [
-    {
-      "name": "Takato Sakura & Castle Moat Walk",
-      "description": "Experience Japan's legendary Kohigan cherry blossom tunnel above castle moats.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at Ina-shi Station and bus 25 mins to Takato Castle Park."
-        },
-        {
-          "time": "10:30 AM",
-          "activity": "Walk across the curved Ohoribashi bridge shrouded in pink blossoms."
-        },
-        {
-          "time": "12:30 PM",
-          "activity": "Enjoy Takato Soba with spicy radish soup at a park teahouse."
-        },
-        {
-          "time": "2:00 PM",
-          "activity": "Explore the Taikoyagura drum tower and castle moat ramparts."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Takato Soba-dokoro", "Ina Valley Dining"],
   "cafes": ["Takato Cherry Teahouse"],
   "notes": "Top 100 Castle of Japan #28. Cherry blossoms bloom mid-to-late April.",
@@ -118,5 +94,6 @@
       "confirmed": true
     }
   ],
-  "relationships": {}
+  "relationships": {},
+  "walkingIntensity": "medium"
 }

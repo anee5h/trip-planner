@@ -1,0 +1,87 @@
+{
+  "id": "yokohama-zoorasia",
+  "name": "Yokohama Zoorasia",
+  "prefecture": "Kanagawa",
+  "region": "Kanto",
+  "categories": ["Zoo", "Nature", "Family", "Outdoor"],
+  "heroImage": "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
+  "totalTripHours": 5,
+  "budgetMin": 5000,
+  "budgetRecommended": 8500,
+  "budgetMax": 12000,
+  "walkingMin": 7000,
+  "walkingSunMin": 5000,
+  "walkingShadeMin": 2000,
+  "indoorPercent": 20,
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.5,
+    "summer": 7.5,
+    "winter": 8,
+    "rain": 6.5,
+    "food": 7.5,
+    "photography": 8.8,
+    "relaxation": 8.5,
+    "value": 9.2,
+    "uniqueness": 8.8
+  },
+  "crowd": {
+    "weekday": 4,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9.5,
+    "summer": 7,
+    "autumn": 9.5,
+    "winter": 7.5
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "tags": ["Animals", "Family Friendly", "Spacious Park", "Wildlife"],
+  "coordinates": {
+    "lat": 35.4965,
+    "lng": 139.5303
+  },
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 6
+  },
+  "image": "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
+  "transportOptions": {
+    "train": 45,
+    "bus": 20
+  },
+  "highlights": [
+    "Asian Tropical Forest",
+    "African Savanna",
+    "Okapi Habitat",
+    "Subarctic Forest"
+  ],
+  "description": "Yokohama Zoological Gardens Zoorasia is one of Japan's largest and most modern zoos, featuring expansive naturalistic ecological zones created to mimic animal habitats worldwide.",
+  "budgetBreakdown": {
+    "transport": 1563,
+    "tickets": 1563,
+    "food": 3908,
+    "cafe": 1466
+  },
+  "reservation": "Not required for general admission.",
+  "parking": "Available on-site.",
+  "restaurants": ["Savanna Terrace", "Aura Restaurant"],
+  "cafes": ["Zoorasia Ocean Cafe", "Forest Cafe"],
+  "notes": "Extensive walking required; comfortable walking shoes recommended.",
+  "schemaVersion": 2,
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "high"
+  },
+  "collections": [],
+  "relationships": {
+    "parentDestinationId": "yokohama-city"
+  },
+  "kind": "zoo",
+  "role": "poi",
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "high",
+  "walkingIntensity": "medium"
+}

@@ -1,0 +1,87 @@
+{
+  "id": "beppu-hells-oita",
+  "name": "Beppu Hells (Jigoku Meguri)",
+  "nameJa": "別府地獄めぐり",
+  "prefecture": "Oita",
+  "category": "Onsen & Wellness",
+  "description": "Seven spectacular thermal springs in Beppu featuring cobalt-blue pools, steaming red mud, and geysers designated as National Scenic Spots.",
+  "coordinates": {
+    "lat": 33.3155,
+    "lng": 131.4682
+  },
+  "nearestStation": "Beppu Station",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/180131_Umi-Jigoku.jpg/1920px-180131_Umi-Jigoku.jpg",
+  "tags": ["onsen", "geothermal", "oita", "beppu", "nature"],
+  "rating": 4.7,
+  "bestSeasons": ["Spring", "Autumn", "Winter"],
+  "travelEstimate": {
+    "minutesFromBase": 240,
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "top-onsen-japan",
+      "sortOrder": 10
+    }
+  ],
+  "region": "Kyushu",
+  "categories": ["Onsen & Wellness"],
+  "budgetMin": 1500,
+  "budgetMax": 6000,
+  "budgetRecommended": 3750,
+  "transportOptions": {
+    "train": 180
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "highlights": [
+    "Explore Beppu Hells (Jigoku Meguri)",
+    "Local Culture & Scenery"
+  ],
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Beppu Hells (Jigoku Meguri) Dining Options"],
+  "cafes": ["Beppu Hells (Jigoku Meguri) Rest Area Cafe"],
+  "notes": "Beppu Hells (Jigoku Meguri) located in Oita Prefecture.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/180131_Umi-Jigoku.jpg/1920px-180131_Umi-Jigoku.jpg",
+  "walkingIntensity": "low",
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200
+}

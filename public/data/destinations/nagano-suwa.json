@@ -72,34 +72,6 @@
   "cafes": ["Lakefront Coffee"],
   "notes": "Tateishi Park offers panoramic lake views that inspired scenes in the movie 'Your Name'.",
   "schemaVersion": 2,
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Suwa in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at Suwa and get oriented at the base area."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Explore the primary sights: Lake Suwa Geyser Center and Suwa Taisha Grand Shrine."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Enjoy a local lunch featuring regional specialties."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic landmarks: Tateishi Park (anime lake view) and Suwa Lakefront Footbaths."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a nearby local café or park before heading back."
-        }
-      ]
-    }
-  ],
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Lake_Suwa_as_seen_from_Tateishi_Park_%28east%29.jpg/3840px-Lake_Suwa_as_seen_from_Tateishi_Park_%28east%29.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -112,5 +84,6 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {}
+  "relationships": {},
+  "walkingIntensity": "low"
 }

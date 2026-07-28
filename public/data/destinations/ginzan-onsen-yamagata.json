@@ -1,0 +1,84 @@
+{
+  "id": "ginzan-onsen-yamagata",
+  "name": "Ginzan Onsen",
+  "nameJa": "銀山温泉",
+  "prefecture": "Yamagata",
+  "category": "Onsen & Wellness",
+  "description": "A magical Taisho-era hot spring village nestled in Yamagata's mountains, lined with wooden ryokan and warm gas street lamps.",
+  "coordinates": {
+    "lat": 38.5704,
+    "lng": 140.5303
+  },
+  "nearestStation": "Oishida Station",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/%E9%8A%80%E5%B1%B1%E6%B8%A9%E6%B3%89_Ginzan_Onsen_%287809473788%29.jpg/1920px-%E9%8A%80%E5%B1%B1%E6%B8%A9%E6%B3%89_Ginzan_Onsen_%287809473788%29.jpg",
+  "tags": ["onsen", "yamagata", "winter", "snow", "historic"],
+  "rating": 4.9,
+  "bestSeasons": ["Winter", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 210,
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "top-onsen-japan",
+      "sortOrder": 8
+    }
+  ],
+  "region": "Tohoku",
+  "categories": ["Onsen & Wellness"],
+  "budgetMin": 1500,
+  "budgetMax": 6000,
+  "budgetRecommended": 3750,
+  "transportOptions": {
+    "train": 180
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "highlights": ["Explore Ginzan Onsen", "Local Culture & Scenery"],
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Ginzan Onsen Dining Options"],
+  "cafes": ["Ginzan Onsen Rest Area Cafe"],
+  "notes": "Ginzan Onsen located in Yamagata Prefecture.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/%E9%8A%80%E5%B1%B1%E6%B8%A9%E6%B3%89_Ginzan_Onsen_%287809473788%29.jpg/1920px-%E9%8A%80%E5%B1%B1%E6%B8%A9%E6%B3%89_Ginzan_Onsen_%287809473788%29.jpg",
+  "walkingIntensity": "low",
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200
+}

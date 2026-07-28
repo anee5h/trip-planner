@@ -13,7 +13,7 @@
   "highlights": ["Original Keep", "Historic Architecture", "Panoramic Views"],
   "totalTripHours": 3,
   "budgetMin": 600,
-  "budgetRecommended": 1500,
+  "budgetRecommended": 1800,
   "budgetMax": 3000,
   "walkingMin": 120,
   "indoorPercent": 40,
@@ -61,5 +61,25 @@
   "coordinates": {
     "lat": 35.3883,
     "lng": 136.9392
-  }
+  },
+  "transportOptions": {
+    "train": 110
+  },
+  "walkingSunMin": 72,
+  "walkingShadeMin": 48,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Inuyama Castle (National Treasure Keep) Dining Options"],
+  "cafes": ["Inuyama Castle (National Treasure Keep) Rest Area Cafe"],
+  "notes": "Inuyama Castle (National Treasure Keep) located in Aichi Prefecture.",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "walkingIntensity": "low"
 }

@@ -1,0 +1,84 @@
+{
+  "id": "dogo-onsen-ehime",
+  "name": "Dogo Onsen Honkan",
+  "nameJa": "道後温泉本館",
+  "prefecture": "Ehime",
+  "category": "Onsen & Wellness",
+  "description": "One of Japan's oldest and most iconic hot spring bathhouses, celebrated as the architectural inspiration for Studio Ghibli's Spirited Away.",
+  "coordinates": {
+    "lat": 33.8521,
+    "lng": 132.7865
+  },
+  "nearestStation": "Dogo Onsen Station",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Dogo_onsen_honkan_long_exposure.jpg/1920px-Dogo_onsen_honkan_long_exposure.jpg",
+  "tags": ["onsen", "ehime", "ghibli", "historic", "matsuyama"],
+  "rating": 4.8,
+  "bestSeasons": ["Spring", "Autumn", "Winter"],
+  "travelEstimate": {
+    "minutesFromBase": 220,
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "top-onsen-japan",
+      "sortOrder": 9
+    }
+  ],
+  "region": "Shikoku",
+  "categories": ["Onsen & Wellness"],
+  "budgetMin": 1500,
+  "budgetMax": 6000,
+  "budgetRecommended": 3750,
+  "transportOptions": {
+    "train": 180
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "highlights": ["Explore Dogo Onsen Honkan", "Local Culture & Scenery"],
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Dogo Onsen Honkan Dining Options"],
+  "cafes": ["Dogo Onsen Honkan Rest Area Cafe"],
+  "notes": "Dogo Onsen Honkan located in Ehime Prefecture.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Dogo_onsen_honkan_long_exposure.jpg/1920px-Dogo_onsen_honkan_long_exposure.jpg",
+  "walkingIntensity": "low",
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200
+}

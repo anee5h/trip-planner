@@ -70,12 +70,27 @@
   "indoorPercent": 20,
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "kobe-city"
+  },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Kinosaki_Onsen_by_day.jpg/3840px-Kinosaki_Onsen_by_day.jpg",
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,
     "food": 8125,
     "cafe": 4375
-  }
+  },
+  "highlights": ["Explore Kinosaki Onsen", "Local Culture & Scenery"],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Kinosaki Onsen Dining Options"],
+  "cafes": ["Kinosaki Onsen Rest Area Cafe"],
+  "walkingIntensity": "medium"
 }

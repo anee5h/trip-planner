@@ -1,0 +1,86 @@
+{
+  "id": "yamadera-yamagata",
+  "name": "Yamadera (Risshakuji Temple)",
+  "nameJa": "山寺（立石寺）",
+  "prefecture": "Yamagata",
+  "region": "Tohoku",
+  "category": "Culture & Temples",
+  "categories": ["Culture & Temples"],
+  "description": "A mountain temple complex founded in 860 AD, climbing 1,015 stone steps up a moss-covered cliff face. Immortalised by haiku master Matsuo Basho's verse \"the silence — penetrating the rocks, a cicada's cry\", it remains Tohoku's most iconic spiritual landscape.",
+  "highlights": [
+    "1,015 stone steps to Okunoin",
+    "Matsuo Basho haiku monument",
+    "Godaido cliff-edge viewpoint",
+    "Autumn and summer mist views"
+  ],
+  "coordinates": {
+    "lat": 38.3164,
+    "lng": 140.4389
+  },
+  "nearestStation": "Yamadera Station",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/18/Risshakuji_Nokyodo_on_winter.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Risshakuji_Nokyodo_on_winter.jpg",
+  "tags": ["temple", "hiking", "yamagata", "basho", "spiritual", "tohoku"],
+  "rating": 4.8,
+  "bestSeasons": ["Autumn", "Summer"],
+  "travelEstimate": {
+    "minutesFromBase": 130,
+    "confidence": "high"
+  },
+  "collections": [],
+  "budgetMin": 300,
+  "budgetRecommended": 2650,
+  "budgetMax": 5000,
+  "transportOptions": {
+    "shinkansen": 80,
+    "train": 40
+  },
+  "ratings": {
+    "overall": 9.3,
+    "couple": 9.2,
+    "summer": 9,
+    "winter": 7.5,
+    "rain": 8,
+    "food": 8.2,
+    "photography": 9.7,
+    "relaxation": 9,
+    "value": 9.4,
+    "uniqueness": 9.5
+  },
+  "totalTripHours": 3,
+  "walkingMin": 4000,
+  "walkingSunMin": 500,
+  "walkingShadeMin": 3500,
+  "indoorPercent": 20,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8,
+    "summer": 9,
+    "autumn": 10,
+    "winter": 6
+  },
+  "bestMonths": [5, 6, 7, 8, 9, 10, 11],
+  "bestSeason": "Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 4
+  },
+  "walkingIntensity": "moderate",
+  "reservation": "None required",
+  "parking": "Village parking near station",
+  "restaurants": ["Yamadera Soba Restaurants (village)", "Iwama Soba"],
+  "cafes": ["Yamadera Station Side Café"],
+  "notes": "Admission ¥300 to climb beyond Sanmon gate. Counts 1,015 steps. Wear comfortable shoes. The Godaido viewing platform overhangs the cliff for dramatic valley photos. Easy train from Yamagata city (17 min).",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": ["ginzan-onsen-yamagata", "mount-zao-yamagata"]
+  },
+  "budgetBreakdown": null
+}

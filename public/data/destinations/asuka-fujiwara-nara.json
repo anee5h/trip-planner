@@ -1,0 +1,98 @@
+{
+  "id": "asuka-fujiwara-nara",
+  "name": "Ancient Capitals of Asuka and Fujiwara",
+  "prefecture": "Nara",
+  "region": "Kansai",
+  "categories": ["World Heritage", "Culture", "Sightseeing"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Takamat1.jpg/960px-Takamat1.jpg",
+  "description": "Ancient Capitals of Asuka and Fujiwara is a UNESCO World Heritage Site in Nara, designated for its outstanding universal cultural or natural value.",
+  "highlights": [
+    "UNESCO Heritage Monument",
+    "Historic Landmark",
+    "Cultural Preservation Area"
+  ],
+  "budgetMin": 4000,
+  "budgetMax": 15000,
+  "budgetRecommended": 9500,
+  "transportOptions": {
+    "train": 45,
+    "bus": 50,
+    "car": 60
+  },
+  "totalTripHours": 6,
+  "walkingMin": 120,
+  "walkingSunMin": 70,
+  "walkingShadeMin": 50,
+  "indoorPercent": 35,
+  "ratings": {
+    "overall": 9.2,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.6,
+    "rain": 8.2,
+    "food": 8.7,
+    "photography": 9.4,
+    "relaxation": 9,
+    "value": 9.2,
+    "uniqueness": 9.5
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 5,
+    "summer": 4,
+    "autumn": 5,
+    "winter": 4
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Autumn",
+  "weatherDependence": "moderate",
+  "tags": [
+    "UNESCO World Heritage",
+    "Ancient Capitals of Asuka and Fujiwara",
+    "Nara"
+  ],
+  "reservation": "Not required",
+  "parking": "Available nearby",
+  "restaurants": ["Local Heritage Teahouse", "Regional Cuisine"],
+  "cafes": ["UNESCO Visitor Cafe"],
+  "notes": "Official UNESCO World Heritage Site.",
+  "coordinates": {
+    "lat": 34.4682,
+    "lng": 135.8197
+  },
+  "schemaVersion": 2,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Takamat1.jpg/960px-Takamat1.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Ancient Capitals of Asuka and Fujiwara via Wikipedia/Wikimedia Commons"
+  },
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true
+    }
+  ],
+  "relationships": {},
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 2000,
+    "food": 3000,
+    "cafe": 1500
+  },
+  "nameJa": "飛鳥・藤原の宮都とその関連資産群",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "walkingIntensity": "low"
+}

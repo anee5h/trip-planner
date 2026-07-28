@@ -13,7 +13,7 @@
   "highlights": ["Explore Kawagoe City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
   "budgetMin": 3500,
-  "budgetRecommended": 12000,
+  "budgetRecommended": 14250,
   "budgetMax": 25000,
   "walkingMin": 4000,
   "walkingSunMin": 1500,
@@ -82,64 +82,11 @@
     ],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },
-  "itineraries": [
-    {
-      "name": "Plan A: Little Edo Walk",
-      "description": "Experience the historic warehouse district and famous candy alley.",
-      "steps": [
-        {
-          "time": "10:30",
-          "activity": "Arrive at Kawagoe Station and take the retro loop bus."
-        },
-        {
-          "time": "11:00",
-          "activity": "Stroll the Kurazukuri Zone (Warehouse District) and photograph the Toki no Kane (Time Bell Tower)."
-        },
-        {
-          "time": "12:30",
-          "activity": "Enjoy local sweet potato treats and traditional eel (unagi) for lunch."
-        },
-        {
-          "time": "14:00",
-          "activity": "Explore Kashiya Yokocho (Candy Alley) for retro Japanese sweets."
-        },
-        {
-          "time": "16:00",
-          "activity": "Visit Kitain Temple, featuring the only remaining buildings of the original Edo Castle."
-        }
-      ]
-    },
-    {
-      "name": "Plan B: Shrines & Culture",
-      "description": "A deeper dive into local traditions, focusing on the famous Hikawa Shrine.",
-      "steps": [
-        {
-          "time": "10:00",
-          "activity": "Visit Hikawa Shrine. Walk through the tunnel of wind chimes (in summer) or ema."
-        },
-        {
-          "time": "12:00",
-          "activity": "Fish for your fortune using a small fishing rod at the shrine."
-        },
-        {
-          "time": "13:30",
-          "activity": "Lunch at a traditional Japanese restaurant near the Honmaru Goten."
-        },
-        {
-          "time": "15:00",
-          "activity": "Tour Kawagoe Castle Honmaru Goten, the former samurai lord's residence."
-        },
-        {
-          "time": "16:30",
-          "activity": "Relax at a retro coffee shop on Taisho-roman Street."
-        }
-      ]
-    }
-  ],
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 1500,
-    "food": 4875,
-    "cafe": 2625
-  }
+    "transport": 3563,
+    "tickets": 1781,
+    "food": 5789,
+    "cafe": 3117
+  },
+  "walkingIntensity": "low"
 }

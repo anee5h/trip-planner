@@ -54,41 +54,13 @@
   "highlights": ["Electric Town", "Maid Cafes", "Radio Kaikan"],
   "description": "Akihabara is a neighborhood in the Chiyoda ward of Tokyo, Japan, generally considered to be the area surrounding Akihabara Station. This area is part of the Sotokanda (外神田) and Kanda-Sakumachō districts of Chiyoda. There is an administrative district called Akihabara, located north of Akihabara Electric Town surrounding Akihabara Neribei Park.",
   "budgetBreakdown": {
-    "transport": 1000,
+    "transport": 1111,
     "tickets": 0,
-    "food": 6000,
-    "cafe": 2000
+    "food": 6667,
+    "cafe": 2222
   },
   "reservation": "Required for popular maid cafes.",
   "parking": "Extremely difficult and expensive.",
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Akihabara (Chiyoda) in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at the main station and get oriented."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Visit the primary city attraction."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Grab a delicious regional lunch."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic sights."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a local café before heading back."
-        }
-      ]
-    }
-  ],
   "restaurants": ["GoGo Curry", "Gyu-Kaku"],
   "cafes": ["Maidreamin"],
   "notes": "Sunday afternoons have a pedestrian paradise on Chuo-dori.",
@@ -106,5 +78,8 @@
   "collections": [],
   "relationships": {
     "parentDestinationId": "chiyoda-city"
-  }
+  },
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "walkingIntensity": "medium"
 }

@@ -54,41 +54,13 @@
   "highlights": ["Cinderella Castle", "Space Mountain", "Electrical Parade"],
   "description": "Tokyo Disneyland is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 18800,
-    "food": 6000,
-    "cafe": 2000
+    "transport": 3101,
+    "tickets": 19431,
+    "food": 6201,
+    "cafe": 2067
   },
   "reservation": "Required well in advance.",
   "parking": "Massive parking lots available.",
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Tokyo Disneyland in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at the main station and get oriented."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Visit the primary theme park attraction."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Grab a delicious regional lunch."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic sights."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a local café before heading back."
-        }
-      ]
-    }
-  ],
   "restaurants": [
     "Tokyo Disneyland Traditional Dining",
     "Local Chiba Specialty Restaurant",
@@ -112,5 +84,10 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {}
+  "relationships": {
+    "parentDestinationId": "urayasu-city"
+  },
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "walkingIntensity": "high"
 }

@@ -37,6 +37,14 @@
       "collectionId": "three-great-views",
       "sortOrder": 2,
       "confirmed": true
+    },
+    {
+      "collectionId": "coastal-drives-japan",
+      "sortOrder": 9
+    },
+    {
+      "collectionId": "scenic-bridges-japan",
+      "sortOrder": 5
     }
   ],
   "transportOptions": {
@@ -70,14 +78,28 @@
   "indoorPercent": 20,
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "relationships": {
-    "parentDestinationId": "kyoto-city"
-  },
+  "relationships": {},
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Amanohashidate_aerial_view_2026.jpg/3840px-Amanohashidate_aerial_view_2026.jpg",
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,
     "food": 1625,
     "cafe": 875
-  }
+  },
+  "highlights": [
+    "Explore Amanohashidate (Bridge to Heaven)",
+    "Local Culture & Scenery"
+  ],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Amanohashidate (Bridge to Heaven) Dining Options"],
+  "cafes": ["Amanohashidate (Bridge to Heaven) Rest Area Cafe"],
+  "walkingIntensity": "medium"
 }

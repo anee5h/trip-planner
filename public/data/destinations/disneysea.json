@@ -54,67 +54,13 @@
   "highlights": ["DisneySea Transit Steamer", "Soaring"],
   "description": "DisneySea is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 18800,
-    "food": 6000,
-    "cafe": 2000
+    "transport": 3101,
+    "tickets": 19431,
+    "food": 6201,
+    "cafe": 2067
   },
   "reservation": "Required",
   "parking": "Expensive",
-  "itineraries": [
-    {
-      "name": "Plan A: The Adrenaline Rush",
-      "description": "Optimize your day to hit the biggest thrill rides.",
-      "steps": [
-        {
-          "time": "08:30",
-          "activity": "Arrive at rope drop. Head straight to Journey to the Center of the Earth."
-        },
-        {
-          "time": "10:00",
-          "activity": "Ride Indiana Jones Adventure and Raging Spirits."
-        },
-        {
-          "time": "12:30",
-          "activity": "Grab a quick bite (smoked turkey leg or spicy chicken) while walking."
-        },
-        {
-          "time": "14:00",
-          "activity": "Use Premier Access for Tower of Terror or Soaring: Fantastic Flight."
-        },
-        {
-          "time": "19:30",
-          "activity": "Secure a spot for the nighttime spectacular show on the Mediterranean Harbor."
-        }
-      ]
-    },
-    {
-      "name": "Plan B: Romantic & Immersive",
-      "description": "A slow-paced day focusing on atmosphere, shows, and fine dining.",
-      "steps": [
-        {
-          "time": "10:00",
-          "activity": "Arrive and take a relaxing ride on the Venetian Gondolas."
-        },
-        {
-          "time": "11:30",
-          "activity": "Watch the incredible Big Band Beat jazz show."
-        },
-        {
-          "time": "13:00",
-          "activity": "Enjoy a sit-down lunch at the Magellan's fine dining restaurant."
-        },
-        {
-          "time": "15:00",
-          "activity": "Explore the interactive Fortress Explorations and walk through Arabian Coast."
-        },
-        {
-          "time": "18:00",
-          "activity": "Ride the Transit Steamer Line at sunset for beautiful views."
-        }
-      ]
-    }
-  ],
   "restaurants": [
     "DisneySea Traditional Dining",
     "Local Chiba Specialty Restaurant",
@@ -138,5 +84,10 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {}
+  "relationships": {
+    "parentDestinationId": "urayasu-city"
+  },
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "walkingIntensity": "high"
 }

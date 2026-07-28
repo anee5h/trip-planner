@@ -8,8 +8,19 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.61",
+    version: "v1.7.62",
     tag: "Current",
+    date: "July 2026",
+    title: "Complete Destination Detail Catalog",
+    highlights: [
+      "Added the 67 missing lazy-loaded destination detail files, bringing the public catalog to all 327 destinations",
+      "Synchronized every public destination detail with the catalog index so destination pages show current data",
+      "Aligned budget breakdown totals with their recommended trip budgets and corrected the distinct Historic Nara map location",
+      "Added repeatable sync and validation commands to prevent destination detail files from drifting again",
+    ],
+  },
+  {
+    version: "v1.7.61",
     date: "July 2026",
     title: "Icon Polish, 30-min Walk Gate & Data Cleanup",
     highlights: [

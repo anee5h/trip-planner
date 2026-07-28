@@ -77,5 +77,18 @@
     "tickets": 2000,
     "food": 6500,
     "cafe": 3500
-  }
+  },
+  "highlights": ["Explore Gero Onsen", "Local Culture & Scenery"],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Gero Onsen Dining Options"],
+  "cafes": ["Gero Onsen Rest Area Cafe"],
+  "walkingIntensity": "medium"
 }

@@ -1,0 +1,91 @@
+{
+  "id": "kouri-island-okinawa",
+  "name": "Kouri Island & Heart Rock",
+  "nameJa": "古宇利島・ハートロック",
+  "prefecture": "Okinawa",
+  "category": "Islands & Beaches",
+  "description": "An enchanting island in northern Okinawa reached by a 2-kilometer sea bridge, famous for crystal emerald waters and Heart Rock beach.",
+  "coordinates": {
+    "lat": 26.6967,
+    "lng": 128.0245
+  },
+  "nearestStation": "Naha Airport",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Heart-shaped_rocks_at_Kouri_Island_202006.jpg/1920px-Heart-shaped_rocks_at_Kouri_Island_202006.jpg",
+  "tags": ["island", "beach", "okinawa", "bridge", "coastal"],
+  "rating": 4.7,
+  "bestSeasons": ["Spring", "Summer"],
+  "travelEstimate": {
+    "minutesFromBase": 300,
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "islands-japan",
+      "sortOrder": 3
+    },
+    {
+      "collectionId": "coastal-drives-japan",
+      "sortOrder": 5
+    }
+  ],
+  "region": "Okinawa",
+  "categories": ["Islands & Beaches"],
+  "budgetMin": 1500,
+  "budgetMax": 6000,
+  "budgetRecommended": 3750,
+  "transportOptions": {
+    "train": 180
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "highlights": [
+    "Explore Kouri Island & Heart Rock",
+    "Local Culture & Scenery"
+  ],
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Kouri Island & Heart Rock Dining Options"],
+  "cafes": ["Kouri Island & Heart Rock Rest Area Cafe"],
+  "notes": "Kouri Island & Heart Rock located in Okinawa Prefecture.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Heart-shaped_rocks_at_Kouri_Island_202006.jpg/1920px-Heart-shaped_rocks_at_Kouri_Island_202006.jpg",
+  "walkingIntensity": "low",
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200
+}

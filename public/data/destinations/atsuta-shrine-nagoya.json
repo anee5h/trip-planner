@@ -75,9 +75,22 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Atsuta_Shrine.jpg/3840px-Atsuta_Shrine.jpg",
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 1300,
-    "cafe": 700
-  }
+    "transport": 1714,
+    "tickets": 1143,
+    "food": 743,
+    "cafe": 400
+  },
+  "highlights": ["Explore Atsuta Shrine (Nagoya)", "Local Culture & Scenery"],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Atsuta Shrine (Nagoya) Dining Options"],
+  "cafes": ["Atsuta Shrine (Nagoya) Rest Area Cafe"],
+  "walkingIntensity": "medium"
 }

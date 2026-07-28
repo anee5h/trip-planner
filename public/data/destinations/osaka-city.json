@@ -14,7 +14,7 @@
   "highlights": ["Dotonbori", "Osaka Castle", "Abeno Harukas 300", "Shinsekai"],
   "totalTripHours": 6,
   "budgetMin": 4000,
-  "budgetRecommended": 12000,
+  "budgetRecommended": 17000,
   "budgetMax": 30000,
   "walkingMin": 5000,
   "walkingSunMin": 1500,
@@ -70,16 +70,22 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "core-cities-japan",
+      "confirmed": true
+    }
+  ],
   "relationships": {
     "featuredDestinationIds": ["abeno-harukas-300-osaka", "osaka-castle"],
     "nearbyDestinationIds": ["kyoto-city", "uji-city", "miyazu-city"],
     "relatedDestinationIds": ["fukuoka-city"]
   },
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 1500,
-    "food": 4875,
-    "cafe": 2625
-  }
+    "transport": 4250,
+    "tickets": 2125,
+    "food": 6906,
+    "cafe": 3719
+  },
+  "walkingIntensity": "medium"
 }

@@ -1,0 +1,86 @@
+{
+  "id": "lake-towada-aomori",
+  "name": "Lake Towada",
+  "nameJa": "十和田湖",
+  "prefecture": "Aomori",
+  "region": "Tohoku",
+  "category": "Nature & Parks",
+  "categories": ["Nature & Parks"],
+  "description": "A vast, crystalline caldera lake straddling Aomori and Akita, ringed by primeval beech forests and fed by the scenic Oirase Stream. Famous for autumn foliage and mirrored reflections.",
+  "highlights": [
+    "Caldera lake cruise",
+    "Oirase trailhead",
+    "Autumn foliage viewing",
+    "Towada Art Center nearby"
+  ],
+  "coordinates": {
+    "lat": 40.4714,
+    "lng": 140.8829
+  },
+  "nearestStation": "Towadako Bus Terminal",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Lake_Towada_from_Ohanabe_2008.jpg/330px-Lake_Towada_from_Ohanabe_2008.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Lake_Towada_from_Ohanabe_2008.jpg/330px-Lake_Towada_from_Ohanabe_2008.jpg",
+  "tags": ["lake", "caldera", "aomori", "autumn", "nature", "tohoku"],
+  "rating": 4.7,
+  "bestSeasons": ["Autumn", "Summer"],
+  "travelEstimate": {
+    "minutesFromBase": 270,
+    "confidence": "high"
+  },
+  "collections": [],
+  "budgetMin": 1000,
+  "budgetRecommended": 5500,
+  "budgetMax": 10000,
+  "transportOptions": {
+    "bus": 180,
+    "car": 160
+  },
+  "ratings": {
+    "overall": 9.1,
+    "couple": 9.2,
+    "summer": 9,
+    "winter": 7.5,
+    "rain": 7,
+    "food": 8.2,
+    "photography": 9.5,
+    "relaxation": 9.3,
+    "value": 8.8,
+    "uniqueness": 9
+  },
+  "totalTripHours": 5,
+  "walkingMin": 4000,
+  "walkingSunMin": 2000,
+  "walkingShadeMin": 2000,
+  "indoorPercent": 10,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 8,
+    "summer": 9,
+    "autumn": 10,
+    "winter": 6
+  },
+  "bestMonths": [6, 7, 8, 9, 10, 11],
+  "bestSeason": "Autumn",
+  "weatherDependence": "high",
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 5,
+    "walkingIntensity": 2
+  },
+  "walkingIntensity": "low",
+  "reservation": "None required",
+  "parking": "Available at Yasumiya",
+  "restaurants": ["Towadako Lakeside Restaurant", "Yasumiya Dining Hall"],
+  "cafes": ["Towada Nature Cafe"],
+  "notes": "Shared between Aomori and Akita prefectures. The trailhead for Oirase Gorge walk starts at Nenokuchi on the lake shore.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": ["oirase-gorge-aomori"]
+  },
+  "budgetBreakdown": null
+}

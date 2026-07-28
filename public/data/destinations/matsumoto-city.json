@@ -13,7 +13,7 @@
   "highlights": ["Explore Matsumoto City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
   "budgetMin": 3500,
-  "budgetRecommended": 12000,
+  "budgetRecommended": 14250,
   "budgetMax": 25000,
   "walkingMin": 4000,
   "walkingSunMin": 1500,
@@ -75,67 +75,14 @@
     }
   ],
   "relationships": {
-    "featuredDestinationIds": ["karuizawa-town", "kiso", "nagano-bessho-onsen"],
-    "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": ["karuizawa-town", "nagano-city", "kiso"]
   },
-  "itineraries": [
-    {
-      "name": "Plan A: The Black Castle",
-      "description": "Focus on the historic samurai history of Matsumoto.",
-      "steps": [
-        {
-          "time": "11:00",
-          "activity": "Arrive in Matsumoto. Head straight to Matsumoto Castle, one of Japan's oldest."
-        },
-        {
-          "time": "13:00",
-          "activity": "Have Shinshu Soba for lunch, a local specialty."
-        },
-        {
-          "time": "14:30",
-          "activity": "Stroll along Nakamachi-dori, known for its historic black-and-white storehouses."
-        },
-        {
-          "time": "16:00",
-          "activity": "Wander Nawate-dori (Frog Street) for quirky shops and street food."
-        },
-        {
-          "time": "17:30",
-          "activity": "Visit a local sake brewery for tasting before dinner."
-        }
-      ]
-    },
-    {
-      "name": "Plan B: Art & Alps",
-      "description": "A cultural day featuring famous contemporary art and mountain views.",
-      "steps": [
-        {
-          "time": "10:30",
-          "activity": "Visit the Matsumoto City Museum of Art to see the permanent Yayoi Kusama exhibition."
-        },
-        {
-          "time": "13:00",
-          "activity": "Lunch at a trendy cafe near the museum district."
-        },
-        {
-          "time": "14:30",
-          "activity": "Take a short bus or taxi ride up to Alps Park."
-        },
-        {
-          "time": "16:00",
-          "activity": "Enjoy panoramic views of the Japan Alps and explore the nature trails."
-        },
-        {
-          "time": "18:00",
-          "activity": "Head back to town for a cozy dinner."
-        }
-      ]
-    }
-  ],
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 1500,
-    "food": 4875,
-    "cafe": 2625
-  }
+    "transport": 3563,
+    "tickets": 1781,
+    "food": 5789,
+    "cafe": 3117
+  },
+  "walkingIntensity": "low"
 }

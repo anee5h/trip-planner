@@ -1,0 +1,94 @@
+{
+  "id": "shirakami-sanchi-aomori",
+  "name": "Shirakami-Sanchi",
+  "prefecture": "Aomori",
+  "region": "Tohoku",
+  "categories": ["World Heritage", "Culture", "Sightseeing"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Sirakami_santi.JPG/1920px-Sirakami_santi.JPG",
+  "description": "Shirakami-Sanchi is a UNESCO World Heritage Site in Aomori, designated for its outstanding universal cultural or natural value.",
+  "highlights": [
+    "UNESCO Heritage Monument",
+    "Historic Landmark",
+    "Cultural Preservation Area"
+  ],
+  "budgetMin": 4000,
+  "budgetMax": 15000,
+  "budgetRecommended": 9500,
+  "transportOptions": {
+    "train": 45,
+    "bus": 50,
+    "car": 60
+  },
+  "totalTripHours": 6,
+  "walkingMin": 120,
+  "walkingSunMin": 70,
+  "walkingShadeMin": 50,
+  "indoorPercent": 35,
+  "ratings": {
+    "overall": 9.2,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.6,
+    "rain": 8.2,
+    "food": 8.7,
+    "photography": 9.4,
+    "relaxation": 9,
+    "value": 9.2,
+    "uniqueness": 9.5
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 5,
+    "summer": 4,
+    "autumn": 5,
+    "winter": 4
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Autumn",
+  "weatherDependence": "moderate",
+  "tags": ["UNESCO World Heritage", "Shirakami-Sanchi", "Aomori"],
+  "reservation": "Not required",
+  "parking": "Available nearby",
+  "restaurants": ["Local Heritage Teahouse", "Regional Cuisine"],
+  "cafes": ["UNESCO Visitor Cafe"],
+  "notes": "Official UNESCO World Heritage Site.",
+  "coordinates": {
+    "lat": 40.4688,
+    "lng": 140.1264
+  },
+  "schemaVersion": 2,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Sirakami_santi.JPG/1920px-Sirakami_santi.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Shirakami-Sanchi via Wikipedia/Wikimedia Commons"
+  },
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true
+    }
+  ],
+  "relationships": {},
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 2000,
+    "food": 3000,
+    "cafe": 1500
+  },
+  "nameJa": "白神山地",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "walkingIntensity": "low"
+}

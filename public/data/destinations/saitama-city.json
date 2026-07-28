@@ -57,39 +57,11 @@
   "description": "Saitama is the capital and largest city of Saitama Prefecture, Japan. Its area incorporates the former cities of Urawa, Ōmiya, Yono and Iwatsuki. It is a city designated by government ordinance. As of 1 February 2021, the city had an estimated population of 1,324,854, and a population density of 6,093 people per km2. Its total area is 217.43 square kilometres (83.95 sq mi).",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
-    "transport": 2400,
-    "tickets": 1200,
-    "food": 1800,
-    "cafe": 600
+    "transport": 2800,
+    "tickets": 1400,
+    "food": 2100,
+    "cafe": 700
   },
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Saitama City in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at the main station and get oriented."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Visit the primary city attraction."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Grab a delicious regional lunch."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic sights."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a local café before heading back."
-        }
-      ]
-    }
-  ],
   "restaurants": [
     "Saitama City Traditional Dining",
     "Local Kanagawa Specialty Restaurant",
@@ -113,17 +85,22 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "core-cities-japan",
+      "confirmed": true
+    }
+  ],
   "kind": "city",
   "role": "hub",
   "importance": "notable",
   "relationships": {
-    "featuredDestinationIds": [
-      "kawagoe-castle-saitama",
-      "kawagoe-city",
-      "omiya-railway",
-      "chichibu-city"
-    ],
-    "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
-  }
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": ["kawagoe-city", "chichibu-city"]
+  },
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Available on site",
+  "walkingIntensity": "high"
 }

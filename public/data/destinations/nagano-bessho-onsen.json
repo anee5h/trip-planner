@@ -16,10 +16,10 @@
   "budgetMax": 12500,
   "budgetRecommended": 8250,
   "budgetBreakdown": {
-    "transport": 3500,
-    "tickets": 700,
-    "food": 2500,
-    "cafe": 1500
+    "transport": 3521,
+    "tickets": 704,
+    "food": 2515,
+    "cafe": 1510
   },
   "transportOptions": {
     "train": 130,
@@ -72,39 +72,12 @@
   "cafes": ["Bessho Cafe"],
   "notes": "Anraku-ji's octagonal three-storied pagoda is a national treasure and the only one of its kind in Japan.",
   "schemaVersion": 2,
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Bessho Onsen in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at Bessho Onsen and get oriented at the base area."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Explore the primary sights: Anraku-ji Temple (Octagonal Pagoda) and Kitamuki Kannon Temple."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Enjoy a local lunch featuring regional specialties."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic landmarks: Oyu Public Bathhouse and Bessho Forest Trails."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a nearby local café or park before heading back."
-        }
-      ]
-    }
-  ],
   "status": "verified",
   "travelEstimate": {
     "confidence": "high"
   },
   "collections": [],
   "relationships": {},
-  "image": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1000"
+  "image": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1000",
+  "walkingIntensity": "low"
 }

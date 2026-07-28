@@ -1,0 +1,87 @@
+{
+  "id": "ashikaga-flower-park-tochigi",
+  "name": "Ashikaga Flower Park Wisteria",
+  "nameJa": "足利フラワーパーク",
+  "prefecture": "Tochigi",
+  "category": "Nature & Gardens",
+  "description": "Famed worldwide for its massive 150-year-old Great Wisteria tree and 80-meter white wisteria tunnel in Tochigi.",
+  "coordinates": {
+    "lat": 36.3142,
+    "lng": 139.5186
+  },
+  "nearestStation": "Ashikaga Flower Park Station",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg/1920px-Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg",
+  "tags": ["flower", "wisteria", "park", "tochigi", "garden"],
+  "rating": 4.8,
+  "bestSeasons": ["Spring"],
+  "travelEstimate": {
+    "minutesFromBase": 90,
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "flower-parks-japan",
+      "sortOrder": 1
+    }
+  ],
+  "region": "Kanto",
+  "categories": ["Nature & Gardens"],
+  "budgetMin": 1500,
+  "budgetMax": 6000,
+  "budgetRecommended": 3750,
+  "transportOptions": {
+    "train": 180
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "highlights": [
+    "Explore Ashikaga Flower Park Wisteria",
+    "Local Culture & Scenery"
+  ],
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Ashikaga Flower Park Wisteria Dining Options"],
+  "cafes": ["Ashikaga Flower Park Wisteria Rest Area Cafe"],
+  "notes": "Ashikaga Flower Park Wisteria located in Tochigi Prefecture.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg/1920px-Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg",
+  "walkingIntensity": "low",
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200
+}

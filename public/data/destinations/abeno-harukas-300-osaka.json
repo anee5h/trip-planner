@@ -73,37 +73,13 @@
   ],
   "description": "Rising 300 meters above Osaka, Abeno Harukas is Japan's tallest skyscraper, featuring a 3-story glass observatory and open-air wooden atrium garden.",
   "budgetBreakdown": {
-    "transport": 2500,
-    "tickets": 1800,
-    "food": 3200,
-    "cafe": 1000
+    "transport": 2574,
+    "tickets": 1853,
+    "food": 3294,
+    "cafe": 1029
   },
   "reservation": "No advance reservation required.",
   "parking": "Paid parking garage at Abeno Harukas building.",
-  "itineraries": [
-    {
-      "name": "Osaka 300m Sky High Vista & Dining",
-      "description": "Stand 300 meters above Osaka plain and dine at the open-air wooden atrium.",
-      "steps": [
-        {
-          "time": "3:00 PM",
-          "activity": "Arrive at Osaka-Abenobashi Station and take shuttle elevator to 16F."
-        },
-        {
-          "time": "3:30 PM",
-          "activity": "Ride express elevator to 60F 360-degree glass corridor."
-        },
-        {
-          "time": "5:00 PM",
-          "activity": "Relax at 58F open-air wooden deck garden with gelato or craft beer."
-        },
-        {
-          "time": "7:00 PM",
-          "activity": "Dine at Abeno Harukas Kintetsu gourmet dining hall 12F-14F."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Sky Garden 300 58F", "Kintetsu Gourmet City 14F"],
   "cafes": ["Caffe Ciao Press 16F", "Harukas 300 Cafe"],
   "notes": "Features 360-degree glass floor-to-ceiling perimeter views.",
@@ -124,5 +100,6 @@
       "sortOrder": 5,
       "confirmed": true
     }
-  ]
+  ],
+  "walkingIntensity": "low"
 }

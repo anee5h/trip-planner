@@ -13,7 +13,7 @@
   "highlights": ["Explore Otaru City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
   "budgetMin": 3500,
-  "budgetRecommended": 12000,
+  "budgetRecommended": 14250,
   "budgetMax": 25000,
   "walkingMin": 4000,
   "walkingSunMin": 1500,
@@ -69,13 +69,14 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["hakodate-night-view"],
+    "featuredDestinationIds": [],
     "nearbyDestinationIds": ["sapporo-city", "hakodate-city", "asahikawa-city"]
   },
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 1500,
-    "food": 4875,
-    "cafe": 2625
-  }
+    "transport": 3563,
+    "tickets": 1781,
+    "food": 5789,
+    "cafe": 3117
+  },
+  "walkingIntensity": "low"
 }

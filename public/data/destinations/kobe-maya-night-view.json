@@ -79,9 +79,25 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg/3840px-View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg",
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 1300,
-    "cafe": 700
-  }
+    "transport": 2571,
+    "tickets": 1714,
+    "food": 1114,
+    "cafe": 601
+  },
+  "highlights": [
+    "Explore Mount Maya Kikuseidai (Kobe)",
+    "Local Culture & Scenery"
+  ],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Mount Maya Kikuseidai (Kobe) Dining Options"],
+  "cafes": ["Mount Maya Kikuseidai (Kobe) Rest Area Cafe"],
+  "walkingIntensity": "medium"
 }

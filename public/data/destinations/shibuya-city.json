@@ -19,7 +19,7 @@
   ],
   "totalTripHours": 5,
   "budgetMin": 3000,
-  "budgetRecommended": 10000,
+  "budgetRecommended": 14000,
   "budgetMax": 25000,
   "walkingMin": 4500,
   "walkingSunMin": 1500,
@@ -79,38 +79,11 @@
     "nearbyDestinationIds": ["hakone-town", "chiba-city", "saitama-city"],
     "relatedDestinationIds": ["shinjuku-city"]
   },
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Shibuya in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at the main station and get oriented."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Visit the primary city attraction."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Grab a delicious regional lunch."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic sights."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a local café before heading back."
-        }
-      ]
-    }
-  ],
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 1500,
-    "food": 3575,
-    "cafe": 1925
-  }
+    "transport": 4200,
+    "tickets": 2100,
+    "food": 5005,
+    "cafe": 2695
+  },
+  "walkingIntensity": "medium"
 }

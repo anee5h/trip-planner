@@ -66,37 +66,13 @@
   ],
   "description": "Perched 202 meters above Shinjuku on the 45th floors of Kenzo Tange iconic twin-tower skyscraper, offering free 360-degree views of Mt. Fuji and Tokyo lights.",
   "budgetBreakdown": {
-    "transport": 300,
+    "transport": 364,
     "tickets": 0,
-    "food": 2200,
-    "cafe": 1000
+    "food": 2671,
+    "cafe": 1215
   },
   "reservation": "No reservation required (Free admission).",
   "parking": "Underground paid parking garage at Tokyo Metropolitan Government Building.",
-  "itineraries": [
-    {
-      "name": "Free Shinjuku Sky Observatory & Sunset",
-      "description": "Enjoy free 360-degree vistas over Tokyo skyline and Mt. Fuji from 202 meters high.",
-      "steps": [
-        {
-          "time": "4:00 PM",
-          "activity": "Arrive at Tochomae Station and ride express elevator to 45F South Deck."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Watch sunset over Mt. Fuji from the high-altitude glass perimeter."
-        },
-        {
-          "time": "5:30 PM",
-          "activity": "Listen to street piano performances on the famous memory piano."
-        },
-        {
-          "time": "6:30 PM",
-          "activity": "Dine at the 45th floor sky dining lounge overlooking evening city lights."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Good View Tokyo 45F", "Tocho Staff Cafeteria"],
   "cafes": ["South Observatory Cafe 45F"],
   "notes": "Free entry 365 days a year. South Deck open until 10:00 PM.",
@@ -113,6 +89,7 @@
   },
   "collections": [],
   "relationships": {
-    "parentDestinationId": "chiyoda-city"
-  }
+    "parentDestinationId": "shinjuku-city"
+  },
+  "walkingIntensity": "low"
 }

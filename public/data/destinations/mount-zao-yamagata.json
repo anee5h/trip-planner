@@ -1,0 +1,97 @@
+{
+  "id": "mount-zao-yamagata",
+  "name": "Mount Zao",
+  "nameJa": "蔵王山",
+  "prefecture": "Yamagata",
+  "region": "Tohoku",
+  "category": "Nature & Parks",
+  "categories": ["Nature & Parks"],
+  "description": "A volcanic mountain straddling Yamagata and Miyagi, celebrated for its surreal \"snow monsters\" (juhyo) — trees encased in ice and snow — in winter, and the Okama crater lake glowing emerald-green in summer.",
+  "highlights": [
+    "Juhyo snow monsters (Jan–Feb)",
+    "Okama Crater Lake views",
+    "Zao Ropeway summit access",
+    "Spring skiing through May"
+  ],
+  "coordinates": {
+    "lat": 38.136,
+    "lng": 140.4407
+  },
+  "nearestStation": "Yamagata Station (then bus)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/43/Zao_juhyo.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/4/43/Zao_juhyo.jpg",
+  "tags": [
+    "mountain",
+    "skiing",
+    "snow monsters",
+    "yamagata",
+    "volcano",
+    "tohoku"
+  ],
+  "rating": 4.8,
+  "bestSeasons": ["Winter", "Summer"],
+  "travelEstimate": {
+    "minutesFromBase": 120,
+    "confidence": "high"
+  },
+  "collections": [],
+  "budgetMin": 1700,
+  "budgetRecommended": 8350,
+  "budgetMax": 15000,
+  "transportOptions": {
+    "shinkansen": 80,
+    "bus": 50
+  },
+  "ratings": {
+    "overall": 9.3,
+    "couple": 9.1,
+    "summer": 8.8,
+    "winter": 9.7,
+    "rain": 6.5,
+    "food": 8.5,
+    "photography": 9.8,
+    "relaxation": 8.5,
+    "value": 8.8,
+    "uniqueness": 9.7
+  },
+  "totalTripHours": 5,
+  "walkingMin": 3000,
+  "walkingSunMin": 2000,
+  "walkingShadeMin": 1000,
+  "indoorPercent": 20,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 10
+  },
+  "bestMonths": [1, 2, 3, 6, 7, 8, 10, 11],
+  "bestSeason": "Winter",
+  "weatherDependence": "high",
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 3
+  },
+  "walkingIntensity": "moderate",
+  "reservation": "Ropeway: none. Ski area: lift ticket required.",
+  "parking": "Large ski resort parking",
+  "restaurants": ["Zao Onsen Resort Restaurants", "Summit Warming Hut"],
+  "cafes": ["Ropeway Summit Café"],
+  "notes": "The Juhyo (snow monsters) are formed when supercooled water droplets from clouds freeze instantly on fir trees, building thick ice cocoons. Best viewed Jan 15–Feb 20. Zao Onsen village at the base has excellent hot springs.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": [
+      "okama-crater-yamagata",
+      "ginzan-onsen-yamagata",
+      "zao-fox-village-miyagi"
+    ]
+  },
+  "budgetBreakdown": null
+}

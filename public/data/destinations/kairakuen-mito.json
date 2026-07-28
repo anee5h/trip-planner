@@ -34,6 +34,10 @@
       "collectionId": "three-great-gardens",
       "sortOrder": 2,
       "confirmed": true
+    },
+    {
+      "collectionId": "flower-parks-japan",
+      "sortOrder": 4
     }
   ],
   "transportOptions": {
@@ -73,9 +77,22 @@
   "relationships": {},
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/3840px-Kairaku-en%2C_Ibaraki_24.jpg",
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 1300,
-    "cafe": 700
-  }
+    "transport": 2143,
+    "tickets": 1429,
+    "food": 929,
+    "cafe": 499
+  },
+  "highlights": ["Explore Kairakuen Garden", "Local Culture & Scenery"],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Kairakuen Garden Dining Options"],
+  "cafes": ["Kairakuen Garden Rest Area Cafe"],
+  "walkingIntensity": "medium"
 }

@@ -61,37 +61,13 @@
   ],
   "description": "Built in 1848, this rare structure is the only surviving original samurai lord's Honmaru Goten palace in eastern Japan, featuring tatami council chambers and garden verandas.",
   "budgetBreakdown": {
-    "transport": 700,
-    "tickets": 100,
-    "food": 3200,
-    "cafe": 1000
+    "transport": 770,
+    "tickets": 110,
+    "food": 3520,
+    "cafe": 1100
   },
   "reservation": "No reservation required.",
   "parking": "Free parking lot opposite Kawagoe City Museum.",
-  "itineraries": [
-    {
-      "name": "Kawagoe Samurai Palace & Little Edo Walk",
-      "description": "Tour Japan's rare surviving Honmaru Goten palace and historic merchant quarter.",
-      "steps": [
-        {
-          "time": "10:30 AM",
-          "activity": "Arrive at Hon-Kawagoe Station and bus 10 mins to Kawagoe Castle."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Walk the polished wooden corridors and Karo council room of Honmaru Goten."
-        },
-        {
-          "time": "12:30 PM",
-          "activity": "Savor eel unaju at a 150-year-old Kawagoe unagi restaurant."
-        },
-        {
-          "time": "2:00 PM",
-          "activity": "Explore the Kurazukuri warehouse zone and Toki no Kane bell tower."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Ogakiku Unagi", "Ichiya Kawagoe"],
   "cafes": ["Kashya Yokocho Sweet Shop", "Elevato Coffee"],
   "notes": "Top 100 Castle of Japan #19. Admission is only 100 JPY.",
@@ -112,5 +88,6 @@
       "confirmed": true
     }
   ],
-  "relationships": {}
+  "relationships": {},
+  "walkingIntensity": "low"
 }

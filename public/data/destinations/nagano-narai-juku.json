@@ -72,34 +72,6 @@
   "cafes": ["Nakasendo Tea Salon"],
   "notes": "Beautifully preserved wooden street facade stretching for over a kilometer.",
   "schemaVersion": 2,
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Narai-juku in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at Narai-juku and get oriented at the base area."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Explore the primary sights: Nakasendo Historic Street and Kiso Bridge (Wooden)."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Enjoy a local lunch featuring regional specialties."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic landmarks: Narai Juku Museum and Nakamura House."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a nearby local café or park before heading back."
-        }
-      ]
-    }
-  ],
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/1_naraijuku_2024.jpg/3840px-1_naraijuku_2024.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -118,7 +90,6 @@
       "confirmed": true
     }
   ],
-  "relationships": {
-    "parentDestinationId": "nagano-city"
-  }
+  "relationships": {},
+  "walkingIntensity": "low"
 }

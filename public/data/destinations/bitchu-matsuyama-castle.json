@@ -87,5 +87,18 @@
     "tickets": 2000,
     "food": 2600,
     "cafe": 1400
-  }
+  },
+  "highlights": ["Explore Bitchu Matsuyama Castle", "Local Culture & Scenery"],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Bitchu Matsuyama Castle Dining Options"],
+  "cafes": ["Bitchu Matsuyama Castle Rest Area Cafe"],
+  "walkingIntensity": "medium"
 }

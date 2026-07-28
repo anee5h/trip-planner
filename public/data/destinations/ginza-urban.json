@@ -59,41 +59,13 @@
   ],
   "description": "Ginza is a district of Chūō, Tokyo, located south of Yaesu and Kyōbashi, west of Tsukiji, east of Yūrakuchō and Uchisaiwaichō, and north of Shinbashi. It is a popular upscale shopping area of Tokyo, with numerous internationally renowned department stores, boutiques, restaurants and coffeehouses located in the vicinity.",
   "budgetBreakdown": {
-    "transport": 1000,
-    "tickets": 2000,
-    "food": 6000,
-    "cafe": 2000
+    "transport": 1091,
+    "tickets": 2182,
+    "food": 6545,
+    "cafe": 2182
   },
   "reservation": "Recommended for high-end dining.",
   "parking": "Expensive.",
-  "itineraries": [
-    {
-      "name": "Plan A: Cultured Urban Stroll",
-      "description": "Discover high-quality Japanese craftsmanship, from precision watches to perfect paper.",
-      "steps": [
-        {
-          "time": "11:00",
-          "activity": "Explore the Seiko Museum Ginza to learn about the history of Japanese timepieces."
-        },
-        {
-          "time": "12:30",
-          "activity": "Lunch at a traditional tempura or sushi restaurant."
-        },
-        {
-          "time": "14:00",
-          "activity": "Spend an hour wandering the 12 floors of Itoya, the ultimate stationery store."
-        },
-        {
-          "time": "15:30",
-          "activity": "Relax at a classic kissaten (retro cafe) with hand-drip coffee."
-        },
-        {
-          "time": "16:30",
-          "activity": "Walk the Chuo-dori pedestrian paradise (weekends only)."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Kyubey Sushi", "Ginza Ukai-tei"],
   "cafes": ["Cafe de L'Ambre", "Shiseido Parlour"],
   "notes": "Main street is closed to traffic on weekends (Pedestrian Paradise).",
@@ -111,5 +83,8 @@
   "collections": [],
   "relationships": {
     "parentDestinationId": "chuo-city"
-  }
+  },
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "walkingIntensity": "medium"
 }

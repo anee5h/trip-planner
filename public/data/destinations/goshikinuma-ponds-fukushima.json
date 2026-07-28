@@ -1,0 +1,94 @@
+{
+  "id": "goshikinuma-ponds-fukushima",
+  "name": "Goshikinuma Ponds",
+  "nameJa": "五色沼",
+  "prefecture": "Fukushima",
+  "region": "Tohoku",
+  "category": "Nature & Parks",
+  "categories": ["Nature & Parks"],
+  "description": "A chain of volcanic ponds on the slopes of Mount Bandai shimmering in an extraordinary palette — cobalt, emerald, turquoise, jade, and deep blue — each coloured by different mineral concentrations. One of Tohoku's most photographed nature walks.",
+  "highlights": [
+    "Multicoloured volcanic pond chain",
+    "3.6 km nature trail between ponds",
+    "Rurikuma & Bishamon-numa highlights",
+    "Mount Bandai volcano backdrop"
+  ],
+  "coordinates": {
+    "lat": 37.6783,
+    "lng": 140.0886
+  },
+  "nearestStation": "Inawashiro Station (then bus)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Goshikinuma.jpg/330px-Goshikinuma.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Goshikinuma.jpg/330px-Goshikinuma.jpg",
+  "tags": [
+    "ponds",
+    "volcanic",
+    "fukushima",
+    "bandai",
+    "nature",
+    "multicolour",
+    "tohoku"
+  ],
+  "rating": 4.8,
+  "bestSeasons": ["Autumn", "Summer"],
+  "travelEstimate": {
+    "minutesFromBase": 140,
+    "confidence": "high"
+  },
+  "collections": [],
+  "budgetMin": 0,
+  "budgetRecommended": 2500,
+  "budgetMax": 5000,
+  "transportOptions": {
+    "shinkansen": 90,
+    "bus": 40
+  },
+  "ratings": {
+    "overall": 9.3,
+    "couple": 9.4,
+    "summer": 9.2,
+    "winter": 7,
+    "rain": 6.5,
+    "food": 7.5,
+    "photography": 9.9,
+    "relaxation": 9,
+    "value": 9.5,
+    "uniqueness": 9.6
+  },
+  "totalTripHours": 3,
+  "walkingMin": 4000,
+  "walkingSunMin": 1000,
+  "walkingShadeMin": 3000,
+  "indoorPercent": 5,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8,
+    "summer": 9,
+    "autumn": 10,
+    "winter": 5
+  },
+  "bestMonths": [5, 6, 7, 8, 9, 10, 11],
+  "bestSeason": "Autumn",
+  "weatherDependence": "high",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 5,
+    "walkingIntensity": 2
+  },
+  "walkingIntensity": "low",
+  "reservation": "None required",
+  "parking": "Bishamon-numa car park (free)",
+  "restaurants": ["Goshikinuma Visitor Centre Restaurant"],
+  "cafes": ["Bishamon-numa Trailhead Café"],
+  "notes": "Free entry. The 3.6 km one-way trail runs from Goshiki-numa visitor centre to Bandai-Kogen bus stop. Trail takes 1.5–2 hours. Rurikuma pond is the most vivid cobalt blue.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": ["mount-bandai-fukushima", "abukuma-cave-fukushima"]
+  },
+  "budgetBreakdown": null
+}

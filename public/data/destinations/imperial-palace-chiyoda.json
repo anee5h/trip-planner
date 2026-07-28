@@ -54,41 +54,13 @@
   "highlights": ["East Gardens", "Nijubashi Bridge", "Chidorigafuchi (Spring)"],
   "description": "Imperial Palace (Chiyoda) is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
   "budgetBreakdown": {
-    "transport": 1000,
-    "tickets": 1600,
-    "food": 700,
-    "cafe": 300
+    "transport": 1472,
+    "tickets": 2356,
+    "food": 1031,
+    "cafe": 441
   },
   "reservation": "Required for inner grounds tour.",
   "parking": "Very limited.",
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Imperial Palace (Chiyoda) in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at the main station and get oriented."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Visit the primary history attraction."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Grab a delicious regional lunch."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic sights."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a local café before heading back."
-        }
-      ]
-    }
-  ],
   "restaurants": [
     "Imperial Palace (Chiyoda) Traditional Dining",
     "Local Tokyo Specialty Restaurant",
@@ -104,5 +76,8 @@
   "collections": [],
   "relationships": {
     "parentDestinationId": "chiyoda-city"
-  }
+  },
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "walkingIntensity": "high"
 }

@@ -1,0 +1,86 @@
+{
+  "id": "akiu-onsen-miyagi",
+  "name": "Akiu Onsen",
+  "nameJa": "秋保温泉",
+  "prefecture": "Miyagi",
+  "region": "Tohoku",
+  "category": "Onsen & Wellness",
+  "categories": ["Onsen & Wellness"],
+  "description": "One of Japan's oldest hot spring resorts just 30 minutes from Sendai, historically favoured by Emperor Shomu. Upscale ryokan line the Natori River canyon, with the nearby Akiu Waterfall and Rairaikyo Gorge as scenic highlights.",
+  "highlights": [
+    "Sendai's closest major onsen",
+    "Akiu Great Waterfall (55 m)",
+    "Rairaikyo gorge walk",
+    "Historic imperial bathing heritage"
+  ],
+  "coordinates": {
+    "lat": 38.1797,
+    "lng": 140.6878
+  },
+  "nearestStation": "Sendai Station (then express bus)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/211029_Akiu_Onsen_Sendai_Miyagi_pref_Japan01s3.jpg/1920px-211029_Akiu_Onsen_Sendai_Miyagi_pref_Japan01s3.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/211029_Akiu_Onsen_Sendai_Miyagi_pref_Japan01s3.jpg/1920px-211029_Akiu_Onsen_Sendai_Miyagi_pref_Japan01s3.jpg",
+  "tags": ["onsen", "ryokan", "miyagi", "sendai", "waterfall", "tohoku"],
+  "rating": 4.6,
+  "bestSeasons": ["Autumn", "Winter"],
+  "travelEstimate": {
+    "minutesFromBase": 100,
+    "confidence": "high"
+  },
+  "collections": [],
+  "budgetMin": 2000,
+  "budgetRecommended": 23500,
+  "budgetMax": 45000,
+  "transportOptions": {
+    "train": 80,
+    "bus": 60
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9.4,
+    "summer": 8.5,
+    "winter": 9.2,
+    "rain": 9,
+    "food": 9.2,
+    "photography": 8.8,
+    "relaxation": 9.5,
+    "value": 8.5,
+    "uniqueness": 8.5
+  },
+  "totalTripHours": 6,
+  "walkingMin": 3000,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1500,
+  "indoorPercent": 60,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 8,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 9
+  },
+  "bestMonths": [10, 11, 12, 1, 2],
+  "bestSeason": "Autumn & Winter",
+  "weatherDependence": "low",
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 2
+  },
+  "walkingIntensity": "low",
+  "reservation": "Recommended for overnight stays",
+  "parking": "Available at each ryokan",
+  "restaurants": ["Akiu Onsen Kaiseki Ryokan Dining", "Canyon River Grill"],
+  "cafes": ["Akiu Craft Beer & Café"],
+  "notes": "Paired with Matsushima as a classic Sendai day trip combo. The Akiu Great Waterfall (Akiu Otaki) is one of Japan's Top 100 Waterfalls at 55 m tall.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": ["sendai-city", "matsushima-bay"]
+  },
+  "budgetBreakdown": null
+}

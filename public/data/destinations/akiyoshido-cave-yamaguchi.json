@@ -1,0 +1,84 @@
+{
+  "id": "akiyoshido-cave-yamaguchi",
+  "name": "Akiyoshido Cave",
+  "nameJa": "秋芳洞",
+  "prefecture": "Yamaguchi",
+  "category": "Nature & Parks",
+  "description": "Japan's largest limestone cave, stretching 10 km underground with 100-plateau limestone pools and soaring subterranean chambers.",
+  "coordinates": {
+    "lat": 34.2275,
+    "lng": 131.3021
+  },
+  "nearestStation": "Shin-Yamaguchi Station",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Akiyoshidai-Syuhodou.jpg",
+  "tags": ["cave", "limestone", "nature", "yamaguchi", "geopark"],
+  "rating": 4.8,
+  "bestSeasons": ["Spring", "Summer", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 240,
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "caves-japan",
+      "sortOrder": 1
+    }
+  ],
+  "region": "Chugoku",
+  "categories": ["Nature & Parks"],
+  "budgetMin": 1500,
+  "budgetMax": 6000,
+  "budgetRecommended": 3750,
+  "transportOptions": {
+    "train": 180
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "highlights": ["Explore Akiyoshido Cave", "Local Culture & Scenery"],
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Akiyoshido Cave Dining Options"],
+  "cafes": ["Akiyoshido Cave Rest Area Cafe"],
+  "notes": "Akiyoshido Cave located in Yamaguchi Prefecture.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Akiyoshidai-Syuhodou.jpg",
+  "walkingIntensity": "low",
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200
+}

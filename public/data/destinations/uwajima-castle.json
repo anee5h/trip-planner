@@ -82,5 +82,18 @@
     "tickets": 2000,
     "food": 2925,
     "cafe": 1575
-  }
+  },
+  "highlights": ["Explore Uwajima Castle", "Local Culture & Scenery"],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Uwajima Castle Dining Options"],
+  "cafes": ["Uwajima Castle Rest Area Cafe"],
+  "walkingIntensity": "medium"
 }

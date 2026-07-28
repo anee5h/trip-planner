@@ -54,41 +54,13 @@
   "highlights": ["Hie Shrine", "Tokyo Midtown (nearby)", "TBS Studio area"],
   "description": "An upscale commercial and residential district with excellent dining, high-end hotels, and Hie Shrine.",
   "budgetBreakdown": {
-    "transport": 1000,
-    "tickets": 1600,
-    "food": 6000,
-    "cafe": 2000
+    "transport": 1094,
+    "tickets": 1751,
+    "food": 6566,
+    "cafe": 2189
   },
   "reservation": "Required for nice dinners.",
   "parking": "Expensive.",
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Akasaka (Minato) in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at the main station and get oriented."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Visit the primary city attraction."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Grab a delicious regional lunch."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic sights."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a local café before heading back."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Akasaka Matsubaya", "Kobe Beef 511"],
   "cafes": ["Aoyama Flower Market Tea House"],
   "notes": "Hie Shrine has a beautiful torii gate tunnel similar to Fushimi Inari in Kyoto.",
@@ -99,6 +71,9 @@
   },
   "collections": [],
   "relationships": {
-    "parentDestinationId": "chiyoda-city"
-  }
+    "parentDestinationId": "minato-city"
+  },
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "walkingIntensity": "medium"
 }

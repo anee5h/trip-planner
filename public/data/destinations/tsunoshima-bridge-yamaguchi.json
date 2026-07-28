@@ -1,0 +1,88 @@
+{
+  "id": "tsunoshima-bridge-yamaguchi",
+  "name": "Tsunoshima Bridge",
+  "nameJa": "角島大橋",
+  "prefecture": "Yamaguchi",
+  "category": "Scenic Drives & Ocean Views",
+  "description": "A breathtaking 1,780-meter sea bridge spanning emerald-turquoise waters to Tsunoshima Island in Yamaguchi Prefecture.",
+  "coordinates": {
+    "lat": 34.3541,
+    "lng": 130.8872
+  },
+  "nearestStation": "Agawa Station",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Tsunoshima_Bridge_panorama_%2832275932414%29.jpg/1920px-Tsunoshima_Bridge_panorama_%2832275932414%29.jpg",
+  "tags": ["bridge", "coastal", "drive", "yamaguchi", "ocean"],
+  "rating": 4.8,
+  "bestSeasons": ["Spring", "Summer"],
+  "travelEstimate": {
+    "minutesFromBase": 260,
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "scenic-bridges-japan",
+      "sortOrder": 1
+    },
+    {
+      "collectionId": "coastal-drives-japan",
+      "sortOrder": 3
+    }
+  ],
+  "region": "Chugoku",
+  "categories": ["Scenic Drives & Ocean Views"],
+  "budgetMin": 1500,
+  "budgetMax": 6000,
+  "budgetRecommended": 3750,
+  "transportOptions": {
+    "train": 180
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "highlights": ["Explore Tsunoshima Bridge", "Local Culture & Scenery"],
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Tsunoshima Bridge Dining Options"],
+  "cafes": ["Tsunoshima Bridge Rest Area Cafe"],
+  "notes": "Tsunoshima Bridge located in Yamaguchi Prefecture.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Tsunoshima_Bridge_panorama_%2832275932414%29.jpg/1920px-Tsunoshima_Bridge_panorama_%2832275932414%29.jpg",
+  "walkingIntensity": "low",
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200
+}

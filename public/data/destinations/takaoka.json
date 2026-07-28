@@ -59,39 +59,11 @@
   "description": "Discover Takaoka, a prominent destination in Shizuoka. With its rich mix of great buddha, doraemon, crafts, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
-    "transport": 3200,
-    "tickets": 1600,
-    "food": 2400,
-    "cafe": 800
+    "transport": 3600,
+    "tickets": 1800,
+    "food": 2700,
+    "cafe": 900
   },
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Takaoka in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at the main station and get oriented."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Visit the primary city attraction."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Grab a delicious regional lunch."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic sights."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a local café before heading back."
-        }
-      ]
-    }
-  ],
   "restaurants": [
     "Takaoka Traditional Dining",
     "Local Shizuoka Specialty Restaurant",
@@ -112,5 +84,10 @@
     }
   ],
   "relationships": {},
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Takaoka_montage.JPG/330px-Takaoka_montage.JPG"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Takaoka_montage.JPG/330px-Takaoka_montage.JPG",
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Available on site",
+  "walkingIntensity": "high"
 }

@@ -61,37 +61,13 @@
   ],
   "description": "Located on the 60th floor of Sunshine 60 (251m height) in Ikebukuro, featuring an indoor sky park with real turf lawns, picnic mats, and panoramic vistas.",
   "budgetBreakdown": {
-    "transport": 400,
-    "tickets": 900,
-    "food": 2700,
-    "cafe": 1000
+    "transport": 460,
+    "tickets": 1035,
+    "food": 3105,
+    "cafe": 1150
   },
   "reservation": "No advance reservation required.",
   "parking": "Paid parking garage inside Sunshine City complex.",
-  "itineraries": [
-    {
-      "name": "Ikebukuro Indoor Sky Picnic & Aquarium",
-      "description": "Relax on high-altitude turf lawns and visit Sunshine City rooftop aquarium.",
-      "steps": [
-        {
-          "time": "1:00 PM",
-          "activity": "Arrive at Ikebukuro Station and walk 8 mins through Sunshine 60 Street."
-        },
-        {
-          "time": "1:30 PM",
-          "activity": "Ride the high-speed elevator to the 60th floor Tenbou Park observatory."
-        },
-        {
-          "time": "2:00 PM",
-          "activity": "Relax on the indoor artificial grass hill with seasonal drinks from Tenbou Cafe."
-        },
-        {
-          "time": "4:00 PM",
-          "activity": "Visit Sunshine Aquarium on the rooftop of the main building."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Tenbou Park Cafe 60F", "Sunshine City Alpa Gourmet"],
   "cafes": ["Tenbou Cafe Lawn Bar"],
   "notes": "Completely indoor and rainproof; perfect for families with young children.",
@@ -108,6 +84,7 @@
   },
   "collections": [],
   "relationships": {
-    "parentDestinationId": "chiyoda-city"
-  }
+    "parentDestinationId": "toshima-city"
+  },
+  "walkingIntensity": "low"
 }

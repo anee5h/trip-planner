@@ -72,34 +72,6 @@
   "cafes": ["Falls Lookout Cafe"],
   "notes": "In autumn, the surrounding forest turns vibrant gold and crimson, framing the water cascades.",
   "schemaVersion": 2,
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Fukuroda Falls in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at Fukuroda Falls and get oriented at the base area."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Explore the primary sights: Fukuroda Falls Tunnel & Deck and Tada Falls Suspension Bridge."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Enjoy a local lunch featuring regional specialties."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic landmarks: Nagare-no-Kannon Shrine and Fukuroda Hot Springs (nearby)."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a nearby local café or park before heading back."
-        }
-      ]
-    }
-  ],
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Fukuroda_Falls_-_%E8%A2%8B%E7%94%B0%E3%81%AE%E6%BB%9D%28%E3%81%B5%E3%81%8F%E3%82%8D%E3%81%A0%E3%81%AE%E3%81%9F%E3%81%8D%29.jpg/3840px-Fukuroda_Falls_-_%E8%A2%8B%E7%94%B0%E3%81%AE%E6%BB%9D%28%E3%81%B5%E3%81%8F%E3%82%8D%E3%81%A0%E3%81%AE%E3%81%9F%E3%81%8D%29.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -116,7 +88,12 @@
       "collectionId": "three-great-waterfalls",
       "sortOrder": 3,
       "confirmed": true
+    },
+    {
+      "collectionId": "waterfalls-gorges-japan",
+      "sortOrder": 5
     }
   ],
-  "relationships": {}
+  "relationships": {},
+  "walkingIntensity": "low"
 }

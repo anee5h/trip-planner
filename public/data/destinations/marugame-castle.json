@@ -82,5 +82,18 @@
     "tickets": 2000,
     "food": 1625,
     "cafe": 875
-  }
+  },
+  "highlights": ["Explore Marugame Castle", "Local Culture & Scenery"],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Marugame Castle Dining Options"],
+  "cafes": ["Marugame Castle Rest Area Cafe"],
+  "walkingIntensity": "medium"
 }

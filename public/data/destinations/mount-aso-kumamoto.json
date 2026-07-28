@@ -1,0 +1,84 @@
+{
+  "id": "mount-aso-kumamoto",
+  "name": "Mount Aso Active Caldera",
+  "nameJa": "阿蘇山",
+  "prefecture": "Kumamoto",
+  "category": "Nature & Parks",
+  "description": "One of the world's largest active volcanic calderas, featuring the smoking Nakadake Crater and vast emerald grasslands.",
+  "coordinates": {
+    "lat": 32.8842,
+    "lng": 131.1042
+  },
+  "nearestStation": "Aso Station",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/20140516%E9%98%BF%E8%98%87%E5%B1%B1%E5%BA%83%E5%9F%9F.jpg/1920px-20140516%E9%98%BF%E8%98%87%E5%B1%B1%E5%BA%83%E5%9F%9F.jpg",
+  "tags": ["volcano", "nature", "caldera", "kumamoto", "hiking"],
+  "rating": 4.8,
+  "bestSeasons": ["Spring", "Summer", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 210,
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 15
+    }
+  ],
+  "region": "Kyushu",
+  "categories": ["Nature & Parks"],
+  "budgetMin": 1500,
+  "budgetMax": 6000,
+  "budgetRecommended": 3750,
+  "transportOptions": {
+    "train": 180
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "highlights": ["Explore Mount Aso Active Caldera", "Local Culture & Scenery"],
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Mount Aso Active Caldera Dining Options"],
+  "cafes": ["Mount Aso Active Caldera Rest Area Cafe"],
+  "notes": "Mount Aso Active Caldera located in Kumamoto Prefecture.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/20140516%E9%98%BF%E8%98%87%E5%B1%B1%E5%BA%83%E5%9F%9F.jpg/1920px-20140516%E9%98%BF%E8%98%87%E5%B1%B1%E5%BA%83%E5%9F%9F.jpg",
+  "walkingIntensity": "low",
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200
+}

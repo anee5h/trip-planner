@@ -1,0 +1,84 @@
+{
+  "id": "takeda-castle-ruins-hyogo",
+  "name": "Takeda Castle Ruins",
+  "nameJa": "竹田城跡",
+  "prefecture": "Hyogo",
+  "category": "Castles & History",
+  "description": "Famous as Japan's 'Castle in the Sky', these breathtaking 15th-century mountain ruins float above a sea of morning autumn fog.",
+  "coordinates": {
+    "lat": 35.3005,
+    "lng": 134.8294
+  },
+  "nearestStation": "Takeda Station",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/26/%E7%AB%B9%E7%94%B0%E5%9F%8E.JPG",
+  "tags": ["castle", "history", "viewpoint", "hyogo", "autumn"],
+  "rating": 4.7,
+  "bestSeasons": ["Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 150,
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 13
+    }
+  ],
+  "region": "Kansai",
+  "categories": ["Castles & History"],
+  "budgetMin": 1500,
+  "budgetMax": 6000,
+  "budgetRecommended": 3750,
+  "transportOptions": {
+    "train": 180
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "highlights": ["Explore Takeda Castle Ruins", "Local Culture & Scenery"],
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Takeda Castle Ruins Dining Options"],
+  "cafes": ["Takeda Castle Ruins Rest Area Cafe"],
+  "notes": "Takeda Castle Ruins located in Hyogo Prefecture.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/2/26/%E7%AB%B9%E7%94%B0%E5%9F%8E.JPG",
+  "walkingIntensity": "low",
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200
+}

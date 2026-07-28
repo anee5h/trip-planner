@@ -67,37 +67,13 @@
   ],
   "description": "The magnificent seat of the powerful Maeda clan (Kaga Domain), featuring meticulously reconstructed wooden turrets, white lead tile roofs, and Gyokusen'inmaru feudal garden adjacent to Kenrokuen.",
   "budgetBreakdown": {
-    "transport": 1800,
-    "tickets": 320,
-    "food": 3200,
-    "cafe": 1180
+    "transport": 1938,
+    "tickets": 345,
+    "food": 3446,
+    "cafe": 1271
   },
   "reservation": "No reservation required.",
   "parking": "Paid parking lot at Kenrokuen / Kanazawa Castle Park entrance.",
-  "itineraries": [
-    {
-      "name": "Kaga Domain Power & Kenrokuen Garden Walk",
-      "description": "Explore Maeda clan turrets and walk across to Kenrokuen Garden.",
-      "steps": [
-        {
-          "time": "9:30 AM",
-          "activity": "Arrive at Kanazawa Station (Hokuriku Shinkansen) and bus 10 mins to Ishikawamon."
-        },
-        {
-          "time": "10:00 AM",
-          "activity": "Tour inside the reconstructed Hishi Yagura and Gojukkoku Nagaya wooden storehouse."
-        },
-        {
-          "time": "12:00 PM",
-          "activity": "Savor Kaga Kaiseki or fresh Omicho Market kaisen-don lunch."
-        },
-        {
-          "time": "1:30 PM",
-          "activity": "Walk across the bridge directly into Kenrokuen Garden (Japan #1 Garden)."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Omicho Market Kaisen-don", "Kaga Cuisine Tsubajin"],
   "cafes": ["Gyokusen'an Teahouse", "Kenrokuen Chaya"],
   "notes": "Top 100 Castle of Japan #35. Beautiful night illumination of Gyokusen'inmaru garden on weekends.",
@@ -118,5 +94,6 @@
       "confirmed": true
     }
   ],
-  "relationships": {}
+  "relationships": {},
+  "walkingIntensity": "medium"
 }

@@ -67,37 +67,13 @@
   ],
   "description": "Perched atop an 80m hill inside Higashiyama Zoo & Botanical Gardens, this 134-meter pencil tower reaches a total elevation of 214 meters, offering panoramic views of Central Japan Alps.",
   "budgetBreakdown": {
-    "transport": 1000,
-    "tickets": 300,
-    "food": 2700,
-    "cafe": 1000
+    "transport": 1100,
+    "tickets": 330,
+    "food": 2970,
+    "cafe": 1100
   },
   "reservation": "No reservation required.",
   "parking": "Large paid parking lots serving Higashiyama Zoo & Sky Tower.",
-  "itineraries": [
-    {
-      "name": "Higashiyama Gardens & Sky Tower Sunset",
-      "description": "Explore botanical gardens and take in Japan Top 100 night views.",
-      "steps": [
-        {
-          "time": "2:00 PM",
-          "activity": "Arrive at Higashiyama Koen Station and walk through botanical gardens."
-        },
-        {
-          "time": "3:30 PM",
-          "activity": "Ascend the Sky Tower elevator to the 100m observation deck."
-        },
-        {
-          "time": "5:00 PM",
-          "activity": "Dine at Sky Restaurant NAGOYA758 overlooking Nagoya city lights."
-        },
-        {
-          "time": "6:30 PM",
-          "activity": "Photograph the illuminated night panorama certified among Japan Top 100 Night Views."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Sky Restaurant NAGOYA758", "Zoo Terrace Dining"],
   "cafes": ["Sky Tower Lounge 5F"],
   "notes": "Combination tickets available for both Higashiyama Zoo and Sky Tower.",
@@ -115,5 +91,6 @@
   "collections": [],
   "relationships": {
     "parentDestinationId": "nagoya-city"
-  }
+  },
+  "walkingIntensity": "low"
 }

@@ -1,0 +1,89 @@
+{
+  "id": "mount-bandai-fukushima",
+  "name": "Mount Bandai",
+  "nameJa": "磐梯山",
+  "prefecture": "Fukushima",
+  "region": "Tohoku",
+  "category": "Nature & Parks",
+  "categories": ["Nature & Parks"],
+  "description": "Fukushima's iconic active volcano whose catastrophic 1888 eruption created hundreds of ponds and lakes including the Goshikinuma chain. Now a popular hiking destination with panoramic views of Inawashiro Lake, the Goshikinuma plateau, and Aizu Basin.",
+  "highlights": [
+    "Summit panorama over Fukushima",
+    "Volcano geology & 1888 eruption history",
+    "Multiple hiking routes (4–6 hrs)",
+    "Bandai-Azuma Skyline drive nearby"
+  ],
+  "coordinates": {
+    "lat": 37.6028,
+    "lng": 140.0744
+  },
+  "nearestStation": "Inawashiro Station (then bus/taxi)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Mt._Bandaisan_0811.JPG/1920px-Mt._Bandaisan_0811.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Mt._Bandaisan_0811.JPG/1920px-Mt._Bandaisan_0811.JPG",
+  "tags": ["mountain", "volcano", "hiking", "fukushima", "bandai", "tohoku"],
+  "rating": 4.6,
+  "bestSeasons": ["Summer", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 140,
+    "confidence": "high"
+  },
+  "collections": [],
+  "budgetMin": 0,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "transportOptions": {
+    "shinkansen": 90,
+    "car": 50
+  },
+  "ratings": {
+    "overall": 8.9,
+    "couple": 8.6,
+    "summer": 9.2,
+    "winter": 6,
+    "rain": 5,
+    "food": 7,
+    "photography": 9.3,
+    "relaxation": 8.5,
+    "value": 9.3,
+    "uniqueness": 8.8
+  },
+  "totalTripHours": 6,
+  "walkingMin": 12000,
+  "walkingSunMin": 8000,
+  "walkingShadeMin": 4000,
+  "indoorPercent": 5,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 5,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 7,
+    "summer": 10,
+    "autumn": 9,
+    "winter": 3
+  },
+  "bestMonths": [6, 7, 8, 9, 10],
+  "bestSeason": "Summer",
+  "weatherDependence": "very high",
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 3,
+    "walkingIntensity": 5
+  },
+  "walkingIntensity": "strenuous",
+  "reservation": "None required",
+  "parking": "Kawagoe Route trailhead parking",
+  "restaurants": ["Inawashiro Town Dining"],
+  "cafes": ["Bandai Plateau Visitor Centre Café"],
+  "notes": "One of Japan's 100 Famous Mountains. The 1888 eruption produced lahars that killed 461 people and created over 300 ponds. Main summit trail (Kawagoe Route) takes 3–4 hours one way. Often paired with Goshikinuma ponds visit.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": [
+      "goshikinuma-ponds-fukushima",
+      "tsuruga-castle-fukushima"
+    ]
+  },
+  "budgetBreakdown": null
+}

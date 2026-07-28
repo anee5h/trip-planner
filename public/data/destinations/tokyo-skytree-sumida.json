@@ -67,37 +67,13 @@
   ],
   "description": "Rising 634 meters over Tokyo, Tokyo Skytree is the world's tallest broadcasting tower, offering breath-taking 360-degree views of Mt. Fuji and the Kanto Plain from two observation decks.",
   "budgetBreakdown": {
-    "transport": 500,
-    "tickets": 3100,
-    "food": 3500,
-    "cafe": 1400
+    "transport": 559,
+    "tickets": 3465,
+    "food": 3912,
+    "cafe": 1564
   },
   "reservation": "Advance online booking recommended to skip ticket queues.",
   "parking": "Paid underground parking structure at Tokyo Solamachi complex.",
-  "itineraries": [
-    {
-      "name": "Skytree Heights & Solamachi Experience",
-      "description": "Ascend Japan's highest tower deck and explore over 300 shops and cafes in Solamachi.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at Oshiage Station and ride the high-speed shuttle lift to the 350m Tembo Deck."
-        },
-        {
-          "time": "11:30 AM",
-          "activity": "Walk up the glass-slotted spiral Tembo Galleria at 450 meters."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Savor a sushi or tendon lunch at Tokyo Solamachi dining hall."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Explore the Sumida Aquarium or Planetarium inside the Solamachi complex."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Sky Restaurant 634", "Solamachi Dining Town"],
   "cafes": ["Skytree Cafe 350", "Nana's Green Tea Solamachi"],
   "notes": "Best visibility of Mt. Fuji occurs on crisp, clear winter mornings.",
@@ -121,5 +97,6 @@
   ],
   "relationships": {
     "parentDestinationId": "sumida-city"
-  }
+  },
+  "walkingIntensity": "medium"
 }

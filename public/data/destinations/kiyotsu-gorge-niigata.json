@@ -1,0 +1,91 @@
+{
+  "id": "kiyotsu-gorge-niigata",
+  "name": "Kiyotsu Gorge Tunnel of Light",
+  "nameJa": "清津峡・光のトンネル",
+  "prefecture": "Niigata",
+  "category": "Art & Architecture",
+  "description": "One of Japan's three great gorges, housing MAD Architects' Tunnel of Light art installation mirroring column-joint cliffs in water.",
+  "coordinates": {
+    "lat": 36.9535,
+    "lng": 138.7492
+  },
+  "nearestStation": "Echigo-Yuzawa Station",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Jujikyo_in_Kurobe_Gorge.jpg/1920px-Jujikyo_in_Kurobe_Gorge.jpg",
+  "tags": ["gorge", "art", "niigata", "architecture", "viewpoint"],
+  "rating": 4.8,
+  "bestSeasons": ["Spring", "Summer", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 140,
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "waterfalls-gorges-japan",
+      "sortOrder": 2
+    },
+    {
+      "collectionId": "art-islands-japan",
+      "sortOrder": 1
+    }
+  ],
+  "region": "Chubu",
+  "categories": ["Art & Architecture"],
+  "budgetMin": 1500,
+  "budgetMax": 6000,
+  "budgetRecommended": 3750,
+  "transportOptions": {
+    "train": 180
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "highlights": [
+    "Explore Kiyotsu Gorge Tunnel of Light",
+    "Local Culture & Scenery"
+  ],
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Kiyotsu Gorge Tunnel of Light Dining Options"],
+  "cafes": ["Kiyotsu Gorge Tunnel of Light Rest Area Cafe"],
+  "notes": "Kiyotsu Gorge Tunnel of Light located in Niigata Prefecture.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Jujikyo_in_Kurobe_Gorge.jpg/1920px-Jujikyo_in_Kurobe_Gorge.jpg",
+  "walkingIntensity": "low",
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200
+}

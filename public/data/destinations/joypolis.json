@@ -4,7 +4,7 @@
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Indoor Park", "Gaming"],
-  "heroImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Sega_Joypolis_Odaiba.jpg/1920px-Sega_Joypolis_Odaiba.jpg",
   "totalTripHours": 8,
   "budgetMin": 16000,
   "budgetRecommended": 20000,
@@ -47,74 +47,20 @@
     "rainFriendly": 9,
     "walkingIntensity": 4
   },
-  "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&q=80&w=1200",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Sega_Joypolis_Odaiba.jpg/1920px-Sega_Joypolis_Odaiba.jpg",
   "transportOptions": {
     "train": 90
   },
   "highlights": ["Halfpipe Tokyo", "VR Attractions"],
   "description": "Joypolis Odaiba is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
   "budgetBreakdown": {
-    "transport": 1000,
-    "tickets": 10000,
-    "food": 6000,
-    "cafe": 2000
+    "transport": 1053,
+    "tickets": 10526,
+    "food": 6316,
+    "cafe": 2105
   },
-  "reservation": "",
+  "reservation": "None required",
   "parking": "Yes",
-  "itineraries": [
-    {
-      "name": "Plan A: Thrills & Coasters",
-      "description": "Tackle the most intense, adrenaline-pumping rides the indoor park has to offer.",
-      "steps": [
-        {
-          "time": "11:00",
-          "activity": "Arrive at Decks Tokyo Beach and head into Joypolis."
-        },
-        {
-          "time": "11:30",
-          "activity": "Ride the Gekion Live Coaster, a rhythm game combined with a rollercoaster."
-        },
-        {
-          "time": "13:00",
-          "activity": "Compete against friends on the Halfpipe Tokyo spinning ride."
-        },
-        {
-          "time": "14:30",
-          "activity": "Quick lunch at the Frame Cafe inside the park overlooking the bay."
-        },
-        {
-          "time": "16:00",
-          "activity": "Ride the Transformers 360-degree spinning simulator."
-        }
-      ]
-    },
-    {
-      "name": "Plan B: Horror & Virtual Reality",
-      "description": "Focus on the immersive walk-through attractions and cutting-edge VR.",
-      "steps": [
-        {
-          "time": "12:00",
-          "activity": "Start with the Zero Latency VR free-roaming experience (book in advance!)."
-        },
-        {
-          "time": "14:00",
-          "activity": "Grab lunch at a restaurant in Odaiba outside the park."
-        },
-        {
-          "time": "15:30",
-          "activity": "Experience the Room of the Living Doll 3D sound horror attraction."
-        },
-        {
-          "time": "16:30",
-          "activity": "Play the interactive Phoenix Wright: Ace Attorney investigation game."
-        },
-        {
-          "time": "18:00",
-          "activity": "Watch the main stage projection mapping show before leaving."
-        }
-      ]
-    }
-  ],
   "restaurants": [
     "Joypolis Odaiba Traditional Dining",
     "Local Tokyo Specialty Restaurant",
@@ -133,6 +79,9 @@
   },
   "collections": [],
   "relationships": {
-    "parentDestinationId": "chiyoda-city"
-  }
+    "parentDestinationId": "minato-city"
+  },
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "walkingIntensity": "low"
 }

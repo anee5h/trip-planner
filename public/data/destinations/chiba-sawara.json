@@ -72,34 +72,6 @@
   "cafes": ["Cafe Deko"],
   "notes": "Toyohashi Bridge spills water into the canal twice an hour, making a pleasant 'ja-ja' sound.",
   "schemaVersion": 2,
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Sawara in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at Sawara and get oriented at the base area."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Explore the primary sights: Ono River Historic District and Toyohashi Ja-Ja Bridge."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Enjoy a local lunch featuring regional specialties."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic landmarks: Ino Tadataka Museum and Sawara Canal Boat Tour."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a nearby local café or park before heading back."
-        }
-      ]
-    }
-  ],
   "status": "verified",
   "travelEstimate": {
     "confidence": "high"
@@ -112,5 +84,6 @@
     }
   ],
   "relationships": {},
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Inou-tadataka-house%2Ckatori-city%2Cjapan.JPG/330px-Inou-tadataka-house%2Ckatori-city%2Cjapan.JPG"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Inou-tadataka-house%2Ckatori-city%2Cjapan.JPG/330px-Inou-tadataka-house%2Ckatori-city%2Cjapan.JPG",
+  "walkingIntensity": "low"
 }

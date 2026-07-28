@@ -17,6 +17,15 @@ npm run pipeline -- --validate-only
 
 # Dry-run mode (runs all stages without writing changes to disk)
 npm run pipeline -- --dry-run
+
+# Regenerate lazy-loaded public details after changing the destination index
+npm run sync-destination-details
+
+# Confirm every public detail file matches the destination index
+npm run validate-destination-details
+
+# Align existing budget breakdowns with each destination's recommended total
+npm run normalize-destination-budgets
 ```
 
 ---

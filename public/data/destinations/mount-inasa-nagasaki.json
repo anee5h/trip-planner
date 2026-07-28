@@ -77,9 +77,25 @@
   "relationships": {},
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/1280px-Mt.Inasa_2010.jpg",
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 1300,
-    "cafe": 700
-  }
+    "transport": 2786,
+    "tickets": 1857,
+    "food": 1207,
+    "cafe": 650
+  },
+  "highlights": [
+    "Explore Mount Inasa (Nagasaki Night View)",
+    "Local Culture & Scenery"
+  ],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Mount Inasa (Nagasaki Night View) Dining Options"],
+  "cafes": ["Mount Inasa (Nagasaki Night View) Rest Area Cafe"],
+  "walkingIntensity": "medium"
 }

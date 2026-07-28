@@ -41,11 +41,6 @@
       "collectionId": "three-cherry-blossom-spots",
       "sortOrder": 3,
       "confirmed": true
-    },
-    {
-      "collectionId": "unesco-japan",
-      "sortOrder": 10,
-      "confirmed": true
     }
   ],
   "transportOptions": {
@@ -86,5 +81,21 @@
     "tickets": 2000,
     "food": 1625,
     "cafe": 875
-  }
+  },
+  "highlights": [
+    "Explore Mount Yoshino (Yoshinoyama)",
+    "Local Culture & Scenery"
+  ],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Mount Yoshino (Yoshinoyama) Dining Options"],
+  "cafes": ["Mount Yoshino (Yoshinoyama) Rest Area Cafe"],
+  "walkingIntensity": "medium"
 }

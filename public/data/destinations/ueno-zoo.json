@@ -1,0 +1,87 @@
+{
+  "id": "ueno-zoo",
+  "name": "Ueno Zoo",
+  "aliases": ["Ueno Zoological Gardens"],
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "categories": ["Zoo", "Nature", "Family", "Historic"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Ueno_Zoo_20220414a1.jpg/1920px-Ueno_Zoo_20220414a1.jpg",
+  "totalTripHours": 4,
+  "budgetMin": 4000,
+  "budgetRecommended": 7000,
+  "budgetMax": 10000,
+  "walkingMin": 5000,
+  "walkingSunMin": 3000,
+  "walkingShadeMin": 2000,
+  "indoorPercent": 25,
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.6,
+    "summer": 7.2,
+    "winter": 8.1,
+    "rain": 6.8,
+    "food": 7,
+    "photography": 8.7,
+    "relaxation": 8,
+    "value": 9.5,
+    "uniqueness": 8.6
+  },
+  "crowd": {
+    "weekday": 6,
+    "weekend": 9,
+    "holiday": 10
+  },
+  "season": {
+    "spring": 9.5,
+    "summer": 7,
+    "autumn": 9,
+    "winter": 7.5
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "tags": ["Panda", "Historic Zoo", "Ueno Park", "Family Friendly"],
+  "coordinates": {
+    "lat": 35.7164,
+    "lng": 139.7713
+  },
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 5
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Ueno_Zoo_20220414a1.jpg/1920px-Ueno_Zoo_20220414a1.jpg",
+  "transportOptions": {
+    "train": 15
+  },
+  "highlights": [
+    "Giant Panda Forest",
+    "Five-Story Pagoda of Former Kan'ei-ji",
+    "Shinobazu Pond Waterfowl",
+    "Gorilla Woods"
+  ],
+  "description": "Opened in 1882, Ueno Zoo is Japan's oldest zoo, located inside Ueno Park and world-famous for its giant pandas, five-story pagoda, and diverse wildlife exhibits.",
+  "budgetBreakdown": {
+    "transport": 800,
+    "tickets": 1200,
+    "food": 3600,
+    "cafe": 1400
+  },
+  "reservation": "Not required, but advance online tickets recommended during peak weekends.",
+  "parking": "No dedicated parking; use Ueno station public lots.",
+  "restaurants": ["Shinobazu Deck Rest House", "East Garden Cafe"],
+  "cafes": ["Ueno Park Starbucks", "Panda Soft Serve Kiosk"],
+  "notes": "Closed on Mondays (or Tuesday if Monday is a national holiday).",
+  "schemaVersion": 2,
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "high"
+  },
+  "collections": [],
+  "relationships": {
+    "parentDestinationId": "ueno-taito"
+  },
+  "kind": "zoo",
+  "role": "poi",
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "walkingIntensity": "medium"
+}

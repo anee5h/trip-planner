@@ -7,13 +7,13 @@
   "prefecture": "Hokkaido",
   "region": "Hokkaido",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Cityscape_of_Asahikawa_from_Mt._Arashiyama.jpg/3840px-Cityscape_of_Asahikawa_from_Mt._Arashiyama.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Cityscape_of_Asahikawa_from_Mt._Arashiyama.jpg/3840px-Cityscape_of_Asahikawa_from_Mt._Arashiyama.jpg",
   "description": "Hokkaido's second-largest city, home to Asahiyama Zoo, soy ramen, and gateway to Daisetsuzan National Park.",
   "highlights": ["Explore Asahikawa City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
   "budgetMin": 3500,
-  "budgetRecommended": 12000,
+  "budgetRecommended": 14250,
   "budgetMax": 25000,
   "walkingMin": 4000,
   "walkingSunMin": 1500,
@@ -73,9 +73,10 @@
     "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
   },
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 1500,
-    "food": 4875,
-    "cafe": 2625
-  }
+    "transport": 3563,
+    "tickets": 1781,
+    "food": 5789,
+    "cafe": 3117
+  },
+  "walkingIntensity": "low"
 }

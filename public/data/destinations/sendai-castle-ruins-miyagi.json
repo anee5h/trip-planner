@@ -1,0 +1,90 @@
+{
+  "id": "sendai-castle-ruins-miyagi",
+  "name": "Sendai Castle Ruins",
+  "nameJa": "仙台城跡",
+  "prefecture": "Miyagi",
+  "region": "Tohoku",
+  "category": "Culture & History",
+  "categories": ["Culture & History"],
+  "description": "The hilltop ruins of Date Masamune's 17th-century castle (Aoba Castle) with sweeping panoramic views over Sendai city and the distant Pacific coast. The iconic equestrian statue of the \"One-Eyed Dragon\" warlord is the symbol of Sendai.",
+  "highlights": [
+    "Date Masamune equestrian statue",
+    "Panoramic city & sea views",
+    "Aoba Castle Museum",
+    "Gokoku Shrine within grounds"
+  ],
+  "coordinates": {
+    "lat": 38.2525,
+    "lng": 140.8626
+  },
+  "nearestStation": "Sendai Station (then Loople bus)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Waki-yagura_of_Sendai_Castle_20220910b.jpg/1920px-Waki-yagura_of_Sendai_Castle_20220910b.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Waki-yagura_of_Sendai_Castle_20220910b.jpg/1920px-Waki-yagura_of_Sendai_Castle_20220910b.jpg",
+  "tags": ["castle", "ruins", "miyagi", "sendai", "history", "tohoku"],
+  "rating": 4.5,
+  "bestSeasons": ["All Year"],
+  "travelEstimate": {
+    "minutesFromBase": 90,
+    "confidence": "high"
+  },
+  "collections": [],
+  "budgetMin": 700,
+  "budgetRecommended": 2850,
+  "budgetMax": 5000,
+  "transportOptions": {
+    "shinkansen": 90,
+    "train": 90
+  },
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.6,
+    "summer": 9,
+    "winter": 8,
+    "rain": 8,
+    "food": 8,
+    "photography": 9,
+    "relaxation": 8.5,
+    "value": 9,
+    "uniqueness": 8.5
+  },
+  "totalTripHours": 2,
+  "walkingMin": 2000,
+  "walkingSunMin": 1200,
+  "walkingShadeMin": 800,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestSeason": "All Year",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 2
+  },
+  "walkingIntensity": "low",
+  "reservation": "None required",
+  "parking": "Limited; use Loople Sendai bus from station",
+  "restaurants": ["Aoba-jo Café", "Sendai City centre 15 min by bus"],
+  "cafes": ["Aoba Castle Hilltop Café"],
+  "notes": "Most of the castle was destroyed by earthquake (1793) and WWII bombing. Today the stone walls, turret foundations, and statue remain. Free admission to grounds; museum ¥700.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": [
+      "sendai-city",
+      "matsushima-bay",
+      "akiu-onsen-miyagi"
+    ]
+  },
+  "budgetBreakdown": null
+}

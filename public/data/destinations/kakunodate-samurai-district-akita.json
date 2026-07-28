@@ -1,0 +1,87 @@
+{
+  "id": "kakunodate-samurai-district-akita",
+  "name": "Kakunodate Samurai District",
+  "nameJa": "角館武家屋敷通り",
+  "prefecture": "Akita",
+  "category": "Historic Towns & Districts",
+  "description": "Tohoku's 'Little Kyoto', a remarkably preserved Edo-period samurai district lined with dark wooden manor walls and weeping cherry trees.",
+  "coordinates": {
+    "lat": 39.5982,
+    "lng": 140.5621
+  },
+  "nearestStation": "Kakunodate Station",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Bukeyashiki_Street_in_Kakunodate_20060506.jpg/1920px-Bukeyashiki_Street_in_Kakunodate_20060506.jpg",
+  "tags": ["samurai", "historic", "akita", "tohoku", "architecture"],
+  "rating": 4.7,
+  "bestSeasons": ["Spring", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 210,
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "historic-towns-japan",
+      "sortOrder": 5
+    }
+  ],
+  "region": "Tohoku",
+  "categories": ["Historic Towns & Districts"],
+  "budgetMin": 1500,
+  "budgetMax": 6000,
+  "budgetRecommended": 3750,
+  "transportOptions": {
+    "train": 180
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "highlights": [
+    "Explore Kakunodate Samurai District",
+    "Local Culture & Scenery"
+  ],
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Kakunodate Samurai District Dining Options"],
+  "cafes": ["Kakunodate Samurai District Rest Area Cafe"],
+  "notes": "Kakunodate Samurai District located in Akita Prefecture.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Bukeyashiki_Street_in_Kakunodate_20060506.jpg/1920px-Bukeyashiki_Street_in_Kakunodate_20060506.jpg",
+  "walkingIntensity": "low",
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200
+}

@@ -1,0 +1,86 @@
+{
+  "id": "teamlab-borderless-azabudai",
+  "name": "teamLab Borderless",
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "categories": ["Art", "Digital Art", "Museum", "Indoor"],
+  "heroImage": "https://images.unsplash.com/photo-1593073862407-a3ce22748763?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVhbWxhYiUyMHBsYW5ldHMlMjB0b2t5b3xlbnwwfHwwfHx8MA%3D%3D",
+  "totalTripHours": 4,
+  "budgetMin": 11600,
+  "budgetRecommended": 15600,
+  "budgetMax": 19600,
+  "walkingMin": 3000,
+  "walkingSunMin": 0,
+  "walkingShadeMin": 3000,
+  "indoorPercent": 100,
+  "ratings": {
+    "overall": 9.4,
+    "couple": 9.9,
+    "summer": 10,
+    "winter": 10,
+    "rain": 10,
+    "food": 8,
+    "photography": 10,
+    "relaxation": 8.5,
+    "value": 8.5,
+    "uniqueness": 10
+  },
+  "crowd": {
+    "weekday": 8,
+    "weekend": 10,
+    "holiday": 10
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 9
+  },
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "tags": ["Digital Art", "Photogenic", "Date Spot", "Interactive Museum"],
+  "coordinates": {
+    "lat": 35.6603,
+    "lng": 139.741
+  },
+  "comfort": {
+    "heatTolerance": 10,
+    "rainFriendly": 10,
+    "walkingIntensity": 3
+  },
+  "image": "https://images.unsplash.com/photo-1593073862407-a3ce22748763?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVhbWxhYiUyMHBsYW5ldHMlMjB0b2t5b3xlbnwwfHwwfHx8MA%3D%3D",
+  "transportOptions": {
+    "train": 50
+  },
+  "highlights": [
+    "Borderless World",
+    "Light Sculpture",
+    "Athletic Forest",
+    "EN TEA HOUSE"
+  ],
+  "description": "teamLab Borderless at Azabudai Hills is a world-famous museum of artworks without boundaries, a grand world of interactive digital art continuously creating and shifting.",
+  "budgetBreakdown": {
+    "transport": 1000,
+    "tickets": 8600,
+    "food": 4200,
+    "cafe": 1800
+  },
+  "reservation": "Required online in advance.",
+  "parking": "Paid parking at Azabudai Hills.",
+  "restaurants": ["Janu Tokyo Dining", "Azabudai Hills Market"],
+  "cafes": ["EN TEA HOUSE", "Arabica Tokyo Azabudai Hills"],
+  "notes": "Timed entry tickets required. Some artworks feature mirror floors; pants recommended.",
+  "schemaVersion": 2,
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "high"
+  },
+  "collections": [],
+  "relationships": {
+    "parentDestinationId": "tokyo-station-chiyoda"
+  },
+  "kind": "museum",
+  "role": "poi",
+  "bestSeason": "Year-round",
+  "weatherDependence": "indoor",
+  "walkingIntensity": "low"
+}

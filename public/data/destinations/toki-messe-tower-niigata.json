@@ -67,37 +67,13 @@
   ],
   "description": "Located on the 31st floor of Toki Messe (140.5m high), this free-admission 360-degree observation deck is the highest viewpoint along the Sea of Japan coast.",
   "budgetBreakdown": {
-    "transport": 1500,
+    "transport": 1667,
     "tickets": 0,
-    "food": 2200,
-    "cafe": 800
+    "food": 2444,
+    "cafe": 889
   },
   "reservation": "No reservation required (Free entry).",
   "parking": "Multilevel paid parking garage at Toki Messe convention complex.",
-  "itineraries": [
-    {
-      "name": "Niigata Port & Toki Messe Sky Walk",
-      "description": "Enjoy free 360-degree views over Shinano River and Sado Island.",
-      "steps": [
-        {
-          "time": "2:00 PM",
-          "activity": "Arrive at Niigata Station and bus 10 mins to Toki Messe."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Take the express elevator to the 31st floor Befco Bakauke Observatory Deck."
-        },
-        {
-          "time": "3:30 PM",
-          "activity": "Spot Sado Island across the Sea of Japan and watch ships enter Shinano River."
-        },
-        {
-          "time": "5:00 PM",
-          "activity": "Enjoy coffee and local Niigata rice cracker snacks at Sky Lounge Panorama."
-        }
-      ]
-    }
-  ],
   "restaurants": [
     "Serena Hotel Nikko Niigata",
     "Pia Bandai Seafood Market (nearby)"
@@ -122,5 +98,6 @@
       "confirmed": true
     }
   ],
-  "relationships": {}
+  "relationships": {},
+  "walkingIntensity": "low"
 }

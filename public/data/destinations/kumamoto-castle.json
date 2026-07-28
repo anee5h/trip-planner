@@ -77,5 +77,18 @@
     "tickets": 2000,
     "food": 1950,
     "cafe": 1050
-  }
+  },
+  "highlights": ["Explore Kumamoto Castle", "Local Culture & Scenery"],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Kumamoto Castle Dining Options"],
+  "cafes": ["Kumamoto Castle Rest Area Cafe"],
+  "walkingIntensity": "medium"
 }

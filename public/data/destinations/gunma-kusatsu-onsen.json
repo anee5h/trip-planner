@@ -16,10 +16,10 @@
   "budgetMax": 16000,
   "budgetRecommended": 10500,
   "budgetBreakdown": {
-    "transport": 4500,
-    "tickets": 1500,
-    "food": 3500,
-    "cafe": 1500
+    "transport": 4295,
+    "tickets": 1432,
+    "food": 3341,
+    "cafe": 1432
   },
   "transportOptions": {
     "train": 150,
@@ -73,34 +73,6 @@
   "cafes": ["Yubatake Cafe"],
   "notes": "Kusatsu's hot springs have highly acidic water with strong antibacterial benefits.",
   "schemaVersion": 2,
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Kusatsu Onsen in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at Kusatsu Onsen and get oriented at the base area."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Explore the primary sights: Yubatake (Hot Water Field) and Netsunoyu (Yumomi Show)."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Enjoy a local lunch featuring regional specialties."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic landmarks: Sainokawara Park and Otowanoyu Public Baths."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a nearby local café or park before heading back."
-        }
-      ]
-    }
-  ],
   "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Bath_in_kusatsu.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -119,5 +91,6 @@
       "confirmed": true
     }
   ],
-  "relationships": {}
+  "relationships": {},
+  "walkingIntensity": "low"
 }

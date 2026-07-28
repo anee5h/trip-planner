@@ -1,0 +1,87 @@
+{
+  "id": "dewa-sanzan-yamagata",
+  "name": "Dewa Sanzan Three Sacred Mountains",
+  "nameJa": "出羽三山",
+  "prefecture": "Yamagata",
+  "category": "Spiritual & Cultural Heritage",
+  "description": "Three sacred mountains (Haguro-san, Gassan, Yudono-san) representing rebirth, walked by Yamabushi mountain ascetics for over 1,400 years.",
+  "coordinates": {
+    "lat": 38.7051,
+    "lng": 139.9658
+  },
+  "nearestStation": "Tsuruoka Station",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Torii_in_the_mist_v1.JPG/1920px-Torii_in_the_mist_v1.JPG",
+  "tags": ["pilgrimage", "shrine", "yamagata", "mountain", "sacred"],
+  "rating": 4.8,
+  "bestSeasons": ["Summer", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 240,
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "pilgrimage-routes-japan",
+      "sortOrder": 1
+    }
+  ],
+  "region": "Tohoku",
+  "categories": ["Spiritual & Cultural Heritage"],
+  "budgetMin": 1500,
+  "budgetMax": 6000,
+  "budgetRecommended": 3750,
+  "transportOptions": {
+    "train": 180
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "highlights": [
+    "Explore Dewa Sanzan Three Sacred Mountains",
+    "Local Culture & Scenery"
+  ],
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Dewa Sanzan Three Sacred Mountains Dining Options"],
+  "cafes": ["Dewa Sanzan Three Sacred Mountains Rest Area Cafe"],
+  "notes": "Dewa Sanzan Three Sacred Mountains located in Yamagata Prefecture.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Torii_in_the_mist_v1.JPG/1920px-Torii_in_the_mist_v1.JPG",
+  "walkingIntensity": "low",
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200
+}

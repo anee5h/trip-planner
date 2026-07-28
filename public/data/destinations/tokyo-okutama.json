@@ -72,34 +72,6 @@
   "cafes": ["Goraikou Cafe"],
   "notes": "Bring stout shoes for hiking trails. The Nippara caves maintain a cool 11°C temperature year-round.",
   "schemaVersion": 2,
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Okutama in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at Okutama and get oriented at the base area."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Explore the primary sights: Lake Okutama and Nippara Limestone Cave."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Enjoy a local lunch featuring regional specialties."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic landmarks: Mount Mitake Trail and Hatonosu Gorge."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a nearby local café or park before heading back."
-        }
-      ]
-    }
-  ],
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/LakeOkutama.jpg/1280px-LakeOkutama.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -111,8 +83,12 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [],
-  "relationships": {
-    "parentDestinationId": "chiyoda-city"
-  }
+  "collections": [
+    {
+      "collectionId": "caves-japan",
+      "sortOrder": 5
+    }
+  ],
+  "relationships": {},
+  "walkingIntensity": "low"
 }

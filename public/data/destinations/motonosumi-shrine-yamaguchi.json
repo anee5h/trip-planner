@@ -1,0 +1,84 @@
+{
+  "id": "motonosumi-shrine-yamaguchi",
+  "name": "Motonosumi Shrine",
+  "nameJa": "元乃隅神社",
+  "prefecture": "Yamaguchi",
+  "category": "Shrines & Temples",
+  "description": "A striking seaside shrine in Yamaguchi featuring 123 vermilion torii gates curving dramatically along cliffs overlooking the Sea of Japan.",
+  "coordinates": {
+    "lat": 34.4116,
+    "lng": 131.0617
+  },
+  "nearestStation": "Nagato-Furuchi Station",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9b/%E5%85%83%E4%B9%83%E9%9A%85%E7%A8%B2%E6%88%90%E7%A5%9E%E7%A4%BE_Motonosumi-Inari-jinja_20090504.jpg",
+  "tags": ["shrine", "torii", "coastal", "yamaguchi", "viewpoint"],
+  "rating": 4.7,
+  "bestSeasons": ["Spring", "Summer", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 270,
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "coastal-drives-japan",
+      "sortOrder": 2
+    }
+  ],
+  "region": "Chugoku",
+  "categories": ["Shrines & Temples"],
+  "budgetMin": 1500,
+  "budgetMax": 6000,
+  "budgetRecommended": 3750,
+  "transportOptions": {
+    "train": 180
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "highlights": ["Explore Motonosumi Shrine", "Local Culture & Scenery"],
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Motonosumi Shrine Dining Options"],
+  "cafes": ["Motonosumi Shrine Rest Area Cafe"],
+  "notes": "Motonosumi Shrine located in Yamaguchi Prefecture.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/9/9b/%E5%85%83%E4%B9%83%E9%9A%85%E7%A8%B2%E6%88%90%E7%A5%9E%E7%A4%BE_Motonosumi-Inari-jinja_20090504.jpg",
+  "walkingIntensity": "low",
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200
+}

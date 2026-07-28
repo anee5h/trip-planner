@@ -16,10 +16,10 @@
   "budgetMax": 10000,
   "budgetRecommended": 6750,
   "budgetBreakdown": {
-    "transport": 2800,
-    "tickets": 1500,
-    "food": 1700,
-    "cafe": 800
+    "transport": 2779,
+    "tickets": 1489,
+    "food": 1688,
+    "cafe": 794
   },
   "transportOptions": {
     "train": 110,
@@ -72,39 +72,17 @@
   "cafes": ["Ropeway Summit Cafe"],
   "notes": "Hoto noodles are flat wheat noodles stewed with pumpkin and seasonal veggies in miso broth.",
   "schemaVersion": 2,
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Shosenkyo Gorge in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at Shosenkyo Gorge and get oriented at the base area."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Explore the primary sights: Senga Falls and Kakusenmei Suspension Bridge."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Enjoy a local lunch featuring regional specialties."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic landmarks: Shosenkyo Ropeway (Panorama view) and Kakutozan Rock Pinnacle."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a nearby local café or park before heading back."
-        }
-      ]
-    }
-  ],
   "status": "verified",
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "waterfalls-gorges-japan",
+      "sortOrder": 8
+    }
+  ],
   "relationships": {},
-  "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000"
+  "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000",
+  "walkingIntensity": "low"
 }

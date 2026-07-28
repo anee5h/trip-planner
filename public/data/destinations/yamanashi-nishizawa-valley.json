@@ -72,39 +72,12 @@
   "cafes": ["Trailhead Tea Stall"],
   "notes": "The loop hike takes about 4 hours. Good hiking boots are absolutely essential.",
   "schemaVersion": 2,
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Nishizawa Valley in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at Nishizawa Valley and get oriented at the base area."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Explore the primary sights: Nanatsugama Godan Falls (Five-Tier Cascades) and Nishizawa Valley suspension bridge."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Enjoy a local lunch featuring regional specialties."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic landmarks: Kobutori Rock and Valley forest trail."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a nearby local café or park before heading back."
-        }
-      ]
-    }
-  ],
   "status": "verified",
   "travelEstimate": {
     "confidence": "high"
   },
   "collections": [],
   "relationships": {},
-  "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000"
+  "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000",
+  "walkingIntensity": "low"
 }

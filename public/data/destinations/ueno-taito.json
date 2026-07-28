@@ -54,41 +54,13 @@
   "highlights": ["Tokyo National Museum", "Ueno Zoo", "Ameyoko Street"],
   "description": "A cultural hub featuring a massive park, Japan's oldest zoo, major national museums, and the bustling Ameyoko market.",
   "budgetBreakdown": {
-    "transport": 1000,
-    "tickets": 2000,
-    "food": 3500,
-    "cafe": 1500
+    "transport": 1125,
+    "tickets": 2250,
+    "food": 3938,
+    "cafe": 1687
   },
   "reservation": "Required for special exhibitions.",
   "parking": "Limited.",
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Ueno (Taito) in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at the main station and get oriented."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Visit the primary history attraction."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Grab a delicious regional lunch."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic sights."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a local café before heading back."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Minatoya (Takoyaki)"],
   "cafes": ["Starbucks Ueno Park"],
   "notes": "In spring, the park is one of Tokyo's most crowded cherry blossom spots.",
@@ -106,5 +78,9 @@
   "collections": [],
   "relationships": {
     "parentDestinationId": "taito-city"
-  }
+  },
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "role": "hub",
+  "walkingIntensity": "high"
 }

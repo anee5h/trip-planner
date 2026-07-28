@@ -78,9 +78,25 @@
   "relationships": {},
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Izumo-taisha14bs4592.jpg/3840px-Izumo-taisha14bs4592.jpg",
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 1300,
-    "cafe": 700
-  }
+    "transport": 2786,
+    "tickets": 1857,
+    "food": 1207,
+    "cafe": 650
+  },
+  "highlights": [
+    "Explore Izumo Taisha Grand Shrine",
+    "Local Culture & Scenery"
+  ],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Izumo Taisha Grand Shrine Dining Options"],
+  "cafes": ["Izumo Taisha Grand Shrine Rest Area Cafe"],
+  "walkingIntensity": "medium"
 }

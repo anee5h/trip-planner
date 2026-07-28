@@ -56,34 +56,6 @@
     "lng": 139.9340832
   },
   "schemaVersion": 2,
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Mother Farm (Futtsu) in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at Mother Farm (Futtsu) and get oriented at the base area."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Explore the primary sights: Sheep Shearing Show and Alpaca Farm."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Enjoy a local lunch featuring regional specialties."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic landmarks: Flower Fields."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a nearby local café or park before heading back."
-        }
-      ]
-    }
-  ],
   "status": "verified",
   "travelEstimate": {
     "confidence": "high"
@@ -96,5 +68,11 @@
     "tickets": 2000,
     "food": 5200,
     "cafe": 2800
-  }
+  },
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "walkingIntensity": "low"
 }

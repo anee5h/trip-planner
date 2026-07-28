@@ -72,34 +72,6 @@
   "cafes": ["Chureito Tea House"],
   "notes": "Chureito Pagoda offers one of Japan's most famous postcard views framing Mt. Fuji in cherry blossoms or red maple leaves.",
   "schemaVersion": 2,
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Fujiyoshida in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at Fujiyoshida and get oriented at the base area."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Explore the primary sights: Arakurayama Sengen Park (Chureito Pagoda) and Fuji-Q Highland."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Enjoy a local lunch featuring regional specialties."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic landmarks: Kitaguchi Hongu Fuji Sengen Shrine and Kaneyama Onsen."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a nearby local café or park before heading back."
-        }
-      ]
-    }
-  ],
   "image": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -112,5 +84,6 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {}
+  "relationships": {},
+  "walkingIntensity": "low"
 }

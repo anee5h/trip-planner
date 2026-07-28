@@ -1,0 +1,91 @@
+{
+  "id": "naoshima-art-island-kagawa",
+  "name": "Naoshima Contemporary Art Island",
+  "nameJa": "直島",
+  "prefecture": "Kagawa",
+  "category": "Art & Culture",
+  "description": "World-famous art island in the Seto Inland Sea featuring Yayoi Kusama's iconic pumpkins, Tadao Ando architecture, and Chichu Art Museum.",
+  "coordinates": {
+    "lat": 34.4597,
+    "lng": 133.9961
+  },
+  "nearestStation": "Uno Station",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/39/%E5%AE%AE%E3%83%8E%E6%B5%A6%E6%B8%AF_-_panoramio_-_kajikawa_%281%29.jpg",
+  "tags": ["art", "island", "kagawa", "museum", "architecture"],
+  "rating": 4.9,
+  "bestSeasons": ["Spring", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 210,
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "art-islands-japan",
+      "sortOrder": 2
+    },
+    {
+      "collectionId": "islands-japan",
+      "sortOrder": 2
+    }
+  ],
+  "region": "Shikoku",
+  "categories": ["Art & Culture"],
+  "budgetMin": 1500,
+  "budgetMax": 6000,
+  "budgetRecommended": 3750,
+  "transportOptions": {
+    "train": 180
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "highlights": [
+    "Explore Naoshima Contemporary Art Island",
+    "Local Culture & Scenery"
+  ],
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Naoshima Contemporary Art Island Dining Options"],
+  "cafes": ["Naoshima Contemporary Art Island Rest Area Cafe"],
+  "notes": "Naoshima Contemporary Art Island located in Kagawa Prefecture.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/3/39/%E5%AE%AE%E3%83%8E%E6%B5%A6%E6%B8%AF_-_panoramio_-_kajikawa_%281%29.jpg",
+  "walkingIntensity": "low",
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200
+}

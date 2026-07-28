@@ -1,0 +1,87 @@
+{
+  "id": "iya-valley-tokushima",
+  "name": "Iya Valley & Vine Bridges",
+  "nameJa": "祖谷渓・かずら橋",
+  "prefecture": "Tokushima",
+  "category": "Nature & History",
+  "description": "A secluded mountain valley in Shikoku renowned for its deep forested gorges and historic mountain vine bridges (Kazurabashi).",
+  "coordinates": {
+    "lat": 33.8732,
+    "lng": 133.8344
+  },
+  "nearestStation": "Oboke Station",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/ja/thumb/4/42/Tokushima_Miyoshi_Okuiya_Double_Kazurabashi_5.JPG/1920px-Tokushima_Miyoshi_Okuiya_Double_Kazurabashi_5.JPG",
+  "tags": ["valley", "bridge", "nature", "shikoku", "tokushima"],
+  "rating": 4.7,
+  "bestSeasons": ["Spring", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 230,
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "scenic-bridges-japan",
+      "sortOrder": 2
+    }
+  ],
+  "region": "Shikoku",
+  "categories": ["Nature & History"],
+  "budgetMin": 1500,
+  "budgetMax": 6000,
+  "budgetRecommended": 3750,
+  "transportOptions": {
+    "train": 180
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "highlights": [
+    "Explore Iya Valley & Vine Bridges",
+    "Local Culture & Scenery"
+  ],
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Iya Valley & Vine Bridges Dining Options"],
+  "cafes": ["Iya Valley & Vine Bridges Rest Area Cafe"],
+  "notes": "Iya Valley & Vine Bridges located in Tokushima Prefecture.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/ja/thumb/4/42/Tokushima_Miyoshi_Okuiya_Double_Kazurabashi_5.JPG/1920px-Tokushima_Miyoshi_Okuiya_Double_Kazurabashi_5.JPG",
+  "walkingIntensity": "low",
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200
+}

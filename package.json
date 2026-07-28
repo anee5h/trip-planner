@@ -1,7 +1,7 @@
 {
   "name": "tabimap",
   "private": true,
-  "version": "1.7.61",
+  "version": "1.7.62",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -15,11 +15,14 @@
     "format:check": "prettier --check .",
     "validate-all": "tsx scripts/validate-all.ts",
     "validate-destinations": "tsx scripts/cli/validate-destinations.ts",
+    "validate-destination-details": "tsx scripts/cli/validate-destination-details.ts",
     "validate-collections": "tsx scripts/cli/validate-collections.ts",
     "validate-relationships": "tsx scripts/cli/validate-relationships.ts",
     "validate-images": "tsx scripts/cli/validate-images.ts",
     "validate-search": "tsx scripts/cli/validate-search.ts",
     "validate-links": "tsx scripts/cli/validate-links.ts",
+    "sync-destination-details": "tsx scripts/sync-destination-details.ts",
+    "normalize-destination-budgets": "tsx scripts/normalize-destination-budgets.ts",
     "audit-spacing": "node scripts/audit-spacing.cjs",
     "prepare": "husky",
     "release:verify": "npm run test:run && npm run pipeline -- --dry-run && npx tsc -b --noEmit && npm run lint && npm run build && npm run format:check"

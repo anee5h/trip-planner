@@ -67,37 +67,13 @@
   ],
   "description": "Built in 1583 by Sanada Masayuki, this impregnable fortress famously repelled the massive Tokugawa army twice, featuring surviving corner turrets and Sanada Shrine.",
   "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 300,
-    "food": 2300,
-    "cafe": 1000
+    "transport": 1610,
+    "tickets": 345,
+    "food": 2645,
+    "cafe": 1150
   },
   "reservation": "No reservation required.",
   "parking": "Paid parking lot at Ueda Castle Park entrance.",
-  "itineraries": [
-    {
-      "name": "Sanada Warlord Heritage & Castle Walk",
-      "description": "Explore the legendary Sanada clan fortress and sample Shinshu Shinano Soba.",
-      "steps": [
-        {
-          "time": "10:30 AM",
-          "activity": "Arrive at Ueda Station (Hokuriku Shinkansen) and walk 12 mins to Ueda Castle."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Tour the South and North Yagura turrets and the massive Sanada Stone wall."
-        },
-        {
-          "time": "12:30 PM",
-          "activity": "Pay respects at Sanada Shrine inside the inner castle grounds."
-        },
-        {
-          "time": "1:30 PM",
-          "activity": "Enjoy famous Ueda Shinshu buckwheat soba noodles at a historic shop."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Ueda Soba-dokoro", "Shinshu Sanada Dining"],
   "cafes": ["Ueda Castle Park Teahouse"],
   "notes": "Top 100 Castle of Japan #27. Spectacular cherry blossom festival every mid-April.",
@@ -118,5 +94,6 @@
       "confirmed": true
     }
   ],
-  "relationships": {}
+  "relationships": {},
+  "walkingIntensity": "low"
 }

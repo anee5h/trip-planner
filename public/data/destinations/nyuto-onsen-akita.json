@@ -1,0 +1,89 @@
+{
+  "id": "nyuto-onsen-akita",
+  "name": "Nyuto Onsen",
+  "nameJa": "乳頭温泉郷",
+  "prefecture": "Akita",
+  "region": "Tohoku",
+  "category": "Onsen & Wellness",
+  "categories": ["Onsen & Wellness"],
+  "description": "A cluster of seven secluded hot spring inns deep in the snowy Akita mountains, famous for milky-white sulfurous waters. Tsurunoyu Onsen — a 17th-century thatched-roof bath — is among Japan's most photographed outdoor baths.",
+  "highlights": [
+    "Tsurunoyu outdoor milky bath",
+    "Seven distinct onsen inns",
+    "Deep mountain snow scenery",
+    "Konyoku (mixed) bathing tradition"
+  ],
+  "coordinates": {
+    "lat": 39.758,
+    "lng": 140.657
+  },
+  "nearestStation": "Tazawako Station (then bus)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Tsurunoyu_onsen_rotenburo.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Tsurunoyu_onsen_rotenburo.JPG",
+  "tags": ["onsen", "ryokan", "akita", "winter", "mountain", "tohoku"],
+  "rating": 4.9,
+  "bestSeasons": ["Winter", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 220,
+    "confidence": "high"
+  },
+  "collections": [],
+  "budgetMin": 3000,
+  "budgetRecommended": 21500,
+  "budgetMax": 40000,
+  "transportOptions": {
+    "shinkansen": 170,
+    "bus": 50
+  },
+  "ratings": {
+    "overall": 9.5,
+    "couple": 9.7,
+    "summer": 8.5,
+    "winter": 9.8,
+    "rain": 9,
+    "food": 9.2,
+    "photography": 9.6,
+    "relaxation": 9.8,
+    "value": 8.8,
+    "uniqueness": 9.7
+  },
+  "totalTripHours": 8,
+  "walkingMin": 2000,
+  "walkingSunMin": 500,
+  "walkingShadeMin": 1500,
+  "indoorPercent": 60,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 8,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 10
+  },
+  "bestMonths": [1, 2, 3, 11, 12],
+  "bestSeason": "Winter",
+  "weatherDependence": "low",
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 2
+  },
+  "walkingIntensity": "low",
+  "reservation": "Required for Tsurunoyu (advance booking essential)",
+  "parking": "Available at each inn",
+  "restaurants": ["Tsurunoyu Kaiseki Dining", "Magoroku Inn Restaurant"],
+  "cafes": ["Nyuto Onsen Tea House"],
+  "notes": "An Onsen Meguri (hot spring tour) passport lets visitors bathe at all 7 inns. Tsurunoyu is the most iconic — book months ahead for weekend stays.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": [
+      "lake-tazawa-akita",
+      "kakunodate-samurai-district-akita"
+    ]
+  },
+  "budgetBreakdown": null
+}

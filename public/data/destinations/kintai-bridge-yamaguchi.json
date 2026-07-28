@@ -1,0 +1,87 @@
+{
+  "id": "kintai-bridge-yamaguchi",
+  "name": "Kintaikyo Wooden Arch Bridge",
+  "nameJa": "錦帯橋",
+  "prefecture": "Yamaguchi",
+  "category": "Architecture & History",
+  "description": "An extraordinary five-arched wooden bridge built in 1673 without using a single nail, spanning the Nishiki River in Iwakuni.",
+  "coordinates": {
+    "lat": 34.1678,
+    "lng": 132.1783
+  },
+  "nearestStation": "Iwakuni Station",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Iwakuni%2C_ponte_kintai-kyo%2C_03%2C0.jpg/1920px-Iwakuni%2C_ponte_kintai-kyo%2C_03%2C0.jpg",
+  "tags": ["bridge", "wooden", "historic", "yamaguchi", "cherry-blossoms"],
+  "rating": 4.8,
+  "bestSeasons": ["Spring", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 240,
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "scenic-bridges-japan",
+      "sortOrder": 3
+    }
+  ],
+  "region": "Chugoku",
+  "categories": ["Architecture & History"],
+  "budgetMin": 1500,
+  "budgetMax": 6000,
+  "budgetRecommended": 3750,
+  "transportOptions": {
+    "train": 180
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "highlights": [
+    "Explore Kintaikyo Wooden Arch Bridge",
+    "Local Culture & Scenery"
+  ],
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Kintaikyo Wooden Arch Bridge Dining Options"],
+  "cafes": ["Kintaikyo Wooden Arch Bridge Rest Area Cafe"],
+  "notes": "Kintaikyo Wooden Arch Bridge located in Yamaguchi Prefecture.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Iwakuni%2C_ponte_kintai-kyo%2C_03%2C0.jpg/1920px-Iwakuni%2C_ponte_kintai-kyo%2C_03%2C0.jpg",
+  "walkingIntensity": "low",
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200
+}

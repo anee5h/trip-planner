@@ -42,6 +42,10 @@
       "collectionId": "national-treasures",
       "sortOrder": 10,
       "confirmed": true
+    },
+    {
+      "collectionId": "pilgrimage-routes-japan",
+      "sortOrder": 5
     }
   ],
   "transportOptions": {
@@ -82,5 +86,21 @@
     "tickets": 2000,
     "food": 1625,
     "cafe": 875
-  }
+  },
+  "highlights": [
+    "Explore Ise Grand Shrine (Ise Jingu)",
+    "Local Culture & Scenery"
+  ],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Ise Grand Shrine (Ise Jingu) Dining Options"],
+  "cafes": ["Ise Grand Shrine (Ise Jingu) Rest Area Cafe"],
+  "walkingIntensity": "medium"
 }

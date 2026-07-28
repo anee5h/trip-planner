@@ -1,0 +1,84 @@
+{
+  "id": "tottori-sand-dunes",
+  "name": "Tottori Sand Dunes",
+  "nameJa": "鳥取砂丘",
+  "prefecture": "Tottori",
+  "category": "Nature & Parks",
+  "description": "Japan's largest coastal sand dunes, stretching over 16 kilometers along the Sea of Japan coast in Sanin Kaigan Geopark.",
+  "coordinates": {
+    "lat": 35.5401,
+    "lng": 134.2323
+  },
+  "nearestStation": "Tottori Station",
+  "heroImage": "https://images.unsplash.com/photo-1693188074158-00e5edb3d0ac?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "tags": ["nature", "dunes", "coastal", "geopark", "tottori"],
+  "rating": 4.7,
+  "bestSeasons": ["Spring", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 180,
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "coastal-drives-japan",
+      "sortOrder": 1
+    }
+  ],
+  "region": "Chugoku",
+  "categories": ["Nature & Parks"],
+  "budgetMin": 1500,
+  "budgetMax": 6000,
+  "budgetRecommended": 3750,
+  "transportOptions": {
+    "train": 180
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "highlights": ["Explore Tottori Sand Dunes", "Local Culture & Scenery"],
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Tottori Sand Dunes Dining Options"],
+  "cafes": ["Tottori Sand Dunes Rest Area Cafe"],
+  "notes": "Tottori Sand Dunes located in Tottori Prefecture.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "image": "https://images.unsplash.com/photo-1693188074158-00e5edb3d0ac?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "walkingIntensity": "low",
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200
+}

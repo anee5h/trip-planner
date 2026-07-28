@@ -13,7 +13,7 @@
   "highlights": ["Hommaru Palace", "Golden Shachihoko", "Ninja Performance"],
   "totalTripHours": 3,
   "budgetMin": 500,
-  "budgetRecommended": 1500,
+  "budgetRecommended": 1750,
   "budgetMax": 3000,
   "walkingMin": 120,
   "indoorPercent": 40,
@@ -60,5 +60,22 @@
   "coordinates": {
     "lat": 35.1855,
     "lng": 136.8991
-  }
+  },
+  "transportOptions": {
+    "train": 100,
+    "shinkansen": 40
+  },
+  "walkingSunMin": 72,
+  "walkingShadeMin": 48,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Nagoya Castle (Golden Shachihoko) Dining Options"],
+  "cafes": ["Nagoya Castle (Golden Shachihoko) Rest Area Cafe"],
+  "notes": "Nagoya Castle (Golden Shachihoko) located in Aichi Prefecture.",
+  "walkingIntensity": "low"
 }

@@ -1,0 +1,95 @@
+{
+  "id": "sendai-city",
+  "role": "hub",
+  "name": "Sendai City",
+  "nameJa": "仙台市",
+  "prefecture": "Miyagi",
+  "region": "Tohoku",
+  "categories": ["Cities", "Hub", "Sightseeing"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1d/SendaiCity_Skylines_from_Mukaiyama2018.jpg",
+  "description": "Sendai City is one of Japan's 20 ordinance-designated core metropolis hubs, featuring rich regional history, vibrant food markets, and high-speed rail transit connectivity.",
+  "highlights": [
+    "Central Station Plaza",
+    "Regional Cultural Museums",
+    "Downtown Food District"
+  ],
+  "budgetMin": 8000,
+  "budgetMax": 20000,
+  "budgetRecommended": 14000,
+  "transportOptions": {
+    "train": 30,
+    "bus": 40,
+    "car": 45
+  },
+  "totalTripHours": 8,
+  "walkingMin": 90,
+  "walkingSunMin": 50,
+  "walkingShadeMin": 40,
+  "indoorPercent": 40,
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.7,
+    "summer": 8.5,
+    "winter": 8.4,
+    "rain": 8.2,
+    "food": 9,
+    "photography": 8.8,
+    "relaxation": 8.5,
+    "value": 8.8,
+    "uniqueness": 8.7
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 5,
+    "summer": 4,
+    "autumn": 5,
+    "winter": 4
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Spring",
+  "weatherDependence": "moderate",
+  "tags": ["Core Designated City", "Metropolis Hub", "Miyagi"],
+  "reservation": "Not required",
+  "parking": "Available at central station",
+  "restaurants": ["Local Station Dining", "Regional Specialty izakaya"],
+  "cafes": ["Central Station Cafe"],
+  "notes": "Major JR Shinkansen / express rail transfer hub.",
+  "coordinates": {
+    "lat": 38.2682,
+    "lng": 140.8694
+  },
+  "schemaVersion": 2,
+  "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/SendaiCity_Skylines_from_Mukaiyama2018.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Sendai City via Wikipedia/Wikimedia Commons"
+  },
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "core-cities-japan",
+      "confirmed": true
+    }
+  ],
+  "relationships": {},
+  "budgetBreakdown": {
+    "transport": 4000,
+    "tickets": 3000,
+    "food": 4500,
+    "cafe": 2500
+  },
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "walkingIntensity": "low"
+}

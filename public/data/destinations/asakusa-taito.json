@@ -54,41 +54,13 @@
   "highlights": ["Senso-ji Temple", "Kaminarimon Gate", "Sumida River Cruise"],
   "description": "Asakusa is a district in Taitō, Tokyo, Japan. It is known for Sensō-ji, a Buddhist temple dedicated to the bodhisattva Kannon. There are several other temples in Asakusa, as well as various festivals, such as Sanja Matsuri.",
   "budgetBreakdown": {
-    "transport": 1000,
-    "tickets": 1600,
-    "food": 4900,
-    "cafe": 2000
+    "transport": 1105,
+    "tickets": 1768,
+    "food": 5416,
+    "cafe": 2211
   },
   "reservation": "Not required.",
   "parking": "Difficult.",
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Asakusa (Taito) in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at the main station and get oriented."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Visit the primary history attraction."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Grab a delicious regional lunch."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic sights."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a local café before heading back."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Asakusa Imahan (Sukiyaki)", "Daikokuya (Tempura)"],
   "cafes": ["Suzukien (Matcha Gelato)"],
   "notes": "Go early morning (before 9 AM) to photograph Kaminarimon without crowds.",
@@ -106,5 +78,8 @@
   "collections": [],
   "relationships": {
     "parentDestinationId": "taito-city"
-  }
+  },
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "walkingIntensity": "medium"
 }

@@ -66,37 +66,13 @@
   ],
   "description": "Ascend to the 69th floor (273m) in just 40 seconds aboard Japan's fastest elevator for 360-degree panoramas of Yokohama Bay Bridge, Minato Mirai, and Mt. Fuji.",
   "budgetBreakdown": {
-    "transport": 600,
-    "tickets": 1000,
-    "food": 3200,
-    "cafe": 1200
+    "transport": 700,
+    "tickets": 1167,
+    "food": 3733,
+    "cafe": 1400
   },
   "reservation": "No advance reservation required.",
   "parking": "Paid underground parking structure at Yokohama Landmark Tower.",
-  "itineraries": [
-    {
-      "name": "Yokohama Harbor Sky High Excursion",
-      "description": "Ride Japan's fastest elevator and take in Minato Mirai harbor night lights.",
-      "steps": [
-        {
-          "time": "3:30 PM",
-          "activity": "Arrive at Sakuragicho Station and walk 5 mins via moving walkway."
-        },
-        {
-          "time": "4:00 PM",
-          "activity": "Board the 750m/min elevator to 69F Sky Garden observatory deck."
-        },
-        {
-          "time": "5:30 PM",
-          "activity": "Savor twilight sunset over Mt. Fuji and Yokohama Cosmo Clock Ferris wheel."
-        },
-        {
-          "time": "7:00 PM",
-          "activity": "Dine at Landmark Plaza gourmet dining deck."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Sirius Yokohama Royal Park 70F", "Dockyard Garden Dining"],
   "cafes": ["Sky Cafe 69F"],
   "notes": "Elevator reaches 69F in 40 seconds (750m/min top speed).",
@@ -120,5 +96,6 @@
   ],
   "relationships": {
     "parentDestinationId": "yokohama-city"
-  }
+  },
+  "walkingIntensity": "low"
 }

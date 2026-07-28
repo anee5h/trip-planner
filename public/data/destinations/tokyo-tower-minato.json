@@ -61,37 +61,13 @@
   ],
   "description": "Built in 1958 and standing 332.9 meters tall, Tokyo Tower is the beloved red-and-white lattice symbol of post-war Tokyo, offering glass-floor lookouts and romantic night views.",
   "budgetBreakdown": {
-    "transport": 400,
-    "tickets": 1200,
-    "food": 4000,
-    "cafe": 1400
+    "transport": 443,
+    "tickets": 1329,
+    "food": 4429,
+    "cafe": 1549
   },
   "reservation": "Top Deck Tour requires reserved time-slot tickets.",
   "parking": "Paid parking lot adjacent to Shiba Park at the tower base.",
-  "itineraries": [
-    {
-      "name": "Classic Tokyo Tower & Shiba Park Sunset Walk",
-      "description": "Visit the iconic lattice tower and enjoy Zojoji Temple sunset views.",
-      "steps": [
-        {
-          "time": "3:00 PM",
-          "activity": "Arrive at Akabanebashi Station and walk through Shiba Park."
-        },
-        {
-          "time": "4:00 PM",
-          "activity": "Take the main elevator up to the 150m Main Deck and stand on the Lookdown Window glass floor."
-        },
-        {
-          "time": "5:30 PM",
-          "activity": "Watch the sun set over the Tokyo skyline as the tower lights switch on."
-        },
-        {
-          "time": "7:00 PM",
-          "activity": "Dine at FootTown food hall before taking night photos of Zojoji Temple."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Tokyo Tower Club333", "Tofuya Ukai (nearby)"],
   "cafes": ["Cafe La Tour", "Marion Crepes FootTown"],
   "notes": "Special illumination colors light up the tower on Friday and Saturday evenings.",
@@ -109,5 +85,6 @@
   "collections": [],
   "relationships": {
     "parentDestinationId": "minato-city"
-  }
+  },
+  "walkingIntensity": "low"
 }

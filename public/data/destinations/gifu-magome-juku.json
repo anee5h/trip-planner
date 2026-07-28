@@ -16,10 +16,10 @@
   "budgetMax": 11500,
   "budgetRecommended": 7750,
   "budgetBreakdown": {
-    "transport": 3800,
-    "tickets": 800,
-    "food": 2200,
-    "cafe": 1000
+    "transport": 3776,
+    "tickets": 795,
+    "food": 2186,
+    "cafe": 993
   },
   "transportOptions": {
     "train": 150,
@@ -72,34 +72,6 @@
   "cafes": ["Hillside Cafe"],
   "notes": "Try Gohei Mochi, a skewered sticky rice cake covered in walnut/sesame paste.",
   "schemaVersion": 2,
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Magome-juku in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at Magome-juku and get oriented at the base area."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Explore the primary sights: Magome Waterwheel and Toson Memorial Museum."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Enjoy a local lunch featuring regional specialties."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic landmarks: Magome Lookout Point and Nakasendo stone steps path."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a nearby local café or park before heading back."
-        }
-      ]
-    }
-  ],
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/1_magome_juku_2024.jpg/3840px-1_magome_juku_2024.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -118,5 +90,6 @@
       "confirmed": true
     }
   ],
-  "relationships": {}
+  "relationships": {},
+  "walkingIntensity": "low"
 }

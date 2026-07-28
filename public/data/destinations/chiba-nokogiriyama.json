@@ -16,10 +16,10 @@
   "budgetMax": 9500,
   "budgetRecommended": 6250,
   "budgetBreakdown": {
-    "transport": 2800,
-    "tickets": 1700,
-    "food": 1300,
-    "cafe": 700
+    "transport": 2692,
+    "tickets": 1635,
+    "food": 1250,
+    "cafe": 673
   },
   "transportOptions": {
     "train": 110,
@@ -72,34 +72,6 @@
   "cafes": ["Nokogiri Coffee"],
   "notes": "Hell Peek viewpoint is extremely high and does not suit travellers prone to vertigo.",
   "schemaVersion": 2,
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Nokogiriyama in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at Nokogiriyama and get oriented at the base area."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Explore the primary sights: Jigoku Nozoki (Hell Peek) and Nihon-ji Great Buddha."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Enjoy a local lunch featuring regional specialties."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic landmarks: Nokogiriyama Ropeway and Hyaku-shaku Kannon."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a nearby local café or park before heading back."
-        }
-      ]
-    }
-  ],
   "image": "https://upload.wikimedia.org/wikipedia/commons/3/35/The_port_of_Kanaya.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -111,6 +83,12 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [],
-  "relationships": {}
+  "collections": [
+    {
+      "collectionId": "pilgrimage-routes-japan",
+      "sortOrder": 6
+    }
+  ],
+  "relationships": {},
+  "walkingIntensity": "low"
 }

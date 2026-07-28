@@ -66,37 +66,13 @@
   ],
   "description": "The historic seat of the Tokugawa Shogunate and current Imperial Palace, featuring massive cyclopean stone ramparts, historic watchtowers, and the Imperial Palace East Gardens.",
   "budgetBreakdown": {
-    "transport": 400,
+    "transport": 489,
     "tickets": 0,
-    "food": 3100,
-    "cafe": 1000
+    "food": 3789,
+    "cafe": 1222
   },
   "reservation": "Free admission to East Gardens; Imperial Palace Inner Grounds require advance household registration.",
   "parking": "Paid parking structures near Tokyo Station and Marunouchi.",
-  "itineraries": [
-    {
-      "name": "Shogunate Heritage & Gardens Walk",
-      "description": "Explore massive stone ramparts and historic watchtowers of Tokugawa Shogunate headquarters.",
-      "steps": [
-        {
-          "time": "9:30 AM",
-          "activity": "Enter through the historic Otemon Gate into Imperial Palace East Gardens."
-        },
-        {
-          "time": "10:30 AM",
-          "activity": "Climb the Tenshudai (main keep base stone platform) for garden vistas."
-        },
-        {
-          "time": "11:30 AM",
-          "activity": "Admire the three-story Fujimi-yagura, one of the few surviving Edo-period watchtowers."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Stroll down Wadakura Fountain Park for a French bistro lunch."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Wadakura Dining Room", "Imperial Hotel Viking Sal"],
   "cafes": ["Wadakura Fountain Park Cafe", "Palace Hotel Lounge"],
   "notes": "Top 100 Castle of Japan #21. Free admission 5 days a week (closed Mondays and Fridays).",
@@ -119,5 +95,6 @@
   ],
   "relationships": {
     "parentDestinationId": "chiyoda-city"
-  }
+  },
+  "walkingIntensity": "medium"
 }

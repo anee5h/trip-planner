@@ -8,8 +8,8 @@
   "prefecture": "Kanagawa",
   "region": "Kanto",
   "categories": ["Onsen Town", "Mountain Resort", "Mount Fuji View", "Nature"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/View_of_Mount_Fuji_from_Lake_Ashi.jpg/330px-View_of_Mount_Fuji_from_Lake_Ashi.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/View_of_Mount_Fuji_from_Lake_Ashi.jpg/330px-View_of_Mount_Fuji_from_Lake_Ashi.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hakone_Town_Hall.JPG/1920px-Hakone_Town_Hall.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hakone_Town_Hall.JPG/1920px-Hakone_Town_Hall.JPG",
   "description": "Famous hot spring resort town nestled in the Fuji-Hakone-Izu National Park, celebrated for volcanic sulfur valleys, Lake Ashi pirate ships, and art museums.",
   "highlights": [
     "Owakudani",
@@ -19,7 +19,7 @@
   ],
   "totalTripHours": 8,
   "budgetMin": 6000,
-  "budgetRecommended": 18000,
+  "budgetRecommended": 25500,
   "budgetMax": 45000,
   "walkingMin": 4000,
   "walkingSunMin": 2000,
@@ -79,6 +79,10 @@
       "collectionId": "top-onsen-japan",
       "sortOrder": 2,
       "confirmed": true
+    },
+    {
+      "collectionId": "art-islands-japan",
+      "sortOrder": 4
     }
   ],
   "relationships": {
@@ -86,64 +90,11 @@
     "nearbyDestinationIds": ["shibuya-city", "chiba-city", "saitama-city"],
     "relatedDestinationIds": ["kusatsu-town", "yufu-city"]
   },
-  "itineraries": [
-    {
-      "name": "Plan A: The Classic Hakone Loop",
-      "description": "Experience all modes of transport and the best views of Mt. Fuji.",
-      "steps": [
-        {
-          "time": "09:00",
-          "activity": "Arrive at Hakone-Yumoto and take the scenic Tozan Mountain Railway to Gora."
-        },
-        {
-          "time": "10:30",
-          "activity": "Transfer to the Hakone Ropeway at Sounzan. Enjoy views over the volcanic Owakudani valley."
-        },
-        {
-          "time": "11:30",
-          "activity": "Eat black eggs (Kuro-tamago) boiled in the hot springs at Owakudani."
-        },
-        {
-          "time": "13:00",
-          "activity": "Take the Pirate Ship cruise across Lake Ashi to Motohakone."
-        },
-        {
-          "time": "15:00",
-          "activity": "Walk the old Cedar Avenue and visit Hakone Shrine."
-        }
-      ]
-    },
-    {
-      "name": "Plan B: Art & Relaxation",
-      "description": "A laid-back day focusing on world-class museums and high-end hot springs.",
-      "steps": [
-        {
-          "time": "10:00",
-          "activity": "Explore the Hakone Open-Air Museum, featuring Picasso and massive outdoor sculptures."
-        },
-        {
-          "time": "12:30",
-          "activity": "Lunch at a traditional soba restaurant in Gora."
-        },
-        {
-          "time": "14:00",
-          "activity": "Visit the Pola Museum of Art, nestled deep in the forest."
-        },
-        {
-          "time": "16:30",
-          "activity": "Enjoy a premium day-use Onsen (hot spring) with mountain views."
-        },
-        {
-          "time": "18:30",
-          "activity": "Dinner in Hakone-Yumoto before heading back to Yokohama."
-        }
-      ]
-    }
-  ],
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 1500,
-    "food": 8775,
-    "cafe": 4725
-  }
+    "transport": 4250,
+    "tickets": 2125,
+    "food": 12431,
+    "cafe": 6694
+  },
+  "walkingIntensity": "low"
 }

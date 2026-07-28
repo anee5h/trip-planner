@@ -58,39 +58,11 @@
   "description": "Discover Hakkeijima Sea Paradise, a prominent destination in Kanagawa. With its rich mix of family, entertainment, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
-    "transport": 4800,
-    "tickets": 11200,
-    "food": 3600,
-    "cafe": 1200
+    "transport": 5031,
+    "tickets": 11738,
+    "food": 3773,
+    "cafe": 1258
   },
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Hakkeijima Sea Paradise in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at the main station and get oriented."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Visit the primary theme park attraction."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Grab a delicious regional lunch."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic sights."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a local café before heading back."
-        }
-      ]
-    }
-  ],
   "restaurants": [
     "Hakkeijima Sea Paradise Traditional Dining",
     "Local Kanagawa Specialty Restaurant",
@@ -108,6 +80,13 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {},
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Yokohama_Hakkeijima_Sea_Paradise_-_01.jpg/330px-Yokohama_Hakkeijima_Sea_Paradise_-_01.jpg"
+  "relationships": {
+    "parentDestinationId": "yokohama-city"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Yokohama_Hakkeijima_Sea_Paradise_-_01.jpg/330px-Yokohama_Hakkeijima_Sea_Paradise_-_01.jpg",
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Available on site",
+  "walkingIntensity": "high"
 }

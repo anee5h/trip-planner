@@ -70,12 +70,27 @@
   "indoorPercent": 20,
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "kobe-city"
+  },
   "image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/170811_Rokko-Arima_Ropeway_Kobe_Japan00n.jpg",
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,
     "food": 8450,
     "cafe": 4550
-  }
+  },
+  "highlights": ["Explore Arima Onsen", "Local Culture & Scenery"],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Arima Onsen Dining Options"],
+  "cafes": ["Arima Onsen Rest Area Cafe"],
+  "walkingIntensity": "medium"
 }

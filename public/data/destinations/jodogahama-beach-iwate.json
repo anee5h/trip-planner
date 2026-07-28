@@ -1,0 +1,86 @@
+{
+  "id": "jodogahama-beach-iwate",
+  "name": "Jodogahama Beach",
+  "nameJa": "浄土ヶ浜",
+  "prefecture": "Iwate",
+  "region": "Tohoku",
+  "category": "Nature & Parks",
+  "categories": ["Nature & Parks"],
+  "description": "Named \"Pure Land Beach\" by an 18th-century monk who called it paradise, this otherworldly cove features ivory rhyolite sea stacks, electric-blue water and nesting seabirds on the rugged Sanriku coast.",
+  "highlights": [
+    "White rhyolite sea stack clusters",
+    "Crystal-clear blue lagoon",
+    "Seabird watching",
+    "Sea kayaking & glass-bottom boats"
+  ],
+  "coordinates": {
+    "lat": 39.369,
+    "lng": 141.9672
+  },
+  "nearestStation": "Miyako Station (then bus)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Jodogahama_Beach_%2851971544590%29.jpg/1920px-Jodogahama_Beach_%2851971544590%29.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Jodogahama_Beach_%2851971544590%29.jpg/1920px-Jodogahama_Beach_%2851971544590%29.jpg",
+  "tags": ["beach", "coast", "iwate", "sanriku", "nature", "tohoku"],
+  "rating": 4.8,
+  "bestSeasons": ["Summer"],
+  "travelEstimate": {
+    "minutesFromBase": 210,
+    "confidence": "high"
+  },
+  "collections": [],
+  "budgetMin": 500,
+  "budgetRecommended": 3750,
+  "budgetMax": 7000,
+  "transportOptions": {
+    "train": 160,
+    "car": 180
+  },
+  "ratings": {
+    "overall": 9.2,
+    "couple": 9.5,
+    "summer": 9.8,
+    "winter": 7,
+    "rain": 6,
+    "food": 8,
+    "photography": 9.7,
+    "relaxation": 9.4,
+    "value": 9,
+    "uniqueness": 9.3
+  },
+  "totalTripHours": 4,
+  "walkingMin": 2500,
+  "walkingSunMin": 2000,
+  "walkingShadeMin": 500,
+  "indoorPercent": 10,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 8,
+    "summer": 10,
+    "autumn": 8,
+    "winter": 5
+  },
+  "bestMonths": [6, 7, 8, 9],
+  "bestSeason": "Summer",
+  "weatherDependence": "high",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 4,
+    "walkingIntensity": 2
+  },
+  "walkingIntensity": "low",
+  "reservation": "None required (boats bookable on site)",
+  "parking": "Visitor centre car park",
+  "restaurants": ["Jodogahama Visitor Centre Restaurant"],
+  "cafes": ["Seaside Café Jodogahama"],
+  "notes": "Part of Rikuchū Kaigan National Park. Site of significant rebuilding after the 2011 Great East Japan Earthquake. Glass-bottom boat tours available in calm weather.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": ["ryusendo-cave-iwate"]
+  },
+  "budgetBreakdown": null
+}

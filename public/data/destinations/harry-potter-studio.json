@@ -54,67 +54,13 @@
   "highlights": ["Great Hall", "Diagon Alley"],
   "description": "Harry Potter Studio is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
   "budgetBreakdown": {
-    "transport": 1000,
-    "tickets": 13000,
-    "food": 4900,
-    "cafe": 2000
+    "transport": 1048,
+    "tickets": 13622,
+    "food": 5134,
+    "cafe": 2096
   },
   "reservation": "Required well in advance",
   "parking": "Available but train recommended",
-  "itineraries": [
-    {
-      "name": "Plan A: The Ultimate Fan Experience",
-      "description": "A comprehensive walk-through prioritizing all major sets and photo ops.",
-      "steps": [
-        {
-          "time": "09:30",
-          "activity": "Arrive early and enter the Great Hall."
-        },
-        {
-          "time": "11:00",
-          "activity": "Explore the Hogwarts Express and Platform 9 ¾."
-        },
-        {
-          "time": "12:30",
-          "activity": "Drink Butterbeer in the Backlot Cafe."
-        },
-        {
-          "time": "14:00",
-          "activity": "Walk through Diagon Alley and the Ministry of Magic sets."
-        },
-        {
-          "time": "16:00",
-          "activity": "Spend an hour in the massive studio gift shop."
-        }
-      ]
-    },
-    {
-      "name": "Plan B: The Filmmaker's Focus",
-      "description": "Take your time studying the props, costumes, and behind-the-scenes magic.",
-      "steps": [
-        {
-          "time": "10:00",
-          "activity": "Focus heavily on the Art Department and Costume exhibits."
-        },
-        {
-          "time": "12:00",
-          "activity": "Participate in the interactive green-screen broomstick flying."
-        },
-        {
-          "time": "13:30",
-          "activity": "Lunch at the Food Hall."
-        },
-        {
-          "time": "15:00",
-          "activity": "Study the creature effects and animatronics in the Creature Shop."
-        },
-        {
-          "time": "17:00",
-          "activity": "Examine the incredibly detailed Hogwarts Castle miniature."
-        }
-      ]
-    }
-  ],
   "restaurants": [
     "Harry Potter Studio Traditional Dining",
     "Local Tokyo Specialty Restaurant",
@@ -133,6 +79,9 @@
   },
   "collections": [],
   "relationships": {
-    "parentDestinationId": "chiyoda-city"
-  }
+    "parentDestinationId": "nerima-city"
+  },
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "walkingIntensity": "medium"
 }

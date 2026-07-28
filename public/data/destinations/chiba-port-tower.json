@@ -62,37 +62,13 @@
   ],
   "description": "Clad in over 5,500 heat-reflecting glass mirrors, this 125-meter waterfront tower stands in Chiba Port Park, offering panoramic sunset views across Tokyo Bay to Mt. Fuji.",
   "budgetBreakdown": {
-    "transport": 800,
-    "tickets": 420,
-    "food": 2800,
-    "cafe": 980
+    "transport": 880,
+    "tickets": 462,
+    "food": 3080,
+    "cafe": 1078
   },
   "reservation": "No reservation required.",
   "parking": "Free parking lot at Chiba Port Park (over 200 spaces).",
-  "itineraries": [
-    {
-      "name": "Chiba Waterfront & Mirror Tower Sunset",
-      "description": "Relax in Chiba Port Park and photograph sunset reflection over Tokyo Bay.",
-      "steps": [
-        {
-          "time": "2:30 PM",
-          "activity": "Arrive at Chiba-Minato Station and walk through Chiba Port Park."
-        },
-        {
-          "time": "3:30 PM",
-          "activity": "Take the glass elevator up to the 4th floor observation deck (113m)."
-        },
-        {
-          "time": "5:00 PM",
-          "activity": "Watch sunset over Tokyo Bay and Mt. Fuji from the oceanview cafe."
-        },
-        {
-          "time": "6:30 PM",
-          "activity": "Stroll through illuminated park gardens before returning."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Ocean View Restaurant SEAGULL", "Port Park Dining"],
   "cafes": ["Tower Cafe 3F"],
   "notes": "Special Christmas illumination features a giant 100m tall light-bulb tree on the glass facade.",
@@ -108,5 +84,6 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {}
+  "relationships": {},
+  "walkingIntensity": "low"
 }

@@ -68,37 +68,13 @@
   ],
   "description": "Built in 1576, Maruoka Castle is one of Japan's 12 original surviving castle keeps and features the oldest architectural keep style in Japan, complete with rare stone roof tiles.",
   "budgetBreakdown": {
-    "transport": 1800,
-    "tickets": 450,
-    "food": 2400,
-    "cafe": 850
+    "transport": 2045,
+    "tickets": 511,
+    "food": 2727,
+    "cafe": 967
   },
   "reservation": "No reservation required.",
   "parking": "Free parking lot at Maruoka Castle Kasumi Park.",
-  "itineraries": [
-    {
-      "name": "Maruoka Original Keep & Kasumi Park Walk",
-      "description": "Climb Japan's oldest surviving keep style with stone roof shingles.",
-      "steps": [
-        {
-          "time": "11:00 AM",
-          "activity": "Arrive at Fukui Station (Hokuriku Shinkansen) and bus 40 mins to Maruoka Castle."
-        },
-        {
-          "time": "11:45 AM",
-          "activity": "Climb the steep 67-degree wooden stairs inside the 1576 original keep."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Enjoy Fukui Echizen soba noodles with grated daikon radish."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Stroll Kasumi Park surrounding the castle hill."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Maruoka Soba-dokoro", "Echizen Soba Kuraya"],
   "cafes": ["Kasumi Castle Teahouse"],
   "notes": "Top 100 Castle of Japan #36. Known as Kasumi-ga-jyo (Mist Castle) due to legend of fog concealing the tower from enemies.",
@@ -123,5 +99,6 @@
       "confirmed": true
     }
   ],
-  "relationships": {}
+  "relationships": {},
+  "walkingIntensity": "low"
 }

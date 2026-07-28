@@ -34,6 +34,10 @@
       "collectionId": "three-great-gardens",
       "sortOrder": 3,
       "confirmed": true
+    },
+    {
+      "collectionId": "flower-parks-japan",
+      "sortOrder": 3
     }
   ],
   "transportOptions": {
@@ -77,5 +81,18 @@
     "tickets": 2000,
     "food": 1625,
     "cafe": 875
-  }
+  },
+  "highlights": ["Explore Korakuen Garden", "Local Culture & Scenery"],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Korakuen Garden Dining Options"],
+  "cafes": ["Korakuen Garden Rest Area Cafe"],
+  "walkingIntensity": "medium"
 }

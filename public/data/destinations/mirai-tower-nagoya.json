@@ -67,37 +67,13 @@
   ],
   "description": "Completed in 1954 as Japan's first TV broadcasting tower, this 180-meter Registered Tangible Cultural Property in Nagoya's Hisaya-odori Park features outdoor observation decks and projection mapping art.",
   "budgetBreakdown": {
-    "transport": 1200,
-    "tickets": 1300,
-    "food": 2700,
-    "cafe": 800
+    "transport": 1400,
+    "tickets": 1517,
+    "food": 3150,
+    "cafe": 933
   },
   "reservation": "No reservation required for observation decks.",
   "parking": "Underground paid parking structure at Hisaya-odori Park.",
-  "itineraries": [
-    {
-      "name": "Sakae Park & MIRAI TOWER Evening Exploration",
-      "description": "Stroll Hisaya-odori Park and watch Sakae night lights from the 100m Sky Balcony.",
-      "steps": [
-        {
-          "time": "4:00 PM",
-          "activity": "Arrive at Sakae Station and walk through RAYARD Hisaya-odori Park."
-        },
-        {
-          "time": "5:00 PM",
-          "activity": "Ascend to the 90m Indoor Sky Deck for sunset views."
-        },
-        {
-          "time": "6:00 PM",
-          "activity": "Step onto the 100m outdoor Sky Balcony to feel open breezes."
-        },
-        {
-          "time": "7:30 PM",
-          "activity": "Dine at Oasis 21 subterranean dining arcade."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Glycine Tower Hotel Nagoya", "Oasis 21 Gourmet Arcade"],
   "cafes": ["Farm& Cafe Nagoya", "Starbucks Hisaya-odori"],
   "notes": "Illuminated every night with energy-efficient LED light displays.",
@@ -113,5 +89,6 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {}
+  "relationships": {},
+  "walkingIntensity": "low"
 }

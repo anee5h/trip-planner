@@ -1,0 +1,97 @@
+{
+  "id": "ouchi-juku-fukushima",
+  "name": "Ouchi-juku",
+  "nameJa": "大内宿",
+  "prefecture": "Fukushima",
+  "region": "Tohoku",
+  "category": "Historic Towns & Districts",
+  "categories": ["Historic Towns & Districts"],
+  "description": "A remarkably preserved Edo-period post town in Fukushima's mountains where thatched-roof farmhouses line a single main street of the ancient Aizu Nishi-Kaido highway. A living museum of feudal-era Japan with the famous leek soba tradition.",
+  "highlights": [
+    "Thatched-roof post town streetscape",
+    "Negi soba (eaten with whole leek)",
+    "Subashiri valley viewpoint",
+    "Winter snow-covered townscape"
+  ],
+  "coordinates": {
+    "lat": 37.2319,
+    "lng": 139.8456
+  },
+  "nearestStation": "Yunokami Onsen Station (then bus)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Ouchijuku_2006-11-12.jpg/1920px-Ouchijuku_2006-11-12.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Ouchijuku_2006-11-12.jpg/1920px-Ouchijuku_2006-11-12.jpg",
+  "tags": [
+    "historic town",
+    "post town",
+    "fukushima",
+    "aizu",
+    "thatched",
+    "tohoku"
+  ],
+  "rating": 4.7,
+  "bestSeasons": ["Winter", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 150,
+    "confidence": "high"
+  },
+  "collections": [],
+  "budgetMin": 1000,
+  "budgetRecommended": 4500,
+  "budgetMax": 8000,
+  "transportOptions": {
+    "shinkansen": 80,
+    "car": 50
+  },
+  "ratings": {
+    "overall": 9.1,
+    "couple": 9.2,
+    "summer": 8,
+    "winter": 9.5,
+    "rain": 7.5,
+    "food": 9,
+    "photography": 9.6,
+    "relaxation": 9,
+    "value": 8.8,
+    "uniqueness": 9.4
+  },
+  "totalTripHours": 3,
+  "walkingMin": 2000,
+  "walkingSunMin": 500,
+  "walkingShadeMin": 1500,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 10
+  },
+  "bestMonths": [1, 2, 3, 10, 11, 12],
+  "bestSeason": "Winter",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 7,
+    "walkingIntensity": 1
+  },
+  "walkingIntensity": "minimal",
+  "reservation": "None required (restaurants may have queues)",
+  "parking": "Large car park at entrance (¥500)",
+  "restaurants": [
+    "Ouchi-juku Negi Soba Restaurants",
+    "Maruya Honten",
+    "Nanakamado"
+  ],
+  "cafes": ["Post Town Amazake Stall"],
+  "notes": "Designated Important Preservation District. The \"negi soba\" tradition of eating buckwheat noodles using a whole green onion as chopstick originated here. Especially atmospheric during winter snow (late Jan–Feb). About 15 min drive from Tsuruga Castle.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": ["tsuruga-castle-fukushima"]
+  },
+  "budgetBreakdown": null
+}

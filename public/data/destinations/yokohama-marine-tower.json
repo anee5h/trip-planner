@@ -61,37 +61,13 @@
   ],
   "description": "Built in 1961 to mark Yokohama Port's 100th anniversary, this 106-meter historic steel lattice lighthouse tower offers sweeping vistas over Yokohama Bay Bridge and Minato Mirai.",
   "budgetBreakdown": {
-    "transport": 600,
-    "tickets": 1200,
-    "food": 3000,
-    "cafe": 1200
+    "transport": 650,
+    "tickets": 1300,
+    "food": 3250,
+    "cafe": 1300
   },
   "reservation": "No advance reservation required.",
   "parking": "Municipal paid parking spaces along Yamashita Park waterfront.",
-  "itineraries": [
-    {
-      "name": "Yokohama Harbor & Marine Tower Promenade",
-      "description": "Stroll Yamashita Park waterfront and ascend the lighthouse observation deck.",
-      "steps": [
-        {
-          "time": "2:00 PM",
-          "activity": "Arrive at Motomachi-Chukagai Station and walk through Yamashita Park."
-        },
-        {
-          "time": "3:30 PM",
-          "activity": "Ride the glass elevator to the 106m observation floor for 360-degree port views."
-        },
-        {
-          "time": "5:00 PM",
-          "activity": "Enjoy afternoon tea at the tower concourse lounge."
-        },
-        {
-          "time": "6:30 PM",
-          "activity": "Walk 5 minutes into Yokohama Chinatown for dinner."
-        }
-      ]
-    }
-  ],
   "restaurants": ["The Terrace Yokohama Marine Tower", "Chinatown Manchinro"],
   "cafes": ["Mizamito Cafe", "Marine Tower Bar"],
   "notes": "Recognized as a Lover's Sanctuary with special romantic evening light projections.",
@@ -109,5 +85,6 @@
   "collections": [],
   "relationships": {
     "parentDestinationId": "yokohama-city"
-  }
+  },
+  "walkingIntensity": "low"
 }

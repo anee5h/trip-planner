@@ -67,37 +67,13 @@
   ],
   "description": "Constructed in 1611 by Doi Toshikatsu, Sakura Castle features impressive preserved earthen ramparts, deep dry moats, and over 1,100 cherry trees surrounding Rekihaku museum.",
   "budgetBreakdown": {
-    "transport": 900,
-    "tickets": 600,
-    "food": 2500,
-    "cafe": 1000
+    "transport": 990,
+    "tickets": 660,
+    "food": 2750,
+    "cafe": 1100
   },
   "reservation": "No reservation required for castle park.",
   "parking": "Free parking lot at Sakura Castle Park.",
-  "itineraries": [
-    {
-      "name": "Sakura Castle Earthworks & History Walk",
-      "description": "Hike deep dry moats and visit the National Museum of Japanese History.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at Keisei Sakura Station and walk 15 mins to Sakura Castle Park."
-        },
-        {
-          "time": "10:30 AM",
-          "activity": "Explore the massive dry moats and earthen rampart ruins."
-        },
-        {
-          "time": "12:30 PM",
-          "activity": "Enjoy a traditional bento or soba lunch inside the park."
-        },
-        {
-          "time": "2:00 PM",
-          "activity": "Tour the National Museum of Japanese History located on the castle grounds."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Kaze no Mura Dining", "Sakura Soba-dokoro"],
   "cafes": ["Rekihaku Museum Cafe"],
   "notes": "Top 100 Castle of Japan #20. One of Kanto's finest cherry blossom viewing spots in early April.",
@@ -118,5 +94,6 @@
       "confirmed": true
     }
   ],
-  "relationships": {}
+  "relationships": {},
+  "walkingIntensity": "medium"
 }

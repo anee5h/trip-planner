@@ -61,41 +61,13 @@
   ],
   "description": "Japans premier railway terminal, featuring the restored 1914 Marunouchi red-brick facade, subterranean shopping passages, world-class ramen eateries, and immediate proximity to the Imperial Palace grounds.",
   "budgetBreakdown": {
-    "transport": 500,
+    "transport": 667,
     "tickets": 0,
-    "food": 5500,
-    "cafe": 1500
+    "food": 7333,
+    "cafe": 2000
   },
   "reservation": "Not required for public station concourses; reservations recommended for high-end Marunouchi dining.",
   "parking": "Paid underground parking garages available throughout the Marunouchi and Yaesu districts.",
-  "itineraries": [
-    {
-      "name": "Marunouchi & Station Heritage Walk",
-      "description": "Explore red-brick architecture, underground gourmet streets, and Imperial Palace gardens.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Admire the restored 1914 Marunouchi station dome and grand atrium."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Walk through Tokyo Character Street and shop for regional souvenirs."
-        },
-        {
-          "time": "12:30 PM",
-          "activity": "Enjoy lunch at Tokyo Ramen Street in First Avenue station underground."
-        },
-        {
-          "time": "2:00 PM",
-          "activity": "Stroll down Marunouchi Naka-dori boulevard to the Imperial Palace East Gardens."
-        },
-        {
-          "time": "4:00 PM",
-          "activity": "Relax at a rooftop station cafe with views of incoming Shinkansen trains."
-        }
-      ]
-    }
-  ],
   "restaurants": [
     "Rokurinsha (Ramen Street)",
     "Ecsotto Marunouchi",
@@ -119,5 +91,7 @@
   "collections": [],
   "relationships": {
     "parentDestinationId": "chiyoda-city"
-  }
+  },
+  "role": "hub",
+  "walkingIntensity": "low"
 }

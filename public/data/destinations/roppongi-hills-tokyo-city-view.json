@@ -66,37 +66,13 @@
   ],
   "description": "Located on the 52nd floor and rooftop of Mori Tower (270m height), offering the iconic front-row view of Tokyo Tower framed against the Tokyo Bay skyline.",
   "budgetBreakdown": {
-    "transport": 300,
-    "tickets": 2000,
-    "food": 3500,
-    "cafe": 1200
+    "transport": 354,
+    "tickets": 2357,
+    "food": 4125,
+    "cafe": 1414
   },
   "reservation": "Online advance tickets save 200 JPY.",
   "parking": "Paid underground parking structure at Roppongi Hills Mori Tower.",
-  "itineraries": [
-    {
-      "name": "Tokyo Tower Skyline Sunset & Mori Art Museum",
-      "description": "Combine contemporary art with Tokyo's premier Tokyo Tower night view.",
-      "steps": [
-        {
-          "time": "3:30 PM",
-          "activity": "Arrive at Roppongi Station and ascend Mori Tower to 53F Mori Art Museum."
-        },
-        {
-          "time": "5:00 PM",
-          "activity": "Walk down to 52F Tokyo City View as twilight illuminates Tokyo Tower."
-        },
-        {
-          "time": "6:30 PM",
-          "activity": "Take open-air Sky Deck helipad elevator to feel 270m breezes."
-        },
-        {
-          "time": "8:00 PM",
-          "activity": "Dine at Roppongi Hills Hillside gourmet arcade."
-        }
-      ]
-    }
-  ],
   "restaurants": ["The Sun & The Moon 52F", "Roppongi Hills Club"],
   "cafes": ["Museum Cafe 52F"],
   "notes": "The ticket includes entry to both Tokyo City View and Mori Art Museum exhibitions.",
@@ -120,5 +96,6 @@
   ],
   "relationships": {
     "parentDestinationId": "minato-city"
-  }
+  },
+  "walkingIntensity": "low"
 }

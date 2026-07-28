@@ -55,67 +55,13 @@
   "highlights": ["Oya History Museum", "Utsunomiya Gyoza"],
   "description": "Utsunomiya & Oya is a scenic destination in the Tochigi region of Japan, offering rich history and cultural attractions.",
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 1600,
-    "food": 6000,
-    "cafe": 2000
+    "transport": 3238,
+    "tickets": 1727,
+    "food": 6476,
+    "cafe": 2159
   },
-  "reservation": "",
+  "reservation": "None required",
   "parking": "Yes",
-  "itineraries": [
-    {
-      "name": "Plan A: Stone & Gyoza",
-      "description": "The perfect mix of exploring massive underground caves and eating famous local food.",
-      "steps": [
-        {
-          "time": "10:00",
-          "activity": "Take a bus from Utsunomiya Station to the Oya History Museum."
-        },
-        {
-          "time": "10:30",
-          "activity": "Explore the massive, atmospheric underground stone quarry."
-        },
-        {
-          "time": "12:30",
-          "activity": "Visit the nearby Oya-ji Temple and the giant Heiwa Kannon statue."
-        },
-        {
-          "time": "14:00",
-          "activity": "Head back to central Utsunomiya."
-        },
-        {
-          "time": "15:00",
-          "activity": "Go 'Gyoza Hopping' – try 3 different famous gyoza shops for a late lunch/dinner."
-        }
-      ]
-    },
-    {
-      "name": "Plan B: Scenic Cycling",
-      "description": "Rent a bike and explore the rural beauty surrounding the stone town.",
-      "steps": [
-        {
-          "time": "09:30",
-          "activity": "Rent a bicycle near Utsunomiya Station."
-        },
-        {
-          "time": "11:00",
-          "activity": "Cycle through the scenic countryside towards the Oya district."
-        },
-        {
-          "time": "12:30",
-          "activity": "Lunch at a stylish cafe built into an old stone warehouse."
-        },
-        {
-          "time": "14:00",
-          "activity": "Explore the ancient cliff carvings at Oya-ji Temple."
-        },
-        {
-          "time": "16:00",
-          "activity": "Cycle back, drop off the bike, and reward yourself with gyoza."
-        }
-      ]
-    }
-  ],
   "restaurants": [
     "Utsunomiya Traditional Dining",
     "Local Tochigi Specialty Restaurant",
@@ -132,6 +78,14 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [],
-  "relationships": {}
+  "collections": [
+    {
+      "collectionId": "caves-japan",
+      "sortOrder": 4
+    }
+  ],
+  "relationships": {},
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "walkingIntensity": "medium"
 }

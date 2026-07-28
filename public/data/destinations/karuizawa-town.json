@@ -13,7 +13,7 @@
   "highlights": ["Explore Karuizawa Town", "Local Culture & Cuisine"],
   "totalTripHours": 6,
   "budgetMin": 3500,
-  "budgetRecommended": 12000,
+  "budgetRecommended": 14250,
   "budgetMax": 25000,
   "walkingMin": 4000,
   "walkingSunMin": 1500,
@@ -73,64 +73,11 @@
     "featuredDestinationIds": ["kiso", "matsumoto-city", "nagano-bessho-onsen"],
     "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]
   },
-  "itineraries": [
-    {
-      "name": "Plan A: The Classic Resort",
-      "description": "Shopping, dining, and scenic walks in the famous mountain resort.",
-      "steps": [
-        {
-          "time": "10:00",
-          "activity": "Rent a bicycle near Karuizawa Station."
-        },
-        {
-          "time": "10:30",
-          "activity": "Cycle to Kumoba Pond (Swan Lake) for a beautiful nature walk."
-        },
-        {
-          "time": "12:00",
-          "activity": "Explore the Kyu-Karuizawa Ginza street. Eat local breads and jams."
-        },
-        {
-          "time": "14:00",
-          "activity": "Cycle to the historic Shaw Memorial Church and the deep forest."
-        },
-        {
-          "time": "16:00",
-          "activity": "Finish the day shopping at the massive Prince Shopping Plaza outlet mall."
-        }
-      ]
-    },
-    {
-      "name": "Plan B: Art & Architecture",
-      "description": "Discover the elegant modern architecture and waterfalls of the area.",
-      "steps": [
-        {
-          "time": "10:00",
-          "activity": "Take a bus to the breathtaking Shiraito Falls."
-        },
-        {
-          "time": "12:00",
-          "activity": "Head to Harunire Terrace for a stylish lunch in the forest."
-        },
-        {
-          "time": "14:00",
-          "activity": "Walk to the Stone Church and the Karuizawa Kogen Church."
-        },
-        {
-          "time": "15:30",
-          "activity": "Visit the Hiroshi Senju Museum, a stunning piece of modern architecture."
-        },
-        {
-          "time": "17:30",
-          "activity": "Relax at the Tombo-no-yu hot springs."
-        }
-      ]
-    }
-  ],
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 1500,
-    "food": 4875,
-    "cafe": 2625
-  }
+    "transport": 3563,
+    "tickets": 1781,
+    "food": 5789,
+    "cafe": 3117
+  },
+  "walkingIntensity": "low"
 }

@@ -62,37 +62,13 @@
   ],
   "description": "The seat of the Mito Tokugawa family, featuring the restored wooden Otemon Gate, dry moat earthworks, and the 1841 Kodokan—Japan's largest Mito clan samurai school.",
   "budgetBreakdown": {
-    "transport": 1500,
-    "tickets": 400,
-    "food": 2600,
-    "cafe": 1000
+    "transport": 1705,
+    "tickets": 455,
+    "food": 2955,
+    "cafe": 1135
   },
   "reservation": "No reservation required.",
   "parking": "Paid parking lot at Kodokan and Mito Station.",
-  "itineraries": [
-    {
-      "name": "Mito Tokugawa Heritage & Kodokan Walk",
-      "description": "Tour the grand samurai school and walk the restored Mito Castle Otemon gate.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at Mito Station and walk 8 mins to Kodokan samurai school."
-        },
-        {
-          "time": "11:30 AM",
-          "activity": "Walk through the newly restored wooden Otemon Castle Gate."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Enjoy Mito natto specialty dishes at a local restaurant."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Stroll to nearby Kairakuen Garden (one of Japan's Three Great Gardens)."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Mito Natto-ya", "Sazanka Dining"],
   "cafes": ["Kodokan Teahouse", "Saza Coffee Mito Station"],
   "notes": "Top 100 Castle of Japan #14. Beautiful plum blossoms bloom in Kodokan grounds every February-March.",
@@ -113,5 +89,6 @@
       "confirmed": true
     }
   ],
-  "relationships": {}
+  "relationships": {},
+  "walkingIntensity": "low"
 }

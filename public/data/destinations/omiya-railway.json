@@ -54,67 +54,13 @@
   "highlights": ["Train Simulators", "Historic Cars"],
   "description": "Ōmiya is one of ten wards of the city of Saitama, in Saitama Prefecture, Japan, and is located in the northeastern part of the city. As of 1 March 2021, the ward had an estimated population of 119,298 and a population density of 9,300 persons per km2. Its total area was 12.80 square kilometres (4.94 sq mi). Although Urawa-ku is the governmental center of Saitama City, Ōmiya-ku is the most active commercial and business centre in both Saitama City and Saitama Prefecture thanks to its transport infrastructure, especially railways connected at Ōmiya Station.",
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2800,
-    "food": 4900,
-    "cafe": 2000
+    "transport": 3236,
+    "tickets": 3020,
+    "food": 5286,
+    "cafe": 2158
   },
-  "reservation": "",
+  "reservation": "None required",
   "parking": "Yes",
-  "itineraries": [
-    {
-      "name": "Plan A: The Train Otaku",
-      "description": "A deep dive into the history and mechanics of Japan's legendary railway system.",
-      "steps": [
-        {
-          "time": "10:00",
-          "activity": "Arrive at the museum and head straight to the massive Rolling Stock Station."
-        },
-        {
-          "time": "11:30",
-          "activity": "Book and experience the Steam Locomotive or Shinkansen Simulator."
-        },
-        {
-          "time": "13:00",
-          "activity": "Eat an authentic 'Ekiben' (station bento) inside a retired train car."
-        },
-        {
-          "time": "14:30",
-          "activity": "Watch the massive Railway Diorama show."
-        },
-        {
-          "time": "16:00",
-          "activity": "Explore the History Zone and learn about the evolution of the Shinkansen."
-        }
-      ]
-    },
-    {
-      "name": "Plan B: Family Fun Day",
-      "description": "A relaxed pace focused on interactive exhibits perfect for kids.",
-      "steps": [
-        {
-          "time": "10:30",
-          "activity": "Arrive and immediately head to the Mini Driving Train area."
-        },
-        {
-          "time": "12:00",
-          "activity": "Lunch at the Kids Cafe, which has train-themed meals."
-        },
-        {
-          "time": "13:30",
-          "activity": "Let the kids play in the Teppaku Playroom and outdoor park."
-        },
-        {
-          "time": "15:00",
-          "activity": "Take family photos with the historic steam engines."
-        },
-        {
-          "time": "16:30",
-          "activity": "Buy exclusive train toys at the museum shop before leaving."
-        }
-      ]
-    }
-  ],
   "restaurants": [
     "Omiya Railway Museum Traditional Dining",
     "Local Saitama Specialty Restaurant",
@@ -132,5 +78,8 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {}
+  "relationships": {},
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "walkingIntensity": "low"
 }

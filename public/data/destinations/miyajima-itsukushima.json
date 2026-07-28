@@ -52,6 +52,10 @@
       "collectionId": "three-great-views",
       "sortOrder": 3,
       "confirmed": true
+    },
+    {
+      "collectionId": "islands-japan",
+      "sortOrder": 8
     }
   ],
   "transportOptions": {
@@ -64,7 +68,7 @@
     "mid": 8000,
     "high": 16000
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/3840px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/960px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg",
   "description": "Itsukushima Shrine on Miyajima Island is world-renowned for its iconic vermilion O-Torii gate that appears to float magically upon the Seto Inland Sea during high tide.",
   "notes": "Designated as one of the Three Views of Japan (Nihon Sankei).",
   "budgetRecommended": 7500,
@@ -86,11 +90,27 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {},
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/3840px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/960px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg",
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,
     "food": 1625,
     "cafe": 875
-  }
+  },
+  "highlights": [
+    "Explore Itsukushima Shrine (Miyajima Island)",
+    "Local Culture & Scenery"
+  ],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Itsukushima Shrine (Miyajima Island) Dining Options"],
+  "cafes": ["Itsukushima Shrine (Miyajima Island) Rest Area Cafe"],
+  "walkingIntensity": "medium"
 }

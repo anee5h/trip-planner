@@ -7,13 +7,13 @@
   "prefecture": "Aichi",
   "region": "Chubu",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Castle_in_Inuyama.JPG/1280px-Castle_in_Inuyama.JPG",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Inuyama_City_Hall_ac.jpg/1920px-Inuyama_City_Hall_ac.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Inuyama_City_Hall_ac.jpg/1920px-Inuyama_City_Hall_ac.jpg",
   "description": "Historic castle town featuring National Treasure Inuyama Castle overlooking the Kiso River.",
   "highlights": ["Explore Inuyama City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
   "budgetMin": 3500,
-  "budgetRecommended": 12000,
+  "budgetRecommended": 14250,
   "budgetMax": 25000,
   "walkingMin": 4000,
   "walkingSunMin": 1500,
@@ -82,38 +82,11 @@
     ],
     "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]
   },
-  "itineraries": [
-    {
-      "name": "Castle and River Views",
-      "description": "Historical architecture and traditional river sights.",
-      "steps": [
-        {
-          "time": "09:30",
-          "activity": "Arrive at Inuyama and walk the historic Honmachi-dori Street."
-        },
-        {
-          "time": "10:30",
-          "activity": "Climb Inuyama Castle, a National Treasure, for views of the Kiso River."
-        },
-        {
-          "time": "12:00",
-          "activity": "Enjoy street food snacks or traditional soba for lunch."
-        },
-        {
-          "time": "13:30",
-          "activity": "Stroll through Urakuen Garden and enjoy matcha at the Joan tea house."
-        },
-        {
-          "time": "15:30",
-          "activity": "Take a boat ride on the Kiso River."
-        }
-      ]
-    }
-  ],
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 1500,
-    "food": 4875,
-    "cafe": 2625
-  }
+    "transport": 3563,
+    "tickets": 1781,
+    "food": 5789,
+    "cafe": 3117
+  },
+  "walkingIntensity": "low"
 }

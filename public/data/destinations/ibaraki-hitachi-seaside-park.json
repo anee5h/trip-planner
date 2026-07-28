@@ -72,34 +72,6 @@
   "cafes": ["Glass House Cafe"],
   "notes": "Renting a bicycle inside the park is highly recommended to cover the vast park grounds.",
   "schemaVersion": 2,
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Hitachi Seaside Park in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at Hitachi Seaside Park and get oriented at the base area."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Explore the primary sights: Miharashi Hill and Pleasure Garden Ferris Wheel."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Enjoy a local lunch featuring regional specialties."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic landmarks: Seaside Biking Trail and Dune Garden."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a nearby local café or park before heading back."
-        }
-      ]
-    }
-  ],
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Ferris_wheel_of_the_Hitachi_beach_park%2Chitachi-kaihin-koen%2Chitachinaka-city%2Cjapan.JPG/330px-Ferris_wheel_of_the_Hitachi_beach_park%2Chitachi-kaihin-koen%2Chitachinaka-city%2Cjapan.JPG",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -111,6 +83,12 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [],
-  "relationships": {}
+  "collections": [
+    {
+      "collectionId": "flower-parks-japan",
+      "sortOrder": 2
+    }
+  ],
+  "relationships": {},
+  "walkingIntensity": "low"
 }

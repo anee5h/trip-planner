@@ -87,5 +87,18 @@
     "tickets": 2000,
     "food": 3250,
     "cafe": 1750
-  }
+  },
+  "highlights": ["Explore Iyo Matsuyama Castle", "Local Culture & Scenery"],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Iyo Matsuyama Castle Dining Options"],
+  "cafes": ["Iyo Matsuyama Castle Rest Area Cafe"],
+  "walkingIntensity": "medium"
 }

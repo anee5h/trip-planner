@@ -16,10 +16,10 @@
   "budgetMax": 8500,
   "budgetRecommended": 5750,
   "budgetBreakdown": {
-    "transport": 2500,
-    "tickets": 1200,
-    "food": 1200,
-    "cafe": 600
+    "transport": 2614,
+    "tickets": 1255,
+    "food": 1255,
+    "cafe": 626
   },
   "transportOptions": {
     "train": 85,
@@ -72,34 +72,6 @@
   "cafes": ["Cafe Comon"],
   "notes": "Mitake cable car cuts out the steepest initial climb, making it accessible for families.",
   "schemaVersion": 2,
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Mt. Mitake in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at Mt. Mitake and get oriented at the base area."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Explore the primary sights: Musashi Mitake Shrine and Rock Garden Trail."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Enjoy a local lunch featuring regional specialties."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic landmarks: Mitake Cable Car and Anago Falls."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a nearby local café or park before heading back."
-        }
-      ]
-    }
-  ],
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mt._Mitake.jpg/1280px-Mt._Mitake.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -112,7 +84,6 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {
-    "parentDestinationId": "chiyoda-city"
-  }
+  "relationships": {},
+  "walkingIntensity": "low"
 }

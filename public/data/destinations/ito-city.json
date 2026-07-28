@@ -13,7 +13,7 @@
   "highlights": ["Explore Ito City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
   "budgetMin": 3500,
-  "budgetRecommended": 12000,
+  "budgetRecommended": 14250,
   "budgetMax": 25000,
   "walkingMin": 4000,
   "walkingSunMin": 1500,
@@ -72,38 +72,11 @@
     "featuredDestinationIds": ["atami-city", "fujinomiya-city", "izu"],
     "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]
   },
-  "itineraries": [
-    {
-      "name": "Coastal Drama and Onsen",
-      "description": "Cliffs, ocean views, and relaxing hot springs.",
-      "steps": [
-        {
-          "time": "10:00",
-          "activity": "Hike the Jogasaki Coast and cross the Kadowakizaki Suspension Bridge."
-        },
-        {
-          "time": "12:30",
-          "activity": "Seafood lunch featuring fresh local catch."
-        },
-        {
-          "time": "14:00",
-          "activity": "Take the chairlift up Mount Omuro for 360-degree views of Izu and Mt. Fuji."
-        },
-        {
-          "time": "16:00",
-          "activity": "Explore the historic Tokai-kan hostel in central Ito."
-        },
-        {
-          "time": "17:30",
-          "activity": "Unwind in a local hot spring (onsen) before dinner."
-        }
-      ]
-    }
-  ],
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 1500,
-    "food": 4875,
-    "cafe": 2625
-  }
+    "transport": 3563,
+    "tickets": 1781,
+    "food": 5789,
+    "cafe": 3117
+  },
+  "walkingIntensity": "low"
 }

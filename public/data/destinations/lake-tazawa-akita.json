@@ -1,0 +1,89 @@
+{
+  "id": "lake-tazawa-akita",
+  "name": "Lake Tazawa",
+  "nameJa": "田沢湖",
+  "prefecture": "Akita",
+  "region": "Tohoku",
+  "category": "Nature & Parks",
+  "categories": ["Nature & Parks"],
+  "description": "Japan's deepest lake (423 m) with otherworldly cobalt-blue waters that never freeze in winter. The golden statue of Princess Tatsuko on the lakeside is Akita's most iconic image.",
+  "highlights": [
+    "Golden Tatsuko statue",
+    "Cobalt-blue lake views",
+    "Lakeside cycling route",
+    "Gateway to Nyuto Onsen"
+  ],
+  "coordinates": {
+    "lat": 39.723,
+    "lng": 140.6589
+  },
+  "nearestStation": "Tazawako Station",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Lake_Tazawa_and_Kansa-g%C5%AB_20210213.jpg/1920px-Lake_Tazawa_and_Kansa-g%C5%AB_20210213.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Lake_Tazawa_and_Kansa-g%C5%AB_20210213.jpg/1920px-Lake_Tazawa_and_Kansa-g%C5%AB_20210213.jpg",
+  "tags": ["lake", "cobalt", "akita", "nature", "cycling", "tohoku"],
+  "rating": 4.7,
+  "bestSeasons": ["Summer", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 200,
+    "confidence": "high"
+  },
+  "collections": [],
+  "budgetMin": 500,
+  "budgetRecommended": 4250,
+  "budgetMax": 8000,
+  "transportOptions": {
+    "shinkansen": 170,
+    "bus": 20
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9.3,
+    "summer": 9.3,
+    "winter": 8,
+    "rain": 7,
+    "food": 8,
+    "photography": 9.4,
+    "relaxation": 9.2,
+    "value": 8.9,
+    "uniqueness": 8.9
+  },
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "walkingSunMin": 2500,
+  "walkingShadeMin": 500,
+  "indoorPercent": 10,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8,
+    "summer": 10,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [5, 6, 7, 8, 9, 10],
+  "bestSeason": "Summer",
+  "weatherDependence": "high",
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 5,
+    "walkingIntensity": 2
+  },
+  "walkingIntensity": "low",
+  "reservation": "None required",
+  "parking": "Available at Tatsuko-zo statue area",
+  "restaurants": ["Lakeside Restaurant Tazawako", "Folktale Café"],
+  "cafes": ["Tazawa Lake Café"],
+  "notes": "Japan's deepest lake at 423.4 m. The legendary Princess Tatsuko prayed for eternal beauty and was transformed into a dragon deity of the lake.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": [
+      "nyuto-onsen-akita",
+      "kakunodate-samurai-district-akita"
+    ]
+  },
+  "budgetBreakdown": null
+}

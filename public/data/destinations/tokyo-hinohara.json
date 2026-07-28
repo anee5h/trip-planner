@@ -72,34 +72,6 @@
   "cafes": ["Cafe Kazuma"],
   "notes": "Hossawa Falls is selected as one of Japan's Top 100 waterfalls.",
   "schemaVersion": 2,
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Hinohara in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at Hinohara and get oriented at the base area."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Explore the primary sights: Hossawa Falls and Kanoto Rock."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Enjoy a local lunch featuring regional specialties."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic landmarks: Hinohara Tokyo Citizens Forest and Kazuma Hot Spring."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a nearby local café or park before heading back."
-        }
-      ]
-    }
-  ],
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Hossawa_Falls.jpg/1280px-Hossawa_Falls.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -112,7 +84,6 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {
-    "parentDestinationId": "chiyoda-city"
-  }
+  "relationships": {},
+  "walkingIntensity": "low"
 }

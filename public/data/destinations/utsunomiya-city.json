@@ -7,13 +7,13 @@
   "prefecture": "Tochigi",
   "region": "Kanto",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Utsunomiya_montage.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Utsunomiya_montage.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Utsunomiya-STA_East_LRT.jpg/1920px-Utsunomiya-STA_East_LRT.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Utsunomiya-STA_East_LRT.jpg/1920px-Utsunomiya-STA_East_LRT.jpg",
   "description": "Prefectural capital acclaimed as Japan's Gyoza dumpling capital, featuring Oya Stone Underground Quarry.",
   "highlights": ["Explore Utsunomiya City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
   "budgetMin": 3500,
-  "budgetRecommended": 12000,
+  "budgetRecommended": 14250,
   "budgetMax": 25000,
   "walkingMin": 4000,
   "walkingSunMin": 1500,
@@ -70,18 +70,14 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": [
-      "kegon-falls-nikko",
-      "kinugawa-onsen",
-      "nikko-city",
-      "utsunomiya-oya"
-    ],
-    "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    "featuredDestinationIds": ["utsunomiya-oya"],
+    "nearbyDestinationIds": ["nikko-city", "kinugawa-onsen"]
   },
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 1500,
-    "food": 4875,
-    "cafe": 2625
-  }
+    "transport": 3563,
+    "tickets": 1781,
+    "food": 5789,
+    "cafe": 3117
+  },
+  "walkingIntensity": "low"
 }

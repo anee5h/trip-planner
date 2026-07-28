@@ -7,13 +7,13 @@
   "prefecture": "Hokkaido",
   "region": "Hokkaido",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&q=80&w=1200",
-  "image": "https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Furano_Snow_Resort_view2.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Furano_Snow_Resort_view2.JPG",
   "description": "Central Hokkaido floral valley famous for rolling purple lavender fields (Farm Tomita) and winter ski slopes.",
   "highlights": ["Explore Furano City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
   "budgetMin": 3500,
-  "budgetRecommended": 12000,
+  "budgetRecommended": 14250,
   "budgetMax": 25000,
   "walkingMin": 4000,
   "walkingSunMin": 1500,
@@ -67,15 +67,21 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "flower-parks-japan",
+      "sortOrder": 4
+    }
+  ],
   "relationships": {
     "featuredDestinationIds": ["hakodate-night-view"],
     "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
   },
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 1500,
-    "food": 4875,
-    "cafe": 2625
-  }
+    "transport": 3563,
+    "tickets": 1781,
+    "food": 5789,
+    "cafe": 3117
+  },
+  "walkingIntensity": "low"
 }

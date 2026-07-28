@@ -1,0 +1,87 @@
+{
+  "id": "oirase-gorge-aomori",
+  "name": "Oirase Mountain Stream & Gorge",
+  "nameJa": "奥入瀬渓流",
+  "prefecture": "Aomori",
+  "category": "Nature & Parks",
+  "description": "A picturesque 14-kilometer mountain stream in Aomori famed for roaring waterfalls, mossy rocks, and autumn foliage.",
+  "coordinates": {
+    "lat": 40.5284,
+    "lng": 140.9708
+  },
+  "nearestStation": "Hachinohe Station",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Oirase-keiryu.jpg/1920px-Oirase-keiryu.jpg",
+  "tags": ["gorge", "waterfall", "nature", "aomori", "hiking"],
+  "rating": 4.8,
+  "bestSeasons": ["Summer", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 240,
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "waterfalls-gorges-japan",
+      "sortOrder": 1
+    }
+  ],
+  "region": "Tohoku",
+  "categories": ["Nature & Parks"],
+  "budgetMin": 1500,
+  "budgetMax": 6000,
+  "budgetRecommended": 3750,
+  "transportOptions": {
+    "train": 180
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "highlights": [
+    "Explore Oirase Mountain Stream & Gorge",
+    "Local Culture & Scenery"
+  ],
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Oirase Mountain Stream & Gorge Dining Options"],
+  "cafes": ["Oirase Mountain Stream & Gorge Rest Area Cafe"],
+  "notes": "Oirase Mountain Stream & Gorge located in Aomori Prefecture.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Oirase-keiryu.jpg/1920px-Oirase-keiryu.jpg",
+  "walkingIntensity": "low",
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200
+}

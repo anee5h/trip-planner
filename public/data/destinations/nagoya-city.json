@@ -19,7 +19,7 @@
   ],
   "totalTripHours": 6,
   "budgetMin": 4000,
-  "budgetRecommended": 12000,
+  "budgetRecommended": 14500,
   "budgetMax": 25000,
   "walkingMin": 4000,
   "walkingSunMin": 1500,
@@ -74,7 +74,12 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "core-cities-japan",
+      "confirmed": true
+    }
+  ],
   "relationships": {
     "featuredDestinationIds": [
       "atsuta-shrine-nagoya",
@@ -89,38 +94,11 @@
     ],
     "relatedDestinationIds": ["kyoto-city", "osaka-city"]
   },
-  "itineraries": [
-    {
-      "name": "Classic Nagoya Core",
-      "description": "The essentials of Nagoya history and cuisine.",
-      "steps": [
-        {
-          "time": "10:00",
-          "activity": "Visit Nagoya Castle and see the golden shachihoko."
-        },
-        {
-          "time": "12:30",
-          "activity": "Lunch: Hitsumabushi (grilled eel over rice) in the Sakae district."
-        },
-        {
-          "time": "14:30",
-          "activity": "Explore Atsuta Jingu, one of Japan's most important shrines."
-        },
-        {
-          "time": "16:00",
-          "activity": "Walk around Osu Kannon shopping arcade and grab street food."
-        },
-        {
-          "time": "18:30",
-          "activity": "Dinner: Miso Katsu (pork cutlet with rich red miso sauce)."
-        }
-      ]
-    }
-  ],
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 1500,
-    "food": 4875,
-    "cafe": 2625
-  }
+    "transport": 3625,
+    "tickets": 1813,
+    "food": 5891,
+    "cafe": 3171
+  },
+  "walkingIntensity": "low"
 }

@@ -7,13 +7,13 @@
   "prefecture": "Saitama",
   "region": "Kanto",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Kawaguchi_Jinja_%28Kawaguchi%29.JPG/1280px-Kawaguchi_Jinja_%28Kawaguchi%29.JPG",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Kawaguchi_Jinja_%28Kawaguchi%29.JPG/1280px-Kawaguchi_Jinja_%28Kawaguchi%29.JPG",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg/1920px-Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg/1920px-Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg",
   "description": "Industrial and residential hub bordering Tokyo across the Arakawa River.",
   "highlights": ["Explore Kawaguchi City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
   "budgetMin": 3500,
-  "budgetRecommended": 12000,
+  "budgetRecommended": 14250,
   "budgetMax": 25000,
   "walkingMin": 4000,
   "walkingSunMin": 1500,
@@ -78,9 +78,10 @@
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 1500,
-    "food": 4875,
-    "cafe": 2625
-  }
+    "transport": 3563,
+    "tickets": 1781,
+    "food": 5789,
+    "cafe": 3117
+  },
+  "walkingIntensity": "low"
 }

@@ -64,37 +64,13 @@
   ],
   "description": "Designed by world-renowned architect Kengo Kuma, Takanawa Gateway is the newest station on Tokyos iconic Yamanote Line, featuring a dramatic paper-origami glass roof, AI-powered unmanned stores, and futuristic urban planning.",
   "budgetBreakdown": {
-    "transport": 400,
+    "transport": 510,
     "tickets": 0,
-    "food": 3500,
-    "cafe": 1200
+    "food": 4461,
+    "cafe": 1529
   },
   "reservation": "No reservation required.",
   "parking": "Short-term parking garages available nearby at Shinagawa Station and Takanawa Gateway City development.",
-  "itineraries": [
-    {
-      "name": "Architectural & Innovation Discovery Walk",
-      "description": "Experience futuristic Tokyo transit architecture and automated shopping in Minato ward.",
-      "steps": [
-        {
-          "time": "1:00 PM",
-          "activity": "Arrive via JR Yamanote Line and marvel at the massive timber-framed origami roof canopy."
-        },
-        {
-          "time": "1:45 PM",
-          "activity": "Experience TOUCH TO GO, Japans pioneer self-checkout AI convenience store."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Walk to nearby Sengakuji Temple, famous burial site of the 47 Ronin."
-        },
-        {
-          "time": "4:00 PM",
-          "activity": "Enjoy artisan coffee at the elevated station concourse cafe overlooking train tracks."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Takanawa Gateway City Dining", "Sengakuji Monzen Soba"],
   "cafes": ["MAISON KAYSER Takanawa", "Starbucks Reserve Takanawa Gateway"],
   "notes": "Station opened in 2020 as the 30th Yamanote Line station. Beautiful night illumination of the cedar wood roof structure.",
@@ -113,6 +89,7 @@
   },
   "collections": [],
   "relationships": {
-    "parentDestinationId": "chiyoda-city"
-  }
+    "parentDestinationId": "minato-city"
+  },
+  "walkingIntensity": "low"
 }

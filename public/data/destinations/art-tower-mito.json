@@ -62,37 +62,13 @@
   ],
   "description": "Designed by Pritzker Prize laureate Arata Isozaki to commemorate Mito's 100th municipal anniversary, this 100-meter helix tower is composed of 57 titanium tetrahedrons spiraling skyward.",
   "budgetBreakdown": {
-    "transport": 1500,
-    "tickets": 200,
-    "food": 2300,
-    "cafe": 1000
+    "transport": 1725,
+    "tickets": 230,
+    "food": 2645,
+    "cafe": 1150
   },
   "reservation": "No reservation required for tower lookout.",
   "parking": "Underground paid parking lot below Art Tower Mito plaza.",
-  "itineraries": [
-    {
-      "name": "Architectural & Art Discovery in Mito",
-      "description": "Ascend the spiral titanium tower and browse contemporary art galleries.",
-      "steps": [
-        {
-          "time": "1:00 PM",
-          "activity": "Arrive at Mito Station and bus 10 mins to Art Tower Mito."
-        },
-        {
-          "time": "1:30 PM",
-          "activity": "Ride the central glass elevator inside the helix tower to the 86m lookout."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Explore the Contemporary Art Gallery Mito exhibitions."
-        },
-        {
-          "time": "4:00 PM",
-          "activity": "Enjoy coffee and cake at the plaza cafe overlooking the pipe organ hall."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Chez Yoshi Mito", "Mito Plaza Dining"],
   "cafes": ["Cafe ATM", "Saza Coffee Mito"],
   "notes": "The tower contains round porthole windows providing unique framed perspectives of Mito City.",
@@ -107,6 +83,12 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [],
-  "relationships": {}
+  "collections": [
+    {
+      "collectionId": "art-islands-japan",
+      "sortOrder": 5
+    }
+  ],
+  "relationships": {},
+  "walkingIntensity": "low"
 }

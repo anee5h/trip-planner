@@ -59,39 +59,11 @@
   "description": "Kanazawa is the capital of Ishikawa Prefecture in central Japan. As of 1 January 2018, the city had an estimated population of 466,029 in 203,271 households, and a population density of 990 persons per km2. The total area of the city was 468.64 square kilometres (180.94 sq mi).",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
-    "transport": 4800,
-    "tickets": 2400,
-    "food": 3600,
-    "cafe": 1200
+    "transport": 5200,
+    "tickets": 2600,
+    "food": 3900,
+    "cafe": 1300
   },
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Kanazawa in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at the main station and get oriented."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Visit the primary city attraction."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Grab a delicious regional lunch."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic sights."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a local café before heading back."
-        }
-      ]
-    }
-  ],
   "restaurants": [
     "Kanazawa Traditional Dining",
     "Local Shizuoka Specialty Restaurant",
@@ -119,7 +91,16 @@
     {
       "collectionId": "three-great-gardens",
       "confirmed": true
+    },
+    {
+      "collectionId": "flower-parks-japan",
+      "sortOrder": 5
     }
   ],
-  "relationships": {}
+  "relationships": {},
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Available on site",
+  "walkingIntensity": "high"
 }

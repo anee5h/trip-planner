@@ -54,41 +54,13 @@
   "highlights": ["Giant Robot Soldier", "Catbus Room", "Exclusive Short Films"],
   "description": "Ghibli Museum is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
   "budgetBreakdown": {
-    "transport": 1000,
-    "tickets": 2000,
-    "food": 4900,
-    "cafe": 2000
+    "transport": 1101,
+    "tickets": 2202,
+    "food": 5395,
+    "cafe": 2202
   },
   "reservation": "Tickets sell out within hours. Book on the 10th of the previous month.",
   "parking": "Not recommended, take the train to Mitaka.",
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Ghibli Museum in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at the main station and get oriented."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Visit the primary theme park attraction."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Grab a delicious regional lunch."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic sights."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a local café before heading back."
-        }
-      ]
-    }
-  ],
   "restaurants": [
     "Ghibli Museum Traditional Dining",
     "Local Tokyo Specialty Restaurant",
@@ -108,7 +80,8 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {
-    "parentDestinationId": "chiyoda-city"
-  }
+  "relationships": {},
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "walkingIntensity": "medium"
 }

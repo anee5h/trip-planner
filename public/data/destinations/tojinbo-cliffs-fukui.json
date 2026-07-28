@@ -1,0 +1,87 @@
+{
+  "id": "tojinbo-cliffs-fukui",
+  "name": "Tojinbo Basalt Sea Cliffs",
+  "nameJa": "東尋坊",
+  "prefecture": "Fukui",
+  "category": "Nature & Parks",
+  "description": "Dramatic one-kilometer stretch of precipitous hexagonal basalt sea cliffs carved by the raging waves of the Sea of Japan.",
+  "coordinates": {
+    "lat": 36.2372,
+    "lng": 136.1264
+  },
+  "nearestStation": "Mikuni-Minato Station",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Japan_Tojinbo02n4592.jpg/1920px-Japan_Tojinbo02n4592.jpg",
+  "tags": ["cliffs", "nature", "coastal", "fukui", "sea"],
+  "rating": 4.6,
+  "bestSeasons": ["Spring", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 190,
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "coastal-drives-japan",
+      "sortOrder": 4
+    }
+  ],
+  "region": "Chubu",
+  "categories": ["Nature & Parks"],
+  "budgetMin": 1500,
+  "budgetMax": 6000,
+  "budgetRecommended": 3750,
+  "transportOptions": {
+    "train": 180
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "highlights": [
+    "Explore Tojinbo Basalt Sea Cliffs",
+    "Local Culture & Scenery"
+  ],
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Tojinbo Basalt Sea Cliffs Dining Options"],
+  "cafes": ["Tojinbo Basalt Sea Cliffs Rest Area Cafe"],
+  "notes": "Tojinbo Basalt Sea Cliffs located in Fukui Prefecture.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Japan_Tojinbo02n4592.jpg/1920px-Japan_Tojinbo02n4592.jpg",
+  "walkingIntensity": "low",
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200
+}

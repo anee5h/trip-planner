@@ -1,0 +1,89 @@
+{
+  "id": "tsuruga-castle-fukushima",
+  "name": "Tsuruga Castle",
+  "nameJa": "鶴ヶ城",
+  "prefecture": "Fukushima",
+  "region": "Tohoku",
+  "category": "Culture & Castles",
+  "categories": ["Culture & Castles"],
+  "description": "The beloved castle of Aizu domain, famous for its distinctive red-tiled roof — the only such castle in Japan. Heroically defended for a month during the 1868 Boshin War, it stands as a symbol of Aizu samurai spirit and loyalty.",
+  "highlights": [
+    "Unique red-tile roofed castle",
+    "Boshin War history museum",
+    "1,000 cherry trees in spring",
+    "Panoramic views of Aizu Basin"
+  ],
+  "coordinates": {
+    "lat": 37.4928,
+    "lng": 139.9306
+  },
+  "nearestStation": "Aizu-Wakamatsu Station (then bus)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Aizuwakamatsu_Castle_ac_%281%29.jpg/1920px-Aizuwakamatsu_Castle_ac_%281%29.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Aizuwakamatsu_Castle_ac_%281%29.jpg/1920px-Aizuwakamatsu_Castle_ac_%281%29.jpg",
+  "tags": ["castle", "aizu", "fukushima", "samurai", "history", "tohoku"],
+  "rating": 4.6,
+  "bestSeasons": ["Spring", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 150,
+    "confidence": "high"
+  },
+  "collections": [],
+  "budgetMin": 410,
+  "budgetRecommended": 3205,
+  "budgetMax": 6000,
+  "transportOptions": {
+    "shinkansen": 80,
+    "train": 30
+  },
+  "ratings": {
+    "overall": 8.9,
+    "couple": 8.8,
+    "summer": 8.5,
+    "winter": 8,
+    "rain": 8.5,
+    "food": 8.5,
+    "photography": 9.1,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 8.8
+  },
+  "totalTripHours": 3,
+  "walkingMin": 3000,
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200,
+  "indoorPercent": 40,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 10,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [4, 5, 9, 10, 11],
+  "bestSeason": "Spring",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 2
+  },
+  "walkingIntensity": "low",
+  "reservation": "None required",
+  "parking": "Castle grounds parking available",
+  "restaurants": ["Aizu-Wakamatsu Kiriya Restaurant", "Castle Town Dining"],
+  "cafes": ["Tsuruga Castle Park Café"],
+  "notes": "Admission ¥410 to castle keep museum. The red tiles were restored in 1965 reconstruction based on original records. Castle park has 1,000 cherry and 400 plum trees. Nearby Higashiyama Onsen and Ouchi-juku make a good day combo.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": [
+      "ouchi-juku-fukushima",
+      "goshikinuma-ponds-fukushima"
+    ]
+  },
+  "budgetBreakdown": null
+}

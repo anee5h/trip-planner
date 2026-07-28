@@ -1,0 +1,84 @@
+{
+  "id": "ryugado-cave-kochi",
+  "name": "Ryugado Cave",
+  "nameJa": "龍河洞",
+  "prefecture": "Kochi",
+  "category": "Nature & Parks",
+  "description": "A 175-million-year-old limestone cavern in Shikoku containing ancient Yayoi earthenware encrusted in living stalagmites.",
+  "coordinates": {
+    "lat": 33.6033,
+    "lng": 133.7431
+  },
+  "nearestStation": "Tosa-Yamada Station",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Kami_Kochi_Ryugado_East_Entrance_1.jpg/1920px-Kami_Kochi_Ryugado_East_Entrance_1.jpg",
+  "tags": ["cave", "history", "kochi", "shikoku", "nature"],
+  "rating": 4.6,
+  "bestSeasons": ["Spring", "Summer", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 250,
+    "confidence": "high"
+  },
+  "collections": [
+    {
+      "collectionId": "caves-japan",
+      "sortOrder": 2
+    }
+  ],
+  "region": "Shikoku",
+  "categories": ["Nature & Parks"],
+  "budgetMin": 1500,
+  "budgetMax": 6000,
+  "budgetRecommended": 3750,
+  "transportOptions": {
+    "train": 180
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "highlights": ["Explore Ryugado Cave", "Local Culture & Scenery"],
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "indoorPercent": 30,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "reservation": "None required",
+  "parking": "Available on site",
+  "restaurants": ["Ryugado Cave Dining Options"],
+  "cafes": ["Ryugado Cave Rest Area Cafe"],
+  "notes": "Ryugado Cave located in Kochi Prefecture.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": []
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Kami_Kochi_Ryugado_East_Entrance_1.jpg/1920px-Kami_Kochi_Ryugado_East_Entrance_1.jpg",
+  "walkingIntensity": "low",
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200
+}

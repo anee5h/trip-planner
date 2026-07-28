@@ -59,39 +59,11 @@
   "description": "Discover Nagano & Snow Monkeys, a prominent destination in Shizuoka. With its rich mix of zenkoji, olympics, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
-    "transport": 3600,
-    "tickets": 1800,
-    "food": 2700,
-    "cafe": 900
+    "transport": 4000,
+    "tickets": 2000,
+    "food": 3000,
+    "cafe": 1000
   },
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of Nagano & Snow Monkeys in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at the main station and get oriented."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Visit the primary city attraction."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Grab a delicious regional lunch."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic sights."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a local café before heading back."
-        }
-      ]
-    }
-  ],
   "restaurants": [
     "Nagano Traditional Dining",
     "Local Shizuoka Specialty Restaurant",
@@ -116,7 +88,16 @@
   "role": "hub",
   "importance": "major",
   "relationships": {
-    "featuredDestinationIds": ["nagano-narai-juku"],
-    "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "inuyama-city"]
-  }
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": [
+      "nagano-narai-juku",
+      "matsumoto-city",
+      "karuizawa-town"
+    ]
+  },
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Available on site",
+  "walkingIntensity": "high"
 }

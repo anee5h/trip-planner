@@ -58,41 +58,13 @@
   ],
   "description": "teamLab Planets is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
   "budgetBreakdown": {
-    "transport": 1000,
-    "tickets": 7600,
-    "food": 4200,
-    "cafe": 1800
+    "transport": 1068,
+    "tickets": 8121,
+    "food": 4488,
+    "cafe": 1923
   },
   "reservation": "Required well in advance.",
   "parking": "Not recommended.",
-  "itineraries": [
-    {
-      "name": "Classic Day Trip",
-      "description": "The most efficient way to see the highlights of teamLab Planets in one day.",
-      "steps": [
-        {
-          "time": "10:00 AM",
-          "activity": "Arrive at the main station and get oriented."
-        },
-        {
-          "time": "11:00 AM",
-          "activity": "Visit the primary art attraction."
-        },
-        {
-          "time": "1:00 PM",
-          "activity": "Grab a delicious regional lunch."
-        },
-        {
-          "time": "2:30 PM",
-          "activity": "Continue exploring the scenic sights."
-        },
-        {
-          "time": "4:30 PM",
-          "activity": "Relax at a local café before heading back."
-        }
-      ]
-    }
-  ],
   "restaurants": ["Vegan Ramen UZU Tokyo"],
   "cafes": [
     "Café de teamLab Planets",
@@ -105,8 +77,16 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "art-islands-japan",
+      "sortOrder": 6
+    }
+  ],
   "relationships": {
-    "parentDestinationId": "chiyoda-city"
-  }
+    "parentDestinationId": "koto-city"
+  },
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "walkingIntensity": "low"
 }

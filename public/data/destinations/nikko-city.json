@@ -13,7 +13,7 @@
   "highlights": ["Explore Nikko City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
   "budgetMin": 3500,
-  "budgetRecommended": 12000,
+  "budgetRecommended": 14250,
   "budgetMax": 25000,
   "walkingMin": 4000,
   "walkingSunMin": 1500,
@@ -76,64 +76,11 @@
     ],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },
-  "itineraries": [
-    {
-      "name": "Plan A: World Heritage Sanctuaries",
-      "description": "A focused tour of the elaborately decorated shrines and temples.",
-      "steps": [
-        {
-          "time": "09:30",
-          "activity": "Arrive in Nikko. Photograph the iconic red Shinkyo Bridge."
-        },
-        {
-          "time": "10:30",
-          "activity": "Explore Toshogu Shrine, the incredibly ornate mausoleum of Tokugawa Ieyasu."
-        },
-        {
-          "time": "13:00",
-          "activity": "Lunch featuring local Nikko Yuba (tofu skin) delicacies."
-        },
-        {
-          "time": "14:30",
-          "activity": "Visit Rinno-ji Temple and the quiet Futarasan Shrine."
-        },
-        {
-          "time": "16:30",
-          "activity": "Stroll along the Kanmangafuchi Abyss to see the row of stone Jizo statues."
-        }
-      ]
-    },
-    {
-      "name": "Plan B: Okunikko Nature Escape",
-      "description": "Skip the shrines and head higher up the mountains for waterfalls and lakes.",
-      "steps": [
-        {
-          "time": "09:00",
-          "activity": "Take the bus up the winding Irohazaka Route to Okunikko."
-        },
-        {
-          "time": "10:30",
-          "activity": "Ride the elevator down to the base of Kegon Falls, one of Japan's top 3 waterfalls."
-        },
-        {
-          "time": "12:00",
-          "activity": "Lunch overlooking the beautiful Lake Chuzenji."
-        },
-        {
-          "time": "13:30",
-          "activity": "Hike the wooden boardwalks of the Senjogahara Marshland."
-        },
-        {
-          "time": "16:00",
-          "activity": "Soak your feet in the public footbaths at Yumoto Onsen before returning."
-        }
-      ]
-    }
-  ],
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 1500,
-    "food": 4875,
-    "cafe": 2625
-  }
+    "transport": 3563,
+    "tickets": 1781,
+    "food": 5789,
+    "cafe": 3117
+  },
+  "walkingIntensity": "low"
 }

@@ -74,10 +74,10 @@
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -156,10 +156,10 @@
     ],
     "description": "Rising 300 meters above Osaka, Abeno Harukas is Japan's tallest skyscraper, featuring a 3-story glass observatory and open-air wooden atrium garden.",
     "budgetBreakdown": {
-      "transport": 2500,
-      "tickets": 1800,
-      "food": 3200,
-      "cafe": 1000
+      "transport": 2574,
+      "tickets": 1853,
+      "food": 3294,
+      "cafe": 1029
     },
     "reservation": "No advance reservation required.",
     "parking": "Paid parking garage at Abeno Harukas building.",
@@ -350,10 +350,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -413,10 +413,10 @@
     "highlights": ["Hie Shrine", "Tokyo Midtown (nearby)", "TBS Studio area"],
     "description": "An upscale commercial and residential district with excellent dining, high-end hotels, and Hie Shrine.",
     "budgetBreakdown": {
-      "transport": 1000,
-      "tickets": 1600,
-      "food": 6000,
-      "cafe": 2000
+      "transport": 1094,
+      "tickets": 1751,
+      "food": 6566,
+      "cafe": 2189
     },
     "reservation": "Required for nice dinners.",
     "parking": "Expensive.",
@@ -492,10 +492,10 @@
     "highlights": ["Electric Town", "Maid Cafes", "Radio Kaikan"],
     "description": "Akihabara is a neighborhood in the Chiyoda ward of Tokyo, Japan, generally considered to be the area surrounding Akihabara Station. This area is part of the Sotokanda (外神田) and Kanda-Sakumachō districts of Chiyoda. There is an administrative district called Akihabara, located north of Akihabara Electric Town surrounding Akihabara Neribei Park.",
     "budgetBreakdown": {
-      "transport": 1000,
+      "transport": 1111,
       "tickets": 0,
-      "food": 6000,
-      "cafe": 2000
+      "food": 6667,
+      "cafe": 2222
     },
     "reservation": "Required for popular maid cafes.",
     "parking": "Extremely difficult and expensive.",
@@ -552,7 +552,7 @@
     },
     "collections": [],
     "budgetMin": 2000,
-    "budgetRecommended": 18000,
+    "budgetRecommended": 23500,
     "budgetMax": 45000,
     "transportOptions": {
       "train": 80,
@@ -978,10 +978,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -1236,10 +1236,10 @@
     ],
     "description": "Designed by Pritzker Prize laureate Arata Isozaki to commemorate Mito's 100th municipal anniversary, this 100-meter helix tower is composed of 57 titanium tetrahedrons spiraling skyward.",
     "budgetBreakdown": {
-      "transport": 1500,
-      "tickets": 200,
-      "food": 2300,
-      "cafe": 1000
+      "transport": 1725,
+      "tickets": 230,
+      "food": 2645,
+      "cafe": 1150
     },
     "reservation": "No reservation required for tower lookout.",
     "parking": "Underground paid parking lot below Art Tower Mito plaza.",
@@ -1341,10 +1341,10 @@
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -1408,10 +1408,10 @@
     ],
     "description": "Asakusa is a district in Taitō, Tokyo, Japan. It is known for Sensō-ji, a Buddhist temple dedicated to the bodhisattva Kannon. There are several other temples in Asakusa, as well as various festivals, such as Sanja Matsuri.",
     "budgetBreakdown": {
-      "transport": 1000,
-      "tickets": 1600,
-      "food": 4900,
-      "cafe": 2000
+      "transport": 1105,
+      "tickets": 1768,
+      "food": 5416,
+      "cafe": 2211
     },
     "reservation": "Not required.",
     "parking": "Difficult.",
@@ -1498,10 +1498,10 @@
     "description": "Discover Ashigara, a prominent destination in Kanagawa. With its rich mix of hiking, quiet, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 1600,
-      "tickets": 800,
-      "food": 1200,
-      "cafe": 400
+      "transport": 2200,
+      "tickets": 1100,
+      "food": 1650,
+      "cafe": 550
     },
     "restaurants": [
       "Ashigara Traditional Dining",
@@ -1696,10 +1696,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -1881,10 +1881,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -1965,10 +1965,10 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Atsuta_Shrine.jpg/3840px-Atsuta_Shrine.jpg",
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 2000,
-      "food": 1300,
-      "cafe": 700
+      "transport": 1714,
+      "tickets": 1143,
+      "food": 743,
+      "cafe": 400
     },
     "highlights": ["Explore Atsuta Shrine (Nagoya)", "Local Culture & Scenery"],
     "bestSeason": "Spring & Autumn",
@@ -2063,10 +2063,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -2232,10 +2232,10 @@
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -2404,10 +2404,10 @@
     "highlights": ["Coastal Drive", "Seafood", "Nokogiriyama"],
     "description": "Boso Peninsula is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
     "budgetBreakdown": {
-      "transport": 7000,
+      "transport": 7467,
       "tickets": 0,
-      "food": 6000,
-      "cafe": 2000
+      "food": 6400,
+      "cafe": 2133
     },
     "reservation": "Not required",
     "parking": "Plenty of parking",
@@ -2519,10 +2519,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -2586,10 +2586,10 @@
     "description": "Discover Chiba City, a prominent destination in Kanagawa. With its rich mix of urban, shopping, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 2800,
-      "tickets": 1400,
-      "food": 2100,
-      "cafe": 700
+      "transport": 3200,
+      "tickets": 1600,
+      "food": 2400,
+      "cafe": 800
     },
     "restaurants": [
       "Chiba City Traditional Dining",
@@ -2656,10 +2656,10 @@
     "budgetMax": 9500,
     "budgetRecommended": 6250,
     "budgetBreakdown": {
-      "transport": 2800,
-      "tickets": 1700,
-      "food": 1300,
-      "cafe": 700
+      "transport": 2692,
+      "tickets": 1635,
+      "food": 1250,
+      "cafe": 673
     },
     "transportOptions": {
       "train": 110,
@@ -2796,10 +2796,10 @@
     ],
     "description": "Clad in over 5,500 heat-reflecting glass mirrors, this 125-meter waterfront tower stands in Chiba Port Park, offering panoramic sunset views across Tokyo Bay to Mt. Fuji.",
     "budgetBreakdown": {
-      "transport": 800,
-      "tickets": 420,
-      "food": 2800,
-      "cafe": 980
+      "transport": 880,
+      "tickets": 462,
+      "food": 3080,
+      "cafe": 1078
     },
     "reservation": "No reservation required.",
     "parking": "Free parking lot at Chiba Port Park (over 200 spaces).",
@@ -3072,10 +3072,10 @@
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -3159,10 +3159,10 @@
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -3248,10 +3248,10 @@
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -3334,7 +3334,7 @@
       "transport": 3000,
       "tickets": 2000,
       "food": 2763,
-      "cafe": 1488
+      "cafe": 1487
     },
     "comfort": {
       "heatTolerance": 7,
@@ -3506,10 +3506,10 @@
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -3552,7 +3552,7 @@
     },
     "collections": [],
     "budgetMin": 500,
-    "budgetRecommended": 2000,
+    "budgetRecommended": 2750,
     "budgetMax": 5000,
     "transportOptions": {
       "shinkansen": 170,
@@ -3689,10 +3689,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -3839,10 +3839,10 @@
     "highlights": ["Cinderella Castle", "Space Mountain", "Electrical Parade"],
     "description": "Tokyo Disneyland is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 18800,
-      "food": 6000,
-      "cafe": 2000
+      "transport": 3101,
+      "tickets": 19431,
+      "food": 6201,
+      "cafe": 2067
     },
     "reservation": "Required well in advance.",
     "parking": "Massive parking lots available.",
@@ -3932,10 +3932,10 @@
     "highlights": ["DisneySea Transit Steamer", "Soaring"],
     "description": "DisneySea is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 18800,
-      "food": 6000,
-      "cafe": 2000
+      "transport": 3101,
+      "tickets": 19431,
+      "food": 6201,
+      "cafe": 2067
     },
     "reservation": "Required",
     "parking": "Expensive",
@@ -4121,10 +4121,10 @@
     ],
     "description": "The historic seat of the Tokugawa Shogunate and current Imperial Palace, featuring massive cyclopean stone ramparts, historic watchtowers, and the Imperial Palace East Gardens.",
     "budgetBreakdown": {
-      "transport": 400,
+      "transport": 489,
       "tickets": 0,
-      "food": 3100,
-      "cafe": 1000
+      "food": 3789,
+      "cafe": 1222
     },
     "reservation": "Free admission to East Gardens; Imperial Palace Inner Grounds require advance household registration.",
     "parking": "Paid parking structures near Tokyo Station and Marunouchi.",
@@ -4233,10 +4233,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -4296,10 +4296,10 @@
     "highlights": ["Enoshima Shrine", "Iwaya Caves", "Enoshima Sea Candle"],
     "description": "A delightfully pleasant island just off the coast, full of shrines, coastal cliffs, and sweeping views of Mt. Fuji.",
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 3000,
-      "food": 3500,
-      "cafe": 1500
+      "transport": 3273,
+      "tickets": 3273,
+      "food": 3818,
+      "cafe": 1636
     },
     "reservation": "Not required.",
     "parking": "Gets full quickly in summer.",
@@ -4384,10 +4384,10 @@
     "description": "Discover Fuji Five Lakes, a prominent destination in Shizuoka. With its rich mix of fuji views, fuji-q, cycling, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 4400,
-      "tickets": 2200,
-      "food": 3300,
-      "cafe": 1100
+      "transport": 4800,
+      "tickets": 2400,
+      "food": 3600,
+      "cafe": 1200
     },
     "restaurants": [
       "Fuji Five Lakes Traditional Dining",
@@ -4504,10 +4504,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -4590,10 +4590,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -4672,10 +4672,10 @@
       "nearbyDestinationIds": ["kamakura-city", "hakone-town", "yokohama-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -4740,10 +4740,10 @@
     "description": "Discover Fukui, a prominent destination in Shizuoka. With its rich mix of dinosaurs, cliffs, crab, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 4000,
-      "tickets": 2000,
-      "food": 3000,
-      "cafe": 1000
+      "transport": 4400,
+      "tickets": 2200,
+      "food": 3300,
+      "cafe": 1100
     },
     "restaurants": [
       "Fukui Traditional Dining",
@@ -4851,10 +4851,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -4938,10 +4938,10 @@
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -5025,10 +5025,10 @@
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -5092,10 +5092,10 @@
     "description": "Discover Gala Yuzawa, a prominent destination in Shizuoka. With its rich mix of skiing, snow, shinkansen access, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 8000,
-      "tickets": 13000,
-      "food": 6000,
-      "cafe": 2000
+      "transport": 8276,
+      "tickets": 13448,
+      "food": 6207,
+      "cafe": 2069
     },
     "restaurants": [
       "Gala Yuzawa Traditional Dining",
@@ -5153,7 +5153,7 @@
     },
     "collections": [],
     "budgetMin": 1800,
-    "budgetRecommended": 4000,
+    "budgetRecommended": 4900,
     "budgetMax": 8000,
     "transportOptions": {
       "train": 120,
@@ -5292,10 +5292,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -5453,10 +5453,10 @@
     ],
     "description": "Ghibli Museum is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
     "budgetBreakdown": {
-      "transport": 1000,
-      "tickets": 2000,
-      "food": 4900,
-      "cafe": 2000
+      "transport": 1101,
+      "tickets": 2202,
+      "food": 5395,
+      "cafe": 2202
     },
     "reservation": "Tickets sell out within hours. Book on the 10th of the previous month.",
     "parking": "Not recommended, take the train to Mitaka.",
@@ -5553,10 +5553,10 @@
     ],
     "description": "Perched 329 meters atop Mt. Kinka, Gifu Castle was Oda Nobunaga's formidable mountain stronghold, offering panoramic views over the Nagara River and Nobi Plain.",
     "budgetBreakdown": {
-      "transport": 1200,
-      "tickets": 1100,
-      "food": 2700,
-      "cafe": 1000
+      "transport": 1300,
+      "tickets": 1192,
+      "food": 2925,
+      "cafe": 1083
     },
     "reservation": "No reservation required.",
     "parking": "Paid parking lot at Gifu Park ropeway station base.",
@@ -5667,10 +5667,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -5786,10 +5786,10 @@
     "budgetMax": 11500,
     "budgetRecommended": 7750,
     "budgetBreakdown": {
-      "transport": 3800,
-      "tickets": 800,
-      "food": 2200,
-      "cafe": 1000
+      "transport": 3776,
+      "tickets": 795,
+      "food": 2186,
+      "cafe": 993
     },
     "transportOptions": {
       "train": 150,
@@ -5924,10 +5924,10 @@
     ],
     "description": "Ginza is a district of Chūō, Tokyo, located south of Yaesu and Kyōbashi, west of Tsukiji, east of Yūrakuchō and Uchisaiwaichō, and north of Shinbashi. It is a popular upscale shopping area of Tokyo, with numerous internationally renowned department stores, boutiques, restaurants and coffeehouses located in the vicinity.",
     "budgetBreakdown": {
-      "transport": 1000,
-      "tickets": 2000,
-      "food": 6000,
-      "cafe": 2000
+      "transport": 1091,
+      "tickets": 2182,
+      "food": 6545,
+      "cafe": 2182
     },
     "reservation": "Recommended for high-end dining.",
     "parking": "Expensive.",
@@ -6076,7 +6076,7 @@
     },
     "collections": [],
     "budgetMin": 0,
-    "budgetRecommended": 2000,
+    "budgetRecommended": 2500,
     "budgetMax": 5000,
     "transportOptions": {
       "shinkansen": 90,
@@ -6218,10 +6218,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -6435,10 +6435,10 @@
     "budgetMax": 16000,
     "budgetRecommended": 10500,
     "budgetBreakdown": {
-      "transport": 4500,
-      "tickets": 1500,
-      "food": 3500,
-      "cafe": 1500
+      "transport": 4295,
+      "tickets": 1432,
+      "food": 3341,
+      "cafe": 1432
     },
     "transportOptions": {
       "train": 150,
@@ -6531,10 +6531,10 @@
     "budgetMax": 14000,
     "budgetRecommended": 9250,
     "budgetBreakdown": {
-      "transport": 3800,
-      "tickets": 800,
-      "food": 3000,
-      "cafe": 1400
+      "transport": 3906,
+      "tickets": 822,
+      "food": 3083,
+      "cafe": 1439
     },
     "transportOptions": {
       "train": 140,
@@ -6831,10 +6831,10 @@
     "description": "Discover Hakkeijima Sea Paradise, a prominent destination in Kanagawa. With its rich mix of family, entertainment, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 4800,
-      "tickets": 11200,
-      "food": 3600,
-      "cafe": 1200
+      "transport": 5031,
+      "tickets": 11738,
+      "food": 3773,
+      "cafe": 1258
     },
     "restaurants": [
       "Hakkeijima Sea Paradise Traditional Dining",
@@ -6939,10 +6939,10 @@
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "asahikawa-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -7027,10 +7027,10 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg/3840px-Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg",
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 2000,
-      "food": 1300,
-      "cafe": 700
+      "transport": 2786,
+      "tickets": 1857,
+      "food": 1207,
+      "cafe": 650
     },
     "highlights": [
       "Explore Mount Hakodate Night View",
@@ -7147,10 +7147,10 @@
       "relatedDestinationIds": ["kusatsu-town", "yufu-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 8775,
-      "cafe": 4725
+      "transport": 4250,
+      "tickets": 2125,
+      "food": 12431,
+      "cafe": 6694
     },
     "walkingIntensity": "low"
   },
@@ -7238,10 +7238,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -7335,10 +7335,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -7398,10 +7398,10 @@
     "highlights": ["Great Hall", "Diagon Alley"],
     "description": "Harry Potter Studio is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
     "budgetBreakdown": {
-      "transport": 1000,
-      "tickets": 13000,
-      "food": 4900,
-      "cafe": 2000
+      "transport": 1048,
+      "tickets": 13622,
+      "food": 5134,
+      "cafe": 2096
     },
     "reservation": "Required well in advance",
     "parking": "Available but train recommended",
@@ -7508,10 +7508,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -7584,10 +7584,10 @@
     ],
     "description": "Perched atop an 80m hill inside Higashiyama Zoo & Botanical Gardens, this 134-meter pencil tower reaches a total elevation of 214 meters, offering panoramic views of Central Japan Alps.",
     "budgetBreakdown": {
-      "transport": 1000,
-      "tickets": 300,
-      "food": 2700,
-      "cafe": 1000
+      "transport": 1100,
+      "tickets": 330,
+      "food": 2970,
+      "cafe": 1100
     },
     "reservation": "No reservation required.",
     "parking": "Large paid parking lots serving Higashiyama Zoo & Sky Tower.",
@@ -7682,10 +7682,10 @@
     ],
     "description": "Completed in 1622, Hikone Castle is one of Japan's five original surviving National Treasure keeps, overlooking Lake Biwa with pristine feudal turrets and Genkyuen garden.",
     "budgetBreakdown": {
-      "transport": 1800,
-      "tickets": 800,
-      "food": 3400,
-      "cafe": 1000
+      "transport": 1993,
+      "tickets": 886,
+      "food": 3764,
+      "cafe": 1107
     },
     "reservation": "No advance reservation required.",
     "parking": "Paid parking lot at Hikone Castle Otemae.",
@@ -7796,10 +7796,10 @@
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -7997,10 +7997,10 @@
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -8295,10 +8295,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -8855,10 +8855,10 @@
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -8922,10 +8922,10 @@
     ],
     "description": "Ikebukuro (Toshima) is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
     "budgetBreakdown": {
-      "transport": 1000,
-      "tickets": 8000,
-      "food": 2100,
-      "cafe": 900
+      "transport": 1083,
+      "tickets": 8667,
+      "food": 2275,
+      "cafe": 975
     },
     "reservation": "Not required.",
     "parking": "Sunshine City has parking.",
@@ -9011,10 +9011,10 @@
     ],
     "description": "Imperial Palace (Chiyoda) is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
     "budgetBreakdown": {
-      "transport": 1000,
-      "tickets": 1600,
-      "food": 700,
-      "cafe": 300
+      "transport": 1472,
+      "tickets": 2356,
+      "food": 1031,
+      "cafe": 441
     },
     "reservation": "Required for inner grounds tour.",
     "parking": "Very limited.",
@@ -9212,10 +9212,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -9409,10 +9409,10 @@
       "nearbyDestinationIds": ["naha-city", "nago-city", "motobu-town"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -9496,10 +9496,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -9582,10 +9582,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -9834,10 +9834,10 @@
     "description": "Discover Izu Peninsula, a prominent destination in Shizuoka. With its rich mix of beaches, onsen, scuba, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 4800,
-      "tickets": 2400,
-      "food": 3600,
-      "cafe": 1200
+      "transport": 5200,
+      "tickets": 2600,
+      "food": 3900,
+      "cafe": 1300
     },
     "restaurants": [
       "Izu Peninsula Traditional Dining",
@@ -9949,10 +9949,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -10036,10 +10036,10 @@
     "relationships": {},
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Izumo-taisha14bs4592.jpg/3840px-Izumo-taisha14bs4592.jpg",
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 2000,
-      "food": 1300,
-      "cafe": 700
+      "transport": 2786,
+      "tickets": 1857,
+      "food": 1207,
+      "cafe": 650
     },
     "highlights": [
       "Explore Izumo Taisha Grand Shrine",
@@ -10089,7 +10089,7 @@
     },
     "collections": [],
     "budgetMin": 500,
-    "budgetRecommended": 3000,
+    "budgetRecommended": 3750,
     "budgetMax": 7000,
     "transportOptions": {
       "train": 160,
@@ -10205,10 +10205,10 @@
     "description": "Discover Miura Peninsula & Jogashima, a prominent destination in Kanagawa. With its rich mix of ocean, scenic, hiking, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 2000,
-      "tickets": 1000,
-      "food": 1500,
-      "cafe": 500
+      "transport": 2400,
+      "tickets": 1200,
+      "food": 1800,
+      "cafe": 600
     },
     "restaurants": [
       "Miura Peninsula Traditional Dining",
@@ -10291,10 +10291,10 @@
     "highlights": ["Halfpipe Tokyo", "VR Attractions"],
     "description": "Joypolis Odaiba is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
     "budgetBreakdown": {
-      "transport": 1000,
-      "tickets": 10000,
-      "food": 6000,
-      "cafe": 2000
+      "transport": 1053,
+      "tickets": 10526,
+      "food": 6316,
+      "cafe": 2105
     },
     "reservation": "None required",
     "parking": "Yes",
@@ -10401,10 +10401,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -10487,10 +10487,10 @@
     "relationships": {},
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/3840px-Kairaku-en%2C_Ibaraki_24.jpg",
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 2000,
-      "food": 1300,
-      "cafe": 700
+      "transport": 2143,
+      "tickets": 1429,
+      "food": 929,
+      "cafe": 499
     },
     "highlights": ["Explore Kairakuen Garden", "Local Culture & Scenery"],
     "bestSeason": "Spring & Autumn",
@@ -10575,10 +10575,10 @@
     ],
     "description": "Rebuilt in 1994 using traditional Japanese carpentry techniques, Kakegawa Castle is Japan's first authentically reconstructed wooden keep, featuring the original 1855 Ninomaru Goten palace.",
     "budgetBreakdown": {
-      "transport": 1200,
-      "tickets": 410,
-      "food": 2800,
-      "cafe": 1090
+      "transport": 1364,
+      "tickets": 466,
+      "food": 3182,
+      "cafe": 1238
     },
     "reservation": "No reservation required.",
     "parking": "Paid parking lot near Kakegawa Castle park.",
@@ -10778,10 +10778,10 @@
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -10846,10 +10846,10 @@
     "description": "Kanazawa is the capital of Ishikawa Prefecture in central Japan. As of 1 January 2018, the city had an estimated population of 466,029 in 203,271 households, and a population density of 990 persons per km2. The total area of the city was 468.64 square kilometres (180.94 sq mi).",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 4800,
-      "tickets": 2400,
-      "food": 3600,
-      "cafe": 1200
+      "transport": 5200,
+      "tickets": 2600,
+      "food": 3900,
+      "cafe": 1300
     },
     "restaurants": [
       "Kanazawa Traditional Dining",
@@ -10960,10 +10960,10 @@
     ],
     "description": "The magnificent seat of the powerful Maeda clan (Kaga Domain), featuring meticulously reconstructed wooden turrets, white lead tile roofs, and Gyokusen'inmaru feudal garden adjacent to Kenrokuen.",
     "budgetBreakdown": {
-      "transport": 1800,
-      "tickets": 320,
-      "food": 3200,
-      "cafe": 1180
+      "transport": 1938,
+      "tickets": 345,
+      "food": 3446,
+      "cafe": 1271
     },
     "reservation": "No reservation required.",
     "parking": "Paid parking lot at Kenrokuen / Kanazawa Castle Park entrance.",
@@ -11074,10 +11074,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -11161,10 +11161,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -11231,10 +11231,10 @@
     ],
     "description": "Built in 1848, this rare structure is the only surviving original samurai lord's Honmaru Goten palace in eastern Japan, featuring tatami council chambers and garden verandas.",
     "budgetBreakdown": {
-      "transport": 700,
-      "tickets": 100,
-      "food": 3200,
-      "cafe": 1000
+      "transport": 770,
+      "tickets": 110,
+      "food": 3520,
+      "cafe": 1100
     },
     "reservation": "No reservation required.",
     "parking": "Free parking lot opposite Kawagoe City Museum.",
@@ -11346,10 +11346,10 @@
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -11433,10 +11433,10 @@
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -11525,10 +11525,10 @@
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -11617,10 +11617,10 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Lake_chuzenji_and_kegon_waterfall.jpg",
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 2000,
-      "food": 1300,
-      "cafe": 700
+      "transport": 1714,
+      "tickets": 1143,
+      "food": 743,
+      "cafe": 400
     },
     "highlights": ["Explore Kegon Falls (Nikko)", "Local Culture & Scenery"],
     "bestSeason": "Spring & Autumn",
@@ -11880,10 +11880,10 @@
     "description": "Discover Kinugawa Onsen, a prominent destination in Kanagawa. With its rich mix of onsen, edo wonderland, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 5200,
-      "tickets": 6000,
-      "food": 3900,
-      "cafe": 1300
+      "transport": 5517,
+      "tickets": 6366,
+      "food": 4138,
+      "cafe": 1379
     },
     "restaurants": [
       "Kinugawa Onsen Traditional Dining",
@@ -12002,10 +12002,10 @@
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -12070,10 +12070,10 @@
     "description": "Discover Kiso Valley, a prominent destination in Shizuoka. With its rich mix of nakasendo, post towns, tsumago, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 4000,
-      "tickets": 2000,
-      "food": 3000,
-      "cafe": 1000
+      "transport": 4400,
+      "tickets": 2200,
+      "food": 3300,
+      "cafe": 1100
     },
     "restaurants": [
       "Kiso Valley Traditional Dining",
@@ -12186,10 +12186,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -12273,10 +12273,10 @@
       "nearbyDestinationIds": ["fukuoka-city", "dazaifu-city", "nagasaki-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -12452,10 +12452,10 @@
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -12540,10 +12540,10 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg/3840px-View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg",
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 2000,
-      "food": 1300,
-      "cafe": 700
+      "transport": 2571,
+      "tickets": 1714,
+      "food": 1114,
+      "cafe": 601
     },
     "highlights": [
       "Explore Mount Maya Kikuseidai (Kobe)",
@@ -12740,10 +12740,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -12830,10 +12830,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -13015,10 +13015,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -13193,10 +13193,10 @@
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -13378,10 +13378,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -13566,10 +13566,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -13634,10 +13634,10 @@
     "description": "Discover Kurobe Gorge, a prominent destination in Shizuoka. With its rich mix of scenic railway, ravine, onsen, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 6000,
-      "tickets": 8000,
-      "food": 4500,
-      "cafe": 1500
+      "transport": 6300,
+      "tickets": 8400,
+      "food": 4725,
+      "cafe": 1575
     },
     "restaurants": [
       "Kurobe Gorge Traditional Dining",
@@ -13755,10 +13755,10 @@
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -13837,10 +13837,10 @@
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -13937,10 +13937,10 @@
       "relatedDestinationIds": ["nara-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 6825,
-      "cafe": 3675
+      "transport": 4000,
+      "tickets": 2000,
+      "food": 9100,
+      "cafe": 4900
     },
     "walkingIntensity": "medium"
   },
@@ -14116,10 +14116,10 @@
     "description": "Discover Lake Hamanako, a prominent destination in Shizuoka. With its rich mix of eel, cycling, onsen, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 4000,
-      "tickets": 2000,
-      "food": 3000,
-      "cafe": 1000
+      "transport": 4400,
+      "tickets": 2200,
+      "food": 3300,
+      "cafe": 1100
     },
     "restaurants": [
       "Lake Hamanako Traditional Dining",
@@ -14206,10 +14206,10 @@
     "description": "Discover Lake Sagami, a prominent destination in Kanagawa. With its rich mix of illumination, outdoors, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 3600,
-      "tickets": 1800,
-      "food": 2700,
-      "cafe": 900
+      "transport": 4000,
+      "tickets": 2000,
+      "food": 3000,
+      "cafe": 1000
     },
     "restaurants": [
       "Lake Sagami Traditional Dining",
@@ -14273,7 +14273,7 @@
     },
     "collections": [],
     "budgetMin": 500,
-    "budgetRecommended": 3000,
+    "budgetRecommended": 4250,
     "budgetMax": 8000,
     "transportOptions": {
       "shinkansen": 170,
@@ -14362,7 +14362,7 @@
     },
     "collections": [],
     "budgetMin": 1000,
-    "budgetRecommended": 4000,
+    "budgetRecommended": 5500,
     "budgetMax": 10000,
     "transportOptions": {
       "bus": 180,
@@ -14669,10 +14669,10 @@
     ],
     "description": "Built in 1576, Maruoka Castle is one of Japan's 12 original surviving castle keeps and features the oldest architectural keep style in Japan, complete with rare stone roof tiles.",
     "budgetBreakdown": {
-      "transport": 1800,
-      "tickets": 450,
-      "food": 2400,
-      "cafe": 850
+      "transport": 2045,
+      "tickets": 511,
+      "food": 2727,
+      "cafe": 967
     },
     "reservation": "No reservation required.",
     "parking": "Free parking lot at Maruoka Castle Kasumi Park.",
@@ -14783,10 +14783,10 @@
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -14974,10 +14974,10 @@
       "nearbyDestinationIds": ["izumo-taisha"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -15148,10 +15148,10 @@
       "nearbyDestinationIds": ["karuizawa-town", "nagano-city", "kiso"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -15428,10 +15428,10 @@
       "nearbyDestinationIds": ["takamatsu-city", "kochi-city", "tokushima-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -15515,10 +15515,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -15602,10 +15602,10 @@
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -15687,10 +15687,10 @@
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -15763,10 +15763,10 @@
     ],
     "description": "Completed in 1954 as Japan's first TV broadcasting tower, this 180-meter Registered Tangible Cultural Property in Nagoya's Hisaya-odori Park features outdoor observation decks and projection mapping art.",
     "budgetBreakdown": {
-      "transport": 1200,
-      "tickets": 1300,
-      "food": 2700,
-      "cafe": 800
+      "transport": 1400,
+      "tickets": 1517,
+      "food": 3150,
+      "cafe": 933
     },
     "reservation": "No reservation required for observation decks.",
     "parking": "Underground paid parking structure at Hisaya-odori Park.",
@@ -15857,10 +15857,10 @@
     ],
     "description": "The seat of the Mito Tokugawa family, featuring the restored wooden Otemon Gate, dry moat earthworks, and the 1841 Kodokan—Japan's largest Mito clan samurai school.",
     "budgetBreakdown": {
-      "transport": 1500,
-      "tickets": 400,
-      "food": 2600,
-      "cafe": 1000
+      "transport": 1705,
+      "tickets": 455,
+      "food": 2955,
+      "cafe": 1135
     },
     "reservation": "No reservation required.",
     "parking": "Paid parking lot at Kodokan and Mito Station.",
@@ -15966,10 +15966,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -16173,10 +16173,10 @@
       "nearbyDestinationIds": ["naha-city", "nago-city", "motobu-town"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -16259,10 +16259,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -16341,10 +16341,10 @@
       "nearbyDestinationIds": ["kyoto-city", "osaka-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -16501,10 +16501,10 @@
       "nearbyDestinationIds": ["naha-city", "nago-city", "ishigaki-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -16710,7 +16710,7 @@
     },
     "collections": [],
     "budgetMin": 0,
-    "budgetRecommended": 3000,
+    "budgetRecommended": 4000,
     "budgetMax": 8000,
     "transportOptions": {
       "shinkansen": 90,
@@ -16829,10 +16829,10 @@
     "description": "Mount Fuji is an active stratovolcano located on the Japanese island of Honshu, with a summit elevation of 3,776.24 m. It is the highest mountain in Japan, the second-highest volcano on any Asian island, and the seventh-highest peak of an island on Earth. Mount Fuji last erupted from 1707 to 1708.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 2000,
-      "tickets": 1000,
-      "food": 1500,
-      "cafe": 500
+      "transport": 2400,
+      "tickets": 1200,
+      "food": 1800,
+      "cafe": 600
     },
     "restaurants": [
       "Mount Fuji Traditional Dining",
@@ -16953,10 +16953,10 @@
     "relationships": {},
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/1280px-Mt.Inasa_2010.jpg",
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 2000,
-      "food": 1300,
-      "cafe": 700
+      "transport": 2786,
+      "tickets": 1857,
+      "food": 1207,
+      "cafe": 650
     },
     "highlights": [
       "Explore Mount Inasa (Nagasaki Night View)",
@@ -17114,7 +17114,7 @@
     },
     "collections": [],
     "budgetMin": 1700,
-    "budgetRecommended": 6000,
+    "budgetRecommended": 8350,
     "budgetMax": 15000,
     "transportOptions": {
       "shinkansen": 80,
@@ -17354,10 +17354,10 @@
     "relationships": {},
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Kumano_Kodo_World_heritage_Nachi-no-taki_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E9%82%A3%E6%99%BA%E5%A4%A7%E6%BB%9D10.JPG/1280px-Kumano_Kodo_World_heritage_Nachi-no-taki_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E9%82%A3%E6%99%BA%E5%A4%A7%E6%BB%9D10.JPG",
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 2000,
-      "food": 1300,
-      "cafe": 700
+      "transport": 2786,
+      "tickets": 1857,
+      "food": 1207,
+      "cafe": 650
     },
     "highlights": ["Explore Nachi Falls & Pagoda", "Local Culture & Scenery"],
     "bestSeason": "Spring & Autumn",
@@ -17391,10 +17391,10 @@
     "budgetMax": 12500,
     "budgetRecommended": 8250,
     "budgetBreakdown": {
-      "transport": 3500,
-      "tickets": 700,
-      "food": 2500,
-      "cafe": 1500
+      "transport": 3521,
+      "tickets": 704,
+      "food": 2515,
+      "cafe": 1510
     },
     "transportOptions": {
       "train": 130,
@@ -17517,10 +17517,10 @@
     "description": "Discover Nagano & Snow Monkeys, a prominent destination in Shizuoka. With its rich mix of zenkoji, olympics, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 3600,
-      "tickets": 1800,
-      "food": 2700,
-      "cafe": 900
+      "transport": 4000,
+      "tickets": 2000,
+      "food": 3000,
+      "cafe": 1000
     },
     "restaurants": [
       "Nagano Traditional Dining",
@@ -17854,10 +17854,10 @@
     "budgetMax": 11500,
     "budgetRecommended": 7750,
     "budgetBreakdown": {
-      "transport": 3800,
-      "tickets": 1000,
-      "food": 2000,
-      "cafe": 1000
+      "transport": 3776,
+      "tickets": 994,
+      "food": 1987,
+      "cafe": 993
     },
     "transportOptions": {
       "train": 150,
@@ -18010,10 +18010,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -18092,10 +18092,10 @@
       "nearbyDestinationIds": ["naha-city", "motobu-town", "ishigaki-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -18277,10 +18277,10 @@
       "relatedDestinationIds": ["kyoto-city", "osaka-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3625,
+      "tickets": 1813,
+      "food": 5891,
+      "cafe": 3171
     },
     "walkingIntensity": "low"
   },
@@ -18353,10 +18353,10 @@
     ],
     "description": "Designed in the shape of a white ocean sailboat, this 63-meter maritime tower offers 360-degree views over Nagoya Port, Meiko Triton bridges, and cargo container docks.",
     "budgetBreakdown": {
-      "transport": 1100,
-      "tickets": 300,
-      "food": 2600,
-      "cafe": 1000
+      "transport": 1210,
+      "tickets": 330,
+      "food": 2860,
+      "cafe": 1100
     },
     "reservation": "No reservation required.",
     "parking": "Paid parking lot at Nagoya Port Garden plaza.",
@@ -18455,10 +18455,10 @@
       "nearbyDestinationIds": ["nago-city", "motobu-town", "ishigaki-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -18542,10 +18542,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -18715,10 +18715,10 @@
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -18785,8 +18785,8 @@
     "cafes": ["UNESCO Visitor Cafe"],
     "notes": "Official UNESCO World Heritage Site.",
     "coordinates": {
-      "lat": 34.6889,
-      "lng": 135.8398
+      "lat": 34.6839,
+      "lng": 135.8334
     },
     "schemaVersion": 2,
     "image": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=1280&auto=format&fit=crop",
@@ -18907,10 +18907,10 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/%E6%9D%B1%E5%A4%A7%E5%AF%BA_%E5%A4%A7%E4%BB%8F%E6%AE%BF%EF%BC%882024%E5%B9%B4%EF%BC%89.jpg/1280px-%E6%9D%B1%E5%A4%A7%E5%AF%BA_%E5%A4%A7%E4%BB%8F%E6%AE%BF%EF%BC%882024%E5%B9%B4%EF%BC%89.jpg",
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 2000,
-      "food": 1300,
-      "cafe": 700
+      "transport": 2143,
+      "tickets": 1429,
+      "food": 929,
+      "cafe": 499
     },
     "highlights": [
       "Explore Historic Nara (Todai-ji Great Buddha)",
@@ -19004,10 +19004,10 @@
       "nearbyDestinationIds": ["chiba-city", "urayasu-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -19091,10 +19091,10 @@
       "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -19227,7 +19227,7 @@
     },
     "collections": [],
     "budgetMin": 620,
-    "budgetRecommended": 2000,
+    "budgetRecommended": 2810,
     "budgetMax": 5000,
     "transportOptions": {
       "shinkansen": 180,
@@ -19362,10 +19362,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -19551,10 +19551,10 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg/1280px-%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg",
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 2000,
-      "food": 1300,
-      "cafe": 700
+      "transport": 2786,
+      "tickets": 1857,
+      "food": 1207,
+      "cafe": 650
     },
     "highlights": ["Explore Nijo Castle (Kyoto)", "Local Culture & Scenery"],
     "bestSeason": "Spring & Autumn",
@@ -19649,10 +19649,10 @@
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -19830,10 +19830,10 @@
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -19898,10 +19898,10 @@
     "description": "Discover Noto Peninsula, a prominent destination in Shizuoka. With its rich mix of scenic drive, seafood, rugged, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 4400,
-      "tickets": 2200,
-      "food": 3300,
-      "cafe": 1100
+      "transport": 4800,
+      "tickets": 2400,
+      "food": 3600,
+      "cafe": 1200
     },
     "restaurants": [
       "Noto Peninsula Traditional Dining",
@@ -20019,10 +20019,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -20057,7 +20057,7 @@
     },
     "collections": [],
     "budgetMin": 3000,
-    "budgetRecommended": 15000,
+    "budgetRecommended": 21500,
     "budgetMax": 40000,
     "transportOptions": {
       "shinkansen": 170,
@@ -20184,10 +20184,10 @@
     ],
     "description": "Standing 60 meters tall on the Ibaraki coastline, this distinctive triangular glass observation tower overlooks Oarai Port and the vast Pacific Ocean.",
     "budgetBreakdown": {
-      "transport": 1200,
-      "tickets": 340,
-      "food": 2200,
-      "cafe": 760
+      "transport": 1333,
+      "tickets": 378,
+      "food": 2444,
+      "cafe": 845
     },
     "reservation": "No reservation required.",
     "parking": "Free parking lot at Oarai Marine Tower plaza.",
@@ -20269,10 +20269,10 @@
     ],
     "description": "A high-tech entertainment hub on an artificial island in Tokyo Bay, featuring shopping malls, beaches, and a giant Gundam.",
     "budgetBreakdown": {
-      "transport": 1000,
-      "tickets": 8000,
-      "food": 2100,
-      "cafe": 900
+      "transport": 1083,
+      "tickets": 8667,
+      "food": 2275,
+      "cafe": 975
     },
     "reservation": "Not required.",
     "parking": "Plenty of paid parking in malls.",
@@ -20374,10 +20374,10 @@
       "nearbyDestinationIds": ["hakone-town", "fujisawa-city", "yokohama-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -20593,7 +20593,7 @@
     },
     "collections": [],
     "budgetMin": 0,
-    "budgetRecommended": 2000,
+    "budgetRecommended": 2500,
     "budgetMax": 5000,
     "transportOptions": {
       "shinkansen": 80,
@@ -20733,10 +20733,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -20815,10 +20815,10 @@
       "nearbyDestinationIds": ["nagoya-city", "inuyama-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -20981,10 +20981,10 @@
     "description": "Discover Okuhida, a prominent destination in Shizuoka. With its rich mix of onsen, ropeway, alps, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 7200,
-      "tickets": 3600,
-      "food": 5400,
-      "cafe": 1800
+      "transport": 7600,
+      "tickets": 3800,
+      "food": 5700,
+      "cafe": 1900
     },
     "restaurants": [
       "Okuhida Traditional Dining",
@@ -21149,10 +21149,10 @@
     "highlights": ["Train Simulators", "Historic Cars"],
     "description": "Ōmiya is one of ten wards of the city of Saitama, in Saitama Prefecture, Japan, and is located in the northeastern part of the city. As of 1 March 2021, the ward had an estimated population of 119,298 and a population density of 9,300 persons per km2. Its total area was 12.80 square kilometres (4.94 sq mi). Although Urawa-ku is the governmental center of Saitama City, Ōmiya-ku is the most active commercial and business centre in both Saitama City and Saitama Prefecture thanks to its transport infrastructure, especially railways connected at Ōmiya Station.",
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 2800,
-      "food": 4900,
-      "cafe": 2000
+      "transport": 3236,
+      "tickets": 3020,
+      "food": 5286,
+      "cafe": 2158
     },
     "reservation": "None required",
     "parking": "Yes",
@@ -21253,10 +21253,10 @@
       "nearbyDestinationIds": ["miyajima-itsukushima", "hiroshima-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -21337,10 +21337,10 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Osaka-zu_byobu.jpg/500px-Osaka-zu_byobu.jpg",
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 2000,
-      "food": 1300,
-      "cafe": 700
+      "transport": 2786,
+      "tickets": 1857,
+      "food": 1207,
+      "cafe": 650
     },
     "highlights": [
       "Explore Osaka Castle (Osaka-jo)",
@@ -21448,10 +21448,10 @@
       "relatedDestinationIds": ["fukuoka-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 4250,
+      "tickets": 2125,
+      "food": 6906,
+      "cafe": 3719
     },
     "walkingIntensity": "medium"
   },
@@ -21535,10 +21535,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -21621,10 +21621,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -21703,10 +21703,10 @@
       "nearbyDestinationIds": ["hikone-castle-shiga", "kyoto-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -21748,7 +21748,7 @@
     },
     "collections": [],
     "budgetMin": 1000,
-    "budgetRecommended": 3500,
+    "budgetRecommended": 4500,
     "budgetMax": 8000,
     "transportOptions": {
       "shinkansen": 80,
@@ -21966,10 +21966,10 @@
     "description": "Oze National Park , is an area consisting of open greenland in Fukushima, Tochigi, Gunma and Niigata Prefectures in Japan. The park is 372 km2 in area and is the 29th national park in Japan.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 3200,
+      "transport": 3700,
       "tickets": 0,
-      "food": 2400,
-      "cafe": 800
+      "food": 2775,
+      "cafe": 925
     },
     "restaurants": [
       "Oze National Park Traditional Dining",
@@ -22070,10 +22070,10 @@
     ],
     "description": "Located on the 52nd floor and rooftop of Mori Tower (270m height), offering the iconic front-row view of Tokyo Tower framed against the Tokyo Bay skyline.",
     "budgetBreakdown": {
-      "transport": 300,
-      "tickets": 2000,
-      "food": 3500,
-      "cafe": 1200
+      "transport": 354,
+      "tickets": 2357,
+      "food": 4125,
+      "cafe": 1414
     },
     "reservation": "Online advance tickets save 200 JPY.",
     "parking": "Paid underground parking structure at Roppongi Hills Mori Tower.",
@@ -22218,7 +22218,7 @@
     },
     "collections": [],
     "budgetMin": 1100,
-    "budgetRecommended": 2500,
+    "budgetRecommended": 3050,
     "budgetMax": 5000,
     "transportOptions": {
       "train": 160,
@@ -22335,10 +22335,10 @@
     "description": "Sado Island is an island located in the eastern part of the Sea of Japan, under the jurisdiction of Sado City, Niigata Prefecture, Japan, with a coastline of 262.7 kilometres (163.2 mi). In October 2017, Sado Island had a population of 55,212 people. Sado Island covers an area of 854.76 km2 (330.02 sq mi), and is the sixth largest island in Japan, excluding the disputed Southern Kurils. The shortest distance between Sado Island and Honshu is 32 km (20 mi). The highest peak on Sado Island is Mount Kinpoku, with an elevation of 1,172 m (3,845 ft).",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 6000,
-      "tickets": 3000,
-      "food": 4500,
-      "cafe": 1500
+      "transport": 6400,
+      "tickets": 3200,
+      "food": 4800,
+      "cafe": 1600
     },
     "restaurants": [
       "Sado Island Traditional Dining",
@@ -22465,10 +22465,10 @@
       "nearbyDestinationIds": ["hakone-town", "yokohama-city", "fujisawa-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -22531,10 +22531,10 @@
     "description": "Saitama is the capital and largest city of Saitama Prefecture, Japan. Its area incorporates the former cities of Urawa, Ōmiya, Yono and Iwatsuki. It is a city designated by government ordinance. As of 1 February 2021, the city had an estimated population of 1,324,854, and a population density of 6,093 people per km2. Its total area is 217.43 square kilometres (83.95 sq mi).",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 2400,
-      "tickets": 1200,
-      "food": 1800,
-      "cafe": 600
+      "transport": 2800,
+      "tickets": 1400,
+      "food": 2100,
+      "cafe": 700
     },
     "restaurants": [
       "Saitama City Traditional Dining",
@@ -22747,10 +22747,10 @@
       "nearbyDestinationIds": ["osaka-city", "nara-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -22823,10 +22823,10 @@
     ],
     "description": "Constructed in 1611 by Doi Toshikatsu, Sakura Castle features impressive preserved earthen ramparts, deep dry moats, and over 1,100 cherry trees surrounding Rekihaku museum.",
     "budgetBreakdown": {
-      "transport": 900,
-      "tickets": 600,
-      "food": 2500,
-      "cafe": 1000
+      "transport": 990,
+      "tickets": 660,
+      "food": 2750,
+      "cafe": 1100
     },
     "reservation": "No reservation required for castle park.",
     "parking": "Free parking lot at Sakura Castle Park.",
@@ -23118,10 +23118,10 @@
       "nearbyDestinationIds": ["otaru-city", "hakodate-city", "asahikawa-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -23156,7 +23156,7 @@
     },
     "collections": [],
     "budgetMin": 700,
-    "budgetRecommended": 2000,
+    "budgetRecommended": 2850,
     "budgetMax": 5000,
     "transportOptions": {
       "shinkansen": 90,
@@ -23390,10 +23390,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -23479,10 +23479,10 @@
       "relatedDestinationIds": ["shinjuku-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 3575,
-      "cafe": 1925
+      "transport": 4200,
+      "tickets": 2100,
+      "food": 5005,
+      "cafe": 2695
     },
     "walkingIntensity": "medium"
   },
@@ -23554,10 +23554,10 @@
     ],
     "description": "Perched 229 meters directly above Shibuya Crossing atop Shibuya Scramble Square, featuring an open-air rooftop glass-edge deck with 360-degree views of Tokyo Tower and Mt. Fuji.",
     "budgetBreakdown": {
-      "transport": 200,
-      "tickets": 2500,
-      "food": 3200,
-      "cafe": 1100
+      "transport": 236,
+      "tickets": 2946,
+      "food": 3771,
+      "cafe": 1297
     },
     "reservation": "Advance online ticket booking required 2 to 4 weeks prior.",
     "parking": "Underground paid parking at Shibuya Scramble Square.",
@@ -23660,10 +23660,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -23747,10 +23747,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -23829,10 +23829,10 @@
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -23911,10 +23911,10 @@
       "nearbyDestinationIds": ["nachi-falls-wakayama", "wakayama-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -24099,10 +24099,10 @@
       "relatedDestinationIds": ["takayama-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 2925,
-      "cafe": 1575
+      "transport": 3833,
+      "tickets": 1917,
+      "food": 3737,
+      "cafe": 2013
     },
     "nameJa": "白川郷・五箇山の合掌造り集落",
     "walkingIntensity": "low"
@@ -24291,10 +24291,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -24476,10 +24476,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -24558,10 +24558,10 @@
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -24633,10 +24633,10 @@
     ],
     "description": "Located on the 60th floor of Sunshine 60 (251m height) in Ikebukuro, featuring an indoor sky park with real turf lawns, picnic mats, and panoramic vistas.",
     "budgetBreakdown": {
-      "transport": 400,
-      "tickets": 900,
-      "food": 2700,
-      "cafe": 1000
+      "transport": 460,
+      "tickets": 1035,
+      "food": 3105,
+      "cafe": 1150
     },
     "reservation": "No advance reservation required.",
     "parking": "Paid parking garage inside Sunshine City complex.",
@@ -24824,10 +24824,10 @@
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -24915,10 +24915,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -24997,10 +24997,10 @@
       "nearbyDestinationIds": ["marugame-castle"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -25070,10 +25070,10 @@
     ],
     "description": "Designed by world-renowned architect Kengo Kuma, Takanawa Gateway is the newest station on Tokyos iconic Yamanote Line, featuring a dramatic paper-origami glass roof, AI-powered unmanned stores, and futuristic urban planning.",
     "budgetBreakdown": {
-      "transport": 400,
+      "transport": 510,
       "tickets": 0,
-      "food": 3500,
-      "cafe": 1200
+      "food": 4461,
+      "cafe": 1529
     },
     "reservation": "No reservation required.",
     "parking": "Short-term parking garages available nearby at Shinagawa Station and Takanawa Gateway City development.",
@@ -25160,10 +25160,10 @@
     "description": "Discover Takaoka, a prominent destination in Shizuoka. With its rich mix of great buddha, doraemon, crafts, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 3200,
-      "tickets": 1600,
-      "food": 2400,
-      "cafe": 800
+      "transport": 3600,
+      "tickets": 1800,
+      "food": 2700,
+      "cafe": 900
     },
     "restaurants": [
       "Takaoka Traditional Dining",
@@ -25265,10 +25265,10 @@
     ],
     "description": "Renowned as one of Japan's top three cherry blossom viewing spots, Takato Castle ruins feature 1,500 rare reddish Kohigan cherry trees frame over ancient stone moats.",
     "budgetBreakdown": {
-      "transport": 1800,
-      "tickets": 500,
-      "food": 2700,
-      "cafe": 1000
+      "transport": 1950,
+      "tickets": 542,
+      "food": 2925,
+      "cafe": 1083
     },
     "reservation": "No reservation required.",
     "parking": "Large temporary parking lots open during cherry blossom festival.",
@@ -25386,10 +25386,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -25546,10 +25546,10 @@
     ],
     "description": "The fortified residence of legendary Sengoku warlord Takeda Shingen, featuring original earthwork ramparts, triple moats, and Takeda Shrine.",
     "budgetBreakdown": {
-      "transport": 1500,
-      "tickets": 300,
-      "food": 2400,
-      "cafe": 800
+      "transport": 1725,
+      "tickets": 345,
+      "food": 2760,
+      "cafe": 920
     },
     "reservation": "No reservation required.",
     "parking": "Free parking lot at Takeda Shrine entrance.",
@@ -25638,10 +25638,10 @@
     ],
     "description": "Tama Zoological Park near Tachikawa is a massive 125-acre natural park zoo featuring wide open enclosures, the famous Lion Bus safari, and high-wire orangutan skywalks.",
     "budgetBreakdown": {
-      "transport": 1400,
-      "tickets": 1200,
-      "food": 3600,
-      "cafe": 1200
+      "transport": 1372,
+      "tickets": 1176,
+      "food": 3527,
+      "cafe": 1175
     },
     "reservation": "Not required for general admission.",
     "parking": "Paid private parking nearby.",
@@ -25809,10 +25809,10 @@
     ],
     "description": "teamLab Planets is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
     "budgetBreakdown": {
-      "transport": 1000,
-      "tickets": 7600,
-      "food": 4200,
-      "cafe": 1800
+      "transport": 1068,
+      "tickets": 8121,
+      "food": 4488,
+      "cafe": 1923
     },
     "reservation": "Required well in advance.",
     "parking": "Not recommended.",
@@ -26085,10 +26085,10 @@
     ],
     "description": "Located on the 31st floor of Toki Messe (140.5m high), this free-admission 360-degree observation deck is the highest viewpoint along the Sea of Japan coast.",
     "budgetBreakdown": {
-      "transport": 1500,
+      "transport": 1667,
       "tickets": 0,
-      "food": 2200,
-      "cafe": 800
+      "food": 2444,
+      "cafe": 889
     },
     "reservation": "No reservation required (Free entry).",
     "parking": "Multilevel paid parking garage at Toki Messe convention complex.",
@@ -26194,10 +26194,10 @@
       "nearbyDestinationIds": ["kawagoe-city", "saitama-city", "chichibu-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -26276,10 +26276,10 @@
       "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -26440,10 +26440,10 @@
     ],
     "description": "Perched 202 meters above Shinjuku on the 45th floors of Kenzo Tange iconic twin-tower skyscraper, offering free 360-degree views of Mt. Fuji and Tokyo lights.",
     "budgetBreakdown": {
-      "transport": 300,
+      "transport": 364,
       "tickets": 0,
-      "food": 2200,
-      "cafe": 1000
+      "food": 2671,
+      "cafe": 1215
     },
     "reservation": "No reservation required (Free admission).",
     "parking": "Underground paid parking garage at Tokyo Metropolitan Government Building.",
@@ -26485,10 +26485,10 @@
     "budgetMax": 8500,
     "budgetRecommended": 5750,
     "budgetBreakdown": {
-      "transport": 2500,
-      "tickets": 1200,
-      "food": 1200,
-      "cafe": 600
+      "transport": 2614,
+      "tickets": 1255,
+      "food": 1255,
+      "cafe": 626
     },
     "transportOptions": {
       "train": 85,
@@ -26719,10 +26719,10 @@
     ],
     "description": "Rising 634 meters over Tokyo, Tokyo Skytree is the world's tallest broadcasting tower, offering breath-taking 360-degree views of Mt. Fuji and the Kanto Plain from two observation decks.",
     "budgetBreakdown": {
-      "transport": 500,
-      "tickets": 3100,
-      "food": 3500,
-      "cafe": 1400
+      "transport": 559,
+      "tickets": 3465,
+      "food": 3912,
+      "cafe": 1564
     },
     "reservation": "Advance online booking recommended to skip ticket queues.",
     "parking": "Paid underground parking structure at Tokyo Solamachi complex.",
@@ -26820,10 +26820,10 @@
     ],
     "description": "Japans premier railway terminal, featuring the restored 1914 Marunouchi red-brick facade, subterranean shopping passages, world-class ramen eateries, and immediate proximity to the Imperial Palace grounds.",
     "budgetBreakdown": {
-      "transport": 500,
+      "transport": 667,
       "tickets": 0,
-      "food": 5500,
-      "cafe": 1500
+      "food": 7333,
+      "cafe": 2000
     },
     "reservation": "Not required for public station concourses; reservations recommended for high-end Marunouchi dining.",
     "parking": "Paid underground parking garages available throughout the Marunouchi and Yaesu districts.",
@@ -26917,10 +26917,10 @@
     ],
     "description": "Built in 1958 and standing 332.9 meters tall, Tokyo Tower is the beloved red-and-white lattice symbol of post-war Tokyo, offering glass-floor lookouts and romantic night views.",
     "budgetBreakdown": {
-      "transport": 400,
-      "tickets": 1200,
-      "food": 4000,
-      "cafe": 1400
+      "transport": 443,
+      "tickets": 1329,
+      "food": 4429,
+      "cafe": 1549
     },
     "reservation": "Top Deck Tour requires reserved time-slot tickets.",
     "parking": "Paid parking lot adjacent to Shiba Park at the tower base.",
@@ -27122,10 +27122,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -27208,10 +27208,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -27360,10 +27360,10 @@
     "description": "Discover Tateyama Kurobe Alpine Route, a prominent destination in Shizuoka. With its rich mix of snow wall, dam, scenic, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 10000,
-      "tickets": 5000,
-      "food": 6000,
-      "cafe": 2000
+      "transport": 10435,
+      "tickets": 5217,
+      "food": 6261,
+      "cafe": 2087
     },
     "restaurants": [
       "Tateyama Kurobe Alpine Route Traditional Dining",
@@ -27471,10 +27471,10 @@
       "nearbyDestinationIds": ["nagoya-city", "inuyama-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -27553,10 +27553,10 @@
       "nearbyDestinationIds": ["mito-city", "ibaraki-hitachi-seaside-park"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -27679,7 +27679,7 @@
     },
     "collections": [],
     "budgetMin": 410,
-    "budgetRecommended": 2500,
+    "budgetRecommended": 3205,
     "budgetMax": 6000,
     "transportOptions": {
       "shinkansen": 80,
@@ -27806,10 +27806,10 @@
     ],
     "description": "Built in 1583 by Sanada Masayuki, this impregnable fortress famously repelled the massive Tokugawa army twice, featuring surviving corner turrets and Sanada Shrine.",
     "budgetBreakdown": {
-      "transport": 1400,
-      "tickets": 300,
-      "food": 2300,
-      "cafe": 1000
+      "transport": 1610,
+      "tickets": 345,
+      "food": 2645,
+      "cafe": 1150
     },
     "reservation": "No reservation required.",
     "parking": "Paid parking lot at Ueda Castle Park entrance.",
@@ -27892,10 +27892,10 @@
     "highlights": ["Tokyo National Museum", "Ueno Zoo", "Ameyoko Street"],
     "description": "A cultural hub featuring a massive park, Japan's oldest zoo, major national museums, and the bustling Ameyoko market.",
     "budgetBreakdown": {
-      "transport": 1000,
-      "tickets": 2000,
-      "food": 3500,
-      "cafe": 1500
+      "transport": 1125,
+      "tickets": 2250,
+      "food": 3938,
+      "cafe": 1687
     },
     "reservation": "Required for special exhibitions.",
     "parking": "Limited.",
@@ -28084,10 +28084,10 @@
       "nearbyDestinationIds": ["kyoto-city", "nara-city", "osaka-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -28166,10 +28166,10 @@
       "nearbyDestinationIds": ["chiba-city", "narita-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -28233,10 +28233,10 @@
     "description": "Discover Ushiku Daibutsu, a prominent destination in Kanagawa. With its rich mix of giant statue, record breaking, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 2600,
-      "tickets": 1300,
-      "food": 1950,
-      "cafe": 650
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 2250,
+      "cafe": 750
     },
     "restaurants": [
       "Ushiku Daibutsu Traditional Dining",
@@ -28345,10 +28345,10 @@
       "nearbyDestinationIds": ["nikko-city", "kinugawa-onsen"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -28409,10 +28409,10 @@
     "highlights": ["Oya History Museum", "Utsunomiya Gyoza"],
     "description": "Utsunomiya & Oya is a scenic destination in the Tochigi region of Japan, offering rich history and cultural attractions.",
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1600,
-      "food": 6000,
-      "cafe": 2000
+      "transport": 3238,
+      "tickets": 1727,
+      "food": 6476,
+      "cafe": 2159
     },
     "reservation": "None required",
     "parking": "Yes",
@@ -28617,10 +28617,10 @@
       "nearbyDestinationIds": ["nachi-falls-wakayama", "osaka-city"]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -28712,10 +28712,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "nameJa": "屋久島",
     "walkingIntensity": "low"
@@ -28751,7 +28751,7 @@
     },
     "collections": [],
     "budgetMin": 300,
-    "budgetRecommended": 2000,
+    "budgetRecommended": 2650,
     "budgetMax": 5000,
     "transportOptions": {
       "shinkansen": 80,
@@ -28996,10 +28996,10 @@
     "budgetMax": 10000,
     "budgetRecommended": 6750,
     "budgetBreakdown": {
-      "transport": 2800,
-      "tickets": 1500,
-      "food": 1700,
-      "cafe": 800
+      "transport": 2779,
+      "tickets": 1489,
+      "food": 1688,
+      "cafe": 794
     },
     "transportOptions": {
       "train": 110,
@@ -29123,10 +29123,10 @@
     "highlights": ["Chinatown", "Red Brick Warehouse", "Cup Noodle Museum"],
     "description": "Yokohama is a scenic destination in the Kanagawa region of Japan, offering rich history and cultural attractions.",
     "budgetBreakdown": {
-      "transport": 3000,
+      "transport": 3273,
       "tickets": 0,
-      "food": 6000,
-      "cafe": 2000
+      "food": 6545,
+      "cafe": 2182
     },
     "reservation": "Dinners with night views require booking.",
     "parking": "Plenty of paid parking in Minatomirai.",
@@ -29239,10 +29239,10 @@
     ],
     "description": "Ascend to the 69th floor (273m) in just 40 seconds aboard Japan's fastest elevator for 360-degree panoramas of Yokohama Bay Bridge, Minato Mirai, and Mt. Fuji.",
     "budgetBreakdown": {
-      "transport": 600,
-      "tickets": 1000,
-      "food": 3200,
-      "cafe": 1200
+      "transport": 700,
+      "tickets": 1167,
+      "food": 3733,
+      "cafe": 1400
     },
     "reservation": "No advance reservation required.",
     "parking": "Paid underground parking structure at Yokohama Landmark Tower.",
@@ -29335,10 +29335,10 @@
     ],
     "description": "Built in 1961 to mark Yokohama Port's 100th anniversary, this 106-meter historic steel lattice lighthouse tower offers sweeping vistas over Yokohama Bay Bridge and Minato Mirai.",
     "budgetBreakdown": {
-      "transport": 600,
-      "tickets": 1200,
-      "food": 3000,
-      "cafe": 1200
+      "transport": 650,
+      "tickets": 1300,
+      "food": 3250,
+      "cafe": 1300
     },
     "reservation": "No advance reservation required.",
     "parking": "Municipal paid parking spaces along Yamashita Park waterfront.",
@@ -29424,10 +29424,10 @@
     ],
     "description": "Yokohama Zoological Gardens Zoorasia is one of Japan's largest and most modern zoos, featuring expansive naturalistic ecological zones created to mimic animal habitats worldwide.",
     "budgetBreakdown": {
-      "transport": 1600,
-      "tickets": 1600,
-      "food": 4000,
-      "cafe": 1500
+      "transport": 1563,
+      "tickets": 1563,
+      "food": 3908,
+      "cafe": 1466
     },
     "reservation": "Not required for general admission.",
     "parking": "Available on-site.",
@@ -29528,10 +29528,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -29596,10 +29596,10 @@
     ],
     "description": "Yomiuriland is an amusement park in Inagi, Tokyo and Tama-ku, Kawasaki, Kanagawa Prefecture, Japan that first opened on 19 March 1964. It is situated on hillsides, and features rides such as roller coasters and water flumes. It is home to Yomiuri Giants Stadium, one of the training fields for the Yomiuri Giants baseball team, and was the primary training ground before Tokyo Dome was completed. It is operated and run by Yomiuriland Co., Ltd., a wholly owned subsidiary of The Yomiuri Shimbun Holdings.",
     "budgetBreakdown": {
-      "transport": 1000,
-      "tickets": 8000,
-      "food": 2100,
-      "cafe": 900
+      "transport": 1083,
+      "tickets": 8667,
+      "food": 2275,
+      "cafe": 975
     },
     "reservation": "Recommended during winter illumination.",
     "parking": "Available, but crowded in winter.",
@@ -29710,10 +29710,10 @@
       ]
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 1500,
-      "food": 4875,
-      "cafe": 2625
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
     },
     "walkingIntensity": "low"
   },
@@ -29748,7 +29748,7 @@
     },
     "collections": [],
     "budgetMin": 1000,
-    "budgetRecommended": 2500,
+    "budgetRecommended": 3000,
     "budgetMax": 5000,
     "transportOptions": {
       "shinkansen": 40,
@@ -29863,10 +29863,10 @@
     "description": "Discover Zushi & Yokosuka, a prominent destination in Kanagawa. With its rich mix of surfing, cafes, sunset, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
-      "transport": 2400,
-      "tickets": 1200,
-      "food": 1800,
-      "cafe": 600
+      "transport": 2800,
+      "tickets": 1400,
+      "food": 2100,
+      "cafe": 700
     },
     "restaurants": [
       "Zushi Traditional Dining",

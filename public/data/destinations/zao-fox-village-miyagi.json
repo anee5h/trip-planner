@@ -1,0 +1,86 @@
+{
+  "id": "zao-fox-village-miyagi",
+  "name": "Zao Fox Village",
+  "nameJa": "蔵王キツネ村",
+  "prefecture": "Miyagi",
+  "region": "Tohoku",
+  "category": "Nature & Parks",
+  "categories": ["Nature & Parks"],
+  "description": "A free-roam sanctuary in the Miyagi mountains where over 100 foxes of six species wander freely across forested grounds. Widely regarded as one of the most unusual and charming animal encounters in Japan.",
+  "highlights": [
+    "100+ free-roaming foxes",
+    "Six fox species including Arctic fox",
+    "Holding baby foxes (seasonal)",
+    "Fox deity shrine on site"
+  ],
+  "coordinates": {
+    "lat": 37.9333,
+    "lng": 140.6167
+  },
+  "nearestStation": "Shiroishizao Station (then taxi)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Kitsune_mura_H26Dec13.JPG/1920px-Kitsune_mura_H26Dec13.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Kitsune_mura_H26Dec13.JPG/1920px-Kitsune_mura_H26Dec13.JPG",
+  "tags": ["foxes", "animals", "miyagi", "unique", "nature", "tohoku"],
+  "rating": 4.5,
+  "bestSeasons": ["Spring", "Autumn"],
+  "travelEstimate": {
+    "minutesFromBase": 90,
+    "confidence": "high"
+  },
+  "collections": [],
+  "budgetMin": 1000,
+  "budgetRecommended": 3000,
+  "budgetMax": 5000,
+  "transportOptions": {
+    "shinkansen": 40,
+    "car": 60
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.5,
+    "summer": 8,
+    "winter": 8.5,
+    "rain": 7.5,
+    "food": 7,
+    "photography": 9.5,
+    "relaxation": 8.2,
+    "value": 8.5,
+    "uniqueness": 9.8
+  },
+  "totalTripHours": 2,
+  "walkingMin": 2000,
+  "walkingSunMin": 500,
+  "walkingShadeMin": 1500,
+  "indoorPercent": 10,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 7,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 2
+  },
+  "walkingIntensity": "low",
+  "reservation": "None required",
+  "parking": "Free on site",
+  "restaurants": ["Fox Village Snack Stall"],
+  "cafes": ["Entrance Area Café"],
+  "notes": "Admission ¥1,000. Do not bring food from outside — foxes are fed by staff only. Baby fox holding events typically run March–May. Foxes are most active in cooler months.",
+  "status": "beta",
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": ["sendai-city", "mount-zao-yamagata"]
+  },
+  "budgetBreakdown": null
+}

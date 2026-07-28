@@ -56,67 +56,13 @@
   "highlights": ["Coastal Drive", "Seafood", "Nokogiriyama"],
   "description": "Boso Peninsula is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
   "budgetBreakdown": {
-    "transport": 7000,
+    "transport": 7467,
     "tickets": 0,
-    "food": 6000,
-    "cafe": 2000
+    "food": 6400,
+    "cafe": 2133
   },
   "reservation": "Not required",
   "parking": "Plenty of parking",
-  "itineraries": [
-    {
-      "name": "Plan A: Mountain & Buddha",
-      "description": "A hiking and cultural adventure on Mt. Nokogiri.",
-      "steps": [
-        {
-          "time": "09:30",
-          "activity": "Arrive at Hamakanaya and take the Mt. Nokogiri Ropeway up the mountain."
-        },
-        {
-          "time": "10:30",
-          "activity": "Hike to the Jigoku Nozoki (Hell's Peek) viewpoint."
-        },
-        {
-          "time": "12:00",
-          "activity": "Descend into the quarry to see the massive Nihon-ji Daibutsu (Great Buddha)."
-        },
-        {
-          "time": "14:00",
-          "activity": "Late lunch of fresh caught seafood near the ferry terminal."
-        },
-        {
-          "time": "15:30",
-          "activity": "Relax at the Baya-no-yu oceanfront hot spring."
-        }
-      ]
-    },
-    {
-      "name": "Plan B: Coastline Road Trip",
-      "description": "Best done by car. Exploring the scenic drives of Chiba.",
-      "steps": [
-        {
-          "time": "09:00",
-          "activity": "Drive the Tokyo Bay Aqua-Line and stop at Umihotaru PA."
-        },
-        {
-          "time": "11:00",
-          "activity": "Visit Mother Farm to see the animals and flower fields."
-        },
-        {
-          "time": "13:30",
-          "activity": "Drive down to Katsuura or Kamogawa for an incredible seafood lunch."
-        },
-        {
-          "time": "15:00",
-          "activity": "Explore the Kamogawa Sea World or take a coastal drive to the lighthouse."
-        },
-        {
-          "time": "17:30",
-          "activity": "Watch the sunset over the Pacific Ocean."
-        }
-      ]
-    }
-  ],
   "restaurants": [
     "Boso Peninsula Traditional Dining",
     "Local Chiba Specialty Restaurant",
@@ -140,5 +86,8 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {}
+  "relationships": {},
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "walkingIntensity": "medium"
 }
