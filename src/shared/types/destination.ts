@@ -22,6 +22,15 @@ export interface Ratings {
   relaxation: number;
   value: number;
   uniqueness: number;
+  // Experience ratings (new)
+  family?: number;
+  accessibility?: number;
+  nature?: number;
+  historyAndCulture?: number;
+  walkability?: number;
+  // Seasonal ratings (new)
+  spring?: number;
+  autumn?: number;
 }
 
 export type DestinationKind =
@@ -143,6 +152,12 @@ export interface Destination {
   notes: string;
   itinerary?: ItineraryStep[];
   itineraries?: ItineraryPlan[];
+
+  /**
+   * Recommended visit duration for planning.
+   * E.g. "1-2 hours", "Half day", "Full day", "Weekend"
+   */
+  recommendedDuration?: "1-2 hours" | "Half day" | "Full day" | "Weekend";
 
   /** Mandatory: Destination content quality status */
   status: "verified" | "planned";

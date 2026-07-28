@@ -51,13 +51,15 @@ import {
   ChevronUp,
   Plane,
   Footprints,
+  Users,
+  Leaf,
+  Landmark,
+  Flower2,
+  Snowflake,
 } from "lucide-react";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
-import {
-  getWalkingIntensity,
-  getWalkingIntensityMetadata,
-} from "@/shared/utils/walking";
+
 import { toast } from "sonner";
 import {
   WikipediaService,
@@ -764,12 +766,6 @@ export default function DestinationDetails() {
                 <TabsTrigger value="ratings" className="rounded-lg py-2.5 px-4">
                   Detailed Ratings
                 </TabsTrigger>
-                <TabsTrigger
-                  value="itinerary"
-                  className="rounded-lg py-2.5 px-4"
-                >
-                  Sample Itinerary
-                </TabsTrigger>
                 <TabsTrigger value="food" className="rounded-lg py-2.5 px-4">
                   Food & Drink
                 </TabsTrigger>
@@ -1094,18 +1090,17 @@ export default function DestinationDetails() {
                             </span>
                           </div>
                           {(() => {
-                            const walkMeta = getWalkingIntensityMetadata(
-                              getWalkingIntensity(destination),
-                            );
+                            const walkScore =
+                              destination.comfort?.walkingIntensity;
                             return (
                               <div className="flex justify-between items-center text-sm">
                                 <span className="text-slate-500">
-                                  🚶 Walk Intensity
+                                  🚶 Walkability
                                 </span>
-                                <span
-                                  className={`px-2.5 py-0.5 rounded-full text-xs font-extrabold border ${walkMeta.badgeClass}`}
-                                >
-                                  {walkMeta.icon} {walkMeta.label}
+                                <span className="font-semibold text-slate-700 dark:text-slate-300">
+                                  {walkScore !== undefined
+                                    ? `${walkScore}/10`
+                                    : "—"}
                                 </span>
                               </div>
                             );
@@ -1117,43 +1112,26 @@ export default function DestinationDetails() {
                 </div>
               </TabsContent>
 
-              <TabsContent value="ratings" className="mt-4">
+              <TabsContent value="ratings" className="mt-4 space-y-4">
+                {/* Experience Ratings */}
                 <Card>
                   <CardContent className="p-6">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <h4 className="font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider text-xs mb-4">
+                      Experience Ratings
+                    </h4>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                       <RatingItem
                         icon={Heart}
                         label="Couple"
                         value={destination.ratings.couple}
                       />
-                      <RatingItem
-                        icon={ThermometerSun}
-                        label="Summer"
-                        value={destination.ratings.summer}
-                      />
-                      <RatingItem
-                        icon={Umbrella}
-                        label="Rain"
-                        value={destination.ratings.rain}
-                      />
-                      {(() => {
-                        const walkMeta = getWalkingIntensityMetadata(
-                          getWalkingIntensity(destination),
-                        );
-                        return (
-                          <div className="flex flex-col items-center text-center p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50">
-                            <Footprints className="w-6 h-6 text-emerald-600 mb-2" />
-                            <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
-                              Walk Intensity
-                            </span>
-                            <span
-                              className={`mt-1 px-2.5 py-0.5 rounded-full text-xs font-extrabold border ${walkMeta.badgeClass}`}
-                            >
-                              {walkMeta.icon} {walkMeta.label}
-                            </span>
-                          </div>
-                        );
-                      })()}
+                      {destination.ratings.family !== undefined && (
+                        <RatingItem
+                          icon={Users}
+                          label="Family"
+                          value={destination.ratings.family}
+                        />
+                      )}
                       <RatingItem
                         icon={Camera}
                         label="Photography"
@@ -1169,49 +1147,84 @@ export default function DestinationDetails() {
                         label="Value"
                         value={destination.ratings.value}
                       />
+                      <RatingItem
+                        icon={Footprints}
+                        label="Walkability"
+                        value={
+                          destination.ratings.walkability ??
+                          destination.comfort?.walkingIntensity ??
+                          0
+                        }
+                      />
+                      {destination.ratings.accessibility !== undefined && (
+                        <RatingItem
+                          icon={Train}
+                          label="Accessibility"
+                          value={destination.ratings.accessibility}
+                        />
+                      )}
+                      {destination.ratings.nature !== undefined && (
+                        <RatingItem
+                          icon={Leaf}
+                          label="Nature"
+                          value={destination.ratings.nature}
+                        />
+                      )}
+                      {destination.ratings.historyAndCulture !== undefined && (
+                        <RatingItem
+                          icon={Landmark}
+                          label="History & Culture"
+                          value={destination.ratings.historyAndCulture}
+                        />
+                      )}
+                      <RatingItem
+                        icon={Coffee}
+                        label="Relaxation"
+                        value={destination.ratings.relaxation}
+                      />
                     </div>
                   </CardContent>
                 </Card>
-              </TabsContent>
 
-              <TabsContent value="itinerary" className="mt-6 space-y-8">
-                {destination.itineraries && destination.itineraries.length > 0
-                  ? destination.itineraries.map((plan, planIdx) => (
-                      <div
-                        key={planIdx}
-                        className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-6 border border-slate-100 dark:border-slate-800"
-                      >
-                        <h3 className="text-xl font-bold mb-2 text-emerald-600 dark:text-emerald-400">
-                          {plan.name}
-                        </h3>
-                        <p className="text-slate-600 dark:text-slate-300 mb-6 text-sm">
-                          {plan.description}
-                        </p>
-                        <div className="space-y-4 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
-                          {plan.steps.map((step, idx) => (
-                            <div
-                              key={idx}
-                              className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active"
-                            >
-                              <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white dark:border-slate-900 bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400 font-bold text-xs shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm z-10">
-                                {idx + 1}
-                              </div>
-                              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-sm">
-                                <div className="flex items-center justify-between mb-1">
-                                  <span className="font-bold text-slate-900 dark:text-slate-100">
-                                    {step.time}
-                                  </span>
-                                </div>
-                                <p className="text-sm text-slate-600 dark:text-slate-400">
-                                  {step.activity}
-                                </p>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    ))
-                  : null}
+                {/* Seasonal Ratings */}
+                <Card>
+                  <CardContent className="p-6">
+                    <h4 className="font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider text-xs mb-4">
+                      Seasonal Ratings
+                    </h4>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      {destination.ratings.spring !== undefined && (
+                        <RatingItem
+                          icon={Flower2}
+                          label="Spring"
+                          value={destination.ratings.spring}
+                        />
+                      )}
+                      <RatingItem
+                        icon={ThermometerSun}
+                        label="Summer"
+                        value={destination.ratings.summer}
+                      />
+                      {destination.ratings.autumn !== undefined && (
+                        <RatingItem
+                          icon={Leaf}
+                          label="Autumn"
+                          value={destination.ratings.autumn}
+                        />
+                      )}
+                      <RatingItem
+                        icon={Snowflake}
+                        label="Winter"
+                        value={destination.ratings.winter}
+                      />
+                      <RatingItem
+                        icon={Umbrella}
+                        label="Rainy Day"
+                        value={destination.ratings.rain}
+                      />
+                    </div>
+                  </CardContent>
+                </Card>
               </TabsContent>
 
               <TabsContent value="food" className="mt-4">
@@ -1340,6 +1353,68 @@ export default function DestinationDetails() {
                 </div>
                 <div className="w-full h-px bg-white/20 mb-4"></div>
                 <p className="text-emerald-50 text-sm">{destination.notes}</p>
+              </CardContent>
+            </Card>
+
+            {/* Suggested Visit Card */}
+            <Card>
+              <CardContent className="p-6 space-y-4">
+                <h3 className="font-bold text-slate-900 dark:text-white">
+                  Suggested Visit
+                </h3>
+                <div className="space-y-3">
+                  {destination.recommendedDuration && (
+                    <div className="flex items-center gap-3">
+                      <span className="text-xl">⏱</span>
+                      <div>
+                        <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                          Recommended Duration
+                        </div>
+                        <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
+                          {destination.recommendedDuration}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  {destination.bestSeason && (
+                    <div className="flex items-center gap-3">
+                      <span className="text-xl">📅</span>
+                      <div>
+                        <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                          Best Season
+                        </div>
+                        <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
+                          {destination.bestSeason}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl">💰</span>
+                    <div>
+                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                        Typical Budget
+                      </div>
+                      <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
+                        ¥{destination.budgetMin.toLocaleString()}–¥
+                        {destination.budgetMax.toLocaleString()}
+                      </div>
+                    </div>
+                  </div>
+                  {graphNearbyDestinations.length > 0 && (
+                    <div className="flex items-center gap-3">
+                      <span className="text-xl">📍</span>
+                      <div>
+                        <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                          Nearby Attractions
+                        </div>
+                        <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
+                          {graphNearbyDestinations.length} within the area
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </CardContent>
             </Card>
 
@@ -1486,6 +1561,63 @@ export default function DestinationDetails() {
                 </p>
               </div>
             </div>
+            {/* Nearby attractions list with distance + walking time */}
+            {destination.coordinates && (
+              <div className="mb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {graphNearbyDestinations.map((dest: Destination) => {
+                  if (!dest.coordinates || !destination.coordinates)
+                    return null;
+                  const distKm = getDistance(
+                    destination.coordinates.lat,
+                    destination.coordinates.lng,
+                    dest.coordinates.lat,
+                    dest.coordinates.lng,
+                  );
+                  const distM = Math.round(distKm * 1000);
+                  const distLabel =
+                    distM < 1000
+                      ? `${distM} m`
+                      : `${(distM / 1000).toFixed(1)} km`;
+                  const walkMinutes = Math.round((distKm / 5) * 60);
+                  const categoryEmoji: Record<string, string> = {
+                    castle: "🏯",
+                    shrine: "⛩",
+                    temple: "🛕",
+                    museum: "🎨",
+                    park: "🌳",
+                    garden: "🌸",
+                    mountain: "🏔",
+                    lake: "🌊",
+                    beach: "🏖",
+                    shopping: "🛍",
+                    market: "🛒",
+                    street: "🛍",
+                    onsen: "♨️",
+                    tower: "🗼",
+                    city: "🏙",
+                    town: "🏘",
+                  };
+                  const emoji = categoryEmoji[dest.kind ?? ""] ?? "📍";
+                  return (
+                    <Link
+                      key={dest.id}
+                      to={`/destinations/${dest.id}`}
+                      className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-emerald-400 dark:hover:border-emerald-600 hover:shadow-sm transition-all"
+                    >
+                      <span className="text-2xl shrink-0">{emoji}</span>
+                      <div className="min-w-0">
+                        <div className="font-semibold text-sm text-slate-800 dark:text-slate-100 truncate">
+                          {dest.name}
+                        </div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400">
+                          {distLabel} • {walkMinutes} min walk
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {graphNearbyDestinations.map((dest: Destination) => (
                 <DestinationCard
