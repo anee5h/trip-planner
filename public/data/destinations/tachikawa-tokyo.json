@@ -1,6 +1,6 @@
 {
   "id": "tachikawa-tokyo",
-  "name": "Tachikawa",
+  "name": "Tachikawa City",
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Nature", "Parks", "Urban"],
@@ -85,5 +85,6 @@
     "walkingIntensity": 3
   },
   "role": "hub",
-  "walkingIntensity": "low"
+  "walkingIntensity": "low",
+  "kind": "city"
 }

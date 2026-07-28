@@ -1,23 +1,19 @@
 {
-  "id": "fujiyoshida-city",
-  "name": "Fujiyoshida City",
-  "nameJa": "富士吉田",
-  "prefecture": "Yamanashi",
-  "region": "Chubu",
+  "id": "akita-city",
+  "name": "Akita City",
+  "nameJa": "秋田市",
+  "prefecture": "Akita",
+  "region": "Tohoku",
   "coordinates": {
-    "lat": 35.487,
-    "lng": 138.807
+    "lat": 39.72,
+    "lng": 140.103
   },
-  "wikipediaTitle": "Fujiyoshida",
-  "imageFromDestinationId": "arakurayama-sengen-park-yamanashi",
-  "description": "A Fuji foothill city with classic views of Mount Fuji, including the Chureito Pagoda at Arakurayama Sengen Park.",
-  "highlights": [
-    "Arakurayama Sengen Park",
-    "Chureito Pagoda",
-    "Mount Fuji views"
-  ],
-  "tags": ["Nature", "Photography", "Culture"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Chuurei-tou_Fujiyoshida_17025277650_c59733d6ba_o.jpg/1920px-Chuurei-tou_Fujiyoshida_17025277650_c59733d6ba_o.jpg",
+  "wikipediaTitle": "秋田市",
+  "wikipediaLanguage": "ja",
+  "description": "The capital of Akita Prefecture, known for the Kanto Matsuri festival and access to the Sea of Japan coast.",
+  "highlights": ["Kanto Matsuri", "Senshu Park", "Akita food culture"],
+  "tags": ["City", "Culture", "Festivals"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Akita_Montage2.jpg",
   "role": "hub",
   "placeType": "hub",
   "kind": "city",

@@ -1,7 +1,7 @@
 {
   "name": "tabimap",
   "private": true,
-  "version": "1.8.2",
+  "version": "1.8.3",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -27,6 +27,7 @@
     "apply-city-hub-relationships": "tsx scripts/apply-city-hub-relationships.ts",
     "add-reviewed-city-hubs": "tsx scripts/add-reviewed-city-hubs.ts",
     "classify-standalone-destinations": "tsx scripts/classify-standalone-destinations.ts",
+    "normalize-municipality-names": "tsx scripts/normalize-municipality-names.ts",
     "audit-spacing": "node scripts/audit-spacing.cjs",
     "prepare": "husky",
     "release:verify": "npm run test:run && npm run pipeline -- --dry-run && npx tsc -b --noEmit && npm run lint && npm run build && npm run format:check"

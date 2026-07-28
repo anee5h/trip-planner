@@ -52,6 +52,7 @@ import {
   Users,
   Leaf,
   Landmark,
+  House,
   Flower2,
   Snowflake,
   Ticket,
@@ -432,6 +433,11 @@ export default function DestinationDetails() {
 
           {/* 2. Location & Parent Container Badge */}
           <div className="flex flex-wrap items-center gap-3 text-sm text-slate-200/85 mb-3">
+            {user?.user_metadata?.home_city === destination.id && (
+              <div className="inline-flex items-center gap-1 rounded-full bg-emerald-500/20 px-2.5 py-1 font-semibold text-emerald-200 border border-emerald-300/30">
+                <House className="w-3.5 h-3.5" /> Home city
+              </div>
+            )}
             <div className="flex items-center font-medium">
               <MapPin className="w-4 h-4 mr-1 text-emerald-400" />{" "}
               {destination.prefecture}, Japan
@@ -661,7 +667,13 @@ export default function DestinationDetails() {
                 >
                   <BookOpen className="w-3.5 h-3.5" />
                   <span>
-                    {isWikiExpanded ? "Show less" : "Read More (Wikipedia)"}
+                    {isWikiExpanded
+                      ? locale === "ja"
+                        ? "閉じる"
+                        : "Show less"
+                      : locale === "ja"
+                        ? "続きを読む"
+                        : "Read more"}
                   </span>
                   {isWikiExpanded ? (
                     <ChevronUp className="w-3.5 h-3.5" />

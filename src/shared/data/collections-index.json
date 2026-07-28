@@ -526,5 +526,27 @@
       "reviewIntervalMonths": 24,
       "expectedMembers": 10
     }
+  },
+  {
+    "id": "japan-observatories-towers",
+    "slug": "japan-observatories-towers",
+    "name": "Japan's Observatories & Towers",
+    "description": "A curated, capped selection of Japan's most important and popular observation towers, high-rise decks, and city viewpoints.",
+    "category": "Architecture & Views",
+    "type": "curated",
+    "isAchievement": false,
+    "icon": "TowerControl",
+    "badgeColor": "sky",
+    "sortOrder": 25,
+    "officialSource": "TabiMap editorial selection",
+    "sourceUrl": "https://www.japan.travel/",
+    "metadata": {
+      "authority": "historical_consensus",
+      "status": "active",
+      "lastVerified": "2026-07",
+      "verificationSource": "TabiMap editorial review",
+      "reviewIntervalMonths": 12,
+      "expectedMembers": 17
+    }
   }
 ]

@@ -269,6 +269,66 @@ const HUBS: HubSeed[] = [
     highlights: ["Asaka Canal", "Lake Inawashiro access", "Bandai gateway"],
     tags: ["City", "Transport", "Nature"],
   },
+  {
+    id: "akita-city",
+    name: "Akita City",
+    nameJa: "秋田市",
+    prefecture: "Akita",
+    region: "Tohoku",
+    coordinates: { lat: 39.72, lng: 140.103 },
+    wikipediaTitle: "秋田市",
+    wikipediaLanguage: "ja",
+    description:
+      "The capital of Akita Prefecture, known for the Kanto Matsuri festival and access to the Sea of Japan coast.",
+    highlights: ["Kanto Matsuri", "Senshu Park", "Akita food culture"],
+    tags: ["City", "Culture", "Festivals"],
+  },
+  {
+    id: "morioka-city",
+    name: "Morioka City",
+    nameJa: "盛岡市",
+    prefecture: "Iwate",
+    region: "Tohoku",
+    coordinates: { lat: 39.7036, lng: 141.1527 },
+    wikipediaTitle: "盛岡市",
+    wikipediaLanguage: "ja",
+    description:
+      "The capital of Iwate Prefecture, a castle-town city where the Kitakami and Nakatsu rivers meet.",
+    highlights: [
+      "Morioka Castle Site Park",
+      "Morioka noodles",
+      "Riverfront walks",
+    ],
+    tags: ["City", "History", "Food"],
+  },
+  {
+    id: "yamagata-city",
+    name: "Yamagata City",
+    nameJa: "山形市",
+    prefecture: "Yamagata",
+    region: "Tohoku",
+    coordinates: { lat: 38.2554, lng: 140.3396 },
+    wikipediaTitle: "山形市",
+    wikipediaLanguage: "ja",
+    description:
+      "The capital of Yamagata Prefecture, a gateway to Yamadera and the Zao mountain area.",
+    highlights: ["Kajo Park", "Yamadera access", "Yamagata food culture"],
+    tags: ["City", "Culture", "Nature"],
+  },
+  {
+    id: "hachinohe-city",
+    name: "Hachinohe City",
+    nameJa: "八戸市",
+    prefecture: "Aomori",
+    region: "Tohoku",
+    coordinates: { lat: 40.5123, lng: 141.4884 },
+    wikipediaTitle: "八戸市",
+    wikipediaLanguage: "ja",
+    description:
+      "A Pacific port city in southeastern Aomori, known for seafood, morning markets, and access to the Tanesashi Coast.",
+    highlights: ["Hachinohe morning market", "Tanesashi Coast", "Seafood"],
+    tags: ["City", "Coast", "Food"],
+  },
 ];
 
 const indexPath = path.join(

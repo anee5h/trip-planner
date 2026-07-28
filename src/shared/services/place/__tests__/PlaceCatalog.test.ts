@@ -5,7 +5,7 @@ import { getCanonicalPlaces, getLocalizedPlace } from "../PlaceCatalog";
 describe("PlaceCatalog", () => {
   it("creates canonical records for the complete catalog", () => {
     const places = getCanonicalPlaces();
-    expect(places).toHaveLength(345);
+    expect(places).toHaveLength(349);
     expect(places.every((place) => place.placeType)).toBe(true);
   });
 

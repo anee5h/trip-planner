@@ -182,6 +182,10 @@
         "collectionId": "great-night-views",
         "sortOrder": 5,
         "confirmed": true
+      },
+      {
+        "collectionId": "japan-observatories-towers",
+        "confirmed": true
       }
     ],
     "walkingIntensity": "low"
@@ -361,7 +365,7 @@
   },
   {
     "id": "aizuwakamatsu-city",
-    "name": "Aizuwakamatsu",
+    "name": "Aizuwakamatsu City",
     "nameJa": "会津若松",
     "prefecture": "Fukushima",
     "region": "Tohoku",
@@ -608,6 +612,93 @@
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "walkingIntensity": "medium"
+  },
+  {
+    "id": "akita-city",
+    "name": "Akita City",
+    "nameJa": "秋田市",
+    "prefecture": "Akita",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 39.72,
+      "lng": 140.103
+    },
+    "wikipediaTitle": "秋田市",
+    "wikipediaLanguage": "ja",
+    "description": "The capital of Akita Prefecture, known for the Kanto Matsuri festival and access to the Sea of Japan coast.",
+    "highlights": ["Kanto Matsuri", "Senshu Park", "Akita food culture"],
+    "tags": ["City", "Culture", "Festivals"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Akita_Montage2.jpg",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
   },
   {
     "id": "akiu-onsen-miyagi",
@@ -994,7 +1085,7 @@
   },
   {
     "id": "aomori-city",
-    "name": "Aomori",
+    "name": "Aomori City",
     "nameJa": "青森",
     "prefecture": "Aomori",
     "region": "Tohoku",
@@ -1456,7 +1547,7 @@
   },
   {
     "id": "asago-city",
-    "name": "Asago",
+    "name": "Asago City",
     "nameJa": "朝来",
     "prefecture": "Hyogo",
     "region": "Kansai",
@@ -1810,7 +1901,7 @@
   },
   {
     "id": "ashikaga-city",
-    "name": "Ashikaga",
+    "name": "Ashikaga City",
     "nameJa": "足利",
     "prefecture": "Tochigi",
     "region": "Kanto",
@@ -3191,7 +3282,12 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "japan-observatories-towers",
+        "confirmed": true
+      }
+    ],
     "relationships": {
       "parentDestinationId": "chiba-city"
     },
@@ -3817,7 +3913,7 @@
   },
   {
     "id": "choshi-city",
-    "name": "Choshi",
+    "name": "Choshi City",
     "nameJa": "銚子",
     "prefecture": "Chiba",
     "region": "Kanto",
@@ -5160,7 +5256,7 @@
   },
   {
     "id": "fujiyoshida-city",
-    "name": "Fujiyoshida",
+    "name": "Fujiyoshida City",
     "nameJa": "富士吉田",
     "prefecture": "Yamanashi",
     "region": "Chubu",
@@ -5432,7 +5528,7 @@
   },
   {
     "id": "fukushima-city",
-    "name": "Fukushima",
+    "name": "Fukushima City",
     "nameJa": "福島",
     "prefecture": "Fukushima",
     "region": "Tohoku",
@@ -7288,6 +7384,93 @@
     "placeType": "destination"
   },
   {
+    "id": "hachinohe-city",
+    "name": "Hachinohe City",
+    "nameJa": "八戸市",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 40.5123,
+      "lng": 141.4884
+    },
+    "wikipediaTitle": "八戸市",
+    "wikipediaLanguage": "ja",
+    "description": "A Pacific port city in southeastern Aomori, known for seafood, morning markets, and access to the Tanesashi Coast.",
+    "highlights": ["Hachinohe morning market", "Tanesashi Coast", "Seafood"],
+    "tags": ["City", "Coast", "Food"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/04/Kabushima%2C_-8_May_2010_a.jpg",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
+  },
+  {
     "id": "hachioji-castle-tokyo",
     "name": "Hachioji Castle Ruins (Mount Castle)",
     "kind": "castle",
@@ -7370,7 +7553,7 @@
   {
     "id": "hachioji-tokyo",
     "role": "hub",
-    "name": "Hachioji",
+    "name": "Hachioji City",
     "prefecture": "Tokyo",
     "region": "Kanto",
     "categories": ["Nature", "Hiking", "Culture"],
@@ -7454,7 +7637,8 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "kind": "city"
   },
   {
     "id": "hakkeijima",
@@ -7673,6 +7857,10 @@
       {
         "collectionId": "great-night-views",
         "sortOrder": 1,
+        "confirmed": true
+      },
+      {
+        "collectionId": "japan-observatories-towers",
         "confirmed": true
       }
     ],
@@ -8290,7 +8478,12 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "japan-observatories-towers",
+        "confirmed": true
+      }
+    ],
     "relationships": {
       "parentDestinationId": "nagoya-city"
     },
@@ -8693,7 +8886,7 @@
   },
   {
     "id": "hino-city",
-    "name": "Hino",
+    "name": "Hino City",
     "nameJa": "日野",
     "prefecture": "Tokyo",
     "region": "Kanto",
@@ -8990,7 +9183,7 @@
   },
   {
     "id": "hirosaki-city",
-    "name": "Hirosaki",
+    "name": "Hirosaki City",
     "nameJa": "弘前",
     "prefecture": "Aomori",
     "region": "Tohoku",
@@ -10096,7 +10289,7 @@
   },
   {
     "id": "ise-city",
-    "name": "Ise",
+    "name": "Ise City",
     "nameJa": "伊勢",
     "prefecture": "Mie",
     "region": "Kansai",
@@ -10554,7 +10747,7 @@
   },
   {
     "id": "iwakuni-city",
-    "name": "Iwakuni",
+    "name": "Iwakuni City",
     "nameJa": "岩国",
     "prefecture": "Yamaguchi",
     "region": "Chugoku",
@@ -12154,7 +12347,7 @@
   },
   {
     "id": "katori-city",
-    "name": "Katori",
+    "name": "Katori City",
     "nameJa": "香取",
     "prefecture": "Chiba",
     "region": "Kanto",
@@ -13668,6 +13861,10 @@
         "collectionId": "great-night-views",
         "sortOrder": 2,
         "confirmed": true
+      },
+      {
+        "collectionId": "japan-observatories-towers",
+        "confirmed": true
       }
     ],
     "transportOptions": {
@@ -14107,7 +14304,7 @@
   },
   {
     "id": "koriyama-city",
-    "name": "Koriyama",
+    "name": "Koriyama City",
     "nameJa": "郡山",
     "prefecture": "Fukushima",
     "region": "Tohoku",
@@ -15877,7 +16074,7 @@
   },
   {
     "id": "marugame-city",
-    "name": "Marugame",
+    "name": "Marugame City",
     "nameJa": "丸亀",
     "prefecture": "Kagawa",
     "region": "Shikoku",
@@ -17066,7 +17263,7 @@
   },
   {
     "id": "mine-city",
-    "name": "Mine",
+    "name": "Mine City",
     "nameJa": "美祢",
     "prefecture": "Yamaguchi",
     "region": "Chugoku",
@@ -17240,7 +17437,12 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "japan-observatories-towers",
+        "confirmed": true
+      }
+    ],
     "relationships": {
       "parentDestinationId": "nagoya-city"
     },
@@ -17809,6 +18011,97 @@
       "cafe": 3117
     },
     "walkingIntensity": "low"
+  },
+  {
+    "id": "morioka-city",
+    "name": "Morioka City",
+    "nameJa": "盛岡市",
+    "prefecture": "Iwate",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 39.7036,
+      "lng": 141.1527
+    },
+    "wikipediaTitle": "盛岡市",
+    "wikipediaLanguage": "ja",
+    "description": "The capital of Iwate Prefecture, a castle-town city where the Kitakami and Nakatsu rivers meet.",
+    "highlights": [
+      "Morioka Castle Site Park",
+      "Morioka noodles",
+      "Riverfront walks"
+    ],
+    "tags": ["City", "History", "Food"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Morioka_Montage.jpg",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
   },
   {
     "id": "mother-farm-chiba",
@@ -18940,7 +19233,7 @@
   },
   {
     "id": "nagano-city",
-    "name": "Nagano & Snow Monkeys",
+    "name": "Nagano City",
     "region": "Chubu",
     "categories": ["City", "Shrine", "History"],
     "tags": ["Zenkoji", "Olympics"],
@@ -19864,7 +20157,12 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "japan-observatories-towers",
+        "confirmed": true
+      }
+    ],
     "relationships": {
       "parentDestinationId": "nagoya-city"
     },
@@ -21706,7 +22004,12 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "japan-observatories-towers",
+        "confirmed": true
+      }
+    ],
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
@@ -23619,6 +23922,10 @@
         "collectionId": "great-night-views",
         "sortOrder": 8,
         "confirmed": true
+      },
+      {
+        "collectionId": "japan-observatories-towers",
+        "confirmed": true
       }
     ],
     "relationships": {
@@ -24664,7 +24971,7 @@
   },
   {
     "id": "semboku-city",
-    "name": "Semboku",
+    "name": "Semboku City",
     "nameJa": "仙北",
     "prefecture": "Akita",
     "region": "Tohoku",
@@ -25197,6 +25504,10 @@
       {
         "collectionId": "great-night-views",
         "sortOrder": 3,
+        "confirmed": true
+      },
+      {
+        "collectionId": "japan-observatories-towers",
         "confirmed": true
       }
     ],
@@ -26284,7 +26595,12 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "japan-observatories-towers",
+        "confirmed": true
+      }
+    ],
     "relationships": {
       "parentDestinationId": "toshima-city"
     },
@@ -26292,7 +26608,7 @@
   },
   {
     "id": "tachikawa-tokyo",
-    "name": "Tachikawa",
+    "name": "Tachikawa City",
     "prefecture": "Tokyo",
     "region": "Kanto",
     "categories": ["Nature", "Parks", "Urban"],
@@ -26377,7 +26693,8 @@
       "walkingIntensity": 3
     },
     "role": "hub",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "kind": "city"
   },
   {
     "id": "taito-city",
@@ -26554,7 +26871,7 @@
   },
   {
     "id": "takahashi-city",
-    "name": "Takahashi",
+    "name": "Takahashi City",
     "nameJa": "高梁",
     "prefecture": "Okayama",
     "region": "Chugoku",
@@ -27551,12 +27868,7 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [
-      {
-        "collectionId": "art-islands-japan",
-        "sortOrder": 6
-      }
-    ],
+    "collections": [],
     "relationships": {
       "parentDestinationId": "koto-city"
     },
@@ -27840,6 +28152,10 @@
       {
         "collectionId": "great-night-views",
         "sortOrder": 7,
+        "confirmed": true
+      },
+      {
+        "collectionId": "japan-observatories-towers",
         "confirmed": true
       }
     ],
@@ -28480,6 +28796,10 @@
         "collectionId": "great-night-views",
         "sortOrder": 4,
         "confirmed": true
+      },
+      {
+        "collectionId": "japan-observatories-towers",
+        "confirmed": true
       }
     ],
     "relationships": {
@@ -28673,7 +28993,12 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "japan-observatories-towers",
+        "confirmed": true
+      }
+    ],
     "relationships": {
       "parentDestinationId": "minato-city"
     },
@@ -29139,7 +29464,7 @@
   },
   {
     "id": "toyooka-city",
-    "name": "Toyooka",
+    "name": "Toyooka City",
     "nameJa": "豊岡",
     "prefecture": "Hyogo",
     "region": "Kansai",
@@ -30648,6 +30973,93 @@
     "placeType": "destination"
   },
   {
+    "id": "yamagata-city",
+    "name": "Yamagata City",
+    "nameJa": "山形市",
+    "prefecture": "Yamagata",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 38.2554,
+      "lng": 140.3396
+    },
+    "wikipediaTitle": "山形市",
+    "wikipediaLanguage": "ja",
+    "description": "The capital of Yamagata Prefecture, a gateway to Yamadera and the Zao mountain area.",
+    "highlights": ["Kajo Park", "Yamadera access", "Yamagata food culture"],
+    "tags": ["City", "Culture", "Nature"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Yamagata_Montage.jpg",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
+  },
+  {
     "id": "yamanashi-fujiyoshida",
     "name": "Fujiyoshida",
     "prefecture": "Yamanashi",
@@ -30915,7 +31327,7 @@
   },
   {
     "id": "yokohama-city",
-    "name": "Yokohama",
+    "name": "Yokohama City",
     "prefecture": "Kanagawa",
     "region": "Kanto",
     "categories": ["City", "Food", "Shopping"],
@@ -31112,6 +31524,10 @@
         "collectionId": "great-night-views",
         "sortOrder": 6,
         "confirmed": true
+      },
+      {
+        "collectionId": "japan-observatories-towers",
+        "confirmed": true
       }
     ],
     "relationships": {
@@ -31203,7 +31619,12 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "japan-observatories-towers",
+        "confirmed": true
+      }
+    ],
     "relationships": {
       "parentDestinationId": "yokohama-city"
     },

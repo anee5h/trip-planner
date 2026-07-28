@@ -1,23 +1,19 @@
 {
-  "id": "fujiyoshida-city",
-  "name": "Fujiyoshida City",
-  "nameJa": "富士吉田",
-  "prefecture": "Yamanashi",
-  "region": "Chubu",
+  "id": "yamagata-city",
+  "name": "Yamagata City",
+  "nameJa": "山形市",
+  "prefecture": "Yamagata",
+  "region": "Tohoku",
   "coordinates": {
-    "lat": 35.487,
-    "lng": 138.807
+    "lat": 38.2554,
+    "lng": 140.3396
   },
-  "wikipediaTitle": "Fujiyoshida",
-  "imageFromDestinationId": "arakurayama-sengen-park-yamanashi",
-  "description": "A Fuji foothill city with classic views of Mount Fuji, including the Chureito Pagoda at Arakurayama Sengen Park.",
-  "highlights": [
-    "Arakurayama Sengen Park",
-    "Chureito Pagoda",
-    "Mount Fuji views"
-  ],
-  "tags": ["Nature", "Photography", "Culture"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Chuurei-tou_Fujiyoshida_17025277650_c59733d6ba_o.jpg/1920px-Chuurei-tou_Fujiyoshida_17025277650_c59733d6ba_o.jpg",
+  "wikipediaTitle": "山形市",
+  "wikipediaLanguage": "ja",
+  "description": "The capital of Yamagata Prefecture, a gateway to Yamadera and the Zao mountain area.",
+  "highlights": ["Kajo Park", "Yamadera access", "Yamagata food culture"],
+  "tags": ["City", "Culture", "Nature"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Yamagata_Montage.jpg",
   "role": "hub",
   "placeType": "hub",
   "kind": "city",

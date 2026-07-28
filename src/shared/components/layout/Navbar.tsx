@@ -491,7 +491,7 @@ export default function Navbar() {
                 className="hover:text-emerald-500 font-bold transition-colors cursor-pointer flex items-center gap-1"
                 title="View Release Notes"
               >
-                <span>TabiMap Japan v1.8.2</span>
+                <span>TabiMap Japan v1.8.3</span>
                 <span className="text-[10px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-1.5 py-0.5 rounded font-extrabold border border-emerald-500/20">
                   Notes
                 </span>

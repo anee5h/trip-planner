@@ -1,23 +1,19 @@
 {
-  "id": "fujiyoshida-city",
-  "name": "Fujiyoshida City",
-  "nameJa": "富士吉田",
-  "prefecture": "Yamanashi",
-  "region": "Chubu",
+  "id": "hachinohe-city",
+  "name": "Hachinohe City",
+  "nameJa": "八戸市",
+  "prefecture": "Aomori",
+  "region": "Tohoku",
   "coordinates": {
-    "lat": 35.487,
-    "lng": 138.807
+    "lat": 40.5123,
+    "lng": 141.4884
   },
-  "wikipediaTitle": "Fujiyoshida",
-  "imageFromDestinationId": "arakurayama-sengen-park-yamanashi",
-  "description": "A Fuji foothill city with classic views of Mount Fuji, including the Chureito Pagoda at Arakurayama Sengen Park.",
-  "highlights": [
-    "Arakurayama Sengen Park",
-    "Chureito Pagoda",
-    "Mount Fuji views"
-  ],
-  "tags": ["Nature", "Photography", "Culture"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Chuurei-tou_Fujiyoshida_17025277650_c59733d6ba_o.jpg/1920px-Chuurei-tou_Fujiyoshida_17025277650_c59733d6ba_o.jpg",
+  "wikipediaTitle": "八戸市",
+  "wikipediaLanguage": "ja",
+  "description": "A Pacific port city in southeastern Aomori, known for seafood, morning markets, and access to the Tanesashi Coast.",
+  "highlights": ["Hachinohe morning market", "Tanesashi Coast", "Seafood"],
+  "tags": ["City", "Coast", "Food"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/04/Kabushima%2C_-8_May_2010_a.jpg",
   "role": "hub",
   "placeType": "hub",
   "kind": "city",

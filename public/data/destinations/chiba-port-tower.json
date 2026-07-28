@@ -83,7 +83,12 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "japan-observatories-towers",
+      "confirmed": true
+    }
+  ],
   "relationships": {
     "parentDestinationId": "chiba-city"
   },

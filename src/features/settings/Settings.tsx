@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { useTheme } from "@/shared/context/ThemeContext";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import StationInput from "@/shared/components/StationInput";
+import destinationsIndex from "@/shared/data/destinations-index.json";
+import type { Destination } from "@/shared/types/destination";
 import {
   MapPin,
   Car,
@@ -56,6 +58,19 @@ export default function Settings() {
     user?.user_metadata?.preferences?.partySize || 2,
   );
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [homeCityId, setHomeCityId] = useState(
+    user?.user_metadata?.home_city || "",
+  );
+  const cityHubs = useMemo(
+    () =>
+      (destinationsIndex as Destination[])
+        .filter(
+          (destination) =>
+            destination.role === "hub" && destination.kind === "city",
+        )
+        .sort((a, b) => a.name.localeCompare(b.name)),
+    [],
+  );
 
   useEffect(() => {
     if (homeStation) setBaseLocation(homeStation);
@@ -89,6 +104,7 @@ export default function Settings() {
 
       const { error } = await updateUserProfile({
         base_location: baseLocation,
+        home_city: homeCityId,
         theme,
         preferences: {
           carMode,
@@ -253,6 +269,22 @@ export default function Settings() {
 
                     {/* Reusable StationInput Component */}
                     <StationInput embedded={true} />
+
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mt-5 mb-2">
+                      Home City
+                    </label>
+                    <select
+                      value={homeCityId}
+                      onChange={(event) => setHomeCityId(event.target.value)}
+                      className="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
+                    >
+                      <option value="">Choose a city</option>
+                      {cityHubs.map((city) => (
+                        <option key={city.id} value={city.id}>
+                          {city.name}
+                        </option>
+                      ))}
+                    </select>
 
                     <div className="mt-2.5 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 text-xs font-medium border border-emerald-200 dark:border-emerald-800">
                       <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />

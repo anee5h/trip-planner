@@ -57,7 +57,7 @@
   },
   {
     "id": "aizuwakamatsu-city",
-    "name": "Aizuwakamatsu",
+    "name": "Aizuwakamatsu City",
     "prefecture": "Fukushima",
     "region": "Tohoku",
     "role": "hub",
@@ -89,6 +89,18 @@
     "status": "verified",
     "relationships": {
       "parentDestinationId": "chiyoda-city"
+    }
+  },
+  {
+    "id": "akita-city",
+    "name": "Akita City",
+    "prefecture": "Akita",
+    "region": "Tohoku",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
+    "relationships": {
+      "featuredDestinationIds": []
     }
   },
   {
@@ -141,7 +153,7 @@
   },
   {
     "id": "aomori-city",
-    "name": "Aomori",
+    "name": "Aomori City",
     "prefecture": "Aomori",
     "region": "Tohoku",
     "role": "hub",
@@ -209,7 +221,7 @@
   },
   {
     "id": "asago-city",
-    "name": "Asago",
+    "name": "Asago City",
     "prefecture": "Hyogo",
     "region": "Kansai",
     "role": "hub",
@@ -256,7 +268,7 @@
   },
   {
     "id": "ashikaga-city",
-    "name": "Ashikaga",
+    "name": "Ashikaga City",
     "prefecture": "Tochigi",
     "region": "Kanto",
     "role": "hub",
@@ -561,7 +573,7 @@
   },
   {
     "id": "choshi-city",
-    "name": "Choshi",
+    "name": "Choshi City",
     "prefecture": "Chiba",
     "region": "Kanto",
     "role": "hub",
@@ -772,7 +784,7 @@
   },
   {
     "id": "fujiyoshida-city",
-    "name": "Fujiyoshida",
+    "name": "Fujiyoshida City",
     "prefecture": "Yamanashi",
     "region": "Chubu",
     "role": "hub",
@@ -811,7 +823,7 @@
   },
   {
     "id": "fukushima-city",
-    "name": "Fukushima",
+    "name": "Fukushima City",
     "prefecture": "Fukushima",
     "region": "Tohoku",
     "role": "hub",
@@ -1079,6 +1091,18 @@
     "relationships": {}
   },
   {
+    "id": "hachinohe-city",
+    "name": "Hachinohe City",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
+    "relationships": {
+      "featuredDestinationIds": []
+    }
+  },
+  {
     "id": "hachioji-castle-tokyo",
     "name": "Hachioji Castle Ruins (Mount Castle)",
     "prefecture": "Tokyo",
@@ -1092,11 +1116,11 @@
   },
   {
     "id": "hachioji-tokyo",
-    "name": "Hachioji",
+    "name": "Hachioji City",
     "prefecture": "Tokyo",
     "region": "Kanto",
     "role": "hub",
-    "kind": "attraction",
+    "kind": "city",
     "status": "verified",
     "relationships": {}
   },
@@ -1288,7 +1312,7 @@
   },
   {
     "id": "hino-city",
-    "name": "Hino",
+    "name": "Hino City",
     "prefecture": "Tokyo",
     "region": "Kanto",
     "role": "hub",
@@ -1322,7 +1346,7 @@
   },
   {
     "id": "hirosaki-city",
-    "name": "Hirosaki",
+    "name": "Hirosaki City",
     "prefecture": "Aomori",
     "region": "Tohoku",
     "role": "hub",
@@ -1477,7 +1501,7 @@
   },
   {
     "id": "ise-city",
-    "name": "Ise",
+    "name": "Ise City",
     "prefecture": "Mie",
     "region": "Kansai",
     "role": "hub",
@@ -1547,7 +1571,7 @@
   },
   {
     "id": "iwakuni-city",
-    "name": "Iwakuni",
+    "name": "Iwakuni City",
     "prefecture": "Yamaguchi",
     "region": "Chugoku",
     "role": "hub",
@@ -1761,7 +1785,7 @@
   },
   {
     "id": "katori-city",
-    "name": "Katori",
+    "name": "Katori City",
     "prefecture": "Chiba",
     "region": "Kanto",
     "role": "hub",
@@ -2061,7 +2085,7 @@
   },
   {
     "id": "koriyama-city",
-    "name": "Koriyama",
+    "name": "Koriyama City",
     "prefecture": "Fukushima",
     "region": "Tohoku",
     "role": "hub",
@@ -2316,7 +2340,7 @@
   },
   {
     "id": "marugame-city",
-    "name": "Marugame",
+    "name": "Marugame City",
     "prefecture": "Kagawa",
     "region": "Shikoku",
     "role": "hub",
@@ -2495,7 +2519,7 @@
   },
   {
     "id": "mine-city",
-    "name": "Mine",
+    "name": "Mine City",
     "prefecture": "Yamaguchi",
     "region": "Chugoku",
     "role": "hub",
@@ -2599,6 +2623,18 @@
     "relationships": {
       "featuredDestinationIds": ["amanohashidate-kyoto"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city"]
+    }
+  },
+  {
+    "id": "morioka-city",
+    "name": "Morioka City",
+    "prefecture": "Iwate",
+    "region": "Tohoku",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
+    "relationships": {
+      "featuredDestinationIds": []
     }
   },
   {
@@ -2747,7 +2783,7 @@
   },
   {
     "id": "nagano-city",
-    "name": "Nagano & Snow Monkeys",
+    "name": "Nagano City",
     "prefecture": "Nagano",
     "region": "Chubu",
     "role": "hub",
@@ -3545,7 +3581,7 @@
   },
   {
     "id": "semboku-city",
-    "name": "Semboku",
+    "name": "Semboku City",
     "prefecture": "Akita",
     "region": "Tohoku",
     "role": "hub",
@@ -3797,11 +3833,11 @@
   },
   {
     "id": "tachikawa-tokyo",
-    "name": "Tachikawa",
+    "name": "Tachikawa City",
     "prefecture": "Tokyo",
     "region": "Kanto",
     "role": "hub",
-    "kind": "attraction",
+    "kind": "city",
     "status": "verified",
     "relationships": {}
   },
@@ -3837,7 +3873,7 @@
   },
   {
     "id": "takahashi-city",
-    "name": "Takahashi",
+    "name": "Takahashi City",
     "prefecture": "Okayama",
     "region": "Chugoku",
     "role": "hub",
@@ -4181,7 +4217,7 @@
   },
   {
     "id": "toyooka-city",
-    "name": "Toyooka",
+    "name": "Toyooka City",
     "prefecture": "Hyogo",
     "region": "Kansai",
     "role": "hub",
@@ -4396,6 +4432,18 @@
     }
   },
   {
+    "id": "yamagata-city",
+    "name": "Yamagata City",
+    "prefecture": "Yamagata",
+    "region": "Tohoku",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
+    "relationships": {
+      "featuredDestinationIds": []
+    }
+  },
+  {
     "id": "yamanashi-fujiyoshida",
     "name": "Fujiyoshida",
     "prefecture": "Yamanashi",
@@ -4427,7 +4475,7 @@
   },
   {
     "id": "yokohama-city",
-    "name": "Yokohama",
+    "name": "Yokohama City",
     "prefecture": "Kanagawa",
     "region": "Kanto",
     "role": "hub",

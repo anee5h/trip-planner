@@ -77,12 +77,7 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [
-    {
-      "collectionId": "art-islands-japan",
-      "sortOrder": 6
-    }
-  ],
+  "collections": [],
   "relationships": {
     "parentDestinationId": "koto-city"
   },

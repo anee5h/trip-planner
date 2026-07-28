@@ -99,6 +99,10 @@
       "collectionId": "great-night-views",
       "sortOrder": 5,
       "confirmed": true
+    },
+    {
+      "collectionId": "japan-observatories-towers",
+      "confirmed": true
     }
   ],
   "walkingIntensity": "low"

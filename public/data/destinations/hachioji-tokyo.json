@@ -1,7 +1,7 @@
 {
   "id": "hachioji-tokyo",
   "role": "hub",
-  "name": "Hachioji",
+  "name": "Hachioji City",
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Nature", "Hiking", "Culture"],
@@ -85,5 +85,6 @@
     "rainFriendly": 7,
     "walkingIntensity": 3
   },
-  "walkingIntensity": "low"
+  "walkingIntensity": "low",
+  "kind": "city"
 }

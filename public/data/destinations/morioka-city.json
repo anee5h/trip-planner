@@ -1,23 +1,23 @@
 {
-  "id": "fujiyoshida-city",
-  "name": "Fujiyoshida City",
-  "nameJa": "富士吉田",
-  "prefecture": "Yamanashi",
-  "region": "Chubu",
+  "id": "morioka-city",
+  "name": "Morioka City",
+  "nameJa": "盛岡市",
+  "prefecture": "Iwate",
+  "region": "Tohoku",
   "coordinates": {
-    "lat": 35.487,
-    "lng": 138.807
+    "lat": 39.7036,
+    "lng": 141.1527
   },
-  "wikipediaTitle": "Fujiyoshida",
-  "imageFromDestinationId": "arakurayama-sengen-park-yamanashi",
-  "description": "A Fuji foothill city with classic views of Mount Fuji, including the Chureito Pagoda at Arakurayama Sengen Park.",
+  "wikipediaTitle": "盛岡市",
+  "wikipediaLanguage": "ja",
+  "description": "The capital of Iwate Prefecture, a castle-town city where the Kitakami and Nakatsu rivers meet.",
   "highlights": [
-    "Arakurayama Sengen Park",
-    "Chureito Pagoda",
-    "Mount Fuji views"
+    "Morioka Castle Site Park",
+    "Morioka noodles",
+    "Riverfront walks"
   ],
-  "tags": ["Nature", "Photography", "Culture"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Chuurei-tou_Fujiyoshida_17025277650_c59733d6ba_o.jpg/1920px-Chuurei-tou_Fujiyoshida_17025277650_c59733d6ba_o.jpg",
+  "tags": ["City", "History", "Food"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Morioka_Montage.jpg",
   "role": "hub",
   "placeType": "hub",
   "kind": "city",

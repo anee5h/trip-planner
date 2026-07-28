@@ -8,8 +8,19 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.8.2",
+    version: "v1.8.3",
     tag: "Current",
+    date: "July 2026",
+    title: "Collections, Home City & Tohoku Coverage",
+    highlights: [
+      "Corrected the teamLab collection assignment and added a curated Observatories & Towers collection",
+      "Added a Home City selector for verified city hubs and a home-city marker on the matching page",
+      "Added Akita, Morioka, Yamagata, and Hachinohe City to Tohoku coverage",
+      "Normalized municipality display names and localized the Read more control in Japanese",
+    ],
+  },
+  {
+    version: "v1.8.2",
     date: "July 2026",
     title: "Complete Hub Coverage & Japanese Wikipedia",
     highlights: [
