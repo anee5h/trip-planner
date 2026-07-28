@@ -69,8 +69,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Mount Aso Active Caldera Dining Options"],
-  "cafes": ["Mount Aso Active Caldera Rest Area Cafe"],
   "notes": "Mount Aso Active Caldera located in Kumamoto Prefecture.",
   "status": "beta",
   "relationships": {

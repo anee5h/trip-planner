@@ -101,7 +101,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Mount Hakodate Night View Dining Options"],
-  "cafes": ["Mount Hakodate Night View Rest Area Cafe"],
   "walkingIntensity": "medium"
 }

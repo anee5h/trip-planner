@@ -61,8 +61,6 @@
   },
   "reservation": "Required for popular maid cafes.",
   "parking": "Extremely difficult and expensive.",
-  "restaurants": ["GoGo Curry", "Gyu-Kaku"],
-  "cafes": ["Maidreamin"],
   "notes": "Sunday afternoons have a pedestrian paradise on Chuo-dori.",
   "schemaVersion": 2,
   "imageMetadata": {

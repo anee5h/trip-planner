@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Matsue City Specialty Dining"],
-  "cafes": ["Matsue City Cafe"],
   "notes": "Matsue City travel hub in Shimane Prefecture.",
   "status": "beta",
   "travelEstimate": {

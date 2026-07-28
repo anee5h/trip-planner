@@ -61,8 +61,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Hiroshima City Specialty Dining"],
-  "cafes": ["Hiroshima City Cafe"],
   "notes": "Hiroshima City travel hub in Hiroshima Prefecture.",
   "status": "beta",
   "travelEstimate": {

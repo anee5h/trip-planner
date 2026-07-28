@@ -74,8 +74,6 @@
   "walkingIntensity": "low",
   "reservation": "Required for Tsurunoyu (advance booking essential)",
   "parking": "Available at each inn",
-  "restaurants": ["Tsurunoyu Kaiseki Dining", "Magoroku Inn Restaurant"],
-  "cafes": ["Nyuto Onsen Tea House"],
   "notes": "An Onsen Meguri (hot spring tour) passport lets visitors bathe at all 7 inns. Tsurunoyu is the most iconic — book months ahead for weekend stays.",
   "status": "beta",
   "relationships": {

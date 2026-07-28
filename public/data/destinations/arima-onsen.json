@@ -90,7 +90,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Arima Onsen Dining Options"],
-  "cafes": ["Arima Onsen Rest Area Cafe"],
   "walkingIntensity": "medium"
 }

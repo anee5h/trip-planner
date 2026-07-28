@@ -1,0 +1,10 @@
+{
+  "actions": {
+    "addToItinerary": "Add to Itinerary",
+    "explore": "Explore",
+    "back": "Back",
+    "directions": "Get Directions",
+    "share": "Share destination",
+    "copyLink": "Copy destination link"
+  }
+}

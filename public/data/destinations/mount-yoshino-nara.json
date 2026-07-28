@@ -95,8 +95,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Mount Yoshino (Yoshinoyama) Dining Options"],
-  "cafes": ["Mount Yoshino (Yoshinoyama) Rest Area Cafe"],
   "walkingIntensity": "medium",
   "role": "standalone",
   "placeType": "destination"

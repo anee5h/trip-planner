@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Taito City Specialty Dining"],
-  "cafes": ["Taito City Cafe"],
   "notes": "Taito City travel hub in Tokyo Prefecture.",
   "status": "verified",
   "travelEstimate": {

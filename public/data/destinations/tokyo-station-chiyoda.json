@@ -68,12 +68,6 @@
   },
   "reservation": "Not required for public station concourses; reservations recommended for high-end Marunouchi dining.",
   "parking": "Paid underground parking garages available throughout the Marunouchi and Yaesu districts.",
-  "restaurants": [
-    "Rokurinsha (Ramen Street)",
-    "Ecsotto Marunouchi",
-    "Kitte Granche Dining"
-  ],
-  "cafes": ["TORAYA TOKYO (Tokyo Station Hotel)", "Sembikiya Fruit Parlor"],
   "notes": "Direct access to Narita Express and all Shinkansen lines. Excellent rain-proof indoor routing.",
   "schemaVersion": 2,
   "bestSeason": "All Year",

@@ -65,16 +65,6 @@
     "food": 4800,
     "cafe": 1600
   },
-  "restaurants": [
-    "Sado Island Traditional Dining",
-    "Local Shizuoka Specialty Restaurant",
-    "The Sado Grill & Izakaya"
-  ],
-  "cafes": [
-    "Café de Sado Island",
-    "Riverside Roasters",
-    "Station Matcha & Sweets"
-  ],
   "notes": "A fantastic trip to Sado Island. Known for its gold mine and tub boats vibes, it offers a great escape with an overall score of 8.4.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/%E4%BA%8C%E3%83%84%E4%BA%80.jpg/960px-%E4%BA%8C%E3%83%84%E4%BA%80.jpg",

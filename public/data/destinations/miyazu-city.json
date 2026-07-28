@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Miyazu City Specialty Dining"],
-  "cafes": ["Miyazu City Cafe"],
   "notes": "Miyazu City travel hub in Kyoto Prefecture.",
   "status": "beta",
   "travelEstimate": {

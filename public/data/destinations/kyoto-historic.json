@@ -103,7 +103,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Historic Kyoto (Kiyomizu-dera & Kinkaku-ji) Dining Options"],
-  "cafes": ["Historic Kyoto (Kiyomizu-dera & Kinkaku-ji) Rest Area Cafe"],
   "walkingIntensity": "medium"
 }

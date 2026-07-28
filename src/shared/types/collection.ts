@@ -27,6 +27,7 @@ export interface Collection {
   officialSource?: string;
   sourceUrl?: string;
   metadata: CollectionMetadata;
+  content?: Partial<Record<"en" | "ja", { name: string; description: string }>>;
 }
 
 export interface CollectionMembership {

@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Adachi City Specialty Dining"],
-  "cafes": ["Adachi City Cafe"],
   "notes": "Adachi City travel hub in Tokyo Prefecture.",
   "status": "verified",
   "travelEstimate": {

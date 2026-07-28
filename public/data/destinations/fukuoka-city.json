@@ -61,8 +61,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Fukuoka City Specialty Dining"],
-  "cafes": ["Fukuoka City Cafe"],
   "notes": "Fukuoka City travel hub in Fukuoka Prefecture.",
   "status": "beta",
   "travelEstimate": {

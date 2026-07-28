@@ -100,7 +100,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Nijo Castle (Kyoto) Dining Options"],
-  "cafes": ["Nijo Castle (Kyoto) Rest Area Cafe"],
   "walkingIntensity": "medium"
 }

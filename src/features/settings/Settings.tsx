@@ -21,11 +21,13 @@ import {
 import { Button } from "@/shared/components/ui/button";
 import { PageHeader } from "@/shared/components/ui/PageHeader";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 
 type SettingsSection =
   "account" | "general" | "travel" | "appearance" | "accessibility" | "data";
 
 export default function Settings() {
+  const { t } = useTranslation();
   const { user, updateUserProfile } = useAuth();
   const { theme, setTheme } = useTheme();
   const { locale, setLocale } = useLocale();
@@ -167,7 +169,7 @@ export default function Settings() {
       }
     } catch (err) {
       console.error(err);
-      toast.error("Failed to save settings");
+      toast.error(t("ui.failedSave"));
     } finally {
       setLoading(false);
     }
@@ -213,27 +215,27 @@ export default function Settings() {
     downloadAnchor.click();
     downloadAnchor.remove();
 
-    toast.success("Travel data backup exported successfully");
+    toast.success(t("ui.settingsSaved"));
   };
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 max-w-6xl space-y-8 animate-in fade-in duration-200">
       <PageHeader
-        title="Settings & Preferences"
-        subtitle="Application Configuration"
-        description="Customize your Base Location, travel preferences, transit defaults, and UI accessibility."
+        title={t("ui.settingsTitle")}
+        subtitle={t("ui.settingsSubtitle")}
+        description={t("ui.settingsDescription")}
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Settings Navigation Sidebar */}
         <div className="lg:col-span-3 flex overflow-x-auto lg:flex-col gap-2 pb-2 lg:pb-0 scrollbar-none">
           {[
-            { id: "account", label: "Account", icon: MapPin },
-            { id: "general", label: "General & Base Location", icon: MapPin },
-            { id: "travel", label: "Travel Preferences", icon: Car },
-            { id: "appearance", label: "Appearance", icon: Sun },
-            { id: "accessibility", label: "Accessibility", icon: Eye },
-            { id: "data", label: "Data & Export", icon: Download },
+            { id: "account", label: t("ui.account"), icon: MapPin },
+            { id: "general", label: t("ui.general"), icon: MapPin },
+            { id: "travel", label: t("ui.travelPreferences"), icon: Car },
+            { id: "appearance", label: t("ui.appearance"), icon: Sun },
+            { id: "accessibility", label: t("ui.accessibility"), icon: Eye },
+            { id: "data", label: t("ui.dataExport"), icon: Download },
           ].map((sec) => {
             const isActive = activeSection === sec.id;
             const Icon = sec.icon;
@@ -274,10 +276,10 @@ export default function Settings() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                    Account
+                    {t("ui.account")}
                   </h3>
                   <p className="text-xs text-slate-500">
-                    Manage your public identity, home city, and language.
+                    {t("ui.accountDescription")}
                   </p>
                 </div>
                 <div className="space-y-4">
@@ -298,13 +300,13 @@ export default function Settings() {
                     />
                   </label>
                   <label className="block text-xs font-bold uppercase text-slate-500">
-                    Home City
+                    {t("ui.chooseCity")}
                     <select
                       value={homeCityId}
                       onChange={(event) => setHomeCityId(event.target.value)}
                       className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
                     >
-                      <option value="">Choose a city</option>
+                      <option value="">{t("ui.chooseCity")}</option>
                       {cityHubs.map((city) => (
                         <option key={city.id} value={city.id}>
                           {formatPlaceName(
@@ -316,7 +318,7 @@ export default function Settings() {
                     </select>
                   </label>
                   <label className="block text-xs font-bold uppercase text-slate-500">
-                    Default language
+                    {t("ui.defaultLanguage")}
                     <select
                       value={defaultLocale}
                       onChange={(event) =>
@@ -337,7 +339,7 @@ export default function Settings() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                    General & Base Location
+                    {t("ui.general")}
                   </h3>
                   <p className="text-xs text-slate-500">
                     Set your home starting point for travel duration estimates
@@ -348,7 +350,7 @@ export default function Settings() {
                 <div className="space-y-4 pt-2">
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
-                      Base Location (Home Station / Prefecture)
+                      {t("ui.baseLocation")}
                     </label>
 
                     {/* Reusable StationInput Component */}

@@ -4,6 +4,7 @@ import { getCollections } from "@/shared/data/collections";
 import {
   getDestinationsForCollection,
   getCollectionProgress,
+  getCollectionContent,
 } from "@/shared/utils/collections";
 import CollectionBadge from "@/shared/components/ui/CollectionBadge";
 import { ExternalLink, CheckCircle2 } from "lucide-react";
@@ -11,11 +12,13 @@ import { Badge } from "@/shared/components/ui/badge";
 import { useLocale } from "@/shared/context/LocaleContext";
 
 import { PageHeader } from "@/shared/components/ui/PageHeader";
+import { useTranslation } from "react-i18next";
 
 export default function CollectionsDirectory() {
   const collections = getCollections();
   const { visited } = useTripStore();
   const { locale } = useLocale();
+  const { t } = useTranslation();
   const availableCollections = collections.filter(
     (collection) =>
       getDestinationsForCollection(collection.id, locale).length > 0,
@@ -24,15 +27,16 @@ export default function CollectionsDirectory() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl">
       <PageHeader
-        title="Explore Curated Collections"
-        subtitle="Curated Travel Guides"
-        description="Discover Japan through hand-picked historical rankings, official UNESCO heritage lists, and legendary cultural landmarks."
+        title={t("ui.curatedCollections")}
+        subtitle={t("ui.curatedGuides")}
+        description={t("ui.curatedGuides")}
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {availableCollections.map((col) => {
           const destinations = getDestinationsForCollection(col.id, locale);
           const progress = getCollectionProgress(col.id, visited, locale);
+          const content = getCollectionContent(col, locale);
 
           return (
             <div
@@ -46,7 +50,7 @@ export default function CollectionsDirectory() {
                     variant="outline"
                     className="capitalize text-xs font-semibold"
                   >
-                    {col.type} Collection
+                    {col.type} {t("ui.collection")}
                   </Badge>
                 </div>
 
@@ -55,12 +59,12 @@ export default function CollectionsDirectory() {
                   className="group block mb-3"
                 >
                   <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                    {col.name}
+                    {content.name}
                   </h2>
                 </Link>
 
                 <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
-                  {col.description}
+                  {content.description}
                 </p>
               </div>
 
@@ -70,7 +74,8 @@ export default function CollectionsDirectory() {
                   <div className="flex justify-between items-center text-xs font-bold mb-1.5">
                     <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
                       <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
-                      {progress.visited} / {progress.total} visited
+                      {progress.visited} / {progress.total}{" "}
+                      {t("ui.visited").toLowerCase()}
                     </span>
                     <span className="text-emerald-600 dark:text-emerald-400">
                       {progress.percent}%
@@ -98,7 +103,7 @@ export default function CollectionsDirectory() {
                     </a>
                   ) : (
                     <span className="text-slate-400">
-                      {destinations.length} Destinations
+                      {destinations.length} {t("ui.destinations")}
                     </span>
                   )}
 
@@ -106,7 +111,7 @@ export default function CollectionsDirectory() {
                     to={`/collections/${col.slug}`}
                     className="inline-flex items-center font-bold text-emerald-600 dark:text-emerald-400 hover:underline shrink-0"
                   >
-                    View Collection →
+                    {t("ui.viewCollection")} →
                   </Link>
                 </div>
               </div>

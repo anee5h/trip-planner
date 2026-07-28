@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Gifu City Specialty Dining"],
-  "cafes": ["Gifu City Cafe"],
   "notes": "Gifu City travel hub in Gifu Prefecture.",
   "status": "verified",
   "travelEstimate": {

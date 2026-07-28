@@ -61,16 +61,6 @@
   },
   "reservation": "Required well in advance.",
   "parking": "Massive parking lots available.",
-  "restaurants": [
-    "Tokyo Disneyland Traditional Dining",
-    "Local Chiba Specialty Restaurant",
-    "The Tokyo Grill & Izakaya"
-  ],
-  "cafes": [
-    "Café de Tokyo Disneyland",
-    "Riverside Roasters",
-    "Station Matcha & Sweets"
-  ],
   "notes": "Book tickets online up to 2 months in advance.",
   "schemaVersion": 2,
   "imageMetadata": {

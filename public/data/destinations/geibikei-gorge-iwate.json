@@ -74,8 +74,6 @@
   "walkingIntensity": "minimal",
   "reservation": "Recommended on weekends",
   "parking": "Free parking at boat dock",
-  "restaurants": ["Geibikei Riverside Restaurant", "Iwate Soba House"],
-  "cafes": ["Gorge Entrance Café"],
   "notes": "Boat ride is 90 minutes round trip. At the turnaround point, visitors throw small rings at a rock notch for good luck. Autumn foliage reflects beautifully in the water.",
   "status": "beta",
   "relationships": {

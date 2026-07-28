@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Beppu City Specialty Dining"],
-  "cafes": ["Beppu City Cafe"],
   "notes": "Beppu City travel hub in Oita Prefecture.",
   "status": "beta",
   "travelEstimate": {

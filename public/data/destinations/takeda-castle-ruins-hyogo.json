@@ -69,8 +69,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Takeda Castle Ruins Dining Options"],
-  "cafes": ["Takeda Castle Ruins Rest Area Cafe"],
   "notes": "Takeda Castle Ruins located in Hyogo Prefecture.",
   "status": "beta",
   "relationships": {

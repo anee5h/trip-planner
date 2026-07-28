@@ -71,8 +71,6 @@
   },
   "reservation": "No reservation required.",
   "parking": "Short-term parking garages available nearby at Shinagawa Station and Takanawa Gateway City development.",
-  "restaurants": ["Takanawa Gateway City Dining", "Sengakuji Monzen Soba"],
-  "cafes": ["MAISON KAYSER Takanawa", "Starbucks Reserve Takanawa Gateway"],
   "notes": "Station opened in 2020 as the 30th Yamanote Line station. Beautiful night illumination of the cedar wood roof structure.",
   "schemaVersion": 2,
   "bestSeason": "All Year",

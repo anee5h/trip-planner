@@ -48,8 +48,6 @@
   "tags": ["Animals", "Farm", "Family"],
   "reservation": "Not required",
   "parking": "Large parking lot available",
-  "restaurants": ["Farm BBQ Restaurant", "Soft Cream Bar"],
-  "cafes": ["Mother Farm Dairy Cafe"],
   "notes": "Famous for fresh dairy ice cream and seasonal petunia and nemophila blooms.",
   "coordinates": {
     "lat": 35.2459214,

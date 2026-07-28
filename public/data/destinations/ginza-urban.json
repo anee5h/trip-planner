@@ -66,8 +66,6 @@
   },
   "reservation": "Recommended for high-end dining.",
   "parking": "Expensive.",
-  "restaurants": ["Kyubey Sushi", "Ginza Ukai-tei"],
-  "cafes": ["Cafe de L'Ambre", "Shiseido Parlour"],
   "notes": "Main street is closed to traffic on weekends (Pedestrian Paradise).",
   "schemaVersion": 2,
   "imageMetadata": {

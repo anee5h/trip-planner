@@ -68,8 +68,6 @@
   },
   "reservation": "None required",
   "parking": "Limited city center parking",
-  "restaurants": ["Gion Karyo", "Nishiki Market Stalls"],
-  "cafes": ["Arabica Kyoto Higashiyama"],
   "notes": "Imperial cultural capital of Japan.",
   "status": "beta",
   "travelEstimate": {

@@ -62,16 +62,6 @@
     "food": 2100,
     "cafe": 700
   },
-  "restaurants": [
-    "Saitama City Traditional Dining",
-    "Local Kanagawa Specialty Restaurant",
-    "The Saitama Grill & Izakaya"
-  ],
-  "cafes": [
-    "Café de Saitama City",
-    "Riverside Roasters",
-    "Station Matcha & Sweets"
-  ],
   "notes": "A fantastic trip to Saitama City. Known for its bonsai and railway museum vibes, it offers a great escape with an overall score of 7.8.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Saitama_city_montage.jpg",

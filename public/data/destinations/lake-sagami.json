@@ -63,16 +63,6 @@
     "food": 3000,
     "cafe": 1000
   },
-  "restaurants": [
-    "Lake Sagami Traditional Dining",
-    "Local Kanagawa Specialty Restaurant",
-    "The Lake Grill & Izakaya"
-  ],
-  "cafes": [
-    "Café de Lake Sagami",
-    "Riverside Roasters",
-    "Station Matcha & Sweets"
-  ],
   "notes": "A fantastic trip to Lake Sagami. Known for its illumination and outdoors vibes, it offers a great escape with an overall score of 8.1.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Lake_Sagami_-_2005_Nov_10_various_10.jpg/3840px-Lake_Sagami_-_2005_Nov_10_various_10.jpg",

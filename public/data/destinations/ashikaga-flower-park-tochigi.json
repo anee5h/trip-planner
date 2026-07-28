@@ -72,8 +72,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Ashikaga Flower Park Wisteria Dining Options"],
-  "cafes": ["Ashikaga Flower Park Wisteria Rest Area Cafe"],
   "notes": "Ashikaga Flower Park Wisteria located in Tochigi Prefecture.",
   "status": "beta",
   "relationships": {

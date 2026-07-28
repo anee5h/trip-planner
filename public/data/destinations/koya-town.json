@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Koya Town Specialty Dining"],
-  "cafes": ["Koya Town Cafe"],
   "notes": "Koya Town travel hub in Wakayama Prefecture.",
   "status": "beta",
   "travelEstimate": {

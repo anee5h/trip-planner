@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Biei Town Specialty Dining"],
-  "cafes": ["Biei Town Cafe"],
   "notes": "Biei Town travel hub in Hokkaido Prefecture.",
   "status": "beta",
   "travelEstimate": {

@@ -66,8 +66,6 @@
   },
   "reservation": "None required",
   "parking": "Public underground parking",
-  "restaurants": ["Ichiran Shibuya", "Shibuya Sky Lounge"],
-  "cafes": ["Fuglen Tokyo"],
   "notes": "Special Ward of Tokyo Metropolis.",
   "status": "verified",
   "travelEstimate": {

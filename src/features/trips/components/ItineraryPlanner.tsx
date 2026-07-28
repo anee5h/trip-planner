@@ -6,6 +6,7 @@ import type { Destination } from "@/shared/types/destination";
 import { Button } from "@/shared/components/ui/button";
 import { Input } from "@/shared/components/ui/input";
 import { ArrowDown, ArrowUp, Plus, Trash2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface ItineraryPlannerProps {
   trip: Trip;
@@ -20,6 +21,7 @@ export default function ItineraryPlanner({
   onRemoveStop,
   onReorderStops,
 }: ItineraryPlannerProps) {
+  const { t } = useTranslation();
   const [stopType, setStopType] = useState<TripStopType>("destination");
   const [selectedDestId, setSelectedDestId] = useState("");
   const [customName, setCustomName] = useState("");
@@ -73,7 +75,7 @@ export default function ItineraryPlanner({
         className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-3xl space-y-4"
       >
         <h4 className="text-md font-bold text-slate-950 dark:text-white mb-2">
-          Add Itinerary Stop
+          {t("ui.addStop")}
         </h4>
 
         <div className="flex gap-4">
@@ -86,7 +88,7 @@ export default function ItineraryPlanner({
                 : "bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400"
             }`}
           >
-            TabiMap Place
+            {t("ui.destinations")}
           </button>
           <button
             type="button"
@@ -97,21 +99,21 @@ export default function ItineraryPlanner({
                 : "bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400"
             }`}
           >
-            Custom Location
+            {t("ui.customLocation")}
           </button>
         </div>
 
         {stopType === "destination" ? (
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
-              Select Place
+              {t("ui.selectPlace")}
             </label>
             <select
               value={selectedDestId}
               onChange={(e) => setSelectedDestId(e.target.value)}
               className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-emerald-500"
             >
-              <option value="">-- Choose a Destination --</option>
+              <option value="">-- {t("ui.selectPlace")} --</option>
               {destinations.map((d) => (
                 <option key={d.id} value={d.id}>
                   {d.name} ({d.prefecture})
@@ -122,7 +124,7 @@ export default function ItineraryPlanner({
         ) : (
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
-              Location Name
+              {t("ui.customLocation")}
             </label>
             <Input
               type="text"
@@ -137,31 +139,29 @@ export default function ItineraryPlanner({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
-              Arrival Time
+              {t("ui.arrivalTime")}
             </label>
             <Input
-              type="text"
+              type="time"
               value={arrivalTime}
               onChange={(e) => setArrivalTime(e.target.value)}
-              placeholder="e.g. 10:00 AM"
               className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-xl"
             />
           </div>
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
-              Departure Time
+              {t("ui.departureTime")}
             </label>
             <Input
-              type="text"
+              type="time"
               value={departureTime}
               onChange={(e) => setDepartureTime(e.target.value)}
-              placeholder="e.g. 12:30 PM"
               className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-xl"
             />
           </div>
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
-              Cost (¥)
+              {t("ui.estimatedCost")} (￥)
             </label>
             <Input
               type="number"
@@ -175,7 +175,7 @@ export default function ItineraryPlanner({
 
         <div>
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
-            Notes / Activity Description
+            {t("ui.notes")}
           </label>
           <Input
             type="text"
@@ -192,20 +192,19 @@ export default function ItineraryPlanner({
           className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-bold px-6"
         >
           <Plus className="w-4 h-4 mr-1.5" />
-          <span>Add Stop</span>
+          <span>{t("ui.addStopAction")}</span>
         </Button>
       </form>
 
       {/* Stops List */}
       <div className="space-y-4">
         <h4 className="text-lg font-bold text-slate-950 dark:text-white">
-          Itinerary Order
+          {t("ui.itineraryOrder")}
         </h4>
 
         {trip.stops.length === 0 ? (
           <p className="text-slate-400 dark:text-slate-500 text-sm italic">
-            No stops added yet. Use the form above to add places or hotel
-            details to this itinerary.
+            {t("ui.noItinerariesHint")}
           </p>
         ) : (
           <div className="relative pl-6 space-y-6 before:absolute before:left-[1.125rem] before:top-4 before:bottom-4 before:w-0.5 before:bg-emerald-500/30 dark:before:bg-emerald-500/40">

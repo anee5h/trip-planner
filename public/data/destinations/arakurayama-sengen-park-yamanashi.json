@@ -72,8 +72,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Arakurayama Sengen Park & Chureito Pagoda Dining Options"],
-  "cafes": ["Arakurayama Sengen Park & Chureito Pagoda Rest Area Cafe"],
   "notes": "Arakurayama Sengen Park & Chureito Pagoda located in Yamanashi Prefecture.",
   "status": "beta",
   "relationships": {

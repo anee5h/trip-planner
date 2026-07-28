@@ -73,8 +73,6 @@
   },
   "reservation": "Advance online ticket booking required 2 to 4 weeks prior.",
   "parking": "Underground paid parking at Shibuya Scramble Square.",
-  "restaurants": ["Paradise Lounge 46F", "Tsurutontan Udon Scramble"],
-  "cafes": ["The Roof at Shibuya Sky", "Starbucks Scramble"],
   "notes": "Rooftop deck may close temporarily during heavy rain or strong wind.",
   "schemaVersion": 2,
   "status": "verified",

@@ -74,8 +74,6 @@
   "walkingIntensity": "low",
   "reservation": "None required",
   "parking": "Limited; use Loople Sendai bus from station",
-  "restaurants": ["Aoba-jo Café", "Sendai City centre 15 min by bus"],
-  "cafes": ["Aoba Castle Hilltop Café"],
   "notes": "Most of the castle was destroyed by earthquake (1793) and WWII bombing. Today the stone walls, turret foundations, and statue remain. Free admission to grounds; museum ¥700.",
   "status": "beta",
   "relationships": {

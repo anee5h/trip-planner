@@ -61,16 +61,6 @@
   },
   "reservation": "Required well in advance",
   "parking": "Available but train recommended",
-  "restaurants": [
-    "Harry Potter Studio Traditional Dining",
-    "Local Tokyo Specialty Restaurant",
-    "The Harry Grill & Izakaya"
-  ],
-  "cafes": [
-    "Café de Harry Potter Studio",
-    "Riverside Roasters",
-    "Station Matcha & Sweets"
-  ],
   "notes": "Book ahead",
   "schemaVersion": 2,
   "status": "verified",

@@ -74,8 +74,6 @@
   },
   "reservation": "No reservation required.",
   "parking": "Large paid parking lots serving Higashiyama Zoo & Sky Tower.",
-  "restaurants": ["Sky Restaurant NAGOYA758", "Zoo Terrace Dining"],
-  "cafes": ["Sky Tower Lounge 5F"],
   "notes": "Combination tickets available for both Higashiyama Zoo and Sky Tower.",
   "schemaVersion": 2,
   "imageMetadata": {

@@ -69,8 +69,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Ryugado Cave Dining Options"],
-  "cafes": ["Ryugado Cave Rest Area Cafe"],
   "notes": "Ryugado Cave located in Kochi Prefecture.",
   "status": "beta",
   "relationships": {

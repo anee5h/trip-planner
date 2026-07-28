@@ -72,8 +72,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Tojinbo Basalt Sea Cliffs Dining Options"],
-  "cafes": ["Tojinbo Basalt Sea Cliffs Rest Area Cafe"],
   "notes": "Tojinbo Basalt Sea Cliffs located in Fukui Prefecture.",
   "status": "beta",
   "relationships": {

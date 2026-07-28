@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Shinagawa City Specialty Dining"],
-  "cafes": ["Shinagawa City Cafe"],
   "notes": "Shinagawa City travel hub in Tokyo Prefecture.",
   "status": "verified",
   "travelEstimate": {

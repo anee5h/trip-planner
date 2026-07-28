@@ -67,8 +67,6 @@
   },
   "reservation": "Not required, but advance online tickets recommended during peak weekends.",
   "parking": "No dedicated parking; use Ueno station public lots.",
-  "restaurants": ["Shinobazu Deck Rest House", "East Garden Cafe"],
-  "cafes": ["Ueno Park Starbucks", "Panda Soft Serve Kiosk"],
   "notes": "Closed on Mondays (or Tuesday if Monday is a national holiday).",
   "schemaVersion": 2,
   "status": "verified",

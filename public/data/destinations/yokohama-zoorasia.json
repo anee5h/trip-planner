@@ -67,8 +67,6 @@
   },
   "reservation": "Not required for general admission.",
   "parking": "Available on-site.",
-  "restaurants": ["Savanna Terrace", "Aura Restaurant"],
-  "cafes": ["Zoorasia Ocean Cafe", "Forest Cafe"],
   "notes": "Extensive walking required; comfortable walking shoes recommended.",
   "schemaVersion": 2,
   "status": "verified",

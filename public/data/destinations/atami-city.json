@@ -61,8 +61,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Atami City Specialty Dining"],
-  "cafes": ["Atami City Cafe"],
   "notes": "Atami City travel hub in Shizuoka Prefecture.",
   "status": "verified",
   "travelEstimate": {

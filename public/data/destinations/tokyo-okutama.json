@@ -68,8 +68,6 @@
   "tags": ["Nature", "Hiking", "Active", "Escapes"],
   "reservation": "Not required",
   "parking": "Available at trailheads",
-  "restaurants": ["Okutama Beer Cafe", "Hatonosu Soba"],
-  "cafes": ["Goraikou Cafe"],
   "notes": "Bring stout shoes for hiking trails. The Nippara caves maintain a cool 11°C temperature year-round.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/LakeOkutama.jpg/1280px-LakeOkutama.jpg",

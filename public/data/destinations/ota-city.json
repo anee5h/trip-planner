@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Ota City Specialty Dining"],
-  "cafes": ["Ota City Cafe"],
   "notes": "Ota City travel hub in Tokyo Prefecture.",
   "status": "verified",
   "travelEstimate": {

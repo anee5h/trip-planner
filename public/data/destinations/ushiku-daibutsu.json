@@ -63,16 +63,6 @@
     "food": 2250,
     "cafe": 750
   },
-  "restaurants": [
-    "Ushiku Daibutsu Traditional Dining",
-    "Local Kanagawa Specialty Restaurant",
-    "The Ushiku Grill & Izakaya"
-  ],
-  "cafes": [
-    "Café de Ushiku Daibutsu",
-    "Riverside Roasters",
-    "Station Matcha & Sweets"
-  ],
   "notes": "A fantastic trip to Ushiku Daibutsu. Known for its giant statue and record breaking vibes, it offers a great escape with an overall score of 7.6.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/en/6/62/Ushiku.jpg",

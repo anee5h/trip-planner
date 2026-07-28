@@ -100,7 +100,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Hirosaki Castle Dining Options"],
-  "cafes": ["Hirosaki Castle Rest Area Cafe"],
   "walkingIntensity": "medium"
 }

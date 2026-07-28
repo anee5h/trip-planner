@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Shinjuku City Specialty Dining"],
-  "cafes": ["Shinjuku City Cafe"],
   "notes": "Shinjuku City travel hub in Tokyo Prefecture.",
   "status": "verified",
   "travelEstimate": {

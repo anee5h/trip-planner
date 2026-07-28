@@ -74,8 +74,6 @@
   "walkingIntensity": "low",
   "reservation": "None required (boats bookable on site)",
   "parking": "Visitor centre car park",
-  "restaurants": ["Jodogahama Visitor Centre Restaurant"],
-  "cafes": ["Seaside Café Jodogahama"],
   "notes": "Part of Rikuchū Kaigan National Park. Site of significant rebuilding after the 2011 Great East Japan Earthquake. Glass-bottom boat tours available in calm weather.",
   "status": "beta",
   "relationships": {

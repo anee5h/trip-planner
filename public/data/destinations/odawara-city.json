@@ -61,8 +61,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Odawara City Specialty Dining"],
-  "cafes": ["Odawara City Cafe"],
   "notes": "Odawara City travel hub in Kanagawa Prefecture.",
   "status": "verified",
   "travelEstimate": {

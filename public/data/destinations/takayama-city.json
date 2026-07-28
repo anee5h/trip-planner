@@ -61,8 +61,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Takayama City Specialty Dining"],
-  "cafes": ["Takayama City Cafe"],
   "notes": "Takayama City travel hub in Gifu Prefecture.",
   "status": "verified",
   "travelEstimate": {

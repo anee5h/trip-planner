@@ -16,7 +16,7 @@ import {
   Search,
   Download,
   Copy,
-  DollarSign,
+  JapaneseYen,
   Bus,
   Train,
   Car,
@@ -463,7 +463,7 @@ export default function QaDashboard() {
             value="budget"
             className="rounded-xl font-bold text-xs flex items-center gap-1.5 py-2.5"
           >
-            <DollarSign className="w-4 h-4 text-sky-500" />
+            <JapaneseYen className="w-4 h-4 text-sky-500" />
             Budget & Transport
           </TabsTrigger>
           <TabsTrigger
@@ -964,7 +964,7 @@ export default function QaDashboard() {
             {/* Budget Coverage Audit */}
             <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
               <h3 className="text-lg font-extrabold tracking-tight flex items-center gap-2">
-                <DollarSign className="w-5 h-5 text-emerald-500" />
+                <JapaneseYen className="w-5 h-5 text-emerald-500" />
                 Budget Breakdown Completeness
               </h3>
               <div className="space-y-3">

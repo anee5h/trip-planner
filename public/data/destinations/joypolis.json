@@ -61,16 +61,6 @@
   },
   "reservation": "None required",
   "parking": "Yes",
-  "restaurants": [
-    "Joypolis Odaiba Traditional Dining",
-    "Local Tokyo Specialty Restaurant",
-    "The Joypolis Grill & Izakaya"
-  ],
-  "cafes": [
-    "Café de Joypolis Odaiba",
-    "Riverside Roasters",
-    "Station Matcha & Sweets"
-  ],
   "notes": "Combine with Odaiba",
   "schemaVersion": 2,
   "status": "verified",

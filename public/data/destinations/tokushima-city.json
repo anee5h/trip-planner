@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Tokushima City Specialty Dining"],
-  "cafes": ["Tokushima City Cafe"],
   "notes": "Tokushima City travel hub in Tokushima Prefecture.",
   "status": "beta",
   "travelEstimate": {

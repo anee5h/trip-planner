@@ -25,7 +25,7 @@ import {
   Bus,
   Car,
   Plane,
-  DollarSign,
+  JapaneseYen,
   Bookmark,
   CheckCircle2,
   PlusSquare,
@@ -40,8 +40,14 @@ import { getAdjustedBudget } from "@/shared/utils/utils";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
 import { useLocale } from "@/shared/context/LocaleContext";
+import { useTranslation } from "react-i18next";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
-import { formatPlaceName, formatPrefecture } from "@/shared/utils/placeLabels";
+import {
+  formatPlaceName,
+  formatPrefecture,
+  localizePlaceLabel,
+} from "@/shared/utils/placeLabels";
+import { localizeRecommendationText } from "@/shared/utils/recommendationLabels";
 
 interface DestinationCardProps {
   destination: Destination;
@@ -61,6 +67,7 @@ export default function DestinationCard({
   publicModes,
 }: DestinationCardProps) {
   const { locale } = useLocale();
+  const { t } = useTranslation();
   const localizedDestination = getLocalizedPlace(destination, locale);
   const location = useLocation();
   const {
@@ -75,6 +82,24 @@ export default function DestinationCard({
   const visited = isVisited(destination.id);
   const comparing = isComparing(destination.id);
   const rating = getDestinationRating(destination.id);
+  const cardCopy =
+    locale === "ja"
+      ? {
+          match: "マッチ度",
+          why: "あなたにおすすめの理由",
+          explore: "詳しく見る",
+          add: "旅程に追加",
+          compare: "比較に追加",
+          removeCompare: "比較から削除",
+        }
+      : {
+          match: "Match Confidence",
+          why: "Why this matches you:",
+          explore: "Explore",
+          add: "Add to Itinerary",
+          compare: "Add to Compare",
+          removeCompare: "Remove from Compare",
+        };
 
   const [pickerOpen, setPickerOpen] = useState(false);
   const [markVisitedOpen, setMarkVisitedOpen] = useState(false);
@@ -171,9 +196,9 @@ export default function DestinationCard({
         <div className="absolute top-3 right-3 flex flex-col gap-2 z-10">
           <button
             onClick={handleAddToItinerary}
-            aria-label="Add destination to itinerary"
+            aria-label={cardCopy.add}
             className="p-2 bg-white/70 hover:bg-white backdrop-blur-sm rounded-full transition-all active:scale-95 duration-150 shadow-sm text-slate-700 hover:text-emerald-600"
-            title="Add to Itinerary"
+            title={cardCopy.add}
           >
             <Plus className="w-5 h-5" />
           </button>
@@ -189,7 +214,7 @@ export default function DestinationCard({
                 : "Mark destination as visited"
             }
             className="p-2 bg-white/70 hover:bg-white backdrop-blur-sm rounded-full transition-all active:scale-95 duration-150 shadow-sm text-slate-700"
-            title="Mark as Visited"
+            title={locale === "ja" ? "訪問済みにする" : "Mark as Visited"}
           >
             <CheckCircle2
               className={`w-5 h-5 ${visited ? "fill-emerald-500 text-emerald-500" : ""}`}
@@ -244,7 +269,7 @@ export default function DestinationCard({
           <div className="space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <span className="font-bold text-slate-700 dark:text-slate-300">
-                Match Confidence
+                {cardCopy.match}
               </span>
               <span className="text-2xl font-extrabold text-emerald-500">
                 {(destination as any).match.confidence}%
@@ -253,7 +278,7 @@ export default function DestinationCard({
 
             <div className="space-y-2.5">
               <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
-                Why this matches you:
+                {cardCopy.why}
               </p>
               {(destination as any).match.reasons.map((r: any, i: number) => (
                 <div
@@ -262,10 +287,12 @@ export default function DestinationCard({
                 >
                   <CheckCircle2 className="w-4 h-4 mr-2.5 text-emerald-500 shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-bold block">{r.title}</span>
+                    <span className="font-bold block">
+                      {localizeRecommendationText(r.title, locale)}
+                    </span>
                     {r.description && (
                       <span className="text-xs text-slate-500 dark:text-slate-400">
-                        {r.description}
+                        {localizeRecommendationText(r.description, locale)}
                       </span>
                     )}
                   </div>
@@ -293,14 +320,17 @@ export default function DestinationCard({
                 return (
                   <div className="flex items-center whitespace-nowrap min-w-0">
                     <Icon className="w-4 h-4 mr-1.5 text-slate-400 shrink-0" />
-                    <span className="truncate">{formattedTime}</span>
+                    <span className="truncate">
+                      {locale === "ja"
+                        ? formattedTime.replace("h", "時間").replace("m", "分")
+                        : formattedTime}
+                    </span>
                   </div>
                 );
               })()}
               <div className="flex items-center whitespace-nowrap min-w-0">
-                <DollarSign className="w-4 h-4 mr-1.5 text-slate-400 shrink-0" />
+                <JapaneseYen className="w-4 h-4 mr-1.5 text-slate-400 shrink-0" />
                 <span className="truncate">
-                  ¥
                   {(
                     (preferredTransport?.estimatedBudget ??
                       getAdjustedBudget(
@@ -310,19 +340,26 @@ export default function DestinationCard({
                         homeStationCoords ?? undefined,
                       )) / 1000
                   ).toFixed(0)}
-                  k est.
+                  k {locale === "ja" ? "目安" : "est."}
                 </span>
               </div>
               <div className="flex items-center whitespace-nowrap min-w-0">
                 <Sun className="w-4 h-4 mr-1.5 text-slate-400 shrink-0" />
                 <span className="truncate">
-                  {destination.walkingSunMin < 3000 ? "Low sun" : "High sun"}
+                  {locale === "ja"
+                    ? destination.walkingSunMin < 3000
+                      ? "日差し少なめ"
+                      : "日差し多め"
+                    : destination.walkingSunMin < 3000
+                      ? "Low sun"
+                      : "High sun"}
                 </span>
               </div>
               <div className="flex items-center whitespace-nowrap min-w-0">
                 <Bookmark className="w-4 h-4 mr-1.5 text-slate-400 shrink-0" />
                 <span className="truncate">
-                  Couple {destination.ratings.couple}/10
+                  {locale === "ja" ? "カップル" : "Couple"}{" "}
+                  {destination.ratings.couple}/10
                 </span>
               </div>
             </div>
@@ -334,7 +371,7 @@ export default function DestinationCard({
                     key={c}
                     className="text-xs font-bold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-md"
                   >
-                    {c}
+                    {localizePlaceLabel(c, locale)}
                   </span>
                 ))}
               </div>
@@ -348,8 +385,8 @@ export default function DestinationCard({
         <Button
           variant={comparing ? "default" : "ghost"}
           size="icon-sm"
-          title={comparing ? "Remove from Compare" : "Add to Compare"}
-          aria-label={comparing ? "Remove from Compare" : "Add to Compare"}
+          title={comparing ? cardCopy.removeCompare : cardCopy.compare}
+          aria-label={comparing ? cardCopy.removeCompare : cardCopy.compare}
           className={
             comparing
               ? "bg-slate-900 hover:bg-slate-800 text-white shrink-0"
@@ -374,8 +411,10 @@ export default function DestinationCard({
         <Button
           variant="ghost"
           size="icon-sm"
-          title={rating === "up" ? "Remove Thumbs Up" : "Thumbs Up"}
-          aria-label={rating === "up" ? "Remove Thumbs Up" : "Thumbs Up"}
+          title={rating === "up" ? t("ui.removeThumbsUp") : t("ui.thumbsUp")}
+          aria-label={
+            rating === "up" ? t("ui.removeThumbsUp") : t("ui.thumbsUp")
+          }
           className={`shrink-0 ${
             rating === "up"
               ? "text-emerald-600"
@@ -397,8 +436,12 @@ export default function DestinationCard({
         <Button
           variant="ghost"
           size="icon-sm"
-          title={rating === "down" ? "Remove Thumbs Down" : "Thumbs Down"}
-          aria-label={rating === "down" ? "Remove Thumbs Down" : "Thumbs Down"}
+          title={
+            rating === "down" ? t("ui.removeThumbsDown") : t("ui.thumbsDown")
+          }
+          aria-label={
+            rating === "down" ? t("ui.removeThumbsDown") : t("ui.thumbsDown")
+          }
           className={`shrink-0 ${
             rating === "down"
               ? "text-rose-600"
@@ -433,7 +476,7 @@ export default function DestinationCard({
             size="sm"
             className="w-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm font-semibold"
           >
-            Explore
+            {cardCopy.explore}
           </Button>
         </Link>
       </CardFooter>

@@ -69,8 +69,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Abukuma Cave Dining Options"],
-  "cafes": ["Abukuma Cave Rest Area Cafe"],
   "notes": "Abukuma Cave located in Fukushima Prefecture.",
   "status": "beta",
   "relationships": {

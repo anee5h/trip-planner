@@ -64,12 +64,6 @@
     "food": 3000,
     "cafe": 1000
   },
-  "restaurants": [
-    "Nagano Traditional Dining",
-    "Local Shizuoka Specialty Restaurant",
-    "The Nagano Grill & Izakaya"
-  ],
-  "cafes": ["Café de Nagano", "Riverside Roasters", "Station Matcha & Sweets"],
   "notes": "A fantastic trip to Nagano & Snow Monkeys. Known for its zenkoji and olympics vibes, it offers a great escape with an overall score of 8.2.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/160501_Zenkoji_Nagano_Japan06s3.jpg/3840px-160501_Zenkoji_Nagano_Japan06s3.jpg",

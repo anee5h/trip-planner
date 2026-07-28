@@ -98,7 +98,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Kegon Falls (Nikko) Dining Options"],
-  "cafes": ["Kegon Falls (Nikko) Rest Area Cafe"],
   "walkingIntensity": "medium"
 }

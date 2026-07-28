@@ -61,8 +61,6 @@
   },
   "reservation": "Required for special exhibitions.",
   "parking": "Limited.",
-  "restaurants": ["Minatoya (Takoyaki)"],
-  "cafes": ["Starbucks Ueno Park"],
   "notes": "In spring, the park is one of Tokyo's most crowded cherry blossom spots.",
   "schemaVersion": 2,
   "imageMetadata": {

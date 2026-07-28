@@ -69,8 +69,6 @@
   },
   "reservation": "No reservation required.",
   "parking": "Paid parking lot at Kodokan and Mito Station.",
-  "restaurants": ["Mito Natto-ya", "Sazanka Dining"],
-  "cafes": ["Kodokan Teahouse", "Saza Coffee Mito Station"],
   "notes": "Top 100 Castle of Japan #14. Beautiful plum blossoms bloom in Kodokan grounds every February-March.",
   "schemaVersion": 2,
   "imageMetadata": {

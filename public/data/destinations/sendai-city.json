@@ -55,8 +55,6 @@
   "tags": ["Core Designated City", "Metropolis Hub", "Miyagi"],
   "reservation": "Not required",
   "parking": "Available at central station",
-  "restaurants": ["Local Station Dining", "Regional Specialty izakaya"],
-  "cafes": ["Central Station Cafe"],
   "notes": "Major JR Shinkansen / express rail transfer hub.",
   "coordinates": {
     "lat": 38.2682,

@@ -61,8 +61,6 @@
   },
   "reservation": "Not required.",
   "parking": "Difficult.",
-  "restaurants": ["Asakusa Imahan (Sukiyaki)", "Daikokuya (Tempura)"],
-  "cafes": ["Suzukien (Matcha Gelato)"],
   "notes": "Go early morning (before 9 AM) to photograph Kaminarimon without crowds.",
   "schemaVersion": 2,
   "imageMetadata": {

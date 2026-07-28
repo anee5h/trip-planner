@@ -103,7 +103,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Historic Nara (Todai-ji Great Buddha) Dining Options"],
-  "cafes": ["Historic Nara (Todai-ji Great Buddha) Rest Area Cafe"],
   "walkingIntensity": "medium"
 }

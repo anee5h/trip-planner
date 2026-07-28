@@ -64,12 +64,6 @@
     "food": 2700,
     "cafe": 900
   },
-  "restaurants": [
-    "Takaoka Traditional Dining",
-    "Local Shizuoka Specialty Restaurant",
-    "The Takaoka Grill & Izakaya"
-  ],
-  "cafes": ["Café de Takaoka", "Riverside Roasters", "Station Matcha & Sweets"],
   "notes": "A fantastic trip to Takaoka. Known for its great buddha and doraemon vibes, it offers a great escape with an overall score of 7.7.",
   "schemaVersion": 2,
   "status": "verified",

@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Kurashiki City Specialty Dining"],
-  "cafes": ["Kurashiki City Cafe"],
   "notes": "Kurashiki City travel hub in Okayama Prefecture.",
   "status": "beta",
   "travelEstimate": {

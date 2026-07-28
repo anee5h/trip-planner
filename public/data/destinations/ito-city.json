@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Ito City Specialty Dining"],
-  "cafes": ["Ito City Cafe"],
   "notes": "Ito City travel hub in Shizuoka Prefecture.",
   "status": "verified",
   "travelEstimate": {

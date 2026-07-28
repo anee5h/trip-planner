@@ -61,8 +61,6 @@
   },
   "reservation": "Required for nice dinners.",
   "parking": "Expensive.",
-  "restaurants": ["Akasaka Matsubaya", "Kobe Beef 511"],
-  "cafes": ["Aoyama Flower Market Tea House"],
   "notes": "Hie Shrine has a beautiful torii gate tunnel similar to Fushimi Inari in Kyoto.",
   "schemaVersion": 2,
   "status": "verified",

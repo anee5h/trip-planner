@@ -74,8 +74,6 @@
   "walkingIntensity": "low",
   "reservation": "None required",
   "parking": "Free at cave entrance",
-  "restaurants": ["Ryusendo Cave Visitor Restaurant"],
-  "cafes": ["Cave Entrance Café"],
   "notes": "One of Japan's three great limestone caves along with Akiyoshido and Ryugado. Admission ¥1,100. The third underground lake is 98 m deep with visibility to the bottom.",
   "status": "beta",
   "relationships": {

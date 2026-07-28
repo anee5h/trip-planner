@@ -72,8 +72,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Dewa Sanzan Three Sacred Mountains Dining Options"],
-  "cafes": ["Dewa Sanzan Three Sacred Mountains Rest Area Cafe"],
   "notes": "Dewa Sanzan Three Sacred Mountains located in Yamagata Prefecture.",
   "status": "beta",
   "relationships": {

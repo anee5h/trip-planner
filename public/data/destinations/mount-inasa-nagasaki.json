@@ -97,7 +97,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Mount Inasa (Nagasaki Night View) Dining Options"],
-  "cafes": ["Mount Inasa (Nagasaki Night View) Rest Area Cafe"],
   "walkingIntensity": "medium"
 }

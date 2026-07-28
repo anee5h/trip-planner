@@ -59,10 +59,50 @@ const municipalSuffixes: Partial<Record<MunicipalityKind, string>> = {
   village: "村",
 };
 
+const japaneseLabels: Record<string, string> = {
+  Kanto: "関東",
+  Kansai: "関西",
+  Chubu: "中部",
+  Tohoku: "東北",
+  Hokkaido: "北海道",
+  Chugoku: "中国地方",
+  Shikoku: "四国",
+  Kyushu: "九州",
+  Okinawa: "沖縄",
+  Museum: "博物館",
+  Tower: "タワー",
+  Landmark: "ランドマーク",
+  History: "歴史",
+  Nature: "自然",
+  Food: "グルメ",
+  Shopping: "ショッピング",
+  Waterfront: "ウォーターフロント",
+  Couple: "カップル",
+  Family: "家族",
+  Photography: "写真",
+  Value: "コスパ",
+  Walkability: "歩きやすさ",
+  Accessibility: "バリアフリー",
+  "History & Culture": "歴史・文化",
+  Relaxation: "リラックス",
+  Spring: "春",
+  Summer: "夏",
+  Autumn: "秋",
+  Winter: "冬",
+  "Rainy Day": "雨の日",
+  "Travel Hub": "旅行ハブ",
+  "City Hub": "都市ハブ",
+  "Special Ward": "特別区",
+};
+
 export function formatPrefecture(prefecture: string, locale: "en" | "ja") {
   return locale === "ja"
     ? (prefectureNames[prefecture] ?? prefecture)
     : prefecture;
+}
+
+export function localizePlaceLabel(value: string, locale: "en" | "ja") {
+  return locale === "ja" ? (japaneseLabels[value] ?? value) : value;
 }
 
 /** Use official Japanese municipality suffixes without duplicating them. */

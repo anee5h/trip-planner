@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Uji City Specialty Dining"],
-  "cafes": ["Uji City Cafe"],
   "notes": "Uji City travel hub in Kyoto Prefecture.",
   "status": "beta",
   "travelEstimate": {

@@ -194,8 +194,6 @@ export interface Destination {
   tags: string[];
   reservation: string;
   parking: string;
-  restaurants: string[];
-  cafes: string[];
   notes: string;
   itinerary?: ItineraryStep[];
   itineraries?: ItineraryPlan[];

@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Motobu Town Specialty Dining"],
-  "cafes": ["Motobu Town Cafe"],
   "notes": "Motobu Town travel hub in Okinawa Prefecture.",
   "status": "beta",
   "travelEstimate": {

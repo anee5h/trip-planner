@@ -74,8 +74,6 @@
   "walkingIntensity": "strenuous",
   "reservation": "None required",
   "parking": "Kawagoe Route trailhead parking",
-  "restaurants": ["Inawashiro Town Dining"],
-  "cafes": ["Bandai Plateau Visitor Centre Café"],
   "notes": "One of Japan's 100 Famous Mountains. The 1888 eruption produced lahars that killed 461 people and created over 300 ponds. Main summit trail (Kawagoe Route) takes 3–4 hours one way. Often paired with Goshikinuma ponds visit.",
   "status": "beta",
   "relationships": {

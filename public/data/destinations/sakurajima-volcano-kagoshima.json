@@ -69,8 +69,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Sakurajima Stratovolcano Dining Options"],
-  "cafes": ["Sakurajima Stratovolcano Rest Area Cafe"],
   "notes": "Sakurajima Stratovolcano located in Kagoshima Prefecture.",
   "status": "beta",
   "relationships": {

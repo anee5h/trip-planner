@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Kumamoto City Specialty Dining"],
-  "cafes": ["Kumamoto City Cafe"],
   "notes": "Kumamoto City travel hub in Kumamoto Prefecture.",
   "status": "beta",
   "travelEstimate": {

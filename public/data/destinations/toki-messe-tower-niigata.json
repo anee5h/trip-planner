@@ -74,11 +74,6 @@
   },
   "reservation": "No reservation required (Free entry).",
   "parking": "Multilevel paid parking garage at Toki Messe convention complex.",
-  "restaurants": [
-    "Serena Hotel Nikko Niigata",
-    "Pia Bandai Seafood Market (nearby)"
-  ],
-  "cafes": ["Sky Lounge Panorama 31F"],
   "notes": "Entry is completely free of charge 365 days a year.",
   "schemaVersion": 2,
   "imageMetadata": {

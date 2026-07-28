@@ -72,8 +72,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Kintaikyo Wooden Arch Bridge Dining Options"],
-  "cafes": ["Kintaikyo Wooden Arch Bridge Rest Area Cafe"],
   "notes": "Kintaikyo Wooden Arch Bridge located in Yamaguchi Prefecture.",
   "status": "beta",
   "relationships": {

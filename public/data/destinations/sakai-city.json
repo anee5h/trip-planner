@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Sakai City Specialty Dining"],
-  "cafes": ["Sakai City Cafe"],
   "notes": "Sakai City travel hub in Osaka Prefecture.",
   "status": "beta",
   "travelEstimate": {

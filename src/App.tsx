@@ -33,6 +33,7 @@ const Profile = lazy(() => import("./features/profile/Profile"));
 const Settings = lazy(() => import("./features/settings/Settings"));
 const Help = lazy(() => import("./features/help/Help"));
 const QaDashboard = lazy(() => import("./features/qa/QaDashboard"));
+const Compare = lazy(() => import("./features/compare/Compare"));
 
 function PageLoader() {
   return (
@@ -83,10 +84,7 @@ function App() {
                           path="/collections/:slug"
                           element={<CollectionDetails />}
                         />
-                        <Route
-                          path="/compare"
-                          element={<Navigate to="/destinations" replace />}
-                        />
+                        <Route path="/compare" element={<Compare />} />
                         <Route
                           path="/favorites"
                           element={<Navigate to="/bucket-list" replace />}

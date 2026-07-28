@@ -74,8 +74,6 @@
   },
   "reservation": "No reservation required for observation decks.",
   "parking": "Underground paid parking structure at Hisaya-odori Park.",
-  "restaurants": ["Glycine Tower Hotel Nagoya", "Oasis 21 Gourmet Arcade"],
-  "cafes": ["Farm& Cafe Nagoya", "Starbucks Hisaya-odori"],
   "notes": "Illuminated every night with energy-efficient LED light displays.",
   "schemaVersion": 2,
   "imageMetadata": {

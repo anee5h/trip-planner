@@ -69,8 +69,6 @@
   },
   "reservation": "No reservation required for tower lookout.",
   "parking": "Underground paid parking lot below Art Tower Mito plaza.",
-  "restaurants": ["Chez Yoshi Mito", "Mito Plaza Dining"],
-  "cafes": ["Cafe ATM", "Saza Coffee Mito"],
   "notes": "The tower contains round porthole windows providing unique framed perspectives of Mito City.",
   "schemaVersion": 2,
   "imageMetadata": {

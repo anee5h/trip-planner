@@ -74,8 +74,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Inuyama Castle (National Treasure Keep) Dining Options"],
-  "cafes": ["Inuyama Castle (National Treasure Keep) Rest Area Cafe"],
   "notes": "Inuyama Castle (National Treasure Keep) located in Aichi Prefecture.",
   "relationships": {
     "featuredDestinationIds": [],

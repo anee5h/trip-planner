@@ -68,8 +68,6 @@
   "tags": ["Boating", "River", "Active", "Family"],
   "reservation": "Recommended for weekend boat tours",
   "parking": "Plenty of public paid lots",
-  "restaurants": ["Nagatoro Soba", "Asami Reika Kakigori"],
-  "cafes": ["Urushi Cafe"],
   "notes": "The boat cruise doesn't run during heavy rains or high river levels.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Nagatoro1.jpg/1280px-Nagatoro1.jpg",

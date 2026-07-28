@@ -65,12 +65,6 @@
   },
   "reservation": "Required well in advance.",
   "parking": "Not recommended.",
-  "restaurants": ["Vegan Ramen UZU Tokyo"],
-  "cafes": [
-    "Café de teamLab Planets",
-    "Riverside Roasters",
-    "Station Matcha & Sweets"
-  ],
   "notes": "You will walk barefoot and water goes up to your knees. Wear shorts or pants that can be rolled up.",
   "schemaVersion": 2,
   "status": "verified",

@@ -61,8 +61,6 @@
   },
   "reservation": "Not required.",
   "parking": "Plenty of paid parking in malls.",
-  "restaurants": ["Aqua City Dining"],
-  "cafes": ["Bills Odaiba"],
   "notes": "Take the Yurikamome line for an automated scenic ride across the bay.",
   "schemaVersion": 2,
   "imageMetadata": {

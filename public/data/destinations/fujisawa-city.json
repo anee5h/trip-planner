@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Fujisawa City Specialty Dining"],
-  "cafes": ["Fujisawa City Cafe"],
   "notes": "Fujisawa City travel hub in Kanagawa Prefecture.",
   "status": "verified",
   "travelEstimate": {

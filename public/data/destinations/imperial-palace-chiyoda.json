@@ -61,12 +61,6 @@
   },
   "reservation": "Required for inner grounds tour.",
   "parking": "Very limited.",
-  "restaurants": [
-    "Imperial Palace (Chiyoda) Traditional Dining",
-    "Local Tokyo Specialty Restaurant",
-    "The Imperial Grill & Izakaya"
-  ],
-  "cafes": ["Wadakura Fountain Park Cafe"],
   "notes": "East Gardens are closed on Mondays and Fridays.",
   "schemaVersion": 2,
   "status": "verified",

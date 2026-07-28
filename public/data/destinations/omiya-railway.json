@@ -61,16 +61,6 @@
   },
   "reservation": "None required",
   "parking": "Yes",
-  "restaurants": [
-    "Omiya Railway Museum Traditional Dining",
-    "Local Saitama Specialty Restaurant",
-    "The Omiya Grill & Izakaya"
-  ],
-  "cafes": [
-    "Café de Omiya Railway Museum",
-    "Riverside Roasters",
-    "Station Matcha & Sweets"
-  ],
   "notes": "Excellent hot-day option",
   "schemaVersion": 2,
   "status": "verified",

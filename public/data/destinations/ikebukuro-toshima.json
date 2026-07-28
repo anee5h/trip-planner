@@ -65,8 +65,6 @@
   },
   "reservation": "Not required.",
   "parking": "Sunshine City has parking.",
-  "restaurants": ["Mutekiya Ramen"],
-  "cafes": ["Milky Way Cafe"],
   "notes": "Excellent choice for rainy days due to Sunshine City and massive underground networks.",
   "schemaVersion": 2,
   "imageMetadata": {

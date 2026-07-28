@@ -73,8 +73,6 @@
   },
   "reservation": "Online advance tickets save 200 JPY.",
   "parking": "Paid underground parking structure at Roppongi Hills Mori Tower.",
-  "restaurants": ["The Sun & The Moon 52F", "Roppongi Hills Club"],
-  "cafes": ["Museum Cafe 52F"],
   "notes": "The ticket includes entry to both Tokyo City View and Mori Art Museum exhibitions.",
   "schemaVersion": 2,
   "imageMetadata": {

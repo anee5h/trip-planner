@@ -1,24 +1,8 @@
 import { Link } from "react-router-dom";
-import { useLocale } from "@/shared/context/LocaleContext";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
-  const { locale } = useLocale();
-  const copy =
-    locale === "ja"
-      ? {
-          tagline: "日本の旅を計画・比較できるガイド",
-          terms: "利用規約",
-          privacy: "プライバシー",
-          cookies: "クッキー",
-          feedback: "フィードバック",
-        }
-      : {
-          tagline: "Your Japan trip planner & decision engine.",
-          terms: "Terms",
-          privacy: "Privacy",
-          cookies: "Cookies",
-          feedback: "Feedback",
-        };
+  const { t } = useTranslation();
   return (
     <footer className="border-t border-slate-200 dark:border-slate-800 py-12 bg-slate-50 dark:bg-slate-900 mt-16 sm:mt-24">
       <div className="container mx-auto px-4 flex flex-col items-center justify-center text-center gap-4">
@@ -29,7 +13,9 @@ export default function Footer() {
               v{__APP_VERSION__}
             </span>
           </p>
-          <p className="text-sm text-slate-500 mt-1">{copy.tagline}</p>
+          <p className="text-sm text-slate-500 mt-1">
+            {t("footer.tagline", "Your Japan trip planner & decision engine.")}
+          </p>
         </div>
 
         <div className="flex gap-4 text-sm text-slate-500">
@@ -37,25 +23,25 @@ export default function Footer() {
             to="/terms"
             className="hover:text-emerald-500 transition-colors"
           >
-            {copy.terms}
+            {t("legal.terms")}
           </Link>
           <Link
             to="/privacy"
             className="hover:text-emerald-500 transition-colors"
           >
-            {copy.privacy}
+            {t("legal.privacy")}
           </Link>
           <Link
             to="/cookies"
             className="hover:text-emerald-500 transition-colors"
           >
-            {copy.cookies}
+            {t("legal.cookies")}
           </Link>
           <a
             href="mailto:kaihatsu.studio@gmail.com"
             className="hover:text-emerald-500 transition-colors"
           >
-            {copy.feedback}
+            {t("legal.feedback")}
           </a>
         </div>
       </div>

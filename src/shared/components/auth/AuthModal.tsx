@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
 import { useAuth } from "@/shared/hooks/useAuth";
+import { useTranslation } from "react-i18next";
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -9,6 +10,7 @@ interface AuthModalProps {
 
 export function AuthModal({ isOpen, onClose }: AuthModalProps) {
   const { signInWithGoogle, signInWithEmail, signUpWithEmail } = useAuth();
+  const { t } = useTranslation();
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -72,8 +74,8 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
             </div>
             <p className="text-slate-400 text-sm">
               {mode === "signin"
-                ? "Welcome back! Sign in to sync your trips."
-                : "Create an account to save your trips."}
+                ? t("auth.signInPrompt")
+                : t("auth.signUpPrompt")}
             </p>
           </div>
 
@@ -157,18 +159,16 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all duration-200 hover:scale-[1.01] disabled:opacity-50"
             >
               {loading
-                ? "Please wait..."
+                ? t("actions.pleaseWait")
                 : mode === "signin"
-                  ? "Sign In"
-                  : "Create Account"}
+                  ? t("actions.signIn")
+                  : t("actions.createAccount")}
             </button>
           </form>
 
           {/* Toggle */}
           <p className="text-center text-slate-400 text-sm mt-4">
-            {mode === "signin"
-              ? "Don't have an account? "
-              : "Already have an account? "}
+            {mode === "signin" ? t("auth.noAccount") : t("auth.hasAccount")}{" "}
             <button
               onClick={() => {
                 setMode(mode === "signin" ? "signup" : "signin");
@@ -177,7 +177,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               }}
               className="text-emerald-400 hover:text-emerald-300 font-medium"
             >
-              {mode === "signin" ? "Sign Up" : "Sign In"}
+              {mode === "signin" ? t("actions.signUp") : t("actions.signIn")}
             </button>
           </p>
         </div>

@@ -74,8 +74,6 @@
   "walkingIntensity": "low",
   "reservation": "None required",
   "parking": "Castle grounds parking available",
-  "restaurants": ["Aizu-Wakamatsu Kiriya Restaurant", "Castle Town Dining"],
-  "cafes": ["Tsuruga Castle Park Café"],
   "notes": "Admission ¥410 to castle keep museum. The red tiles were restored in 1965 reconstruction based on original records. Castle park has 1,000 cherry and 400 plum trees. Nearby Higashiyama Onsen and Ouchi-juku make a good day combo.",
   "status": "beta",
   "relationships": {

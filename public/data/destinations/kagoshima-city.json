@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Kagoshima City Specialty Dining"],
-  "cafes": ["Kagoshima City Cafe"],
   "notes": "Kagoshima City travel hub in Kagoshima Prefecture.",
   "status": "beta",
   "travelEstimate": {

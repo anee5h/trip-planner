@@ -61,8 +61,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Shizuoka City Specialty Dining"],
-  "cafes": ["Shizuoka City Cafe"],
   "notes": "Shizuoka City travel hub in Shizuoka Prefecture.",
   "status": "verified",
   "travelEstimate": {

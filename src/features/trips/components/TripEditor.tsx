@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/shared/components/ui/button";
 import { Input } from "@/shared/components/ui/input";
+import { useTranslation } from "react-i18next";
 
 interface TripEditorProps {
   initialTitle?: string;
@@ -17,6 +18,7 @@ export default function TripEditor({
   onSave,
   onCancel,
 }: TripEditorProps) {
+  const { t } = useTranslation();
   const [title, setTitle] = useState(initialTitle);
   const [startDate, setStartDate] = useState(initialStartDate);
   const [endDate, setEndDate] = useState(initialEndDate);
@@ -25,11 +27,11 @@ export default function TripEditor({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!title || title.trim() === "") {
-      setError("Title is required");
+      setError(t("ui.titleRequired"));
       return;
     }
     if (startDate && endDate && new Date(startDate) > new Date(endDate)) {
-      setError("Start date cannot be after end date");
+      setError(t("ui.invalidDates"));
       return;
     }
     onSave(title, startDate || undefined, endDate || undefined);
@@ -44,13 +46,13 @@ export default function TripEditor({
       )}
       <div>
         <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">
-          Trip Title *
+          {t("ui.tripTitle")} *
         </label>
         <Input
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder="e.g. Autumn Getaway to Hakone"
+          placeholder={t("ui.tripTitle")}
           className="bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 rounded-xl"
         />
       </div>
@@ -58,7 +60,7 @@ export default function TripEditor({
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">
-            Start Date
+            {t("ui.startDate")}
           </label>
           <Input
             type="date"
@@ -69,7 +71,7 @@ export default function TripEditor({
         </div>
         <div>
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">
-            End Date
+            {t("ui.endDate")}
           </label>
           <Input
             type="date"
@@ -87,13 +89,13 @@ export default function TripEditor({
           onClick={onCancel}
           className="rounded-full font-semibold border-slate-200 dark:border-slate-800"
         >
-          Cancel
+          {t("ui.cancel")}
         </Button>
         <Button
           type="submit"
           className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-bold px-6"
         >
-          Save Trip
+          {t("ui.saveTrip")}
         </Button>
       </div>
     </form>

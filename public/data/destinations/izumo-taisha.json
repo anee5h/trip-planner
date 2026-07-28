@@ -96,8 +96,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Izumo Taisha Grand Shrine Dining Options"],
-  "cafes": ["Izumo Taisha Grand Shrine Rest Area Cafe"],
   "walkingIntensity": "medium",
   "role": "standalone",
   "placeType": "destination"

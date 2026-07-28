@@ -1,0 +1,10 @@
+{
+  "actions": {
+    "addToItinerary": "旅程に追加",
+    "explore": "詳しく見る",
+    "back": "戻る",
+    "directions": "ルート検索",
+    "share": "目的地を共有",
+    "copyLink": "リンクをコピー"
+  }
+}

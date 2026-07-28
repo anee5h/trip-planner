@@ -61,16 +61,6 @@
   },
   "reservation": "Required",
   "parking": "Expensive",
-  "restaurants": [
-    "DisneySea Traditional Dining",
-    "Local Chiba Specialty Restaurant",
-    "The DisneySea Grill & Izakaya"
-  ],
-  "cafes": [
-    "Café de DisneySea",
-    "Riverside Roasters",
-    "Station Matcha & Sweets"
-  ],
   "notes": "Avoid hottest days",
   "schemaVersion": 2,
   "imageMetadata": {

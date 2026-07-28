@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Matsudo City Specialty Dining"],
-  "cafes": ["Matsudo City Cafe"],
   "notes": "Matsudo City travel hub in Chiba Prefecture.",
   "status": "verified",
   "travelEstimate": {

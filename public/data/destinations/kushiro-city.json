@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Kushiro City Specialty Dining"],
-  "cafes": ["Kushiro City Cafe"],
   "notes": "Kushiro City travel hub in Hokkaido Prefecture.",
   "status": "beta",
   "travelEstimate": {

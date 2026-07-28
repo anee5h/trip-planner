@@ -112,7 +112,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Itsukushima Shrine (Miyajima Island) Dining Options"],
-  "cafes": ["Itsukushima Shrine (Miyajima Island) Rest Area Cafe"],
   "walkingIntensity": "medium"
 }

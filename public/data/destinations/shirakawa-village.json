@@ -61,8 +61,6 @@
   },
   "reservation": "Highway bus reservation required",
   "parking": "Seseragi central parking lot",
-  "restaurants": ["Irori Shirakawa-go", "Kyuho Sobaya"],
-  "cafes": ["Ochudo Coffee"],
   "notes": "UNESCO World Heritage historic village.",
   "status": "verified",
   "travelEstimate": {

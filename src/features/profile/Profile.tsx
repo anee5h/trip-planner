@@ -14,10 +14,12 @@ import {
   BodyText,
   Caption,
 } from "@/shared/components/ui/Typography";
+import { useTranslation } from "react-i18next";
 
 type ProfileTab = "overview" | "account" | "security" | "connected" | "summary";
 
 export default function Profile() {
+  const { t } = useTranslation();
   const { user, deleteAccount } = useAuth();
   const { visited, visitedPrefectures, trips } = useTripStore();
   const [activeTab, setActiveTab] = useState<ProfileTab>("overview");
@@ -68,10 +70,12 @@ export default function Profile() {
               )}
               <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 font-semibold">
                 <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-extrabold border border-emerald-200 dark:border-emerald-800">
-                  Explorer Hub
+                  {t("ui.explorerHub")}
                 </span>
                 <span>•</span>
-                <span>Member since {joinDate}</span>
+                <span>
+                  {t("ui.memberSince")} {joinDate}
+                </span>
               </div>
             </div>
           </div>
@@ -88,28 +92,28 @@ export default function Profile() {
               {visitedPrefectures.length}{" "}
               <span className="text-xs font-normal text-slate-400">/ 47</span>
             </div>
-            <Caption>Prefectures</Caption>
+            <Caption>{t("ui.prefectures")}</Caption>
           </div>
 
           <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
             <div className="text-xl font-extrabold text-slate-900 dark:text-white">
               {visited.length}
             </div>
-            <Caption>Destinations</Caption>
+            <Caption>{t("ui.destinations")}</Caption>
           </div>
 
           <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
             <div className="text-xl font-extrabold text-slate-900 dark:text-white">
               6
             </div>
-            <Caption>Badges</Caption>
+            <Caption>{t("ui.badges")}</Caption>
           </div>
 
           <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-center">
             <div className="text-xl font-extrabold text-slate-900 dark:text-white">
               2
             </div>
-            <Caption>Achievements</Caption>
+            <Caption>{t("ui.achievements")}</Caption>
           </div>
         </div>
         {/* Showcase Badges Strip */}
@@ -117,7 +121,7 @@ export default function Profile() {
           <div className="flex items-center justify-between">
             <span className="text-xs font-extrabold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
               <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
-              Showcase Badges
+              {t("ui.badges")}
             </span>
             <Link
               to="/passport?tab=badges"
@@ -157,11 +161,15 @@ export default function Profile() {
       {/* Profile Sub-Tabs */}
       <div className="flex items-center gap-2 overflow-x-auto no-scrollbar border-b border-slate-200 dark:border-slate-800 pb-2">
         {[
-          { id: "overview", label: "Overview", icon: OverviewIcon },
-          { id: "account", label: "Account Info", icon: AccountIcon },
-          { id: "security", label: "Security", icon: SecurityIcon },
-          { id: "connected", label: "Connected Accounts", icon: ConnectedIcon },
-          { id: "summary", label: "Travel Summary", icon: SummaryIcon },
+          { id: "overview", label: t("ui.overview"), icon: OverviewIcon },
+          { id: "account", label: t("ui.account"), icon: AccountIcon },
+          { id: "security", label: t("ui.security"), icon: SecurityIcon },
+          {
+            id: "connected",
+            label: t("ui.connectedAccounts"),
+            icon: ConnectedIcon,
+          },
+          { id: "summary", label: t("ui.travelSummary"), icon: SummaryIcon },
         ].map((tab) => {
           const isActive = activeTab === tab.id;
           const IconComp = tab.icon;
@@ -186,7 +194,7 @@ export default function Profile() {
       <div className="max-w-3xl space-y-6">
         {activeTab === "overview" && (
           <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
-            <SectionTitle>Explorer Activity Overview</SectionTitle>
+            <SectionTitle>{t("ui.overview")}</SectionTitle>
             <BodyText>
               Welcome to your TabiMap traveler hub. Here you can manage your
               identity, account preferences, and personal travel summary.
@@ -196,7 +204,7 @@ export default function Profile() {
 
         {activeTab === "account" && (
           <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-6">
-            <SectionTitle>Account Information</SectionTitle>
+            <SectionTitle>{t("ui.account")}</SectionTitle>
             <dl className="space-y-3 text-sm">
               <div>
                 <dt className="text-xs font-bold uppercase text-slate-500">
@@ -228,7 +236,7 @@ export default function Profile() {
 
         {activeTab === "security" && (
           <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-6">
-            <SectionTitle>Account Security & Data</SectionTitle>
+            <SectionTitle>{t("ui.security")}</SectionTitle>
             <BodyText>
               Your account authentication is secured via standard OAuth /
               Supabase Authentication.
@@ -273,7 +281,7 @@ export default function Profile() {
 
         {activeTab === "connected" && (
           <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
-            <SectionTitle>Connected Accounts</SectionTitle>
+            <SectionTitle>{t("ui.connectedAccounts")}</SectionTitle>
             <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <MailIcon className="w-5 h-5 text-slate-500" />
@@ -291,7 +299,7 @@ export default function Profile() {
 
         {activeTab === "summary" && (
           <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
-            <SectionTitle>Travel Progression Summary</SectionTitle>
+            <SectionTitle>{t("ui.travelSummary")}</SectionTitle>
             <div className="space-y-2 text-xs text-slate-600 dark:text-slate-300">
               <p>
                 • Explored <strong>{visitedPrefectures.length}</strong> of 47

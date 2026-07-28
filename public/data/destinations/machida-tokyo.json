@@ -53,8 +53,6 @@
   "tags": ["Shopping", "Parks", "Family"],
   "reservation": "Not required",
   "parking": "Available at shopping centers",
-  "restaurants": ["Machida Ramen", "Kurobekko"],
-  "cafes": ["Cafe Katsura"],
   "notes": "Easy train access via Odakyu or JR Yokohama Line.",
   "coordinates": {
     "lat": 35.5466803,

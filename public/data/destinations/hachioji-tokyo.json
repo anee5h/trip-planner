@@ -53,8 +53,6 @@
   "tags": ["Hiking", "Mt. Takao", "Nature"],
   "reservation": "Not required",
   "parking": "Available at Takaosanguchi",
-  "restaurants": ["Takahashi Soba", "Ukai Toriyama"],
-  "cafes": ["Takao 599 Cafe"],
   "notes": "Direct Keio line express trains from Shinjuku.",
   "coordinates": {
     "lat": 35.6663595,

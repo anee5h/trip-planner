@@ -76,8 +76,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Naoshima Contemporary Art Island Dining Options"],
-  "cafes": ["Naoshima Contemporary Art Island Rest Area Cafe"],
   "notes": "Naoshima Contemporary Art Island located in Kagawa Prefecture.",
   "status": "beta",
   "relationships": {

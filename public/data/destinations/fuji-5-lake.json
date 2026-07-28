@@ -64,16 +64,6 @@
     "food": 3600,
     "cafe": 1200
   },
-  "restaurants": [
-    "Fuji Five Lakes Traditional Dining",
-    "Local Shizuoka Specialty Restaurant",
-    "The Fuji Grill & Izakaya"
-  ],
-  "cafes": [
-    "Café de Fuji Five Lakes",
-    "Riverside Roasters",
-    "Station Matcha & Sweets"
-  ],
   "notes": "A fantastic trip to Fuji Five Lakes. Known for its fuji views and fuji-q vibes, it offers a great escape with an overall score of 9.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Fuji_Five_Lakes_and_Mount_Fuji.jpg",

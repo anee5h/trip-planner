@@ -69,8 +69,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Dogo Onsen Honkan Dining Options"],
-  "cafes": ["Dogo Onsen Honkan Rest Area Cafe"],
   "notes": "Dogo Onsen Honkan located in Ehime Prefecture.",
   "status": "beta",
   "relationships": {

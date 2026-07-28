@@ -73,8 +73,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Tsunoshima Bridge Dining Options"],
-  "cafes": ["Tsunoshima Bridge Rest Area Cafe"],
   "notes": "Tsunoshima Bridge located in Yamaguchi Prefecture.",
   "status": "beta",
   "relationships": {

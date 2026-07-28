@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Gotemba City Specialty Dining"],
-  "cafes": ["Gotemba City Cafe"],
   "notes": "Gotemba City travel hub in Shizuoka Prefecture.",
   "status": "verified",
   "travelEstimate": {

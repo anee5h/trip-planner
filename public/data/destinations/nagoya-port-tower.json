@@ -74,8 +74,6 @@
   },
   "reservation": "No reservation required.",
   "parking": "Paid parking lot at Nagoya Port Garden plaza.",
-  "restaurants": ["Nagoya Port Restaurant", "JETTY Food Court"],
-  "cafes": ["Port Building Cafe"],
   "notes": "Four-facility discount ticket available combining Port Building, Icebreaker Fuji, Aquarium, and Maritime Museum.",
   "schemaVersion": 2,
   "imageMetadata": {

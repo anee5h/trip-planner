@@ -100,7 +100,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Iyo Matsuyama Castle Dining Options"],
-  "cafes": ["Iyo Matsuyama Castle Rest Area Cafe"],
   "walkingIntensity": "medium"
 }

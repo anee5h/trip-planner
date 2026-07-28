@@ -81,12 +81,6 @@
   "walkingIntensity": "minimal",
   "reservation": "None required (restaurants may have queues)",
   "parking": "Large car park at entrance (¥500)",
-  "restaurants": [
-    "Ouchi-juku Negi Soba Restaurants",
-    "Maruya Honten",
-    "Nanakamado"
-  ],
-  "cafes": ["Post Town Amazake Stall"],
   "notes": "Designated Important Preservation District. The \"negi soba\" tradition of eating buckwheat noodles using a whole green onion as chopstick originated here. Especially atmospheric during winter snow (late Jan–Feb). About 15 min drive from Tsuruga Castle.",
   "status": "beta",
   "relationships": {

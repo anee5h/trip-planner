@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Yakushima Town Specialty Dining"],
-  "cafes": ["Yakushima Town Cafe"],
   "notes": "Yakushima Town travel hub in Kagoshima Prefecture.",
   "status": "beta",
   "travelEstimate": {

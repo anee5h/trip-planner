@@ -74,8 +74,6 @@
   "walkingIntensity": "low",
   "reservation": "Recommended for overnight stays",
   "parking": "Available at each ryokan",
-  "restaurants": ["Akiu Onsen Kaiseki Ryokan Dining", "Canyon River Grill"],
-  "cafes": ["Akiu Craft Beer & Café"],
   "notes": "Paired with Matsushima as a classic Sendai day trip combo. The Akiu Great Waterfall (Akiu Otaki) is one of Japan's Top 100 Waterfalls at 55 m tall.",
   "status": "beta",
   "relationships": {

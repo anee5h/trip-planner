@@ -69,8 +69,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Motonosumi Shrine Dining Options"],
-  "cafes": ["Motonosumi Shrine Rest Area Cafe"],
   "notes": "Motonosumi Shrine located in Yamaguchi Prefecture.",
   "status": "beta",
   "relationships": {

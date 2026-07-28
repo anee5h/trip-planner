@@ -61,8 +61,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Hamamatsu City Specialty Dining"],
-  "cafes": ["Hamamatsu City Cafe"],
   "notes": "Hamamatsu City travel hub in Shizuoka Prefecture.",
   "status": "verified",
   "travelEstimate": {

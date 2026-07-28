@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Toyota City Specialty Dining"],
-  "cafes": ["Toyota City Cafe"],
   "notes": "Toyota City travel hub in Aichi Prefecture.",
   "status": "verified",
   "travelEstimate": {

@@ -76,8 +76,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Kiyotsu Gorge Tunnel of Light Dining Options"],
-  "cafes": ["Kiyotsu Gorge Tunnel of Light Rest Area Cafe"],
   "notes": "Kiyotsu Gorge Tunnel of Light located in Niigata Prefecture.",
   "status": "beta",
   "relationships": {

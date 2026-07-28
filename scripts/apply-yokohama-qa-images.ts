@@ -21,6 +21,8 @@ const IMAGE_BY_DESTINATION_ID: Record<string, string> = {
     "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Yokohama_Chinatown_signage_2015.jpg/1920px-Yokohama_Chinatown_signage_2015.jpg",
   "yokohama-cosmo-world":
     "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Yokohama_Cosmoworld_2022.jpg/1920px-Yokohama_Cosmoworld_2022.jpg",
+  "kirin-beer-yokohama-factory":
+    "https://upload.wikimedia.org/wikipedia/commons/8/80/Kirin_beer_yokohama_factory_kanagawa_2009.JPG",
 };
 
 const indexPath = path.join(

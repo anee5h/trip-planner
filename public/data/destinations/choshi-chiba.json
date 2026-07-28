@@ -52,8 +52,6 @@
   "tags": ["Lighthouse", "Seafood", "Coastline"],
   "reservation": "Not required",
   "parking": "Available at Inubosaki",
-  "restaurants": ["Choshi Port Seafood Market", "Ichibanzushi"],
-  "cafes": ["Inubosaki Lighthouse Cafe"],
   "notes": "Inubosaki is famous for being the first place on mainland Japan to see the New Year sunrise.",
   "coordinates": {
     "lat": 35.7345338,

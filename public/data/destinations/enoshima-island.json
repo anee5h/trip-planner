@@ -61,8 +61,6 @@
   },
   "reservation": "Not required.",
   "parking": "Gets full quickly in summer.",
-  "restaurants": ["Tobiccho (Shirasu Don)"],
-  "cafes": ["Loncafe"],
   "notes": "Try the local specialty: Shirasu (whitebait) bowl.",
   "schemaVersion": 2,
   "imageMetadata": {

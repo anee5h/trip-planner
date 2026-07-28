@@ -52,8 +52,6 @@
   "tags": ["Parks", "Seasonal Flowers", "Family"],
   "reservation": "Not required",
   "parking": "Available at Showa Kinen Park",
-  "restaurants": ["LUMINE Tachikawa Dining", "Manoa Pancake"],
-  "cafes": ["Paper Moon Cafe"],
   "notes": "Showa Kinen Park is famous for autumn ginkgo and spring cherry blossoms.",
   "coordinates": {
     "lat": 35.7139057,

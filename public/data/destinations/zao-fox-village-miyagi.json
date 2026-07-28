@@ -74,8 +74,6 @@
   "walkingIntensity": "low",
   "reservation": "None required",
   "parking": "Free on site",
-  "restaurants": ["Fox Village Snack Stall"],
-  "cafes": ["Entrance Area Café"],
   "notes": "Admission ¥1,000. Do not bring food from outside — foxes are fed by staff only. Baby fox holding events typically run March–May. Foxes are most active in cooler months.",
   "status": "beta",
   "relationships": {

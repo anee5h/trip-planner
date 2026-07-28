@@ -64,16 +64,6 @@
     "food": 4138,
     "cafe": 1379
   },
-  "restaurants": [
-    "Kinugawa Onsen Traditional Dining",
-    "Local Kanagawa Specialty Restaurant",
-    "The Kinugawa Grill & Izakaya"
-  ],
-  "cafes": [
-    "Café de Kinugawa Onsen",
-    "Riverside Roasters",
-    "Station Matcha & Sweets"
-  ],
   "notes": "A fantastic trip to Kinugawa Onsen. Known for its onsen and edo wonderland vibes, it offers a great escape with an overall score of 8.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Kinugawa_Onsen_03.JPG/1280px-Kinugawa_Onsen_03.JPG",

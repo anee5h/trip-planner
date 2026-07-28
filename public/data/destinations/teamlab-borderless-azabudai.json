@@ -66,8 +66,6 @@
   },
   "reservation": "Required online in advance.",
   "parking": "Paid parking at Azabudai Hills.",
-  "restaurants": ["Janu Tokyo Dining", "Azabudai Hills Market"],
-  "cafes": ["EN TEA HOUSE", "Arabica Tokyo Azabudai Hills"],
   "notes": "Timed entry tickets required. Some artworks feature mirror floors; pants recommended.",
   "schemaVersion": 2,
   "status": "verified",

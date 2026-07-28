@@ -69,8 +69,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Tottori Sand Dunes Dining Options"],
-  "cafes": ["Tottori Sand Dunes Rest Area Cafe"],
   "notes": "Tottori Sand Dunes located in Tottori Prefecture.",
   "status": "beta",
   "relationships": {

@@ -80,8 +80,6 @@
   },
   "reservation": "No advance reservation required.",
   "parking": "Paid parking garage at Abeno Harukas building.",
-  "restaurants": ["Sky Garden 300 58F", "Kintetsu Gourmet City 14F"],
-  "cafes": ["Caffe Ciao Press 16F", "Harukas 300 Cafe"],
   "notes": "Features 360-degree glass floor-to-ceiling perimeter views.",
   "schemaVersion": 2,
   "imageMetadata": {

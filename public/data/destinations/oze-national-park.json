@@ -64,16 +64,6 @@
     "food": 2775,
     "cafe": 925
   },
-  "restaurants": [
-    "Oze National Park Traditional Dining",
-    "Local Kanagawa Specialty Restaurant",
-    "The Oze Grill & Izakaya"
-  ],
-  "cafes": [
-    "Café de Oze National Park",
-    "Riverside Roasters",
-    "Station Matcha & Sweets"
-  ],
   "notes": "A fantastic trip to Oze National Park. Known for its hiking and marshlands vibes, it offers a great escape with an overall score of 8.8.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Mt.Shibutsu_16.jpg/1280px-Mt.Shibutsu_16.jpg",

@@ -68,8 +68,6 @@
   },
   "reservation": "Top Deck Tour requires reserved time-slot tickets.",
   "parking": "Paid parking lot adjacent to Shiba Park at the tower base.",
-  "restaurants": ["Tokyo Tower Club333", "Tofuya Ukai (nearby)"],
-  "cafes": ["Cafe La Tour", "Marion Crepes FootTown"],
   "notes": "Special illumination colors light up the tower on Friday and Saturday evenings.",
   "schemaVersion": 2,
   "imageMetadata": {

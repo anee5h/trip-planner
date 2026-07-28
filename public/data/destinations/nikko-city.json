@@ -61,8 +61,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Nikko City Specialty Dining"],
-  "cafes": ["Nikko City Cafe"],
   "notes": "Nikko City travel hub in Tochigi Prefecture.",
   "status": "verified",
   "travelEstimate": {

@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Naruto City Specialty Dining"],
-  "cafes": ["Naruto City Cafe"],
   "notes": "Naruto City travel hub in Tokushima Prefecture.",
   "status": "beta",
   "travelEstimate": {

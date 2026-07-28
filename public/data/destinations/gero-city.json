@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Gero City Specialty Dining"],
-  "cafes": ["Gero City Cafe"],
   "notes": "Gero City travel hub in Gifu Prefecture.",
   "status": "verified",
   "travelEstimate": {

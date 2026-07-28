@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Tokorozawa City Specialty Dining"],
-  "cafes": ["Tokorozawa City Cafe"],
   "notes": "Tokorozawa City travel hub in Saitama Prefecture.",
   "status": "verified",
   "travelEstimate": {

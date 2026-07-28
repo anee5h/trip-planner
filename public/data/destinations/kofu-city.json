@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Kofu City Specialty Dining"],
-  "cafes": ["Kofu City Cafe"],
   "notes": "Kofu City travel hub in Yamanashi Prefecture.",
   "status": "verified",
   "travelEstimate": {

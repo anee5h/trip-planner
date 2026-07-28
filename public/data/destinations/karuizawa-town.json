@@ -61,8 +61,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Karuizawa Town Specialty Dining"],
-  "cafes": ["Karuizawa Town Cafe"],
   "notes": "Karuizawa Town travel hub in Nagano Prefecture.",
   "status": "verified",
   "travelEstimate": {

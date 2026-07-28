@@ -1,6 +1,7 @@
 import { PASSPORT_SECTIONS } from "../constants";
 import type { PassportTab } from "../types";
 import { ScrollContainer } from "@/shared/components/ui/ScrollContainer";
+import { useTranslation } from "react-i18next";
 
 interface PassportNavProps {
   activeTab: PassportTab;
@@ -8,6 +9,15 @@ interface PassportNavProps {
 }
 
 export function PassportNav({ activeTab, onSelectTab }: PassportNavProps) {
+  const { t } = useTranslation();
+  const labels = {
+    overview: t("ui.overview"),
+    "japan-map": t("ui.japanMap"),
+    timeline: t("ui.timeline"),
+    achievements: t("ui.achievements"),
+    badges: t("ui.badges"),
+    statistics: t("ui.statistics"),
+  } as const;
   return (
     <div className="sticky top-16 z-30 bg-background/95 backdrop-blur-md py-3 border-b border-slate-200/80 dark:border-slate-800/80">
       <ScrollContainer className="flex items-center gap-2.5 py-0.5 pr-5">
@@ -27,7 +37,7 @@ export function PassportNav({ activeTab, onSelectTab }: PassportNavProps) {
               <Icon
                 className={`w-4 h-4 ${isActive ? "text-white" : "text-slate-500 dark:text-slate-400"}`}
               />
-              <span>{section.label}</span>
+              <span>{labels[section.id]}</span>
             </button>
           );
         })}

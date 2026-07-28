@@ -74,8 +74,6 @@
   "walkingIntensity": "minimal",
   "reservation": "None required",
   "parking": "Aomori Station area parking",
-  "restaurants": ["WA RASSE Museum Café", "Aomori Fish Market nearby"],
-  "cafes": ["Aomori Station Café"],
   "notes": "Located directly by Aomori Bay adjacent to Aomori Station. Admission ¥620. During Nebuta Festival (Aug 2–7) the real floats are paraded through the city at night.",
   "status": "beta",
   "relationships": {

@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Narita City Specialty Dining"],
-  "cafes": ["Narita City Cafe"],
   "notes": "Narita City travel hub in Chiba Prefecture.",
   "status": "verified",
   "travelEstimate": {

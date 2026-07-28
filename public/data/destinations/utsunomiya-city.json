@@ -61,8 +61,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Utsunomiya City Specialty Dining"],
-  "cafes": ["Utsunomiya City Cafe"],
   "notes": "Utsunomiya City travel hub in Tochigi Prefecture.",
   "status": "verified",
   "travelEstimate": {

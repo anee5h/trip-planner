@@ -61,8 +61,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Kobe City Specialty Dining"],
-  "cafes": ["Kobe City Cafe"],
   "notes": "Kobe City travel hub in Hyogo Prefecture.",
   "status": "beta",
   "travelEstimate": {

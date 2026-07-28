@@ -67,8 +67,6 @@
   },
   "reservation": "Not required for general admission.",
   "parking": "Paid private parking nearby.",
-  "restaurants": ["Asian Garden Rest House", "African Garden Cafe"],
-  "cafes": ["Tama Zoo Entrance Cafe", "Monorail View Cafe"],
   "notes": "Built on hilly terrain; free internal shuttle buses available for elderly visitors and families.",
   "schemaVersion": 2,
   "status": "verified",

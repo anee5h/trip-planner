@@ -69,8 +69,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Akiyoshido Cave Dining Options"],
-  "cafes": ["Akiyoshido Cave Rest Area Cafe"],
   "notes": "Akiyoshido Cave located in Yamaguchi Prefecture.",
   "status": "beta",
   "relationships": {

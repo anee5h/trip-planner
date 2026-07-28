@@ -74,8 +74,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Matsumoto Castle (Crow Castle) Dining Options"],
-  "cafes": ["Matsumoto Castle (Crow Castle) Rest Area Cafe"],
   "notes": "Matsumoto Castle (Crow Castle) located in Nagano Prefecture.",
   "relationships": {
     "featuredDestinationIds": [],

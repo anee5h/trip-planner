@@ -68,8 +68,6 @@
   },
   "reservation": "No advance reservation required.",
   "parking": "Paid parking garage inside Sunshine City complex.",
-  "restaurants": ["Tenbou Park Cafe 60F", "Sunshine City Alpa Gourmet"],
-  "cafes": ["Tenbou Cafe Lawn Bar"],
   "notes": "Completely indoor and rainproof; perfect for families with young children.",
   "schemaVersion": 2,
   "imageMetadata": {

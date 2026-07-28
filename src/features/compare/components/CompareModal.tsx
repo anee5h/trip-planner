@@ -10,6 +10,7 @@ import {
   getWalkingIntensityMetadata,
 } from "@/shared/utils/walking";
 import { X, Trash2, Scale, ExternalLink } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface CompareModalProps {
   isOpen: boolean;
@@ -18,6 +19,7 @@ interface CompareModalProps {
 
 export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
   const { compareList, toggleCompare, clearCompare } = useTripStore();
+  const { t } = useTranslation();
   const allDestinations = getDestinationList() as Destination[];
 
   if (!isOpen) return null;
@@ -63,10 +65,11 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
             </div>
             <div>
               <h2 className="text-xl font-extrabold text-slate-900 dark:text-white">
-                Side-by-Side Comparison
+                {t("ui.compare")}
               </h2>
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                Comparing {compareDestinations.length} of 3 destinations max
+                {compareDestinations.length} {t("ui.of")} 3{" "}
+                {t("ui.destinations").toLowerCase()}
               </p>
             </div>
           </div>
@@ -80,7 +83,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                 className="text-xs text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/40 rounded-xl font-semibold"
               >
                 <Trash2 className="w-3.5 h-3.5 mr-1" />
-                Clear All
+                {t("ui.clearAll")}
               </Button>
             )}
             <button
@@ -99,11 +102,10 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
             <div className="text-center py-16 bg-slate-50 dark:bg-slate-950/50 rounded-2xl border border-dashed border-slate-200 dark:border-slate-800">
               <Scale className="w-12 h-12 text-slate-300 dark:text-slate-700 mx-auto mb-3" />
               <p className="text-slate-700 dark:text-slate-300 font-bold text-base">
-                No destinations selected for comparison
+                {t("ui.nothingToCompare")}
               </p>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-sm mx-auto">
-                Tap the "Compare" button on destination cards to compare up to 3
-                places side-by-side.
+                {t("ui.compareHint")}
               </p>
             </div>
           ) : (
@@ -156,8 +158,8 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                         size="sm"
                         className="w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-sm"
                       >
-                        <ExternalLink className="w-3.5 h-3.5 mr-1" /> View
-                        Details
+                        <ExternalLink className="w-3.5 h-3.5 mr-1" />{" "}
+                        {t("ui.view")}
                       </Button>
                     </Link>
                   </div>
@@ -167,7 +169,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
               {/* Comparative Feature Matrix Grid */}
               <div className="bg-slate-50 dark:bg-slate-950/60 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 space-y-4">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">
-                  Feature Comparison Matrix
+                  {t("ui.compare")}
                 </h4>
 
                 {/* Metric 1: Overall Rating */}

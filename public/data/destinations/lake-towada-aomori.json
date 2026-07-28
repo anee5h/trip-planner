@@ -74,8 +74,6 @@
   "walkingIntensity": "low",
   "reservation": "None required",
   "parking": "Available at Yasumiya",
-  "restaurants": ["Towadako Lakeside Restaurant", "Yasumiya Dining Hall"],
-  "cafes": ["Towada Nature Cafe"],
   "notes": "Shared between Aomori and Akita prefectures. The trailhead for Oirase Gorge walk starts at Nenokuchi on the lake shore.",
   "status": "beta",
   "relationships": {

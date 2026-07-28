@@ -64,16 +64,6 @@
     "food": 4725,
     "cafe": 1575
   },
-  "restaurants": [
-    "Kurobe Gorge Traditional Dining",
-    "Local Shizuoka Specialty Restaurant",
-    "The Kurobe Grill & Izakaya"
-  ],
-  "cafes": [
-    "Café de Kurobe Gorge",
-    "Riverside Roasters",
-    "Station Matcha & Sweets"
-  ],
   "notes": "A fantastic trip to Kurobe Gorge. Known for its scenic railway and ravine vibes, it offers a great escape with an overall score of 8.9.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Kurobe_kyokoku_view_from_Kurobe_Dam.jpg/1280px-Kurobe_kyokoku_view_from_Kurobe_Dam.jpg",

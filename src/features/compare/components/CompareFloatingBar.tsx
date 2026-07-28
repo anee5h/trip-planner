@@ -1,6 +1,7 @@
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { Button } from "@/shared/components/ui/button";
 import { Scale, Trash2, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface CompareFloatingBarProps {
   onOpenModal: () => void;
@@ -10,6 +11,7 @@ export default function CompareFloatingBar({
   onOpenModal,
 }: CompareFloatingBarProps) {
   const { compareList, clearCompare } = useTripStore();
+  const { t } = useTranslation();
 
   if (compareList.length === 0) return null;
 
@@ -20,7 +22,9 @@ export default function CompareFloatingBar({
           <div className="p-1.5 rounded-full bg-emerald-500 text-slate-950">
             <Scale className="w-3.5 h-3.5" />
           </div>
-          <span>Compare ({compareList.length}/3)</span>
+          <span>
+            {t("ui.compare")} ({compareList.length}/3)
+          </span>
         </div>
 
         <div className="h-4 w-[1px] bg-slate-700" />
@@ -31,15 +35,15 @@ export default function CompareFloatingBar({
             size="sm"
             className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs rounded-full px-4 shadow-sm"
           >
-            Compare Now
+            {t("ui.compareNow")}
             <ArrowRight className="w-3.5 h-3.5 ml-1" />
           </Button>
 
           <button
             onClick={clearCompare}
             className="p-1.5 text-slate-400 hover:text-red-400 rounded-full hover:bg-slate-800 transition-colors"
-            title="Clear compare list"
-            aria-label="Clear comparison list"
+            title={t("ui.clearCompare")}
+            aria-label={t("ui.clearCompare")}
           >
             <Trash2 className="w-4 h-4" />
           </button>

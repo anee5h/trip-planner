@@ -2,6 +2,7 @@ import React from "react";
 import { Bookmark } from "lucide-react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 
 interface BucketListButtonProps {
   destinationId: string;
@@ -16,6 +17,7 @@ export function BucketListButton({
   variant = "circle",
   className = "",
 }: BucketListButtonProps) {
+  const { t } = useTranslation();
   const { isFavorite, toggleFavorite } = useTripStore();
   const active = isFavorite(destinationId);
 
@@ -26,7 +28,7 @@ export function BucketListButton({
 
     if (!active) {
       toast.success(
-        `Added ${destinationName ? `"${destinationName}"` : "destination"} to your Bucket List!`,
+        `${destinationName || t("ui.destinations")} — ${t("ui.onBucketList")}`,
         {
           icon: "🔖",
           description: "View anytime from your Passport & Profile.",
@@ -34,7 +36,7 @@ export function BucketListButton({
       );
     } else {
       toast.info(
-        `Removed ${destinationName ? `"${destinationName}"` : "destination"} from Bucket List`,
+        `${destinationName || t("ui.destinations")} — ${t("ui.bucketList")}`,
       );
     }
   };
@@ -44,7 +46,7 @@ export function BucketListButton({
       <button
         onClick={handleClick}
         aria-label={active ? "Remove from bucket list" : "Add to bucket list"}
-        title={active ? "On Bucket List" : "Want to Visit"}
+        title={active ? t("ui.onBucketList") : t("ui.bucketList")}
         className={`px-4 py-2 rounded-xl flex items-center gap-2 font-semibold text-sm transition-all active:scale-95 shadow-sm border ${
           active
             ? "bg-rose-500 hover:bg-rose-600 text-white border-rose-400"
@@ -52,7 +54,7 @@ export function BucketListButton({
         } ${className}`}
       >
         <Bookmark className={`w-4 h-4 ${active ? "fill-current" : ""}`} />
-        <span>{active ? "On Bucket List" : "Bucket List"}</span>
+        <span>{active ? t("ui.onBucketList") : t("ui.bucketList")}</span>
       </button>
     );
   }
@@ -62,7 +64,7 @@ export function BucketListButton({
       <button
         onClick={handleClick}
         aria-label={active ? "Remove from bucket list" : "Add to bucket list"}
-        title={active ? "On Bucket List" : "Want to Visit"}
+        title={active ? t("ui.onBucketList") : t("ui.bucketList")}
         className={`w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 backdrop-blur-md border ${
           active
             ? "bg-rose-500 text-white border-rose-400 shadow-md"
@@ -79,7 +81,7 @@ export function BucketListButton({
     <button
       onClick={handleClick}
       aria-label={active ? "Remove from bucket list" : "Add to bucket list"}
-      title={active ? "On Bucket List" : "Want to Visit"}
+      title={active ? t("ui.onBucketList") : t("ui.bucketList")}
       className={`p-2 bg-white/70 hover:bg-white dark:bg-slate-900/70 dark:hover:bg-slate-900 backdrop-blur-sm rounded-full transition-all active:scale-95 duration-150 shadow-sm text-slate-700 dark:text-slate-200 ${
         active ? "!bg-rose-500 !text-white !border-rose-400" : ""
       } ${className}`}

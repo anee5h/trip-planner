@@ -9,6 +9,7 @@ import {
 } from "@/shared/services/trips/CalendarService";
 import { triggerPdfPrint } from "@/shared/services/trips/PdfExportService";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 
 interface TripDetailsProps {
   trip: Trip;
@@ -27,6 +28,7 @@ export default function TripDetails({
   onRemoveStop,
   onReorderStops,
 }: TripDetailsProps) {
+  const { t } = useTranslation();
   const [journal, setJournal] = useState(trip.journalNotes || "");
   const [isEditingTitle, setIsEditingTitle] = useState(false);
   const [titleInput, setTitleInput] = useState(trip.title);
@@ -76,7 +78,7 @@ export default function TripDetails({
                   onClick={handleSaveTitle}
                   className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-semibold px-4 text-xs h-8"
                 >
-                  Save
+                  {t("ui.save")}
                 </Button>
               </div>
             ) : (
@@ -128,7 +130,7 @@ export default function TripDetails({
                     className="flex items-center gap-3 w-full p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-900 text-left text-sm font-semibold text-slate-800 dark:text-slate-200 transition-colors"
                   >
                     <Calendar className="w-4 h-4 text-blue-600" />
-                    <span>Add to Google Calendar</span>
+                    <span>{t("ui.addToItinerary")}</span>
                   </button>
                   <button
                     onClick={() => {
@@ -138,7 +140,7 @@ export default function TripDetails({
                     className="flex items-center gap-3 w-full p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-900 text-left text-sm font-semibold text-slate-800 dark:text-slate-200 transition-colors"
                   >
                     <Calendar className="w-4 h-4 text-purple-600" />
-                    <span>Export to Calendar (.ics)</span>
+                    <span>{t("ui.dataExport")}</span>
                   </button>
                 </div>
               </>

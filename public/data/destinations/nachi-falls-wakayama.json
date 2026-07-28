@@ -96,8 +96,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Nachi Falls & Pagoda Dining Options"],
-  "cafes": ["Nachi Falls & Pagoda Rest Area Cafe"],
   "walkingIntensity": "medium",
   "role": "standalone",
   "placeType": "destination"

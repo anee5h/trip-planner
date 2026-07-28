@@ -69,8 +69,6 @@
   "tags": ["Onsen", "Steam", "Historic", "Winter getaway"],
   "reservation": "Show tickets bought on site",
   "parking": "Public paid parking lots outside the central ring",
-  "restaurants": ["Kusatsu Udon", "Onsen Tamago House"],
-  "cafes": ["Yubatake Cafe"],
   "notes": "Kusatsu's hot springs have highly acidic water with strong antibacterial benefits.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Bath_in_kusatsu.jpg",

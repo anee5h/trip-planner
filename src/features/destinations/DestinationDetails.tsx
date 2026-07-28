@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
@@ -23,7 +24,7 @@ import {
   ArrowLeft,
   MapPin,
   Clock,
-  DollarSign,
+  JapaneseYen,
   ThermometerSun,
   Heart,
   Umbrella,
@@ -42,7 +43,6 @@ import {
   Car,
   CheckCircle2,
   Share2,
-  Copy,
   ExternalLink,
   Plus,
   BookOpen,
@@ -56,7 +56,6 @@ import {
   Flower2,
   Snowflake,
   Ticket,
-  UtensilsCrossed,
   Timer,
   CalendarDays,
   Building2,
@@ -69,7 +68,12 @@ import {
   getLocalizedPlace,
   isPlaceAvailableInLocale,
 } from "@/shared/services/place/PlaceCatalog";
-import { formatPlaceName, formatPrefecture } from "@/shared/utils/placeLabels";
+import {
+  formatPlaceName,
+  formatPrefecture,
+  localizePlaceLabel,
+} from "@/shared/utils/placeLabels";
+import { localizeRecommendationText } from "@/shared/utils/recommendationLabels";
 
 import { toast } from "sonner";
 import {
@@ -116,6 +120,10 @@ function localizeEditorialValue(value: string, locale: "en" | "ja") {
         "夜景を楽しむディナーは予約が必要です。",
       "Plenty of paid parking in Minatomirai.":
         "みなとみらいには有料駐車場が多数あります。",
+      "All Year": "通年",
+      "None required": "予約不要",
+      "Public parking available": "公共駐車場あり",
+      "No advance reservation required.": "事前予約は不要です。",
     }[value] || value
   );
 }
@@ -140,6 +148,17 @@ const DETAIL_COPY = {
     seeMore: "See all",
     showLess: "Show less",
     nearbyPlaces: "Nearby Places & Hubs",
+    addToItinerary: "Add to Itinerary",
+    travelTime: "Travel Time",
+    comfortMetrics: "Comfort Metrics",
+    experienceRatings: "Experience Ratings",
+    seasonalRatings: "Seasonal Ratings",
+    recommendedDuration: "Recommended Duration",
+    estimated: "est.",
+    tickets: "Tickets",
+    localTrain: "Local Train",
+    foodCafe: "Food & Cafe",
+    parkingLabel: "Parking",
   },
   ja: {
     notFound: "目的地が見つかりません",
@@ -160,10 +179,22 @@ const DETAIL_COPY = {
     seeMore: "すべて見る",
     showLess: "閉じる",
     nearbyPlaces: "近くの場所と都市ハブ",
+    addToItinerary: "旅程に追加",
+    travelTime: "所要時間",
+    comfortMetrics: "快適性",
+    experienceRatings: "体験評価",
+    seasonalRatings: "季節評価",
+    recommendedDuration: "おすすめの滞在時間",
+    estimated: "目安",
+    tickets: "チケット",
+    localTrain: "在来線",
+    foodCafe: "食事・カフェ",
+    parkingLabel: "駐車場",
   },
 } as const;
 
 export default function DestinationDetails() {
+  const { t } = useTranslation();
   const { locale, setLocale } = useLocale();
   const copy = DETAIL_COPY[locale];
   const { id } = useParams();
@@ -180,11 +211,17 @@ export default function DestinationDetails() {
   const partySize =
     navState?.partySize || user?.user_metadata?.preferences?.partySize || 2;
   const budgetLabel =
-    partySize === 1
-      ? "Solo Budget"
-      : partySize === 2
-        ? "Couple Budget"
-        : `Group Budget (${partySize} people)`;
+    locale === "ja"
+      ? partySize === 1
+        ? "ひとり旅予算"
+        : partySize === 2
+          ? "カップル予算"
+          : `グループ予算（${partySize}人）`
+      : partySize === 1
+        ? "Solo Budget"
+        : partySize === 2
+          ? "Couple Budget"
+          : `Group Budget (${partySize} people)`;
 
   const {
     isVisited,
@@ -505,7 +542,8 @@ export default function DestinationDetails() {
             to={{ pathname: "/destinations", search: location.search }}
             className="pointer-events-auto inline-flex items-center text-xs font-semibold px-3 py-1.5 rounded-full bg-black/50 hover:bg-black/70 text-slate-100 backdrop-blur-md border border-white/20 transition-all shadow-md"
           >
-            <ArrowLeft className="w-3.5 h-3.5 mr-1" /> Back
+            <ArrowLeft className="w-3.5 h-3.5 mr-1" />
+            {locale === "ja" ? "戻る" : "Back"}
           </Link>
         </div>
 
@@ -557,7 +595,8 @@ export default function DestinationDetails() {
                 className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-white/15 hover:bg-white/25 text-white font-extrabold text-xs backdrop-blur-md transition-all border border-white/20"
               >
                 <MapPin className="w-3 h-3 text-emerald-400" />
-                Located In: {parentDestination.name}
+                {locale === "ja" ? "所在地：" : "Located In: "}
+                {parentDestination.name}
               </Link>
             )}
           </div>
@@ -565,7 +604,7 @@ export default function DestinationDetails() {
           {/* 3. Badges & Category Tags Row */}
           <div className="flex flex-wrap items-center gap-2 mb-4">
             <Badge className="bg-emerald-600 hover:bg-emerald-500 border-none shrink-0 px-2.5 py-0.5 text-xs font-semibold">
-              {destination.region}
+              {localizePlaceLabel(destination.region, locale)}
             </Badge>
             {/* Curated Collection Badges */}
             {(() => {
@@ -591,7 +630,10 @@ export default function DestinationDetails() {
                       key={tag}
                       className="bg-sky-600 hover:bg-sky-700 text-white font-bold border-sky-300 shadow-md shrink-0 px-2.5 py-0.5 text-xs inline-flex items-center gap-1"
                     >
-                      <Landmark className="w-3 h-3" /> World's Tallest Tower
+                      <Landmark className="w-3 h-3" />{" "}
+                      {locale === "ja"
+                        ? "世界一高いタワー"
+                        : "World's Tallest Tower"}
                     </Badge>
                   );
                 }
@@ -601,7 +643,8 @@ export default function DestinationDetails() {
                       key={tag}
                       className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold border-emerald-300 shadow-md shrink-0 px-2.5 py-0.5 text-xs inline-flex items-center gap-1"
                     >
-                      <Building2 className="w-3 h-3" /> Free Observatory
+                      <Building2 className="w-3 h-3" />{" "}
+                      {locale === "ja" ? "無料展望台" : "Free Observatory"}
                     </Badge>
                   );
                 }
@@ -622,24 +665,22 @@ export default function DestinationDetails() {
                   variant="outline"
                   className="text-white border-white/20 backdrop-blur-md bg-white/10 shrink-0 px-2.5 py-0.5 text-xs font-medium"
                 >
-                  {cat}
+                  {localizePlaceLabel(cat, locale)}
                 </Badge>
               ))}
           </div>
 
-          {/* Option A Action Controls: Single Primary CTA + Compact Circular Icons Row */}
           <div className="flex flex-wrap items-center gap-2.5">
             {/* Primary CTA: Add to Itinerary */}
             <button
               onClick={handleAddToItinerary}
-              className="inline-flex items-center text-sm font-semibold bg-emerald-600 hover:bg-emerald-500 text-white h-10 px-4 rounded-xl transition-all active:scale-95 shadow-md"
+              className="inline-flex w-full sm:w-auto justify-center items-center text-sm font-semibold bg-emerald-600 hover:bg-emerald-500 text-white h-10 px-4 rounded-xl transition-all active:scale-95 shadow-md"
             >
               <Plus className="w-4 h-4 mr-1.5" />
-              Add to Itinerary
+              {copy.addToItinerary}
             </button>
 
-            {/* Compact Circular Icon Buttons Row (40x40px) */}
-            <div className="flex items-center gap-2">
+            <div className="flex w-full sm:w-auto items-center gap-2">
               {/* Want to Visit / Bucket List Toggle */}
               <BucketListButton
                 destinationId={destination.id}
@@ -658,13 +699,13 @@ export default function DestinationDetails() {
                 }}
                 aria-label={
                   isVisited(destination.id)
-                    ? "Manage Visit History"
-                    : "Mark destination as visited"
+                    ? t("ui.manageVisitHistory")
+                    : t("ui.markVisited")
                 }
                 title={
                   isVisited(destination.id)
-                    ? `Visited ${getVisitCount(destination.id)} time${getVisitCount(destination.id) === 1 ? "" : "s"}`
-                    : "Mark as Visited"
+                    ? `${t("ui.visited")} ${getVisitCount(destination.id)}`
+                    : t("ui.markVisited")
                 }
                 className={`w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 backdrop-blur-md border ${
                   isVisited(destination.id)
@@ -675,65 +716,55 @@ export default function DestinationDetails() {
                 <CheckCircle2 className="w-4 h-4" />
               </button>
 
-              {/* Symbol-Only Get Directions Button */}
-              <a
-                href={`https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(homeStation)}&destination=${encodeURIComponent(destination.name + ", " + destination.prefecture + ", Japan")}&travelmode=transit`}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Get Directions"
-                title="Get Directions"
-                className="w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 bg-white/15 hover:bg-white/25 text-slate-100 backdrop-blur-md border border-white/20"
-              >
-                <MapPin className="w-4 h-4 text-emerald-400" />
-              </a>
+              <span className="hidden sm:block h-6 border-l border-white/20 mx-1" />
 
-              {/* Symbol-Only Share Button */}
-              <button
-                onClick={async () => {
-                  const cleanUrl = `${window.location.origin}/destinations/${destination.id}`;
-                  const shareData = {
-                    title: destination.name,
-                    text: `Check out ${destination.name} in ${destination.prefecture}, Japan on TabiMap!`,
-                    url: cleanUrl,
-                  };
-                  if (navigator.share) {
-                    try {
-                      await navigator.share(shareData);
-                    } catch (err: any) {
-                      if (err.name !== "AbortError") {
-                        await navigator.clipboard.writeText(cleanUrl);
-                        toast.success("Link copied to clipboard!");
+              <div className="flex items-center gap-2 basis-full sm:basis-auto">
+                {/* Symbol-Only Get Directions Button */}
+                <a
+                  href={`https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(homeStation)}&destination=${encodeURIComponent(destination.name + ", " + destination.prefecture + ", Japan")}&travelmode=transit`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={locale === "ja" ? "ルート検索" : "Get Directions"}
+                  title={locale === "ja" ? "ルート検索" : "Get Directions"}
+                  className="w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 bg-white/15 hover:bg-white/25 text-slate-100 backdrop-blur-md border border-white/20"
+                >
+                  <MapPin className="w-4 h-4 text-emerald-400" />
+                </a>
+
+                {/* Symbol-Only Share Button */}
+                <button
+                  onClick={async () => {
+                    const cleanUrl = `${window.location.origin}/destinations/${destination.id}`;
+                    const shareData = {
+                      title: destination.name,
+                      text: `Check out ${destination.name} in ${destination.prefecture}, Japan on TabiMap!`,
+                      url: cleanUrl,
+                    };
+                    if (navigator.share) {
+                      try {
+                        await navigator.share(shareData);
+                      } catch (err: any) {
+                        if (err.name !== "AbortError") {
+                          await navigator.clipboard?.writeText(cleanUrl);
+                          toast.success(t("ui.linkCopied"));
+                        }
                       }
+                    } else {
+                      await navigator.clipboard?.writeText(cleanUrl);
+                      toast.success(t("ui.linkCopied"));
                     }
-                  } else {
-                    await navigator.clipboard.writeText(cleanUrl);
-                    toast.success("Link copied to clipboard!");
+                  }}
+                  aria-label={
+                    locale === "ja" ? "目的地を共有" : "Share destination"
                   }
-                }}
-                aria-label="Share destination"
-                title="Share Destination"
-                className="w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 bg-white/15 hover:bg-white/25 text-slate-100 backdrop-blur-md border border-white/20"
-              >
-                <Share2 className="w-4 h-4" />
-              </button>
-
-              {/* Symbol-Only Copy Link Button */}
-              <button
-                onClick={async () => {
-                  const cleanUrl = `${window.location.origin}/destinations/${destination.id}`;
-                  try {
-                    await navigator.clipboard.writeText(cleanUrl);
-                    toast.success("Link copied to clipboard!");
-                  } catch {
-                    toast.error("Failed to copy link.");
+                  title={
+                    locale === "ja" ? "目的地を共有" : t("ui.shareDestination")
                   }
-                }}
-                aria-label="Copy destination link"
-                title="Copy Link"
-                className="w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 bg-white/15 hover:bg-white/25 text-slate-100 backdrop-blur-md border border-white/20"
-              >
-                <Copy className="w-4 h-4" />
-              </button>
+                  className="w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 bg-white/15 hover:bg-white/25 text-slate-100 backdrop-blur-md border border-white/20"
+                >
+                  <Share2 className="w-4 h-4" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -857,7 +888,7 @@ export default function DestinationDetails() {
                     variant="secondary"
                     className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
                   >
-                    #{tag}
+                    #{localizePlaceLabel(tag, locale)}
                   </Badge>
                 ))}
               </div>
@@ -873,9 +904,6 @@ export default function DestinationDetails() {
                 </TabsTrigger>
                 <TabsTrigger value="ratings" className="rounded-lg py-2.5 px-4">
                   {copy.ratings}
-                </TabsTrigger>
-                <TabsTrigger value="food" className="rounded-lg py-2.5 px-4">
-                  {copy.food}
                 </TabsTrigger>
                 {matchDetails && (
                   <TabsTrigger value="match" className="rounded-lg py-2.5 px-4">
@@ -893,7 +921,7 @@ export default function DestinationDetails() {
                           <Clock className="w-5 h-5" />
                         </div>
                         <h4 className="font-bold text-slate-900 dark:text-white">
-                          Travel Time
+                          {copy.travelTime}
                         </h4>
                       </div>
                       <div className="space-y-2 flex-grow">
@@ -901,7 +929,8 @@ export default function DestinationDetails() {
                           destination.transportOptions?.train && (
                             <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
                               <span className="text-slate-500 flex items-center">
-                                <Train className="w-4 h-4 mr-1.5" /> Train
+                                <Train className="w-4 h-4 mr-1.5" />{" "}
+                                {locale === "ja" ? "電車" : "Train"}
                               </span>
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
@@ -910,7 +939,8 @@ export default function DestinationDetails() {
                                   )}
                                 </div>
                                 <div className="text-xs text-slate-400">
-                                  est. ¥
+                                  {copy.estimated}{" "}
+                                  <JapaneseYen className="inline w-3 h-3" />
                                   {(
                                     budgetService.getTransportCost(
                                       destination,
@@ -937,7 +967,8 @@ export default function DestinationDetails() {
                                   )}
                                 </div>
                                 <div className="text-xs text-slate-400">
-                                  est. ¥
+                                  {copy.estimated}{" "}
+                                  <JapaneseYen className="inline w-3 h-3" />
                                   {(
                                     budgetService.getTransportCost(
                                       destination,
@@ -954,7 +985,8 @@ export default function DestinationDetails() {
                           destination.transportOptions?.bus && (
                             <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
                               <span className="text-slate-500 flex items-center">
-                                <Bus className="w-4 h-4 mr-1.5" /> Bus
+                                <Bus className="w-4 h-4 mr-1.5" />{" "}
+                                {locale === "ja" ? "バス" : "Bus"}
                               </span>
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
@@ -963,7 +995,8 @@ export default function DestinationDetails() {
                                   )}
                                 </div>
                                 <div className="text-xs text-slate-400">
-                                  est. ¥
+                                  {copy.estimated}{" "}
+                                  <JapaneseYen className="inline w-3 h-3" />
                                   {(
                                     budgetService.getTransportCost(
                                       destination,
@@ -980,7 +1013,8 @@ export default function DestinationDetails() {
                           destination.transportOptions?.car && (
                             <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
                               <span className="text-slate-500 flex items-center">
-                                <Car className="w-4 h-4 mr-1.5" /> Rental Car
+                                <Car className="w-4 h-4 mr-1.5" />{" "}
+                                {locale === "ja" ? "レンタカー" : "Rental Car"}
                               </span>
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
@@ -989,7 +1023,8 @@ export default function DestinationDetails() {
                                   )}
                                 </div>
                                 <div className="text-xs text-slate-400">
-                                  est. ¥
+                                  {copy.estimated}{" "}
+                                  <JapaneseYen className="inline w-3 h-3" />
                                   {(
                                     budgetService.getTransportCost(
                                       destination,
@@ -1006,7 +1041,8 @@ export default function DestinationDetails() {
                           destination.transportOptions?.my_car && (
                             <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
                               <span className="text-slate-500 flex items-center">
-                                <Car className="w-4 h-4 mr-1.5" /> My Car
+                                <Car className="w-4 h-4 mr-1.5" />{" "}
+                                {locale === "ja" ? "自家用車" : "My Car"}
                               </span>
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
@@ -1015,7 +1051,8 @@ export default function DestinationDetails() {
                                   )}
                                 </div>
                                 <div className="text-xs text-slate-400">
-                                  est. ¥
+                                  {copy.estimated}{" "}
+                                  <JapaneseYen className="inline w-3 h-3" />
                                   {(
                                     budgetService.getTransportCost(
                                       destination,
@@ -1032,14 +1069,15 @@ export default function DestinationDetails() {
                           <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
                             <span className="text-slate-500 flex items-center">
                               <Plane className="w-4 h-4 mr-1.5 text-sky-500" />{" "}
-                              Flight
+                              {locale === "ja" ? "飛行機" : "Flight"}
                             </span>
                             <div className="text-right">
                               <div className="font-semibold text-slate-700 dark:text-slate-300">
                                 {formatTransportTime(flightEstimate.timeRange)}
                               </div>
                               <div className="text-xs text-slate-400">
-                                est. ¥
+                                {copy.estimated}{" "}
+                                <JapaneseYen className="inline w-3 h-3" />
                                 {(
                                   budgetService.getTransportCost(
                                     destination,
@@ -1060,14 +1098,14 @@ export default function DestinationDetails() {
                     <CardContent className="p-5 flex flex-col h-full">
                       <div className="flex items-center gap-3 mb-4">
                         <div className="bg-emerald-100 dark:bg-emerald-900/30 p-2.5 rounded-full text-emerald-600">
-                          <DollarSign className="w-5 h-5" />
+                          <JapaneseYen className="w-5 h-5" />
                         </div>
                         <div>
                           <h4 className="font-bold text-slate-900 dark:text-white leading-tight">
                             {budgetLabel}
                           </h4>
                           <div className="text-emerald-600 font-extrabold text-lg">
-                            ¥
+                            <JapaneseYen className="inline w-4 h-4" />
                             {budgetService
                               .getAdjustedBudget(
                                 destination,
@@ -1084,12 +1122,14 @@ export default function DestinationDetails() {
                           {availableModes.map((mode) => {
                             const isSelected = selectedTransport === mode;
                             const names: Record<string, string> = {
-                              train: "Train",
-                              shinkansen: "Shinkansen",
-                              car: "Rental Car",
-                              my_car: "My Car",
-                              bus: "Bus",
-                              flight: "Flight",
+                              train: locale === "ja" ? "電車" : "Train",
+                              shinkansen:
+                                locale === "ja" ? "新幹線" : "Shinkansen",
+                              car:
+                                locale === "ja" ? "レンタカー" : "Rental Car",
+                              my_car: locale === "ja" ? "自家用車" : "My Car",
+                              bus: locale === "ja" ? "バス" : "Bus",
+                              flight: locale === "ja" ? "飛行機" : "Flight",
                             };
                             return (
                               <button
@@ -1138,18 +1178,21 @@ export default function DestinationDetails() {
                                 {
                                   (
                                     {
-                                      train: "Local Train",
+                                      train: copy.localTrain,
                                       shinkansen: "Shinkansen",
                                       car: "Rental Car & Tolls",
                                       my_car: "My Car (Gas & Tolls)",
-                                      bus: "Highway Bus",
+                                      bus:
+                                        locale === "ja"
+                                          ? "高速バス"
+                                          : "Highway Bus",
                                       flight: "Flight (Air & Access)",
                                     } as Record<string, string>
                                   )[selectedTransport]
                                 }
                               </span>
                               <span className="font-semibold text-slate-700 dark:text-slate-300">
-                                ¥
+                                <JapaneseYen className="inline w-3 h-3" />
                                 {budgetService
                                   .getTransportCost(
                                     destination,
@@ -1163,25 +1206,12 @@ export default function DestinationDetails() {
                             <div className="flex justify-between text-sm border-b border-slate-100 dark:border-slate-800 pb-1.5 mt-1.5">
                               <span className="text-slate-500 flex items-center gap-1.5">
                                 <Ticket className="w-3.5 h-3.5 shrink-0" />{" "}
-                                Tickets
+                                {copy.tickets}
                               </span>
                               <span className="font-semibold text-slate-700 dark:text-slate-300">
-                                ¥
+                                <JapaneseYen className="inline w-3 h-3" />
                                 {Math.round(
                                   (breakdown.tickets / 2) * partySize,
-                                ).toLocaleString()}
-                              </span>
-                            </div>
-                            <div className="flex justify-between text-sm mt-1.5">
-                              <span className="text-slate-500 flex items-center gap-1.5">
-                                <UtensilsCrossed className="w-3.5 h-3.5 shrink-0" />{" "}
-                                Food & Cafe
-                              </span>
-                              <span className="font-semibold text-slate-700 dark:text-slate-300">
-                                ¥
-                                {Math.round(
-                                  ((breakdown.food + breakdown.cafe) / 2) *
-                                    partySize,
                                 ).toLocaleString()}
                               </span>
                             </div>
@@ -1199,14 +1229,14 @@ export default function DestinationDetails() {
                             <ThermometerSun className="w-5 h-5" />
                           </div>
                           <h4 className="font-bold text-slate-900 dark:text-white">
-                            Comfort Metrics
+                            {copy.comfortMetrics}
                           </h4>
                         </div>
                         <div className="space-y-2 flex-grow">
                           <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
                             <span className="text-slate-500 flex items-center gap-1.5">
                               <Sun className="w-3.5 h-3.5 text-amber-500 shrink-0" />{" "}
-                              Heat Tolerance
+                              {t("ui.heatTolerance")}
                             </span>
                             <span className="font-semibold text-slate-700 dark:text-slate-300">
                               {destination.comfort.heatTolerance}/10
@@ -1215,7 +1245,7 @@ export default function DestinationDetails() {
                           <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
                             <span className="text-slate-500 flex items-center gap-1.5">
                               <Umbrella className="w-3.5 h-3.5 text-blue-500 shrink-0" />{" "}
-                              Rain Friendly
+                              {t("ui.rainFriendly")}
                             </span>
                             <span className="font-semibold text-slate-700 dark:text-slate-300">
                               {destination.comfort.rainFriendly}/10
@@ -1227,7 +1257,7 @@ export default function DestinationDetails() {
                             return (
                               <div className="flex justify-between items-center text-sm">
                                 <span className="text-slate-500">
-                                  🚶 Walkability
+                                  🚶 {t("ui.walkability")}
                                 </span>
                                 <span className="font-semibold text-slate-700 dark:text-slate-300">
                                   {walkScore !== undefined
@@ -1249,7 +1279,7 @@ export default function DestinationDetails() {
                 <Card>
                   <CardContent className="p-6">
                     <h4 className="font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider text-xs mb-4">
-                      Experience Ratings
+                      {copy.experienceRatings}
                     </h4>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                       <RatingItem
@@ -1275,13 +1305,13 @@ export default function DestinationDetails() {
                         value={destination.ratings.food}
                       />
                       <RatingItem
-                        icon={DollarSign}
+                        icon={JapaneseYen}
                         label="Value"
                         value={destination.ratings.value}
                       />
                       <RatingItem
                         icon={Footprints}
-                        label="Walkability"
+                        label={t("ui.walkability")}
                         value={
                           destination.ratings.walkability ??
                           destination.comfort?.walkingIntensity ??
@@ -1322,7 +1352,7 @@ export default function DestinationDetails() {
                 <Card>
                   <CardContent className="p-6">
                     <h4 className="font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider text-xs mb-4">
-                      Seasonal Ratings
+                      {copy.seasonalRatings}
                     </h4>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                       {destination.ratings.spring !== undefined && (
@@ -1359,33 +1389,6 @@ export default function DestinationDetails() {
                 </Card>
               </TabsContent>
 
-              <TabsContent value="food" className="mt-4">
-                <Card>
-                  <CardContent className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <h4 className="font-bold flex items-center mb-3">
-                        <Utensils className="w-4 h-4 mr-2" /> Top Restaurants
-                      </h4>
-                      <ul className="list-disc pl-5 space-y-1 text-slate-600 dark:text-slate-400">
-                        {(destination.restaurants ?? []).map((r) => (
-                          <li key={r}>{r}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-bold flex items-center mb-3">
-                        <Coffee className="w-4 h-4 mr-2" /> Nice Cafes
-                      </h4>
-                      <ul className="list-disc pl-5 space-y-1 text-slate-600 dark:text-slate-400">
-                        {(destination.cafes ?? []).map((c) => (
-                          <li key={c}>{c}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-
               <TabsContent value="match" className="mt-4">
                 {getDestinationRating(destination?.id || "") === "down" ? (
                   <Card>
@@ -1400,11 +1403,15 @@ export default function DestinationDetails() {
                         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-slate-100 dark:border-slate-800">
                           <div>
                             <h4 className="text-xl font-bold mb-1">
-                              Match Confidence
+                              {localizeRecommendationText(
+                                "Match Confidence",
+                                locale,
+                              )}
                             </h4>
                             <p className="text-slate-500 dark:text-slate-400 text-sm">
-                              How well this destination fits your active planner
-                              criteria.
+                              {locale === "ja"
+                                ? "現在の旅行プラン条件との適合度です。"
+                                : "How well this destination fits your active planner criteria."}
                             </p>
                           </div>
                           <div className="flex items-center gap-3">
@@ -1422,7 +1429,10 @@ export default function DestinationDetails() {
 
                         <div className="space-y-4">
                           <h5 className="font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider text-xs">
-                            Match Reasons
+                            {localizeRecommendationText(
+                              "Match Reasons",
+                              locale,
+                            )}
                           </h5>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {matchDetails.reasons.map((r, idx) => (
@@ -1433,11 +1443,17 @@ export default function DestinationDetails() {
                                 <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
                                 <div>
                                   <span className="font-bold text-sm block text-slate-900 dark:text-slate-100">
-                                    {r.title}
+                                    {localizeRecommendationText(
+                                      r.title,
+                                      locale,
+                                    )}
                                   </span>
                                   {r.description && (
                                     <span className="text-xs text-slate-500 dark:text-slate-400">
-                                      {r.description}
+                                      {localizeRecommendationText(
+                                        r.description,
+                                        locale,
+                                      )}
                                     </span>
                                   )}
                                 </div>
@@ -1449,7 +1465,10 @@ export default function DestinationDetails() {
                         {matchDetails.matchedPreferences.length > 0 && (
                           <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
                             <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">
-                              Matched Preferences
+                              {localizeRecommendationText(
+                                "Matched Preferences",
+                                locale,
+                              )}
                             </span>
                             <div className="flex flex-wrap gap-2">
                               {matchDetails.matchedPreferences.map((pref) => (
@@ -1459,7 +1478,7 @@ export default function DestinationDetails() {
                                   className="bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800 font-semibold inline-flex items-center gap-1"
                                 >
                                   <CheckCircle2 className="w-3 h-3" />{" "}
-                                  {pref.charAt(0).toUpperCase() + pref.slice(1)}
+                                  {localizeRecommendationText(pref, locale)}
                                 </Badge>
                               ))}
                             </div>
@@ -1504,7 +1523,7 @@ export default function DestinationDetails() {
                       </div>
                       <div>
                         <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                          Recommended Duration
+                          {copy.recommendedDuration}
                         </div>
                         <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
                           {destination.recommendedDuration}
@@ -1532,15 +1551,16 @@ export default function DestinationDetails() {
                   )}
                   <div className="flex items-center gap-3">
                     <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">
-                      <DollarSign className="w-4 h-4" />
+                      <JapaneseYen className="w-4 h-4" />
                     </div>
                     <div>
                       <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                         {budgetLabel}
                       </div>
                       <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
-                        ¥{(destination.budgetMin * partySize).toLocaleString()}
-                        –¥
+                        <JapaneseYen className="inline w-3 h-3" />
+                        {(destination.budgetMin * partySize).toLocaleString()}
+                        –<JapaneseYen className="inline w-3 h-3" />
                         {(destination.budgetMax * partySize).toLocaleString()}
                       </div>
                     </div>
@@ -1662,7 +1682,7 @@ export default function DestinationDetails() {
                 {destination.parking && (
                   <div>
                     <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
-                      Parking
+                      {copy.parkingLabel}
                     </h4>
                     <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
                       {localizeEditorialValue(destination.parking, locale)}
@@ -1846,11 +1866,12 @@ function RatingItem({
   label: string;
   value: number;
 }) {
+  const { locale } = useLocale();
   return (
     <div className="flex flex-col items-center text-center p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50">
       <Icon className="w-6 h-6 text-emerald-600 mb-2" />
       <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
-        {label}
+        {localizePlaceLabel(label, locale)}
       </span>
       <span className="text-xl font-bold text-slate-900 dark:text-white mt-1">
         {value}/10

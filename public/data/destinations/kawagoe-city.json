@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Kawagoe City Specialty Dining"],
-  "cafes": ["Kawagoe City Cafe"],
   "notes": "Kawagoe City travel hub in Saitama Prefecture.",
   "status": "verified",
   "travelEstimate": {

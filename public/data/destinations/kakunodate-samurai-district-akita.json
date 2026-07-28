@@ -72,8 +72,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Kakunodate Samurai District Dining Options"],
-  "cafes": ["Kakunodate Samurai District Rest Area Cafe"],
   "notes": "Kakunodate Samurai District located in Akita Prefecture.",
   "status": "beta",
   "relationships": {

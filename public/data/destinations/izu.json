@@ -63,16 +63,6 @@
     "food": 3900,
     "cafe": 1300
   },
-  "restaurants": [
-    "Izu Peninsula Traditional Dining",
-    "Local Shizuoka Specialty Restaurant",
-    "The Izu Grill & Izakaya"
-  ],
-  "cafes": [
-    "Café de Izu Peninsula",
-    "Riverside Roasters",
-    "Station Matcha & Sweets"
-  ],
   "notes": "A fantastic trip to Izu Peninsula. Known for its beaches and onsen vibes, it offers a great escape with an overall score of 8.6.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Izu_Peninsula_Shizuoka_Japan_SRTM.jpg",

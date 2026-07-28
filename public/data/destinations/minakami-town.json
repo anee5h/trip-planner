@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Minakami Town Specialty Dining"],
-  "cafes": ["Minakami Town Cafe"],
   "notes": "Minakami Town travel hub in Gunma Prefecture.",
   "status": "verified",
   "travelEstimate": {

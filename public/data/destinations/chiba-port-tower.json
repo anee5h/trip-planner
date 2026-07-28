@@ -69,8 +69,6 @@
   },
   "reservation": "No reservation required.",
   "parking": "Free parking lot at Chiba Port Park (over 200 spaces).",
-  "restaurants": ["Ocean View Restaurant SEAGULL", "Port Park Dining"],
-  "cafes": ["Tower Cafe 3F"],
   "notes": "Special Christmas illumination features a giant 100m tall light-bulb tree on the glass facade.",
   "schemaVersion": 2,
   "imageMetadata": {

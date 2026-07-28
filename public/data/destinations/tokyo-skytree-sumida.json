@@ -74,8 +74,6 @@
   },
   "reservation": "Advance online booking recommended to skip ticket queues.",
   "parking": "Paid underground parking structure at Tokyo Solamachi complex.",
-  "restaurants": ["Sky Restaurant 634", "Solamachi Dining Town"],
-  "cafes": ["Skytree Cafe 350", "Nana's Green Tea Solamachi"],
   "notes": "Best visibility of Mt. Fuji occurs on crisp, clear winter mornings.",
   "schemaVersion": 2,
   "imageMetadata": {

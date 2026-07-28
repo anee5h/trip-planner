@@ -3,8 +3,10 @@ import { Search, X } from "lucide-react";
 import { useSearch } from "./hooks/useSearch";
 import { SearchResults } from "./SearchResults";
 import { SearchDialog } from "./SearchDialog";
+import { useTranslation } from "react-i18next";
 
 export function GlobalSearch() {
+  const { t } = useTranslation();
   const {
     query,
     setQuery,
@@ -69,7 +71,7 @@ export function GlobalSearch() {
                 setIsPopoverOpen(false);
               }
             }}
-            placeholder="Search destinations, collections..."
+            placeholder={t("search.placeholder")}
             className="w-full h-10 pl-[42px] pr-14 rounded-2xl bg-slate-100/90 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 text-xs font-semibold text-slate-900 dark:text-white placeholder-slate-500/90 dark:placeholder-slate-400/90 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500 transition-all"
           />
 
@@ -113,7 +115,7 @@ export function GlobalSearch() {
       <button
         onClick={() => setIsOpen(true)}
         className="lg:hidden p-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors"
-        aria-label="Search"
+        aria-label={t("search.label")}
       >
         <Search className="w-5 h-5" />
       </button>

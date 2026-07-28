@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Miyazaki City Specialty Dining"],
-  "cafes": ["Miyazaki City Cafe"],
   "notes": "Miyazaki City travel hub in Miyazaki Prefecture.",
   "status": "beta",
   "travelEstimate": {

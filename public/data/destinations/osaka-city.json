@@ -63,8 +63,6 @@
   },
   "reservation": "None required",
   "parking": "Paid parking garages",
-  "restaurants": ["Mizuno Okonomiyaki", "Kukuru Takoyaki"],
-  "cafes": ["Guto Cafe Dotonbori"],
   "notes": "Food capital of Japan (Kuidaore culture).",
   "status": "beta",
   "travelEstimate": {

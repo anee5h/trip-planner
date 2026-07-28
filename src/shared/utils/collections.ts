@@ -1,5 +1,19 @@
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import type { Destination } from "@/shared/types/destination";
+import type { Collection } from "@/shared/types/collection";
+
+export function getCollectionContent(
+  collection: Collection,
+  locale: "en" | "ja",
+) {
+  return (
+    collection.content?.[locale] ||
+    collection.content?.en || {
+      name: collection.name,
+      description: collection.description,
+    }
+  );
+}
 
 export interface CollectionProgress {
   total: number;

@@ -63,16 +63,6 @@
     "food": 2400,
     "cafe": 800
   },
-  "restaurants": [
-    "Chiba City Traditional Dining",
-    "Local Kanagawa Specialty Restaurant",
-    "The Chiba Grill & Izakaya"
-  ],
-  "cafes": [
-    "Café de Chiba City",
-    "Riverside Roasters",
-    "Station Matcha & Sweets"
-  ],
   "notes": "A fantastic trip to Chiba City. Known for its urban and shopping vibes, it offers a great escape with an overall score of 7.5.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Chiba_montage.jpg",

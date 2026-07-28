@@ -73,8 +73,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Teshima Art Island Dining Options"],
-  "cafes": ["Teshima Art Island Rest Area Cafe"],
   "notes": "Teshima Art Island located in Kagawa Prefecture.",
   "status": "beta",
   "relationships": {

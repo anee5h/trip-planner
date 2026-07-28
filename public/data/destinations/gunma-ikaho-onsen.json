@@ -69,8 +69,6 @@
   "tags": ["Stone Steps", "Slopes", "Onsen", "Lanterns"],
   "reservation": "Not required",
   "parking": "Public lots at step base",
-  "restaurants": ["Mizusawa Udon Shops", "Steps Soba"],
-  "cafes": ["Steps Tea Room"],
   "notes": "Mizusawa Udon, served nearby, is considered one of Japan's top three udon types.",
   "schemaVersion": 2,
   "status": "verified",

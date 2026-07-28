@@ -74,8 +74,6 @@
   },
   "reservation": "No reservation required.",
   "parking": "Paid parking lot at Gifu Park ropeway station base.",
-  "restaurants": ["Kinka-zan Rest House", "Gifu Park Ayu Dining"],
-  "cafes": ["Ropeway Summit Cafe"],
   "notes": "Top 100 Castle of Japan #39. Special night ropeway operates during summer weekends for night views.",
   "schemaVersion": 2,
   "imageMetadata": {

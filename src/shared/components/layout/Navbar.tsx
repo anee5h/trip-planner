@@ -23,11 +23,13 @@ import { GlobalSearch } from "@/features/search/GlobalSearch";
 import { FeedbackModal } from "@/shared/components/feedback/FeedbackModal";
 import { ReleaseNotesModal } from "@/shared/components/ui/ReleaseNotesModal";
 import { useLocale } from "@/shared/context/LocaleContext";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
   const location = useLocation();
   const { user, loading, signOut } = useAuth();
   const { locale, setLocale } = useLocale();
+  const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
   const [feedbackOpen, setFeedbackOpen] = useState(false);
@@ -109,23 +111,6 @@ export default function Navbar() {
   const isMyTripsActive = location.pathname.startsWith("/my-trips");
   const isBucketListActive = location.pathname.startsWith("/bucket-list");
   const isPassportActive = location.pathname.startsWith("/passport");
-  const nav =
-    locale === "ja"
-      ? {
-          destinations: "目的地",
-          collections: "コレクション",
-          itineraries: "旅程",
-          bucketList: "行きたい",
-          passport: "パスポート",
-        }
-      : {
-          destinations: "Destinations",
-          collections: "Collections",
-          itineraries: "Itineraries",
-          bucketList: "Bucket List",
-          passport: "Passport",
-        };
-
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-950/85 backdrop-blur-xl shadow-xs shadow-slate-900/5 dark:shadow-slate-950/20">
       <div className="container mx-auto px-4 h-[68px] flex items-center justify-between gap-2 md:gap-4">
@@ -155,7 +140,7 @@ export default function Navbar() {
                 }`}
               >
                 <Map className="w-4 h-4" />
-                <span>{nav.destinations}</span>
+                <span>{t("navigation.destinations")}</span>
               </Link>
 
               <Link
@@ -167,7 +152,7 @@ export default function Navbar() {
                 }`}
               >
                 <Layers className="w-4 h-4" />
-                <span>{nav.collections}</span>
+                <span>{t("navigation.collections")}</span>
               </Link>
             </div>
 
@@ -185,7 +170,7 @@ export default function Navbar() {
                 }`}
               >
                 <Calendar className="w-4 h-4" />
-                <span>{nav.itineraries}</span>
+                <span>{t("navigation.itineraries")}</span>
               </Link>
 
               <Link
@@ -197,7 +182,7 @@ export default function Navbar() {
                 }`}
               >
                 <Bookmark className="w-4 h-4" />
-                <span>{nav.bucketList}</span>
+                <span>{t("navigation.bucketList")}</span>
               </Link>
             </div>
 
@@ -214,7 +199,7 @@ export default function Navbar() {
               }`}
             >
               <Compass className="w-4 h-4" />
-              <span>{nav.passport}</span>
+              <span>{t("navigation.passport")}</span>
             </Link>
           </nav>
           <div className="relative hidden md:block">
@@ -332,7 +317,7 @@ export default function Navbar() {
                         className="w-full flex items-center gap-2.5 px-4 py-2 text-sm font-semibold text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors text-left"
                       >
                         <LogOut className="w-4 h-4 text-red-600 dark:text-red-400" />
-                        Sign Out
+                        {t("actions.signOut")}
                       </button>
                     </div>
                   </div>
@@ -344,7 +329,7 @@ export default function Navbar() {
                 className="group bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white rounded-full font-bold shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 px-6"
               >
                 <LogIn className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1" />
-                Sign In
+                {t("actions.signIn")}
               </Button>
             )}
           </div>
@@ -399,7 +384,8 @@ export default function Navbar() {
                   : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
               }`}
             >
-              <Map className="w-5 h-5 text-emerald-500" /> Destinations
+              <Map className="w-5 h-5 text-emerald-500" />{" "}
+              {t("navigation.destinations")}
             </Link>
 
             <Link
@@ -411,7 +397,8 @@ export default function Navbar() {
                   : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
               }`}
             >
-              <Layers className="w-5 h-5 text-teal-500" /> Collections
+              <Layers className="w-5 h-5 text-teal-500" />{" "}
+              {t("navigation.collections")}
             </Link>
 
             <Link
@@ -423,7 +410,8 @@ export default function Navbar() {
                   : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
               }`}
             >
-              <Calendar className="w-5 h-5 text-emerald-500" /> Itineraries
+              <Calendar className="w-5 h-5 text-emerald-500" />{" "}
+              {t("navigation.itineraries")}
             </Link>
 
             <Link
@@ -435,7 +423,8 @@ export default function Navbar() {
                   : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
               }`}
             >
-              <Bookmark className="w-5 h-5 text-amber-500" /> Bucket List
+              <Bookmark className="w-5 h-5 text-amber-500" />{" "}
+              {t("navigation.bucketList")}
             </Link>
 
             <Link
@@ -447,7 +436,8 @@ export default function Navbar() {
                   : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
               }`}
             >
-              <Compass className="w-5 h-5 text-emerald-500" /> Passport
+              <Compass className="w-5 h-5 text-emerald-500" />{" "}
+              {t("navigation.passport")}
             </Link>
 
             <div className="my-1 border-t border-slate-200 dark:border-slate-800" />
@@ -509,7 +499,8 @@ export default function Navbar() {
                   }}
                   className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors text-left"
                 >
-                  <LogOut className="w-5 h-5 text-red-500" /> Sign Out
+                  <LogOut className="w-5 h-5 text-red-500" />{" "}
+                  {t("actions.signOut")}
                 </button>
               </div>
             ) : (
@@ -520,7 +511,7 @@ export default function Navbar() {
                 }}
                 className="flex items-center justify-center gap-2 mt-2 w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white rounded-xl py-3 font-bold shadow-md transition-all duration-300"
               >
-                <LogIn className="w-5 h-5" /> Sign In
+                <LogIn className="w-5 h-5" /> {t("actions.signIn")}
               </button>
             )}
 
@@ -534,7 +525,7 @@ export default function Navbar() {
                 className="hover:text-emerald-500 font-bold transition-colors cursor-pointer flex items-center gap-1"
                 title="View Release Notes"
               >
-                <span>TabiMap Japan v1.8.6</span>
+                <span>TabiMap Japan v1.8.7</span>
                 <span className="text-[10px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-1.5 py-0.5 rounded font-extrabold border border-emerald-500/20">
                   Notes
                 </span>

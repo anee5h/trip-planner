@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Koto City Specialty Dining"],
-  "cafes": ["Koto City Cafe"],
   "notes": "Koto City travel hub in Tokyo Prefecture.",
   "status": "verified",
   "travelEstimate": {

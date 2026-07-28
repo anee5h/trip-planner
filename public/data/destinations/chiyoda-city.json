@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Chiyoda City Specialty Dining"],
-  "cafes": ["Chiyoda City Cafe"],
   "notes": "Chiyoda City travel hub in Tokyo Prefecture.",
   "status": "verified",
   "travelEstimate": {

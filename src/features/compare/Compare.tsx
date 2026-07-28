@@ -14,6 +14,7 @@ import {
 import { Map, PlusSquare, Trash2 } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
 import { getAdjustedBudget } from "@/shared/utils/utils";
+import { useTranslation } from "react-i18next";
 
 import {
   getWalkingIntensity,
@@ -21,6 +22,7 @@ import {
 } from "@/shared/utils/walking";
 
 export default function Compare() {
+  const { t } = useTranslation();
   const { compareList, toggleCompare, clearCompare } = useTripStore();
   const allDestinations = getDestinationList() as Destination[];
 
@@ -32,22 +34,22 @@ export default function Compare() {
     return (
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold tracking-tight mb-8">
-          Compare Destinations
+          {t("ui.compare")} {t("ui.destinations")}
         </h1>
         <div className="flex flex-col items-center justify-center py-20 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800">
           <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-4">
             <Map className="w-8 h-8" />
           </div>
           <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
-            Nothing to compare
+            {t("ui.nothingToCompare")}
           </h3>
           <p className="text-slate-500 mb-6 text-center max-w-md">
-            Add destinations to your comparison list from the explore page to
-            see them side-by-side.
+            {t("ui.compareHint")}
           </p>
           <Link to="/destinations">
             <Button className="bg-emerald-600 hover:bg-emerald-700">
-              <PlusSquare className="w-4 h-4 mr-2" /> Find Destinations
+              <PlusSquare className="w-4 h-4 mr-2" />{" "}
+              {t("ui.exploreDestinations")}
             </Button>
           </Link>
         </div>
@@ -84,11 +86,9 @@ export default function Compare() {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">
-            Compare Destinations
+            {t("ui.compare")} {t("ui.destinations")}
           </h1>
-          <p className="text-slate-500 mt-1">
-            Side-by-side analysis to help you decide.
-          </p>
+          <p className="text-slate-500 mt-1">{t("ui.compareHint")}</p>
         </div>
         <div className="flex gap-2">
           {compareDestinations.length < 4 && (
@@ -97,7 +97,7 @@ export default function Compare() {
                 variant="outline"
                 className="border-emerald-200 text-emerald-700 hover:bg-emerald-50 dark:border-emerald-900 dark:text-emerald-400 dark:hover:bg-emerald-900/30"
               >
-                <PlusSquare className="w-4 h-4 mr-2" /> Add more
+                <PlusSquare className="w-4 h-4 mr-2" /> {t("ui.addMore")}
               </Button>
             </Link>
           )}
@@ -106,7 +106,7 @@ export default function Compare() {
             className="text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30"
             onClick={clearCompare}
           >
-            <Trash2 className="w-4 h-4 mr-2" /> Clear All
+            <Trash2 className="w-4 h-4 mr-2" /> {t("ui.clearAll")}
           </Button>
         </div>
       </div>

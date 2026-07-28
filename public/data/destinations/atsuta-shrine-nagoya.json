@@ -90,7 +90,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Atsuta Shrine (Nagoya) Dining Options"],
-  "cafes": ["Atsuta Shrine (Nagoya) Rest Area Cafe"],
   "walkingIntensity": "medium"
 }

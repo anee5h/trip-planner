@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Nakano City Specialty Dining"],
-  "cafes": ["Nakano City Cafe"],
   "notes": "Nakano City travel hub in Tokyo Prefecture.",
   "status": "verified",
   "travelEstimate": {

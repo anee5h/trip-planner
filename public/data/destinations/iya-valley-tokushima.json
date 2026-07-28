@@ -72,8 +72,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Iya Valley & Vine Bridges Dining Options"],
-  "cafes": ["Iya Valley & Vine Bridges Rest Area Cafe"],
   "notes": "Iya Valley & Vine Bridges located in Tokushima Prefecture.",
   "status": "beta",
   "relationships": {

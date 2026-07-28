@@ -64,16 +64,6 @@
     "food": 3600,
     "cafe": 1200
   },
-  "restaurants": [
-    "Noto Peninsula Traditional Dining",
-    "Local Shizuoka Specialty Restaurant",
-    "The Noto Grill & Izakaya"
-  ],
-  "cafes": [
-    "Café de Noto Peninsula",
-    "Riverside Roasters",
-    "Station Matcha & Sweets"
-  ],
   "notes": "A fantastic trip to Noto Peninsula. Known for its scenic drive and seafood vibes, it offers a great escape with an overall score of 8.6.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Noto_Peninsula_Ishikawa_Japan_SRTM.jpg",

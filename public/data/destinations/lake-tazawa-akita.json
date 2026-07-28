@@ -74,8 +74,6 @@
   "walkingIntensity": "low",
   "reservation": "None required",
   "parking": "Available at Tatsuko-zo statue area",
-  "restaurants": ["Lakeside Restaurant Tazawako", "Folktale Café"],
-  "cafes": ["Tazawa Lake Café"],
   "notes": "Japan's deepest lake at 423.4 m. The legendary Princess Tatsuko prayed for eternal beauty and was transformed into a dragon deity of the lake.",
   "status": "beta",
   "relationships": {

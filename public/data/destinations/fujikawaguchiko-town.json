@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Fujikawaguchiko Town Specialty Dining"],
-  "cafes": ["Fujikawaguchiko Town Cafe"],
   "notes": "Fujikawaguchiko Town travel hub in Yamanashi Prefecture.",
   "status": "verified",
   "travelEstimate": {

@@ -69,8 +69,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Ginzan Onsen Dining Options"],
-  "cafes": ["Ginzan Onsen Rest Area Cafe"],
   "notes": "Ginzan Onsen located in Yamagata Prefecture.",
   "status": "beta",
   "relationships": {

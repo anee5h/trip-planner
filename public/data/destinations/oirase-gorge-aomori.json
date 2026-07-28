@@ -72,8 +72,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Oirase Mountain Stream & Gorge Dining Options"],
-  "cafes": ["Oirase Mountain Stream & Gorge Rest Area Cafe"],
   "notes": "Oirase Mountain Stream & Gorge located in Aomori Prefecture.",
   "status": "beta",
   "relationships": {

@@ -76,8 +76,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Kouri Island & Heart Rock Dining Options"],
-  "cafes": ["Kouri Island & Heart Rock Rest Area Cafe"],
   "notes": "Kouri Island & Heart Rock located in Okinawa Prefecture.",
   "status": "beta",
   "relationships": {

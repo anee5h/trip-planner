@@ -73,8 +73,6 @@
   },
   "reservation": "No reservation required (Free admission).",
   "parking": "Underground paid parking garage at Tokyo Metropolitan Government Building.",
-  "restaurants": ["Good View Tokyo 45F", "Tocho Staff Cafeteria"],
-  "cafes": ["South Observatory Cafe 45F"],
   "notes": "Free entry 365 days a year. South Deck open until 10:00 PM.",
   "schemaVersion": 2,
   "imageMetadata": {

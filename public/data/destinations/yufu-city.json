@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Yufu City Specialty Dining"],
-  "cafes": ["Yufu City Cafe"],
   "notes": "Yufu City travel hub in Oita Prefecture.",
   "status": "beta",
   "travelEstimate": {

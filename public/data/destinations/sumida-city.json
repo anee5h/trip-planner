@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Sumida City Specialty Dining"],
-  "cafes": ["Sumida City Cafe"],
   "notes": "Sumida City travel hub in Tokyo Prefecture.",
   "status": "verified",
   "travelEstimate": {

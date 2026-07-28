@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Shirahama Town Specialty Dining"],
-  "cafes": ["Shirahama Town Cafe"],
   "notes": "Shirahama Town travel hub in Wakayama Prefecture.",
   "status": "beta",
   "travelEstimate": {

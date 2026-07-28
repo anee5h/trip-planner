@@ -61,12 +61,6 @@
   },
   "reservation": "Tickets sell out within hours. Book on the 10th of the previous month.",
   "parking": "Not recommended, take the train to Mitaka.",
-  "restaurants": [
-    "Ghibli Museum Traditional Dining",
-    "Local Tokyo Specialty Restaurant",
-    "The Ghibli Grill & Izakaya"
-  ],
-  "cafes": ["Straw Hat Cafe"],
   "notes": "No photography allowed inside the museum.",
   "schemaVersion": 2,
   "imageMetadata": {

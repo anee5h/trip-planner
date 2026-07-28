@@ -90,7 +90,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Osaka Castle (Osaka-jo) Dining Options"],
-  "cafes": ["Osaka Castle (Osaka-jo) Rest Area Cafe"],
   "walkingIntensity": "medium"
 }

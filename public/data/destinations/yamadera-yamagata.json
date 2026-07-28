@@ -74,8 +74,6 @@
   "walkingIntensity": "moderate",
   "reservation": "None required",
   "parking": "Village parking near station",
-  "restaurants": ["Yamadera Soba Restaurants (village)", "Iwama Soba"],
-  "cafes": ["Yamadera Station Side Café"],
   "notes": "Admission ¥300 to climb beyond Sanmon gate. Counts 1,015 steps. Wear comfortable shoes. The Godaido viewing platform overhangs the cliff for dramatic valley photos. Easy train from Yamagata city (17 min).",
   "status": "beta",
   "relationships": {

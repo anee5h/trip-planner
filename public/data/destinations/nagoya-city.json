@@ -67,8 +67,6 @@
   },
   "reservation": "None required",
   "parking": "Paid parking available citywide",
-  "restaurants": ["Hitsumabushi Ya", "Yabaton Miso Katsu"],
-  "cafes": ["Komeda Coffee Nagoya"],
   "notes": "Central transportation hub connecting Tokyo, Kyoto, and Kanazawa.",
   "status": "verified",
   "travelEstimate": {

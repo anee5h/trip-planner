@@ -64,16 +64,6 @@
     "food": 3300,
     "cafe": 1100
   },
-  "restaurants": [
-    "Lake Hamanako Traditional Dining",
-    "Local Shizuoka Specialty Restaurant",
-    "The Lake Grill & Izakaya"
-  ],
-  "cafes": [
-    "Café de Lake Hamanako",
-    "Riverside Roasters",
-    "Station Matcha & Sweets"
-  ],
   "notes": "A fantastic trip to Lake Hamanako. Known for its eel and cycling vibes, it offers a great escape with an overall score of 8.2.",
   "schemaVersion": 2,
   "status": "verified",

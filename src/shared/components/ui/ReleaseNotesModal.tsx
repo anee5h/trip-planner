@@ -8,8 +8,18 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.8.6",
+    version: "v1.8.7",
     tag: "Current",
+    date: "July 2026",
+    title: "Bilingual UI and Trip Planning",
+    highlights: [
+      "Added a shared i18next translation layer for navigation, destination actions, collections, trips, compare, passport, profile, and settings",
+      "Improved destination actions across desktop and mobile with native sharing and clipboard fallback",
+      "Removed restaurant and cafe data sections and standardized Japanese yen display",
+    ],
+  },
+  {
+    version: "v1.8.6",
     date: "July 2026",
     title: "Reviewed Japanese Catalogue",
     highlights: [

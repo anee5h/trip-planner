@@ -62,8 +62,6 @@
   },
   "reservation": "Dinners with night views require booking.",
   "parking": "Plenty of paid parking in Minatomirai.",
-  "restaurants": ["Manchinro", "Bills Red Brick Warehouse"],
-  "cafes": ["Zebracoffee", "Koku Kafe"],
   "notes": "Extremely easy access from central Tokyo.",
   "schemaVersion": 2,
   "imageMetadata": {

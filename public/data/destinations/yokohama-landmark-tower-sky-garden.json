@@ -73,8 +73,6 @@
   },
   "reservation": "No advance reservation required.",
   "parking": "Paid underground parking structure at Yokohama Landmark Tower.",
-  "restaurants": ["Sirius Yokohama Royal Park 70F", "Dockyard Garden Dining"],
-  "cafes": ["Sky Cafe 69F"],
   "notes": "Elevator reaches 69F in 40 seconds (750m/min top speed).",
   "schemaVersion": 2,
   "imageMetadata": {

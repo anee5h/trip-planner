@@ -82,8 +82,6 @@
   "walkingIntensity": "low",
   "reservation": "None required",
   "parking": "Bishamon-numa car park (free)",
-  "restaurants": ["Goshikinuma Visitor Centre Restaurant"],
-  "cafes": ["Bishamon-numa Trailhead Café"],
   "notes": "Free entry. The 3.6 km one-way trail runs from Goshiki-numa visitor centre to Bandai-Kogen bus stop. Trail takes 1.5–2 hours. Rurikuma pond is the most vivid cobalt blue.",
   "status": "beta",
   "relationships": {

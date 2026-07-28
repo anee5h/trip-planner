@@ -4,35 +4,37 @@ import { getCollectionBySlug } from "@/shared/data/collections";
 import {
   getDestinationsForCollection,
   getCollectionProgress,
+  getCollectionContent,
 } from "@/shared/utils/collections";
 import CollectionBadge from "@/shared/components/ui/CollectionBadge";
 import DestinationCard from "@/features/destinations/components/DestinationCard";
 import { ArrowLeft, ExternalLink, Frown, CheckCircle2 } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
 import { useLocale } from "@/shared/context/LocaleContext";
+import { useTranslation } from "react-i18next";
 
 export default function CollectionDetails() {
   const { slug } = useParams<{ slug: string }>();
   const collection = slug ? getCollectionBySlug(slug) : undefined;
   const { visited } = useTripStore();
   const { locale } = useLocale();
+  const { t } = useTranslation();
 
   if (!collection) {
     return (
       <div className="container mx-auto px-4 py-20 text-center max-w-xl">
         <Frown className="w-16 h-16 text-slate-400 mx-auto mb-4" />
         <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white mb-2">
-          Collection Not Found
+          {t("ui.collectionNotFound")}
         </h1>
         <p className="text-slate-600 dark:text-slate-400 mb-6">
-          The curated collection you are looking for does not exist or has been
-          relocated.
+          {t("ui.collectionNotFoundHint")}
         </p>
         <Link
           to="/collections"
           className="inline-flex items-center text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 px-5 py-2.5 rounded-xl transition-colors"
         >
-          <ArrowLeft className="w-4 h-4 mr-2" /> Back to Collections
+          <ArrowLeft className="w-4 h-4 mr-2" /> {t("ui.allCollections")}
         </Link>
       </div>
     );
@@ -40,6 +42,7 @@ export default function CollectionDetails() {
 
   const destinations = getDestinationsForCollection(collection.id, locale);
   const progress = getCollectionProgress(collection.id, visited, locale);
+  const content = getCollectionContent(collection, locale);
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl">
@@ -49,7 +52,7 @@ export default function CollectionDetails() {
           to="/collections"
           className="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-emerald-600 dark:text-slate-400 dark:hover:text-emerald-400 transition-colors"
         >
-          <ArrowLeft className="w-4 h-4 mr-1.5" /> All Collections
+          <ArrowLeft className="w-4 h-4 mr-1.5" /> {t("ui.allCollections")}
         </Link>
       </div>
 
@@ -62,7 +65,7 @@ export default function CollectionDetails() {
               variant="outline"
               className="capitalize text-xs font-semibold"
             >
-              {collection.type} Collection
+              {collection.type} {t("ui.collection")}
             </Badge>
           </div>
 
@@ -74,16 +77,16 @@ export default function CollectionDetails() {
               className="inline-flex items-center text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors bg-slate-50 dark:bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700"
             >
               <ExternalLink className="w-3.5 h-3.5 mr-1.5 text-emerald-500" />
-              Source: {collection.officialSource}
+              {t("ui.source")}: {collection.officialSource}
             </a>
           )}
         </div>
 
         <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
-          {collection.name}
+          {content.name}
         </h1>
         <p className="text-slate-600 dark:text-slate-400 text-base md:text-lg max-w-3xl leading-relaxed mb-8">
-          {collection.description}
+          {content.description}
         </p>
 
         {/* Progress Tracker */}
@@ -91,7 +94,8 @@ export default function CollectionDetails() {
           <div className="flex justify-between items-center text-sm font-bold mb-2">
             <span className="text-slate-800 dark:text-slate-200 flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-              {progress.visited} / {progress.total} visited
+              {progress.visited} / {progress.total}{" "}
+              {t("ui.visited").toLowerCase()}
             </span>
             <span className="text-emerald-600 dark:text-emerald-400">
               {progress.percent}%

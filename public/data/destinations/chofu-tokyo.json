@@ -52,8 +52,6 @@
   "tags": ["Temple", "Soba Noodles", "Botanical Gardens"],
   "reservation": "Not required",
   "parking": "Available at Jindaiji",
-  "restaurants": ["Jindaiji Soba Ikkyu", "Kitaro Chaya"],
-  "cafes": ["Botanical Garden Tea House"],
   "notes": "Jindaiji is Tokyo second oldest temple after Asakusa Sensoji.",
   "coordinates": {
     "lat": 35.6506036,

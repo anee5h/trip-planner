@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Fujinomiya City Specialty Dining"],
-  "cafes": ["Fujinomiya City Cafe"],
   "notes": "Fujinomiya City travel hub in Shizuoka Prefecture.",
   "status": "verified",
   "travelEstimate": {

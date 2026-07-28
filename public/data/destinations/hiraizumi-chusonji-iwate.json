@@ -57,8 +57,6 @@
   ],
   "reservation": "Not required",
   "parking": "Available nearby",
-  "restaurants": ["Local Heritage Teahouse", "Regional Cuisine"],
-  "cafes": ["UNESCO Visitor Cafe"],
   "notes": "Official UNESCO World Heritage Site.",
   "coordinates": {
     "lat": 38.9868,

@@ -6,8 +6,8 @@
   "region": "Kanto",
   "categories": ["Brewery", "Food", "Factory Tour"],
   "tags": ["Brewery", "Beer", "Factory Tour"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/94/Kirinbeerlogo1889-crop.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/9/94/Kirinbeerlogo1889-crop.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/80/Kirin_beer_yokohama_factory_kanagawa_2009.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/8/80/Kirin_beer_yokohama_factory_kanagawa_2009.JPG",
   "description": "A Kirin Beer production site in Tsurumi, Yokohama, where visitors can learn about brewing through factory tours when available.",
   "highlights": ["Brewery tours", "Beer-making exhibits", "Tsurumi location"],
   "coordinates": {
@@ -64,14 +64,13 @@
   },
   "reservation": "Advance booking is required for factory tours; check the official Kirin Beer page for the current schedule and eligibility.",
   "parking": "Check the official visitor information before driving.",
-  "restaurants": [],
-  "cafes": [],
-  "notes": "The supplied Wikimedia image is a Kirin Beer logo, not a photograph of the factory. It remains marked for image QA until an accurate exterior or visitor-area image is provided.",
+  "notes": "Kirin Beer Yokohama Factory image by Kamemaru2000, licensed CC BY-SA 3.0 via Wikimedia Commons.",
   "schemaVersion": 2,
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "attribution": "Kirin Beer logo image supplied for QA",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/9/94/Kirinbeerlogo1889-crop.jpg"
+    "license": "CC BY-SA 3.0",
+    "attribution": "Kirin Beer Yokohama Factory — Kamemaru2000",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kirin_beer_yokohama_factory_kanagawa_2009.JPG"
   },
   "status": "verified",
   "travelEstimate": {
@@ -85,5 +84,5 @@
   "role": "poi",
   "placeType": "destination",
   "addedAt": "2026-07-28",
-  "imageNeedsReview": true
+  "imageNeedsReview": false
 }

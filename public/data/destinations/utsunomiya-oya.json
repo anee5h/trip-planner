@@ -62,16 +62,6 @@
   },
   "reservation": "None required",
   "parking": "Yes",
-  "restaurants": [
-    "Utsunomiya Traditional Dining",
-    "Local Tochigi Specialty Restaurant",
-    "The Utsunomiya Grill & Izakaya"
-  ],
-  "cafes": [
-    "Café de Utsunomiya",
-    "Riverside Roasters",
-    "Station Matcha & Sweets"
-  ],
   "notes": "Oya museum is very cool in summer",
   "schemaVersion": 2,
   "status": "verified",

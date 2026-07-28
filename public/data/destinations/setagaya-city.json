@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Setagaya City Specialty Dining"],
-  "cafes": ["Setagaya City Cafe"],
   "notes": "Setagaya City travel hub in Tokyo Prefecture.",
   "status": "verified",
   "travelEstimate": {

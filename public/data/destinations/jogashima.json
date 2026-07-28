@@ -64,16 +64,6 @@
     "food": 1800,
     "cafe": 600
   },
-  "restaurants": [
-    "Miura Peninsula Traditional Dining",
-    "Local Kanagawa Specialty Restaurant",
-    "The Miura Grill & Izakaya"
-  ],
-  "cafes": [
-    "Café de Miura Peninsula",
-    "Riverside Roasters",
-    "Station Matcha & Sweets"
-  ],
   "notes": "A fantastic trip to Miura Peninsula & Jogashima. Known for its ocean and scenic vibes, it offers a great escape with an overall score of 8.",
   "schemaVersion": 2,
   "status": "verified",

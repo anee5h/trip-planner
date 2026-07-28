@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Katsushika City Specialty Dining"],
-  "cafes": ["Katsushika City Cafe"],
   "notes": "Katsushika City travel hub in Tokyo Prefecture.",
   "status": "verified",
   "travelEstimate": {

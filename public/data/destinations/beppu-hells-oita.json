@@ -72,8 +72,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Beppu Hells (Jigoku Meguri) Dining Options"],
-  "cafes": ["Beppu Hells (Jigoku Meguri) Rest Area Cafe"],
   "notes": "Beppu Hells (Jigoku Meguri) located in Oita Prefecture.",
   "status": "beta",
   "relationships": {

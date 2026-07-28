@@ -105,7 +105,5 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "restaurants": ["Matsue Castle Dining Options"],
-  "cafes": ["Matsue Castle Rest Area Cafe"],
   "walkingIntensity": "medium"
 }

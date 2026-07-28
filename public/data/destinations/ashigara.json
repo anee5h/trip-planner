@@ -64,16 +64,6 @@
     "food": 1650,
     "cafe": 550
   },
-  "restaurants": [
-    "Ashigara Traditional Dining",
-    "Local Kanagawa Specialty Restaurant",
-    "The Ashigara Grill & Izakaya"
-  ],
-  "cafes": [
-    "Café de Ashigara",
-    "Riverside Roasters",
-    "Station Matcha & Sweets"
-  ],
   "notes": "A fantastic trip to Ashigara. Known for its hiking and quiet vibes, it offers a great escape with an overall score of 7.8.",
   "schemaVersion": 2,
   "status": "verified",

@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Kochi City Specialty Dining"],
-  "cafes": ["Kochi City Cafe"],
   "notes": "Kochi City travel hub in Kochi Prefecture.",
   "status": "beta",
   "travelEstimate": {

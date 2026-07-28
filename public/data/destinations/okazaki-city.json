@@ -60,8 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "restaurants": ["Okazaki City Specialty Dining"],
-  "cafes": ["Okazaki City Cafe"],
   "notes": "Okazaki City travel hub in Aichi Prefecture.",
   "status": "verified",
   "travelEstimate": {
