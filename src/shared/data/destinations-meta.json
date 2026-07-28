@@ -80,6 +80,19 @@
     }
   },
   {
+    "id": "akiu-onsen-miyagi",
+    "name": "Akiu Onsen",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["sendai-city", "matsushima-bay"]
+    }
+  },
+  {
     "id": "akiyoshido-cave-yamaguchi",
     "name": "Akiyoshido Cave",
     "prefecture": "Yamaguchi",
@@ -497,6 +510,22 @@
     }
   },
   {
+    "id": "dakigaeri-valley-akita",
+    "name": "Dakigaeri Valley",
+    "prefecture": "Akita",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [
+        "kakunodate-samurai-district-akita",
+        "lake-tazawa-akita"
+      ]
+    }
+  },
+  {
     "id": "dazaifu-city",
     "name": "Dazaifu City",
     "prefecture": "Fukuoka",
@@ -735,6 +764,19 @@
     "relationships": {}
   },
   {
+    "id": "geibikei-gorge-iwate",
+    "name": "Geibikei Gorge",
+    "prefecture": "Iwate",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["hiraizumi-chusonji-iwate"]
+    }
+  },
+  {
     "id": "gero-city",
     "name": "Gero City",
     "prefecture": "Gifu",
@@ -851,6 +893,22 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "goshikinuma-ponds-fukushima",
+    "name": "Goshikinuma Ponds",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [
+        "mount-bandai-fukushima",
+        "abukuma-cave-fukushima"
+      ]
     }
   },
   {
@@ -1394,6 +1452,19 @@
     "kind": "attraction",
     "status": "beta",
     "relationships": {}
+  },
+  {
+    "id": "jodogahama-beach-iwate",
+    "name": "Jodogahama Beach",
+    "prefecture": "Iwate",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["ryusendo-cave-iwate"]
+    }
   },
   {
     "id": "jogashima",
@@ -1992,6 +2063,35 @@
     "relationships": {}
   },
   {
+    "id": "lake-tazawa-akita",
+    "name": "Lake Tazawa",
+    "prefecture": "Akita",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [
+        "nyuto-onsen-akita",
+        "kakunodate-samurai-district-akita"
+      ]
+    }
+  },
+  {
+    "id": "lake-towada-aomori",
+    "name": "Lake Towada",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["oirase-gorge-aomori"]
+    }
+  },
+  {
     "id": "machida-tokyo",
     "name": "Machida",
     "prefecture": "Tokyo",
@@ -2330,6 +2430,22 @@
     }
   },
   {
+    "id": "mount-bandai-fukushima",
+    "name": "Mount Bandai",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [
+        "goshikinuma-ponds-fukushima",
+        "tsuruga-castle-fukushima"
+      ]
+    }
+  },
+  {
     "id": "mount-fuji",
     "name": "Mount Fuji",
     "prefecture": "Shizuoka",
@@ -2358,6 +2474,23 @@
     "kind": "attraction",
     "status": "beta",
     "relationships": {}
+  },
+  {
+    "id": "mount-zao-yamagata",
+    "name": "Mount Zao",
+    "prefecture": "Yamagata",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [
+        "okama-crater-yamagata",
+        "ginzan-onsen-yamagata",
+        "zao-fox-village-miyagi"
+      ]
+    }
   },
   {
     "id": "mozufuruichi-kofun-osaka",
@@ -2646,6 +2779,19 @@
     "relationships": {}
   },
   {
+    "id": "nebuta-museum-wa-rasse-aomori",
+    "name": "Aomori Nebuta Museum WA RASSE",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["hirosaki-castle", "oirase-gorge-aomori"]
+    }
+  },
+  {
     "id": "nerima-city",
     "name": "Nerima City",
     "prefecture": "Tokyo",
@@ -2759,6 +2905,22 @@
     }
   },
   {
+    "id": "nyuto-onsen-akita",
+    "name": "Nyuto Onsen",
+    "prefecture": "Akita",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [
+        "lake-tazawa-akita",
+        "kakunodate-samurai-district-akita"
+      ]
+    }
+  },
+  {
     "id": "oarai-marine-tower",
     "name": "Oarai Marine Tower",
     "prefecture": "Ibaraki",
@@ -2819,6 +2981,19 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "okama-crater-yamagata",
+    "name": "Okama Crater Lake",
+    "prefecture": "Yamagata",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["mount-zao-yamagata"]
     }
   },
   {
@@ -2992,6 +3167,19 @@
     }
   },
   {
+    "id": "ouchi-juku-fukushima",
+    "name": "Ouchi-juku",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["tsuruga-castle-fukushima"]
+    }
+  },
+  {
     "id": "oura-church-nagasaki",
     "name": "Hidden Christian Sites in the Nagasaki Region",
     "prefecture": "Nagasaki",
@@ -3034,6 +3222,19 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "ryusendo-cave-iwate",
+    "name": "Ryusendo Cave",
+    "prefecture": "Iwate",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["jodogahama-beach-iwate"]
     }
   },
   {
@@ -3149,6 +3350,23 @@
     "relationships": {
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": ["otaru-city", "hakodate-city", "asahikawa-city"]
+    }
+  },
+  {
+    "id": "sendai-castle-ruins-miyagi",
+    "name": "Sendai Castle Ruins",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [
+        "sendai-city",
+        "matsushima-bay",
+        "akiu-onsen-miyagi"
+      ]
     }
   },
   {
@@ -3803,6 +4021,22 @@
     }
   },
   {
+    "id": "tsuruga-castle-fukushima",
+    "name": "Tsuruga Castle",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [
+        "ouchi-juku-fukushima",
+        "goshikinuma-ponds-fukushima"
+      ]
+    }
+  },
+  {
     "id": "ueda-castle-nagano",
     "name": "Ueda Castle Park",
     "prefecture": "Nagano",
@@ -3950,6 +4184,19 @@
     }
   },
   {
+    "id": "yamadera-yamagata",
+    "name": "Yamadera (Risshakuji Temple)",
+    "prefecture": "Yamagata",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["ginzan-onsen-yamagata", "mount-zao-yamagata"]
+    }
+  },
+  {
     "id": "yamanashi-fujiyoshida",
     "name": "Fujiyoshida",
     "prefecture": "Yamanashi",
@@ -4074,6 +4321,19 @@
         "kitakyushu-city",
         "dazaifu-city"
       ]
+    }
+  },
+  {
+    "id": "zao-fox-village-miyagi",
+    "name": "Zao Fox Village",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["sendai-city", "mount-zao-yamagata"]
     }
   },
   {
