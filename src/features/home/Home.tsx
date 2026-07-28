@@ -37,8 +37,82 @@ import RouletteModal from "@/features/home/components/RouletteModal";
 import { useTripPlannerState } from "@/features/home/hooks/useTripPlannerState";
 import { useWeatherContext } from "@/features/home/hooks/useWeatherContext";
 import { useTripRecommendations } from "@/features/home/hooks/useTripRecommendations";
+import { useLocale } from "@/shared/context/LocaleContext";
+
+const HOME_COPY = {
+  en: {
+    baseLocation: "Base Location",
+    change: "Change",
+    pickDate: "Pick custom forecast date",
+    inYourArea: "in your area",
+    reveal: "Reveal Top Match",
+    surprise: "Surprise Me 🎲",
+    browse: "Browse All",
+    planner: "Trip Planner",
+    quickMatch: "Find your match in 30s",
+    vibe: "What's the vibe?",
+    weather: "Weather condition?",
+    budget: "Max Budget (couple)",
+    findMatch: "Find My Match",
+    topMatches: "Your Top Matches",
+    ranked: "Ranked by our algorithm based on your preferences.",
+  },
+  ja: {
+    baseLocation: "出発地",
+    change: "変更",
+    pickDate: "予報日を選択",
+    inYourArea: "現在地周辺",
+    reveal: "おすすめを見る",
+    surprise: "おまかせ 🎲",
+    browse: "すべて見る",
+    planner: "旅のプランナー",
+    quickMatch: "30秒でぴったりの旅先を提案",
+    vibe: "どんな気分ですか？",
+    weather: "天気は？",
+    budget: "予算上限（2人）",
+    findMatch: "おすすめを探す",
+    topMatches: "あなたへのおすすめ",
+    ranked: "好みと条件に合わせておすすめ順に表示しています。",
+  },
+} as const;
+
+const TRIP_LABELS = {
+  en: {
+    any: "Anything goes",
+    themepark: "Theme Parks",
+    sea: "Sea Escape",
+    history: "History & Culture",
+    art: "Art & Museums",
+    food: "Food & Eating",
+    nature: "Nature & Outdoors",
+    cool: "Cool Escape",
+    photography: "Photography",
+    anyWeather: "Perfect Weather",
+    rainy: "Looks like Rain",
+    summer: "Scorching Hot",
+    winter: "Freezing Cold",
+  },
+  ja: {
+    any: "なんでも",
+    themepark: "テーマパーク",
+    sea: "海へ",
+    history: "歴史・文化",
+    art: "アート・美術館",
+    food: "グルメ",
+    nature: "自然・アウトドア",
+    cool: "涼しい場所",
+    photography: "写真旅",
+    anyWeather: "晴れ・快適",
+    rainy: "雨の日",
+    summer: "暑い日",
+    winter: "寒い日",
+  },
+} as const;
 
 export default function Home() {
+  const { locale } = useLocale();
+  const copy = HOME_COPY[locale];
+  const labels = TRIP_LABELS[locale];
   const allDestinations = getDestinationList() as Destination[];
 
   const { isVisited, homeStationCoords, homeStation } = useTripStore();
@@ -109,12 +183,16 @@ export default function Home() {
             <div className="flex flex-col items-start text-left w-full">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm text-xs font-bold text-slate-700 dark:text-slate-200 mb-6">
                 <MapPin className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                <span>Base Location: {homeStation || "Tokyo Station"}</span>
+                <span>
+                  {copy.baseLocation}:{" "}
+                  {homeStation ||
+                    (locale === "ja" ? "東京駅" : "Tokyo Station")}
+                </span>
                 <Link
                   to="/settings?section=general&return=/"
                   className="ml-1 text-emerald-600 dark:text-emerald-400 hover:underline font-extrabold"
                 >
-                  Change
+                  {copy.change}
                 </Link>
               </div>
               {currentSituation ? (
@@ -163,7 +241,7 @@ export default function Home() {
                             }
                           }}
                           className="bg-transparent border-none p-0 text-xs font-semibold text-slate-700 dark:text-slate-200 focus:outline-none cursor-pointer"
-                          title="Pick custom forecast date"
+                          title={copy.pickDate}
                         />
                       </div>
                     )}
@@ -178,7 +256,7 @@ export default function Home() {
                       |
                     </span>
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-500">
-                      {currentSituation.desc} in your area
+                      {currentSituation.desc} {copy.inYourArea}
                     </span>
                   </div>
                   <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-800 dark:text-slate-100 mt-6 leading-tight">
@@ -208,7 +286,7 @@ export default function Home() {
                   }
                 >
                   <Sparkles className="w-5 h-5 mr-2" />
-                  Reveal Top Match
+                  {copy.reveal}
                 </Button>
                 <Button
                   size="lg"
@@ -218,7 +296,7 @@ export default function Home() {
                   className="w-full sm:w-auto h-14 px-6 text-base font-bold rounded-full bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800"
                 >
                   <Dices className="w-5 h-5 mr-2 text-emerald-600 dark:text-emerald-400" />
-                  Surprise Me 🎲
+                  {copy.surprise}
                 </Button>
                 <Link to="/destinations" className="w-full sm:w-auto">
                   <Button
@@ -226,7 +304,7 @@ export default function Home() {
                     variant="outline"
                     className="w-full h-14 px-6 text-base font-bold rounded-full bg-white/50 backdrop-blur-sm dark:bg-slate-900/50 border-slate-300 hover:bg-slate-100"
                   >
-                    Browse All
+                    {copy.browse}
                   </Button>
                 </Link>
               </div>
@@ -246,10 +324,10 @@ export default function Home() {
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center">
                   <Navigation className="w-6 h-6 mr-2 text-emerald-500" />
-                  Trip Planner
+                  {copy.planner}
                 </h3>
                 <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-200 dark:border-emerald-800">
-                  Find your match in 30s
+                  {copy.quickMatch}
                 </span>
               </div>
 
@@ -257,7 +335,7 @@ export default function Home() {
                 {/* Trip Type */}
                 <div className="space-y-3">
                   <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
-                    What's the vibe?
+                    {copy.vibe}
                   </label>
                   <Select
                     value={tripType}
@@ -269,55 +347,55 @@ export default function Home() {
                       {tripType === "any" && (
                         <div className="flex items-center">
                           <Sparkles className="w-5 h-5 mr-3 text-slate-400" />{" "}
-                          Anything goes
+                          {labels.any}
                         </div>
                       )}
                       {tripType === "themepark" && (
                         <div className="flex items-center">
                           <Sparkles className="w-5 h-5 mr-3 text-pink-500" />{" "}
-                          Theme Parks
+                          {labels.themepark}
                         </div>
                       )}
                       {tripType === "sea" && (
                         <div className="flex items-center">
-                          <Waves className="w-5 h-5 mr-3 text-blue-500" /> Sea
-                          Escape
+                          <Waves className="w-5 h-5 mr-3 text-blue-500" />{" "}
+                          {labels.sea}
                         </div>
                       )}
                       {tripType === "history" && (
                         <div className="flex items-center">
                           <Landmark className="w-5 h-5 mr-3 text-amber-700" />{" "}
-                          History & Culture
+                          {labels.history}
                         </div>
                       )}
                       {tripType === "art" && (
                         <div className="flex items-center">
                           <Palette className="w-5 h-5 mr-3 text-purple-500" />{" "}
-                          Art & Museums
+                          {labels.art}
                         </div>
                       )}
                       {tripType === "food" && (
                         <div className="flex items-center">
                           <Utensils className="w-5 h-5 mr-3 text-orange-500" />{" "}
-                          Food & Eating
+                          {labels.food}
                         </div>
                       )}
                       {tripType === "nature" && (
                         <div className="flex items-center">
                           <Trees className="w-5 h-5 mr-3 text-emerald-500" />{" "}
-                          Nature & Outdoors
+                          {labels.nature}
                         </div>
                       )}
                       {tripType === "cool" && (
                         <div className="flex items-center">
                           <Snowflake className="w-5 h-5 mr-3 text-sky-400" />{" "}
-                          Cool Escape
+                          {labels.cool}
                         </div>
                       )}
                       {tripType === "photography" && (
                         <div className="flex items-center">
                           <Camera className="w-5 h-5 mr-3 text-rose-400" />{" "}
-                          Photography
+                          {labels.photography}
                         </div>
                       )}
                     </SelectTrigger>
@@ -329,7 +407,7 @@ export default function Home() {
                         <div className="flex items-center">
                           <Sparkles className="w-5 h-5 mr-3 text-slate-400" />{" "}
                           <span className="text-base font-medium">
-                            Anything goes
+                            {labels.any}
                           </span>
                         </div>
                       </SelectItem>
@@ -340,7 +418,7 @@ export default function Home() {
                         <div className="flex items-center">
                           <Sparkles className="w-5 h-5 mr-3 text-pink-500" />{" "}
                           <span className="text-base font-medium">
-                            Theme Parks
+                            {labels.themepark}
                           </span>
                         </div>
                       </SelectItem>
@@ -351,7 +429,7 @@ export default function Home() {
                         <div className="flex items-center">
                           <Waves className="w-5 h-5 mr-3 text-blue-500" />{" "}
                           <span className="text-base font-medium">
-                            Sea Escape
+                            {labels.sea}
                           </span>
                         </div>
                       </SelectItem>
@@ -362,7 +440,7 @@ export default function Home() {
                         <div className="flex items-center">
                           <Landmark className="w-5 h-5 mr-3 text-amber-700" />{" "}
                           <span className="text-base font-medium">
-                            History & Culture
+                            {labels.history}
                           </span>
                         </div>
                       </SelectItem>
@@ -373,7 +451,7 @@ export default function Home() {
                         <div className="flex items-center">
                           <Palette className="w-5 h-5 mr-3 text-purple-500" />{" "}
                           <span className="text-base font-medium">
-                            Art & Museums
+                            {labels.art}
                           </span>
                         </div>
                       </SelectItem>
@@ -384,7 +462,7 @@ export default function Home() {
                         <div className="flex items-center">
                           <Utensils className="w-5 h-5 mr-3 text-orange-500" />{" "}
                           <span className="text-base font-medium">
-                            Food & Eating
+                            {labels.food}
                           </span>
                         </div>
                       </SelectItem>
@@ -395,7 +473,7 @@ export default function Home() {
                         <div className="flex items-center">
                           <Trees className="w-5 h-5 mr-3 text-emerald-500" />{" "}
                           <span className="text-base font-medium">
-                            Nature & Outdoors
+                            {labels.nature}
                           </span>
                         </div>
                       </SelectItem>
@@ -406,7 +484,7 @@ export default function Home() {
                         <div className="flex items-center">
                           <Snowflake className="w-5 h-5 mr-3 text-sky-400" />{" "}
                           <span className="text-base font-medium">
-                            Cool Escape
+                            {labels.cool}
                           </span>
                         </div>
                       </SelectItem>
@@ -417,7 +495,7 @@ export default function Home() {
                         <div className="flex items-center">
                           <Camera className="w-5 h-5 mr-3 text-rose-400" />{" "}
                           <span className="text-base font-medium">
-                            Photography
+                            {labels.photography}
                           </span>
                         </div>
                       </SelectItem>
@@ -428,7 +506,7 @@ export default function Home() {
                 {/* Weather */}
                 <div className="space-y-3">
                   <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
-                    Weather condition?
+                    {copy.weather}
                   </label>
                   <Select
                     value={weather}
@@ -440,25 +518,25 @@ export default function Home() {
                       {weather === "any" && (
                         <div className="flex items-center">
                           <Sun className="w-5 h-5 mr-3 text-amber-500" />{" "}
-                          Perfect Weather
+                          {labels.anyWeather}
                         </div>
                       )}
                       {weather === "rainy" && (
                         <div className="flex items-center">
                           <CloudRain className="w-5 h-5 mr-3 text-blue-500" />{" "}
-                          Looks like Rain
+                          {labels.rainy}
                         </div>
                       )}
                       {weather === "summer" && (
                         <div className="flex items-center">
                           <ThermometerSun className="w-5 h-5 mr-3 text-red-500" />{" "}
-                          Scorching Hot
+                          {labels.summer}
                         </div>
                       )}
                       {weather === "winter" && (
                         <div className="flex items-center">
                           <Snowflake className="w-5 h-5 mr-3 text-sky-400" />{" "}
-                          Freezing Cold
+                          {labels.winter}
                         </div>
                       )}
                     </SelectTrigger>
@@ -470,7 +548,7 @@ export default function Home() {
                         <div className="flex items-center">
                           <Sun className="w-5 h-5 mr-3 text-amber-500" />{" "}
                           <span className="text-base font-medium">
-                            Perfect Weather
+                            {labels.anyWeather}
                           </span>
                         </div>
                       </SelectItem>
@@ -481,7 +559,7 @@ export default function Home() {
                         <div className="flex items-center">
                           <CloudRain className="w-5 h-5 mr-3 text-blue-500" />{" "}
                           <span className="text-base font-medium">
-                            Looks like Rain
+                            {labels.rainy}
                           </span>
                         </div>
                       </SelectItem>
@@ -492,7 +570,7 @@ export default function Home() {
                         <div className="flex items-center">
                           <ThermometerSun className="w-5 h-5 mr-3 text-red-500" />{" "}
                           <span className="text-base font-medium">
-                            Scorching Hot
+                            {labels.summer}
                           </span>
                         </div>
                       </SelectItem>
@@ -503,7 +581,7 @@ export default function Home() {
                         <div className="flex items-center">
                           <Snowflake className="w-5 h-5 mr-3 text-sky-400" />{" "}
                           <span className="text-base font-medium">
-                            Freezing Cold
+                            {labels.winter}
                           </span>
                         </div>
                       </SelectItem>
@@ -515,7 +593,7 @@ export default function Home() {
                 <div className="space-y-4 pt-2">
                   <div className="flex justify-between items-center">
                     <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
-                      Max Budget (couple)
+                      {copy.budget}
                     </label>
                     <span className="text-sm font-medium bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400 px-2 py-1 rounded-md">
                       ¥{budget.toLocaleString()}
@@ -541,7 +619,7 @@ export default function Home() {
                   }}
                 >
                   <Search className="w-5 h-5 mr-2" />
-                  Find My Match
+                  {copy.findMatch}
                 </Button>
               </div>
             </div>
@@ -558,10 +636,10 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
             <div>
               <h2 className="text-3xl font-bold tracking-tight mb-2">
-                Your Top Matches
+                {copy.topMatches}
               </h2>
               <p className="text-slate-500 dark:text-slate-400">
-                Ranked by our algorithm based on your preferences.
+                {copy.ranked}
               </p>
             </div>
           </div>

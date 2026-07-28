@@ -86,6 +86,14 @@ const seeds = [
   ],
 ] as const;
 
+const FEATURED_YOKOHAMA_DESTINATION_IDS = [
+  "yokohama-landmark-tower-sky-garden",
+  "yokohama-marine-tower",
+  "yokohama-zoorasia",
+  "hakkeijima",
+  ...seeds.map(([id]) => id),
+];
+
 const indexPath = path.join(
   process.cwd(),
   "src/shared/data/destinations-index.json",
@@ -97,6 +105,10 @@ const template = destinations.find(
   (destination) => destination.id === "yokohama-marine-tower",
 );
 if (!template) throw new Error("Missing Yokohama POI template");
+const yokohama = destinations.find(
+  (destination) => destination.id === "yokohama-city",
+);
+if (!yokohama) throw new Error("Missing Yokohama City hub");
 
 for (const [id, name, nameJa, title, lat, lng, tags] of seeds) {
   if (destinations.some((destination) => destination.id === id)) continue;
@@ -119,4 +131,9 @@ for (const [id, name, nameJa, title, lat, lng, tags] of seeds) {
     notes: `${template.notes} Image placeholder: replace in QA before editorial approval.`,
   });
 }
+
+yokohama.relationships = {
+  ...yokohama.relationships,
+  featuredDestinationIds: FEATURED_YOKOHAMA_DESTINATION_IDS,
+};
 fs.writeFileSync(indexPath, `${JSON.stringify(destinations, null, 2)}\n`);

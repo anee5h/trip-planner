@@ -101,8 +101,34 @@ function WeatherIcon({ type }: { type: string }) {
   return <Sun className="w-6 h-6 text-amber-500" />;
 }
 
+const DETAIL_COPY = {
+  en: {
+    notFound: "Destination Not Found",
+    back: "Back to Destinations",
+    overview: "Overview",
+    highlights: "Highlights",
+    weather: "Upcoming Weekend Weather",
+    parking: "Parking",
+    seeMore: "See all",
+    showLess: "Show less",
+    nearbyPlaces: "Nearby Places & Hubs",
+  },
+  ja: {
+    notFound: "目的地が見つかりません",
+    back: "目的地一覧へ戻る",
+    overview: "概要",
+    highlights: "見どころ",
+    weather: "今週末の天気",
+    parking: "駐車場",
+    seeMore: "すべて見る",
+    showLess: "閉じる",
+    nearbyPlaces: "近くの場所と都市ハブ",
+  },
+} as const;
+
 export default function DestinationDetails() {
   const { locale } = useLocale();
+  const copy = DETAIL_COPY[locale];
   const { id } = useParams();
   const location = useLocation();
   const navState = location.state as {
@@ -136,6 +162,8 @@ export default function DestinationDetails() {
   const [pickerOpen, setPickerOpen] = useState(false);
   const [markVisitedOpen, setMarkVisitedOpen] = useState(false);
   const [visitedHistoryOpen, setVisitedHistoryOpen] = useState(false);
+  const [showAllTopSights, setShowAllTopSights] = useState(false);
+  const [showAllNearbyHubs, setShowAllNearbyHubs] = useState(false);
   const localizedDestination = destination
     ? getLocalizedPlace(destination, locale)
     : null;
@@ -283,6 +311,18 @@ export default function DestinationDetails() {
     return DestinationRelationshipService.getNearbyDestinations(destination);
   }, [destination]);
 
+  const nearbyHubs = useMemo(() => {
+    if (!destination || destination.role !== "hub") return [];
+    return DestinationRelationshipService.getNearbyHubs(destination, 50);
+  }, [destination]);
+
+  const topSightsToDisplay = showAllTopSights
+    ? featuredChildSights
+    : featuredChildSights.slice(0, 3);
+  const nearbyHubsToDisplay = showAllNearbyHubs
+    ? nearbyHubs
+    : nearbyHubs.slice(0, 3);
+
   const activeModes = useMemo(() => {
     if (!destination) return null;
     if (
@@ -385,9 +425,9 @@ export default function DestinationDetails() {
   if (!destination) {
     return (
       <div className="container mx-auto px-4 py-20 text-center">
-        <h1 className="text-3xl font-bold mb-4">Destination Not Found</h1>
+        <h1 className="text-3xl font-bold mb-4">{copy.notFound}</h1>
         <Link to={{ pathname: "/destinations", search: location.search }}>
-          <Button>Back to Destinations</Button>
+          <Button>{copy.back}</Button>
         </Link>
       </div>
     );
@@ -638,7 +678,9 @@ export default function DestinationDetails() {
           <div className="lg:col-span-2 space-y-8">
             <section className="bg-white dark:bg-slate-900 rounded-2xl p-5 md:p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-2xl font-bold tracking-tight">Overview</h2>
+                <h2 className="text-2xl font-bold tracking-tight">
+                  {copy.overview}
+                </h2>
                 {wikiSummary && !localizedDestination?.description && (
                   <a
                     href={wikiSummary.url}
@@ -1452,7 +1494,7 @@ export default function DestinationDetails() {
 
             <Card>
               <CardContent className="p-6">
-                <h3 className="font-bold mb-4">Highlights</h3>
+                <h3 className="font-bold mb-4">{copy.highlights}</h3>
                 <ul className="space-y-3">
                   {(
                     localizedDestination?.highlights ??
@@ -1474,7 +1516,7 @@ export default function DestinationDetails() {
 
             <Card>
               <CardContent className="p-6">
-                <h3 className="font-bold mb-4">Upcoming Weekend Weather</h3>
+                <h3 className="font-bold mb-4">{copy.weather}</h3>
                 {loading || !forecast ? (
                   <div className="text-sm text-slate-500 animate-pulse flex items-center">
                     <ThermometerSun className="w-4 h-4 mr-2" /> Fetching
@@ -1547,22 +1589,26 @@ export default function DestinationDetails() {
         </div>
 
         {/* Top Sights & Attractions (For City / Ward / Town Hubs) */}
-        {featuredChildSights.length > 0 && (
+        {destination.role === "hub" && featuredChildSights.length > 0 && (
           <div className="mt-16 pt-12 border-t border-slate-200 dark:border-slate-800 space-y-6">
             <div className="flex items-center justify-between">
               <div>
                 <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-                  Featured Sights & Highlights
+                  {locale === "ja"
+                    ? "おすすめの見どころ"
+                    : "Featured Sights & Highlights"}
                 </span>
                 <h3 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-2 mt-1">
                   <MapPin className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                  Top Sights in {localizedDestination?.name || destination.name}
+                  {locale === "ja"
+                    ? `${localizedDestination?.name || destination.name}の見どころ`
+                    : `Top Sights in ${localizedDestination?.name || destination.name}`}
                 </h3>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {featuredChildSights.map((dest: Destination) => (
+              {topSightsToDisplay.map((dest: Destination) => (
                 <DestinationCard
                   key={dest.id}
                   destination={dest}
@@ -1580,21 +1626,85 @@ export default function DestinationDetails() {
                 />
               ))}
             </div>
+            {featuredChildSights.length > 3 && (
+              <Button
+                variant="outline"
+                onClick={() => setShowAllTopSights((value) => !value)}
+              >
+                {showAllTopSights
+                  ? locale === "ja"
+                    ? "閉じる"
+                    : "Show less"
+                  : locale === "ja"
+                    ? `すべて見る（${featuredChildSights.length}件）`
+                    : `See all (${featuredChildSights.length})`}
+              </Button>
+            )}
           </div>
         )}
 
-        {/* Editorially linked nearby places and the destination's hub. */}
-        {nearbyPlaces.length > 0 && (
+        {/* City hubs show nearby hubs; POIs show editorially related places and their hub. */}
+        {destination.role === "hub" && nearbyHubs.length > 0 && (
           <div className="mt-16 pt-12 border-t border-slate-200 dark:border-slate-800">
             <div className="flex items-center justify-between mb-8">
               <div>
                 <h3 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
                   <MapPin className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                  Nearby Places & Hubs
+                  {locale === "ja" ? "近くの都市ハブ" : "Nearby Hubs"}
                 </h3>
                 <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
-                  Related places for{" "}
-                  {localizedDestination?.name || destination.name}.
+                  {locale === "ja"
+                    ? "50km圏内の都市ハブ"
+                    : "City hubs within 50 km."}
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {nearbyHubsToDisplay.map((dest: Destination) => (
+                <DestinationCard
+                  key={dest.id}
+                  destination={dest}
+                  partySize={partySize}
+                  carMode={navState?.carMode || "none"}
+                  publicModes={
+                    navState?.publicModes || ["train", "shinkansen", "bus"]
+                  }
+                  activeTransportMode="all"
+                />
+              ))}
+            </div>
+            {nearbyHubs.length > 3 && (
+              <Button
+                className="mt-6"
+                variant="outline"
+                onClick={() => setShowAllNearbyHubs((value) => !value)}
+              >
+                {showAllNearbyHubs
+                  ? locale === "ja"
+                    ? "閉じる"
+                    : "Show less"
+                  : locale === "ja"
+                    ? `すべて見る（${nearbyHubs.length}件）`
+                    : `See all (${nearbyHubs.length})`}
+              </Button>
+            )}
+          </div>
+        )}
+
+        {destination.role !== "hub" && nearbyPlaces.length > 0 && (
+          <div className="mt-16 pt-12 border-t border-slate-200 dark:border-slate-800">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h3 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
+                  <MapPin className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                  {locale === "ja"
+                    ? "近くの場所と都市ハブ"
+                    : "Nearby Places & Hubs"}
+                </h3>
+                <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
+                  {locale === "ja"
+                    ? `${localizedDestination?.name || destination.name}に関連する場所`
+                    : `Related places for ${localizedDestination?.name || destination.name}.`}
                 </p>
               </div>
             </div>

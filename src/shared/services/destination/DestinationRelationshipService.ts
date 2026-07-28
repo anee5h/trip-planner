@@ -1,5 +1,6 @@
 import type { Destination } from "@/shared/types/destination";
 import { getDestinationList } from "./DestinationService";
+import { getDistance } from "@/shared/utils/distance";
 
 export class DestinationRelationshipService {
   private static byIdMap: Map<string, Destination> | null = null;
@@ -52,6 +53,42 @@ export class DestinationRelationshipService {
     return this.childrenByParentMap?.get(parentId) || [];
   }
 
+  /** Returns city hubs within a straight-line radius, ordered nearest first. */
+  static getNearbyHubs(
+    destination: Destination,
+    radiusKm: number,
+  ): Destination[] {
+    this.ensureIndex();
+    const origin = destination.coordinates;
+    if (!origin) return [];
+
+    return Array.from(this.byIdMap?.values() || [])
+      .filter(
+        (place) =>
+          place.id !== destination.id &&
+          place.role === "hub" &&
+          Boolean(place.coordinates),
+      )
+      .flatMap((place) => {
+        const coordinates = place.coordinates;
+        if (!coordinates) return [];
+        return [
+          {
+            place,
+            distanceKm: getDistance(
+              origin.lat,
+              origin.lng,
+              coordinates.lat,
+              coordinates.lng,
+            ),
+          },
+        ];
+      })
+      .filter(({ distanceKm }) => distanceKm <= radiusKm)
+      .sort((a, b) => a.distanceKm - b.distanceKm)
+      .map(({ place }) => place);
+  }
+
   /**
    * Returns editorially featured top sights for a hub page.
    */
@@ -77,12 +114,6 @@ export class DestinationRelationshipService {
   static getNearbyDestinations(destination: Destination): Destination[] {
     this.ensureIndex();
     const rels = destination.relationships;
-
-    // A hub has no parent or siblings. Its useful nearby context is the
-    // reviewed places contained within that municipality.
-    if (destination.role === "hub") {
-      return this.getFeaturedChildDestinations(destination).slice(0, 4);
-    }
 
     const results: Destination[] = [];
     const parent = this.getParentDestination(destination);
