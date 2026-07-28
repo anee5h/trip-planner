@@ -101,6 +101,21 @@ function WeatherIcon({ type }: { type: string }) {
   return <Sun className="w-6 h-6 text-amber-500" />;
 }
 
+function localizeEditorialValue(value: string, locale: "en" | "ja") {
+  if (locale === "en") return value;
+  return (
+    {
+      "Extremely easy access from central Tokyo.":
+        "東京中心部からのアクセスが非常に便利です。",
+      "Spring & Autumn": "春・秋",
+      "Dinners with night views require booking.":
+        "夜景を楽しむディナーは予約が必要です。",
+      "Plenty of paid parking in Minatomirai.":
+        "みなとみらいには有料駐車場が多数あります。",
+    }[value] || value
+  );
+}
+
 const DETAIL_COPY = {
   en: {
     notFound: "Destination Not Found",
@@ -1436,7 +1451,9 @@ export default function DestinationDetails() {
                   {copy.overall}
                 </div>
                 <div className="w-full h-px bg-white/20 mb-4"></div>
-                <p className="text-emerald-50 text-sm">{destination.notes}</p>
+                <p className="text-emerald-50 text-sm">
+                  {localizeEditorialValue(destination.notes, locale)}
+                </p>
               </CardContent>
             </Card>
 
@@ -1472,7 +1489,10 @@ export default function DestinationDetails() {
                           {copy.bestSeason}
                         </div>
                         <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
-                          {destination.bestSeason}
+                          {localizeEditorialValue(
+                            destination.bestSeason,
+                            locale,
+                          )}
                         </div>
                       </div>
                     </div>
@@ -1602,7 +1622,7 @@ export default function DestinationDetails() {
                       {copy.reservation}
                     </h4>
                     <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
-                      {destination.reservation}
+                      {localizeEditorialValue(destination.reservation, locale)}
                     </p>
                   </div>
                 )}
@@ -1612,7 +1632,7 @@ export default function DestinationDetails() {
                       Parking
                     </h4>
                     <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
-                      {destination.parking}
+                      {localizeEditorialValue(destination.parking, locale)}
                     </p>
                   </div>
                 )}

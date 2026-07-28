@@ -8,8 +8,17 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.8.4",
+    version: "v1.8.5",
     tag: "Current",
+    date: "July 2026",
+    title: "Japanese Localization Follow-up",
+    highlights: [
+      "Translated the remaining Home hero, footer, Yokohama visit details, weather labels, and editorial values visible in Japanese",
+      "Refined the language menu presentation with an icon-only control beside Passport",
+    ],
+  },
+  {
+    version: "v1.8.4",
     date: "July 2026",
     title: "Yokohama Hubs, Account Settings & Japanese UI",
     highlights: [

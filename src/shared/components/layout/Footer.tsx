@@ -9,7 +9,7 @@ export default function Footer() {
           tagline: "日本の旅を計画・比較できるガイド",
           terms: "利用規約",
           privacy: "プライバシー",
-          cookies: "Cookie",
+          cookies: "クッキー",
           feedback: "フィードバック",
         }
       : {

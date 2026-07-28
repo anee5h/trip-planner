@@ -288,15 +288,19 @@ export default function Home() {
                     </span>
                   </div>
                   <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-800 dark:text-slate-100 mt-6 leading-tight">
-                    Based on{" "}
-                    {currentTab?.label.toLowerCase() === "today"
-                      ? "today's"
-                      : currentTab?.label.toLowerCase() === "tomorrow"
-                        ? "tomorrow's"
-                        : `${currentTab?.label.toLowerCase() || "upcoming"}`}{" "}
-                    conditions,
-                    <br />
-                    you should go to...
+                    {locale === "ja" ? (
+                      <>
+                        この条件なら、
+                        <br />
+                        ここがおすすめです…
+                      </>
+                    ) : (
+                      <>
+                        Based on today's conditions,
+                        <br />
+                        you should go to…
+                      </>
+                    )}
                   </h1>
                 </div>
               ) : (
