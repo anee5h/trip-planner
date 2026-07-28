@@ -1444,15 +1444,16 @@ export default function DestinationDetails() {
                     </div>
                     <div>
                       <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                        Typical Budget
+                        {budgetLabel}
                       </div>
                       <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
-                        ¥{destination.budgetMin.toLocaleString()}–¥
-                        {destination.budgetMax.toLocaleString()}
+                        ¥{(destination.budgetMin * partySize).toLocaleString()}
+                        –¥
+                        {(destination.budgetMax * partySize).toLocaleString()}
                       </div>
                     </div>
                   </div>
-                  {graphNearbyDestinations.length > 0 && (
+                  {walkableNearbyDestinations.length > 0 && (
                     <div className="flex items-center gap-3">
                       <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">
                         <MapPin className="w-4 h-4" />
@@ -1462,7 +1463,7 @@ export default function DestinationDetails() {
                           Nearby Attractions
                         </div>
                         <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
-                          {graphNearbyDestinations.length} within the area
+                          {walkableNearbyDestinations.length} within the area
                         </div>
                       </div>
                     </div>
