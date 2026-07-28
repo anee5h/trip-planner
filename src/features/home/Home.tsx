@@ -132,7 +132,7 @@ export default function Home() {
   const { locale } = useLocale();
   const copy = HOME_COPY[locale];
   const labels = TRIP_LABELS[locale];
-  const allDestinations = getDestinationList() as Destination[];
+  const allDestinations = getDestinationList(locale) as Destination[];
 
   const { isVisited, homeStationCoords, homeStation } = useTripStore();
   const { user } = useAuth();

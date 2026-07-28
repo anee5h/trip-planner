@@ -65,7 +65,11 @@ import {
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
 import { useLocale } from "@/shared/context/LocaleContext";
-import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
+import {
+  getLocalizedPlace,
+  isPlaceAvailableInLocale,
+} from "@/shared/services/place/PlaceCatalog";
+import { formatPlaceName, formatPrefecture } from "@/shared/utils/placeLabels";
 
 import { toast } from "sonner";
 import {
@@ -160,7 +164,7 @@ const DETAIL_COPY = {
 } as const;
 
 export default function DestinationDetails() {
-  const { locale } = useLocale();
+  const { locale, setLocale } = useLocale();
   const copy = DETAIL_COPY[locale];
   const { id } = useParams();
   const location = useLocation();
@@ -329,25 +333,31 @@ export default function DestinationDetails() {
 
   const parentDestination = useMemo(() => {
     if (!destination) return null;
-    return DestinationRelationshipService.getParentDestination(destination);
-  }, [destination]);
+    const parent =
+      DestinationRelationshipService.getParentDestination(destination);
+    return parent && isPlaceAvailableInLocale(parent, locale) ? parent : null;
+  }, [destination, locale]);
 
   const featuredChildSights = useMemo(() => {
     if (!destination) return [];
     return DestinationRelationshipService.getFeaturedChildDestinations(
       destination,
-    );
-  }, [destination]);
+    ).filter((place) => isPlaceAvailableInLocale(place, locale));
+  }, [destination, locale]);
 
   const nearbyPlaces = useMemo(() => {
     if (!destination) return [];
-    return DestinationRelationshipService.getNearbyDestinations(destination);
-  }, [destination]);
+    return DestinationRelationshipService.getNearbyDestinations(
+      destination,
+    ).filter((place) => isPlaceAvailableInLocale(place, locale));
+  }, [destination, locale]);
 
   const nearbyHubs = useMemo(() => {
     if (!destination || destination.role !== "hub") return [];
-    return DestinationRelationshipService.getNearbyHubs(destination, 50);
-  }, [destination]);
+    return DestinationRelationshipService.getNearbyHubs(destination, 50).filter(
+      (place) => isPlaceAvailableInLocale(place, locale),
+    );
+  }, [destination, locale]);
 
   const topSightsToDisplay = showAllTopSights
     ? featuredChildSights
@@ -466,6 +476,25 @@ export default function DestinationDetails() {
     );
   }
 
+  if (!isPlaceAvailableInLocale(destination, locale)) {
+    return (
+      <div className="container mx-auto max-w-xl px-4 py-20 text-center">
+        <h1 className="mb-3 text-3xl font-extrabold text-slate-900 dark:text-white">
+          この場所はまだ日本語で利用できません
+        </h1>
+        <p className="mb-7 text-slate-600 dark:text-slate-400">
+          日本語の内容を確認・翻訳中です。英語版では現在の情報をご覧いただけます。
+        </p>
+        <div className="flex justify-center gap-3">
+          <Button onClick={() => setLocale("en")}>View in English</Button>
+          <Link to={{ pathname: "/destinations", search: location.search }}>
+            <Button variant="outline">目的地一覧へ</Button>
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-slate-50 dark:bg-background min-h-screen pb-20">
       {/* Hero Image Header */}
@@ -482,7 +511,7 @@ export default function DestinationDetails() {
 
         <img
           src={destination.heroImage}
-          alt={localizedDestination?.name || destination.name}
+          alt={formatPlaceName(localizedDestination || destination, locale)}
           decoding="async"
           onError={(e) => {
             if (wikiSummary?.leadImage) {
@@ -496,8 +525,10 @@ export default function DestinationDetails() {
         <div className="relative w-full container mx-auto px-4 pt-16 sm:pt-20 pb-6 md:pb-8 text-white z-10 mt-auto">
           {/* 1. Destination Title & Japanese Kanji */}
           <h1 className="text-2xl sm:text-4xl md:text-6xl font-extrabold tracking-tight mb-2 flex flex-wrap items-baseline gap-2.5 [text-shadow:_0_2px_8px_rgba(0,0,0,0.85)] drop-shadow-md">
-            <span>{localizedDestination?.name || destination.name}</span>
-            {wikiSummary?.japaneseTitle && (
+            <span>
+              {formatPlaceName(localizedDestination || destination, locale)}
+            </span>
+            {locale !== "ja" && wikiSummary?.japaneseTitle && (
               <span className="text-lg sm:text-xl md:text-3xl font-semibold text-emerald-400 font-sans tracking-wide">
                 {wikiSummary.japaneseTitle}
               </span>
@@ -514,7 +545,9 @@ export default function DestinationDetails() {
             )}
             <div className="flex items-center font-medium">
               <MapPin className="w-4 h-4 mr-1 text-emerald-400" />{" "}
-              {destination.prefecture}, Japan
+              {locale === "ja"
+                ? formatPrefecture(destination.prefecture, locale)
+                : `${destination.prefecture}, Japan`}
             </div>
 
             {/* "Located In" Parent Container Badge */}

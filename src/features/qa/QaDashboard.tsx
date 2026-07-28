@@ -1,7 +1,9 @@
 import { useState, useMemo, useEffect } from "react";
 import destinationsIndex from "@/shared/data/destinations-index.json";
 import collectionsIndex from "@/shared/data/collections-index.json";
+import { PHASE_ONE_COHORT_IDS } from "@/shared/data/editorialPilot";
 import { PageHeader } from "@/shared/components/ui/PageHeader";
+import { toCanonicalPlace } from "@/shared/services/place/PlaceCatalog";
 import type { Destination } from "@/shared/types/destination";
 import type { Collection } from "@/shared/types/collection";
 import {
@@ -63,10 +65,41 @@ function getImageQaStatus(
 }
 
 export default function QaDashboard() {
-  const allDestinations = destinationsIndex as Destination[];
+  const allDestinations = useMemo(
+    () => (destinationsIndex as Destination[]).map(toCanonicalPlace),
+    [],
+  );
   const allCollections = collectionsIndex as Collection[];
   const totalDestinations = allDestinations.length;
   const totalCollections = allCollections.length;
+  const editorialCoverage = useMemo(() => {
+    const cohortIds = new Set<string>(PHASE_ONE_COHORT_IDS);
+    const cohort = allDestinations.filter((destination) =>
+      cohortIds.has(destination.id),
+    );
+    const reviewed = cohort.filter(
+      (destination) => destination.editorial?.lifecycle === "published",
+    );
+    const bilingual = reviewed.filter(
+      (destination) =>
+        destination.content?.ja?.name && destination.content.ja.description,
+    );
+    const missingSources = reviewed.filter(
+      (destination) => !destination.editorial?.sources?.length,
+    );
+    const stale = reviewed.filter((destination) =>
+      ["review_due", "stale", "conflicting"].includes(
+        destination.editorial?.freshness || "",
+      ),
+    );
+    return {
+      target: cohort.length,
+      reviewed: reviewed.length,
+      bilingual: bilingual.length,
+      missingSources: missingSources.length,
+      stale: stale.length,
+    };
+  }, [allDestinations]);
 
   // Search & Filter state for Image QA Tab
   const [imageSearch, setImageSearch] = useState("");
@@ -265,6 +298,48 @@ export default function QaDashboard() {
     toast.success("Exported Image QA Overrides CSV!");
   };
 
+  const exportEditorialWorklist = () => {
+    const cohortIds = new Set<string>(PHASE_ONE_COHORT_IDS);
+    const rows = [
+      [
+        "Place ID",
+        "Name",
+        "Prefecture",
+        "Lifecycle",
+        "Japanese content",
+        "Sources",
+        "Freshness",
+        "Checked at",
+      ],
+    ];
+    allDestinations
+      .filter((destination) => cohortIds.has(destination.id))
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .forEach((destination) => {
+        const editorial = destination.editorial;
+        rows.push([
+          `"${destination.id}"`,
+          `"${destination.name.replace(/"/g, '""')}"`,
+          `"${destination.prefecture}"`,
+          `"${editorial?.lifecycle || "legacy"}"`,
+          `"${destination.content?.ja?.description ? "ready" : "missing"}"`,
+          `"${editorial?.sources?.length || 0}"`,
+          `"${editorial?.freshness || "not reviewed"}"`,
+          `"${editorial?.checkedAt || ""}"`,
+        ]);
+      });
+    const link = document.createElement("a");
+    link.href = encodeURI(
+      "data:text/csv;charset=utf-8," +
+        rows.map((row) => row.join(",")).join("\n"),
+    );
+    link.download = `tabimap_phase-one-editorial-worklist_${new Date().toISOString().split("T")[0]}.csv`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    toast.success("Exported the Phase 1 editorial worklist.");
+  };
+
   const copyJsonPayload = () => {
     const payload = JSON.stringify(overrides, null, 2);
     navigator.clipboard.writeText(payload);
@@ -318,13 +393,38 @@ export default function QaDashboard() {
           </div>
         </div>
 
-        <div className="flex items-center gap-3 self-end md:self-auto">
+        <div className="flex flex-wrap items-center gap-3 self-end md:self-auto">
+          <Button
+            onClick={exportEditorialWorklist}
+            size="sm"
+            variant="secondary"
+            className="rounded-xl font-bold text-xs text-slate-900"
+          >
+            <Download className="mr-1.5 h-3.5 w-3.5" />
+            Editorial worklist
+          </Button>
           <div className="bg-white/15 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/20 text-right">
             <div className="text-xs uppercase font-bold text-white/80">
-              Coverage
+              Phase 1 hubs
             </div>
             <div className="font-mono font-black text-xl">
-              {totalDestinations} / {totalDestinations}
+              {editorialCoverage.reviewed} / {editorialCoverage.target}
+            </div>
+          </div>
+          <div className="bg-white/15 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/20 text-right">
+            <div className="text-xs uppercase font-bold text-white/80">
+              Japanese ready
+            </div>
+            <div className="font-mono font-black text-xl">
+              {editorialCoverage.bilingual} / {editorialCoverage.target}
+            </div>
+          </div>
+          <div className="bg-white/15 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/20 text-right">
+            <div className="text-xs uppercase font-bold text-white/80">
+              Review alerts
+            </div>
+            <div className="font-mono font-black text-xl">
+              {editorialCoverage.stale + editorialCoverage.missingSources}
             </div>
           </div>
         </div>

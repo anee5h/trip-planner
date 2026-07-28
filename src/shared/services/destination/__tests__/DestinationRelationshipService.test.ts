@@ -14,13 +14,16 @@ describe("DestinationRelationshipService", () => {
       yokohama!,
     );
 
-    expect(places).toHaveLength(13);
+    expect(places).toHaveLength(14);
     expect(
       places.every(
         (place) => place.relationships?.parentDestinationId === "yokohama-city",
       ),
     ).toBe(true);
     expect(places.map((place) => place.id)).toContain("yokohama-cosmo-world");
+    expect(places.map((place) => place.id)).toContain(
+      "kirin-beer-yokohama-factory",
+    );
   });
 
   it("finds only nearby city hubs within the requested radius", () => {

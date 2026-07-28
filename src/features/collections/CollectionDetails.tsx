@@ -9,11 +9,13 @@ import CollectionBadge from "@/shared/components/ui/CollectionBadge";
 import DestinationCard from "@/features/destinations/components/DestinationCard";
 import { ArrowLeft, ExternalLink, Frown, CheckCircle2 } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
+import { useLocale } from "@/shared/context/LocaleContext";
 
 export default function CollectionDetails() {
   const { slug } = useParams<{ slug: string }>();
   const collection = slug ? getCollectionBySlug(slug) : undefined;
   const { visited } = useTripStore();
+  const { locale } = useLocale();
 
   if (!collection) {
     return (
@@ -36,8 +38,8 @@ export default function CollectionDetails() {
     );
   }
 
-  const destinations = getDestinationsForCollection(collection.id);
-  const progress = getCollectionProgress(collection.id, visited);
+  const destinations = getDestinationsForCollection(collection.id, locale);
+  const progress = getCollectionProgress(collection.id, visited, locale);
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl">

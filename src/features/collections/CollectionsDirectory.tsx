@@ -8,12 +8,18 @@ import {
 import CollectionBadge from "@/shared/components/ui/CollectionBadge";
 import { ExternalLink, CheckCircle2 } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
+import { useLocale } from "@/shared/context/LocaleContext";
 
 import { PageHeader } from "@/shared/components/ui/PageHeader";
 
 export default function CollectionsDirectory() {
   const collections = getCollections();
   const { visited } = useTripStore();
+  const { locale } = useLocale();
+  const availableCollections = collections.filter(
+    (collection) =>
+      getDestinationsForCollection(collection.id, locale).length > 0,
+  );
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl">
@@ -24,9 +30,9 @@ export default function CollectionsDirectory() {
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {collections.map((col) => {
-          const destinations = getDestinationsForCollection(col.id);
-          const progress = getCollectionProgress(col.id, visited);
+        {availableCollections.map((col) => {
+          const destinations = getDestinationsForCollection(col.id, locale);
+          const progress = getCollectionProgress(col.id, visited, locale);
 
           return (
             <div

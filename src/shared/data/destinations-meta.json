@@ -1949,6 +1949,18 @@
     "relationships": {}
   },
   {
+    "id": "kirin-beer-yokohama-factory",
+    "name": "Kirin Beer Yokohama Factory",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    }
+  },
+  {
     "id": "kisarazu-city",
     "name": "Kisarazu City",
     "prefecture": "Chiba",
@@ -4570,7 +4582,17 @@
         "yokohama-landmark-tower-sky-garden",
         "yokohama-marine-tower",
         "yokohama-zoorasia",
-        "hakkeijima"
+        "hakkeijima",
+        "minato-mirai-yokohama",
+        "yokohama-cosmo-world",
+        "kannai-yokohama",
+        "yokohama-chinatown",
+        "cup-noodles-museum-yokohama",
+        "shin-yokohama-ramen-museum",
+        "yamashita-park-yokohama",
+        "soji-ji-yokohama",
+        "yokohama-red-brick-warehouse",
+        "kirin-beer-yokohama-factory"
       ],
       "nearbyDestinationIds": [
         "hakone-town",

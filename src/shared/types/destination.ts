@@ -76,7 +76,18 @@ export interface LocalizedPlaceContent {
 }
 
 export interface SourceReference {
-  type: "official" | "wikipedia" | "manual";
+  /**
+   * A source records where a factual claim was checked. AI assistance may be
+   * noted in an editorial change log, but is never a factual source itself.
+   */
+  type:
+    | "official"
+    | "government"
+    | "tourism_board"
+    | "wikipedia"
+    | "editor_observation"
+    | "calculated"
+    | "manual";
   url: string;
   title: string;
   accessedAt: string;
@@ -88,6 +99,8 @@ export interface EditorialRecord {
   reviewedAt?: string;
   reviewedBy?: string;
   changeSummary?: string;
+  freshness?: "current" | "review_due" | "stale" | "conflicting";
+  checkedAt?: string;
 }
 
 export type DestinationImportance = "major" | "notable" | "standard";

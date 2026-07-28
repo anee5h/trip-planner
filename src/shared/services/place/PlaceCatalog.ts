@@ -1,8 +1,5 @@
 import destinationsIndex from "../../data/destinations-index.json";
-import {
-  EDITORIAL_PILOT,
-  EDITORIAL_PILOT_IDS,
-} from "../../data/editorialPilot";
+import { EDITORIAL_PILOT } from "../../data/editorialPilot";
 import type {
   Destination,
   LocalizedPlaceContent,
@@ -10,8 +7,6 @@ import type {
 
 export type CanonicalPlace = Destination &
   Required<Pick<Destination, "placeType" | "content" | "editorial">>;
-
-const pilotIds = new Set<string>(EDITORIAL_PILOT_IDS);
 
 function englishContent(destination: Destination): LocalizedPlaceContent {
   return {
@@ -23,7 +18,8 @@ function englishContent(destination: Destination): LocalizedPlaceContent {
 
 export function toCanonicalPlace(destination: Destination): CanonicalPlace {
   const pilot = EDITORIAL_PILOT[destination.id];
-  const en = destination.content?.en || englishContent(destination);
+  const en =
+    pilot?.en || destination.content?.en || englishContent(destination);
   const ja =
     pilot?.ja ||
     destination.content?.ja ||
@@ -34,7 +30,7 @@ export function toCanonicalPlace(destination: Destination): CanonicalPlace {
           highlights: destination.highlights || [],
         }
       : undefined);
-  const isPilot = pilotIds.has(destination.id);
+  const isReviewed = Boolean(pilot);
   return {
     ...destination,
     placeType:
@@ -43,11 +39,13 @@ export function toCanonicalPlace(destination: Destination): CanonicalPlace {
     content: { en, ...(ja ? { ja } : {}) },
     editorial:
       destination.editorial ||
-      (isPilot
+      (isReviewed
         ? {
             lifecycle: "published",
             sources: [pilot.source],
             reviewedAt: "2026-07-28",
+            checkedAt: "2026-07-28",
+            freshness: "current",
             reviewedBy: "TabiMap editorial",
             changeSummary: "Phase 1 bilingual hub review",
           }
@@ -57,6 +55,31 @@ export function toCanonicalPlace(destination: Destination): CanonicalPlace {
 
 export function getCanonicalPlaces(): CanonicalPlace[] {
   return (destinationsIndex as Destination[]).map(toCanonicalPlace);
+}
+
+/**
+ * Japanese discovery is editorially gated: a translated name alone is not
+ * enough to make a place public in the Japanese catalogue.
+ */
+export function isPlaceAvailableInLocale(
+  place: Destination,
+  locale: "en" | "ja",
+): boolean {
+  if (locale === "en") return true;
+  const canonical = toCanonicalPlace(place);
+  const japanese = canonical.content.ja;
+  return Boolean(
+    canonical.editorial.lifecycle === "published" &&
+    japanese?.name &&
+    japanese.description &&
+    japanese.highlights.length > 0,
+  );
+}
+
+export function getAvailablePlaces(locale: "en" | "ja"): CanonicalPlace[] {
+  return getCanonicalPlaces().filter((place) =>
+    isPlaceAvailableInLocale(place, locale),
+  );
 }
 
 export function getLocalizedPlace(

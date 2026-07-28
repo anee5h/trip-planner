@@ -1,11 +1,14 @@
 import type { Destination } from "@/shared/types/destination";
 import {
   getCanonicalPlaces,
+  getAvailablePlaces,
   toCanonicalPlace,
 } from "@/shared/services/place/PlaceCatalog";
 
-export function getDestinationList(): Partial<Destination>[] {
-  const list = getCanonicalPlaces() as Partial<Destination>[];
+export function getDestinationList(
+  locale: "en" | "ja" = "en",
+): Partial<Destination>[] {
+  const list = getAvailablePlaces(locale) as Partial<Destination>[];
   return list.map((dest) => {
     if (dest.transportOptions?.car && !dest.transportOptions.my_car) {
       return {

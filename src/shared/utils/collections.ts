@@ -12,8 +12,9 @@ export interface CollectionProgress {
  */
 export function getDestinationsForCollection(
   collectionId: string,
+  locale: "en" | "ja" = "en",
 ): Destination[] {
-  const all = getDestinationList() as Destination[];
+  const all = getDestinationList(locale) as Destination[];
   return all.filter((dest) =>
     dest.collections?.some((m) => m.collectionId === collectionId),
   );
@@ -25,8 +26,9 @@ export function getDestinationsForCollection(
 export function getCollectionProgress(
   collectionId: string,
   visitedIds: string[] = [],
+  locale: "en" | "ja" = "en",
 ): CollectionProgress {
-  const destinations = getDestinationsForCollection(collectionId);
+  const destinations = getDestinationsForCollection(collectionId, locale);
   const total = destinations.length;
   if (total === 0) {
     return { total: 0, visited: 0, percent: 0 };

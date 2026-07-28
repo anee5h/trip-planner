@@ -8,8 +8,18 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.8.5",
+    version: "v1.8.6",
     tag: "Current",
+    date: "July 2026",
+    title: "Reviewed Japanese Catalogue",
+    highlights: [
+      "Japanese discovery now shows only reviewed bilingual places, while English retains the complete catalogue",
+      "Added 30 reviewed bilingual city hubs and completed Yokohama with 14 reviewed child sights, including Kirin Beer Yokohama Factory",
+      "Added Japanese municipality and prefecture labels, editorial coverage QA, and a safe Japanese-unavailable page for unfinished direct links",
+    ],
+  },
+  {
+    version: "v1.8.5",
     date: "July 2026",
     title: "Japanese Localization Follow-up",
     highlights: [

@@ -41,6 +41,7 @@ import { getFastestPreferredTransport } from "@/shared/services/transport/Prefer
 import { formatTransportTime } from "@/shared/services/transport/formatters";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
+import { formatPlaceName, formatPrefecture } from "@/shared/utils/placeLabels";
 
 interface DestinationCardProps {
   destination: Destination;
@@ -201,11 +202,11 @@ export default function DestinationCard({
         <div className="flex justify-between items-start">
           <div>
             <h3 className="text-2xl font-extrabold tracking-tight mb-1">
-              {localizedDestination.name}
+              {formatPlaceName(localizedDestination, locale)}
             </h3>
             <div className="flex items-center text-sm font-medium text-slate-500 dark:text-slate-400">
               <MapPin className="w-3.5 h-3.5 mr-1 text-emerald-500" />
-              {destination.prefecture}
+              {formatPrefecture(destination.prefecture, locale)}
             </div>
           </div>
           <div className="flex items-center bg-emerald-50 border border-emerald-100 dark:bg-emerald-900/30 dark:border-emerald-800/50 px-2.5 py-1 rounded-lg">

@@ -1,7 +1,8 @@
-import destinationsIndex from "@/shared/data/destinations-index.json";
 import collectionsIndex from "@/shared/data/collections-index.json";
 import type { Destination } from "@/shared/types/destination";
 import type { Collection } from "@/shared/types/collection";
+import { getDestinationList } from "@/shared/services/destination/DestinationService";
+import { getDestinationsForCollection } from "@/shared/utils/collections";
 import type { SearchDocument, SearchGroup, SearchDocumentType } from "../types";
 import { Icons } from "@/shared/icons";
 
@@ -107,10 +108,11 @@ const STATIC_ACTIONS: SearchDocument[] = [
   },
 ];
 
-let cachedDocuments: SearchDocument[] | null = null;
+const cachedDocuments = new Map<"en" | "ja", SearchDocument[]>();
 
-export function buildSearchIndex(): SearchDocument[] {
-  if (cachedDocuments) return cachedDocuments;
+export function buildSearchIndex(locale: "en" | "ja" = "en"): SearchDocument[] {
+  const cached = cachedDocuments.get(locale);
+  if (cached) return cached;
 
   const docs: SearchDocument[] = [];
 
@@ -118,7 +120,7 @@ export function buildSearchIndex(): SearchDocument[] {
   docs.push(...STATIC_ACTIONS);
 
   // Add destinations
-  (destinationsIndex as Destination[]).forEach((dest) => {
+  (getDestinationList(locale) as Destination[]).forEach((dest) => {
     const categoryName = dest.categories?.[0] || "Destination";
     docs.push({
       id: `dest-${dest.id}`,
@@ -141,32 +143,40 @@ export function buildSearchIndex(): SearchDocument[] {
   });
 
   // Add collections
-  (collectionsIndex as Collection[]).forEach((col) => {
-    docs.push({
-      id: `col-${col.id}`,
-      title: col.name,
-      subtitle: col.description || "Curated travel list",
-      type: "collection",
-      url: `/collections/${col.slug}`,
-      keywords: [
-        col.name.toLowerCase(),
-        col.slug.toLowerCase(),
-        (col.description || "").toLowerCase(),
-        ...(col.isAchievement ? ["achievement", "heritage"] : []),
-      ],
-      icon: Icons.check,
-      badge: col.isAchievement ? "Achievement" : "Collection",
-      category: "Collection",
-      metadata: { col },
+  (collectionsIndex as Collection[])
+    .filter(
+      (collection) =>
+        getDestinationsForCollection(collection.id, locale).length > 0,
+    )
+    .forEach((col) => {
+      docs.push({
+        id: `col-${col.id}`,
+        title: col.name,
+        subtitle: col.description || "Curated travel list",
+        type: "collection",
+        url: `/collections/${col.slug}`,
+        keywords: [
+          col.name.toLowerCase(),
+          col.slug.toLowerCase(),
+          (col.description || "").toLowerCase(),
+          ...(col.isAchievement ? ["achievement", "heritage"] : []),
+        ],
+        icon: Icons.check,
+        badge: col.isAchievement ? "Achievement" : "Collection",
+        category: "Collection",
+        metadata: { col },
+      });
     });
-  });
 
-  cachedDocuments = docs;
+  cachedDocuments.set(locale, docs);
   return docs;
 }
 
-export function searchDocuments(query: string): SearchGroup[] {
-  const allDocs = buildSearchIndex();
+export function searchDocuments(
+  query: string,
+  locale: "en" | "ja" = "en",
+): SearchGroup[] {
+  const allDocs = buildSearchIndex(locale);
   const cleanQuery = query.trim().toLowerCase();
 
   if (!cleanQuery) {

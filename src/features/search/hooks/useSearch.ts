@@ -2,16 +2,18 @@ import { useState, useEffect, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { searchDocuments } from "../services/searchIndex";
 import type { SearchDocument, SearchGroup } from "../types";
+import { useLocale } from "@/shared/context/LocaleContext";
 
 export function useSearch() {
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const navigate = useNavigate();
+  const { locale } = useLocale();
 
   const groups: SearchGroup[] = useMemo(() => {
-    return searchDocuments(query);
-  }, [query]);
+    return searchDocuments(query, locale);
+  }, [query, locale]);
 
   // Flatten all items across groups for index-based keyboard navigation
   const flatItems: SearchDocument[] = useMemo(() => {

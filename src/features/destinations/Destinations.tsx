@@ -21,6 +21,7 @@ import {
   getDynamicTransportOptions,
 } from "@/shared/utils/distance";
 import { useTripStore } from "@/shared/hooks/useTripStore";
+import { useLocale } from "@/shared/context/LocaleContext";
 import {
   getValidModes,
   scoreForCatalog,
@@ -57,7 +58,8 @@ export default function Destinations() {
   const skipNextPageResetRef = useRef(false);
   const [filtersReady, setFiltersReady] = useState(false);
   const { homeStationCoords, destinationRatings } = useTripStore();
-  const allDestinations = getDestinationList() as Destination[];
+  const { locale } = useLocale();
+  const allDestinations = getDestinationList(locale) as Destination[];
   const [searchQuery, setSearchQuery] = useState(
     initialExplorerState.searchQuery,
   );

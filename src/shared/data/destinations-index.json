@@ -13458,6 +13458,95 @@
     "placeType": "destination"
   },
   {
+    "id": "kirin-beer-yokohama-factory",
+    "name": "Kirin Beer Yokohama Factory",
+    "nameJa": "キリンビール横浜工場",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "categories": ["Brewery", "Food", "Factory Tour"],
+    "tags": ["Brewery", "Beer", "Factory Tour"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/94/Kirinbeerlogo1889-crop.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/94/Kirinbeerlogo1889-crop.jpg",
+    "description": "A Kirin Beer production site in Tsurumi, Yokohama, where visitors can learn about brewing through factory tours when available.",
+    "highlights": ["Brewery tours", "Beer-making exhibits", "Tsurumi location"],
+    "coordinates": {
+      "lat": 35.5126,
+      "lng": 139.6855
+    },
+    "totalTripHours": 2.5,
+    "budgetMin": 1500,
+    "budgetRecommended": 4500,
+    "budgetMax": 7500,
+    "budgetBreakdown": {
+      "transport": 800,
+      "tickets": 500,
+      "food": 2400,
+      "cafe": 800
+    },
+    "transportOptions": {
+      "train": 30
+    },
+    "walkingMin": 2500,
+    "walkingSunMin": 1200,
+    "walkingShadeMin": 1300,
+    "indoorPercent": 85,
+    "ratings": {
+      "overall": 8.4,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.2,
+      "rain": 8.8,
+      "food": 8.7,
+      "photography": 7.2,
+      "relaxation": 7.8,
+      "value": 8.4,
+      "uniqueness": 8.5
+    },
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 8,
+      "summer": 9,
+      "autumn": 8,
+      "winter": 8
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 9, 10, 11, 12],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "comfort": {
+      "heatTolerance": 8.5,
+      "rainFriendly": 9,
+      "walkingIntensity": 2
+    },
+    "reservation": "Advance booking is required for factory tours; check the official Kirin Beer page for the current schedule and eligibility.",
+    "parking": "Check the official visitor information before driving.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "The supplied Wikimedia image is a Kirin Beer logo, not a photograph of the factory. It remains marked for image QA until an accurate exterior or visitor-area image is provided.",
+    "schemaVersion": 2,
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "attribution": "Kirin Beer logo image supplied for QA",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/9/94/Kirinbeerlogo1889-crop.jpg"
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    },
+    "walkingIntensity": "low",
+    "role": "poi",
+    "placeType": "destination",
+    "addedAt": "2026-07-28",
+    "imageNeedsReview": true
+  },
+  {
     "id": "kisarazu-city",
     "name": "Kisarazu City",
     "kind": "city",
@@ -32056,7 +32145,8 @@
         "shin-yokohama-ramen-museum",
         "yamashita-park-yokohama",
         "soji-ji-yokohama",
-        "yokohama-red-brick-warehouse"
+        "yokohama-red-brick-warehouse",
+        "kirin-beer-yokohama-factory"
       ],
       "nearbyDestinationIds": [
         "hakone-town",

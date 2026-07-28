@@ -5,8 +5,10 @@ import { useTheme } from "@/shared/context/ThemeContext";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import StationInput from "@/shared/components/StationInput";
-import destinationsIndex from "@/shared/data/destinations-index.json";
 import type { Destination } from "@/shared/types/destination";
+import { getDestinationList } from "@/shared/services/destination/DestinationService";
+import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
+import { formatPlaceName } from "@/shared/utils/placeLabels";
 import {
   MapPin,
   Car,
@@ -72,13 +74,13 @@ export default function Settings() {
   );
   const cityHubs = useMemo(
     () =>
-      (destinationsIndex as Destination[])
+      (getDestinationList(locale) as Destination[])
         .filter(
           (destination) =>
             destination.role === "hub" && destination.kind === "city",
         )
         .sort((a, b) => a.name.localeCompare(b.name)),
-    [],
+    [locale],
   );
 
   useEffect(() => {
@@ -305,7 +307,10 @@ export default function Settings() {
                       <option value="">Choose a city</option>
                       {cityHubs.map((city) => (
                         <option key={city.id} value={city.id}>
-                          {city.name}
+                          {formatPlaceName(
+                            getLocalizedPlace(city, locale),
+                            locale,
+                          )}
                         </option>
                       ))}
                     </select>
