@@ -109,6 +109,25 @@ const TRIP_LABELS = {
   },
 } as const;
 
+function localizeWeatherText(text: string, locale: "en" | "ja") {
+  if (locale === "en") return text;
+  const translations: Record<string, string> = {
+    Sunny: "晴れ",
+    "Partly cloudy": "晴れ時々くもり",
+    Cloudy: "くもり",
+    Rainy: "雨",
+    Rain: "雨",
+    Thunderstorm: "雷雨",
+    Snow: "雪",
+    Fog: "霧",
+    Today: "今日",
+    Tomorrow: "明日",
+    "This Weekend": "今週末",
+    Sunday: "日曜日",
+  };
+  return translations[text] || text;
+}
+
 export default function Home() {
   const { locale } = useLocale();
   const copy = HOME_COPY[locale];
@@ -220,7 +239,7 @@ export default function Home() {
                             : "bg-slate-100 text-slate-500 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700"
                         }`}
                       >
-                        {tab.label}
+                        {localizeWeatherText(tab.label, locale)}
                       </button>
                     ))}
 
@@ -256,7 +275,8 @@ export default function Home() {
                       |
                     </span>
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-500">
-                      {currentSituation.desc} {copy.inYourArea}
+                      {localizeWeatherText(currentSituation.desc, locale)}{" "}
+                      {copy.inYourArea}
                     </span>
                   </div>
                   <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-800 dark:text-slate-100 mt-6 leading-tight">

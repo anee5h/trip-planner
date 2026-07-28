@@ -14,6 +14,7 @@ import {
   HelpCircle,
   MessageSquare,
   Layers,
+  Languages,
 } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { useAuth } from "@/shared/hooks/useAuth";
@@ -107,6 +108,22 @@ export default function Navbar() {
   const isMyTripsActive = location.pathname.startsWith("/my-trips");
   const isBucketListActive = location.pathname.startsWith("/bucket-list");
   const isPassportActive = location.pathname.startsWith("/passport");
+  const nav =
+    locale === "ja"
+      ? {
+          destinations: "目的地",
+          collections: "コレクション",
+          itineraries: "旅程",
+          bucketList: "行きたい",
+          passport: "パスポート",
+        }
+      : {
+          destinations: "Destinations",
+          collections: "Collections",
+          itineraries: "Itineraries",
+          bucketList: "Bucket List",
+          passport: "Passport",
+        };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-950/85 backdrop-blur-xl shadow-xs shadow-slate-900/5 dark:shadow-slate-950/20">
@@ -128,10 +145,13 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setLocale(locale === "en" ? "ja" : "en")}
-            className="text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400"
-            aria-label="Switch language"
+            className="rounded-md p-2 text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400"
+            aria-label={
+              locale === "en" ? "日本語に切り替え" : "Switch to English"
+            }
+            title={locale === "en" ? "日本語に切り替え" : "Switch to English"}
           >
-            {locale === "en" ? "日本語" : "EN"}
+            <Languages className="h-4 w-4" />
           </button>
           <nav className="hidden md:flex items-center gap-1.5">
             {/* Discover Cluster */}
@@ -145,7 +165,7 @@ export default function Navbar() {
                 }`}
               >
                 <Map className="w-4 h-4" />
-                <span>Destinations</span>
+                <span>{nav.destinations}</span>
               </Link>
 
               <Link
@@ -157,7 +177,7 @@ export default function Navbar() {
                 }`}
               >
                 <Layers className="w-4 h-4" />
-                <span>Collections</span>
+                <span>{nav.collections}</span>
               </Link>
             </div>
 
@@ -175,7 +195,7 @@ export default function Navbar() {
                 }`}
               >
                 <Calendar className="w-4 h-4" />
-                <span>Itineraries</span>
+                <span>{nav.itineraries}</span>
               </Link>
 
               <Link
@@ -187,7 +207,7 @@ export default function Navbar() {
                 }`}
               >
                 <Bookmark className="w-4 h-4" />
-                <span>Bucket List</span>
+                <span>{nav.bucketList}</span>
               </Link>
             </div>
 
@@ -204,7 +224,7 @@ export default function Navbar() {
               }`}
             >
               <Compass className="w-4 h-4" />
-              <span>Passport</span>
+              <span>{nav.passport}</span>
             </Link>
           </nav>
 

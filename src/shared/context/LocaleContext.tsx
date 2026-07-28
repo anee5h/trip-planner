@@ -8,16 +8,12 @@ interface LocaleContextValue {
 }
 
 const LocaleContext = createContext<LocaleContextValue | null>(null);
-const STORAGE_KEY = "tabimap-locale";
-
 export function LocaleProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocale] = useState<AppLocale>(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    return saved === "ja" ? "ja" : "en";
+    return navigator.language.toLowerCase().startsWith("ja") ? "ja" : "en";
   });
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, locale);
     document.documentElement.lang = locale;
   }, [locale]);
 
