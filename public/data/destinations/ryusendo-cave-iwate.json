@@ -82,5 +82,7 @@
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["jodogahama-beach-iwate"]
   },
-  "budgetBreakdown": null
+  "budgetBreakdown": null,
+  "role": "standalone",
+  "placeType": "destination"
 }

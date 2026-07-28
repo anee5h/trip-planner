@@ -93,5 +93,7 @@
       "zao-fox-village-miyagi"
     ]
   },
-  "budgetBreakdown": null
+  "budgetBreakdown": null,
+  "role": "standalone",
+  "placeType": "destination"
 }

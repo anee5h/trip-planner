@@ -82,5 +82,7 @@
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["hiraizumi-chusonji-iwate"]
   },
-  "budgetBreakdown": null
+  "budgetBreakdown": null,
+  "role": "standalone",
+  "placeType": "destination"
 }

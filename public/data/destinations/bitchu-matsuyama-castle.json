@@ -80,7 +80,9 @@
   "indoorPercent": 20,
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "takahashi-city"
+  },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Bitchu_Matsuyama_Castle_1.JPG/1280px-Bitchu_Matsuyama_Castle_1.JPG",
   "budgetBreakdown": {
     "transport": 3000,

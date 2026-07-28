@@ -84,5 +84,7 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Tsunoshima_Bridge_panorama_%2832275932414%29.jpg/1920px-Tsunoshima_Bridge_panorama_%2832275932414%29.jpg",
   "walkingIntensity": "low",
   "walkingSunMin": 1800,
-  "walkingShadeMin": 1200
+  "walkingShadeMin": 1200,
+  "role": "standalone",
+  "placeType": "destination"
 }

@@ -90,5 +90,7 @@
   "parking": "Available on site",
   "restaurants": ["Matsushima Bay Dining Options"],
   "cafes": ["Matsushima Bay Rest Area Cafe"],
-  "walkingIntensity": "medium"
+  "walkingIntensity": "medium",
+  "role": "standalone",
+  "placeType": "destination"
 }

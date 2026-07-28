@@ -89,5 +89,7 @@
   "relationships": {},
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
-  "walkingIntensity": "medium"
+  "walkingIntensity": "medium",
+  "role": "standalone",
+  "placeType": "destination"
 }

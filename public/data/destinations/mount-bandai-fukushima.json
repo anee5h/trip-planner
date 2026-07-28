@@ -85,5 +85,7 @@
       "tsuruga-castle-fukushima"
     ]
   },
-  "budgetBreakdown": null
+  "budgetBreakdown": null,
+  "role": "standalone",
+  "placeType": "destination"
 }

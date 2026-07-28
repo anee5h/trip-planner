@@ -90,5 +90,7 @@
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["mount-bandai-fukushima", "abukuma-cave-fukushima"]
   },
-  "budgetBreakdown": null
+  "budgetBreakdown": null,
+  "role": "standalone",
+  "placeType": "destination"
 }

@@ -76,7 +76,9 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "hino-city"
+  },
   "kind": "zoo",
   "role": "poi",
   "bestSeason": "Spring & Autumn",

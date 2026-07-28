@@ -80,7 +80,9 @@
   "indoorPercent": 20,
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "hirosaki-city"
+  },
   "image": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg",
   "budgetBreakdown": {
     "transport": 3000,

@@ -83,5 +83,7 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Oirase-keiryu.jpg/1920px-Oirase-keiryu.jpg",
   "walkingIntensity": "low",
   "walkingSunMin": 1800,
-  "walkingShadeMin": 1200
+  "walkingShadeMin": 1200,
+  "role": "standalone",
+  "placeType": "destination"
 }

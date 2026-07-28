@@ -79,5 +79,7 @@
     "rainFriendly": 7,
     "walkingIntensity": 3
   },
-  "walkingIntensity": "low"
+  "walkingIntensity": "low",
+  "role": "standalone",
+  "placeType": "destination"
 }

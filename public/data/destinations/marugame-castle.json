@@ -75,7 +75,9 @@
   "indoorPercent": 20,
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "marugame-city"
+  },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/1280px-Marugame_Castle01.jpg",
   "budgetBreakdown": {
     "transport": 3000,

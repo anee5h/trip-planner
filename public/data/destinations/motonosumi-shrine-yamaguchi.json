@@ -80,5 +80,7 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/9/9b/%E5%85%83%E4%B9%83%E9%9A%85%E7%A8%B2%E6%88%90%E7%A5%9E%E7%A4%BE_Motonosumi-Inari-jinja_20090504.jpg",
   "walkingIntensity": "low",
   "walkingSunMin": 1800,
-  "walkingShadeMin": 1200
+  "walkingShadeMin": 1200,
+  "role": "standalone",
+  "placeType": "destination"
 }

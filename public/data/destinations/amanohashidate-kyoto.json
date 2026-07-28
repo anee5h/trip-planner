@@ -101,5 +101,7 @@
   "parking": "Available on site",
   "restaurants": ["Amanohashidate (Bridge to Heaven) Dining Options"],
   "cafes": ["Amanohashidate (Bridge to Heaven) Rest Area Cafe"],
-  "walkingIntensity": "medium"
+  "walkingIntensity": "medium",
+  "role": "standalone",
+  "placeType": "destination"
 }

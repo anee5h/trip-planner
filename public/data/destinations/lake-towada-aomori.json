@@ -82,5 +82,7 @@
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["oirase-gorge-aomori"]
   },
-  "budgetBreakdown": null
+  "budgetBreakdown": null,
+  "role": "standalone",
+  "placeType": "destination"
 }

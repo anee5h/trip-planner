@@ -85,5 +85,7 @@
       "lake-tazawa-akita"
     ]
   },
-  "budgetBreakdown": null
+  "budgetBreakdown": null,
+  "role": "standalone",
+  "placeType": "destination"
 }

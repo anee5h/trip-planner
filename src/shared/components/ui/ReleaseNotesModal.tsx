@@ -8,8 +8,19 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.8.1",
+    version: "v1.8.2",
     tag: "Current",
+    date: "July 2026",
+    title: "Complete Hub Coverage & Japanese Wikipedia",
+    highlights: [
+      "Added 18 reviewed municipal hubs, including Fukushima, Koriyama, and Iwakuni, and linked their in-city destinations",
+      "Classified every record as a hub, verified child, or deliberate regional standalone root so no destination is unclassified",
+      "Ran the data pipeline and synchronized all 345 public destination detail files with complete images and coordinates",
+      "Japanese locale now retrieves Japanese Wikipedia summaries; pilot source links are also Japanese Wikipedia pages",
+    ],
+  },
+  {
+    version: "v1.8.1",
     date: "July 2026",
     title: "Verified City Hubs & Stronger Japanese Pilot",
     highlights: [

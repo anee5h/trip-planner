@@ -82,5 +82,7 @@
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["ginzan-onsen-yamagata", "mount-zao-yamagata"]
   },
-  "budgetBreakdown": null
+  "budgetBreakdown": null,
+  "role": "standalone",
+  "placeType": "destination"
 }

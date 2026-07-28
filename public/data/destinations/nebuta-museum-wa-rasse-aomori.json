@@ -80,7 +80,8 @@
   "status": "beta",
   "relationships": {
     "featuredDestinationIds": [],
-    "nearbyDestinationIds": ["hirosaki-castle", "oirase-gorge-aomori"]
+    "nearbyDestinationIds": ["hirosaki-castle", "oirase-gorge-aomori"],
+    "parentDestinationId": "aomori-city"
   },
   "budgetBreakdown": null
 }

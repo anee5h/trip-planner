@@ -102,5 +102,7 @@
   "parking": "Available on site",
   "restaurants": ["Ise Grand Shrine (Ise Jingu) Dining Options"],
   "cafes": ["Ise Grand Shrine (Ise Jingu) Rest Area Cafe"],
-  "walkingIntensity": "medium"
+  "walkingIntensity": "medium",
+  "role": "standalone",
+  "placeType": "destination"
 }

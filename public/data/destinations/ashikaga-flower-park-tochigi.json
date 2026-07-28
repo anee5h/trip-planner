@@ -78,7 +78,8 @@
   "status": "beta",
   "relationships": {
     "featuredDestinationIds": [],
-    "nearbyDestinationIds": []
+    "nearbyDestinationIds": [],
+    "parentDestinationId": "ashikaga-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg/1920px-Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg",
   "walkingIntensity": "low",

@@ -75,7 +75,8 @@
   "status": "beta",
   "relationships": {
     "featuredDestinationIds": [],
-    "nearbyDestinationIds": []
+    "nearbyDestinationIds": [],
+    "parentDestinationId": "asago-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/2/26/%E7%AB%B9%E7%94%B0%E5%9F%8E.JPG",
   "walkingIntensity": "low",

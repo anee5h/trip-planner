@@ -82,5 +82,7 @@
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["sendai-city", "mount-zao-yamagata"]
   },
-  "budgetBreakdown": null
+  "budgetBreakdown": null,
+  "role": "standalone",
+  "placeType": "destination"
 }

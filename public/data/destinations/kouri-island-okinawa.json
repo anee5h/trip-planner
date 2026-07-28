@@ -87,5 +87,7 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Heart-shaped_rocks_at_Kouri_Island_202006.jpg/1920px-Heart-shaped_rocks_at_Kouri_Island_202006.jpg",
   "walkingIntensity": "low",
   "walkingSunMin": 1800,
-  "walkingShadeMin": 1200
+  "walkingShadeMin": 1200,
+  "role": "standalone",
+  "placeType": "destination"
 }

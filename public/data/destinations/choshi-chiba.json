@@ -72,7 +72,9 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "choshi-city"
+  },
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,

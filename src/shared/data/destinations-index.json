@@ -268,7 +268,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/1/14/Flowstones_and_Mushroom_Rocks_inside_Abukuma-do_Cave.JPG",
     "walkingIntensity": "low",
     "walkingSunMin": 1800,
-    "walkingShadeMin": 1200
+    "walkingShadeMin": 1200,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "adachi-city",
@@ -356,6 +358,92 @@
       "cafe": 3117
     },
     "walkingIntensity": "low"
+  },
+  {
+    "id": "aizuwakamatsu-city",
+    "name": "Aizuwakamatsu",
+    "nameJa": "会津若松",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 37.494,
+      "lng": 139.929
+    },
+    "wikipediaTitle": "Aizuwakamatsu",
+    "description": "A historic castle city in western Fukushima, known for Tsuruga Castle, samurai heritage, and Aizu craft traditions.",
+    "highlights": ["Tsuruga Castle", "Samurai history", "Aizu lacquerware"],
+    "tags": ["Castle", "History", "Culture"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Aizuwakamatsu_Castle_ac_%281%29.jpg/1920px-Aizuwakamatsu_Castle_ac_%281%29.jpg",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
   },
   {
     "id": "akasaka-minato",
@@ -685,7 +773,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": []
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "mine-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Akiyoshidai-Syuhodou.jpg",
     "walkingIntensity": "low",
@@ -792,7 +881,9 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "amanohashidate-kyoto",
@@ -897,7 +988,100 @@
     "parking": "Available on site",
     "restaurants": ["Amanohashidate (Bridge to Heaven) Dining Options"],
     "cafes": ["Amanohashidate (Bridge to Heaven) Rest Area Cafe"],
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "role": "standalone",
+    "placeType": "destination"
+  },
+  {
+    "id": "aomori-city",
+    "name": "Aomori",
+    "nameJa": "青森",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 40.822,
+      "lng": 140.747
+    },
+    "wikipediaTitle": "Aomori",
+    "imageFromDestinationId": "nebuta-museum-wa-rasse-aomori",
+    "description": "A northern port city and the home of the Aomori Nebuta Festival, with important Jomon archaeological sites nearby.",
+    "highlights": [
+      "Nebuta Festival",
+      "Nebuta Museum WA RASSE",
+      "Sannai-Maruyama"
+    ],
+    "tags": ["Culture", "Museums", "Festivals"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/86/Nebuta_Museum_Wa_Rasse_exterior.jpg",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
   },
   {
     "id": "arakawa-city",
@@ -1066,7 +1250,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": []
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "fujiyoshida-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Chuurei-tou_Fujiyoshida_17025277650_c59733d6ba_o.jpg/1920px-Chuurei-tou_Fujiyoshida_17025277650_c59733d6ba_o.jpg",
     "walkingIntensity": "low",
@@ -1268,6 +1453,96 @@
       "parentDestinationId": "mito-city"
     },
     "walkingIntensity": "low"
+  },
+  {
+    "id": "asago-city",
+    "name": "Asago",
+    "nameJa": "朝来",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "coordinates": {
+      "lat": 35.34,
+      "lng": 134.85
+    },
+    "wikipediaTitle": "Asago,_Hyōgo",
+    "description": "A rural Hyogo city known for the Takeda Castle Ruins, often seen above a sea of clouds in autumn.",
+    "highlights": [
+      "Takeda Castle Ruins",
+      "Sea of clouds",
+      "Historic landscape"
+    ],
+    "tags": ["Castle", "Photography", "History"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/26/%E7%AB%B9%E7%94%B0%E5%9F%8E.JPG",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
   },
   {
     "id": "asahikawa-city",
@@ -1529,7 +1804,95 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
+  },
+  {
+    "id": "ashikaga-city",
+    "name": "Ashikaga",
+    "nameJa": "足利",
+    "prefecture": "Tochigi",
+    "region": "Kanto",
+    "coordinates": {
+      "lat": 36.341,
+      "lng": 139.449
+    },
+    "wikipediaTitle": "Ashikaga,_Tochigi",
+    "description": "A historic Tochigi city with the Ashikaga School and Ashikaga Flower Park, famous for seasonal wisteria.",
+    "highlights": ["Ashikaga Flower Park", "Ashikaga School", "Wisteria"],
+    "tags": ["Gardens", "History", "Flowers"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg/1920px-Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
   },
   {
     "id": "ashikaga-flower-park-tochigi",
@@ -1611,7 +1974,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": []
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "ashikaga-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg/1920px-Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg",
     "walkingIntensity": "low",
@@ -1800,7 +2164,9 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "atami-city",
@@ -2323,7 +2689,9 @@
     "indoorPercent": 20,
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "takahashi-city"
+    },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Bitchu_Matsuyama_Castle_1.JPG/1280px-Bitchu_Matsuyama_Castle_1.JPG",
     "budgetBreakdown": {
       "transport": 3000,
@@ -2439,7 +2807,9 @@
     "relationships": {},
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "bunkyo-city",
@@ -2732,7 +3102,9 @@
       }
     ],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "chiba-port-tower",
@@ -2910,7 +3282,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "katori-city"
+    },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Inou-tadataka-house%2Ckatori-city%2Cjapan.JPG/330px-Inou-tadataka-house%2Ckatori-city%2Cjapan.JPG",
     "walkingIntensity": "low"
   },
@@ -2995,7 +3369,9 @@
     "collections": [],
     "relationships": {},
     "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "chichibu-city",
@@ -3345,7 +3721,9 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "choshi-chiba",
@@ -3421,7 +3799,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "choshi-city"
+    },
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -3434,6 +3814,92 @@
       "walkingIntensity": 3
     },
     "walkingIntensity": "low"
+  },
+  {
+    "id": "choshi-city",
+    "name": "Choshi",
+    "nameJa": "銚子",
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "coordinates": {
+      "lat": 35.734,
+      "lng": 140.826
+    },
+    "wikipediaTitle": "Chōshi,_Chiba",
+    "description": "An eastern Chiba fishing city on the Pacific, known for coastal scenery, seafood, and the Choshi Electric Railway.",
+    "highlights": ["Inubohsaki", "Coastal scenery", "Choshi Electric Railway"],
+    "tags": ["Coast", "Food", "Scenic Rail"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Choshi_Montage_2.jpg",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
   },
   {
     "id": "chuo-city",
@@ -3612,7 +4078,9 @@
         "lake-tazawa-akita"
       ]
     },
-    "budgetBreakdown": null
+    "budgetBreakdown": null,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "dazaifu-city",
@@ -3785,7 +4253,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Torii_in_the_mist_v1.JPG/1920px-Torii_in_the_mist_v1.JPG",
     "walkingIntensity": "low",
     "walkingSunMin": 1800,
-    "walkingShadeMin": 1200
+    "walkingShadeMin": 1200,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "disneyland",
@@ -4326,7 +4796,9 @@
     "relationships": {},
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "fuji-5-lake",
@@ -4423,7 +4895,9 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "fujikawaguchiko-town",
@@ -4685,6 +5159,97 @@
     "walkingIntensity": "low"
   },
   {
+    "id": "fujiyoshida-city",
+    "name": "Fujiyoshida",
+    "nameJa": "富士吉田",
+    "prefecture": "Yamanashi",
+    "region": "Chubu",
+    "coordinates": {
+      "lat": 35.487,
+      "lng": 138.807
+    },
+    "wikipediaTitle": "Fujiyoshida",
+    "imageFromDestinationId": "arakurayama-sengen-park-yamanashi",
+    "description": "A Fuji foothill city with classic views of Mount Fuji, including the Chureito Pagoda at Arakurayama Sengen Park.",
+    "highlights": [
+      "Arakurayama Sengen Park",
+      "Chureito Pagoda",
+      "Mount Fuji views"
+    ],
+    "tags": ["Nature", "Photography", "Culture"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Chuurei-tou_Fujiyoshida_17025277650_c59733d6ba_o.jpg/1920px-Chuurei-tou_Fujiyoshida_17025277650_c59733d6ba_o.jpg",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
+  },
+  {
     "id": "fukui",
     "name": "Fukui",
     "region": "Chubu",
@@ -4769,7 +5334,9 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "fukuoka-city",
@@ -4862,6 +5429,93 @@
       "cafe": 3117
     },
     "walkingIntensity": "low"
+  },
+  {
+    "id": "fukushima-city",
+    "name": "Fukushima",
+    "nameJa": "福島",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 37.76,
+      "lng": 140.474
+    },
+    "wikipediaTitle": "福島市",
+    "wikipediaLanguage": "ja",
+    "description": "The capital of Fukushima Prefecture, set in a basin between mountain ranges and known for fruit growing and onsen districts.",
+    "highlights": ["Fruit orchards", "Iizaka Onsen", "Azuma Mountains"],
+    "tags": ["City", "Onsen", "Nature"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/34/Fukushima_Montage.jpg",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
   },
   {
     "id": "funabashi-city",
@@ -5125,7 +5779,9 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "geibikei-gorge-iwate",
@@ -5211,7 +5867,9 @@
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["hiraizumi-chusonji-iwate"]
     },
-    "budgetBreakdown": null
+    "budgetBreakdown": null,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "gero-city",
@@ -5489,7 +6147,9 @@
     "relationships": {},
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "gifu-castle-gifu",
@@ -5775,7 +6435,9 @@
       }
     ],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "gifu-magome-juku",
@@ -5870,7 +6532,9 @@
       }
     ],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "ginza-urban",
@@ -6044,7 +6708,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/%E9%8A%80%E5%B1%B1%E6%B8%A9%E6%B3%89_Ginzan_Onsen_%287809473788%29.jpg/1920px-%E9%8A%80%E5%B1%B1%E6%B8%A9%E6%B3%89_Ginzan_Onsen_%287809473788%29.jpg",
     "walkingIntensity": "low",
     "walkingSunMin": 1800,
-    "walkingShadeMin": 1200
+    "walkingShadeMin": 1200,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "goshikinuma-ponds-fukushima",
@@ -6141,7 +6807,9 @@
         "abukuma-cave-fukushima"
       ]
     },
-    "budgetBreakdown": null
+    "budgetBreakdown": null,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "gotemba-city",
@@ -6426,7 +7094,9 @@
     ],
     "relationships": {},
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ikaho_Onsen_03.jpg/250px-Ikaho_Onsen_03.jpg",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "gunma-kusatsu-onsen",
@@ -6522,7 +7192,9 @@
       }
     ],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "gunma-shima-onsen",
@@ -6611,7 +7283,9 @@
     },
     "collections": [],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "hachioji-castle-tokyo",
@@ -8018,6 +8692,93 @@
     "walkingIntensity": "low"
   },
   {
+    "id": "hino-city",
+    "name": "Hino",
+    "nameJa": "日野",
+    "prefecture": "Tokyo",
+    "region": "Kanto",
+    "coordinates": {
+      "lat": 35.671,
+      "lng": 139.395
+    },
+    "wikipediaTitle": "Hino,_Tokyo",
+    "imageFromDestinationId": "tama-zoological-park",
+    "description": "A Tama-area city west of central Tokyo, home to Tama Zoological Park and the Tama Hills landscape.",
+    "highlights": ["Tama Zoological Park", "Tama Hills", "Shinsengumi history"],
+    "tags": ["Family", "Nature", "History"],
+    "heroImage": "https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
+  },
+  {
     "id": "hiraizumi-chusonji-iwate",
     "name": "Hiraizumi – Temples, Gardens and Archaeological Sites",
     "prefecture": "Iwate",
@@ -8117,7 +8878,9 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "hirosaki-castle",
@@ -8201,7 +8964,9 @@
     "indoorPercent": 20,
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "hirosaki-city"
+    },
     "image": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg",
     "budgetBreakdown": {
       "transport": 3000,
@@ -8222,6 +8987,92 @@
     "restaurants": ["Hirosaki Castle Dining Options"],
     "cafes": ["Hirosaki Castle Rest Area Cafe"],
     "walkingIntensity": "medium"
+  },
+  {
+    "id": "hirosaki-city",
+    "name": "Hirosaki",
+    "nameJa": "弘前",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 40.603,
+      "lng": 140.464
+    },
+    "wikipediaTitle": "Hirosaki",
+    "description": "A former castle town best known for Hirosaki Castle and one of Japan's most celebrated cherry-blossom festivals.",
+    "highlights": ["Hirosaki Castle", "Hirosaki Park", "Apple culture"],
+    "tags": ["Castle", "Cherry Blossoms", "History"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
   },
   {
     "id": "hiroshima-city",
@@ -8612,7 +9463,9 @@
       }
     ],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "ibaraki-hitachi-seaside-park",
@@ -8706,7 +9559,9 @@
       }
     ],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "ibaraki-mount-tsukuba",
@@ -8795,7 +9650,9 @@
     },
     "collections": [],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "ikaruga-town",
@@ -9238,6 +10095,92 @@
     "walkingIntensity": "low"
   },
   {
+    "id": "ise-city",
+    "name": "Ise",
+    "nameJa": "伊勢",
+    "prefecture": "Mie",
+    "region": "Kansai",
+    "coordinates": {
+      "lat": 34.49,
+      "lng": 136.709
+    },
+    "wikipediaTitle": "Ise,_Mie",
+    "description": "A shrine city in Mie Prefecture and the location of Ise Jingu, Japan's most important Shinto shrine complex.",
+    "highlights": ["Ise Jingu", "Okage Yokocho", "Shinto culture"],
+    "tags": ["Shrines", "Culture", "History"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Naiku_04.jpg",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
+  },
+  {
     "id": "ise-grand-shrine",
     "name": "Ise Grand Shrine (Ise Jingu)",
     "nameJa": "伊勢神宮",
@@ -9345,7 +10288,9 @@
     "parking": "Available on site",
     "restaurants": ["Ise Grand Shrine (Ise Jingu) Dining Options"],
     "cafes": ["Ise Grand Shrine (Ise Jingu) Rest Area Cafe"],
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "ishigaki-city",
@@ -9608,6 +10553,93 @@
     "walkingIntensity": "low"
   },
   {
+    "id": "iwakuni-city",
+    "name": "Iwakuni",
+    "nameJa": "岩国",
+    "prefecture": "Yamaguchi",
+    "region": "Chugoku",
+    "coordinates": {
+      "lat": 34.166,
+      "lng": 132.219
+    },
+    "wikipediaTitle": "Iwakuni",
+    "imageFromDestinationId": "kintai-bridge-yamaguchi",
+    "description": "A Yamaguchi city on the Nishiki River, best known for Kintai Bridge and Iwakuni Castle.",
+    "highlights": ["Kintai Bridge", "Iwakuni Castle", "Nishiki River"],
+    "tags": ["Bridge", "Castle", "History"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Iwakuni%2C_ponte_kintai-kyo%2C_03%2C0.jpg/1920px-Iwakuni%2C_ponte_kintai-kyo%2C_03%2C0.jpg",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
+  },
+  {
     "id": "iwami-ginzan-shimane",
     "name": "Iwami Ginzan Silver Mine and its Cultural Landscape",
     "prefecture": "Shimane",
@@ -9703,7 +10735,9 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "iya-valley-tokushima",
@@ -9790,7 +10824,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/ja/thumb/4/42/Tokushima_Miyoshi_Okuiya_Double_Kazurabashi_5.JPG/1920px-Tokushima_Miyoshi_Okuiya_Double_Kazurabashi_5.JPG",
     "walkingIntensity": "low",
     "walkingSunMin": 1800,
-    "walkingShadeMin": 1200
+    "walkingShadeMin": 1200,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "izu",
@@ -9886,7 +10922,9 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "izumo-city",
@@ -10074,7 +11112,9 @@
     "parking": "Available on site",
     "restaurants": ["Izumo Taisha Grand Shrine Dining Options"],
     "cafes": ["Izumo Taisha Grand Shrine Rest Area Cafe"],
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "jodogahama-beach-iwate",
@@ -10160,7 +11200,9 @@
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["ryusendo-cave-iwate"]
     },
-    "budgetBreakdown": null
+    "budgetBreakdown": null,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "jogashima",
@@ -10251,7 +11293,9 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "joypolis",
@@ -10623,7 +11667,9 @@
       }
     ],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "kakunodate-samurai-district-akita",
@@ -10705,7 +11751,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": []
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "semboku-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Bukeyashiki_Street_in_Kakunodate_20060506.jpg/1920px-Bukeyashiki_Street_in_Kakunodate_20060506.jpg",
     "walkingIntensity": "low",
@@ -10909,7 +11956,9 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "kanazawa-castle-ishikawa",
@@ -11008,7 +12057,9 @@
       }
     ],
     "relationships": {},
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "karuizawa-town",
@@ -11100,6 +12151,92 @@
       "cafe": 3117
     },
     "walkingIntensity": "low"
+  },
+  {
+    "id": "katori-city",
+    "name": "Katori",
+    "nameJa": "香取",
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "coordinates": {
+      "lat": 35.897,
+      "lng": 140.499
+    },
+    "wikipediaTitle": "Katori,_Chiba",
+    "description": "A historic Chiba city containing the preserved canal town of Sawara and Katori Jingu shrine.",
+    "highlights": ["Sawara historic town", "Katori Jingu", "Canal district"],
+    "tags": ["History", "Shrines", "Culture"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Inou-tadataka-house%2Ckatori-city%2Cjapan.JPG/330px-Inou-tadataka-house%2Ckatori-city%2Cjapan.JPG",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
   },
   {
     "id": "katsushika-city",
@@ -11279,7 +12416,9 @@
       }
     ],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "kawagoe-city",
@@ -11728,7 +12867,9 @@
     "indoorPercent": 20,
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "toyooka-city"
+    },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Kinosaki_Onsen_by_day.jpg/3840px-Kinosaki_Onsen_by_day.jpg",
     "budgetBreakdown": {
       "transport": 3000,
@@ -11830,7 +12971,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": []
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "iwakuni-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Iwakuni%2C_ponte_kintai-kyo%2C_03%2C0.jpg/1920px-Iwakuni%2C_ponte_kintai-kyo%2C_03%2C0.jpg",
     "walkingIntensity": "low",
@@ -11938,7 +13080,9 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "kisarazu-city",
@@ -12122,7 +13266,9 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "kita-city",
@@ -12387,7 +13533,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Jujikyo_in_Kurobe_Gorge.jpg/1920px-Jujikyo_in_Kurobe_Gorge.jpg",
     "walkingIntensity": "low",
     "walkingSunMin": 1800,
-    "walkingShadeMin": 1200
+    "walkingShadeMin": 1200,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "kobe-city",
@@ -12958,6 +14106,93 @@
     "walkingIntensity": "medium"
   },
   {
+    "id": "koriyama-city",
+    "name": "Koriyama",
+    "nameJa": "郡山",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 37.4,
+      "lng": 140.36
+    },
+    "wikipediaTitle": "郡山市",
+    "wikipediaLanguage": "ja",
+    "description": "A central Fukushima transport and commercial hub with access to Lake Inawashiro and the Bandai area.",
+    "highlights": ["Asaka Canal", "Lake Inawashiro access", "Bandai gateway"],
+    "tags": ["City", "Transport", "Nature"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/42/Koriyama_Montage.jpg",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
+  },
+  {
     "id": "koto-city",
     "name": "Koto City",
     "kind": "ward",
@@ -13133,7 +14368,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Heart-shaped_rocks_at_Kouri_Island_202006.jpg/1920px-Heart-shaped_rocks_at_Kouri_Island_202006.jpg",
     "walkingIntensity": "low",
     "walkingSunMin": 1800,
-    "walkingShadeMin": 1200
+    "walkingShadeMin": 1200,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "koya-town",
@@ -13509,7 +14746,9 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "kurashiki-city",
@@ -13697,7 +14936,9 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "kusatsu-town",
@@ -14168,7 +15409,9 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "lake-sagami",
@@ -14264,7 +15507,9 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "lake-tazawa-akita",
@@ -14351,7 +15596,8 @@
       "nearbyDestinationIds": [
         "nyuto-onsen-akita",
         "kakunodate-samurai-district-akita"
-      ]
+      ],
+      "parentDestinationId": "semboku-city"
     },
     "budgetBreakdown": null
   },
@@ -14439,7 +15685,9 @@
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["oirase-gorge-aomori"]
     },
-    "budgetBreakdown": null
+    "budgetBreakdown": null,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "machida-tokyo",
@@ -14522,7 +15770,9 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "marugame-castle",
@@ -14601,7 +15851,9 @@
     "indoorPercent": 20,
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "marugame-city"
+    },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/1280px-Marugame_Castle01.jpg",
     "budgetBreakdown": {
       "transport": 3000,
@@ -14622,6 +15874,92 @@
     "restaurants": ["Marugame Castle Dining Options"],
     "cafes": ["Marugame Castle Rest Area Cafe"],
     "walkingIntensity": "medium"
+  },
+  {
+    "id": "marugame-city",
+    "name": "Marugame",
+    "nameJa": "丸亀",
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 34.289,
+      "lng": 133.797
+    },
+    "wikipediaTitle": "Marugame,_Kagawa",
+    "description": "A Setouchi city centered on Marugame Castle, one of Japan's twelve surviving original castle keeps.",
+    "highlights": ["Marugame Castle", "Stone walls", "Sanuki udon"],
+    "tags": ["Castle", "History", "Food"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/1280px-Marugame_Castle01.jpg",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
   },
   {
     "id": "maruoka-castle-fukui",
@@ -14725,7 +16063,9 @@
       }
     ],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "matsudo-city",
@@ -15273,7 +16613,9 @@
     "parking": "Available on site",
     "restaurants": ["Matsushima Bay Dining Options"],
     "cafes": ["Matsushima Bay Rest Area Cafe"],
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "matsuyama-castle-ehime",
@@ -15721,6 +17063,92 @@
       "cafe": 3117
     },
     "walkingIntensity": "low"
+  },
+  {
+    "id": "mine-city",
+    "name": "Mine",
+    "nameJa": "美祢",
+    "prefecture": "Yamaguchi",
+    "region": "Chugoku",
+    "coordinates": {
+      "lat": 34.166,
+      "lng": 131.206
+    },
+    "wikipediaTitle": "Mine,_Yamaguchi",
+    "description": "A Yamaguchi city containing the Akiyoshidai karst plateau and Akiyoshido Cave.",
+    "highlights": ["Akiyoshido Cave", "Akiyoshidai", "Karst landscape"],
+    "tags": ["Caves", "Nature", "Geology"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Akiyoshidai-Syuhodou.jpg",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
   },
   {
     "id": "mirai-tower-nagoya",
@@ -16458,7 +17886,9 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "motobu-town",
@@ -16624,7 +18054,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/9/9b/%E5%85%83%E4%B9%83%E9%9A%85%E7%A8%B2%E6%88%90%E7%A5%9E%E7%A4%BE_Motonosumi-Inari-jinja_20090504.jpg",
     "walkingIntensity": "low",
     "walkingSunMin": 1800,
-    "walkingShadeMin": 1200
+    "walkingShadeMin": 1200,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "mount-aso-kumamoto",
@@ -16711,7 +18143,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/20140516%E9%98%BF%E8%98%87%E5%B1%B1%E5%BA%83%E5%9F%9F.jpg/1920px-20140516%E9%98%BF%E8%98%87%E5%B1%B1%E5%BA%83%E5%9F%9F.jpg",
     "walkingIntensity": "low",
     "walkingSunMin": 1800,
-    "walkingShadeMin": 1200
+    "walkingShadeMin": 1200,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "mount-bandai-fukushima",
@@ -16800,7 +18234,9 @@
         "tsuruga-castle-fukushima"
       ]
     },
-    "budgetBreakdown": null
+    "budgetBreakdown": null,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "mount-fuji",
@@ -16904,7 +18340,9 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "mount-inasa-nagasaki",
@@ -17108,7 +18546,9 @@
     "parking": "Available on site",
     "restaurants": ["Mount Yoshino (Yoshinoyama) Dining Options"],
     "cafes": ["Mount Yoshino (Yoshinoyama) Rest Area Cafe"],
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "mount-zao-yamagata",
@@ -17205,7 +18645,9 @@
         "zao-fox-village-miyagi"
       ]
     },
-    "budgetBreakdown": null
+    "budgetBreakdown": null,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "mozufuruichi-kofun-osaka",
@@ -17303,7 +18745,9 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "nachi-falls-wakayama",
@@ -17405,7 +18849,9 @@
     "parking": "Available on site",
     "restaurants": ["Nachi Falls & Pagoda Dining Options"],
     "cafes": ["Nachi Falls & Pagoda Rest Area Cafe"],
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "nagano-bessho-onsen",
@@ -17488,7 +18934,9 @@
     "collections": [],
     "relationships": {},
     "image": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1000",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "nagano-city",
@@ -17684,7 +19132,9 @@
     },
     "collections": [],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "nagano-narai-juku",
@@ -17779,7 +19229,9 @@
       }
     ],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "nagano-suwa",
@@ -17868,7 +19320,9 @@
     },
     "collections": [],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "nagano-tsumago-juku",
@@ -17963,7 +19417,9 @@
       }
     ],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "nagasaki-city",
@@ -18672,7 +20128,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/3/39/%E5%AE%AE%E3%83%8E%E6%B5%A6%E6%B8%AF_-_panoramio_-_kajikawa_%281%29.jpg",
     "walkingIntensity": "low",
     "walkingSunMin": 1800,
-    "walkingShadeMin": 1200
+    "walkingShadeMin": 1200,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "nara-city",
@@ -19316,7 +20774,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": ["hirosaki-castle", "oirase-gorge-aomori"]
+      "nearbyDestinationIds": ["hirosaki-castle", "oirase-gorge-aomori"],
+      "parentDestinationId": "aomori-city"
     },
     "budgetBreakdown": null
   },
@@ -19975,7 +21434,9 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "numazu-city",
@@ -20151,7 +21612,9 @@
         "kakunodate-samurai-district-akita"
       ]
     },
-    "budgetBreakdown": null
+    "budgetBreakdown": null,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "oarai-marine-tower",
@@ -20245,7 +21708,9 @@
     },
     "collections": [],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "odaiba-minato",
@@ -20511,7 +21976,9 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "oirase-gorge-aomori",
@@ -20598,7 +22065,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Oirase-keiryu.jpg/1920px-Oirase-keiryu.jpg",
     "walkingIntensity": "low",
     "walkingSunMin": 1800,
-    "walkingShadeMin": 1200
+    "walkingShadeMin": 1200,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "okama-crater-yamagata",
@@ -20684,7 +22153,9 @@
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["mount-zao-yamagata"]
     },
-    "budgetBreakdown": null
+    "budgetBreakdown": null,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "okayama-city",
@@ -20956,7 +22427,9 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "okuhida",
@@ -21047,7 +22520,9 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "ome-tokyo",
@@ -21129,7 +22604,9 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "omiya-railway",
@@ -21214,7 +22691,9 @@
     "relationships": {},
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "onomichi-city",
@@ -21843,7 +23322,9 @@
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["tsuruga-castle-fukushima"]
     },
-    "budgetBreakdown": null
+    "budgetBreakdown": null,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "oura-church-nagasaki",
@@ -21941,7 +23422,9 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "oze-national-park",
@@ -22038,7 +23521,9 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "roppongi-hills-tokyo-city-view",
@@ -22223,7 +23708,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Kami_Kochi_Ryugado_East_Entrance_1.jpg/1920px-Kami_Kochi_Ryugado_East_Entrance_1.jpg",
     "walkingIntensity": "low",
     "walkingSunMin": 1800,
-    "walkingShadeMin": 1200
+    "walkingShadeMin": 1200,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "ryusendo-cave-iwate",
@@ -22309,7 +23796,9 @@
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["jodogahama-beach-iwate"]
     },
-    "budgetBreakdown": null
+    "budgetBreakdown": null,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "sado-island",
@@ -22421,7 +23910,9 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "sagamihara-city",
@@ -22703,7 +24194,9 @@
     },
     "collections": [],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "sakai-city",
@@ -22889,7 +24382,9 @@
       }
     ],
     "relationships": {},
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "sakurajima-volcano-kagoshima",
@@ -22976,7 +24471,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Sakurajima55.jpg/1920px-Sakurajima55.jpg",
     "walkingIntensity": "low",
     "walkingSunMin": 1800,
-    "walkingShadeMin": 1200
+    "walkingShadeMin": 1200,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "sannai-maruyama-jomon-aomori",
@@ -23061,7 +24558,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "aomori-city"
+    },
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -23162,6 +24661,92 @@
       "cafe": 3117
     },
     "walkingIntensity": "low"
+  },
+  {
+    "id": "semboku-city",
+    "name": "Semboku",
+    "nameJa": "仙北",
+    "prefecture": "Akita",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 39.7,
+      "lng": 140.73
+    },
+    "wikipediaTitle": "Semboku,_Akita",
+    "description": "A large inland city in Akita containing Kakunodate's samurai district and Lake Tazawa.",
+    "highlights": ["Kakunodate", "Lake Tazawa", "Samurai district"],
+    "tags": ["History", "Nature", "Culture"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Bukeyashiki_Street_in_Kakunodate_20060506.jpg/1920px-Bukeyashiki_Street_in_Kakunodate_20060506.jpg",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
   },
   {
     "id": "sendai-castle-ruins-miyagi",
@@ -24049,7 +25634,9 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "shirakawa-village",
@@ -24242,7 +25829,9 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "shizuoka-city",
@@ -24964,6 +26553,92 @@
     "walkingIntensity": "low"
   },
   {
+    "id": "takahashi-city",
+    "name": "Takahashi",
+    "nameJa": "高梁",
+    "prefecture": "Okayama",
+    "region": "Chugoku",
+    "coordinates": {
+      "lat": 34.792,
+      "lng": 133.617
+    },
+    "wikipediaTitle": "Takahashi,_Okayama",
+    "description": "An Okayama castle town with Bitchu Matsuyama Castle, Japan's only surviving mountain-top castle keep.",
+    "highlights": ["Bitchu Matsuyama Castle", "Castle town", "Mountain views"],
+    "tags": ["Castle", "History", "Nature"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Bitchu_Matsuyama_Castle_1.JPG/1280px-Bitchu_Matsuyama_Castle_1.JPG",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
+  },
+  {
     "id": "takamatsu-city",
     "name": "Takamatsu City",
     "kind": "city",
@@ -25235,7 +26910,9 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "takato-castle-nagano",
@@ -25339,7 +27016,9 @@
       }
     ],
     "relationships": {},
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "takayama-city",
@@ -25511,7 +27190,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": []
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "asago-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/2/26/%E7%AB%B9%E7%94%B0%E5%9F%8E.JPG",
     "walkingIntensity": "low",
@@ -25615,7 +27295,9 @@
       }
     ],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "tama-zoological-park",
@@ -25695,7 +27377,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "hino-city"
+    },
     "kind": "zoo",
     "role": "poi",
     "bestSeason": "Spring & Autumn",
@@ -25966,7 +27650,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Teshima_Art_Museum_exterior_view_201310.jpg/1920px-Teshima_Art_Museum_exterior_view_201310.jpg",
     "walkingIntensity": "low",
     "walkingSunMin": 1800,
-    "walkingShadeMin": 1200
+    "walkingShadeMin": 1200,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "tojinbo-cliffs-fukui",
@@ -26053,7 +27739,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Japan_Tojinbo02n4592.jpg/1920px-Japan_Tojinbo02n4592.jpg",
     "walkingIntensity": "low",
     "walkingSunMin": 1800,
-    "walkingShadeMin": 1200
+    "walkingShadeMin": 1200,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "toki-messe-tower-niigata",
@@ -26411,7 +28099,9 @@
     },
     "collections": [],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "tokyo-metropolitan-government-building-shinjuku",
@@ -26595,7 +28285,9 @@
     },
     "collections": [],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "tokyo-okutama",
@@ -26689,7 +28381,9 @@
       }
     ],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "tokyo-skytree-sumida",
@@ -27081,7 +28775,9 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "toshima-city",
@@ -27338,7 +29034,9 @@
     "image": "https://images.unsplash.com/photo-1693188074158-00e5edb3d0ac?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "walkingIntensity": "low",
     "walkingSunMin": 1800,
-    "walkingShadeMin": 1200
+    "walkingShadeMin": 1200,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "toyama-alpine",
@@ -27435,7 +29133,96 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
+  },
+  {
+    "id": "toyooka-city",
+    "name": "Toyooka",
+    "nameJa": "豊岡",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "coordinates": {
+      "lat": 35.544,
+      "lng": 134.82
+    },
+    "wikipediaTitle": "Toyooka,_Hyōgo",
+    "imageFromDestinationId": "kinosaki-onsen",
+    "description": "A northern Hyogo city known for Kinosaki Onsen, the San'in coast, and the reintroduction of Oriental storks.",
+    "highlights": ["Kinosaki Onsen", "Oriental stork habitat", "San'in coast"],
+    "tags": ["Onsen", "Nature", "Culture"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Kinosaki_Onsen_by_day.jpg/3840px-Kinosaki_Onsen_by_day.jpg",
+    "role": "hub",
+    "placeType": "hub",
+    "kind": "city",
+    "importance": "notable",
+    "categories": ["City", "Culture", "Food"],
+    "budgetMin": 7000,
+    "budgetMax": 14000,
+    "budgetRecommended": 10500,
+    "budgetBreakdown": {
+      "transport": 3000,
+      "tickets": 1500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "transportOptions": {
+      "train": 120,
+      "car": 120,
+      "shinkansen": 120,
+      "bus": 150
+    },
+    "totalTripHours": 8,
+    "walkingMin": 70,
+    "walkingSunMin": 35,
+    "walkingShadeMin": 35,
+    "walkingIntensity": "medium",
+    "indoorPercent": 35,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.5,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 5.5,
+      "food": 7.5,
+      "photography": 7.8,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.6
+    },
+    "crowd": {
+      "weekday": 2,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Available around major attractions; confirm local restrictions.",
+    "restaurants": [],
+    "cafes": [],
+    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "relationships": {
+      "featuredDestinationIds": []
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": []
   },
   {
     "id": "toyota-city",
@@ -27687,7 +29474,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Tsunoshima_Bridge_panorama_%2832275932414%29.jpg/1920px-Tsunoshima_Bridge_panorama_%2832275932414%29.jpg",
     "walkingIntensity": "low",
     "walkingSunMin": 1800,
-    "walkingShadeMin": 1200
+    "walkingShadeMin": 1200,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "tsuruga-castle-fukushima",
@@ -27774,7 +29563,8 @@
       "nearbyDestinationIds": [
         "ouchi-juku-fukushima",
         "goshikinuma-ponds-fukushima"
-      ]
+      ],
+      "parentDestinationId": "aizuwakamatsu-city"
     },
     "budgetBreakdown": null
   },
@@ -27875,7 +29665,9 @@
       }
     ],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "ueno-taito",
@@ -28308,7 +30100,9 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "utsunomiya-city",
@@ -28583,7 +30377,9 @@
     "parking": "Available on site",
     "restaurants": ["Uwajima Castle Dining Options"],
     "cafes": ["Uwajima Castle Rest Area Cafe"],
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "wakayama-city",
@@ -28847,7 +30643,9 @@
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["ginzan-onsen-yamagata", "mount-zao-yamagata"]
     },
-    "budgetBreakdown": null
+    "budgetBreakdown": null,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "yamanashi-fujiyoshida",
@@ -28936,7 +30734,9 @@
     },
     "collections": [],
     "relationships": {},
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "yamanashi-nishizawa-valley",
@@ -29019,7 +30819,9 @@
     "collections": [],
     "relationships": {},
     "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "yamanashi-shosenkyo-gorge",
@@ -29107,7 +30909,9 @@
     ],
     "relationships": {},
     "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "yokohama-city",
@@ -29672,7 +31476,9 @@
     "relationships": {},
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "yufu-city",
@@ -29844,7 +31650,9 @@
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["sendai-city", "mount-zao-yamagata"]
     },
-    "budgetBreakdown": null
+    "budgetBreakdown": null,
+    "role": "standalone",
+    "placeType": "destination"
   },
   {
     "id": "zushi",
@@ -29930,6 +31738,8 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "role": "standalone",
+    "placeType": "destination"
   }
 ]

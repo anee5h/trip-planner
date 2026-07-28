@@ -83,7 +83,8 @@
     "nearbyDestinationIds": [
       "nyuto-onsen-akita",
       "kakunodate-samurai-district-akita"
-    ]
+    ],
+    "parentDestinationId": "semboku-city"
   },
   "budgetBreakdown": null
 }

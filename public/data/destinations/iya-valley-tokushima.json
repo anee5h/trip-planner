@@ -83,5 +83,7 @@
   "image": "https://upload.wikimedia.org/wikipedia/ja/thumb/4/42/Tokushima_Miyoshi_Okuiya_Double_Kazurabashi_5.JPG/1920px-Tokushima_Miyoshi_Okuiya_Double_Kazurabashi_5.JPG",
   "walkingIntensity": "low",
   "walkingSunMin": 1800,
-  "walkingShadeMin": 1200
+  "walkingShadeMin": 1200,
+  "role": "standalone",
+  "placeType": "destination"
 }

@@ -83,7 +83,8 @@
     "nearbyDestinationIds": [
       "ouchi-juku-fukushima",
       "goshikinuma-ponds-fukushima"
-    ]
+    ],
+    "parentDestinationId": "aizuwakamatsu-city"
   },
   "budgetBreakdown": null
 }

@@ -62,7 +62,8 @@ export type DestinationKind =
   | "zoo"
   | "aquarium";
 
-export type DestinationRole = "hub" | "poi";
+/** A standalone place is a deliberate root: regional, multi-municipality, or island-wide. */
+export type DestinationRole = "hub" | "poi" | "standalone";
 
 export type PlaceType = "hub" | "destination";
 export type EditorialLifecycle =

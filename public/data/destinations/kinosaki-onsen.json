@@ -70,7 +70,9 @@
   "indoorPercent": 20,
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "toyooka-city"
+  },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Kinosaki_Onsen_by_day.jpg/3840px-Kinosaki_Onsen_by_day.jpg",
   "budgetBreakdown": {
     "transport": 3000,

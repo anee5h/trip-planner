@@ -87,5 +87,7 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Jujikyo_in_Kurobe_Gorge.jpg/1920px-Jujikyo_in_Kurobe_Gorge.jpg",
   "walkingIntensity": "low",
   "walkingSunMin": 1800,
-  "walkingShadeMin": 1200
+  "walkingShadeMin": 1200,
+  "role": "standalone",
+  "placeType": "destination"
 }

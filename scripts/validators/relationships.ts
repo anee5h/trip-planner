@@ -17,6 +17,7 @@ export const relationshipsValidator: ValidatorModule = {
     "Zero dangling parent, nearby, featured, or related destination IDs",
     "Zero circular parent-child loops",
     "Every assigned parent is a hub in the same prefecture",
+    "Every record is either a hub, has a verified hub parent, or is explicitly standalone",
   ],
   doesNotValidate: ["Search ranking", "HTTP image availability"],
   async validate(context: ValidationContext): Promise<ValidationResult> {
@@ -30,6 +31,18 @@ export const relationshipsValidator: ValidatorModule = {
 
     for (const dest of destinations) {
       const rels = dest.relationships;
+      if (
+        dest.role !== "hub" &&
+        dest.role !== "standalone" &&
+        !rels?.parentDestinationId
+      ) {
+        issues.push({
+          severity: "error",
+          code: "ORPHAN_DESTINATION",
+          message: `Destination '${dest.id}' has no verified hub parent or standalone classification.`,
+          targetId: dest.id,
+        });
+      }
       if (!rels) continue;
 
       // 1. Parent Destination Check

@@ -12,11 +12,36 @@ export interface WikipediaSummary {
   extract: string;
   url: string;
   japaneseTitle?: string;
+  japaneseExtract?: string;
+  japaneseUrl?: string;
   leadImage?: string;
   leadImageLicense?: string;
 }
 
 export class WikipediaService {
+  private static async fetchJapaneseSummary(title?: string): Promise<{
+    extract?: string;
+    url?: string;
+  }> {
+    if (!title) return {};
+    try {
+      const response = await fetch(
+        `https://ja.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`,
+      );
+      if (!response.ok) return {};
+      const data = await response.json();
+      if (data.type === "disambiguation" || !data.extract) return {};
+      return {
+        extract: data.extract,
+        url:
+          data.content_urls?.desktop?.page ||
+          `https://ja.wikipedia.org/wiki/${encodeURIComponent(title)}`,
+      };
+    } catch (err) {
+      console.warn("Error fetching Japanese Wikipedia summary:", err);
+      return {};
+    }
+  }
   /**
    * Fetches Japanese language title for an English Wikipedia article title.
    * e.g. "Hakone" -> "箱根町", "Mount Takao" -> "高尾山"
@@ -52,8 +77,9 @@ export class WikipediaService {
   static async fetchSummary(
     name: string,
     prefecture?: string,
+    locale: "en" | "ja" = "en",
   ): Promise<WikipediaSummary | null> {
-    const cacheKey = `${name}_${prefecture || ""}`;
+    const cacheKey = `${name}_${prefecture || ""}_${locale}`;
     if (cache.has(cacheKey)) {
       const cached = cache.get(cacheKey);
       return cached ? JSON.parse(cached) : null;
@@ -76,13 +102,21 @@ export class WikipediaService {
         ) {
           const titleToUse = data.title || name;
           const jaTitle = await this.fetchJapaneseTitle(titleToUse);
+          const jaSummary = await this.fetchJapaneseSummary(jaTitle);
 
           const result: WikipediaSummary = {
-            extract: data.extract,
+            extract:
+              locale === "ja"
+                ? jaSummary.extract || data.extract
+                : data.extract,
             url:
-              data.content_urls?.desktop?.page ||
-              `https://en.wikipedia.org/wiki/${encodeURIComponent(name)}`,
+              locale === "ja" && jaSummary.url
+                ? jaSummary.url
+                : data.content_urls?.desktop?.page ||
+                  `https://en.wikipedia.org/wiki/${encodeURIComponent(name)}`,
             japaneseTitle: jaTitle,
+            japaneseExtract: jaSummary.extract,
+            japaneseUrl: jaSummary.url,
             leadImage: data.originalimage?.source || data.thumbnail?.source,
             leadImageLicense: "Wikimedia Commons (Unverified)",
           };
@@ -116,14 +150,22 @@ export class WikipediaService {
               sumData.extract.length > 30
             ) {
               const jaTitle = await this.fetchJapaneseTitle(firstResult.title);
+              const jaSummary = await this.fetchJapaneseSummary(jaTitle);
               const result: WikipediaSummary = {
-                extract: sumData.extract,
+                extract:
+                  locale === "ja"
+                    ? jaSummary.extract || sumData.extract
+                    : sumData.extract,
                 url:
-                  sumData.content_urls?.desktop?.page ||
-                  `https://en.wikipedia.org/wiki/${encodeURIComponent(
-                    firstResult.title,
-                  )}`,
+                  locale === "ja" && jaSummary.url
+                    ? jaSummary.url
+                    : sumData.content_urls?.desktop?.page ||
+                      `https://en.wikipedia.org/wiki/${encodeURIComponent(
+                        firstResult.title,
+                      )}`,
                 japaneseTitle: jaTitle,
+                japaneseExtract: jaSummary.extract,
+                japaneseUrl: jaSummary.url,
                 leadImage:
                   sumData.originalimage?.source || sumData.thumbnail?.source,
                 leadImageLicense: "Wikimedia Commons (Unverified)",

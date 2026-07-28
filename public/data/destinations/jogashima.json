@@ -87,5 +87,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "high"
+  "walkingIntensity": "high",
+  "role": "standalone",
+  "placeType": "destination"
 }

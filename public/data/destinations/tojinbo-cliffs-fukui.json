@@ -83,5 +83,7 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Japan_Tojinbo02n4592.jpg/1920px-Japan_Tojinbo02n4592.jpg",
   "walkingIntensity": "low",
   "walkingSunMin": 1800,
-  "walkingShadeMin": 1200
+  "walkingShadeMin": 1200,
+  "role": "standalone",
+  "placeType": "destination"
 }

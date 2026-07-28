@@ -87,5 +87,7 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/3/39/%E5%AE%AE%E3%83%8E%E6%B5%A6%E6%B8%AF_-_panoramio_-_kajikawa_%281%29.jpg",
   "walkingIntensity": "low",
   "walkingSunMin": 1800,
-  "walkingShadeMin": 1200
+  "walkingShadeMin": 1200,
+  "role": "standalone",
+  "placeType": "destination"
 }

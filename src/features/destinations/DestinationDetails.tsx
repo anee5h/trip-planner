@@ -201,8 +201,9 @@ export default function DestinationDetails() {
       setIsWikiLoading(true);
       try {
         const res = await WikipediaService.fetchSummary(
-          localizedDestination?.name || destination.name,
+          destination.name,
           destination.prefecture,
+          locale,
         );
         setWikiSummary(res);
       } catch (err) {

@@ -95,5 +95,7 @@
     }
   ],
   "relationships": {},
-  "walkingIntensity": "medium"
+  "walkingIntensity": "medium",
+  "role": "standalone",
+  "placeType": "destination"
 }

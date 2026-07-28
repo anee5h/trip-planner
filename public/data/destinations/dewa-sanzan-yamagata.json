@@ -83,5 +83,7 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Torii_in_the_mist_v1.JPG/1920px-Torii_in_the_mist_v1.JPG",
   "walkingIntensity": "low",
   "walkingSunMin": 1800,
-  "walkingShadeMin": 1200
+  "walkingShadeMin": 1200,
+  "role": "standalone",
+  "placeType": "destination"
 }

@@ -1,0 +1,86 @@
+{
+  "id": "choshi-city",
+  "name": "Choshi",
+  "nameJa": "銚子",
+  "prefecture": "Chiba",
+  "region": "Kanto",
+  "coordinates": {
+    "lat": 35.734,
+    "lng": 140.826
+  },
+  "wikipediaTitle": "Chōshi,_Chiba",
+  "description": "An eastern Chiba fishing city on the Pacific, known for coastal scenery, seafood, and the Choshi Electric Railway.",
+  "highlights": ["Inubohsaki", "Coastal scenery", "Choshi Electric Railway"],
+  "tags": ["Coast", "Food", "Scenic Rail"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Choshi_Montage_2.jpg",
+  "role": "hub",
+  "placeType": "hub",
+  "kind": "city",
+  "importance": "notable",
+  "categories": ["City", "Culture", "Food"],
+  "budgetMin": 7000,
+  "budgetMax": 14000,
+  "budgetRecommended": 10500,
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 1500,
+    "food": 4500,
+    "cafe": 1500
+  },
+  "transportOptions": {
+    "train": 120,
+    "car": 120,
+    "shinkansen": 120,
+    "bus": 150
+  },
+  "totalTripHours": 8,
+  "walkingMin": 70,
+  "walkingSunMin": 35,
+  "walkingShadeMin": 35,
+  "walkingIntensity": "medium",
+  "indoorPercent": 35,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.8,
+    "couple": 7.5,
+    "summer": 7.2,
+    "winter": 7.2,
+    "rain": 5.5,
+    "food": 7.5,
+    "photography": 7.8,
+    "relaxation": 7.2,
+    "value": 8,
+    "uniqueness": 7.6
+  },
+  "crowd": {
+    "weekday": 2,
+    "weekend": 3,
+    "holiday": 4
+  },
+  "season": {
+    "spring": 8,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [4, 5, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "Not usually required; reserve popular accommodation in advance.",
+  "parking": "Available around major attractions; confirm local restrictions.",
+  "restaurants": [],
+  "cafes": [],
+  "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+  "relationships": {
+    "featuredDestinationIds": []
+  },
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": []
+}

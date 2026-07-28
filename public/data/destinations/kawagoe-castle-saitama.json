@@ -89,5 +89,7 @@
     }
   ],
   "relationships": {},
-  "walkingIntensity": "low"
+  "walkingIntensity": "low",
+  "role": "standalone",
+  "placeType": "destination"
 }
