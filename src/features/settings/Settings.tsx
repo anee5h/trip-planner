@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { useTheme } from "@/shared/context/ThemeContext";
+import { useLocale } from "@/shared/context/LocaleContext";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import StationInput from "@/shared/components/StationInput";
 import destinationsIndex from "@/shared/data/destinations-index.json";
@@ -20,11 +21,12 @@ import { PageHeader } from "@/shared/components/ui/PageHeader";
 import { toast } from "sonner";
 
 type SettingsSection =
-  "general" | "travel" | "appearance" | "accessibility" | "data";
+  "account" | "general" | "travel" | "appearance" | "accessibility" | "data";
 
 export default function Settings() {
   const { user, updateUserProfile } = useAuth();
   const { theme, setTheme } = useTheme();
+  const { locale, setLocale } = useLocale();
   const { homeStation, setHomeStation, visited, visitedPrefectures, trips } =
     useTripStore();
   const navigate = useNavigate();
@@ -34,7 +36,7 @@ export default function Settings() {
   const returnParam = searchParams.get("return");
 
   const [activeSection, setActiveSection] = useState<SettingsSection>(
-    sectionParam || "general",
+    sectionParam || "account",
   );
   const [loading, setLoading] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
@@ -61,6 +63,13 @@ export default function Settings() {
   const [homeCityId, setHomeCityId] = useState(
     user?.user_metadata?.home_city || "",
   );
+  const [fullName, setFullName] = useState(
+    user?.user_metadata?.full_name || "",
+  );
+  const [username, setUsername] = useState(user?.user_metadata?.username || "");
+  const [defaultLocale, setDefaultLocale] = useState<"en" | "ja">(
+    user?.user_metadata?.default_locale === "ja" ? "ja" : locale,
+  );
   const cityHubs = useMemo(
     () =>
       (destinationsIndex as Destination[])
@@ -78,6 +87,11 @@ export default function Settings() {
 
   useEffect(() => {
     if (user?.user_metadata) {
+      setFullName(user.user_metadata.full_name || "");
+      setUsername(user.user_metadata.username || "");
+      setDefaultLocale(
+        user.user_metadata.default_locale === "ja" ? "ja" : locale,
+      );
       if (user.user_metadata.preferences) {
         setCarMode(user.user_metadata.preferences.carMode || "none");
         setPublicModes(
@@ -103,8 +117,11 @@ export default function Settings() {
       }
 
       const { error } = await updateUserProfile({
+        full_name: fullName.trim(),
+        username: username.trim(),
         base_location: baseLocation,
         home_city: homeCityId,
+        default_locale: defaultLocale,
         theme,
         preferences: {
           carMode,
@@ -115,6 +132,7 @@ export default function Settings() {
       });
 
       if (!error) {
+        setLocale(defaultLocale);
         setSaveSuccess(true);
         if (locationChanged) {
           toast.success(
@@ -122,6 +140,7 @@ export default function Settings() {
           );
         } else {
           const sectionToasts: Record<SettingsSection, string> = {
+            account: "Account settings updated successfully!",
             general: "General settings updated successfully!",
             travel: "Travel preferences updated successfully!",
             appearance: "Appearance & theme updated successfully!",
@@ -207,6 +226,7 @@ export default function Settings() {
         {/* Settings Navigation Sidebar */}
         <div className="lg:col-span-3 flex overflow-x-auto lg:flex-col gap-2 pb-2 lg:pb-0 scrollbar-none">
           {[
+            { id: "account", label: "Account", icon: MapPin },
             { id: "general", label: "General & Base Location", icon: MapPin },
             { id: "travel", label: "Travel Preferences", icon: Car },
             { id: "appearance", label: "Appearance", icon: Sun },
@@ -248,6 +268,65 @@ export default function Settings() {
               </div>
             )}
 
+            {activeSection === "account" && (
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                    Account
+                  </h3>
+                  <p className="text-xs text-slate-500">
+                    Manage your public identity, home city, and language.
+                  </p>
+                </div>
+                <div className="space-y-4">
+                  <label className="block text-xs font-bold uppercase text-slate-500">
+                    Full name
+                    <input
+                      value={fullName}
+                      onChange={(event) => setFullName(event.target.value)}
+                      className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
+                    />
+                  </label>
+                  <label className="block text-xs font-bold uppercase text-slate-500">
+                    Username
+                    <input
+                      value={username}
+                      onChange={(event) => setUsername(event.target.value)}
+                      className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
+                    />
+                  </label>
+                  <label className="block text-xs font-bold uppercase text-slate-500">
+                    Home City
+                    <select
+                      value={homeCityId}
+                      onChange={(event) => setHomeCityId(event.target.value)}
+                      className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
+                    >
+                      <option value="">Choose a city</option>
+                      {cityHubs.map((city) => (
+                        <option key={city.id} value={city.id}>
+                          {city.name}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <label className="block text-xs font-bold uppercase text-slate-500">
+                    Default language
+                    <select
+                      value={defaultLocale}
+                      onChange={(event) =>
+                        setDefaultLocale(event.target.value as "en" | "ja")
+                      }
+                      className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
+                    >
+                      <option value="en">English</option>
+                      <option value="ja">日本語</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+            )}
+
             {/* Section 1: General & Base Location */}
             {activeSection === "general" && (
               <div className="space-y-6">
@@ -269,29 +348,6 @@ export default function Settings() {
 
                     {/* Reusable StationInput Component */}
                     <StationInput embedded={true} />
-
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mt-5 mb-2">
-                      Home City
-                    </label>
-                    <select
-                      value={homeCityId}
-                      onChange={(event) => setHomeCityId(event.target.value)}
-                      className="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
-                    >
-                      <option value="">Choose a city</option>
-                      {cityHubs.map((city) => (
-                        <option key={city.id} value={city.id}>
-                          {city.name}
-                        </option>
-                      ))}
-                    </select>
-
-                    <div className="mt-2.5 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 text-xs font-medium border border-emerald-200 dark:border-emerald-800">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                      <span>
-                        Base location changes save automatically upon selection.
-                      </span>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -481,7 +537,7 @@ export default function Settings() {
               </div>
             )}
 
-            {activeSection !== "data" && activeSection !== "general" && (
+            {activeSection !== "data" && (
               <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end">
                 <Button
                   type="submit"

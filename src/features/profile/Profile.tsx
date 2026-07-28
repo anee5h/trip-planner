@@ -14,12 +14,11 @@ import {
   BodyText,
   Caption,
 } from "@/shared/components/ui/Typography";
-import { Button } from "@/shared/components/ui/button";
 
 type ProfileTab = "overview" | "account" | "security" | "connected" | "summary";
 
 export default function Profile() {
-  const { user, updateUserProfile, deleteAccount } = useAuth();
+  const { user, deleteAccount } = useAuth();
   const { visited, visitedPrefectures, trips } = useTripStore();
   const [activeTab, setActiveTab] = useState<ProfileTab>("overview");
   const [showcaseBadges] = useLocalStorage<string[]>(
@@ -31,38 +30,9 @@ export default function Profile() {
     showcaseBadges.includes(b.id),
   ).slice(0, 4);
 
-  const [username, setUsername] = useState(
-    user?.user_metadata?.username || user?.user_metadata?.full_name || "",
-  );
-  const [homeCity, setHomeCity] = useState(
-    user?.user_metadata?.home_city || "",
-  );
-  const [saveSuccess, setSaveSuccess] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [deleteConfirm, setDeleteConfirm] = useState(false);
-
-  const handleUpdate = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setSaveSuccess(false);
-
-    try {
-      const { error } = await updateUserProfile({
-        username,
-        full_name: username,
-        home_city: homeCity,
-      });
-
-      if (!error) {
-        setSaveSuccess(true);
-        setTimeout(() => setSaveSuccess(false), 3000);
-      }
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const fullName = user?.user_metadata?.full_name || "";
+  const username = user?.user_metadata?.username || "";
 
   const userInitial = (username[0] || user?.email?.[0] || "U").toUpperCase();
 
@@ -78,7 +48,6 @@ export default function Profile() {
   const SecurityIcon = Icons.security;
   const ConnectedIcon = Icons.link;
   const SummaryIcon = Icons.statistics;
-  const CheckIcon = Icons.check;
   const MailIcon = Icons.help;
 
   return (
@@ -91,7 +60,12 @@ export default function Profile() {
               {userInitial}
             </div>
             <div className="space-y-1">
-              <PageTitle>{username || "Aneesh Patil"}</PageTitle>
+              <PageTitle>{fullName || username || "Traveler"}</PageTitle>
+              {username && (
+                <p className="text-sm font-medium text-slate-500">
+                  @{username}
+                </p>
+              )}
               <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 font-semibold">
                 <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-extrabold border border-emerald-200 dark:border-emerald-800">
                   Explorer Hub
@@ -221,66 +195,35 @@ export default function Profile() {
         )}
 
         {activeTab === "account" && (
-          <form
-            onSubmit={handleUpdate}
-            className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-6"
-          >
+          <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-6">
             <SectionTitle>Account Information</SectionTitle>
-
-            {saveSuccess && (
-              <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 text-xs font-bold flex items-center gap-2">
-                <CheckIcon className="w-4 h-4" /> Profile details saved
-                successfully!
-              </div>
-            )}
-
-            <div className="space-y-4">
+            <dl className="space-y-3 text-sm">
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-500 mb-1.5">
-                  Display Name / Username
-                </label>
-                <input
-                  type="text"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  className="w-full p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold text-slate-900 dark:text-white"
-                />
+                <dt className="text-xs font-bold uppercase text-slate-500">
+                  Full name
+                </dt>
+                <dd>{fullName || "Not set"}</dd>
               </div>
-
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-500 mb-1.5">
-                  Email Address (Sign in)
-                </label>
-                <input
-                  type="email"
-                  disabled
-                  value={user?.email || ""}
-                  className="w-full p-3 rounded-2xl bg-slate-100 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 text-sm font-semibold text-slate-500 cursor-not-allowed"
-                />
+                <dt className="text-xs font-bold uppercase text-slate-500">
+                  Username
+                </dt>
+                <dd>{username ? `@${username}` : "Not set"}</dd>
               </div>
-
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-500 mb-1.5">
-                  Home City / Country
-                </label>
-                <input
-                  type="text"
-                  value={homeCity}
-                  onChange={(e) => setHomeCity(e.target.value)}
-                  placeholder="e.g. Tokyo, Japan"
-                  className="w-full p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-semibold text-slate-900 dark:text-white"
-                />
+                <dt className="text-xs font-bold uppercase text-slate-500">
+                  Email
+                </dt>
+                <dd>{user?.email}</dd>
               </div>
-            </div>
-
-            <Button
-              type="submit"
-              disabled={loading}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+            </dl>
+            <Link
+              to="/settings?section=account"
+              className="inline-flex rounded-xl bg-emerald-600 px-4 py-2 text-xs font-bold text-white"
             >
-              {loading ? "Saving..." : "Save Profile Changes"}
-            </Button>
-          </form>
+              Edit settings
+            </Link>
+          </div>
         )}
 
         {activeTab === "security" && (

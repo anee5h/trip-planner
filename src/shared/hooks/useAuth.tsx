@@ -20,7 +20,9 @@ export interface UserPreferencesPayload {
 
 export interface UserProfileUpdateData {
   username?: string;
+  full_name?: string;
   home_city?: string;
+  default_locale?: "en" | "ja";
   dob?: string;
   units?: string;
   emailNotifications?: boolean;

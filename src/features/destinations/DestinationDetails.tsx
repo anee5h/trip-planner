@@ -474,8 +474,9 @@ export default function DestinationDetails() {
           {/* 2. Location & Parent Container Badge */}
           <div className="flex flex-wrap items-center gap-3 text-sm text-slate-200/85 mb-3">
             {user?.user_metadata?.home_city === destination.id && (
-              <div className="inline-flex items-center gap-1 rounded-full bg-emerald-500/20 px-2.5 py-1 font-semibold text-emerald-200 border border-emerald-300/30">
-                <House className="w-3.5 h-3.5" /> Home city
+              <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500 px-3 py-1.5 font-extrabold text-white border border-emerald-200 shadow-lg shadow-emerald-950/40">
+                <House className="w-4 h-4" />{" "}
+                {locale === "ja" ? "ホームシティ" : "Home City"}
               </div>
             )}
             <div className="flex items-center font-medium">
