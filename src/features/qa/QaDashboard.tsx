@@ -44,6 +44,24 @@ interface QaImageOverride {
 
 const LOCAL_STORAGE_KEY = "tabimap-qa-image-overrides";
 
+function getImageQaStatus(
+  destination: Destination,
+  override?: QaImageOverride,
+): QaStatus {
+  // Once a QA replacement has been imported into the catalog, its old local
+  // override is historical rather than an unresolved issue.
+  if (
+    override?.customUrl === destination.heroImage &&
+    destination.imageNeedsReview === false
+  ) {
+    return "OK";
+  }
+
+  return (
+    override?.qaStatus || (destination.imageNeedsReview ? "LOW_QUALITY" : "OK")
+  );
+}
+
 export default function QaDashboard() {
   const allDestinations = destinationsIndex as Destination[];
   const allCollections = collectionsIndex as Collection[];
@@ -53,6 +71,9 @@ export default function QaDashboard() {
   // Search & Filter state for Image QA Tab
   const [imageSearch, setImageSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("ALL");
+  const [imageSort, setImageSort] = useState<"newest" | "oldest" | "name">(
+    "newest",
+  );
 
   // Local Storage overrides state for Image QA Studio
   const [overrides, setOverrides] = useState<Record<string, QaImageOverride>>(
@@ -150,30 +171,38 @@ export default function QaDashboard() {
 
   // Filtered Destinations for Image QA Studio
   const filteredDestinationsForImageQa = useMemo(() => {
-    return allDestinations.filter((d) => {
-      const override = overrides[d.id];
-      const status = override?.qaStatus || "OK";
+    return allDestinations
+      .filter((d) => {
+        const override = overrides[d.id];
+        const status = getImageQaStatus(d, override);
 
-      // Status filter
-      if (statusFilter === "ISSUES" && status === "OK") return false;
-      if (
-        statusFilter !== "ALL" &&
-        statusFilter !== "ISSUES" &&
-        status !== statusFilter
-      ) {
-        return false;
-      }
+        // Status filter
+        if (statusFilter === "ISSUES" && status === "OK") return false;
+        if (
+          statusFilter !== "ALL" &&
+          statusFilter !== "ISSUES" &&
+          status !== statusFilter
+        ) {
+          return false;
+        }
 
-      // Text search
-      if (!imageSearch.trim()) return true;
-      const q = imageSearch.toLowerCase();
-      return (
-        d.name.toLowerCase().includes(q) ||
-        d.id.toLowerCase().includes(q) ||
-        d.prefecture.toLowerCase().includes(q)
+        // Text search
+        if (!imageSearch.trim()) return true;
+        const q = imageSearch.toLowerCase();
+        return (
+          d.name.toLowerCase().includes(q) ||
+          d.id.toLowerCase().includes(q) ||
+          d.prefecture.toLowerCase().includes(q)
+        );
+      })
+      .sort((a, b) =>
+        imageSort === "name"
+          ? a.name.localeCompare(b.name)
+          : imageSort === "oldest"
+            ? (a.addedAt || "").localeCompare(b.addedAt || "")
+            : (b.addedAt || "").localeCompare(a.addedAt || ""),
       );
-    });
-  }, [allDestinations, overrides, statusFilter, imageSearch]);
+  }, [allDestinations, overrides, statusFilter, imageSearch, imageSort]);
 
   // Image QA Overrides Count
   const overrideCount = Object.keys(overrides).length;
@@ -211,7 +240,7 @@ export default function QaDashboard() {
     ];
     allDestinations.forEach((d) => {
       const ov = overrides[d.id];
-      const status = ov?.qaStatus || "OK";
+      const status = getImageQaStatus(d, ov);
       const customUrl = ov?.customUrl || "";
       rows.push([
         `"${d.id}"`,
@@ -479,6 +508,19 @@ export default function QaDashboard() {
                 />
               </div>
 
+              <select
+                value={imageSort}
+                onChange={(event) =>
+                  setImageSort(event.target.value as typeof imageSort)
+                }
+                className="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-200"
+                aria-label="Sort image QA destinations"
+              >
+                <option value="newest">Newest added</option>
+                <option value="oldest">Oldest added</option>
+                <option value="name">Name</option>
+              </select>
+
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-2 shrink-0">
                 <Button
@@ -542,18 +584,19 @@ export default function QaDashboard() {
             {/* Grid of Destination Image Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
               {filteredDestinationsForImageQa.map((d) => {
-                const ov = overrides[d.id] || { qaStatus: "OK" };
-                const displayUrl = ov.customUrl || d.heroImage;
+                const ov = overrides[d.id];
+                const status = getImageQaStatus(d, ov);
+                const displayUrl = ov?.customUrl || d.heroImage;
 
                 return (
                   <div
                     key={d.id}
                     className={`rounded-2xl border bg-slate-50/50 dark:bg-slate-900/50 overflow-hidden space-y-3 p-4 transition-all ${
-                      ov.qaStatus === "BROKEN"
+                      status === "BROKEN"
                         ? "border-rose-500/50 bg-rose-500/5"
-                        : ov.qaStatus === "WRONG_LANDMARK"
+                        : status === "WRONG_LANDMARK"
                           ? "border-amber-500/50 bg-amber-500/5"
-                          : ov.qaStatus === "LOW_QUALITY"
+                          : status === "LOW_QUALITY"
                             ? "border-sky-500/50 bg-sky-500/5"
                             : "border-slate-200 dark:border-slate-800"
                     }`}
@@ -613,7 +656,7 @@ export default function QaDashboard() {
                             key={st.value}
                             onClick={() => updateQaStatus(d.id, st.value)}
                             className={`px-2 py-1 rounded-lg text-[11px] font-extrabold transition-all border ${
-                              ov.qaStatus === st.value
+                              status === st.value
                                 ? st.value === "OK"
                                   ? "bg-emerald-600 text-white border-emerald-500"
                                   : st.value === "BROKEN"
@@ -638,7 +681,7 @@ export default function QaDashboard() {
                       <Input
                         type="text"
                         placeholder="Paste Wikimedia/Unsplash URL..."
-                        value={ov.customUrl || ""}
+                        value={ov?.customUrl || ""}
                         onChange={(e) => updateCustomUrl(d.id, e.target.value)}
                         className="text-xs h-8 rounded-xl bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700"
                       />

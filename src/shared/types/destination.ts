@@ -203,4 +203,8 @@ export interface Destination {
 
   /** Mandatory: Curated collection memberships */
   collections: CollectionMembership[];
+  /** Editorial import date for QA ordering; not a visitor-facing claim. */
+  addedAt?: string;
+  /** Image is a temporary QA placeholder and must be replaced before editorial approval. */
+  imageNeedsReview?: boolean;
 }

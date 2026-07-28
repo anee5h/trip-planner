@@ -4080,6 +4080,96 @@
     "walkingIntensity": "low"
   },
   {
+    "id": "cup-noodles-museum-yokohama",
+    "name": "Cup Noodles Museum Yokohama",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "categories": ["Museum", "Family", "Food"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Cupnoodles-Museum-Yokohama.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Yokohama_Marine_Tower_Dscn1518a.jpg",
+    "totalTripHours": 3,
+    "budgetMin": 3000,
+    "budgetRecommended": 6500,
+    "budgetMax": 10000,
+    "walkingMin": 4000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 2500,
+    "indoorPercent": 75,
+    "ratings": {
+      "overall": 8.8,
+      "couple": 9.2,
+      "summer": 8.6,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 8.5,
+      "photography": 9,
+      "relaxation": 8.8,
+      "value": 8.5,
+      "uniqueness": 8.7
+    },
+    "crowd": {
+      "weekday": 5,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "tags": ["Museum", "Family", "Food"],
+    "coordinates": {
+      "lat": 35.455,
+      "lng": 139.637
+    },
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "transportOptions": {
+      "train": 25
+    },
+    "highlights": ["Museum", "Family", "Food"],
+    "description": "Cup Noodles Museum Yokohama is a curated destination within Yokohama City.",
+    "budgetBreakdown": {
+      "transport": 650,
+      "tickets": 1300,
+      "food": 3250,
+      "cafe": 1300
+    },
+    "reservation": "No advance reservation required.",
+    "parking": "Municipal paid parking spaces along Yamashita Park waterfront.",
+    "restaurants": ["The Terrace Yokohama Marine Tower", "Chinatown Manchinro"],
+    "cafes": ["Mizamito Cafe", "Marine Tower Bar"],
+    "notes": "Recognized as a Lover's Sanctuary with special romantic evening light projections.",
+    "schemaVersion": 2,
+    "imageMetadata": {
+      "source": "Wikimedia Commons / Wikipedia",
+      "license": "CC-BY-SA / Public Domain",
+      "attribution": "Lead photograph of Yokohama Marine Tower via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Marine%20Tower"
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "high"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    },
+    "walkingIntensity": "low",
+    "nameJa": "カップヌードルミュージアム 横浜",
+    "role": "poi",
+    "placeType": "destination",
+    "addedAt": "2026-07-28",
+    "imageNeedsReview": false
+  },
+  {
     "id": "dakigaeri-valley-akita",
     "name": "Dakigaeri Valley",
     "nameJa": "抱返り渓谷",
@@ -12255,6 +12345,96 @@
     "placeType": "destination"
   },
   {
+    "id": "kannai-yokohama",
+    "name": "Kannai",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "categories": ["History", "Food", "Baseball"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Kanagawa_prefectural_office02s3200.jpg/1920px-Kanagawa_prefectural_office02s3200.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Yokohama_Marine_Tower_Dscn1518a.jpg",
+    "totalTripHours": 3,
+    "budgetMin": 3000,
+    "budgetRecommended": 6500,
+    "budgetMax": 10000,
+    "walkingMin": 4000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 2500,
+    "indoorPercent": 75,
+    "ratings": {
+      "overall": 8.8,
+      "couple": 9.2,
+      "summer": 8.6,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 8.5,
+      "photography": 9,
+      "relaxation": 8.8,
+      "value": 8.5,
+      "uniqueness": 8.7
+    },
+    "crowd": {
+      "weekday": 5,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "tags": ["History", "Food", "Baseball"],
+    "coordinates": {
+      "lat": 35.445,
+      "lng": 139.637
+    },
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "transportOptions": {
+      "train": 25
+    },
+    "highlights": ["History", "Food", "Baseball"],
+    "description": "Kannai is a curated destination within Yokohama City.",
+    "budgetBreakdown": {
+      "transport": 650,
+      "tickets": 1300,
+      "food": 3250,
+      "cafe": 1300
+    },
+    "reservation": "No advance reservation required.",
+    "parking": "Municipal paid parking spaces along Yamashita Park waterfront.",
+    "restaurants": ["The Terrace Yokohama Marine Tower", "Chinatown Manchinro"],
+    "cafes": ["Mizamito Cafe", "Marine Tower Bar"],
+    "notes": "Recognized as a Lover's Sanctuary with special romantic evening light projections.",
+    "schemaVersion": 2,
+    "imageMetadata": {
+      "source": "Wikimedia Commons / Wikipedia",
+      "license": "CC-BY-SA / Public Domain",
+      "attribution": "Lead photograph of Yokohama Marine Tower via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Marine%20Tower"
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "high"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    },
+    "walkingIntensity": "low",
+    "nameJa": "関内",
+    "role": "poi",
+    "placeType": "destination",
+    "addedAt": "2026-07-28",
+    "imageNeedsReview": false
+  },
+  {
     "id": "karuizawa-town",
     "name": "Karuizawa Town",
     "kind": "town",
@@ -17260,6 +17440,96 @@
       "cafe": 3117
     },
     "walkingIntensity": "low"
+  },
+  {
+    "id": "minato-mirai-yokohama",
+    "name": "Minato Mirai",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "categories": ["Waterfront", "Architecture", "Shopping"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Minato_Mirai_In_Blue.jpg/1920px-Minato_Mirai_In_Blue.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Yokohama_Marine_Tower_Dscn1518a.jpg",
+    "totalTripHours": 3,
+    "budgetMin": 3000,
+    "budgetRecommended": 6500,
+    "budgetMax": 10000,
+    "walkingMin": 4000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 2500,
+    "indoorPercent": 75,
+    "ratings": {
+      "overall": 8.8,
+      "couple": 9.2,
+      "summer": 8.6,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 8.5,
+      "photography": 9,
+      "relaxation": 8.8,
+      "value": 8.5,
+      "uniqueness": 8.7
+    },
+    "crowd": {
+      "weekday": 5,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "tags": ["Waterfront", "Architecture", "Shopping"],
+    "coordinates": {
+      "lat": 35.457,
+      "lng": 139.632
+    },
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "transportOptions": {
+      "train": 25
+    },
+    "highlights": ["Waterfront", "Architecture", "Shopping"],
+    "description": "Minato Mirai is a curated destination within Yokohama City.",
+    "budgetBreakdown": {
+      "transport": 650,
+      "tickets": 1300,
+      "food": 3250,
+      "cafe": 1300
+    },
+    "reservation": "No advance reservation required.",
+    "parking": "Municipal paid parking spaces along Yamashita Park waterfront.",
+    "restaurants": ["The Terrace Yokohama Marine Tower", "Chinatown Manchinro"],
+    "cafes": ["Mizamito Cafe", "Marine Tower Bar"],
+    "notes": "Recognized as a Lover's Sanctuary with special romantic evening light projections.",
+    "schemaVersion": 2,
+    "imageMetadata": {
+      "source": "Wikimedia Commons / Wikipedia",
+      "license": "CC-BY-SA / Public Domain",
+      "attribution": "Lead photograph of Yokohama Marine Tower via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Marine%20Tower"
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "high"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    },
+    "walkingIntensity": "low",
+    "nameJa": "みなとみらい",
+    "role": "poi",
+    "placeType": "destination",
+    "addedAt": "2026-07-28",
+    "imageNeedsReview": false
   },
   {
     "id": "mine-city",
@@ -25603,6 +25873,96 @@
     "walkingIntensity": "low"
   },
   {
+    "id": "shin-yokohama-ramen-museum",
+    "name": "Shin-Yokohama Ramen Museum",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "categories": ["Museum", "Food", "Indoor"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Shinyokohama_ramen_museum.jpg/1920px-Shinyokohama_ramen_museum.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Yokohama_Marine_Tower_Dscn1518a.jpg",
+    "totalTripHours": 3,
+    "budgetMin": 3000,
+    "budgetRecommended": 6500,
+    "budgetMax": 10000,
+    "walkingMin": 4000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 2500,
+    "indoorPercent": 75,
+    "ratings": {
+      "overall": 8.8,
+      "couple": 9.2,
+      "summer": 8.6,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 8.5,
+      "photography": 9,
+      "relaxation": 8.8,
+      "value": 8.5,
+      "uniqueness": 8.7
+    },
+    "crowd": {
+      "weekday": 5,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "tags": ["Museum", "Food", "Indoor"],
+    "coordinates": {
+      "lat": 35.509,
+      "lng": 139.617
+    },
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "transportOptions": {
+      "train": 25
+    },
+    "highlights": ["Museum", "Food", "Indoor"],
+    "description": "Shin-Yokohama Ramen Museum is a curated destination within Yokohama City.",
+    "budgetBreakdown": {
+      "transport": 650,
+      "tickets": 1300,
+      "food": 3250,
+      "cafe": 1300
+    },
+    "reservation": "No advance reservation required.",
+    "parking": "Municipal paid parking spaces along Yamashita Park waterfront.",
+    "restaurants": ["The Terrace Yokohama Marine Tower", "Chinatown Manchinro"],
+    "cafes": ["Mizamito Cafe", "Marine Tower Bar"],
+    "notes": "Recognized as a Lover's Sanctuary with special romantic evening light projections.",
+    "schemaVersion": 2,
+    "imageMetadata": {
+      "source": "Wikimedia Commons / Wikipedia",
+      "license": "CC-BY-SA / Public Domain",
+      "attribution": "Lead photograph of Yokohama Marine Tower via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Marine%20Tower"
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "high"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    },
+    "walkingIntensity": "low",
+    "nameJa": "新横浜ラーメン博物館",
+    "role": "poi",
+    "placeType": "destination",
+    "addedAt": "2026-07-28",
+    "imageNeedsReview": false
+  },
+  {
     "id": "shinagawa-city",
     "name": "Shinagawa City",
     "kind": "ward",
@@ -26336,6 +26696,96 @@
       "walkingIntensity": 3
     },
     "walkingIntensity": "low"
+  },
+  {
+    "id": "soji-ji-yokohama",
+    "name": "Soji-ji Temple",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "categories": ["Temple", "History", "Culture"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/S%C5%8Djiji_Sanshokaku_2009.jpg/1920px-S%C5%8Djiji_Sanshokaku_2009.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Yokohama_Marine_Tower_Dscn1518a.jpg",
+    "totalTripHours": 3,
+    "budgetMin": 3000,
+    "budgetRecommended": 6500,
+    "budgetMax": 10000,
+    "walkingMin": 4000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 2500,
+    "indoorPercent": 75,
+    "ratings": {
+      "overall": 8.8,
+      "couple": 9.2,
+      "summer": 8.6,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 8.5,
+      "photography": 9,
+      "relaxation": 8.8,
+      "value": 8.5,
+      "uniqueness": 8.7
+    },
+    "crowd": {
+      "weekday": 5,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "tags": ["Temple", "History", "Culture"],
+    "coordinates": {
+      "lat": 35.501,
+      "lng": 139.674
+    },
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "transportOptions": {
+      "train": 25
+    },
+    "highlights": ["Temple", "History", "Culture"],
+    "description": "Soji-ji Temple is a curated destination within Yokohama City.",
+    "budgetBreakdown": {
+      "transport": 650,
+      "tickets": 1300,
+      "food": 3250,
+      "cafe": 1300
+    },
+    "reservation": "No advance reservation required.",
+    "parking": "Municipal paid parking spaces along Yamashita Park waterfront.",
+    "restaurants": ["The Terrace Yokohama Marine Tower", "Chinatown Manchinro"],
+    "cafes": ["Mizamito Cafe", "Marine Tower Bar"],
+    "notes": "Recognized as a Lover's Sanctuary with special romantic evening light projections.",
+    "schemaVersion": 2,
+    "imageMetadata": {
+      "source": "Wikimedia Commons / Wikipedia",
+      "license": "CC-BY-SA / Public Domain",
+      "attribution": "Lead photograph of Yokohama Marine Tower via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Marine%20Tower"
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "high"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    },
+    "walkingIntensity": "low",
+    "nameJa": "總持寺",
+    "role": "poi",
+    "placeType": "destination",
+    "addedAt": "2026-07-28",
+    "imageNeedsReview": false
   },
   {
     "id": "suginami-city",
@@ -31326,6 +31776,186 @@
     "placeType": "destination"
   },
   {
+    "id": "yamashita-park-yokohama",
+    "name": "Yamashita Park",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "categories": ["Park", "Waterfront", "Views"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Parque_Yamashita_2.JPG/1920px-Parque_Yamashita_2.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Yokohama_Marine_Tower_Dscn1518a.jpg",
+    "totalTripHours": 3,
+    "budgetMin": 3000,
+    "budgetRecommended": 6500,
+    "budgetMax": 10000,
+    "walkingMin": 4000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 2500,
+    "indoorPercent": 75,
+    "ratings": {
+      "overall": 8.8,
+      "couple": 9.2,
+      "summer": 8.6,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 8.5,
+      "photography": 9,
+      "relaxation": 8.8,
+      "value": 8.5,
+      "uniqueness": 8.7
+    },
+    "crowd": {
+      "weekday": 5,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "tags": ["Park", "Waterfront", "Views"],
+    "coordinates": {
+      "lat": 35.45,
+      "lng": 139.65
+    },
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "transportOptions": {
+      "train": 25
+    },
+    "highlights": ["Park", "Waterfront", "Views"],
+    "description": "Yamashita Park is a curated destination within Yokohama City.",
+    "budgetBreakdown": {
+      "transport": 650,
+      "tickets": 1300,
+      "food": 3250,
+      "cafe": 1300
+    },
+    "reservation": "No advance reservation required.",
+    "parking": "Municipal paid parking spaces along Yamashita Park waterfront.",
+    "restaurants": ["The Terrace Yokohama Marine Tower", "Chinatown Manchinro"],
+    "cafes": ["Mizamito Cafe", "Marine Tower Bar"],
+    "notes": "Recognized as a Lover's Sanctuary with special romantic evening light projections.",
+    "schemaVersion": 2,
+    "imageMetadata": {
+      "source": "Wikimedia Commons / Wikipedia",
+      "license": "CC-BY-SA / Public Domain",
+      "attribution": "Lead photograph of Yokohama Marine Tower via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Marine%20Tower"
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "high"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    },
+    "walkingIntensity": "low",
+    "nameJa": "山下公園",
+    "role": "poi",
+    "placeType": "destination",
+    "addedAt": "2026-07-28",
+    "imageNeedsReview": false
+  },
+  {
+    "id": "yokohama-chinatown",
+    "name": "Yokohama Chinatown",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "categories": ["Food", "Culture", "Shopping"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Yokohama_Chinatown_signage_2015.jpg/1920px-Yokohama_Chinatown_signage_2015.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Yokohama_Marine_Tower_Dscn1518a.jpg",
+    "totalTripHours": 3,
+    "budgetMin": 3000,
+    "budgetRecommended": 6500,
+    "budgetMax": 10000,
+    "walkingMin": 4000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 2500,
+    "indoorPercent": 75,
+    "ratings": {
+      "overall": 8.8,
+      "couple": 9.2,
+      "summer": 8.6,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 8.5,
+      "photography": 9,
+      "relaxation": 8.8,
+      "value": 8.5,
+      "uniqueness": 8.7
+    },
+    "crowd": {
+      "weekday": 5,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "tags": ["Food", "Culture", "Shopping"],
+    "coordinates": {
+      "lat": 35.443,
+      "lng": 139.65
+    },
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "transportOptions": {
+      "train": 25
+    },
+    "highlights": ["Food", "Culture", "Shopping"],
+    "description": "Yokohama Chinatown is a curated destination within Yokohama City.",
+    "budgetBreakdown": {
+      "transport": 650,
+      "tickets": 1300,
+      "food": 3250,
+      "cafe": 1300
+    },
+    "reservation": "No advance reservation required.",
+    "parking": "Municipal paid parking spaces along Yamashita Park waterfront.",
+    "restaurants": ["The Terrace Yokohama Marine Tower", "Chinatown Manchinro"],
+    "cafes": ["Mizamito Cafe", "Marine Tower Bar"],
+    "notes": "Recognized as a Lover's Sanctuary with special romantic evening light projections.",
+    "schemaVersion": 2,
+    "imageMetadata": {
+      "source": "Wikimedia Commons / Wikipedia",
+      "license": "CC-BY-SA / Public Domain",
+      "attribution": "Lead photograph of Yokohama Marine Tower via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Marine%20Tower"
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "high"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    },
+    "walkingIntensity": "low",
+    "nameJa": "横浜中華街",
+    "role": "poi",
+    "placeType": "destination",
+    "addedAt": "2026-07-28",
+    "imageNeedsReview": false
+  },
+  {
     "id": "yokohama-city",
     "name": "Yokohama City",
     "prefecture": "Kanagawa",
@@ -31429,6 +32059,96 @@
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "walkingIntensity": "medium"
+  },
+  {
+    "id": "yokohama-cosmo-world",
+    "name": "Yokohama Cosmo World",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "categories": ["Amusement Park", "Family", "Waterfront"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Yokohama_Cosmoworld_2022.jpg/1920px-Yokohama_Cosmoworld_2022.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Yokohama_Marine_Tower_Dscn1518a.jpg",
+    "totalTripHours": 3,
+    "budgetMin": 3000,
+    "budgetRecommended": 6500,
+    "budgetMax": 10000,
+    "walkingMin": 4000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 2500,
+    "indoorPercent": 75,
+    "ratings": {
+      "overall": 8.8,
+      "couple": 9.2,
+      "summer": 8.6,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 8.5,
+      "photography": 9,
+      "relaxation": 8.8,
+      "value": 8.5,
+      "uniqueness": 8.7
+    },
+    "crowd": {
+      "weekday": 5,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "tags": ["Amusement Park", "Family", "Waterfront"],
+    "coordinates": {
+      "lat": 35.456,
+      "lng": 139.636
+    },
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "transportOptions": {
+      "train": 25
+    },
+    "highlights": ["Amusement Park", "Family", "Waterfront"],
+    "description": "Yokohama Cosmo World is a curated destination within Yokohama City.",
+    "budgetBreakdown": {
+      "transport": 650,
+      "tickets": 1300,
+      "food": 3250,
+      "cafe": 1300
+    },
+    "reservation": "No advance reservation required.",
+    "parking": "Municipal paid parking spaces along Yamashita Park waterfront.",
+    "restaurants": ["The Terrace Yokohama Marine Tower", "Chinatown Manchinro"],
+    "cafes": ["Mizamito Cafe", "Marine Tower Bar"],
+    "notes": "Recognized as a Lover's Sanctuary with special romantic evening light projections.",
+    "schemaVersion": 2,
+    "imageMetadata": {
+      "source": "Wikimedia Commons / Wikipedia",
+      "license": "CC-BY-SA / Public Domain",
+      "attribution": "Lead photograph of Yokohama Marine Tower via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Marine%20Tower"
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "high"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    },
+    "walkingIntensity": "low",
+    "nameJa": "よこはまコスモワールド",
+    "role": "poi",
+    "placeType": "destination",
+    "addedAt": "2026-07-28",
+    "imageNeedsReview": false
   },
   {
     "id": "yokohama-landmark-tower-sky-garden",
@@ -31629,6 +32349,96 @@
       "parentDestinationId": "yokohama-city"
     },
     "walkingIntensity": "low"
+  },
+  {
+    "id": "yokohama-red-brick-warehouse",
+    "name": "Yokohama Red Brick Warehouse",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "categories": ["Architecture", "Shopping", "Waterfront"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Akarenga_Yokohama_2012.jpg/1920px-Akarenga_Yokohama_2012.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Yokohama_Marine_Tower_Dscn1518a.jpg",
+    "totalTripHours": 3,
+    "budgetMin": 3000,
+    "budgetRecommended": 6500,
+    "budgetMax": 10000,
+    "walkingMin": 4000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 2500,
+    "indoorPercent": 75,
+    "ratings": {
+      "overall": 8.8,
+      "couple": 9.2,
+      "summer": 8.6,
+      "winter": 8.8,
+      "rain": 8.5,
+      "food": 8.5,
+      "photography": 9,
+      "relaxation": 8.8,
+      "value": 8.5,
+      "uniqueness": 8.7
+    },
+    "crowd": {
+      "weekday": 5,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "tags": ["Architecture", "Shopping", "Waterfront"],
+    "coordinates": {
+      "lat": 35.453,
+      "lng": 139.641
+    },
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "transportOptions": {
+      "train": 25
+    },
+    "highlights": ["Architecture", "Shopping", "Waterfront"],
+    "description": "Yokohama Red Brick Warehouse is a curated destination within Yokohama City.",
+    "budgetBreakdown": {
+      "transport": 650,
+      "tickets": 1300,
+      "food": 3250,
+      "cafe": 1300
+    },
+    "reservation": "No advance reservation required.",
+    "parking": "Municipal paid parking spaces along Yamashita Park waterfront.",
+    "restaurants": ["The Terrace Yokohama Marine Tower", "Chinatown Manchinro"],
+    "cafes": ["Mizamito Cafe", "Marine Tower Bar"],
+    "notes": "Recognized as a Lover's Sanctuary with special romantic evening light projections.",
+    "schemaVersion": 2,
+    "imageMetadata": {
+      "source": "Wikimedia Commons / Wikipedia",
+      "license": "CC-BY-SA / Public Domain",
+      "attribution": "Lead photograph of Yokohama Marine Tower via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Marine%20Tower"
+    },
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "high"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    },
+    "walkingIntensity": "low",
+    "nameJa": "横浜赤レンガ倉庫",
+    "role": "poi",
+    "placeType": "destination",
+    "addedAt": "2026-07-28",
+    "imageNeedsReview": false
   },
   {
     "id": "yokohama-zoorasia",

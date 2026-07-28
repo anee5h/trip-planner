@@ -28,6 +28,8 @@
     "add-reviewed-city-hubs": "tsx scripts/add-reviewed-city-hubs.ts",
     "classify-standalone-destinations": "tsx scripts/classify-standalone-destinations.ts",
     "normalize-municipality-names": "tsx scripts/normalize-municipality-names.ts",
+    "add-yokohama-places": "tsx scripts/add-yokohama-places.ts",
+    "apply-yokohama-qa-images": "tsx scripts/apply-yokohama-qa-images.ts",
     "audit-spacing": "node scripts/audit-spacing.cjs",
     "prepare": "husky",
     "release:verify": "npm run test:run && npm run pipeline -- --dry-run && npx tsc -b --noEmit && npm run lint && npm run build && npm run format:check"

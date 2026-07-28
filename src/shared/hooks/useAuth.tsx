@@ -101,8 +101,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signOut = () => supabase?.auth.signOut();
 
-  const updateUserProfile = (data: UserProfileUpdateData) =>
-    supabase!.auth.updateUser({ data });
+  const updateUserProfile = async (data: UserProfileUpdateData) => {
+    const result = await supabase!.auth.updateUser({ data });
+    if (result.data.user) setUser(result.data.user);
+    return result;
+  };
 
   const deleteAccount = async () => {
     if (user && supabase) {

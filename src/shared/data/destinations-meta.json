@@ -597,6 +597,18 @@
     }
   },
   {
+    "id": "cup-noodles-museum-yokohama",
+    "name": "Cup Noodles Museum Yokohama",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    }
+  },
+  {
     "id": "dakigaeri-valley-akita",
     "name": "Dakigaeri Valley",
     "prefecture": "Akita",
@@ -1763,6 +1775,18 @@
     "relationships": {}
   },
   {
+    "id": "kannai-yokohama",
+    "name": "Kannai",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    }
+  },
+  {
     "id": "karuizawa-town",
     "name": "Karuizawa Town",
     "prefecture": "Nagano",
@@ -2515,6 +2539,18 @@
         "tokyo-tower-minato"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "minato-mirai-yokohama",
+    "name": "Minato Mirai",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
     }
   },
   {
@@ -3681,6 +3717,18 @@
     }
   },
   {
+    "id": "shin-yokohama-ramen-museum",
+    "name": "Shin-Yokohama Ramen Museum",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    }
+  },
+  {
     "id": "shinagawa-city",
     "name": "Shinagawa City",
     "prefecture": "Tokyo",
@@ -3786,6 +3834,18 @@
     "status": "verified",
     "relationships": {
       "parentDestinationId": "naha-city"
+    }
+  },
+  {
+    "id": "soji-ji-yokohama",
+    "name": "Soji-ji Temple",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
     }
   },
   {
@@ -4474,6 +4534,30 @@
     "relationships": {}
   },
   {
+    "id": "yamashita-park-yokohama",
+    "name": "Yamashita Park",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    }
+  },
+  {
+    "id": "yokohama-chinatown",
+    "name": "Yokohama Chinatown",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    }
+  },
+  {
     "id": "yokohama-city",
     "name": "Yokohama City",
     "prefecture": "Kanagawa",
@@ -4497,6 +4581,18 @@
     }
   },
   {
+    "id": "yokohama-cosmo-world",
+    "name": "Yokohama Cosmo World",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    }
+  },
+  {
     "id": "yokohama-landmark-tower-sky-garden",
     "name": "Yokohama Landmark Tower (Sky Garden)",
     "prefecture": "Kanagawa",
@@ -4511,6 +4607,18 @@
   {
     "id": "yokohama-marine-tower",
     "name": "Yokohama Marine Tower",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "yokohama-city"
+    }
+  },
+  {
+    "id": "yokohama-red-brick-warehouse",
+    "name": "Yokohama Red Brick Warehouse",
     "prefecture": "Kanagawa",
     "region": "Kanto",
     "role": "poi",

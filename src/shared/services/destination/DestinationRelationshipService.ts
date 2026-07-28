@@ -78,6 +78,12 @@ export class DestinationRelationshipService {
     this.ensureIndex();
     const rels = destination.relationships;
 
+    // A hub has no parent or siblings. Its useful nearby context is the
+    // reviewed places contained within that municipality.
+    if (destination.role === "hub") {
+      return this.getFeaturedChildDestinations(destination).slice(0, 4);
+    }
+
     const results: Destination[] = [];
     const parent = this.getParentDestination(destination);
     if (parent) results.push(parent);

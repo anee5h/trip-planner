@@ -1,0 +1,90 @@
+{
+  "id": "yokohama-cosmo-world",
+  "name": "Yokohama Cosmo World",
+  "prefecture": "Kanagawa",
+  "region": "Kanto",
+  "categories": ["Amusement Park", "Family", "Waterfront"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Yokohama_Cosmoworld_2022.jpg/1920px-Yokohama_Cosmoworld_2022.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Yokohama_Marine_Tower_Dscn1518a.jpg",
+  "totalTripHours": 3,
+  "budgetMin": 3000,
+  "budgetRecommended": 6500,
+  "budgetMax": 10000,
+  "walkingMin": 4000,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 75,
+  "ratings": {
+    "overall": 8.8,
+    "couple": 9.2,
+    "summer": 8.6,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 8.5,
+    "photography": 9,
+    "relaxation": 8.8,
+    "value": 8.5,
+    "uniqueness": 8.7
+  },
+  "crowd": {
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "tags": ["Amusement Park", "Family", "Waterfront"],
+  "coordinates": {
+    "lat": 35.456,
+    "lng": 139.636
+  },
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 8,
+    "walkingIntensity": 3
+  },
+  "transportOptions": {
+    "train": 25
+  },
+  "highlights": ["Amusement Park", "Family", "Waterfront"],
+  "description": "Yokohama Cosmo World is a curated destination within Yokohama City.",
+  "budgetBreakdown": {
+    "transport": 650,
+    "tickets": 1300,
+    "food": 3250,
+    "cafe": 1300
+  },
+  "reservation": "No advance reservation required.",
+  "parking": "Municipal paid parking spaces along Yamashita Park waterfront.",
+  "restaurants": ["The Terrace Yokohama Marine Tower", "Chinatown Manchinro"],
+  "cafes": ["Mizamito Cafe", "Marine Tower Bar"],
+  "notes": "Recognized as a Lover's Sanctuary with special romantic evening light projections.",
+  "schemaVersion": 2,
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Yokohama Marine Tower via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Marine%20Tower"
+  },
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "high"
+  },
+  "collections": [],
+  "relationships": {
+    "parentDestinationId": "yokohama-city"
+  },
+  "walkingIntensity": "low",
+  "nameJa": "よこはまコスモワールド",
+  "role": "poi",
+  "placeType": "destination",
+  "addedAt": "2026-07-28",
+  "imageNeedsReview": false
+}
