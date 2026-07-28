@@ -4,7 +4,6 @@ import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { getDestination } from "@/shared/services/destination/DestinationService";
 import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
-import destinationsData from "@/shared/data/destinations-index.json";
 import DestinationCard from "./components/DestinationCard";
 import type { Destination } from "@/shared/types/destination";
 import type { Collection } from "@/shared/types/collection";
@@ -50,7 +49,6 @@ import {
   ChevronDown,
   ChevronUp,
   Plane,
-  Footprints,
   Users,
   Leaf,
   Landmark,
@@ -61,6 +59,7 @@ import {
   Timer,
   CalendarDays,
   Building2,
+  Footprints,
 } from "lucide-react";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
@@ -265,27 +264,6 @@ export default function DestinationDetails() {
     );
   }, [destination, homeStationCoords]);
 
-  const nearbyDestinations = useMemo(() => {
-    if (!destination?.coordinates) return [];
-    const all = destinationsData as Destination[];
-    return all
-      .filter(
-        (d: Destination) => d.id !== destination.id && Boolean(d.coordinates),
-      )
-      .map((d: Destination) => ({
-        destination: d,
-        distance: getDistance(
-          destination.coordinates!.lat,
-          destination.coordinates!.lng,
-          d.coordinates!.lat,
-          d.coordinates!.lng,
-        ),
-      }))
-      .sort((a, b) => a.distance - b.distance)
-      .slice(0, 3)
-      .map((item) => item.destination);
-  }, [destination]);
-
   const parentDestination = useMemo(() => {
     if (!destination) return null;
     return DestinationRelationshipService.getParentDestination(destination);
@@ -298,29 +276,10 @@ export default function DestinationDetails() {
     );
   }, [destination]);
 
-  const graphNearbyDestinations = useMemo(() => {
+  const nearbyPlaces = useMemo(() => {
     if (!destination) return [];
-    const graphNearby =
-      DestinationRelationshipService.getNearbyDestinations(destination);
-    if (graphNearby.length > 0) return graphNearby;
-    return nearbyDestinations;
-  }, [destination, nearbyDestinations]);
-
-  // Only show places reachable on foot within 30 minutes (≈2.5 km at 5 km/h)
-  const walkableNearbyDestinations = useMemo(() => {
-    if (!destination?.coordinates) return graphNearbyDestinations;
-    return graphNearbyDestinations.filter((d: Destination) => {
-      if (!d.coordinates) return true; // no coords → can't filter, keep
-      const distKm = getDistance(
-        destination.coordinates!.lat,
-        destination.coordinates!.lng,
-        d.coordinates.lat,
-        d.coordinates.lng,
-      );
-      const walkMins = Math.round((distKm / 5) * 60);
-      return walkMins <= 30;
-    });
-  }, [destination, graphNearbyDestinations]);
+    return DestinationRelationshipService.getNearbyDestinations(destination);
+  }, [destination]);
 
   const activeModes = useMemo(() => {
     if (!destination) return null;
@@ -1459,7 +1418,7 @@ export default function DestinationDetails() {
                       </div>
                     </div>
                   </div>
-                  {walkableNearbyDestinations.length > 0 && (
+                  {nearbyPlaces.length > 0 && (
                     <div className="flex items-center gap-3">
                       <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">
                         <MapPin className="w-4 h-4" />
@@ -1469,7 +1428,7 @@ export default function DestinationDetails() {
                           Nearby Attractions
                         </div>
                         <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
-                          {walkableNearbyDestinations.length} within the area
+                          {nearbyPlaces.length} related places
                         </div>
                       </div>
                     </div>
@@ -1611,64 +1570,34 @@ export default function DestinationDetails() {
           </div>
         )}
 
-        {/* Nearby Destinations Section */}
-        {walkableNearbyDestinations.length > 0 && (
+        {/* Editorially linked nearby places and the destination's hub. */}
+        {nearbyPlaces.length > 0 && (
           <div className="mt-16 pt-12 border-t border-slate-200 dark:border-slate-800">
             <div className="flex items-center justify-between mb-8">
               <div>
                 <h3 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
                   <MapPin className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                  Nearby Destinations & Hubs
+                  Nearby Places & Hubs
                 </h3>
                 <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
-                  Other great places to visit close to{" "}
+                  Related places for{" "}
                   {localizedDestination?.name || destination.name}.
                 </p>
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {walkableNearbyDestinations.map((dest: Destination) => {
-                let distLabel: string | null = null;
-                let walkMinutes: number | null = null;
-                if (dest.coordinates && destination.coordinates) {
-                  const distKm = getDistance(
-                    destination.coordinates.lat,
-                    destination.coordinates.lng,
-                    dest.coordinates.lat,
-                    dest.coordinates.lng,
-                  );
-                  const distM = Math.round(distKm * 1000);
-                  distLabel =
-                    distM < 1000
-                      ? `${distM} m`
-                      : `${(distM / 1000).toFixed(1)} km`;
-                  walkMinutes = Math.round((distKm / 5) * 60);
-                }
-                return (
-                  <div key={dest.id} className="flex flex-col gap-1.5">
-                    {distLabel && walkMinutes !== null && (
-                      <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-medium px-1">
-                        <MapPin className="w-3 h-3 text-emerald-500 shrink-0" />
-                        <span>{distLabel}</span>
-                        <span className="text-slate-300 dark:text-slate-600">
-                          •
-                        </span>
-                        <Footprints className="w-3 h-3 shrink-0" />
-                        <span>{walkMinutes} min walk</span>
-                      </div>
-                    )}
-                    <DestinationCard
-                      destination={dest}
-                      partySize={partySize}
-                      carMode={navState?.carMode || "none"}
-                      publicModes={
-                        navState?.publicModes || ["train", "shinkansen", "bus"]
-                      }
-                      activeTransportMode="all"
-                    />
-                  </div>
-                );
-              })}
+              {nearbyPlaces.map((dest: Destination) => (
+                <DestinationCard
+                  key={dest.id}
+                  destination={dest}
+                  partySize={partySize}
+                  carMode={navState?.carMode || "none"}
+                  publicModes={
+                    navState?.publicModes || ["train", "shinkansen", "bus"]
+                  }
+                  activeTransportMode="all"
+                />
+              ))}
             </div>
           </div>
         )}

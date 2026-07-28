@@ -8,8 +8,20 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.8.0",
+    version: "v1.8.1",
     tag: "Current",
+    date: "July 2026",
+    title: "Verified City Hubs & Stronger Japanese Pilot",
+    highlights: [
+      "Removed city-hub assignments that crossed a municipal boundary or represented a regional place, and added only reviewed municipal links",
+      "Nearby Places & Hubs now always shows an assigned hub and uses curated relationships instead of coordinate or prefecture guesses",
+      "Removed nearby-place distance and walking-time labels",
+      "Expanded the Japanese pilot for 20 hubs with fuller descriptions and three practical highlights each",
+      "Added relationship validation that prevents non-hub and cross-prefecture parent assignments",
+    ],
+  },
+  {
+    version: "v1.8.0",
     date: "July 2026",
     title: "v2 Foundation: Trusted Places & Bilingual Content",
     highlights: [

@@ -70,37 +70,36 @@ export class DestinationRelationshipService {
   }
 
   /**
-   * Returns nearby destinations following precedence:
-   * 1. Explicit nearbyDestinationIds
-   * 2. Sights sharing the same parentDestinationId
-   * 3. Sights in the same prefecture
+   * Returns places relevant to a destination without inferring municipality
+   * membership from a shared prefecture. A destination's assigned hub always
+   * appears first, followed by explicit nearby places or sibling destinations.
    */
   static getNearbyDestinations(destination: Destination): Destination[] {
     this.ensureIndex();
     const rels = destination.relationships;
 
-    // Precedence 1: Explicit nearbyDestinationIds
+    const results: Destination[] = [];
+    const parent = this.getParentDestination(destination);
+    if (parent) results.push(parent);
+
+    // Explicit editorial relationships take precedence over inferred siblings.
     if (rels?.nearbyDestinationIds && rels.nearbyDestinationIds.length > 0) {
-      return rels.nearbyDestinationIds
-        .map((id) => this.byIdMap?.get(id))
-        .filter((d): d is Destination => Boolean(d));
+      results.push(
+        ...rels.nearbyDestinationIds
+          .map((id) => this.byIdMap?.get(id))
+          .filter((d): d is Destination => Boolean(d)),
+      );
+    } else if (rels?.parentDestinationId) {
+      results.push(
+        ...this.getChildDestinations(rels.parentDestinationId).filter(
+          (place) => place.id !== destination.id,
+        ),
+      );
     }
 
-    // Precedence 2: Sister attractions in same parent container
-    if (rels?.parentDestinationId) {
-      const siblings = this.getChildDestinations(rels.parentDestinationId);
-      const filtered = siblings.filter((d) => d.id !== destination.id);
-      if (filtered.length > 0) return filtered.slice(0, 4);
-    }
-
-    // Precedence 3: Same prefecture
-    const all = Array.from(this.byIdMap?.values() || []);
-    return all
-      .filter(
-        (d) =>
-          d.prefecture === destination.prefecture && d.id !== destination.id,
-      )
-      .slice(0, 4);
+    return Array.from(
+      new Map(results.map((place) => [place.id, place])).values(),
+    ).slice(0, 4);
   }
 
   /**
