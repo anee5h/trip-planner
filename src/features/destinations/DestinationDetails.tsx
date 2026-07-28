@@ -1561,12 +1561,11 @@ export default function DestinationDetails() {
                 </p>
               </div>
             </div>
-            {/* Nearby attractions list with distance + walking time */}
-            {destination.coordinates && (
-              <div className="mb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                {graphNearbyDestinations.map((dest: Destination) => {
-                  if (!dest.coordinates || !destination.coordinates)
-                    return null;
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {graphNearbyDestinations.map((dest: Destination) => {
+                let distLabel: string | null = null;
+                let walkMinutes: number | null = null;
+                if (dest.coordinates && destination.coordinates) {
                   const distKm = getDistance(
                     destination.coordinates.lat,
                     destination.coordinates.lng,
@@ -1574,63 +1573,37 @@ export default function DestinationDetails() {
                     dest.coordinates.lng,
                   );
                   const distM = Math.round(distKm * 1000);
-                  const distLabel =
+                  distLabel =
                     distM < 1000
                       ? `${distM} m`
                       : `${(distM / 1000).toFixed(1)} km`;
-                  const walkMinutes = Math.round((distKm / 5) * 60);
-                  const categoryEmoji: Record<string, string> = {
-                    castle: "🏯",
-                    shrine: "⛩",
-                    temple: "🛕",
-                    museum: "🎨",
-                    park: "🌳",
-                    garden: "🌸",
-                    mountain: "🏔",
-                    lake: "🌊",
-                    beach: "🏖",
-                    shopping: "🛍",
-                    market: "🛒",
-                    street: "🛍",
-                    onsen: "♨️",
-                    tower: "🗼",
-                    city: "🏙",
-                    town: "🏘",
-                  };
-                  const emoji = categoryEmoji[dest.kind ?? ""] ?? "📍";
-                  return (
-                    <Link
-                      key={dest.id}
-                      to={`/destinations/${dest.id}`}
-                      className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-emerald-400 dark:hover:border-emerald-600 hover:shadow-sm transition-all"
-                    >
-                      <span className="text-2xl shrink-0">{emoji}</span>
-                      <div className="min-w-0">
-                        <div className="font-semibold text-sm text-slate-800 dark:text-slate-100 truncate">
-                          {dest.name}
-                        </div>
-                        <div className="text-xs text-slate-500 dark:text-slate-400">
-                          {distLabel} • {walkMinutes} min walk
-                        </div>
+                  walkMinutes = Math.round((distKm / 5) * 60);
+                }
+                return (
+                  <div key={dest.id} className="flex flex-col gap-1.5">
+                    {distLabel && walkMinutes !== null && (
+                      <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-medium px-1">
+                        <MapPin className="w-3 h-3 text-emerald-500 shrink-0" />
+                        <span>{distLabel}</span>
+                        <span className="text-slate-300 dark:text-slate-600">
+                          •
+                        </span>
+                        <Footprints className="w-3 h-3 shrink-0" />
+                        <span>{walkMinutes} min walk</span>
                       </div>
-                    </Link>
-                  );
-                })}
-              </div>
-            )}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {graphNearbyDestinations.map((dest: Destination) => (
-                <DestinationCard
-                  key={dest.id}
-                  destination={dest}
-                  partySize={partySize}
-                  carMode={navState?.carMode || "none"}
-                  publicModes={
-                    navState?.publicModes || ["train", "shinkansen", "bus"]
-                  }
-                  activeTransportMode="all"
-                />
-              ))}
+                    )}
+                    <DestinationCard
+                      destination={dest}
+                      partySize={partySize}
+                      carMode={navState?.carMode || "none"}
+                      publicModes={
+                        navState?.publicModes || ["train", "shinkansen", "bus"]
+                      }
+                      activeTransportMode="all"
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         )}

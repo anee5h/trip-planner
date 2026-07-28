@@ -8,8 +8,21 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.59",
+    version: "v1.7.60",
     tag: "Current",
+    date: "July 2026",
+    title: "Suggested Visit, Ratings Overhaul & Data Audit",
+    highlights: [
+      "Replaced Sample Itinerary with a Suggested Visit card showing recommended duration, best season, typical budget, and nearby attraction count",
+      "Detailed Ratings split into Experience Ratings (Couple, Family, Photography, Food, Value, Walkability, Accessibility, Nature, History & Culture, Relaxation) and Seasonal Ratings (Spring, Summer, Autumn, Winter, Rainy Day)",
+      "Walk Intensity renamed to Walkability and now displays a numeric score instead of High/Medium/Low labels",
+      "Nearby Destinations now show distance and estimated walking time above each card using the icon pack",
+      "Data audit: fixed hub/featured/nearby relationships across 40+ cities — Yokohama now correctly shows Zoorasia and Hakkeijima, Fujisawa correctly features Enoshima only",
+      "Removed all itinerary data from destination JSON (152 destinations cleaned)",
+    ],
+  },
+  {
+    version: "v1.7.59",
     date: "July 2026",
     title: "Preferred Travel Times & Persistent Destination Search",
     highlights: [
