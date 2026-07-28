@@ -64,6 +64,31 @@ export type DestinationKind =
 
 export type DestinationRole = "hub" | "poi";
 
+export type PlaceType = "hub" | "destination";
+export type EditorialLifecycle =
+  "legacy" | "draft" | "in_review" | "approved" | "published";
+
+export interface LocalizedPlaceContent {
+  name: string;
+  description: string;
+  highlights: string[];
+}
+
+export interface SourceReference {
+  type: "official" | "wikipedia" | "manual";
+  url: string;
+  title: string;
+  accessedAt: string;
+}
+
+export interface EditorialRecord {
+  lifecycle: EditorialLifecycle;
+  sources: SourceReference[];
+  reviewedAt?: string;
+  reviewedBy?: string;
+  changeSummary?: string;
+}
+
 export type DestinationImportance = "major" | "notable" | "standard";
 
 export interface DestinationRelationships {
@@ -76,6 +101,14 @@ export interface DestinationRelationships {
 export interface Destination {
   id: string;
   name: string;
+  nameJa?: string;
+  /** Canonical v2 place classification; role remains for legacy callers. */
+  placeType?: PlaceType;
+  content?: {
+    en: LocalizedPlaceContent;
+    ja?: LocalizedPlaceContent;
+  };
+  editorial?: EditorialRecord;
   kind?: DestinationKind;
   role?: DestinationRole;
   importance?: DestinationImportance;
@@ -160,7 +193,7 @@ export interface Destination {
   recommendedDuration?: "1-2 hours" | "Half day" | "Full day" | "Weekend";
 
   /** Mandatory: Destination content quality status */
-  status: "verified" | "planned";
+  status: "verified" | "planned" | "beta";
 
   /** Mandatory: Travel estimate calibration confidence level */
   travelEstimate: {

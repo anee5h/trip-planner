@@ -39,6 +39,8 @@ import { useTripStore } from "@/shared/hooks/useTripStore";
 import { getAdjustedBudget } from "@/shared/utils/utils";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
+import { useLocale } from "@/shared/context/LocaleContext";
+import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 
 interface DestinationCardProps {
   destination: Destination;
@@ -57,6 +59,8 @@ export default function DestinationCard({
   carMode,
   publicModes,
 }: DestinationCardProps) {
+  const { locale } = useLocale();
+  const localizedDestination = getLocalizedPlace(destination, locale);
   const location = useLocation();
   const {
     isVisited,
@@ -115,8 +119,8 @@ export default function DestinationCard({
     <Card className="overflow-hidden flex flex-col h-full group rounded-card shadow-card hover:shadow-hover hover:-translate-y-1 transition-all duration-300 border-slate-200 dark:border-slate-800">
       <div className="relative h-60 sm:h-64 aspect-[16/10] overflow-hidden">
         <LazyImage
-          src={destination.heroImage}
-          alt={destination.name}
+          src={localizedDestination.heroImage}
+          alt={localizedDestination.name}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ${visited ? "grayscale opacity-80" : ""}`}
         />
@@ -174,7 +178,7 @@ export default function DestinationCard({
           </button>
           <BucketListButton
             destinationId={destination.id}
-            destinationName={destination.name}
+            destinationName={localizedDestination.name}
           />
           <button
             onClick={handleVisitedClick}
@@ -197,7 +201,7 @@ export default function DestinationCard({
         <div className="flex justify-between items-start">
           <div>
             <h3 className="text-2xl font-extrabold tracking-tight mb-1">
-              {destination.name}
+              {localizedDestination.name}
             </h3>
             <div className="flex items-center text-sm font-medium text-slate-500 dark:text-slate-400">
               <MapPin className="w-3.5 h-3.5 mr-1 text-emerald-500" />
@@ -436,19 +440,19 @@ export default function DestinationCard({
       <ItineraryPickerModal
         isOpen={pickerOpen}
         onClose={() => setPickerOpen(false)}
-        destination={{ id: destination.id, name: destination.name }}
+        destination={{ id: destination.id, name: localizedDestination.name }}
       />
 
       <MarkVisitedModal
         isOpen={markVisitedOpen}
         onClose={() => setMarkVisitedOpen(false)}
-        destination={{ id: destination.id, name: destination.name }}
+        destination={{ id: destination.id, name: localizedDestination.name }}
       />
 
       <VisitedDateModal
         isOpen={visitedHistoryOpen}
         onClose={() => setVisitedHistoryOpen(false)}
-        destination={{ id: destination.id, name: destination.name }}
+        destination={{ id: destination.id, name: localizedDestination.name }}
       />
     </Card>
   );

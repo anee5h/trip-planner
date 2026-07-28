@@ -1,6 +1,7 @@
 import type { ValidatorModule } from "./types";
 import { destinationsValidator } from "./destinations";
 import { destinationDetailsValidator } from "./destination-details";
+import { placesValidator } from "./places";
 import { collectionsValidator } from "./collections";
 import { relationshipsValidator } from "./relationships";
 import { imagesValidator } from "./images";
@@ -11,6 +12,7 @@ import { linksValidator } from "./links";
 export const validators: ValidatorModule[] = [
   destinationsValidator,
   destinationDetailsValidator,
+  placesValidator,
   collectionsValidator,
   relationshipsValidator,
   imagesValidator,

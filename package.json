@@ -1,7 +1,7 @@
 {
   "name": "tabimap",
   "private": true,
-  "version": "1.7.62",
+  "version": "1.8.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -16,6 +16,7 @@
     "validate-all": "tsx scripts/validate-all.ts",
     "validate-destinations": "tsx scripts/cli/validate-destinations.ts",
     "validate-destination-details": "tsx scripts/cli/validate-destination-details.ts",
+    "validate-places": "tsx scripts/cli/validate-places.ts",
     "validate-collections": "tsx scripts/cli/validate-collections.ts",
     "validate-relationships": "tsx scripts/cli/validate-relationships.ts",
     "validate-images": "tsx scripts/cli/validate-images.ts",

@@ -8,8 +8,19 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.7.62",
+    version: "v1.8.0",
     tag: "Current",
+    date: "July 2026",
+    title: "v2 Foundation: Trusted Places & Bilingual Content",
+    highlights: [
+      "Introduced canonical hub and destination records with an editorial lifecycle, source tracking, and review history",
+      "Added Japanese content support with an in-app language switch and safe English fallback",
+      "Reviewed the first 20 national travel hubs with bilingual summaries and traceable sources",
+      "Rebuilt recommendations behind an explicit pipeline for eligibility, costs, weather, scoring, diversification, and explanations",
+    ],
+  },
+  {
+    version: "v1.7.62",
     date: "July 2026",
     title: "Complete Destination Detail Catalog",
     highlights: [

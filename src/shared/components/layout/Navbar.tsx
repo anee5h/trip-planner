@@ -21,10 +21,12 @@ import { AuthModal } from "@/shared/components/auth/AuthModal";
 import { GlobalSearch } from "@/features/search/GlobalSearch";
 import { FeedbackModal } from "@/shared/components/feedback/FeedbackModal";
 import { ReleaseNotesModal } from "@/shared/components/ui/ReleaseNotesModal";
+import { useLocale } from "@/shared/context/LocaleContext";
 
 export default function Navbar() {
   const location = useLocation();
   const { user, loading, signOut } = useAuth();
+  const { locale, setLocale } = useLocale();
   const [menuOpen, setMenuOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
   const [feedbackOpen, setFeedbackOpen] = useState(false);
@@ -122,7 +124,15 @@ export default function Navbar() {
         {/* Global Search Bar (Center / Desktop & Mobile icon) */}
         <GlobalSearch />
 
-        <div className="flex items-center gap-4 shrink-0">
+        <div className="flex items-center gap-3 shrink-0">
+          <button
+            type="button"
+            onClick={() => setLocale(locale === "en" ? "ja" : "en")}
+            className="text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400"
+            aria-label="Switch language"
+          >
+            {locale === "en" ? "日本語" : "EN"}
+          </button>
           <nav className="hidden md:flex items-center gap-1.5">
             {/* Discover Cluster */}
             <div className="flex items-center gap-1.5">
@@ -481,7 +491,7 @@ export default function Navbar() {
                 className="hover:text-emerald-500 font-bold transition-colors cursor-pointer flex items-center gap-1"
                 title="View Release Notes"
               >
-                <span>TabiMap Japan v1.7.62</span>
+                <span>TabiMap Japan v1.8.0</span>
                 <span className="text-[10px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-1.5 py-0.5 rounded font-extrabold border border-emerald-500/20">
                   Notes
                 </span>

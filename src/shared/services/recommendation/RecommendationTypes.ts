@@ -29,3 +29,16 @@ export interface ScoredDestination extends Destination {
   match: RecommendationMatch;
   bestTransportMode?: string;
 }
+
+export interface RecommendationStageResult {
+  eligible: boolean;
+  estimatedCost?: number;
+  bestTransportMode?: string;
+  scoreContributions: Record<string, number>;
+  confidence: number;
+  reasons: MatchReason[];
+}
+
+export interface PipelineRecommendation extends ScoredDestination {
+  pipeline: RecommendationStageResult;
+}

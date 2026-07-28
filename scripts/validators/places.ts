@@ -1,0 +1,112 @@
+import { EDITORIAL_PILOT_IDS } from "../../src/shared/data/editorialPilot";
+import { toCanonicalPlace } from "../../src/shared/services/place/PlaceCatalog";
+import type {
+  ValidationContext,
+  ValidationIssue,
+  ValidationResult,
+  ValidatorModule,
+} from "./types";
+
+export const placesValidator: ValidatorModule = {
+  name: "Canonical Places",
+  description:
+    "Validates v2 place type, editorial lifecycle, localized content, sources, and hub hierarchy.",
+  purpose:
+    "Ensure all catalog entries have a canonical foundation and reviewed pilots are traceable.",
+  guarantees: [
+    "Every catalog entry resolves to a hub or destination",
+    "Published editorial records have a source and review metadata",
+    "Pilot hubs have Japanese content and valid hierarchy",
+  ],
+  doesNotValidate: ["Translation quality", "Source URL reachability"],
+  async validate(context: ValidationContext): Promise<ValidationResult> {
+    const issues: ValidationIssue[] = [];
+    const places = context.catalog.destinations.map(toCanonicalPlace);
+    const ids = new Set(places.map((place) => place.id));
+    const pilotIds = new Set<string>(EDITORIAL_PILOT_IDS);
+
+    for (const place of places) {
+      if (place.placeType !== "hub" && place.placeType !== "destination") {
+        issues.push({
+          severity: "error",
+          code: "INVALID_PLACE_TYPE",
+          message: `Place '${place.id}' has an invalid type.`,
+          targetId: place.id,
+        });
+      }
+      if (!place.content.en.name || !place.content.en.description) {
+        issues.push({
+          severity: "error",
+          code: "MISSING_ENGLISH_CONTENT",
+          message: `Place '${place.id}' has incomplete English content.`,
+          targetId: place.id,
+        });
+      }
+      const parentId = place.relationships?.parentDestinationId;
+      if (parentId && !ids.has(parentId)) {
+        issues.push({
+          severity: "error",
+          code: "MISSING_PARENT_HUB",
+          message: `Place '${place.id}' references missing hub '${parentId}'.`,
+          targetId: place.id,
+        });
+      }
+      if (
+        place.editorial.lifecycle !== "legacy" &&
+        place.editorial.sources.length === 0
+      ) {
+        issues.push({
+          severity: "error",
+          code: "PUBLISHED_WITHOUT_SOURCE",
+          message: `Place '${place.id}' is editorially active without a source.`,
+          targetId: place.id,
+        });
+      }
+      if (
+        place.editorial.lifecycle === "published" &&
+        !place.editorial.reviewedAt
+      ) {
+        issues.push({
+          severity: "error",
+          code: "PUBLISHED_WITHOUT_REVIEW",
+          message: `Place '${place.id}' is published without review history.`,
+          targetId: place.id,
+        });
+      }
+      if (pilotIds.has(place.id)) {
+        if (place.placeType !== "hub") {
+          issues.push({
+            severity: "error",
+            code: "PILOT_NOT_HUB",
+            message: `Pilot '${place.id}' must be a hub.`,
+            targetId: place.id,
+          });
+        }
+        if (!place.content.ja?.name || !place.content.ja.description) {
+          issues.push({
+            severity: "error",
+            code: "PILOT_MISSING_JAPANESE",
+            message: `Pilot '${place.id}' lacks reviewed Japanese content.`,
+            targetId: place.id,
+          });
+        }
+      }
+    }
+
+    const errorsCount = issues.filter(
+      (issue) => issue.severity === "error",
+    ).length;
+    return {
+      name: placesValidator.name,
+      passed: errorsCount === 0,
+      issues,
+      metrics: {
+        totalChecked: places.length,
+        errorsCount,
+        warningsCount: 0,
+        infoCount: 0,
+        durationMs: 0,
+      },
+    };
+  },
+};

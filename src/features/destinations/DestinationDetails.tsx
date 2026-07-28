@@ -64,6 +64,8 @@ import {
 } from "lucide-react";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
+import { useLocale } from "@/shared/context/LocaleContext";
+import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 
 import { toast } from "sonner";
 import {
@@ -100,6 +102,7 @@ function WeatherIcon({ type }: { type: string }) {
 }
 
 export default function DestinationDetails() {
+  const { locale } = useLocale();
   const { id } = useParams();
   const location = useLocation();
   const navState = location.state as {
@@ -133,6 +136,9 @@ export default function DestinationDetails() {
   const [pickerOpen, setPickerOpen] = useState(false);
   const [markVisitedOpen, setMarkVisitedOpen] = useState(false);
   const [visitedHistoryOpen, setVisitedHistoryOpen] = useState(false);
+  const localizedDestination = destination
+    ? getLocalizedPlace(destination, locale)
+    : null;
 
   const handleAddToItinerary = () => {
     if (!destination) return;
@@ -196,7 +202,7 @@ export default function DestinationDetails() {
       setIsWikiLoading(true);
       try {
         const res = await WikipediaService.fetchSummary(
-          destination.name,
+          localizedDestination?.name || destination.name,
           destination.prefecture,
         );
         setWikiSummary(res);
@@ -442,7 +448,7 @@ export default function DestinationDetails() {
 
         <img
           src={destination.heroImage}
-          alt={destination.name}
+          alt={localizedDestination?.name || destination.name}
           decoding="async"
           onError={(e) => {
             if (wikiSummary?.leadImage) {
@@ -456,7 +462,7 @@ export default function DestinationDetails() {
         <div className="relative w-full container mx-auto px-4 pt-16 sm:pt-20 pb-6 md:pb-8 text-white z-10 mt-auto">
           {/* 1. Destination Title & Japanese Kanji */}
           <h1 className="text-2xl sm:text-4xl md:text-6xl font-extrabold tracking-tight mb-2 flex flex-wrap items-baseline gap-2.5 [text-shadow:_0_2px_8px_rgba(0,0,0,0.85)] drop-shadow-md">
-            <span>{destination.name}</span>
+            <span>{localizedDestination?.name || destination.name}</span>
             {wikiSummary?.japaneseTitle && (
               <span className="text-lg sm:text-xl md:text-3xl font-semibold text-emerald-400 font-sans tracking-wide">
                 {wikiSummary.japaneseTitle}
@@ -564,7 +570,7 @@ export default function DestinationDetails() {
               {/* Want to Visit / Bucket List Toggle */}
               <BucketListButton
                 destinationId={destination.id}
-                destinationName={destination.name}
+                destinationName={localizedDestination?.name || destination.name}
                 variant="hero"
               />
 
@@ -667,7 +673,7 @@ export default function DestinationDetails() {
             <section className="bg-white dark:bg-slate-900 rounded-2xl p-5 md:p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-bold tracking-tight">Overview</h2>
-                {wikiSummary && !destination.description && (
+                {wikiSummary && !localizedDestination?.description && (
                   <a
                     href={wikiSummary.url}
                     target="_blank"
@@ -681,9 +687,9 @@ export default function DestinationDetails() {
               </div>
 
               {/* Primary Description */}
-              {(destination.description || destination.notes) && (
+              {(localizedDestination?.description || destination.notes) && (
                 <p className="text-base text-slate-600 dark:text-slate-300 leading-7 mb-4">
-                  {destination.description || destination.notes}
+                  {localizedDestination?.description || destination.notes}
                 </p>
               )}
               {/* Read More Wikipedia Button Trigger directly below custom overview text */}
@@ -1476,7 +1482,11 @@ export default function DestinationDetails() {
               <CardContent className="p-6">
                 <h3 className="font-bold mb-4">Highlights</h3>
                 <ul className="space-y-3">
-                  {(destination.highlights ?? []).map((h) => (
+                  {(
+                    localizedDestination?.highlights ??
+                    destination.highlights ??
+                    []
+                  ).map((h) => (
                     <li key={h} className="flex items-start">
                       <div className="min-w-6 min-h-6 bg-slate-100 dark:bg-slate-800 text-emerald-600 rounded-full flex items-center justify-center mr-3 mt-0.5">
                         <CheckCircle2 className="w-3.5 h-3.5" />
@@ -1574,7 +1584,7 @@ export default function DestinationDetails() {
                 </span>
                 <h3 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-2 mt-1">
                   <MapPin className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                  Top Sights in {destination.name}
+                  Top Sights in {localizedDestination?.name || destination.name}
                 </h3>
               </div>
             </div>
@@ -1611,7 +1621,8 @@ export default function DestinationDetails() {
                   Nearby Destinations & Hubs
                 </h3>
                 <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
-                  Other great places to visit close to {destination.name}.
+                  Other great places to visit close to{" "}
+                  {localizedDestination?.name || destination.name}.
                 </p>
               </div>
             </div>

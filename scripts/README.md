@@ -24,6 +24,9 @@ npm run sync-destination-details
 # Confirm every public detail file matches the destination index
 npm run validate-destination-details
 
+# Validate the v2 canonical place, editorial, bilingual, and hierarchy foundation
+npm run validate-places
+
 # Align existing budget breakdowns with each destination's recommended total
 npm run normalize-destination-budgets
 ```

@@ -1,8 +1,11 @@
 import type { Destination } from "@/shared/types/destination";
-import destinationsIndex from "@/shared/data/destinations-index.json";
+import {
+  getCanonicalPlaces,
+  toCanonicalPlace,
+} from "@/shared/services/place/PlaceCatalog";
 
 export function getDestinationList(): Partial<Destination>[] {
-  const list = destinationsIndex as Partial<Destination>[];
+  const list = getCanonicalPlaces() as Partial<Destination>[];
   return list.map((dest) => {
     if (dest.transportOptions?.car && !dest.transportOptions.my_car) {
       return {
@@ -21,7 +24,7 @@ export async function getDestination(id: string): Promise<Destination | null> {
   try {
     const response = await fetch(`/data/destinations/${id}.json`);
     if (response.ok) {
-      const dest = await response.json();
+      const dest = toCanonicalPlace(await response.json());
       if (dest.transportOptions?.car && !dest.transportOptions.my_car) {
         return {
           ...dest,
@@ -38,9 +41,7 @@ export async function getDestination(id: string): Promise<Destination | null> {
   }
 
   // Fallback to in-memory destinationsIndex
-  const indexMatch = (destinationsIndex as Destination[]).find(
-    (d) => d.id === id,
-  );
+  const indexMatch = getCanonicalPlaces().find((d) => d.id === id);
   if (indexMatch) {
     if (
       indexMatch.transportOptions?.car &&
