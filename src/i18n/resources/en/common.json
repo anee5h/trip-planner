@@ -36,6 +36,12 @@
     "matchConfidence": "Match Confidence",
     "matchReasons": "Match Reasons",
     "matchedPreferences": "Matched Preferences",
+    "confidence": {
+      "verifiedCatalogData": "Verified catalog destination & pricing",
+      "liveWeatherAvailable": "Live weather data integrated",
+      "weatherDataEstimated": "Weather data estimated from seasonal averages",
+      "verifiedTransitRoute": "Direct transit route verified"
+    },
     "feedback": {
       "title": "Was this helpful?",
       "helpful": "Helpful",
