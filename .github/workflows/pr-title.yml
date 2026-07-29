@@ -8,7 +8,8 @@ permissions:
   contents: read
 
 jobs:
-  validate:
+  validate-title:
+    name: validate-title
     runs-on: ubuntu-latest
     steps:
       - name: Validate PR Title Prefix
