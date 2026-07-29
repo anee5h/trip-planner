@@ -80,5 +80,6 @@
   "role": "poi",
   "bestSeason": "Year-round",
   "weatherDependence": "indoor",
-  "walkingIntensity": "low"
+  "walkingIntensity": "low",
+  "ratingsSchemaVersion": 2
 }

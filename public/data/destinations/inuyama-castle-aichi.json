@@ -80,5 +80,6 @@
     "nearbyDestinationIds": [],
     "parentDestinationId": "inuyama-city"
   },
-  "walkingIntensity": "low"
+  "walkingIntensity": "low",
+  "ratingsSchemaVersion": 2
 }

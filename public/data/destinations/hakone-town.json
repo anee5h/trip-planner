@@ -94,5 +94,6 @@
     "food": 12431,
     "cafe": 6694
   },
-  "walkingIntensity": "low"
+  "walkingIntensity": "low",
+  "ratingsSchemaVersion": 2
 }

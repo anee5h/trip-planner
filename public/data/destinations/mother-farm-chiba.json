@@ -74,5 +74,6 @@
   },
   "walkingIntensity": "low",
   "role": "standalone",
-  "placeType": "destination"
+  "placeType": "destination",
+  "ratingsSchemaVersion": 2
 }

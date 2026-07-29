@@ -100,5 +100,6 @@
   "relationships": {
     "parentDestinationId": "niigata-city"
   },
-  "walkingIntensity": "low"
+  "walkingIntensity": "low",
+  "ratingsSchemaVersion": 2
 }

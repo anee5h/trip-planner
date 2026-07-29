@@ -83,5 +83,6 @@
     "food": 5005,
     "cafe": 2695
   },
-  "walkingIntensity": "medium"
+  "walkingIntensity": "medium",
+  "ratingsSchemaVersion": 2
 }

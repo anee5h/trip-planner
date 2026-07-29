@@ -95,5 +95,6 @@
   "relationships": {
     "parentDestinationId": "gifu-city"
   },
-  "walkingIntensity": "medium"
+  "walkingIntensity": "medium",
+  "ratingsSchemaVersion": 2
 }

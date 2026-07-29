@@ -84,5 +84,6 @@
   },
   "role": "hub",
   "walkingIntensity": "low",
-  "kind": "city"
+  "kind": "city",
+  "ratingsSchemaVersion": 2
 }

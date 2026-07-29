@@ -106,5 +106,6 @@
   "relationships": {
     "parentDestinationId": "hikone-city"
   },
-  "walkingIntensity": "medium"
+  "walkingIntensity": "medium",
+  "ratingsSchemaVersion": 2
 }

@@ -81,5 +81,6 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": []
+  "collections": [],
+  "ratingsSchemaVersion": 2
 }

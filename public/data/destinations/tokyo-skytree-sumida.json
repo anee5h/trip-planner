@@ -100,5 +100,6 @@
   "relationships": {
     "parentDestinationId": "sumida-city"
   },
-  "walkingIntensity": "medium"
+  "walkingIntensity": "medium",
+  "ratingsSchemaVersion": 2
 }

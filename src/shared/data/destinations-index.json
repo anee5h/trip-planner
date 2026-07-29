@@ -353,7 +353,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "aizuwakamatsu-city",
@@ -437,7 +438,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "akasaka-minato",
@@ -514,7 +516,8 @@
     },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "akihabara-chiyoda",
@@ -597,7 +600,8 @@
     },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "akita-city",
@@ -682,7 +686,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "akiu-onsen-miyagi",
@@ -952,7 +957,8 @@
     },
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "amanohashidate-kyoto",
@@ -1129,7 +1135,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "arakurayama-sengen-park-yamanashi",
@@ -1408,7 +1415,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "asahikawa-city",
@@ -1575,7 +1583,8 @@
     },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ashigara",
@@ -1658,7 +1667,8 @@
     "parking": "Available on site",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ashikaga-city",
@@ -1742,7 +1752,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ashikaga-flower-park-tochigi",
@@ -2010,7 +2021,8 @@
     },
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "atami-city",
@@ -2095,7 +2107,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "atsuta-shrine-nagoya",
@@ -2552,7 +2565,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "chiba-city",
@@ -2654,7 +2668,8 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "chiba-nokogiriyama",
@@ -2748,7 +2763,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "chiba-port-tower",
@@ -2842,7 +2858,8 @@
     "relationships": {
       "parentDestinationId": "chiba-city"
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "chiba-sawara",
@@ -2931,7 +2948,8 @@
       "parentDestinationId": "katori-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Inou-tadataka-house%2Ckatori-city%2Cjapan.JPG/330px-Inou-tadataka-house%2Ckatori-city%2Cjapan.JPG",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "chiba-yoro-valley",
@@ -3014,7 +3032,8 @@
     "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000",
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "chichibu-city",
@@ -3098,7 +3117,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "chigasaki-city",
@@ -3183,7 +3203,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "chiyoda-city",
@@ -3270,7 +3291,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "chofu-tokyo",
@@ -3358,7 +3380,8 @@
     },
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "choshi-chiba",
@@ -3446,7 +3469,8 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "choshi-city",
@@ -3530,7 +3554,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "chuo-city",
@@ -3610,7 +3635,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "cup-noodles-museum-yokohama",
@@ -3698,7 +3724,8 @@
     "role": "poi",
     "placeType": "destination",
     "addedAt": "2026-07-28",
-    "imageNeedsReview": false
+    "imageNeedsReview": false,
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "dakigaeri-valley-akita",
@@ -4049,7 +4076,8 @@
     },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "disneysea",
@@ -4132,7 +4160,8 @@
     },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "dogo-onsen-ehime",
@@ -4313,7 +4342,8 @@
     "relationships": {
       "parentDestinationId": "chiyoda-city"
     },
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "edogawa-city",
@@ -4398,7 +4428,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "enoshima-island",
@@ -4481,7 +4512,8 @@
     "weatherDependence": "moderate",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "fuji-5-lake",
@@ -4570,7 +4602,8 @@
     "parking": "Available on site",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "fujikawaguchiko-town",
@@ -4659,7 +4692,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "fujinomiya-city",
@@ -4743,7 +4777,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "fujisawa-city",
@@ -4823,7 +4858,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "fujiyoshida-city",
@@ -4912,7 +4948,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "fukui",
@@ -4995,7 +5032,8 @@
     "parking": "Available on site",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "fukuoka-city",
@@ -5170,7 +5208,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "funabashi-city",
@@ -5255,7 +5294,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "furano-city",
@@ -5422,7 +5462,8 @@
     "parking": "Available on site",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "geibikei-gorge-iwate",
@@ -5597,7 +5638,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "gero-onsen",
@@ -5794,7 +5836,8 @@
     "relationships": {
       "parentDestinationId": "gifu-city"
     },
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "gifu-city",
@@ -5883,7 +5926,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "gifu-gujo-hachiman",
@@ -5977,7 +6021,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "gifu-magome-juku",
@@ -6072,7 +6117,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ginza-urban",
@@ -6160,7 +6206,8 @@
     },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ginzan-onsen-yamagata",
@@ -6430,7 +6477,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "gunkanjima-hashima-nagasaki",
@@ -6532,7 +6580,8 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "gunma-ikaho-onsen",
@@ -6622,7 +6671,8 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ikaho_Onsen_03.jpg/250px-Ikaho_Onsen_03.jpg",
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "gunma-kusatsu-onsen",
@@ -6718,7 +6768,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "gunma-shima-onsen",
@@ -6807,7 +6858,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "hachinohe-city",
@@ -6892,7 +6944,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "hachioji-castle-tokyo",
@@ -6970,7 +7023,8 @@
     "reservation": "None required",
     "parking": "Available on site",
     "notes": "Hachioji Castle Ruins (Mount Castle) located in Tokyo Prefecture.",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "hachioji-tokyo",
@@ -7058,7 +7112,8 @@
       "walkingIntensity": 3
     },
     "walkingIntensity": "low",
-    "kind": "city"
+    "kind": "city",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "hakkeijima",
@@ -7140,7 +7195,8 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "hakodate-city",
@@ -7419,7 +7475,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "hamamatsu-city",
@@ -7514,7 +7571,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "harry-potter-studio",
@@ -7591,7 +7649,8 @@
     },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "hatsukaichi-city",
@@ -7774,7 +7833,8 @@
     "relationships": {
       "parentDestinationId": "nagoya-city"
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "hikone-castle-shiga",
@@ -7884,7 +7944,8 @@
     "relationships": {
       "parentDestinationId": "hikone-city"
     },
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "hikone-city",
@@ -8153,7 +8214,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "hiraizumi-chusonji-iwate",
@@ -8255,7 +8317,8 @@
     },
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "hirosaki-castle",
@@ -8537,7 +8600,8 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "horyuji-temple-nara",
@@ -8635,7 +8699,8 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ibaraki-fukuroda-falls",
@@ -8734,7 +8799,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ibaraki-hitachi-seaside-park",
@@ -8828,7 +8894,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ibaraki-mount-tsukuba",
@@ -8917,7 +8984,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ikaruga-town",
@@ -9084,7 +9152,8 @@
     },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "imperial-palace-chiyoda",
@@ -9165,7 +9234,8 @@
     },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "inuyama-castle-aichi",
@@ -9249,7 +9319,8 @@
       "nearbyDestinationIds": [],
       "parentDestinationId": "inuyama-city"
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "inuyama-city",
@@ -9343,7 +9414,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ise-city",
@@ -9427,7 +9499,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ise-grand-shrine",
@@ -9615,7 +9688,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ito-city",
@@ -9699,7 +9773,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "iwakuni-city",
@@ -9784,7 +9859,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "iwami-ginzan-shimane",
@@ -9882,7 +9958,8 @@
     },
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "iya-valley-tokushima",
@@ -10057,7 +10134,8 @@
     "parking": "Available on site",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "izumo-city",
@@ -10324,7 +10402,8 @@
     "parking": "Available on site",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "joypolis",
@@ -10401,7 +10480,8 @@
     },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kagoshima-city",
@@ -10765,7 +10845,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kanazawa",
@@ -10863,7 +10944,8 @@
     "parking": "Available on site",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kanazawa-castle-ishikawa",
@@ -10962,7 +11044,8 @@
     "relationships": {},
     "walkingIntensity": "medium",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kannai-yokohama",
@@ -11050,7 +11133,8 @@
     "role": "poi",
     "placeType": "destination",
     "addedAt": "2026-07-28",
-    "imageNeedsReview": false
+    "imageNeedsReview": false,
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "karuizawa-town",
@@ -11139,7 +11223,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "katori-city",
@@ -11223,7 +11308,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "katsushika-city",
@@ -11308,7 +11394,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kawagoe-castle-saitama",
@@ -11401,7 +11488,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kawagoe-city",
@@ -11491,7 +11579,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kawaguchi-city",
@@ -11576,7 +11665,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kawasaki-city",
@@ -11666,7 +11756,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kegon-falls-nikko",
@@ -11866,7 +11957,8 @@
     "parking": "Available on site",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kirin-beer-yokohama-factory",
@@ -11954,7 +12046,8 @@
     "role": "poi",
     "placeType": "destination",
     "addedAt": "2026-07-28",
-    "imageNeedsReview": false
+    "imageNeedsReview": false,
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kisarazu-city",
@@ -12039,7 +12132,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kiso",
@@ -12128,7 +12222,8 @@
     "parking": "Available on site",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kita-city",
@@ -12213,7 +12308,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kitakyushu-city",
@@ -12665,7 +12761,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "korakuen-okayama",
@@ -12839,7 +12936,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kouri-island-okinawa",
@@ -13217,7 +13315,8 @@
     },
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kurashiki-city",
@@ -13395,7 +13494,8 @@
     "parking": "Available on site",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kusatsu-town",
@@ -13480,7 +13580,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kushiro-city",
@@ -13844,7 +13945,8 @@
     "parking": "Available on site",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "lake-tazawa-akita",
@@ -14101,7 +14203,8 @@
     },
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "marugame-castle",
@@ -14299,7 +14402,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "matsudo-city",
@@ -14384,7 +14488,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "matsue-castle",
@@ -14569,7 +14674,8 @@
       "nearbyDestinationIds": [],
       "parentDestinationId": "matsumoto-city"
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "matsumoto-city",
@@ -14655,7 +14761,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "matsushima-bay",
@@ -14835,7 +14942,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "minakami-town",
@@ -14920,7 +15028,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "minato-city",
@@ -15003,7 +15112,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "minato-mirai-yokohama",
@@ -15091,7 +15201,8 @@
     "role": "poi",
     "placeType": "destination",
     "addedAt": "2026-07-28",
-    "imageNeedsReview": false
+    "imageNeedsReview": false,
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "mine-city",
@@ -15175,7 +15286,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "mirai-tower-nagoya",
@@ -15274,7 +15386,8 @@
     "relationships": {
       "parentDestinationId": "nagoya-city"
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "mito-castle-ibaraki",
@@ -15373,7 +15486,8 @@
     "relationships": {
       "parentDestinationId": "mito-city"
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "mito-city",
@@ -15457,7 +15571,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "miyajima-itsukushima",
@@ -15818,7 +15933,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "mother-farm-chiba",
@@ -15896,7 +16012,8 @@
     },
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "motobu-town",
@@ -16332,7 +16449,8 @@
     "parking": "Available on site",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "mount-inasa-nagasaki",
@@ -16534,7 +16652,8 @@
     },
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nachi-falls-wakayama",
@@ -16725,7 +16844,8 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nagano-kamikochi",
@@ -16814,7 +16934,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nagano-narai-juku",
@@ -16909,7 +17030,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nagano-suwa",
@@ -16998,7 +17120,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nagano-tsumago-juku",
@@ -17093,7 +17216,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nagasaki-city",
@@ -17336,7 +17460,8 @@
     "reservation": "None required",
     "parking": "Available on site",
     "notes": "Nagoya Castle (Golden Shachihoko) located in Aichi Prefecture.",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nagoya-city",
@@ -17438,7 +17563,8 @@
       "food": 5891,
       "cafe": 3171
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nagoya-port-tower",
@@ -17537,7 +17663,8 @@
     "relationships": {
       "parentDestinationId": "nagoya-city"
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "naha-city",
@@ -17702,7 +17829,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "naoshima-art-island-kagawa",
@@ -17971,7 +18099,8 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nara-park-todaiji",
@@ -18253,7 +18382,8 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nebuta-museum-wa-rasse-aomori",
@@ -18423,7 +18553,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "niigata-city",
@@ -18516,7 +18647,8 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nijo-castle-kyoto",
@@ -18708,7 +18840,8 @@
     "reservation": "None required",
     "parking": "Available on site",
     "notes": "Shrines and Temples of Nikko (Toshogu & UNESCO Heritage) located in Tochigi Prefecture.",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "niseko-town",
@@ -18882,7 +19015,8 @@
     "parking": "Available on site",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "numazu-city",
@@ -18967,7 +19101,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nyuto-onsen-akita",
@@ -19155,7 +19290,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "odaiba-minato",
@@ -19242,7 +19378,8 @@
     },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "odawara-city",
@@ -19323,7 +19460,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ogasawara-islands-tokyo",
@@ -19417,7 +19555,8 @@
     },
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "oirase-gorge-aomori",
@@ -19760,7 +19899,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "okinoshima-munakata-fukuoka",
@@ -19858,7 +19998,8 @@
     },
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "okuhida",
@@ -19941,7 +20082,8 @@
     "parking": "Available on site",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ome-tokyo",
@@ -20023,7 +20165,8 @@
     },
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "omiya-railway",
@@ -20100,7 +20243,8 @@
     "weatherDependence": "moderate",
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "onomichi-city",
@@ -20365,7 +20509,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "otaru-city",
@@ -20720,7 +20865,8 @@
     },
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "oze-national-park",
@@ -20809,7 +20955,8 @@
     "parking": "Available on site",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "roppongi-hills-tokyo-city-view",
@@ -20912,7 +21059,8 @@
     "relationships": {
       "parentDestinationId": "minato-city"
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ryugado-cave-kochi",
@@ -21186,7 +21334,8 @@
     "parking": "Available on site",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "sagamihara-city",
@@ -21271,7 +21420,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "saitama-city",
@@ -21367,7 +21517,8 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "saitama-nagatoro",
@@ -21456,7 +21607,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "sakai-city",
@@ -21640,7 +21792,8 @@
     "relationships": {},
     "walkingIntensity": "medium",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "sakurajima-volcano-kagoshima",
@@ -21825,7 +21978,8 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "sapporo-city",
@@ -21994,7 +22148,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "sendai-castle-ruins-miyagi",
@@ -22176,7 +22331,8 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "setagaya-city",
@@ -22261,7 +22417,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "shibuya-city",
@@ -22348,7 +22505,8 @@
       "food": 5005,
       "cafe": 2695
     },
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "shibuya-sky-shibuya",
@@ -22445,7 +22603,8 @@
     "relationships": {
       "parentDestinationId": "shibuya-city"
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "shimonoseki-city",
@@ -22617,7 +22776,8 @@
     "role": "poi",
     "placeType": "destination",
     "addedAt": "2026-07-28",
-    "imageNeedsReview": false
+    "imageNeedsReview": false,
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "shinagawa-city",
@@ -22702,7 +22862,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "shinjuku-city",
@@ -22782,7 +22943,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "shirahama-town",
@@ -22956,7 +23118,8 @@
     },
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "shirakawa-village",
@@ -23049,7 +23212,8 @@
       "cafe": 2013
     },
     "nameJa": "白川郷・五箇山の合掌造り集落",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "shiretoko-national-park-hokkaido",
@@ -23147,7 +23311,8 @@
     },
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "shizuoka-city",
@@ -23238,7 +23403,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "shuri-castle-okinawa",
@@ -23336,7 +23502,8 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "soji-ji-yokohama",
@@ -23424,7 +23591,8 @@
     "role": "poi",
     "placeType": "destination",
     "addedAt": "2026-07-28",
-    "imageNeedsReview": false
+    "imageNeedsReview": false,
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "suginami-city",
@@ -23509,7 +23677,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "sumida-city",
@@ -23589,7 +23758,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "sunshine-60-observatory-ikebukuro",
@@ -23687,7 +23857,8 @@
     "relationships": {
       "parentDestinationId": "toshima-city"
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "tachikawa-tokyo",
@@ -23775,7 +23946,8 @@
     },
     "role": "hub",
     "walkingIntensity": "low",
-    "kind": "city"
+    "kind": "city",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "taito-city",
@@ -23855,7 +24027,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "takachiho-town",
@@ -24028,7 +24201,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "takamatsu-city",
@@ -24201,7 +24375,8 @@
     "relationships": {
       "parentDestinationId": "minato-city"
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "takaoka",
@@ -24290,7 +24465,8 @@
     "parking": "Available on site",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "takato-castle-nagano",
@@ -24394,7 +24570,8 @@
     "relationships": {},
     "walkingIntensity": "medium",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "takayama-city",
@@ -24485,7 +24662,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "takeda-castle-ruins-hyogo",
@@ -24667,7 +24845,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "tama-zoological-park",
@@ -24752,7 +24931,8 @@
     "role": "poi",
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "high",
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "teamlab-borderless-azabudai",
@@ -24836,7 +25016,8 @@
     "role": "poi",
     "bestSeason": "Year-round",
     "weatherDependence": "indoor",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "teamlab-planets",
@@ -24917,7 +25098,8 @@
     },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "teshima-island-kagawa",
@@ -25196,7 +25378,8 @@
     "relationships": {
       "parentDestinationId": "niigata-city"
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "tokorozawa-city",
@@ -25276,7 +25459,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "tokushima-city",
@@ -25445,7 +25629,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "tokyo-metropolitan-government-building-shinjuku",
@@ -25538,7 +25723,8 @@
     "relationships": {
       "parentDestinationId": "shinjuku-city"
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "tokyo-mt-mitake",
@@ -25627,7 +25813,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "tokyo-okutama",
@@ -25721,7 +25908,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "tokyo-skytree-sumida",
@@ -25825,7 +26013,8 @@
     "relationships": {
       "parentDestinationId": "sumida-city"
     },
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "tokyo-station-chiyoda",
@@ -25921,7 +26110,8 @@
       "parentDestinationId": "chiyoda-city"
     },
     "role": "hub",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "tokyo-tower-minato",
@@ -26014,7 +26204,8 @@
     "relationships": {
       "parentDestinationId": "minato-city"
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "tomioka-silk-mill-gunma",
@@ -26112,7 +26303,8 @@
     },
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "toshima-city",
@@ -26197,7 +26389,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "tottori-city",
@@ -26454,7 +26647,8 @@
     "parking": "Available on site",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "toyooka-city",
@@ -26539,7 +26733,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "toyota-city",
@@ -26619,7 +26814,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "tsukuba-city",
@@ -26699,7 +26895,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "tsunoshima-bridge-yamaguchi",
@@ -26974,7 +27171,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ueno-taito",
@@ -27058,7 +27256,8 @@
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "role": "hub",
-    "walkingIntensity": "high"
+    "walkingIntensity": "high",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ueno-zoo",
@@ -27143,7 +27342,8 @@
     "role": "poi",
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "uji-city",
@@ -27303,7 +27503,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ushiku-daibutsu",
@@ -27391,7 +27592,8 @@
     "parking": "Available on site",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "utsunomiya-city",
@@ -27472,7 +27674,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "utsunomiya-oya",
@@ -27555,7 +27758,8 @@
     },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "uwajima-castle",
@@ -27916,7 +28120,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "yamanashi-fujiyoshida",
@@ -28005,7 +28210,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "yamanashi-nishizawa-valley",
@@ -28088,7 +28294,8 @@
     "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000",
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "yamanashi-shosenkyo-gorge",
@@ -28176,7 +28383,8 @@
     "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000",
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "yamashita-park-yokohama",
@@ -28264,7 +28472,8 @@
     "role": "poi",
     "placeType": "destination",
     "addedAt": "2026-07-28",
-    "imageNeedsReview": false
+    "imageNeedsReview": false,
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "yokohama-chinatown",
@@ -28352,7 +28561,8 @@
     "role": "poi",
     "placeType": "destination",
     "addedAt": "2026-07-28",
-    "imageNeedsReview": false
+    "imageNeedsReview": false,
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "yokohama-city",
@@ -28465,7 +28675,8 @@
     },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "yokohama-cosmo-world",
@@ -28553,7 +28764,8 @@
     "role": "poi",
     "placeType": "destination",
     "addedAt": "2026-07-28",
-    "imageNeedsReview": false
+    "imageNeedsReview": false,
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "yokohama-landmark-tower-sky-garden",
@@ -28656,7 +28868,8 @@
     "relationships": {
       "parentDestinationId": "yokohama-city"
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "yokohama-marine-tower",
@@ -28749,7 +28962,8 @@
     "relationships": {
       "parentDestinationId": "yokohama-city"
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "yokohama-red-brick-warehouse",
@@ -28837,7 +29051,8 @@
     "role": "poi",
     "placeType": "destination",
     "addedAt": "2026-07-28",
-    "imageNeedsReview": false
+    "imageNeedsReview": false,
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "yokohama-zoorasia",
@@ -28922,7 +29137,8 @@
     "role": "poi",
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "high",
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "yokosuka-city",
@@ -29006,7 +29222,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "yomiuriland",
@@ -29094,7 +29311,8 @@
     "weatherDependence": "moderate",
     "walkingIntensity": "medium",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "yufu-city",
@@ -29346,7 +29564,8 @@
     "parking": "Available on site",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "aomori-city",
@@ -29435,7 +29654,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "art-tower-mito",
@@ -29529,7 +29749,8 @@
     "relationships": {
       "parentDestinationId": "mito-city"
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "beppu-city",
@@ -29698,7 +29919,8 @@
     "weatherDependence": "moderate",
     "walkingIntensity": "medium",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ghibli-museum",
@@ -29785,7 +30007,8 @@
     "weatherDependence": "moderate",
     "walkingIntensity": "medium",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "hakone-town",
@@ -29888,7 +30111,8 @@
       "food": 12431,
       "cafe": 6694
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "himeji-city",
@@ -30052,7 +30276,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ishigaki-city",
@@ -30322,7 +30547,8 @@
     "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kinosaki-onsen",
@@ -30772,7 +30998,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kumamoto-city",
@@ -30944,7 +31171,8 @@
     "parking": "Available on site",
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "marugame-city",
@@ -31028,7 +31256,8 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": []
+    "collections": [],
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "matsue-city",
@@ -31664,7 +31893,8 @@
     "image": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1000",
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "narita-city",
@@ -31744,7 +31974,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nikko-city",
@@ -31828,7 +32059,8 @@
       "food": 5789,
       "cafe": 3117
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "osaka-city",

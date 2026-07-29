@@ -73,5 +73,6 @@
   },
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
-  "walkingIntensity": "high"
+  "walkingIntensity": "high",
+  "ratingsSchemaVersion": 2
 }

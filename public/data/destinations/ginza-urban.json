@@ -84,5 +84,6 @@
   },
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
-  "walkingIntensity": "medium"
+  "walkingIntensity": "medium",
+  "ratingsSchemaVersion": 2
 }

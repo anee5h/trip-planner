@@ -87,5 +87,6 @@
     "parentDestinationId": "chiyoda-city"
   },
   "role": "hub",
-  "walkingIntensity": "low"
+  "walkingIntensity": "low",
+  "ratingsSchemaVersion": 2
 }

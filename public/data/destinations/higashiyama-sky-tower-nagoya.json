@@ -95,5 +95,6 @@
   "relationships": {
     "parentDestinationId": "nagoya-city"
   },
-  "walkingIntensity": "low"
+  "walkingIntensity": "low",
+  "ratingsSchemaVersion": 2
 }

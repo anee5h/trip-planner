@@ -81,5 +81,6 @@
   "role": "poi",
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "high",
-  "walkingIntensity": "medium"
+  "walkingIntensity": "medium",
+  "ratingsSchemaVersion": 2
 }

@@ -89,5 +89,6 @@
   "reservation": "None required",
   "parking": "Available on site",
   "notes": "Shrines and Temples of Nikko (Toshogu & UNESCO Heritage) located in Tochigi Prefecture.",
-  "walkingIntensity": "low"
+  "walkingIntensity": "low",
+  "ratingsSchemaVersion": 2
 }

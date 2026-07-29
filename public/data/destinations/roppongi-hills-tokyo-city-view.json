@@ -99,5 +99,6 @@
   "relationships": {
     "parentDestinationId": "minato-city"
   },
-  "walkingIntensity": "low"
+  "walkingIntensity": "low",
+  "ratingsSchemaVersion": 2
 }

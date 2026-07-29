@@ -89,5 +89,6 @@
     "rainFriendly": 7,
     "walkingIntensity": 3
   },
-  "walkingIntensity": "low"
+  "walkingIntensity": "low",
+  "ratingsSchemaVersion": 2
 }

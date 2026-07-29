@@ -70,8 +70,17 @@ for (const id of ids) {
   }
 }
 
+for (const destination of index) {
+  if (destination.status === "verified") destination.ratingsSchemaVersion = 2;
+}
+
 fs.writeFileSync(indexPath, `${JSON.stringify(index, null, 2)}\n`);
-for (const id of ids) {
+for (const id of new Set([
+  ...ids,
+  ...index
+    .filter((destination) => destination.status === "verified")
+    .map((destination) => destination.id),
+])) {
   const file = path.join(detailDir, `${id}.json`);
   const detail = JSON.parse(fs.readFileSync(file, "utf8")) as Record<
     string,

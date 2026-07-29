@@ -90,5 +90,6 @@
   "relationships": {
     "parentDestinationId": "mito-city"
   },
-  "walkingIntensity": "low"
+  "walkingIntensity": "low",
+  "ratingsSchemaVersion": 2
 }

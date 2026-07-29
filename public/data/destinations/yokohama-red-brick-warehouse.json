@@ -84,5 +84,6 @@
   "role": "poi",
   "placeType": "destination",
   "addedAt": "2026-07-28",
-  "imageNeedsReview": false
+  "imageNeedsReview": false,
+  "ratingsSchemaVersion": 2
 }

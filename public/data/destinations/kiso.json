@@ -85,5 +85,6 @@
   "parking": "Available on site",
   "walkingIntensity": "high",
   "role": "standalone",
-  "placeType": "destination"
+  "placeType": "destination",
+  "ratingsSchemaVersion": 2
 }

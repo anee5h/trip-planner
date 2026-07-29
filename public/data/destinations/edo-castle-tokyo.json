@@ -94,5 +94,6 @@
   "relationships": {
     "parentDestinationId": "chiyoda-city"
   },
-  "walkingIntensity": "medium"
+  "walkingIntensity": "medium",
+  "ratingsSchemaVersion": 2
 }

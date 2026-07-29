@@ -80,5 +80,6 @@
     "nearbyDestinationIds": [],
     "parentDestinationId": "matsumoto-city"
   },
-  "walkingIntensity": "low"
+  "walkingIntensity": "low",
+  "ratingsSchemaVersion": 2
 }
