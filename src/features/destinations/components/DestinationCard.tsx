@@ -51,6 +51,8 @@ import {
 import { localizeRecommendationReason } from "@/shared/utils/recommendationLabels";
 import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
 import { getCityArea } from "@/shared/data/cityAreas";
+import { RecommendationFeedbackControl } from "@/features/recommendations/components/RecommendationFeedbackControl";
+import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
 
 interface DestinationCardProps {
   destination: Destination;
@@ -60,6 +62,8 @@ interface DestinationCardProps {
   partySize?: number;
   carMode?: string;
   publicModes?: string[];
+  showFeedbackControl?: boolean;
+  reasonCodes?: string[];
 }
 
 export default function DestinationCard({
@@ -68,6 +72,8 @@ export default function DestinationCard({
   partySize = 2,
   carMode,
   publicModes,
+  showFeedbackControl = true,
+  reasonCodes,
 }: DestinationCardProps) {
   const { locale } = useLocale();
   const { t } = useTranslation();
@@ -409,12 +415,15 @@ export default function DestinationCard({
               ? "bg-slate-900 hover:bg-slate-800 text-white shrink-0"
               : "shrink-0 text-slate-500"
           }
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
             if (!comparing && compareList.length >= 4) {
               alert("You can only compare up to 4 destinations at a time.");
               return;
             }
             toggleCompare(destination.id);
+            recommendationAnalytics.trackCompare(destination.id, !comparing);
           }}
         >
           {comparing ? (
@@ -441,6 +450,11 @@ export default function DestinationCard({
             e.preventDefault();
             e.stopPropagation();
             setDestinationRating(destination.id, rating === "up" ? null : "up");
+            recommendationAnalytics.trackFeedback(
+              destination.id,
+              rating !== "up",
+              reasonCodes,
+            );
           }}
         >
           <ThumbsUp
@@ -471,6 +485,11 @@ export default function DestinationCard({
               destination.id,
               rating === "down" ? null : "down",
             );
+            recommendationAnalytics.trackFeedback(
+              destination.id,
+              false,
+              reasonCodes,
+            );
           }}
         >
           <ThumbsDown
@@ -487,6 +506,9 @@ export default function DestinationCard({
           }}
           state={linkState}
           className="flex-1"
+          onClick={() =>
+            recommendationAnalytics.trackClick(destination.id, rank)
+          }
         >
           <Button
             variant="default"
@@ -497,6 +519,15 @@ export default function DestinationCard({
           </Button>
         </Link>
       </CardFooter>
+
+      {showFeedbackControl && (
+        <div className="px-4 pb-3 pt-0">
+          <RecommendationFeedbackControl
+            destinationId={destination.id}
+            reasonCodes={reasonCodes}
+          />
+        </div>
+      )}
 
       <ItineraryPickerModal
         isOpen={pickerOpen}
