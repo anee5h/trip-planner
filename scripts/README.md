@@ -138,6 +138,6 @@ Source JSON ➔ [1. Validate Schema] ➔ [2. Geocode] ➔ [3. Normalize] ➔ [4.
 
 ---
 
-## Archival Note
+## Maintenance Note
 
-Older one-off fixer scripts (`add_coords.cjs`, `fix_budgets.cjs`, `fix_details.cjs`, `update_data.js`, etc.) have been moved to `scripts/archive/` for historical reference. All data operations should now be executed through `scripts/pipeline.cjs`.
+All catalogue data operations, validation, and repairs are executed through standard CLI tools (`scripts/pipeline.cjs`, `scripts/validate-all.ts`, and `scripts/repair-destination.ts`).

@@ -27,7 +27,6 @@
     "report:editorial-freshness": "tsx scripts/report-editorial-freshness.ts",
     "audit:major-city-coverage": "tsx scripts/audit-major-city-coverage.ts",
     "expand:major-city-catalog": "tsx scripts/expand-major-city-catalog.ts",
-    "repair:v193-audit": "tsx scripts/repair-v193-audit.ts",
     "audit:v192-expansion-data": "tsx scripts/audit-v192-expansion-data.ts",
     "repair:destination": "tsx scripts/repair-destination.ts",
     "sync-destination-details": "tsx scripts/sync-destination-details.ts",
@@ -39,8 +38,6 @@
     "classify-standalone-destinations": "tsx scripts/classify-standalone-destinations.ts",
     "normalize-municipality-names": "tsx scripts/normalize-municipality-names.ts",
     "add-yokohama-places": "tsx scripts/add-yokohama-places.ts",
-    "apply-yokohama-qa-images": "tsx scripts/apply-yokohama-qa-images.ts",
-    "apply-official-website-qa": "node scripts/apply-official-website-qa.cjs",
     "validate:catalog-fast": "tsx scripts/validate-all.ts --profile fast --no-report",
     "verify:pr": "npm run test:run && npx tsc -b --noEmit && npm run lint && npm run format:check && npm run validate:i18n && npm run validate:catalog-fast && npm run build",
     "release:verify": "npm run test:run && npm run pipeline -- --dry-run && npm run validate-all && npm run validate:i18n && npx tsc -b --noEmit && npm run lint && npm run build && npm run format:check"
