@@ -113,7 +113,7 @@ export function calculateScore(
 
   let score =
     SCORING_WEIGHTS.BASE_SCORE +
-    (dest.ratings?.overall || 5) * SCORING_WEIGHTS.RATING_MULTIPLIER;
+    ((dest.ratings?.overall ?? 5) - 5) * SCORING_WEIGHTS.RATING_MULTIPLIER;
 
   const validModesForDest = getValidModes(
     dest,
@@ -124,7 +124,7 @@ export function calculateScore(
 
   // Budget and Transport Logic
   let bestMode = validModesForDest[0];
-  let bestModeScore = -9999;
+  let bestModeScore = 0;
   let bestModeBudget = 999999;
 
   for (const mode of validModesForDest) {
@@ -182,7 +182,7 @@ export function calculateScore(
     }
   }
 
-  score += bestModeScore;
+  if (validModesForDest.length > 0) score += bestModeScore;
 
   // Trip Type Logic
   const ratings = dest.ratings || {
@@ -274,7 +274,7 @@ export function calculateScore(
   // Falls back to 5 (neutral mid-point) if the field is missing.
   const currentSeason = getFixedSeason();
   const seasonScore = dest.season?.[currentSeason] ?? 5;
-  score += seasonScore * SCORING_WEIGHTS.SEASON_MULTIPLIER;
+  score += (seasonScore - 5) * SCORING_WEIGHTS.SEASON_MULTIPLIER;
 
   // User Rating Adjustments (Netflix-style Thumbs Up / Down)
   if (userRatings?.[dest.id] === "up") {

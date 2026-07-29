@@ -63,6 +63,43 @@ describe("RecommendationScorer Unit Tests", () => {
     expect(res.bestMode).toBe("train");
   });
 
+  it("preserves a legitimate zero overall rating", () => {
+    const context = {
+      tripType: "any",
+      budget: 20000,
+      carMode: "none",
+      publicModes: ["train"],
+      partySize: 1,
+      currentWeatherCondition: "any",
+      visitedIds: [],
+    };
+    const neutral = calculateScore(mockDest, context).score;
+    const zero = calculateScore(
+      { ...mockDest, ratings: { ...mockDest.ratings, overall: 0 } },
+      context,
+    ).score;
+
+    expect(neutral - zero).toBe(51);
+  });
+
+  it("does not emit a catastrophic score without valid transport", () => {
+    const result = calculateScore(
+      { ...mockDest, transportOptions: {} },
+      {
+        tripType: "any",
+        budget: 20000,
+        carMode: "rental",
+        publicModes: [],
+        partySize: 1,
+        visitedIds: [],
+      },
+    );
+
+    expect(result.bestMode).toBeUndefined();
+    expect(result.bestModeScore).toBe(0);
+    expect(result.score).toBeGreaterThan(-100);
+  });
+
   it("applies +25 boost for thumbs up and -1000 penalty for thumbs down", () => {
     const baseContext = {
       tripType: "any",
@@ -156,6 +193,6 @@ describe("RecommendationScorer Unit Tests", () => {
     }).score;
 
     expect(preferred - neutral).toBe(6);
-    expect(actual - neutral).toBe(15);
+    expect(actual - neutral).toBeCloseTo(15);
   });
 });

@@ -35,4 +35,25 @@ describe("ratings validator", () => {
       ),
     ).toBe(true);
   });
+
+  it("reports missing required rating dimensions", async () => {
+    const catalog = await loadCatalog();
+    const { food: _food, ...ratingsWithoutFood } =
+      catalog.destinations[0].ratings;
+    const destination = {
+      ...catalog.destinations[0],
+      ratings: ratingsWithoutFood,
+    };
+    const result = await ratingsValidator.validate({
+      catalog: { ...catalog, destinations: [destination] },
+      config: DEFAULT_VALIDATION_CONFIG,
+    });
+
+    expect(
+      result.issues.some(
+        ({ code, message }) =>
+          code === "MISSING_REQUIRED_RATING" && message.includes("food"),
+      ),
+    ).toBe(true);
+  });
 });

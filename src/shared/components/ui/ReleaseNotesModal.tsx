@@ -8,8 +8,19 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.8.12",
+    version: "v1.8.13",
     tag: "Current",
+    date: "July 2026",
+    title: "Recommendation Score Safety",
+    highlights: [
+      "Preserved zero-valued ratings instead of replacing them with a neutral fallback",
+      "Centered seasonal suitability around a neutral score to avoid inflating match scores",
+      "Prevented unavailable transport choices from producing catastrophic direct scores",
+      "Required all core rating dimensions in catalogue validation",
+    ],
+  },
+  {
+    version: "v1.8.12",
     date: "July 2026",
     title: "Recommendation Reliability Fixes",
     highlights: [

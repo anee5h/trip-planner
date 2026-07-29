@@ -11,6 +11,19 @@ const likelyLegacyScale = (ratings: Record<string, unknown>) => {
   );
 };
 
+const REQUIRED_RATINGS = [
+  "overall",
+  "couple",
+  "summer",
+  "winter",
+  "rain",
+  "food",
+  "photography",
+  "relaxation",
+  "value",
+  "uniqueness",
+] as const;
+
 export const ratingsValidator: ValidatorModule = {
   name: "Rating Scale",
   description:
@@ -36,6 +49,16 @@ export const ratingsValidator: ValidatorModule = {
           targetId: destination.id,
         });
         continue;
+      }
+      for (const key of REQUIRED_RATINGS) {
+        if (!(key in ratings)) {
+          issues.push({
+            severity: "error" as const,
+            code: "MISSING_REQUIRED_RATING",
+            message: `Destination '${destination.id}' is missing required rating '${key}'.`,
+            targetId: destination.id,
+          });
+        }
       }
       for (const [key, value] of Object.entries(ratings)) {
         if (
