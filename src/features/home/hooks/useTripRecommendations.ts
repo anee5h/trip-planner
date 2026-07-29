@@ -4,11 +4,17 @@ import type { WeatherTab } from "@/shared/services/weather/WeatherTabService";
 import { getRecommendations } from "@/shared/services/recommendation/RecommendationService";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
+import {
+  normalizeWeatherDescription,
+  type PreferredWeather,
+} from "@/shared/services/recommendation/RecommendationContext";
 
 interface UseTripRecommendationsProps {
   allDestinations: Destination[];
   currentTab: WeatherTab | undefined;
-  weatherContextMap: Map<string, { desc: string; icon: string }> | undefined;
+  weatherContextMap:
+    | Map<string, { desc: string; icon: string; temperatureC?: number }>
+    | undefined;
   tripType: string;
   budget: number;
   carMode: string;
@@ -35,13 +41,28 @@ export function useTripRecommendations({
   isVisited,
 }: UseTripRecommendationsProps) {
   const { destinationRatings } = useTripStore();
+  const visitedIds = useMemo(
+    () =>
+      allDestinations
+        .filter((destination) => isVisited(destination.id))
+        .map((destination) => destination.id),
+    [allDestinations, isVisited],
+  );
 
   const recommendedDestinations = useMemo(() => {
-    let activeWeatherStr = weather;
+    let actual:
+      | {
+          condition: ReturnType<typeof normalizeWeatherDescription>;
+          temperatureC?: number;
+        }
+      | undefined;
     if (currentTab && weatherContextMap) {
       const dayData = weatherContextMap.get(currentTab.dates[0]);
       if (dayData) {
-        activeWeatherStr = dayData.desc;
+        actual = {
+          condition: normalizeWeatherDescription(dayData.desc),
+          temperatureC: dayData.temperatureC,
+        };
       }
     }
 
@@ -51,8 +72,15 @@ export function useTripRecommendations({
       carMode,
       publicModes,
       partySize,
-      currentWeatherCondition: activeWeatherStr,
-      visitedIds: [],
+      weather: {
+        actual,
+        preferred: (weather === "summer"
+          ? "hot"
+          : weather === "winter"
+            ? "cold"
+            : weather) as PreferredWeather,
+      },
+      visitedIds,
       homeStationCoords: homeStationCoords || { lat: 35.6812, lng: 139.7671 },
       userRatings: destinationRatings,
       tripDuration,
@@ -70,6 +98,7 @@ export function useTripRecommendations({
     tripDuration,
     homeStationCoords,
     destinationRatings,
+    visitedIds,
   ]);
 
   const rouletteCandidates = useMemo(() => {
@@ -80,9 +109,7 @@ export function useTripRecommendations({
       publicModes,
       partySize,
       currentWeatherCondition: "any",
-      visitedIds: allDestinations
-        .filter((d) => isVisited(d.id))
-        .map((d) => d.id),
+      visitedIds,
       homeStationCoords: homeStationCoords || { lat: 35.6812, lng: 139.7671 },
       tripDuration: "any",
     });
@@ -92,7 +119,7 @@ export function useTripRecommendations({
     publicModes,
     partySize,
     homeStationCoords,
-    isVisited,
+    visitedIds,
   ]);
 
   return {

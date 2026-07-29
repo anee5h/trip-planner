@@ -24,7 +24,12 @@ export function createRecommendationMatch(
   const unmatchedPreferences: string[] = [];
 
   const confidence = calculateConfidence(score);
-  const validModesForDest = getValidModes(dest, carMode, publicModes);
+  const validModesForDest = getValidModes(
+    dest,
+    carMode,
+    publicModes,
+    context.homeStationCoords || undefined,
+  );
 
   // 1. Budget and Transport Explainability
   let bestMode = validModesForDest[0];
@@ -35,7 +40,12 @@ export function createRecommendationMatch(
   for (const mode of validModesForDest) {
     let adjustedBudget = 999999;
     if (dest.budgetRecommended) {
-      adjustedBudget = getAdjustedBudget(dest, mode, partySize);
+      adjustedBudget = getAdjustedBudget(
+        dest,
+        mode,
+        partySize,
+        context.homeStationCoords || undefined,
+      );
     }
 
     if (adjustedBudget <= budget && adjustedBudget < bestModeBudget) {

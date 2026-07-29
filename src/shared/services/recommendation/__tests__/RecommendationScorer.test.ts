@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { calculateConfidence, calculateScore } from "../RecommendationScorer";
+import { normalizeWeatherDescription } from "../RecommendationContext";
 import type { Destination } from "@/shared/types/destination";
 
 const mockDest = {
@@ -93,5 +94,35 @@ describe("RecommendationScorer Unit Tests", () => {
 
     expect(confidences).toEqual([15, 15, 50, 99, 99]);
     expect(confidences).toEqual([...confidences].sort((a, b) => a - b));
+  });
+
+  it("normalizes forecast descriptions and keeps preferred weather independent", () => {
+    expect(normalizeWeatherDescription("Light drizzle")).toBe("rainy");
+    expect(normalizeWeatherDescription("Thunderstorm")).toBe("stormy");
+
+    const base = {
+      tripType: "any",
+      budget: 20000,
+      carMode: "none",
+      publicModes: ["train"],
+      partySize: 1,
+      visitedIds: [],
+      weather: {
+        actual: { condition: "rainy" as const, temperatureC: 18 },
+        preferred: "any" as const,
+      },
+    };
+    const rainyPreference = calculateScore(
+      {
+        ...mockDest,
+        comfort: { heatTolerance: 5, rainFriendly: 9, walkingIntensity: 5 },
+      },
+      {
+        ...base,
+        weather: { ...base.weather, preferred: "rainy" },
+      },
+    ).score;
+    const noPreference = calculateScore(mockDest, base).score;
+    expect(rainyPreference).not.toBe(noPreference);
   });
 });

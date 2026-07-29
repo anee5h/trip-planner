@@ -187,6 +187,7 @@ export interface Destination {
     walkingIntensity: number;
   };
   ratings: Ratings;
+  ratingsSchemaVersion?: 2;
   matchScore?: number;
   matchReasons?: string[];
   crowd: {

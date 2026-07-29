@@ -43,7 +43,7 @@ const HOME_COPY = {
     weather: "Preferred weather",
     duration: "Trip type",
     anyDuration: "Any duration",
-    halfDay: "Half day (≤4h)",
+    halfDay: "Half day (<5h)",
     dayTrip: "Day trip (5–12h)",
     weekend: "Weekend (>12h)",
     budget: "Max budget (for 2 people)",
@@ -66,7 +66,7 @@ const HOME_COPY = {
     weather: "好みの天気",
     duration: "旅のタイプ",
     anyDuration: "時間を指定しない",
-    halfDay: "半日（4時間以内）",
+    halfDay: "半日（5時間未満）",
     dayTrip: "日帰り（5〜12時間）",
     weekend: "週末（12時間超）",
     budget: "予算上限（2人）",
@@ -171,7 +171,14 @@ export default function Home() {
       weatherContextMap: weatherContext?.forecastMap
         ? new Map(
             Array.from(weatherContext.forecastMap.entries()).map(
-              ([key, value]) => [key, { desc: value.desc, icon: value.icon }],
+              ([key, value]) => [
+                key,
+                {
+                  desc: value.desc,
+                  icon: value.icon,
+                  temperatureC: value.maxTemp,
+                },
+              ],
             ),
           )
         : undefined,

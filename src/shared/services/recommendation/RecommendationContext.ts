@@ -1,13 +1,37 @@
 export type TripDuration = "any" | "halfDay" | "dayTrip" | "weekend";
 
+export type PreferredWeather = "any" | "rainy" | "hot" | "cold";
+export type ActualWeatherCondition =
+  "clear" | "cloudy" | "rainy" | "stormy" | "snowy" | "unknown";
+
+export interface RecommendationWeatherContext {
+  actual?: {
+    condition: ActualWeatherCondition;
+    temperatureC?: number;
+  };
+  preferred: PreferredWeather;
+}
+
+export function normalizeWeatherDescription(
+  description: string,
+): ActualWeatherCondition {
+  const value = description.toLowerCase();
+  if (value.includes("storm") || value.includes("thunder")) return "stormy";
+  if (value.includes("rain") || value.includes("drizzle")) return "rainy";
+  if (value.includes("snow")) return "snowy";
+  if (value.includes("cloud") || value.includes("overcast")) return "cloudy";
+  if (value.includes("clear") || value.includes("sun")) return "clear";
+  return "unknown";
+}
+
 export function matchesTripDuration(
   totalTripHours: number,
   tripDuration: TripDuration = "any",
 ): boolean {
   if (tripDuration === "any") return true;
-  if (tripDuration === "halfDay") return totalTripHours <= 4;
+  if (tripDuration === "halfDay") return totalTripHours < 5;
   if (tripDuration === "dayTrip")
-    return totalTripHours > 4 && totalTripHours <= 12;
+    return totalTripHours >= 5 && totalTripHours <= 12;
   return totalTripHours > 12;
 }
 
@@ -17,8 +41,11 @@ export interface RecommendationContext {
   carMode: string;
   publicModes: string[];
   partySize: number;
-  currentWeatherCondition: string;
+  weather?: RecommendationWeatherContext;
+  /** @deprecated Use weather.actual.condition and weather.preferred. */
+  currentWeatherCondition?: string;
   visitedIds: string[];
+  /** @deprecated Use weather.actual. */
   currentWeather?: { temp: number; desc: string } | null;
   homeStationCoords?: { lat: number; lng: number } | null;
   userRatings?: Record<string, "up" | "down">;

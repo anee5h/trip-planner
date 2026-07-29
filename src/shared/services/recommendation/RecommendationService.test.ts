@@ -131,7 +131,7 @@ const mockDestinations = [
 describe("RecommendationService Unit Tests", () => {
   const homeCoords = { lat: 35.6812, lng: 139.7671 }; // Tokyo Station
 
-  it("filters out destinations exceeding transport options selection", () => {
+  it("uses origin-aware transport options for eligibility", () => {
     const results = getRecommendations(mockDestinations, {
       tripType: "any",
       budget: 50000,
@@ -147,7 +147,7 @@ describe("RecommendationService Unit Tests", () => {
     const ids = results.map((r) => r.id);
     expect(ids).toContain("hakone-onsen");
     expect(ids).toContain("kamakura-history");
-    expect(ids).not.toContain("fuji-climbing");
+    expect(ids).toContain("fuji-climbing");
   });
 
   it("prioritizes rainy-friendly indoor/onsen destinations when weather is rainy", () => {
@@ -225,6 +225,7 @@ describe("RecommendationService Unit Tests", () => {
     expect(results.map((result) => result.id)).toContain("short-trip");
     expect(results.map((result) => result.id)).not.toContain("hakone-onsen");
     expect(matchesTripDuration(4, "halfDay")).toBe(true);
+    expect(matchesTripDuration(4.5, "halfDay")).toBe(true);
     expect(matchesTripDuration(5, "halfDay")).toBe(false);
     expect(matchesTripDuration(5, "dayTrip")).toBe(true);
     expect(matchesTripDuration(12, "dayTrip")).toBe(true);

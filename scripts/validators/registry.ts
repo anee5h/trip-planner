@@ -7,6 +7,7 @@ import { relationshipsValidator } from "./relationships";
 import { imagesValidator } from "./images";
 import { searchValidator } from "./search";
 import { linksValidator } from "./links";
+import { ratingsValidator } from "./ratings";
 
 // Explicit execution topology order
 export const validators: ValidatorModule[] = [
@@ -18,4 +19,5 @@ export const validators: ValidatorModule[] = [
   imagesValidator,
   searchValidator,
   linksValidator,
+  ratingsValidator,
 ];

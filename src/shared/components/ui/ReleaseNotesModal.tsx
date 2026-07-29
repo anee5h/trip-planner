@@ -8,8 +8,18 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.8.10",
+    version: "v1.8.11",
     tag: "Current",
+    date: "July 2026",
+    title: "Personalized & Trustworthy Recommendations",
+    highlights: [
+      "Restored a more personal homepage centered on your location, weather, time, and budget",
+      "Improved recommendation accuracy by excluding visited places and honoring weather preferences",
+      "Fixed transport and budget consistency, duration boundaries, and legacy rating-scale data",
+    ],
+  },
+  {
+    version: "v1.8.10",
     date: "July 2026",
     title: "Personalized Homepage Planner",
     highlights: [

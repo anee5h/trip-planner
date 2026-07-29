@@ -125,7 +125,7 @@ async function runPipeline() {
       }
     }
 
-    // Check ratings bounds (1-10)
+    // Check ratings bounds (0-10); alternate five-point records are migrated explicitly.
     if (dest.ratings) {
       for (const rKey of RATING_KEYS) {
         const val = dest.ratings[rKey];
@@ -134,9 +134,14 @@ async function runPipeline() {
             `  \x1b[31m❌ [${label}] Missing rating '${rKey}'\x1b[0m`,
           );
           schemaErrors++;
-        } else if (val < 1 || val > 10) {
+        } else if (
+          !Number.isFinite(val) ||
+          val < 0 ||
+          val > 10 ||
+          Math.round(val * 10) !== val * 10
+        ) {
           console.warn(
-            `  \x1b[33m⚠️  [${label}] Rating '${rKey}' out of bounds (1-10): ${val}\x1b[0m`,
+            `  \x1b[33m⚠️  [${label}] Rating '${rKey}' out of bounds (0-10, one decimal): ${val}\x1b[0m`,
           );
           schemaWarnings++;
         }

@@ -1,5 +1,8 @@
 import type { Destination } from "@/shared/types/destination";
-import type { RecommendationContext } from "./RecommendationContext";
+import {
+  normalizeWeatherDescription,
+  type RecommendationContext,
+} from "./RecommendationContext";
 import { getAdjustedBudget } from "@/shared/services/budget/BudgetService";
 import { getFixedSeason } from "@/shared/utils/season";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
@@ -104,22 +107,33 @@ export function calculateScore(
   bestModeScore: number;
   bestModeBudget: number;
 } {
-  const {
-    tripType,
-    budget,
-    carMode,
-    publicModes,
-    partySize,
-    currentWeatherCondition,
-    currentWeather,
-    userRatings,
-  } = context;
+  const { tripType, budget, carMode, publicModes, partySize, userRatings } =
+    context;
+  const actual = context.weather?.actual;
+  const preferred = context.weather?.preferred ?? "any";
+  const currentWeatherCondition =
+    actual?.condition ??
+    (context.currentWeatherCondition
+      ? normalizeWeatherDescription(context.currentWeatherCondition)
+      : "unknown");
+  const currentWeather =
+    actual || context.currentWeather
+      ? {
+          temp: actual?.temperatureC ?? context.currentWeather?.temp,
+          desc: actual?.condition ?? context.currentWeather?.desc ?? "",
+        }
+      : null;
 
   let score =
     SCORING_WEIGHTS.BASE_SCORE +
     (dest.ratings?.overall || 5) * SCORING_WEIGHTS.RATING_MULTIPLIER;
 
-  const validModesForDest = getValidModes(dest, carMode, publicModes);
+  const validModesForDest = getValidModes(
+    dest,
+    carMode,
+    publicModes,
+    context.homeStationCoords || undefined,
+  );
 
   // Budget and Transport Logic
   let bestMode = validModesForDest[0];
@@ -131,7 +145,12 @@ export function calculateScore(
 
     let adjustedBudget = 999999;
     if (dest.budgetRecommended) {
-      adjustedBudget = getAdjustedBudget(dest, mode, partySize);
+      adjustedBudget = getAdjustedBudget(
+        dest,
+        mode,
+        partySize,
+        context.homeStationCoords || undefined,
+      );
       if (adjustedBudget > budget) {
         modeScore -=
           ((adjustedBudget - budget) / SCORING_WEIGHTS.BUDGET_OVER_DIVISOR) *
@@ -235,15 +254,13 @@ export function calculateScore(
 
   // Environmental Logic
   const isRaining =
-    (currentWeather &&
-      (currentWeather.desc === "Rainy" || currentWeather.desc === "Stormy")) ||
-    currentWeatherCondition === "rainy";
+    currentWeatherCondition === "rainy" || currentWeatherCondition === "stormy";
   const isHot =
-    (currentWeather && currentWeather.temp >= 30) ||
-    currentWeatherCondition === "summer";
+    (currentWeather?.temp !== undefined && currentWeather.temp >= 30) ||
+    preferred === "hot";
   const isCold =
-    (currentWeather && currentWeather.temp <= 10) ||
-    currentWeatherCondition === "winter";
+    (currentWeather?.temp !== undefined && currentWeather.temp <= 10) ||
+    preferred === "cold";
 
   if (isRaining) {
     const indoor = dest.indoorPercent || 0;
@@ -257,6 +274,14 @@ export function calculateScore(
   if (isCold) {
     score += (ratings.winter - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER;
     if (ratings.winter <= 4) score -= SCORING_WEIGHTS.ENV_TEMP_PENALTY;
+  }
+
+  if (preferred === "rainy") {
+    score += (dest.comfort?.rainFriendly ?? dest.ratings?.rain ?? 5) - 5;
+  } else if (preferred === "hot") {
+    score += (ratings.summer - 5) * 2;
+  } else if (preferred === "cold") {
+    score += (ratings.winter - 5) * 2;
   }
 
   // Calendar Season Scoring
