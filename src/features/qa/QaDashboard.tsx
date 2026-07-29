@@ -25,7 +25,11 @@ import {
   RefreshCw,
   ExternalLink,
   ShieldCheck,
+  BarChart2,
+  Eye,
+  MousePointer,
 } from "lucide-react";
+import { computeQualityMetrics } from "@/shared/services/analytics/RecommendationQualityAnalytics";
 import { Badge } from "@/shared/components/ui/badge";
 import { Button } from "@/shared/components/ui/button";
 import { Input } from "@/shared/components/ui/input";
@@ -367,6 +371,8 @@ export default function QaDashboard() {
     }
   };
 
+  const qualityMetrics = useMemo(() => computeQualityMetrics(), [overrides]);
+
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 max-w-7xl space-y-8 animate-in fade-in duration-200">
       <PageHeader
@@ -441,15 +447,22 @@ export default function QaDashboard() {
         </div>
       </div>
 
-      {/* 6-Tab Navigation Bar */}
+      {/* 7-Tab Navigation Bar */}
       <Tabs defaultValue="health" className="w-full space-y-6">
-        <TabsList className="grid grid-cols-2 md:grid-cols-6 w-full bg-slate-100 dark:bg-slate-900/80 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-800">
+        <TabsList className="grid grid-cols-2 md:grid-cols-7 w-full bg-slate-100 dark:bg-slate-900/80 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-800">
           <TabsTrigger
             value="health"
             className="rounded-xl font-bold text-xs flex items-center gap-1.5 py-2.5"
           >
             <ShieldCheck className="w-4 h-4 text-emerald-500" />
             Health & Rules
+          </TabsTrigger>
+          <TabsTrigger
+            value="analytics"
+            className="rounded-xl font-bold text-xs flex items-center gap-1.5 py-2.5"
+          >
+            <BarChart2 className="w-4 h-4 text-sky-500" />
+            Recommendation Quality
           </TabsTrigger>
           <TabsTrigger
             value="websites"
@@ -492,6 +505,134 @@ export default function QaDashboard() {
             Collections
           </TabsTrigger>
         </TabsList>
+
+        {/* TAB: RECOMMENDATION QUALITY ANALYTICS */}
+        <TabsContent value="analytics" className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2 shadow-sm">
+              <div className="flex justify-between items-center text-slate-500">
+                <span className="text-xs font-bold uppercase tracking-wider">
+                  Click-Through Rate (CTR)
+                </span>
+                <MousePointer className="w-4 h-4 text-sky-500" />
+              </div>
+              <div className="text-2xl font-extrabold">
+                {qualityMetrics.clickThroughRate}%
+              </div>
+              <p className="text-xs text-slate-500 font-medium">
+                {qualityMetrics.totalClicks} clicks /{" "}
+                {qualityMetrics.totalImpressions} impressions
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2 shadow-sm">
+              <div className="flex justify-between items-center text-slate-500">
+                <span className="text-xs font-bold uppercase tracking-wider">
+                  Save Rate
+                </span>
+                <BarChart2 className="w-4 h-4 text-emerald-500" />
+              </div>
+              <div className="text-2xl font-extrabold">
+                {qualityMetrics.saveRate}%
+              </div>
+              <p className="text-xs text-slate-500 font-medium">
+                {qualityMetrics.totalSaves} saves
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2 shadow-sm">
+              <div className="flex justify-between items-center text-slate-500">
+                <span className="text-xs font-bold uppercase tracking-wider">
+                  Comparison Rate
+                </span>
+                <Eye className="w-4 h-4 text-purple-500" />
+              </div>
+              <div className="text-2xl font-extrabold">
+                {qualityMetrics.comparisonRate}%
+              </div>
+              <p className="text-xs text-slate-500 font-medium">
+                {qualityMetrics.totalCompares} comparisons
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2 shadow-sm">
+              <div className="flex justify-between items-center text-slate-500">
+                <span className="text-xs font-bold uppercase tracking-wider">
+                  No-Result & Fallbacks
+                </span>
+                <AlertTriangle className="w-4 h-4 text-amber-500" />
+              </div>
+              <div className="text-2xl font-extrabold">
+                {qualityMetrics.noResultCount} / {qualityMetrics.fallbackCount}
+              </div>
+              <p className="text-xs text-slate-500 font-medium">
+                No-result / Fallback events
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <BarChart2 className="w-5 h-5 text-sky-500" />
+                Confidence Band CTR Performance
+              </h3>
+              <div className="space-y-3">
+                {(["HIGH", "MEDIUM", "LOW"] as const).map((band) => {
+                  const data = qualityMetrics.confidenceBandPerformance[band];
+                  return (
+                    <div
+                      key={band}
+                      className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800"
+                    >
+                      <div>
+                        <div className="font-bold text-xs text-slate-700 dark:text-slate-300">
+                          {band} Confidence
+                        </div>
+                        <div className="text-[11px] text-slate-500">
+                          {data.clicks} clicks / {data.impressions} impressions
+                        </div>
+                      </div>
+                      <div className="font-mono font-extrabold text-sm text-sky-600 dark:text-sky-400">
+                        {data.ctr}%
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-emerald-500" />
+                Locale Usage Breakdown (PII-Free)
+              </h3>
+              <div className="space-y-3">
+                {(["en", "ja"] as const).map((loc) => {
+                  const data = qualityMetrics.localeBreakdown[loc];
+                  return (
+                    <div
+                      key={loc}
+                      className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800"
+                    >
+                      <div>
+                        <div className="font-bold text-xs text-slate-700 dark:text-slate-300 uppercase">
+                          {loc === "en" ? "English (en)" : "Japanese (ja)"}
+                        </div>
+                        <div className="text-[11px] text-slate-500">
+                          {data.clicks} clicks / {data.impressions} impressions
+                        </div>
+                      </div>
+                      <div className="font-mono font-extrabold text-sm text-emerald-600 dark:text-emerald-400">
+                        {data.ctr}% CTR
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </TabsContent>
 
         {/* TAB 1: HEALTH & RULES */}
         <TabsContent value="health" className="space-y-6">
