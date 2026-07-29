@@ -36,6 +36,14 @@
     "matchConfidence": "Match Confidence",
     "matchReasons": "Match Reasons",
     "matchedPreferences": "Matched Preferences",
+    "feedback": {
+      "title": "Was this helpful?",
+      "helpful": "Helpful",
+      "unhelpful": "Not helpful",
+      "dismiss": "Hide recommendation",
+      "thankYou": "Thank you for your feedback!",
+      "optOutLabel": "Disable recommendation analytics"
+    },
     "preferences": {
       "budget": "Budget",
       "transport": "Transport",

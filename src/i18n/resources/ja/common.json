@@ -36,6 +36,14 @@
     "matchConfidence": "マッチ度",
     "matchReasons": "おすすめの理由",
     "matchedPreferences": "一致した条件",
+    "feedback": {
+      "title": "参考になりましたか？",
+      "helpful": "参考になった",
+      "unhelpful": "参考にならなかった",
+      "dismiss": "非表示にする",
+      "thankYou": "フィードバックありがとうございます！",
+      "optOutLabel": "おすすめ分析を無効化"
+    },
     "preferences": {
       "budget": "予算",
       "transport": "交通",
