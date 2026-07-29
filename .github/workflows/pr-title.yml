@@ -17,4 +17,4 @@ jobs:
           PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
           echo "$PR_TITLE" | grep -Eq \
-            '^(feat|fix|data|refactor|test|docs|chore|release|hotfix): .+'
+            '^(feat|fix|data|refactor|test|docs|chore|release|hotfix)(\([a-zA-Z0-9_-]+\))?: .+'
