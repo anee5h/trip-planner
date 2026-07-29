@@ -103,9 +103,11 @@ export function calculateScore(
   context: RecommendationContext,
 ): {
   score: number;
+  eligible: boolean;
+  ineligibleReason?: "NO_VALID_TRANSPORT";
   bestMode?: string;
   bestModeScore: number;
-  bestModeBudget: number;
+  bestModeBudget?: number;
 } {
   const { tripType, budget, carMode, publicModes, partySize, userRatings } =
     context;
@@ -125,7 +127,7 @@ export function calculateScore(
   // Budget and Transport Logic
   let bestMode = validModesForDest[0];
   let bestModeScore = 0;
-  let bestModeBudget = 999999;
+  let bestModeBudget: number | undefined;
 
   for (const mode of validModesForDest) {
     let modeScore = 0;
@@ -174,7 +176,7 @@ export function calculateScore(
     if (
       modeScore > bestModeScore ||
       (Math.abs(modeScore - bestModeScore) < 0.1 &&
-        adjustedBudget < bestModeBudget)
+        (bestModeBudget === undefined || adjustedBudget < bestModeBudget))
     ) {
       bestModeScore = modeScore;
       bestModeBudget = adjustedBudget;
@@ -285,6 +287,10 @@ export function calculateScore(
 
   return {
     score,
+    eligible: validModesForDest.length > 0,
+    ...(validModesForDest.length === 0
+      ? { ineligibleReason: "NO_VALID_TRANSPORT" as const }
+      : {}),
     bestMode,
     bestModeScore,
     bestModeBudget,

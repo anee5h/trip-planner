@@ -33,6 +33,19 @@ export interface Ratings {
   autumn?: number;
 }
 
+export const REQUIRED_RATING_KEYS = [
+  "overall",
+  "couple",
+  "summer",
+  "winter",
+  "rain",
+  "food",
+  "photography",
+  "relaxation",
+  "value",
+  "uniqueness",
+] as const satisfies readonly (keyof Ratings)[];
+
 export type DestinationKind =
   | "city"
   | "ward"

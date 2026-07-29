@@ -1,4 +1,5 @@
 import type { ValidatorModule } from "./types";
+import { REQUIRED_RATING_KEYS } from "../../src/shared/types/destination";
 
 const likelyLegacyScale = (ratings: Record<string, unknown>) => {
   const values = Object.values(ratings).filter(
@@ -10,19 +11,6 @@ const likelyLegacyScale = (ratings: Record<string, unknown>) => {
     values.some((value) => value >= 4)
   );
 };
-
-const REQUIRED_RATINGS = [
-  "overall",
-  "couple",
-  "summer",
-  "winter",
-  "rain",
-  "food",
-  "photography",
-  "relaxation",
-  "value",
-  "uniqueness",
-] as const;
 
 export const ratingsValidator: ValidatorModule = {
   name: "Rating Scale",
@@ -50,7 +38,7 @@ export const ratingsValidator: ValidatorModule = {
         });
         continue;
       }
-      for (const key of REQUIRED_RATINGS) {
+      for (const key of REQUIRED_RATING_KEYS) {
         if (!(key in ratings)) {
           issues.push({
             severity: "error" as const,

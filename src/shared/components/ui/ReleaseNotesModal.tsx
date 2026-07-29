@@ -8,8 +8,19 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.8.13",
+    version: "v1.8.14",
     tag: "Current",
+    date: "July 2026",
+    title: "Recommendation Result Safety",
+    highlights: [
+      "Marked direct no-transport scores as ineligible instead of leaving ambiguous results",
+      "Removed sentinel transport budgets from score results",
+      "Shared the required rating schema between TypeScript and runtime validation",
+      "Made score calibration tests measure isolated rating contributions",
+    ],
+  },
+  {
+    version: "v1.8.13",
     date: "July 2026",
     title: "Recommendation Score Safety",
     highlights: [

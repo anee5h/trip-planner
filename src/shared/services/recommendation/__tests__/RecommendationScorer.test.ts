@@ -73,13 +73,21 @@ describe("RecommendationScorer Unit Tests", () => {
       currentWeatherCondition: "any",
       visitedIds: [],
     };
-    const neutral = calculateScore(mockDest, context).score;
+    const five = calculateScore(
+      { ...mockDest, ratings: { ...mockDest.ratings, overall: 5 } },
+      context,
+    ).score;
     const zero = calculateScore(
       { ...mockDest, ratings: { ...mockDest.ratings, overall: 0 } },
       context,
     ).score;
+    const ten = calculateScore(
+      { ...mockDest, ratings: { ...mockDest.ratings, overall: 10 } },
+      context,
+    ).score;
 
-    expect(neutral - zero).toBe(51);
+    expect(zero - five).toBeCloseTo(-30);
+    expect(ten - five).toBeCloseTo(30);
   });
 
   it("does not emit a catastrophic score without valid transport", () => {
@@ -97,6 +105,9 @@ describe("RecommendationScorer Unit Tests", () => {
 
     expect(result.bestMode).toBeUndefined();
     expect(result.bestModeScore).toBe(0);
+    expect(result.bestModeBudget).toBeUndefined();
+    expect(result.eligible).toBe(false);
+    expect(result.ineligibleReason).toBe("NO_VALID_TRANSPORT");
     expect(result.score).toBeGreaterThan(-100);
   });
 
