@@ -72,6 +72,7 @@ export function runRecommendationPipeline(
       context.carMode,
       context.publicModes,
       context.homeStationCoords || undefined,
+      context.budgetTier,
     );
     if (modes.length === 0) return false;
     if (
@@ -88,7 +89,7 @@ export function runRecommendationPipeline(
             destination,
             mode,
             context.partySize,
-            context.diningStyle,
+            context.budgetTier,
             estimateTripDuration(destination, context, modes)
               ?.representativeHours,
             context.homeStationCoords || undefined,
@@ -113,13 +114,14 @@ export function runRecommendationPipeline(
         context.carMode,
         context.publicModes,
         context.homeStationCoords || undefined,
+        context.budgetTier,
       ),
     );
     const estimatedCostRange = getEstimatedBudgetRange(
       candidate,
       scoreResult.bestMode || "train",
       context.partySize,
-      context.diningStyle,
+      context.budgetTier,
       durationEstimate?.representativeHours,
       context.homeStationCoords || undefined,
     );

@@ -55,6 +55,7 @@ export function getValidModes(
   carMode: string = "none",
   publicModes: string[] = [],
   homeCoords?: { lat: number; lng: number },
+  budgetTier?: import("@/shared/types/planner").BudgetTier,
 ): string[] {
   let validModes: string[] = [];
   if (carMode === "rental" && dest.transportOptions?.car !== undefined)
@@ -74,6 +75,22 @@ export function getValidModes(
     ) {
       validModes.push(m);
     }
+  }
+
+  if (budgetTier) {
+    const hasMode = (mode: string) => validModes.includes(mode);
+    const choose = (preferred: string[], fallback: string[]) => {
+      const primary = preferred.filter(hasMode);
+      return primary.length > 0 ? primary : fallback.filter(hasMode);
+    };
+    validModes =
+      budgetTier === "economy"
+        ? choose(["train", "bus"], ["shinkansen", "flight"])
+        : budgetTier === "standard"
+          ? choose(["train", "bus"], ["shinkansen", "flight"])
+          : budgetTier === "comfortable"
+            ? choose(["shinkansen", "train", "bus"], ["flight"])
+            : choose(["shinkansen", "flight", "train", "bus"], []);
   }
 
   if (
@@ -122,6 +139,7 @@ export function calculateScore(
     carMode,
     publicModes,
     context.homeStationCoords || undefined,
+    context.budgetTier,
   );
 
   // Budget and Transport Logic
@@ -138,7 +156,7 @@ export function calculateScore(
         dest,
         mode,
         partySize,
-        context.diningStyle,
+        context.budgetTier,
         dest.totalTripHours,
         context.homeStationCoords || undefined,
       );

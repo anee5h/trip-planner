@@ -4,7 +4,7 @@ import { getRecommendations } from "@/shared/services/recommendation/Recommendat
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
 import { normalizeWeatherDescription } from "@/shared/services/recommendation/RecommendationContext";
-import type { DiningStyle } from "@/shared/types/planner";
+import type { BudgetTier } from "@/shared/types/planner";
 
 interface UseTripRecommendationsProps {
   allDestinations: Destination[];
@@ -14,7 +14,7 @@ interface UseTripRecommendationsProps {
   carMode: string;
   publicModes: string[];
   partySize: number;
-  diningStyle: DiningStyle;
+  budgetTier: BudgetTier;
   tripDuration: TripDuration;
   homeStationCoords: { lat: number; lng: number } | null;
   isVisited: (id: string) => boolean;
@@ -28,7 +28,7 @@ export function useTripRecommendations({
   carMode,
   publicModes,
   partySize,
-  diningStyle,
+  budgetTier,
   tripDuration,
   homeStationCoords,
   isVisited,
@@ -49,7 +49,7 @@ export function useTripRecommendations({
       carMode,
       publicModes,
       partySize,
-      diningStyle,
+      budgetTier,
       weather: {
         actual: actualWeather
           ? {
@@ -71,7 +71,7 @@ export function useTripRecommendations({
     carMode,
     publicModes,
     partySize,
-    diningStyle,
+    budgetTier,
     tripDuration,
     homeStationCoords,
     destinationRatings,

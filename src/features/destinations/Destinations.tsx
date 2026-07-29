@@ -26,7 +26,11 @@ import {
 } from "@/shared/services/recommendation/RecommendationService";
 import type { RecommendationContext } from "@/shared/services/recommendation/RecommendationContext";
 import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
-import type { DiningStyle, PartyProfile } from "@/shared/types/planner";
+import {
+  BUDGET_TIER_LIMITS,
+  type BudgetTier,
+  type PartyProfile,
+} from "@/shared/types/planner";
 import {
   estimateTripDuration,
   matchesTripDurationEstimate,
@@ -78,8 +82,8 @@ export default function Destinations() {
   const [partyProfile, setPartyProfile] = useState<PartyProfile>(
     initialExplorerState.partyProfile,
   );
-  const [diningStyle, setDiningStyle] = useState<DiningStyle>(
-    initialExplorerState.diningStyle,
+  const [budgetTier, setBudgetTier] = useState<BudgetTier>(
+    initialExplorerState.budgetTier,
   );
   const [vibe, setVibe] = useState(initialExplorerState.vibe);
   const [tripDuration, setTripDuration] = useState<TripDuration>(
@@ -156,7 +160,7 @@ export default function Destinations() {
     setPublicModes(restored.publicModes);
     setPartySize(restored.partySize);
     setPartyProfile(restored.partyProfile);
-    setDiningStyle(restored.diningStyle);
+    setBudgetTier(restored.budgetTier);
     setVibe(restored.vibe);
     setTripDuration(restored.tripDuration);
     setWalkingIntensity(restored.walkingIntensity);
@@ -182,7 +186,7 @@ export default function Destinations() {
       publicModes,
       partySize,
       partyProfile,
-      diningStyle,
+      budgetTier,
       vibe,
       tripDuration,
       walkingIntensity,
@@ -207,7 +211,7 @@ export default function Destinations() {
     publicModes,
     partySize,
     partyProfile,
-    diningStyle,
+    budgetTier,
     vibe,
     tripDuration,
     walkingIntensity,
@@ -230,7 +234,7 @@ export default function Destinations() {
     const prefs = user?.user_metadata?.preferences ?? {};
     return {
       vibe,
-      diningStyle,
+      budgetTier,
       budget: maxBudget,
       partySize,
       carMode: prefs.carMode ?? "none",
@@ -252,7 +256,7 @@ export default function Destinations() {
     homeStationCoords,
     destinationRatings,
     vibe,
-    diningStyle,
+    budgetTier,
     tripDuration,
     maxBudget,
     partySize,
@@ -281,7 +285,7 @@ export default function Destinations() {
     carMode,
     publicModes,
     partySize,
-    diningStyle,
+    budgetTier,
     tripDuration,
     walkingIntensity,
     suitabilities,
@@ -326,6 +330,7 @@ export default function Destinations() {
         carMode,
         publicModes,
         homeStationCoords ?? undefined,
+        budgetTier,
       );
       if (modes.length === 0) return false;
       if (
@@ -342,7 +347,7 @@ export default function Destinations() {
             dest,
             mode,
             partySize,
-            diningStyle,
+            budgetTier,
             estimateTripDuration(dest, catalogContext, modes)
               ?.representativeHours,
             homeStationCoords ?? undefined,
@@ -394,19 +399,33 @@ export default function Destinations() {
         case "budget":
           return (
             Math.min(
-              ...getValidModes(a, carMode, publicModes).map((m) =>
-                getAdjustedBudget(a, m, partySize),
-              ),
+              ...getValidModes(
+                a,
+                carMode,
+                publicModes,
+                undefined,
+                budgetTier,
+              ).map((m) => getAdjustedBudget(a, m, partySize)),
             ) -
             Math.min(
-              ...getValidModes(b, carMode, publicModes).map((m) =>
-                getAdjustedBudget(b, m, partySize),
-              ),
+              ...getValidModes(
+                b,
+                carMode,
+                publicModes,
+                undefined,
+                budgetTier,
+              ).map((m) => getAdjustedBudget(b, m, partySize)),
             )
           );
         case "travelTime":
           const getFastestTime = (dest: Destination) => {
-            const times = getValidModes(dest, carMode, publicModes).map(
+            const times = getValidModes(
+              dest,
+              carMode,
+              publicModes,
+              undefined,
+              budgetTier,
+            ).map(
               (m) =>
                 (dest.transportOptions?.[
                   m as keyof typeof dest.transportOptions
@@ -438,6 +457,8 @@ export default function Destinations() {
     carMode,
     publicModes,
     partySize,
+    budgetTier,
+    tripDuration,
     walkingIntensity,
     homeStationCoords,
     catalogContext,
@@ -461,7 +482,7 @@ export default function Destinations() {
     setPublicModes(defaults.publicModes);
     setPartySize(defaults.partySize);
     setPartyProfile(defaults.partyProfile);
-    setDiningStyle(defaults.diningStyle);
+    setBudgetTier(defaults.budgetTier);
     setVibe(defaults.vibe);
     setTripDuration(defaults.tripDuration);
     setWalkingIntensity(defaults.walkingIntensity);
@@ -518,8 +539,6 @@ export default function Destinations() {
         setSelectedPrefectures={setSelectedPrefectures}
         selectedCollections={selectedCollections}
         setSelectedCollections={setSelectedCollections}
-        maxBudget={maxBudget}
-        setMaxBudget={setMaxBudget}
         sortBy={sortBy}
         setSortBy={setSortBy}
         carMode={carMode}
@@ -530,8 +549,11 @@ export default function Destinations() {
         setPartySize={setPartySize}
         partyProfile={partyProfile}
         setPartyProfile={setPartyProfile}
-        diningStyle={diningStyle}
-        setDiningStyle={setDiningStyle}
+        budgetTier={budgetTier}
+        setBudgetTier={(tier) => {
+          setBudgetTier(tier);
+          setMaxBudget(BUDGET_TIER_LIMITS[tier]);
+        }}
         tripDuration={tripDuration}
         setTripDuration={setTripDuration}
         walkingIntensity={walkingIntensity}
@@ -555,7 +577,7 @@ export default function Destinations() {
         </div>
 
         {(searchQuery ||
-          maxBudget < 100000 ||
+          budgetTier !== "standard" ||
           suitabilities.length > 0 ||
           interests.length > 0) && (
           <div className="flex items-center gap-2 flex-wrap">
@@ -571,11 +593,14 @@ export default function Destinations() {
                 </button>
               </span>
             )}
-            {maxBudget < 100000 && (
+            {budgetTier !== "standard" && (
               <span className="inline-flex items-center text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 px-2.5 py-1 rounded-full">
-                Budget ≤ ¥{maxBudget.toLocaleString()}
+                Budget: {budgetTier}
                 <button
-                  onClick={() => setMaxBudget(100000)}
+                  onClick={() => {
+                    setBudgetTier("standard");
+                    setMaxBudget(BUDGET_TIER_LIMITS.standard);
+                  }}
                   aria-label="Clear budget filter"
                   className="ml-1.5 hover:text-emerald-900 dark:hover:text-emerald-100 font-bold"
                 >

@@ -8,8 +8,19 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.9.0",
+    version: "v1.9.1",
     tag: "Current",
+    date: "July 2026",
+    title: "Simpler Trip Planning",
+    highlights: [
+      "Restored the lighter, weather-led homepage layout",
+      "Replaced dining style with one overall budget tier",
+      "Made Top Matches keep your planner filters when you explore more",
+      "Use your configured home city instead of a postal-code base location",
+    ],
+  },
+  {
+    version: "v1.9.0",
     date: "July 2026",
     title: "Plan From Your City",
     highlights: [

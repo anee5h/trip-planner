@@ -1,4 +1,8 @@
-import type { DiningStyle, PartyProfile } from "@/shared/types/planner";
+import {
+  BUDGET_TIER_LIMITS,
+  type BudgetTier,
+  type PartyProfile,
+} from "@/shared/types/planner";
 import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
 
 export const DEFAULT_DESTINATION_EXPLORER_STATE = {
@@ -6,13 +10,13 @@ export const DEFAULT_DESTINATION_EXPLORER_STATE = {
   selectedRegions: [] as string[],
   selectedPrefectures: [] as string[],
   selectedCollections: [] as string[],
-  maxBudget: 100000,
+  maxBudget: BUDGET_TIER_LIMITS.standard,
   sortBy: "recommended",
   carMode: "none",
   publicModes: ["train", "shinkansen", "bus", "flight"],
   partySize: 2,
   partyProfile: "couple" as PartyProfile,
-  diningStyle: "standard" as DiningStyle,
+  budgetTier: "standard" as BudgetTier,
   vibe: "any",
   tripDuration: "any" as TripDuration,
   walkingIntensity: "all",
@@ -36,7 +40,7 @@ export function parseDestinationSearchParams(
   const defaults = DEFAULT_DESTINATION_EXPLORER_STATE;
   const view = params.get("view");
   const rawParty = params.get("party");
-  const rawDining = params.get("dining");
+  const rawBudgetTier = params.get("budgetTier") ?? params.get("dining");
   const partyProfile: PartyProfile =
     rawParty === "solo" || rawParty === "group" || rawParty === "couple"
       ? rawParty
@@ -65,12 +69,17 @@ export function parseDestinationSearchParams(
             ? 4
             : 2,
     partyProfile,
-    diningStyle:
-      rawDining === "budget" ||
-      rawDining === "premium" ||
-      rawDining === "standard"
-        ? rawDining
-        : defaults.diningStyle,
+    budgetTier:
+      rawBudgetTier === "economy" ||
+      rawBudgetTier === "standard" ||
+      rawBudgetTier === "comfortable" ||
+      rawBudgetTier === "luxury"
+        ? rawBudgetTier
+        : rawBudgetTier === "budget"
+          ? "economy"
+          : rawBudgetTier === "premium"
+            ? "comfortable"
+            : defaults.budgetTier,
     vibe: params.get("vibe") ?? defaults.vibe,
     tripDuration:
       (params.get("duration") as TripDuration | null) ?? defaults.tripDuration,
@@ -102,7 +111,7 @@ export function serializeDestinationSearchParams(
   appendAll("mode", state.publicModes);
   params.set("party", state.partyProfile);
   params.set("partySize", String(state.partySize));
-  params.set("dining", state.diningStyle);
+  params.set("budgetTier", state.budgetTier);
   params.set("vibe", state.vibe);
   params.set("duration", state.tripDuration);
   params.set("walking", state.walkingIntensity);
@@ -116,7 +125,7 @@ export function serializeDestinationSearchParams(
 export function serializePlannerSearchParams(input: {
   vibe: string;
   partyProfile: PartyProfile;
-  diningStyle: DiningStyle;
+  budgetTier: BudgetTier;
   tripDuration: TripDuration;
   budget: number;
   carMode: string;
@@ -125,7 +134,7 @@ export function serializePlannerSearchParams(input: {
   const params = new URLSearchParams();
   params.set("vibe", input.vibe);
   params.set("party", input.partyProfile);
-  params.set("dining", input.diningStyle);
+  params.set("budgetTier", input.budgetTier);
   params.set("duration", input.tripDuration);
   params.set("budget", String(input.budget));
   params.set("car", input.carMode);

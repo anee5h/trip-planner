@@ -40,7 +40,7 @@ export interface RecommendationContext {
   /** @deprecated Use vibe. */
   tripType?: string;
   budget: number;
-  diningStyle?: import("@/shared/types/planner").DiningStyle;
+  budgetTier?: import("@/shared/types/planner").BudgetTier;
   carMode: string;
   publicModes: string[];
   partySize: number;

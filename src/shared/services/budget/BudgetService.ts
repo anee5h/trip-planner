@@ -1,6 +1,6 @@
 import type { Destination } from "@/shared/types/destination";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
-import type { DiningStyle, PriceRange } from "@/shared/types/planner";
+import type { BudgetTier, PriceRange } from "@/shared/types/planner";
 import { MEAL_PRICE_RANGES } from "@/shared/types/planner";
 
 export function formatJPYRange(range: PriceRange): string {
@@ -11,7 +11,7 @@ export function formatJPYRange(range: PriceRange): string {
 }
 
 export function getDiningFoodRange(
-  style: DiningStyle = "standard",
+  tier: BudgetTier = "standard",
   totalTripHours: number,
   partySize: number,
 ): PriceRange {
@@ -23,8 +23,8 @@ export function getDiningFoodRange(
         : ["breakfast", "lunch", "dinner"];
   const ranges = meals.map(
     (meal) =>
-      MEAL_PRICE_RANGES[style][
-        meal as keyof (typeof MEAL_PRICE_RANGES)[DiningStyle]
+      MEAL_PRICE_RANGES[tier][
+        meal as keyof (typeof MEAL_PRICE_RANGES)[BudgetTier]
       ],
   );
   return [
@@ -37,19 +37,26 @@ export function getEstimatedBudgetRange(
   dest: Destination,
   mode: string,
   partySize: number,
-  diningStyle: DiningStyle = "standard",
+  budgetTier: BudgetTier = "standard",
   totalTripHours: number = dest.totalTripHours,
   homeCoords?: { lat: number; lng: number },
 ): PriceRange {
   const breakdown = getEffectiveBudgetBreakdown(dest);
   const scale = partySize / 2;
   const transport = getTransportCost(dest, mode, partySize, homeCoords);
-  const food = getDiningFoodRange(diningStyle, totalTripHours, partySize);
+  const food = getDiningFoodRange(budgetTier, totalTripHours, partySize);
+  const transfers: Record<BudgetTier, PriceRange> = {
+    economy: [0, 600],
+    standard: [500, 1500],
+    comfortable: [1500, 5000],
+    luxury: [5000, 15000],
+  };
+  const transfer = transfers[budgetTier];
   const tickets = breakdown.tickets * scale;
   const cafe = breakdown.cafe * scale;
   return [
-    Math.round((transport + tickets + food[0] + cafe) * 1.05),
-    Math.round((transport + tickets + food[1] + cafe) * 1.05),
+    Math.round((transport + tickets + food[0] + cafe + transfer[0]) * 1.05),
+    Math.round((transport + tickets + food[1] + cafe + transfer[1]) * 1.05),
   ];
 }
 

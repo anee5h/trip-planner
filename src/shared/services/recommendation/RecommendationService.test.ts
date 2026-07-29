@@ -247,6 +247,15 @@ describe("RecommendationService Unit Tests", () => {
 
     const invalidModes = getValidModes(dest, "none", ["train"]);
     expect(invalidModes).toEqual([]);
+
+    const economyModes = getValidModes(
+      dest,
+      "none",
+      ["bus", "shinkansen"],
+      undefined,
+      "economy",
+    );
+    expect(economyModes).toEqual(["bus"]);
   });
 
   it("uses origin-aware transport when scoring the catalog", () => {

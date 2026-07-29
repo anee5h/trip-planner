@@ -30,6 +30,7 @@ export function createRecommendationMatch(
     carMode,
     publicModes,
     context.homeStationCoords || undefined,
+    context.budgetTier,
   );
 
   // 1. Budget and Transport Explainability
@@ -45,7 +46,7 @@ export function createRecommendationMatch(
         dest,
         mode,
         partySize,
-        context.diningStyle,
+        context.budgetTier,
         dest.totalTripHours,
         context.homeStationCoords || undefined,
       );

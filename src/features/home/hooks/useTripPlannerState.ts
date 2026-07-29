@@ -3,13 +3,12 @@ import type { User } from "@supabase/supabase-js";
 import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
 import {
   PARTY_SIZE,
-  type DiningStyle,
+  type BudgetTier,
   type PartyProfile,
 } from "@/shared/types/planner";
 
 export function useTripPlannerState(user: User | null) {
   const [vibe, setVibe] = useState<string>("any");
-  const [budget, setBudget] = useState<number>(100000);
   const [carMode, setCarMode] = useState<string>("none");
   const [publicModes, setPublicModes] = useState<string[]>([
     "train",
@@ -18,7 +17,7 @@ export function useTripPlannerState(user: User | null) {
     "flight",
   ]);
   const [partyProfile, setPartyProfile] = useState<PartyProfile>("couple");
-  const [diningStyle, setDiningStyle] = useState<DiningStyle>("standard");
+  const [budgetTier, setBudgetTier] = useState<BudgetTier>("standard");
   const [tripDuration, setTripDuration] = useState<TripDuration>("any");
 
   useEffect(() => {
@@ -46,16 +45,14 @@ export function useTripPlannerState(user: User | null) {
   return {
     vibe,
     setVibe,
-    budget,
-    setBudget,
     carMode,
     setCarMode,
     publicModes,
     setPublicModes,
     partyProfile,
     setPartyProfile,
-    diningStyle,
-    setDiningStyle,
+    budgetTier,
+    setBudgetTier,
     partySize: PARTY_SIZE[partyProfile],
     tripDuration,
     setTripDuration,

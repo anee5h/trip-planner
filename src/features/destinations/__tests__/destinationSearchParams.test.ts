@@ -22,7 +22,7 @@ describe("destinationSearchParams", () => {
       carMode: "rental",
       publicModes: ["flight", "bus"],
       partySize: 3,
-      diningStyle: "standard",
+      budgetTier: "standard",
       vibe: "any",
       tripDuration: "any",
       walkingIntensity: "low",
@@ -46,7 +46,7 @@ describe("destinationSearchParams", () => {
       new URLSearchParams("budget=invalid&party=0&page=0&view=invalid"),
     );
 
-    expect(parsed.maxBudget).toBe(100000);
+    expect(parsed.maxBudget).toBe(40000);
     expect(parsed.partySize).toBe(2);
     expect(parsed.currentPage).toBe(1);
     expect(parsed.viewMode).toBe("grid");

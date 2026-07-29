@@ -7,7 +7,6 @@ import {
   SelectItem,
   SelectTrigger,
 } from "@/shared/components/ui/select";
-import { Slider } from "@/shared/components/ui/slider";
 import {
   Search,
   Clock,
@@ -70,7 +69,7 @@ const REGION_PREFECTURES_MAP: Record<string, string[]> = {
 
 import { getCollections } from "@/shared/data/collections";
 import { Layers } from "lucide-react";
-import type { DiningStyle, PartyProfile } from "@/shared/types/planner";
+import type { BudgetTier, PartyProfile } from "@/shared/types/planner";
 import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
 
 interface DestinationFiltersProps {
@@ -86,8 +85,6 @@ interface DestinationFiltersProps {
   setSelectedCollections: (
     val: string[] | ((prev: string[]) => string[]),
   ) => void;
-  maxBudget: number;
-  setMaxBudget: (val: number) => void;
   sortBy: string;
   setSortBy: (val: string) => void;
   carMode: string;
@@ -98,8 +95,8 @@ interface DestinationFiltersProps {
   setPartySize: (val: number) => void;
   partyProfile: PartyProfile;
   setPartyProfile: (val: PartyProfile) => void;
-  diningStyle: DiningStyle;
-  setDiningStyle: (val: DiningStyle) => void;
+  budgetTier: BudgetTier;
+  setBudgetTier: (val: BudgetTier) => void;
   tripDuration: TripDuration;
   setTripDuration: (val: TripDuration) => void;
   walkingIntensity: string;
@@ -120,8 +117,6 @@ export default function DestinationFilters({
   setSelectedPrefectures,
   selectedCollections,
   setSelectedCollections,
-  maxBudget,
-  setMaxBudget,
   sortBy,
   setSortBy,
   carMode,
@@ -132,8 +127,8 @@ export default function DestinationFilters({
   setPartySize,
   partyProfile,
   setPartyProfile,
-  diningStyle,
-  setDiningStyle,
+  budgetTier,
+  setBudgetTier,
   tripDuration,
   setTripDuration,
   walkingIntensity,
@@ -227,7 +222,7 @@ export default function DestinationFilters({
   const activeAdvancedCount =
     (carMode !== "none" ? 1 : 0) +
     (publicModes.length < 4 ? 1 : 0) +
-    (maxBudget < 100000 ? 1 : 0) +
+    (budgetTier !== "standard" ? 1 : 0) +
     (walkingIntensity !== "all" ? 1 : 0) +
     (partySize !== 2 ? 1 : 0) +
     suitabilities.length +
@@ -748,21 +743,20 @@ export default function DestinationFilters({
             </div>
             <div className="space-y-2 lg:col-span-1">
               <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                Dining style
+                Budget
               </label>
               <Select
-                value={diningStyle}
-                onValueChange={(val) =>
-                  val && setDiningStyle(val as DiningStyle)
-                }
+                value={budgetTier}
+                onValueChange={(val) => val && setBudgetTier(val as BudgetTier)}
               >
                 <SelectTrigger className="h-9 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-lg text-xs font-medium">
-                  {diningStyle[0].toUpperCase() + diningStyle.slice(1)}
+                  {budgetTier[0].toUpperCase() + budgetTier.slice(1)}
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="budget">Budget</SelectItem>
+                  <SelectItem value="economy">Economy</SelectItem>
                   <SelectItem value="standard">Standard</SelectItem>
-                  <SelectItem value="premium">Premium</SelectItem>
+                  <SelectItem value="comfortable">Comfortable</SelectItem>
+                  <SelectItem value="luxury">Luxury</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -795,28 +789,7 @@ export default function DestinationFilters({
             </div>
           </div>
 
-          {/* Budget & Walking Sliders */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-3 border-t border-slate-100 dark:border-slate-800">
-            <div className="space-y-2">
-              <div className="flex justify-between items-center text-xs">
-                <label className="font-bold text-slate-700 dark:text-slate-300">
-                  Max Budget
-                </label>
-                <span className="font-bold text-emerald-600 dark:text-emerald-400">
-                  ¥{maxBudget.toLocaleString()}
-                </span>
-              </div>
-              <Slider
-                value={[maxBudget]}
-                max={100000}
-                step={5000}
-                onValueChange={(val: number | readonly number[]) =>
-                  setMaxBudget(Array.isArray(val) ? val[0] : val)
-                }
-                className="w-full"
-              />
-            </div>
-
+          <div className="pt-3 border-t border-slate-100 dark:border-slate-800">
             <div className="space-y-2">
               <label className="block text-xs font-bold text-slate-700 dark:text-slate-300">
                 Walking Intensity

@@ -12,12 +12,6 @@ import { getDestinationList } from "@/shared/services/destination/DestinationSer
 import type { Destination } from "@/shared/types/destination";
 import DestinationCard from "@/features/destinations/components/DestinationCard";
 import { Button } from "@/shared/components/ui/button";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-} from "@/shared/components/ui/select";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { getTabWeatherSummary } from "@/shared/services/weather/WeatherTabService";
@@ -27,7 +21,12 @@ import { useTripPlannerState } from "@/features/home/hooks/useTripPlannerState";
 import { useWeatherContext } from "@/features/home/hooks/useWeatherContext";
 import { useTripRecommendations } from "@/features/home/hooks/useTripRecommendations";
 import { useLocale } from "@/shared/context/LocaleContext";
-import { type DiningStyle, type PartyProfile } from "@/shared/types/planner";
+import {
+  BUDGET_TIER_LIMITS,
+  type BudgetTier,
+  type PartyProfile,
+} from "@/shared/types/planner";
+import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import { serializePlannerSearchParams } from "@/features/destinations/destinationSearchParams";
 
 const HOME_COPY = {
@@ -42,20 +41,20 @@ const HOME_COPY = {
     quickMatch: "Personalized match",
     vibe: "What are you in the mood for?",
     party: "Who are you traveling with?",
-    dining: "Dining style",
+    budget: "Overall budget",
     duration: "Trip type",
     anyDuration: "Any duration",
     halfDay: "Half day (<5h)",
     dayTrip: "Day trip (5–12h)",
     weekend: "Weekend (>12h)",
-    budget: "Maximum trip budget",
-    budgetNote: "Advanced budget limit; dining style controls food estimates.",
+    budgetNote: "Your budget shapes food, transport, and local transfers.",
     solo: "Solo",
     couple: "Couple",
     group: "Group · 4",
-    budgetStyle: "Budget",
+    economy: "Economy",
     standardStyle: "Standard",
-    premiumStyle: "Premium",
+    comfortable: "Comfortable",
+    luxury: "Luxury",
     planningFrom: "Planning from",
     findMatch: "Find My Match",
     topMatches: "Your Top Matches",
@@ -73,20 +72,20 @@ const HOME_COPY = {
     quickMatch: "あなた向けに提案",
     vibe: "どんな気分ですか？",
     party: "誰と旅行しますか？",
-    dining: "食事スタイル",
+    budget: "旅全体の予算",
     duration: "旅のタイプ",
     anyDuration: "時間を指定しない",
     halfDay: "半日（5時間未満）",
     dayTrip: "日帰り（5〜12時間）",
     weekend: "週末（12時間超）",
-    budget: "旅の予算上限",
-    budgetNote: "詳細設定の予算上限。食事スタイルは食費の目安です。",
+    budgetNote: "食事、移動、現地での移動を予算に合わせて見積もります。",
     solo: "ひとり旅",
     couple: "カップル",
     group: "グループ・4名",
-    budgetStyle: "節約",
+    economy: "節約",
     standardStyle: "標準",
-    premiumStyle: "プレミアム",
+    comfortable: "ゆったり",
+    luxury: "ラグジュアリー",
     planningFrom: "出発地",
     findMatch: "ぴったりを探す",
     topMatches: "あなたへのおすすめ",
@@ -162,14 +161,13 @@ export default function Home() {
   const {
     vibe,
     setVibe,
-    budget,
     carMode,
     publicModes,
     partySize,
     partyProfile,
     setPartyProfile,
-    diningStyle,
-    setDiningStyle,
+    budgetTier,
+    setBudgetTier,
     tripDuration,
     setTripDuration,
   } = useTripPlannerState(user);
@@ -194,25 +192,28 @@ export default function Home() {
         ? { desc: currentSituation.desc, temperatureC: currentSituation.temp }
         : undefined,
       vibe,
-      budget,
+      budget: BUDGET_TIER_LIMITS[budgetTier],
       carMode,
       publicModes,
       partySize,
-      diningStyle,
+      budgetTier,
       tripDuration,
       homeStationCoords,
       isVisited,
     });
   const [rouletteOpen, setRouletteOpen] = useState(false);
   const topRecommendations = recommendedDestinations.slice(0, 3);
-  const homeCity = getHomeCity(homeStation, copy.baseLocation);
+  const selectedHomeCity = allDestinations.find(
+    (destination) => destination.id === user?.user_metadata?.home_city,
+  );
+  const homeCity = selectedHomeCity
+    ? getLocalizedPlace(selectedHomeCity, locale).name
+    : getHomeCity(homeStation, copy.baseLocation);
   const scrollToRecommendations = () =>
     document
       .getElementById("recommendations")
       ?.scrollIntoView({ behavior: "smooth" });
 
-  const selectClass =
-    "h-12 rounded-xl border-slate-200 bg-slate-50 font-medium dark:border-slate-800 dark:bg-slate-950";
   const moodOptions = [
     ["any", labels.any],
     ["themepark", labels.themepark],
@@ -229,10 +230,11 @@ export default function Home() {
     ["couple", copy.couple],
     ["group", copy.group],
   ];
-  const diningOptions: [DiningStyle, string][] = [
-    ["budget", copy.budgetStyle],
+  const budgetOptions: [BudgetTier, string][] = [
+    ["economy", copy.economy],
     ["standard", copy.standardStyle],
-    ["premium", copy.premiumStyle],
+    ["comfortable", copy.comfortable],
+    ["luxury", copy.luxury],
   ];
   const durationOptions: [TripDuration, string][] = [
     ["any", copy.anyDuration],
@@ -243,14 +245,13 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-emerald-50/60 dark:from-slate-950 dark:via-slate-950 dark:to-emerald-950/30">
-        <div className="pointer-events-none absolute -right-24 top-12 h-72 w-72 rounded-full bg-emerald-200/40 blur-3xl dark:bg-emerald-900/20" />
-        <div className="pointer-events-none absolute -left-24 bottom-0 h-64 w-64 rounded-full bg-sky-100/60 blur-3xl dark:bg-sky-950/30" />
+      <section className="relative overflow-hidden bg-slate-50 py-8 dark:bg-slate-950 sm:py-12 lg:py-16">
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-grid-slate-200/50 [mask-image:linear-gradient(0deg,transparent,black)] dark:bg-grid-slate-800/50" />
         <div className="container relative mx-auto px-4">
           <div className="flex flex-wrap items-center gap-3 border-b border-slate-200/80 py-5 text-sm dark:border-slate-800">
             <span className="inline-flex items-center gap-2 font-bold text-slate-800 dark:text-slate-100">
               <MapPin className="h-4 w-4 text-emerald-600" />
-              {homeStation || copy.baseLocation}
+              {homeCity}
             </span>
             <Link
               to="/settings?section=general&return=/"
@@ -310,9 +311,20 @@ export default function Home() {
             )}
           </div>
 
-          <div className="grid items-center gap-10 py-10 lg:grid-cols-[0.9fr_1.1fr] lg:py-16">
+          <div className="grid items-center gap-12 py-10 lg:grid-cols-2 lg:py-16">
             <div className="max-w-xl">
-              <h1 className="text-5xl font-extrabold leading-[1.05] tracking-tight text-slate-900 dark:text-white sm:text-6xl">
+              {currentSituation && (
+                <div className="mb-6 flex items-center gap-3 text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl">
+                  <span>{currentSituation.temp}°C</span>
+                  <span className="text-slate-300 dark:text-slate-700">|</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-500">
+                    {locale === "ja"
+                      ? `${homeCity}は${localizeWeatherText(currentSituation.desc, locale)}`
+                      : `${localizeWeatherText(currentSituation.desc, locale)} in ${homeCity}`}
+                  </span>
+                </div>
+              )}
+              <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-white sm:text-5xl">
                 {locale === "ja" ? (
                   <>
                     {homeCity}から、
@@ -327,7 +339,7 @@ export default function Home() {
                   </>
                 )}
               </h1>
-              <p className="mt-6 max-w-md text-lg leading-8 text-slate-600 dark:text-slate-300">
+              <p className="mt-5 max-w-md text-lg leading-8 text-slate-600 dark:text-slate-300">
                 {locale === "ja"
                   ? `${homeCity}発の予定、天気、予算、好みに合わせておすすめします。`
                   : `Personalized recommendations from ${homeCity} based on your plans, weather, budget, and preferences.`}
@@ -335,7 +347,7 @@ export default function Home() {
             </div>
 
             <div>
-              <div className="rounded-3xl border border-slate-200/80 bg-white p-6 shadow-xl shadow-slate-200/50 dark:border-slate-800 dark:bg-slate-900 dark:shadow-none sm:p-8">
+              <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-xl dark:border-slate-800 dark:bg-slate-900 sm:p-8">
                 <div className="mb-6 flex items-center justify-between gap-4">
                   <h2 className="flex items-center text-xl font-bold text-slate-900 dark:text-white">
                     <Navigation className="mr-2 h-5 w-5 text-emerald-600" />
@@ -345,97 +357,42 @@ export default function Home() {
                     {copy.quickMatch}
                   </span>
                 </div>
-                <div className="grid gap-4 sm:grid-cols-3">
-                  <label className="space-y-2 text-sm font-bold text-slate-700 dark:text-slate-300">
-                    {copy.vibe}
-                    <Select
-                      value={vibe}
-                      onValueChange={(value) => value && setVibe(value)}
-                    >
-                      <SelectTrigger className={selectClass}>
-                        {labels[vibe as keyof typeof labels] || labels.any}
-                      </SelectTrigger>
-                      <SelectContent>
-                        {moodOptions.map(([value, label]) => (
-                          <SelectItem key={value} value={value}>
-                            {label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </label>
-                  <label className="space-y-2 text-sm font-bold text-slate-700 dark:text-slate-300">
-                    {copy.party}
-                    <Select
-                      value={partyProfile}
-                      onValueChange={(value) =>
-                        value && setPartyProfile(value as PartyProfile)
-                      }
-                    >
-                      <SelectTrigger className={selectClass}>
-                        {
-                          partyOptions.find(
-                            ([value]) => value === partyProfile,
-                          )?.[1]
-                        }
-                      </SelectTrigger>
-                      <SelectContent>
-                        {partyOptions.map(([value, label]) => (
-                          <SelectItem key={value} value={value}>
-                            {label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </label>
-                  <label className="space-y-2 text-sm font-bold text-slate-700 dark:text-slate-300">
-                    {copy.dining}
-                    <Select
-                      value={diningStyle}
-                      onValueChange={(value) =>
-                        value && setDiningStyle(value as DiningStyle)
-                      }
-                    >
-                      <SelectTrigger className={selectClass}>
-                        {
-                          diningOptions.find(
-                            ([value]) => value === diningStyle,
-                          )?.[1]
-                        }
-                      </SelectTrigger>
-                      <SelectContent>
-                        {diningOptions.map(([value, label]) => (
-                          <SelectItem key={value} value={value}>
-                            {label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </label>
-                  <label className="space-y-2 text-sm font-bold text-slate-700 dark:text-slate-300">
-                    {copy.duration}
-                    <Select
-                      value={tripDuration}
-                      onValueChange={(value) =>
-                        value && setTripDuration(value as TripDuration)
-                      }
-                    >
-                      <SelectTrigger className={selectClass}>
-                        {
-                          durationOptions.find(
-                            ([value]) => value === tripDuration,
-                          )?.[1]
-                        }
-                      </SelectTrigger>
-                      <SelectContent>
-                        {durationOptions.map(([value, label]) => (
-                          <SelectItem key={value} value={value}>
-                            {label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </label>
+                <div className="space-y-5">
+                  {[
+                    [copy.vibe, moodOptions, vibe, setVibe],
+                    [copy.budget, budgetOptions, budgetTier, setBudgetTier],
+                    [copy.party, partyOptions, partyProfile, setPartyProfile],
+                    [
+                      copy.duration,
+                      durationOptions,
+                      tripDuration,
+                      setTripDuration,
+                    ],
+                  ].map(([label, options, selected, setSelected]) => (
+                    <div key={label as string}>
+                      <p className="mb-2 text-sm font-bold text-slate-700 dark:text-slate-300">
+                        {label as string}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {(options as [string, string][]).map(
+                          ([value, optionLabel]) => (
+                            <button
+                              key={value}
+                              type="button"
+                              onClick={() =>
+                                (setSelected as (value: never) => void)(
+                                  value as never,
+                                )
+                              }
+                              className={`rounded-full border px-3 py-1.5 text-sm font-bold transition-colors ${selected === value ? "border-emerald-600 bg-emerald-600 text-white" : "border-slate-200 bg-slate-50 text-slate-600 hover:border-emerald-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-300"}`}
+                            >
+                              {optionLabel}
+                            </button>
+                          ),
+                        )}
+                      </div>
+                    </div>
+                  ))}
                 </div>
                 <p className="mt-6 text-xs text-slate-500 dark:text-slate-400">
                   {copy.budgetNote}
@@ -458,7 +415,7 @@ export default function Home() {
                   {copy.surprise}
                 </Button>
                 <Link
-                  to={`/destinations?${serializePlannerSearchParams({ vibe, partyProfile, diningStyle, tripDuration, budget, carMode, publicModes })}`}
+                  to={`/destinations?${serializePlannerSearchParams({ vibe, partyProfile, budgetTier, tripDuration, budget: BUDGET_TIER_LIMITS[budgetTier], carMode, publicModes })}`}
                 >
                   <Button
                     variant="outline"
@@ -497,7 +454,7 @@ export default function Home() {
               </p>
             </div>
             <Link
-              to="/destinations"
+              to={`/destinations?${serializePlannerSearchParams({ vibe, partyProfile, budgetTier, tripDuration, budget: BUDGET_TIER_LIMITS[budgetTier], carMode, publicModes })}`}
               className="inline-flex items-center font-bold text-emerald-600 hover:text-emerald-700"
             >
               {copy.seeAll}
