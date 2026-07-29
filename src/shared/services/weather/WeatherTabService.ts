@@ -198,13 +198,13 @@ export function getTabWeatherSummary(
   desc: string;
   dateLabel: string;
   icon: "sun" | "cloud" | "rain" | "snow" | "storm";
-} {
+} | null {
   const daysData = tab.dates
     .map((d) => forecastMap.get(d))
     .filter((d): d is DayForecastData => d !== undefined);
 
   if (daysData.length === 0) {
-    return { temp: 20, desc: "Clear", dateLabel: "Upcoming", icon: "sun" };
+    return null;
   }
 
   if (daysData.length === 1) {

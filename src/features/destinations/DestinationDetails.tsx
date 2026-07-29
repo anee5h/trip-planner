@@ -14,6 +14,7 @@ import { sortCollections } from "@/shared/utils/collections";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationService";
 import { calculateScore } from "@/shared/services/recommendation/RecommendationScorer";
 import { createRecommendationMatch } from "@/shared/services/recommendation/RecommendationExplainability";
+import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
 import { ItineraryPickerModal } from "@/features/trips/components/ItineraryPickerModal";
 import { MarkVisitedModal } from "./components/MarkVisitedModal";
 import { VisitedDateModal } from "./components/VisitedDateModal";
@@ -97,10 +98,6 @@ import {
   getWeatherDescription,
 } from "@/shared/hooks/useWeather";
 import { budgetService } from "@/shared/services/budget/BudgetService";
-import {
-  getDistance,
-  getDynamicTransportOptions,
-} from "@/shared/utils/distance";
 
 function WeatherIcon({ type }: { type: string }) {
   if (type === "sun") return <Sun className="w-6 h-6 text-amber-500" />;
@@ -261,25 +258,9 @@ export default function DestinationDetails() {
           setDestLoading(false);
           return;
         }
-        const dest = { ...destObj };
-        if (
-          homeStationCoords &&
-          dest.coordinates?.lat &&
-          dest.coordinates?.lng
-        ) {
-          const distKm = getDistance(
-            homeStationCoords.lat,
-            homeStationCoords.lng,
-            dest.coordinates.lat,
-            dest.coordinates.lng,
-          );
-          const hasShinkansen = Boolean(dest.transportOptions?.shinkansen);
-          dest.transportOptions = getDynamicTransportOptions(
-            distKm,
-            hasShinkansen,
-          );
-        }
-        setDestination(dest);
+        setDestination(
+          buildRecommendationCandidate(destObj, { homeStationCoords }),
+        );
         setDestLoading(false);
       });
     }
@@ -361,8 +342,9 @@ export default function DestinationDetails() {
       homeStationCoords: homeStationCoords || { lat: 35.6812, lng: 139.7671 },
     };
 
-    const { score } = calculateScore(destination, context);
-    return createRecommendationMatch(destination, context, score);
+    const candidate = buildRecommendationCandidate(destination, context);
+    const { score } = calculateScore(candidate, context);
+    return createRecommendationMatch(candidate, context, score);
   }, [destination, navState, user, forecast, homeStationCoords]);
 
   const flightEstimate = useMemo(() => {

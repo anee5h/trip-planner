@@ -26,7 +26,17 @@ export const ratingsValidator: ValidatorModule = {
   async validate({ catalog }) {
     const issues = [];
     for (const destination of catalog.destinations) {
-      const ratings = destination.ratings as unknown as Record<string, unknown>;
+      const ratings = destination.ratings as unknown as
+        Record<string, unknown> | undefined;
+      if (!ratings) {
+        issues.push({
+          severity: "error" as const,
+          code: "MISSING_RATINGS",
+          message: `Destination '${destination.id}' has no ratings object.`,
+          targetId: destination.id,
+        });
+        continue;
+      }
       for (const [key, value] of Object.entries(ratings)) {
         if (
           typeof value !== "number" ||
@@ -51,6 +61,17 @@ export const ratingsValidator: ValidatorModule = {
           severity: "error" as const,
           code: "LEGACY_RATING_SCALE",
           message: `Destination '${destination.id}' appears to use the legacy 0–5 rating scale.`,
+          targetId: destination.id,
+        });
+      }
+      if (
+        destination.status === "verified" &&
+        destination.ratingsSchemaVersion !== 2
+      ) {
+        issues.push({
+          severity: "error" as const,
+          code: "MISSING_RATING_SCHEMA_VERSION",
+          message: `Verified destination '${destination.id}' must declare ratingsSchemaVersion 2.`,
           targetId: destination.id,
         });
       }

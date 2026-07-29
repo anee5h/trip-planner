@@ -1,6 +1,5 @@
 import { useMemo } from "react";
 import type { Destination } from "@/shared/types/destination";
-import type { WeatherTab } from "@/shared/services/weather/WeatherTabService";
 import { getRecommendations } from "@/shared/services/recommendation/RecommendationService";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
@@ -11,10 +10,7 @@ import {
 
 interface UseTripRecommendationsProps {
   allDestinations: Destination[];
-  currentTab: WeatherTab | undefined;
-  weatherContextMap:
-    | Map<string, { desc: string; icon: string; temperatureC?: number }>
-    | undefined;
+  actualWeather?: { desc: string; temperatureC: number };
   tripType: string;
   budget: number;
   carMode: string;
@@ -28,8 +24,7 @@ interface UseTripRecommendationsProps {
 
 export function useTripRecommendations({
   allDestinations,
-  currentTab,
-  weatherContextMap,
+  actualWeather,
   tripType,
   budget,
   carMode,
@@ -50,22 +45,6 @@ export function useTripRecommendations({
   );
 
   const recommendedDestinations = useMemo(() => {
-    let actual:
-      | {
-          condition: ReturnType<typeof normalizeWeatherDescription>;
-          temperatureC?: number;
-        }
-      | undefined;
-    if (currentTab && weatherContextMap) {
-      const dayData = weatherContextMap.get(currentTab.dates[0]);
-      if (dayData) {
-        actual = {
-          condition: normalizeWeatherDescription(dayData.desc),
-          temperatureC: dayData.temperatureC,
-        };
-      }
-    }
-
     return getRecommendations(allDestinations, {
       tripType,
       budget,
@@ -73,7 +52,12 @@ export function useTripRecommendations({
       publicModes,
       partySize,
       weather: {
-        actual,
+        actual: actualWeather
+          ? {
+              condition: normalizeWeatherDescription(actualWeather.desc),
+              temperatureC: actualWeather.temperatureC,
+            }
+          : undefined,
         preferred: (weather === "summer"
           ? "hot"
           : weather === "winter"
@@ -87,8 +71,7 @@ export function useTripRecommendations({
     });
   }, [
     allDestinations,
-    currentTab,
-    weatherContextMap,
+    actualWeather,
     tripType,
     budget,
     carMode,

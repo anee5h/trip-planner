@@ -51,3 +51,25 @@ export interface RecommendationContext {
   userRatings?: Record<string, "up" | "down">;
   tripDuration?: TripDuration;
 }
+
+export function resolveRecommendationWeather(context: RecommendationContext) {
+  const legacy = context.currentWeatherCondition?.toLowerCase();
+  const preferred =
+    context.weather?.preferred ??
+    (legacy === "summer" ? "hot" : legacy === "winter" ? "cold" : "any");
+  const condition =
+    context.weather?.actual?.condition ??
+    normalizeWeatherDescription(
+      context.currentWeather?.desc ?? context.currentWeatherCondition ?? "",
+    );
+  const temperatureC =
+    context.weather?.actual?.temperatureC ?? context.currentWeather?.temp;
+
+  return {
+    actual:
+      condition === "unknown" && temperatureC === undefined
+        ? undefined
+        : { condition, temperatureC },
+    preferred,
+  } as const;
+}

@@ -16,10 +16,7 @@ import {
 } from "lucide-react";
 import { getAdjustedBudget } from "@/shared/utils/utils";
 import StationInput from "@/shared/components/StationInput";
-import {
-  getDistance,
-  getDynamicTransportOptions,
-} from "@/shared/utils/distance";
+import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useLocale } from "@/shared/context/LocaleContext";
 import {
@@ -256,23 +253,9 @@ export default function Destinations() {
 
   // Filter and sort destinations
   const filteredAndSortedDestinations = useMemo(() => {
-    let result = allDestinations.map((destObj) => {
-      const dest = { ...destObj };
-      if (homeStationCoords && dest.coordinates?.lat && dest.coordinates?.lng) {
-        const distKm = getDistance(
-          homeStationCoords.lat,
-          homeStationCoords.lng,
-          dest.coordinates.lat,
-          dest.coordinates.lng,
-        );
-        const hasShinkansen = Boolean(destObj.transportOptions?.shinkansen);
-        dest.transportOptions = getDynamicTransportOptions(
-          distKm,
-          hasShinkansen,
-        );
-      }
-      return dest;
-    });
+    let result = allDestinations.map((destination) =>
+      buildRecommendationCandidate(destination, { homeStationCoords }),
+    );
 
     // 0. Filter by Curated Collections (OR Semantics)
     if (selectedCollections.length > 0) {

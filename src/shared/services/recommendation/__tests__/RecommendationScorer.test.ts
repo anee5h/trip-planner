@@ -125,4 +125,37 @@ describe("RecommendationScorer Unit Tests", () => {
     const noPreference = calculateScore(mockDest, base).score;
     expect(rainyPreference).not.toBe(noPreference);
   });
+
+  it("does not treat preferred temperature as actual weather", () => {
+    const destination = {
+      ...mockDest,
+      ratings: { ...mockDest.ratings, summer: 8 },
+    };
+    const context = {
+      tripType: "any",
+      budget: 20000,
+      carMode: "none",
+      publicModes: ["train"],
+      partySize: 1,
+      visitedIds: [],
+    };
+    const neutral = calculateScore(destination, {
+      ...context,
+      weather: { preferred: "any" as const },
+    }).score;
+    const preferred = calculateScore(destination, {
+      ...context,
+      weather: { preferred: "hot" as const },
+    }).score;
+    const actual = calculateScore(destination, {
+      ...context,
+      weather: {
+        actual: { condition: "clear" as const, temperatureC: 35 },
+        preferred: "any" as const,
+      },
+    }).score;
+
+    expect(preferred - neutral).toBe(6);
+    expect(actual - neutral).toBe(15);
+  });
 });

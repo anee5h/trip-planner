@@ -2,7 +2,10 @@ import type { Destination } from "@/shared/types/destination";
 import type { RecommendationContext } from "./RecommendationContext";
 import type { ScoredDestination } from "./RecommendationTypes";
 import { calculateScore, getValidModes } from "./RecommendationScorer";
-import { runRecommendationPipeline } from "./RecommendationPipeline";
+import {
+  buildRecommendationCandidate,
+  runRecommendationPipeline,
+} from "./RecommendationPipeline";
 
 export { getValidModes };
 
@@ -28,5 +31,6 @@ export function scoreForCatalog(
   dest: Destination,
   context: RecommendationContext,
 ): number {
-  return calculateScore(dest, context).score;
+  return calculateScore(buildRecommendationCandidate(dest, context), context)
+    .score;
 }

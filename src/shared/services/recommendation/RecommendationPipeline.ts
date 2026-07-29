@@ -18,7 +18,7 @@ import type { PipelineRecommendation } from "./RecommendationTypes";
 
 export function buildRecommendationCandidate(
   destination: Destination,
-  context: RecommendationContext,
+  context: Pick<RecommendationContext, "homeStationCoords">,
 ): Destination {
   if (!context.homeStationCoords || !destination.coordinates) {
     return destination;
@@ -41,7 +41,11 @@ export function buildRecommendationCandidate(
       ...destination.transportOptions,
       ...Object.fromEntries(
         Object.entries(dynamicOptions).filter(
-          ([, value]) => value !== undefined,
+          ([mode, value]) =>
+            value !== undefined &&
+            destination.transportOptions?.[
+              mode as keyof typeof destination.transportOptions
+            ] !== undefined,
         ),
       ),
     },

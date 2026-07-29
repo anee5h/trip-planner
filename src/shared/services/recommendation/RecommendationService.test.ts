@@ -1,5 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { getRecommendations, getValidModes } from "./RecommendationService";
+import {
+  getRecommendations,
+  getValidModes,
+  scoreForCatalog,
+} from "./RecommendationService";
 import { matchesTripDuration } from "./RecommendationContext";
 import type { Destination } from "@/shared/types/destination";
 
@@ -131,7 +135,7 @@ const mockDestinations = [
 describe("RecommendationService Unit Tests", () => {
   const homeCoords = { lat: 35.6812, lng: 139.7671 }; // Tokyo Station
 
-  it("uses origin-aware transport options for eligibility", () => {
+  it("preserves canonical transport availability", () => {
     const results = getRecommendations(mockDestinations, {
       tripType: "any",
       budget: 50000,
@@ -147,7 +151,7 @@ describe("RecommendationService Unit Tests", () => {
     const ids = results.map((r) => r.id);
     expect(ids).toContain("hakone-onsen");
     expect(ids).toContain("kamakura-history");
-    expect(ids).toContain("fuji-climbing");
+    expect(ids).not.toContain("fuji-climbing");
   });
 
   it("prioritizes rainy-friendly indoor/onsen destinations when weather is rainy", () => {
@@ -239,5 +243,33 @@ describe("RecommendationService Unit Tests", () => {
 
     const invalidModes = getValidModes(dest, "none", ["train"]);
     expect(invalidModes).toEqual([]);
+  });
+
+  it("uses origin-aware transport when scoring the catalog", () => {
+    const score = scoreForCatalog(mockDestinations[0], {
+      tripType: "any",
+      budget: 50000,
+      carMode: "none",
+      publicModes: ["train"],
+      partySize: 2,
+      visitedIds: [],
+      homeStationCoords: homeCoords,
+    });
+
+    expect(score).toBeGreaterThan(0);
+  });
+
+  it("does not invent unavailable origin-aware transport modes", () => {
+    const results = getRecommendations([mockDestinations[2]], {
+      tripType: "any",
+      budget: 100000,
+      carMode: "none",
+      publicModes: ["train"],
+      partySize: 2,
+      visitedIds: [],
+      homeStationCoords: homeCoords,
+    });
+
+    expect(results).toEqual([]);
   });
 });

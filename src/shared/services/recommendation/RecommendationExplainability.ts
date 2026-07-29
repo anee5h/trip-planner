@@ -1,5 +1,8 @@
 import type { Destination } from "@/shared/types/destination";
-import type { RecommendationContext } from "./RecommendationContext";
+import {
+  resolveRecommendationWeather,
+  type RecommendationContext,
+} from "./RecommendationContext";
 import type { MatchReason, RecommendationMatch } from "./RecommendationTypes";
 import { calculateConfidence, getValidModes } from "./RecommendationScorer";
 import { getAdjustedBudget } from "@/shared/services/budget/BudgetService";
@@ -9,15 +12,8 @@ export function createRecommendationMatch(
   context: RecommendationContext,
   score: number,
 ): RecommendationMatch {
-  const {
-    tripType,
-    budget,
-    carMode,
-    publicModes,
-    partySize,
-    currentWeatherCondition,
-    currentWeather,
-  } = context;
+  const { tripType, budget, carMode, publicModes, partySize } = context;
+  const { actual, preferred } = resolveRecommendationWeather(context);
 
   const reasons: MatchReason[] = [];
   const matchedPreferences: string[] = [];
@@ -235,29 +231,29 @@ export function createRecommendationMatch(
 
   // 3. Environmental Explainability
   const isRaining =
-    (currentWeather &&
-      (currentWeather.desc === "Rainy" || currentWeather.desc === "Stormy")) ||
-    currentWeatherCondition === "rainy";
-  const isHot =
-    (currentWeather && currentWeather.temp >= 30) ||
-    currentWeatherCondition === "summer";
+    actual?.condition === "rainy" || actual?.condition === "stormy";
+  const isHot = actual?.temperatureC !== undefined && actual.temperatureC >= 30;
   const isCold =
-    (currentWeather && currentWeather.temp <= 10) ||
-    currentWeatherCondition === "winter";
+    actual?.temperatureC !== undefined && actual.temperatureC <= 10;
 
-  if (isRaining) {
+  if (isRaining || preferred === "rainy") {
     const indoor = dest.indoorPercent || 0;
-    if (indoor >= 70) {
+    if (indoor >= 70 || ratings.rain >= 8.5) {
+      if (preferred === "rainy") matchedPreferences.push("weather");
       reasons.push({
         type: "Weather",
         code: "weatherRainFriendly",
-        params: { indoor: Math.round(indoor) },
+        params: indoor >= 70 ? { indoor: Math.round(indoor) } : undefined,
         title: "Rain Friendly",
-        description: `${Math.round(indoor)}% indoor space, perfect for rain`,
+        description:
+          indoor >= 70
+            ? `${Math.round(indoor)}% indoor space, perfect for rain`
+            : "Highly rated for rainy-day visits",
       });
     }
   }
-  if (isHot && ratings.summer >= 8.5) {
+  if ((isHot || preferred === "hot") && ratings.summer >= 8.5) {
+    if (preferred === "hot") matchedPreferences.push("weather");
     reasons.push({
       type: "Weather",
       code: "weatherCoolRetreat",
@@ -265,7 +261,8 @@ export function createRecommendationMatch(
       description: "A cool escape from the hot city temperatures",
     });
   }
-  if (isCold && ratings.winter >= 8.5) {
+  if ((isCold || preferred === "cold") && ratings.winter >= 8.5) {
+    if (preferred === "cold") matchedPreferences.push("weather");
     reasons.push({
       type: "Weather",
       code: "weatherWinterComfort",

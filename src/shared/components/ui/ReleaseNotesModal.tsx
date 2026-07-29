@@ -8,8 +8,18 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.8.11",
+    version: "v1.8.12",
     tag: "Current",
+    date: "July 2026",
+    title: "Recommendation Reliability Fixes",
+    highlights: [
+      "Aligned weather scoring and explanations across actual conditions and your preferences",
+      "Kept weekend forecasts and recommendation weather in sync without fabricated fallback conditions",
+      "Prevented unavailable transport modes and strengthened verified rating-scale validation",
+    ],
+  },
+  {
+    version: "v1.8.11",
     date: "July 2026",
     title: "Personalized & Trustworthy Recommendations",
     highlights: [

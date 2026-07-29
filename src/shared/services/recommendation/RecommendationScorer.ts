@@ -1,6 +1,6 @@
 import type { Destination } from "@/shared/types/destination";
 import {
-  normalizeWeatherDescription,
+  resolveRecommendationWeather,
   type RecommendationContext,
 } from "./RecommendationContext";
 import { getAdjustedBudget } from "@/shared/services/budget/BudgetService";
@@ -109,20 +109,7 @@ export function calculateScore(
 } {
   const { tripType, budget, carMode, publicModes, partySize, userRatings } =
     context;
-  const actual = context.weather?.actual;
-  const preferred = context.weather?.preferred ?? "any";
-  const currentWeatherCondition =
-    actual?.condition ??
-    (context.currentWeatherCondition
-      ? normalizeWeatherDescription(context.currentWeatherCondition)
-      : "unknown");
-  const currentWeather =
-    actual || context.currentWeather
-      ? {
-          temp: actual?.temperatureC ?? context.currentWeather?.temp,
-          desc: actual?.condition ?? context.currentWeather?.desc ?? "",
-        }
-      : null;
+  const { actual, preferred } = resolveRecommendationWeather(context);
 
   let score =
     SCORING_WEIGHTS.BASE_SCORE +
@@ -254,13 +241,10 @@ export function calculateScore(
 
   // Environmental Logic
   const isRaining =
-    currentWeatherCondition === "rainy" || currentWeatherCondition === "stormy";
-  const isHot =
-    (currentWeather?.temp !== undefined && currentWeather.temp >= 30) ||
-    preferred === "hot";
+    actual?.condition === "rainy" || actual?.condition === "stormy";
+  const isHot = actual?.temperatureC !== undefined && actual.temperatureC >= 30;
   const isCold =
-    (currentWeather?.temp !== undefined && currentWeather.temp <= 10) ||
-    preferred === "cold";
+    actual?.temperatureC !== undefined && actual.temperatureC <= 10;
 
   if (isRaining) {
     const indoor = dest.indoorPercent || 0;

@@ -167,20 +167,8 @@ export default function Home() {
   const { recommendedDestinations, rouletteCandidates } =
     useTripRecommendations({
       allDestinations,
-      currentTab: currentTab || undefined,
-      weatherContextMap: weatherContext?.forecastMap
-        ? new Map(
-            Array.from(weatherContext.forecastMap.entries()).map(
-              ([key, value]) => [
-                key,
-                {
-                  desc: value.desc,
-                  icon: value.icon,
-                  temperatureC: value.maxTemp,
-                },
-              ],
-            ),
-          )
+      actualWeather: currentSituation
+        ? { desc: currentSituation.desc, temperatureC: currentSituation.temp }
         : undefined,
       tripType,
       budget,

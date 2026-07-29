@@ -57,4 +57,28 @@ describe("RecommendationExplainability Unit Tests", () => {
     expect(match.reasons[0].title).toBe("Great Value");
     expect(match.reasons[1].title).toBe("Fast Train Access");
   });
+
+  it("explains weather from the current recommendation context", () => {
+    const match = createRecommendationMatch(
+      baseDest,
+      {
+        tripType: "any",
+        budget: 15000,
+        carMode: "none",
+        publicModes: ["train"],
+        partySize: 1,
+        visitedIds: [],
+        weather: {
+          actual: { condition: "rainy", temperatureC: 18 },
+          preferred: "rainy",
+        },
+      },
+      85,
+    );
+
+    expect(
+      match.reasons.some((reason) => reason.code === "weatherRainFriendly"),
+    ).toBe(true);
+    expect(match.matchedPreferences).toContain("weather");
+  });
 });
