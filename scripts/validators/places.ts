@@ -92,6 +92,35 @@ export const placesValidator: ValidatorModule = {
           targetId: place.id,
         });
       }
+      if (place.placeType === "destination") {
+        if (!place.officialWebsite) {
+          issues.push({
+            severity: "warning",
+            code: "DESTINATION_MISSING_OFFICIAL_WEBSITE",
+            message: `Destination '${place.id}' is missing an official website; populate the editorial migration before promoting this check to an error.`,
+            targetId: place.id,
+          });
+        } else {
+          try {
+            const url = new URL(place.officialWebsite);
+            if (url.protocol !== "http:" && url.protocol !== "https:") {
+              issues.push({
+                severity: "error",
+                code: "DESTINATION_INVALID_OFFICIAL_WEBSITE",
+                message: `Destination '${place.id}' official website must use http or https.`,
+                targetId: place.id,
+              });
+            }
+          } catch {
+            issues.push({
+              severity: "error",
+              code: "DESTINATION_INVALID_OFFICIAL_WEBSITE",
+              message: `Destination '${place.id}' has an invalid official website URL.`,
+              targetId: place.id,
+            });
+          }
+        }
+      }
       if (cohortIds.has(place.id)) {
         if (place.placeType !== "hub") {
           issues.push({

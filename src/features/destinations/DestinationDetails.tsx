@@ -148,6 +148,7 @@ const DETAIL_COPY = {
     bestSeason: "Best Season",
     nearby: "Nearby Attractions",
     reservation: "Reservation Info",
+    officialWebsite: "Official Website",
     seeMore: "See all",
     showLess: "Show less",
     nearbyPlaces: "Nearby Places & Hubs",
@@ -179,6 +180,7 @@ const DETAIL_COPY = {
     bestSeason: "ベストシーズン",
     nearby: "近くの見どころ",
     reservation: "予約情報",
+    officialWebsite: "公式サイト",
     seeMore: "すべて見る",
     showLess: "閉じる",
     nearbyPlaces: "近くの場所と都市ハブ",
@@ -1676,6 +1678,23 @@ export default function DestinationDetails() {
                     </p>
                   </div>
                 )}
+                {destination.placeType === "destination" &&
+                  destination.officialWebsite && (
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
+                        {copy.officialWebsite}
+                      </h4>
+                      <a
+                        href={destination.officialWebsite}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm font-medium text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 break-all"
+                      >
+                        {destination.officialWebsite}
+                        <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                      </a>
+                    </div>
+                  )}
                 {destination.parking && (
                   <div>
                     <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">

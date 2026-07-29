@@ -124,6 +124,8 @@ export interface DestinationRelationships {
 
 export interface Destination {
   id: string;
+  /** Canonical official visitor information or booking website. */
+  officialWebsite?: string;
   name: string;
   nameJa?: string;
   /** Canonical v2 place classification; role remains for legacy callers. */

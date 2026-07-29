@@ -8,8 +8,18 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.8.8",
+    version: "v1.8.9",
     tag: "Current",
+    date: "July 2026",
+    title: "Manual Official Website QA",
+    highlights: [
+      "Added a dedicated Website QA studio for reviewing and recording official destination websites",
+      "Added CSV export/import with official website provenance and synchronized destination detail files",
+      "Japanese production discovery remains gated to the 64 reviewed places; full-catalogue review mode stays deployment-only",
+    ],
+  },
+  {
+    version: "v1.8.8",
     date: "July 2026",
     title: "Phase 1 Data Quality Foundation",
     highlights: [

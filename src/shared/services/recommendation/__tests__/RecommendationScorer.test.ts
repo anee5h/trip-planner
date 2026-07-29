@@ -86,4 +86,12 @@ describe("RecommendationScorer Unit Tests", () => {
     }).score;
     expect(downScore).toBe(baseScore - 1000);
   });
+
+  it("keeps confidence monotonic and bounded across score bands", () => {
+    const scores = [-100, 0, 60, 120, 240];
+    const confidences = scores.map(calculateConfidence);
+
+    expect(confidences).toEqual([15, 15, 50, 99, 99]);
+    expect(confidences).toEqual([...confidences].sort((a, b) => a - b));
+  });
 });

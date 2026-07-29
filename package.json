@@ -1,7 +1,7 @@
 {
   "name": "tabimap",
   "private": true,
-  "version": "1.8.8",
+  "version": "1.8.9",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -23,6 +23,7 @@
     "validate-search": "tsx scripts/cli/validate-search.ts",
     "validate-links": "tsx scripts/cli/validate-links.ts",
     "check:translation-parity": "node scripts/check-translation-parity.cjs",
+    "validate:i18n": "npm run check:translation-parity",
     "report:editorial-freshness": "tsx scripts/report-editorial-freshness.ts",
     "sync-destination-details": "tsx scripts/sync-destination-details.ts",
     "normalize-destination-budgets": "tsx scripts/normalize-destination-budgets.ts",
@@ -32,9 +33,10 @@
     "normalize-municipality-names": "tsx scripts/normalize-municipality-names.ts",
     "add-yokohama-places": "tsx scripts/add-yokohama-places.ts",
     "apply-yokohama-qa-images": "tsx scripts/apply-yokohama-qa-images.ts",
+    "apply-official-website-qa": "node scripts/apply-official-website-qa.cjs",
     "audit-spacing": "node scripts/audit-spacing.cjs",
     "prepare": "husky",
-    "release:verify": "npm run test:run && npm run pipeline -- --dry-run && npx tsc -b --noEmit && npm run lint && npm run build && npm run format:check"
+    "release:verify": "npm run test:run && npm run pipeline -- --dry-run && npm run validate-all && npm run validate:i18n && npx tsc -b --noEmit && npm run lint && npm run build && npm run format:check"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",

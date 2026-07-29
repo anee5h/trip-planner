@@ -6,6 +6,7 @@ import { PageHeader } from "@/shared/components/ui/PageHeader";
 import { toCanonicalPlace } from "@/shared/services/place/PlaceCatalog";
 import type { Destination } from "@/shared/types/destination";
 import type { Collection } from "@/shared/types/collection";
+import WebsiteQaStudio from "./components/WebsiteQaStudio";
 import {
   CheckCircle2,
   AlertTriangle,
@@ -72,6 +73,9 @@ export default function QaDashboard() {
   const allCollections = collectionsIndex as Collection[];
   const totalDestinations = allDestinations.length;
   const totalCollections = allCollections.length;
+  const totalWebsiteDestinations = allDestinations.filter(
+    (destination) => destination.placeType === "destination",
+  ).length;
   const editorialCoverage = useMemo(() => {
     const cohortIds = new Set<string>(PHASE_ONE_COHORT_IDS);
     const cohort = allDestinations.filter((destination) =>
@@ -141,6 +145,7 @@ export default function QaDashboard() {
     let missingParentHub = 0;
     let missingBudget = 0;
     let missingTransportFares = 0;
+    let missingOfficialWebsite = 0;
 
     const ids = new Set<string>();
     let duplicateIds = 0;
@@ -173,13 +178,18 @@ export default function QaDashboard() {
       if (!d.transportFares) {
         missingTransportFares++;
       }
+
+      if (d.placeType === "destination" && !d.officialWebsite) {
+        missingOfficialWebsite++;
+      }
     });
 
     const isHealthy =
       duplicateIds === 0 &&
       missingHero === 0 &&
       invalidCoords === 0 &&
-      missingParentHub === 0;
+      missingParentHub === 0 &&
+      missingOfficialWebsite === 0;
 
     return {
       duplicateIds,
@@ -188,6 +198,7 @@ export default function QaDashboard() {
       missingParentHub,
       missingBudget,
       missingTransportFares,
+      missingOfficialWebsite,
       isHealthy,
     };
   }, [allDestinations]);
@@ -430,15 +441,22 @@ export default function QaDashboard() {
         </div>
       </div>
 
-      {/* 5-Tab Navigation Bar */}
+      {/* 6-Tab Navigation Bar */}
       <Tabs defaultValue="health" className="w-full space-y-6">
-        <TabsList className="grid grid-cols-2 md:grid-cols-5 w-full bg-slate-100 dark:bg-slate-900/80 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-800">
+        <TabsList className="grid grid-cols-2 md:grid-cols-6 w-full bg-slate-100 dark:bg-slate-900/80 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-800">
           <TabsTrigger
             value="health"
             className="rounded-xl font-bold text-xs flex items-center gap-1.5 py-2.5"
           >
             <ShieldCheck className="w-4 h-4 text-emerald-500" />
             Health & Rules
+          </TabsTrigger>
+          <TabsTrigger
+            value="websites"
+            className="rounded-xl font-bold text-xs flex items-center gap-1.5 py-2.5"
+          >
+            <Link2 className="w-4 h-4 text-emerald-500" />
+            Website QA
           </TabsTrigger>
           <TabsTrigger
             value="images"
@@ -536,6 +554,22 @@ export default function QaDashboard() {
               </div>
               <p className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">
                 0 Broken Parent Hub References
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2 shadow-sm">
+              <div className="flex justify-between items-center text-slate-500">
+                <span className="text-xs font-bold uppercase tracking-wider">
+                  Official Website Coverage
+                </span>
+                <Link2 className="w-4 h-4 text-emerald-500" />
+              </div>
+              <div className="text-2xl font-extrabold">
+                {totalWebsiteDestinations - metrics.missingOfficialWebsite} /{" "}
+                {totalWebsiteDestinations}
+              </div>
+              <p className="text-xs text-amber-600 dark:text-amber-400 font-semibold">
+                {metrics.missingOfficialWebsite} need manual QA
               </p>
             </div>
           </div>
@@ -793,7 +827,12 @@ export default function QaDashboard() {
           </div>
         </TabsContent>
 
-        {/* TAB 3: HIERARCHY & HUBS */}
+        {/* TAB 3: OFFICIAL WEBSITE QA */}
+        <TabsContent value="websites" className="space-y-6">
+          <WebsiteQaStudio destinations={allDestinations} />
+        </TabsContent>
+
+        {/* TAB 4: HIERARCHY & HUBS */}
         <TabsContent value="relationships" className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Hub Selector Panel */}
@@ -904,7 +943,7 @@ export default function QaDashboard() {
           </div>
         </TabsContent>
 
-        {/* TAB 4: BUDGET & TRANSPORT */}
+        {/* TAB 5: BUDGET & TRANSPORT */}
         <TabsContent value="budget" className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Transport Modes Summary */}
@@ -987,7 +1026,7 @@ export default function QaDashboard() {
           </div>
         </TabsContent>
 
-        {/* TAB 5: COLLECTIONS AUDIT */}
+        {/* TAB 6: COLLECTIONS AUDIT */}
         <TabsContent value="collections" className="space-y-6">
           <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
             <h3 className="text-lg font-extrabold tracking-tight flex items-center gap-2">

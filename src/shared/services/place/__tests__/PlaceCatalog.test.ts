@@ -18,6 +18,21 @@ describe("PlaceCatalog", () => {
     expect(places.every((place) => place.placeType)).toBe(true);
   });
 
+  it("keeps official website links destination-only", () => {
+    const places = getCanonicalPlaces();
+    expect(places.filter((place) => place.placeType === "hub")).toHaveLength(
+      152,
+    );
+    expect(
+      places.filter((place) => place.placeType === "destination"),
+    ).toHaveLength(207);
+    expect(
+      places
+        .filter((place) => place.placeType === "hub")
+        .every((place) => !place.officialWebsite),
+    ).toBe(true);
+  });
+
   it("supplies reviewed bilingual content for every pilot hub", () => {
     const places = new Map(
       getCanonicalPlaces().map((place) => [place.id, place]),
