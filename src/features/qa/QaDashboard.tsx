@@ -34,6 +34,7 @@ import {
 } from "lucide-react";
 import { computeQualityMetrics } from "@/shared/services/analytics/RecommendationQualityAnalytics";
 import { telemetryPipeline } from "@/shared/services/analytics/RecommendationTelemetryPipeline";
+import { experimentFramework } from "@/shared/services/recommendation/ExperimentFramework";
 import { Badge } from "@/shared/components/ui/badge";
 import { Button } from "@/shared/components/ui/button";
 import { Input } from "@/shared/components/ui/input";
@@ -1273,6 +1274,44 @@ export default function QaDashboard() {
                     {totalDestinations}
                   </span>
                 </div>
+              </div>
+            </div>
+
+            {/* Experimentation Framework Status */}
+            <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
+              <h3 className="text-lg font-extrabold tracking-tight flex items-center gap-2">
+                <Zap className="w-5 h-5 text-indigo-500" />
+                Active Recommendation Experiments
+              </h3>
+              <div className="space-y-3">
+                {experimentFramework.listExperiments().map((exp) => {
+                  const assignment = experimentFramework.getAssignment(exp.id);
+                  return (
+                    <div
+                      key={exp.id}
+                      className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 space-y-2"
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="font-extrabold text-sm text-slate-900 dark:text-white">
+                          {exp.name} ({exp.id})
+                        </span>
+                        <Badge
+                          className={
+                            assignment.reason === "ASSIGNED"
+                              ? "bg-emerald-600 text-white font-extrabold text-[10px]"
+                              : "bg-amber-600 text-white font-extrabold text-[10px]"
+                          }
+                        >
+                          Variant: {assignment.variantId} ({assignment.reason})
+                        </Badge>
+                      </div>
+                      <p className="text-xs text-slate-500">
+                        Validity: {exp.startDate} ~ {exp.endDate} | Session:{" "}
+                        {experimentFramework.getSessionId().substring(0, 16)}...
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
