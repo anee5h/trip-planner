@@ -28,8 +28,12 @@ import {
   BarChart2,
   Eye,
   MousePointer,
+  Send,
+  Radio,
+  Zap,
 } from "lucide-react";
 import { computeQualityMetrics } from "@/shared/services/analytics/RecommendationQualityAnalytics";
+import { telemetryPipeline } from "@/shared/services/analytics/RecommendationTelemetryPipeline";
 import { Badge } from "@/shared/components/ui/badge";
 import { Button } from "@/shared/components/ui/button";
 import { Input } from "@/shared/components/ui/input";
@@ -629,6 +633,113 @@ export default function QaDashboard() {
                     </div>
                   );
                 })}
+              </div>
+            </div>
+          </div>
+
+          {/* TELEMETRY PIPELINE STATUS & CONTROL PANEL */}
+          <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <Radio className="w-5 h-5 text-sky-500 animate-pulse" />
+                  Telemetry Pipeline Status & Control (Pluggable Sink)
+                </h3>
+                <p className="text-xs text-slate-500">
+                  Real-time analytics queueing, exponential backoff retries, and
+                  50KB payload cap.
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="rounded-xl text-xs font-bold gap-1.5"
+                  onClick={() => {
+                    telemetryPipeline.setSimulateFailure(
+                      !telemetryPipeline.getMetrics().isSimulatingFailure,
+                    );
+                    setOverrides({ ...overrides });
+                  }}
+                >
+                  <Zap className="w-3.5 h-3.5 text-amber-500" />
+                  {telemetryPipeline.getMetrics().isSimulatingFailure
+                    ? "Disable Simulated Failure"
+                    : "Simulate Sink Failure"}
+                </Button>
+                <Button
+                  size="sm"
+                  variant="default"
+                  className="rounded-xl text-xs font-bold gap-1.5 bg-sky-600 hover:bg-sky-700 text-white"
+                  onClick={async () => {
+                    await telemetryPipeline.flush();
+                    setOverrides({ ...overrides });
+                    toast.success("Triggered manual telemetry queue flush!");
+                  }}
+                >
+                  <Send className="w-3.5 h-3.5" />
+                  Force Flush Batch
+                </Button>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-2">
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+                <div className="text-[11px] font-bold text-slate-500 uppercase">
+                  Pending Queue Depth
+                </div>
+                <div className="text-xl font-extrabold text-slate-900 dark:text-white">
+                  {telemetryPipeline.getMetrics().pendingQueueCount} events
+                </div>
+                <div className="text-[10px] text-slate-500">
+                  {(
+                    telemetryPipeline.getMetrics().pendingQueueBytes / 1024
+                  ).toFixed(2)}{" "}
+                  KB / 50 KB Cap
+                </div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+                <div className="text-[11px] font-bold text-slate-500 uppercase">
+                  Total Dispatched
+                </div>
+                <div className="text-xl font-extrabold text-emerald-600 dark:text-emerald-400">
+                  {telemetryPipeline.getMetrics().totalBatchesDispatched}{" "}
+                  batches
+                </div>
+                <div className="text-[10px] text-slate-500">
+                  {telemetryPipeline.getMetrics().totalEventsDispatched} events
+                  sent
+                </div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+                <div className="text-[11px] font-bold text-slate-500 uppercase">
+                  Retries & Failures
+                </div>
+                <div className="text-xl font-extrabold text-amber-600 dark:text-amber-400">
+                  {telemetryPipeline.getMetrics().totalRetries} retries
+                </div>
+                <div className="text-[10px] text-slate-500">
+                  {telemetryPipeline.getMetrics().totalBatchesFailed} failed
+                  attempts
+                </div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
+                <div className="text-[11px] font-bold text-slate-500 uppercase">
+                  Last Dispatch Status
+                </div>
+                <div className="text-xl font-extrabold text-sky-600 dark:text-sky-400">
+                  {telemetryPipeline.getMetrics().lastDispatchStatus}
+                </div>
+                <div className="text-[10px] text-slate-500">
+                  {telemetryPipeline.getMetrics().lastDispatchTime
+                    ? new Date(
+                        telemetryPipeline.getMetrics().lastDispatchTime!,
+                      ).toLocaleTimeString()
+                    : "No dispatches yet"}
+                </div>
               </div>
             </div>
           </div>

@@ -4,6 +4,7 @@ import type {
   AnyRecommendationAnalyticsEvent,
   BaseAnalyticsEvent,
 } from "./RecommendationAnalyticsTypes";
+import { telemetryPipeline } from "./RecommendationTelemetryPipeline";
 
 const OPT_OUT_STORAGE_KEY = "tabimap_analytics_opt_out";
 const SESSION_ID_STORAGE_KEY = "tabimap_analytics_session_id";
@@ -82,6 +83,10 @@ class RecommendationAnalyticsService {
 
   public setOptOut(optOut: boolean): void {
     this.isOptedOut = optOut;
+    if (optOut) {
+      telemetryPipeline.purge();
+      this.clearQueue();
+    }
     try {
       if (typeof window !== "undefined" && window.localStorage) {
         localStorage.setItem(OPT_OUT_STORAGE_KEY, String(optOut));
@@ -107,6 +112,7 @@ class RecommendationAnalyticsService {
   public resetForTesting(): void {
     this.recentEvents.clear();
     this.clearQueue();
+    telemetryPipeline.purge();
     this.isOptedOut = false;
   }
 
@@ -164,6 +170,7 @@ class RecommendationAnalyticsService {
         this.eventQueue.shift();
       }
       this.saveQueue();
+      telemetryPipeline.enqueue(event);
       return true;
     } catch {
       return false;
