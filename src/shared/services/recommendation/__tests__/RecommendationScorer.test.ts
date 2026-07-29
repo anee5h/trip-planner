@@ -1,7 +1,14 @@
 import { describe, it, expect } from "vitest";
-import { calculateConfidence, calculateScore } from "../RecommendationScorer";
+import {
+  calculateConfidence,
+  calculateScore,
+  CONFIDENCE_MULTIPLIERS,
+  ratingReliability,
+} from "../RecommendationScorer";
 import { normalizeWeatherDescription } from "../RecommendationContext";
+import { diversifyRecommendations } from "../RecommendationPipeline";
 import type { Destination } from "@/shared/types/destination";
+import type { PipelineRecommendation } from "../RecommendationTypes";
 
 const mockDest = {
   id: "test-dest",
@@ -242,5 +249,145 @@ describe("RecommendationScorer Unit Tests", () => {
     }).score;
 
     expect(actual - neutral).toBeCloseTo(15);
+  });
+
+  // ---------------------------------------------------------------------------
+  // REC-001: Extended confidence multipliers
+  // ---------------------------------------------------------------------------
+
+  it("exports CONFIDENCE_MULTIPLIERS with correct values", () => {
+    expect(CONFIDENCE_MULTIPLIERS.high).toBe(1.0);
+    expect(CONFIDENCE_MULTIPLIERS.medium).toBe(0.8);
+    expect(CONFIDENCE_MULTIPLIERS.low).toBe(0.5);
+  });
+
+  it("applies medium confidence multiplier of 0.8 relative to high", () => {
+    const context = {
+      tripType: "any",
+      budget: 20000,
+      carMode: "none",
+      publicModes: ["train"],
+      partySize: 1,
+      visitedIds: [],
+    };
+    const highConf = calculateScore(
+      {
+        ...mockDest,
+        ratings: { ...mockDest.ratings, overall: 10 },
+        ratingMetadata: {
+          rubricVersion: 1,
+          method: "assisted" as const,
+          confidence: "high" as const,
+        },
+      },
+      context,
+    ).score;
+    const highNeutral = calculateScore(
+      {
+        ...mockDest,
+        ratings: { ...mockDest.ratings, overall: 5 },
+        ratingMetadata: {
+          rubricVersion: 1,
+          method: "assisted" as const,
+          confidence: "high" as const,
+        },
+      },
+      context,
+    ).score;
+    const medConf = calculateScore(
+      {
+        ...mockDest,
+        ratings: { ...mockDest.ratings, overall: 10 },
+        ratingMetadata: {
+          rubricVersion: 1,
+          method: "assisted" as const,
+          confidence: "medium" as const,
+        },
+      },
+      context,
+    ).score;
+    const medNeutral = calculateScore(
+      {
+        ...mockDest,
+        ratings: { ...mockDest.ratings, overall: 5 },
+        ratingMetadata: {
+          rubricVersion: 1,
+          method: "assisted" as const,
+          confidence: "medium" as const,
+        },
+      },
+      context,
+    ).score;
+    // medium multiplier is 0.8, high is 1.0 → ratio ≈ 0.8
+    expect((medConf - medNeutral) / (highConf - highNeutral)).toBeCloseTo(
+      0.8,
+      1,
+    );
+  });
+
+  it("treats absent ratingMetadata as full weight (1.0) — curated pre-expansion record", () => {
+    const noMetaDest = { ...mockDest } as Destination;
+    delete (noMetaDest as unknown as Record<string, unknown>).ratingMetadata;
+    expect(ratingReliability(noMetaDest)).toBe(1.0);
+  });
+
+  it("treats ratingMetadata.confidence=high as full weight (1.0)", () => {
+    const dest = {
+      ...mockDest,
+      ratingMetadata: {
+        rubricVersion: 1,
+        method: "manual" as const,
+        confidence: "high" as const,
+      },
+    };
+    expect(ratingReliability(dest)).toBe(1.0);
+  });
+
+  // ---------------------------------------------------------------------------
+  // REC-004: Diversification regression
+  // ---------------------------------------------------------------------------
+
+  it("does not excessively displace a strong match in a city-heavy fixture", () => {
+    const makeRec = (
+      id: string,
+      score: number,
+      parentId?: string,
+      areaId?: string,
+    ): PipelineRecommendation =>
+      ({
+        ...mockDest,
+        id,
+        score,
+        relationships: parentId ? { parentDestinationId: parentId } : undefined,
+        areaId,
+        match: {
+          confidence: 80,
+          reasons: [],
+          matchedPreferences: [],
+          unmatchedPreferences: [],
+        },
+        bestTransportMode: "train",
+        estimatedCostRange: [8000, 12000] as [number, number],
+        pipeline: {
+          eligible: true,
+          estimatedCost: 10000,
+          estimatedCostRange: [8000, 12000] as [number, number],
+          bestTransportMode: "train",
+          scoreContributions: { total: score, transport: 10 },
+          confidence: 80,
+          reasons: [],
+        },
+      }) as unknown as PipelineRecommendation;
+
+    const topMatch = makeRec("top-match", 100, "osaka-city", "shinsaibashi");
+    const cityMatches = Array.from({ length: 10 }, (_, i) =>
+      makeRec(`osaka-dest-${i}`, 40 - i, "osaka-city", "shinsaibashi"),
+    );
+    const other = makeRec("different-city", 50, "kyoto-city", "gion");
+
+    const results = diversifyRecommendations([topMatch, ...cityMatches, other]);
+    const topThreeIds = results.slice(0, 3).map((r) => r.id);
+    // Strongest match must survive diversification pressure into the top 3
+    expect(topThreeIds).toContain("top-match");
   });
 });

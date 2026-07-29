@@ -512,7 +512,7 @@
       "rainFriendly": 7,
       "walkingIntensity": 5
     },
-    "image": "https://loremflickr.com/1000/800/japan,akasaka/all?lock=1030",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Akasaka_skyline_201806.jpg/960px-Akasaka_skyline_201806.jpg",
     "transportOptions": {
       "train": 45
     },
@@ -16054,7 +16054,7 @@
       "rainFriendly": 1,
       "walkingIntensity": 12
     },
-    "image": "https://loremflickr.com/1000/800/japan,imperial/all?lock=1022",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Edo_P_detail.jpg/960px-Edo_P_detail.jpg",
     "transportOptions": {
       "train": 40
     },

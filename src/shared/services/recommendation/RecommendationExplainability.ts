@@ -297,6 +297,18 @@ export function createRecommendationMatch(
     });
   }
 
+  // REC-002: Confidence disclosure — non-alarming, editorial framing.
+  // Added after primary reasons so it does not displace match explanations.
+  if (dest.ratingMetadata?.confidence === "low") {
+    reasons.push({
+      type: "Editorial",
+      code: "editorialReviewPending",
+      title: "Being Reviewed",
+      description:
+        "Ratings for this destination are still being verified by our team",
+    });
+  }
+
   // Construct structured summary
   const summary = reasons[0]?.description || "A recommended trip choice";
 

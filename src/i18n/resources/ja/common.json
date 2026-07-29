@@ -115,7 +115,19 @@
       "generalSolidMatch": {
         "title": "おすすめの目的地",
         "description": "基本条件に合うおすすめです"
+      },
+      "editorialReviewPending": {
+        "title": "確認中",
+        "description": "この目的地の評価はチームが確認中です"
       }
+    }
+  },
+  "planner": {
+    "budgetWholeParty": "グループ合計",
+    "budget": {
+      "label": "予算",
+      "scope": "グループ合計",
+      "explanation": "グループ全体の合計予算"
     }
   },
   "ui": {

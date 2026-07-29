@@ -115,7 +115,19 @@
       "generalSolidMatch": {
         "title": "Solid Match",
         "description": "A solid match matching your base criteria"
+      },
+      "editorialReviewPending": {
+        "title": "Being Reviewed",
+        "description": "Ratings for this destination are still being verified by our team"
       }
+    }
+  },
+  "planner": {
+    "budgetWholeParty": "for the whole party",
+    "budget": {
+      "label": "Max Budget",
+      "scope": "for the whole party",
+      "explanation": "Estimated budget for the whole party"
     }
   },
   "ui": {

@@ -239,7 +239,7 @@ export interface Destination {
   weatherDependence?: "low" | "moderate" | "high";
   ratingMetadata?: {
     rubricVersion: number;
-    method: "assisted" | "manual";
+    method: "assisted" | "manual" | "calculated";
     confidence: "low" | "medium" | "high";
   };
   tags: string[];

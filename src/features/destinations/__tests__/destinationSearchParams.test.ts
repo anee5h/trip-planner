@@ -4,7 +4,10 @@ import {
   hasRestrictedTransportSelection,
   parseDestinationSearchParams,
   serializeDestinationSearchParams,
+  serializePlannerSearchParams,
 } from "../destinationSearchParams";
+import { DEFAULT_PLANNER_BUDGET_TIER } from "@/features/home/hooks/useTripPlannerState";
+import { BUDGET_TIER_LIMITS } from "@/shared/types/planner";
 
 describe("destinationSearchParams", () => {
   it("round-trips Explorer filters, search, view, and page", () => {
@@ -82,5 +85,81 @@ describe("destinationSearchParams", () => {
     expect(serializeDestinationSearchParams(parsed).get("weather")).toBe(
       "rainy",
     );
+  });
+
+  // -------------------------------------------------------------------------
+  // PLN-002: Full round-trip serialization for all planner-originated fields
+  // -------------------------------------------------------------------------
+
+  it("PLN-002: survives full round-trip serialization for all planner fields", () => {
+    const plannerParams = serializePlannerSearchParams({
+      vibe: "history",
+      partyProfile: "couple",
+      partySize: 2,
+      weather: "rainy",
+      budgetTier: "comfortable",
+      tripDuration: "dayTrip" as const,
+      budget: BUDGET_TIER_LIMITS.comfortable,
+      carMode: "rental",
+      publicModes: ["train", "shinkansen"],
+    });
+
+    const parsed = parseDestinationSearchParams(
+      new URLSearchParams(plannerParams),
+    );
+
+    expect(parsed.vibe).toBe("history");
+    expect(parsed.partySize).toBe(2);
+    expect(parsed.weather).toBe("rainy");
+    expect(parsed.budgetTier).toBe("comfortable");
+    expect(parsed.carMode).toBe("rental");
+    expect(parsed.publicModes).toContain("train");
+    expect(parsed.publicModes).toContain("shinkansen");
+    expect(parsed.walkingIntensity).toBe("all");
+  });
+
+  it("PLN-002: re-serialization of parsed planner params is stable (idempotent round-trip)", () => {
+    const original = serializePlannerSearchParams({
+      vibe: "food",
+      partyProfile: "group",
+      partySize: 4,
+      weather: "hot",
+      budgetTier: "luxury",
+      tripDuration: "weekend" as const,
+      budget: BUDGET_TIER_LIMITS.luxury,
+      carMode: "none",
+      publicModes: ["train", "shinkansen", "bus", "flight"],
+    });
+
+    const firstParse = parseDestinationSearchParams(
+      new URLSearchParams(original),
+    );
+    const reSerialized = serializeDestinationSearchParams(firstParse);
+    const secondParse = parseDestinationSearchParams(reSerialized);
+
+    expect(secondParse.vibe).toBe(firstParse.vibe);
+    expect(secondParse.budgetTier).toBe(firstParse.budgetTier);
+    expect(secondParse.partySize).toBe(firstParse.partySize);
+    expect(secondParse.carMode).toBe(firstParse.carMode);
+    expect(secondParse.walkingIntensity).toBe(firstParse.walkingIntensity);
+  });
+
+  // -------------------------------------------------------------------------
+  // PLN-004: Reset consistency — Home and Explorer use the same defaults
+  // -------------------------------------------------------------------------
+
+  it("PLN-004: DEFAULT_PLANNER_BUDGET_TIER matches DEFAULT_DESTINATION_EXPLORER_STATE.budgetTier", () => {
+    // Both Home and Explorer must reset to the same budget tier so a user
+    // navigating from one to the other sees consistent defaults.
+    expect(DEFAULT_PLANNER_BUDGET_TIER).toBe(
+      DEFAULT_DESTINATION_EXPLORER_STATE.budgetTier,
+    );
+  });
+
+  it("PLN-004: default budgetTier maps to the correct BUDGET_TIER_LIMITS numeric value", () => {
+    const expectedBudget =
+      BUDGET_TIER_LIMITS[DEFAULT_DESTINATION_EXPLORER_STATE.budgetTier];
+    // The default maxBudget in the Explorer must equal the BUDGET_TIER_LIMITS value for the default tier.
+    expect(expectedBudget).toBe(DEFAULT_DESTINATION_EXPLORER_STATE.maxBudget);
   });
 });

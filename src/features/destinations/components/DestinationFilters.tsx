@@ -789,9 +789,14 @@ export default function DestinationFilters({
               </Select>
             </div>
             <div className="space-y-2 lg:col-span-1">
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                Budget
-              </label>
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                  Budget
+                </label>
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">
+                  for the whole party
+                </span>
+              </div>
               <Select
                 value={budgetTier}
                 onValueChange={(val) => val && setBudgetTier(val as BudgetTier)}

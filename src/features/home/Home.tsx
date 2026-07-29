@@ -38,8 +38,10 @@ import { useTripPlannerState } from "@/features/home/hooks/useTripPlannerState";
 import { useWeatherContext } from "@/features/home/hooks/useWeatherContext";
 import { useTripRecommendations } from "@/features/home/hooks/useTripRecommendations";
 import {
+  BUDGET_TIER_LIMITS,
   budgetTierForLimit,
   partyProfileForSize,
+  type BudgetTier,
 } from "@/shared/types/planner";
 import { serializePlannerSearchParams } from "@/features/destinations/destinationSearchParams";
 
@@ -53,14 +55,14 @@ export default function Home() {
     tripType,
     setTripType,
     budget,
-    setBudget,
+    budgetTier,
+    setBudgetTier,
     carMode,
     publicModes,
     partySize,
     setPartySize,
     weather,
     setWeather,
-    budgetTier,
     tripDuration,
   } = useTripPlannerState(user);
 
@@ -106,7 +108,7 @@ export default function Home() {
     weather,
     partyProfile: partyProfileForSize(partySize),
     partySize,
-    budgetTier: budgetTierForLimit(budget),
+    budgetTier,
     tripDuration,
     budget,
     carMode,
@@ -537,7 +539,10 @@ export default function Home() {
 
                 <div className="space-y-4 pt-2">
                   <div className="flex items-center justify-between">
-                    <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
+                    <label
+                      htmlFor="planner-party-size"
+                      className="text-sm font-bold text-slate-700 dark:text-slate-300"
+                    >
                       Travel party
                     </label>
                     <span className="rounded-md bg-emerald-100 px-2 py-1 text-sm font-medium text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400">
@@ -545,6 +550,7 @@ export default function Home() {
                     </span>
                   </div>
                   <Slider
+                    id="planner-party-size"
                     value={[partySize]}
                     min={1}
                     max={10}
@@ -556,25 +562,42 @@ export default function Home() {
                   />
                 </div>
 
-                {/* Budget */}
+                {/* Budget — PLN-001: tier is canonical; PLN-003: whole-party scope label */}
                 <div className="space-y-4 pt-2">
                   <div className="flex justify-between items-center">
-                    <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
-                      Max Budget (couple)
+                    <label
+                      htmlFor="planner-budget-tier"
+                      className="text-sm font-bold text-slate-700 dark:text-slate-300"
+                    >
+                      Max Budget
                     </label>
-                    <span className="text-sm font-medium bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400 px-2 py-1 rounded-md">
-                      ¥{budget.toLocaleString()}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs text-slate-500 dark:text-slate-400">
+                        for the whole party
+                      </span>
+                      <span className="text-sm font-medium bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400 px-2 py-1 rounded-md">
+                        ¥{budget.toLocaleString()}
+                      </span>
+                    </div>
                   </div>
                   <Slider
-                    value={[budget]}
-                    max={100000}
-                    step={5000}
-                    onValueChange={(val: number | readonly number[]) =>
-                      setBudget(Array.isArray(val) ? val[0] : val)
-                    }
+                    id="planner-budget-tier"
+                    value={[BUDGET_TIER_LIMITS[budgetTier]]}
+                    min={BUDGET_TIER_LIMITS.economy}
+                    max={BUDGET_TIER_LIMITS.luxury}
+                    step={BUDGET_TIER_LIMITS.economy}
+                    onValueChange={(val: number | readonly number[]) => {
+                      const raw = Array.isArray(val) ? val[0] : val;
+                      setBudgetTier(budgetTierForLimit(raw) as BudgetTier);
+                    }}
                     className="w-full"
                   />
+                  <div className="flex justify-between text-xs text-slate-400 dark:text-slate-500 px-0.5">
+                    <span>Economy</span>
+                    <span>Standard</span>
+                    <span>Comfortable</span>
+                    <span>Luxury</span>
+                  </div>
                 </div>
 
                 <Button

@@ -9,6 +9,7 @@ export type MatchReasonType =
   | "Seasonal"
   | "Distance"
   | "Interest"
+  | "Editorial"
   | "General";
 
 export type RecommendationReasonCode =
@@ -27,6 +28,7 @@ export type RecommendationReasonCode =
   | "weatherRainFriendly"
   | "weatherCoolRetreat"
   | "weatherWinterComfort"
+  | "editorialReviewPending"
   | "generalHighlyRated"
   | "generalSolidMatch";
 

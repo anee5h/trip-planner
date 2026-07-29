@@ -29,6 +29,7 @@
     "expand:major-city-catalog": "tsx scripts/expand-major-city-catalog.ts",
     "repair:v193-audit": "tsx scripts/repair-v193-audit.ts",
     "audit:v192-expansion-data": "tsx scripts/audit-v192-expansion-data.ts",
+    "repair:destination": "tsx scripts/repair-destination.ts",
     "sync-destination-details": "tsx scripts/sync-destination-details.ts",
     "normalize-destination-budgets": "tsx scripts/normalize-destination-budgets.ts",
     "add-recommended-visit-hours": "tsx scripts/add-recommended-visit-hours.ts",
