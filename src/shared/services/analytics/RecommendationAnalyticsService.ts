@@ -9,7 +9,7 @@ const OPT_OUT_STORAGE_KEY = "tabimap_analytics_opt_out";
 const SESSION_ID_STORAGE_KEY = "tabimap_analytics_session_id";
 const EVENT_QUEUE_STORAGE_KEY = "tabimap_analytics_event_queue";
 const DEDUP_WINDOW_MS = 2000;
-const MAX_QUEUE_SIZE = 100;
+const MAX_QUEUE_SIZE = 200;
 
 class RecommendationAnalyticsService {
   private eventQueue: AnyRecommendationAnalyticsEvent[] = [];
@@ -118,7 +118,6 @@ class RecommendationAnalyticsService {
     }
     this.recentEvents.set(dedupKey, now);
 
-    // Clean up stale entries periodically
     if (this.recentEvents.size > 200) {
       for (const [k, ts] of this.recentEvents.entries()) {
         if (now - ts > DEDUP_WINDOW_MS) {
@@ -150,7 +149,11 @@ class RecommendationAnalyticsService {
     }
 
     try {
-      const dedupKey = `${event.eventType}:${(event as { destinationId?: string }).destinationId || ""}:${(event as { reasonCode?: string }).reasonCode || ""}:${(event as { isHelpful?: boolean }).isHelpful ?? ""}`;
+      const destId =
+        (event as { destinationId?: string }).destinationId ||
+        (event as { destinationIds?: string[] }).destinationIds?.join(",") ||
+        "";
+      const dedupKey = `${event.eventType}:${destId}:${(event as { reasonCode?: string }).reasonCode || ""}:${(event as { isHelpful?: boolean }).isHelpful ?? ""}`;
 
       if (this.isDuplicate(dedupKey)) {
         return false;
@@ -165,6 +168,46 @@ class RecommendationAnalyticsService {
     } catch {
       return false;
     }
+  }
+
+  public trackImpression(
+    destinationIds: string[],
+    confidenceBand?: "HIGH" | "MEDIUM" | "LOW",
+    reasonCodes?: string[],
+    locale: "en" | "ja" = "en",
+  ): boolean {
+    const base = this.createBaseEvent("recommendation_impression", locale);
+    return this.emitEvent({
+      ...base,
+      eventType: "recommendation_impression",
+      destinationIds,
+      confidenceBand,
+      reasonCodes,
+    });
+  }
+
+  public trackNoResult(
+    criteriaCount?: number,
+    locale: "en" | "ja" = "en",
+  ): boolean {
+    const base = this.createBaseEvent("no_result_impression", locale);
+    return this.emitEvent({
+      ...base,
+      eventType: "no_result_impression",
+      criteriaCount,
+    });
+  }
+
+  public trackFallback(
+    fallbackReason: string,
+    locale: "en" | "ja" = "en",
+  ): boolean {
+    const base = this.createBaseEvent("fallback_impression", locale);
+    return this.emitEvent({
+      ...base,
+      eventType: "fallback_impression",
+      fallbackReason,
+    });
   }
 
   public trackFeedback(
