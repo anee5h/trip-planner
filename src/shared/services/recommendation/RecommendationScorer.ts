@@ -50,6 +50,10 @@ export const SCORING_WEIGHTS = {
   SEASON_MULTIPLIER: 3,
 };
 
+export function ratingReliability(destination: Destination) {
+  return destination.ratingMetadata?.confidence === "low" ? 0.5 : 1;
+}
+
 export function getValidModes(
   dest: Destination,
   carMode: string = "none",
@@ -128,11 +132,15 @@ export function calculateScore(
 } {
   const { budget, carMode, publicModes, partySize, userRatings } = context;
   const vibe = context.vibe ?? context.tripType ?? "any";
-  const { actual } = resolveRecommendationWeather(context);
+  const { actual, preferred } = resolveRecommendationWeather(context);
 
+  const ratingWeight = ratingReliability(dest);
+  const ratingScore = (value: number) => value * ratingWeight;
   let score =
     SCORING_WEIGHTS.BASE_SCORE +
-    ((dest.ratings?.overall ?? 5) - 5) * SCORING_WEIGHTS.RATING_MULTIPLIER;
+    ratingScore(
+      ((dest.ratings?.overall ?? 5) - 5) * SCORING_WEIGHTS.RATING_MULTIPLIER,
+    );
 
   const validModesForDest = getValidModes(
     dest,
@@ -220,13 +228,17 @@ export function calculateScore(
 
   switch (vibe) {
     case "food":
-      score += (ratings.food - 5) * SCORING_WEIGHTS.TRIP_TYPE_FOOD_MULTIPLIER;
+      score += ratingScore(
+        (ratings.food - 5) * SCORING_WEIGHTS.TRIP_TYPE_FOOD_MULTIPLIER,
+      );
       break;
     case "nature":
       if (tags.includes("Nature") || cats.includes("Mountain")) {
         score +=
           SCORING_WEIGHTS.TRIP_TYPE_NATURE_MATCH +
-          ratings.photography * SCORING_WEIGHTS.TRIP_TYPE_NATURE_PHOTO_MULT;
+          ratingScore(
+            ratings.photography * SCORING_WEIGHTS.TRIP_TYPE_NATURE_PHOTO_MULT,
+          );
       } else score -= SCORING_WEIGHTS.TRIP_TYPE_NATURE_PENALTY;
       break;
     case "history":
@@ -253,7 +265,9 @@ export function calculateScore(
       } else score -= SCORING_WEIGHTS.TRIP_TYPE_SEA_PENALTY;
       break;
     case "cool":
-      score += (ratings.summer - 5) * SCORING_WEIGHTS.TRIP_TYPE_COOL_MULTIPLIER;
+      score += ratingScore(
+        (ratings.summer - 5) * SCORING_WEIGHTS.TRIP_TYPE_COOL_MULTIPLIER,
+      );
       break;
     case "themepark":
       if (cats.includes("Theme Park")) {
@@ -275,12 +289,38 @@ export function calculateScore(
     if (indoor < 30) score -= SCORING_WEIGHTS.ENV_RAIN_POOR_INDOOR_PENALTY;
   }
   if (isHot) {
-    score += (ratings.summer - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER;
-    if (ratings.summer <= 4) score -= SCORING_WEIGHTS.ENV_TEMP_PENALTY;
+    score += ratingScore(
+      (ratings.summer - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER,
+    );
+    if (ratings.summer <= 4)
+      score -= ratingScore(SCORING_WEIGHTS.ENV_TEMP_PENALTY);
   }
   if (isCold) {
-    score += (ratings.winter - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER;
-    if (ratings.winter <= 4) score -= SCORING_WEIGHTS.ENV_TEMP_PENALTY;
+    score += ratingScore(
+      (ratings.winter - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER,
+    );
+    if (ratings.winter <= 4)
+      score -= ratingScore(SCORING_WEIGHTS.ENV_TEMP_PENALTY);
+  }
+
+  if (preferred === "rainy") {
+    const indoor = dest.indoorPercent || 0;
+    score += (indoor / 100) * SCORING_WEIGHTS.ENV_RAIN_INDOOR_MULTIPLIER;
+    if (indoor < 30) score -= SCORING_WEIGHTS.ENV_RAIN_POOR_INDOOR_PENALTY;
+  }
+  if (preferred === "hot") {
+    score += ratingScore(
+      (ratings.summer - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER,
+    );
+    if (ratings.summer <= 4)
+      score -= ratingScore(SCORING_WEIGHTS.ENV_TEMP_PENALTY);
+  }
+  if (preferred === "cold") {
+    score += ratingScore(
+      (ratings.winter - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER,
+    );
+    if (ratings.winter <= 4)
+      score -= ratingScore(SCORING_WEIGHTS.ENV_TEMP_PENALTY);
   }
 
   // Calendar Season Scoring

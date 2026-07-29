@@ -17,7 +17,7 @@
   },
   "prefecture": "Kyoto",
   "region": "Kansai",
-  "kind": "shrine",
+  "kind": "museum",
   "role": "poi",
   "placeType": "destination",
   "areaId": "fushimi",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://inari.jp/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["History"],
-  "tags": ["History", "Kyoto City", "v1.9.2"],
+  "categories": ["Culture"],
+  "tags": ["Culture", "Kyoto City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fushimiinari-taisha%2C%20naihaiden-1.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -46,15 +46,16 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
-    "food": 2200,
+    "tickets": 800,
+    "food": 1400,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25,
-    "bus": 35
+    "train": 229,
+    "bus": 229,
+    "shinkansen": 129
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -66,21 +67,21 @@
   "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 3,
+    "rainFriendly": 2,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 8,
-    "couple": 7.5,
-    "summer": 8.5,
-    "winter": 8,
-    "rain": 5.5,
+    "couple": 7.6,
+    "summer": 8.7,
+    "winter": 8.2,
+    "rain": 9.3,
     "food": 7,
-    "photography": 8,
-    "relaxation": 7.5,
-    "value": 8.5,
-    "uniqueness": 6.5,
-    "family": 9.5,
+    "photography": 8.1,
+    "relaxation": 7.6,
+    "value": 8.7,
+    "uniqueness": 6.4,
+    "family": 9.3,
     "accessibility": 7
   },
   "ratingsSchemaVersion": 2,
@@ -96,7 +97,7 @@
     "winter": 6.4
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "high",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
@@ -149,30 +150,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

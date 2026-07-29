@@ -8,7 +8,6 @@ export interface RecommendationWeatherContext {
     condition: ActualWeatherCondition;
     temperatureC?: number;
   };
-  /** @deprecated Preferred weather is no longer a planner input. */
   preferred?: "any" | "rainy" | "hot" | "cold";
 }
 
@@ -69,5 +68,6 @@ export function resolveRecommendationWeather(context: RecommendationContext) {
       condition === "unknown" && temperatureC === undefined
         ? undefined
         : { condition, temperatureC },
+    preferred: context.weather?.preferred ?? "any",
   } as const;
 }

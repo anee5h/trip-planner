@@ -17,7 +17,7 @@
   },
   "prefecture": "Kanagawa",
   "region": "Kanto",
-  "kind": "park",
+  "kind": "museum",
   "role": "poi",
   "placeType": "destination",
   "areaId": "ikuta",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.ikutaryokuti.jp/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Nature"],
-  "tags": ["Nature", "Kawasaki City", "v1.9.2"],
+  "categories": ["Culture"],
+  "tags": ["Culture", "Kawasaki City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ikutaryokuchi%2006b8426q.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -46,14 +46,14 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
-    "food": 2200,
+    "tickets": 800,
+    "food": 1400,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25
+    "train": 196
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 10,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 3,
+    "rainFriendly": 2,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 9.5,
-    "couple": 7,
-    "summer": 8,
+    "overall": 9.4,
+    "couple": 7.1,
+    "summer": 8.2,
     "winter": 7.5,
-    "rain": 5.5,
-    "food": 8,
+    "rain": 8.6,
+    "food": 7.9,
     "photography": 9,
-    "relaxation": 8.5,
-    "value": 9.5,
-    "uniqueness": 8.5,
-    "family": 6.5,
-    "accessibility": 9
+    "relaxation": 8.3,
+    "value": 9.4,
+    "uniqueness": 8.7,
+    "family": 6.4,
+    "accessibility": 9.1
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 6.5
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "high",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kawasaki City.",
@@ -148,30 +148,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

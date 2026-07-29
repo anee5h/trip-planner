@@ -51,10 +51,11 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 25,
-    "bus": 35
+    "train": 235,
+    "bus": 235,
+    "shinkansen": 135
   },
-  "totalTripHours": 5,
+  "totalTripHours": 6,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -66,22 +67,22 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 8,
+    "rainFriendly": 9,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 9,
-    "couple": 9,
-    "summer": 8,
-    "winter": 7.5,
+    "overall": 9.2,
+    "couple": 8.8,
+    "summer": 8.1,
+    "winter": 7.4,
     "rain": 9,
-    "food": 8,
-    "photography": 7,
-    "relaxation": 8,
+    "food": 7.8,
+    "photography": 7.1,
+    "relaxation": 8.2,
     "value": 7.5,
-    "uniqueness": 7,
-    "family": 8,
-    "accessibility": 7
+    "uniqueness": 6.8,
+    "family": 7.9,
+    "accessibility": 7.2
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -149,30 +150,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

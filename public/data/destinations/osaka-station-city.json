@@ -17,7 +17,7 @@
   },
   "prefecture": "Osaka",
   "region": "Kansai",
-  "kind": "station",
+  "kind": "museum",
   "role": "poi",
   "placeType": "destination",
   "areaId": "umeda-kita",
@@ -50,10 +50,11 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25,
-    "bus": 35
+    "train": 192,
+    "bus": 212,
+    "shinkansen": 152
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +63,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 65,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 6,
+    "rainFriendly": 2,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 6.5,
-    "couple": 9.5,
+    "couple": 9.3,
     "summer": 9,
-    "winter": 8.5,
-    "rain": 7.5,
-    "food": 8,
-    "photography": 8,
+    "winter": 8.7,
+    "rain": 8.4,
+    "food": 8.1,
+    "photography": 7.8,
     "relaxation": 7.5,
-    "value": 7,
-    "uniqueness": 7,
-    "family": 6.5,
-    "accessibility": 6.5
+    "value": 7.2,
+    "uniqueness": 6.9,
+    "family": 6.6,
+    "accessibility": 6.3
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -148,30 +149,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

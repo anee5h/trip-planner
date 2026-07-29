@@ -28,8 +28,8 @@ import type { RecommendationContext } from "@/shared/services/recommendation/Rec
 import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
 import {
   BUDGET_TIER_LIMITS,
+  partyProfileForSize,
   type BudgetTier,
-  type PartyProfile,
 } from "@/shared/types/planner";
 import {
   estimateTripDuration,
@@ -82,13 +82,11 @@ export default function Destinations() {
     initialExplorerState.publicModes,
   );
   const [partySize, setPartySize] = useState(initialExplorerState.partySize);
-  const [partyProfile, setPartyProfile] = useState<PartyProfile>(
-    initialExplorerState.partyProfile,
-  );
   const [budgetTier, setBudgetTier] = useState<BudgetTier>(
     initialExplorerState.budgetTier,
   );
   const [vibe, setVibe] = useState(initialExplorerState.vibe);
+  const [weather, setWeather] = useState(initialExplorerState.weather);
   const [tripDuration, setTripDuration] = useState<TripDuration>(
     initialExplorerState.tripDuration,
   );
@@ -174,9 +172,9 @@ export default function Destinations() {
     setCarMode(restored.carMode);
     setPublicModes(restored.publicModes);
     setPartySize(restored.partySize);
-    setPartyProfile(restored.partyProfile);
     setBudgetTier(restored.budgetTier);
     setVibe(restored.vibe);
+    setWeather(restored.weather);
     setTripDuration(restored.tripDuration);
     setWalkingIntensity(restored.walkingIntensity);
     setSuitabilities(restored.suitabilities);
@@ -204,9 +202,10 @@ export default function Destinations() {
       carMode,
       publicModes,
       partySize,
-      partyProfile,
+      partyProfile: partyProfileForSize(partySize),
       budgetTier,
       vibe,
+      weather,
       tripDuration,
       walkingIntensity,
       suitabilities,
@@ -233,9 +232,9 @@ export default function Destinations() {
     carMode,
     publicModes,
     partySize,
-    partyProfile,
     budgetTier,
     vibe,
+    weather,
     tripDuration,
     walkingIntensity,
     suitabilities,
@@ -257,6 +256,7 @@ export default function Destinations() {
     const prefs = user?.user_metadata?.preferences ?? {};
     return {
       vibe,
+      weather: { preferred: weather },
       budgetTier,
       budget: maxBudget,
       partySize,
@@ -279,6 +279,7 @@ export default function Destinations() {
     homeStationCoords,
     destinationRatings,
     vibe,
+    weather,
     budgetTier,
     tripDuration,
     maxBudget,
@@ -533,9 +534,9 @@ export default function Destinations() {
     setCarMode(defaults.carMode);
     setPublicModes(defaults.publicModes);
     setPartySize(defaults.partySize);
-    setPartyProfile(defaults.partyProfile);
     setBudgetTier(defaults.budgetTier);
     setVibe(defaults.vibe);
+    setWeather(defaults.weather);
     setTripDuration(defaults.tripDuration);
     setWalkingIntensity(defaults.walkingIntensity);
     setSuitabilities(defaults.suitabilities);
@@ -606,9 +607,11 @@ export default function Destinations() {
         publicModes={publicModes}
         setPublicModes={setPublicModes}
         partySize={partySize}
-        setPartySize={setPartySize}
-        partyProfile={partyProfile}
-        setPartyProfile={setPartyProfile}
+        setPartySize={(size) => {
+          setPartySize(size);
+        }}
+        weather={weather}
+        setWeather={setWeather}
         budgetTier={budgetTier}
         setBudgetTier={(tier) => {
           setBudgetTier(tier);

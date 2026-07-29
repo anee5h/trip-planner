@@ -51,10 +51,10 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 25,
-    "car": 35
+    "train": 67,
+    "car": 57
   },
-  "totalTripHours": 5,
+  "totalTripHours": 6,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -66,22 +66,22 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 8,
+    "rainFriendly": 9,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 9,
-    "couple": 9,
-    "summer": 9.5,
-    "winter": 6.5,
+    "overall": 8.9,
+    "couple": 9.1,
+    "summer": 9.4,
+    "winter": 6.3,
     "rain": 9,
-    "food": 7,
-    "photography": 7,
+    "food": 6.9,
+    "photography": 7.2,
     "relaxation": 7.5,
-    "value": 9.5,
-    "uniqueness": 6.5,
-    "family": 6.5,
-    "accessibility": 7
+    "value": 9.4,
+    "uniqueness": 6.3,
+    "family": 6.6,
+    "accessibility": 6.9
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -149,30 +149,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

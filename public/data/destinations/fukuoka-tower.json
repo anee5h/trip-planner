@@ -51,9 +51,10 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25
+    "train": 197,
+    "shinkansen": 297
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +63,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 75,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 6,
+    "rainFriendly": 2,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 7.5,
-    "couple": 7.5,
-    "summer": 7.5,
-    "winter": 9,
-    "rain": 7.5,
-    "food": 7,
+    "overall": 7.3,
+    "couple": 7.7,
+    "summer": 7.6,
+    "winter": 9.1,
+    "rain": 9,
+    "food": 7.1,
     "photography": 7,
     "relaxation": 8.5,
-    "value": 6.5,
+    "value": 6.6,
     "uniqueness": 6.5,
     "family": 8,
-    "accessibility": 8
+    "accessibility": 7.9
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -148,30 +149,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

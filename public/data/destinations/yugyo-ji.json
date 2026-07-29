@@ -46,14 +46,14 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
-    "food": 2200,
+    "tickets": 800,
+    "food": 1400,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25
+    "train": 201
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -72,15 +72,15 @@
     "overall": 9.5,
     "couple": 9.5,
     "summer": 9,
-    "winter": 7,
-    "rain": 5.5,
-    "food": 7.5,
+    "winter": 6.9,
+    "rain": 6.4,
+    "food": 7.7,
     "photography": 9,
     "relaxation": 8.5,
-    "value": 6.5,
-    "uniqueness": 9.5,
-    "family": 7,
-    "accessibility": 6.5
+    "value": 6.4,
+    "uniqueness": 9.3,
+    "family": 7.2,
+    "accessibility": 6.7
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 8.3
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "high",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Fujisawa City.",
@@ -148,30 +148,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://sunshinecity.jp/aquarium/",
   "officialWebsiteRequirement": "recommended",
-  "categories": ["Aquarium"],
-  "tags": ["Aquarium", "Toshima City", "v1.9.2"],
+  "categories": ["Museum"],
+  "tags": ["Museum", "Toshima City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Breeding%20staff%2C%20Sunshine%20Aquarium.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -51,9 +51,9 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 25
+    "train": 198
   },
-  "totalTripHours": 5,
+  "totalTripHours": 6,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -65,22 +65,22 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 8,
+    "rainFriendly": 9,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 7.5,
-    "couple": 6.5,
-    "summer": 7,
-    "winter": 7.5,
+    "overall": 7.3,
+    "couple": 6.4,
+    "summer": 6.9,
+    "winter": 7.4,
     "rain": 9,
-    "food": 7,
-    "photography": 7.5,
-    "relaxation": 6,
-    "value": 6.5,
-    "uniqueness": 7,
-    "family": 7.5,
-    "accessibility": 6.5
+    "food": 6.8,
+    "photography": 7.3,
+    "relaxation": 6.2,
+    "value": 6.7,
+    "uniqueness": 7.2,
+    "family": 7.7,
+    "accessibility": 6.6
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -148,30 +148,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

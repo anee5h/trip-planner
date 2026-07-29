@@ -51,9 +51,9 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 25
+    "train": 64
   },
-  "totalTripHours": 5,
+  "totalTripHours": 6,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -65,22 +65,22 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 8,
+    "rainFriendly": 9,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 8,
-    "couple": 9,
+    "overall": 7.8,
+    "couple": 9.1,
     "summer": 7,
     "winter": 6.5,
     "rain": 9,
-    "food": 7.5,
-    "photography": 7,
-    "relaxation": 8,
-    "value": 7.5,
-    "uniqueness": 9,
-    "family": 8.5,
-    "accessibility": 8
+    "food": 7.3,
+    "photography": 6.8,
+    "relaxation": 8.1,
+    "value": 7.6,
+    "uniqueness": 8.9,
+    "family": 8.4,
+    "accessibility": 7.9
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -148,30 +148,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

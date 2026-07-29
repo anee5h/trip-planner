@@ -17,7 +17,7 @@
   },
   "prefecture": "Kanagawa",
   "region": "Kanto",
-  "kind": "district",
+  "kind": "museum",
   "role": "poi",
   "placeType": "destination",
   "areaId": "central-kawasaki",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "http://www.lazona-kawasaki.com",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture", "Shopping"],
-  "tags": ["Culture", "Shopping", "Kawasaki City", "v1.9.2"],
+  "categories": ["Culture"],
+  "tags": ["Culture", "Kawasaki City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/LAZONAkawasaki%20001.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -46,14 +46,14 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
-    "food": 2200,
+    "tickets": 800,
+    "food": 1400,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25
+    "train": 205
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 55,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 6,
+    "rainFriendly": 2,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 7,
-    "couple": 8.5,
-    "summer": 6.5,
-    "winter": 8.5,
-    "rain": 5.5,
-    "food": 8.5,
-    "photography": 6.5,
-    "relaxation": 8.5,
-    "value": 6.5,
-    "uniqueness": 8.5,
-    "family": 6.5,
-    "accessibility": 8.5
+    "overall": 7.1,
+    "couple": 8.4,
+    "summer": 6.7,
+    "winter": 8.4,
+    "rain": 6.7,
+    "food": 8.4,
+    "photography": 6.7,
+    "relaxation": 8.4,
+    "value": 6.7,
+    "uniqueness": 8.4,
+    "family": 6.7,
+    "accessibility": 8.4
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -148,30 +148,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

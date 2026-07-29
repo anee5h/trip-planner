@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.smt.jp/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Museum"],
-  "tags": ["Museum", "Sendai City", "v1.9.2"],
+  "categories": ["Culture"],
+  "tags": ["Culture", "Sendai City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sendai%20Mediatheque%202009.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -51,11 +51,11 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25,
-    "bus": 35,
-    "car": 35
+    "train": 32,
+    "bus": 42,
+    "car": 47
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -64,25 +64,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 80,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 8,
+    "rainFriendly": 2,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 9,
     "couple": 9,
-    "summer": 8.5,
-    "winter": 8.5,
-    "rain": 5.5,
-    "food": 8,
+    "summer": 8.7,
+    "winter": 8.4,
+    "rain": 8.1,
+    "food": 7.8,
     "photography": 7.5,
-    "relaxation": 7,
-    "value": 7,
-    "uniqueness": 6.5,
-    "family": 6.5,
-    "accessibility": 9.5
+    "relaxation": 7.2,
+    "value": 6.9,
+    "uniqueness": 6.6,
+    "family": 6.3,
+    "accessibility": 9.4
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -97,7 +97,7 @@
     "winter": 6.6
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "low",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
@@ -150,30 +150,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

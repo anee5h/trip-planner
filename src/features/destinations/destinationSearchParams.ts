@@ -1,5 +1,6 @@
 import {
   BUDGET_TIER_LIMITS,
+  partyProfileForSize,
   type BudgetTier,
   type PartyProfile,
 } from "@/shared/types/planner";
@@ -20,6 +21,7 @@ export const DEFAULT_DESTINATION_EXPLORER_STATE = {
   publicModes: ["train", "shinkansen", "bus", "flight"],
   partySize: 2,
   partyProfile: "couple" as PartyProfile,
+  weather: "any" as "any" | "rainy" | "hot" | "cold",
   budgetTier: "standard" as BudgetTier,
   vibe: "any",
   tripDuration: "any" as TripDuration,
@@ -63,6 +65,15 @@ export function parseDestinationSearchParams(
       : defaults.partyProfile;
   const legacyPartySize =
     rawParty && /^\d+$/.test(rawParty) ? parseNumber(rawParty, 0) : undefined;
+  const partySize = params.has("partySize")
+    ? parseNumber(params.get("partySize"), defaults.partySize)
+    : legacyPartySize && legacyPartySize > 0
+      ? legacyPartySize
+      : partyProfile === "solo"
+        ? 1
+        : partyProfile === "group"
+          ? 4
+          : 2;
 
   return {
     searchQuery: params.get("q") ?? defaults.searchQuery,
@@ -82,16 +93,14 @@ export function parseDestinationSearchParams(
     publicModes: params.has("mode")
       ? params.getAll("mode")
       : defaults.publicModes,
-    partySize: params.has("partySize")
-      ? parseNumber(params.get("partySize"), defaults.partySize)
-      : legacyPartySize && legacyPartySize > 0
-        ? legacyPartySize
-        : partyProfile === "solo"
-          ? 1
-          : partyProfile === "group"
-            ? 4
-            : 2,
-    partyProfile,
+    partySize,
+    partyProfile: partyProfileForSize(partySize),
+    weather:
+      params.get("weather") === "rainy" ||
+      params.get("weather") === "hot" ||
+      params.get("weather") === "cold"
+        ? (params.get("weather") as "rainy" | "hot" | "cold")
+        : defaults.weather,
     budgetTier:
       rawBudgetTier === "economy" ||
       rawBudgetTier === "standard" ||
@@ -136,8 +145,9 @@ export function serializeDestinationSearchParams(
   params.set("sort", state.sortBy);
   params.set("car", state.carMode);
   appendAll("mode", state.publicModes);
-  params.set("party", state.partyProfile);
+  params.set("party", partyProfileForSize(state.partySize));
   params.set("partySize", String(state.partySize));
+  if (state.weather !== "any") params.set("weather", state.weather);
   params.set("budgetTier", state.budgetTier);
   params.set("vibe", state.vibe);
   params.set("duration", state.tripDuration);
@@ -152,6 +162,8 @@ export function serializeDestinationSearchParams(
 export function serializePlannerSearchParams(input: {
   vibe: string;
   partyProfile: PartyProfile;
+  partySize: number;
+  weather: "any" | "rainy" | "hot" | "cold";
   budgetTier: BudgetTier;
   tripDuration: TripDuration;
   budget: number;
@@ -160,7 +172,9 @@ export function serializePlannerSearchParams(input: {
 }): string {
   const params = new URLSearchParams();
   params.set("vibe", input.vibe);
-  params.set("party", input.partyProfile);
+  params.set("party", partyProfileForSize(input.partySize));
+  params.set("partySize", String(input.partySize));
+  if (input.weather !== "any") params.set("weather", input.weather);
   params.set("budgetTier", input.budgetTier);
   params.set("duration", input.tripDuration);
   params.set("budget", String(input.budget));

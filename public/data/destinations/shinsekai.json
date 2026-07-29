@@ -17,7 +17,7 @@
   },
   "prefecture": "Osaka",
   "region": "Kansai",
-  "kind": "district",
+  "kind": "museum",
   "role": "poi",
   "placeType": "destination",
   "areaId": "namba-minami",
@@ -46,15 +46,16 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
-    "food": 2200,
+    "tickets": 800,
+    "food": 1400,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25,
-    "bus": 35
+    "train": 189,
+    "bus": 209,
+    "shinkansen": 149
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -63,25 +64,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 30,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 3,
+    "rainFriendly": 2,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 7,
-    "couple": 8.5,
-    "summer": 8,
-    "winter": 9,
-    "rain": 5.5,
+    "overall": 6.8,
+    "couple": 8.6,
+    "summer": 7.9,
+    "winter": 8.8,
+    "rain": 8.1,
     "food": 9,
-    "photography": 8.5,
-    "relaxation": 9,
+    "photography": 8.3,
+    "relaxation": 9.2,
     "value": 8.5,
-    "uniqueness": 9.5,
-    "family": 8.5,
-    "accessibility": 6
+    "uniqueness": 9.4,
+    "family": 8.7,
+    "accessibility": 6.2
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -96,7 +97,7 @@
     "winter": 8.4
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "high",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
@@ -149,30 +150,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

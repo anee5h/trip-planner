@@ -27,7 +27,7 @@
   "officialWebsite": "https://www.ameyoko.net/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Shopping", "Food"],
-  "tags": ["Shopping", "Food", "Taito City", "v1.9.2"],
+  "tags": ["Culture", "Taito City", "v1.9.2", "Shopping", "Food"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ameya-yokocho01s5s3200.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -42,18 +42,18 @@
   "description": "Ameya-Yokocho is a visitor destination in Taito City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
   "highlights": ["Shopping", "Food"],
   "budgetMin": 1500,
-  "budgetRecommended": 4000,
+  "budgetRecommended": 3200,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
     "tickets": 0,
-    "food": 2200,
+    "food": 1400,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25
+    "train": 203
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 30,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 3,
+    "rainFriendly": 2,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 7.5,
-    "couple": 6.5,
-    "summer": 8,
-    "winter": 9,
-    "rain": 5.5,
+    "couple": 6.7,
+    "summer": 7.8,
+    "winter": 8.9,
+    "rain": 8.4,
     "food": 9.5,
-    "photography": 7,
-    "relaxation": 8.5,
-    "value": 8,
-    "uniqueness": 9,
-    "family": 6.5,
-    "accessibility": 7.5
+    "photography": 7.2,
+    "relaxation": 8.3,
+    "value": 7.8,
+    "uniqueness": 8.9,
+    "family": 6.6,
+    "accessibility": 7.7
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 7.1
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "high",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Taito City.",
@@ -148,30 +148,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

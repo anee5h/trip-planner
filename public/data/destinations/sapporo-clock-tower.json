@@ -51,9 +51,9 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25
+    "train": 203
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,24 +62,24 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 75,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 6,
+    "rainFriendly": 2,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 6.5,
+    "overall": 6.7,
     "couple": 7,
-    "summer": 8,
-    "winter": 7.5,
-    "rain": 7.5,
-    "food": 6.5,
+    "summer": 8.1,
+    "winter": 7.6,
+    "rain": 8.7,
+    "food": 6.4,
     "photography": 7.5,
-    "relaxation": 8.5,
-    "value": 8,
-    "uniqueness": 9,
-    "family": 7,
+    "relaxation": 8.6,
+    "value": 8.1,
+    "uniqueness": 9.2,
+    "family": 6.9,
     "accessibility": 8
   },
   "ratingsSchemaVersion": 2,
@@ -148,30 +148,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

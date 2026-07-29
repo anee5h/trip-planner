@@ -17,7 +17,7 @@
   },
   "prefecture": "Kanagawa",
   "region": "Kanto",
-  "kind": "temple",
+  "kind": "museum",
   "role": "poi",
   "placeType": "destination",
   "areaId": "hase",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.kotoku-in.jp/en/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["History"],
-  "tags": ["History", "Kamakura City", "v1.9.2"],
+  "categories": ["Culture"],
+  "tags": ["Culture", "Kamakura City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/230128%20Kamakura%20Daibutsu%20Japan01s3.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -46,14 +46,14 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
-    "food": 2200,
+    "tickets": 800,
+    "food": 1400,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25
+    "train": 204
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 15,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 3,
+    "rainFriendly": 2,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 8,
-    "couple": 8.5,
-    "summer": 8,
-    "winter": 7.5,
-    "rain": 5.5,
-    "food": 8,
-    "photography": 9.5,
-    "relaxation": 9,
-    "value": 8.5,
-    "uniqueness": 6.5,
-    "family": 9,
-    "accessibility": 7
+    "overall": 7.9,
+    "couple": 8.3,
+    "summer": 7.8,
+    "winter": 7.3,
+    "rain": 8.6,
+    "food": 8.1,
+    "photography": 9.4,
+    "relaxation": 8.9,
+    "value": 8.4,
+    "uniqueness": 6.3,
+    "family": 9.2,
+    "accessibility": 7.1
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 6.9
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "high",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kamakura City.",
@@ -148,30 +148,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

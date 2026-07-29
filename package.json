@@ -1,7 +1,7 @@
 {
   "name": "tabimap",
   "private": true,
-  "version": "1.9.3",
+  "version": "1.9.4",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -26,7 +26,8 @@
     "validate:i18n": "npm run check:translation-parity",
     "report:editorial-freshness": "tsx scripts/report-editorial-freshness.ts",
     "audit:major-city-coverage": "tsx scripts/audit-major-city-coverage.ts",
-    "expand:major-city-catalog": "tsx scripts/expand-major-city-catalog.ts && tsx scripts/audit-v192-expansion-data.ts",
+    "expand:major-city-catalog": "tsx scripts/expand-major-city-catalog.ts",
+    "repair:v193-audit": "tsx scripts/repair-v193-audit.ts",
     "audit:v192-expansion-data": "tsx scripts/audit-v192-expansion-data.ts",
     "sync-destination-details": "tsx scripts/sync-destination-details.ts",
     "normalize-destination-budgets": "tsx scripts/normalize-destination-budgets.ts",

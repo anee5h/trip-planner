@@ -23,8 +23,8 @@
   "relationships": {},
   "officialWebsite": "http://www.chiba-muse.or.jp/MURA/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Museum"],
-  "tags": ["Museum", "Narita City", "v1.9.2"],
+  "categories": ["Culture"],
+  "tags": ["Culture", "Narita City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Winkels%20en%20woningen%20in%20Boso%20no%20mura%2C%20-21%20maart%202014%20a.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -48,9 +48,9 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25
+    "train": 203
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -59,25 +59,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 80,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 8,
+    "rainFriendly": 2,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 8.5,
-    "couple": 7.5,
-    "summer": 8.5,
-    "winter": 6.5,
-    "rain": 5.5,
+    "overall": 8.6,
+    "couple": 7.6,
+    "summer": 8.7,
+    "winter": 6.4,
+    "rain": 7.5,
     "food": 7,
-    "photography": 8,
-    "relaxation": 9,
-    "value": 7,
+    "photography": 8.1,
+    "relaxation": 9.2,
+    "value": 6.9,
     "uniqueness": 8,
     "family": 7.5,
-    "accessibility": 8.5
+    "accessibility": 8.6
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -92,7 +92,7 @@
     "winter": 8
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "low",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Narita City.",
@@ -145,30 +145,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

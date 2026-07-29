@@ -17,7 +17,7 @@
   },
   "prefecture": "Kanagawa",
   "region": "Kanto",
-  "kind": "park",
+  "kind": "museum",
   "role": "poi",
   "placeType": "destination",
   "areaId": "todoroki",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.city.kawasaki.jp/shisetsu/category/30-11-0-0-0-0-0-0-0-0.html",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Nature"],
-  "tags": ["Nature", "Kawasaki City", "v1.9.2"],
+  "categories": ["Culture"],
+  "tags": ["Culture", "Kawasaki City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Todoroki%20Ryokuchi.JPG?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -46,14 +46,14 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
-    "food": 2200,
+    "tickets": 800,
+    "food": 1400,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25
+    "train": 199
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 10,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 3,
+    "rainFriendly": 2,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 6.5,
-    "couple": 9,
-    "summer": 7,
-    "winter": 6.5,
-    "rain": 5.5,
-    "food": 8.5,
-    "photography": 6.5,
-    "relaxation": 9,
-    "value": 7,
+    "overall": 6.7,
+    "couple": 9.2,
+    "summer": 6.9,
+    "winter": 6.4,
+    "rain": 7.5,
+    "food": 8.6,
+    "photography": 6.3,
+    "relaxation": 9.2,
+    "value": 6.9,
     "uniqueness": 8,
     "family": 7.5,
-    "accessibility": 8.5
+    "accessibility": 8.6
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 8
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "high",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kawasaki City.",
@@ -148,30 +148,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

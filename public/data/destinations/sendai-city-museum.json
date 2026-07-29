@@ -51,11 +51,11 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 25,
-    "bus": 35,
-    "car": 35
+    "train": 32,
+    "bus": 42,
+    "car": 47
   },
-  "totalTripHours": 5,
+  "totalTripHours": 6,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -67,21 +67,21 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 8,
+    "rainFriendly": 9,
     "walkingIntensity": 3
   },
   "ratings": {
     "overall": 8.5,
-    "couple": 6.5,
-    "summer": 6.5,
-    "winter": 9.5,
-    "rain": 9,
-    "food": 9,
+    "couple": 6.6,
+    "summer": 6.3,
+    "winter": 9.4,
+    "rain": 9.1,
+    "food": 8.8,
     "photography": 8.5,
-    "relaxation": 8,
-    "value": 8,
-    "uniqueness": 7.5,
-    "family": 7.5,
+    "relaxation": 8.2,
+    "value": 7.9,
+    "uniqueness": 7.6,
+    "family": 7.3,
     "accessibility": 7
   },
   "ratingsSchemaVersion": 2,
@@ -150,30 +150,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

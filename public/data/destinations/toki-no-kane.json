@@ -17,7 +17,7 @@
   },
   "prefecture": "Saitama",
   "region": "Kanto",
-  "kind": "tower",
+  "kind": "museum",
   "role": "poi",
   "placeType": "destination",
   "areaId": "kurazukuri",
@@ -25,8 +25,8 @@
     "parentDestinationId": "kawagoe-city"
   },
   "officialWebsiteRequirement": "optional",
-  "categories": ["Viewpoint"],
-  "tags": ["Viewpoint", "Kawagoe City", "v1.9.2"],
+  "categories": ["Culture"],
+  "tags": ["Culture", "Kawagoe City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tokinokane-2006-03-20%201.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -50,9 +50,9 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25
+    "train": 204
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -61,24 +61,24 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 60,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 6,
+    "rainFriendly": 2,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 9,
     "couple": 9,
-    "summer": 8,
+    "summer": 8.1,
     "winter": 9,
-    "rain": 5.5,
-    "food": 7,
-    "photography": 6.5,
-    "relaxation": 9,
-    "value": 6.5,
-    "uniqueness": 9,
-    "family": 8,
+    "rain": 8.1,
+    "food": 7.2,
+    "photography": 6.3,
+    "relaxation": 8.8,
+    "value": 6.3,
+    "uniqueness": 8.8,
+    "family": 7.9,
     "accessibility": 7
   },
   "ratingsSchemaVersion": 2,
@@ -141,30 +141,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

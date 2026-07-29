@@ -17,7 +17,7 @@
   },
   "prefecture": "Fukuoka",
   "region": "Kyushu",
-  "kind": "district",
+  "kind": "museum",
   "role": "poi",
   "placeType": "destination",
   "areaId": "hakata",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://canalcity.co.jp/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture", "Shopping"],
-  "tags": ["Culture", "Shopping", "Fukuoka City", "v1.9.2"],
+  "categories": ["Culture"],
+  "tags": ["Culture", "Fukuoka City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Canal%20City%20Hakata%202011.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -46,14 +46,15 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
-    "food": 2200,
+    "tickets": 800,
+    "food": 1400,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25
+    "train": 198,
+    "shinkansen": 298
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +63,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 55,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 6,
+    "rainFriendly": 2,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 7,
-    "couple": 6,
+    "couple": 6.2,
     "summer": 8.5,
     "winter": 9,
-    "rain": 5.5,
-    "food": 8.5,
-    "photography": 9,
-    "relaxation": 9.5,
-    "value": 8.5,
-    "uniqueness": 9,
-    "family": 9.5,
-    "accessibility": 6.5
+    "rain": 9.5,
+    "food": 8.4,
+    "photography": 8.9,
+    "relaxation": 9.4,
+    "value": 8.3,
+    "uniqueness": 8.8,
+    "family": 9.3,
+    "accessibility": 6.4
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -148,30 +149,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

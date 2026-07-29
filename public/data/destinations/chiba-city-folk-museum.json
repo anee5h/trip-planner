@@ -51,10 +51,10 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 25,
-    "car": 35
+    "train": 65,
+    "car": 55
   },
-  "totalTripHours": 5,
+  "totalTripHours": 6,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -66,21 +66,21 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 8,
+    "rainFriendly": 9,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 8,
-    "couple": 9,
-    "summer": 9,
+    "overall": 8.1,
+    "couple": 8.8,
+    "summer": 8.9,
     "winter": 9,
-    "rain": 9,
-    "food": 9,
-    "photography": 9.5,
-    "relaxation": 7.5,
-    "value": 7.5,
-    "uniqueness": 8,
-    "family": 8,
+    "rain": 9.1,
+    "food": 9.2,
+    "photography": 9.3,
+    "relaxation": 7.6,
+    "value": 7.7,
+    "uniqueness": 7.8,
+    "family": 7.9,
     "accessibility": 8
   },
   "ratingsSchemaVersion": 2,
@@ -149,30 +149,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

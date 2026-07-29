@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.city.chiba.jp/kasori/infomation/overview/kasori_index.html",
   "officialWebsiteRequirement": "optional",
-  "categories": ["History", "Museum"],
-  "tags": ["History", "Museum", "Chiba City", "v1.9.2"],
+  "categories": ["Culture"],
+  "tags": ["Culture", "Chiba City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kasori%20Shell%20Midden%20Dugouts.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -51,10 +51,10 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25,
-    "car": 35
+    "train": 68,
+    "car": 58
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -63,25 +63,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 70,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 6,
+    "rainFriendly": 2,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 8,
-    "couple": 7.5,
-    "summer": 8,
-    "winter": 8.5,
-    "rain": 5.5,
-    "food": 8,
-    "photography": 8.5,
-    "relaxation": 9,
-    "value": 7.5,
-    "uniqueness": 8,
-    "family": 8.5,
-    "accessibility": 7.5
+    "overall": 8.2,
+    "couple": 7.4,
+    "summer": 7.9,
+    "winter": 8.4,
+    "rain": 8.9,
+    "food": 7.8,
+    "photography": 8.3,
+    "relaxation": 8.8,
+    "value": 7.7,
+    "uniqueness": 8.2,
+    "family": 8.7,
+    "accessibility": 7.6
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -149,30 +149,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

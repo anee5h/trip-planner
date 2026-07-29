@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.city.osaka.lg.jp/contents/wdu170/tennojizoo/top.html",
   "officialWebsiteRequirement": "none",
-  "categories": ["History"],
-  "tags": ["History", "Osaka City", "v1.9.2"],
+  "categories": ["Nature", "History"],
+  "tags": ["Nature", "History", "Osaka City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tennoji%20park01s3200.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -46,15 +46,16 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
-    "food": 2200,
+    "tickets": 800,
+    "food": 1400,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25,
-    "bus": 35
+    "train": 192,
+    "bus": 212,
+    "shinkansen": 152
   },
-  "totalTripHours": 5,
+  "totalTripHours": 6,
   "recommendedVisitHours": {
     "min": 1.5,
     "max": 4
@@ -70,18 +71,18 @@
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 8,
-    "couple": 6.5,
-    "summer": 6.5,
-    "winter": 8,
-    "rain": 5.5,
-    "food": 7.5,
+    "overall": 8.2,
+    "couple": 6.7,
+    "summer": 6.4,
+    "winter": 7.9,
+    "rain": 7.6,
+    "food": 7.3,
     "photography": 7,
-    "relaxation": 6.5,
-    "value": 6.5,
+    "relaxation": 6.7,
+    "value": 6.4,
     "uniqueness": 9.5,
-    "family": 9,
-    "accessibility": 9
+    "family": 9.2,
+    "accessibility": 8.9
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -96,7 +97,7 @@
     "winter": 7.7
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "high",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
@@ -149,30 +150,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

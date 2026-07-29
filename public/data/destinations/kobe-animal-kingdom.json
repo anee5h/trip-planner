@@ -17,7 +17,7 @@
   },
   "prefecture": "Hyogo",
   "region": "Kansai",
-  "kind": "zoo",
+  "kind": "museum",
   "role": "poi",
   "placeType": "destination",
   "areaId": "port-island",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.kobe-oukoku.com/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Nature"],
-  "tags": ["Nature", "Kobe City", "v1.9.2"],
+  "categories": ["Culture"],
+  "tags": ["Culture", "Kobe City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe-kacyoen4333.JPG?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -51,9 +51,10 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25
+    "train": 203,
+    "shinkansen": 173
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,24 +63,24 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 25,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 3,
+    "rainFriendly": 2,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 7.5,
     "couple": 8.5,
-    "summer": 6,
-    "winter": 9,
-    "rain": 5.5,
-    "food": 8,
+    "summer": 6.2,
+    "winter": 9.1,
+    "rain": 6.8,
+    "food": 7.9,
     "photography": 9,
-    "relaxation": 6.5,
-    "value": 6,
-    "uniqueness": 7.5,
-    "family": 8.5,
+    "relaxation": 6.7,
+    "value": 6.2,
+    "uniqueness": 7.3,
+    "family": 8.4,
     "accessibility": 9.5
   },
   "ratingsSchemaVersion": 2,
@@ -95,7 +96,7 @@
     "winter": 8.9
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "high",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
@@ -148,30 +149,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

@@ -46,15 +46,16 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
-    "food": 2200,
+    "tickets": 800,
+    "food": 1400,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25,
-    "bus": 35
+    "train": 231,
+    "bus": 231,
+    "shinkansen": 131
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -63,7 +64,7 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 25,
   "comfort": {
     "heatTolerance": 3,
     "rainFriendly": 3,
@@ -71,17 +72,17 @@
   },
   "ratings": {
     "overall": 7,
-    "couple": 7.5,
-    "summer": 8.5,
-    "winter": 8,
-    "rain": 5.5,
-    "food": 9,
-    "photography": 7,
-    "relaxation": 6.5,
-    "value": 7.5,
-    "uniqueness": 7,
-    "family": 8.5,
-    "accessibility": 8
+    "couple": 7.3,
+    "summer": 8.6,
+    "winter": 8.1,
+    "rain": 9.4,
+    "food": 8.9,
+    "photography": 6.8,
+    "relaxation": 6.3,
+    "value": 7.6,
+    "uniqueness": 7.1,
+    "family": 8.4,
+    "accessibility": 7.9
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -96,7 +97,7 @@
     "winter": 9.5
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "high",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
@@ -149,30 +150,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

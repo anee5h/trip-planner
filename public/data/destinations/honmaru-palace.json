@@ -17,7 +17,7 @@
   },
   "prefecture": "Aichi",
   "region": "Chubu",
-  "kind": "castle",
+  "kind": "museum",
   "role": "poi",
   "placeType": "destination",
   "areaId": "central-nagoya",
@@ -46,14 +46,15 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
-    "food": 2200,
+    "tickets": 800,
+    "food": 1400,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25
+    "train": 198,
+    "shinkansen": 88
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +63,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 35,
+  "indoorPercent": 25,
   "comfort": {
     "heatTolerance": 3,
     "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 8,
-    "couple": 7,
-    "summer": 8.5,
-    "winter": 7,
-    "rain": 5.5,
-    "food": 7.5,
+    "overall": 7.9,
+    "couple": 6.8,
+    "summer": 8.7,
+    "winter": 7.2,
+    "rain": 9.1,
+    "food": 7.6,
     "photography": 9.5,
     "relaxation": 8,
     "value": 6.5,
-    "uniqueness": 8.5,
-    "family": 7,
-    "accessibility": 9
+    "uniqueness": 8.4,
+    "family": 6.9,
+    "accessibility": 8.8
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +96,7 @@
     "winter": 6.2
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "high",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
@@ -148,30 +149,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

@@ -26,8 +26,8 @@
   },
   "officialWebsite": "http://www.city.kobe.lg.jp/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["History", "Museum"],
-  "tags": ["History", "Museum", "Kobe City", "v1.9.2"],
+  "categories": ["Culture"],
+  "tags": ["Culture", "Kobe City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe%20Port%20Tower%20and%20Maritime%20Museum%2C%20November%202016.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -51,9 +51,10 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25
+    "train": 203,
+    "shinkansen": 173
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +63,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 70,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 6,
+    "rainFriendly": 2,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 7.5,
-    "couple": 7,
-    "summer": 8.5,
-    "winter": 9.5,
-    "rain": 5.5,
-    "food": 6.5,
-    "photography": 7.5,
-    "relaxation": 9,
+    "overall": 7.3,
+    "couple": 7.2,
+    "summer": 8.3,
+    "winter": 9.4,
+    "rain": 7.1,
+    "food": 6.6,
+    "photography": 7.7,
+    "relaxation": 8.8,
     "value": 6.5,
-    "uniqueness": 9.5,
-    "family": 7,
-    "accessibility": 8
+    "uniqueness": 9.4,
+    "family": 7.1,
+    "accessibility": 8.2
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -148,30 +149,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

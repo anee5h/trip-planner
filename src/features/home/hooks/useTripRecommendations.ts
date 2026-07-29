@@ -9,6 +9,7 @@ import type { BudgetTier } from "@/shared/types/planner";
 interface UseTripRecommendationsProps {
   allDestinations: Destination[];
   actualWeather?: { desc: string; temperatureC: number };
+  preferredWeather?: "any" | "rainy" | "hot" | "cold";
   vibe: string;
   budget: number;
   carMode: string;
@@ -23,6 +24,7 @@ interface UseTripRecommendationsProps {
 export function useTripRecommendations({
   allDestinations,
   actualWeather,
+  preferredWeather = "any",
   vibe,
   budget,
   carMode,
@@ -57,6 +59,7 @@ export function useTripRecommendations({
               temperatureC: actualWeather.temperatureC,
             }
           : undefined,
+        preferred: preferredWeather,
       },
       visitedIds,
       homeStationCoords: homeStationCoords || { lat: 35.6812, lng: 139.7671 },
@@ -66,6 +69,7 @@ export function useTripRecommendations({
   }, [
     allDestinations,
     actualWeather,
+    preferredWeather,
     vibe,
     budget,
     carMode,

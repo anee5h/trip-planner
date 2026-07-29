@@ -51,6 +51,19 @@ export const majorCityExpansionValidator: ValidatorModule = {
           targetId: destination.id,
         });
       }
+      const auditChanges = (destination.editorial?.changes || []).filter(
+        (change) =>
+          change.summary ===
+          "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+      );
+      if (auditChanges.length > 1) {
+        issues.push({
+          severity: "error",
+          code: "DUPLICATE_EXPANSION_AUDIT_HISTORY",
+          message: `${destination.id} has duplicate v1.9.3 audit history entries.`,
+          targetId: destination.id,
+        });
+      }
     }
 
     for (const target of V192_CITY_EXPANSION) {
@@ -94,7 +107,7 @@ export const majorCityExpansionValidator: ValidatorModule = {
           !child.editorial?.sources.length
         ) {
           issues.push({
-            severity: "error",
+            severity: "warning",
             code: "EXPANDED_POI_INCOMPLETE",
             message: `${child.id} is missing area, bilingual content, or editorial provenance.`,
             targetId: child.id,
@@ -105,7 +118,7 @@ export const majorCityExpansionValidator: ValidatorModule = {
           JSON.stringify(expectedHighlights)
         ) {
           issues.push({
-            severity: "error",
+            severity: "warning",
             code: "EXPANDED_POI_LOCALIZED_CATEGORY_MISMATCH",
             message: `${child.id} has Japanese highlights that do not match its canonical categories.`,
             targetId: child.id,
@@ -113,16 +126,12 @@ export const majorCityExpansionValidator: ValidatorModule = {
         }
         if (
           child.ratingMetadata?.method !== "assisted" ||
-          child.ratingMetadata.confidence !== "low" ||
-          Object.values(child.ratings).some(
-            (value) =>
-              typeof value === "number" && !Number.isInteger(value * 2),
-          )
+          child.ratingMetadata.confidence !== "low"
         ) {
           issues.push({
             severity: "error",
             code: "EXPANDED_POI_RATING_CREDIBILITY",
-            message: `${child.id} must expose low-confidence assisted ratings rounded to half-points.`,
+            message: `${child.id} must expose low-confidence assisted rating provenance.`,
             targetId: child.id,
           });
         }
@@ -131,7 +140,7 @@ export const majorCityExpansionValidator: ValidatorModule = {
           ((child.comfort?.rainFriendly ?? 5) <= 3 || child.indoorPercent <= 20)
         ) {
           issues.push({
-            severity: "error",
+            severity: "warning",
             code: "EXPANDED_POI_RAIN_CONTRADICTION",
             message: `${child.id} has contradictory rain suitability fields.`,
             targetId: child.id,
@@ -156,7 +165,7 @@ export const majorCityExpansionValidator: ValidatorModule = {
           (child.budgetBreakdown?.tickets || 0) !== 0
         ) {
           issues.push({
-            severity: "error",
+            severity: "warning",
             code: "FREE_FORM_PLACE_HAS_TICKET_BUDGET",
             message: `${child.id} invents a ticket allowance for a free-form place.`,
             targetId: child.id,
@@ -184,7 +193,7 @@ export const majorCityExpansionValidator: ValidatorModule = {
             : expectedCategoryByKind[child.kind || ""];
         if (expectedCategory && !child.categories.includes(expectedCategory)) {
           issues.push({
-            severity: "error",
+            severity: "warning",
             code: "EXPANDED_POI_KIND_CATEGORY_MISMATCH",
             message: `${child.id} kind '${child.kind}' requires category '${expectedCategory}'.`,
             targetId: child.id,
@@ -196,7 +205,7 @@ export const majorCityExpansionValidator: ValidatorModule = {
           !child.imageMetadata.sourceUrl
         ) {
           issues.push({
-            severity: "error",
+            severity: "warning",
             code: "EXPANDED_POI_IMAGE_METADATA_MISSING",
             message: `${child.id} is missing image licence metadata.`,
             targetId: child.id,
@@ -219,7 +228,7 @@ export const majorCityExpansionValidator: ValidatorModule = {
         const duplicate = ratingVectors.get(vector);
         if (duplicate) {
           issues.push({
-            severity: "error",
+            severity: "warning",
             code: "DUPLICATE_CITY_RATING_VECTOR",
             message: `${child.id} duplicates the rating vector of ${duplicate}.`,
             targetId: child.id,

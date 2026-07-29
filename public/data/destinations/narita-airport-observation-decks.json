@@ -17,7 +17,7 @@
   },
   "prefecture": "Chiba",
   "region": "Kanto",
-  "kind": "tower",
+  "kind": "museum",
   "role": "poi",
   "placeType": "destination",
   "areaId": "narita-airport",
@@ -51,9 +51,9 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25
+    "train": 205
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 75,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 6,
+    "rainFriendly": 2,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 9.5,
-    "couple": 6.5,
-    "summer": 9.5,
-    "winter": 8.5,
-    "rain": 6.5,
+    "couple": 6.6,
+    "summer": 9.3,
+    "winter": 8.6,
+    "rain": 6.3,
     "food": 9,
-    "photography": 8.5,
-    "relaxation": 9.5,
-    "value": 8.5,
+    "photography": 8.3,
+    "relaxation": 9.4,
+    "value": 8.7,
     "uniqueness": 8,
-    "family": 9,
-    "accessibility": 8.5
+    "family": 9.1,
+    "accessibility": 8.4
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -148,30 +148,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

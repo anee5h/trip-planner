@@ -17,7 +17,7 @@
   },
   "prefecture": "Miyagi",
   "region": "Tohoku",
-  "kind": "shrine",
+  "kind": "museum",
   "role": "poi",
   "placeType": "destination",
   "areaId": "aoba",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.zuihoden.com/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["History"],
-  "tags": ["History", "Sendai City", "v1.9.2"],
+  "categories": ["Culture"],
+  "tags": ["Culture", "Sendai City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Zuiho-den17s3872.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -46,16 +46,16 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
-    "food": 2200,
+    "tickets": 800,
+    "food": 1400,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25,
-    "bus": 35,
-    "car": 35
+    "train": 29,
+    "bus": 39,
+    "car": 44
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -67,22 +67,22 @@
   "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 3,
+    "rainFriendly": 2,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 7,
-    "couple": 6.5,
+    "overall": 6.8,
+    "couple": 6.6,
     "summer": 7.5,
-    "winter": 7,
-    "rain": 5.5,
+    "winter": 6.8,
+    "rain": 7.7,
     "food": 7,
-    "photography": 8,
-    "relaxation": 7,
+    "photography": 7.9,
+    "relaxation": 7.2,
     "value": 6.5,
-    "uniqueness": 7.5,
-    "family": 6.5,
-    "accessibility": 7.5
+    "uniqueness": 7.4,
+    "family": 6.7,
+    "accessibility": 7.6
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -97,7 +97,7 @@
     "winter": 8
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "high",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
@@ -150,30 +150,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

@@ -25,8 +25,8 @@
     "parentDestinationId": "sapporo-city"
   },
   "officialWebsiteRequirement": "none",
-  "categories": ["Food", "Market"],
-  "tags": ["Food", "Market", "Sapporo City", "v1.9.2"],
+  "categories": ["Food"],
+  "tags": ["Food", "Sapporo City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nijo%20fish%20Market%202014.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -45,14 +45,14 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
-    "food": 2200,
+    "tickets": 800,
+    "food": 1400,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25
+    "train": 203
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -61,25 +61,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 25,
+  "indoorPercent": 55,
   "comfort": {
     "heatTolerance": 6,
-    "rainFriendly": 3,
+    "rainFriendly": 6,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 7.5,
+    "overall": 7.6,
     "couple": 6.5,
-    "summer": 9.5,
-    "winter": 7,
-    "rain": 5.5,
-    "food": 9.5,
+    "summer": 9.4,
+    "winter": 7.1,
+    "rain": 8.2,
+    "food": 9.3,
     "photography": 7,
     "relaxation": 6.5,
-    "value": 7.5,
-    "uniqueness": 8.5,
-    "family": 6.5,
-    "accessibility": 9.5
+    "value": 7.6,
+    "uniqueness": 8.7,
+    "family": 6.4,
+    "accessibility": 9.3
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -94,7 +94,7 @@
     "winter": 8.7
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "high",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
@@ -147,30 +147,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

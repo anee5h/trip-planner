@@ -69,7 +69,7 @@ const REGION_PREFECTURES_MAP: Record<string, string[]> = {
 
 import { getCollections } from "@/shared/data/collections";
 import { Layers } from "lucide-react";
-import type { BudgetTier, PartyProfile } from "@/shared/types/planner";
+import type { BudgetTier } from "@/shared/types/planner";
 import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
 import { CITY_AREAS } from "@/shared/data/cityAreas";
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
@@ -103,8 +103,8 @@ interface DestinationFiltersProps {
   setPublicModes: (val: string[]) => void;
   partySize: number;
   setPartySize: (val: number) => void;
-  partyProfile: PartyProfile;
-  setPartyProfile: (val: PartyProfile) => void;
+  weather: "any" | "rainy" | "hot" | "cold";
+  setWeather: (val: "any" | "rainy" | "hot" | "cold") => void;
   budgetTier: BudgetTier;
   setBudgetTier: (val: BudgetTier) => void;
   tripDuration: TripDuration;
@@ -143,8 +143,8 @@ export default function DestinationFilters({
   setPublicModes,
   partySize,
   setPartySize,
-  partyProfile,
-  setPartyProfile,
+  weather,
+  setWeather,
   budgetTier,
   setBudgetTier,
   tripDuration,
@@ -746,32 +746,45 @@ export default function DestinationFilters({
               </div>
             </div>
 
-            {/* Party, dining style, and duration */}
+            {/* Party, budget, and duration */}
             <div className="space-y-2 lg:col-span-1">
               <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                Party profile
+                Travel party: {partySize}{" "}
+                {partySize === 1 ? "person" : "people"}
+              </label>
+              <input
+                type="range"
+                min={1}
+                max={10}
+                value={partySize}
+                onChange={(event) => setPartySize(Number(event.target.value))}
+                className="w-full accent-emerald-500"
+              />
+            </div>
+            <div className="space-y-2 lg:col-span-1">
+              <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                Weather condition
               </label>
               <Select
-                value={partyProfile}
-                onValueChange={(val: string | null) => {
-                  if (val) {
-                    const profile = val as PartyProfile;
-                    setPartyProfile(profile);
-                    setPartySize(
-                      profile === "solo" ? 1 : profile === "group" ? 4 : 2,
-                    );
-                  }
-                }}
+                value={weather}
+                onValueChange={(value) =>
+                  value && setWeather(value as typeof weather)
+                }
               >
                 <SelectTrigger className="h-9 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-lg text-xs font-medium">
-                  {partyProfile === "solo" && "Solo"}
-                  {partyProfile === "couple" && "Couple"}
-                  {partyProfile === "group" && "Group · 4"}
+                  {weather === "any"
+                    ? "Any weather"
+                    : weather === "rainy"
+                      ? "Looks like rain"
+                      : weather === "hot"
+                        ? "Scorching hot"
+                        : "Freezing cold"}
                 </SelectTrigger>
-                <SelectContent className="rounded-lg border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
-                  <SelectItem value="solo">Solo</SelectItem>
-                  <SelectItem value="couple">Couple</SelectItem>
-                  <SelectItem value="group">Group · 4</SelectItem>
+                <SelectContent>
+                  <SelectItem value="any">Any weather</SelectItem>
+                  <SelectItem value="rainy">Looks like rain</SelectItem>
+                  <SelectItem value="hot">Scorching hot</SelectItem>
+                  <SelectItem value="cold">Freezing cold</SelectItem>
                 </SelectContent>
               </Select>
             </div>

@@ -17,7 +17,7 @@
   },
   "prefecture": "Kyoto",
   "region": "Kansai",
-  "kind": "temple",
+  "kind": "museum",
   "role": "poi",
   "placeType": "destination",
   "areaId": "higashiyama",
@@ -25,8 +25,8 @@
     "parentDestinationId": "kyoto-city"
   },
   "officialWebsiteRequirement": "optional",
-  "categories": ["History"],
-  "tags": ["History", "Kyoto City", "v1.9.2"],
+  "categories": ["Culture"],
+  "tags": ["Culture", "Kyoto City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/100%20views%20edo%20071.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -45,15 +45,16 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
-    "food": 2200,
+    "tickets": 800,
+    "food": 1400,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25,
-    "bus": 35
+    "train": 234,
+    "bus": 234,
+    "shinkansen": 134
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +63,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 25,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 3,
+    "rainFriendly": 2,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 9,
-    "couple": 7,
-    "summer": 9.5,
+    "overall": 8.9,
+    "couple": 6.9,
+    "summer": 9.4,
     "winter": 8.5,
-    "rain": 5.5,
+    "rain": 7.6,
     "food": 8.5,
-    "photography": 7.5,
-    "relaxation": 6.5,
-    "value": 9,
-    "uniqueness": 8.5,
-    "family": 9,
-    "accessibility": 8.5
+    "photography": 7.6,
+    "relaxation": 6.7,
+    "value": 9.2,
+    "uniqueness": 8.3,
+    "family": 9.2,
+    "accessibility": 8.3
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +96,7 @@
     "winter": 6.5
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "high",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
@@ -142,30 +143,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

@@ -26,8 +26,8 @@
   },
   "officialWebsite": "http://www.pref.hokkaido.lg.jp/sm/sum/sk/akarenga.htm",
   "officialWebsiteRequirement": "optional",
-  "categories": ["History", "Museum"],
-  "tags": ["History", "Museum", "Sapporo City", "v1.9.2"],
+  "categories": ["Culture"],
+  "tags": ["Culture", "Sapporo City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hokkaido%20Prefectural%20Office02s5s4272.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -51,9 +51,9 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25
+    "train": 203
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 70,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 6,
+    "rainFriendly": 2,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 9,
-    "couple": 8,
-    "summer": 8.5,
+    "couple": 7.9,
+    "summer": 8.6,
     "winter": 7.5,
-    "rain": 5.5,
-    "food": 8.5,
-    "photography": 7.5,
-    "relaxation": 8.5,
-    "value": 7,
+    "rain": 6.4,
+    "food": 8.7,
+    "photography": 7.6,
+    "relaxation": 8.3,
+    "value": 7.2,
     "uniqueness": 9.5,
-    "family": 8.5,
-    "accessibility": 7.5
+    "family": 8.4,
+    "accessibility": 7.3
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -148,30 +148,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

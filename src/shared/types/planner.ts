@@ -11,12 +11,25 @@ export const PARTY_SIZE: Record<PartyProfile, number> = {
   group: 4,
 };
 
+export function partyProfileForSize(partySize: number): PartyProfile {
+  if (partySize <= 1) return "solo";
+  if (partySize === 2) return "couple";
+  return "group";
+}
+
 export const BUDGET_TIER_LIMITS: Record<BudgetTier, number> = {
   economy: 20000,
   standard: 40000,
   comfortable: 75000,
   luxury: 150000,
 };
+
+export function budgetTierForLimit(budget: number): BudgetTier {
+  if (budget <= BUDGET_TIER_LIMITS.economy) return "economy";
+  if (budget <= BUDGET_TIER_LIMITS.standard) return "standard";
+  if (budget <= BUDGET_TIER_LIMITS.comfortable) return "comfortable";
+  return "luxury";
+}
 
 export const MEAL_PRICE_RANGES = {
   economy: {

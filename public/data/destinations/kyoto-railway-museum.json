@@ -51,10 +51,11 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 25,
-    "bus": 35
+    "train": 234,
+    "bus": 234,
+    "shinkansen": 134
   },
-  "totalTripHours": 5,
+  "totalTripHours": 6,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -66,21 +67,21 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 8,
+    "rainFriendly": 9,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 9.5,
-    "couple": 6.5,
-    "summer": 9,
-    "winter": 8,
+    "overall": 9.3,
+    "couple": 6.6,
+    "summer": 9.1,
+    "winter": 8.2,
     "rain": 9,
-    "food": 6.5,
-    "photography": 7.5,
-    "relaxation": 6.5,
-    "value": 9,
+    "food": 6.4,
+    "photography": 7.3,
+    "relaxation": 6.4,
+    "value": 8.9,
     "uniqueness": 8,
-    "family": 9,
+    "family": 8.9,
     "accessibility": 8
   },
   "ratingsSchemaVersion": 2,
@@ -149,30 +150,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

@@ -90,6 +90,53 @@ describe("RecommendationScorer Unit Tests", () => {
     expect(ten - five).toBeCloseTo(30);
   });
 
+  it("halves rating-derived score changes for low-confidence assisted ratings", () => {
+    const context = {
+      tripType: "any",
+      budget: 20000,
+      carMode: "none",
+      publicModes: ["train"],
+      partySize: 1,
+      visitedIds: [],
+    };
+    const reviewed = calculateScore(
+      { ...mockDest, ratings: { ...mockDest.ratings, overall: 10 } },
+      context,
+    ).score;
+    const reviewedNeutral = calculateScore(
+      { ...mockDest, ratings: { ...mockDest.ratings, overall: 5 } },
+      context,
+    ).score;
+    const assisted = calculateScore(
+      {
+        ...mockDest,
+        ratings: { ...mockDest.ratings, overall: 10 },
+        ratingMetadata: {
+          rubricVersion: 1,
+          method: "assisted",
+          confidence: "low",
+        },
+      },
+      context,
+    ).score;
+    const assistedNeutral = calculateScore(
+      {
+        ...mockDest,
+        ratings: { ...mockDest.ratings, overall: 5 },
+        ratingMetadata: {
+          rubricVersion: 1,
+          method: "assisted",
+          confidence: "low",
+        },
+      },
+      context,
+    ).score;
+
+    expect(assisted - assistedNeutral).toBeCloseTo(
+      (reviewed - reviewedNeutral) / 2,
+    );
+  });
+
   it("does not emit a catastrophic score without valid transport", () => {
     const result = calculateScore(
       { ...mockDest, transportOptions: {} },

@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import type { User } from "@supabase/supabase-js";
 import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
-import {
-  PARTY_SIZE,
-  type BudgetTier,
-  type PartyProfile,
-} from "@/shared/types/planner";
+import { type BudgetTier, budgetTierForLimit } from "@/shared/types/planner";
 
 export function useTripPlannerState(user: User | null) {
-  const [vibe, setVibe] = useState<string>("any");
+  const [tripType, setTripType] = useState<string>("any");
+  const [weather, setWeather] = useState<"any" | "rainy" | "hot" | "cold">(
+    "any",
+  );
+  const [budget, setBudget] = useState<number>(30000);
   const [carMode, setCarMode] = useState<string>("none");
   const [publicModes, setPublicModes] = useState<string[]>([
     "train",
@@ -16,9 +16,7 @@ export function useTripPlannerState(user: User | null) {
     "bus",
     "flight",
   ]);
-  const [partyProfile, setPartyProfile] = useState<PartyProfile>("couple");
-  const [budgetTier, setBudgetTier] = useState<BudgetTier>("standard");
-  const [tripDuration, setTripDuration] = useState<TripDuration>("any");
+  const [partySize, setPartySize] = useState<number>(2);
 
   useEffect(() => {
     if (user?.user_metadata?.preferences) {
@@ -31,30 +29,24 @@ export function useTripPlannerState(user: User | null) {
           "flight",
         ],
       );
-      const savedPartySize = user.user_metadata.preferences.partySize;
-      setPartyProfile(
-        savedPartySize === 1
-          ? "solo"
-          : savedPartySize >= 4
-            ? "group"
-            : "couple",
-      );
+      setPartySize(user.user_metadata.preferences.partySize || 2);
     }
   }, [user]);
 
   return {
-    vibe,
-    setVibe,
+    tripType,
+    setTripType,
+    weather,
+    setWeather,
+    budget,
+    setBudget,
     carMode,
     setCarMode,
     publicModes,
     setPublicModes,
-    partyProfile,
-    setPartyProfile,
-    budgetTier,
-    setBudgetTier,
-    partySize: PARTY_SIZE[partyProfile],
-    tripDuration,
-    setTripDuration,
+    partySize,
+    setPartySize,
+    budgetTier: budgetTierForLimit(budget) as BudgetTier,
+    tripDuration: "any" as TripDuration,
   };
 }

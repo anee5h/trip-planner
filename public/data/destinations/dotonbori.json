@@ -17,7 +17,7 @@
   },
   "prefecture": "Osaka",
   "region": "Kansai",
-  "kind": "shopping",
+  "kind": "museum",
   "role": "poi",
   "placeType": "destination",
   "areaId": "namba-minami",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "http://www.dotonbori.or.jp/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Shopping", "Food"],
-  "tags": ["Shopping", "Food", "Osaka City", "v1.9.2"],
+  "categories": ["Food"],
+  "tags": ["Food", "Osaka City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E5%8A%9B%E3%82%92%E5%90%88%E3%82%8F%E3%81%9B%E3%82%88%E3%81%86%E6%97%A5%E6%9C%AC%202014%20%E5%A4%A7%E9%98%AA%20(12206068196).jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -46,15 +46,16 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
-    "food": 2200,
+    "tickets": 800,
+    "food": 1400,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25,
-    "bus": 35
+    "train": 189,
+    "bus": 209,
+    "shinkansen": 149
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -63,24 +64,24 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 30,
+  "indoorPercent": 55,
   "comfort": {
     "heatTolerance": 6,
-    "rainFriendly": 3,
+    "rainFriendly": 6,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 7.5,
+    "overall": 7.3,
     "couple": 6.5,
-    "summer": 7.5,
-    "winter": 6.5,
-    "rain": 5.5,
-    "food": 7,
-    "photography": 8,
-    "relaxation": 7,
+    "summer": 7.4,
+    "winter": 6.7,
+    "rain": 7.6,
+    "food": 6.9,
+    "photography": 7.8,
+    "relaxation": 7.1,
     "value": 8,
-    "uniqueness": 7.5,
-    "family": 8,
+    "uniqueness": 7.3,
+    "family": 8.2,
     "accessibility": 7.5
   },
   "ratingsSchemaVersion": 2,
@@ -96,7 +97,7 @@
     "winter": 7.9
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "high",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
@@ -149,30 +150,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

@@ -28,6 +28,7 @@ describe("destinationSearchParams", () => {
       carMode: "rental",
       publicModes: ["flight", "bus"],
       partySize: 3,
+      partyProfile: "group",
       budgetTier: "standard",
       vibe: "any",
       tripDuration: "any",
@@ -69,5 +70,17 @@ describe("destinationSearchParams", () => {
       ),
     ).toBe(false);
     expect(hasRestrictedTransportSelection("none", ["train"])).toBe(true);
+  });
+
+  it("persists preferred weather and derives profile from numeric party size", () => {
+    const parsed = parseDestinationSearchParams(
+      new URLSearchParams("partySize=5&party=couple&weather=rainy"),
+    );
+
+    expect(parsed.partySize).toBe(5);
+    expect(serializeDestinationSearchParams(parsed).get("party")).toBe("group");
+    expect(serializeDestinationSearchParams(parsed).get("weather")).toBe(
+      "rainy",
+    );
   });
 });

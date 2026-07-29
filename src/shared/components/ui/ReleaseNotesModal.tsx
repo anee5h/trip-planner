@@ -8,8 +8,19 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.9.3",
+    version: "v1.9.4",
     tag: "Current",
+    date: "July 2026",
+    title: "Planner and Catalogue Safety",
+    highlights: [
+      "Restored the v1.7 homepage experience with a numeric travel-party slider and persistent planner choices",
+      "Brought back preferred weather planning alongside live forecast context",
+      "Restored assisted catalogue transport, duration, and admission data from the v1.9.2 baseline",
+      "Made expansion auditing report-only and reduced low-confidence rating influence",
+    ],
+  },
+  {
+    version: "v1.9.3",
     date: "July 2026",
     title: "Major City Data Audit",
     highlights: [

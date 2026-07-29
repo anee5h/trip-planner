@@ -17,7 +17,7 @@
   },
   "prefecture": "Kanagawa",
   "region": "Kanto",
-  "kind": "shopping",
+  "kind": "district",
   "role": "poi",
   "placeType": "destination",
   "areaId": "central-kamakura",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "http://www.kamakura-komachi.com/",
   "officialWebsiteRequirement": "none",
-  "categories": ["Shopping", "Food"],
-  "tags": ["Shopping", "Food", "Kamakura City", "v1.9.2"],
+  "categories": ["Food"],
+  "tags": ["Food", "Kamakura City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Komachi%20Dori-Kamakura.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -46,14 +46,14 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
-    "food": 2200,
+    "tickets": 800,
+    "food": 1400,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25
+    "train": 196
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,24 +62,24 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 30,
+  "indoorPercent": 55,
   "comfort": {
     "heatTolerance": 6,
-    "rainFriendly": 3,
+    "rainFriendly": 6,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 7,
+    "overall": 7.2,
     "couple": 7.5,
-    "summer": 7,
-    "winter": 8,
-    "rain": 5.5,
-    "food": 8.5,
-    "photography": 7.5,
-    "relaxation": 8.5,
+    "summer": 6.8,
+    "winter": 7.9,
+    "rain": 7.2,
+    "food": 8.3,
+    "photography": 7.6,
+    "relaxation": 8.7,
     "value": 8,
-    "uniqueness": 9,
-    "family": 8.5,
+    "uniqueness": 9.1,
+    "family": 8.4,
     "accessibility": 9.5
   },
   "ratingsSchemaVersion": 2,
@@ -95,7 +95,7 @@
     "winter": 6.9
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "high",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kamakura City.",
@@ -148,30 +148,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {

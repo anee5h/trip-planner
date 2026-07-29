@@ -17,7 +17,7 @@
   },
   "prefecture": "Fukuoka",
   "region": "Kyushu",
-  "kind": "market",
+  "kind": "museum",
   "role": "poi",
   "placeType": "destination",
   "areaId": "tenjin",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://gofukuoka.jp/yatai/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Food", "Market"],
-  "tags": ["Food", "Market", "Fukuoka City", "v1.9.2"],
+  "categories": ["Food"],
+  "tags": ["Food", "Fukuoka City", "v1.9.2"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Hakata_yatai_and_yatai_food_-_2024_Sept_24_various.jpeg/1920px-Hakata_yatai_and_yatai_food_-_2024_Sept_24_various.jpeg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -46,14 +46,15 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
-    "food": 2200,
+    "tickets": 800,
+    "food": 1400,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 25
+    "train": 197,
+    "shinkansen": 297
   },
-  "totalTripHours": 4,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,24 +63,24 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 25,
+  "indoorPercent": 55,
   "comfort": {
     "heatTolerance": 6,
-    "rainFriendly": 3,
+    "rainFriendly": 6,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 8.5,
-    "couple": 9,
-    "summer": 8.5,
-    "winter": 7,
-    "rain": 5.5,
-    "food": 8,
-    "photography": 8,
-    "relaxation": 6,
-    "value": 7.5,
-    "uniqueness": 7.5,
-    "family": 9,
+    "overall": 8.4,
+    "couple": 8.8,
+    "summer": 8.7,
+    "winter": 6.8,
+    "rain": 6.7,
+    "food": 8.2,
+    "photography": 8.1,
+    "relaxation": 6.2,
+    "value": 7.7,
+    "uniqueness": 7.6,
+    "family": 9.1,
     "accessibility": 9
   },
   "ratingsSchemaVersion": 2,
@@ -95,7 +96,7 @@
     "winter": 6.6
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "high",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
@@ -148,30 +149,6 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       },
       {
