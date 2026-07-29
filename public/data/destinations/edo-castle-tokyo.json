@@ -95,5 +95,9 @@
     "parentDestinationId": "chiyoda-city"
   },
   "walkingIntensity": "medium",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 5
+  }
 }

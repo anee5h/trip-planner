@@ -82,5 +82,9 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Iwakuni%2C_ponte_kintai-kyo%2C_03%2C0.jpg/1920px-Iwakuni%2C_ponte_kintai-kyo%2C_03%2C0.jpg",
   "walkingIntensity": "low",
   "walkingSunMin": 1800,
-  "walkingShadeMin": 1200
+  "walkingShadeMin": 1200,
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 5
+  }
 }

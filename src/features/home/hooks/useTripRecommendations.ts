@@ -3,20 +3,18 @@ import type { Destination } from "@/shared/types/destination";
 import { getRecommendations } from "@/shared/services/recommendation/RecommendationService";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
-import {
-  normalizeWeatherDescription,
-  type PreferredWeather,
-} from "@/shared/services/recommendation/RecommendationContext";
+import { normalizeWeatherDescription } from "@/shared/services/recommendation/RecommendationContext";
+import type { DiningStyle } from "@/shared/types/planner";
 
 interface UseTripRecommendationsProps {
   allDestinations: Destination[];
   actualWeather?: { desc: string; temperatureC: number };
-  tripType: string;
+  vibe: string;
   budget: number;
   carMode: string;
   publicModes: string[];
   partySize: number;
-  weather: string;
+  diningStyle: DiningStyle;
   tripDuration: TripDuration;
   homeStationCoords: { lat: number; lng: number } | null;
   isVisited: (id: string) => boolean;
@@ -25,12 +23,12 @@ interface UseTripRecommendationsProps {
 export function useTripRecommendations({
   allDestinations,
   actualWeather,
-  tripType,
+  vibe,
   budget,
   carMode,
   publicModes,
   partySize,
-  weather,
+  diningStyle,
   tripDuration,
   homeStationCoords,
   isVisited,
@@ -46,11 +44,12 @@ export function useTripRecommendations({
 
   const recommendedDestinations = useMemo(() => {
     return getRecommendations(allDestinations, {
-      tripType,
+      vibe,
       budget,
       carMode,
       publicModes,
       partySize,
+      diningStyle,
       weather: {
         actual: actualWeather
           ? {
@@ -58,11 +57,6 @@ export function useTripRecommendations({
               temperatureC: actualWeather.temperatureC,
             }
           : undefined,
-        preferred: (weather === "summer"
-          ? "hot"
-          : weather === "winter"
-            ? "cold"
-            : weather) as PreferredWeather,
       },
       visitedIds,
       homeStationCoords: homeStationCoords || { lat: 35.6812, lng: 139.7671 },
@@ -72,12 +66,12 @@ export function useTripRecommendations({
   }, [
     allDestinations,
     actualWeather,
-    tripType,
+    vibe,
     budget,
     carMode,
     publicModes,
     partySize,
-    weather,
+    diningStyle,
     tripDuration,
     homeStationCoords,
     destinationRatings,
@@ -86,7 +80,7 @@ export function useTripRecommendations({
 
   const rouletteCandidates = useMemo(() => {
     return getRecommendations(allDestinations, {
-      tripType: "any",
+      vibe: "any",
       budget: 100000,
       carMode,
       publicModes,

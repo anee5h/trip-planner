@@ -82,5 +82,9 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Bukeyashiki_Street_in_Kakunodate_20060506.jpg/1920px-Bukeyashiki_Street_in_Kakunodate_20060506.jpg",
   "walkingIntensity": "low",
   "walkingSunMin": 1800,
-  "walkingShadeMin": 1200
+  "walkingShadeMin": 1200,
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 5
+  }
 }

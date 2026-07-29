@@ -70,6 +70,8 @@ const REGION_PREFECTURES_MAP: Record<string, string[]> = {
 
 import { getCollections } from "@/shared/data/collections";
 import { Layers } from "lucide-react";
+import type { DiningStyle, PartyProfile } from "@/shared/types/planner";
+import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
 
 interface DestinationFiltersProps {
   searchQuery: string;
@@ -94,8 +96,12 @@ interface DestinationFiltersProps {
   setPublicModes: (val: string[]) => void;
   partySize: number;
   setPartySize: (val: number) => void;
-  weather: string;
-  setWeather: (val: string) => void;
+  partyProfile: PartyProfile;
+  setPartyProfile: (val: PartyProfile) => void;
+  diningStyle: DiningStyle;
+  setDiningStyle: (val: DiningStyle) => void;
+  tripDuration: TripDuration;
+  setTripDuration: (val: TripDuration) => void;
   walkingIntensity: string;
   setWalkingIntensity: (val: string) => void;
   suitabilities: string[];
@@ -124,8 +130,12 @@ export default function DestinationFilters({
   setPublicModes,
   partySize,
   setPartySize,
-  weather,
-  setWeather,
+  partyProfile,
+  setPartyProfile,
+  diningStyle,
+  setDiningStyle,
+  tripDuration,
+  setTripDuration,
   walkingIntensity,
   setWalkingIntensity,
   suitabilities,
@@ -219,7 +229,6 @@ export default function DestinationFilters({
     (publicModes.length < 4 ? 1 : 0) +
     (maxBudget < 100000 ? 1 : 0) +
     (walkingIntensity !== "all" ? 1 : 0) +
-    (weather !== "all" ? 1 : 0) +
     (partySize !== 2 ? 1 : 0) +
     suitabilities.length +
     interests.length;
@@ -708,62 +717,81 @@ export default function DestinationFilters({
               </div>
             </div>
 
-            {/* Weather / Season */}
+            {/* Party, dining style, and duration */}
             <div className="space-y-2 lg:col-span-1">
               <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                Weather/Season
+                Party profile
               </label>
               <Select
-                value={weather}
+                value={partyProfile}
                 onValueChange={(val: string | null) => {
-                  if (val) setWeather(val);
+                  if (val) {
+                    const profile = val as PartyProfile;
+                    setPartyProfile(profile);
+                    setPartySize(
+                      profile === "solo" ? 1 : profile === "group" ? 4 : 2,
+                    );
+                  }
                 }}
               >
                 <SelectTrigger className="h-9 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-lg text-xs font-medium">
-                  {weather === "all" && "Any Weather"}
-                  {weather === "indoor" && "Rainy Day (Indoor)"}
-                  {weather === "summer" && "Beat the Heat"}
-                  {weather === "winter" && "Winter Magic"}
+                  {partyProfile === "solo" && "Solo"}
+                  {partyProfile === "couple" && "Couple"}
+                  {partyProfile === "group" && "Group · 4"}
                 </SelectTrigger>
                 <SelectContent className="rounded-lg border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
-                  <SelectItem value="all" className="py-1.5 px-2.5 text-xs">
-                    Any Weather
-                  </SelectItem>
-                  <SelectItem value="indoor" className="py-1.5 px-2.5 text-xs">
-                    Rainy Day (Indoor)
-                  </SelectItem>
-                  <SelectItem value="summer" className="py-1.5 px-2.5 text-xs">
-                    Beat the Heat
-                  </SelectItem>
-                  <SelectItem value="winter" className="py-1.5 px-2.5 text-xs">
-                    Winter Magic
-                  </SelectItem>
+                  <SelectItem value="solo">Solo</SelectItem>
+                  <SelectItem value="couple">Couple</SelectItem>
+                  <SelectItem value="group">Group · 4</SelectItem>
                 </SelectContent>
               </Select>
             </div>
-
-            {/* Party Size Stepper */}
             <div className="space-y-2 lg:col-span-1">
               <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                Party Size
+                Dining style
               </label>
-              <div className="flex items-center justify-between h-9 px-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
-                <button
-                  onClick={() => setPartySize(Math.max(1, partySize - 1))}
-                  className="w-6 h-6 flex items-center justify-center rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-bold text-xs"
-                >
-                  -
-                </button>
-                <span className="font-semibold text-xs text-slate-700 dark:text-slate-200">
-                  {partySize} {partySize === 1 ? "Person" : "People"}
-                </span>
-                <button
-                  onClick={() => setPartySize(Math.min(10, partySize + 1))}
-                  className="w-6 h-6 flex items-center justify-center rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-bold text-xs"
-                >
-                  +
-                </button>
-              </div>
+              <Select
+                value={diningStyle}
+                onValueChange={(val) =>
+                  val && setDiningStyle(val as DiningStyle)
+                }
+              >
+                <SelectTrigger className="h-9 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-lg text-xs font-medium">
+                  {diningStyle[0].toUpperCase() + diningStyle.slice(1)}
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="budget">Budget</SelectItem>
+                  <SelectItem value="standard">Standard</SelectItem>
+                  <SelectItem value="premium">Premium</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-2 lg:col-span-1">
+              <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                Trip duration
+              </label>
+              <Select
+                value={tripDuration}
+                onValueChange={(val) =>
+                  val && setTripDuration(val as TripDuration)
+                }
+              >
+                <SelectTrigger className="h-9 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-lg text-xs font-medium">
+                  {tripDuration === "any"
+                    ? "Any duration"
+                    : tripDuration === "halfDay"
+                      ? "Half day"
+                      : tripDuration === "dayTrip"
+                        ? "Day trip"
+                        : "Weekend"}
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="any">Any duration</SelectItem>
+                  <SelectItem value="halfDay">Half day</SelectItem>
+                  <SelectItem value="dayTrip">Day trip</SelectItem>
+                  <SelectItem value="weekend">Weekend</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
           </div>
 

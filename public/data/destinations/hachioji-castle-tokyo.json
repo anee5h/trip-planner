@@ -75,5 +75,9 @@
   "parking": "Available on site",
   "notes": "Hachioji Castle Ruins (Mount Castle) located in Tokyo Prefecture.",
   "walkingIntensity": "low",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  }
 }

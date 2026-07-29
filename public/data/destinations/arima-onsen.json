@@ -97,5 +97,9 @@
     "sourceUrl": "https://en.wikipedia.org/wiki/Art%20Tower%20Mito"
   },
   "walkingIntensity": "low",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 5
+  }
 }

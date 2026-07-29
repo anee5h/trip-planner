@@ -99,5 +99,9 @@
     "walkingIntensity": 3
   },
   "walkingIntensity": "low",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 5,
+    "max": 7
+  }
 }

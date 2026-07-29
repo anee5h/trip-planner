@@ -1,6 +1,5 @@
 export type TripDuration = "any" | "halfDay" | "dayTrip" | "weekend";
 
-export type PreferredWeather = "any" | "rainy" | "hot" | "cold";
 export type ActualWeatherCondition =
   "clear" | "cloudy" | "rainy" | "stormy" | "snowy" | "unknown";
 
@@ -9,7 +8,8 @@ export interface RecommendationWeatherContext {
     condition: ActualWeatherCondition;
     temperatureC?: number;
   };
-  preferred: PreferredWeather;
+  /** @deprecated Preferred weather is no longer a planner input. */
+  preferred?: "any" | "rainy" | "hot" | "cold";
 }
 
 export function normalizeWeatherDescription(
@@ -36,13 +36,16 @@ export function matchesTripDuration(
 }
 
 export interface RecommendationContext {
-  tripType: string;
+  vibe?: string;
+  /** @deprecated Use vibe. */
+  tripType?: string;
   budget: number;
+  diningStyle?: import("@/shared/types/planner").DiningStyle;
   carMode: string;
   publicModes: string[];
   partySize: number;
   weather?: RecommendationWeatherContext;
-  /** @deprecated Use weather.actual.condition and weather.preferred. */
+  /** @deprecated Use weather.actual.condition. */
   currentWeatherCondition?: string;
   visitedIds: string[];
   /** @deprecated Use weather.actual. */
@@ -53,10 +56,6 @@ export interface RecommendationContext {
 }
 
 export function resolveRecommendationWeather(context: RecommendationContext) {
-  const legacy = context.currentWeatherCondition?.toLowerCase();
-  const preferred =
-    context.weather?.preferred ??
-    (legacy === "summer" ? "hot" : legacy === "winter" ? "cold" : "any");
   const condition =
     context.weather?.actual?.condition ??
     normalizeWeatherDescription(
@@ -70,6 +69,5 @@ export function resolveRecommendationWeather(context: RecommendationContext) {
       condition === "unknown" && temperatureC === undefined
         ? undefined
         : { condition, temperatureC },
-    preferred,
   } as const;
 }

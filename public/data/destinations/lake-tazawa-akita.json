@@ -84,5 +84,9 @@
     ],
     "parentDestinationId": "semboku-city"
   },
-  "budgetBreakdown": null
+  "budgetBreakdown": null,
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 5
+  }
 }

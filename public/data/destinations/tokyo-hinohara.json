@@ -86,5 +86,9 @@
   "walkingIntensity": "low",
   "role": "standalone",
   "placeType": "destination",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 6,
+    "max": 8
+  }
 }

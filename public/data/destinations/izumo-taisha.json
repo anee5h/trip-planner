@@ -96,5 +96,9 @@
   "parking": "Available on site",
   "role": "standalone",
   "placeType": "destination",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 5
+  }
 }

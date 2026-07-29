@@ -79,5 +79,9 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Dogo_onsen_honkan_long_exposure.jpg/1920px-Dogo_onsen_honkan_long_exposure.jpg",
   "walkingIntensity": "low",
   "walkingSunMin": 1800,
-  "walkingShadeMin": 1200
+  "walkingShadeMin": 1200,
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 5
+  }
 }

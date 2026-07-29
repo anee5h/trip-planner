@@ -1,4 +1,5 @@
 import type { Destination } from "@/shared/types/destination";
+import type { PriceRange } from "@/shared/types/planner";
 
 export type MatchReasonType =
   | "Budget"
@@ -49,11 +50,13 @@ export interface ScoredDestination extends Destination {
   score: number;
   match: RecommendationMatch;
   bestTransportMode?: string;
+  estimatedCostRange?: PriceRange;
 }
 
 export interface RecommendationStageResult {
   eligible: boolean;
   estimatedCost?: number;
+  estimatedCostRange?: PriceRange;
   bestTransportMode?: string;
   scoreContributions: Record<string, number>;
   confidence: number;

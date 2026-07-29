@@ -82,5 +82,9 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg/1920px-Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg",
   "walkingIntensity": "low",
   "walkingSunMin": 1800,
-  "walkingShadeMin": 1200
+  "walkingShadeMin": 1200,
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 5
+  }
 }

@@ -1512,6 +1512,25 @@ export default function DestinationDetails() {
                       </div>
                     </div>
                   )}
+                  {destination.recommendedVisitHours && (
+                    <div className="flex items-center gap-3">
+                      <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">
+                        <Timer className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                          {locale === "ja"
+                            ? "おすすめ滞在時間"
+                            : "Recommended visit"}
+                        </div>
+                        <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
+                          {destination.recommendedVisitHours.min}–
+                          {destination.recommendedVisitHours.max}{" "}
+                          {locale === "ja" ? "時間" : "hours"}
+                        </div>
+                      </div>
+                    </div>
+                  )}
                   {destination.bestSeason && (
                     <div className="flex items-center gap-3">
                       <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">

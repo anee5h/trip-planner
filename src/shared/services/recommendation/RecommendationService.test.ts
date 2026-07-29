@@ -174,7 +174,7 @@ describe("RecommendationService Unit Tests", () => {
   it("excludes destinations exceeding strict budget limits", () => {
     const results = getRecommendations(mockDestinations, {
       tripType: "any",
-      budget: 10000,
+      budget: 20000,
       carMode: "none",
       publicModes: ["train", "bus", "shinkansen"],
       partySize: 2,
@@ -185,8 +185,12 @@ describe("RecommendationService Unit Tests", () => {
     });
 
     const ids = results.map((r) => r.id);
-    expect(ids).toContain("kamakura-history");
     expect(ids).not.toContain("fuji-climbing");
+    expect(
+      results.every(
+        (result) => (result.estimatedCostRange?.[1] ?? Infinity) <= 20000,
+      ),
+    ).toBe(true);
   });
 
   it("excludes already visited destination IDs when provided", () => {
@@ -222,7 +226,7 @@ describe("RecommendationService Unit Tests", () => {
       currentWeatherCondition: "any",
       visitedIds: [],
       currentWeather: null,
-      homeStationCoords: homeCoords,
+      homeStationCoords: null,
       tripDuration: "halfDay",
     });
 

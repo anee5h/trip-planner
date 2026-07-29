@@ -8,8 +8,19 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.8.14",
+    version: "v1.9.0",
     tag: "Current",
+    date: "July 2026",
+    title: "Plan From Your City",
+    highlights: [
+      "Plan with party size, dining style, trip duration, and transport preferences",
+      "Keep homepage planner choices when opening the destination explorer",
+      "Use origin-aware duration estimates and recommended visit hours",
+      "Show estimated travel costs as ranges and remove the preferred-weather filter",
+    ],
+  },
+  {
+    version: "v1.8.14",
     date: "July 2026",
     title: "Recommendation Result Safety",
     highlights: [

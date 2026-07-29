@@ -87,5 +87,9 @@
   "walkingSunMin": 1800,
   "walkingShadeMin": 1200,
   "role": "standalone",
-  "placeType": "destination"
+  "placeType": "destination",
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 5
+  }
 }

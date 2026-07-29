@@ -80,5 +80,9 @@
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "walkingIntensity": "high",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 12,
+    "max": 14
+  }
 }

@@ -18,7 +18,6 @@ import {
   SelectItem,
   SelectTrigger,
 } from "@/shared/components/ui/select";
-import { Slider } from "@/shared/components/ui/slider";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { getTabWeatherSummary } from "@/shared/services/weather/WeatherTabService";
@@ -28,26 +27,36 @@ import { useTripPlannerState } from "@/features/home/hooks/useTripPlannerState";
 import { useWeatherContext } from "@/features/home/hooks/useWeatherContext";
 import { useTripRecommendations } from "@/features/home/hooks/useTripRecommendations";
 import { useLocale } from "@/shared/context/LocaleContext";
+import { type DiningStyle, type PartyProfile } from "@/shared/types/planner";
+import { serializePlannerSearchParams } from "@/features/destinations/destinationSearchParams";
 
 const HOME_COPY = {
   en: {
     baseLocation: "Tokyo Station",
     change: "Change",
     pickDate: "Pick custom forecast date",
-    inYourArea: "in your area",
+    inYourArea: "today in",
     surprise: "Surprise Me",
     browse: "Browse All Destinations",
-    planner: "Plan your day",
+    planner: "Plan your trip",
     quickMatch: "Personalized match",
     vibe: "What are you in the mood for?",
-    weather: "Preferred weather",
+    party: "Who are you traveling with?",
+    dining: "Dining style",
     duration: "Trip type",
     anyDuration: "Any duration",
     halfDay: "Half day (<5h)",
     dayTrip: "Day trip (5–12h)",
     weekend: "Weekend (>12h)",
-    budget: "Max budget (for 2 people)",
-    budgetNote: "Estimated total for two people, excluding accommodation.",
+    budget: "Maximum trip budget",
+    budgetNote: "Advanced budget limit; dining style controls food estimates.",
+    solo: "Solo",
+    couple: "Couple",
+    group: "Group · 4",
+    budgetStyle: "Budget",
+    standardStyle: "Standard",
+    premiumStyle: "Premium",
+    planningFrom: "Planning from",
     findMatch: "Find My Match",
     topMatches: "Your Top Matches",
     ranked: "Ranked by how well they match your conditions and preferences.",
@@ -57,20 +66,28 @@ const HOME_COPY = {
     baseLocation: "東京駅",
     change: "変更",
     pickDate: "予報日を選択",
-    inYourArea: "現在地周辺",
+    inYourArea: "今日の",
     surprise: "おまかせ",
     browse: "すべての旅先を見る",
-    planner: "今日の旅を計画",
+    planner: "旅を計画",
     quickMatch: "あなた向けに提案",
     vibe: "どんな気分ですか？",
-    weather: "好みの天気",
+    party: "誰と旅行しますか？",
+    dining: "食事スタイル",
     duration: "旅のタイプ",
     anyDuration: "時間を指定しない",
     halfDay: "半日（5時間未満）",
     dayTrip: "日帰り（5〜12時間）",
     weekend: "週末（12時間超）",
-    budget: "予算上限（2人）",
-    budgetNote: "宿泊費を除く、2人分の目安です。",
+    budget: "旅の予算上限",
+    budgetNote: "詳細設定の予算上限。食事スタイルは食費の目安です。",
+    solo: "ひとり旅",
+    couple: "カップル",
+    group: "グループ・4名",
+    budgetStyle: "節約",
+    standardStyle: "標準",
+    premiumStyle: "プレミアム",
+    planningFrom: "出発地",
     findMatch: "ぴったりを探す",
     topMatches: "あなたへのおすすめ",
     ranked: "条件や好みに合う順に表示しています。",
@@ -130,6 +147,11 @@ function localizeWeatherText(text: string, locale: "en" | "ja") {
   return translations[text] || text;
 }
 
+function getHomeCity(homeStation: string | null, fallback: string) {
+  const label = homeStation?.split(",")[0].trim() || fallback;
+  return label.replace(/\s+Station$/i, "").trim();
+}
+
 export default function Home() {
   const { locale } = useLocale();
   const copy = HOME_COPY[locale];
@@ -138,15 +160,16 @@ export default function Home() {
   const { isVisited, homeStationCoords, homeStation } = useTripStore();
   const { user } = useAuth();
   const {
-    tripType,
-    setTripType,
+    vibe,
+    setVibe,
     budget,
-    setBudget,
     carMode,
     publicModes,
     partySize,
-    weather,
-    setWeather,
+    partyProfile,
+    setPartyProfile,
+    diningStyle,
+    setDiningStyle,
     tripDuration,
     setTripDuration,
   } = useTripPlannerState(user);
@@ -170,18 +193,19 @@ export default function Home() {
       actualWeather: currentSituation
         ? { desc: currentSituation.desc, temperatureC: currentSituation.temp }
         : undefined,
-      tripType,
+      vibe,
       budget,
       carMode,
       publicModes,
       partySize,
-      weather,
+      diningStyle,
       tripDuration,
       homeStationCoords,
       isVisited,
     });
   const [rouletteOpen, setRouletteOpen] = useState(false);
   const topRecommendations = recommendedDestinations.slice(0, 3);
+  const homeCity = getHomeCity(homeStation, copy.baseLocation);
   const scrollToRecommendations = () =>
     document
       .getElementById("recommendations")
@@ -200,11 +224,15 @@ export default function Home() {
     ["cool", labels.cool],
     ["photography", labels.photography],
   ];
-  const weatherOptions = [
-    ["any", labels.anyWeather],
-    ["rainy", labels.rainy],
-    ["summer", labels.summer],
-    ["winter", labels.winter],
+  const partyOptions: [PartyProfile, string][] = [
+    ["solo", copy.solo],
+    ["couple", copy.couple],
+    ["group", copy.group],
+  ];
+  const diningOptions: [DiningStyle, string][] = [
+    ["budget", copy.budgetStyle],
+    ["standard", copy.standardStyle],
+    ["premium", copy.premiumStyle],
   ];
   const durationOptions: [TripDuration, string][] = [
     ["any", copy.anyDuration],
@@ -275,8 +303,9 @@ export default function Home() {
                 <span className="text-emerald-600">
                   {currentSituation.temp}°C
                 </span>
-                {localizeWeatherText(currentSituation.desc, locale)}{" "}
-                {copy.inYourArea}
+                {locale === "ja"
+                  ? `${homeCity}の${localizeWeatherText(currentSituation.desc, locale)}です`
+                  : `${localizeWeatherText(currentSituation.desc, locale)} ${copy.inYourArea} ${homeCity}`}
               </span>
             )}
           </div>
@@ -286,22 +315,22 @@ export default function Home() {
               <h1 className="text-5xl font-extrabold leading-[1.05] tracking-tight text-slate-900 dark:text-white sm:text-6xl">
                 {locale === "ja" ? (
                   <>
-                    今日は、
+                    {homeCity}から、
                     <br />
-                    どこへ行く？
+                    次はどこへ行く？
                   </>
                 ) : (
                   <>
-                    Where should
+                    Where will you go next
                     <br />
-                    you go today?
+                    from {homeCity}?
                   </>
                 )}
               </h1>
               <p className="mt-6 max-w-md text-lg leading-8 text-slate-600 dark:text-slate-300">
                 {locale === "ja"
-                  ? "場所、天気、予算、好みに合わせて、今日のおすすめを提案します。"
-                  : "Personalized recommendations based on your location, weather, budget, and preferences."}
+                  ? `${homeCity}発の予定、天気、予算、好みに合わせておすすめします。`
+                  : `Personalized recommendations from ${homeCity} based on your plans, weather, budget, and preferences.`}
               </p>
             </div>
 
@@ -320,11 +349,11 @@ export default function Home() {
                   <label className="space-y-2 text-sm font-bold text-slate-700 dark:text-slate-300">
                     {copy.vibe}
                     <Select
-                      value={tripType}
-                      onValueChange={(value) => value && setTripType(value)}
+                      value={vibe}
+                      onValueChange={(value) => value && setVibe(value)}
                     >
                       <SelectTrigger className={selectClass}>
-                        {labels[tripType as keyof typeof labels] || labels.any}
+                        {labels[vibe as keyof typeof labels] || labels.any}
                       </SelectTrigger>
                       <SelectContent>
                         {moodOptions.map(([value, label]) => (
@@ -336,17 +365,46 @@ export default function Home() {
                     </Select>
                   </label>
                   <label className="space-y-2 text-sm font-bold text-slate-700 dark:text-slate-300">
-                    {copy.weather}
+                    {copy.party}
                     <Select
-                      value={weather}
-                      onValueChange={(value) => value && setWeather(value)}
+                      value={partyProfile}
+                      onValueChange={(value) =>
+                        value && setPartyProfile(value as PartyProfile)
+                      }
                     >
                       <SelectTrigger className={selectClass}>
-                        {labels[weather as keyof typeof labels] ||
-                          labels.anyWeather}
+                        {
+                          partyOptions.find(
+                            ([value]) => value === partyProfile,
+                          )?.[1]
+                        }
                       </SelectTrigger>
                       <SelectContent>
-                        {weatherOptions.map(([value, label]) => (
+                        {partyOptions.map(([value, label]) => (
+                          <SelectItem key={value} value={value}>
+                            {label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </label>
+                  <label className="space-y-2 text-sm font-bold text-slate-700 dark:text-slate-300">
+                    {copy.dining}
+                    <Select
+                      value={diningStyle}
+                      onValueChange={(value) =>
+                        value && setDiningStyle(value as DiningStyle)
+                      }
+                    >
+                      <SelectTrigger className={selectClass}>
+                        {
+                          diningOptions.find(
+                            ([value]) => value === diningStyle,
+                          )?.[1]
+                        }
+                      </SelectTrigger>
+                      <SelectContent>
+                        {diningOptions.map(([value, label]) => (
                           <SelectItem key={value} value={value}>
                             {label}
                           </SelectItem>
@@ -379,25 +437,9 @@ export default function Home() {
                     </Select>
                   </label>
                 </div>
-                <div className="mt-6 space-y-3">
-                  <div className="flex items-center justify-between text-sm font-bold text-slate-700 dark:text-slate-300">
-                    <span>{copy.budget}</span>
-                    <span className="rounded-lg border border-slate-200 px-3 py-1.5 text-base text-slate-900 dark:border-slate-700 dark:text-white">
-                      ¥{budget.toLocaleString()}
-                    </span>
-                  </div>
-                  <Slider
-                    value={[budget]}
-                    max={100000}
-                    step={5000}
-                    onValueChange={(value) =>
-                      setBudget(Array.isArray(value) ? value[0] : value)
-                    }
-                  />
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
-                    {copy.budgetNote}
-                  </p>
-                </div>
+                <p className="mt-6 text-xs text-slate-500 dark:text-slate-400">
+                  {copy.budgetNote}
+                </p>
                 <Button
                   className="mt-6 h-12 w-full rounded-xl bg-emerald-700 text-base font-bold text-white hover:bg-emerald-800"
                   onClick={scrollToRecommendations}
@@ -415,7 +457,9 @@ export default function Home() {
                   <Dices className="mr-2 h-5 w-5" />
                   {copy.surprise}
                 </Button>
-                <Link to="/destinations">
+                <Link
+                  to={`/destinations?${serializePlannerSearchParams({ vibe, partyProfile, diningStyle, tripDuration, budget, carMode, publicModes })}`}
+                >
                   <Button
                     variant="outline"
                     className="h-12 w-full rounded-xl bg-white text-base font-bold dark:bg-slate-900"

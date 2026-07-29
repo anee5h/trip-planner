@@ -79,5 +79,9 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/2/26/%E7%AB%B9%E7%94%B0%E5%9F%8E.JPG",
   "walkingIntensity": "low",
   "walkingSunMin": 1800,
-  "walkingShadeMin": 1200
+  "walkingShadeMin": 1200,
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 5
+  }
 }

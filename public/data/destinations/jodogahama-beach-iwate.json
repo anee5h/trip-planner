@@ -82,5 +82,9 @@
   },
   "budgetBreakdown": null,
   "role": "standalone",
-  "placeType": "destination"
+  "placeType": "destination",
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 5
+  }
 }

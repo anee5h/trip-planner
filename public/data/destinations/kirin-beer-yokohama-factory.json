@@ -85,5 +85,9 @@
   "placeType": "destination",
   "addedAt": "2026-07-28",
   "imageNeedsReview": false,
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  }
 }

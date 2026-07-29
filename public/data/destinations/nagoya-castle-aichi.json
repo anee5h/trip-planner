@@ -76,5 +76,9 @@
   "parking": "Available on site",
   "notes": "Nagoya Castle (Golden Shachihoko) located in Aichi Prefecture.",
   "walkingIntensity": "low",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  }
 }

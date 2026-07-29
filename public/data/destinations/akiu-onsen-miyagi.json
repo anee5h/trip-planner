@@ -81,5 +81,9 @@
     "nearbyDestinationIds": ["sendai-city", "matsushima-bay"],
     "parentDestinationId": "sendai-city"
   },
-  "budgetBreakdown": null
+  "budgetBreakdown": null,
+  "recommendedVisitHours": {
+    "min": 5,
+    "max": 7
+  }
 }

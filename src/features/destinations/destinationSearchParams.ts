@@ -1,3 +1,6 @@
+import type { DiningStyle, PartyProfile } from "@/shared/types/planner";
+import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
+
 export const DEFAULT_DESTINATION_EXPLORER_STATE = {
   searchQuery: "",
   selectedRegions: [] as string[],
@@ -8,7 +11,10 @@ export const DEFAULT_DESTINATION_EXPLORER_STATE = {
   carMode: "none",
   publicModes: ["train", "shinkansen", "bus", "flight"],
   partySize: 2,
-  weather: "all",
+  partyProfile: "couple" as PartyProfile,
+  diningStyle: "standard" as DiningStyle,
+  vibe: "any",
+  tripDuration: "any" as TripDuration,
   walkingIntensity: "all",
   suitabilities: [] as string[],
   interests: [] as string[],
@@ -29,6 +35,14 @@ export function parseDestinationSearchParams(
 ): DestinationExplorerState {
   const defaults = DEFAULT_DESTINATION_EXPLORER_STATE;
   const view = params.get("view");
+  const rawParty = params.get("party");
+  const rawDining = params.get("dining");
+  const partyProfile: PartyProfile =
+    rawParty === "solo" || rawParty === "group" || rawParty === "couple"
+      ? rawParty
+      : defaults.partyProfile;
+  const legacyPartySize =
+    rawParty && /^\d+$/.test(rawParty) ? parseNumber(rawParty, 0) : undefined;
 
   return {
     searchQuery: params.get("q") ?? defaults.searchQuery,
@@ -41,8 +55,25 @@ export function parseDestinationSearchParams(
     publicModes: params.has("mode")
       ? params.getAll("mode")
       : defaults.publicModes,
-    partySize: parseNumber(params.get("party"), defaults.partySize),
-    weather: params.get("weather") ?? defaults.weather,
+    partySize: params.has("partySize")
+      ? parseNumber(params.get("partySize"), defaults.partySize)
+      : legacyPartySize && legacyPartySize > 0
+        ? legacyPartySize
+        : partyProfile === "solo"
+          ? 1
+          : partyProfile === "group"
+            ? 4
+            : 2,
+    partyProfile,
+    diningStyle:
+      rawDining === "budget" ||
+      rawDining === "premium" ||
+      rawDining === "standard"
+        ? rawDining
+        : defaults.diningStyle,
+    vibe: params.get("vibe") ?? defaults.vibe,
+    tripDuration:
+      (params.get("duration") as TripDuration | null) ?? defaults.tripDuration,
     walkingIntensity: params.get("walking") ?? defaults.walkingIntensity,
     suitabilities: params.getAll("suitability"),
     interests: params.getAll("interest"),
@@ -69,12 +100,35 @@ export function serializeDestinationSearchParams(
   params.set("sort", state.sortBy);
   params.set("car", state.carMode);
   appendAll("mode", state.publicModes);
-  params.set("party", String(state.partySize));
-  params.set("weather", state.weather);
+  params.set("party", state.partyProfile);
+  params.set("partySize", String(state.partySize));
+  params.set("dining", state.diningStyle);
+  params.set("vibe", state.vibe);
+  params.set("duration", state.tripDuration);
   params.set("walking", state.walkingIntensity);
   appendAll("suitability", state.suitabilities);
   appendAll("interest", state.interests);
   params.set("view", state.viewMode);
   params.set("page", String(state.currentPage));
   return params;
+}
+
+export function serializePlannerSearchParams(input: {
+  vibe: string;
+  partyProfile: PartyProfile;
+  diningStyle: DiningStyle;
+  tripDuration: TripDuration;
+  budget: number;
+  carMode: string;
+  publicModes: string[];
+}): string {
+  const params = new URLSearchParams();
+  params.set("vibe", input.vibe);
+  params.set("party", input.partyProfile);
+  params.set("dining", input.diningStyle);
+  params.set("duration", input.tripDuration);
+  params.set("budget", String(input.budget));
+  params.set("car", input.carMode);
+  input.publicModes.forEach((mode) => params.append("mode", mode));
+  return params.toString();
 }

@@ -144,7 +144,7 @@ describe("RecommendationScorer Unit Tests", () => {
     expect(confidences).toEqual([...confidences].sort((a, b) => a - b));
   });
 
-  it("normalizes forecast descriptions and keeps preferred weather independent", () => {
+  it("normalizes and scores actual weather without a preference input", () => {
     expect(normalizeWeatherDescription("Light drizzle")).toBe("rainy");
     expect(normalizeWeatherDescription("Thunderstorm")).toBe("stormy");
 
@@ -157,24 +157,23 @@ describe("RecommendationScorer Unit Tests", () => {
       visitedIds: [],
       weather: {
         actual: { condition: "rainy" as const, temperatureC: 18 },
-        preferred: "any" as const,
       },
     };
-    const rainyPreference = calculateScore(
+    const rainy = calculateScore(
       {
         ...mockDest,
         comfort: { heatTolerance: 5, rainFriendly: 9, walkingIntensity: 5 },
       },
-      {
-        ...base,
-        weather: { ...base.weather, preferred: "rainy" },
-      },
+      base,
     ).score;
-    const noPreference = calculateScore(mockDest, base).score;
-    expect(rainyPreference).not.toBe(noPreference);
+    const clear = calculateScore(mockDest, {
+      ...base,
+      weather: { actual: { condition: "clear", temperatureC: 18 } },
+    }).score;
+    expect(rainy).not.toBe(clear);
   });
 
-  it("does not treat preferred temperature as actual weather", () => {
+  it("scores actual temperature without a preferred temperature", () => {
     const destination = {
       ...mockDest,
       ratings: { ...mockDest.ratings, summer: 8 },
@@ -187,23 +186,14 @@ describe("RecommendationScorer Unit Tests", () => {
       partySize: 1,
       visitedIds: [],
     };
-    const neutral = calculateScore(destination, {
-      ...context,
-      weather: { preferred: "any" as const },
-    }).score;
-    const preferred = calculateScore(destination, {
-      ...context,
-      weather: { preferred: "hot" as const },
-    }).score;
+    const neutral = calculateScore(destination, context).score;
     const actual = calculateScore(destination, {
       ...context,
       weather: {
         actual: { condition: "clear" as const, temperatureC: 35 },
-        preferred: "any" as const,
       },
     }).score;
 
-    expect(preferred - neutral).toBe(6);
     expect(actual - neutral).toBeCloseTo(15);
   });
 });

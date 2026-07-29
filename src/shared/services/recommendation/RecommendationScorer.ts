@@ -3,7 +3,7 @@ import {
   resolveRecommendationWeather,
   type RecommendationContext,
 } from "./RecommendationContext";
-import { getAdjustedBudget } from "@/shared/services/budget/BudgetService";
+import { getEstimatedBudgetRange } from "@/shared/services/budget/BudgetService";
 import { getFixedSeason } from "@/shared/utils/season";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
 
@@ -109,9 +109,9 @@ export function calculateScore(
   bestModeScore: number;
   bestModeBudget?: number;
 } {
-  const { tripType, budget, carMode, publicModes, partySize, userRatings } =
-    context;
-  const { actual, preferred } = resolveRecommendationWeather(context);
+  const { budget, carMode, publicModes, partySize, userRatings } = context;
+  const vibe = context.vibe ?? context.tripType ?? "any";
+  const { actual } = resolveRecommendationWeather(context);
 
   let score =
     SCORING_WEIGHTS.BASE_SCORE +
@@ -134,12 +134,15 @@ export function calculateScore(
 
     let adjustedBudget = 999999;
     if (dest.budgetRecommended) {
-      adjustedBudget = getAdjustedBudget(
+      const estimatedRange = getEstimatedBudgetRange(
         dest,
         mode,
         partySize,
+        context.diningStyle,
+        dest.totalTripHours,
         context.homeStationCoords || undefined,
       );
+      adjustedBudget = (estimatedRange[0] + estimatedRange[1]) / 2;
       if (adjustedBudget > budget) {
         modeScore -=
           ((adjustedBudget - budget) / SCORING_WEIGHTS.BUDGET_OVER_DIVISOR) *
@@ -197,7 +200,7 @@ export function calculateScore(
   const cats = dest.categories || [];
   const tags = dest.tags || [];
 
-  switch (tripType) {
+  switch (vibe) {
     case "food":
       score += (ratings.food - 5) * SCORING_WEIGHTS.TRIP_TYPE_FOOD_MULTIPLIER;
       break;
@@ -260,14 +263,6 @@ export function calculateScore(
   if (isCold) {
     score += (ratings.winter - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER;
     if (ratings.winter <= 4) score -= SCORING_WEIGHTS.ENV_TEMP_PENALTY;
-  }
-
-  if (preferred === "rainy") {
-    score += (dest.comfort?.rainFriendly ?? dest.ratings?.rain ?? 5) - 5;
-  } else if (preferred === "hot") {
-    score += (ratings.summer - 5) * 2;
-  } else if (preferred === "cold") {
-    score += (ratings.winter - 5) * 2;
   }
 
   // Calendar Season Scoring

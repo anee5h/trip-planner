@@ -94,5 +94,9 @@
   "reservation": "None required",
   "parking": "Available on site",
   "walkingIntensity": "high",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 8,
+    "max": 14
+  }
 }

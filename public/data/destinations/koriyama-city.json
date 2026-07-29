@@ -82,5 +82,9 @@
     "confidence": "beta"
   },
   "collections": [],
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 8,
+    "max": 14
+  }
 }

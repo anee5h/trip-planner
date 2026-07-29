@@ -15,6 +15,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { getAdjustedBudget } from "@/shared/utils/utils";
+import { getEstimatedBudgetRange } from "@/shared/services/budget/BudgetService";
 import StationInput from "@/shared/components/StationInput";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
 import { useTripStore } from "@/shared/hooks/useTripStore";
@@ -24,6 +25,12 @@ import {
   scoreForCatalog,
 } from "@/shared/services/recommendation/RecommendationService";
 import type { RecommendationContext } from "@/shared/services/recommendation/RecommendationContext";
+import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
+import type { DiningStyle, PartyProfile } from "@/shared/types/planner";
+import {
+  estimateTripDuration,
+  matchesTripDurationEstimate,
+} from "@/shared/services/recommendation/TripDurationService";
 import {
   tokenizeQuery,
   matchesDestination,
@@ -68,7 +75,16 @@ export default function Destinations() {
     initialExplorerState.publicModes,
   );
   const [partySize, setPartySize] = useState(initialExplorerState.partySize);
-  const [weather, setWeather] = useState(initialExplorerState.weather);
+  const [partyProfile, setPartyProfile] = useState<PartyProfile>(
+    initialExplorerState.partyProfile,
+  );
+  const [diningStyle, setDiningStyle] = useState<DiningStyle>(
+    initialExplorerState.diningStyle,
+  );
+  const [vibe, setVibe] = useState(initialExplorerState.vibe);
+  const [tripDuration, setTripDuration] = useState<TripDuration>(
+    initialExplorerState.tripDuration,
+  );
   const [walkingIntensity, setWalkingIntensity] = useState(
     initialExplorerState.walkingIntensity,
   );
@@ -139,7 +155,10 @@ export default function Destinations() {
     setCarMode(restored.carMode);
     setPublicModes(restored.publicModes);
     setPartySize(restored.partySize);
-    setWeather(restored.weather);
+    setPartyProfile(restored.partyProfile);
+    setDiningStyle(restored.diningStyle);
+    setVibe(restored.vibe);
+    setTripDuration(restored.tripDuration);
     setWalkingIntensity(restored.walkingIntensity);
     setSuitabilities(restored.suitabilities);
     setInterests(restored.interests);
@@ -162,7 +181,10 @@ export default function Destinations() {
       carMode,
       publicModes,
       partySize,
-      weather,
+      partyProfile,
+      diningStyle,
+      vibe,
+      tripDuration,
       walkingIntensity,
       suitabilities,
       interests,
@@ -184,7 +206,10 @@ export default function Destinations() {
     carMode,
     publicModes,
     partySize,
-    weather,
+    partyProfile,
+    diningStyle,
+    vibe,
+    tripDuration,
     walkingIntensity,
     suitabilities,
     interests,
@@ -204,9 +229,10 @@ export default function Destinations() {
   const catalogContext = useMemo<RecommendationContext>(() => {
     const prefs = user?.user_metadata?.preferences ?? {};
     return {
-      tripType: "",
-      budget: 50_000,
-      partySize: prefs.partySize ?? 2,
+      vibe,
+      diningStyle,
+      budget: maxBudget,
+      partySize,
       carMode: prefs.carMode ?? "none",
       publicModes: prefs.publicModes ?? [
         "train",
@@ -219,8 +245,18 @@ export default function Destinations() {
       visitedIds: [],
       homeStationCoords: homeStationCoords ?? null,
       userRatings: destinationRatings,
+      tripDuration,
     };
-  }, [user, homeStationCoords, destinationRatings]);
+  }, [
+    user,
+    homeStationCoords,
+    destinationRatings,
+    vibe,
+    diningStyle,
+    tripDuration,
+    maxBudget,
+    partySize,
+  ]);
 
   // Reset page to 1 when filters change
   useEffect(() => {
@@ -245,7 +281,8 @@ export default function Destinations() {
     carMode,
     publicModes,
     partySize,
-    weather,
+    diningStyle,
+    tripDuration,
     walkingIntensity,
     suitabilities,
     interests,
@@ -284,15 +321,33 @@ export default function Destinations() {
 
     // 2. Filter by budget and Transport availability
     result = result.filter((dest) => {
-      const modes = getValidModes(dest, carMode, publicModes);
+      const modes = getValidModes(
+        dest,
+        carMode,
+        publicModes,
+        homeStationCoords ?? undefined,
+      );
       if (modes.length === 0) return false;
+      if (
+        !matchesTripDurationEstimate(
+          estimateTripDuration(dest, catalogContext, modes),
+          tripDuration,
+        )
+      )
+        return false;
 
-      let lowest = 999999;
-      for (const m of modes) {
-        const b = getAdjustedBudget(dest, m, partySize);
-        if (b < lowest) lowest = b;
-      }
-      return lowest <= maxBudget;
+      return modes.some(
+        (mode) =>
+          getEstimatedBudgetRange(
+            dest,
+            mode,
+            partySize,
+            diningStyle,
+            estimateTripDuration(dest, catalogContext, modes)
+              ?.representativeHours,
+            homeStationCoords ?? undefined,
+          )[1] <= maxBudget,
+      );
     });
 
     // 3. Suitability filters
@@ -321,19 +376,7 @@ export default function Destinations() {
       });
     }
 
-    // 5. Filter by Weather
-    if (weather === "indoor") {
-      result = result.filter(
-        (dest) =>
-          (dest.indoorPercent ?? 0) >= 50 || (dest.ratings?.rain ?? 0) >= 8,
-      );
-    } else if (weather === "summer") {
-      result = result.filter((dest) => (dest.ratings?.summer ?? 0) >= 8);
-    } else if (weather === "winter") {
-      result = result.filter((dest) => (dest.ratings?.winter ?? 0) >= 8);
-    }
-
-    // 6. Filter by Walking Intensity
+    // 5. Filter by Walking Intensity
     if (walkingIntensity !== "all") {
       result = result.filter(
         (dest) => getWalkingIntensity(dest) === walkingIntensity,
@@ -395,7 +438,6 @@ export default function Destinations() {
     carMode,
     publicModes,
     partySize,
-    weather,
     walkingIntensity,
     homeStationCoords,
     catalogContext,
@@ -418,7 +460,10 @@ export default function Destinations() {
     setCarMode(defaults.carMode);
     setPublicModes(defaults.publicModes);
     setPartySize(defaults.partySize);
-    setWeather(defaults.weather);
+    setPartyProfile(defaults.partyProfile);
+    setDiningStyle(defaults.diningStyle);
+    setVibe(defaults.vibe);
+    setTripDuration(defaults.tripDuration);
     setWalkingIntensity(defaults.walkingIntensity);
     setSuitabilities(defaults.suitabilities);
     setInterests(defaults.interests);
@@ -483,8 +528,12 @@ export default function Destinations() {
         setPublicModes={setPublicModes}
         partySize={partySize}
         setPartySize={setPartySize}
-        weather={weather}
-        setWeather={setWeather}
+        partyProfile={partyProfile}
+        setPartyProfile={setPartyProfile}
+        diningStyle={diningStyle}
+        setDiningStyle={setDiningStyle}
+        tripDuration={tripDuration}
+        setTripDuration={setTripDuration}
         walkingIntensity={walkingIntensity}
         setWalkingIntensity={setWalkingIntensity}
         suitabilities={suitabilities}
@@ -507,7 +556,6 @@ export default function Destinations() {
 
         {(searchQuery ||
           maxBudget < 100000 ||
-          weather !== "all" ||
           suitabilities.length > 0 ||
           interests.length > 0) && (
           <div className="flex items-center gap-2 flex-wrap">
@@ -529,18 +577,6 @@ export default function Destinations() {
                 <button
                   onClick={() => setMaxBudget(100000)}
                   aria-label="Clear budget filter"
-                  className="ml-1.5 hover:text-emerald-900 dark:hover:text-emerald-100 font-bold"
-                >
-                  ×
-                </button>
-              </span>
-            )}
-            {weather !== "all" && (
-              <span className="inline-flex items-center text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 px-2.5 py-1 rounded-full capitalize">
-                Weather: {weather}
-                <button
-                  onClick={() => setWeather("all")}
-                  aria-label="Clear weather filter"
                   className="ml-1.5 hover:text-emerald-900 dark:hover:text-emerald-100 font-bold"
                 >
                   ×

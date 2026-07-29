@@ -94,5 +94,9 @@
     "food": 9100,
     "cafe": 4900
   },
-  "walkingIntensity": "medium"
+  "walkingIntensity": "medium",
+  "recommendedVisitHours": {
+    "min": 8,
+    "max": 14
+  }
 }

@@ -188,6 +188,14 @@ export interface Destination {
     my_car?: number;
   };
   totalTripHours: number;
+  recommendedVisitHours?: {
+    min: number;
+    max: number;
+  };
+  travelBuffers?: {
+    transferMinutes?: number;
+    ferryMinutes?: number;
+  };
   walkingMin: number;
   walkingIntensity?: "low" | "medium" | "high";
   walkingSunMin: number;

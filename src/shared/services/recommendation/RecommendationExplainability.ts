@@ -5,15 +5,20 @@ import {
 } from "./RecommendationContext";
 import type { MatchReason, RecommendationMatch } from "./RecommendationTypes";
 import { calculateConfidence, getValidModes } from "./RecommendationScorer";
-import { getAdjustedBudget } from "@/shared/services/budget/BudgetService";
+import {
+  formatJPYRange,
+  getEstimatedBudgetRange,
+} from "@/shared/services/budget/BudgetService";
+import type { PriceRange } from "@/shared/types/planner";
 
 export function createRecommendationMatch(
   dest: Destination,
   context: RecommendationContext,
   score: number,
 ): RecommendationMatch {
-  const { tripType, budget, carMode, publicModes, partySize } = context;
-  const { actual, preferred } = resolveRecommendationWeather(context);
+  const { budget, carMode, publicModes, partySize } = context;
+  const vibe = context.vibe ?? context.tripType ?? "any";
+  const { actual } = resolveRecommendationWeather(context);
 
   const reasons: MatchReason[] = [];
   const matchedPreferences: string[] = [];
@@ -29,23 +34,29 @@ export function createRecommendationMatch(
 
   // 1. Budget and Transport Explainability
   let bestMode = validModesForDest[0];
-  let bestModeBudget = 999999;
+  let bestModeBudget: PriceRange | undefined;
   let hasFastTrain = false;
   let hasEasyDrive = false;
 
   for (const mode of validModesForDest) {
-    let adjustedBudget = 999999;
+    let estimatedBudget: PriceRange | undefined;
     if (dest.budgetRecommended) {
-      adjustedBudget = getAdjustedBudget(
+      estimatedBudget = getEstimatedBudgetRange(
         dest,
         mode,
         partySize,
+        context.diningStyle,
+        dest.totalTripHours,
         context.homeStationCoords || undefined,
       );
     }
 
-    if (adjustedBudget <= budget && adjustedBudget < bestModeBudget) {
-      bestModeBudget = adjustedBudget;
+    if (
+      estimatedBudget &&
+      estimatedBudget[1] <= budget &&
+      (!bestModeBudget || estimatedBudget[1] < bestModeBudget[1])
+    ) {
+      bestModeBudget = estimatedBudget;
       bestMode = mode;
     }
 
@@ -67,23 +78,25 @@ export function createRecommendationMatch(
 
   // Budget Reason
   if (dest.budgetRecommended) {
-    if (bestModeBudget <= budget) {
+    if (bestModeBudget && bestModeBudget[1] <= budget) {
       matchedPreferences.push("budget");
-      if (budget - bestModeBudget >= 5000) {
+      if (budget - bestModeBudget[1] >= 5000) {
+        const cost = formatJPYRange(bestModeBudget);
         reasons.push({
           type: "Budget",
           code: "budgetGreatValue",
-          params: { cost: bestModeBudget.toLocaleString() },
+          params: { cost },
           title: "Great Value",
-          description: `Well under budget (est. ¥${bestModeBudget.toLocaleString()})`,
+          description: `Well under budget (estimated ${cost})`,
         });
       } else {
+        const cost = formatJPYRange(bestModeBudget);
         reasons.push({
           type: "Budget",
           code: "budgetWithin",
-          params: { cost: bestModeBudget.toLocaleString() },
+          params: { cost },
           title: "Within Budget",
-          description: `Est. ¥${bestModeBudget.toLocaleString()} is within your range`,
+          description: `Estimated ${cost} is within your range`,
         });
       }
     } else {
@@ -131,7 +144,7 @@ export function createRecommendationMatch(
   const cats = dest.categories || [];
   const tags = dest.tags || [];
 
-  switch (tripType) {
+  switch (vibe) {
     case "food":
       if (ratings.food >= 8.5) {
         matchedPreferences.push("food");
@@ -236,10 +249,10 @@ export function createRecommendationMatch(
   const isCold =
     actual?.temperatureC !== undefined && actual.temperatureC <= 10;
 
-  if (isRaining || preferred === "rainy") {
+  if (isRaining) {
     const indoor = dest.indoorPercent || 0;
     if (indoor >= 70 || ratings.rain >= 8.5) {
-      if (preferred === "rainy") matchedPreferences.push("weather");
+      matchedPreferences.push("weather");
       reasons.push({
         type: "Weather",
         code: "weatherRainFriendly",
@@ -252,8 +265,8 @@ export function createRecommendationMatch(
       });
     }
   }
-  if ((isHot || preferred === "hot") && ratings.summer >= 8.5) {
-    if (preferred === "hot") matchedPreferences.push("weather");
+  if (isHot && ratings.summer >= 8.5) {
+    matchedPreferences.push("weather");
     reasons.push({
       type: "Weather",
       code: "weatherCoolRetreat",
@@ -261,8 +274,8 @@ export function createRecommendationMatch(
       description: "A cool escape from the hot city temperatures",
     });
   }
-  if ((isCold || preferred === "cold") && ratings.winter >= 8.5) {
-    if (preferred === "cold") matchedPreferences.push("weather");
+  if (isCold && ratings.winter >= 8.5) {
+    matchedPreferences.push("weather");
     reasons.push({
       type: "Weather",
       code: "weatherWinterComfort",

@@ -82,5 +82,9 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/180131_Umi-Jigoku.jpg/1920px-180131_Umi-Jigoku.jpg",
   "walkingIntensity": "low",
   "walkingSunMin": 1800,
-  "walkingShadeMin": 1200
+  "walkingShadeMin": 1200,
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 5
+  }
 }

@@ -34,9 +34,10 @@ import {
   Plus,
   ThumbsUp,
   ThumbsDown,
+  Timer,
 } from "lucide-react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import { getAdjustedBudget } from "@/shared/utils/utils";
+import { formatJPYRange } from "@/shared/services/budget/BudgetService";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
 import { useLocale } from "@/shared/context/LocaleContext";
@@ -331,16 +332,23 @@ export default function DestinationCard({
               <div className="flex items-center whitespace-nowrap min-w-0">
                 <JapaneseYen className="w-4 h-4 mr-1.5 text-slate-400 shrink-0" />
                 <span className="truncate">
-                  {(
-                    (preferredTransport?.estimatedBudget ??
-                      getAdjustedBudget(
-                        destination,
-                        "all",
-                        partySize,
-                        homeStationCoords ?? undefined,
-                      )) / 1000
-                  ).toFixed(0)}
-                  k {locale === "ja" ? "目安" : "est."}
+                  {formatJPYRange([
+                    destination.budgetMin * partySize,
+                    destination.budgetMax * partySize,
+                  ])}{" "}
+                  {locale === "ja" ? "目安" : "est."}
+                </span>
+              </div>
+              <div className="flex items-center whitespace-nowrap min-w-0">
+                <Timer className="w-4 h-4 mr-1.5 text-slate-400 shrink-0" />
+                <span className="truncate">
+                  {destination.recommendedVisitHours
+                    ? locale === "ja"
+                      ? `滞在 ${destination.recommendedVisitHours.min}–${destination.recommendedVisitHours.max}時間`
+                      : `${destination.recommendedVisitHours.min}–${destination.recommendedVisitHours.max}h visit`
+                    : locale === "ja"
+                      ? "滞在時間目安なし"
+                      : "Visit time unavailable"}
                 </span>
               </div>
               <div className="flex items-center whitespace-nowrap min-w-0">

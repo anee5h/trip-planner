@@ -1,7 +1,7 @@
 {
   "name": "tabimap",
   "private": true,
-  "version": "1.8.14",
+  "version": "1.9.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -27,6 +27,7 @@
     "report:editorial-freshness": "tsx scripts/report-editorial-freshness.ts",
     "sync-destination-details": "tsx scripts/sync-destination-details.ts",
     "normalize-destination-budgets": "tsx scripts/normalize-destination-budgets.ts",
+    "add-recommended-visit-hours": "tsx scripts/add-recommended-visit-hours.ts",
     "normalize-legacy-ratings": "tsx scripts/normalize-legacy-ratings.ts",
     "apply-city-hub-relationships": "tsx scripts/apply-city-hub-relationships.ts",
     "add-reviewed-city-hubs": "tsx scripts/add-reviewed-city-hubs.ts",

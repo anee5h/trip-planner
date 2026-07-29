@@ -1,13 +1,14 @@
 import type { Destination } from "@/shared/types/destination";
-import { getAdjustedBudget } from "@/shared/services/budget/BudgetService";
+import { getEstimatedBudgetRange } from "@/shared/services/budget/BudgetService";
 import {
   getDistance,
   getDynamicTransportOptions,
 } from "@/shared/utils/distance";
+import type { RecommendationContext } from "./RecommendationContext";
 import {
-  matchesTripDuration,
-  type RecommendationContext,
-} from "./RecommendationContext";
+  estimateTripDuration,
+  matchesTripDurationEstimate,
+} from "./TripDurationService";
 import { createRecommendationMatch } from "./RecommendationExplainability";
 import {
   calculateConfidence,
@@ -66,8 +67,6 @@ export function runRecommendationPipeline(
   const eligible = candidates.filter((destination) => {
     if (!destination.id || context.visitedIds.includes(destination.id))
       return false;
-    if (!matchesTripDuration(destination.totalTripHours, context.tripDuration))
-      return false;
     const modes = getValidModes(
       destination,
       context.carMode,
@@ -75,17 +74,28 @@ export function runRecommendationPipeline(
       context.homeStationCoords || undefined,
     );
     if (modes.length === 0) return false;
+    if (
+      !matchesTripDurationEstimate(
+        estimateTripDuration(destination, context, modes),
+        context.tripDuration,
+      )
+    )
+      return false;
     const lowestCost = Math.min(
-      ...modes.map((mode) =>
-        getAdjustedBudget(
-          destination,
-          mode,
-          context.partySize,
-          context.homeStationCoords || undefined,
-        ),
+      ...modes.map(
+        (mode) =>
+          getEstimatedBudgetRange(
+            destination,
+            mode,
+            context.partySize,
+            context.diningStyle,
+            estimateTripDuration(destination, context, modes)
+              ?.representativeHours,
+            context.homeStationCoords || undefined,
+          )[1],
       ),
     );
-    return lowestCost <= context.budget * 1.2;
+    return lowestCost <= context.budget;
   });
 
   const scored = eligible.map((candidate) => {
@@ -95,10 +105,22 @@ export function runRecommendationPipeline(
       context,
       scoreResult.score,
     );
-    const estimatedCost = getAdjustedBudget(
+    const durationEstimate = estimateTripDuration(
+      candidate,
+      context,
+      getValidModes(
+        candidate,
+        context.carMode,
+        context.publicModes,
+        context.homeStationCoords || undefined,
+      ),
+    );
+    const estimatedCostRange = getEstimatedBudgetRange(
       candidate,
       scoreResult.bestMode || "train",
       context.partySize,
+      context.diningStyle,
+      durationEstimate?.representativeHours,
       context.homeStationCoords || undefined,
     );
     return {
@@ -106,9 +128,11 @@ export function runRecommendationPipeline(
       score: scoreResult.score,
       match,
       bestTransportMode: scoreResult.bestMode,
+      estimatedCostRange,
       pipeline: {
         eligible: true,
-        estimatedCost,
+        estimatedCost: estimatedCostRange[0],
+        estimatedCostRange,
         bestTransportMode: scoreResult.bestMode,
         scoreContributions: {
           total: scoreResult.score,

@@ -8,7 +8,7 @@ describe("destinationSearchParams", () => {
   it("round-trips Explorer filters, search, view, and page", () => {
     const parsed = parseDestinationSearchParams(
       new URLSearchParams(
-        "q=beach&region=Okinawa&prefecture=Okinawa&collection=islands&budget=45000&sort=travelTime&car=rental&mode=flight&mode=bus&party=3&weather=summer&walking=low&suitability=couple&interest=nature&view=map&page=3",
+        "q=beach&region=Okinawa&prefecture=Okinawa&collection=islands&budget=45000&sort=travelTime&car=rental&mode=flight&mode=bus&party=3&walking=low&suitability=couple&interest=nature&view=map&page=3",
       ),
     );
 
@@ -22,7 +22,9 @@ describe("destinationSearchParams", () => {
       carMode: "rental",
       publicModes: ["flight", "bus"],
       partySize: 3,
-      weather: "summer",
+      diningStyle: "standard",
+      vibe: "any",
+      tripDuration: "any",
       walkingIntensity: "low",
       suitabilities: ["couple"],
       interests: ["nature"],

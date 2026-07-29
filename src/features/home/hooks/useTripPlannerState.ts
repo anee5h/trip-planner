@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
 import type { User } from "@supabase/supabase-js";
 import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
+import {
+  PARTY_SIZE,
+  type DiningStyle,
+  type PartyProfile,
+} from "@/shared/types/planner";
 
 export function useTripPlannerState(user: User | null) {
-  const [tripType, setTripType] = useState<string>("any");
-  const [budget, setBudget] = useState<number>(30000);
+  const [vibe, setVibe] = useState<string>("any");
+  const [budget, setBudget] = useState<number>(100000);
   const [carMode, setCarMode] = useState<string>("none");
   const [publicModes, setPublicModes] = useState<string[]>([
     "train",
@@ -12,8 +17,8 @@ export function useTripPlannerState(user: User | null) {
     "bus",
     "flight",
   ]);
-  const [partySize, setPartySize] = useState<number>(2);
-  const [weather, setWeather] = useState<string>("any");
+  const [partyProfile, setPartyProfile] = useState<PartyProfile>("couple");
+  const [diningStyle, setDiningStyle] = useState<DiningStyle>("standard");
   const [tripDuration, setTripDuration] = useState<TripDuration>("any");
 
   useEffect(() => {
@@ -27,23 +32,31 @@ export function useTripPlannerState(user: User | null) {
           "flight",
         ],
       );
-      setPartySize(user.user_metadata.preferences.partySize || 2);
+      const savedPartySize = user.user_metadata.preferences.partySize;
+      setPartyProfile(
+        savedPartySize === 1
+          ? "solo"
+          : savedPartySize >= 4
+            ? "group"
+            : "couple",
+      );
     }
   }, [user]);
 
   return {
-    tripType,
-    setTripType,
+    vibe,
+    setVibe,
     budget,
     setBudget,
     carMode,
     setCarMode,
     publicModes,
     setPublicModes,
-    partySize,
-    setPartySize,
-    weather,
-    setWeather,
+    partyProfile,
+    setPartyProfile,
+    diningStyle,
+    setDiningStyle,
+    partySize: PARTY_SIZE[partyProfile],
     tripDuration,
     setTripDuration,
   };
