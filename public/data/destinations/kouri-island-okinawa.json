@@ -91,5 +91,6 @@
   "recommendedVisitHours": {
     "min": 3,
     "max": 5
-  }
+  },
+  "officialWebsite": "https://www.nakijin-kankou.jp/"
 }

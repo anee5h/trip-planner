@@ -98,5 +98,6 @@
   },
   "role": "poi",
   "placeType": "destination",
-  "areaId": "chiba-port"
+  "areaId": "chiba-port",
+  "officialWebsite": "https://chiba-porttower.com/"
 }

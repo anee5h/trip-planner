@@ -80,11 +80,25 @@ describe("Repair Destination Integration Tests", () => {
     expect(dryRunCatalog[0].budgetBreakdown?.tickets).toBe(300); // unchanged
   });
 
+  it("requires --confirm-bulk flag when running bulk finding repair without --id", () => {
+    const { execSync } = require("child_process");
+    try {
+      execSync(
+        "npx tsx scripts/repair-destination.ts --finding FREE_PLACE_TICKET_COST --dry-run",
+        { stdio: "pipe" },
+      );
+      expect.unreachable("Should have failed without --confirm-bulk");
+    } catch (err: unknown) {
+      const stderr = (err as { stderr: Buffer }).stderr?.toString() ?? "";
+      expect(stderr).toContain("--confirm-bulk");
+    }
+  });
+
   it("is idempotent — a second repair run creates zero diff (REP-004)", () => {
     const entry = {
-      changedAt: "2026-07-29",
-      changedBy: "test",
-      summary: "audit repair",
+      changedAt: "2026-07-29T10:00:00Z",
+      changedBy: "repair:destination",
+      summary: "repair:destination applied DUPLICATE_AUDIT_HISTORY",
       method: "assisted" as const,
     };
     const fixture: Destination[] = [

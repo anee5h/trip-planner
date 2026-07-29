@@ -96,5 +96,6 @@
   "recommendedVisitHours": {
     "min": 9,
     "max": 11
-  }
+  },
+  "officialWebsite": "https://kiso-magome.com/"
 }

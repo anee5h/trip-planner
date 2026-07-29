@@ -114,6 +114,12 @@
         "url": "https://en.wikipedia.org/wiki/%C5%8Csu_Kannon",
         "title": "Ōsu Kannon",
         "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://osu-kannon.jp/",
+        "title": "Official website for Osu Kannon",
+        "accessedAt": "2026-07-29"
       }
     ],
     "checkedAt": "2026-07-29",
@@ -133,6 +139,14 @@
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/%C5%8Csu_Kannon",
           "title": "Ōsu Kannon",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "officialWebsite": [
+        {
+          "type": "official",
+          "url": "https://osu-kannon.jp/",
+          "title": "Official website for Osu Kannon",
           "accessedAt": "2026-07-29"
         }
       ]
@@ -156,5 +170,6 @@
     "rubricVersion": 1,
     "method": "assisted",
     "confidence": "low"
-  }
+  },
+  "officialWebsite": "https://osu-kannon.jp/"
 }

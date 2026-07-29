@@ -90,5 +90,6 @@
   "recommendedVisitHours": {
     "min": 10,
     "max": 12
-  }
+  },
+  "officialWebsite": "https://www.shimaonsen.com/"
 }

@@ -97,5 +97,6 @@
   "recommendedVisitHours": {
     "min": 11,
     "max": 13
-  }
+  },
+  "officialWebsite": "https://www.kusatsu-onsen.ne.jp/"
 }

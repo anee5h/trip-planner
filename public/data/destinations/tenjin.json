@@ -114,6 +114,12 @@
         "url": "https://en.wikipedia.org/wiki/Nishitetsu_Fukuoka_(Tenjin)_Station",
         "title": "Nishitetsu Fukuoka (Tenjin) Station",
         "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://yokanavi.com/",
+        "title": "Official website for Tenjin",
+        "accessedAt": "2026-07-29"
       }
     ],
     "checkedAt": "2026-07-29",
@@ -133,6 +139,14 @@
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Nishitetsu_Fukuoka_(Tenjin)_Station",
           "title": "Nishitetsu Fukuoka (Tenjin) Station",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "officialWebsite": [
+        {
+          "type": "official",
+          "url": "https://yokanavi.com/",
+          "title": "Official website for Tenjin",
           "accessedAt": "2026-07-29"
         }
       ]
@@ -156,5 +170,6 @@
     "rubricVersion": 1,
     "method": "assisted",
     "confidence": "low"
-  }
+  },
+  "officialWebsite": "https://yokanavi.com/"
 }

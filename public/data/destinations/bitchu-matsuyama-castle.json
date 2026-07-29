@@ -108,5 +108,6 @@
   "recommendedVisitHours": {
     "min": 3,
     "max": 5
-  }
+  },
+  "officialWebsite": "https://www.city.takahashi.lg.jp/site/bitchu-matsuyama-castle/"
 }

@@ -33,11 +33,19 @@ const scopeId = getFlag("id");
 const scopeFinding = getFlag("finding");
 const dryRun = hasFlag("dry-run");
 
-// REP-002: Reject unscoped repair.
+// REP-002: Reject unscoped or unconfirmed bulk repair.
 if (!scopeId && !scopeFinding) {
   console.error(
     "Error: scope argument required. Use --id <destinationId> and/or --finding <CODE>.\n" +
       "Example: npm run repair:destination -- --id ameya-yokocho --finding RAIN_DATA_CONFLICT --dry-run",
+  );
+  process.exit(1);
+}
+
+if (scopeFinding && !scopeId && !hasFlag("confirm-bulk")) {
+  console.error(
+    "Error: Bulk repair across all destinations matching a finding requires the --confirm-bulk flag.\n" +
+      "Example: npm run repair:destination -- --finding FREE_PLACE_TICKET_COST --confirm-bulk --dry-run",
   );
   process.exit(1);
 }
@@ -115,6 +123,7 @@ interface RepairLogEntry {
 
 const repairLog: RepairLogEntry[] = [];
 const changedAt = new Date().toISOString();
+const modifiedDestIds = new Set<string>();
 
 for (const finding of findings) {
   const dest = catalogById.get(finding.destinationId);
@@ -140,6 +149,7 @@ for (const finding of findings) {
       if (dest.budgetBreakdown) {
         (dest.budgetBreakdown as Record<string, unknown>).tickets = newValue;
       }
+      modifiedDestIds.add(dest.id);
       repairLog.push({
         destinationId: dest.id,
         code: finding.code,
@@ -174,6 +184,7 @@ for (const finding of findings) {
 
     if (!dryRun && dest.editorial) {
       dest.editorial.changes = deduped;
+      modifiedDestIds.add(dest.id);
       repairLog.push({
         destinationId: dest.id,
         code: finding.code,
@@ -187,12 +198,12 @@ for (const finding of findings) {
     }
   }
 
-  // REP-004: Append idempotent editorial history entry
+  // REP-004: Append idempotent editorial history entry (independent of timestamp)
   if (!dryRun && dest.editorial) {
     const summary = `repair:destination applied ${finding.code}`;
     const changes = dest.editorial.changes ?? [];
     const alreadyPresent = changes.some(
-      (c) => c.changedAt === changedAt && c.summary === summary,
+      (c) => c.changedBy === "repair:destination" && c.summary === summary,
     );
     if (!alreadyPresent) {
       changes.push({
@@ -202,6 +213,7 @@ for (const finding of findings) {
         method: "assisted",
       });
       dest.editorial.changes = changes;
+      modifiedDestIds.add(dest.id);
     }
   }
 
@@ -213,8 +225,23 @@ for (const finding of findings) {
 // ---------------------------------------------------------------------------
 
 if (!dryRun) {
+  // Update index JSON
   fs.writeFileSync(catalogPath, `${JSON.stringify(catalog, null, 2)}\n`);
   console.log(`Wrote ${catalogPath}`);
+
+  // Update individual detail JSON files under public/data/destinations/
+  const detailsDir = path.join(process.cwd(), "public/data/destinations");
+  let detailCount = 0;
+  for (const id of modifiedDestIds) {
+    const dest = catalogById.get(id);
+    if (!dest) continue;
+    const detailPath = path.join(detailsDir, `${id}.json`);
+    if (fs.existsSync(detailPath)) {
+      fs.writeFileSync(detailPath, `${JSON.stringify(dest, null, 2)}\n`);
+      detailCount++;
+    }
+  }
+  console.log(`Updated ${detailCount} detail file(s) in ${detailsDir}`);
 
   // REP-005: Write repair log
   const logDir = path.join(process.cwd(), "reports");

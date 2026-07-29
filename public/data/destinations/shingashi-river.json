@@ -113,6 +113,12 @@
         "url": "https://en.wikipedia.org/wiki/Shingashi_River",
         "title": "Shingashi River",
         "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://koedo.or.jp/",
+        "title": "Official website for Shingashi River",
+        "accessedAt": "2026-07-29"
       }
     ],
     "checkedAt": "2026-07-29",
@@ -132,6 +138,14 @@
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Shingashi_River",
           "title": "Shingashi River",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "officialWebsite": [
+        {
+          "type": "official",
+          "url": "https://koedo.or.jp/",
+          "title": "Official website for Shingashi River",
           "accessedAt": "2026-07-29"
         }
       ]
@@ -155,5 +169,6 @@
     "rubricVersion": 1,
     "method": "assisted",
     "confidence": "low"
-  }
+  },
+  "officialWebsite": "https://koedo.or.jp/"
 }

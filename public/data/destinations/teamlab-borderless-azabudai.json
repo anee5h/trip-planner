@@ -85,5 +85,6 @@
   "recommendedVisitHours": {
     "min": 3,
     "max": 5
-  }
+  },
+  "officialWebsite": "https://borderless.teamlab.art/jp/"
 }

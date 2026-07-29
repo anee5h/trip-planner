@@ -90,5 +90,6 @@
   "recommendedVisitHours": {
     "min": 11,
     "max": 13
-  }
+  },
+  "officialWebsite": "https://www.kamikochi.or.jp/"
 }

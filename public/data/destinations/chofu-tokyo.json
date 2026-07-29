@@ -89,5 +89,6 @@
   "recommendedVisitHours": {
     "min": 4,
     "max": 6
-  }
+  },
+  "officialWebsite": "https://csa.gr.jp/"
 }

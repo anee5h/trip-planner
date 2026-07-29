@@ -89,5 +89,6 @@
   "recommendedVisitHours": {
     "min": 1.5,
     "max": 3.5
-  }
+  },
+  "officialWebsite": "https://www.kirin.co.jp/experience/factory/yokohama/"
 }

@@ -114,6 +114,12 @@
         "url": "https://en.wikipedia.org/wiki/Nunobiki_Falls",
         "title": "Nunobiki Falls",
         "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.kobe-kankou.jp/",
+        "title": "Official website for Nunobiki Falls",
+        "accessedAt": "2026-07-29"
       }
     ],
     "checkedAt": "2026-07-29",
@@ -133,6 +139,14 @@
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Nunobiki_Falls",
           "title": "Nunobiki Falls",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "officialWebsite": [
+        {
+          "type": "official",
+          "url": "https://www.kobe-kankou.jp/",
+          "title": "Official website for Nunobiki Falls",
           "accessedAt": "2026-07-29"
         }
       ]
@@ -156,5 +170,6 @@
     "rubricVersion": 1,
     "method": "assisted",
     "confidence": "low"
-  }
+  },
+  "officialWebsite": "https://www.kobe-kankou.jp/"
 }

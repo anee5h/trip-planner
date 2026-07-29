@@ -82,5 +82,6 @@
     "max": 4
   },
   "placeType": "destination",
-  "areaId": "central-nagoya"
+  "areaId": "central-nagoya",
+  "officialWebsite": "https://www.nagoyacastle.jp/"
 }

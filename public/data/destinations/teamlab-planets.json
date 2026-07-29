@@ -82,5 +82,6 @@
   "recommendedVisitHours": {
     "min": 3,
     "max": 5
-  }
+  },
+  "officialWebsite": "https://planets.teamlab.art/tokyo/jp/"
 }

@@ -93,5 +93,6 @@
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
-  }
+  },
+  "officialWebsite": "https://ouchi-juku.com/"
 }

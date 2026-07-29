@@ -100,5 +100,6 @@
   },
   "role": "poi",
   "placeType": "destination",
-  "areaId": "osaka-castle"
+  "areaId": "osaka-castle",
+  "officialWebsite": "https://www.osakacastle.net/"
 }

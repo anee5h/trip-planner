@@ -115,6 +115,12 @@
         "url": "https://en.wikipedia.org/wiki/Yasaka_Pagoda",
         "title": "Yasaka Pagoda",
         "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.yasaka-jinja.or.jp/",
+        "title": "Official website for Yasaka Shrine",
+        "accessedAt": "2026-07-29"
       }
     ],
     "checkedAt": "2026-07-29",
@@ -134,6 +140,14 @@
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Yasaka_Pagoda",
           "title": "Yasaka Pagoda",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "officialWebsite": [
+        {
+          "type": "official",
+          "url": "https://www.yasaka-jinja.or.jp/",
+          "title": "Official website for Yasaka Shrine",
           "accessedAt": "2026-07-29"
         }
       ]
@@ -157,5 +171,6 @@
     "rubricVersion": 1,
     "method": "assisted",
     "confidence": "low"
-  }
+  },
+  "officialWebsite": "https://www.yasaka-jinja.or.jp/"
 }

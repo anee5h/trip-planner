@@ -100,5 +100,6 @@
   "recommendedVisitHours": {
     "min": 3,
     "max": 5
-  }
+  },
+  "officialWebsite": "https://www.city.gifu.lg.jp/kanko/gifucastle/"
 }

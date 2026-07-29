@@ -87,5 +87,6 @@
   "recommendedVisitHours": {
     "min": 3,
     "max": 5
-  }
+  },
+  "officialWebsite": "http://www.dewasanzan.jp/"
 }

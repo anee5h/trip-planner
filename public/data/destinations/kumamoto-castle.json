@@ -96,5 +96,6 @@
   "recommendedVisitHours": {
     "min": 3,
     "max": 5
-  }
+  },
+  "officialWebsite": "https://kumamoto-guide.jp/kumamoto-castle/"
 }

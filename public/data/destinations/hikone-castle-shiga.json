@@ -111,5 +111,6 @@
   "recommendedVisitHours": {
     "min": 3,
     "max": 5
-  }
+  },
+  "officialWebsite": "https://hikonecastle.com/"
 }

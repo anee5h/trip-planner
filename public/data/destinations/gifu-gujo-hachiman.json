@@ -95,5 +95,6 @@
   "recommendedVisitHours": {
     "min": 9,
     "max": 11
-  }
+  },
+  "officialWebsite": "https://www.gujokankou.com/"
 }

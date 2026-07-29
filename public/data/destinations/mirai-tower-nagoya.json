@@ -103,5 +103,6 @@
   },
   "role": "poi",
   "placeType": "destination",
-  "areaId": "sakae"
+  "areaId": "sakae",
+  "officialWebsite": "https://www.nagoya-tv-tower.co.jp/"
 }

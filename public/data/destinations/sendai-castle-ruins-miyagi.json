@@ -92,5 +92,6 @@
   },
   "role": "poi",
   "placeType": "destination",
-  "areaId": "aoba"
+  "areaId": "aoba",
+  "officialWebsite": "https://www.sendai-c.ed.jp/~museum/"
 }

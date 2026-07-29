@@ -90,5 +90,6 @@
     "max": 7
   },
   "role": "standalone",
-  "placeType": "destination"
+  "placeType": "destination",
+  "officialWebsite": "https://www.city.katori.lg.jp/"
 }

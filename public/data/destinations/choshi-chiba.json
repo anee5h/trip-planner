@@ -89,5 +89,6 @@
   "recommendedVisitHours": {
     "min": 8,
     "max": 10
-  }
+  },
+  "officialWebsite": "https://www.choshikanko.com/"
 }

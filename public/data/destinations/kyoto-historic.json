@@ -101,5 +101,6 @@
     "min": 3,
     "max": 5
   },
-  "areaId": "higashiyama"
+  "areaId": "higashiyama",
+  "officialWebsite": "https://kyoto-travel.kyoto/"
 }

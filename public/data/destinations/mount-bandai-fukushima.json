@@ -89,5 +89,6 @@
   "recommendedVisitHours": {
     "min": 5,
     "max": 7
-  }
+  },
+  "officialWebsite": "https://www.bandaisan.or.jp/"
 }

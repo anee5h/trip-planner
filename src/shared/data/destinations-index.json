@@ -194,7 +194,8 @@
       "max": 4
     },
     "placeType": "destination",
-    "areaId": "tennoji-abeno"
+    "areaId": "tennoji-abeno",
+    "officialWebsite": "https://www.abenoharukas-300.jp/observatory/"
   },
   {
     "id": "abukuma-cave-fukushima",
@@ -282,7 +283,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://abukumado.com/"
   },
   {
     "id": "adachi-city",
@@ -543,7 +545,8 @@
     "recommendedVisitHours": {
       "min": 4,
       "max": 6
-    }
+    },
+    "officialWebsite": "https://visit-minato-city.tokyo.jp/"
   },
   {
     "id": "akihabara-chiyoda",
@@ -631,7 +634,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://visit-chiyoda.tokyo.jp/"
   },
   {
     "id": "akita-city",
@@ -810,7 +814,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://www.akiuonsensyokoukai.com/"
   },
   {
     "id": "akiyoshido-cave-yamaguchi",
@@ -897,7 +902,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://akiyoshi-dai.com/"
   },
   {
     "id": "amami-iriomote-natural-site",
@@ -1004,7 +1010,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://www.env.go.jp/park/iriomote/"
   },
   {
     "id": "amanohashidate-kyoto",
@@ -1100,7 +1107,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.amanohashidate.jp/"
   },
   {
     "id": "ameya-yokocho",
@@ -1708,7 +1716,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.fujiyoshida.net/spot/11"
   },
   {
     "id": "arima-onsen",
@@ -1817,7 +1826,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.arima-onsen.com/"
   },
   {
     "id": "art-tower-mito",
@@ -1916,7 +1926,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.arttowermito.or.jp/"
   },
   {
     "id": "asago-city",
@@ -2185,7 +2196,8 @@
     "recommendedVisitHours": {
       "min": 4,
       "max": 6
-    }
+    },
+    "officialWebsite": "https://www.taito-city.tokyo.jp/"
   },
   {
     "id": "ashigara",
@@ -2273,7 +2285,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.town.kaisai.kanagawa.jp/"
   },
   {
     "id": "ashikaga-city",
@@ -2452,7 +2465,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.ashikaga.co.jp/"
   },
   {
     "id": "aso-city",
@@ -2643,7 +2657,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://asukamura.jp/"
   },
   {
     "id": "atami-city",
@@ -2835,7 +2850,8 @@
     },
     "role": "poi",
     "placeType": "destination",
-    "areaId": "atsuta"
+    "areaId": "atsuta",
+    "officialWebsite": "https://www.atsutajingu.or.jp/"
   },
   {
     "id": "beppu-city",
@@ -3013,7 +3029,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.umi-jigoku.co.jp/"
   },
   {
     "id": "biei-town",
@@ -3212,7 +3229,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.city.takahashi.lg.jp/site/bitchu-matsuyama-castle/"
   },
   {
     "id": "boso-no-mura",
@@ -3465,7 +3483,8 @@
     "recommendedVisitHours": {
       "min": 11,
       "max": 13
-    }
+    },
+    "officialWebsite": "https://maruchiba.jp/"
   },
   {
     "id": "bunkyo-city",
@@ -4268,7 +4287,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.town.kyonan.tokushima.jp/site/nokogiriyama/"
   },
   {
     "id": "chiba-park",
@@ -4704,7 +4724,8 @@
     },
     "role": "poi",
     "placeType": "destination",
-    "areaId": "chiba-port"
+    "areaId": "chiba-port",
+    "officialWebsite": "https://chiba-porttower.com/"
   },
   {
     "id": "chiba-sawara",
@@ -4798,7 +4819,8 @@
       "max": 7
     },
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "officialWebsite": "https://www.city.katori.lg.jp/"
   },
   {
     "id": "chiba-shrine",
@@ -5053,7 +5075,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 8
-    }
+    },
+    "officialWebsite": "https://www.town.otaki.chiba.jp/"
   },
   {
     "id": "chiba-zoological-park",
@@ -5584,7 +5607,8 @@
     "recommendedVisitHours": {
       "min": 4,
       "max": 6
-    }
+    },
+    "officialWebsite": "https://csa.gr.jp/"
   },
   {
     "id": "choshi-chiba",
@@ -5677,7 +5701,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 10
-    }
+    },
+    "officialWebsite": "https://www.choshikanko.com/"
   },
   {
     "id": "choshi-city",
@@ -5944,7 +5969,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.cupnoodles-museum.jp/ja/yokohama/"
   },
   {
     "id": "dakigaeri-valley-akita",
@@ -6045,7 +6071,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.city.senboku.akita.jp/sightseeing/spot/05_dakigaeri.html"
   },
   {
     "id": "dazaifu-city",
@@ -6224,7 +6251,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "http://www.dewasanzan.jp/"
   },
   {
     "id": "disneyland",
@@ -6312,7 +6340,8 @@
     "recommendedVisitHours": {
       "min": 11,
       "max": 13
-    }
+    },
+    "officialWebsite": "https://www.tokyodisneyresort.jp/tdl/"
   },
   {
     "id": "disneysea",
@@ -6400,7 +6429,8 @@
     "recommendedVisitHours": {
       "min": 12,
       "max": 14
-    }
+    },
+    "officialWebsite": "https://www.tokyodisneyresort.jp/tds/"
   },
   {
     "id": "dogo-onsen-ehime",
@@ -6487,7 +6517,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://dogo.jp/"
   },
   {
     "id": "dotonbori",
@@ -6758,7 +6789,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://sento.kunaicho.go.jp/Edo/"
   },
   {
     "id": "edogawa-city",
@@ -7271,7 +7303,8 @@
       "min": 7,
       "max": 9
     },
-    "areaId": "enoshima"
+    "areaId": "enoshima",
+    "officialWebsite": "https://www.fujisawa-kanko.jp/"
   },
   {
     "id": "enoshima-iwaya-caves",
@@ -7388,6 +7421,12 @@
           "url": "https://en.wikipedia.org/wiki/Enoshima",
           "title": "Enoshima",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://www.fujisawa-kanko.jp/spot/enoshima/17.html",
+          "title": "Official website for Enoshima Iwaya Caves",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -7407,6 +7446,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Enoshima",
             "title": "Enoshima",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://www.fujisawa-kanko.jp/spot/enoshima/17.html",
+            "title": "Official website for Enoshima Iwaya Caves",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -7430,7 +7477,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://www.fujisawa-kanko.jp/spot/enoshima/17.html"
   },
   {
     "id": "enoshima-sea-candle",
@@ -8022,7 +8070,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.fujisan.ne.jp/"
   },
   {
     "id": "fujikawaguchiko-town",
@@ -8649,7 +8698,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.fukuikankou.jp/"
   },
   {
     "id": "fukuoka-art-museum",
@@ -9948,7 +9998,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://gala.co.jp/"
   },
   {
     "id": "geibikei-gorge-iwate",
@@ -10038,7 +10089,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.geibikei.co.jp/"
   },
   {
     "id": "gero-city",
@@ -10234,7 +10286,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.gero-spa.or.jp/"
   },
   {
     "id": "ghibli-museum",
@@ -10326,7 +10379,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://www.ghibli-museum.jp/"
   },
   {
     "id": "gifu-castle-gifu",
@@ -10430,7 +10484,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.city.gifu.lg.jp/kanko/gifucastle/"
   },
   {
     "id": "gifu-city",
@@ -10623,7 +10678,8 @@
     "recommendedVisitHours": {
       "min": 9,
       "max": 11
-    }
+    },
+    "officialWebsite": "https://www.gujokankou.com/"
   },
   {
     "id": "gifu-magome-juku",
@@ -10723,7 +10779,8 @@
     "recommendedVisitHours": {
       "min": 9,
       "max": 11
-    }
+    },
+    "officialWebsite": "https://kiso-magome.com/"
   },
   {
     "id": "ginkaku-ji",
@@ -10984,7 +11041,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://www.ginza.jp/"
   },
   {
     "id": "ginzan-onsen-yamagata",
@@ -11072,7 +11130,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.ginzanonsen.jp/"
   },
   {
     "id": "golden-gai",
@@ -11339,7 +11398,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.urabandai-inf.com/"
   },
   {
     "id": "gotemba-city",
@@ -11706,7 +11766,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://www.gunkanjima-tour.jp/"
   },
   {
     "id": "gunma-ikaho-onsen",
@@ -11801,7 +11862,8 @@
     "recommendedVisitHours": {
       "min": 9,
       "max": 11
-    }
+    },
+    "officialWebsite": "https://www.ikaho-kankou.com/"
   },
   {
     "id": "gunma-kusatsu-onsen",
@@ -11902,7 +11964,8 @@
     "recommendedVisitHours": {
       "min": 11,
       "max": 13
-    }
+    },
+    "officialWebsite": "https://www.kusatsu-onsen.ne.jp/"
   },
   {
     "id": "gunma-shima-onsen",
@@ -11996,7 +12059,8 @@
     "recommendedVisitHours": {
       "min": 10,
       "max": 12
-    }
+    },
+    "officialWebsite": "https://www.shimaonsen.com/"
   },
   {
     "id": "hachinohe-city",
@@ -12169,7 +12233,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.city.hachioji.tokyo.jp/kankobunka/001/003/p005221.html"
   },
   {
     "id": "hachioji-tokyo",
@@ -12516,7 +12581,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.seaparadise.co.jp/"
   },
   {
     "id": "hakodate-city",
@@ -12714,7 +12780,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://334.co.jp/"
   },
   {
     "id": "hakone-town",
@@ -13098,7 +13165,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.wbstudiotour.jp/"
   },
   {
     "id": "hasedera",
@@ -13624,7 +13692,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.higashiyama.city.nagoya.jp/"
   },
   {
     "id": "hikone-castle-shiga",
@@ -13739,7 +13808,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://hikonecastle.com/"
   },
   {
     "id": "hikone-city",
@@ -13931,7 +14001,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.himejicastle.jp/"
   },
   {
     "id": "himeji-city",
@@ -14212,7 +14283,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://www.chusonji.or.jp/"
   },
   {
     "id": "hirosaki-castle",
@@ -14310,7 +14382,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.hirosakijo.jp/"
   },
   {
     "id": "hirosaki-city",
@@ -14596,7 +14669,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://pcf.city.hiroshima.jp/"
   },
   {
     "id": "hokkaido-jingu",
@@ -15364,7 +15438,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "http://www.horyuji.or.jp/"
   },
   {
     "id": "ibaraki-fukuroda-falls",
@@ -15468,7 +15543,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 10
-    }
+    },
+    "officialWebsite": "https://www.daigo-kanko.jp/"
   },
   {
     "id": "ibaraki-hitachi-seaside-park",
@@ -15567,7 +15643,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://hitachikaihin.jp/"
   },
   {
     "id": "ibaraki-mount-tsukuba",
@@ -15661,7 +15738,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://ttca.jp/"
   },
   {
     "id": "ikaruga-town",
@@ -15837,7 +15915,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.toshima-kanko.jp/"
   },
   {
     "id": "ikuta-ryokuchi",
@@ -16089,7 +16168,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://sento.kunaicho.go.jp/Kyoto/"
   },
   {
     "id": "inage-seaside-park",
@@ -16373,6 +16453,12 @@
           "url": "https://en.wikipedia.org/wiki/Inamuragasaki",
           "title": "Inamuragasaki",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://www.trip-kamakura.com/",
+          "title": "Official website for Inamuragasaki",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -16392,6 +16478,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Inamuragasaki",
             "title": "Inamuragasaki",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://www.trip-kamakura.com/",
+            "title": "Official website for Inamuragasaki",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -16415,7 +16509,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://www.trip-kamakura.com/"
   },
   {
     "id": "inuyama-castle-aichi",
@@ -16504,7 +16599,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://inuyama-castle.jp/"
   },
   {
     "id": "inuyama-city",
@@ -16799,7 +16895,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.isejingu.or.jp/"
   },
   {
     "id": "ishigaki-city",
@@ -17260,7 +17357,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://www.ginzan-wm.jp/"
   },
   {
     "id": "iwatsuki-ningyo-museum",
@@ -17517,7 +17615,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://miyoshi-tourism.jp/"
   },
   {
     "id": "izu",
@@ -17610,7 +17709,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://kanko.city.izu.shizuoka.jp/"
   },
   {
     "id": "izumo-city",
@@ -17802,7 +17902,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.izumo-kankou.gr.jp/"
   },
   {
     "id": "jochi-ji",
@@ -18058,7 +18159,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.city.miyako.iwate.jp/kanko/jodogahama.html"
   },
   {
     "id": "jogashima",
@@ -18146,7 +18248,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.miura-info.ne.jp/"
   },
   {
     "id": "joypolis",
@@ -18228,7 +18331,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://tokyo-joypolis.com/"
   },
   {
     "id": "jozenji-dori",
@@ -18767,6 +18871,12 @@
           "url": "https://en.wikipedia.org/wiki/Shinjuku",
           "title": "Shinjuku",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://www.kagurazaka.in/",
+          "title": "Official website for Kagurazaka",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -18786,6 +18896,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Shinjuku",
             "title": "Shinjuku",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://www.kagurazaka.in/",
+            "title": "Official website for Kagurazaka",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -18809,7 +18927,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://www.kagurazaka.in/"
   },
   {
     "id": "kairakuen-mito",
@@ -18916,7 +19035,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://ibaraki-kairakuen.jp/"
   },
   {
     "id": "kakegawa-castle-shizuoka",
@@ -19020,7 +19140,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://kakegawajo.com/"
   },
   {
     "id": "kakunodate-samurai-district-akita",
@@ -19110,7 +19231,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.city.senboku.akita.jp/sightseeing/spot/01_kakunodate.html"
   },
   {
     "id": "kamakura-city",
@@ -19502,6 +19624,12 @@
           "url": "https://en.wikipedia.org/wiki/Kanamara_Matsuri",
           "title": "Kanamara Matsuri",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://www.kanayama-jinja.or.jp/",
+          "title": "Official website for Kanayama Shrine",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -19521,6 +19649,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Kanamara_Matsuri",
             "title": "Kanamara Matsuri",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://www.kanayama-jinja.or.jp/",
+            "title": "Official website for Kanayama Shrine",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -19544,7 +19680,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://www.kanayama-jinja.or.jp/"
   },
   {
     "id": "kanazawa",
@@ -19647,7 +19784,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.kanazawa-kankoukyoukai.or.jp/"
   },
   {
     "id": "kanazawa-castle-ishikawa",
@@ -19751,7 +19889,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.pref.ishikawa.jp/kanko/castle/"
   },
   {
     "id": "kannai-yokohama",
@@ -19844,7 +19983,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.welcome.city.yokohama.jp/"
   },
   {
     "id": "karuizawa-town",
@@ -20055,6 +20195,12 @@
           "url": "https://en.wikipedia.org/wiki/Kashiya_Yokocho",
           "title": "Kashiya Yokocho",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://koedo.or.jp/",
+          "title": "Official website for Kashiya Yokocho",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -20074,6 +20220,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Kashiya_Yokocho",
             "title": "Kashiya Yokocho",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://koedo.or.jp/",
+            "title": "Official website for Kashiya Yokocho",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -20097,7 +20251,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://koedo.or.jp/"
   },
   {
     "id": "kasori-shell-mounds",
@@ -20873,7 +21028,8 @@
       "min": 2,
       "max": 4
     },
-    "areaId": "central-kawagoe"
+    "areaId": "central-kawagoe",
+    "officialWebsite": "https://koedo.or.jp/"
   },
   {
     "id": "kawagoe-city",
@@ -21772,7 +21928,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.nikko-kankou.org/"
   },
   {
     "id": "kennin-ji",
@@ -21891,6 +22048,12 @@
           "url": "https://en.wikipedia.org/wiki/Yasaka_Pagoda",
           "title": "Yasaka Pagoda",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://www.kenninji.jp/",
+          "title": "Official website for Kennin-ji",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -21910,6 +22073,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Yasaka_Pagoda",
             "title": "Yasaka Pagoda",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://www.kenninji.jp/",
+            "title": "Official website for Kennin-ji",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -21933,7 +22104,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://www.kenninji.jp/"
   },
   {
     "id": "kinkaku-ji",
@@ -22200,7 +22372,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://kinosaki-spa.gr.jp/"
   },
   {
     "id": "kintai-bridge-yamaguchi",
@@ -22290,7 +22463,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://kintaikyo.iwakuni-city.net/"
   },
   {
     "id": "kinugawa-onsen",
@@ -22390,7 +22564,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.nikko-kankou.org/"
   },
   {
     "id": "kirin-beer-yokohama-factory",
@@ -22483,7 +22658,8 @@
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
-    }
+    },
+    "officialWebsite": "https://www.kirin.co.jp/experience/factory/yokohama/"
   },
   {
     "id": "kisarazu-city",
@@ -22667,7 +22843,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://kiso-magome.com/"
   },
   {
     "id": "kita-city",
@@ -23274,7 +23451,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://nakasato-kiyotsu.com/"
   },
   {
     "id": "kobe-animal-kingdom",
@@ -23984,7 +24162,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://mayasan.jp/"
   },
   {
     "id": "kobe-port-tower",
@@ -24255,7 +24434,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://kochipark.jp/kochijo/"
   },
   {
     "id": "kochi-city",
@@ -24695,7 +24875,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://okayama-korakuen.jp/"
   },
   {
     "id": "koriyama-city",
@@ -25140,7 +25321,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.nakijin-kankou.jp/"
   },
   {
     "id": "koya-town",
@@ -25333,7 +25515,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://kumamoto-guide.jp/kumamoto-castle/"
   },
   {
     "id": "kumamoto-city",
@@ -25533,7 +25716,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://www.tb-kumano.jp/"
   },
   {
     "id": "kurashiki-city",
@@ -25886,7 +26070,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.kurobe-unazuki.jp/"
   },
   {
     "id": "kuromon-market",
@@ -26262,6 +26447,12 @@
           "url": "https://en.wikipedia.org/wiki/Kushida_Shrine",
           "title": "Kushida Shrine",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://yokanavi.com/spot/26906/",
+          "title": "Official website for Kushida Shrine",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -26281,6 +26472,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Kushida_Shrine",
             "title": "Kushida Shrine",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://yokanavi.com/spot/26906/",
+            "title": "Official website for Kushida Shrine",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -26304,7 +26503,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://yokanavi.com/spot/26906/"
   },
   {
     "id": "kushiro-city",
@@ -26604,7 +26804,8 @@
       "min": 3,
       "max": 5
     },
-    "areaId": "higashiyama"
+    "areaId": "higashiyama",
+    "officialWebsite": "https://kyoto-travel.kyoto/"
   },
   {
     "id": "kyoto-imperial-palace",
@@ -27367,7 +27568,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.hamanakako.or.jp/"
   },
   {
     "id": "lake-sagami",
@@ -27460,7 +27662,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.sagamiko.info/"
   },
   {
     "id": "lake-tazawa-akita",
@@ -27552,7 +27755,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.tazawako.org/"
   },
   {
     "id": "lake-towada-aomori",
@@ -27642,7 +27846,8 @@
     "recommendedVisitHours": {
       "min": 4,
       "max": 6
-    }
+    },
+    "officialWebsite": "https://www.towada.kanko.or.jp/"
   },
   {
     "id": "lazona-kawasaki-plaza",
@@ -27896,7 +28101,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://www.machida-guide.or.jp/"
   },
   {
     "id": "maizuru-park",
@@ -28328,7 +28534,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.marugame-castle.jp/"
   },
   {
     "id": "marugame-city",
@@ -28526,7 +28733,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://maruoka-castle.jp/"
   },
   {
     "id": "maruyama-park",
@@ -28887,7 +29095,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.matsue-castle.jp/"
   },
   {
     "id": "matsue-city",
@@ -29060,7 +29269,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.matsumoto-castle.jp/"
   },
   {
     "id": "matsumoto-city",
@@ -29250,7 +29460,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.matsushima-kanko.org/"
   },
   {
     "id": "matsuyama-castle-ehime",
@@ -29359,7 +29570,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.matsuyamajo.jp/"
   },
   {
     "id": "matsuyama-city",
@@ -29651,6 +29863,12 @@
           "url": "https://en.wikipedia.org/wiki/Meriken_Park",
           "title": "Meriken Park",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://www.harborland.co.jp/",
+          "title": "Official website for Meriken Park",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -29670,6 +29888,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Meriken_Park",
             "title": "Meriken Park",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://www.harborland.co.jp/",
+            "title": "Official website for Meriken Park",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -29693,7 +29919,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://www.harborland.co.jp/"
   },
   {
     "id": "minakami-town",
@@ -29964,7 +30191,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://minatomirai21.com/"
   },
   {
     "id": "mine-city",
@@ -30160,7 +30388,8 @@
     },
     "role": "poi",
     "placeType": "destination",
-    "areaId": "sakae"
+    "areaId": "sakae",
+    "officialWebsite": "https://www.nagoya-tv-tower.co.jp/"
   },
   {
     "id": "miraikan",
@@ -30430,7 +30659,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.mitokoumon.com/"
   },
   {
     "id": "mito-city",
@@ -30631,7 +30861,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.itsukushimajinja.jp/"
   },
   {
     "id": "miyakojima-city",
@@ -31073,7 +31304,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.motherfarm.co.jp/"
   },
   {
     "id": "motobu-town",
@@ -31245,7 +31477,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://nanavi.jp/sightseeing/motonosumijinja/"
   },
   {
     "id": "mount-aso-kumamoto",
@@ -31336,7 +31569,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.aso-kankou.jp/"
   },
   {
     "id": "mount-bandai-fukushima",
@@ -31429,7 +31663,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://www.bandaisan.or.jp/"
   },
   {
     "id": "mount-fuji",
@@ -31530,7 +31765,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.fujisan-climb.jp/"
   },
   {
     "id": "mount-inasa-nagasaki",
@@ -31638,7 +31874,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.inasayama.com/"
   },
   {
     "id": "mount-moiwa",
@@ -31755,6 +31992,12 @@
           "url": "https://en.wikipedia.org/wiki/Mount_Moiwa",
           "title": "Mount Moiwa",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://mt-moiwa.jp/",
+          "title": "Official website for Mount Moiwa",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -31774,6 +32017,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Mount_Moiwa",
             "title": "Mount Moiwa",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://mt-moiwa.jp/",
+            "title": "Official website for Mount Moiwa",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -31797,7 +32048,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://mt-moiwa.jp/"
   },
   {
     "id": "mount-yoshino-nara",
@@ -31903,7 +32155,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://yoshinoyama-kankou.com/"
   },
   {
     "id": "mount-zao-yamagata",
@@ -32004,7 +32257,8 @@
     "recommendedVisitHours": {
       "min": 4,
       "max": 6
-    }
+    },
+    "officialWebsite": "https://www.zao-spa.or.jp/"
   },
   {
     "id": "mozufuruichi-kofun-osaka",
@@ -32107,7 +32361,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://www.mozufuruichi-kofun.jp/"
   },
   {
     "id": "musashi-ichinomiya-hikawa-shrine",
@@ -32537,7 +32792,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.nachikan.jp/"
   },
   {
     "id": "nagano-bessho-onsen",
@@ -32625,7 +32881,8 @@
     "recommendedVisitHours": {
       "min": 9,
       "max": 11
-    }
+    },
+    "officialWebsite": "https://www.bessho-spa.jp/"
   },
   {
     "id": "nagano-city",
@@ -32821,7 +33078,8 @@
     "recommendedVisitHours": {
       "min": 11,
       "max": 13
-    }
+    },
+    "officialWebsite": "https://www.kamikochi.or.jp/"
   },
   {
     "id": "nagano-narai-juku",
@@ -32921,7 +33179,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 10
-    }
+    },
+    "officialWebsite": "https://www.naraijuku.org/"
   },
   {
     "id": "nagano-suwa",
@@ -33015,7 +33274,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 10
-    }
+    },
+    "officialWebsite": "https://www.suwakanko.jp/"
   },
   {
     "id": "nagano-tsumago-juku",
@@ -33115,7 +33375,8 @@
     "recommendedVisitHours": {
       "min": 9,
       "max": 11
-    }
+    },
+    "officialWebsite": "https://tumago.jp/"
   },
   {
     "id": "nagasaki-city",
@@ -33373,7 +33634,8 @@
       "max": 4
     },
     "placeType": "destination",
-    "areaId": "central-nagoya"
+    "areaId": "central-nagoya",
+    "officialWebsite": "https://www.nagoyacastle.jp/"
   },
   {
     "id": "nagoya-city",
@@ -33926,7 +34188,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://nagoya-port-building.jp/"
   },
   {
     "id": "naha-city",
@@ -34697,7 +34960,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://naoshima.net/"
   },
   {
     "id": "nara-city",
@@ -34884,7 +35148,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://nara-park.com/"
   },
   {
     "id": "nara-park-todaiji",
@@ -34987,7 +35252,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "http://www.todaiji.or.jp/"
   },
   {
     "id": "narita-airport-observation-decks",
@@ -35361,6 +35627,12 @@
           "url": "https://en.wikipedia.org/wiki/Narita-san",
           "title": "Narita-san",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://www.naritasan.or.jp/",
+          "title": "Official website for Naritasan Park",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -35380,6 +35652,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Narita-san",
             "title": "Narita-san",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://www.naritasan.or.jp/",
+            "title": "Official website for Naritasan Park",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -35403,7 +35683,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://www.naritasan.or.jp/"
   },
   {
     "id": "naruto-city",
@@ -35761,7 +36042,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://www.nmwa.go.jp/"
   },
   {
     "id": "nebuta-museum-wa-rasse-aomori",
@@ -35850,7 +36132,8 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 3
-    }
+    },
+    "officialWebsite": "https://www.nebuta.jp/warasse/"
   },
   {
     "id": "nerima-city",
@@ -36310,7 +36593,8 @@
     },
     "role": "poi",
     "placeType": "destination",
-    "areaId": "central-kyoto"
+    "areaId": "central-kyoto",
+    "officialWebsite": "https://nijo-jocastle.city.kyoto.lg.jp/"
   },
   {
     "id": "nijo-market",
@@ -36663,7 +36947,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.toshogu.jp/"
   },
   {
     "id": "ninna-ji",
@@ -37182,7 +37467,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.noto-kanko.jp/"
   },
   {
     "id": "numazu-city",
@@ -37390,6 +37676,12 @@
           "url": "https://en.wikipedia.org/wiki/Nunobiki_Falls",
           "title": "Nunobiki Falls",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://www.kobe-kankou.jp/",
+          "title": "Official website for Nunobiki Falls",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -37409,6 +37701,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Nunobiki_Falls",
             "title": "Nunobiki Falls",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://www.kobe-kankou.jp/",
+            "title": "Official website for Nunobiki Falls",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -37432,7 +37732,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://www.kobe-kankou.jp/"
   },
   {
     "id": "nunobiki-herb-gardens",
@@ -37859,7 +38160,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.nyuto-onsenkyo.gr.jp/"
   },
   {
     "id": "oarai-marine-tower",
@@ -37963,7 +38265,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://oarai-mt.jp/"
   },
   {
     "id": "odaiba-minato",
@@ -38055,7 +38358,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://tokyo-odaiba.net/"
   },
   {
     "id": "odawara-city",
@@ -38406,7 +38710,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://www.ogasawaramura.tokyo.jp/"
   },
   {
     "id": "ohori-park",
@@ -38664,7 +38969,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.towada.kanko.or.jp/"
   },
   {
     "id": "okama-crater-yamagata",
@@ -38754,7 +39060,8 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 3
-    }
+    },
+    "officialWebsite": "https://zao-kochan.jp/"
   },
   {
     "id": "okayama-city",
@@ -39036,7 +39343,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://www.okinoshima-heritage.jp/"
   },
   {
     "id": "okuhida",
@@ -39124,7 +39432,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.okuhida.or.jp/"
   },
   {
     "id": "ome-tokyo",
@@ -39211,7 +39520,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.omekanko.gr.jp/"
   },
   {
     "id": "omiya-bonsai-art-museum",
@@ -39794,7 +40104,8 @@
       "min": 7,
       "max": 9
     },
-    "areaId": "omiya"
+    "areaId": "omiya",
+    "officialWebsite": "https://www.railway-museum.jp/"
   },
   {
     "id": "omoide-yokocho",
@@ -40319,7 +40630,8 @@
     },
     "role": "poi",
     "placeType": "destination",
-    "areaId": "osaka-castle"
+    "areaId": "osaka-castle",
+    "officialWebsite": "https://www.osakacastle.net/"
   },
   {
     "id": "osaka-castle-park",
@@ -41220,6 +41532,12 @@
           "url": "https://en.wikipedia.org/wiki/%C5%8Csu_Kannon",
           "title": "Ōsu Kannon",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://osu-kannon.jp/",
+          "title": "Official website for Osu Kannon",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -41239,6 +41557,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/%C5%8Csu_Kannon",
             "title": "Ōsu Kannon",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://osu-kannon.jp/",
+            "title": "Official website for Osu Kannon",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -41262,7 +41588,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://osu-kannon.jp/"
   },
   {
     "id": "osu-shopping-district",
@@ -41788,7 +42115,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://ouchi-juku.com/"
   },
   {
     "id": "oura-church-nagasaki",
@@ -41891,7 +42219,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://nagasaki-oura-church.jp/"
   },
   {
     "id": "oze-national-park",
@@ -41985,7 +42314,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.oze-fnd.or.jp/"
   },
   {
     "id": "philosopher-s-walk",
@@ -42272,6 +42602,12 @@
           "url": "https://en.wikipedia.org/wiki/Rakuten_Mobile_Saikyo_Park_Miyagi",
           "title": "Rakuten Mobile Saikyo Park Miyagi",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://www.rakuteneagles.jp/stadium/",
+          "title": "Official website for Rakuten Mobile Park Miyagi",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -42291,6 +42627,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Rakuten_Mobile_Saikyo_Park_Miyagi",
             "title": "Rakuten Mobile Saikyo Park Miyagi",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://www.rakuteneagles.jp/stadium/",
+            "title": "Official website for Rakuten Mobile Park Miyagi",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -42314,7 +42658,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://www.rakuteneagles.jp/stadium/"
   },
   {
     "id": "renkeiji",
@@ -42588,7 +42933,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://tcv.roppongihills.com/"
   },
   {
     "id": "ryoan-ji",
@@ -42844,7 +43190,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://ryugadou.or.jp/"
   },
   {
     "id": "ryusendo-cave-iwate",
@@ -42934,7 +43281,8 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 3
-    }
+    },
+    "officialWebsite": "https://www.iwate-ryusendo.jp/"
   },
   {
     "id": "sado-island",
@@ -43043,7 +43391,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.visitsado.com/"
   },
   {
     "id": "sagamihara-city",
@@ -43339,7 +43688,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.nagatoro.gr.jp/"
   },
   {
     "id": "saitama-shintoshin",
@@ -44030,7 +44380,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.city.sakura.lg.jp/soshiki/sakuranooshiro/"
   },
   {
     "id": "sakurajima-volcano-kagoshima",
@@ -44121,7 +44472,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.sakurajima.gr.jp/"
   },
   {
     "id": "samuel-cocking-garden",
@@ -44406,6 +44758,12 @@
           "url": "https://en.wikipedia.org/wiki/Sanj%C5%ABsangen-d%C5%8D",
           "title": "Sanjūsangen-dō",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://www.sanjusangendo.jp/",
+          "title": "Official website for Sanjusangen-do",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -44425,6 +44783,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Sanj%C5%ABsangen-d%C5%8D",
             "title": "Sanjūsangen-dō",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://www.sanjusangendo.jp/",
+            "title": "Official website for Sanjusangen-do",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -44448,7 +44814,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://www.sanjusangendo.jp/"
   },
   {
     "id": "sannai-maruyama-jomon-aomori",
@@ -44551,7 +44918,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://sannaimaruyama.pref.aomori.jp/"
   },
   {
     "id": "sapporo-beer-museum",
@@ -45692,6 +46060,12 @@
           "url": "https://en.wikipedia.org/wiki/Sendai_Station_(Miyagi)",
           "title": "Sendai Station (Miyagi)",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://sendaiasaichi.com/",
+          "title": "Official website for Sendai Asaichi Morning Market",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -45711,6 +46085,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Sendai_Station_(Miyagi)",
             "title": "Sendai Station (Miyagi)",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://sendaiasaichi.com/",
+            "title": "Official website for Sendai Asaichi Morning Market",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -45734,7 +46116,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://sendaiasaichi.com/"
   },
   {
     "id": "sendai-castle-ruins-miyagi",
@@ -45830,7 +46213,8 @@
     },
     "role": "poi",
     "placeType": "destination",
-    "areaId": "aoba"
+    "areaId": "aoba",
+    "officialWebsite": "https://www.sendai-c.ed.jp/~museum/"
   },
   {
     "id": "sendai-city",
@@ -46731,7 +47115,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.shibuya-scramble-square.com/sky/"
   },
   {
     "id": "shimonoseki-city",
@@ -46912,7 +47297,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.raumen.co.jp/"
   },
   {
     "id": "shinagawa-city",
@@ -47119,6 +47505,12 @@
           "url": "https://en.wikipedia.org/wiki/Shingashi_River",
           "title": "Shingashi River",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://koedo.or.jp/",
+          "title": "Official website for Shingashi River",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -47138,6 +47530,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Shingashi_River",
             "title": "Shingashi River",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://koedo.or.jp/",
+            "title": "Official website for Shingashi River",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -47161,7 +47561,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://koedo.or.jp/"
   },
   {
     "id": "shinjuku-city",
@@ -47538,6 +47939,12 @@
           "url": "https://en.wikipedia.org/wiki/Shinsaibashi",
           "title": "Shinsaibashi",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://www.shinsaibashi.or.jp/",
+          "title": "Official website for Shinsaibashi",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -47557,6 +47964,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Shinsaibashi",
             "title": "Shinsaibashi",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://www.shinsaibashi.or.jp/",
+            "title": "Official website for Shinsaibashi",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -47580,7 +47995,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://www.shinsaibashi.or.jp/"
   },
   {
     "id": "shinsekai",
@@ -48097,7 +48513,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://www.pref.aomori.lg.jp/soshiki/kankyo/kankyo/shirakami.html"
   },
   {
     "id": "shirakawa-village",
@@ -48298,7 +48715,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://www.env.go.jp/park/shiretoko/"
   },
   {
     "id": "shizuoka-city",
@@ -48663,7 +49081,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://oki-park.jp/shurijo/"
   },
   {
     "id": "soji-ji-yokohama",
@@ -48756,7 +49175,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://sojiji.jp/"
   },
   {
     "id": "suginami-city",
@@ -49034,7 +49454,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://sunshinecity.jp/observatory/"
   },
   {
     "id": "sunshine-aquarium",
@@ -49483,6 +49904,12 @@
           "url": "https://en.wikipedia.org/wiki/Susukino",
           "title": "Susukino",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://www.susukino-ta.jp/",
+          "title": "Official website for Susukino",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -49502,6 +49929,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Susukino",
             "title": "Susukino",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://www.susukino-ta.jp/",
+            "title": "Official website for Susukino",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -49525,7 +49960,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://www.susukino-ta.jp/"
   },
   {
     "id": "tachikawa-tokyo",
@@ -50242,7 +50678,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.takanawagateway-city.com/"
   },
   {
     "id": "takaoka",
@@ -50336,7 +50773,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.takaoka.or.jp/"
   },
   {
     "id": "takato-castle-nagano",
@@ -50445,7 +50883,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://inadani-see.net/en/takato-castle-site-park/"
   },
   {
     "id": "takayama-city",
@@ -50628,7 +51067,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.city.asago.hyogo.jp/site/takeda-castle/"
   },
   {
     "id": "takeda-castle-yamanashi",
@@ -50732,7 +51172,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://kofu-kanko.jp/"
   },
   {
     "id": "tama-zoological-park",
@@ -50822,7 +51263,8 @@
     "recommendedVisitHours": {
       "min": 4,
       "max": 6
-    }
+    },
+    "officialWebsite": "https://www.tokyo-zoo.net/zoo/tama/"
   },
   {
     "id": "tanukikoji-shopping-street",
@@ -51243,7 +51685,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://borderless.teamlab.art/jp/"
   },
   {
     "id": "teamlab-planets",
@@ -51329,7 +51772,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://planets.teamlab.art/tokyo/jp/"
   },
   {
     "id": "tempozan-ferris-wheel",
@@ -51615,6 +52059,12 @@
           "url": "https://en.wikipedia.org/wiki/Nishitetsu_Fukuoka_(Tenjin)_Station",
           "title": "Nishitetsu Fukuoka (Tenjin) Station",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://yokanavi.com/",
+          "title": "Official website for Tenjin",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -51634,6 +52084,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Nishitetsu_Fukuoka_(Tenjin)_Station",
             "title": "Nishitetsu Fukuoka (Tenjin) Station",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://yokanavi.com/",
+            "title": "Official website for Tenjin",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -51657,7 +52115,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://yokanavi.com/"
   },
   {
     "id": "tennoji-park",
@@ -51917,7 +52376,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://teshima-navi.jp/"
   },
   {
     "id": "the-museum-of-modern-art-saitama",
@@ -52675,7 +53135,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://kankou-sakai.com/tojinbo/"
   },
   {
     "id": "toki-messe-tower-niigata",
@@ -52784,7 +53245,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.tokimesse.com/"
   },
   {
     "id": "toki-no-kane",
@@ -52901,6 +53363,12 @@
           "url": "https://en.wikipedia.org/wiki/Time_Bell_Tower",
           "title": "Time Bell Tower",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://koedo.or.jp/",
+          "title": "Official website for Toki no Kane",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -52920,6 +53388,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Time_Bell_Tower",
             "title": "Time Bell Tower",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://koedo.or.jp/",
+            "title": "Official website for Toki no Kane",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -52943,7 +53419,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://koedo.or.jp/"
   },
   {
     "id": "tokorozawa-city",
@@ -53540,7 +54017,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 8
-    }
+    },
+    "officialWebsite": "https://hinohara-kankou.jp/"
   },
   {
     "id": "tokyo-metropolitan-government-building-shinjuku",
@@ -53638,7 +54116,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.yokoso.metro.tokyo.lg.jp/"
   },
   {
     "id": "tokyo-mt-mitake",
@@ -53732,7 +54211,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.ces-net.jp/mitakevc/"
   },
   {
     "id": "tokyo-national-museum",
@@ -53997,7 +54477,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 10
-    }
+    },
+    "officialWebsite": "https://www.okutama.gr.jp/"
   },
   {
     "id": "tokyo-skytree-sumida",
@@ -54106,7 +54587,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.tokyo-skytree.jp/"
   },
   {
     "id": "tokyo-station-chiyoda",
@@ -54305,7 +54787,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.tokyotower.co.jp/"
   },
   {
     "id": "tomioka-silk-mill-gunma",
@@ -54408,7 +54891,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 7
-    }
+    },
+    "officialWebsite": "https://www.tomioka-silk.jp/"
   },
   {
     "id": "toshiba-science-museum",
@@ -54845,7 +55329,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.tottori-guide.jp/sakyu/"
   },
   {
     "id": "toyama-alpine",
@@ -54939,7 +55424,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.alpen-route.com/"
   },
   {
     "id": "toyooka-city",
@@ -55793,7 +56279,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.yamaguchi-city.jp/"
   },
   {
     "id": "tsuruga-castle-fukushima",
@@ -55885,7 +56372,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.tsurugajo.com/"
   },
   {
     "id": "tsurugaoka-hachimangu",
@@ -56323,7 +56811,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.uedajo.myu-shop.jp/"
   },
   {
     "id": "ueno-park",
@@ -56668,7 +57157,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.tokyo-zoo.net/zoo/ueno/"
   },
   {
     "id": "uji-city",
@@ -57266,7 +57756,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://daibutu.net/"
   },
   {
     "id": "utsunomiya-city",
@@ -57440,7 +57931,8 @@
     "recommendedVisitHours": {
       "min": 9,
       "max": 11
-    }
+    },
+    "officialWebsite": "https://www.oya-official.jp/"
   },
   {
     "id": "uwajima-castle",
@@ -57540,7 +58032,8 @@
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
-    }
+    },
+    "officialWebsite": "https://www.uwajima-jo.jp/"
   },
   {
     "id": "wakayama-city",
@@ -57812,7 +58305,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.yamaderakankou.com/"
   },
   {
     "id": "yamagata-city",
@@ -57996,7 +58490,8 @@
     "recommendedVisitHours": {
       "min": 9,
       "max": 11
-    }
+    },
+    "officialWebsite": "https://fujiyoshida.net/"
   },
   {
     "id": "yamanashi-nishizawa-valley",
@@ -58084,7 +58579,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 10
-    }
+    },
+    "officialWebsite": "https://www.city.yamanashi.yamanashi.jp/"
   },
   {
     "id": "yamanashi-shosenkyo-gorge",
@@ -58177,7 +58673,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.shosenkyo-kankoukyoukai.com/"
   },
   {
     "id": "yamashita-park-yokohama",
@@ -58270,7 +58767,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.welcome.city.yokohama.jp/"
   },
   {
     "id": "yanaka",
@@ -58387,6 +58885,12 @@
           "url": "https://en.wikipedia.org/wiki/Yanaka,_Tokyo",
           "title": "Yanaka, Tokyo",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://www.yanakaginza.com/",
+          "title": "Official website for Yanaka",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -58406,6 +58910,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Yanaka,_Tokyo",
             "title": "Yanaka, Tokyo",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://www.yanakaginza.com/",
+            "title": "Official website for Yanaka",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -58429,7 +58941,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://www.yanakaginza.com/"
   },
   {
     "id": "yasaka-shrine",
@@ -58548,6 +59061,12 @@
           "url": "https://en.wikipedia.org/wiki/Yasaka_Pagoda",
           "title": "Yasaka Pagoda",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://www.yasaka-jinja.or.jp/",
+          "title": "Official website for Yasaka Shrine",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -58567,6 +59086,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Yasaka_Pagoda",
             "title": "Yasaka Pagoda",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://www.yasaka-jinja.or.jp/",
+            "title": "Official website for Yasaka Shrine",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -58590,7 +59117,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://www.yasaka-jinja.or.jp/"
   },
   {
     "id": "yokohama-chinatown",
@@ -58683,7 +59211,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.chinatown.or.jp/"
   },
   {
     "id": "yokohama-city",
@@ -58894,7 +59423,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://cosmoworld.jp/"
   },
   {
     "id": "yokohama-landmark-tower-sky-garden",
@@ -59002,7 +59532,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.yokohama-landmark.jp/skygarden/"
   },
   {
     "id": "yokohama-marine-tower",
@@ -59100,7 +59631,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://marinetower.yokohama/"
   },
   {
     "id": "yokohama-red-brick-warehouse",
@@ -59193,7 +59725,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "officialWebsite": "https://www.yokohama-akarenga.jp/"
   },
   {
     "id": "yokohama-zoorasia",
@@ -59283,7 +59816,8 @@
     "recommendedVisitHours": {
       "min": 4,
       "max": 6
-    }
+    },
+    "officialWebsite": "https://www.hama-midorinokyokai.or.jp/zoo/zoorasia/"
   },
   {
     "id": "yokosuka-city",
@@ -59465,7 +59999,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.yomiuriland.com/"
   },
   {
     "id": "yufu-city",
@@ -59975,7 +60510,8 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 3
-    }
+    },
+    "officialWebsite": "http://zao-fox-village.com/"
   },
   {
     "id": "zeniarai-benten",
@@ -60092,6 +60628,12 @@
           "url": "https://en.wikipedia.org/wiki/Zeniarai_Benzaiten_Ugafuku_Shrine",
           "title": "Zeniarai Benzaiten Ugafuku Shrine",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://www.trip-kamakura.com/",
+          "title": "Official website for Zeniarai Benten",
+          "accessedAt": "2026-07-29"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -60111,6 +60653,14 @@
             "type": "wikipedia",
             "url": "https://en.wikipedia.org/wiki/Zeniarai_Benzaiten_Ugafuku_Shrine",
             "title": "Zeniarai Benzaiten Ugafuku Shrine",
+            "accessedAt": "2026-07-29"
+          }
+        ],
+        "officialWebsite": [
+          {
+            "type": "official",
+            "url": "https://www.trip-kamakura.com/",
+            "title": "Official website for Zeniarai Benten",
             "accessedAt": "2026-07-29"
           }
         ]
@@ -60134,7 +60684,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "officialWebsite": "https://www.trip-kamakura.com/"
   },
   {
     "id": "zuihoden",
@@ -60389,6 +60940,7 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 9
-    }
+    },
+    "officialWebsite": "https://www.zushi-kanko.jp/"
   }
 ]
