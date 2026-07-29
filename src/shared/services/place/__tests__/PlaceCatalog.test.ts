@@ -66,17 +66,20 @@ describe("PlaceCatalog", () => {
 
   it("gates Japanese discovery to reviewed bilingual places", () => {
     const allPlaces = getCanonicalPlaces();
+    const reviewMode = import.meta.env.VITE_EDITORIAL_REVIEW_MODE === "true";
     expect(getAvailablePlaces("en")).toHaveLength(359);
-    expect(getAvailablePlaces("ja")).toHaveLength(64);
+    expect(getAvailablePlaces("ja")).toHaveLength(reviewMode ? 359 : 64);
     expect(
       allPlaces.every((place) => isPlaceAvailableInLocale(place, "en")),
     ).toBe(true);
-    expect(
-      getAvailablePlaces("ja").every(
-        (place) =>
-          place.editorial.lifecycle === "published" &&
-          Boolean(place.content.ja?.description),
-      ),
-    ).toBe(true);
+    if (!reviewMode) {
+      expect(
+        getAvailablePlaces("ja").every(
+          (place) =>
+            place.editorial.lifecycle === "published" &&
+            Boolean(place.content.ja?.description),
+        ),
+      ).toBe(true);
+    }
   });
 });

@@ -66,6 +66,9 @@ export function isPlaceAvailableInLocale(
   locale: "en" | "ja",
 ): boolean {
   if (locale === "en") return true;
+  if (import.meta.env.VITE_EDITORIAL_REVIEW_MODE === "true") {
+    return true;
+  }
   const canonical = toCanonicalPlace(place);
   const japanese = canonical.content.ja;
   return Boolean(
