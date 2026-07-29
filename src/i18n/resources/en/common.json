@@ -36,6 +36,17 @@
     "matchConfidence": "Match Confidence",
     "matchReasons": "Match Reasons",
     "matchedPreferences": "Matched Preferences",
+    "personalization": {
+      "title": "Personalization",
+      "enableLabel": "Enable History Personalization",
+      "enableHelp": "Adjust rankings based on your saved and visited destinations",
+      "noveltyLabel": "Novelty Preference",
+      "noveltyBalanced": "Balanced",
+      "noveltyNovel": "Prefer Unvisited",
+      "noveltyFamiliar": "Prefer Visited & Similar",
+      "resetAction": "Reset Interest Profile",
+      "resetConfirm": "Are you sure you want to reset your personalization profile?"
+    },
     "confidence": {
       "verifiedCatalogData": "Verified catalog destination & pricing",
       "liveWeatherAvailable": "Live weather data integrated",
