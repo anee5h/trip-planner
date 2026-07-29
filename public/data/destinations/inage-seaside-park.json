@@ -1,0 +1,158 @@
+{
+  "id": "inage-seaside-park",
+  "name": "Inage Seaside Park",
+  "nameJa": "稲毛海浜公園",
+  "aliases": ["Inagekaigan Station", "稲毛海浜公園"],
+  "content": {
+    "en": {
+      "name": "Inage Seaside Park",
+      "description": "Inage Seaside Park is a visitor destination in Chiba City.",
+      "highlights": ["Nature"]
+    },
+    "ja": {
+      "name": "稲毛海浜公園",
+      "description": "稲毛海浜公園（いなげかいひんこうえん）は、千葉県千葉市美浜区にある都市公園（総合公園）である。東京湾（千葉港第5区）に面し、景勝地として日本白砂青松100選（磯の松原）、昭和62年度建設省手づくり郷土賞（水辺の風物詩部門）、房総の魅力500選に選定されている。",
+      "highlights": ["自然"]
+    }
+  },
+  "prefecture": "Chiba",
+  "region": "Kanto",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "inage",
+  "relationships": {
+    "parentDestinationId": "chiba-city"
+  },
+  "officialWebsite": "https://www.city.chiba.jp/toshi/koenryokuchi/kanri/chuo-mihama/inagekaihinkoen.html",
+  "officialWebsiteRequirement": "none",
+  "categories": ["Nature"],
+  "tags": ["Nature", "Chiba City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E7%A8%B2%E6%AF%9B%E6%B5%B7%E6%B5%9C%E5%85%AC%E5%9C%92%20-%20panoramio.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "ogajud",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E7%A8%B2%E6%AF%9B%E6%B5%B7%E6%B5%9C%E5%85%AC%E5%9C%92_-_panoramio.jpg"
+  },
+  "coordinates": {
+    "lat": 35.61805556,
+    "lng": 140.06472222
+  },
+  "description": "Inage Seaside Park is a visitor destination in Chiba City.",
+  "highlights": ["Nature"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 67,
+    "car": 57
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.3,
+    "couple": 9.5,
+    "summer": 6.4,
+    "winter": 6.7,
+    "rain": 7,
+    "food": 7.3,
+    "photography": 9.2,
+    "relaxation": 9.5,
+    "value": 6.4,
+    "uniqueness": 6.7,
+    "family": 7,
+    "accessibility": 7.3
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.6,
+    "summer": 7.9,
+    "autumn": 8.2,
+    "winter": 8.5
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Chiba City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Inagekaigan_Station",
+        "title": "Inagekaigan Station",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.city.chiba.jp/toshi/koenryokuchi/kanri/chuo-mihama/inagekaihinkoen.html",
+        "title": "Inage Seaside Park official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Inagekaigan_Station",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Inagekaigan_Station",
+          "title": "Inagekaigan Station",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

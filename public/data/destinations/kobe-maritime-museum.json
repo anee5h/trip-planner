@@ -1,0 +1,158 @@
+{
+  "id": "kobe-maritime-museum",
+  "name": "Kobe Maritime Museum",
+  "nameJa": "神戸海洋博物館",
+  "aliases": ["Kobe Maritime Museum", "神戸海洋博物館"],
+  "content": {
+    "en": {
+      "name": "Kobe Maritime Museum",
+      "description": "Kobe Maritime Museum is a museum in Kobe, Japan focusing on the history of Japanese shipping and Kobe harbor.\nOne of the former exhibits is the Yamato 1 removed in 2016 along with the TSL Hayate.",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "神戸海洋博物館",
+      "description": "神戸海洋博物館（こうべかいようはくぶつかん）は、兵庫県神戸市中央区波止場町のメリケンパークにある「海・船・港」をテーマとする海事関係の総合博物館。神戸港のシンボルの1つになっている。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Hyogo",
+  "region": "Kansai",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "kobe-waterfront",
+  "relationships": {
+    "parentDestinationId": "kobe-city"
+  },
+  "officialWebsite": "http://www.kobe-maritime-museum.com/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Kobe City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe%20Maritime%20Museum-A%20bird's-eye%20view%20from%20Kobe%20Port%20Tower.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "百楽兎",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kobe_Maritime_Museum-A_bird%27s-eye_view_from_Kobe_Port_Tower.jpg"
+  },
+  "coordinates": {
+    "lat": 34.68277778,
+    "lng": 135.18833333
+  },
+  "description": "Kobe Maritime Museum is a museum in Kobe, Japan focusing on the history of Japanese shipping and Kobe harbor.\nOne of the former exhibits is the Yamato 1 removed in 2016 along with the TSL Hayate.",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 204,
+    "shinkansen": 174
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 7.4,
+    "couple": 7.4,
+    "summer": 6.5,
+    "winter": 9,
+    "rain": 9,
+    "food": 9,
+    "photography": 8.1,
+    "relaxation": 7.2,
+    "value": 8.1,
+    "uniqueness": 7.2,
+    "family": 6.3,
+    "accessibility": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.9,
+    "summer": 8.8,
+    "autumn": 7.9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kobe_Maritime_Museum",
+        "title": "Kobe Maritime Museum",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.kobe-maritime-museum.com/",
+        "title": "Kobe Maritime Museum official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Kobe_Maritime_Museum",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kobe_Maritime_Museum",
+          "title": "Kobe Maritime Museum",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

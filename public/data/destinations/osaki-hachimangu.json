@@ -1,0 +1,159 @@
+{
+  "id": "osaki-hachimangu",
+  "name": "Osaki Hachimangu",
+  "nameJa": "大崎八幡宮",
+  "aliases": ["Ōsaki Hachimangū", "大崎八幡宮"],
+  "content": {
+    "en": {
+      "name": "Osaki Hachimangu",
+      "description": "Ōsaki Hachimangū (大崎八幡宮) is a Shinto shrine located in Aoba-ku, Sendai, Miyagi, Japan. The main shrine building (社殿, shaden) has been designated a National Treasure of Japan.",
+      "highlights": ["History"]
+    },
+    "ja": {
+      "name": "大崎八幡宮",
+      "description": "大崎八幡宮（おおさきはちまんぐう）は、宮城県仙台市青葉区八幡にある神社である。旧社格は村社。社殿（本殿・石の間・拝殿）は国宝に指定されており、どんと祭や裸参りで知られる。",
+      "highlights": ["歴史"]
+    }
+  },
+  "prefecture": "Miyagi",
+  "region": "Tohoku",
+  "kind": "shrine",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "aoba",
+  "relationships": {
+    "parentDestinationId": "sendai-city"
+  },
+  "officialWebsite": "https://www.oosaki-hachiman.or.jp/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History"],
+  "tags": ["History", "Sendai City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Osaki%20Hachiman-gu%2020130819b.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Tak1701d",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osaki_Hachiman-gu_20130819b.jpg"
+  },
+  "coordinates": {
+    "lat": 38.2722,
+    "lng": 140.845
+  },
+  "description": "Ōsaki Hachimangū (大崎八幡宮) is a Shinto shrine located in Aoba-ku, Sendai, Miyagi, Japan. The main shrine building (社殿, shaden) has been designated a National Treasure of Japan.",
+  "highlights": ["History"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 26,
+    "bus": 36,
+    "car": 41
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 3,
+    "rainFriendly": 3,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 6.2,
+    "couple": 8.5,
+    "summer": 6.2,
+    "winter": 8.9,
+    "rain": 6.6,
+    "food": 7.7,
+    "photography": 7,
+    "relaxation": 8.1,
+    "value": 7.4,
+    "uniqueness": 8.5,
+    "family": 7.8,
+    "accessibility": 8.9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.2,
+    "summer": 9.3,
+    "autumn": 8.6,
+    "winter": 6.3
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/%C5%8Csaki_Hachimang%C5%AB",
+        "title": "Ōsaki Hachimangū",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.oosaki-hachiman.or.jp/",
+        "title": "Osaki Hachimangu official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/%C5%8Csaki_Hachimang%C5%AB",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/%C5%8Csaki_Hachimang%C5%AB",
+          "title": "Ōsaki Hachimangū",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

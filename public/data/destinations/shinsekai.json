@@ -1,0 +1,159 @@
+{
+  "id": "shinsekai",
+  "name": "Shinsekai",
+  "nameJa": "新世界 (大阪)",
+  "aliases": ["Shinsekai", "新世界 (大阪)"],
+  "content": {
+    "en": {
+      "name": "Shinsekai",
+      "description": "Shinsekai (新世界, lit. \"New World\"; pronounced [ɕĩɰ̃se̞ꜜka̠i]) is a neighbourhood located next to south Osaka City's downtown \"Minami\" area. The neighbourhood was created in 1912 with New York (specifically, Coney Island) as a model for its southern half and Paris for its northern half.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "新世界 (大阪)",
+      "description": "新世界（しんせかい）は、大阪府大阪市浪速区恵美須東に位置する繁華街。中央やや北寄りに通天閣が建ち、南東部にジャンジャン横丁がある。\n地元では、初代通天閣と遊園地ルナパークが開業した1912年（明治45年）7月3日を、まち開きの日としている。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Osaka",
+  "region": "Kansai",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "namba-minami",
+  "relationships": {
+    "parentDestinationId": "osaka-city"
+  },
+  "officialWebsite": "https://shinsekai.jp/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Osaka City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shinsekai%20(49251920793).jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "attribution": "Dick Thomas Johnson from Tokyo, Japan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shinsekai_(49251920793).jpg"
+  },
+  "coordinates": {
+    "lat": 34.652222222222,
+    "lng": 135.50611111111
+  },
+  "description": "Shinsekai (新世界, lit. \"New World\"; pronounced [ɕĩɰ̃se̞ꜜka̠i]) is a neighbourhood located next to south Osaka City's downtown \"Minami\" area. The neighbourhood was created in 1912 with New York (specifically, Coney Island) as a model for its southern half and Paris for its northern half.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 189,
+    "bus": 209,
+    "shinkansen": 149
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 6.8,
+    "couple": 8.6,
+    "summer": 7.9,
+    "winter": 8.8,
+    "rain": 8.1,
+    "food": 9,
+    "photography": 8.3,
+    "relaxation": 9.2,
+    "value": 8.5,
+    "uniqueness": 9.4,
+    "family": 8.7,
+    "accessibility": 6.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.9,
+    "summer": 8.2,
+    "autumn": 9.1,
+    "winter": 8.4
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Shinsekai",
+        "title": "Shinsekai",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://shinsekai.jp/",
+        "title": "Shinsekai official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Shinsekai",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Shinsekai",
+          "title": "Shinsekai",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

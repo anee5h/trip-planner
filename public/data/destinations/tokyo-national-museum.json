@@ -1,0 +1,157 @@
+{
+  "id": "tokyo-national-museum",
+  "name": "Tokyo National Museum",
+  "nameJa": "東京国立博物館",
+  "aliases": ["Tokyo National Museum", "東京国立博物館"],
+  "content": {
+    "en": {
+      "name": "Tokyo National Museum",
+      "description": "The Tokyo National Museum (東京国立博物館, Tōkyō Kokuritsu Hakubutsukan) or TNM is an art museum in Ueno Park in the Taitō ward of Tokyo, Japan. It is considered the oldest national museum and the largest art museum in Japan. The museum collects, preserves, and displays a comprehensive collection of artwork and cultural objects from Asia, with a focus on ancient and medieval Japanese art and Asian art along the Silk Road.",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "東京国立博物館",
+      "description": "東京国立博物館（とうきょうこくりつはくぶつかん）は、日本と東洋の文化財（美術品、考古遺物など）の収集保管、展示公開、調査研究、普及などを目的として独立行政法人国立文化財機構が運営する、日本の国立博物館である。東京都台東区の上野恩賜公園内にある。1872年（明治5年）に創設された日本最古かつ最大の博物館であり、本館、表慶館、東洋館、平成館、法隆寺宝物館の5つの展示館と資料館その他の施設からなる。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "ueno",
+  "relationships": {
+    "parentDestinationId": "taito-city"
+  },
+  "officialWebsite": "https://www.tnm.jp/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Taito City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tokyo%20National%20Museum%2C%20Honkan%202010.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Wiiii",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokyo_National_Museum,_Honkan_2010.jpg"
+  },
+  "coordinates": {
+    "lat": 35.71888888888889,
+    "lng": 139.7763888888889
+  },
+  "description": "The Tokyo National Museum (東京国立博物館, Tōkyō Kokuritsu Hakubutsukan) or TNM is an art museum in Ueno Park in the Taitō ward of Tokyo, Japan. It is considered the oldest national museum and the largest art museum in Japan. The museum collects, preserves, and displays a comprehensive collection of artwork and cultural objects from Asia, with a focus on ancient and medieval Japanese art and Asian art along the Silk Road.",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 200
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 6.7,
+    "couple": 8.9,
+    "summer": 8.2,
+    "winter": 7.5,
+    "rain": 9,
+    "food": 7.7,
+    "photography": 7,
+    "relaxation": 6.3,
+    "value": 9,
+    "uniqueness": 6.5,
+    "family": 9.2,
+    "accessibility": 8.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.8,
+    "summer": 8.7,
+    "autumn": 8,
+    "winter": 7.3
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Taito City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Tokyo_National_Museum",
+        "title": "Tokyo National Museum",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.tnm.jp/",
+        "title": "Tokyo National Museum official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Tokyo_National_Museum",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tokyo_National_Museum",
+          "title": "Tokyo National Museum",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

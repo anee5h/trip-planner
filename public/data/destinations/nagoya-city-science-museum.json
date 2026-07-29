@@ -1,0 +1,158 @@
+{
+  "id": "nagoya-city-science-museum",
+  "name": "Nagoya City Science Museum",
+  "nameJa": "名古屋市科学館",
+  "aliases": ["Nagoya City Science Museum", "名古屋市科学館"],
+  "content": {
+    "en": {
+      "name": "Nagoya City Science Museum",
+      "description": "The Nagoya City Science Museum (名古屋市科学館, Nagoya-shi Kagakukan) is a museum located in Sakae, Nagoya, the center of Nagoya City, in central Japan.\nThe museum houses one of the largest planetariums in the world and has three main sections on modern technology, life sciences and general science with a variety of hands-on exhibits. In 2012 much of the museum was renovated to coincide with the opening of the Planetarium.",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "名古屋市科学館",
+      "description": "名古屋市科学館（なごやしかがくかん）は、愛知県名古屋市中区の白川公園（芸術と科学の杜）内にある市立の科学館。市政70周年の記念事業の一環として建設された。世界最大級のプラネタリウムを擁する。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Aichi",
+  "region": "Chubu",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-nagoya",
+  "relationships": {
+    "parentDestinationId": "nagoya-city"
+  },
+  "officialWebsite": "http://www.ncsm.city.nagoya.jp/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Nagoya City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nagoya%20City%20Science%20Museum-March%202012.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "名古屋太郎",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagoya_City_Science_Museum-March_2012.jpg"
+  },
+  "coordinates": {
+    "lat": 35.16477222,
+    "lng": 136.89966667
+  },
+  "description": "The Nagoya City Science Museum (名古屋市科学館, Nagoya-shi Kagakukan) is a museum located in Sakae, Nagoya, the center of Nagoya City, in central Japan.\nThe museum houses one of the largest planetariums in the world and has three main sections on modern technology, life sciences and general science with a variety of hands-on exhibits. In 2012 much of the museum was renovated to coincide with the opening of the Planetarium.",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 199,
+    "shinkansen": 89
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 9.1,
+    "couple": 7.6,
+    "summer": 8.7,
+    "winter": 8.2,
+    "rain": 9.3,
+    "food": 7,
+    "photography": 6.5,
+    "relaxation": 7.6,
+    "value": 8.7,
+    "uniqueness": 6.4,
+    "family": 9.3,
+    "accessibility": 7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.1,
+    "summer": 7.6,
+    "autumn": 8.7,
+    "winter": 6.4
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Nagoya_City_Science_Museum",
+        "title": "Nagoya City Science Museum",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.ncsm.city.nagoya.jp/",
+        "title": "Nagoya City Science Museum official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Nagoya_City_Science_Museum",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Nagoya_City_Science_Museum",
+          "title": "Nagoya City Science Museum",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "id": "the-museum-of-modern-art-saitama",
+  "name": "The Museum of Modern Art, Saitama",
+  "nameJa": "埼玉県立近代美術館",
+  "aliases": ["Museum of Modern Art, Saitama", "埼玉県立近代美術館"],
+  "content": {
+    "en": {
+      "name": "The Museum of Modern Art, Saitama",
+      "description": "The Museum of Modern Art, Saitama (埼玉県立近代美術館, Saitama Kenritsu Kindai Bijutsukan) is a museum in Saitama, Saitama Prefecture, Japan.  It is one of Japan's many museums which are supported by a prefecture.",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "埼玉県立近代美術館",
+      "description": "埼玉県立近代美術館（さいたまけんりつきんだいびじゅつかん）は、埼玉県さいたま市浦和区常盤九丁目にある美術館である。北浦和公園の園内にある。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Saitama",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "urawa",
+  "relationships": {
+    "parentDestinationId": "saitama-city"
+  },
+  "officialWebsite": "https://pref.spec.ed.jp/momas/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Saitama City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Museum%20of%20Modern%20Art%20Saitama%202010.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Wiiii",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Museum_of_Modern_Art_Saitama_2010.jpg"
+  },
+  "coordinates": {
+    "lat": 35.869611,
+    "lng": 139.642917
+  },
+  "description": "The Museum of Modern Art, Saitama (埼玉県立近代美術館, Saitama Kenritsu Kindai Bijutsukan) is a museum in Saitama, Saitama Prefecture, Japan.  It is one of Japan's many museums which are supported by a prefecture.",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 65
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 7.6,
+    "summer": 8.7,
+    "winter": 8,
+    "rain": 9,
+    "food": 8.4,
+    "photography": 7.7,
+    "relaxation": 7,
+    "value": 8.1,
+    "uniqueness": 7.4,
+    "family": 6.7,
+    "accessibility": 9.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.1,
+    "summer": 6.4,
+    "autumn": 9.1,
+    "winter": 6.8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Saitama City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Museum_of_Modern_Art,_Saitama",
+        "title": "Museum of Modern Art, Saitama",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://pref.spec.ed.jp/momas/",
+        "title": "The Museum of Modern Art, Saitama official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Museum_of_Modern_Art,_Saitama",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Museum_of_Modern_Art,_Saitama",
+          "title": "Museum of Modern Art, Saitama",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

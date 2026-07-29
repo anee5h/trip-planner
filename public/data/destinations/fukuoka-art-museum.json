@@ -1,0 +1,158 @@
+{
+  "id": "fukuoka-art-museum",
+  "name": "Fukuoka Art Museum",
+  "nameJa": "福岡市美術館",
+  "aliases": ["Fukuoka Art Museum", "福岡市美術館"],
+  "content": {
+    "en": {
+      "name": "Fukuoka Art Museum",
+      "description": "Fukuoka Art Museum (福岡市美術館, Fukuoka-shi Bijutsukan) is an art museum in Fukuoka, Japan. It contains a notable collection of Western and Asian art, and exhibits various temporary exhibitions. In November 2010 it hosted a large exhibition of Marc Chagall's work.",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "福岡市美術館",
+      "description": "福岡市美術館（ふくおかしびじゅつかん）は、福岡県福岡市中央区にある市立の美術館。大濠公園の敷地内にある。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Fukuoka",
+  "region": "Kyushu",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "ohori-maizuru",
+  "relationships": {
+    "parentDestinationId": "fukuoka-city"
+  },
+  "officialWebsite": "https://www.fukuoka-art-museum.jp/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Fukuoka City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fukuoka%20art%20museum.JPG?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Masgatotkaca",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fukuoka_art_museum.JPG"
+  },
+  "coordinates": {
+    "lat": 33.58383,
+    "lng": 130.37951
+  },
+  "description": "Fukuoka Art Museum (福岡市美術館, Fukuoka-shi Bijutsukan) is an art museum in Fukuoka, Japan. It contains a notable collection of Western and Asian art, and exhibits various temporary exhibitions. In November 2010 it hosted a large exhibition of Marc Chagall's work.",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 202,
+    "shinkansen": 302
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 9.1,
+    "couple": 6.2,
+    "summer": 9.3,
+    "winter": 9,
+    "rain": 9,
+    "food": 8.4,
+    "photography": 8.1,
+    "relaxation": 7.8,
+    "value": 7.5,
+    "uniqueness": 7.2,
+    "family": 6.9,
+    "accessibility": 6.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 6.3,
+    "summer": 9.4,
+    "autumn": 7.5,
+    "winter": 7.2
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Fukuoka_Art_Museum",
+        "title": "Fukuoka Art Museum",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.fukuoka-art-museum.jp/",
+        "title": "Fukuoka Art Museum official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Fukuoka_Art_Museum",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Fukuoka_Art_Museum",
+          "title": "Fukuoka Art Museum",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

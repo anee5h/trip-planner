@@ -1,0 +1,157 @@
+{
+  "id": "ikuta-ryokuchi",
+  "name": "Ikuta Ryokuchi",
+  "nameJa": "生田緑地",
+  "aliases": ["Ikuta Ryokuchi Park", "生田緑地"],
+  "content": {
+    "en": {
+      "name": "Ikuta Ryokuchi",
+      "description": "Ikuta Ryokuchi Park (生田緑地, Ikuta Ryokuchi) is a park in Tama-ku, Kawasaki, Kanagawa Prefecture, Japan. \nAmong other features, it has an observation platform at the top of Mt. Masugata, the Japan Open-Air Folk Museum with authentic traditional houses, the Kawasaki Municipal Science Museum with a planetarium, the Taro Okamoto Museum of Art, a traditional craft center, and a large rose garden open to the public in the spring and autumn.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "生田緑地",
+      "description": "生田緑地（いくたりょくち）は、神奈川県川崎市多摩区枡形、東生田、長尾、および宮前区初山にある都市公園（総合公園）である。\nなお、桝形山（ますがたやま）及び飯室山（いいむろやま）の大部分は生田緑地内に含まれている。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Kanagawa",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "ikuta",
+  "relationships": {
+    "parentDestinationId": "kawasaki-city"
+  },
+  "officialWebsite": "https://www.ikutaryokuti.jp/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Kawasaki City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ikutaryokuchi%2006b8426q.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Wikimedia Commons contributors for Ikuta Ryokuchi Park",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ikutaryokuchi_06b8426q.jpg"
+  },
+  "coordinates": {
+    "lat": 35.609444,
+    "lng": 139.558056
+  },
+  "description": "Ikuta Ryokuchi Park (生田緑地, Ikuta Ryokuchi) is a park in Tama-ku, Kawasaki, Kanagawa Prefecture, Japan. \nAmong other features, it has an observation platform at the top of Mt. Masugata, the Japan Open-Air Folk Museum with authentic traditional houses, the Kawasaki Municipal Science Museum with a planetarium, the Taro Okamoto Museum of Art, a traditional craft center, and a large rose garden open to the public in the spring and autumn.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 196
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 9.4,
+    "couple": 7.1,
+    "summer": 8.2,
+    "winter": 7.5,
+    "rain": 8.6,
+    "food": 7.9,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 9.4,
+    "uniqueness": 8.7,
+    "family": 6.4,
+    "accessibility": 9.1
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 6.8,
+    "summer": 9.5,
+    "autumn": 7.2,
+    "winter": 6.5
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kawasaki City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Ikuta_Ryokuchi_Park",
+        "title": "Ikuta Ryokuchi Park",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.ikutaryokuti.jp/",
+        "title": "Ikuta Ryokuchi official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Ikuta_Ryokuchi_Park",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ikuta_Ryokuchi_Park",
+          "title": "Ikuta Ryokuchi Park",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

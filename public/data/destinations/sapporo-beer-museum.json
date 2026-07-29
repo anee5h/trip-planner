@@ -1,0 +1,157 @@
+{
+  "id": "sapporo-beer-museum",
+  "name": "Sapporo Beer Museum",
+  "nameJa": "サッポロビール博物館",
+  "aliases": ["Sapporo Beer Museum", "サッポロビール博物館"],
+  "content": {
+    "en": {
+      "name": "Sapporo Beer Museum",
+      "description": "The Sapporo Beer Museum (サッポロビール博物館, Sapporo Bīru Hakubutsukan) is a museum located in the Sapporo Garden Park in Higashi-ku, Sapporo, Hokkaidō, Japan. Registered as one of the Hokkaidō Heritage sites in 2004, the museum is the only beer museum in Japan. The red-brick building was erected originally as a factory of the Sapporo Sugar Company in 1890, and later opened as a museum in July 1987.",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "サッポロビール博物館",
+      "description": "サッポロビール博物館（サッポロビールはくぶつかん）は、北海道札幌市東区にある企業博物館。サッポロガーデンパークにあり、日本国内で唯一となるビールに関する博物館になっている。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Hokkaido",
+  "region": "Hokkaido",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-sapporo",
+  "relationships": {
+    "parentDestinationId": "sapporo-city"
+  },
+  "officialWebsite": "https://www.sapporobeer.jp/brewery/s_museum/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Sapporo City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sapporo%20Beer%20Museum.JPG?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "The original uploader was K. Takeda at Japanese Wikipedia .",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sapporo_Beer_Museum.JPG"
+  },
+  "coordinates": {
+    "lat": 43.071666666667,
+    "lng": 141.36888888889
+  },
+  "description": "The Sapporo Beer Museum (サッポロビール博物館, Sapporo Bīru Hakubutsukan) is a museum located in the Sapporo Garden Park in Higashi-ku, Sapporo, Hokkaidō, Japan. Registered as one of the Hokkaidō Heritage sites in 2004, the museum is the only beer museum in Japan. The red-brick building was erected originally as a factory of the Sapporo Sugar Company in 1890, and later opened as a museum in July 1987.",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 203
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 7.4,
+    "couple": 8.1,
+    "summer": 7.6,
+    "winter": 8.7,
+    "rain": 9,
+    "food": 7.5,
+    "photography": 7,
+    "relaxation": 8.1,
+    "value": 9.2,
+    "uniqueness": 6.9,
+    "family": 8,
+    "accessibility": 7.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.6,
+    "summer": 6.3,
+    "autumn": 7.4,
+    "winter": 6.9
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Sapporo_Beer_Museum",
+        "title": "Sapporo Beer Museum",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.sapporobeer.jp/brewery/s_museum/",
+        "title": "Sapporo Beer Museum official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Sapporo_Beer_Museum",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sapporo_Beer_Museum",
+          "title": "Sapporo Beer Museum",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

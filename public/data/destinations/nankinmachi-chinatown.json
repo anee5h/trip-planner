@@ -1,0 +1,158 @@
+{
+  "id": "nankinmachi-chinatown",
+  "name": "Nankinmachi Chinatown",
+  "nameJa": "南京町 (神戸市)",
+  "aliases": ["Nankin-machi", "南京町 (神戸市)"],
+  "content": {
+    "en": {
+      "name": "Nankinmachi Chinatown",
+      "description": "Nankin-machi (南京町; lit. 'Nanjing town') is a neighborhood in Kobe, Japan located south of Motomachi station adjacent to the Daimaru Department Store and is a major tourist attraction. Considered as Kobe's Chinatown, the area has over a hundred Chinese restaurants, shops, and a Chinese temple dedicated to Lord Guan (関帝廟, Kanteibyō).",
+      "highlights": ["Food"]
+    },
+    "ja": {
+      "name": "南京町 (神戸市)",
+      "description": "南京町（ナンキンまち）とは、兵庫県神戸市中央区にあるエリアであり、元町通と栄町通にまたがる一帯を指す。\n南京町商店街振興組合の登録商標でもあり、中国風の意匠を特徴とする中華街である。なお、南京町は通称としての地名で、住所表記としての地名ではない。",
+      "highlights": ["グルメ"]
+    }
+  },
+  "prefecture": "Hyogo",
+  "region": "Kansai",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "sannomiya",
+  "relationships": {
+    "parentDestinationId": "kobe-city"
+  },
+  "officialWebsite": "https://www.nankinmachi.or.jp/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Food"],
+  "tags": ["Food", "Kobe City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe-Nankinmachi.JPG?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "Tomomarusan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kobe-Nankinmachi.JPG"
+  },
+  "coordinates": {
+    "lat": 34.68805556,
+    "lng": 135.18805556
+  },
+  "description": "Nankin-machi (南京町; lit. 'Nanjing town') is a neighborhood in Kobe, Japan located south of Motomachi station adjacent to the Daimaru Department Store and is a major tourist attraction. Considered as Kobe's Chinatown, the area has over a hundred Chinese restaurants, shops, and a Chinese temple dedicated to Lord Guan (関帝廟, Kanteibyō).",
+  "highlights": ["Food"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 199,
+    "shinkansen": 169
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 55,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.1,
+    "couple": 9.2,
+    "summer": 6.9,
+    "winter": 8,
+    "rain": 7.5,
+    "food": 8.6,
+    "photography": 6.3,
+    "relaxation": 9.2,
+    "value": 6.9,
+    "uniqueness": 8,
+    "family": 9.1,
+    "accessibility": 8.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 6.3,
+    "summer": 7.4,
+    "autumn": 6.9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Nankin-machi",
+        "title": "Nankin-machi",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.nankinmachi.or.jp/",
+        "title": "Nankinmachi Chinatown official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Nankin-machi",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Nankin-machi",
+          "title": "Nankin-machi",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

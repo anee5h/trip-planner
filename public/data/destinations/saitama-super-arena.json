@@ -1,0 +1,157 @@
+{
+  "id": "saitama-super-arena",
+  "name": "Saitama Super Arena",
+  "nameJa": "さいたまスーパーアリーナ",
+  "aliases": ["Saitama Super Arena", "さいたまスーパーアリーナ"],
+  "content": {
+    "en": {
+      "name": "Saitama Super Arena",
+      "description": "Saitama Super Arena (さいたまスーパーアリーナ, Saitama Sūpā Arīna), currently known as GMO Arena (GMOアリーナ, GMO Arīna) for sponsorship reasons is a multi-purpose indoor arena located in Chūō-ku, Saitama, Saitama Prefecture, Japan. It opened preliminarily on May 5, 2000, and then was officially opened on September 1 of the same year. Its maximum capacity is 36,500.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "さいたまスーパーアリーナ",
+      "description": "さいたまスーパーアリーナ（英: Saitama Super Arena）は、埼玉県さいたま市中央区にある多目的アリーナ。タウン情報誌などでは「さいたまアリーナ」や「SSA」「たまアリ」と略されるほか、地元住民からは「スーパーアリーナ」とも呼ばれ、国道17号の著名地点標識には「スーパーアリーナ Super Arena」と標示されている。\nGMOインターネットグループが命名権を取得し、2026年4月1日より「GMOアリーナさいたま」（英: GMO ARENA Saitama、略称: GAS）の呼称を用いる（「#命名権」参照）。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Saitama",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "saitama-shintoshin",
+  "relationships": {
+    "parentDestinationId": "saitama-city"
+  },
+  "officialWebsite": "https://www.saitama-arena.co.jp/arena/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Saitama City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Saitama%20Super%20Arena%2002.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Kakidai",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saitama_Super_Arena_02.jpg"
+  },
+  "coordinates": {
+    "lat": 35.894889,
+    "lng": 139.630833
+  },
+  "description": "Saitama Super Arena (さいたまスーパーアリーナ, Saitama Sūpā Arīna), currently known as GMO Arena (GMOアリーナ, GMO Arīna) for sponsorship reasons is a multi-purpose indoor arena located in Chūō-ku, Saitama, Saitama Prefecture, Japan. It opened preliminarily on May 5, 2000, and then was officially opened on September 1 of the same year. Its maximum capacity is 36,500.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 63
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.2,
+    "couple": 8.3,
+    "summer": 7.8,
+    "winter": 8.9,
+    "rain": 6.6,
+    "food": 7.7,
+    "photography": 7.2,
+    "relaxation": 8.3,
+    "value": 9.4,
+    "uniqueness": 7.1,
+    "family": 8.2,
+    "accessibility": 7.7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.8,
+    "summer": 6.5,
+    "autumn": 7.6,
+    "winter": 7.1
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Saitama City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Saitama_Super_Arena",
+        "title": "Saitama Super Arena",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.saitama-arena.co.jp/arena/",
+        "title": "Saitama Super Arena official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Saitama_Super_Arena",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Saitama_Super_Arena",
+          "title": "Saitama Super Arena",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

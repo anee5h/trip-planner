@@ -1,0 +1,157 @@
+{
+  "id": "enoshima-sea-candle",
+  "name": "Enoshima Sea Candle",
+  "nameJa": "江の島灯台",
+  "aliases": ["Enoshima Sea Candle", "江の島灯台"],
+  "content": {
+    "en": {
+      "name": "Enoshima Sea Candle",
+      "description": "The Enoshima Sea Candle (Japanese: 江の島シーキャンドル), also known as the Shonan Observatory Lighthouse, is an observation tower and lighthouse located in the Samuel Cocking Garden on the small tidal island of Enoshima in Fujisawa, Kanagawa, Japan. The tower has two observation decks, the primary indoor deck and a secondary outdoor deck. The primary deck can be accessed via a central lift or spiral staircase, while the outdoor deck can only be accessed by a second spiral staircase.",
+      "highlights": ["Viewpoint"]
+    },
+    "ja": {
+      "name": "江の島灯台",
+      "description": "江の島灯台（えのしまとうだい）は、神奈川県藤沢市江の島に立つ日本初の民間灯台。構造物としての江の島シーキャンドルについても本項で述べる。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Kanagawa",
+  "region": "Kanto",
+  "kind": "tower",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "enoshima",
+  "relationships": {
+    "parentDestinationId": "fujisawa-city"
+  },
+  "officialWebsite": "https://enoshima-seacandle.com",
+  "officialWebsiteRequirement": "required",
+  "categories": ["Viewpoint"],
+  "tags": ["Viewpoint", "Fujisawa City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Enoshima%20Sea%20Candle%201.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "photo: Qurren ( talk ) Taken with Canon IXY 430F (Digital IXUS 245 HS)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Enoshima_Sea_Candle_1.jpg"
+  },
+  "coordinates": {
+    "lat": 35.299722,
+    "lng": 139.478333
+  },
+  "description": "The Enoshima Sea Candle (Japanese: 江の島シーキャンドル), also known as the Shonan Observatory Lighthouse, is an observation tower and lighthouse located in the Samuel Cocking Garden on the small tidal island of Enoshima in Fujisawa, Kanagawa, Japan. The tower has two observation decks, the primary indoor deck and a secondary outdoor deck. The primary deck can be accessed via a central lift or spiral staircase, while the outdoor deck can only be accessed by a second spiral staircase.",
+  "highlights": ["Viewpoint"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 201
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.6,
+    "couple": 7,
+    "summer": 8.3,
+    "winter": 8,
+    "rain": 9.3,
+    "food": 7.2,
+    "photography": 6.9,
+    "relaxation": 8.2,
+    "value": 9.5,
+    "uniqueness": 9.2,
+    "family": 7.1,
+    "accessibility": 8.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.1,
+    "summer": 9.4,
+    "autumn": 7.3,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Check the official website before visiting.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Fujisawa City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Enoshima_Sea_Candle",
+        "title": "Enoshima Sea Candle",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://enoshima-seacandle.com",
+        "title": "Enoshima Sea Candle official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Enoshima_Sea_Candle",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Enoshima_Sea_Candle",
+          "title": "Enoshima Sea Candle",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

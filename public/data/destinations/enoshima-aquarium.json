@@ -1,0 +1,157 @@
+{
+  "id": "enoshima-aquarium",
+  "name": "Enoshima Aquarium",
+  "nameJa": "新江ノ島水族館",
+  "aliases": ["Enoshima Aquarium", "新江ノ島水族館"],
+  "content": {
+    "en": {
+      "name": "Enoshima Aquarium",
+      "description": "Enoshima Aquarium or  New Enoshima Aquarium (新江ノ島水族館, Shin Enoshima Suizokukan) is a public aquarium located on Katase Beach in Fujisawa City, Kanagawa Prefecture, Japan. Its nickname is \"Enosui,\" an abbreviation of the Japanese name. The aquarium is accredited as a Museum-equivalent facilities by the Museum Act from Ministry of Education, Culture, Sports, Science and Technology.",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "新江ノ島水族館",
+      "description": "新江ノ島水族館（しんえのしますいぞくかん）は、神奈川県藤沢市片瀬海岸の湘南海岸公園にある水族館。\n愛称はえのすい。江の島水族館の後継施設である。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Kanagawa",
+  "region": "Kanto",
+  "kind": "aquarium",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "katase",
+  "relationships": {
+    "parentDestinationId": "fujisawa-city"
+  },
+  "officialWebsite": "https://www.enosui.com/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Fujisawa City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/New%20Enoshima%20Aquarium.JPG?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Abasaa",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:New_Enoshima_Aquarium.JPG"
+  },
+  "coordinates": {
+    "lat": 35.309667,
+    "lng": 139.479889
+  },
+  "description": "Enoshima Aquarium or  New Enoshima Aquarium (新江ノ島水族館, Shin Enoshima Suizokukan) is a public aquarium located on Katase Beach in Fujisawa City, Kanagawa Prefecture, Japan. Its nickname is \"Enosui,\" an abbreviation of the Japanese name. The aquarium is accredited as a Museum-equivalent facilities by the Museum Act from Ministry of Education, Culture, Sports, Science and Technology.",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 199
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.3,
+    "couple": 8.2,
+    "summer": 9.3,
+    "winter": 8.8,
+    "rain": 9,
+    "food": 7.6,
+    "photography": 7.1,
+    "relaxation": 8.2,
+    "value": 9.3,
+    "uniqueness": 7,
+    "family": 6.5,
+    "accessibility": 7.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.7,
+    "summer": 8.2,
+    "autumn": 9.3,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Fujisawa City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Enoshima_Aquarium",
+        "title": "Enoshima Aquarium",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.enosui.com/",
+        "title": "Enoshima Aquarium official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Enoshima_Aquarium",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Enoshima_Aquarium",
+          "title": "Enoshima Aquarium",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

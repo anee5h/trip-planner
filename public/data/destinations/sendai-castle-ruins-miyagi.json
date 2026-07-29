@@ -89,5 +89,8 @@
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
-  }
+  },
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "aoba"
 }

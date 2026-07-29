@@ -1,0 +1,157 @@
+{
+  "id": "kawagoe-festival-museum",
+  "name": "Kawagoe Festival Museum",
+  "nameJa": "川越まつり会館",
+  "aliases": ["Kawagoe Festival Museum", "川越まつり会館"],
+  "content": {
+    "en": {
+      "name": "Kawagoe Festival Museum",
+      "description": "Kawagoe Festival Museum (川越まつり会館) is a Kawagoe City local museum in Kawagoe City, Saitama Prefecture.",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "川越まつり会館",
+      "description": "川越まつり会館（かわごえまつりかいかん）は、埼玉県川越市にある川越市立の郷土博物館。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Saitama",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-kawagoe",
+  "relationships": {
+    "parentDestinationId": "kawagoe-city"
+  },
+  "officialWebsite": "https://kawagoematsuri.jp/matsurimuseum/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Kawagoe City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kawagoe%20Festival%20Museum.JPG?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Abasaa",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kawagoe_Festival_Museum.JPG"
+  },
+  "coordinates": {
+    "lat": 35.924306,
+    "lng": 139.482361
+  },
+  "description": "Kawagoe Festival Museum (川越まつり会館) is a Kawagoe City local museum in Kawagoe City, Saitama Prefecture.",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 196
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 6.8,
+    "couple": 8,
+    "summer": 7.3,
+    "winter": 8.4,
+    "rain": 9,
+    "food": 8.8,
+    "photography": 8.1,
+    "relaxation": 9.2,
+    "value": 8.5,
+    "uniqueness": 6.2,
+    "family": 8.9,
+    "accessibility": 6.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9.3,
+    "summer": 7,
+    "autumn": 6.3,
+    "winter": 7.4
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kawagoe City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kawagoe_Festival_Museum",
+        "title": "Kawagoe Festival Museum",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://kawagoematsuri.jp/matsurimuseum/",
+        "title": "Kawagoe Festival Museum official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Kawagoe_Festival_Museum",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kawagoe_Festival_Museum",
+          "title": "Kawagoe Festival Museum",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

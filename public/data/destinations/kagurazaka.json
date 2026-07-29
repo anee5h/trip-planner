@@ -1,0 +1,150 @@
+{
+  "id": "kagurazaka",
+  "name": "Kagurazaka",
+  "nameJa": "Kagurazaka",
+  "aliases": ["Shinjuku", "Kagurazaka"],
+  "content": {
+    "en": {
+      "name": "Kagurazaka",
+      "description": "Shinjuku (Japanese: 新宿区, Hepburn: Shinjuku-ku; IPA: [ɕiɲdʑɯkɯ] ), officially called Shinjuku City, is one of the 23 special wards of Tokyo.\nSince the end of World War II, Shinjuku has become a major secondary center of Tokyo (fukutoshin), rivaling the original city center in Marunouchi. Today, it is a major commercial and administrative center and houses the northern half of Shinjuku Station, the busiest railway station in the world, as well as the Tokyo Metropolitan Government Building, the administrative center of the Tokyo Metropolitan Government.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "Kagurazaka",
+      "description": "姓",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "kagurazaka",
+  "relationships": {
+    "parentDestinationId": "shinjuku-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Shinjuku City", "v1.9.2"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Morio",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Skyscrapers_of_Shinjuku_2009_January.jpg"
+  },
+  "coordinates": {
+    "lat": 35.70138889,
+    "lng": 139.70972222
+  },
+  "description": "Shinjuku (Japanese: 新宿区, Hepburn: Shinjuku-ku; IPA: [ɕiɲdʑɯkɯ] ), officially called Shinjuku City, is one of the 23 special wards of Tokyo.\nSince the end of World War II, Shinjuku has become a major secondary center of Tokyo (fukutoshin), rivaling the original city center in Marunouchi. Today, it is a major commercial and administrative center and houses the northern half of Shinjuku Station, the busiest railway station in the world, as well as the Tokyo Metropolitan Government Building, the administrative center of the Tokyo Metropolitan Government.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 205
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 9.5,
+    "couple": 6.5,
+    "summer": 8.2,
+    "winter": 8.1,
+    "rain": 6.4,
+    "food": 6.3,
+    "photography": 8,
+    "relaxation": 6.3,
+    "value": 6.2,
+    "uniqueness": 7.9,
+    "family": 7.8,
+    "accessibility": 9.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9.4,
+    "summer": 7.7,
+    "autumn": 9.4,
+    "winter": 9.3
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Shinjuku",
+        "title": "Shinjuku",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Shinjuku",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Shinjuku",
+          "title": "Shinjuku",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

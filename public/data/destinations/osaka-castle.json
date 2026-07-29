@@ -97,5 +97,8 @@
   "recommendedVisitHours": {
     "min": 3,
     "max": 5
-  }
+  },
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "osaka-castle"
 }

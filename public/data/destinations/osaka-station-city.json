@@ -1,0 +1,159 @@
+{
+  "id": "osaka-station-city",
+  "name": "Osaka Station City",
+  "nameJa": "大阪ステーションシティ",
+  "aliases": ["Shin-Ōsaka Station", "大阪ステーションシティ"],
+  "content": {
+    "en": {
+      "name": "Osaka Station City",
+      "description": "building in Kita-ku, Osaka Prefecture, Japan",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "大阪ステーションシティ",
+      "description": "大阪ステーションシティ（おおさかステーションシティ、英語: OSAKA STATION CITY）は、大阪市北区梅田三丁目に所在するJR大阪駅の駅ビルであり、JR大阪駅を中核とした複合商業施設である。ホテルやオフィス、ファッションビル、百貨店、シネマコンプレックスなどで構成される。\n2011年5月4日に、JR西日本による再開発によって大阪駅南側と北側の駅ビルが誕生した（駅南側については既存駅ビルの増築と改称）。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Osaka",
+  "region": "Kansai",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "umeda-kita",
+  "relationships": {
+    "parentDestinationId": "osaka-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Osaka City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Osaka%20Station%20City.JPG?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Own work",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osaka_Station_City.JPG"
+  },
+  "coordinates": {
+    "lat": 34.702777777777776,
+    "lng": 135.495
+  },
+  "description": "building in Kita-ku, Osaka Prefecture, Japan",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 192,
+    "bus": 212,
+    "shinkansen": 152
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 6.5,
+    "couple": 9.3,
+    "summer": 9,
+    "winter": 8.7,
+    "rain": 8.4,
+    "food": 8.1,
+    "photography": 7.8,
+    "relaxation": 7.5,
+    "value": 7.2,
+    "uniqueness": 6.9,
+    "family": 6.6,
+    "accessibility": 6.3
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9.4,
+    "summer": 9.1,
+    "autumn": 7.2,
+    "winter": 6.9
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Shin-%C5%8Csaka_Station",
+        "title": "Shin-Ōsaka Station",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://osakastationcity.com/",
+        "title": "Osaka Station City official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Shin-%C5%8Csaka_Station",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Shin-%C5%8Csaka_Station",
+          "title": "Shin-Ōsaka Station",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "officialWebsite": "https://osakastationcity.com/"
+}

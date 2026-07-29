@@ -1,0 +1,158 @@
+{
+  "id": "nagoya-city-art-museum",
+  "name": "Nagoya City Art Museum",
+  "nameJa": "名古屋市美術館",
+  "aliases": ["Nagoya City Art Museum", "名古屋市美術館"],
+  "content": {
+    "en": {
+      "name": "Nagoya City Art Museum",
+      "description": "The Nagoya City Art Museum (名古屋市美術館, Nagoya-shi Bijutsukan) is an art museum in Naka-ku, Nagoya, Nagoya, Japan, located in Shirakawa Park. It opened on 22 April 1988. Designed by Kisho Kurokawa, the museum was planned in the early 1980s, while collection building began in 1983.",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "名古屋市美術館",
+      "description": "名古屋市美術館（なごやしびじゅつかん、英語表記：Nagoya City Art Museum）は、愛知県名古屋市中区の白川公園（「芸術と科学の杜」）内にある美術館である。\n1988年（昭和63年）4月22日に開館。建物は建築家である黒川紀章の代表作として名高い。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Aichi",
+  "region": "Chubu",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-nagoya",
+  "relationships": {
+    "parentDestinationId": "nagoya-city"
+  },
+  "officialWebsite": "http://www.art-museum.city.nagoya.jp/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Nagoya City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nagoya%20City%20Art%20Museum01-r.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Oilstreet ( talk )",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagoya_City_Art_Museum01-r.jpg"
+  },
+  "coordinates": {
+    "lat": 35.163842,
+    "lng": 136.901022
+  },
+  "description": "The Nagoya City Art Museum (名古屋市美術館, Nagoya-shi Bijutsukan) is an art museum in Naka-ku, Nagoya, Nagoya, Japan, located in Shirakawa Park. It opened on 22 April 1988. Designed by Kisho Kurokawa, the museum was planned in the early 1980s, while collection building began in 1983.",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 195,
+    "shinkansen": 85
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 6.3,
+    "summer": 6.4,
+    "winter": 6.5,
+    "rain": 9,
+    "food": 6.7,
+    "photography": 6.8,
+    "relaxation": 6.9,
+    "value": 7,
+    "uniqueness": 8.7,
+    "family": 8.8,
+    "accessibility": 8.9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9.1,
+    "autumn": 9.2,
+    "winter": 9.3
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Nagoya_City_Art_Museum",
+        "title": "Nagoya City Art Museum",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.art-museum.city.nagoya.jp/",
+        "title": "Nagoya City Art Museum official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Nagoya_City_Art_Museum",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Nagoya_City_Art_Museum",
+          "title": "Nagoya City Art Museum",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

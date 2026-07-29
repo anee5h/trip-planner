@@ -1,0 +1,158 @@
+{
+  "id": "nunobiki-herb-gardens",
+  "name": "Nunobiki Herb Gardens",
+  "nameJa": "布引ハーブ園",
+  "aliases": ["Nunobiki Herb Garden", "布引ハーブ園"],
+  "content": {
+    "en": {
+      "name": "Nunobiki Herb Gardens",
+      "description": "The Nunobiki Herb Garden (布引ハーブ園, Nunobiki Hābu-en; 40 acres) is a herb garden located on Mount Rokkō above Kobe, Japan. It is open daily; an admission fee is charged.\nThe garden is accessed by Shin-Kobe Ropeway gondola lift from downtown Kobe.",
+      "highlights": ["Nature"]
+    },
+    "ja": {
+      "name": "布引ハーブ園",
+      "description": "神戸布引ハーブ園（こうべしりつぬのびきハーブえん、英: Kobe Nunobiki Herb Garden）は、兵庫県神戸市中央区にある植物園。1991年（平成3年）に開園した。神戸布引ロープウェイ風の丘中間駅とハーブ園山頂駅間に広がっている。",
+      "highlights": ["自然"]
+    }
+  },
+  "prefecture": "Hyogo",
+  "region": "Kansai",
+  "kind": "garden",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "sannomiya",
+  "relationships": {
+    "parentDestinationId": "kobe-city"
+  },
+  "officialWebsite": "https://www.kobeherb.com/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Nature"],
+  "tags": ["Nature", "Kobe City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe%20Nunobiki%20Herb%20Garden09bs3200.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kobe_Nunobiki_Herb_Garden09bs3200.jpg"
+  },
+  "coordinates": {
+    "lat": 34.71527778,
+    "lng": 135.19222222
+  },
+  "description": "The Nunobiki Herb Garden (布引ハーブ園, Nunobiki Hābu-en; 40 acres) is a herb garden located on Mount Rokkō above Kobe, Japan. It is open daily; an admission fee is charged.\nThe garden is accessed by Shin-Kobe Ropeway gondola lift from downtown Kobe.",
+  "highlights": ["Nature"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 199,
+    "shinkansen": 169
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 9.5,
+    "couple": 7.7,
+    "summer": 8.8,
+    "winter": 6.5,
+    "rain": 9.4,
+    "food": 7.1,
+    "photography": 8.2,
+    "relaxation": 7.7,
+    "value": 8.8,
+    "uniqueness": 6.5,
+    "family": 7.6,
+    "accessibility": 7.1
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.2,
+    "summer": 9.3,
+    "autumn": 8.8,
+    "winter": 6.5
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Nunobiki_Herb_Garden",
+        "title": "Nunobiki Herb Garden",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.kobeherb.com/",
+        "title": "Nunobiki Herb Gardens official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Nunobiki_Herb_Garden",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Nunobiki_Herb_Garden",
+          "title": "Nunobiki Herb Garden",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

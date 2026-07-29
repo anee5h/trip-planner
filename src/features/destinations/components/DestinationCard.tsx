@@ -49,6 +49,8 @@ import {
   localizePlaceLabel,
 } from "@/shared/utils/placeLabels";
 import { localizeRecommendationReason } from "@/shared/utils/recommendationLabels";
+import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
+import { getCityArea } from "@/shared/data/cityAreas";
 
 interface DestinationCardProps {
   destination: Destination;
@@ -70,6 +72,13 @@ export default function DestinationCard({
   const { locale } = useLocale();
   const { t } = useTranslation();
   const localizedDestination = getLocalizedPlace(destination, locale);
+  const parent =
+    DestinationRelationshipService.getParentDestination(destination);
+  const localizedParent = parent ? getLocalizedPlace(parent, locale) : null;
+  const area = getCityArea(destination.areaId);
+  const locationLabel = localizedParent
+    ? `${area ? area.name[locale] : localizedParent.name}${area ? ` · ${localizedParent.name}` : ""}`
+    : formatPrefecture(destination.prefecture, locale);
   const location = useLocation();
   const {
     isVisited,
@@ -232,7 +241,7 @@ export default function DestinationCard({
             </h3>
             <div className="flex items-center text-sm font-medium text-slate-500 dark:text-slate-400">
               <MapPin className="w-3.5 h-3.5 mr-1 text-emerald-500" />
-              {formatPrefecture(destination.prefecture, locale)}
+              {locationLabel}
             </div>
           </div>
           <div className="flex items-center bg-emerald-50 border border-emerald-100 dark:bg-emerald-900/30 dark:border-emerald-800/50 px-2.5 py-1 rounded-lg">

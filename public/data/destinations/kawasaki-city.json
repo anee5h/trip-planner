@@ -73,10 +73,15 @@
   ],
   "relationships": {
     "featuredDestinationIds": [
-      "ashigara",
-      "enoshima-island",
-      "hakkeijima",
-      "hakone-town"
+      "ikuta-ryokuchi",
+      "nihon-minka-en",
+      "kawasaki-daishi",
+      "kanayama-shrine",
+      "taro-okamoto-museum-of-art",
+      "fujiko-f-fujio-museum",
+      "toshiba-science-museum",
+      "lazona-kawasaki-plaza",
+      "todoroki-ryokuchi"
     ],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },

@@ -1,0 +1,158 @@
+{
+  "id": "fukuoka-yatai",
+  "name": "Fukuoka Yatai",
+  "nameJa": "福岡の屋台",
+  "aliases": ["Fukuoka Yatai", "福岡の屋台"],
+  "content": {
+    "en": {
+      "name": "Fukuoka Yatai",
+      "description": "Fukuoka's yatai are compact evening food stalls concentrated around Nakasu and Tenjin, serving ramen, yakitori, oden, and other local favourites.",
+      "highlights": ["Food"]
+    },
+    "ja": {
+      "name": "福岡の屋台",
+      "description": "福岡の屋台は中洲や天神を中心に夜間営業する小さな飲食店で、ラーメン、焼き鳥、おでんなどの名物を楽しめます。",
+      "highlights": ["グルメ"]
+    }
+  },
+  "prefecture": "Fukuoka",
+  "region": "Kyushu",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "tenjin",
+  "relationships": {
+    "parentDestinationId": "fukuoka-city"
+  },
+  "officialWebsite": "https://gofukuoka.jp/yatai/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Food"],
+  "tags": ["Food", "Fukuoka City", "v1.9.2"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Hakata_yatai_and_yatai_food_-_2024_Sept_24_various.jpeg/1920px-Hakata_yatai_and_yatai_food_-_2024_Sept_24_various.jpeg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "Nesnad",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hakata_yatai_and_yatai_food_-_2024_Sept_24_various.jpeg"
+  },
+  "coordinates": {
+    "lat": 33.590514,
+    "lng": 130.408067
+  },
+  "description": "Fukuoka's yatai are compact evening food stalls concentrated around Nakasu and Tenjin, serving ramen, yakitori, oden, and other local favourites.",
+  "highlights": ["Food"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 197,
+    "shinkansen": 297
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 55,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8.8,
+    "summer": 8.7,
+    "winter": 6.8,
+    "rain": 6.7,
+    "food": 8.2,
+    "photography": 8.1,
+    "relaxation": 6.2,
+    "value": 7.7,
+    "uniqueness": 7.6,
+    "family": 9.1,
+    "accessibility": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.1,
+    "summer": 8.6,
+    "autumn": 8.5,
+    "winter": 6.6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://gofukuoka.jp/yatai/",
+        "title": "Fukuoka Yatai",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://gofukuoka.jp/yatai/",
+        "title": "Fukuoka Yatai official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://gofukuoka.jp/yatai/",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "tourism_board",
+          "url": "https://gofukuoka.jp/yatai/",
+          "title": "Fukuoka Yatai",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "id": "scmaglev-and-railway-park",
+  "name": "SCMaglev and Railway Park",
+  "nameJa": "リニア・鉄道館",
+  "aliases": ["SCMaglev and Railway Park", "リニア・鉄道館"],
+  "content": {
+    "en": {
+      "name": "SCMaglev and Railway Park",
+      "description": "The SCMaglev and Railway Park (リニア・鉄道館　～夢と想い出のミュージアム～, Rinia Tetsudōkan: Yume to Omoide no Myūjiamu; lit. 'Linear Railway Museum: Museum of Dreams and Memories') is a railway museum owned by the Central Japan Railway Company (JR Central) in Nagoya, Japan. The museum opened on 14 March 2011.\nThe museum features 39 full-size railway vehicles and one bus exhibit, train cab simulators, and model railway dioramas.",
+      "highlights": ["Nature"]
+    },
+    "ja": {
+      "name": "リニア・鉄道館",
+      "description": "リニア・鉄道館〜夢と想い出のミュージアム〜（リニア・てつどうかん〜ゆめとおもいでのミュージアム〜 英語名：SCMAGLEV and Railway Park）は、東海旅客鉄道（JR東海）が2011年（平成23年）3月14日に愛知県名古屋市港区金城ふ頭に開館した、鉄道に関する事物を展示する博物館類似施設（鉄道保存展示施設）である。",
+      "highlights": ["自然"]
+    }
+  },
+  "prefecture": "Aichi",
+  "region": "Chubu",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-nagoya",
+  "relationships": {
+    "parentDestinationId": "nagoya-city"
+  },
+  "officialWebsiteRequirement": "none",
+  "categories": ["Nature"],
+  "tags": ["Nature", "Nagoya City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Liniatetsudoukan.JPG?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Bariston",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Liniatetsudoukan.JPG"
+  },
+  "coordinates": {
+    "lat": 35.04735,
+    "lng": 136.849319
+  },
+  "description": "The SCMaglev and Railway Park (リニア・鉄道館　～夢と想い出のミュージアム～, Rinia Tetsudōkan: Yume to Omoide no Myūjiamu; lit. 'Linear Railway Museum: Museum of Dreams and Memories') is a railway museum owned by the Central Japan Railway Company (JR Central) in Nagoya, Japan. The museum opened on 14 March 2011.\nThe museum features 39 full-size railway vehicles and one bus exhibit, train cab simulators, and model railway dioramas.",
+  "highlights": ["Nature"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 205,
+    "shinkansen": 95
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.5,
+    "couple": 8.6,
+    "summer": 7.9,
+    "winter": 9,
+    "rain": 8.3,
+    "food": 7.6,
+    "photography": 8.7,
+    "relaxation": 8,
+    "value": 7.3,
+    "uniqueness": 8.4,
+    "family": 7.7,
+    "accessibility": 7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.1,
+    "summer": 7.4,
+    "autumn": 6.7,
+    "winter": 7.8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/SCMaglev_and_Railway_Park",
+        "title": "SCMaglev and Railway Park",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://museum.jr-central.co.jp/",
+        "title": "SCMaglev and Railway Park official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/SCMaglev_and_Railway_Park",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/SCMaglev_and_Railway_Park",
+          "title": "SCMaglev and Railway Park",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "officialWebsite": "https://museum.jr-central.co.jp/"
+}

@@ -80,10 +80,18 @@
   ],
   "relationships": {
     "featuredDestinationIds": [
+      "nagoya-castle-aichi",
       "atsuta-shrine-nagoya",
+      "mirai-tower-nagoya",
+      "nagoya-city-science-museum",
+      "tokugawa-art-museum",
       "higashiyama-sky-tower-nagoya",
+      "osu-shopping-district",
       "nagoya-port-tower",
-      "nagoya-castle-aichi"
+      "scmaglev-and-railway-park",
+      "nagoya-city-art-museum",
+      "toyota-commemorative-museum-of-industry-and-technology",
+      "honmaru-palace"
     ],
     "nearbyDestinationIds": [
       "shirakawa-village",

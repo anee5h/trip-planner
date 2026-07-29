@@ -1,0 +1,159 @@
+{
+  "id": "fushimi-inari-taisha",
+  "name": "Fushimi Inari Taisha",
+  "nameJa": "伏見稲荷大社",
+  "aliases": ["Fushimi Inari-taisha", "伏見稲荷大社"],
+  "content": {
+    "en": {
+      "name": "Fushimi Inari Taisha",
+      "description": "Fushimi Inari-taisha (Japanese: 伏見稲荷大社) is the head shrine of the kami Inari, located in Fushimi-ku, Kyoto, Japan. The shrine sits at the base of a mountain, also named Inari, which is 233 metres (764 ft) above sea level, and includes trails up the mountain to many smaller shrines which span 4 kilometres (2.5 mi) and take approximately 2 hours to walk up. It is unclear whether the mountain's name, Inariyama, or the shrine's name came first.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "伏見稲荷大社",
+      "description": "伏見稲荷大社（ふしみいなりたいしゃ）は、京都府京都市伏見区深草薮之内町にある神社。式内社（名神大社）、二十二社（上七社）の一社。旧社格は官幣大社で、現在は単立神社となっている。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "fushimi",
+  "relationships": {
+    "parentDestinationId": "kyoto-city"
+  },
+  "officialWebsite": "https://inari.jp/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Kyoto City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fushimiinari-taisha%2C%20naihaiden-1.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Saigen Jiro",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fushimiinari-taisha,_naihaiden-1.jpg"
+  },
+  "coordinates": {
+    "lat": 34.967202,
+    "lng": 135.773386
+  },
+  "description": "Fushimi Inari-taisha (Japanese: 伏見稲荷大社) is the head shrine of the kami Inari, located in Fushimi-ku, Kyoto, Japan. The shrine sits at the base of a mountain, also named Inari, which is 233 metres (764 ft) above sea level, and includes trails up the mountain to many smaller shrines which span 4 kilometres (2.5 mi) and take approximately 2 hours to walk up. It is unclear whether the mountain's name, Inariyama, or the shrine's name came first.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 229,
+    "bus": 229,
+    "shinkansen": 129
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8,
+    "couple": 7.6,
+    "summer": 8.7,
+    "winter": 8.2,
+    "rain": 9.3,
+    "food": 7,
+    "photography": 8.1,
+    "relaxation": 7.6,
+    "value": 8.7,
+    "uniqueness": 6.4,
+    "family": 9.3,
+    "accessibility": 7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.1,
+    "summer": 9.2,
+    "autumn": 8.7,
+    "winter": 6.4
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Fushimi_Inari-taisha",
+        "title": "Fushimi Inari-taisha",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://inari.jp/",
+        "title": "Fushimi Inari Taisha official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Fushimi_Inari-taisha",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Fushimi_Inari-taisha",
+          "title": "Fushimi Inari-taisha",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

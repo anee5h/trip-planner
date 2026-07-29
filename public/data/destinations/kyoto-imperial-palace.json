@@ -1,0 +1,159 @@
+{
+  "id": "kyoto-imperial-palace",
+  "name": "Kyoto Imperial Palace",
+  "nameJa": "京都御所",
+  "aliases": ["Kyoto Imperial Palace", "京都御所"],
+  "content": {
+    "en": {
+      "name": "Kyoto Imperial Palace",
+      "description": "The Kyōto Imperial Palace (京都御所, Kyōto-gosho), also known as Dairi (内裏) or Kinri (禁裏), is the former palace of the Emperor of Japan from 1331 to 1869 located in Kamigyō-ku, Kyoto, Japan. Since the Meiji Restoration in 1869, the Emperors have resided at the Tokyo Imperial Palace, while the preservation of the Kyoto Imperial Palace was ordered in 1877. Today, the grounds are open to the public, and the Imperial Household Agency hosts public tours of the buildings several times a day.",
+      "highlights": ["History"]
+    },
+    "ja": {
+      "name": "京都御所",
+      "description": "京都御所（きょうとごしょ、旧字体: 京都󠄀御所󠄁）は、京都府京都市上京区にある皇室関連施設。法律上の位置づけは東京都の皇居などと同じく皇室用財産。現役の皇居と扱われる。",
+      "highlights": ["歴史"]
+    }
+  },
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-kyoto",
+  "relationships": {
+    "parentDestinationId": "kyoto-city"
+  },
+  "officialWebsite": "https://sankan.kunaicho.go.jp/guide/kyoto.html",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History"],
+  "tags": ["History", "Kyoto City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kyoto-gosho%20Kenreimon%20(open).JPG?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Saigen Jiro",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kyoto-gosho_Kenreimon_(open).JPG"
+  },
+  "coordinates": {
+    "lat": 35.025278,
+    "lng": 135.762222
+  },
+  "description": "The Kyōto Imperial Palace (京都御所, Kyōto-gosho), also known as Dairi (内裏) or Kinri (禁裏), is the former palace of the Emperor of Japan from 1331 to 1869 located in Kamigyō-ku, Kyoto, Japan. Since the Meiji Restoration in 1869, the Emperors have resided at the Tokyo Imperial Palace, while the preservation of the Kyoto Imperial Palace was ordered in 1877. Today, the grounds are open to the public, and the Imperial Household Agency hosts public tours of the buildings several times a day.",
+  "highlights": ["History"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 235,
+    "bus": 235,
+    "shinkansen": 135
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 3,
+    "rainFriendly": 3,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.9,
+    "couple": 6.2,
+    "summer": 7.9,
+    "winter": 6.2,
+    "rain": 7.9,
+    "food": 6.2,
+    "photography": 7.9,
+    "relaxation": 6.2,
+    "value": 7.9,
+    "uniqueness": 6.2,
+    "family": 7.9,
+    "accessibility": 6.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.9,
+    "summer": 6.2,
+    "autumn": 7.9,
+    "winter": 6.2
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kyoto_Imperial_Palace",
+        "title": "Kyoto Imperial Palace",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://sankan.kunaicho.go.jp/guide/kyoto.html",
+        "title": "Kyoto Imperial Palace official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Kyoto_Imperial_Palace",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kyoto_Imperial_Palace",
+          "title": "Kyoto Imperial Palace",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

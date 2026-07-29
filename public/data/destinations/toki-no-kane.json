@@ -1,0 +1,150 @@
+{
+  "id": "toki-no-kane",
+  "name": "Toki no Kane",
+  "nameJa": "時の鐘 (川越市)",
+  "aliases": ["Time Bell Tower", "時の鐘 (川越市)"],
+  "content": {
+    "en": {
+      "name": "Toki no Kane",
+      "description": "Time Bell Tower (Japanese: 時の鐘; Toki no Kane) is a bell tower built in the center of Kawagoe, Japan. It is considered the symbol of the city.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "時の鐘 (川越市)",
+      "description": "時の鐘（ときのかね）は、埼玉県川越市の中心部、幸町北部の蔵造りの街並みに建てられている鐘楼（時計台）。建物は、川越市指定有形文化財に指定されている。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Saitama",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "kurazukuri",
+  "relationships": {
+    "parentDestinationId": "kawagoe-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Kawagoe City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tokinokane-2006-03-20%201.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Syohei Arai",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokinokane-2006-03-20_1.jpg"
+  },
+  "coordinates": {
+    "lat": 35.923488888889,
+    "lng": 139.48331388889
+  },
+  "description": "Time Bell Tower (Japanese: 時の鐘; Toki no Kane) is a bell tower built in the center of Kawagoe, Japan. It is considered the symbol of the city.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 204
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.1,
+    "winter": 9,
+    "rain": 8.1,
+    "food": 7.2,
+    "photography": 6.3,
+    "relaxation": 8.8,
+    "value": 6.3,
+    "uniqueness": 8.8,
+    "family": 7.9,
+    "accessibility": 7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.9,
+    "summer": 7,
+    "autumn": 9.5,
+    "winter": 8.6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kawagoe City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Time_Bell_Tower",
+        "title": "Time Bell Tower",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Time_Bell_Tower",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Time_Bell_Tower",
+          "title": "Time Bell Tower",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

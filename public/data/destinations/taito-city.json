@@ -67,7 +67,16 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["asakusa-taito", "ueno-taito"],
+    "featuredDestinationIds": [
+      "national-museum-western-art-tokyo",
+      "ueno-park",
+      "asakusa-taito",
+      "ueno-taito",
+      "yanaka",
+      "ameya-yokocho",
+      "national-museum-of-nature-and-science",
+      "tokyo-national-museum"
+    ],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },
   "budgetBreakdown": {

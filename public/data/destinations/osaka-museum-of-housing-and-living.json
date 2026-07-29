@@ -1,0 +1,159 @@
+{
+  "id": "osaka-museum-of-housing-and-living",
+  "name": "Osaka Museum of Housing and Living",
+  "nameJa": "大阪くらしの今昔館",
+  "aliases": ["Osaka", "大阪くらしの今昔館"],
+  "content": {
+    "en": {
+      "name": "Osaka Museum of Housing and Living",
+      "description": "Osaka Museum of Housing and Living is a visitor destination in Osaka City.",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "大阪くらしの今昔館",
+      "description": "大阪くらしの今昔館（おおさかくらしのこんじゃくかん））は、大阪府大阪市北区に所在する、大阪市の都市居住に関する歴史と文化をテーマとする市立博物館。正式名称は大阪市立住まいのミュージアム（おおさかしりつすまいのミュージアム）。大阪市立住まい情報センタービル内にある。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Osaka",
+  "region": "Kansai",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "umeda-kita",
+  "relationships": {
+    "parentDestinationId": "osaka-city"
+  },
+  "officialWebsite": "http://konjyakukan.com/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Osaka City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tenjimbashi6%20on%20Tenjimbashisuji-Mall.JPG?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Mc681",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tenjimbashi6_on_Tenjimbashisuji-Mall.JPG"
+  },
+  "coordinates": {
+    "lat": 34.710306,
+    "lng": 135.511694
+  },
+  "description": "Osaka Museum of Housing and Living is a visitor destination in Osaka City.",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 186,
+    "bus": 206,
+    "shinkansen": 146
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 7.1,
+    "summer": 9.2,
+    "winter": 7.9,
+    "rain": 9,
+    "food": 8.7,
+    "photography": 7.4,
+    "relaxation": 9.5,
+    "value": 8.2,
+    "uniqueness": 6.9,
+    "family": 9,
+    "accessibility": 7.7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 6.4,
+    "summer": 8.5,
+    "autumn": 7.2,
+    "winter": 9.3
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Osaka",
+        "title": "Osaka",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://konjyakukan.com/",
+        "title": "Osaka Museum of Housing and Living official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Osaka",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Osaka",
+          "title": "Osaka",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

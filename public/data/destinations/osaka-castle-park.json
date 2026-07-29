@@ -1,0 +1,159 @@
+{
+  "id": "osaka-castle-park",
+  "name": "Osaka Castle Park",
+  "nameJa": "大阪城公園",
+  "aliases": ["Osaka Castle Park", "大阪城公園"],
+  "content": {
+    "en": {
+      "name": "Osaka Castle Park",
+      "description": "Osaka Castle Park (大阪城公園, Osaka-Jō-Kōen) is a public urban park and historical site situated at Osaka-Jō in Chūō-ku, Osaka, Japan. It lies on the south of the Ōkawa (Kyū-Yodo River) and occupies a large area in the center of the city of Osaka. This park is the second largest park in the city.",
+      "highlights": ["Nature", "History"]
+    },
+    "ja": {
+      "name": "大阪城公園",
+      "description": "大阪城公園（おおさかじょうこうえん）は、大阪府大阪市中央区大阪城にある都市公園（歴史公園）である。",
+      "highlights": ["自然", "歴史"]
+    }
+  },
+  "prefecture": "Osaka",
+  "region": "Kansai",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "osaka-castle",
+  "relationships": {
+    "parentDestinationId": "osaka-city"
+  },
+  "officialWebsite": "https://osakacastlepark.jp/",
+  "officialWebsiteRequirement": "none",
+  "categories": ["Nature", "History"],
+  "tags": ["Nature", "History", "Osaka City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Osaka%20Castle%2001bs3200.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osaka_Castle_01bs3200.jpg"
+  },
+  "coordinates": {
+    "lat": 34.687378,
+    "lng": 135.525844
+  },
+  "description": "Osaka Castle Park (大阪城公園, Osaka-Jō-Kōen) is a public urban park and historical site situated at Osaka-Jō in Chūō-ku, Osaka, Japan. It lies on the south of the Ōkawa (Kyū-Yodo River) and occupies a large area in the center of the city of Osaka. This park is the second largest park in the city.",
+  "highlights": ["Nature", "History"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 191,
+    "bus": 211,
+    "shinkansen": 151
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 3,
+    "rainFriendly": 3,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 6.2,
+    "couple": 7.2,
+    "summer": 6.7,
+    "winter": 8,
+    "rain": 7.5,
+    "food": 8.8,
+    "photography": 8.3,
+    "relaxation": 6.2,
+    "value": 9.1,
+    "uniqueness": 7,
+    "family": 6.5,
+    "accessibility": 7.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.3,
+    "summer": 8.6,
+    "autumn": 8.1,
+    "winter": 9.4
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Osaka_Castle_Park",
+        "title": "Osaka Castle Park",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://osakacastlepark.jp/",
+        "title": "Osaka Castle Park official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Osaka_Castle_Park",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Osaka_Castle_Park",
+          "title": "Osaka Castle Park",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

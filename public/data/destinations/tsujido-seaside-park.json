@@ -1,0 +1,157 @@
+{
+  "id": "tsujido-seaside-park",
+  "name": "Tsujido Seaside Park",
+  "nameJa": "辻堂海浜公園",
+  "aliases": ["Tsujido Seaside Park", "辻堂海浜公園"],
+  "content": {
+    "en": {
+      "name": "Tsujido Seaside Park",
+      "description": "Tshujido Seaside Park (Japanese: 辻堂海浜公園)  is a 19.9-hectare Kanagawa prefectural city park, located on the west coast of Tsujido, Fujisawa City, Kanagawa, Japan. It has been selected as one of the 50 best parks in Kanagawa.",
+      "highlights": ["Nature"]
+    },
+    "ja": {
+      "name": "辻堂海浜公園",
+      "description": "辻堂海浜公園（つじどうかいひんこうえん）は、神奈川県藤沢市辻堂西海岸にある、神奈川県立の都市公園（総合公園）。かながわの公園50選に選ばれている。",
+      "highlights": ["自然"]
+    }
+  },
+  "prefecture": "Kanagawa",
+  "region": "Kanto",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "tsujido",
+  "relationships": {
+    "parentDestinationId": "fujisawa-city"
+  },
+  "officialWebsite": "http://www.kanagawa-park.or.jp/tujidou/",
+  "officialWebsiteRequirement": "none",
+  "categories": ["Nature"],
+  "tags": ["Nature", "Fujisawa City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tsujido%20kaihin%20park.JPG?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "星組背番号10",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tsujido_kaihin_park.JPG"
+  },
+  "coordinates": {
+    "lat": 35.320833,
+    "lng": 139.45
+  },
+  "description": "Tshujido Seaside Park (Japanese: 辻堂海浜公園)  is a 19.9-hectare Kanagawa prefectural city park, located on the west coast of Tsujido, Fujisawa City, Kanagawa, Japan. It has been selected as one of the 50 best parks in Kanagawa.",
+  "highlights": ["Nature"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 202
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 9.2,
+    "couple": 7.4,
+    "summer": 6.3,
+    "winter": 8.6,
+    "rain": 9.1,
+    "food": 8,
+    "photography": 6.9,
+    "relaxation": 9.2,
+    "value": 6.3,
+    "uniqueness": 8.6,
+    "family": 7.5,
+    "accessibility": 6.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 6.9,
+    "summer": 9.2,
+    "autumn": 8.1,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Fujisawa City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Tsujido_Seaside_Park",
+        "title": "Tsujido Seaside Park",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.kanagawa-park.or.jp/tujidou/",
+        "title": "Tsujido Seaside Park official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Tsujido_Seaside_Park",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tsujido_Seaside_Park",
+          "title": "Tsujido Seaside Park",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

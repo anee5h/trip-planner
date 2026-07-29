@@ -8,8 +8,19 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.9.1",
+    version: "v1.9.2",
     tag: "Current",
+    date: "July 2026",
+    title: "Major City Expansion",
+    highlights: [
+      "Added or enriched 160 source-backed destinations across 19 major city hubs",
+      "Added city and area filters, rainy-day and seasonal discovery, and richer hub pages",
+      "Diversified recommendations across nearby areas, categories, and parent hubs",
+      "Added bilingual area structure, licensed image metadata, and release coverage audits",
+    ],
+  },
+  {
+    version: "v1.9.1",
     date: "July 2026",
     title: "Simpler Trip Planning",
     highlights: [

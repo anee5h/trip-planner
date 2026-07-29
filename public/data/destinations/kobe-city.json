@@ -73,7 +73,20 @@
     }
   ],
   "relationships": {
-    "featuredDestinationIds": ["kobe-maya-night-view"],
+    "featuredDestinationIds": [
+      "kobe-maya-night-view",
+      "arima-onsen",
+      "nunobiki-herb-gardens",
+      "meriken-park",
+      "kobe-port-tower",
+      "nunobiki-falls",
+      "kobe-harborland",
+      "kobe-animal-kingdom",
+      "nunobiki-ropeway",
+      "kobe-maritime-museum",
+      "kitano-ijinkan",
+      "nankinmachi-chinatown"
+    ],
     "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
   },
   "budgetBreakdown": {

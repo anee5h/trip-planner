@@ -107,5 +107,7 @@
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
-  }
+  },
+  "placeType": "destination",
+  "areaId": "tennoji-abeno"
 }

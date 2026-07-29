@@ -10,6 +10,10 @@ export const DEFAULT_DESTINATION_EXPLORER_STATE = {
   selectedRegions: [] as string[],
   selectedPrefectures: [] as string[],
   selectedCollections: [] as string[],
+  selectedCities: [] as string[],
+  selectedAreas: [] as string[],
+  indoorMin: 0,
+  season: "any",
   maxBudget: BUDGET_TIER_LIMITS.standard,
   sortBy: "recommended",
   carMode: "none",
@@ -53,6 +57,13 @@ export function parseDestinationSearchParams(
     selectedRegions: params.getAll("region"),
     selectedPrefectures: params.getAll("prefecture"),
     selectedCollections: params.getAll("collection"),
+    selectedCities: params.getAll("city"),
+    selectedAreas: params.getAll("area"),
+    indoorMin: Math.min(
+      100,
+      Math.max(0, parseNumber(params.get("indoor"), defaults.indoorMin)),
+    ),
+    season: params.get("season") ?? defaults.season,
     maxBudget: parseNumber(params.get("budget"), defaults.maxBudget),
     sortBy: params.get("sort") ?? defaults.sortBy,
     carMode: params.get("car") ?? defaults.carMode,
@@ -105,6 +116,10 @@ export function serializeDestinationSearchParams(
   appendAll("region", state.selectedRegions);
   appendAll("prefecture", state.selectedPrefectures);
   appendAll("collection", state.selectedCollections);
+  appendAll("city", state.selectedCities);
+  appendAll("area", state.selectedAreas);
+  if (state.indoorMin > 0) params.set("indoor", String(state.indoorMin));
+  if (state.season !== "any") params.set("season", state.season);
   params.set("budget", String(state.maxBudget));
   params.set("sort", state.sortBy);
   params.set("car", state.carMode);

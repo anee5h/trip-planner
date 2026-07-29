@@ -1,0 +1,159 @@
+{
+  "id": "kyoto-railway-museum",
+  "name": "Kyoto Railway Museum",
+  "nameJa": "京都鉄道博物館",
+  "aliases": ["Kyoto Railway Museum", "京都鉄道博物館"],
+  "content": {
+    "en": {
+      "name": "Kyoto Railway Museum",
+      "description": "The Kyoto Railway Museum (京都鉄道博物館, Kyōto Tetsudō Hakubutsukan) (formerly the Umekoji Steam Locomotive Museum (梅小路蒸気機関車館, Umekōji Jōkikikansha-kan) until 2016) is a railway museum in Shimogyō-ku, Kyoto, Japan. The original Umekoji Steam Locomotive Museum opened in 1972, but was expanded and modernized in 2016, becoming the Kyoto Railway Museum.\nThe museum is owned by the West Japan Railway Company (JR West) and operated by the Transportation Culture Promotion Foundation.",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "京都鉄道博物館",
+      "description": "京都鉄道博物館（きょうとてつどうはくぶつかん、英: Kyoto Railway Museum）は、京都府京都市下京区の梅小路公園内にある鉄道博物館である。2016年4月29日に開館した。\n運営は西日本旅客鉄道（JR西日本）が公益財団法人交通文化振興財団に委託している。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-kyoto",
+  "relationships": {
+    "parentDestinationId": "kyoto-city"
+  },
+  "officialWebsite": "https://www.kyotorailwaymuseum.jp/en/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Kyoto City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kyoto%20Railway%20Museum%2C%20enkei.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Saigen Jiro",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kyoto_Railway_Museum,_enkei.jpg"
+  },
+  "coordinates": {
+    "lat": 34.98722222222222,
+    "lng": 135.7425
+  },
+  "description": "The Kyoto Railway Museum (京都鉄道博物館, Kyōto Tetsudō Hakubutsukan) (formerly the Umekoji Steam Locomotive Museum (梅小路蒸気機関車館, Umekōji Jōkikikansha-kan) until 2016) is a railway museum in Shimogyō-ku, Kyoto, Japan. The original Umekoji Steam Locomotive Museum opened in 1972, but was expanded and modernized in 2016, becoming the Kyoto Railway Museum.\nThe museum is owned by the West Japan Railway Company (JR West) and operated by the Transportation Culture Promotion Foundation.",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 234,
+    "bus": 234,
+    "shinkansen": 134
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 9.3,
+    "couple": 6.6,
+    "summer": 9.1,
+    "winter": 8.2,
+    "rain": 9,
+    "food": 6.4,
+    "photography": 7.3,
+    "relaxation": 6.4,
+    "value": 8.9,
+    "uniqueness": 8,
+    "family": 8.9,
+    "accessibility": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.1,
+    "summer": 6.2,
+    "autumn": 8.7,
+    "winter": 6.2
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kyoto_Railway_Museum",
+        "title": "Kyoto Railway Museum",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.kyotorailwaymuseum.jp/en/",
+        "title": "Kyoto Railway Museum official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Kyoto_Railway_Museum",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kyoto_Railway_Museum",
+          "title": "Kyoto Railway Museum",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

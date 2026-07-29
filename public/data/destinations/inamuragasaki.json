@@ -1,0 +1,150 @@
+{
+  "id": "inamuragasaki",
+  "name": "Inamuragasaki",
+  "nameJa": "稲村ヶ崎",
+  "aliases": ["Inamuragasaki", "稲村ヶ崎"],
+  "content": {
+    "en": {
+      "name": "Inamuragasaki",
+      "description": "Inamuragasaki (稲村ケ崎) is a cape at the western end of Yuigahama (Beach) in Kamakura, Kanagawa Prefecture, Japan. The cape divides Yuigahama from Shichirigahama (Beach) and Enoshima.  Its name seems to stem from its shape, similar to a stack of rice at harvest time (an inamura (稲叢)).",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "稲村ヶ崎",
+      "description": "稲村ヶ崎（いなむらがさき）は、神奈川県鎌倉市南西部にある岬で、由比ヶ浜と七里ヶ浜の間にあたる。通常、「稲村ヶ崎」の表記は歴史的用法や国の史跡の名称に使用し、地名としては住居表示に伴う町名変更で稲村ガ崎一丁目から稲村ガ崎五丁目となっている。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Kanagawa",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "shonan-coast",
+  "relationships": {
+    "parentDestinationId": "kamakura-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Kamakura City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mt.%20Fuji%20from%20Inamuragasaki.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Quercus acuta",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt._Fuji_from_Inamuragasaki.jpg"
+  },
+  "coordinates": {
+    "lat": 35.30166667,
+    "lng": 139.52555556
+  },
+  "description": "Inamuragasaki (稲村ケ崎) is a cape at the western end of Yuigahama (Beach) in Kamakura, Kanagawa Prefecture, Japan. The cape divides Yuigahama from Shichirigahama (Beach) and Enoshima.  Its name seems to stem from its shape, similar to a stack of rice at harvest time (an inamura (稲叢)).",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 195
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.4,
+    "couple": 8,
+    "summer": 8.1,
+    "winter": 8.2,
+    "rain": 6.5,
+    "food": 6.6,
+    "photography": 6.7,
+    "relaxation": 6.8,
+    "value": 6.9,
+    "uniqueness": 7,
+    "family": 7.1,
+    "accessibility": 7.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.3,
+    "summer": 9,
+    "autumn": 9.1,
+    "winter": 9.2
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kamakura City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Inamuragasaki",
+        "title": "Inamuragasaki",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Inamuragasaki",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Inamuragasaki",
+          "title": "Inamuragasaki",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "id": "kasori-shell-mounds",
+  "name": "Kasori Shell Mounds",
+  "nameJa": "加曽利貝塚",
+  "aliases": ["Kasori Shell Mound", "加曽利貝塚"],
+  "content": {
+    "en": {
+      "name": "Kasori Shell Mounds",
+      "description": "The Kasori Shell Mounds (加曽利貝塚, Kasori kaizuka) is an archaeological site in the Sakuragi neighborhood of Wakaba ward of the city of Chiba, Chiba Prefecture, in the Kantō region of Japan. It contains the largest known shell midden found in Japan, and was designated a National Historic Site of Japan in 1971. Its status was raised to that of a special National Historic Site in 2017.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "加曽利貝塚",
+      "description": "加曽利貝塚（かそりかいづか）は、千葉県千葉市若葉区桜木8丁目にある縄文時代の貝塚を伴う環状集落の遺跡である。日本最大級の貝塚であり、学史上でも著名な標式遺跡としても知られる。1971年（昭和46年）に北貝塚が、1977年（昭和52年）に南貝塚が国の史跡に指定され、2017年（平成29年）に国の特別史跡に指定された。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Chiba",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-chiba",
+  "relationships": {
+    "parentDestinationId": "chiba-city"
+  },
+  "officialWebsite": "https://www.city.chiba.jp/kasori/infomation/overview/kasori_index.html",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Chiba City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kasori%20Shell%20Midden%20Dugouts.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Xser21",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kasori_Shell_Midden_Dugouts.jpg"
+  },
+  "coordinates": {
+    "lat": 35.623333333333,
+    "lng": 140.16472222222
+  },
+  "description": "The Kasori Shell Mounds (加曽利貝塚, Kasori kaizuka) is an archaeological site in the Sakuragi neighborhood of Wakaba ward of the city of Chiba, Chiba Prefecture, in the Kantō region of Japan. It contains the largest known shell midden found in Japan, and was designated a National Historic Site of Japan in 1971. Its status was raised to that of a special National Historic Site in 2017.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 68,
+    "car": 58
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.2,
+    "couple": 7.4,
+    "summer": 7.9,
+    "winter": 8.4,
+    "rain": 8.9,
+    "food": 7.8,
+    "photography": 8.3,
+    "relaxation": 8.8,
+    "value": 7.7,
+    "uniqueness": 8.2,
+    "family": 8.7,
+    "accessibility": 7.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.1,
+    "summer": 8.6,
+    "autumn": 9.1,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Chiba City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kasori_Shell_Mound",
+        "title": "Kasori Shell Mound",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.city.chiba.jp/kasori/infomation/overview/kasori_index.html",
+        "title": "Kasori Shell Mounds official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Kasori_Shell_Mound",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kasori_Shell_Mound",
+          "title": "Kasori Shell Mound",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

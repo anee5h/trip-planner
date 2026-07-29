@@ -1,4 +1,5 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { useEffect } from "react";
 import type { Destination } from "@/shared/types/destination";
 import { Link } from "react-router-dom";
 import "leaflet/dist/leaflet.css";
@@ -9,6 +10,27 @@ interface DestinationMapProps {
   destinations: Destination[];
   carMode?: string;
   publicModes?: string[];
+}
+
+function FitDestinations({
+  destinations,
+}: Pick<DestinationMapProps, "destinations">) {
+  const map = useMap();
+  useEffect(() => {
+    const points = destinations.flatMap((destination) =>
+      destination.coordinates
+        ? [
+            [destination.coordinates.lat, destination.coordinates.lng] as [
+              number,
+              number,
+            ],
+          ]
+        : [],
+    );
+    if (points.length === 1) map.setView(points[0], 12);
+    else if (points.length > 1) map.fitBounds(points, { padding: [32, 32] });
+  }, [destinations, map]);
+  return null;
 }
 
 export default function DestinationMap({
@@ -32,6 +54,7 @@ export default function DestinationMap({
         scrollWheelZoom={false}
         className="w-full h-full z-0"
       >
+        <FitDestinations destinations={destinations} />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

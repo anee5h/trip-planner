@@ -1,0 +1,159 @@
+{
+  "id": "sendai-city-museum",
+  "name": "Sendai City Museum",
+  "nameJa": "仙台市博物館",
+  "aliases": ["Sendai City Museum", "仙台市博物館"],
+  "content": {
+    "en": {
+      "name": "Sendai City Museum",
+      "description": "The Sendai City Museum (仙台市博物館, Sendai-shi Hakubutsukan) is the main museum of Sendai, Japan, and is located in the former Third Bailey of Sendai Castle.\nThe museum displays various artifacts related to the Date clan and the history of Sendai. Date Masamune's famous suit of armor and artifacts related to Hasekura Tsunenaga's visit to Rome are sometimes on display.",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "仙台市博物館",
+      "description": "仙台市博物館（せんだいしはくぶつかん）は、宮城県仙台市青葉区川内にある仙台市立の博物館である。仙台だけでなく東北地方の歴史、文化史、美術、工芸資料を展示する人文科学系総合博物館と標榜する。\n伊達家が仙台市へ寄贈した文化財を保管、研究するために1961年（昭和36年）に開館した。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Miyagi",
+  "region": "Tohoku",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "aoba",
+  "relationships": {
+    "parentDestinationId": "sendai-city"
+  },
+  "officialWebsite": "http://www.city.sendai.jp/museum/index.html",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Sendai City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sendai%20City%20Museum%2020251221a.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "掬茶",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sendai_City_Museum_20251221a.jpg"
+  },
+  "coordinates": {
+    "lat": 38.256065,
+    "lng": 140.856685
+  },
+  "description": "The Sendai City Museum (仙台市博物館, Sendai-shi Hakubutsukan) is the main museum of Sendai, Japan, and is located in the former Third Bailey of Sendai Castle.\nThe museum displays various artifacts related to the Date clan and the history of Sendai. Date Masamune's famous suit of armor and artifacts related to Hasekura Tsunenaga's visit to Rome are sometimes on display.",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 32,
+    "bus": 42,
+    "car": 47
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.5,
+    "couple": 6.6,
+    "summer": 6.3,
+    "winter": 9.4,
+    "rain": 9.1,
+    "food": 8.8,
+    "photography": 8.5,
+    "relaxation": 8.2,
+    "value": 7.9,
+    "uniqueness": 7.6,
+    "family": 7.3,
+    "accessibility": 7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 6.7,
+    "summer": 6.4,
+    "autumn": 9.5,
+    "winter": 7.6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Sendai_City_Museum",
+        "title": "Sendai City Museum",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.city.sendai.jp/museum/index.html",
+        "title": "Sendai City Museum official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Sendai_City_Museum",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sendai_City_Museum",
+          "title": "Sendai City Museum",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "id": "aoba-castle-museum",
+  "name": "Aoba Castle Museum",
+  "nameJa": "青葉城資料展示館",
+  "aliases": ["Aoba Castle", "青葉城資料展示館"],
+  "content": {
+    "en": {
+      "name": "Aoba Castle Museum",
+      "description": "museum in Sendai, Miyagi, Japan",
+      "highlights": ["Museum", "History"]
+    },
+    "ja": {
+      "name": "青葉城資料展示館",
+      "description": "青葉城資料展示館は仙台市にある観光スポットです。",
+      "highlights": ["博物館", "歴史"]
+    }
+  },
+  "prefecture": "Miyagi",
+  "region": "Tohoku",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "aoba",
+  "relationships": {
+    "parentDestinationId": "sendai-city"
+  },
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum", "History"],
+  "tags": ["Museum", "History", "Sendai City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mask%20request%20by%20Sendai%20castle%20museum.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Indiana jo",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mask_request_by_Sendai_castle_museum.jpg"
+  },
+  "coordinates": {
+    "lat": 38.25211,
+    "lng": 140.855945
+  },
+  "description": "museum in Sendai, Miyagi, Japan",
+  "highlights": ["Museum", "History"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 28,
+    "bus": 38,
+    "car": 43
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.3,
+    "couple": 7.5,
+    "summer": 8,
+    "winter": 8.5,
+    "rain": 9,
+    "food": 7.9,
+    "photography": 8.4,
+    "relaxation": 7.3,
+    "value": 7.8,
+    "uniqueness": 8.3,
+    "family": 8.8,
+    "accessibility": 7.7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.2,
+    "summer": 8.7,
+    "autumn": 7.6,
+    "winter": 8.1
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Aoba_Castle",
+        "title": "Aoba Castle",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://honmarukaikan.com/tenji/",
+        "title": "Aoba Castle Museum official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Aoba_Castle",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Aoba_Castle",
+          "title": "Aoba Castle",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "officialWebsite": "https://honmarukaikan.com/tenji/"
+}

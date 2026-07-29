@@ -1,0 +1,157 @@
+{
+  "id": "ueno-park",
+  "name": "Ueno Park",
+  "nameJa": "上野恩賜公園",
+  "aliases": ["Ueno Park", "上野恩賜公園"],
+  "content": {
+    "en": {
+      "name": "Ueno Park",
+      "description": "Ueno Park (上野公園, Ueno Kōen) is a spacious public park in the Ueno district of Taitō, Tokyo, Japan. The park was established in 1873 on lands formerly belonging to the temple of Kan'ei-ji. Amongst the country's first public parks, it was founded following the Western example as part of the borrowing and assimilation of international practices that characterizes the early Meiji period.",
+      "highlights": ["Nature"]
+    },
+    "ja": {
+      "name": "上野恩賜公園",
+      "description": "上野恩賜公園（うえのおんしこうえん）は、東京都台東区にある公園。通称上野公園。上野駅西口（公園口）に位置している。",
+      "highlights": ["自然"]
+    }
+  },
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "ueno",
+  "relationships": {
+    "parentDestinationId": "taito-city"
+  },
+  "officialWebsite": "http://www.kensetsu.metro.tokyo.jp/toubuk/ueno/index_top.html",
+  "officialWebsiteRequirement": "none",
+  "categories": ["Nature"],
+  "tags": ["Nature", "Taito City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/UenoPark%20Hanami.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "The original uploader was Sdalu at English Wikipedia .",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:UenoPark_Hanami.jpg"
+  },
+  "coordinates": {
+    "lat": 35.712222,
+    "lng": 139.771111
+  },
+  "description": "Ueno Park (上野公園, Ueno Kōen) is a spacious public park in the Ueno district of Taitō, Tokyo, Japan. The park was established in 1873 on lands formerly belonging to the temple of Kan'ei-ji. Amongst the country's first public parks, it was founded following the Western example as part of the borrowing and assimilation of international practices that characterizes the early Meiji period.",
+  "highlights": ["Nature"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 199
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 9.2,
+    "couple": 7.1,
+    "summer": 6.4,
+    "winter": 7.3,
+    "rain": 6.6,
+    "food": 7.5,
+    "photography": 6.8,
+    "relaxation": 7.7,
+    "value": 7,
+    "uniqueness": 7.9,
+    "family": 7.2,
+    "accessibility": 8.1
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.4,
+    "summer": 8.3,
+    "autumn": 7.6,
+    "winter": 6.9
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Taito City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Ueno_Park",
+        "title": "Ueno Park",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.kensetsu.metro.tokyo.jp/toubuk/ueno/index_top.html",
+        "title": "Ueno Park official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Ueno_Park",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ueno_Park",
+          "title": "Ueno Park",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

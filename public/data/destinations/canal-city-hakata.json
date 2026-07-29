@@ -1,0 +1,158 @@
+{
+  "id": "canal-city-hakata",
+  "name": "Canal City Hakata",
+  "nameJa": "キャナルシティ博多",
+  "aliases": ["Canal City Hakata", "キャナルシティ博多"],
+  "content": {
+    "en": {
+      "name": "Canal City Hakata",
+      "description": "Canal City Hakata (キャナルシティ博多) is a large shopping and entertainment complex in Fukuoka, Japan. Called the \"city within the city,\" it hosts shops, cafes, restaurants, a theater, game center, cinemas, two hotels, and a canal, which runs through the complex.\nLocated adjacent to Fukuoka's entertainment district and between the commercial and retail core of the city, Canal City has become a tourist attraction and commercial success for Fukuoka.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "キャナルシティ博多",
+      "description": "キャナルシティ博多（キャナルシティはかた、Canal City HAKATA）は、福岡県福岡市博多区住吉一丁目にある複合商業施設。1993年6月3日に着工。1996年4月20日に開業した。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Fukuoka",
+  "region": "Kyushu",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "hakata",
+  "relationships": {
+    "parentDestinationId": "fukuoka-city"
+  },
+  "officialWebsite": "https://canalcity.co.jp/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Fukuoka City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Canal%20City%20Hakata%202011.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "ぱちょぴ（pacyopi）",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Canal_City_Hakata_2011.jpg"
+  },
+  "coordinates": {
+    "lat": 33.59111111,
+    "lng": 130.41055556
+  },
+  "description": "Canal City Hakata (キャナルシティ博多) is a large shopping and entertainment complex in Fukuoka, Japan. Called the \"city within the city,\" it hosts shops, cafes, restaurants, a theater, game center, cinemas, two hotels, and a canal, which runs through the complex.\nLocated adjacent to Fukuoka's entertainment district and between the commercial and retail core of the city, Canal City has become a tourist attraction and commercial success for Fukuoka.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 198,
+    "shinkansen": 298
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7,
+    "couple": 6.2,
+    "summer": 8.5,
+    "winter": 9,
+    "rain": 9.5,
+    "food": 8.4,
+    "photography": 8.9,
+    "relaxation": 9.4,
+    "value": 8.3,
+    "uniqueness": 8.8,
+    "family": 9.3,
+    "accessibility": 6.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.7,
+    "summer": 9.2,
+    "autumn": 6.3,
+    "winter": 8.6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Canal_City_Hakata",
+        "title": "Canal City Hakata",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://canalcity.co.jp/",
+        "title": "Canal City Hakata official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Canal_City_Hakata",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Canal_City_Hakata",
+          "title": "Canal City Hakata",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

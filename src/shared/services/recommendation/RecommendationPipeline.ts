@@ -17,6 +17,85 @@ import {
 } from "./RecommendationScorer";
 import type { PipelineRecommendation } from "./RecommendationTypes";
 
+function coordinatesWithinOneKm(
+  a: PipelineRecommendation,
+  b: PipelineRecommendation,
+) {
+  if (!a.coordinates || !b.coordinates) return false;
+  return (
+    getDistance(
+      a.coordinates.lat,
+      a.coordinates.lng,
+      b.coordinates.lat,
+      b.coordinates.lng,
+    ) < 1
+  );
+}
+
+export function diversifyRecommendations(
+  recommendations: PipelineRecommendation[],
+): PipelineRecommendation[] {
+  const remaining = [...recommendations].sort(
+    (a, b) => b.score - a.score || a.id.localeCompare(b.id),
+  );
+  const selected: PipelineRecommendation[] = [];
+
+  // ponytail: O(n²) is deliberate for a sub-1k catalogue; add spatial indexes only if profiling requires it.
+  while (remaining.length > 0) {
+    let bestIndex = -1;
+    let bestAdjustedScore = -Infinity;
+
+    for (let index = 0; index < remaining.length; index += 1) {
+      const candidate = remaining[index];
+      const parentId = candidate.relationships?.parentDestinationId;
+      const conflictsWithHub = selected.some(
+        (place) =>
+          place.id === parentId ||
+          place.relationships?.parentDestinationId === candidate.id,
+      );
+      if (conflictsWithHub) continue;
+
+      const adjustedScore =
+        candidate.score -
+        selected.reduce((penalty, place) => {
+          const sameArea =
+            candidate.areaId && candidate.areaId === place.areaId ? 18 : 0;
+          const sameParent =
+            parentId && parentId === place.relationships?.parentDestinationId
+              ? 8
+              : 0;
+          const sameCategory =
+            candidate.categories[0] &&
+            candidate.categories[0] === place.categories[0]
+              ? 6
+              : 0;
+          return (
+            penalty +
+            sameArea +
+            sameParent +
+            sameCategory +
+            (coordinatesWithinOneKm(candidate, place) ? 8 : 0)
+          );
+        }, 0);
+
+      if (
+        adjustedScore > bestAdjustedScore ||
+        (adjustedScore === bestAdjustedScore &&
+          (bestIndex < 0 ||
+            candidate.id.localeCompare(remaining[bestIndex].id) < 0))
+      ) {
+        bestIndex = index;
+        bestAdjustedScore = adjustedScore;
+      }
+    }
+
+    if (bestIndex < 0) break;
+    selected.push(remaining.splice(bestIndex, 1)[0]);
+  }
+
+  return selected;
+}
+
 export function buildRecommendationCandidate(
   destination: Destination,
   context: Pick<RecommendationContext, "homeStationCoords">,
@@ -146,6 +225,5 @@ export function runRecommendationPipeline(
     } as PipelineRecommendation;
   });
 
-  // Diversification is intentionally stable/no-op in Phase 1 to preserve current output.
-  return scored.sort((a, b) => b.score - a.score);
+  return diversifyRecommendations(scored);
 }

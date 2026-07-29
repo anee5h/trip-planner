@@ -67,7 +67,18 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["enoshima-island"],
+    "featuredDestinationIds": [
+      "yugyo-ji",
+      "shonan-kaigan-park",
+      "enoshima-island",
+      "katase-higashihama-beach",
+      "tsujido-seaside-park",
+      "enoshima-aquarium",
+      "enoshima-shrine",
+      "samuel-cocking-garden",
+      "enoshima-sea-candle",
+      "enoshima-iwaya-caves"
+    ],
     "nearbyDestinationIds": ["kamakura-city", "hakone-town", "yokohama-city"]
   },
   "budgetBreakdown": {

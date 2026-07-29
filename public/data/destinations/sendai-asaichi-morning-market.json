@@ -1,0 +1,152 @@
+{
+  "id": "sendai-asaichi-morning-market",
+  "name": "Sendai Asaichi Morning Market",
+  "nameJa": "仙台駅",
+  "aliases": ["Sendai Station (Miyagi)", "仙台駅"],
+  "content": {
+    "en": {
+      "name": "Sendai Asaichi Morning Market",
+      "description": "Sendai Station (Japanese: 仙台駅, Hepburn: Sendai-ek) is a major junction railway station in Aoba-ku, Sendai, Miyagi, Japan. It is a stop for all Akita, Hokkaido, and Tohoku Shinkansen trains, the eastern terminus for the Senzan Line, and major stop on both the Tohoku Main Line and Senseki Line. It is located on the border between Miyagino and Aoba Wards in Sendai, Miyagi Prefecture.",
+      "highlights": ["Food"]
+    },
+    "ja": {
+      "name": "仙台駅",
+      "description": "仙台駅（せんだいえき）は、宮城県仙台市青葉区中央にある、東日本旅客鉄道（JR東日本）・仙台市交通局（仙台市地下鉄）の駅。東北地方唯一の政令指定都市である仙台市の代表駅。東北新幹線（秋田新幹線・北海道新幹線直通を含む）を含め、当駅を通る全営業列車が停車する。",
+      "highlights": ["グルメ"]
+    }
+  },
+  "prefecture": "Miyagi",
+  "region": "Tohoku",
+  "kind": "market",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-sendai",
+  "relationships": {
+    "parentDestinationId": "sendai-city"
+  },
+  "officialWebsiteRequirement": "none",
+  "categories": ["Food"],
+  "tags": ["Food", "Sendai City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sendai%20Station%2020230806.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "掬茶",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sendai_Station_20230806.jpg"
+  },
+  "coordinates": {
+    "lat": 38.26027778,
+    "lng": 140.88194444
+  },
+  "description": "Sendai Station (Japanese: 仙台駅, Hepburn: Sendai-ek) is a major junction railway station in Aoba-ku, Sendai, Miyagi, Japan. It is a stop for all Akita, Hokkaido, and Tohoku Shinkansen trains, the eastern terminus for the Senzan Line, and major stop on both the Tohoku Main Line and Senseki Line. It is located on the border between Miyagino and Aoba Wards in Sendai, Miyagi Prefecture.",
+  "highlights": ["Food"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 32,
+    "bus": 42,
+    "car": 47
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 55,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.8,
+    "couple": 6.4,
+    "summer": 8.7,
+    "winter": 7.6,
+    "rain": 8.1,
+    "food": 7,
+    "photography": 9.3,
+    "relaxation": 8.2,
+    "value": 8.7,
+    "uniqueness": 7.6,
+    "family": 6.5,
+    "accessibility": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9.3,
+    "summer": 8.2,
+    "autumn": 7.1,
+    "winter": 9.4
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Sendai_Station_(Miyagi)",
+        "title": "Sendai Station (Miyagi)",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Sendai_Station_(Miyagi)",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sendai_Station_(Miyagi)",
+          "title": "Sendai Station (Miyagi)",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

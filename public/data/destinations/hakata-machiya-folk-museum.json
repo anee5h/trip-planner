@@ -1,0 +1,158 @@
+{
+  "id": "hakata-machiya-folk-museum",
+  "name": "Hakata Machiya Folk Museum",
+  "nameJa": "「博多町家」ふるさと館",
+  "aliases": ["Fukuoka", "「博多町家」ふるさと館"],
+  "content": {
+    "en": {
+      "name": "Hakata Machiya Folk Museum",
+      "description": "museum in Hakata-ku, Fukuoka City, Japan",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "「博多町家」ふるさと館",
+      "description": "「博多町家」ふるさと館（はかたまちやふるさとかん）は、福岡県福岡市博多区冷泉町にある体験型学習施設。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Fukuoka",
+  "region": "Kyushu",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "hakata",
+  "relationships": {
+    "parentDestinationId": "fukuoka-city"
+  },
+  "officialWebsite": "http://www.hakatamachiya.com/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Fukuoka City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hakata-Machiya%20Furusato%20Museum%2020170918.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hakata-Machiya_Furusato_Museum_20170918.jpg"
+  },
+  "coordinates": {
+    "lat": 33.59363888888889,
+    "lng": 130.4113888888889
+  },
+  "description": "museum in Hakata-ku, Fukuoka City, Japan",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 196,
+    "shinkansen": 296
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 7,
+    "couple": 7.5,
+    "summer": 6.2,
+    "winter": 8.3,
+    "rain": 9,
+    "food": 9.1,
+    "photography": 7.8,
+    "relaxation": 6.5,
+    "value": 8.6,
+    "uniqueness": 7.3,
+    "family": 9.4,
+    "accessibility": 6.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.6,
+    "summer": 7.3,
+    "autumn": 9.4,
+    "winter": 8.1
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Fukuoka",
+        "title": "Fukuoka",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.hakatamachiya.com/",
+        "title": "Hakata Machiya Folk Museum official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Fukuoka",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Fukuoka",
+          "title": "Fukuoka",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "id": "meriken-park",
+  "name": "Meriken Park",
+  "nameJa": "メリケンパーク",
+  "aliases": ["Meriken Park", "メリケンパーク"],
+  "content": {
+    "en": {
+      "name": "Meriken Park",
+      "description": "Meriken Park (メリケンパーク, Meriken pāku) is a waterfront park located in the port city of Kobe, Hyōgo Prefecture, Japan.  The park features the Kobe Port Tower, Kobe Maritime Museum, and a memorial to victims of the Great Hanshin earthquake.  The name of the park comes from the word \"American,\" which was commonly translated as \"Meriken\" during the Meiji era.",
+      "highlights": ["Nature"]
+    },
+    "ja": {
+      "name": "メリケンパーク",
+      "description": "メリケンパークは、神戸市中央区の神戸港にある港湾緑地。",
+      "highlights": ["自然"]
+    }
+  },
+  "prefecture": "Hyogo",
+  "region": "Kansai",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "kobe-waterfront",
+  "relationships": {
+    "parentDestinationId": "kobe-city"
+  },
+  "officialWebsiteRequirement": "none",
+  "categories": ["Nature"],
+  "tags": ["Nature", "Kobe City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe%20Meriken%20Park01bs3200.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park01bs3200.jpg"
+  },
+  "coordinates": {
+    "lat": 34.68166667,
+    "lng": 135.18833333
+  },
+  "description": "Meriken Park (メリケンパーク, Meriken pāku) is a waterfront park located in the port city of Kobe, Hyōgo Prefecture, Japan.  The park features the Kobe Port Tower, Kobe Maritime Museum, and a memorial to victims of the Great Hanshin earthquake.  The name of the park comes from the word \"American,\" which was commonly translated as \"Meriken\" during the Meiji era.",
+  "highlights": ["Nature"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 201,
+    "shinkansen": 171
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 9.4,
+    "couple": 7.1,
+    "summer": 6.6,
+    "winter": 7.9,
+    "rain": 7.4,
+    "food": 8.7,
+    "photography": 8.2,
+    "relaxation": 9.5,
+    "value": 7.4,
+    "uniqueness": 6.9,
+    "family": 8.2,
+    "accessibility": 7.7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8.5,
+    "autumn": 6.4,
+    "winter": 9.3
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Meriken_Park",
+        "title": "Meriken Park",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Meriken_Park",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Meriken_Park",
+          "title": "Meriken Park",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

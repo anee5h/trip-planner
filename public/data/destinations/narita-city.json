@@ -67,7 +67,15 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": [],
+    "featuredDestinationIds": [
+      "narita-airport-observation-decks",
+      "naritasan-park",
+      "shinsho-ji",
+      "museum-of-aeronautical-sciences",
+      "boso-no-mura",
+      "chiba-sawara",
+      "katori-jingu"
+    ],
     "nearbyDestinationIds": ["chiba-city", "urayasu-city"]
   },
   "budgetBreakdown": {

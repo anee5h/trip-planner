@@ -1,0 +1,157 @@
+{
+  "id": "hokkaido-museum-of-modern-art",
+  "name": "Hokkaido Museum of Modern Art",
+  "nameJa": "北海道立近代美術館",
+  "aliases": ["Hokkaido Museum of Modern Art", "北海道立近代美術館"],
+  "content": {
+    "en": {
+      "name": "Hokkaido Museum of Modern Art",
+      "description": "The Hokkaido Museum of Modern Art (北海道立近代美術館, Hokkaidō-ritsu Kindai Bijutsukan) opened in Sapporo, Hokkaidō, Japan in 1977. The collection includes works by Jules Pascin and the École de Paris as well as by modern Japanese artists, in particular those with a connection to Hokkaidō.\nThere are five related prefectural art museums elsewhere in Sapporo and Hokkaidō: Migishi Kōtarō Museum of Art, Hokkaido, Hakodate Museum of Art, Hokkaido, Hokkaido Asahikawa Museum of Art, Hokkaido Obihiro Museum of Art, and Kushiro Art Museum, Hokkaido.",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "北海道立近代美術館",
+      "description": "北海道立近代美術館（ほっかいどうりつきんだいびじゅつかん、英称：The Hokkaido Museum of Modern Art）は、北海道札幌市中央区にある、道立の美術館である。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Hokkaido",
+  "region": "Hokkaido",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-sapporo",
+  "relationships": {
+    "parentDestinationId": "sapporo-city"
+  },
+  "officialWebsite": "http://www.dokyoi.pref.hokkaido.lg.jp/hk/knb/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Sapporo City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E5%8C%97%E6%B5%B7%E9%81%93%E7%AB%8B%E8%BF%91%E4%BB%A3%E7%BE%8E%E8%A1%93%E9%A4%A8.JPG?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "K. Takeda at Japanese Wikipedia",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E5%8C%97%E6%B5%B7%E9%81%93%E7%AB%8B%E8%BF%91%E4%BB%A3%E7%BE%8E%E8%A1%93%E9%A4%A8.JPG"
+  },
+  "coordinates": {
+    "lat": 43.060278,
+    "lng": 141.330389
+  },
+  "description": "The Hokkaido Museum of Modern Art (北海道立近代美術館, Hokkaidō-ritsu Kindai Bijutsukan) opened in Sapporo, Hokkaidō, Japan in 1977. The collection includes works by Jules Pascin and the École de Paris as well as by modern Japanese artists, in particular those with a connection to Hokkaidō.\nThere are five related prefectural art museums elsewhere in Sapporo and Hokkaidō: Migishi Kōtarō Museum of Art, Hokkaido, Hakodate Museum of Art, Hokkaido, Hokkaido Asahikawa Museum of Art, Hokkaido Obihiro Museum of Art, and Kushiro Art Museum, Hokkaido.",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 199
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 9.3,
+    "couple": 7.5,
+    "summer": 8.4,
+    "winter": 9.3,
+    "rain": 9,
+    "food": 7.7,
+    "photography": 8.6,
+    "relaxation": 9.5,
+    "value": 8.8,
+    "uniqueness": 6.3,
+    "family": 7.2,
+    "accessibility": 8.1
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9,
+    "summer": 6.5,
+    "autumn": 7.4,
+    "winter": 8.3
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Hokkaido_Museum_of_Modern_Art",
+        "title": "Hokkaido Museum of Modern Art",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.dokyoi.pref.hokkaido.lg.jp/hk/knb/",
+        "title": "Hokkaido Museum of Modern Art official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Hokkaido_Museum_of_Modern_Art",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Hokkaido_Museum_of_Modern_Art",
+          "title": "Hokkaido Museum of Modern Art",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

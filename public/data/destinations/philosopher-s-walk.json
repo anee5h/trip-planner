@@ -1,0 +1,159 @@
+{
+  "id": "philosopher-s-walk",
+  "name": "Philosopher's Walk",
+  "nameJa": "哲学の道",
+  "aliases": ["Philosopher's Walk", "哲学の道"],
+  "content": {
+    "en": {
+      "name": "Philosopher's Walk",
+      "description": "The Philosopher's Walk (哲学の道, Tetsugaku-no-michi; lit. Path of Philosophy) is a pedestrian path that follows a cherry-tree-lined canal in Kyoto, Japan between Ginkaku-ji and Nanzen-ji. First opened in 1890 and extended again in 1912, the path follows the course of a shallow irrigation channel bringing water from the Lake Biwa Canal.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "哲学の道",
+      "description": "哲学の道（てつがくのみち）は、京都府京都市左京区で、琵琶湖疏水分線の西岸に沿って、若王子（にゃくおうじ）橋と銀閣寺橋を結ぶ約1.5キロメートル（㎞）の歩道。京都帝国大学で哲学を研究した西田幾多郎や田辺元が思索しながら散策したことから、こう呼ばれるようになった。春は約420本の桜が花を咲かせるなど観光地としても知られており、「日本の道100選」にも入っている。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "higashiyama",
+  "relationships": {
+    "parentDestinationId": "kyoto-city"
+  },
+  "officialWebsite": "https://tetsugakunomichi.jp/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Kyoto City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Japan%20Kyoto%20philosophers%20walk%20DSC00297.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "David Monniaux",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Japan_Kyoto_philosophers_walk_DSC00297.jpg"
+  },
+  "coordinates": {
+    "lat": 35.025127777778,
+    "lng": 135.79616666667
+  },
+  "description": "The Philosopher's Walk (哲学の道, Tetsugaku-no-michi; lit. Path of Philosophy) is a pedestrian path that follows a cherry-tree-lined canal in Kyoto, Japan between Ginkaku-ji and Nanzen-ji. First opened in 1890 and extended again in 1912, the path follows the course of a shallow irrigation channel bringing water from the Lake Biwa Canal.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 227,
+    "bus": 227,
+    "shinkansen": 127
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 9.2,
+    "couple": 8.9,
+    "summer": 9.2,
+    "winter": 9.5,
+    "rain": 6.4,
+    "food": 6.7,
+    "photography": 7,
+    "relaxation": 8.9,
+    "value": 9.2,
+    "uniqueness": 9.5,
+    "family": 6.4,
+    "accessibility": 6.7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7,
+    "summer": 7.3,
+    "autumn": 7.6,
+    "winter": 7.9
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Philosopher%27s_Walk",
+        "title": "Philosopher's Walk",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://tetsugakunomichi.jp/",
+        "title": "Philosopher's Walk official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Philosopher%27s_Walk",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Philosopher%27s_Walk",
+          "title": "Philosopher's Walk",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

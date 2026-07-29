@@ -1,0 +1,158 @@
+{
+  "id": "chiba-city-folk-museum",
+  "name": "Chiba City Folk Museum",
+  "nameJa": "千葉市立郷土博物館",
+  "aliases": ["Chiba (city)", "千葉市立郷土博物館"],
+  "content": {
+    "en": {
+      "name": "Chiba City Folk Museum",
+      "description": "building in Chuo Ward, Chiba Prefecture, Japan",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "千葉市立郷土博物館",
+      "description": "千葉市中央区にある博物館",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Chiba",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-chiba",
+  "relationships": {
+    "parentDestinationId": "chiba-city"
+  },
+  "officialWebsite": "http://www.city.chiba.jp/kyoiku/shogaigakushu/bunkazai/kyodo/kyodo_top.html",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Chiba City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Folk%20museum%20in%20Chiba.JPG?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Kentagon",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Folk_museum_in_Chiba.JPG"
+  },
+  "coordinates": {
+    "lat": 35.6046,
+    "lng": 140.12716
+  },
+  "description": "building in Chuo Ward, Chiba Prefecture, Japan",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 65,
+    "car": 55
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.1,
+    "couple": 8.8,
+    "summer": 8.9,
+    "winter": 9,
+    "rain": 9.1,
+    "food": 9.2,
+    "photography": 9.3,
+    "relaxation": 7.6,
+    "value": 7.7,
+    "uniqueness": 7.8,
+    "family": 7.9,
+    "accessibility": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.1,
+    "summer": 8.2,
+    "autumn": 8.3,
+    "winter": 6.6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Chiba City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Chiba_(city)",
+        "title": "Chiba (city)",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.city.chiba.jp/kyoiku/shogaigakushu/bunkazai/kyodo/kyodo_top.html",
+        "title": "Chiba City Folk Museum official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Chiba_(city)",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chiba_(city)",
+          "title": "Chiba (city)",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

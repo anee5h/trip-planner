@@ -1,0 +1,159 @@
+{
+  "id": "ninna-ji",
+  "name": "Ninna-ji",
+  "nameJa": "仁和寺",
+  "aliases": ["Ninna-ji", "仁和寺"],
+  "content": {
+    "en": {
+      "name": "Ninna-ji",
+      "description": "Ninna-ji (仁和寺, Ninna-ji) is the head temple of the Omuro school of the Shingon Sect of Buddhism. Located in western Kyoto, Japan, it was first founded in AD 888 by Emperor Uda, and was later reconstructed in the 17th century. It is part of the Historic Monuments of Ancient Kyoto, a UNESCO World Heritage Site.",
+      "highlights": ["History"]
+    },
+    "ja": {
+      "name": "仁和寺",
+      "description": "仁和寺（にんなじ）は、京都市右京区御室大内にある真言宗御室派の総本山の寺院。山号は大内山。本尊は阿弥陀如来。",
+      "highlights": ["歴史"]
+    }
+  },
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "kind": "temple",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "northern-kyoto",
+  "relationships": {
+    "parentDestinationId": "kyoto-city"
+  },
+  "officialWebsite": "http://www.ninnaji.or.jp",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History"],
+  "tags": ["History", "Kyoto City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ninnaji%20Kyoto07n4500.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ninnaji_Kyoto07n4500.jpg"
+  },
+  "coordinates": {
+    "lat": 35.03111111,
+    "lng": 135.71388889
+  },
+  "description": "Ninna-ji (仁和寺, Ninna-ji) is the head temple of the Omuro school of the Shingon Sect of Buddhism. Located in western Kyoto, Japan, it was first founded in AD 888 by Emperor Uda, and was later reconstructed in the 17th century. It is part of the Historic Monuments of Ancient Kyoto, a UNESCO World Heritage Site.",
+  "highlights": ["History"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 228,
+    "bus": 228,
+    "shinkansen": 128
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 3,
+    "rainFriendly": 3,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 6.4,
+    "couple": 8.2,
+    "summer": 6.7,
+    "winter": 8.6,
+    "rain": 8.7,
+    "food": 7.2,
+    "photography": 9.1,
+    "relaxation": 7.6,
+    "value": 9.5,
+    "uniqueness": 8,
+    "family": 6.5,
+    "accessibility": 8.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 6.9,
+    "summer": 8.8,
+    "autumn": 7.3,
+    "winter": 9.2
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Ninna-ji",
+        "title": "Ninna-ji",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.ninnaji.or.jp",
+        "title": "Ninna-ji official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Ninna-ji",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ninna-ji",
+          "title": "Ninna-ji",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

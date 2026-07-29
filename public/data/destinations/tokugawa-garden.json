@@ -1,0 +1,158 @@
+{
+  "id": "tokugawa-garden",
+  "name": "Tokugawa Garden",
+  "nameJa": "徳川園",
+  "aliases": ["Tokugawa Garden", "徳川園"],
+  "content": {
+    "en": {
+      "name": "Tokugawa Garden",
+      "description": "The Tokugawa Garden (徳川園 Tokugawa-en) is a Japanese garden in the city of Nagoya, central Japan. It is located next to the Tokugawa Art Museum.",
+      "highlights": ["Nature"]
+    },
+    "ja": {
+      "name": "徳川園",
+      "description": "徳川園（とくがわえん）は、愛知県名古屋市東区徳川町にある日本庭園。\n隣接して、国宝の「源氏物語絵巻」を展示する事で有名な徳川美術館や、河内本『源氏物語』を所蔵する名古屋市蓬左文庫がある。",
+      "highlights": ["自然"]
+    }
+  },
+  "prefecture": "Aichi",
+  "region": "Chubu",
+  "kind": "garden",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-nagoya",
+  "relationships": {
+    "parentDestinationId": "nagoya-city"
+  },
+  "officialWebsite": "https://www.tokugawaen.aichi.jp/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Nature"],
+  "tags": ["Nature", "Nagoya City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tokugawaen%20Ryusen-ko%2001%2C%20Tokugawa-cho%20Higashi%20Ward%20Nagoya%202014.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Tomio344456",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokugawaen_Ryusen-ko_01,_Tokugawa-cho_Higashi_Ward_Nagoya_2014.jpg"
+  },
+  "coordinates": {
+    "lat": 35.184444,
+    "lng": 136.932583
+  },
+  "description": "The Tokugawa Garden (徳川園 Tokugawa-en) is a Japanese garden in the city of Nagoya, central Japan. It is located next to the Tokugawa Art Museum.",
+  "highlights": ["Nature"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 195,
+    "shinkansen": 85
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.5,
+    "couple": 9,
+    "summer": 9.1,
+    "winter": 9.2,
+    "rain": 9.3,
+    "food": 9.4,
+    "photography": 9.5,
+    "relaxation": 7.8,
+    "value": 7.9,
+    "uniqueness": 8,
+    "family": 8.1,
+    "accessibility": 8.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.3,
+    "summer": 8.4,
+    "autumn": 8.5,
+    "winter": 8.6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Tokugawa_Garden",
+        "title": "Tokugawa Garden",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.tokugawaen.aichi.jp/",
+        "title": "Tokugawa Garden official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Tokugawa_Garden",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tokugawa_Garden",
+          "title": "Tokugawa Garden",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

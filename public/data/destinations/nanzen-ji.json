@@ -1,0 +1,159 @@
+{
+  "id": "nanzen-ji",
+  "name": "Nanzen-ji",
+  "nameJa": "南禅院",
+  "aliases": ["Nanzen-in", "南禅院"],
+  "content": {
+    "en": {
+      "name": "Nanzen-ji",
+      "description": "Nanzen-in (南禅院) is one of the tatchu sub-temples of Nanzen-ji, a Rinzai school Zen Buddhist temple in the Fukuchi neighborhood of Sakyō-ku in the city of Kyoto Japan. Its honzon is a Kamakura period statue of Emperor Kameyama, which is a National Important Cultural Property.",
+      "highlights": ["History"]
+    },
+    "ja": {
+      "name": "南禅院",
+      "description": "南禅院（なんぜんいん）は、京都市左京区南禅寺福地町にある臨済宗南禅寺派の寺院。大本山南禅寺の塔頭。本尊は亀山法皇像。",
+      "highlights": ["歴史"]
+    }
+  },
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "kind": "temple",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "higashiyama",
+  "relationships": {
+    "parentDestinationId": "kyoto-city"
+  },
+  "officialWebsite": "http://www.nanzen.net/keidai_nanzenin.html",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History"],
+  "tags": ["History", "Kyoto City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/NanzenjiNanzenin%20teien.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "PlusMinus",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:NanzenjiNanzenin_teien.jpg"
+  },
+  "coordinates": {
+    "lat": 35.0103,
+    "lng": 135.79386944
+  },
+  "description": "Nanzen-in (南禅院) is one of the tatchu sub-temples of Nanzen-ji, a Rinzai school Zen Buddhist temple in the Fukuchi neighborhood of Sakyō-ku in the city of Kyoto Japan. Its honzon is a Kamakura period statue of Emperor Kameyama, which is a National Important Cultural Property.",
+  "highlights": ["History"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 229,
+    "bus": 229,
+    "shinkansen": 129
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 3,
+    "rainFriendly": 3,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8,
+    "summer": 8.9,
+    "winter": 8.2,
+    "rain": 9.1,
+    "food": 8.4,
+    "photography": 7.7,
+    "relaxation": 8.6,
+    "value": 7.9,
+    "uniqueness": 8.8,
+    "family": 8.1,
+    "accessibility": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.3,
+    "summer": 9.2,
+    "autumn": 8.5,
+    "winter": 9.4
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Nanzen-in",
+        "title": "Nanzen-in",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.nanzen.net/keidai_nanzenin.html",
+        "title": "Nanzen-ji official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Nanzen-in",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Nanzen-in",
+          "title": "Nanzen-in",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

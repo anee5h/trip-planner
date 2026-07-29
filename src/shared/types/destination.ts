@@ -127,6 +127,15 @@ export interface EditorialRecord {
 }
 
 export type DestinationImportance = "major" | "notable" | "standard";
+export type OfficialWebsiteRequirement =
+  "required" | "recommended" | "optional" | "none";
+
+export interface DestinationImageMetadata {
+  source: string;
+  license: string;
+  attribution: string;
+  sourceUrl: string;
+}
 
 export interface DestinationRelationships {
   parentDestinationId?: string;
@@ -139,6 +148,7 @@ export interface Destination {
   id: string;
   /** Canonical official visitor information or booking website. */
   officialWebsite?: string;
+  officialWebsiteRequirement?: OfficialWebsiteRequirement;
   name: string;
   nameJa?: string;
   /** Canonical v2 place classification; role remains for legacy callers. */
@@ -151,6 +161,8 @@ export interface Destination {
   kind?: DestinationKind;
   role?: DestinationRole;
   importance?: DestinationImportance;
+  /** Stable intra-city grouping used for discovery and diversification. */
+  areaId?: string;
   aliases?: string[];
   relationships?: DestinationRelationships;
   prefecture: string;
@@ -229,6 +241,8 @@ export interface Destination {
   reservation: string;
   parking: string;
   notes: string;
+  schemaVersion?: 2;
+  imageMetadata?: DestinationImageMetadata;
   itinerary?: ItineraryStep[];
   itineraries?: ItineraryPlan[];
 

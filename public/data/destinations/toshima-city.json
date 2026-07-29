@@ -67,7 +67,12 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": [],
+    "featuredDestinationIds": [
+      "sunshine-60-observatory-ikebukuro",
+      "sunshine-city",
+      "ikebukuro-toshima",
+      "sunshine-aquarium"
+    ],
     "nearbyDestinationIds": [
       "shibuya-city",
       "shinjuku-city",

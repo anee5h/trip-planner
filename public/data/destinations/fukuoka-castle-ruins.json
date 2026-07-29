@@ -1,0 +1,158 @@
+{
+  "id": "fukuoka-castle-ruins",
+  "name": "Fukuoka Castle Ruins",
+  "nameJa": "福岡市",
+  "aliases": ["Fukuoka", "福岡市"],
+  "content": {
+    "en": {
+      "name": "Fukuoka Castle Ruins",
+      "description": "Fukuoka (福岡市, Fukuoka-shi; [ɸɯ̥.kɯꜜ.o.ka, -kɯ.o.kaꜜ.ɕi] ) is a designated city in the Kyushu region of Japan and the capital city of Fukuoka Prefecture. The city is built along the shores of Hakata Bay, and has been a center of international commerce since ancient times. The area has long been considered the gateway to the country, as it is the nearest point among Japan's main islands to the Asian mainland.",
+      "highlights": ["History"]
+    },
+    "ja": {
+      "name": "福岡市",
+      "description": "福岡市（ふくおかし）は、福岡県西部に位置する市。福岡県の県庁所在地であり、九州地方最大の人口を有する政令指定都市でもある。\n九州地方の行政・経済・交通の中心地として同地方最多の人口を有する。",
+      "highlights": ["歴史"]
+    }
+  },
+  "prefecture": "Fukuoka",
+  "region": "Kyushu",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "ohori-maizuru",
+  "relationships": {
+    "parentDestinationId": "fukuoka-city"
+  },
+  "officialWebsite": "https://www.city.fukuoka.lg.jp/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History"],
+  "tags": ["History", "Fukuoka City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hakata%20Port%20from%20Fukuoka%20Tower.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hakata_Port_from_Fukuoka_Tower.jpg"
+  },
+  "coordinates": {
+    "lat": 33.59013888888889,
+    "lng": 130.40172222222222
+  },
+  "description": "Fukuoka (福岡市, Fukuoka-shi; [ɸɯ̥.kɯꜜ.o.ka, -kɯ.o.kaꜜ.ɕi] ) is a designated city in the Kyushu region of Japan and the capital city of Fukuoka Prefecture. The city is built along the shores of Hakata Bay, and has been a center of international commerce since ancient times. The area has long been considered the gateway to the country, as it is the nearest point among Japan's main islands to the Asian mainland.",
+  "highlights": ["History"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 204,
+    "shinkansen": 304
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 3,
+    "rainFriendly": 3,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.5,
+    "couple": 6.4,
+    "summer": 8.9,
+    "winter": 6.4,
+    "rain": 8.9,
+    "food": 8,
+    "photography": 7.1,
+    "relaxation": 8,
+    "value": 7.1,
+    "uniqueness": 6.2,
+    "family": 8.7,
+    "accessibility": 7.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.7,
+    "summer": 7.8,
+    "autumn": 6.9,
+    "winter": 9.4
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Fukuoka",
+        "title": "Fukuoka",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.city.fukuoka.lg.jp/",
+        "title": "Fukuoka Castle Ruins official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Fukuoka",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Fukuoka",
+          "title": "Fukuoka",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

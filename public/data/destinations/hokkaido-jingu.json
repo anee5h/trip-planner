@@ -1,0 +1,157 @@
+{
+  "id": "hokkaido-jingu",
+  "name": "Hokkaido Jingu",
+  "nameJa": "北海道神宮",
+  "aliases": ["Hokkaidō Shrine", "北海道神宮"],
+  "content": {
+    "en": {
+      "name": "Hokkaido Jingu",
+      "description": "The Hokkaidō Shrine (北海道神宮, Hokkaidō Jingū), named the Sapporo Shrine (札幌神社, Sapporo Jinja) until 1964, is a Shinto shrine located in Sapporo, Hokkaido, Japan. Sited in Maruyama Park, Chūō-ku, Sapporo, Hokkaido, the Hokkaido Shrine enshrines four kami including the soul of the Emperor Meiji. A number of early explorers of Hokkaidō such as Mamiya Rinzō are also enshrined.",
+      "highlights": ["History"]
+    },
+    "ja": {
+      "name": "北海道神宮",
+      "description": "北海道神宮（ほっかいどうじんぐう）は、北海道札幌市中央区にある神社（神宮）。円山公園に隣接する。1964年（昭和39年）までは札幌神社。",
+      "highlights": ["歴史"]
+    }
+  },
+  "prefecture": "Hokkaido",
+  "region": "Hokkaido",
+  "kind": "shrine",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "maruyama",
+  "relationships": {
+    "parentDestinationId": "sapporo-city"
+  },
+  "officialWebsite": "http://www.hokkaidojingu.or.jp/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History"],
+  "tags": ["History", "Sapporo City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hokkaido%20Jingu.JPG?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Daigaku2051",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hokkaido_Jingu.JPG"
+  },
+  "coordinates": {
+    "lat": 43.05423527,
+    "lng": 141.30770534
+  },
+  "description": "The Hokkaidō Shrine (北海道神宮, Hokkaidō Jingū), named the Sapporo Shrine (札幌神社, Sapporo Jinja) until 1964, is a Shinto shrine located in Sapporo, Hokkaido, Japan. Sited in Maruyama Park, Chūō-ku, Sapporo, Hokkaido, the Hokkaido Shrine enshrines four kami including the soul of the Emperor Meiji. A number of early explorers of Hokkaidō such as Mamiya Rinzō are also enshrined.",
+  "highlights": ["History"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 195
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 3,
+    "rainFriendly": 3,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 6.5,
+    "couple": 9.4,
+    "summer": 7.7,
+    "winter": 7.8,
+    "rain": 7.9,
+    "food": 8,
+    "photography": 8.1,
+    "relaxation": 8.2,
+    "value": 8.3,
+    "uniqueness": 8.4,
+    "family": 8.5,
+    "accessibility": 6.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 6.9,
+    "summer": 7,
+    "autumn": 7.1,
+    "winter": 7.2
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Hokkaid%C5%8D_Shrine",
+        "title": "Hokkaidō Shrine",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.hokkaidojingu.or.jp/",
+        "title": "Hokkaido Jingu official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Hokkaid%C5%8D_Shrine",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Hokkaid%C5%8D_Shrine",
+          "title": "Hokkaidō Shrine",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

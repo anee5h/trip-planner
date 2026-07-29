@@ -1,0 +1,158 @@
+{
+  "id": "tokugawa-art-museum",
+  "name": "Tokugawa Art Museum",
+  "nameJa": "徳川美術館",
+  "aliases": ["Tokugawa Art Museum", "徳川美術館"],
+  "content": {
+    "en": {
+      "name": "Tokugawa Art Museum",
+      "description": "The Tokugawa Art Museum (徳川美術館, Tokugawa Bijutsukan) is a private art museum, located on the former Ōzone Shimoyashiki compound in Nagoya, central Japan. Its collection contains more than 12,000 items, including swords, armor, Noh costumes and masks, lacquer furniture, Chinese and Japanese ceramics, calligraphy, and paintings from the Chinese Song and Yuan dynasties (960–1368).",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "徳川美術館",
+      "description": "徳川美術館（とくがわびじゅつかん）は、愛知県名古屋市東区徳川町にある私立美術館。公益財団法人徳川黎明会が運営する。1935年に、尾張徳川家19代当主徳川義親（よしちか）により創立された。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Aichi",
+  "region": "Chubu",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-nagoya",
+  "relationships": {
+    "parentDestinationId": "nagoya-city"
+  },
+  "officialWebsite": "https://www.tokugawa-art-museum.jp/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Nagoya City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/View%20of%20Tokugawa%20Art%20Museum%20(1)%2C%20Tokugawa-cho%20Higashi%20Ward%20Nagoya%202021.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Tomio344456",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Tokugawa_Art_Museum_(1),_Tokugawa-cho_Higashi_Ward_Nagoya_2021.jpg"
+  },
+  "coordinates": {
+    "lat": 35.183692,
+    "lng": 136.933189
+  },
+  "description": "The Tokugawa Art Museum (徳川美術館, Tokugawa Bijutsukan) is a private art museum, located on the former Ōzone Shimoyashiki compound in Nagoya, central Japan. Its collection contains more than 12,000 items, including swords, armor, Noh costumes and masks, lacquer furniture, Chinese and Japanese ceramics, calligraphy, and paintings from the Chinese Song and Yuan dynasties (960–1368).",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 199,
+    "shinkansen": 89
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 9.1,
+    "couple": 9.1,
+    "summer": 6.8,
+    "winter": 7.9,
+    "rain": 9,
+    "food": 8.5,
+    "photography": 6.2,
+    "relaxation": 7.3,
+    "value": 6.8,
+    "uniqueness": 7.9,
+    "family": 9,
+    "accessibility": 6.7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 6.2,
+    "summer": 7.3,
+    "autumn": 8.4,
+    "winter": 9.5
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Tokugawa_Art_Museum",
+        "title": "Tokugawa Art Museum",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.tokugawa-art-museum.jp/",
+        "title": "Tokugawa Art Museum official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Tokugawa_Art_Museum",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tokugawa_Art_Museum",
+          "title": "Tokugawa Art Museum",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

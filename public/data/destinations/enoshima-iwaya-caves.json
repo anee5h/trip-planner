@@ -1,0 +1,150 @@
+{
+  "id": "enoshima-iwaya-caves",
+  "name": "Enoshima Iwaya Caves",
+  "nameJa": "江の島",
+  "aliases": ["Enoshima", "江の島"],
+  "content": {
+    "en": {
+      "name": "Enoshima Iwaya Caves",
+      "description": "Enoshima (江の島) is a small offshore island, about 4 km (2.5 mi) in circumference, at the mouth of the Katase River which flows into the Sagami Bay of Kanagawa Prefecture, Japan. Administratively, Enoshima is part of the mainland city of Fujisawa, and is linked to the Katase section of that city by a 389-metre-long (1,276 ft) bridge. Home to some of the closest sandy beaches to Tokyo and Yokohama, the island and adjacent coastline are the hub of a local resort area.",
+      "highlights": ["Nature"]
+    },
+    "ja": {
+      "name": "江の島",
+      "description": "江の島（えのしま）は、神奈川県藤沢市にある陸繋島であり、また同島全体を指した町名。湘南エリアを代表する観光地である。江の島一丁目および江の島二丁目があり全域で住居表示が実施されている。",
+      "highlights": ["自然"]
+    }
+  },
+  "prefecture": "Kanagawa",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "enoshima",
+  "relationships": {
+    "parentDestinationId": "fujisawa-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Nature"],
+  "tags": ["Nature", "Fujisawa City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Enoshima%2006.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "Σ64",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Enoshima_06.jpg"
+  },
+  "coordinates": {
+    "lat": 35.29933055555556,
+    "lng": 139.48090833333333
+  },
+  "description": "Enoshima (江の島) is a small offshore island, about 4 km (2.5 mi) in circumference, at the mouth of the Katase River which flows into the Sagami Bay of Kanagawa Prefecture, Japan. Administratively, Enoshima is part of the mainland city of Fujisawa, and is linked to the Katase section of that city by a 389-metre-long (1,276 ft) bridge. Home to some of the closest sandy beaches to Tokyo and Yokohama, the island and adjacent coastline are the hub of a local resort area.",
+  "highlights": ["Nature"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 202
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.3,
+    "couple": 6.9,
+    "summer": 9.2,
+    "winter": 8.1,
+    "rain": 7,
+    "food": 7.5,
+    "photography": 6.4,
+    "relaxation": 8.7,
+    "value": 7.6,
+    "uniqueness": 8.1,
+    "family": 7,
+    "accessibility": 9.3
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.2,
+    "summer": 8.7,
+    "autumn": 7.6,
+    "winter": 6.5
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Fujisawa City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Enoshima",
+        "title": "Enoshima",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Enoshima",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Enoshima",
+          "title": "Enoshima",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

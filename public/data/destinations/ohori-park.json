@@ -1,0 +1,158 @@
+{
+  "id": "ohori-park",
+  "name": "Ohori Park",
+  "nameJa": "大濠公園",
+  "aliases": ["Ōhori Park", "大濠公園"],
+  "content": {
+    "en": {
+      "name": "Ohori Park",
+      "description": "Ōhori Park (大濠公園, Ōhori-kōen) is a park in Chūō-ku, Fukuoka, Japan and a registered Place of Scenic Beauty.",
+      "highlights": ["Nature"]
+    },
+    "ja": {
+      "name": "大濠公園",
+      "description": "大濠公園（おおほりこうえん、（ローマ字表記: Ōhori Kōen）は、福岡市中央区にある福岡県営の都市公園（総合公園）である。国の登録記念物となっている。また、大濠公園は同公園を町域に含む同区の行政地名（丁目の設定がない単独町名）でもあり、全域で住居表示が実施済みである。",
+      "highlights": ["自然"]
+    }
+  },
+  "prefecture": "Fukuoka",
+  "region": "Kyushu",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "ohori-maizuru",
+  "relationships": {
+    "parentDestinationId": "fukuoka-city"
+  },
+  "officialWebsite": "https://www.ohorikouen.jp/",
+  "officialWebsiteRequirement": "none",
+  "categories": ["Nature"],
+  "tags": ["Nature", "Fukuoka City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E5%A4%A7%E6%BF%A0%E5%85%AC%E5%9C%92%20(3359545709).jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "attribution": "Tzuhsun Hsu from Taipei, Taiwan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E6%BF%A0%E5%85%AC%E5%9C%92_(3359545709).jpg"
+  },
+  "coordinates": {
+    "lat": 33.58586111,
+    "lng": 130.37625
+  },
+  "description": "Ōhori Park (大濠公園, Ōhori-kōen) is a park in Chūō-ku, Fukuoka, Japan and a registered Place of Scenic Beauty.",
+  "highlights": ["Nature"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 202,
+    "shinkansen": 302
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.1,
+    "couple": 8,
+    "summer": 7.7,
+    "winter": 7.4,
+    "rain": 7.1,
+    "food": 6.8,
+    "photography": 6.5,
+    "relaxation": 6.2,
+    "value": 9.3,
+    "uniqueness": 9,
+    "family": 8.7,
+    "accessibility": 8.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.1,
+    "summer": 7.8,
+    "autumn": 7.5,
+    "winter": 9
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/%C5%8Chori_Park",
+        "title": "Ōhori Park",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.ohorikouen.jp/",
+        "title": "Ohori Park official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/%C5%8Chori_Park",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/%C5%8Chori_Park",
+          "title": "Ōhori Park",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

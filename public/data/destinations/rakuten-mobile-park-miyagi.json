@@ -1,0 +1,152 @@
+{
+  "id": "rakuten-mobile-park-miyagi",
+  "name": "Rakuten Mobile Park Miyagi",
+  "nameJa": "宮城球場",
+  "aliases": ["Rakuten Mobile Saikyo Park Miyagi", "宮城球場"],
+  "content": {
+    "en": {
+      "name": "Rakuten Mobile Park Miyagi",
+      "description": "Rakuten Mobile Saikyo Park Miyagi (楽天モバイル 最強パーク宮城, Rakuten Mobairu Saikyō Pāku Miyagi), also named Miyagi Baseball Stadium, is a baseball stadium in Miyaginohara Sports Park in Sendai, Miyagi Prefecture, Japan. The 30,508-seat park is owned by the prefecture and operated by Rakuten, which has used it as the home field for the Tohoku Rakuten Golden Eagles of Nippon Professional Baseball (NPB) since 2005. Its symmetrical playing surface is the only all natural grass field in the Pacific League (PL).",
+      "highlights": ["Nature"]
+    },
+    "ja": {
+      "name": "宮城球場",
+      "description": "宮城球場（みやぎきゅうじょう）は、宮城県仙台市宮城野区の宮城野原公園総合運動場内にある野球場。2005年（平成17年）よりプロ野球・パシフィック・リーグの東北楽天ゴールデンイーグルスの専用球場（本拠地）として使用されているほか、高校野球などのアマチュア野球も開催されている（後述）。\n上記と同年より命名権（ネーミングライツ）が導入されており、現在は楽天モバイル 最強パーク宮城（らくてんモバイル さいきょうパークみやぎ）が優先される愛称として使用されている。",
+      "highlights": ["自然"]
+    }
+  },
+  "prefecture": "Miyagi",
+  "region": "Tohoku",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "miyagino",
+  "relationships": {
+    "parentDestinationId": "sendai-city"
+  },
+  "officialWebsiteRequirement": "none",
+  "categories": ["Nature"],
+  "tags": ["Nature", "Sendai City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobo%20Park%20Miyagi(2017).jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Eaglefire",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kobo_Park_Miyagi(2017).jpg"
+  },
+  "coordinates": {
+    "lat": 38.25620556,
+    "lng": 140.9025
+  },
+  "description": "Rakuten Mobile Saikyo Park Miyagi (楽天モバイル 最強パーク宮城, Rakuten Mobairu Saikyō Pāku Miyagi), also named Miyagi Baseball Stadium, is a baseball stadium in Miyaginohara Sports Park in Sendai, Miyagi Prefecture, Japan. The 30,508-seat park is owned by the prefecture and operated by Rakuten, which has used it as the home field for the Tohoku Rakuten Golden Eagles of Nippon Professional Baseball (NPB) since 2005. Its symmetrical playing surface is the only all natural grass field in the Pacific League (PL).",
+  "highlights": ["Nature"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 25,
+    "bus": 35,
+    "car": 40
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 6.2,
+    "couple": 8.5,
+    "summer": 8.2,
+    "winter": 9.5,
+    "rain": 9.2,
+    "food": 8.9,
+    "photography": 8.6,
+    "relaxation": 8.3,
+    "value": 8,
+    "uniqueness": 9.3,
+    "family": 9,
+    "accessibility": 8.7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.4,
+    "summer": 8.1,
+    "autumn": 7.8,
+    "winter": 9.1
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Rakuten_Mobile_Saikyo_Park_Miyagi",
+        "title": "Rakuten Mobile Saikyo Park Miyagi",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Rakuten_Mobile_Saikyo_Park_Miyagi",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Rakuten_Mobile_Saikyo_Park_Miyagi",
+          "title": "Rakuten Mobile Saikyo Park Miyagi",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

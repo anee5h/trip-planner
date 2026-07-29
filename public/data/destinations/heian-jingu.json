@@ -1,0 +1,159 @@
+{
+  "id": "heian-jingu",
+  "name": "Heian Jingu",
+  "nameJa": "平安神宮",
+  "aliases": ["Heian Shrine", "平安神宮"],
+  "content": {
+    "en": {
+      "name": "Heian Jingu",
+      "description": "The Heian Shrine (平安神宮, Heian-jingū) is a Shinto shrine located in Sakyō-ku, Kyoto, Japan. The Shrine is ranked as a Beppyō Jinja (別表神社) (the top rank for shrines) by the Association of Shinto Shrines. It is listed as an important cultural property of Japan.",
+      "highlights": ["History"]
+    },
+    "ja": {
+      "name": "平安神宮",
+      "description": "平安神宮（へいあんじんぐう）は、京都市左京区にある神社。794年（延暦13年）に桓武天皇により長岡京から平安京へ都が移され、1895年（明治28年）に遷都1100年を記念して桓武天皇を祭神とし創建された。後に孝明天皇が祭神に加えられた。",
+      "highlights": ["歴史"]
+    }
+  },
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "kind": "shrine",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "higashiyama",
+  "relationships": {
+    "parentDestinationId": "kyoto-city"
+  },
+  "officialWebsite": "http://www.heianjingu.or.jp/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History"],
+  "tags": ["History", "Kyoto City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Heian-jingu%2C%20keidai-1.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Saigen Jiro",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Heian-jingu,_keidai-1.jpg"
+  },
+  "coordinates": {
+    "lat": 35.016666666667,
+    "lng": 135.78222222222
+  },
+  "description": "The Heian Shrine (平安神宮, Heian-jingū) is a Shinto shrine located in Sakyō-ku, Kyoto, Japan. The Shrine is ranked as a Beppyō Jinja (別表神社) (the top rank for shrines) by the Association of Shinto Shrines. It is listed as an important cultural property of Japan.",
+  "highlights": ["History"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 231,
+    "bus": 231,
+    "shinkansen": 131
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 3,
+    "rainFriendly": 3,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7,
+    "couple": 7.3,
+    "summer": 8.6,
+    "winter": 8.1,
+    "rain": 9.4,
+    "food": 8.9,
+    "photography": 6.8,
+    "relaxation": 6.3,
+    "value": 7.6,
+    "uniqueness": 7.1,
+    "family": 8.4,
+    "accessibility": 7.9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9.2,
+    "summer": 8.7,
+    "autumn": 6.6,
+    "winter": 9.5
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Heian_Shrine",
+        "title": "Heian Shrine",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.heianjingu.or.jp/",
+        "title": "Heian Jingu official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Heian_Shrine",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Heian_Shrine",
+          "title": "Heian Shrine",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

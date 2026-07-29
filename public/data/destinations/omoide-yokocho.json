@@ -1,0 +1,157 @@
+{
+  "id": "omoide-yokocho",
+  "name": "Omoide Yokocho",
+  "nameJa": "新宿西口商店街",
+  "aliases": ["History of Tokyo", "新宿西口商店街"],
+  "content": {
+    "en": {
+      "name": "Omoide Yokocho",
+      "description": "Omoide Yokocho is a visitor destination in Shinjuku City.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "新宿西口商店街",
+      "description": "新宿西口商店街（しんじゅくにしぐちしょうてんがい）は、東京都新宿区西新宿1丁目（新宿駅西口）にある商店街である。別名として思い出横丁、やきとり横丁のほか、かつての俗称ションベン横丁が知られている。\n空襲の跡がまだ生々しい1946年頃にできた闇市にそのルーツを持つ。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-shinjuku",
+  "relationships": {
+    "parentDestinationId": "shinjuku-city"
+  },
+  "officialWebsite": "http://shinjuku-omoide.com/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Shinjuku City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shinjuku-West%20Omoide-Yokocho.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "MaedaAkihiko",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shinjuku-West_Omoide-Yokocho.jpg"
+  },
+  "coordinates": {
+    "lat": 35.69307,
+    "lng": 139.6995
+  },
+  "description": "Omoide Yokocho is a visitor destination in Shinjuku City.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 196
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.8,
+    "couple": 6.7,
+    "summer": 7.8,
+    "winter": 7.1,
+    "rain": 8.2,
+    "food": 7.5,
+    "photography": 8.6,
+    "relaxation": 7.9,
+    "value": 9,
+    "uniqueness": 8.3,
+    "family": 9.4,
+    "accessibility": 8.7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 6.4,
+    "summer": 9.1,
+    "autumn": 6.8,
+    "winter": 9.5
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/History_of_Tokyo",
+        "title": "History of Tokyo",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://shinjuku-omoide.com/",
+        "title": "Omoide Yokocho official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/History_of_Tokyo",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/History_of_Tokyo",
+          "title": "History of Tokyo",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

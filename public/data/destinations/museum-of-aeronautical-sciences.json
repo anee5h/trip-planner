@@ -1,0 +1,157 @@
+{
+  "id": "museum-of-aeronautical-sciences",
+  "name": "Museum of Aeronautical Sciences",
+  "nameJa": "成田国際空港",
+  "aliases": ["Narita International Airport", "成田国際空港"],
+  "content": {
+    "en": {
+      "name": "Museum of Aeronautical Sciences",
+      "description": "Narita International Airport (成田国際空港, Narita Kokusai Kūkō; IATA: NRT, ICAO: RJAA) — originally known as New Tokyo International Airport (新東京国際空港, Shin Tōkyō Kokusai Kūkō) — is the secondary international airport serving the Greater Tokyo Area, the other being Haneda Airport (HND). It is about 60 km (37 mi) east of central Tokyo in Narita, Chiba. The facility, since July 2019, covers 1,137 hectares (2,810 acres) of land and construction to expand to nearly 2,300 ha (5,700 acres) is underway.",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "成田国際空港",
+      "description": "成田国際空港（なりたこくさいくうこう、英語: Narita International Airport）は、千葉県成田市にある日本最大の国際空港。略称は成田空港（なりたくうこう、英: Narita Airport）。空港コードはNRT。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Chiba",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "narita-airport",
+  "relationships": {
+    "parentDestinationId": "narita-city"
+  },
+  "officialWebsite": "https://www.narita-airport.jp/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Narita City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Narita%20International%20Air%20Port%20(cropped).jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "PSnyan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Narita_International_Air_Port_(cropped).jpg"
+  },
+  "coordinates": {
+    "lat": 35.7649,
+    "lng": 140.38845
+  },
+  "description": "Narita International Airport (成田国際空港, Narita Kokusai Kūkō; IATA: NRT, ICAO: RJAA) — originally known as New Tokyo International Airport (新東京国際空港, Shin Tōkyō Kokusai Kūkō) — is the secondary international airport serving the Greater Tokyo Area, the other being Haneda Airport (HND). It is about 60 km (37 mi) east of central Tokyo in Narita, Chiba. The facility, since July 2019, covers 1,137 hectares (2,810 acres) of land and construction to expand to nearly 2,300 ha (5,700 acres) is underway.",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 200
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 9.1,
+    "couple": 7.4,
+    "summer": 6.7,
+    "winter": 7.8,
+    "rain": 9,
+    "food": 6.6,
+    "photography": 7.7,
+    "relaxation": 8.8,
+    "value": 8.1,
+    "uniqueness": 9.2,
+    "family": 6.9,
+    "accessibility": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9.1,
+    "summer": 6.8,
+    "autumn": 9.5,
+    "winter": 7.2
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Narita City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Narita_International_Airport",
+        "title": "Narita International Airport",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.narita-airport.jp/",
+        "title": "Museum of Aeronautical Sciences official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Narita_International_Airport",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Narita_International_Airport",
+          "title": "Narita International Airport",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

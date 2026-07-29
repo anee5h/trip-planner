@@ -1,0 +1,150 @@
+{
+  "id": "mount-moiwa",
+  "name": "Mount Moiwa",
+  "nameJa": "藻岩山 (札幌市)",
+  "aliases": ["Mount Moiwa", "藻岩山 (札幌市)"],
+  "content": {
+    "en": {
+      "name": "Mount Moiwa",
+      "description": "Mount Moiwa (藻岩山, Moiwayama) is a mountain located about 5 km (3 mi) southwest of the center of Sapporo, Hokkaido and 6 km (4 mi) southwest of Sapporo Station. A ropeway and a motorway pass through Mt. Moiwa, and an observatory and a ski resort in winter make it a resort for Sapporo citizens and tourists.",
+      "highlights": ["Nature"]
+    },
+    "ja": {
+      "name": "藻岩山 (札幌市)",
+      "description": "藻岩山（もいわやま）は、北海道札幌市の中心部から南西約5キロメートル（札幌駅の南西6km）に位置する標高531メートル (530.9m〈531.03m〉) の山。",
+      "highlights": ["自然"]
+    }
+  },
+  "prefecture": "Hokkaido",
+  "region": "Hokkaido",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "moiwa",
+  "relationships": {
+    "parentDestinationId": "sapporo-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Nature"],
+  "tags": ["Nature", "Sapporo City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nakajima%20Park%20Sapporo01n3200.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nakajima_Park_Sapporo01n3200.jpg"
+  },
+  "coordinates": {
+    "lat": 43.0225,
+    "lng": 141.32222222222222
+  },
+  "description": "Mount Moiwa (藻岩山, Moiwayama) is a mountain located about 5 km (3 mi) southwest of the center of Sapporo, Hokkaido and 6 km (4 mi) southwest of Sapporo Station. A ropeway and a motorway pass through Mt. Moiwa, and an observatory and a ski resort in winter make it a resort for Sapporo citizens and tourists.",
+  "highlights": ["Nature"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 203
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 6.9,
+    "summer": 6.4,
+    "winter": 7.5,
+    "rain": 8.6,
+    "food": 6.3,
+    "photography": 7.4,
+    "relaxation": 6.9,
+    "value": 8,
+    "uniqueness": 9.1,
+    "family": 6.8,
+    "accessibility": 6.3
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.4,
+    "summer": 8.5,
+    "autumn": 6.2,
+    "winter": 9.1
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Moiwa",
+        "title": "Mount Moiwa",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Mount_Moiwa",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Mount_Moiwa",
+          "title": "Mount Moiwa",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

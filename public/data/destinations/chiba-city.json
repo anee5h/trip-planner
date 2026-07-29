@@ -87,10 +87,16 @@
   "importance": "notable",
   "relationships": {
     "featuredDestinationIds": [
-      "boso-peninsula",
-      "chiba-nokogiriyama",
+      "chiba-shrine",
+      "chiba-city-museum-of-art",
+      "chiba-zoological-park",
       "chiba-port-tower",
-      "chiba-sawara"
+      "chiba-port-park",
+      "inage-seaside-park",
+      "kasori-shell-mounds",
+      "chiba-city-folk-museum",
+      "chiba-park",
+      "makuhari-seaside-park"
     ],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "saitama-city"]
   },

@@ -1,0 +1,158 @@
+{
+  "id": "maizuru-park",
+  "name": "Maizuru Park",
+  "nameJa": "舞鶴公園",
+  "aliases": ["Fukuoka", "舞鶴公園"],
+  "content": {
+    "en": {
+      "name": "Maizuru Park",
+      "description": "neighborhood or urban park in Chūō-ku, Fukuoka City, Japan",
+      "highlights": ["Nature"]
+    },
+    "ja": {
+      "name": "舞鶴公園",
+      "description": "舞鶴公園（まいづるこうえん）は、福岡県福岡市中央区にある福岡城の本丸址を中心とする公園（総合公園）。公園を含む現行の行政地名は、城内（じょうない、（ローマ字表記: Jōnai）である。福岡市中心部大濠公園の東部に隣接する位置にあり、市民の憩いの場となっている。",
+      "highlights": ["自然"]
+    }
+  },
+  "prefecture": "Fukuoka",
+  "region": "Kyushu",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "ohori-maizuru",
+  "relationships": {
+    "parentDestinationId": "fukuoka-city"
+  },
+  "officialWebsite": "https://www.midorimachi.jp/maiduru/",
+  "officialWebsiteRequirement": "none",
+  "categories": ["Nature"],
+  "tags": ["Nature", "Fukuoka City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shimonohashi%20Gomon%20and%20north%20moat%20of%20Fukuoka%20Castle.JPG?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ (Soramimi)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shimonohashi_Gomon_and_north_moat_of_Fukuoka_Castle.JPG"
+  },
+  "coordinates": {
+    "lat": 33.586366,
+    "lng": 130.385192
+  },
+  "description": "neighborhood or urban park in Chūō-ku, Fukuoka City, Japan",
+  "highlights": ["Nature"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 204,
+    "shinkansen": 304
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 6.3,
+    "couple": 8.4,
+    "summer": 7.5,
+    "winter": 8.4,
+    "rain": 7.5,
+    "food": 6.6,
+    "photography": 9.1,
+    "relaxation": 6.6,
+    "value": 9.1,
+    "uniqueness": 8.2,
+    "family": 7.3,
+    "accessibility": 6.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.3,
+    "summer": 6.4,
+    "autumn": 8.9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Fukuoka",
+        "title": "Fukuoka",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.midorimachi.jp/maiduru/",
+        "title": "Maizuru Park official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Fukuoka",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Fukuoka",
+          "title": "Fukuoka",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "id": "musashi-ichinomiya-hikawa-shrine",
+  "name": "Musashi Ichinomiya Hikawa Shrine",
+  "nameJa": "氷川神社",
+  "aliases": ["Hikawa Shrine (Saitama)", "氷川神社"],
+  "content": {
+    "en": {
+      "name": "Musashi Ichinomiya Hikawa Shrine",
+      "description": "Hikawa Shrine (氷川神社, Hikawa-jinja) is a Shinto shrine located in Ōmiya-ku, Saitama, Saitama Prefecture, Japan. It is one of the two shrines claiming the title of ichinomiya of former Musashi Province. The main festival of the shrine is held annually on August 1.",
+      "highlights": ["History"]
+    },
+    "ja": {
+      "name": "氷川神社",
+      "description": "氷川神社（ひかわじんじゃ）は、埼玉県さいたま市大宮区高鼻町一丁目にある神社。式内社（名神大社）、武蔵国一宮を称する（ないし三宮）勅祭社。旧社格は官幣大社で、現在は神社本庁の別表神社。",
+      "highlights": ["歴史"]
+    }
+  },
+  "prefecture": "Saitama",
+  "region": "Kanto",
+  "kind": "shrine",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "omiya",
+  "relationships": {
+    "parentDestinationId": "saitama-city"
+  },
+  "officialWebsite": "https://musashiichinomiya-hikawa.or.jp/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History"],
+  "tags": ["History", "Saitama City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Front%20shrine%20of%20the%20Hikawa%20shrine.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Ocdp",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Front_shrine_of_the_Hikawa_shrine.jpg"
+  },
+  "coordinates": {
+    "lat": 35.917037,
+    "lng": 139.629461
+  },
+  "description": "Hikawa Shrine (氷川神社, Hikawa-jinja) is a Shinto shrine located in Ōmiya-ku, Saitama, Saitama Prefecture, Japan. It is one of the two shrines claiming the title of ichinomiya of former Musashi Province. The main festival of the shrine is held annually on August 1.",
+  "highlights": ["History"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 62
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 3,
+    "rainFriendly": 3,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 6.8,
+    "couple": 9.5,
+    "summer": 9,
+    "winter": 8.5,
+    "rain": 6.2,
+    "food": 9.1,
+    "photography": 8.6,
+    "relaxation": 6.3,
+    "value": 9.2,
+    "uniqueness": 8.7,
+    "family": 8.2,
+    "accessibility": 9.3
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.8,
+    "summer": 8.3,
+    "autumn": 7.8,
+    "winter": 8.9
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Saitama City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Hikawa_Shrine_(Saitama)",
+        "title": "Hikawa Shrine (Saitama)",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://musashiichinomiya-hikawa.or.jp/",
+        "title": "Musashi Ichinomiya Hikawa Shrine official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Hikawa_Shrine_(Saitama)",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Hikawa_Shrine_(Saitama)",
+          "title": "Hikawa Shrine (Saitama)",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

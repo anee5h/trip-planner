@@ -1,0 +1,158 @@
+{
+  "id": "tochoji",
+  "name": "Tochoji",
+  "nameJa": "東長寺",
+  "aliases": ["Tōchō-ji", "東長寺"],
+  "content": {
+    "en": {
+      "name": "Tochoji",
+      "description": "Tōchō-ji (東長寺) is a Shingon temple in Hakata, Fukuoka, Japan. Its honorary sangō prefix is Nangakuzan (南岳山). It was founded by Kūkai in 806, making it the oldest Shingon temple on the island of Kyushu.",
+      "highlights": ["History"]
+    },
+    "ja": {
+      "name": "東長寺",
+      "description": "東長寺（とうちょうじ）は、福岡県福岡市博多区にある真言宗の寺院。九州における真言宗九州教団の拠点寺院（別格本山）である。山号は南岳山、正式名称は東長密寺である。",
+      "highlights": ["歴史"]
+    }
+  },
+  "prefecture": "Fukuoka",
+  "region": "Kyushu",
+  "kind": "temple",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "hakata",
+  "relationships": {
+    "parentDestinationId": "fukuoka-city"
+  },
+  "officialWebsite": "https://www.tochoji.net/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History"],
+  "tags": ["History", "Fukuoka City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Touchouji02.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Pontafon",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Touchouji02.jpg"
+  },
+  "coordinates": {
+    "lat": 33.595194444444445,
+    "lng": 130.4139722222222
+  },
+  "description": "Tōchō-ji (東長寺) is a Shingon temple in Hakata, Fukuoka, Japan. Its honorary sangō prefix is Nangakuzan (南岳山). It was founded by Kūkai in 806, making it the oldest Shingon temple on the island of Kyushu.",
+  "highlights": ["History"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 199,
+    "shinkansen": 299
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 3,
+    "rainFriendly": 3,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.4,
+    "couple": 7.2,
+    "summer": 6.5,
+    "winter": 7.4,
+    "rain": 6.7,
+    "food": 7.6,
+    "photography": 6.9,
+    "relaxation": 6.2,
+    "value": 7.1,
+    "uniqueness": 6.4,
+    "family": 7.3,
+    "accessibility": 6.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.5,
+    "summer": 6.8,
+    "autumn": 7.7,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/T%C5%8Dch%C5%8D-ji",
+        "title": "Tōchō-ji",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.tochoji.net/",
+        "title": "Tochoji official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/T%C5%8Dch%C5%8D-ji",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/T%C5%8Dch%C5%8D-ji",
+          "title": "Tōchō-ji",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "id": "kyoto-national-museum",
+  "name": "Kyoto National Museum",
+  "nameJa": "京都国立博物館",
+  "aliases": ["Kyoto National Museum", "京都国立博物館"],
+  "content": {
+    "en": {
+      "name": "Kyoto National Museum",
+      "description": "The Kyoto National Museum (京都国立博物館, Kyōto Kokuritsu Hakubutsukan) is one of the major art museums in Japan. Located in Kyoto's Higashiyama ward, the museum focuses on pre-modern Japanese and Asian art.",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "京都国立博物館",
+      "description": "京都国立博物館（きょうとこくりつはくぶつかん）は、独立行政法人国立文化財機構が運営する博物館。1897年（明治30年）5月に開館した。現館長は松本伸之。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-kyoto",
+  "relationships": {
+    "parentDestinationId": "kyoto-city"
+  },
+  "officialWebsite": "http://www.kyohaku.go.jp/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Kyoto City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/260214%20Kyoto%20National%20Museum%20Kyoto%20Japan04bs4.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:260214_Kyoto_National_Museum_Kyoto_Japan04bs4.jpg"
+  },
+  "coordinates": {
+    "lat": 34.989993,
+    "lng": 135.773121
+  },
+  "description": "The Kyoto National Museum (京都国立博物館, Kyōto Kokuritsu Hakubutsukan) is one of the major art museums in Japan. Located in Kyoto's Higashiyama ward, the museum focuses on pre-modern Japanese and Asian art.",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 235,
+    "bus": 235,
+    "shinkansen": 135
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 6.8,
+    "couple": 8.5,
+    "summer": 6.8,
+    "winter": 8.5,
+    "rain": 9,
+    "food": 8.5,
+    "photography": 6.8,
+    "relaxation": 8.5,
+    "value": 6.8,
+    "uniqueness": 8.5,
+    "family": 6.8,
+    "accessibility": 8.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 6.8,
+    "summer": 8.5,
+    "autumn": 6.8,
+    "winter": 8.5
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kyoto_National_Museum",
+        "title": "Kyoto National Museum",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.kyohaku.go.jp/",
+        "title": "Kyoto National Museum official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Kyoto_National_Museum",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kyoto_National_Museum",
+          "title": "Kyoto National Museum",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

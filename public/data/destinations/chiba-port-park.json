@@ -1,0 +1,158 @@
+{
+  "id": "chiba-port-park",
+  "name": "Chiba Port Park",
+  "nameJa": "千葉ポートパーク",
+  "aliases": ["Chiba (city)", "千葉ポートパーク"],
+  "content": {
+    "en": {
+      "name": "Chiba Port Park",
+      "description": "park in Chūōkō, Japan",
+      "highlights": ["Nature"]
+    },
+    "ja": {
+      "name": "千葉ポートパーク",
+      "description": "千葉ポートパーク（ちばポートパーク）は、千葉県千葉市中央区中央港にある県立の港湾環境整備施設（港湾緑地）である。指定管理者制度に基づき、塚原緑地研究所が管理・運営を行っている。",
+      "highlights": ["自然"]
+    }
+  },
+  "prefecture": "Chiba",
+  "region": "Kanto",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "chiba-port",
+  "relationships": {
+    "parentDestinationId": "chiba-city"
+  },
+  "officialWebsite": "http://chiba-portpark.com/",
+  "officialWebsiteRequirement": "none",
+  "categories": ["Nature"],
+  "tags": ["Nature", "Chiba City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chiba%20Port%20Park%2020111028-004.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "掬茶",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chiba_Port_Park_20111028-004.jpg"
+  },
+  "coordinates": {
+    "lat": 35.599078,
+    "lng": 140.100017
+  },
+  "description": "park in Chūōkō, Japan",
+  "highlights": ["Nature"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 69,
+    "car": 59
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.3,
+    "couple": 6.7,
+    "summer": 9.4,
+    "winter": 6.9,
+    "rain": 6.2,
+    "food": 7.1,
+    "photography": 6.4,
+    "relaxation": 7.3,
+    "value": 6.6,
+    "uniqueness": 7.5,
+    "family": 6.8,
+    "accessibility": 7.7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7,
+    "summer": 6.3,
+    "autumn": 7.2,
+    "winter": 6.5
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Chiba City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Chiba_(city)",
+        "title": "Chiba (city)",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://chiba-portpark.com/",
+        "title": "Chiba Port Park official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Chiba_(city)",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chiba_(city)",
+          "title": "Chiba (city)",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

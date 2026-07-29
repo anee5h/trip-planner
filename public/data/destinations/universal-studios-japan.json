@@ -1,0 +1,159 @@
+{
+  "id": "universal-studios-japan",
+  "name": "Universal Studios Japan",
+  "nameJa": "ユニバーサル・スタジオ・ジャパン",
+  "aliases": ["Universal Studios Japan", "ユニバーサル・スタジオ・ジャパン"],
+  "content": {
+    "en": {
+      "name": "Universal Studios Japan",
+      "description": "Universal Studios Japan (ユニバーサル・スタジオ・ジャパン) is a theme park located in Osaka, Japan. Opened on March 31, 2001, it is one of six Universal Studios theme parks worldwide and was the first to open outside the United States. The park is owned and operated by USJ LLC, a wholly owned subsidiary of Comcast NBCUniversal.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "ユニバーサル・スタジオ・ジャパン",
+      "description": "ユニバーサル・スタジオ・ジャパン（英: Universal Studios Japan、略称: USJ）は、大阪府大阪市此花区にあるテーマパーク。\n米国のNBCユニバーサル（コムキャスト傘下）のテーマパーク部門であるユニバーサル・デスティネーションズ&エクスペリエンシズが運営しており、世界に5か所あるユニバーサル・スタジオ・テーマパークのひとつである。2017年以降はNBCユニバーサルが完全に所有・運営している。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Osaka",
+  "region": "Kansai",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "bay-area",
+  "relationships": {
+    "parentDestinationId": "osaka-city"
+  },
+  "officialWebsite": "https://www.usj.co.jp/",
+  "officialWebsiteRequirement": "required",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Osaka City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Harry%20Potter%20and%20the%20Forbidden%20Journey%20USJ.JPG?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Freddo",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Harry_Potter_and_the_Forbidden_Journey_USJ.JPG"
+  },
+  "coordinates": {
+    "lat": 34.6647,
+    "lng": 135.433
+  },
+  "description": "Universal Studios Japan (ユニバーサル・スタジオ・ジャパン) is a theme park located in Osaka, Japan. Opened on March 31, 2001, it is one of six Universal Studios theme parks worldwide and was the first to open outside the United States. The park is owned and operated by USJ LLC, a wholly owned subsidiary of Comcast NBCUniversal.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 192,
+    "bus": 212,
+    "shinkansen": 152
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.1,
+    "couple": 9.1,
+    "summer": 6.2,
+    "winter": 8.5,
+    "rain": 7.4,
+    "food": 6.3,
+    "photography": 6.8,
+    "relaxation": 9.1,
+    "value": 8,
+    "uniqueness": 6.9,
+    "family": 7.4,
+    "accessibility": 6.3
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.6,
+    "summer": 7.5,
+    "autumn": 8,
+    "winter": 6.9
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Check the official website before visiting.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Universal_Studios_Japan",
+        "title": "Universal Studios Japan",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.usj.co.jp/",
+        "title": "Universal Studios Japan official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Universal_Studios_Japan",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Universal_Studios_Japan",
+          "title": "Universal Studios Japan",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

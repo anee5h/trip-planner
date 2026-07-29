@@ -1,0 +1,158 @@
+{
+  "id": "chiba-shrine",
+  "name": "Chiba Shrine",
+  "nameJa": "千葉神社",
+  "aliases": ["Chiba Shrine", "千葉神社"],
+  "content": {
+    "en": {
+      "name": "Chiba Shrine",
+      "description": "Chiba Shrine (千葉神社, Chiba-jinja) is a Shinto shrine located in Chūō-ku, Chiba City, Chiba Prefecture. Originally a Buddhist temple dedicated to the deity Myōken, the patron of the Chiba clan, it was converted into a Shinto shrine dedicated to Ame-no-Minakanushi (a kami in Japanese mythology conflated with Myōken) during the Meiji period.\nDue to its historical status as one of the principal centers of Myōken worship in Chiba Prefecture associated with the Chiba clan, the shrine is also popularly known as Chiba Dai-Myōken (千葉大妙見, \"Great Myōken [Shrine] of Chiba\"), Myōken Hongū (妙見本宮, the ″Main Shrine (Hongū) of Myōken″), or simply as Myōken-sama (妙見様).",
+      "highlights": ["History"]
+    },
+    "ja": {
+      "name": "千葉神社",
+      "description": "千葉神社（ちばじんじゃ）は、千葉県千葉市中央区にある神社。旧社格は県社。神紋は三光紋（月星）、社紋は九曜紋。",
+      "highlights": ["歴史"]
+    }
+  },
+  "prefecture": "Chiba",
+  "region": "Kanto",
+  "kind": "shrine",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-chiba",
+  "relationships": {
+    "parentDestinationId": "chiba-city"
+  },
+  "officialWebsite": "https://www.chibajinja.com/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History"],
+  "tags": ["History", "Chiba City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chiba-jinja%20003.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "掬茶",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chiba-jinja_003.jpg"
+  },
+  "coordinates": {
+    "lat": 35.611805555555556,
+    "lng": 140.12383333333335
+  },
+  "description": "Chiba Shrine (千葉神社, Chiba-jinja) is a Shinto shrine located in Chūō-ku, Chiba City, Chiba Prefecture. Originally a Buddhist temple dedicated to the deity Myōken, the patron of the Chiba clan, it was converted into a Shinto shrine dedicated to Ame-no-Minakanushi (a kami in Japanese mythology conflated with Myōken) during the Meiji period.\nDue to its historical status as one of the principal centers of Myōken worship in Chiba Prefecture associated with the Chiba clan, the shrine is also popularly known as Chiba Dai-Myōken (千葉大妙見, \"Great Myōken [Shrine] of Chiba\"), Myōken Hongū (妙見本宮, the ″Main Shrine (Hongū) of Myōken″), or simply as Myōken-sama (妙見様).",
+  "highlights": ["History"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 66,
+    "car": 56
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 3,
+    "rainFriendly": 3,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 9.5,
+    "couple": 9.2,
+    "summer": 8.3,
+    "winter": 7.4,
+    "rain": 8.1,
+    "food": 7.2,
+    "photography": 7.9,
+    "relaxation": 7,
+    "value": 9.5,
+    "uniqueness": 6.8,
+    "family": 9.3,
+    "accessibility": 8.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9.1,
+    "summer": 8.2,
+    "autumn": 8.9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Chiba City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Chiba_Shrine",
+        "title": "Chiba Shrine",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.chibajinja.com/",
+        "title": "Chiba Shrine official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Chiba_Shrine",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chiba_Shrine",
+          "title": "Chiba Shrine",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

@@ -100,5 +100,8 @@
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
-  }
+  },
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "sakae"
 }

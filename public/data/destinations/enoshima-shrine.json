@@ -1,0 +1,157 @@
+{
+  "id": "enoshima-shrine",
+  "name": "Enoshima Shrine",
+  "nameJa": "江島神社",
+  "aliases": ["Enoshima Shrine", "江島神社"],
+  "content": {
+    "en": {
+      "name": "Enoshima Shrine",
+      "description": "Enoshima Shrine (江島神社) is a Shinto shrine in Enoshima, Fujisawa, Kanagawa, Japan. The shrine is dedicated to the worship of the kami Benten. Enoshima-jinja comprises three shrines, He-tsu-miya, Naka-tsu-miya and Oku-tsu-miya.",
+      "highlights": ["History"]
+    },
+    "ja": {
+      "name": "江島神社",
+      "description": "江島神社（えのしまじんじゃ）は、神奈川県藤沢市江の島にある神社である。旧社格は県社で、現在は神社本庁の別表神社。日本三大弁天の一つに数えられる。",
+      "highlights": ["歴史"]
+    }
+  },
+  "prefecture": "Kanagawa",
+  "region": "Kanto",
+  "kind": "shrine",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "enoshima",
+  "relationships": {
+    "parentDestinationId": "fujisawa-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History"],
+  "tags": ["History", "Fujisawa City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Enoshimajinja%20-05.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Aimaimyi",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Enoshimajinja_-05.jpg"
+  },
+  "coordinates": {
+    "lat": 35.30036111111111,
+    "lng": 139.4796111111111
+  },
+  "description": "Enoshima Shrine (江島神社) is a Shinto shrine in Enoshima, Fujisawa, Kanagawa, Japan. The shrine is dedicated to the worship of the kami Benten. Enoshima-jinja comprises three shrines, He-tsu-miya, Naka-tsu-miya and Oku-tsu-miya.",
+  "highlights": ["History"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 197
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 3,
+    "rainFriendly": 3,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.3,
+    "couple": 6.6,
+    "summer": 8.5,
+    "winter": 8.8,
+    "rain": 9.1,
+    "food": 9.4,
+    "photography": 6.3,
+    "relaxation": 6.6,
+    "value": 6.9,
+    "uniqueness": 7.2,
+    "family": 7.5,
+    "accessibility": 7.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.1,
+    "summer": 8.4,
+    "autumn": 6.9,
+    "winter": 7.2
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Fujisawa City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Enoshima_Shrine",
+        "title": "Enoshima Shrine",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://enoshimajinja.or.jp/",
+        "title": "Enoshima Shrine official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Enoshima_Shrine",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Enoshima_Shrine",
+          "title": "Enoshima Shrine",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "officialWebsite": "http://enoshimajinja.or.jp/"
+}

@@ -72,7 +72,20 @@
     }
   ],
   "relationships": {
-    "featuredDestinationIds": [],
+    "featuredDestinationIds": [
+      "hokkaido-museum-of-modern-art",
+      "sapporo-tv-tower",
+      "tanukikoji-shopping-street",
+      "former-hokkaido-government-office",
+      "mount-moiwa",
+      "maruyama-park",
+      "odori-park",
+      "nijo-market",
+      "sapporo-beer-museum",
+      "sapporo-clock-tower",
+      "hokkaido-jingu",
+      "susukino"
+    ],
     "nearbyDestinationIds": ["otaru-city", "hakodate-city", "asahikawa-city"]
   },
   "budgetBreakdown": {

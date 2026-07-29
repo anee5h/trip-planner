@@ -1,0 +1,157 @@
+{
+  "id": "kamakurakokomae-station",
+  "name": "Kamakurakokomae Station",
+  "nameJa": "鎌倉高校前駅",
+  "aliases": ["Kamakurakōkōmae Station", "鎌倉高校前駅"],
+  "content": {
+    "en": {
+      "name": "Kamakurakokomae Station",
+      "description": "Kamakurakōkōmae Station (Japanese: 鎌倉高校前駅, Hepburn: Kamakurakōkōmae-eki; lit. 'Kamakura High School Station') is a railway station on the Enoshima Electric Railway (Enoden), located in the Koshigoe neighborhood of Kamakura, Kanagawa, Japan. Though small in size, it is known for its scenery, as it commands an open view of the Pacific Ocean and Mount Fuji from the station platform.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "鎌倉高校前駅",
+      "description": "鎌倉高校前駅（かまくらこうこうまええき）は、神奈川県鎌倉市腰越一丁目にある、江ノ島電鉄の駅。駅番号はEN08。\n海を見渡せる景色の良い場所にある。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Kanagawa",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-kamakura",
+  "relationships": {
+    "parentDestinationId": "kamakura-city"
+  },
+  "officialWebsite": "https://www.enoden.co.jp/train/station/kamakurakokomae/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Kamakura City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Enoden-EN08-Kamakura-koko-mae-station-building-20200315-134942.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "LERK",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Enoden-EN08-Kamakura-koko-mae-station-building-20200315-134942.jpg"
+  },
+  "coordinates": {
+    "lat": 35.30666667,
+    "lng": 139.50055556
+  },
+  "description": "Kamakurakōkōmae Station (Japanese: 鎌倉高校前駅, Hepburn: Kamakurakōkōmae-eki; lit. 'Kamakura High School Station') is a railway station on the Enoshima Electric Railway (Enoden), located in the Koshigoe neighborhood of Kamakura, Kanagawa, Japan. Though small in size, it is known for its scenery, as it commands an open view of the Pacific Ocean and Mount Fuji from the station platform.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 196
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.7,
+    "couple": 7.4,
+    "summer": 6.7,
+    "winter": 7.8,
+    "rain": 7.1,
+    "food": 8.2,
+    "photography": 7.5,
+    "relaxation": 8.6,
+    "value": 6.3,
+    "uniqueness": 9,
+    "family": 6.7,
+    "accessibility": 9.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.1,
+    "summer": 6.4,
+    "autumn": 7.5,
+    "winter": 6.8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kamakura City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kamakurak%C5%8Dk%C5%8Dmae_Station",
+        "title": "Kamakurakōkōmae Station",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.enoden.co.jp/train/station/kamakurakokomae/",
+        "title": "Kamakurakokomae Station official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Kamakurak%C5%8Dk%C5%8Dmae_Station",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kamakurak%C5%8Dk%C5%8Dmae_Station",
+          "title": "Kamakurakōkōmae Station",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

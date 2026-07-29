@@ -1,0 +1,157 @@
+{
+  "id": "ameya-yokocho",
+  "name": "Ameya-Yokocho",
+  "nameJa": "アメヤ横丁",
+  "aliases": ["Ameya-Yokochō", "アメヤ横丁"],
+  "content": {
+    "en": {
+      "name": "Ameya-Yokocho",
+      "description": "Ameya-Yokochō (アメヤ横丁; \"Ameya alley\"), often shortened to Ameyoko  (アメ横), is an open-air market in the Taito Ward of Tokyo, Japan, located next to Ueno Station.\nThe market is approximately 164,227 square feet (15,257 m2) in area, starting just behind the Yodobashi Camera building and following the Yamanote Line south until the Komuro building.\nThere are two theories on the etymology of Ameya.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "アメヤ横丁",
+      "description": "アメヤ横丁（アメヤよこちょう）は、日本の東京都台東区にある商店街名。東日本旅客鉄道（JR東日本）山手線ほかの御徒町駅 - 上野駅間の高架橋西側と高架下の約500 - 600メートルを中心に、約400店を有する商店街である。正式名称はアメ横商店街連合会（アメよこ しょうてんがい れんごうかい）であるが、アメヤ横丁のほか、アメ横（アメよこ）、上野アメ横（うえのアメよこ）、アメ横商店街（アメよこ しょうてんがい）などと通称されることが多い。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "ueno",
+  "relationships": {
+    "parentDestinationId": "taito-city"
+  },
+  "officialWebsite": "https://www.ameyoko.net/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Taito City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ameya-yokocho01s5s3200.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ameya-yokocho01s5s3200.jpg"
+  },
+  "coordinates": {
+    "lat": 35.7100592,
+    "lng": 139.7745428
+  },
+  "description": "Ameya-Yokochō (アメヤ横丁; \"Ameya alley\"), often shortened to Ameyoko  (アメ横), is an open-air market in the Taito Ward of Tokyo, Japan, located next to Ueno Station.\nThe market is approximately 164,227 square feet (15,257 m2) in area, starting just behind the Yodobashi Camera building and following the Yamanote Line south until the Komuro building.\nThere are two theories on the etymology of Ameya.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 203
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.5,
+    "couple": 6.7,
+    "summer": 7.8,
+    "winter": 8.9,
+    "rain": 8.4,
+    "food": 9.5,
+    "photography": 7.2,
+    "relaxation": 8.3,
+    "value": 7.8,
+    "uniqueness": 8.9,
+    "family": 6.6,
+    "accessibility": 7.7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.8,
+    "summer": 8.3,
+    "autumn": 9.4,
+    "winter": 7.1
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Taito City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Ameya-Yokoch%C5%8D",
+        "title": "Ameya-Yokochō",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.ameyoko.net/",
+        "title": "Ameya-Yokocho official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Ameya-Yokoch%C5%8D",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ameya-Yokoch%C5%8D",
+          "title": "Ameya-Yokochō",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

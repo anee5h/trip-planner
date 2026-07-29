@@ -6,6 +6,8 @@ import { useAuth } from "@/shared/hooks/useAuth";
 import { getDestination } from "@/shared/services/destination/DestinationService";
 import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
 import DestinationCard from "./components/DestinationCard";
+import DestinationMap from "./components/DestinationMap";
+import { getCityArea } from "@/shared/data/cityAreas";
 import type { Destination } from "@/shared/types/destination";
 import type { Collection } from "@/shared/types/collection";
 import CollectionBadge from "@/shared/components/ui/CollectionBadge";
@@ -367,6 +369,61 @@ export default function DestinationDetails() {
     return DestinationRelationshipService.getFeaturedChildDestinations(
       destination,
     ).filter((place) => isPlaceAvailableInLocale(place, locale));
+  }, [destination, locale]);
+
+  const childDestinations = useMemo(() => {
+    if (!destination || destination.role !== "hub") return [];
+    return DestinationRelationshipService.getChildDestinations(
+      destination.id,
+    ).filter((place) => isPlaceAvailableInLocale(place, locale));
+  }, [destination, locale]);
+
+  const areaGroups = useMemo(
+    () =>
+      Array.from(
+        childDestinations.reduce((groups, place) => {
+          const key = place.areaId || "other";
+          groups.set(key, [...(groups.get(key) || []), place]);
+          return groups;
+        }, new Map<string, Destination[]>()),
+      ),
+    [childDestinations],
+  );
+
+  const indoorChildren = useMemo(
+    () =>
+      childDestinations
+        .filter((place) => place.indoorPercent >= 70)
+        .sort((a, b) => b.ratings.rain - a.ratings.rain)
+        .slice(0, 3),
+    [childDestinations],
+  );
+
+  const foodAndEveningChildren = useMemo(
+    () =>
+      childDestinations
+        .filter((place) =>
+          [...place.categories, ...place.tags].some((label) =>
+            /food|market|night|evening|shopping/i.test(label),
+          ),
+        )
+        .sort((a, b) => b.ratings.food - a.ratings.food)
+        .slice(0, 3),
+    [childDestinations],
+  );
+
+  const halfDaySiblings = useMemo(() => {
+    if (!destination?.relationships?.parentDestinationId) return [];
+    return DestinationRelationshipService.getChildDestinations(
+      destination.relationships.parentDestinationId,
+    )
+      .filter(
+        (place) =>
+          place.id !== destination.id &&
+          (place.recommendedVisitHours?.max ?? 99) <= 4 &&
+          isPlaceAvailableInLocale(place, locale),
+      )
+      .slice(0, 3);
   }, [destination, locale]);
 
   const nearbyPlaces = useMemo(() => {
@@ -1766,6 +1823,95 @@ export default function DestinationDetails() {
           </div>
         )}
 
+        {destination.role === "hub" && childDestinations.length > 0 && (
+          <div className="mt-16 space-y-10 border-t border-slate-200 pt-12 dark:border-slate-800">
+            <div>
+              <h3 className="mb-4 text-2xl font-extrabold text-slate-900 dark:text-white">
+                {locale === "ja" ? "エリアから探す" : "Explore by area"}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {areaGroups.map(([areaId, places]) => {
+                  const area = getCityArea(areaId);
+                  return (
+                    <Link
+                      key={areaId}
+                      to={`/destinations?city=${destination.id}${area ? `&area=${area.id}` : ""}`}
+                      className="rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-bold text-emerald-700 hover:bg-emerald-100 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300"
+                    >
+                      {area?.name[locale] ||
+                        (locale === "ja" ? "その他" : "Other")}{" "}
+                      · {places.length}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+
+            {indoorChildren.length > 0 && (
+              <div>
+                <h3 className="mb-5 text-2xl font-extrabold text-slate-900 dark:text-white">
+                  {locale === "ja" ? "雨の日におすすめ" : "Best for rainy days"}
+                </h3>
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                  {indoorChildren.map((place) => (
+                    <DestinationCard
+                      key={place.id}
+                      destination={place}
+                      partySize={partySize}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {foodAndEveningChildren.length > 0 && (
+              <div>
+                <h3 className="mb-5 text-2xl font-extrabold text-slate-900 dark:text-white">
+                  {locale === "ja"
+                    ? "グルメと夜の楽しみ"
+                    : "Food and evening options"}
+                </h3>
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                  {foodAndEveningChildren.map((place) => (
+                    <DestinationCard
+                      key={place.id}
+                      destination={place}
+                      partySize={partySize}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div>
+              <h3 className="mb-4 text-2xl font-extrabold text-slate-900 dark:text-white">
+                {locale === "ja" ? "滞在時間から探す" : "Plan by duration"}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  ["halfDay", locale === "ja" ? "半日" : "Half day"],
+                  ["dayTrip", locale === "ja" ? "日帰り" : "Full day"],
+                  ["weekend", locale === "ja" ? "週末" : "Weekend"],
+                ].map(([duration, label]) => (
+                  <Link
+                    key={duration}
+                    to={`/destinations?city=${destination.id}&duration=${duration}`}
+                    className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-bold text-slate-700 hover:border-emerald-500 dark:border-slate-700 dark:text-slate-200"
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <DestinationMap
+              destinations={childDestinations}
+              carMode={navState?.carMode}
+              publicModes={navState?.publicModes}
+            />
+          </div>
+        )}
+
         {/* City hubs show nearby hubs; POIs show editorially related places and their hub. */}
         {destination.role === "hub" && nearbyHubs.length > 0 && (
           <div className="mt-16 pt-12 border-t border-slate-200 dark:border-slate-800">
@@ -1842,6 +1988,25 @@ export default function DestinationDetails() {
                     navState?.publicModes || ["train", "shinkansen", "bus"]
                   }
                   activeTransportMode="all"
+                />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {destination.role !== "hub" && halfDaySiblings.length > 0 && (
+          <div className="mt-16 border-t border-slate-200 pt-12 dark:border-slate-800">
+            <h3 className="mb-6 text-2xl font-extrabold text-slate-900 dark:text-white">
+              {locale === "ja"
+                ? "同じ街の半日スポット"
+                : "Half-day options in this city"}
+            </h3>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+              {halfDaySiblings.map((place) => (
+                <DestinationCard
+                  key={place.id}
+                  destination={place}
+                  partySize={partySize}
                 />
               ))}
             </div>

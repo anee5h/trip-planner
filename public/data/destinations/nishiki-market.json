@@ -1,0 +1,159 @@
+{
+  "id": "nishiki-market",
+  "name": "Nishiki Market",
+  "nameJa": "錦市場",
+  "aliases": ["Nishiki Market", "錦市場"],
+  "content": {
+    "en": {
+      "name": "Nishiki Market",
+      "description": "Nishiki Market (錦市場, Nishiki Ichiba; literally \"brocade market\") is a marketplace in downtown Kyoto, located on the east end of Nishikikōji Street, one block north and parallel to Shijō Street (四条通, Shijō-dōri) and west of Teramachi Street (寺町通, Teramachi-dōri).  Rich with history and tradition, the market is renowned as the place to obtain many of Kyoto's famous foods and goods.",
+      "highlights": ["Food"]
+    },
+    "ja": {
+      "name": "錦市場",
+      "description": "錦市場（にしき いちば、英語: Nishiki Market）は、京都府京都市中京区のほぼ中央に位置する錦小路通のうち、「寺町通 - 高倉通」間に存在する食品販売中心の商店街である。魚、京野菜といった生鮮食材のほか、乾物や漬物、おばんざい（京言葉で日常の惣菜）などの加工食品を商う老舗・専門店が集まる市場。\n中小企業庁によれば、商店街の類型として超広域型商店街とされる。",
+      "highlights": ["グルメ"]
+    }
+  },
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "kind": "market",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-kyoto",
+  "relationships": {
+    "parentDestinationId": "kyoto-city"
+  },
+  "officialWebsite": "http://www.kyoto-nishiki.or.jp/",
+  "officialWebsiteRequirement": "none",
+  "categories": ["Food"],
+  "tags": ["Food", "Kyoto City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nishiki%20ichiba%20kyoto.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Pitan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nishiki_ichiba_kyoto.jpg"
+  },
+  "coordinates": {
+    "lat": 35.00502778,
+    "lng": 135.76613889
+  },
+  "description": "Nishiki Market (錦市場, Nishiki Ichiba; literally \"brocade market\") is a marketplace in downtown Kyoto, located on the east end of Nishikikōji Street, one block north and parallel to Shijō Street (四条通, Shijō-dōri) and west of Teramachi Street (寺町通, Teramachi-dōri).  Rich with history and tradition, the market is renowned as the place to obtain many of Kyoto's famous foods and goods.",
+  "highlights": ["Food"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 234,
+    "bus": 234,
+    "shinkansen": 134
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 55,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.9,
+    "couple": 6.4,
+    "summer": 7.3,
+    "winter": 6.4,
+    "rain": 8.9,
+    "food": 8,
+    "photography": 8.9,
+    "relaxation": 8,
+    "value": 7.1,
+    "uniqueness": 6.2,
+    "family": 8.7,
+    "accessibility": 6.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.7,
+    "summer": 7.8,
+    "autumn": 6.9,
+    "winter": 7.8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Nishiki_Market",
+        "title": "Nishiki Market",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.kyoto-nishiki.or.jp/",
+        "title": "Nishiki Market official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Nishiki_Market",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Nishiki_Market",
+          "title": "Nishiki Market",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

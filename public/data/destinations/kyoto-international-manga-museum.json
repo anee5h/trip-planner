@@ -1,0 +1,159 @@
+{
+  "id": "kyoto-international-manga-museum",
+  "name": "Kyoto International Manga Museum",
+  "nameJa": "京都国際マンガミュージアム",
+  "aliases": ["Kyoto International Manga Museum", "京都国際マンガミュージアム"],
+  "content": {
+    "en": {
+      "name": "Kyoto International Manga Museum",
+      "description": "The Kyoto International Manga Museum (京都国際マンガミュージアム, Kyōto Kokusai Manga Myūjiamu) is located in Nakagyō-ku, Kyoto, Japan. The museum's collection includes approximately 300,000 items as of 2016, with 50,000 volumes of manga that can be accessed and read by visitors and approximately 250,000 items in its closed-stack collection, which can be accessed via a dedicated research room supported by reference facilities. Collected materials include Edo period woodblock prints, pre-war magazines, post-war rental books, and popular modern series from around the world.",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "京都国際マンガミュージアム",
+      "description": "京都国際マンガミュージアム（きょうとこくさいマンガミュージアム、Kyoto International Manga Museum）とは京都市中京区の旧・龍池小学校跡地にある日本最大の漫画博物館である。\n国内外の漫画に関する貴重な資料を集める日本初の総合的な漫画ミュージアムとして2006年11月25日に開館した。明治時代の雑誌や戦後の貸本などの貴重な歴史資料、現代の人気作品、世界各国の名作など約30万点（2011年現在）を所蔵している。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-kyoto",
+  "relationships": {
+    "parentDestinationId": "kyoto-city"
+  },
+  "officialWebsite": "http://www.kyotomm.com/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Kyoto City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E4%BA%AC%E9%83%BD%E5%9B%BD%E9%9A%9B%E3%83%9E%E3%83%B3%E3%82%AC%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "ja:利用者:珈琲ルンバ",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E4%BA%AC%E9%83%BD%E5%9B%BD%E9%9A%9B%E3%83%9E%E3%83%B3%E3%82%AC%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0.jpg"
+  },
+  "coordinates": {
+    "lat": 35.0116867,
+    "lng": 135.7591715
+  },
+  "description": "The Kyoto International Manga Museum (京都国際マンガミュージアム, Kyōto Kokusai Manga Myūjiamu) is located in Nakagyō-ku, Kyoto, Japan. The museum's collection includes approximately 300,000 items as of 2016, with 50,000 volumes of manga that can be accessed and read by visitors and approximately 250,000 items in its closed-stack collection, which can be accessed via a dedicated research room supported by reference facilities. Collected materials include Edo period woodblock prints, pre-war magazines, post-war rental books, and popular modern series from around the world.",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 235,
+    "bus": 235,
+    "shinkansen": 135
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 9.2,
+    "couple": 8.8,
+    "summer": 8.1,
+    "winter": 7.4,
+    "rain": 9,
+    "food": 7.8,
+    "photography": 7.1,
+    "relaxation": 8.2,
+    "value": 7.5,
+    "uniqueness": 6.8,
+    "family": 7.9,
+    "accessibility": 7.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 6.5,
+    "summer": 7.6,
+    "autumn": 6.9,
+    "winter": 6.2
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kyoto_International_Manga_Museum",
+        "title": "Kyoto International Manga Museum",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.kyotomm.com/",
+        "title": "Kyoto International Manga Museum official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Kyoto_International_Manga_Museum",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kyoto_International_Manga_Museum",
+          "title": "Kyoto International Manga Museum",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

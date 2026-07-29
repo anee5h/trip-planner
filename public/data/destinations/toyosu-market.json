@@ -1,0 +1,157 @@
+{
+  "id": "toyosu-market",
+  "name": "Toyosu Market",
+  "nameJa": "豊洲市場",
+  "aliases": ["Toyosu Market", "豊洲市場"],
+  "content": {
+    "en": {
+      "name": "Toyosu Market",
+      "description": "The Toyosu Market (豊洲市場, Toyosu Shijō) is a wholesale market in Tokyo, located in the Toyosu area of the Kōtō ward. There are two markets for seafood, one for general wholesale and one for bidding, and one market for fruits and vegetables, with each in its own building. Tourists can observe the auction market on a second floor viewing deck.",
+      "highlights": ["Food"]
+    },
+    "ja": {
+      "name": "豊洲市場",
+      "description": "豊洲市場（とよすしじょう）は、東京都江東区豊洲六丁目にある公設の卸売市場で、都内に11か所ある東京都中央卸売市場の一つ。築地市場（中央区築地）の代替施設として建設された。2018年9月13日に開場記念式典が行われ、同年10月11日に取引を開始した。",
+      "highlights": ["グルメ"]
+    }
+  },
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "kind": "market",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "toyosu",
+  "relationships": {
+    "parentDestinationId": "koto-city"
+  },
+  "officialWebsite": "https://www.shijou.metro.tokyo.lg.jp/toyosu/",
+  "officialWebsiteRequirement": "none",
+  "categories": ["Food"],
+  "tags": ["Food", "Koto City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toyosu%20fish%20market-4b.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "江戸村のとくぞう",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toyosu_fish_market-4b.jpg"
+  },
+  "coordinates": {
+    "lat": 35.64416666666666,
+    "lng": 139.7836111111111
+  },
+  "description": "The Toyosu Market (豊洲市場, Toyosu Shijō) is a wholesale market in Tokyo, located in the Toyosu area of the Kōtō ward. There are two markets for seafood, one for general wholesale and one for bidding, and one market for fruits and vegetables, with each in its own building. Tourists can observe the auction market on a second floor viewing deck.",
+  "highlights": ["Food"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 202
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 55,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.6,
+    "couple": 7.1,
+    "summer": 6.8,
+    "winter": 6.5,
+    "rain": 6.2,
+    "food": 9.3,
+    "photography": 9,
+    "relaxation": 7.1,
+    "value": 6.8,
+    "uniqueness": 6.5,
+    "family": 6.2,
+    "accessibility": 9.3
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8.7,
+    "autumn": 8.4,
+    "winter": 8.1
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Koto City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Toyosu_Market",
+        "title": "Toyosu Market",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.shijou.metro.tokyo.lg.jp/toyosu/",
+        "title": "Toyosu Market official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Toyosu_Market",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Toyosu_Market",
+          "title": "Toyosu Market",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

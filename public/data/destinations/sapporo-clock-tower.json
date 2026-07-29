@@ -1,0 +1,157 @@
+{
+  "id": "sapporo-clock-tower",
+  "name": "Sapporo Clock Tower",
+  "nameJa": "札幌市時計台",
+  "aliases": ["Sapporo Clock Tower", "札幌市時計台"],
+  "content": {
+    "en": {
+      "name": "Sapporo Clock Tower",
+      "description": "Sapporo Clock Tower (札幌時計台, Sapporo Tokeidai) is a wooden structure and tourist attraction located at North 1 West 2, Chūō-ku, Sapporo, the largest city on the island of Hokkaidō, Japan. As of 2021, this tower is the oldest clock tower in Japan.\nThe building is of American design and is one of the few surviving Western-style buildings in Sapporo, a city developed in the 1870s with assistance from the American government.",
+      "highlights": ["Viewpoint"]
+    },
+    "ja": {
+      "name": "札幌市時計台",
+      "description": "札幌市時計台（さっぽろしとけいだい）は、北海道札幌市中央区北1条西2丁目にある歴史的建造物である。重要文化財（1970年6月17日指定）。\n正式名称を「旧札幌農学校演武場」（きゅう-さっぽろのうがっこう-えんぶじょう）と称する。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Hokkaido",
+  "region": "Hokkaido",
+  "kind": "tower",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-sapporo",
+  "relationships": {
+    "parentDestinationId": "sapporo-city"
+  },
+  "officialWebsite": "http://sapporoshi-tokeidai.jp",
+  "officialWebsiteRequirement": "required",
+  "categories": ["Viewpoint"],
+  "tags": ["Viewpoint", "Sapporo City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/20200119%20Sapporo%20Clock%20Tower.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Balon Greyjoy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:20200119_Sapporo_Clock_Tower.jpg"
+  },
+  "coordinates": {
+    "lat": 43.062602,
+    "lng": 141.353681
+  },
+  "description": "Sapporo Clock Tower (札幌時計台, Sapporo Tokeidai) is a wooden structure and tourist attraction located at North 1 West 2, Chūō-ku, Sapporo, the largest city on the island of Hokkaidō, Japan. As of 2021, this tower is the oldest clock tower in Japan.\nThe building is of American design and is one of the few surviving Western-style buildings in Sapporo, a city developed in the 1870s with assistance from the American government.",
+  "highlights": ["Viewpoint"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 203
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 6.7,
+    "couple": 7,
+    "summer": 8.1,
+    "winter": 7.6,
+    "rain": 8.7,
+    "food": 6.4,
+    "photography": 7.5,
+    "relaxation": 8.6,
+    "value": 8.1,
+    "uniqueness": 9.2,
+    "family": 6.9,
+    "accessibility": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.5,
+    "summer": 8.6,
+    "autumn": 6.3,
+    "winter": 7.4
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Check the official website before visiting.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Sapporo_Clock_Tower",
+        "title": "Sapporo Clock Tower",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://sapporoshi-tokeidai.jp",
+        "title": "Sapporo Clock Tower official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Sapporo_Clock_Tower",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sapporo_Clock_Tower",
+          "title": "Sapporo Clock Tower",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

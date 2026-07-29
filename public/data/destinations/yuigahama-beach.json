@@ -1,0 +1,157 @@
+{
+  "id": "yuigahama-beach",
+  "name": "Yuigahama Beach",
+  "nameJa": "由比ヶ浜",
+  "aliases": ["Yuigahama", "由比ヶ浜"],
+  "content": {
+    "en": {
+      "name": "Yuigahama Beach",
+      "description": "Yuigahama (由比ヶ浜海岸) is a beach near Kamakura, a city in Kanagawa Prefecture, Japan. The relation between the beach and its neighboring areas is complex. Although Yuigahama is legally the entire 3.2 km beach that goes from Inamuragasaki, which separates it from Shichirigahama, to Zaimokuza's Iijima cape, which separates it from Kotsubo and the Miura Peninsula, the name is customarily used to indicate the portion west of the Namerigawa river, while the eastern half is called Zaimokuza Beach (材木座海岸).",
+      "highlights": ["Nature"]
+    },
+    "ja": {
+      "name": "由比ヶ浜",
+      "description": "由比ヶ浜（ゆいがはま）は、神奈川県鎌倉市にある相模湾に面した砂浜海岸である。著名な海水浴場がある湘南の海として知られ、毎年夏になると多くの海水浴客でにぎわう。\n本項は、鎌倉市鎌倉地域にある、行政上の町名である由比ガ浜（ゆいがはま）についても解説する。",
+      "highlights": ["自然"]
+    }
+  },
+  "prefecture": "Kanagawa",
+  "region": "Kanto",
+  "kind": "beach",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "shonan-coast",
+  "relationships": {
+    "parentDestinationId": "kamakura-city"
+  },
+  "officialWebsite": "https://yuigahama.sos.gr.jp/",
+  "officialWebsiteRequirement": "none",
+  "categories": ["Nature"],
+  "tags": ["Nature", "Kamakura City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/230128%20Yuigahama%20Kamakura%20Kanagawa%20pref%20Japan02s3.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:230128_Yuigahama_Kamakura_Kanagawa_pref_Japan02s3.jpg"
+  },
+  "coordinates": {
+    "lat": 35.313325,
+    "lng": 139.54553333333334
+  },
+  "description": "Yuigahama (由比ヶ浜海岸) is a beach near Kamakura, a city in Kanagawa Prefecture, Japan. The relation between the beach and its neighboring areas is complex. Although Yuigahama is legally the entire 3.2 km beach that goes from Inamuragasaki, which separates it from Shichirigahama, to Zaimokuza's Iijima cape, which separates it from Kotsubo and the Miura Peninsula, the name is customarily used to indicate the portion west of the Namerigawa river, while the eastern half is called Zaimokuza Beach (材木座海岸).",
+  "highlights": ["Nature"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 197
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 9.2,
+    "couple": 8.3,
+    "summer": 8.6,
+    "winter": 8.9,
+    "rain": 9.2,
+    "food": 9.5,
+    "photography": 6.4,
+    "relaxation": 6.7,
+    "value": 7,
+    "uniqueness": 8.9,
+    "family": 9.2,
+    "accessibility": 9.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 6.4,
+    "summer": 6.7,
+    "autumn": 7,
+    "winter": 7.3
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kamakura City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Yuigahama",
+        "title": "Yuigahama",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://yuigahama.sos.gr.jp/",
+        "title": "Yuigahama Beach official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Yuigahama",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Yuigahama",
+          "title": "Yuigahama",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

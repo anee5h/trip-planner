@@ -1,0 +1,158 @@
+{
+  "id": "kobe-harborland",
+  "name": "Kobe Harborland",
+  "nameJa": "神戸ハーバーランド",
+  "aliases": ["Harborland", "神戸ハーバーランド"],
+  "content": {
+    "en": {
+      "name": "Kobe Harborland",
+      "description": "Harborland (神戸ハーバーランド, kōbe-hābārando) is a shopping district in Chuo-ku, Kobe, Japan. Kobe Port Tower is located there.\nThis shopping district was made on the site of the former freight yard, Minatogawa Kamotsu Station of the Japanese National Railways.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "神戸ハーバーランド",
+      "description": "神戸ハーバーランド（こうべハーバーランド）は、兵庫県神戸市中央区にある再開発地区。地元を中心に、単にハーバーランド (Harborland)と表記・呼称されることもある。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Hyogo",
+  "region": "Kansai",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "kobe-waterfront",
+  "relationships": {
+    "parentDestinationId": "kobe-city"
+  },
+  "officialWebsite": "https://www.harborland.co.jp/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Kobe City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Harborland%20district.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Mass Ave 975 at English Wikipedia",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Harborland_district.jpg"
+  },
+  "coordinates": {
+    "lat": 34.67905556,
+    "lng": 135.18180556
+  },
+  "description": "Harborland (神戸ハーバーランド, kōbe-hābārando) is a shopping district in Chuo-ku, Kobe, Japan. Kobe Port Tower is located there.\nThis shopping district was made on the site of the former freight yard, Minatogawa Kamotsu Station of the Japanese National Railways.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 199,
+    "shinkansen": 169
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.7,
+    "couple": 7.4,
+    "summer": 6.7,
+    "winter": 7.6,
+    "rain": 6.9,
+    "food": 7.8,
+    "photography": 7.1,
+    "relaxation": 6.4,
+    "value": 7.3,
+    "uniqueness": 6.6,
+    "family": 7.5,
+    "accessibility": 6.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.7,
+    "summer": 7,
+    "autumn": 7.9,
+    "winter": 7.2
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Harborland",
+        "title": "Harborland",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.harborland.co.jp/",
+        "title": "Kobe Harborland official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Harborland",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Harborland",
+          "title": "Harborland",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

@@ -85,7 +85,18 @@
   "role": "hub",
   "importance": "notable",
   "relationships": {
-    "featuredDestinationIds": [],
+    "featuredDestinationIds": [
+      "omiya-bonsai-village",
+      "saitama-stadium-2002",
+      "omiya-railway",
+      "the-museum-of-modern-art-saitama",
+      "saitama-super-arena",
+      "omiya-bonsai-art-museum",
+      "saitama-shintoshin",
+      "iwatsuki-ningyo-museum",
+      "omiya-park",
+      "musashi-ichinomiya-hikawa-shrine"
+    ],
     "nearbyDestinationIds": ["kawagoe-city", "chichibu-city"]
   },
   "bestSeason": "Spring & Autumn",

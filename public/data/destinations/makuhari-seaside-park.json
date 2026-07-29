@@ -1,0 +1,158 @@
+{
+  "id": "makuhari-seaside-park",
+  "name": "Makuhari Seaside Park",
+  "nameJa": "幕張海浜公園",
+  "aliases": ["Kaihimmakuhari Station", "幕張海浜公園"],
+  "content": {
+    "en": {
+      "name": "Makuhari Seaside Park",
+      "description": "Makuhari Seaside Park is a visitor destination in Chiba City.",
+      "highlights": ["Nature"]
+    },
+    "ja": {
+      "name": "幕張海浜公園",
+      "description": "幕張海浜公園（まくはりかいひんこうえん）は、千葉県千葉市美浜区の幕張新都心（公園緑地地区）にある県立の都市公園（広域公園）。幕張新都心において最も規模の大きな都市公園である。",
+      "highlights": ["自然"]
+    }
+  },
+  "prefecture": "Chiba",
+  "region": "Kanto",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "kaihin-makuhari",
+  "relationships": {
+    "parentDestinationId": "chiba-city"
+  },
+  "officialWebsite": "http://www.pref.chiba.lg.jp/kouen/toshikouen/guidemap/makuhari.html",
+  "officialWebsiteRequirement": "none",
+  "categories": ["Nature"],
+  "tags": ["Nature", "Chiba City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Makuhari%20Seaside%20Park%201.JPG?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "掬茶",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Makuhari_Seaside_Park_1.JPG"
+  },
+  "coordinates": {
+    "lat": 35.64380556,
+    "lng": 140.04025
+  },
+  "description": "Makuhari Seaside Park is a visitor destination in Chiba City.",
+  "highlights": ["Nature"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 70,
+    "car": 60
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 6.3,
+    "couple": 9.3,
+    "summer": 8.6,
+    "winter": 7.9,
+    "rain": 8.8,
+    "food": 8.1,
+    "photography": 7.4,
+    "relaxation": 6.7,
+    "value": 7.6,
+    "uniqueness": 6.9,
+    "family": 6.2,
+    "accessibility": 8.9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 6.4,
+    "summer": 9.1,
+    "autumn": 8.4,
+    "winter": 7.7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Chiba City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kaihimmakuhari_Station",
+        "title": "Kaihimmakuhari Station",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.pref.chiba.lg.jp/kouen/toshikouen/guidemap/makuhari.html",
+        "title": "Makuhari Seaside Park official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Kaihimmakuhari_Station",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kaihimmakuhari_Station",
+          "title": "Kaihimmakuhari Station",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

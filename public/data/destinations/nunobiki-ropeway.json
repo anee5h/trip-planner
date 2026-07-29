@@ -1,0 +1,158 @@
+{
+  "id": "nunobiki-ropeway",
+  "name": "Nunobiki Ropeway",
+  "nameJa": "神戸布引ロープウェイ",
+  "aliases": ["Kobe Nunobiki Ropeway", "神戸布引ロープウェイ"],
+  "content": {
+    "en": {
+      "name": "Nunobiki Ropeway",
+      "description": "The Kobe Nunobiki Ropeway (神戸布引ロープウェイ, Kōbe Nunobiki Rōpuwē) is an Cable Car line in Kōbe, Hyōgo, Japan, operated by Kōbe City Urban Development. Opened in 1991, the line links Shin-Kōbe Station and Nunobiki Herb Garden. Its scenic view is popular among tourists.",
+      "highlights": ["Viewpoint"]
+    },
+    "ja": {
+      "name": "神戸布引ロープウェイ",
+      "description": "神戸布引ロープウェイ（こうべぬのびきロープウェイ）は、神戸リゾートサービス株式会社が運営する兵庫県神戸市中央区の新神戸から世継山にかかる索道（ロープウェイ）である。神戸布引ハーブ園へ向かうための唯一の交通手段となっている。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Hyogo",
+  "region": "Kansai",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "sannomiya",
+  "relationships": {
+    "parentDestinationId": "kobe-city"
+  },
+  "officialWebsite": "https://www.kobeherb.com/view/ropeway/",
+  "officialWebsiteRequirement": "required",
+  "categories": ["Viewpoint"],
+  "tags": ["Viewpoint", "Kobe City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/121208%20Kobe-Nunobiki%20ropeway%20Kobe%20Hyogo%20pref%20Japan05s3.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:121208_Kobe-Nunobiki_ropeway_Kobe_Hyogo_pref_Japan05s3.jpg"
+  },
+  "coordinates": {
+    "lat": 34.71722222,
+    "lng": 135.19111111
+  },
+  "description": "The Kobe Nunobiki Ropeway (神戸布引ロープウェイ, Kōbe Nunobiki Rōpuwē) is an Cable Car line in Kōbe, Hyōgo, Japan, operated by Kōbe City Urban Development. Opened in 1991, the line links Shin-Kōbe Station and Nunobiki Herb Garden. Its scenic view is popular among tourists.",
+  "highlights": ["Viewpoint"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 205,
+    "shinkansen": 175
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.5,
+    "couple": 7.6,
+    "summer": 9.3,
+    "winter": 7.6,
+    "rain": 9.3,
+    "food": 7.6,
+    "photography": 9.3,
+    "relaxation": 7.6,
+    "value": 9.3,
+    "uniqueness": 7.6,
+    "family": 9.3,
+    "accessibility": 7.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9.3,
+    "summer": 7.6,
+    "autumn": 9.3,
+    "winter": 7.6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Check the official website before visiting.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kobe_Nunobiki_Ropeway",
+        "title": "Kobe Nunobiki Ropeway",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.kobeherb.com/view/ropeway/",
+        "title": "Nunobiki Ropeway official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Kobe_Nunobiki_Ropeway",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kobe_Nunobiki_Ropeway",
+          "title": "Kobe Nunobiki Ropeway",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

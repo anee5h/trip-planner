@@ -1,0 +1,158 @@
+{
+  "id": "chiba-zoological-park",
+  "name": "Chiba Zoological Park",
+  "nameJa": "千葉市動物公園",
+  "aliases": ["Chiba Zoological Park", "千葉市動物公園"],
+  "content": {
+    "en": {
+      "name": "Chiba Zoological Park",
+      "description": "The Chiba Zoological Park is located in Chiba Prefecture, east of Tokyo, Japan, and near the shore of Tokyo Bay. The park can be accessed by the Chiba Monorail and is open between 9:30am and 4:30pm.",
+      "highlights": ["Nature"]
+    },
+    "ja": {
+      "name": "千葉市動物公園",
+      "description": "千葉市動物公園（ちばしどうぶつこうえん、英:Chiba Zoological Park）は、千葉県千葉市若葉区源町280番地にある動物公園である。立ち姿で有名なレッサーパンダの「風太」を飼育することで知られる。房総の魅力500選に選定されている。",
+      "highlights": ["自然"]
+    }
+  },
+  "prefecture": "Chiba",
+  "region": "Kanto",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-chiba",
+  "relationships": {
+    "parentDestinationId": "chiba-city"
+  },
+  "officialWebsite": "https://www.city.chiba.jp/zoo/",
+  "officialWebsiteRequirement": "none",
+  "categories": ["Nature"],
+  "tags": ["Nature", "Chiba City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chiba%20zoo%20entrance.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Skink",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chiba_zoo_entrance.jpg"
+  },
+  "coordinates": {
+    "lat": 35.644444,
+    "lng": 140.1255
+  },
+  "description": "The Chiba Zoological Park is located in Chiba Prefecture, east of Tokyo, Japan, and near the shore of Tokyo Bay. The park can be accessed by the Chiba Monorail and is open between 9:30am and 4:30pm.",
+  "highlights": ["Nature"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 75,
+    "car": 65
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.9,
+    "summer": 7.2,
+    "winter": 8.9,
+    "rain": 7.2,
+    "food": 8.9,
+    "photography": 7.2,
+    "relaxation": 8.9,
+    "value": 7.2,
+    "uniqueness": 8.9,
+    "family": 7.2,
+    "accessibility": 8.9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.2,
+    "summer": 8.9,
+    "autumn": 7.2,
+    "winter": 8.9
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Chiba City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Chiba_Zoological_Park",
+        "title": "Chiba Zoological Park",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.city.chiba.jp/zoo/",
+        "title": "Chiba Zoological Park official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Chiba_Zoological_Park",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chiba_Zoological_Park",
+          "title": "Chiba Zoological Park",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

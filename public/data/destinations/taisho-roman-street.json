@@ -1,0 +1,157 @@
+{
+  "id": "taisho-roman-street",
+  "name": "Taisho Roman Street",
+  "nameJa": "大正浪漫夢通り",
+  "aliases": ["Taisho-roman Street", "大正浪漫夢通り"],
+  "content": {
+    "en": {
+      "name": "Taisho Roman Street",
+      "description": "Taisho-roman Street, meaning Taisho Romance Street, is a local shopping street in Kawagoe City, Saitama Prefecture, Japan.",
+      "highlights": ["Food"]
+    },
+    "ja": {
+      "name": "大正浪漫夢通り",
+      "description": "大正浪漫夢通り（たいしょうろまんゆめどおり）は、埼玉県川越市仲町・連雀町にある商店街。歴史的には猪鼻町または銀座通りと呼ばれていた。\n川越城の城下町の特徴として戦に備えて緩やかにカーブした約200メートルの通りの両側には、大正から昭和初期のレトロな店舗がおよそ30軒余り並ぶ。",
+      "highlights": ["グルメ"]
+    }
+  },
+  "prefecture": "Saitama",
+  "region": "Kanto",
+  "kind": "district",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "kurazukuri",
+  "relationships": {
+    "parentDestinationId": "kawagoe-city"
+  },
+  "officialWebsite": "https://www.koedo.com/",
+  "officialWebsiteRequirement": "none",
+  "categories": ["Food"],
+  "tags": ["Food", "Kawagoe City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Taisho-roman%20Street%2020180328.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "TIC KAWAGOE",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Taisho-roman_Street_20180328.jpg"
+  },
+  "coordinates": {
+    "lat": 35.91986111,
+    "lng": 139.48355556
+  },
+  "description": "Taisho-roman Street, meaning Taisho Romance Street, is a local shopping street in Kawagoe City, Saitama Prefecture, Japan.",
+  "highlights": ["Food"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 200
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 55,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.3,
+    "couple": 7.1,
+    "summer": 6.4,
+    "winter": 7.3,
+    "rain": 6.6,
+    "food": 9.3,
+    "photography": 8.6,
+    "relaxation": 9.5,
+    "value": 8.8,
+    "uniqueness": 8.1,
+    "family": 7.4,
+    "accessibility": 8.3
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.6,
+    "summer": 6.9,
+    "autumn": 6.2,
+    "winter": 7.1
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kawagoe City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Taisho-roman_Street",
+        "title": "Taisho-roman Street",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.koedo.com/",
+        "title": "Taisho Roman Street official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Taisho-roman_Street",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Taisho-roman_Street",
+          "title": "Taisho-roman Street",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

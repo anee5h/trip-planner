@@ -1,0 +1,157 @@
+{
+  "id": "national-museum-of-nature-and-science",
+  "name": "National Museum of Nature and Science",
+  "nameJa": "国立科学博物館",
+  "aliases": ["National Museum of Nature and Science", "国立科学博物館"],
+  "content": {
+    "en": {
+      "name": "National Museum of Nature and Science",
+      "description": "The National Museum of Nature and Science (国立科学博物館, Kokuritsu Kagaku Hakubutsukan) is in the northeast corner of Ueno Park in Tokyo. The museum has exhibitions on pre-Meiji science in Japan. It is the venue of the taxidermied bodies of the legendary dogs Hachikō and Taro and Jiro.",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "国立科学博物館",
+      "description": "国立科学博物館（こくりつかがくはくぶつかん、英: National Museum of Nature and Science、略称:かはく、科博）は、独立行政法人国立科学博物館が運営する日本の博物館。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "ueno",
+  "relationships": {
+    "parentDestinationId": "taito-city"
+  },
+  "officialWebsite": "http://www.kahaku.go.jp/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Taito City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/NMNC01s3200.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:NMNC01s3200.jpg"
+  },
+  "coordinates": {
+    "lat": 35.716319,
+    "lng": 139.776544
+  },
+  "description": "The National Museum of Nature and Science (国立科学博物館, Kokuritsu Kagaku Hakubutsukan) is in the northeast corner of Ueno Park in Tokyo. The museum has exhibitions on pre-Meiji science in Japan. It is the venue of the taxidermied bodies of the legendary dogs Hachikō and Taro and Jiro.",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 205
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 6.8,
+    "couple": 8.9,
+    "summer": 6.2,
+    "winter": 8.5,
+    "rain": 9,
+    "food": 6.3,
+    "photography": 8.6,
+    "relaxation": 7.5,
+    "value": 6.4,
+    "uniqueness": 7.1,
+    "family": 9.4,
+    "accessibility": 8.3
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.2,
+    "summer": 9.5,
+    "autumn": 8.4,
+    "winter": 7.3
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Taito City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/National_Museum_of_Nature_and_Science",
+        "title": "National Museum of Nature and Science",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.kahaku.go.jp/",
+        "title": "National Museum of Nature and Science official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/National_Museum_of_Nature_and_Science",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/National_Museum_of_Nature_and_Science",
+          "title": "National Museum of Nature and Science",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

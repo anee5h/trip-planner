@@ -4,6 +4,7 @@ import {
   YOKOHAMA_GOLD_STANDARD_DESTINATION_IDS,
 } from "../../src/shared/data/editorialPilot";
 import { toCanonicalPlace } from "../../src/shared/services/place/PlaceCatalog";
+import { getCityArea } from "../../src/shared/data/cityAreas";
 import type {
   ValidationContext,
   ValidationIssue,
@@ -51,6 +52,22 @@ export const placesValidator: ValidatorModule = {
         });
       }
       const parentId = place.relationships?.parentDestinationId;
+      const area = getCityArea(place.areaId);
+      if (place.areaId && !area) {
+        issues.push({
+          severity: "error",
+          code: "UNKNOWN_CITY_AREA",
+          message: `Place '${place.id}' references unknown area '${place.areaId}'.`,
+          targetId: place.id,
+        });
+      } else if (area && parentId !== area.parentDestinationId) {
+        issues.push({
+          severity: "error",
+          code: "AREA_PARENT_MISMATCH",
+          message: `Place '${place.id}' area '${area.id}' belongs to '${area.parentDestinationId}', not '${parentId ?? "no parent"}'.`,
+          targetId: place.id,
+        });
+      }
       if (parentId && !ids.has(parentId)) {
         issues.push({
           severity: "error",
@@ -93,14 +110,27 @@ export const placesValidator: ValidatorModule = {
         });
       }
       if (place.placeType === "destination") {
-        if (!place.officialWebsite) {
+        if (
+          place.officialWebsiteRequirement === "required" &&
+          !place.officialWebsite
+        ) {
+          issues.push({
+            severity: "error",
+            code: "REQUIRED_OFFICIAL_WEBSITE_MISSING",
+            message: `Destination '${place.id}' requires an official website.`,
+            targetId: place.id,
+          });
+        } else if (
+          place.officialWebsiteRequirement !== "none" &&
+          !place.officialWebsite
+        ) {
           issues.push({
             severity: "warning",
             code: "DESTINATION_MISSING_OFFICIAL_WEBSITE",
             message: `Destination '${place.id}' is missing an official website; populate the editorial migration before promoting this check to an error.`,
             targetId: place.id,
           });
-        } else {
+        } else if (place.officialWebsite) {
           try {
             const url = new URL(place.officialWebsite);
             if (url.protocol !== "http:" && url.protocol !== "https:") {

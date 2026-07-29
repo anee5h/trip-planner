@@ -1,0 +1,150 @@
+{
+  "id": "susukino",
+  "name": "Susukino",
+  "nameJa": "すすきの",
+  "aliases": ["Susukino", "すすきの"],
+  "content": {
+    "en": {
+      "name": "Susukino",
+      "description": "Susukino (すすきの) is a district in Chūō-ku, Sapporo, Hokkaidō, Japan known for entertainment and nightlife. The district contains many restaurants, bars, hotels, and adult-entertainment establishments. The name Susukino is often written as 薄野 in kanji and ススキノ in katakana, and directly translates as \"zebra grass field\".",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "すすきの",
+      "description": "すすきの（ススキノ、薄野、英: Susukino）は、北海道札幌市中央区にある、すすきの交差点を中心とした歓楽街・繁華街。札幌駅周辺や大通地区とともに札幌の中心市街地を構成している。日本国内外から観光客が訪れる観光地にもなっている。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Hokkaido",
+  "region": "Hokkaido",
+  "kind": "district",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "susukino",
+  "relationships": {
+    "parentDestinationId": "sapporo-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Sapporo City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chuo%20Sapporo%20S4W4S4W3%2001s4s3200.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chuo_Sapporo_S4W4S4W3_01s4s3200.jpg"
+  },
+  "coordinates": {
+    "lat": 43.054904,
+    "lng": 141.353383
+  },
+  "description": "Susukino (すすきの) is a district in Chūō-ku, Sapporo, Hokkaidō, Japan known for entertainment and nightlife. The district contains many restaurants, bars, hotels, and adult-entertainment establishments. The name Susukino is often written as 薄野 in kanji and ススキノ in katakana, and directly translates as \"zebra grass field\".",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 200
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 6.3,
+    "couple": 8.7,
+    "summer": 7.6,
+    "winter": 8.3,
+    "rain": 7.2,
+    "food": 7.9,
+    "photography": 6.8,
+    "relaxation": 9.1,
+    "value": 6.4,
+    "uniqueness": 8.7,
+    "family": 9.4,
+    "accessibility": 8.3
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7.9,
+    "autumn": 8.6,
+    "winter": 7.5
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Susukino",
+        "title": "Susukino",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Susukino",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Susukino",
+          "title": "Susukino",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

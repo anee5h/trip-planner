@@ -9,6 +9,7 @@ import { searchValidator } from "./search";
 import { linksValidator } from "./links";
 import { ratingsValidator } from "./ratings";
 import { visitHoursValidator } from "./visit-hours";
+import { majorCityExpansionValidator } from "./major-city-expansion";
 
 // Explicit execution topology order
 export const validators: ValidatorModule[] = [
@@ -22,4 +23,5 @@ export const validators: ValidatorModule[] = [
   linksValidator,
   ratingsValidator,
   visitHoursValidator,
+  majorCityExpansionValidator,
 ];

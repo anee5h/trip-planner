@@ -1,0 +1,157 @@
+{
+  "id": "nijo-market",
+  "name": "Nijo Market",
+  "nameJa": "二条市場",
+  "aliases": ["Ōdōri Station", "二条市場"],
+  "content": {
+    "en": {
+      "name": "Nijo Market",
+      "description": "Nijo Market is a visitor destination in Sapporo City.",
+      "highlights": ["Food"]
+    },
+    "ja": {
+      "name": "二条市場",
+      "description": "二条市場（にじょういちば）は、北海道札幌市中央区にある市場。\n北海道、及び近郊で収穫された水産物・青果物・穀物など生鮮食品を販売する店舗・飲食店も設置されている。組合の名称は「札幌二条魚町商業協同組合」。",
+      "highlights": ["グルメ"]
+    }
+  },
+  "prefecture": "Hokkaido",
+  "region": "Hokkaido",
+  "kind": "market",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-sapporo",
+  "relationships": {
+    "parentDestinationId": "sapporo-city"
+  },
+  "officialWebsiteRequirement": "none",
+  "categories": ["Food"],
+  "tags": ["Food", "Sapporo City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nijo%20fish%20Market%202014.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "Wing1990hk",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nijo_fish_Market_2014.jpg"
+  },
+  "coordinates": {
+    "lat": 43.058306,
+    "lng": 141.358472
+  },
+  "description": "Nijo Market is a visitor destination in Sapporo City.",
+  "highlights": ["Food"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 203
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 55,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.6,
+    "couple": 6.5,
+    "summer": 9.4,
+    "winter": 7.1,
+    "rain": 8.2,
+    "food": 9.3,
+    "photography": 7,
+    "relaxation": 6.5,
+    "value": 7.6,
+    "uniqueness": 8.7,
+    "family": 6.4,
+    "accessibility": 9.3
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7,
+    "summer": 8.1,
+    "autumn": 9.2,
+    "winter": 8.7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/%C5%8Cd%C5%8Dri_Station",
+        "title": "Ōdōri Station",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://nijomarket.com/",
+        "title": "Nijo Market official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/%C5%8Cd%C5%8Dri_Station",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/%C5%8Cd%C5%8Dri_Station",
+          "title": "Ōdōri Station",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "officialWebsite": "https://nijomarket.com/"
+}

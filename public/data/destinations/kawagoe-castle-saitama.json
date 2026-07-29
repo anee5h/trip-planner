@@ -86,13 +86,16 @@
       "confirmed": true
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "kawagoe-city"
+  },
   "walkingIntensity": "low",
-  "role": "standalone",
+  "role": "poi",
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
-  }
+  },
+  "areaId": "central-kawagoe"
 }

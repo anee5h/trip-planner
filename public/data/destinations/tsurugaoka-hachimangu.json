@@ -1,0 +1,157 @@
+{
+  "id": "tsurugaoka-hachimangu",
+  "name": "Tsurugaoka Hachimangu",
+  "nameJa": "鶴岡八幡宮",
+  "aliases": ["Tsurugaoka Hachimangū", "鶴岡八幡宮"],
+  "content": {
+    "en": {
+      "name": "Tsurugaoka Hachimangu",
+      "description": "Tsurugaoka Hachimangū (鶴岡八幡宮) is the most important Shinto shrine in the city of Kamakura, Kanagawa Prefecture, Japan.   The shrine is a cultural center of the city of Kamakura and serves as the venue of many of its most important festivals with two museums.\nFor most of its history, it served both as a Hachiman shrine, and in latter years a Tendai Buddhist temple typical of Japanese Buddhist architecture.",
+      "highlights": ["History"]
+    },
+    "ja": {
+      "name": "鶴岡八幡宮",
+      "description": "鶴岡八幡宮（つるがおかはちまんぐう）は、神奈川県鎌倉市雪ノ下にある八幡宮。鎌倉八幡宮とも呼ばれる。11世紀後半に、源氏の守り神として創建された。",
+      "highlights": ["歴史"]
+    }
+  },
+  "prefecture": "Kanagawa",
+  "region": "Kanto",
+  "kind": "shrine",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-kamakura",
+  "relationships": {
+    "parentDestinationId": "kamakura-city"
+  },
+  "officialWebsite": "http://www.hachimangu.or.jp",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History"],
+  "tags": ["History", "Kamakura City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tsurugaoka%20Hachimangu%20001.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Ocdp",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tsurugaoka_Hachimangu_001.jpg"
+  },
+  "coordinates": {
+    "lat": 35.32608056,
+    "lng": 139.55641667
+  },
+  "description": "Tsurugaoka Hachimangū (鶴岡八幡宮) is the most important Shinto shrine in the city of Kamakura, Kanagawa Prefecture, Japan.   The shrine is a cultural center of the city of Kamakura and serves as the venue of many of its most important festivals with two museums.\nFor most of its history, it served both as a Hachiman shrine, and in latter years a Tendai Buddhist temple typical of Japanese Buddhist architecture.",
+  "highlights": ["History"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 203
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 3,
+    "rainFriendly": 3,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 9.4,
+    "couple": 6.5,
+    "summer": 9,
+    "winter": 8.1,
+    "rain": 9,
+    "food": 8.1,
+    "photography": 7.2,
+    "relaxation": 6.3,
+    "value": 8.8,
+    "uniqueness": 7.9,
+    "family": 7,
+    "accessibility": 9.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.6,
+    "summer": 7.7,
+    "autumn": 6.8,
+    "winter": 9.3
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kamakura City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Tsurugaoka_Hachimang%C5%AB",
+        "title": "Tsurugaoka Hachimangū",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.hachimangu.or.jp",
+        "title": "Tsurugaoka Hachimangu official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Tsurugaoka_Hachimang%C5%AB",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tsurugaoka_Hachimang%C5%AB",
+          "title": "Tsurugaoka Hachimangū",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

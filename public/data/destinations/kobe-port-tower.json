@@ -1,0 +1,158 @@
+{
+  "id": "kobe-port-tower",
+  "name": "Kobe Port Tower",
+  "nameJa": "神戸ポートタワー",
+  "aliases": ["Kobe Port Tower", "神戸ポートタワー"],
+  "content": {
+    "en": {
+      "name": "Kobe Port Tower",
+      "description": "The Kobe Port Tower (神戸ポートタワー, Kōbe Pōto Tawā) is a landmark in the port city of Kobe, Japan. The sightseeing tower was completed in 1963 and was temporarily closed from late 2009 to 28 April 2010 and again from 27 September 2021 to 26 April 2024 for renovation. It is located in Chuo-ku, Kobe, Hyōgo Prefecture, Japan.",
+      "highlights": ["Viewpoint"]
+    },
+    "ja": {
+      "name": "神戸ポートタワー",
+      "description": "神戸ポートタワー（こうべポートタワー）は、兵庫県神戸市中央区波止場町にあるタワー。港町神戸のシンボルとして神戸港中突堤に建設された展望用タワーで、1963年に開業した。パイプ構造による鼓形の外観の優美さから「鉄塔の美女」とも称されている。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Hyogo",
+  "region": "Kansai",
+  "kind": "tower",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "kobe-waterfront",
+  "relationships": {
+    "parentDestinationId": "kobe-city"
+  },
+  "officialWebsite": "https://www.kobe-port-tower.com/",
+  "officialWebsiteRequirement": "required",
+  "categories": ["Viewpoint"],
+  "tags": ["Viewpoint", "Kobe City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe%20port%20tower12s3200.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kobe_port_tower12s3200.jpg"
+  },
+  "coordinates": {
+    "lat": 34.6825,
+    "lng": 135.18666666667
+  },
+  "description": "The Kobe Port Tower (神戸ポートタワー, Kōbe Pōto Tawā) is a landmark in the port city of Kobe, Japan. The sightseeing tower was completed in 1963 and was temporarily closed from late 2009 to 28 April 2010 and again from 27 September 2021 to 26 April 2024 for renovation. It is located in Chuo-ku, Kobe, Hyōgo Prefecture, Japan.",
+  "highlights": ["Viewpoint"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 199,
+    "shinkansen": 169
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 9.2,
+    "summer": 8.5,
+    "winter": 9.4,
+    "rain": 8.7,
+    "food": 6.2,
+    "photography": 8.9,
+    "relaxation": 6.4,
+    "value": 9.1,
+    "uniqueness": 8.4,
+    "family": 9.3,
+    "accessibility": 8.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9.5,
+    "summer": 8.8,
+    "autumn": 6.3,
+    "winter": 9
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Check the official website before visiting.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kobe_Port_Tower",
+        "title": "Kobe Port Tower",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.kobe-port-tower.com/",
+        "title": "Kobe Port Tower official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Kobe_Port_Tower",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kobe_Port_Tower",
+          "title": "Kobe Port Tower",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

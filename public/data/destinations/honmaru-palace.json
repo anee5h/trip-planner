@@ -1,0 +1,158 @@
+{
+  "id": "honmaru-palace",
+  "name": "Honmaru Palace",
+  "nameJa": "名古屋城",
+  "aliases": ["Nagoya Castle", "名古屋城"],
+  "content": {
+    "en": {
+      "name": "Honmaru Palace",
+      "description": "Nagoya Castle (名古屋城, Nagoya-jō) is a Japanese castle located in Nagoya, Japan.\nNagoya Castle was constructed by the Owari Domain in 1612 during the Edo period on the site of an earlier castle of the Oda clan in the Sengoku period. Nagoya Castle was the heart of one of the most important castle towns in Japan, Nagoya-juku, a post station on the Minoji road linking two of the important Edo Five Routes, the Tōkaidō and the Nakasendō.",
+      "highlights": ["History"]
+    },
+    "ja": {
+      "name": "名古屋城",
+      "description": "名古屋城（なごやじょう）は、尾張国愛知郡名古屋（現愛知県名古屋市中区本丸・北区名城）にある日本の城。「名城（めいじょう）」「金鯱城（きんこじょう、きんしゃちじょう）」「金城（きんじょう）」の異名を持つ。日本100名城に選定されており、国の特別史跡に指定されている。",
+      "highlights": ["歴史"]
+    }
+  },
+  "prefecture": "Aichi",
+  "region": "Chubu",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-nagoya",
+  "relationships": {
+    "parentDestinationId": "nagoya-city"
+  },
+  "officialWebsite": "https://www.nagoyajo.city.nagoya.jp/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History"],
+  "tags": ["History", "Nagoya City", "v1.9.2"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/56/Nagoya_Castle_7.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Bariston",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagoya_Castle_7.jpg"
+  },
+  "coordinates": {
+    "lat": 35.18555556,
+    "lng": 136.89861111
+  },
+  "description": "Nagoya Castle (名古屋城, Nagoya-jō) is a Japanese castle located in Nagoya, Japan.\nNagoya Castle was constructed by the Owari Domain in 1612 during the Edo period on the site of an earlier castle of the Oda clan in the Sengoku period. Nagoya Castle was the heart of one of the most important castle towns in Japan, Nagoya-juku, a post station on the Minoji road linking two of the important Edo Five Routes, the Tōkaidō and the Nakasendō.",
+  "highlights": ["History"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 198,
+    "shinkansen": 88
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 3,
+    "rainFriendly": 3,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.9,
+    "couple": 6.8,
+    "summer": 8.7,
+    "winter": 7.2,
+    "rain": 9.1,
+    "food": 7.6,
+    "photography": 9.5,
+    "relaxation": 8,
+    "value": 6.5,
+    "uniqueness": 8.4,
+    "family": 6.9,
+    "accessibility": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.3,
+    "summer": 9.2,
+    "autumn": 7.7,
+    "winter": 6.2
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Nagoya_Castle",
+        "title": "Nagoya Castle",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.nagoyajo.city.nagoya.jp/",
+        "title": "Honmaru Palace official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Nagoya_Castle",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Nagoya_Castle",
+          "title": "Nagoya Castle",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "id": "sunshine-city",
+  "name": "Sunshine City",
+  "nameJa": "サンシャインシティ",
+  "aliases": ["Sunshine City, Tokyo", "サンシャインシティ"],
+  "content": {
+    "en": {
+      "name": "Sunshine City",
+      "description": "Sunshine City (サンシャインシティ, Sanshain Shiti) is a building complex located in East Ikebukuro, Toshima, Tokyo, Japan. It  consists of four buildings: the 240-meter Sunshine 60 skyscraper, which includes corporate offices and restaurants; the Prince Hotel; the World Import Mart; and the Bunka Kaikan building.  The complex sits on land once occupied by Sugamo Prison.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "サンシャインシティ",
+      "description": "サンシャインシティ（英: Sunshine City）は、東京都豊島区東池袋三丁目に所在する、超高層ビル「サンシャイン60」を中核とした複合商業施設。株式会社サンシャインシティが運営する。1970年代に巣鴨拘置所跡地を再開発して建設された。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "ikebukuro",
+  "relationships": {
+    "parentDestinationId": "toshima-city"
+  },
+  "officialWebsite": "https://sunshinecity.jp/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Toshima City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sunshine%20City%202012.JPG?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Kakidai",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunshine_City_2012.JPG"
+  },
+  "coordinates": {
+    "lat": 35.729167,
+    "lng": 139.718056
+  },
+  "description": "Sunshine City (サンシャインシティ, Sanshain Shiti) is a building complex located in East Ikebukuro, Toshima, Tokyo, Japan. It  consists of four buildings: the 240-meter Sunshine 60 skyscraper, which includes corporate offices and restaurants; the Prince Hotel; the World Import Mart; and the Bunka Kaikan building.  The complex sits on land once occupied by Sugamo Prison.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 205
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.8,
+    "summer": 7.1,
+    "winter": 8.8,
+    "rain": 7.1,
+    "food": 8.8,
+    "photography": 7.1,
+    "relaxation": 8.8,
+    "value": 7.1,
+    "uniqueness": 8.8,
+    "family": 7.1,
+    "accessibility": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.1,
+    "summer": 8.8,
+    "autumn": 7.1,
+    "winter": 8.8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Toshima City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Sunshine_City,_Tokyo",
+        "title": "Sunshine City, Tokyo",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://sunshinecity.jp/",
+        "title": "Sunshine City official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Sunshine_City,_Tokyo",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sunshine_City,_Tokyo",
+          "title": "Sunshine City, Tokyo",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

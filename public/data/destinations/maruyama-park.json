@@ -1,0 +1,157 @@
+{
+  "id": "maruyama-park",
+  "name": "Maruyama Park",
+  "nameJa": "円山公園 (京都府)",
+  "aliases": ["Maruyama Park", "円山公園 (京都府)"],
+  "content": {
+    "en": {
+      "name": "Maruyama Park",
+      "description": "Maruyama Park (円山公園, Maruyama kōen) is a park in Kyoto, Japan. It is noted as the main center for cherry blossom viewing in Kyoto, and can get extremely crowded at that time of year (April). The park's star attraction is a weeping cherry tree (shidarezakura) which becomes lit up at night.",
+      "highlights": ["Nature"]
+    },
+    "ja": {
+      "name": "円山公園 (京都府)",
+      "description": "円山公園（まるやまこうえん）は、京都府京都市東山区にある公園。国の名勝に指定されている。園域は八坂神社、知恩院に隣接する。",
+      "highlights": ["自然"]
+    }
+  },
+  "prefecture": "Hokkaido",
+  "region": "Hokkaido",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "maruyama",
+  "relationships": {
+    "parentDestinationId": "sapporo-city"
+  },
+  "officialWebsite": "https://kyoto.travel/en/destinations/maruyama-park/",
+  "officialWebsiteRequirement": "none",
+  "categories": ["Nature"],
+  "tags": ["Nature", "Sapporo City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/251213%20Maruyama%20Park%20Kyoto%20Japan08s3.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:251213_Maruyama_Park_Kyoto_Japan08s3.jpg"
+  },
+  "coordinates": {
+    "lat": 35.00333333,
+    "lng": 135.78138889
+  },
+  "description": "Maruyama Park (円山公園, Maruyama kōen) is a park in Kyoto, Japan. It is noted as the main center for cherry blossom viewing in Kyoto, and can get extremely crowded at that time of year (April). The park's star attraction is a weeping cherry tree (shidarezakura) which becomes lit up at night.",
+  "highlights": ["Nature"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 205
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.5,
+    "couple": 7.6,
+    "summer": 9.3,
+    "winter": 7.6,
+    "rain": 9.3,
+    "food": 7.6,
+    "photography": 7.7,
+    "relaxation": 9.4,
+    "value": 7.7,
+    "uniqueness": 9.4,
+    "family": 7.7,
+    "accessibility": 9.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.7,
+    "summer": 9.4,
+    "autumn": 7.7,
+    "winter": 9.4
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Maruyama_Park",
+        "title": "Maruyama Park",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://kyoto.travel/en/destinations/maruyama-park/",
+        "title": "Maruyama Park official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Maruyama_Park",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Maruyama_Park",
+          "title": "Maruyama Park",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

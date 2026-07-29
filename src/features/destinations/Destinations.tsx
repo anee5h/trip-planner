@@ -116,6 +116,14 @@ export default function Destinations() {
   const [selectedCollections, setSelectedCollections] = useState<string[]>(
     initialExplorerState.selectedCollections,
   );
+  const [selectedCities, setSelectedCities] = useState<string[]>(
+    initialExplorerState.selectedCities,
+  );
+  const [selectedAreas, setSelectedAreas] = useState<string[]>(
+    initialExplorerState.selectedAreas,
+  );
+  const [indoorMin, setIndoorMin] = useState(initialExplorerState.indoorMin);
+  const [season, setSeason] = useState(initialExplorerState.season);
   const query = searchQuery.toLowerCase().trim();
 
   // Saved preferences provide defaults only when the URL has not specified one.
@@ -154,6 +162,10 @@ export default function Destinations() {
     setSelectedRegions(restored.selectedRegions);
     setSelectedPrefectures(restored.selectedPrefectures);
     setSelectedCollections(restored.selectedCollections);
+    setSelectedCities(restored.selectedCities);
+    setSelectedAreas(restored.selectedAreas);
+    setIndoorMin(restored.indoorMin);
+    setSeason(restored.season);
     setMaxBudget(restored.maxBudget);
     setSortBy(restored.sortBy);
     setCarMode(restored.carMode);
@@ -180,6 +192,10 @@ export default function Destinations() {
       selectedRegions,
       selectedPrefectures,
       selectedCollections,
+      selectedCities,
+      selectedAreas,
+      indoorMin,
+      season,
       maxBudget,
       sortBy,
       carMode,
@@ -205,6 +221,10 @@ export default function Destinations() {
     selectedRegions,
     selectedPrefectures,
     selectedCollections,
+    selectedCities,
+    selectedAreas,
+    indoorMin,
+    season,
     maxBudget,
     sortBy,
     carMode,
@@ -280,6 +300,10 @@ export default function Destinations() {
     selectedRegions,
     selectedPrefectures,
     selectedCollections,
+    selectedCities,
+    selectedAreas,
+    indoorMin,
+    season,
     maxBudget,
     sortBy,
     carMode,
@@ -315,6 +339,31 @@ export default function Destinations() {
         const matchPref = selectedPrefectures.includes(dest.prefecture);
         return matchRegion || matchPref;
       });
+    }
+
+    if (selectedCities.length > 0) {
+      result = result.filter(
+        (dest) =>
+          selectedCities.includes(dest.id) ||
+          (dest.relationships?.parentDestinationId &&
+            selectedCities.includes(dest.relationships.parentDestinationId)),
+      );
+    }
+
+    if (selectedAreas.length > 0) {
+      result = result.filter(
+        (dest) => dest.areaId && selectedAreas.includes(dest.areaId),
+      );
+    }
+
+    if (indoorMin > 0) {
+      result = result.filter((dest) => dest.indoorPercent >= indoorMin);
+    }
+
+    if (season !== "any") {
+      result = result.filter(
+        (dest) => dest.season?.[season as keyof Destination["season"]] >= 7,
+      );
     }
 
     // 1. Search
@@ -465,6 +514,10 @@ export default function Destinations() {
     selectedRegions,
     selectedPrefectures,
     selectedCollections,
+    selectedCities,
+    selectedAreas,
+    indoorMin,
+    season,
     searchQuery,
     suitabilities,
     interests,
@@ -476,6 +529,10 @@ export default function Destinations() {
     setSelectedRegions(defaults.selectedRegions);
     setSelectedPrefectures(defaults.selectedPrefectures);
     setSelectedCollections(defaults.selectedCollections);
+    setSelectedCities(defaults.selectedCities);
+    setSelectedAreas(defaults.selectedAreas);
+    setIndoorMin(defaults.indoorMin);
+    setSeason(defaults.season);
     setMaxBudget(defaults.maxBudget);
     setSortBy(defaults.sortBy);
     setCarMode(defaults.carMode);
@@ -539,6 +596,14 @@ export default function Destinations() {
         setSelectedPrefectures={setSelectedPrefectures}
         selectedCollections={selectedCollections}
         setSelectedCollections={setSelectedCollections}
+        selectedCities={selectedCities}
+        setSelectedCities={setSelectedCities}
+        selectedAreas={selectedAreas}
+        setSelectedAreas={setSelectedAreas}
+        indoorMin={indoorMin}
+        setIndoorMin={setIndoorMin}
+        season={season}
+        setSeason={setSeason}
         sortBy={sortBy}
         setSortBy={setSortBy}
         carMode={carMode}
@@ -578,6 +643,10 @@ export default function Destinations() {
 
         {(searchQuery ||
           budgetTier !== "standard" ||
+          selectedCities.length > 0 ||
+          selectedAreas.length > 0 ||
+          indoorMin > 0 ||
+          season !== "any" ||
           suitabilities.length > 0 ||
           interests.length > 0) && (
           <div className="flex items-center gap-2 flex-wrap">

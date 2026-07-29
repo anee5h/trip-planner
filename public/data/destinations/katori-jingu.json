@@ -1,0 +1,157 @@
+{
+  "id": "katori-jingu",
+  "name": "Katori Jingu",
+  "nameJa": "香取神宮",
+  "aliases": ["Katori Shrine", "香取神宮"],
+  "content": {
+    "en": {
+      "name": "Katori Jingu",
+      "description": "The Katori Shrine (香取神宮, Katori Jingū) is a Shintō shrine in the city of Katori in Chiba Prefecture, Japan. It is the ichinomiya of former Shimōsa Province, and is the head shrine of the approximately 400 Katori shrines around the country (located primarily in the Kantō region). The main festival of the shrine is held annually on April 14, with a three-day Grand Festival held every 12 years.",
+      "highlights": ["History"]
+    },
+    "ja": {
+      "name": "香取神宮",
+      "description": "香取神宮（かとりじんぐう）は、千葉県香取市香取にある神社。式内社（名神大社）、下総国一宮。旧社格は官幣大社で、現在は神社本庁の別表神社。",
+      "highlights": ["歴史"]
+    }
+  },
+  "prefecture": "Chiba",
+  "region": "Kanto",
+  "kind": "shrine",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "naritasan",
+  "relationships": {
+    "parentDestinationId": "narita-city"
+  },
+  "officialWebsite": "http://www.katori-jingu.or.jp/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History"],
+  "tags": ["History", "Narita City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Katori-jingu%20haiden%20shomen.JPG?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Saigen Jiro",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Katori-jingu_haiden_shomen.JPG"
+  },
+  "coordinates": {
+    "lat": 35.886206,
+    "lng": 140.528518
+  },
+  "description": "The Katori Shrine (香取神宮, Katori Jingū) is a Shintō shrine in the city of Katori in Chiba Prefecture, Japan. It is the ichinomiya of former Shimōsa Province, and is the head shrine of the approximately 400 Katori shrines around the country (located primarily in the Kantō region). The main festival of the shrine is held annually on April 14, with a three-day Grand Festival held every 12 years.",
+  "highlights": ["History"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 203
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 3,
+    "rainFriendly": 3,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 6.6,
+    "couple": 7.7,
+    "summer": 8.8,
+    "winter": 6.5,
+    "rain": 9.4,
+    "food": 7.1,
+    "photography": 8.2,
+    "relaxation": 9.3,
+    "value": 8.8,
+    "uniqueness": 6.5,
+    "family": 7.6,
+    "accessibility": 8.7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.2,
+    "summer": 9.3,
+    "autumn": 7,
+    "winter": 8.1
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Narita City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Katori_Shrine",
+        "title": "Katori Shrine",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.katori-jingu.or.jp/",
+        "title": "Katori Jingu official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Katori_Shrine",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Katori_Shrine",
+          "title": "Katori Shrine",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

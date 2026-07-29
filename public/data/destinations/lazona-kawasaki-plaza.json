@@ -1,0 +1,157 @@
+{
+  "id": "lazona-kawasaki-plaza",
+  "name": "Lazona Kawasaki Plaza",
+  "nameJa": "ラゾーナ川崎プラザ",
+  "aliases": ["Lazona Kawasaki Plaza", "ラゾーナ川崎プラザ"],
+  "content": {
+    "en": {
+      "name": "Lazona Kawasaki Plaza",
+      "description": "Lazona Kawasaki Plaza (ラゾーナ川崎プラザ, Razōna Kawasaki puraza) is a shopping mall in Saiwai-ku, Kawasaki, Japan. The mall adjoins the west side Kawasaki Station. It is the largest commercial facility in the Mitsui Fudosan affiliate and has the highest sales volume.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "ラゾーナ川崎プラザ",
+      "description": "ラゾーナ川崎プラザ（ラゾーナかわさきプラザ LAZONA Kawasaki plaza）は、JR川崎駅西口前の再開発地区「ラゾーナ川崎」に、2006年9月28日に開業した「三井ショッピングパーク」ブランドの大型ショッピングモール。NREG東芝不動産（現：野村不動産）株式会社と三井不動産株式会社の共同出資による施設である。\n\n三井不動産は当初「ららぽーと川崎」の名称で開業する予定であったが、当時の川崎市長でラゾーナ川崎の再開発事業を推進した阿部孝夫が「他にもある名前だと目立たない。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Kanagawa",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-kawasaki",
+  "relationships": {
+    "parentDestinationId": "kawasaki-city"
+  },
+  "officialWebsite": "http://www.lazona-kawasaki.com",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Kawasaki City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/LAZONAkawasaki%20001.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Wikimedia Commons contributors for Lazona Kawasaki Plaza",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:LAZONAkawasaki_001.jpg"
+  },
+  "coordinates": {
+    "lat": 35.53333333,
+    "lng": 139.69583333
+  },
+  "description": "Lazona Kawasaki Plaza (ラゾーナ川崎プラザ, Razōna Kawasaki puraza) is a shopping mall in Saiwai-ku, Kawasaki, Japan. The mall adjoins the west side Kawasaki Station. It is the largest commercial facility in the Mitsui Fudosan affiliate and has the highest sales volume.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 205
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.1,
+    "couple": 8.4,
+    "summer": 6.7,
+    "winter": 8.4,
+    "rain": 6.7,
+    "food": 8.4,
+    "photography": 6.7,
+    "relaxation": 8.4,
+    "value": 6.7,
+    "uniqueness": 8.4,
+    "family": 6.7,
+    "accessibility": 8.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 6.7,
+    "summer": 8.4,
+    "autumn": 8.5,
+    "winter": 6.8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kawasaki City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Lazona_Kawasaki_Plaza",
+        "title": "Lazona Kawasaki Plaza",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.lazona-kawasaki.com",
+        "title": "Lazona Kawasaki Plaza official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Lazona_Kawasaki_Plaza",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Lazona_Kawasaki_Plaza",
+          "title": "Lazona Kawasaki Plaza",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

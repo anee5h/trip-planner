@@ -1,0 +1,151 @@
+{
+  "id": "osu-kannon",
+  "name": "Osu Kannon",
+  "nameJa": "真福寺 (羽島市)",
+  "aliases": ["Ōsu Kannon", "真福寺 (羽島市)"],
+  "content": {
+    "en": {
+      "name": "Osu Kannon",
+      "description": "Buddhist temple of the Shingon Buddhism sect dedicated to Avalokiteśvara in Hashima, Japan",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "真福寺 (羽島市)",
+      "description": "真福寺（しんふくじ）は、岐阜県羽島市桑原町大須にある真言宗の寺院。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Aichi",
+  "region": "Chubu",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "osu",
+  "relationships": {
+    "parentDestinationId": "nagoya-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Nagoya City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shinfukuji-Hashima01.JPG?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Monami",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shinfukuji-Hashima01.JPG"
+  },
+  "coordinates": {
+    "lat": 35.27130555555556,
+    "lng": 136.6771388888889
+  },
+  "description": "Buddhist temple of the Shingon Buddhism sect dedicated to Avalokiteśvara in Hashima, Japan",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 201,
+    "shinkansen": 91
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 6.5,
+    "couple": 6.8,
+    "summer": 8.1,
+    "winter": 7.6,
+    "rain": 8.9,
+    "food": 8.4,
+    "photography": 6.3,
+    "relaxation": 7.6,
+    "value": 7.1,
+    "uniqueness": 8.4,
+    "family": 7.9,
+    "accessibility": 9.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.7,
+    "summer": 6.6,
+    "autumn": 9.5,
+    "winter": 7.4
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/%C5%8Csu_Kannon",
+        "title": "Ōsu Kannon",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/%C5%8Csu_Kannon",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/%C5%8Csu_Kannon",
+          "title": "Ōsu Kannon",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

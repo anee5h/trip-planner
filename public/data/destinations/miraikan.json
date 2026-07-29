@@ -1,0 +1,157 @@
+{
+  "id": "miraikan",
+  "name": "Miraikan",
+  "nameJa": "日本科学未来館",
+  "aliases": ["Miraikan", "日本科学未来館"],
+  "content": {
+    "en": {
+      "name": "Miraikan",
+      "description": "The National Museum of Emerging Science and Innovation (日本科学未来館, Nippon Kagaku Mirai-kan), simply known as the Miraikan (未来館; literally \"Future Museum\"), is a museum created by Japan's Science and Technology Agency.\nIt was opened in 2001. It is situated in a purpose-built building in the Odaiba District of Tokyo.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "日本科学未来館",
+      "description": "日本科学未来館（にっぽんかがくみらいかん、英称：The National Museum of Emerging Science and Innovation、愛称：Miraikan）は、東京都江東区青海の国際研究交流大学村内にある科学館。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "odaiba",
+  "relationships": {
+    "parentDestinationId": "koto-city"
+  },
+  "officialWebsite": "http://www.miraikan.jst.go.jp/index.html",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Koto City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Miraikan.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Jason Ruck",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Miraikan.jpg"
+  },
+  "coordinates": {
+    "lat": 35.61916667,
+    "lng": 139.77666667
+  },
+  "description": "The National Museum of Emerging Science and Innovation (日本科学未来館, Nippon Kagaku Mirai-kan), simply known as the Miraikan (未来館; literally \"Future Museum\"), is a museum created by Japan's Science and Technology Agency.\nIt was opened in 2001. It is situated in a purpose-built building in the Odaiba District of Tokyo.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 197
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.3,
+    "couple": 6.3,
+    "summer": 6.2,
+    "winter": 7.7,
+    "rain": 7.6,
+    "food": 9.1,
+    "photography": 7.2,
+    "relaxation": 7.1,
+    "value": 8.6,
+    "uniqueness": 8.5,
+    "family": 6.6,
+    "accessibility": 6.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8,
+    "summer": 9.5,
+    "autumn": 9.4,
+    "winter": 7.5
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Koto City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Miraikan",
+        "title": "Miraikan",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.miraikan.jst.go.jp/index.html",
+        "title": "Miraikan official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Miraikan",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Miraikan",
+          "title": "Miraikan",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "id": "sunshine-aquarium",
+  "name": "Sunshine Aquarium",
+  "nameJa": "サンシャイン水族館",
+  "aliases": ["Sunshine Aquarium", "サンシャイン水族館"],
+  "content": {
+    "en": {
+      "name": "Sunshine Aquarium",
+      "description": "Sunshine Aquarium (サンシャイン水族館, Sanshain suizokukan), formerly known as Sunshine International Aquarium (サンシャイン国際水族館, Sanshain kokusai suizokukan), is a public aquarium located on the top floors and rooftop of the World Import Mart building in Sunshine City, Tokyo, Japan. The aquarium opened in October 1978. It was closed for one year from September 1, 2010, for a full renovation, and reopened on August 4, 2011.",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "サンシャイン水族館",
+      "description": "サンシャイン水族館（サンシャインすいぞくかん、英語：Sunshine Aquarium）は、東京都豊島区東池袋のサンシャインシティ ワールドインポートマート内にある水族館。1978年10月開館。株式会社サンシャインエンタプライズが運営している。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "kind": "aquarium",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "ikebukuro",
+  "relationships": {
+    "parentDestinationId": "toshima-city"
+  },
+  "officialWebsite": "https://sunshinecity.jp/aquarium/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Toshima City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Breeding%20staff%2C%20Sunshine%20Aquarium.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Motokoka",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Breeding_staff,_Sunshine_Aquarium.jpg"
+  },
+  "coordinates": {
+    "lat": 35.728583,
+    "lng": 139.71975
+  },
+  "description": "Sunshine Aquarium (サンシャイン水族館, Sanshain suizokukan), formerly known as Sunshine International Aquarium (サンシャイン国際水族館, Sanshain kokusai suizokukan), is a public aquarium located on the top floors and rooftop of the World Import Mart building in Sunshine City, Tokyo, Japan. The aquarium opened in October 1978. It was closed for one year from September 1, 2010, for a full renovation, and reopened on August 4, 2011.",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 198
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 7.3,
+    "couple": 6.4,
+    "summer": 6.9,
+    "winter": 7.4,
+    "rain": 9,
+    "food": 6.8,
+    "photography": 7.3,
+    "relaxation": 6.2,
+    "value": 6.7,
+    "uniqueness": 7.2,
+    "family": 7.7,
+    "accessibility": 6.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.1,
+    "summer": 7.6,
+    "autumn": 6.5,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Toshima City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Sunshine_Aquarium",
+        "title": "Sunshine Aquarium",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://sunshinecity.jp/aquarium/",
+        "title": "Sunshine Aquarium official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Sunshine_Aquarium",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sunshine_Aquarium",
+          "title": "Sunshine Aquarium",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

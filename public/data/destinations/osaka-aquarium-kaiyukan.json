@@ -1,0 +1,159 @@
+{
+  "id": "osaka-aquarium-kaiyukan",
+  "name": "Osaka Aquarium Kaiyukan",
+  "nameJa": "海遊館",
+  "aliases": ["Osaka Aquarium Kaiyukan", "海遊館"],
+  "content": {
+    "en": {
+      "name": "Osaka Aquarium Kaiyukan",
+      "description": "The Osaka Aquarium Kaiyukan (海遊館, Kaiyūkan; known as the Kaiyukan) is an aquarium located in the ward of Minato in Osaka, Osaka Prefecture, Japan, near Osaka Bay. When it opened in 1990, it was the largest public aquarium in the world. \nThe aquarium is a member of the Japanese Association of Zoos and Aquariums and is accredited as a Museum-equivalent facilities by the Museum Act from Ministry of Education, Culture, Sports, Science and Technology.",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "海遊館",
+      "description": "海遊館（かいゆうかん、Osaka Aquarium KAIYUKAN）は、大阪府大阪市港区海岸通1丁目にある水族館。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Osaka",
+  "region": "Kansai",
+  "kind": "aquarium",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "bay-area",
+  "relationships": {
+    "parentDestinationId": "osaka-city"
+  },
+  "officialWebsite": "https://www.kaiyukan.com/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Osaka City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Osaka%20Kaiyukan01s3872.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osaka_Kaiyukan01s3872.jpg"
+  },
+  "coordinates": {
+    "lat": 34.654472222222,
+    "lng": 135.42888888889
+  },
+  "description": "The Osaka Aquarium Kaiyukan (海遊館, Kaiyūkan; known as the Kaiyukan) is an aquarium located in the ward of Minato in Osaka, Osaka Prefecture, Japan, near Osaka Bay. When it opened in 1990, it was the largest public aquarium in the world. \nThe aquarium is a member of the Japanese Association of Zoos and Aquariums and is accredited as a Museum-equivalent facilities by the Museum Act from Ministry of Education, Culture, Sports, Science and Technology.",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 186,
+    "bus": 206,
+    "shinkansen": 146
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 6.4,
+    "couple": 9,
+    "summer": 8.3,
+    "winter": 9.4,
+    "rain": 9,
+    "food": 6.4,
+    "photography": 9.1,
+    "relaxation": 6.8,
+    "value": 9.5,
+    "uniqueness": 7.2,
+    "family": 8.3,
+    "accessibility": 7.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.7,
+    "summer": 8,
+    "autumn": 9.1,
+    "winter": 8.4
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Osaka_Aquarium_Kaiyukan",
+        "title": "Osaka Aquarium Kaiyukan",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.kaiyukan.com/",
+        "title": "Osaka Aquarium Kaiyukan official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Osaka_Aquarium_Kaiyukan",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Osaka_Aquarium_Kaiyukan",
+          "title": "Osaka Aquarium Kaiyukan",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

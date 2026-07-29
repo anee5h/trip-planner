@@ -74,9 +74,16 @@
   ],
   "relationships": {
     "featuredDestinationIds": [
+      "kashiya-yokocho",
       "kawagoe-castle-saitama",
-      "omiya-railway",
-      "chichibu-city"
+      "kawagoe-hikawa-shrine",
+      "toki-no-kane",
+      "kurazukuri-warehouse-district",
+      "taisho-roman-street",
+      "kita-in",
+      "kawagoe-festival-museum",
+      "shingashi-river",
+      "renkeiji"
     ],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },

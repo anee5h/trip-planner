@@ -1,0 +1,158 @@
+{
+  "id": "chiba-park",
+  "name": "Chiba Park",
+  "nameJa": "千葉公園",
+  "aliases": ["Chiba (city)", "千葉公園"],
+  "content": {
+    "en": {
+      "name": "Chiba Park",
+      "description": "Chiba Park is a visitor destination in Chiba City.",
+      "highlights": ["Nature"]
+    },
+    "ja": {
+      "name": "千葉公園",
+      "description": "千葉公園（ちばこうえん）は、千葉県千葉市中央区にある都市公園（総合公園）である。名所として千葉市の「市の花」である大賀ハスの鑑賞地となっている。",
+      "highlights": ["自然"]
+    }
+  },
+  "prefecture": "Chiba",
+  "region": "Kanto",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-chiba",
+  "relationships": {
+    "parentDestinationId": "chiba-city"
+  },
+  "officialWebsite": "https://www.city.chiba.jp/toshi/koenryokuchi/kanri/chuo-mihama/chibakouen.html",
+  "officialWebsiteRequirement": "none",
+  "categories": ["Nature"],
+  "tags": ["Nature", "Chiba City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tiba%20Koen-3.JPG?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "江戸村のとくぞう",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tiba_Koen-3.JPG"
+  },
+  "coordinates": {
+    "lat": 35.620611,
+    "lng": 140.116556
+  },
+  "description": "Chiba Park is a visitor destination in Chiba City.",
+  "highlights": ["Nature"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 75,
+    "car": 65
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.2,
+    "couple": 6.9,
+    "summer": 6.8,
+    "winter": 8.5,
+    "rain": 6.8,
+    "food": 6.7,
+    "photography": 8.4,
+    "relaxation": 8.3,
+    "value": 6.6,
+    "uniqueness": 8.3,
+    "family": 8.2,
+    "accessibility": 6.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 6.4,
+    "summer": 8.1,
+    "autumn": 8,
+    "winter": 6.3
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Chiba City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Chiba_(city)",
+        "title": "Chiba (city)",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.city.chiba.jp/toshi/koenryokuchi/kanri/chuo-mihama/chibakouen.html",
+        "title": "Chiba Park official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Chiba_(city)",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chiba_(city)",
+          "title": "Chiba (city)",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

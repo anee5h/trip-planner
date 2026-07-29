@@ -1,0 +1,157 @@
+{
+  "id": "fujiko-f-fujio-museum",
+  "name": "Fujiko F. Fujio Museum",
+  "nameJa": "藤子・F・不二雄ミュージアム",
+  "aliases": ["Fujiko F. Fujio Museum", "藤子・F・不二雄ミュージアム"],
+  "content": {
+    "en": {
+      "name": "Fujiko F. Fujio Museum",
+      "description": "Japanese museum",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "藤子・F・不二雄ミュージアム",
+      "description": "藤子・F・不二雄ミュージアム（ふじこ・エフ・ふじおミュージアム）は、神奈川県川崎市多摩区の博物館。漫画家藤子・F・不二雄（藤本弘）の作品原画やその関連資料を中心に展示している。2011年（平成23年）9月3日に開館した。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Kanagawa",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "ikuta",
+  "relationships": {
+    "parentDestinationId": "kawasaki-city"
+  },
+  "officialWebsite": "http://fujiko-museum.com",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Kawasaki City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fujiko%EF%BD%A5F%EF%BD%A5Fujio%20Museum%20-01.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Aimaimyi",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fujiko%EF%BD%A5F%EF%BD%A5Fujio_Museum_-01.jpg"
+  },
+  "coordinates": {
+    "lat": 35.61,
+    "lng": 139.573611
+  },
+  "description": "Japanese museum",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 203
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 7.9,
+    "couple": 7.4,
+    "summer": 6.5,
+    "winter": 9,
+    "rain": 9,
+    "food": 9,
+    "photography": 8.1,
+    "relaxation": 7.2,
+    "value": 6.3,
+    "uniqueness": 8.8,
+    "family": 7.9,
+    "accessibility": 7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9.5,
+    "summer": 8.6,
+    "autumn": 7.7,
+    "winter": 6.8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kawasaki City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Fujiko_F._Fujio_Museum",
+        "title": "Fujiko F. Fujio Museum",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://fujiko-museum.com",
+        "title": "Fujiko F. Fujio Museum official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Fujiko_F._Fujio_Museum",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Fujiko_F._Fujio_Museum",
+          "title": "Fujiko F. Fujio Museum",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

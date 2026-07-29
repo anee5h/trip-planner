@@ -1,0 +1,157 @@
+{
+  "id": "sapporo-tv-tower",
+  "name": "Sapporo TV Tower",
+  "nameJa": "さっぽろテレビ塔",
+  "aliases": ["Sapporo TV Tower", "さっぽろテレビ塔"],
+  "content": {
+    "en": {
+      "name": "Sapporo TV Tower",
+      "description": "The Sapporo TV Tower (Japanese: さっぽろテレビ塔, Hepburn: Sapporo Terebi-tō), built in 1957, is a 147.2-metre-high (483 ft) TV tower with an observation deck at a height of 90.38 metres. Located on the ground of Odori Park, in the northern city of Sapporo, Hokkaido, Japan, the tower is open to tourists.",
+      "highlights": ["Viewpoint"]
+    },
+    "ja": {
+      "name": "さっぽろテレビ塔",
+      "description": "さっぽろテレビ塔（さっぽろテレビとう）は北海道札幌市中央区大通西1丁目の大通公園内にある展望塔である。札幌市中心部にあり、電波塔として総工費1億7000万円で建設され、1957年（昭和32年）に完成、同年8月24日に開業した。高さは144メートル。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Hokkaido",
+  "region": "Hokkaido",
+  "kind": "tower",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-sapporo",
+  "relationships": {
+    "parentDestinationId": "sapporo-city"
+  },
+  "officialWebsite": "https://www.tv-tower.co.jp/",
+  "officialWebsiteRequirement": "required",
+  "categories": ["Viewpoint"],
+  "tags": ["Viewpoint", "Sapporo City", "v1.9.2"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/93/Sapporo-TV-Tower-2025.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "AlphaBetaGamma",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sapporo-TV-Tower-2025.jpg"
+  },
+  "coordinates": {
+    "lat": 43.06111111,
+    "lng": 141.35638889
+  },
+  "description": "The Sapporo TV Tower (Japanese: さっぽろテレビ塔, Hepburn: Sapporo Terebi-tō), built in 1957, is a 147.2-metre-high (483 ft) TV tower with an observation deck at a height of 90.38 metres. Located on the ground of Odori Park, in the northern city of Sapporo, Hokkaido, Japan, the tower is open to tourists.",
+  "highlights": ["Viewpoint"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 200
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 9.3,
+    "couple": 8.6,
+    "summer": 7.5,
+    "winter": 8.2,
+    "rain": 7.1,
+    "food": 7.8,
+    "photography": 6.7,
+    "relaxation": 7.4,
+    "value": 6.3,
+    "uniqueness": 8.6,
+    "family": 9.3,
+    "accessibility": 8.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.9,
+    "summer": 7.8,
+    "autumn": 8.5,
+    "winter": 7.4
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Check the official website before visiting.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Sapporo_TV_Tower",
+        "title": "Sapporo TV Tower",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.tv-tower.co.jp/",
+        "title": "Sapporo TV Tower official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Sapporo_TV_Tower",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sapporo_TV_Tower",
+          "title": "Sapporo TV Tower",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

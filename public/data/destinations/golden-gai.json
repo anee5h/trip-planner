@@ -1,0 +1,157 @@
+{
+  "id": "golden-gai",
+  "name": "Golden Gai",
+  "nameJa": "新宿ゴールデン街",
+  "aliases": ["Shinjuku Golden Gai", "新宿ゴールデン街"],
+  "content": {
+    "en": {
+      "name": "Golden Gai",
+      "description": "Shinjuku Golden Gai (Japanese: 新宿ゴールデン街, Hepburn: Shinjuku gōruden-gai) is a district of Kabukicho within Shinjuku, a special ward of Tokyo, Japan. It is composed of a network of six narrow alleys, connected by even narrower passageways which are about wide enough for a single person to pass through. Over 200 tiny shanty-style bars, clubs and eateries are squeezed into this area.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "新宿ゴールデン街",
+      "description": "新宿ゴールデン街（しんじゅくゴールデンがい）は、東京都新宿区歌舞伎町1丁目にある飲食店街。バラック長屋に、スナックなど300軒近い酒場が並び、作家や映画・演劇関係者が通うことで知られる。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-shinjuku",
+  "relationships": {
+    "parentDestinationId": "shinjuku-city"
+  },
+  "officialWebsite": "http://goldengai.jp/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Shinjuku City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shinjuku%20Golden%20Gai.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "てらたにこういち",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shinjuku_Golden_Gai.jpg"
+  },
+  "coordinates": {
+    "lat": 35.6939,
+    "lng": 139.705
+  },
+  "description": "Shinjuku Golden Gai (Japanese: 新宿ゴールデン街, Hepburn: Shinjuku gōruden-gai) is a district of Kabukicho within Shinjuku, a special ward of Tokyo, Japan. It is composed of a network of six narrow alleys, connected by even narrower passageways which are about wide enough for a single person to pass through. Over 200 tiny shanty-style bars, clubs and eateries are squeezed into this area.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 203
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.9,
+    "couple": 9.2,
+    "summer": 6.9,
+    "winter": 8,
+    "rain": 9.1,
+    "food": 6.8,
+    "photography": 6.3,
+    "relaxation": 7.4,
+    "value": 8.5,
+    "uniqueness": 6.2,
+    "family": 9.1,
+    "accessibility": 6.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.9,
+    "summer": 9,
+    "autumn": 8.5,
+    "winter": 6.2
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Shinjuku_Golden_Gai",
+        "title": "Shinjuku Golden Gai",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://goldengai.jp/",
+        "title": "Golden Gai official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Shinjuku_Golden_Gai",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Shinjuku_Golden_Gai",
+          "title": "Shinjuku Golden Gai",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

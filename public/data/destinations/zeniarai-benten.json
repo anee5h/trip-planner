@@ -1,0 +1,150 @@
+{
+  "id": "zeniarai-benten",
+  "name": "Zeniarai Benten",
+  "nameJa": "銭洗弁財天宇賀福神社",
+  "aliases": ["Zeniarai Benzaiten Ugafuku Shrine", "銭洗弁財天宇賀福神社"],
+  "content": {
+    "en": {
+      "name": "Zeniarai Benten",
+      "description": "Zeniarai Benzaiten Ugafuku Shrine (銭洗弁財天宇賀福神社, Zeniarai Benzaiten Ugafuku Jinja), popularly known as Zeniarai Benten, is a Shinto shrine in Kamakura, Kanagawa Prefecture, Japan. It is a small shrine, but the second most popular spot in Kamakura after Tsurugaoka Hachimangū. Zeniarai Benzaiten is popular among tourists because the waters of a spring in its cave are said to be able to multiply the money washed in it.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "銭洗弁財天宇賀福神社",
+      "description": "銭洗弁財天宇賀福神社（ぜにあらいべんざいてん うがふくじんじゃ）は、神奈川県鎌倉市佐助にある神社である。境内洞窟にある清水で硬貨などを洗うと増えると伝えられていることから、銭洗弁天（ぜにあらいべんてん）の名で知られている。 文治元年（1185年）、源頼朝への宇賀福神の夢のお告げを元に、宇賀福神を祀り神仏の供養を行ったのが創建の由来という伝説がある。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Kanagawa",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-kamakura",
+  "relationships": {
+    "parentDestinationId": "kamakura-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Kamakura City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Zeniarai%20Benzaiten%20-%20Benten%2001.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Quercus acuta",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zeniarai_Benzaiten_-_Benten_01.jpg"
+  },
+  "coordinates": {
+    "lat": 35.3258,
+    "lng": 139.542
+  },
+  "description": "Zeniarai Benzaiten Ugafuku Shrine (銭洗弁財天宇賀福神社, Zeniarai Benzaiten Ugafuku Jinja), popularly known as Zeniarai Benten, is a Shinto shrine in Kamakura, Kanagawa Prefecture, Japan. It is a small shrine, but the second most popular spot in Kamakura after Tsurugaoka Hachimangū. Zeniarai Benzaiten is popular among tourists because the waters of a spring in its cave are said to be able to multiply the money washed in it.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 197
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8,
+    "couple": 8.9,
+    "summer": 9.2,
+    "winter": 9.5,
+    "rain": 6.4,
+    "food": 6.7,
+    "photography": 7,
+    "relaxation": 7.3,
+    "value": 9.2,
+    "uniqueness": 9.5,
+    "family": 6.4,
+    "accessibility": 6.7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7,
+    "summer": 7.3,
+    "autumn": 7.6,
+    "winter": 7.9
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kamakura City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Zeniarai_Benzaiten_Ugafuku_Shrine",
+        "title": "Zeniarai Benzaiten Ugafuku Shrine",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Zeniarai_Benzaiten_Ugafuku_Shrine",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Zeniarai_Benzaiten_Ugafuku_Shrine",
+          "title": "Zeniarai Benzaiten Ugafuku Shrine",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

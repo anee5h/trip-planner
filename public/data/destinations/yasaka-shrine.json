@@ -1,0 +1,152 @@
+{
+  "id": "yasaka-shrine",
+  "name": "Yasaka Shrine",
+  "nameJa": "法観寺",
+  "aliases": ["Yasaka Pagoda", "法観寺"],
+  "content": {
+    "en": {
+      "name": "Yasaka Shrine",
+      "description": "The Yasaka Pagoda (Japanese: 八坂の塔, romanized: Yasaka-no-to), also known as the Tower of Yasaka, is a Buddhist pagoda located in Higashiyama-ku, Kyoto, Japan. The 5-story tall pagoda is the last remaining structure of a 6th-century temple complex known as Hōkan-ji (法観寺).  It was founded by the Goguryeo clan that established in Japan, and is the oldest temple in Kyoto.",
+      "highlights": ["History"]
+    },
+    "ja": {
+      "name": "法観寺",
+      "description": "法観寺（ほうかんじ）は、京都市東山区八坂上町にある臨済宗建仁寺派の寺院。山号は霊応山。本尊は五智如来。",
+      "highlights": ["歴史"]
+    }
+  },
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "kind": "shrine",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "higashiyama",
+  "relationships": {
+    "parentDestinationId": "kyoto-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History"],
+  "tags": ["History", "Kyoto City", "v1.9.2"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Yasaka-dori_early_morning_with_street_lanterns_and_the_Tower_of_Yasaka_%28Hokan-ji_Temple%29%2C_Kyoto%2C_Japan.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Basile Morin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yasaka-dori_early_morning_with_street_lanterns_and_the_Tower_of_Yasaka_(Hokan-ji_Temple),_Kyoto,_Japan.jpg"
+  },
+  "coordinates": {
+    "lat": 34.99855,
+    "lng": 135.77925
+  },
+  "description": "The Yasaka Pagoda (Japanese: 八坂の塔, romanized: Yasaka-no-to), also known as the Tower of Yasaka, is a Buddhist pagoda located in Higashiyama-ku, Kyoto, Japan. The 5-story tall pagoda is the last remaining structure of a 6th-century temple complex known as Hōkan-ji (法観寺).  It was founded by the Goguryeo clan that established in Japan, and is the oldest temple in Kyoto.",
+  "highlights": ["History"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 227,
+    "bus": 227,
+    "shinkansen": 127
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 3,
+    "rainFriendly": 3,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.7,
+    "summer": 8.6,
+    "winter": 6.7,
+    "rain": 6.6,
+    "food": 8.1,
+    "photography": 6.2,
+    "relaxation": 9.5,
+    "value": 7.6,
+    "uniqueness": 7.5,
+    "family": 9,
+    "accessibility": 8.9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7,
+    "summer": 8.5,
+    "autumn": 8.4,
+    "winter": 6.5
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Yasaka_Pagoda",
+        "title": "Yasaka Pagoda",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Yasaka_Pagoda",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Yasaka_Pagoda",
+          "title": "Yasaka Pagoda",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

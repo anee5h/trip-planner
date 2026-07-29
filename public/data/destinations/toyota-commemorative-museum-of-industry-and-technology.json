@@ -1,0 +1,161 @@
+{
+  "id": "toyota-commemorative-museum-of-industry-and-technology",
+  "name": "Toyota Commemorative Museum of Industry and Technology",
+  "nameJa": "トヨタ産業技術記念館",
+  "aliases": [
+    "Toyota Commemorative Museum of Industry and Technology",
+    "トヨタ産業技術記念館"
+  ],
+  "content": {
+    "en": {
+      "name": "Toyota Commemorative Museum of Industry and Technology",
+      "description": "The Toyota Commemorative Museum of Industry and Technology (産業技術記念館, Sangyo-Gijutsu Kinenkan), also known as Toyota Tecno Museum, is a technology museum located in Nishi-ku in the city of Nagoya, central Japan.",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "トヨタ産業技術記念館",
+      "description": "トヨタ産業技術記念館（とよたさんぎょうぎじゅつきねんかん、英語名：TOYOTA Commemorative Museum of Industry and Technology）は、愛知県名古屋市西区則武新町四丁目1番35号にあるトヨタグループ運営の企業博物館。1994年（平成6年）開館。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Aichi",
+  "region": "Chubu",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-nagoya",
+  "relationships": {
+    "parentDestinationId": "nagoya-city"
+  },
+  "officialWebsite": "https://www.tcmit.org/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Nagoya City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toyota%20tecno%20museum.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Bariston",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toyota_tecno_museum.jpg"
+  },
+  "coordinates": {
+    "lat": 35.1832,
+    "lng": 136.876
+  },
+  "description": "The Toyota Commemorative Museum of Industry and Technology (産業技術記念館, Sangyo-Gijutsu Kinenkan), also known as Toyota Tecno Museum, is a technology museum located in Nishi-ku in the city of Nagoya, central Japan.",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 201,
+    "shinkansen": 91
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.3,
+    "couple": 9.1,
+    "summer": 8.2,
+    "winter": 9.1,
+    "rain": 9,
+    "food": 7.5,
+    "photography": 8.4,
+    "relaxation": 9.3,
+    "value": 8.4,
+    "uniqueness": 9.3,
+    "family": 6.8,
+    "accessibility": 7.7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.6,
+    "summer": 9.5,
+    "autumn": 8.6,
+    "winter": 9.5
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Toyota_Commemorative_Museum_of_Industry_and_Technology",
+        "title": "Toyota Commemorative Museum of Industry and Technology",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.tcmit.org/",
+        "title": "Toyota Commemorative Museum of Industry and Technology official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Toyota_Commemorative_Museum_of_Industry_and_Technology",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Toyota_Commemorative_Museum_of_Industry_and_Technology",
+          "title": "Toyota Commemorative Museum of Industry and Technology",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

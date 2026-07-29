@@ -1,0 +1,157 @@
+{
+  "id": "hokokuji",
+  "name": "Hokokuji",
+  "nameJa": "報国寺 (鎌倉市)",
+  "aliases": ["Hōkoku-ji", "報国寺 (鎌倉市)"],
+  "content": {
+    "en": {
+      "name": "Hokokuji",
+      "description": "Hōkoku-ji (報国寺) is an old temple in the Kenchō-ji school of the Rinzai sect of Zen Buddhism located in Kamakura, Japan. Famous for its bamboo garden, it is also known as \"Bamboo Temple\".\nA statue of Gautama Buddha, called Shaka Nyorai in Japanese, in a sacred hall is the temple's principal image.",
+      "highlights": ["History"]
+    },
+    "ja": {
+      "name": "報国寺 (鎌倉市)",
+      "description": "報国寺（ほうこくじ）は、神奈川県鎌倉市浄明寺二丁目にある仏教臨済宗建長寺派の寺院。正式には功臣山報国建忠禅寺（こうしんさんほうこくけんちゅうぜんじ）と号する。本尊は釈迦三尊。",
+      "highlights": ["歴史"]
+    }
+  },
+  "prefecture": "Kanagawa",
+  "region": "Kanto",
+  "kind": "temple",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-kamakura",
+  "relationships": {
+    "parentDestinationId": "kamakura-city"
+  },
+  "officialWebsite": "https://houkokuji.or.jp/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History"],
+  "tags": ["History", "Kamakura City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2019%20H%C5%8Dkoku-ji%2001.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Kakidai",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2019_H%C5%8Dkoku-ji_01.jpg"
+  },
+  "coordinates": {
+    "lat": 35.32,
+    "lng": 139.5693
+  },
+  "description": "Hōkoku-ji (報国寺) is an old temple in the Kenchō-ji school of the Rinzai sect of Zen Buddhism located in Kamakura, Japan. Famous for its bamboo garden, it is also known as \"Bamboo Temple\".\nA statue of Gautama Buddha, called Shaka Nyorai in Japanese, in a sacred hall is the temple's principal image.",
+  "highlights": ["History"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 201
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 3,
+    "rainFriendly": 3,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.7,
+    "couple": 9.5,
+    "summer": 9,
+    "winter": 6.9,
+    "rain": 6.4,
+    "food": 7.7,
+    "photography": 7.2,
+    "relaxation": 8.5,
+    "value": 8,
+    "uniqueness": 9.3,
+    "family": 8.8,
+    "accessibility": 6.7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 6.2,
+    "summer": 7.5,
+    "autumn": 7,
+    "winter": 8.3
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kamakura City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/H%C5%8Dkoku-ji",
+        "title": "Hōkoku-ji",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://houkokuji.or.jp/",
+        "title": "Hokokuji official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/H%C5%8Dkoku-ji",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/H%C5%8Dkoku-ji",
+          "title": "Hōkoku-ji",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

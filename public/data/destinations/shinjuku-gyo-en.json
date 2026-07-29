@@ -1,0 +1,157 @@
+{
+  "id": "shinjuku-gyo-en",
+  "name": "Shinjuku Gyo-en",
+  "nameJa": "新宿区",
+  "aliases": ["Shinjuku", "新宿区"],
+  "content": {
+    "en": {
+      "name": "Shinjuku Gyo-en",
+      "description": "Shinjuku (Japanese: 新宿区, Hepburn: Shinjuku-ku; IPA: [ɕiɲdʑɯkɯ] ), officially called Shinjuku City, is one of the 23 special wards of Tokyo.\nSince the end of World War II, Shinjuku has become a major secondary center of Tokyo (fukutoshin), rivaling the original city center in Marunouchi. Today, it is a major commercial and administrative center and houses the northern half of Shinjuku Station, the busiest railway station in the world, as well as the Tokyo Metropolitan Government Building, the administrative center of the Tokyo Metropolitan Government.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "新宿区",
+      "description": "新宿区（しんじゅくく）は、東京都の区部西部に位置する特別区で、東京都の都庁所在地。渋谷区・豊島区とともに「副都心3区」とされる。また、不動産業界では、千代田区・中央区・港区の「都心3区」に当区と渋谷区を加えて「都心5区」と言われることがある。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-shinjuku",
+  "relationships": {
+    "parentDestinationId": "shinjuku-city"
+  },
+  "officialWebsite": "https://www.city.shinjuku.lg.jp/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Shinjuku City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/US%20Air%20Force%20photo%20170903-F-PM645-1558%20An%20aerial%20view%20of%20Shinjuku%E2%80%99s%20skyscraper%20district%20from%20a%20UH-1N%20Iroquois.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "U.S. Air Force photo by Yasuo Osakabe",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:US_Air_Force_photo_170903-F-PM645-1558_An_aerial_view_of_Shinjuku%E2%80%99s_skyscraper_district_from_a_UH-1N_Iroquois.jpg"
+  },
+  "coordinates": {
+    "lat": 35.693888888888885,
+    "lng": 139.70341666666667
+  },
+  "description": "Shinjuku (Japanese: 新宿区, Hepburn: Shinjuku-ku; IPA: [ɕiɲdʑɯkɯ] ), officially called Shinjuku City, is one of the 23 special wards of Tokyo.\nSince the end of World War II, Shinjuku has become a major secondary center of Tokyo (fukutoshin), rivaling the original city center in Marunouchi. Today, it is a major commercial and administrative center and houses the northern half of Shinjuku Station, the busiest railway station in the world, as well as the Tokyo Metropolitan Government Building, the administrative center of the Tokyo Metropolitan Government.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 199
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 6.3,
+    "couple": 9.2,
+    "summer": 8.5,
+    "winter": 9.4,
+    "rain": 8.7,
+    "food": 6.2,
+    "photography": 8.9,
+    "relaxation": 6.4,
+    "value": 9.1,
+    "uniqueness": 6.6,
+    "family": 9.3,
+    "accessibility": 6.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9.5,
+    "summer": 7,
+    "autumn": 6.3,
+    "winter": 7.2
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Shinjuku",
+        "title": "Shinjuku",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.city.shinjuku.lg.jp/",
+        "title": "Shinjuku Gyo-en official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Shinjuku",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Shinjuku",
+          "title": "Shinjuku",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

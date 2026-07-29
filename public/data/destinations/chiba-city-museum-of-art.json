@@ -1,0 +1,158 @@
+{
+  "id": "chiba-city-museum-of-art",
+  "name": "Chiba City Museum of Art",
+  "nameJa": "千葉市美術館",
+  "aliases": ["Chiba Prefecture", "千葉市美術館"],
+  "content": {
+    "en": {
+      "name": "Chiba City Museum of Art",
+      "description": "museum in Chiba-city, Japan",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "千葉市美術館",
+      "description": "千葉市美術館（ちばしびじゅつかん）は、千葉県千葉市中央区にある美術館。1995年（平成7年）11月1日開館。2020年（令和2年）7月11日リニューアルオープン。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Chiba",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-chiba",
+  "relationships": {
+    "parentDestinationId": "chiba-city"
+  },
+  "officialWebsite": "https://www.ccma-net.jp/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Chiba City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/KyuuKawasakiGinkouChibashiten.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "のどごし隊長 ( talk )",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:KyuuKawasakiGinkouChibashiten.jpg"
+  },
+  "coordinates": {
+    "lat": 35.608986,
+    "lng": 140.12465
+  },
+  "description": "museum in Chiba-city, Japan",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 67,
+    "car": 57
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.9,
+    "couple": 9.1,
+    "summer": 9.4,
+    "winter": 6.3,
+    "rain": 9,
+    "food": 6.9,
+    "photography": 7.2,
+    "relaxation": 7.5,
+    "value": 9.4,
+    "uniqueness": 6.3,
+    "family": 6.6,
+    "accessibility": 6.9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.2,
+    "summer": 7.5,
+    "autumn": 7.8,
+    "winter": 8.1
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Chiba City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Chiba_Prefecture",
+        "title": "Chiba Prefecture",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.ccma-net.jp/",
+        "title": "Chiba City Museum of Art official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Chiba_Prefecture",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chiba_Prefecture",
+          "title": "Chiba Prefecture",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

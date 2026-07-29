@@ -1,0 +1,152 @@
+{
+  "id": "sanjusangen-do",
+  "name": "Sanjusangen-do",
+  "nameJa": "江戸三十三間堂",
+  "aliases": ["Sanjūsangen-dō", "江戸三十三間堂"],
+  "content": {
+    "en": {
+      "name": "Sanjusangen-do",
+      "description": "Sanjusangen-do is a visitor destination in Kyoto City.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "江戸三十三間堂",
+      "description": "江戸三十三間堂（えどさんじゅうさんげんどう）は、江戸時代、江戸の富岡八幡宮の東側（現在の江東区富岡二丁目あたり）にあった仏堂。本尊は千手観音。\n京都東山の三十三間堂（蓮華王院）での通し矢の流行をうけて、寛永19年(1642年)11月、弓師備後という者が幕府より浅草の土地を拝領し、京都三十三間堂を模した堂を建立したのに始まる。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "higashiyama",
+  "relationships": {
+    "parentDestinationId": "kyoto-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Kyoto City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/100%20views%20edo%20071.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Utagawa Hiroshige",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:100_views_edo_071.jpg"
+  },
+  "coordinates": {
+    "lat": 35.671611,
+    "lng": 139.801472
+  },
+  "description": "Sanjusangen-do is a visitor destination in Kyoto City.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 234,
+    "bus": 234,
+    "shinkansen": 134
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.9,
+    "couple": 6.9,
+    "summer": 9.4,
+    "winter": 8.5,
+    "rain": 7.6,
+    "food": 8.5,
+    "photography": 7.6,
+    "relaxation": 6.7,
+    "value": 9.2,
+    "uniqueness": 8.3,
+    "family": 9.2,
+    "accessibility": 8.3
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.4,
+    "summer": 6.5,
+    "autumn": 7.4,
+    "winter": 6.5
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Sanj%C5%ABsangen-d%C5%8D",
+        "title": "Sanjūsangen-dō",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Sanj%C5%ABsangen-d%C5%8D",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sanj%C5%ABsangen-d%C5%8D",
+          "title": "Sanjūsangen-dō",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

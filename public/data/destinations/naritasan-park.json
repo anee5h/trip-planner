@@ -1,0 +1,150 @@
+{
+  "id": "naritasan-park",
+  "name": "Naritasan Park",
+  "nameJa": "成田山公園",
+  "aliases": ["Narita-san", "成田山公園"],
+  "content": {
+    "en": {
+      "name": "Naritasan Park",
+      "description": "park in Narita, Chiba, Japan",
+      "highlights": ["Nature"]
+    },
+    "ja": {
+      "name": "成田山公園",
+      "description": "成田山公園はNarita Cityにある観光スポットです。",
+      "highlights": ["自然"]
+    }
+  },
+  "prefecture": "Chiba",
+  "region": "Kanto",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "naritasan",
+  "relationships": {
+    "parentDestinationId": "narita-city"
+  },
+  "officialWebsiteRequirement": "none",
+  "categories": ["Nature"],
+  "tags": ["Nature", "Narita City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/IMAG1509%20(28154414491).jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "franck injapan from Tokyo, Japan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:IMAG1509_(28154414491).jpg"
+  },
+  "coordinates": {
+    "lat": 35.7866845,
+    "lng": 140.3210126
+  },
+  "description": "park in Narita, Chiba, Japan",
+  "highlights": ["Nature"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 198
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 9.4,
+    "couple": 6.7,
+    "summer": 8.6,
+    "winter": 7.1,
+    "rain": 9,
+    "food": 7.5,
+    "photography": 9.4,
+    "relaxation": 7.9,
+    "value": 6.4,
+    "uniqueness": 8.3,
+    "family": 6.8,
+    "accessibility": 8.7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.2,
+    "summer": 9.1,
+    "autumn": 7.6,
+    "winter": 9.5
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Narita City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Narita-san",
+        "title": "Narita-san",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Narita-san",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Narita-san",
+          "title": "Narita-san",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

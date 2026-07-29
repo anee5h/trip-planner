@@ -1,0 +1,157 @@
+{
+  "id": "kawagoe-hikawa-shrine",
+  "name": "Kawagoe Hikawa Shrine",
+  "nameJa": "氷川神社 (川越市)",
+  "aliases": ["Hikawa Shrine (Kawagoe)", "氷川神社 (川越市)"],
+  "content": {
+    "en": {
+      "name": "Kawagoe Hikawa Shrine",
+      "description": "Hikawa Shrine (氷川神社) is a Shinto shrine in Kawagoe, Saitama Prefecture, Japan. In order to separate it from Hikawa Shrine in Omiya Ward, Saitama City, it is often called Kawagoe Hikawa Shrine. Hikawa Shrine is known for its Reitaisai, or a festival considered the origin of Kawagoe festival, which was registered as a National Important Intangible Folk Cultural Property and listed as a UNESCO Intangible Cultural Heritage.",
+      "highlights": ["History"]
+    },
+    "ja": {
+      "name": "氷川神社 (川越市)",
+      "description": "氷川神社（ひかわじんじゃ）は、埼玉県川越市宮下町にある神社。埼玉県さいたま市大宮区の氷川神社と区別するため、川越氷川神社と称されることもある。なお、川越市内に氷川神社は当社を含めて14社ある。",
+      "highlights": ["歴史"]
+    }
+  },
+  "prefecture": "Saitama",
+  "region": "Kanto",
+  "kind": "shrine",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-kawagoe",
+  "relationships": {
+    "parentDestinationId": "kawagoe-city"
+  },
+  "officialWebsite": "https://www.kawagoehikawa.jp/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History"],
+  "tags": ["History", "Kawagoe City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/HikawaJinjaKawagoe20131014.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "三人日",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:HikawaJinjaKawagoe20131014.jpg"
+  },
+  "coordinates": {
+    "lat": 35.927586,
+    "lng": 139.488532
+  },
+  "description": "Hikawa Shrine (氷川神社) is a Shinto shrine in Kawagoe, Saitama Prefecture, Japan. In order to separate it from Hikawa Shrine in Omiya Ward, Saitama City, it is often called Kawagoe Hikawa Shrine. Hikawa Shrine is known for its Reitaisai, or a festival considered the origin of Kawagoe festival, which was registered as a National Important Intangible Folk Cultural Property and listed as a UNESCO Intangible Cultural Heritage.",
+  "highlights": ["History"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 205
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 3,
+    "rainFriendly": 3,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 6.2,
+    "summer": 7.9,
+    "winter": 6.2,
+    "rain": 7.9,
+    "food": 6.2,
+    "photography": 7.9,
+    "relaxation": 6.2,
+    "value": 7.9,
+    "uniqueness": 6.2,
+    "family": 7.9,
+    "accessibility": 6.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.9,
+    "summer": 6.2,
+    "autumn": 7.9,
+    "winter": 6.2
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kawagoe City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Hikawa_Shrine_(Kawagoe)",
+        "title": "Hikawa Shrine (Kawagoe)",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.kawagoehikawa.jp/",
+        "title": "Kawagoe Hikawa Shrine official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Hikawa_Shrine_(Kawagoe)",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Hikawa_Shrine_(Kawagoe)",
+          "title": "Hikawa Shrine (Kawagoe)",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

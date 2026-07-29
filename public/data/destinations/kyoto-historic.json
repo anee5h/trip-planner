@@ -69,7 +69,9 @@
   "indoorPercent": 20,
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "kyoto-city"
+  },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lake_Hamana_Aerial_photograph.2006.jpg/1280px-Lake_Hamana_Aerial_photograph.2006.jpg",
   "budgetBreakdown": {
     "transport": 3000,
@@ -92,11 +94,12 @@
   "parking": "Available on site",
   "schemaVersion": 2,
   "walkingIntensity": "high",
-  "role": "standalone",
+  "role": "poi",
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
     "min": 3,
     "max": 5
-  }
+  },
+  "areaId": "higashiyama"
 }

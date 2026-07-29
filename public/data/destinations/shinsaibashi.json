@@ -1,0 +1,152 @@
+{
+  "id": "shinsaibashi",
+  "name": "Shinsaibashi",
+  "nameJa": "心斎橋",
+  "aliases": ["Shinsaibashi", "心斎橋"],
+  "content": {
+    "en": {
+      "name": "Shinsaibashi",
+      "description": "Shinsaibashi (心斎橋) is a district in the Chūō-ku ward of Osaka, Japan and the city's main shopping area. At its center is Shinsaibashi-suji (心斎橋筋), a covered shopping street, that is north of Dōtonbori and Sōemonchō, and parallel and east of Mido-suji street. Associated with Shinsaibashi, and west of Mido-suji street, is Amerika-mura, an American-themed shopping area and center of Osaka's youth culture.",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "心斎橋",
+      "description": "心斎橋（しんさいばし）は、大阪府大阪市中央区の大阪を代表する繁華街。また、かつて長堀川に架かっていた橋でのちに長堀通に整備された歩道橋。範囲としては心斎橋筋・西心斎橋・東心斎橋の辺りであり、行政上「心斎橋」という地名は存在しない。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Osaka",
+  "region": "Kansai",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "namba-minami",
+  "relationships": {
+    "parentDestinationId": "osaka-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Osaka City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shinsaibashi%20Osaka%20Japan01-r.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "Oilstreet",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shinsaibashi_Osaka_Japan01-r.jpg"
+  },
+  "coordinates": {
+    "lat": 34.6725,
+    "lng": 135.5
+  },
+  "description": "Shinsaibashi (心斎橋) is a district in the Chūō-ku ward of Osaka, Japan and the city's main shopping area. At its center is Shinsaibashi-suji (心斎橋筋), a covered shopping street, that is north of Dōtonbori and Sōemonchō, and parallel and east of Mido-suji street. Associated with Shinsaibashi, and west of Mido-suji street, is Amerika-mura, an American-themed shopping area and center of Osaka's youth culture.",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 192,
+    "bus": 212,
+    "shinkansen": 152
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 6.5,
+    "couple": 9.1,
+    "summer": 8.8,
+    "winter": 8.5,
+    "rain": 8.2,
+    "food": 7.9,
+    "photography": 7.6,
+    "relaxation": 7.3,
+    "value": 7,
+    "uniqueness": 8.5,
+    "family": 8.2,
+    "accessibility": 7.9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.6,
+    "summer": 7.3,
+    "autumn": 7,
+    "winter": 6.7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Shinsaibashi",
+        "title": "Shinsaibashi",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Shinsaibashi",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Shinsaibashi",
+          "title": "Shinsaibashi",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

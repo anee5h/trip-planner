@@ -1,0 +1,157 @@
+{
+  "id": "gotoku-ji",
+  "name": "Gotoku-ji",
+  "nameJa": "世田谷区",
+  "aliases": ["Setagaya", "世田谷区"],
+  "content": {
+    "en": {
+      "name": "Gotoku-ji",
+      "description": "Setagaya (世田谷区, Setagaya-ku; officially called Setagaya City or the City of Setagaya) is a special ward in the Tokyo Metropolis in Japan. It is also the name of a neighborhood and administrative district within the ward. Its official bird is the azure-winged magpie, its flower is the fringed orchid, and its tree is the Zelkova serrata.",
+      "highlights": ["History"]
+    },
+    "ja": {
+      "name": "世田谷区",
+      "description": "世田谷区（せたがやく）は、東京都の区部南西部に位置する特別区。",
+      "highlights": ["歴史"]
+    }
+  },
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "kind": "temple",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "gotokuji",
+  "relationships": {
+    "parentDestinationId": "setagaya-city"
+  },
+  "officialWebsite": "https://www.city.setagaya.lg.jp/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History"],
+  "tags": ["History", "Setagaya City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Futako-Tamagawa%20overview%202018.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Wpcpey",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Futako-Tamagawa_overview_2018.jpg"
+  },
+  "coordinates": {
+    "lat": 35.64655555555556,
+    "lng": 139.6532222222222
+  },
+  "description": "Setagaya (世田谷区, Setagaya-ku; officially called Setagaya City or the City of Setagaya) is a special ward in the Tokyo Metropolis in Japan. It is also the name of a neighborhood and administrative district within the ward. Its official bird is the azure-winged magpie, its flower is the fringed orchid, and its tree is the Zelkova serrata.",
+  "highlights": ["History"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 202
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 3,
+    "rainFriendly": 3,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 9.4,
+    "couple": 8.6,
+    "summer": 8.3,
+    "winter": 8,
+    "rain": 9.5,
+    "food": 9.2,
+    "photography": 8.9,
+    "relaxation": 8.6,
+    "value": 8.3,
+    "uniqueness": 8,
+    "family": 7.7,
+    "accessibility": 7.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.1,
+    "summer": 6.8,
+    "autumn": 6.5,
+    "winter": 6.2
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Setagaya City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Setagaya",
+        "title": "Setagaya",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.city.setagaya.lg.jp/",
+        "title": "Gotoku-ji official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Setagaya",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Setagaya",
+          "title": "Setagaya",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

@@ -73,7 +73,20 @@
     }
   ],
   "relationships": {
-    "featuredDestinationIds": [],
+    "featuredDestinationIds": [
+      "tenjin",
+      "fukuoka-art-museum",
+      "kushida-shrine",
+      "fukuoka-castle-ruins",
+      "fukuoka-yatai",
+      "nakasu",
+      "tochoji",
+      "fukuoka-tower",
+      "ohori-park",
+      "canal-city-hakata",
+      "hakata-machiya-folk-museum",
+      "maizuru-park"
+    ],
     "nearbyDestinationIds": ["kitakyushu-city", "dazaifu-city", "nagasaki-city"]
   },
   "budgetBreakdown": {

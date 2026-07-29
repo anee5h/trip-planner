@@ -1,0 +1,157 @@
+{
+  "id": "iwatsuki-ningyo-museum",
+  "name": "Iwatsuki Ningyo Museum",
+  "nameJa": "岩槻人形博物館",
+  "aliases": ["Iwatsuki-ku, Saitama", "岩槻人形博物館"],
+  "content": {
+    "en": {
+      "name": "Iwatsuki Ningyo Museum",
+      "description": "museum in Saitama, Saitama, Japan",
+      "highlights": ["Museum"]
+    },
+    "ja": {
+      "name": "岩槻人形博物館",
+      "description": "さいたま市岩槻人形博物館（さいたましいわつきにんぎょうはくぶつかん）は、埼玉県さいたま市岩槻区に所在する博物館。\n日本初の人形をテーマとする公共博物館である。2020年2月22日に開館した。",
+      "highlights": ["博物館"]
+    }
+  },
+  "prefecture": "Saitama",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "iwatsuki",
+  "relationships": {
+    "parentDestinationId": "saitama-city"
+  },
+  "officialWebsite": "https://ningyo-muse.jp/",
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum"],
+  "tags": ["Museum", "Saitama City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Saitama%20Iwatsuki%20Ningyo%20Museum%20201902.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "京浜にけ (Keihin-Nike)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saitama_Iwatsuki_Ningyo_Museum_201902.jpg"
+  },
+  "coordinates": {
+    "lat": 35.950833333333335,
+    "lng": 139.7
+  },
+  "description": "museum in Saitama, Saitama, Japan",
+  "highlights": ["Museum"],
+  "budgetMin": 3000,
+  "budgetRecommended": 5500,
+  "budgetMax": 8500,
+  "budgetBreakdown": {
+    "transport": 1925,
+    "tickets": 1100,
+    "food": 1925,
+    "cafe": 550
+  },
+  "transportOptions": {
+    "train": 63
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 7.3,
+    "couple": 6.7,
+    "summer": 9.2,
+    "winter": 8.3,
+    "rain": 9,
+    "food": 6.5,
+    "photography": 9,
+    "relaxation": 8.1,
+    "value": 7.2,
+    "uniqueness": 6.3,
+    "family": 8.8,
+    "accessibility": 6.3
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.8,
+    "summer": 7.9,
+    "autumn": 7,
+    "winter": 9.5
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Low",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Saitama City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Iwatsuki-ku,_Saitama",
+        "title": "Iwatsuki-ku, Saitama",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://ningyo-muse.jp/",
+        "title": "Iwatsuki Ningyo Museum official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Iwatsuki-ku,_Saitama",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Iwatsuki-ku,_Saitama",
+          "title": "Iwatsuki-ku, Saitama",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

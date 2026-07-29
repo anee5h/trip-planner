@@ -1,0 +1,159 @@
+{
+  "id": "ginkaku-ji",
+  "name": "Ginkaku-ji",
+  "nameJa": "慈照寺",
+  "aliases": ["Ginkaku-ji", "慈照寺"],
+  "content": {
+    "en": {
+      "name": "Ginkaku-ji",
+      "description": "Ginkaku-ji (銀閣寺; Japanese pronunciation: [ɡʲiꜜŋ.ka.kɯ.dʑi], lit. 'Temple of the Silver Pavilion'), officially named Jishō-ji (慈照寺; [dʑi.ɕoː.dʑi], lit. 'Temple of Shining Mercy'), is a Zen temple in the Sakyo ward of Kyoto, Japan. It is one of the constructions that represent the Higashiyama Culture of the Muromachi period.",
+      "highlights": ["History"]
+    },
+    "ja": {
+      "name": "慈照寺",
+      "description": "慈照寺（じしょうじ）は、日本の京都市左京区銀閣寺町にある臨済宗相国寺派の寺院。大本山相国寺の境外塔頭。山号は東山（とうざん）。",
+      "highlights": ["歴史"]
+    }
+  },
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "kind": "temple",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "higashiyama",
+  "relationships": {
+    "parentDestinationId": "kyoto-city"
+  },
+  "officialWebsite": "https://www.shokoku-ji.jp/ginkakuji/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History"],
+  "tags": ["History", "Kyoto City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/GinkakujiTemple.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Wikimedia Commons contributors for Ginkaku-ji",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:GinkakujiTemple.jpg"
+  },
+  "coordinates": {
+    "lat": 35.026666666667,
+    "lng": 135.79833333333
+  },
+  "description": "Ginkaku-ji (銀閣寺; Japanese pronunciation: [ɡʲiꜜŋ.ka.kɯ.dʑi], lit. 'Temple of the Silver Pavilion'), officially named Jishō-ji (慈照寺; [dʑi.ɕoː.dʑi], lit. 'Temple of Shining Mercy'), is a Zen temple in the Sakyo ward of Kyoto, Japan. It is one of the constructions that represent the Higashiyama Culture of the Muromachi period.",
+  "highlights": ["History"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 230,
+    "bus": 230,
+    "shinkansen": 130
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 3,
+    "rainFriendly": 3,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 8.8,
+    "summer": 7.7,
+    "winter": 8.4,
+    "rain": 7.3,
+    "food": 6.2,
+    "photography": 6.9,
+    "relaxation": 9.2,
+    "value": 6.5,
+    "uniqueness": 8.8,
+    "family": 9.5,
+    "accessibility": 8.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.3,
+    "summer": 8,
+    "autumn": 6.9,
+    "winter": 7.6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Ginkaku-ji",
+        "title": "Ginkaku-ji",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.shokoku-ji.jp/ginkakuji/",
+        "title": "Ginkaku-ji official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Ginkaku-ji",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ginkaku-ji",
+          "title": "Ginkaku-ji",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

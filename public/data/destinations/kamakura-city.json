@@ -78,7 +78,20 @@
     }
   ],
   "relationships": {
-    "featuredDestinationIds": [],
+    "featuredDestinationIds": [
+      "tsurugaoka-hachimangu",
+      "yuigahama-beach",
+      "hokokuji",
+      "engakuji",
+      "hasedera",
+      "zeniarai-benten",
+      "kotoku-in-great-buddha",
+      "kamakurakokomae-station",
+      "inamuragasaki",
+      "sasuke-inari-shrine",
+      "komachi-street",
+      "jochi-ji"
+    ],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },
   "budgetBreakdown": {

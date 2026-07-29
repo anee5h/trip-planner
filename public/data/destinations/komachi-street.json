@@ -1,0 +1,157 @@
+{
+  "id": "komachi-street",
+  "name": "Komachi Street",
+  "nameJa": "小町通り",
+  "aliases": ["Kamakura", "小町通り"],
+  "content": {
+    "en": {
+      "name": "Komachi Street",
+      "description": "Komachi Street is a visitor destination in Kamakura City.",
+      "highlights": ["Food"]
+    },
+    "ja": {
+      "name": "小町通り",
+      "description": "小町通り（こまちどおり）は神奈川県鎌倉市の通りの一つ。",
+      "highlights": ["グルメ"]
+    }
+  },
+  "prefecture": "Kanagawa",
+  "region": "Kanto",
+  "kind": "district",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "central-kamakura",
+  "relationships": {
+    "parentDestinationId": "kamakura-city"
+  },
+  "officialWebsite": "http://www.kamakura-komachi.com/",
+  "officialWebsiteRequirement": "none",
+  "categories": ["Food"],
+  "tags": ["Food", "Kamakura City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Komachi%20Dori-Kamakura.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Urashimataro",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Komachi_Dori-Kamakura.jpg"
+  },
+  "coordinates": {
+    "lat": 35.32153,
+    "lng": 139.55232
+  },
+  "description": "Komachi Street is a visitor destination in Kamakura City.",
+  "highlights": ["Food"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 196
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 55,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.2,
+    "couple": 7.5,
+    "summer": 6.8,
+    "winter": 7.9,
+    "rain": 7.2,
+    "food": 8.3,
+    "photography": 7.6,
+    "relaxation": 8.7,
+    "value": 8,
+    "uniqueness": 9.1,
+    "family": 8.4,
+    "accessibility": 9.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.8,
+    "summer": 6.5,
+    "autumn": 9.2,
+    "winter": 6.9
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Kamakura City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kamakura",
+        "title": "Kamakura",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.kamakura-komachi.com/",
+        "title": "Komachi Street official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Kamakura",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kamakura",
+          "title": "Kamakura",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

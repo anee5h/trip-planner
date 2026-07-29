@@ -1,0 +1,159 @@
+{
+  "id": "tempozan-ferris-wheel",
+  "name": "Tempozan Ferris Wheel",
+  "nameJa": "天保山大観覧車",
+  "aliases": ["Tempozan Ferris Wheel", "天保山大観覧車"],
+  "content": {
+    "en": {
+      "name": "Tempozan Ferris Wheel",
+      "description": "Tempozan Ferris Wheel (Japanese: 天保山大観覧車, Hepburn: Tenpōzan Daikanransha) is a 112-meter-tall (367 ft) Ferris wheel located in Osaka, Japan, at Tempozan Harbor Village, next to Osaka Aquarium Kaiyukan, one of the largest aquariums in the world. The wheel has a height of 112.5 metres (369 ft) and diameter of 100 metres (330 ft).",
+      "highlights": ["Culture"]
+    },
+    "ja": {
+      "name": "天保山大観覧車",
+      "description": "天保山大観覧車（てんぽうざんだいかんらんしゃ）は大阪市港区の天保山ハーバービレッジにある観覧車である。1997年7月12日開業、高さ112.5m、直径は100mで、一時は世界最大の観覧車であった。株式会社海遊館（旧大阪ウォーターフロント開発）が運営を行っている。",
+      "highlights": ["展望"]
+    }
+  },
+  "prefecture": "Osaka",
+  "region": "Kansai",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "bay-area",
+  "relationships": {
+    "parentDestinationId": "osaka-city"
+  },
+  "officialWebsite": "http://www.senyo.co.jp/tempozan/",
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture"],
+  "tags": ["Culture", "Osaka City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tempozan%20giant%20wheel02s2048.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tempozan_giant_wheel02s2048.jpg"
+  },
+  "coordinates": {
+    "lat": 34.6562,
+    "lng": 135.431
+  },
+  "description": "Tempozan Ferris Wheel (Japanese: 天保山大観覧車, Hepburn: Tenpōzan Daikanransha) is a 112-meter-tall (367 ft) Ferris wheel located in Osaka, Japan, at Tempozan Harbor Village, next to Osaka Aquarium Kaiyukan, one of the largest aquariums in the world. The wheel has a height of 112.5 metres (369 ft) and diameter of 100 metres (330 ft).",
+  "highlights": ["Culture"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 190,
+    "bus": 210,
+    "shinkansen": 150
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 6.3,
+    "couple": 6.9,
+    "summer": 6.2,
+    "winter": 7.1,
+    "rain": 6.4,
+    "food": 9.1,
+    "photography": 8.4,
+    "relaxation": 9.3,
+    "value": 8.6,
+    "uniqueness": 7.9,
+    "family": 7.2,
+    "accessibility": 8.1
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 7.4,
+    "summer": 6.7,
+    "autumn": 9.4,
+    "winter": 8.7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Tempozan_Ferris_Wheel",
+        "title": "Tempozan Ferris Wheel",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "http://www.senyo.co.jp/tempozan/",
+        "title": "Tempozan Ferris Wheel official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/Tempozan_Ferris_Wheel",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tempozan_Ferris_Wheel",
+          "title": "Tempozan Ferris Wheel",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

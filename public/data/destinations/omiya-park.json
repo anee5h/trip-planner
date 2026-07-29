@@ -1,0 +1,157 @@
+{
+  "id": "omiya-park",
+  "name": "Omiya Park",
+  "nameJa": "大宮公園",
+  "aliases": ["Ōmiya Park", "大宮公園"],
+  "content": {
+    "en": {
+      "name": "Omiya Park",
+      "description": "Ōmiya Park (大宮公園, Ōmiya Kōen) is a public park located 1 km (0.62 mi) northeast of Ōmiya Station and the most visited park in Saitama. The park encompasses a huge area of 67.9 ha (168 acres) (as of 2004) and is famous for Japanese Red Pine forest and cherry blossoms. In particular, the park ranks in the Top 100 Locations in Japan for Cherry Blossoms.",
+      "highlights": ["Nature"]
+    },
+    "ja": {
+      "name": "大宮公園",
+      "description": "大宮公園（おおみやこうえん）は、埼玉県さいたま市大宮区および見沼区にある、67.8 haの面積を有する埼玉県営の都市公園（広域公園）である。1990年（平成2年）に日本さくら名所100選に選定。",
+      "highlights": ["自然"]
+    }
+  },
+  "prefecture": "Saitama",
+  "region": "Kanto",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "areaId": "omiya",
+  "relationships": {
+    "parentDestinationId": "saitama-city"
+  },
+  "officialWebsite": "https://www.pref.saitama.lg.jp/omiya-park/",
+  "officialWebsiteRequirement": "none",
+  "categories": ["Nature"],
+  "tags": ["Nature", "Saitama City", "v1.9.2"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Omiya%20park%20002.JPG?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Ocdp",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Omiya_park_002.JPG"
+  },
+  "coordinates": {
+    "lat": 35.919,
+    "lng": 139.631
+  },
+  "description": "Ōmiya Park (大宮公園, Ōmiya Kōen) is a public park located 1 km (0.62 mi) northeast of Ōmiya Station and the most visited park in Saitama. The park encompasses a huge area of 67.9 ha (168 acres) (as of 2004) and is famous for Japanese Red Pine forest and cherry blossoms. In particular, the park ranks in the Top 100 Locations in Japan for Cherry Blossoms.",
+  "highlights": ["Nature"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 800,
+    "food": 1400,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 62
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 6.9,
+    "couple": 7,
+    "summer": 6.7,
+    "winter": 6.4,
+    "rain": 9.5,
+    "food": 7.6,
+    "photography": 7.3,
+    "relaxation": 7,
+    "value": 6.7,
+    "uniqueness": 6.4,
+    "family": 9.5,
+    "accessibility": 9.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.9,
+    "summer": 8.6,
+    "autumn": 8.3,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "Medium",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Saitama City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-07-29",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/%C5%8Cmiya_Park",
+        "title": "Ōmiya Park",
+        "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.pref.saitama.lg.jp/omiya-park/",
+        "title": "Omiya Park official website",
+        "accessedAt": "2026-07-29"
+      }
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedBy": "TabiMap editorial",
+    "checkedAt": "2026-07-29",
+    "freshness": "current",
+    "changeSummary": "v1.9.2 major-city expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://en.wikipedia.org/wiki/%C5%8Cmiya_Park",
+          "title": "Beta editorial scoring from source-backed attributes",
+          "accessedAt": "2026-07-29"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/%C5%8Cmiya_Park",
+          "title": "Ōmiya Park",
+          "accessedAt": "2026-07-29"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap editorial",
+        "summary": "Added bilingual source-backed city POI",
+        "method": "assisted"
+      }
+    ]
+  }
+}

@@ -71,6 +71,8 @@ import { getCollections } from "@/shared/data/collections";
 import { Layers } from "lucide-react";
 import type { BudgetTier, PartyProfile } from "@/shared/types/planner";
 import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
+import { CITY_AREAS } from "@/shared/data/cityAreas";
+import { getDestinationList } from "@/shared/services/destination/DestinationService";
 
 interface DestinationFiltersProps {
   searchQuery: string;
@@ -85,6 +87,14 @@ interface DestinationFiltersProps {
   setSelectedCollections: (
     val: string[] | ((prev: string[]) => string[]),
   ) => void;
+  selectedCities: string[];
+  setSelectedCities: (val: string[]) => void;
+  selectedAreas: string[];
+  setSelectedAreas: (val: string[]) => void;
+  indoorMin: number;
+  setIndoorMin: (val: number) => void;
+  season: string;
+  setSeason: (val: string) => void;
   sortBy: string;
   setSortBy: (val: string) => void;
   carMode: string;
@@ -117,6 +127,14 @@ export default function DestinationFilters({
   setSelectedPrefectures,
   selectedCollections,
   setSelectedCollections,
+  selectedCities,
+  setSelectedCities,
+  selectedAreas,
+  setSelectedAreas,
+  indoorMin,
+  setIndoorMin,
+  season,
+  setSeason,
   sortBy,
   setSortBy,
   carMode,
@@ -147,6 +165,18 @@ export default function DestinationFilters({
   const collectionPopoverRef = useRef<HTMLDivElement>(null);
 
   const availableCollections = getCollections();
+  const cityOptions = getDestinationList()
+    .filter(
+      (place) =>
+        place.role === "hub" &&
+        CITY_AREAS.some((area) => area.parentDestinationId === place.id),
+    )
+    .sort((a, b) => (a.name ?? "").localeCompare(b.name ?? ""));
+  const areaOptions = CITY_AREAS.filter(
+    (area) =>
+      selectedCities.length === 0 ||
+      selectedCities.includes(area.parentDestinationId),
+  );
 
   const carOwnership = user?.user_metadata?.preferences?.carOwnership || "all";
   const showRental = carOwnership === "all" || carOwnership === "rental";
@@ -225,6 +255,10 @@ export default function DestinationFilters({
     (budgetTier !== "standard" ? 1 : 0) +
     (walkingIntensity !== "all" ? 1 : 0) +
     (partySize !== 2 ? 1 : 0) +
+    selectedCities.length +
+    selectedAreas.length +
+    (indoorMin > 0 ? 1 : 0) +
+    (season !== "any" ? 1 : 0) +
     suitabilities.length +
     interests.length;
 
@@ -790,6 +824,62 @@ export default function DestinationFilters({
           </div>
 
           <div className="pt-3 border-t border-slate-100 dark:border-slate-800">
+            <div className="grid grid-cols-1 gap-4 pb-4 md:grid-cols-2">
+              <div className="space-y-2">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                  Parent city
+                </label>
+                <Select
+                  value={selectedCities[0] ?? "all"}
+                  onValueChange={(value) => {
+                    setSelectedCities(value && value !== "all" ? [value] : []);
+                    setSelectedAreas([]);
+                  }}
+                >
+                  <SelectTrigger className="h-9 rounded-lg bg-slate-50 text-xs dark:bg-slate-950">
+                    {selectedCities.length
+                      ? cityOptions.find(
+                          (city) => city.id === selectedCities[0],
+                        )?.name
+                      : "All cities"}
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All cities</SelectItem>
+                    {cityOptions.map((city) => (
+                      <SelectItem key={city.id} value={city.id}>
+                        {city.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-2">
+                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                  City area
+                </label>
+                <Select
+                  value={selectedAreas[0] ?? "all"}
+                  onValueChange={(value) =>
+                    setSelectedAreas(value && value !== "all" ? [value] : [])
+                  }
+                >
+                  <SelectTrigger className="h-9 rounded-lg bg-slate-50 text-xs dark:bg-slate-950">
+                    {selectedAreas.length
+                      ? areaOptions.find((area) => area.id === selectedAreas[0])
+                          ?.name.en
+                      : "All areas"}
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All areas</SelectItem>
+                    {areaOptions.map((area) => (
+                      <SelectItem key={area.id} value={area.id}>
+                        {area.name.en}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
             <div className="space-y-2">
               <label className="block text-xs font-bold text-slate-700 dark:text-slate-300">
                 Walking Intensity
@@ -817,6 +907,47 @@ export default function DestinationFilters({
                     </button>
                   );
                 })}
+              </div>
+            </div>
+            <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+              <div className="space-y-2">
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300">
+                  Indoor options
+                </label>
+                <button
+                  type="button"
+                  onClick={() => setIndoorMin(indoorMin >= 70 ? 0 : 70)}
+                  className={`rounded-xl border px-3 py-1.5 text-xs font-bold ${
+                    indoorMin >= 70
+                      ? "border-emerald-500 bg-emerald-500 text-white"
+                      : "border-slate-200 bg-slate-50 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+                  }`}
+                >
+                  {indoorMin >= 70 ? "✓ " : ""}Mostly indoors
+                </button>
+              </div>
+              <div className="space-y-2">
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300">
+                  Season
+                </label>
+                <div className="flex flex-wrap gap-1.5">
+                  {["any", "spring", "summer", "autumn", "winter"].map(
+                    (value) => (
+                      <button
+                        key={value}
+                        type="button"
+                        onClick={() => setSeason(value)}
+                        className={`rounded-xl border px-2 py-1.5 text-xs font-bold capitalize ${
+                          season === value
+                            ? "border-emerald-500 bg-emerald-500 text-white"
+                            : "border-slate-200 bg-slate-50 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+                        }`}
+                      >
+                        {value}
+                      </button>
+                    ),
+                  )}
+                </div>
               </div>
             </div>
           </div>

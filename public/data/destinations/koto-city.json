@@ -67,7 +67,7 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": [],
+    "featuredDestinationIds": ["teamlab-planets", "toyosu-market", "miraikan"],
     "nearbyDestinationIds": [
       "shibuya-city",
       "shinjuku-city",
