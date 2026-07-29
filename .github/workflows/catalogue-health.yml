@@ -1,0 +1,35 @@
+name: Catalogue Health Audit
+
+on:
+  schedule:
+    - cron: "0 18 * * 0" # Sunday 18:00 UTC (Monday 03:00 JST)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  health-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Full Catalogue Validation
+        run: npm run validate-all
+
+      - name: Upload Audit Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: catalogue-health-reports
+          path: reports/

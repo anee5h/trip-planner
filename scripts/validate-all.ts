@@ -9,9 +9,16 @@ import {
   type ReleaseReportMetadata,
 } from "./validators/types";
 
+const args = process.argv.slice(2);
+const profileArgIndex = args.indexOf("--profile");
+const profile = profileArgIndex !== -1 ? args[profileArgIndex + 1] : "full";
+const noReport = args.includes("--no-report");
+
 async function runAll() {
   console.log(`\n======================================================`);
-  console.log(` 🎌 TabiMap Catalog QA Framework (v${QA_FRAMEWORK_VERSION}) `);
+  console.log(
+    ` 🎌 TabiMap Catalog QA Framework (v${QA_FRAMEWORK_VERSION} - profile: ${profile}) `,
+  );
   console.log(`======================================================\n`);
 
   const context = await createValidationContext();
@@ -20,7 +27,12 @@ async function runAll() {
   let totalWarnings = 0;
   let totalInfo = 0;
 
-  for (const validator of validators) {
+  const activeValidators =
+    profile === "fast"
+      ? validators.filter((v) => v.name !== "Catalog Images")
+      : validators;
+
+  for (const validator of activeValidators) {
     console.log(`▶ Running [${validator.name}]...`);
     const startTime = performance.now();
     try {
@@ -88,11 +100,6 @@ async function runAll() {
     generatedAt,
     validators: results,
   };
-  fs.writeFileSync(
-    path.join(reportsDir, "release-report.json"),
-    JSON.stringify(jsonReport, null, 2),
-    "utf-8",
-  );
 
   // 2. Markdown Report
   let mdReport = `# TabiMap v${appVersion} Data Quality Release Report\n\n`;
@@ -127,11 +134,18 @@ async function runAll() {
     }
   }
 
-  fs.writeFileSync(
-    path.join(reportsDir, "release-report.md"),
-    mdReport,
-    "utf-8",
-  );
+  if (!noReport) {
+    fs.writeFileSync(
+      path.join(reportsDir, "release-report.json"),
+      JSON.stringify(jsonReport, null, 2),
+      "utf-8",
+    );
+    fs.writeFileSync(
+      path.join(reportsDir, "release-report.md"),
+      mdReport,
+      "utf-8",
+    );
+  }
 
   console.log(`======================================================`);
   console.log(` 📊 QA SUMMARY: ${totalErrors === 0 ? "PASSED" : "FAILED"}`);
