@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Jozenji-dori",
-      "description": "Sendai (仙台市, Sendai-shi; [seꜜn.dai, sen.daꜜi.ɕi] ) is the capital city of Miyagi Prefecture and the largest city in the Tōhoku region. As of 1 August 2023, the city had a population of 1,098,335 in 539,698 households, making it the twelfth most populated city in Japan.\nThe modern city was founded in 1600 by the daimyō Date Masamune.",
+      "description": "Jozenji-dori is a visitor destination in Sendai City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "仙台市",
-      "description": "仙台市（せんだいし）は、宮城県の中部に位置する市。\n宮城県の県庁所在地であり、県人口の約半分（48.9%）が居住する最大都市でもある。推計人口は約109万人を数え、東北地方では最大を誇る。",
+      "description": "仙台市は仙台市にある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["歴史"]
     }
   },
@@ -39,23 +39,23 @@
     "lat": 38.26822222,
     "lng": 140.86941667
   },
-  "description": "Sendai (仙台市, Sendai-shi; [seꜜn.dai, sen.daꜜi.ɕi] ) is the capital city of Miyagi Prefecture and the largest city in the Tōhoku region. As of 1 August 2023, the city had a population of 1,098,335 in 539,698 households, making it the twelfth most populated city in Japan.\nThe modern city was founded in 1600 by the daimyō Date Masamune.",
+  "description": "Jozenji-dori is a visitor destination in Sendai City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 26,
-    "bus": 36,
-    "car": 41
+    "train": 25,
+    "bus": 35,
+    "car": 35
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -71,17 +71,17 @@
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 8.4,
-    "couple": 6.7,
-    "summer": 9.2,
+    "overall": 8.5,
+    "couple": 6.5,
+    "summer": 9,
     "winter": 6.5,
-    "rain": 9,
-    "food": 8.1,
-    "photography": 8.8,
-    "relaxation": 7.9,
+    "rain": 5.5,
+    "food": 8,
+    "photography": 9,
+    "relaxation": 8,
     "value": 7,
-    "uniqueness": 7.7,
-    "family": 6.8,
+    "uniqueness": 7.5,
+    "family": 7,
     "accessibility": 7.5
   },
   "ratingsSchemaVersion": 2,
@@ -97,7 +97,7 @@
     "winter": 8.9
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
@@ -109,7 +109,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +124,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +151,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

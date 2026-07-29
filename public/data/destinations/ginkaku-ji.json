@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Ginkaku-ji",
-      "description": "Ginkaku-ji (銀閣寺; Japanese pronunciation: [ɡʲiꜜŋ.ka.kɯ.dʑi], lit. 'Temple of the Silver Pavilion'), officially named Jishō-ji (慈照寺; [dʑi.ɕoː.dʑi], lit. 'Temple of Shining Mercy'), is a Zen temple in the Sakyo ward of Kyoto, Japan. It is one of the constructions that represent the Higashiyama Culture of the Muromachi period.",
+      "description": "Ginkaku-ji is a visitor destination in Kyoto City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "慈照寺",
-      "description": "慈照寺（じしょうじ）は、日本の京都市左京区銀閣寺町にある臨済宗相国寺派の寺院。大本山相国寺の境外塔頭。山号は東山（とうざん）。",
+      "description": "慈照寺はKyoto Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["歴史"]
     }
   },
@@ -39,23 +39,22 @@
     "lat": 35.026666666667,
     "lng": 135.79833333333
   },
-  "description": "Ginkaku-ji (銀閣寺; Japanese pronunciation: [ɡʲiꜜŋ.ka.kɯ.dʑi], lit. 'Temple of the Silver Pavilion'), officially named Jishō-ji (慈照寺; [dʑi.ɕoː.dʑi], lit. 'Temple of Shining Mercy'), is a Zen temple in the Sakyo ward of Kyoto, Japan. It is one of the constructions that represent the Higashiyama Culture of the Muromachi period.",
+  "description": "Ginkaku-ji is a visitor destination in Kyoto City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 230,
-    "bus": 230,
-    "shinkansen": 130
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -72,17 +71,17 @@
   },
   "ratings": {
     "overall": 9,
-    "couple": 8.8,
-    "summer": 7.7,
-    "winter": 8.4,
-    "rain": 7.3,
-    "food": 6.2,
-    "photography": 6.9,
-    "relaxation": 9.2,
+    "couple": 9,
+    "summer": 7.5,
+    "winter": 8.5,
+    "rain": 5.5,
+    "food": 6,
+    "photography": 7,
+    "relaxation": 9,
     "value": 6.5,
-    "uniqueness": 8.8,
+    "uniqueness": 9,
     "family": 9.5,
-    "accessibility": 8.4
+    "accessibility": 8.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -97,7 +96,7 @@
     "winter": 7.6
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
@@ -109,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

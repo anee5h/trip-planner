@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Jochi-ji",
-      "description": "Kamakura (鎌倉, Kamakura; [ka̠ma̠kɯ̟ɾa̠] ), officially Kamakura City (鎌倉市, Kamakura-shi), is a city of Kanagawa Prefecture in Japan. It is located in the Kantō region on the island of Honshu. The city has an estimated population of 172,929 (1 September 2020) and a population density of 4,359 people per km2 over the total area of 39.67 km2 (15.32 sq mi).",
+      "description": "Jochi-ji is a visitor destination in Kamakura City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "鎌倉市",
-      "description": "鎌倉市（かまくらし）は、神奈川県の南東部に位置する市。人口は約17万人。三浦半島西側の付け根にあり、歴史的都市鎌倉が市域の中心にある。",
+      "description": "鎌倉市はKamakura Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["歴史"]
     }
   },
@@ -39,21 +39,21 @@
     "lat": 35.31916666666667,
     "lng": 139.54722222222222
   },
-  "description": "Kamakura (鎌倉, Kamakura; [ka̠ma̠kɯ̟ɾa̠] ), officially Kamakura City (鎌倉市, Kamakura-shi), is a city of Kanagawa Prefecture in Japan. It is located in the Kantō region on the island of Honshu. The city has an estimated population of 172,929 (1 September 2020) and a population density of 4,359 people per km2 over the total area of 39.67 km2 (15.32 sq mi).",
+  "description": "Jochi-ji is a visitor destination in Kamakura City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 201
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -70,15 +70,15 @@
   },
   "ratings": {
     "overall": 7,
-    "couple": 6.4,
-    "summer": 7.7,
-    "winter": 7.2,
-    "rain": 8.5,
+    "couple": 6.5,
+    "summer": 7.5,
+    "winter": 7,
+    "rain": 5.5,
     "food": 8,
-    "photography": 9.3,
-    "relaxation": 8.8,
-    "value": 6.7,
-    "uniqueness": 6.2,
+    "photography": 9.5,
+    "relaxation": 9,
+    "value": 6.5,
+    "uniqueness": 6,
     "family": 7.5,
     "accessibility": 7
   },
@@ -95,7 +95,7 @@
     "winter": 8.6
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kamakura City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

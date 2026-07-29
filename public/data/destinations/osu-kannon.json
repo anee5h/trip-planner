@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Osu Kannon",
-      "description": "Buddhist temple of the Shingon Buddhism sect dedicated to Avalokiteśvara in Hashima, Japan",
-      "highlights": ["Culture"]
+      "description": "Osu Kannon is a visitor destination in Nagoya City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "highlights": ["History"]
     },
     "ja": {
       "name": "真福寺 (羽島市)",
-      "description": "真福寺（しんふくじ）は、岐阜県羽島市桑原町大須にある真言宗の寺院。",
-      "highlights": ["展望"]
+      "description": "真福寺 (羽島市)はNagoya Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["歴史"]
     }
   },
   "prefecture": "Aichi",
   "region": "Chubu",
-  "kind": "museum",
+  "kind": "temple",
   "role": "poi",
   "placeType": "destination",
   "areaId": "osu",
@@ -25,8 +25,8 @@
     "parentDestinationId": "nagoya-city"
   },
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
-  "tags": ["Culture", "Nagoya City", "v1.9.2"],
+  "categories": ["History"],
+  "tags": ["History", "Nagoya City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shinfukuji-Hashima01.JPG?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -38,22 +38,21 @@
     "lat": 35.27130555555556,
     "lng": 136.6771388888889
   },
-  "description": "Buddhist temple of the Shingon Buddhism sect dedicated to Avalokiteśvara in Hashima, Japan",
-  "highlights": ["Culture"],
+  "description": "Osu Kannon is a visitor destination in Nagoya City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 201,
-    "shinkansen": 91
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +61,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 25,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 6.5,
-    "couple": 6.8,
-    "summer": 8.1,
-    "winter": 7.6,
-    "rain": 8.9,
-    "food": 8.4,
-    "photography": 6.3,
-    "relaxation": 7.6,
-    "value": 7.1,
-    "uniqueness": 8.4,
-    "family": 7.9,
-    "accessibility": 9.2
+    "couple": 7,
+    "summer": 8,
+    "winter": 7.5,
+    "rain": 5.5,
+    "food": 8.5,
+    "photography": 6.5,
+    "relaxation": 7.5,
+    "value": 7,
+    "uniqueness": 8.5,
+    "family": 8,
+    "accessibility": 9
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +94,7 @@
     "winter": 7.4
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
@@ -107,7 +106,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -116,11 +115,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -145,7 +142,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

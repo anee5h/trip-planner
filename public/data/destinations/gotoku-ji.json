@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Gotoku-ji",
-      "description": "Setagaya (世田谷区, Setagaya-ku; officially called Setagaya City or the City of Setagaya) is a special ward in the Tokyo Metropolis in Japan. It is also the name of a neighborhood and administrative district within the ward. Its official bird is the azure-winged magpie, its flower is the fringed orchid, and its tree is the Zelkova serrata.",
+      "description": "Gotoku-ji is a visitor destination in Setagaya City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "世田谷区",
-      "description": "世田谷区（せたがやく）は、東京都の区部南西部に位置する特別区。",
+      "description": "世田谷区はSetagaya Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["歴史"]
     }
   },
@@ -39,21 +39,21 @@
     "lat": 35.64655555555556,
     "lng": 139.6532222222222
   },
-  "description": "Setagaya (世田谷区, Setagaya-ku; officially called Setagaya City or the City of Setagaya) is a special ward in the Tokyo Metropolis in Japan. It is also the name of a neighborhood and administrative district within the ward. Its official bird is the azure-winged magpie, its flower is the fringed orchid, and its tree is the Zelkova serrata.",
+  "description": "Gotoku-ji is a visitor destination in Setagaya City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 202
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -69,18 +69,18 @@
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 9.4,
-    "couple": 8.6,
-    "summer": 8.3,
+    "overall": 9.5,
+    "couple": 8.5,
+    "summer": 8.5,
     "winter": 8,
-    "rain": 9.5,
-    "food": 9.2,
-    "photography": 8.9,
-    "relaxation": 8.6,
-    "value": 8.3,
+    "rain": 5.5,
+    "food": 9,
+    "photography": 9,
+    "relaxation": 8.5,
+    "value": 8.5,
     "uniqueness": 8,
-    "family": 7.7,
-    "accessibility": 7.4
+    "family": 7.5,
+    "accessibility": 7.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 6.2
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Setagaya City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

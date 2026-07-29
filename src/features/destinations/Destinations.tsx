@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
+import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import type { Destination } from "@/shared/types/destination";
 import { useAuth } from "@/shared/hooks/useAuth";
 import DestinationCard from "@/features/destinations/components/DestinationCard";
@@ -15,7 +16,6 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { getAdjustedBudget } from "@/shared/utils/utils";
-import { getEstimatedBudgetRange } from "@/shared/services/budget/BudgetService";
 import StationInput from "@/shared/components/StationInput";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
 import { useTripStore } from "@/shared/hooks/useTripStore";
@@ -51,6 +51,7 @@ import { PageHeader } from "@/shared/components/ui/PageHeader";
 import { getWalkingIntensity } from "@/shared/utils/walking";
 import {
   DEFAULT_DESTINATION_EXPLORER_STATE,
+  hasRestrictedTransportSelection,
   parseDestinationSearchParams,
   serializeDestinationSearchParams,
 } from "./destinationSearchParams";
@@ -67,7 +68,9 @@ export default function Destinations() {
   const [filtersReady, setFiltersReady] = useState(false);
   const { homeStationCoords, destinationRatings } = useTripStore();
   const { locale } = useLocale();
-  const allDestinations = getDestinationList(locale) as Destination[];
+  const allDestinations = (getDestinationList("en") as Destination[]).map(
+    (destination) => getLocalizedPlace(destination, locale),
+  );
   const [searchQuery, setSearchQuery] = useState(
     initialExplorerState.searchQuery,
   );
@@ -372,37 +375,29 @@ export default function Destinations() {
       result = result.filter((dest) => matchesDestination(dest, tokens));
     }
 
-    // 2. Filter by budget and Transport availability
-    result = result.filter((dest) => {
-      const modes = getValidModes(
-        dest,
-        carMode,
-        publicModes,
-        homeStationCoords ?? undefined,
-        budgetTier,
-      );
-      if (modes.length === 0) return false;
-      if (
-        !matchesTripDurationEstimate(
-          estimateTripDuration(dest, catalogContext, modes),
-          tripDuration,
-        )
-      )
-        return false;
-
-      return modes.some(
-        (mode) =>
-          getEstimatedBudgetRange(
-            dest,
-            mode,
-            partySize,
-            budgetTier,
-            estimateTripDuration(dest, catalogContext, modes)
-              ?.representativeHours,
-            homeStationCoords ?? undefined,
-          )[1] <= maxBudget,
-      );
-    });
+    // Budget tiers are ranking preferences. Neutral transport and duration
+    // settings must keep the complete catalogue browsable.
+    if (
+      tripDuration !== "any" ||
+      hasRestrictedTransportSelection(carMode, publicModes)
+    ) {
+      result = result.filter((dest) => {
+        const modes = getValidModes(
+          dest,
+          carMode,
+          publicModes,
+          homeStationCoords ?? undefined,
+          budgetTier,
+        );
+        return (
+          modes.length > 0 &&
+          matchesTripDurationEstimate(
+            estimateTripDuration(dest, catalogContext, modes),
+            tripDuration,
+          )
+        );
+      });
+    }
 
     // 3. Suitability filters
     if (suitabilities.length > 0) {

@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Naritasan Park",
-      "description": "park in Narita, Chiba, Japan",
+      "description": "Naritasan Park is a visitor destination in Narita City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
       "highlights": ["Nature"]
     },
     "ja": {
       "name": "成田山公園",
-      "description": "成田山公園はNarita Cityにある観光スポットです。",
+      "description": "成田山公園はNarita Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["自然"]
     }
   },
@@ -38,21 +38,21 @@
     "lat": 35.7866845,
     "lng": 140.3210126
   },
-  "description": "park in Narita, Chiba, Japan",
+  "description": "Naritasan Park is a visitor destination in Narita City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 198
+    "train": 25
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1.5,
     "max": 4
@@ -61,25 +61,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 10,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 9.4,
-    "couple": 6.7,
-    "summer": 8.6,
-    "winter": 7.1,
-    "rain": 9,
+    "overall": 9.5,
+    "couple": 6.5,
+    "summer": 8.5,
+    "winter": 7,
+    "rain": 5.5,
     "food": 7.5,
-    "photography": 9.4,
-    "relaxation": 7.9,
-    "value": 6.4,
-    "uniqueness": 8.3,
-    "family": 6.8,
-    "accessibility": 8.7
+    "photography": 9.5,
+    "relaxation": 8,
+    "value": 6.5,
+    "uniqueness": 8.5,
+    "family": 7,
+    "accessibility": 8.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -94,7 +94,7 @@
     "winter": 9.5
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Narita City.",
@@ -106,7 +106,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -115,11 +115,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -144,7 +142,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

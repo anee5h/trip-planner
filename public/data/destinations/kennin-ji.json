@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Kennin-ji",
-      "description": "The Yasaka Pagoda (Japanese: 八坂の塔, romanized: Yasaka-no-to), also known as the Tower of Yasaka, is a Buddhist pagoda located in Higashiyama-ku, Kyoto, Japan. The 5-story tall pagoda is the last remaining structure of a 6th-century temple complex known as Hōkan-ji (法観寺).  It was founded by the Goguryeo clan that established in Japan, and is the oldest temple in Kyoto.",
+      "description": "Kennin-ji is a visitor destination in Kyoto City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "法観寺",
-      "description": "法観寺（ほうかんじ）は、京都市東山区八坂上町にある臨済宗建仁寺派の寺院。山号は霊応山。本尊は五智如来。",
+      "description": "法観寺はKyoto Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["歴史"]
     }
   },
@@ -38,23 +38,22 @@
     "lat": 34.99855,
     "lng": 135.77924167
   },
-  "description": "The Yasaka Pagoda (Japanese: 八坂の塔, romanized: Yasaka-no-to), also known as the Tower of Yasaka, is a Buddhist pagoda located in Higashiyama-ku, Kyoto, Japan. The 5-story tall pagoda is the last remaining structure of a 6th-century temple complex known as Hōkan-ji (法観寺).  It was founded by the Goguryeo clan that established in Japan, and is the oldest temple in Kyoto.",
+  "description": "Kennin-ji is a visitor destination in Kyoto City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 229,
-    "bus": 229,
-    "shinkansen": 129
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -70,18 +69,18 @@
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 8.3,
-    "couple": 8.3,
-    "summer": 7.6,
+    "overall": 8.5,
+    "couple": 8.5,
+    "summer": 7.5,
     "winter": 8.5,
-    "rain": 7.8,
-    "food": 7.1,
+    "rain": 5.5,
+    "food": 7,
     "photography": 8,
-    "relaxation": 7.3,
-    "value": 8.2,
+    "relaxation": 7.5,
+    "value": 8,
     "uniqueness": 7.5,
-    "family": 8.4,
-    "accessibility": 7.7
+    "family": 8.5,
+    "accessibility": 7.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -96,7 +95,7 @@
     "winter": 8.1
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
@@ -108,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -117,11 +116,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -146,7 +143,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

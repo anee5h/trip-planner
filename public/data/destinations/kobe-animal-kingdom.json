@@ -6,28 +6,28 @@
   "content": {
     "en": {
       "name": "Kobe Animal Kingdom",
-      "description": "Kobe Animal Kingdom (神戸どうぶつ王国, Kōbe Dōbutsu Ōkoku) is an animal and flower park located on Port Island in Kobe, Japan. It is mainly located in and around a greenhouse. It was called Kobe Kachoen (神戸花鳥園, Kōbe Kachōen) until 18 July 2014.",
-      "highlights": ["Culture"]
+      "description": "Kobe Animal Kingdom is a visitor destination in Kobe City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Nature"]
     },
     "ja": {
       "name": "神戸どうぶつ王国",
-      "description": "神戸どうぶつ王国（こうべどうぶつおうこく）は、兵庫県神戸市中央区のポートアイランドにある動植物園である。花と鳥を中心に多数の展示植物が配置された温室などで数多くの鳥が放し飼いになっている。2014年のリニューアル以降は展示動物の種類が大幅に増え、その多くと直接触れあったり餌を与えたりすることができる。",
-      "highlights": ["展望"]
+      "description": "神戸どうぶつ王国はKobe Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["自然"]
     }
   },
   "prefecture": "Hyogo",
   "region": "Kansai",
-  "kind": "museum",
+  "kind": "zoo",
   "role": "poi",
   "placeType": "destination",
-  "areaId": "rokko",
+  "areaId": "port-island",
   "relationships": {
     "parentDestinationId": "kobe-city"
   },
   "officialWebsite": "https://www.kobe-oukoku.com/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
-  "tags": ["Culture", "Kobe City", "v1.9.2"],
+  "categories": ["Nature"],
+  "tags": ["Nature", "Kobe City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe-kacyoen4333.JPG?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,8 +39,8 @@
     "lat": 34.65416667,
     "lng": 135.22305556
   },
-  "description": "Kobe Animal Kingdom (神戸どうぶつ王国, Kōbe Dōbutsu Ōkoku) is an animal and flower park located on Port Island in Kobe, Japan. It is mainly located in and around a greenhouse. It was called Kobe Kachoen (神戸花鳥園, Kōbe Kachōen) until 18 July 2014.",
-  "highlights": ["Culture"],
+  "description": "Kobe Animal Kingdom is a visitor destination in Kobe City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
@@ -51,10 +51,9 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 203,
-    "shinkansen": 173
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -63,24 +62,24 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 25,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 7.5,
     "couple": 8.5,
-    "summer": 6.2,
-    "winter": 9.1,
-    "rain": 6.8,
-    "food": 7.9,
+    "summer": 6,
+    "winter": 9,
+    "rain": 5.5,
+    "food": 8,
     "photography": 9,
-    "relaxation": 6.7,
-    "value": 6.2,
-    "uniqueness": 7.3,
-    "family": 8.4,
+    "relaxation": 6.5,
+    "value": 6,
+    "uniqueness": 7.5,
+    "family": 8.5,
     "accessibility": 9.5
   },
   "ratingsSchemaVersion": 2,
@@ -96,7 +95,7 @@
     "winter": 8.9
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
@@ -108,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -123,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -152,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

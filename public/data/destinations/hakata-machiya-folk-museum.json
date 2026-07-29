@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Hakata Machiya Folk Museum",
-      "description": "museum in Hakata-ku, Fukuoka City, Japan",
+      "description": "Hakata Machiya Folk Museum is a visitor destination in Fukuoka City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "「博多町家」ふるさと館",
-      "description": "「博多町家」ふるさと館（はかたまちやふるさとかん）は、福岡県福岡市博多区冷泉町にある体験型学習施設。",
+      "description": "「博多町家」ふるさと館はFukuoka Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["博物館"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 33.59363888888889,
     "lng": 130.4113888888889
   },
-  "description": "museum in Hakata-ku, Fukuoka City, Japan",
+  "description": "Hakata Machiya Folk Museum is a visitor destination in Fukuoka City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -51,10 +51,9 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 196,
-    "shinkansen": 296
+    "train": 25
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -66,21 +65,21 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 9,
+    "rainFriendly": 8,
     "walkingIntensity": 3
   },
   "ratings": {
     "overall": 7,
     "couple": 7.5,
-    "summer": 6.2,
-    "winter": 8.3,
+    "summer": 6,
+    "winter": 8.5,
     "rain": 9,
-    "food": 9.1,
-    "photography": 7.8,
+    "food": 9,
+    "photography": 8,
     "relaxation": 6.5,
-    "value": 8.6,
-    "uniqueness": 7.3,
-    "family": 9.4,
+    "value": 8.5,
+    "uniqueness": 7.5,
+    "family": 9.5,
     "accessibility": 6.5
   },
   "ratingsSchemaVersion": 2,
@@ -96,7 +95,7 @@
     "winter": 8.1
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Low",
+  "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
@@ -108,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -123,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -152,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

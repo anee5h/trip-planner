@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Nunobiki Herb Gardens",
-      "description": "The Nunobiki Herb Garden (布引ハーブ園, Nunobiki Hābu-en; 40 acres) is a herb garden located on Mount Rokkō above Kobe, Japan. It is open daily; an admission fee is charged.\nThe garden is accessed by Shin-Kobe Ropeway gondola lift from downtown Kobe.",
+      "description": "Nunobiki Herb Gardens is a visitor destination in Kobe City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
       "highlights": ["Nature"]
     },
     "ja": {
       "name": "布引ハーブ園",
-      "description": "神戸布引ハーブ園（こうべしりつぬのびきハーブえん、英: Kobe Nunobiki Herb Garden）は、兵庫県神戸市中央区にある植物園。1991年（平成3年）に開園した。神戸布引ロープウェイ風の丘中間駅とハーブ園山頂駅間に広がっている。",
+      "description": "布引ハーブ園はKobe Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["自然"]
     }
   },
@@ -39,22 +39,21 @@
     "lat": 34.71527778,
     "lng": 135.19222222
   },
-  "description": "The Nunobiki Herb Garden (布引ハーブ園, Nunobiki Hābu-en; 40 acres) is a herb garden located on Mount Rokkō above Kobe, Japan. It is open daily; an admission fee is charged.\nThe garden is accessed by Shin-Kobe Ropeway gondola lift from downtown Kobe.",
+  "description": "Nunobiki Herb Gardens is a visitor destination in Kobe City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 199,
-    "shinkansen": 169
+    "train": 25
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1.5,
     "max": 4
@@ -63,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 10,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 9.5,
-    "couple": 7.7,
-    "summer": 8.8,
+    "couple": 7.5,
+    "summer": 9,
     "winter": 6.5,
-    "rain": 9.4,
-    "food": 7.1,
-    "photography": 8.2,
-    "relaxation": 7.7,
-    "value": 8.8,
+    "rain": 5.5,
+    "food": 7,
+    "photography": 8,
+    "relaxation": 7.5,
+    "value": 9,
     "uniqueness": 6.5,
-    "family": 7.6,
-    "accessibility": 7.1
+    "family": 7.5,
+    "accessibility": 7
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -96,7 +95,7 @@
     "winter": 6.5
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
@@ -108,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -123,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -152,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

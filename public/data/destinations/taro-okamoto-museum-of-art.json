@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Taro Okamoto Museum of Art",
-      "description": "Taro Okamoto Museum of Art (岡本太郎美術館, Okamoto Tarō Bijutsukan) is an art museum located in Tama-ku, Kawasaki, Kanagawa, Japan. Located within Ikuta Ryokuchi Park in Tama Ward, the museum opened in 1999.\nThe Taro Okamoto Museum of Art is dedicated to the life and work of Japanese artist Tarō Okamoto (1911–1996) and houses a collection of his paintings, sculptures, designs, and related materials.",
+      "description": "Taro Okamoto Museum of Art is a visitor destination in Kawasaki City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "川崎市岡本太郎美術館",
-      "description": "川崎市岡本太郎美術館（かわさきしおかもとたろうびじゅつかん、Taro Okamoto Museum of Art,Kawasaki）は、神奈川県川崎市多摩区桝形の生田緑地内にある市立の美術館。芸術家、岡本太郎より川崎市に寄贈された作品1779点を所蔵・展示している。太郎の死後3年後の1999年に開館。",
+      "description": "川崎市岡本太郎美術館はKawasaki Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["博物館"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 35.6076,
     "lng": 139.557
   },
-  "description": "Taro Okamoto Museum of Art (岡本太郎美術館, Okamoto Tarō Bijutsukan) is an art museum located in Tama-ku, Kawasaki, Kanagawa, Japan. Located within Ikuta Ryokuchi Park in Tama Ward, the museum opened in 1999.\nThe Taro Okamoto Museum of Art is dedicated to the life and work of Japanese artist Tarō Okamoto (1911–1996) and houses a collection of his paintings, sculptures, designs, and related materials.",
+  "description": "Taro Okamoto Museum of Art is a visitor destination in Kawasaki City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -51,9 +51,9 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 197
+    "train": 25
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -65,22 +65,22 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 9,
+    "rainFriendly": 8,
     "walkingIntensity": 3
   },
   "ratings": {
     "overall": 8,
-    "couple": 7.8,
-    "summer": 8.3,
-    "winter": 7.2,
-    "rain": 9.5,
-    "food": 8.4,
-    "photography": 7.3,
-    "relaxation": 6.2,
+    "couple": 8,
+    "summer": 8.5,
+    "winter": 7,
+    "rain": 9,
+    "food": 8.5,
+    "photography": 7.5,
+    "relaxation": 6,
     "value": 8.5,
-    "uniqueness": 7.4,
-    "family": 6.3,
-    "accessibility": 8.6
+    "uniqueness": 7.5,
+    "family": 6.5,
+    "accessibility": 8.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 7.6
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Low",
+  "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kawasaki City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

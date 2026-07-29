@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Tanukikoji Shopping Street",
-      "description": "human settlement in Japan",
-      "highlights": ["History", "Food"]
+      "description": "Tanukikoji Shopping Street is a visitor destination in Sapporo City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "highlights": ["History"]
     },
     "ja": {
       "name": "狸小路商店街",
-      "description": "狸小路商店街（たぬきこうじしょうてんがい）は、札幌市中央区に所在する商店街。この項目では、地域（街区）としての通称「狸小路」についても記載している。",
-      "highlights": ["歴史", "グルメ"]
+      "description": "狸小路商店街はSapporo Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["歴史"]
     }
   },
   "prefecture": "Hokkaido",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://tanukikoji.or.jp/",
   "officialWebsiteRequirement": "none",
-  "categories": ["History", "Food"],
-  "tags": ["History", "Food", "Sapporo City", "v1.9.2"],
+  "categories": ["History"],
+  "tags": ["History", "Sapporo City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tanukikoji%2001.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,21 +39,21 @@
     "lat": 43.058333,
     "lng": 141.35463
   },
-  "description": "human settlement in Japan",
-  "highlights": ["History", "Food"],
+  "description": "Tanukikoji Shopping Street is a visitor destination in Sapporo City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 196
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 55,
+  "indoorPercent": 25,
   "comfort": {
     "heatTolerance": 6,
-    "rainFriendly": 6,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 9.2,
+    "overall": 9,
     "couple": 9,
-    "summer": 7.7,
-    "winter": 6.4,
-    "rain": 8.5,
-    "food": 7.2,
-    "photography": 9.3,
+    "summer": 7.5,
+    "winter": 6.5,
+    "rain": 5.5,
+    "food": 7,
+    "photography": 9.5,
     "relaxation": 8,
-    "value": 6.7,
-    "uniqueness": 8.8,
+    "value": 6.5,
+    "uniqueness": 9,
     "family": 7.5,
-    "accessibility": 6.2
+    "accessibility": 6
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 7.8
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

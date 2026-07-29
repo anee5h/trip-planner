@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Former Hokkaido Government Office",
-      "description": "The facilities of the former Hokkaidō Government Office (Japanese: 北海道庁旧本庁舎) in Sapporo, Japan, include a conference room, a museum shop, a tourist information office, and a few historical exhibition rooms and libraries. Visitors can enter the building for free. Flower gardens and a pond are located in front of the building, which occasionally are designated as some event venues.",
-      "highlights": ["Culture"]
+      "description": "Former Hokkaido Government Office is a visitor destination in Sapporo City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "highlights": ["History", "Museum"]
     },
     "ja": {
       "name": "北海道庁旧本庁舎",
-      "description": "北海道庁旧本庁舎（ほっかいどうちょうきゅうほんちょうしゃ）は、1888年（明治21年）に完成した北海道庁の本庁舎として建築された煉瓦造りの西洋館。1968年（昭和43年）に新しい本庁舎（北海道庁舎）が完成するまでの80年間にわたって北海道行政の中枢として使用された建物である。\n「旧道庁」や「道庁赤レンガ庁舎」、「赤レンガ」などと呼ばれ、親しまれている。",
-      "highlights": ["展望"]
+      "description": "北海道庁旧本庁舎はSapporo Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["歴史", "博物館"]
     }
   },
   "prefecture": "Hokkaido",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "http://www.pref.hokkaido.lg.jp/sm/sum/sk/akarenga.htm",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
-  "tags": ["Culture", "Sapporo City", "v1.9.2"],
+  "categories": ["History", "Museum"],
+  "tags": ["History", "Museum", "Sapporo City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hokkaido%20Prefectural%20Office02s5s4272.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,8 +39,8 @@
     "lat": 43.063944444444445,
     "lng": 141.348
   },
-  "description": "The facilities of the former Hokkaidō Government Office (Japanese: 北海道庁旧本庁舎) in Sapporo, Japan, include a conference room, a museum shop, a tourist information office, and a few historical exhibition rooms and libraries. Visitors can enter the building for free. Flower gardens and a pond are located in front of the building, which occasionally are designated as some event venues.",
-  "highlights": ["Culture"],
+  "description": "Former Hokkaido Government Office is a visitor destination in Sapporo City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "highlights": ["History", "Museum"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
@@ -51,9 +51,9 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 203
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 70,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 6,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 9,
-    "couple": 7.9,
-    "summer": 8.6,
+    "couple": 8,
+    "summer": 8.5,
     "winter": 7.5,
-    "rain": 6.4,
-    "food": 8.7,
-    "photography": 7.6,
-    "relaxation": 8.3,
-    "value": 7.2,
+    "rain": 5.5,
+    "food": 8.5,
+    "photography": 7.5,
+    "relaxation": 8.5,
+    "value": 7,
     "uniqueness": 9.5,
-    "family": 8.4,
-    "accessibility": 7.3
+    "family": 8.5,
+    "accessibility": 7.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 8.1
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

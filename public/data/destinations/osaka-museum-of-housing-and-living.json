@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Osaka Museum of Housing and Living",
-      "description": "Osaka Museum of Housing and Living is a visitor destination in Osaka City.",
+      "description": "Osaka Museum of Housing and Living is a visitor destination in Osaka City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "大阪くらしの今昔館",
-      "description": "大阪くらしの今昔館（おおさかくらしのこんじゃくかん））は、大阪府大阪市北区に所在する、大阪市の都市居住に関する歴史と文化をテーマとする市立博物館。正式名称は大阪市立住まいのミュージアム（おおさかしりつすまいのミュージアム）。大阪市立住まい情報センタービル内にある。",
+      "description": "大阪くらしの今昔館はOsaka Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["博物館"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 34.710306,
     "lng": 135.511694
   },
-  "description": "Osaka Museum of Housing and Living is a visitor destination in Osaka City.",
+  "description": "Osaka Museum of Housing and Living is a visitor destination in Osaka City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -51,11 +51,10 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 186,
-    "bus": 206,
-    "shinkansen": 146
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -67,22 +66,22 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 9,
+    "rainFriendly": 8,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 8.6,
-    "couple": 7.1,
-    "summer": 9.2,
-    "winter": 7.9,
+    "overall": 8.5,
+    "couple": 7,
+    "summer": 9,
+    "winter": 8,
     "rain": 9,
-    "food": 8.7,
-    "photography": 7.4,
+    "food": 8.5,
+    "photography": 7.5,
     "relaxation": 9.5,
-    "value": 8.2,
-    "uniqueness": 6.9,
+    "value": 8,
+    "uniqueness": 7,
     "family": 9,
-    "accessibility": 7.7
+    "accessibility": 7.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -97,7 +96,7 @@
     "winter": 9.3
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Low",
+  "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
@@ -109,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

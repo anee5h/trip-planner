@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Narita Airport Observation Decks",
-      "description": "Haneda Airport (羽田空港, Haneda Kūkō; IATA: HND, ICAO: RJTT), officially Tokyo International Airport (東京国際空港, Tōkyō kokusai Kūkō) and sometimes abbreviated to Tokyo-Haneda, is a Japanese international airport, the busier of the two  serving the Greater Tokyo Area, the other being Narita International Airport (NRT). It serves as the primary domestic base of Japan's two largest airlines, Japan Airlines (Terminal 1) and All Nippon Airways (Terminal 2), as well as RegionalPlus Wings Corp. (Air Do and Solaseed Air), Skymark Airlines, and StarFlyer.",
+      "description": "Narita Airport Observation Decks is a visitor destination in Narita City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
       "highlights": ["Viewpoint"]
     },
     "ja": {
       "name": "東京国際空港",
-      "description": "東京国際空港（とうきょうこくさいくうこう、英語: Tokyo International Airport、IATA: HND, ICAO: RJTT）は、東京都大田区羽田空港に所在する日本の国際空港の一つ。通称は羽田空港（はねだくうこう、英: Haneda Airport）。\n空港法第4条で法定された首都圏を代表する拠点空港（国管理空港）であり、日本最大のハブ空港として知られている。",
+      "description": "東京国際空港はNarita Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["展望"]
     }
   },
   "prefecture": "Chiba",
   "region": "Kanto",
-  "kind": "museum",
+  "kind": "tower",
   "role": "poi",
   "placeType": "destination",
   "areaId": "narita-airport",
@@ -39,7 +39,7 @@
     "lat": 35.553333333333,
     "lng": 139.78111111111
   },
-  "description": "Haneda Airport (羽田空港, Haneda Kūkō; IATA: HND, ICAO: RJTT), officially Tokyo International Airport (東京国際空港, Tōkyō kokusai Kūkō) and sometimes abbreviated to Tokyo-Haneda, is a Japanese international airport, the busier of the two  serving the Greater Tokyo Area, the other being Narita International Airport (NRT). It serves as the primary domestic base of Japan's two largest airlines, Japan Airlines (Terminal 1) and All Nippon Airways (Terminal 2), as well as RegionalPlus Wings Corp. (Air Do and Solaseed Air), Skymark Airlines, and StarFlyer.",
+  "description": "Narita Airport Observation Decks is a visitor destination in Narita City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
   "highlights": ["Viewpoint"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -51,9 +51,9 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 205
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 75,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 6,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 9.5,
-    "couple": 6.6,
-    "summer": 9.3,
-    "winter": 8.6,
-    "rain": 6.3,
+    "couple": 6.5,
+    "summer": 9.5,
+    "winter": 8.5,
+    "rain": 6.5,
     "food": 9,
-    "photography": 8.3,
-    "relaxation": 9.4,
-    "value": 8.7,
+    "photography": 8.5,
+    "relaxation": 9.5,
+    "value": 8.5,
     "uniqueness": 8,
-    "family": 9.1,
-    "accessibility": 8.4
+    "family": 9,
+    "accessibility": 8.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 7.4
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Narita City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

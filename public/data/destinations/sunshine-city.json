@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Sunshine City",
-      "description": "Sunshine City (サンシャインシティ, Sanshain Shiti) is a building complex located in East Ikebukuro, Toshima, Tokyo, Japan. It  consists of four buildings: the 240-meter Sunshine 60 skyscraper, which includes corporate offices and restaurants; the Prince Hotel; the World Import Mart; and the Bunka Kaikan building.  The complex sits on land once occupied by Sugamo Prison.",
-      "highlights": ["Culture"]
+      "description": "Sunshine City is a visitor destination in Toshima City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Culture", "Shopping"]
     },
     "ja": {
       "name": "サンシャインシティ",
-      "description": "サンシャインシティ（英: Sunshine City）は、東京都豊島区東池袋三丁目に所在する、超高層ビル「サンシャイン60」を中核とした複合商業施設。株式会社サンシャインシティが運営する。1970年代に巣鴨拘置所跡地を再開発して建設された。",
-      "highlights": ["展望"]
+      "description": "サンシャインシティはToshima Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["文化", "ショッピング"]
     }
   },
   "prefecture": "Tokyo",
   "region": "Kanto",
-  "kind": "museum",
+  "kind": "district",
   "role": "poi",
   "placeType": "destination",
   "areaId": "ikebukuro",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://sunshinecity.jp/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
-  "tags": ["Culture", "Toshima City", "v1.9.2"],
+  "categories": ["Culture", "Shopping"],
+  "tags": ["Culture", "Shopping", "Toshima City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sunshine%20City%202012.JPG?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,21 +39,21 @@
     "lat": 35.729167,
     "lng": 139.718056
   },
-  "description": "Sunshine City (サンシャインシティ, Sanshain Shiti) is a building complex located in East Ikebukuro, Toshima, Tokyo, Japan. It  consists of four buildings: the 240-meter Sunshine 60 skyscraper, which includes corporate offices and restaurants; the Prince Hotel; the World Import Mart; and the Bunka Kaikan building.  The complex sits on land once occupied by Sugamo Prison.",
-  "highlights": ["Culture"],
+  "description": "Sunshine City is a visitor destination in Toshima City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Culture", "Shopping"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 205
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 55,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 6,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 8.7,
-    "couple": 8.8,
-    "summer": 7.1,
-    "winter": 8.8,
-    "rain": 7.1,
-    "food": 8.8,
-    "photography": 7.1,
-    "relaxation": 8.8,
-    "value": 7.1,
-    "uniqueness": 8.8,
-    "family": 7.1,
-    "accessibility": 8.8
+    "overall": 8.5,
+    "couple": 9,
+    "summer": 7,
+    "winter": 9,
+    "rain": 5.5,
+    "food": 9,
+    "photography": 7,
+    "relaxation": 9,
+    "value": 7,
+    "uniqueness": 9,
+    "family": 7,
+    "accessibility": 9
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 8.8
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Toshima City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

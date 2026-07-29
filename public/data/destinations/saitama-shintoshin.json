@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Saitama Shintoshin",
-      "description": "Saitama (さいたま市, Saitama-shi; Japanese pronunciation: [saꜜi.ta.ma, sai.ta.maꜜ.ɕi]) is the capital and largest city of Saitama Prefecture, Japan. Its area incorporates the former cities of Urawa, Ōmiya, Yono and Iwatsuki. It is a city designated by government ordinance.",
-      "highlights": ["Culture"]
+      "description": "Saitama Shintoshin is a visitor destination in Saitama City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Culture", "Shopping"]
     },
     "ja": {
       "name": "さいたま市",
-      "description": "さいたま市（さいたまし）は、埼玉県の南東部に位置する市。埼玉県の県庁所在地であり、人口は約136万人と県内最多である。政令指定都市の一つ。",
-      "highlights": ["展望"]
+      "description": "さいたま市はSaitama Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["文化", "ショッピング"]
     }
   },
   "prefecture": "Saitama",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.city.saitama.jp/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
-  "tags": ["Culture", "Saitama City", "v1.9.2"],
+  "categories": ["Culture", "Shopping"],
+  "tags": ["Culture", "Shopping", "Saitama City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Saitama%20city%20montage.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,21 +39,21 @@
     "lat": 35.86138888888889,
     "lng": 139.64555555555555
   },
-  "description": "Saitama (さいたま市, Saitama-shi; Japanese pronunciation: [saꜜi.ta.ma, sai.ta.maꜜ.ɕi]) is the capital and largest city of Saitama Prefecture, Japan. Its area incorporates the former cities of Urawa, Ōmiya, Yono and Iwatsuki. It is a city designated by government ordinance.",
-  "highlights": ["Culture"],
+  "description": "Saitama Shintoshin is a visitor destination in Saitama City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Culture", "Shopping"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 62
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 55,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 6,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 7.7,
-    "couple": 7.1,
-    "summer": 6.8,
+    "overall": 7.5,
+    "couple": 7,
+    "summer": 7,
     "winter": 6.5,
-    "rain": 6.2,
-    "food": 9.3,
+    "rain": 5.5,
+    "food": 9.5,
     "photography": 9,
-    "relaxation": 7.1,
-    "value": 6.8,
+    "relaxation": 7,
+    "value": 7,
     "uniqueness": 6.5,
-    "family": 6.2,
-    "accessibility": 9.3
+    "family": 6,
+    "accessibility": 9.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 8.1
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Saitama City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

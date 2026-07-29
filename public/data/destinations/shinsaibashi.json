@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Shinsaibashi",
-      "description": "Shinsaibashi (心斎橋) is a district in the Chūō-ku ward of Osaka, Japan and the city's main shopping area. At its center is Shinsaibashi-suji (心斎橋筋), a covered shopping street, that is north of Dōtonbori and Sōemonchō, and parallel and east of Mido-suji street. Associated with Shinsaibashi, and west of Mido-suji street, is Amerika-mura, an American-themed shopping area and center of Osaka's youth culture.",
+      "description": "Shinsaibashi is a visitor destination in Osaka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
       "highlights": ["Culture"]
     },
     "ja": {
       "name": "心斎橋",
-      "description": "心斎橋（しんさいばし）は、大阪府大阪市中央区の大阪を代表する繁華街。また、かつて長堀川に架かっていた橋でのちに長堀通に整備された歩道橋。範囲としては心斎橋筋・西心斎橋・東心斎橋の辺りであり、行政上「心斎橋」という地名は存在しない。",
-      "highlights": ["展望"]
+      "description": "心斎橋はOsaka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["文化"]
     }
   },
   "prefecture": "Osaka",
   "region": "Kansai",
-  "kind": "museum",
+  "kind": "district",
   "role": "poi",
   "placeType": "destination",
   "areaId": "namba-minami",
@@ -38,23 +38,22 @@
     "lat": 34.6725,
     "lng": 135.5
   },
-  "description": "Shinsaibashi (心斎橋) is a district in the Chūō-ku ward of Osaka, Japan and the city's main shopping area. At its center is Shinsaibashi-suji (心斎橋筋), a covered shopping street, that is north of Dōtonbori and Sōemonchō, and parallel and east of Mido-suji street. Associated with Shinsaibashi, and west of Mido-suji street, is Amerika-mura, an American-themed shopping area and center of Osaka's youth culture.",
+  "description": "Shinsaibashi is a visitor destination in Osaka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
   "highlights": ["Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 192,
-    "bus": 212,
-    "shinkansen": 152
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -63,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 30,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 6.5,
-    "couple": 9.1,
-    "summer": 8.8,
+    "couple": 9,
+    "summer": 9,
     "winter": 8.5,
-    "rain": 8.2,
-    "food": 7.9,
-    "photography": 7.6,
-    "relaxation": 7.3,
+    "rain": 5.5,
+    "food": 8,
+    "photography": 7.5,
+    "relaxation": 7.5,
     "value": 7,
     "uniqueness": 8.5,
-    "family": 8.2,
-    "accessibility": 7.9
+    "family": 8,
+    "accessibility": 8
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -96,7 +95,7 @@
     "winter": 6.7
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
@@ -108,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -117,11 +116,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -146,7 +143,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

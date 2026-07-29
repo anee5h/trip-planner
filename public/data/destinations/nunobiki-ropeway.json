@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Nunobiki Ropeway",
-      "description": "The Kobe Nunobiki Ropeway (神戸布引ロープウェイ, Kōbe Nunobiki Rōpuwē) is an Cable Car line in Kōbe, Hyōgo, Japan, operated by Kōbe City Urban Development. Opened in 1991, the line links Shin-Kōbe Station and Nunobiki Herb Garden. Its scenic view is popular among tourists.",
+      "description": "Nunobiki Ropeway is a visitor destination in Kobe City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
       "highlights": ["Viewpoint"]
     },
     "ja": {
       "name": "神戸布引ロープウェイ",
-      "description": "神戸布引ロープウェイ（こうべぬのびきロープウェイ）は、神戸リゾートサービス株式会社が運営する兵庫県神戸市中央区の新神戸から世継山にかかる索道（ロープウェイ）である。神戸布引ハーブ園へ向かうための唯一の交通手段となっている。",
+      "description": "神戸布引ロープウェイはKobe Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["展望"]
     }
   },
   "prefecture": "Hyogo",
   "region": "Kansai",
-  "kind": "museum",
+  "kind": "viewpoint",
   "role": "poi",
   "placeType": "destination",
   "areaId": "sannomiya",
@@ -39,7 +39,7 @@
     "lat": 34.71722222,
     "lng": 135.19111111
   },
-  "description": "The Kobe Nunobiki Ropeway (神戸布引ロープウェイ, Kōbe Nunobiki Rōpuwē) is an Cable Car line in Kōbe, Hyōgo, Japan, operated by Kōbe City Urban Development. Opened in 1991, the line links Shin-Kōbe Station and Nunobiki Herb Garden. Its scenic view is popular among tourists.",
+  "description": "Nunobiki Ropeway is a visitor destination in Kobe City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
   "highlights": ["Viewpoint"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -51,10 +51,9 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 205,
-    "shinkansen": 175
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -63,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 40,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 7.5,
-    "couple": 7.6,
-    "summer": 9.3,
-    "winter": 7.6,
-    "rain": 9.3,
-    "food": 7.6,
-    "photography": 9.3,
-    "relaxation": 7.6,
-    "value": 9.3,
-    "uniqueness": 7.6,
-    "family": 9.3,
-    "accessibility": 7.6
+    "couple": 7.5,
+    "summer": 9.5,
+    "winter": 7.5,
+    "rain": 5.5,
+    "food": 7.5,
+    "photography": 9.5,
+    "relaxation": 7.5,
+    "value": 9.5,
+    "uniqueness": 7.5,
+    "family": 9.5,
+    "accessibility": 7.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -96,7 +95,7 @@
     "winter": 7.6
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Check the official website before visiting.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
@@ -108,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -123,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -152,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

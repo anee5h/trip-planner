@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Enoshima Sea Candle",
-      "description": "The Enoshima Sea Candle (Japanese: 江の島シーキャンドル), also known as the Shonan Observatory Lighthouse, is an observation tower and lighthouse located in the Samuel Cocking Garden on the small tidal island of Enoshima in Fujisawa, Kanagawa, Japan. The tower has two observation decks, the primary indoor deck and a secondary outdoor deck. The primary deck can be accessed via a central lift or spiral staircase, while the outdoor deck can only be accessed by a second spiral staircase.",
+      "description": "Enoshima Sea Candle is a visitor destination in Fujisawa City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
       "highlights": ["Viewpoint"]
     },
     "ja": {
       "name": "江の島灯台",
-      "description": "江の島灯台（えのしまとうだい）は、神奈川県藤沢市江の島に立つ日本初の民間灯台。構造物としての江の島シーキャンドルについても本項で述べる。",
+      "description": "江の島灯台はFujisawa Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["展望"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 35.299722,
     "lng": 139.478333
   },
-  "description": "The Enoshima Sea Candle (Japanese: 江の島シーキャンドル), also known as the Shonan Observatory Lighthouse, is an observation tower and lighthouse located in the Samuel Cocking Garden on the small tidal island of Enoshima in Fujisawa, Kanagawa, Japan. The tower has two observation decks, the primary indoor deck and a secondary outdoor deck. The primary deck can be accessed via a central lift or spiral staircase, while the outdoor deck can only be accessed by a second spiral staircase.",
+  "description": "Enoshima Sea Candle is a visitor destination in Fujisawa City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
   "highlights": ["Viewpoint"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -51,9 +51,9 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 201
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 75,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 6,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 7.6,
+    "overall": 7.5,
     "couple": 7,
-    "summer": 8.3,
+    "summer": 8.5,
     "winter": 8,
-    "rain": 9.3,
-    "food": 7.2,
-    "photography": 6.9,
-    "relaxation": 8.2,
+    "rain": 7.5,
+    "food": 7,
+    "photography": 7,
+    "relaxation": 8,
     "value": 9.5,
-    "uniqueness": 9.2,
-    "family": 7.1,
-    "accessibility": 8.4
+    "uniqueness": 9,
+    "family": 7,
+    "accessibility": 8.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 7
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "moderate",
   "reservation": "Check the official website before visiting.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Fujisawa City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

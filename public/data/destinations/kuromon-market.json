@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Kuromon Market",
-      "description": "Kuromon Market is a visitor destination in Osaka City.",
-      "highlights": ["Food"]
+      "description": "Kuromon Market is a visitor destination in Osaka City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Food", "Market"]
     },
     "ja": {
       "name": "黒門市場",
-      "description": "黒門市場（くろもん いちば）は、大阪府大阪市中央区日本橋1丁目・2丁目に所在する市場、商店街。\n堺筋から一つ東の筋を中心に、千日前通の南側に展開する。商店街の類型は超広域型商店街で、キの字形に伸びる総延長距離約580メートルのアーケード街におよそ150～160店舗が軒を連ねる（2019年時点）。",
-      "highlights": ["グルメ"]
+      "description": "黒門市場はOsaka Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["グルメ", "市場"]
     }
   },
   "prefecture": "Osaka",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://kuromon.com/",
   "officialWebsiteRequirement": "none",
-  "categories": ["Food"],
-  "tags": ["Food", "Osaka City", "v1.9.2"],
+  "categories": ["Food", "Market"],
+  "tags": ["Food", "Market", "Osaka City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E9%BB%92%E9%96%80%E5%B8%82%E5%A0%B4%202024(1).jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,23 +39,22 @@
     "lat": 34.6653277,
     "lng": 135.5069795
   },
-  "description": "Kuromon Market is a visitor destination in Osaka City.",
-  "highlights": ["Food"],
+  "description": "Kuromon Market is a visitor destination in Osaka City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Food", "Market"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 194,
-    "bus": 214,
-    "shinkansen": 154
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -64,25 +63,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 55,
+  "indoorPercent": 25,
   "comfort": {
     "heatTolerance": 6,
-    "rainFriendly": 6,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 7,
-    "couple": 8.3,
-    "summer": 7.4,
+    "couple": 8.5,
+    "summer": 7.5,
     "winter": 6.5,
-    "rain": 9,
+    "rain": 5.5,
     "food": 6.5,
     "photography": 9,
-    "relaxation": 8.1,
-    "value": 7.2,
-    "uniqueness": 8.1,
-    "family": 7.2,
-    "accessibility": 6.3
+    "relaxation": 8,
+    "value": 7,
+    "uniqueness": 8,
+    "family": 7,
+    "accessibility": 6.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -97,7 +96,7 @@
     "winter": 7.9
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
@@ -109,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

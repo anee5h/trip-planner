@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Miraikan",
-      "description": "The National Museum of Emerging Science and Innovation (日本科学未来館, Nippon Kagaku Mirai-kan), simply known as the Miraikan (未来館; literally \"Future Museum\"), is a museum created by Japan's Science and Technology Agency.\nIt was opened in 2001. It is situated in a purpose-built building in the Odaiba District of Tokyo.",
-      "highlights": ["Culture"]
+      "description": "Miraikan is a visitor destination in Koto City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Museum"]
     },
     "ja": {
       "name": "日本科学未来館",
-      "description": "日本科学未来館（にっぽんかがくみらいかん、英称：The National Museum of Emerging Science and Innovation、愛称：Miraikan）は、東京都江東区青海の国際研究交流大学村内にある科学館。",
-      "highlights": ["展望"]
+      "description": "日本科学未来館はKoto Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["博物館"]
     }
   },
   "prefecture": "Tokyo",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "http://www.miraikan.jst.go.jp/index.html",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
-  "tags": ["Culture", "Koto City", "v1.9.2"],
+  "categories": ["Museum"],
+  "tags": ["Museum", "Koto City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Miraikan.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,8 +39,8 @@
     "lat": 35.61916667,
     "lng": 139.77666667
   },
-  "description": "The National Museum of Emerging Science and Innovation (日本科学未来館, Nippon Kagaku Mirai-kan), simply known as the Miraikan (未来館; literally \"Future Museum\"), is a museum created by Japan's Science and Technology Agency.\nIt was opened in 2001. It is situated in a purpose-built building in the Odaiba District of Tokyo.",
-  "highlights": ["Culture"],
+  "description": "Miraikan is a visitor destination in Koto City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Museum"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
@@ -51,9 +51,9 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 197
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,24 +62,24 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 8,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 7.3,
-    "couple": 6.3,
-    "summer": 6.2,
-    "winter": 7.7,
-    "rain": 7.6,
-    "food": 9.1,
-    "photography": 7.2,
-    "relaxation": 7.1,
-    "value": 8.6,
+    "overall": 7.5,
+    "couple": 6.5,
+    "summer": 6,
+    "winter": 7.5,
+    "rain": 7.5,
+    "food": 9,
+    "photography": 7,
+    "relaxation": 7,
+    "value": 8.5,
     "uniqueness": 8.5,
-    "family": 6.6,
+    "family": 6.5,
     "accessibility": 6.5
   },
   "ratingsSchemaVersion": 2,
@@ -95,7 +95,7 @@
     "winter": 7.5
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Koto City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

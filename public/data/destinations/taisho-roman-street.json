@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Taisho Roman Street",
-      "description": "Taisho-roman Street, meaning Taisho Romance Street, is a local shopping street in Kawagoe City, Saitama Prefecture, Japan.",
-      "highlights": ["Food"]
+      "description": "Taisho Roman Street is a visitor destination in Kawagoe City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Shopping", "Food"]
     },
     "ja": {
       "name": "大正浪漫夢通り",
-      "description": "大正浪漫夢通り（たいしょうろまんゆめどおり）は、埼玉県川越市仲町・連雀町にある商店街。歴史的には猪鼻町または銀座通りと呼ばれていた。\n川越城の城下町の特徴として戦に備えて緩やかにカーブした約200メートルの通りの両側には、大正から昭和初期のレトロな店舗がおよそ30軒余り並ぶ。",
-      "highlights": ["グルメ"]
+      "description": "大正浪漫夢通りはKawagoe Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["ショッピング", "グルメ"]
     }
   },
   "prefecture": "Saitama",
   "region": "Kanto",
-  "kind": "district",
+  "kind": "shopping",
   "role": "poi",
   "placeType": "destination",
   "areaId": "kurazukuri",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.koedo.com/",
   "officialWebsiteRequirement": "none",
-  "categories": ["Food"],
-  "tags": ["Food", "Kawagoe City", "v1.9.2"],
+  "categories": ["Shopping", "Food"],
+  "tags": ["Shopping", "Food", "Kawagoe City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Taisho-roman%20Street%2020180328.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,21 +39,21 @@
     "lat": 35.91986111,
     "lng": 139.48355556
   },
-  "description": "Taisho-roman Street, meaning Taisho Romance Street, is a local shopping street in Kawagoe City, Saitama Prefecture, Japan.",
-  "highlights": ["Food"],
+  "description": "Taisho Roman Street is a visitor destination in Kawagoe City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Shopping", "Food"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 200
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 55,
+  "indoorPercent": 30,
   "comfort": {
     "heatTolerance": 6,
-    "rainFriendly": 6,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 8.3,
-    "couple": 7.1,
-    "summer": 6.4,
-    "winter": 7.3,
-    "rain": 6.6,
-    "food": 9.3,
-    "photography": 8.6,
+    "overall": 8.5,
+    "couple": 7,
+    "summer": 6.5,
+    "winter": 7.5,
+    "rain": 5.5,
+    "food": 9.5,
+    "photography": 8.5,
     "relaxation": 9.5,
-    "value": 8.8,
-    "uniqueness": 8.1,
-    "family": 7.4,
-    "accessibility": 8.3
+    "value": 9,
+    "uniqueness": 8,
+    "family": 7.5,
+    "accessibility": 8.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 7.1
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kawagoe City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

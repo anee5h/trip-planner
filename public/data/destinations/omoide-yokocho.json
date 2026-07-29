@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Omoide Yokocho",
-      "description": "Omoide Yokocho is a visitor destination in Shinjuku City.",
-      "highlights": ["Culture"]
+      "description": "Omoide Yokocho is a visitor destination in Shinjuku City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Shopping", "Food"]
     },
     "ja": {
       "name": "新宿西口商店街",
-      "description": "新宿西口商店街（しんじゅくにしぐちしょうてんがい）は、東京都新宿区西新宿1丁目（新宿駅西口）にある商店街である。別名として思い出横丁、やきとり横丁のほか、かつての俗称ションベン横丁が知られている。\n空襲の跡がまだ生々しい1946年頃にできた闇市にそのルーツを持つ。",
-      "highlights": ["展望"]
+      "description": "新宿西口商店街はShinjuku Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["ショッピング", "グルメ"]
     }
   },
   "prefecture": "Tokyo",
   "region": "Kanto",
-  "kind": "museum",
+  "kind": "shopping",
   "role": "poi",
   "placeType": "destination",
   "areaId": "central-shinjuku",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "http://shinjuku-omoide.com/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
-  "tags": ["Culture", "Shinjuku City", "v1.9.2"],
+  "categories": ["Shopping", "Food"],
+  "tags": ["Shopping", "Food", "Shinjuku City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shinjuku-West%20Omoide-Yokocho.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,21 +39,21 @@
     "lat": 35.69307,
     "lng": 139.6995
   },
-  "description": "Omoide Yokocho is a visitor destination in Shinjuku City.",
-  "highlights": ["Culture"],
+  "description": "Omoide Yokocho is a visitor destination in Shinjuku City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Shopping", "Food"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 196
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 30,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 7.8,
-    "couple": 6.7,
-    "summer": 7.8,
-    "winter": 7.1,
-    "rain": 8.2,
+    "overall": 8,
+    "couple": 6.5,
+    "summer": 8,
+    "winter": 7,
+    "rain": 5.5,
     "food": 7.5,
-    "photography": 8.6,
-    "relaxation": 7.9,
+    "photography": 8.5,
+    "relaxation": 8,
     "value": 9,
-    "uniqueness": 8.3,
-    "family": 9.4,
-    "accessibility": 8.7
+    "uniqueness": 8.5,
+    "family": 9.5,
+    "accessibility": 8.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 9.5
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

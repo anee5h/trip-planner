@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Ameya-Yokocho",
-      "description": "Ameya-Yokochō (アメヤ横丁; \"Ameya alley\"), often shortened to Ameyoko  (アメ横), is an open-air market in the Taito Ward of Tokyo, Japan, located next to Ueno Station.\nThe market is approximately 164,227 square feet (15,257 m2) in area, starting just behind the Yodobashi Camera building and following the Yamanote Line south until the Komuro building.\nThere are two theories on the etymology of Ameya.",
-      "highlights": ["Culture"]
+      "description": "Ameya-Yokocho is a visitor destination in Taito City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Shopping", "Food"]
     },
     "ja": {
       "name": "アメヤ横丁",
-      "description": "アメヤ横丁（アメヤよこちょう）は、日本の東京都台東区にある商店街名。東日本旅客鉄道（JR東日本）山手線ほかの御徒町駅 - 上野駅間の高架橋西側と高架下の約500 - 600メートルを中心に、約400店を有する商店街である。正式名称はアメ横商店街連合会（アメよこ しょうてんがい れんごうかい）であるが、アメヤ横丁のほか、アメ横（アメよこ）、上野アメ横（うえのアメよこ）、アメ横商店街（アメよこ しょうてんがい）などと通称されることが多い。",
-      "highlights": ["展望"]
+      "description": "アメヤ横丁はTaito Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["ショッピング", "グルメ"]
     }
   },
   "prefecture": "Tokyo",
   "region": "Kanto",
-  "kind": "museum",
+  "kind": "shopping",
   "role": "poi",
   "placeType": "destination",
   "areaId": "ueno",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.ameyoko.net/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
-  "tags": ["Culture", "Taito City", "v1.9.2"],
+  "categories": ["Shopping", "Food"],
+  "tags": ["Shopping", "Food", "Taito City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ameya-yokocho01s5s3200.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,21 +39,21 @@
     "lat": 35.7100592,
     "lng": 139.7745428
   },
-  "description": "Ameya-Yokochō (アメヤ横丁; \"Ameya alley\"), often shortened to Ameyoko  (アメ横), is an open-air market in the Taito Ward of Tokyo, Japan, located next to Ueno Station.\nThe market is approximately 164,227 square feet (15,257 m2) in area, starting just behind the Yodobashi Camera building and following the Yamanote Line south until the Komuro building.\nThere are two theories on the etymology of Ameya.",
-  "highlights": ["Culture"],
+  "description": "Ameya-Yokocho is a visitor destination in Taito City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Shopping", "Food"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 203
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 30,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 7.5,
-    "couple": 6.7,
-    "summer": 7.8,
-    "winter": 8.9,
-    "rain": 8.4,
+    "couple": 6.5,
+    "summer": 8,
+    "winter": 9,
+    "rain": 5.5,
     "food": 9.5,
-    "photography": 7.2,
-    "relaxation": 8.3,
-    "value": 7.8,
-    "uniqueness": 8.9,
-    "family": 6.6,
-    "accessibility": 7.7
+    "photography": 7,
+    "relaxation": 8.5,
+    "value": 8,
+    "uniqueness": 9,
+    "family": 6.5,
+    "accessibility": 7.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 7.1
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Taito City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

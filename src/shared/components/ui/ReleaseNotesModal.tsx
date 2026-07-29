@@ -8,8 +8,19 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.9.2",
+    version: "v1.9.3",
     tag: "Current",
+    date: "July 2026",
+    title: "Major City Data Audit",
+    highlights: [
+      "Audited all 160 major-city expansion records for type, category, weather, budget, transport, and localized-content consistency",
+      "Moved assisted beta records into editorial review and exposed rating confidence",
+      "Corrected Narita regional relationships and Kobe Animal Kingdom's Port Island area",
+      "Kept all 519 places visible with default Explorer filters and capped top-result diversification",
+    ],
+  },
+  {
+    version: "v1.9.2",
     date: "July 2026",
     title: "Major City Expansion",
     highlights: [

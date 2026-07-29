@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Sapporo Clock Tower",
-      "description": "Sapporo Clock Tower (札幌時計台, Sapporo Tokeidai) is a wooden structure and tourist attraction located at North 1 West 2, Chūō-ku, Sapporo, the largest city on the island of Hokkaidō, Japan. As of 2021, this tower is the oldest clock tower in Japan.\nThe building is of American design and is one of the few surviving Western-style buildings in Sapporo, a city developed in the 1870s with assistance from the American government.",
+      "description": "Sapporo Clock Tower is a visitor destination in Sapporo City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
       "highlights": ["Viewpoint"]
     },
     "ja": {
       "name": "札幌市時計台",
-      "description": "札幌市時計台（さっぽろしとけいだい）は、北海道札幌市中央区北1条西2丁目にある歴史的建造物である。重要文化財（1970年6月17日指定）。\n正式名称を「旧札幌農学校演武場」（きゅう-さっぽろのうがっこう-えんぶじょう）と称する。",
+      "description": "札幌市時計台はSapporo Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["展望"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 43.062602,
     "lng": 141.353681
   },
-  "description": "Sapporo Clock Tower (札幌時計台, Sapporo Tokeidai) is a wooden structure and tourist attraction located at North 1 West 2, Chūō-ku, Sapporo, the largest city on the island of Hokkaidō, Japan. As of 2021, this tower is the oldest clock tower in Japan.\nThe building is of American design and is one of the few surviving Western-style buildings in Sapporo, a city developed in the 1870s with assistance from the American government.",
+  "description": "Sapporo Clock Tower is a visitor destination in Sapporo City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
   "highlights": ["Viewpoint"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -51,9 +51,9 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 203
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,24 +62,24 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 75,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 6,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 6.7,
+    "overall": 6.5,
     "couple": 7,
-    "summer": 8.1,
-    "winter": 7.6,
-    "rain": 8.7,
-    "food": 6.4,
+    "summer": 8,
+    "winter": 7.5,
+    "rain": 7.5,
+    "food": 6.5,
     "photography": 7.5,
-    "relaxation": 8.6,
-    "value": 8.1,
-    "uniqueness": 9.2,
-    "family": 6.9,
+    "relaxation": 8.5,
+    "value": 8,
+    "uniqueness": 9,
+    "family": 7,
     "accessibility": 8
   },
   "ratingsSchemaVersion": 2,
@@ -95,7 +95,7 @@
     "winter": 7.4
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "moderate",
   "reservation": "Check the official website before visiting.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

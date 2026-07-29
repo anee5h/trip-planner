@@ -33,6 +33,18 @@ export const DEFAULT_DESTINATION_EXPLORER_STATE = {
 export type DestinationExplorerState =
   typeof DEFAULT_DESTINATION_EXPLORER_STATE;
 
+export function hasRestrictedTransportSelection(
+  carMode: string,
+  publicModes: string[],
+) {
+  const defaults = DEFAULT_DESTINATION_EXPLORER_STATE;
+  return (
+    carMode !== defaults.carMode ||
+    publicModes.length !== defaults.publicModes.length ||
+    defaults.publicModes.some((mode) => !publicModes.includes(mode))
+  );
+}
+
 const parseNumber = (value: string | null, fallback: number) => {
   const parsed = Number(value);
   return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;

@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
+  DEFAULT_DESTINATION_EXPLORER_STATE,
+  hasRestrictedTransportSelection,
   parseDestinationSearchParams,
   serializeDestinationSearchParams,
 } from "../destinationSearchParams";
@@ -57,5 +59,15 @@ describe("destinationSearchParams", () => {
     expect(parsed.partySize).toBe(2);
     expect(parsed.currentPage).toBe(1);
     expect(parsed.viewMode).toBe("grid");
+  });
+
+  it("keeps the default transport selection non-restrictive", () => {
+    expect(
+      hasRestrictedTransportSelection(
+        DEFAULT_DESTINATION_EXPLORER_STATE.carMode,
+        DEFAULT_DESTINATION_EXPLORER_STATE.publicModes,
+      ),
+    ).toBe(false);
+    expect(hasRestrictedTransportSelection("none", ["train"])).toBe(true);
   });
 });

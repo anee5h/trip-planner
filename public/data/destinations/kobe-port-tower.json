@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Kobe Port Tower",
-      "description": "The Kobe Port Tower (神戸ポートタワー, Kōbe Pōto Tawā) is a landmark in the port city of Kobe, Japan. The sightseeing tower was completed in 1963 and was temporarily closed from late 2009 to 28 April 2010 and again from 27 September 2021 to 26 April 2024 for renovation. It is located in Chuo-ku, Kobe, Hyōgo Prefecture, Japan.",
+      "description": "Kobe Port Tower is a visitor destination in Kobe City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
       "highlights": ["Viewpoint"]
     },
     "ja": {
       "name": "神戸ポートタワー",
-      "description": "神戸ポートタワー（こうべポートタワー）は、兵庫県神戸市中央区波止場町にあるタワー。港町神戸のシンボルとして神戸港中突堤に建設された展望用タワーで、1963年に開業した。パイプ構造による鼓形の外観の優美さから「鉄塔の美女」とも称されている。",
+      "description": "神戸ポートタワーはKobe Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["展望"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 34.6825,
     "lng": 135.18666666667
   },
-  "description": "The Kobe Port Tower (神戸ポートタワー, Kōbe Pōto Tawā) is a landmark in the port city of Kobe, Japan. The sightseeing tower was completed in 1963 and was temporarily closed from late 2009 to 28 April 2010 and again from 27 September 2021 to 26 April 2024 for renovation. It is located in Chuo-ku, Kobe, Hyōgo Prefecture, Japan.",
+  "description": "Kobe Port Tower is a visitor destination in Kobe City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
   "highlights": ["Viewpoint"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -51,10 +51,9 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 199,
-    "shinkansen": 169
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -63,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 75,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 6,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 8.4,
-    "couple": 9.2,
+    "overall": 8.5,
+    "couple": 9,
     "summer": 8.5,
-    "winter": 9.4,
-    "rain": 8.7,
-    "food": 6.2,
-    "photography": 8.9,
-    "relaxation": 6.4,
-    "value": 9.1,
-    "uniqueness": 8.4,
-    "family": 9.3,
-    "accessibility": 8.6
+    "winter": 9.5,
+    "rain": 7.5,
+    "food": 6,
+    "photography": 9,
+    "relaxation": 6.5,
+    "value": 9,
+    "uniqueness": 8.5,
+    "family": 9.5,
+    "accessibility": 8.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -96,7 +95,7 @@
     "winter": 9
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "moderate",
   "reservation": "Check the official website before visiting.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
@@ -108,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -123,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -152,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

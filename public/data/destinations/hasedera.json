@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Hasedera",
-      "description": "Hase-dera (海光山慈照院長谷寺, Kaikō-zan Jishō-in Hase-dera), commonly called the Hase-kannon (長谷観音), is one of the Buddhist temples in the city of Kamakura in Kanagawa Prefecture, Japan, famous for housing a massive wooden statue of Jūichimen Kannon, an eleven-headed manifestation of the Bodhisattva Kannon.\nThe temple originally belonged to the Tendai sect of Buddhism, but eventually became an independent temple of the Jōdo-shū.",
+      "description": "Hasedera is a visitor destination in Kamakura City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "長谷寺 (鎌倉市)",
-      "description": "長谷寺（はせでら）は、神奈川県鎌倉市長谷にある浄土宗系統の単立寺院。正式には海光山慈照院長谷寺（かいこうざん じしょういん はせでら 山号: 海光山、院号: 慈照院）と号し、長谷観音（はせかんのん）の名でも知られている。本尊は日本最大級の木造仏像である十一面観世音菩薩像。",
+      "description": "長谷寺 (鎌倉市)はKamakura Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["歴史"]
     }
   },
@@ -39,21 +39,21 @@
     "lat": 35.312464,
     "lng": 139.532995
   },
-  "description": "Hase-dera (海光山慈照院長谷寺, Kaikō-zan Jishō-in Hase-dera), commonly called the Hase-kannon (長谷観音), is one of the Buddhist temples in the city of Kamakura in Kanagawa Prefecture, Japan, famous for housing a massive wooden statue of Jūichimen Kannon, an eleven-headed manifestation of the Bodhisattva Kannon.\nThe temple originally belonged to the Tendai sect of Buddhism, but eventually became an independent temple of the Jōdo-shū.",
+  "description": "Hasedera is a visitor destination in Kamakura City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 201
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -70,15 +70,15 @@
   },
   "ratings": {
     "overall": 8,
-    "couple": 7.4,
-    "summer": 6.9,
-    "winter": 8.2,
-    "rain": 9.5,
+    "couple": 7.5,
+    "summer": 7,
+    "winter": 8,
+    "rain": 5.5,
     "food": 9,
-    "photography": 6.9,
-    "relaxation": 6.4,
-    "value": 7.7,
-    "uniqueness": 7.2,
+    "photography": 7,
+    "relaxation": 6.5,
+    "value": 7.5,
+    "uniqueness": 7,
     "family": 8.5,
     "accessibility": 8
   },
@@ -95,7 +95,7 @@
     "winter": 6.2
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kamakura City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

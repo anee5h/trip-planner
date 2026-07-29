@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Tsurugaoka Hachimangu",
-      "description": "Tsurugaoka Hachimangū (鶴岡八幡宮) is the most important Shinto shrine in the city of Kamakura, Kanagawa Prefecture, Japan.   The shrine is a cultural center of the city of Kamakura and serves as the venue of many of its most important festivals with two museums.\nFor most of its history, it served both as a Hachiman shrine, and in latter years a Tendai Buddhist temple typical of Japanese Buddhist architecture.",
+      "description": "Tsurugaoka Hachimangu is a visitor destination in Kamakura City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "鶴岡八幡宮",
-      "description": "鶴岡八幡宮（つるがおかはちまんぐう）は、神奈川県鎌倉市雪ノ下にある八幡宮。鎌倉八幡宮とも呼ばれる。11世紀後半に、源氏の守り神として創建された。",
+      "description": "鶴岡八幡宮はKamakura Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["歴史"]
     }
   },
@@ -39,21 +39,21 @@
     "lat": 35.32608056,
     "lng": 139.55641667
   },
-  "description": "Tsurugaoka Hachimangū (鶴岡八幡宮) is the most important Shinto shrine in the city of Kamakura, Kanagawa Prefecture, Japan.   The shrine is a cultural center of the city of Kamakura and serves as the venue of many of its most important festivals with two museums.\nFor most of its history, it served both as a Hachiman shrine, and in latter years a Tendai Buddhist temple typical of Japanese Buddhist architecture.",
+  "description": "Tsurugaoka Hachimangu is a visitor destination in Kamakura City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 203
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,23 +62,23 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 25,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 3,
     "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 9.4,
+    "overall": 9.5,
     "couple": 6.5,
     "summer": 9,
-    "winter": 8.1,
-    "rain": 9,
-    "food": 8.1,
-    "photography": 7.2,
-    "relaxation": 6.3,
-    "value": 8.8,
-    "uniqueness": 7.9,
+    "winter": 8,
+    "rain": 5.5,
+    "food": 8,
+    "photography": 7,
+    "relaxation": 6.5,
+    "value": 9,
+    "uniqueness": 8,
     "family": 7,
     "accessibility": 9.5
   },
@@ -95,7 +95,7 @@
     "winter": 9.3
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kamakura City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

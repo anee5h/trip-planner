@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "SCMaglev and Railway Park",
-      "description": "The SCMaglev and Railway Park (リニア・鉄道館　～夢と想い出のミュージアム～, Rinia Tetsudōkan: Yume to Omoide no Myūjiamu; lit. 'Linear Railway Museum: Museum of Dreams and Memories') is a railway museum owned by the Central Japan Railway Company (JR Central) in Nagoya, Japan. The museum opened on 14 March 2011.\nThe museum features 39 full-size railway vehicles and one bus exhibit, train cab simulators, and model railway dioramas.",
+      "description": "SCMaglev and Railway Park is a visitor destination in Nagoya City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
       "highlights": ["Nature"]
     },
     "ja": {
       "name": "リニア・鉄道館",
-      "description": "リニア・鉄道館〜夢と想い出のミュージアム〜（リニア・てつどうかん〜ゆめとおもいでのミュージアム〜 英語名：SCMAGLEV and Railway Park）は、東海旅客鉄道（JR東海）が2011年（平成23年）3月14日に愛知県名古屋市港区金城ふ頭に開館した、鉄道に関する事物を展示する博物館類似施設（鉄道保存展示施設）である。",
+      "description": "リニア・鉄道館はNagoya Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["自然"]
     }
   },
@@ -38,22 +38,21 @@
     "lat": 35.04735,
     "lng": 136.849319
   },
-  "description": "The SCMaglev and Railway Park (リニア・鉄道館　～夢と想い出のミュージアム～, Rinia Tetsudōkan: Yume to Omoide no Myūjiamu; lit. 'Linear Railway Museum: Museum of Dreams and Memories') is a railway museum owned by the Central Japan Railway Company (JR Central) in Nagoya, Japan. The museum opened on 14 March 2011.\nThe museum features 39 full-size railway vehicles and one bus exhibit, train cab simulators, and model railway dioramas.",
+  "description": "SCMaglev and Railway Park is a visitor destination in Nagoya City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 205,
-    "shinkansen": 95
+    "train": 25
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1.5,
     "max": 4
@@ -62,24 +61,24 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 10,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 8.5,
-    "couple": 8.6,
-    "summer": 7.9,
+    "couple": 8.5,
+    "summer": 8,
     "winter": 9,
-    "rain": 8.3,
-    "food": 7.6,
-    "photography": 8.7,
+    "rain": 5.5,
+    "food": 7.5,
+    "photography": 8.5,
     "relaxation": 8,
-    "value": 7.3,
-    "uniqueness": 8.4,
-    "family": 7.7,
+    "value": 7.5,
+    "uniqueness": 8.5,
+    "family": 7.5,
     "accessibility": 7
   },
   "ratingsSchemaVersion": 2,
@@ -95,7 +94,7 @@
     "winter": 7.8
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
@@ -107,7 +106,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +121,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,8 +148,43 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
   },
-  "officialWebsite": "https://museum.jr-central.co.jp/"
+  "officialWebsite": "https://museum.jr-central.co.jp/",
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  }
 }

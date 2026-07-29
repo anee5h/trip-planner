@@ -6,24 +6,21 @@
   "content": {
     "en": {
       "name": "Katori Jingu",
-      "description": "The Katori Shrine (香取神宮, Katori Jingū) is a Shintō shrine in the city of Katori in Chiba Prefecture, Japan. It is the ichinomiya of former Shimōsa Province, and is the head shrine of the approximately 400 Katori shrines around the country (located primarily in the Kantō region). The main festival of the shrine is held annually on April 14, with a three-day Grand Festival held every 12 years.",
+      "description": "Katori Jingu is a visitor destination in the surrounding area. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "香取神宮",
-      "description": "香取神宮（かとりじんぐう）は、千葉県香取市香取にある神社。式内社（名神大社）、下総国一宮。旧社格は官幣大社で、現在は神社本庁の別表神社。",
+      "description": "香取神宮は周辺地域にある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["歴史"]
     }
   },
   "prefecture": "Chiba",
   "region": "Kanto",
   "kind": "shrine",
-  "role": "poi",
+  "role": "standalone",
   "placeType": "destination",
-  "areaId": "naritasan",
-  "relationships": {
-    "parentDestinationId": "narita-city"
-  },
+  "relationships": {},
   "officialWebsite": "http://www.katori-jingu.or.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
@@ -39,21 +36,21 @@
     "lat": 35.886206,
     "lng": 140.528518
   },
-  "description": "The Katori Shrine (香取神宮, Katori Jingū) is a Shintō shrine in the city of Katori in Chiba Prefecture, Japan. It is the ichinomiya of former Shimōsa Province, and is the head shrine of the approximately 400 Katori shrines around the country (located primarily in the Kantō region). The main festival of the shrine is held annually on April 14, with a three-day Grand Festival held every 12 years.",
+  "description": "Katori Jingu is a visitor destination in the surrounding area. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 203
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +59,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 25,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 3,
     "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 6.6,
-    "couple": 7.7,
-    "summer": 8.8,
+    "overall": 6.5,
+    "couple": 7.5,
+    "summer": 9,
     "winter": 6.5,
-    "rain": 9.4,
-    "food": 7.1,
-    "photography": 8.2,
-    "relaxation": 9.3,
-    "value": 8.8,
+    "rain": 5.5,
+    "food": 7,
+    "photography": 8,
+    "relaxation": 9.5,
+    "value": 9,
     "uniqueness": 6.5,
-    "family": 7.6,
-    "accessibility": 8.7
+    "family": 7.5,
+    "accessibility": 8.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +92,7 @@
     "winter": 8.1
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Narita City.",
@@ -107,7 +104,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +119,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +146,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

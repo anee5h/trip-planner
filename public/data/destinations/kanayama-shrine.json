@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Kanayama Shrine",
-      "description": "Shinto shrine in Chiba Prefecture, Japan",
+      "description": "Kanayama Shrine is a visitor destination in Kawasaki City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "金山神社",
-      "description": "金山神社（かなやまじんじゃ、きんざんじんじゃ）は、日本各地に鎮座する神社。金山彦神・金山姫神など、金属および鉱山とその関連業（鍛冶、鉱業、ほか）にまつわる神を祀るものが多い。",
+      "description": "金山神社はKawasaki Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["歴史"]
     }
   },
@@ -38,21 +38,21 @@
     "lat": 35.788479,
     "lng": 139.902695
   },
-  "description": "Shinto shrine in Chiba Prefecture, Japan",
+  "description": "Kanayama Shrine is a visitor destination in Kawasaki City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 197
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -61,7 +61,7 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 25,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 3,
     "rainFriendly": 3,
@@ -69,17 +69,17 @@
   },
   "ratings": {
     "overall": 8,
-    "couple": 7.1,
-    "summer": 7.4,
-    "winter": 7.7,
-    "rain": 8,
-    "food": 8.3,
-    "photography": 6.8,
-    "relaxation": 7.1,
-    "value": 7.4,
-    "uniqueness": 7.7,
+    "couple": 7,
+    "summer": 7.5,
+    "winter": 7.5,
+    "rain": 5.5,
+    "food": 8.5,
+    "photography": 7,
+    "relaxation": 7,
+    "value": 7.5,
+    "uniqueness": 7.5,
     "family": 8,
-    "accessibility": 8.3
+    "accessibility": 8.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -94,7 +94,7 @@
     "winter": 9.5
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kawasaki City.",
@@ -106,7 +106,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -115,11 +115,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -144,7 +142,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

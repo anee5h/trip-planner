@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Toki no Kane",
-      "description": "Time Bell Tower (Japanese: 時の鐘; Toki no Kane) is a bell tower built in the center of Kawagoe, Japan. It is considered the symbol of the city.",
-      "highlights": ["Culture"]
+      "description": "Toki no Kane is a visitor destination in Kawagoe City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Viewpoint"]
     },
     "ja": {
       "name": "時の鐘 (川越市)",
-      "description": "時の鐘（ときのかね）は、埼玉県川越市の中心部、幸町北部の蔵造りの街並みに建てられている鐘楼（時計台）。建物は、川越市指定有形文化財に指定されている。",
+      "description": "時の鐘 (川越市)はKawagoe Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["展望"]
     }
   },
   "prefecture": "Saitama",
   "region": "Kanto",
-  "kind": "museum",
+  "kind": "tower",
   "role": "poi",
   "placeType": "destination",
   "areaId": "kurazukuri",
@@ -25,8 +25,8 @@
     "parentDestinationId": "kawagoe-city"
   },
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
-  "tags": ["Culture", "Kawagoe City", "v1.9.2"],
+  "categories": ["Viewpoint"],
+  "tags": ["Viewpoint", "Kawagoe City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tokinokane-2006-03-20%201.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -38,8 +38,8 @@
     "lat": 35.923488888889,
     "lng": 139.48331388889
   },
-  "description": "Time Bell Tower (Japanese: 時の鐘; Toki no Kane) is a bell tower built in the center of Kawagoe, Japan. It is considered the symbol of the city.",
-  "highlights": ["Culture"],
+  "description": "Toki no Kane is a visitor destination in Kawagoe City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Viewpoint"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
@@ -50,9 +50,9 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 204
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -61,24 +61,24 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 60,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 6,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 9,
     "couple": 9,
-    "summer": 8.1,
+    "summer": 8,
     "winter": 9,
-    "rain": 8.1,
-    "food": 7.2,
-    "photography": 6.3,
-    "relaxation": 8.8,
-    "value": 6.3,
-    "uniqueness": 8.8,
-    "family": 7.9,
+    "rain": 5.5,
+    "food": 7,
+    "photography": 6.5,
+    "relaxation": 9,
+    "value": 6.5,
+    "uniqueness": 9,
+    "family": 8,
     "accessibility": 7
   },
   "ratingsSchemaVersion": 2,
@@ -94,7 +94,7 @@
     "winter": 8.6
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kawagoe City.",
@@ -106,7 +106,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -115,11 +115,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -144,7 +142,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

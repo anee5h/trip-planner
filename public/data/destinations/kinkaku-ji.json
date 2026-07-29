@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Kinkaku-ji",
-      "description": "Kinkaku-ji (金閣寺; Japanese pronunciation: [kʲiꜜŋ.ka.kɯ.dʑi], lit. 'Temple of the Golden Pavilion'), officially named Rokuon-ji (鹿苑寺; [ɾoꜜ.kɯ.oɲ.dʑi], lit. 'Deer Garden Temple'), is a Zen Buddhist temple in Kyoto, Japan and a tourist attraction. It is designated as a World Heritage Site, a National Special Historic Site, a National Special Landscape, and one of the 17 Historic Monuments of Ancient Kyoto. The temple is nicknamed after its reliquary (shariden), the Golden Pavilion (金閣, Kinkaku), whose top two floors are coated in 0.5 μm gold leaf.",
+      "description": "Kinkaku-ji is a visitor destination in Kyoto City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "鹿苑寺",
-      "description": "鹿苑寺（ろくおんじ）は、京都市北区金閣寺町にある臨済宗相国寺派の寺院。大本山相国寺の境外塔頭。山号は北山（ほくざん）。",
+      "description": "鹿苑寺はKyoto Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["歴史"]
     }
   },
@@ -39,23 +39,22 @@
     "lat": 35.0395,
     "lng": 135.7285
   },
-  "description": "Kinkaku-ji (金閣寺; Japanese pronunciation: [kʲiꜜŋ.ka.kɯ.dʑi], lit. 'Temple of the Golden Pavilion'), officially named Rokuon-ji (鹿苑寺; [ɾoꜜ.kɯ.oɲ.dʑi], lit. 'Deer Garden Temple'), is a Zen Buddhist temple in Kyoto, Japan and a tourist attraction. It is designated as a World Heritage Site, a National Special Historic Site, a National Special Landscape, and one of the 17 Historic Monuments of Ancient Kyoto. The temple is nicknamed after its reliquary (shariden), the Golden Pavilion (金閣, Kinkaku), whose top two floors are coated in 0.5 μm gold leaf.",
+  "description": "Kinkaku-ji is a visitor destination in Kyoto City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 235,
-    "bus": 235,
-    "shinkansen": 135
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -71,18 +70,18 @@
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 9.4,
-    "couple": 8.1,
+    "overall": 9.5,
+    "couple": 8,
     "summer": 8,
-    "winter": 6.3,
-    "rain": 8,
-    "food": 7.9,
-    "photography": 6.2,
+    "winter": 6.5,
+    "rain": 5.5,
+    "food": 8,
+    "photography": 6,
     "relaxation": 9.5,
-    "value": 7.8,
-    "uniqueness": 7.7,
-    "family": 9.4,
-    "accessibility": 7.7
+    "value": 8,
+    "uniqueness": 7.5,
+    "family": 9.5,
+    "accessibility": 7.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -97,7 +96,7 @@
     "winter": 7.5
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
@@ -109,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

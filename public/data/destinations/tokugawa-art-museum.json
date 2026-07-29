@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Tokugawa Art Museum",
-      "description": "The Tokugawa Art Museum (徳川美術館, Tokugawa Bijutsukan) is a private art museum, located on the former Ōzone Shimoyashiki compound in Nagoya, central Japan. Its collection contains more than 12,000 items, including swords, armor, Noh costumes and masks, lacquer furniture, Chinese and Japanese ceramics, calligraphy, and paintings from the Chinese Song and Yuan dynasties (960–1368).",
+      "description": "Tokugawa Art Museum is a visitor destination in Nagoya City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "徳川美術館",
-      "description": "徳川美術館（とくがわびじゅつかん）は、愛知県名古屋市東区徳川町にある私立美術館。公益財団法人徳川黎明会が運営する。1935年に、尾張徳川家19代当主徳川義親（よしちか）により創立された。",
+      "description": "徳川美術館はNagoya Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["博物館"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 35.183692,
     "lng": 136.933189
   },
-  "description": "The Tokugawa Art Museum (徳川美術館, Tokugawa Bijutsukan) is a private art museum, located on the former Ōzone Shimoyashiki compound in Nagoya, central Japan. Its collection contains more than 12,000 items, including swords, armor, Noh costumes and masks, lacquer furniture, Chinese and Japanese ceramics, calligraphy, and paintings from the Chinese Song and Yuan dynasties (960–1368).",
+  "description": "Tokugawa Art Museum is a visitor destination in Nagoya City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -51,10 +51,9 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 199,
-    "shinkansen": 89
+    "train": 25
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -66,22 +65,22 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 9,
+    "rainFriendly": 8,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 9.1,
-    "couple": 9.1,
-    "summer": 6.8,
-    "winter": 7.9,
+    "overall": 9,
+    "couple": 9,
+    "summer": 7,
+    "winter": 8,
     "rain": 9,
     "food": 8.5,
-    "photography": 6.2,
-    "relaxation": 7.3,
-    "value": 6.8,
-    "uniqueness": 7.9,
+    "photography": 6,
+    "relaxation": 7.5,
+    "value": 7,
+    "uniqueness": 8,
     "family": 9,
-    "accessibility": 6.7
+    "accessibility": 6.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -96,7 +95,7 @@
     "winter": 9.5
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Low",
+  "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
@@ -108,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -123,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -152,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

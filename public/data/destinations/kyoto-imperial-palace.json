@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Kyoto Imperial Palace",
-      "description": "The Kyōto Imperial Palace (京都御所, Kyōto-gosho), also known as Dairi (内裏) or Kinri (禁裏), is the former palace of the Emperor of Japan from 1331 to 1869 located in Kamigyō-ku, Kyoto, Japan. Since the Meiji Restoration in 1869, the Emperors have resided at the Tokyo Imperial Palace, while the preservation of the Kyoto Imperial Palace was ordered in 1877. Today, the grounds are open to the public, and the Imperial Household Agency hosts public tours of the buildings several times a day.",
+      "description": "Kyoto Imperial Palace is a visitor destination in Kyoto City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "京都御所",
-      "description": "京都御所（きょうとごしょ、旧字体: 京都󠄀御所󠄁）は、京都府京都市上京区にある皇室関連施設。法律上の位置づけは東京都の皇居などと同じく皇室用財産。現役の皇居と扱われる。",
+      "description": "京都御所はKyoto Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["歴史"]
     }
   },
   "prefecture": "Kyoto",
   "region": "Kansai",
-  "kind": "museum",
+  "kind": "castle",
   "role": "poi",
   "placeType": "destination",
   "areaId": "central-kyoto",
@@ -39,23 +39,22 @@
     "lat": 35.025278,
     "lng": 135.762222
   },
-  "description": "The Kyōto Imperial Palace (京都御所, Kyōto-gosho), also known as Dairi (内裏) or Kinri (禁裏), is the former palace of the Emperor of Japan from 1331 to 1869 located in Kamigyō-ku, Kyoto, Japan. Since the Meiji Restoration in 1869, the Emperors have resided at the Tokyo Imperial Palace, while the preservation of the Kyoto Imperial Palace was ordered in 1877. Today, the grounds are open to the public, and the Imperial Household Agency hosts public tours of the buildings several times a day.",
+  "description": "Kyoto Imperial Palace is a visitor destination in Kyoto City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 235,
-    "bus": 235,
-    "shinkansen": 135
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -64,25 +63,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 25,
+  "indoorPercent": 35,
   "comfort": {
     "heatTolerance": 3,
     "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 7.9,
-    "couple": 6.2,
-    "summer": 7.9,
-    "winter": 6.2,
-    "rain": 7.9,
-    "food": 6.2,
-    "photography": 7.9,
-    "relaxation": 6.2,
-    "value": 7.9,
-    "uniqueness": 6.2,
-    "family": 7.9,
-    "accessibility": 6.2
+    "overall": 8,
+    "couple": 6,
+    "summer": 8,
+    "winter": 6,
+    "rain": 5.5,
+    "food": 6,
+    "photography": 8,
+    "relaxation": 6,
+    "value": 8,
+    "uniqueness": 6,
+    "family": 8,
+    "accessibility": 6
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -97,7 +96,7 @@
     "winter": 6.2
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
@@ -109,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

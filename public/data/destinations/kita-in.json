@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Kita-in",
-      "description": "Seiya-san Muryōshuji Kita-in (星野山無量寿寺喜多院) is a Buddhist temple located in the city of Kawagoe in Saitama Prefecture, Japan. It is noted for its main hall, which was part of the original Edo Castle, and the statues of 540 Rakan, disciples of the Buddha. It is also known informally as the Kawagoe Daishi (川越大師).",
-      "highlights": ["Culture"]
+      "description": "Kita-in is a visitor destination in Kawagoe City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "highlights": ["History"]
     },
     "ja": {
       "name": "喜多院",
-      "description": "喜多院（きたいん）は、埼玉県川越市にある天台宗の寺院。山号は星野山（せいやさん）。本尊は阿弥陀如来。",
-      "highlights": ["展望"]
+      "description": "喜多院はKawagoe Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["歴史"]
     }
   },
   "prefecture": "Saitama",
   "region": "Kanto",
-  "kind": "museum",
+  "kind": "temple",
   "role": "poi",
   "placeType": "destination",
   "areaId": "central-kawagoe",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.kawagoe.com/kitain/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
-  "tags": ["Culture", "Kawagoe City", "v1.9.2"],
+  "categories": ["History"],
+  "tags": ["History", "Kawagoe City", "v1.9.2"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Kawagoe_Kitain_Tahoto_202011.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,21 +39,21 @@
     "lat": 35.917525,
     "lng": 139.48906667
   },
-  "description": "Seiya-san Muryōshuji Kita-in (星野山無量寿寺喜多院) is a Buddhist temple located in the city of Kawagoe in Saitama Prefecture, Japan. It is noted for its main hall, which was part of the original Edo Castle, and the statues of 540 Rakan, disciples of the Buddha. It is also known informally as the Kawagoe Daishi (川越大師).",
-  "highlights": ["Culture"],
+  "description": "Kita-in is a visitor destination in Kawagoe City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 202
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 25,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 7.6,
-    "couple": 8.4,
-    "summer": 7.9,
-    "winter": 7.4,
-    "rain": 8.5,
+    "overall": 7.5,
+    "couple": 8.5,
+    "summer": 8,
+    "winter": 7.5,
+    "rain": 5.5,
     "food": 8,
     "photography": 7.5,
-    "relaxation": 8.6,
-    "value": 8.1,
-    "uniqueness": 9.2,
-    "family": 8.7,
-    "accessibility": 8.2
+    "relaxation": 8.5,
+    "value": 8,
+    "uniqueness": 9,
+    "family": 8.5,
+    "accessibility": 8
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 9.4
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kawagoe City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

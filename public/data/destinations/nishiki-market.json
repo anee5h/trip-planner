@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Nishiki Market",
-      "description": "Nishiki Market (錦市場, Nishiki Ichiba; literally \"brocade market\") is a marketplace in downtown Kyoto, located on the east end of Nishikikōji Street, one block north and parallel to Shijō Street (四条通, Shijō-dōri) and west of Teramachi Street (寺町通, Teramachi-dōri).  Rich with history and tradition, the market is renowned as the place to obtain many of Kyoto's famous foods and goods.",
-      "highlights": ["Food"]
+      "description": "Nishiki Market is a visitor destination in Kyoto City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Food", "Market"]
     },
     "ja": {
       "name": "錦市場",
-      "description": "錦市場（にしき いちば、英語: Nishiki Market）は、京都府京都市中京区のほぼ中央に位置する錦小路通のうち、「寺町通 - 高倉通」間に存在する食品販売中心の商店街である。魚、京野菜といった生鮮食材のほか、乾物や漬物、おばんざい（京言葉で日常の惣菜）などの加工食品を商う老舗・専門店が集まる市場。\n中小企業庁によれば、商店街の類型として超広域型商店街とされる。",
-      "highlights": ["グルメ"]
+      "description": "錦市場はKyoto Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["グルメ", "市場"]
     }
   },
   "prefecture": "Kyoto",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "http://www.kyoto-nishiki.or.jp/",
   "officialWebsiteRequirement": "none",
-  "categories": ["Food"],
-  "tags": ["Food", "Kyoto City", "v1.9.2"],
+  "categories": ["Food", "Market"],
+  "tags": ["Food", "Market", "Kyoto City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nishiki%20ichiba%20kyoto.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,23 +39,22 @@
     "lat": 35.00502778,
     "lng": 135.76613889
   },
-  "description": "Nishiki Market (錦市場, Nishiki Ichiba; literally \"brocade market\") is a marketplace in downtown Kyoto, located on the east end of Nishikikōji Street, one block north and parallel to Shijō Street (四条通, Shijō-dōri) and west of Teramachi Street (寺町通, Teramachi-dōri).  Rich with history and tradition, the market is renowned as the place to obtain many of Kyoto's famous foods and goods.",
-  "highlights": ["Food"],
+  "description": "Nishiki Market is a visitor destination in Kyoto City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Food", "Market"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 234,
-    "bus": 234,
-    "shinkansen": 134
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -64,25 +63,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 55,
+  "indoorPercent": 25,
   "comfort": {
     "heatTolerance": 6,
-    "rainFriendly": 6,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 8.9,
-    "couple": 6.4,
-    "summer": 7.3,
-    "winter": 6.4,
-    "rain": 8.9,
+    "overall": 9,
+    "couple": 6.5,
+    "summer": 7.5,
+    "winter": 6.5,
+    "rain": 5.5,
     "food": 8,
-    "photography": 8.9,
+    "photography": 9,
     "relaxation": 8,
-    "value": 7.1,
-    "uniqueness": 6.2,
-    "family": 8.7,
-    "accessibility": 6.2
+    "value": 7,
+    "uniqueness": 6,
+    "family": 8.5,
+    "accessibility": 6
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -97,7 +96,7 @@
     "winter": 7.8
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
@@ -109,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

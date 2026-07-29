@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Todoroki Ryokuchi",
-      "description": "Todoroki Ryokuchi (等々力緑地) is a park located in Nakahara-ku ward, Kawasaki, in Kanagawa Prefecture, Japan. It is famous for its sport facilities including an athletics stadium, gym, a baseball field, a pool, a tennis court, and it contains a museum as well.",
-      "highlights": ["Culture"]
+      "description": "Todoroki Ryokuchi is a visitor destination in Kawasaki City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Nature"]
     },
     "ja": {
       "name": "等々力緑地",
-      "description": "等々力緑地（とどろきりょくち）は、神奈川県川崎市中原区等々力にある、スポーツ施設群を有する都市公園（総合公園）である。\n等々力陸上競技場の他、体育館、野球場、プール、テニスコートといったスポーツ施設があり、川崎市民ミュージアムも立地している。アスレチックのある催し物広場は、かわさきおやこ劇場などが自主活動で使用することもある。",
-      "highlights": ["展望"]
+      "description": "等々力緑地はKawasaki Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["自然"]
     }
   },
   "prefecture": "Kanagawa",
   "region": "Kanto",
-  "kind": "museum",
+  "kind": "park",
   "role": "poi",
   "placeType": "destination",
   "areaId": "todoroki",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.city.kawasaki.jp/shisetsu/category/30-11-0-0-0-0-0-0-0-0.html",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
-  "tags": ["Culture", "Kawasaki City", "v1.9.2"],
+  "categories": ["Nature"],
+  "tags": ["Nature", "Kawasaki City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Todoroki%20Ryokuchi.JPG?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,21 +39,21 @@
     "lat": 35.5861,
     "lng": 139.65
   },
-  "description": "Todoroki Ryokuchi (等々力緑地) is a park located in Nakahara-ku ward, Kawasaki, in Kanagawa Prefecture, Japan. It is famous for its sport facilities including an athletics stadium, gym, a baseball field, a pool, a tennis court, and it contains a museum as well.",
-  "highlights": ["Culture"],
+  "description": "Todoroki Ryokuchi is a visitor destination in Kawasaki City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 199
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 10,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 6.7,
-    "couple": 9.2,
-    "summer": 6.9,
-    "winter": 6.4,
-    "rain": 7.5,
-    "food": 8.6,
-    "photography": 6.3,
-    "relaxation": 9.2,
-    "value": 6.9,
+    "overall": 6.5,
+    "couple": 9,
+    "summer": 7,
+    "winter": 6.5,
+    "rain": 5.5,
+    "food": 8.5,
+    "photography": 6.5,
+    "relaxation": 9,
+    "value": 7,
     "uniqueness": 8,
     "family": 7.5,
-    "accessibility": 8.6
+    "accessibility": 8.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 8
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kawasaki City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

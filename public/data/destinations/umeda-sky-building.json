@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Umeda Sky Building",
-      "description": "The Umeda Sky Building (梅田スカイビル, Umeda Sukai Biru) is a two-tower mixed-use skyscraper in Osaka, Japan. Located on the outskirts of the Umeda business district in Kita-ku, Osaka, the Umeda Sky Building consists of two 40-story towers interconnected at their two uppermost stories via glass bridges with escalators and elevators that cross an open atrium space. It is currently the fifteenth-tallest building in the prefecture.",
-      "highlights": ["Viewpoint"]
+      "description": "Umeda Sky Building is a visitor destination in Osaka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Culture"]
     },
     "ja": {
       "name": "梅田スカイビル",
-      "description": "梅田スカイビル（うめだスカイビル）は、1993年3月に完成した、大阪府大阪市北区大淀中の新梅田シティ内にある超高層ビルで、積水ハウスの本社ビルである。\n高級ホテルのウェスティンホテル大阪と共に新梅田シティを構成している。",
-      "highlights": ["展望"]
+      "description": "梅田スカイビルはOsaka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["文化"]
     }
   },
   "prefecture": "Osaka",
   "region": "Kansai",
-  "kind": "museum",
+  "kind": "viewpoint",
   "role": "poi",
   "placeType": "destination",
   "areaId": "umeda-kita",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "http://www.skybldg.co.jp/skybldg/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Viewpoint"],
-  "tags": ["Viewpoint", "Osaka City", "v1.9.2"],
+  "categories": ["Culture"],
+  "tags": ["Culture", "Osaka City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2018%20Umeda%20Sky%20Building.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,8 +39,8 @@
     "lat": 34.705277777778,
     "lng": 135.48972222222
   },
-  "description": "The Umeda Sky Building (梅田スカイビル, Umeda Sukai Biru) is a two-tower mixed-use skyscraper in Osaka, Japan. Located on the outskirts of the Umeda business district in Kita-ku, Osaka, the Umeda Sky Building consists of two 40-story towers interconnected at their two uppermost stories via glass bridges with escalators and elevators that cross an open atrium space. It is currently the fifteenth-tallest building in the prefecture.",
-  "highlights": ["Viewpoint"],
+  "description": "Umeda Sky Building is a visitor destination in Osaka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
@@ -51,11 +51,10 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 187,
-    "bus": 207,
-    "shinkansen": 147
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -64,25 +63,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 30,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 7,
-    "couple": 6.4,
-    "summer": 6.7,
+    "couple": 6.5,
+    "summer": 6.5,
     "winter": 7,
-    "rain": 7.3,
-    "food": 7.6,
-    "photography": 7.9,
-    "relaxation": 8.2,
+    "rain": 5.5,
+    "food": 7.5,
+    "photography": 8,
+    "relaxation": 8,
     "value": 8.5,
-    "uniqueness": 8.8,
-    "family": 9.1,
-    "accessibility": 9.4
+    "uniqueness": 9,
+    "family": 9,
+    "accessibility": 9.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -97,7 +96,7 @@
     "winter": 8.8
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
@@ -109,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

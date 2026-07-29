@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Nijo Market",
-      "description": "Nijo Market is a visitor destination in Sapporo City.",
-      "highlights": ["Food"]
+      "description": "Nijo Market is a visitor destination in Sapporo City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Food", "Market"]
     },
     "ja": {
       "name": "二条市場",
-      "description": "二条市場（にじょういちば）は、北海道札幌市中央区にある市場。\n北海道、及び近郊で収穫された水産物・青果物・穀物など生鮮食品を販売する店舗・飲食店も設置されている。組合の名称は「札幌二条魚町商業協同組合」。",
-      "highlights": ["グルメ"]
+      "description": "二条市場はSapporo Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["グルメ", "市場"]
     }
   },
   "prefecture": "Hokkaido",
@@ -25,8 +25,8 @@
     "parentDestinationId": "sapporo-city"
   },
   "officialWebsiteRequirement": "none",
-  "categories": ["Food"],
-  "tags": ["Food", "Sapporo City", "v1.9.2"],
+  "categories": ["Food", "Market"],
+  "tags": ["Food", "Market", "Sapporo City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nijo%20fish%20Market%202014.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -38,21 +38,21 @@
     "lat": 43.058306,
     "lng": 141.358472
   },
-  "description": "Nijo Market is a visitor destination in Sapporo City.",
-  "highlights": ["Food"],
+  "description": "Nijo Market is a visitor destination in Sapporo City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Food", "Market"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 203
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -61,25 +61,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 55,
+  "indoorPercent": 25,
   "comfort": {
     "heatTolerance": 6,
-    "rainFriendly": 6,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 7.6,
+    "overall": 7.5,
     "couple": 6.5,
-    "summer": 9.4,
-    "winter": 7.1,
-    "rain": 8.2,
-    "food": 9.3,
+    "summer": 9.5,
+    "winter": 7,
+    "rain": 5.5,
+    "food": 9.5,
     "photography": 7,
     "relaxation": 6.5,
-    "value": 7.6,
-    "uniqueness": 8.7,
-    "family": 6.4,
-    "accessibility": 9.3
+    "value": 7.5,
+    "uniqueness": 8.5,
+    "family": 6.5,
+    "accessibility": 9.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -94,7 +94,7 @@
     "winter": 8.7
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
@@ -106,7 +106,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -121,11 +121,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -150,8 +148,43 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
   },
-  "officialWebsite": "https://nijomarket.com/"
+  "officialWebsite": "https://nijomarket.com/",
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  }
 }

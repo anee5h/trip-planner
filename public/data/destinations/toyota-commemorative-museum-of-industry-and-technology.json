@@ -9,12 +9,12 @@
   "content": {
     "en": {
       "name": "Toyota Commemorative Museum of Industry and Technology",
-      "description": "The Toyota Commemorative Museum of Industry and Technology (産業技術記念館, Sangyo-Gijutsu Kinenkan), also known as Toyota Tecno Museum, is a technology museum located in Nishi-ku in the city of Nagoya, central Japan.",
+      "description": "Toyota Commemorative Museum of Industry and Technology is a visitor destination in Nagoya City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "トヨタ産業技術記念館",
-      "description": "トヨタ産業技術記念館（とよたさんぎょうぎじゅつきねんかん、英語名：TOYOTA Commemorative Museum of Industry and Technology）は、愛知県名古屋市西区則武新町四丁目1番35号にあるトヨタグループ運営の企業博物館。1994年（平成6年）開館。",
+      "description": "トヨタ産業技術記念館はNagoya Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["博物館"]
     }
   },
@@ -42,7 +42,7 @@
     "lat": 35.1832,
     "lng": 136.876
   },
-  "description": "The Toyota Commemorative Museum of Industry and Technology (産業技術記念館, Sangyo-Gijutsu Kinenkan), also known as Toyota Tecno Museum, is a technology museum located in Nishi-ku in the city of Nagoya, central Japan.",
+  "description": "Toyota Commemorative Museum of Industry and Technology is a visitor destination in Nagoya City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -54,10 +54,9 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 201,
-    "shinkansen": 91
+    "train": 25
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -69,22 +68,22 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 9,
+    "rainFriendly": 8,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 8.3,
-    "couple": 9.1,
-    "summer": 8.2,
-    "winter": 9.1,
+    "overall": 8.5,
+    "couple": 9,
+    "summer": 8,
+    "winter": 9,
     "rain": 9,
     "food": 7.5,
-    "photography": 8.4,
-    "relaxation": 9.3,
-    "value": 8.4,
-    "uniqueness": 9.3,
-    "family": 6.8,
-    "accessibility": 7.7
+    "photography": 8.5,
+    "relaxation": 9.5,
+    "value": 8.5,
+    "uniqueness": 9.5,
+    "family": 7,
+    "accessibility": 7.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -99,7 +98,7 @@
     "winter": 9.5
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Low",
+  "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
@@ -111,7 +110,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -126,11 +125,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -155,7 +152,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

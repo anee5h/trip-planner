@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Sunshine Aquarium",
-      "description": "Sunshine Aquarium (サンシャイン水族館, Sanshain suizokukan), formerly known as Sunshine International Aquarium (サンシャイン国際水族館, Sanshain kokusai suizokukan), is a public aquarium located on the top floors and rooftop of the World Import Mart building in Sunshine City, Tokyo, Japan. The aquarium opened in October 1978. It was closed for one year from September 1, 2010, for a full renovation, and reopened on August 4, 2011.",
-      "highlights": ["Museum"]
+      "description": "Sunshine Aquarium is a visitor destination in Toshima City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Aquarium"]
     },
     "ja": {
       "name": "サンシャイン水族館",
-      "description": "サンシャイン水族館（サンシャインすいぞくかん、英語：Sunshine Aquarium）は、東京都豊島区東池袋のサンシャインシティ ワールドインポートマート内にある水族館。1978年10月開館。株式会社サンシャインエンタプライズが運営している。",
-      "highlights": ["博物館"]
+      "description": "サンシャイン水族館はToshima Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["水族館"]
     }
   },
   "prefecture": "Tokyo",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://sunshinecity.jp/aquarium/",
   "officialWebsiteRequirement": "recommended",
-  "categories": ["Museum"],
-  "tags": ["Museum", "Toshima City", "v1.9.2"],
+  "categories": ["Aquarium"],
+  "tags": ["Aquarium", "Toshima City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Breeding%20staff%2C%20Sunshine%20Aquarium.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,8 +39,8 @@
     "lat": 35.728583,
     "lng": 139.71975
   },
-  "description": "Sunshine Aquarium (サンシャイン水族館, Sanshain suizokukan), formerly known as Sunshine International Aquarium (サンシャイン国際水族館, Sanshain kokusai suizokukan), is a public aquarium located on the top floors and rooftop of the World Import Mart building in Sunshine City, Tokyo, Japan. The aquarium opened in October 1978. It was closed for one year from September 1, 2010, for a full renovation, and reopened on August 4, 2011.",
-  "highlights": ["Museum"],
+  "description": "Sunshine Aquarium is a visitor destination in Toshima City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Aquarium"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
   "budgetMax": 8500,
@@ -51,9 +51,9 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 198
+    "train": 25
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -65,22 +65,22 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 9,
+    "rainFriendly": 8,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 7.3,
-    "couple": 6.4,
-    "summer": 6.9,
-    "winter": 7.4,
+    "overall": 7.5,
+    "couple": 6.5,
+    "summer": 7,
+    "winter": 7.5,
     "rain": 9,
-    "food": 6.8,
-    "photography": 7.3,
-    "relaxation": 6.2,
-    "value": 6.7,
-    "uniqueness": 7.2,
-    "family": 7.7,
-    "accessibility": 6.6
+    "food": 7,
+    "photography": 7.5,
+    "relaxation": 6,
+    "value": 6.5,
+    "uniqueness": 7,
+    "family": 7.5,
+    "accessibility": 6.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 7
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Low",
+  "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Toshima City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

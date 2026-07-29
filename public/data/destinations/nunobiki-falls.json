@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Nunobiki Falls",
-      "description": "Nunobiki Falls (布引の滝, Nunobiki no Taki) is a set of waterfalls near downtown Kobe, Japan, with an important significance in Japanese literature and Japanese art. In Japan, Nunobiki is considered one of the greatest \"divine falls\" together with Kegon Falls and Nachi Falls.\nNunobiki waterfalls comprises four separate falls: Ontaki, Mentaki, Tsutsumigadaki, and Meotodaki.",
+      "description": "Nunobiki Falls is a visitor destination in Kobe City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
       "highlights": ["Nature"]
     },
     "ja": {
       "name": "布引の滝 (兵庫県)",
-      "description": "布引の滝（ぬのびきのたき）は、神戸市中央区を流れる布引渓流（名水百選）にある4つの滝の総称。日本三大神滝のひとつ。日本三大名瀑にも選ばれることがある。",
+      "description": "布引の滝 (兵庫県)はKobe Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["自然"]
     }
   },
   "prefecture": "Hyogo",
   "region": "Kansai",
-  "kind": "museum",
+  "kind": "waterfall",
   "role": "poi",
   "placeType": "destination",
   "areaId": "sannomiya",
@@ -38,22 +38,21 @@
     "lat": 34.709722222222,
     "lng": 135.19388888889
   },
-  "description": "Nunobiki Falls (布引の滝, Nunobiki no Taki) is a set of waterfalls near downtown Kobe, Japan, with an important significance in Japanese literature and Japanese art. In Japan, Nunobiki is considered one of the greatest \"divine falls\" together with Kegon Falls and Nachi Falls.\nNunobiki waterfalls comprises four separate falls: Ontaki, Mentaki, Tsutsumigadaki, and Meotodaki.",
+  "description": "Nunobiki Falls is a visitor destination in Kobe City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 203,
-    "shinkansen": 173
+    "train": 25
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1.5,
     "max": 4
@@ -62,25 +61,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 5,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 8.2,
-    "couple": 6.9,
+    "overall": 8,
+    "couple": 7,
     "summer": 8,
-    "winter": 9.1,
-    "rain": 6.8,
-    "food": 6.3,
-    "photography": 7.4,
+    "winter": 9,
+    "rain": 5.5,
+    "food": 6.5,
+    "photography": 7.5,
     "relaxation": 8.5,
-    "value": 6.2,
-    "uniqueness": 7.3,
-    "family": 6.8,
-    "accessibility": 7.9
+    "value": 6,
+    "uniqueness": 7.5,
+    "family": 7,
+    "accessibility": 8
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +94,7 @@
     "winter": 7.3
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
@@ -107,7 +106,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -116,11 +115,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -145,7 +142,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

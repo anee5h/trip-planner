@@ -201,6 +201,11 @@ export const CITY_AREAS: readonly CityArea[] = [
     name: { en: "Rokko", ja: "六甲" },
   },
   {
+    id: "port-island",
+    parentDestinationId: "kobe-city",
+    name: { en: "Port Island", ja: "ポートアイランド" },
+  },
+  {
     id: "hakata",
     parentDestinationId: "fukuoka-city",
     name: { en: "Hakata", ja: "博多" },

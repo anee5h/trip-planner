@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Shonan Kaigan Park",
-      "description": "park in Japan",
+      "description": "Shonan Kaigan Park is a visitor destination in Fujisawa City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
       "highlights": ["Nature"]
     },
     "ja": {
       "name": "湘南海岸公園 (藤沢市)",
-      "description": "湘南海岸公園（しょうなんかいがんこうえん）は、神奈川県藤沢市南部、片瀬・鵠沼両地区の相模湾に面する海岸部に位置する県立公園である。間近に江の島を望み、西方には富士山を中心に、右に丹沢、左に箱根・伊豆半島の山々が連なる。\n平塚市、大磯町にも同名の公園がある。",
+      "description": "湘南海岸公園 (藤沢市)はFujisawa Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["自然"]
     }
   },
@@ -39,21 +39,21 @@
     "lat": 35.31611111,
     "lng": 139.47083333
   },
-  "description": "park in Japan",
+  "description": "Shonan Kaigan Park is a visitor destination in Fujisawa City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 200
+    "train": 25
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1.5,
     "max": 4
@@ -62,24 +62,24 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 10,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 9.4,
-    "couple": 7.4,
-    "summer": 6.7,
-    "winter": 9.4,
-    "rain": 8.7,
-    "food": 6.2,
-    "photography": 8.9,
-    "relaxation": 8.2,
+    "overall": 9.5,
+    "couple": 7.5,
+    "summer": 6.5,
+    "winter": 9.5,
+    "rain": 5.5,
+    "food": 6,
+    "photography": 9,
+    "relaxation": 8,
     "value": 7.5,
-    "uniqueness": 8.4,
-    "family": 7.7,
+    "uniqueness": 8.5,
+    "family": 7.5,
     "accessibility": 7
   },
   "ratingsSchemaVersion": 2,
@@ -95,7 +95,7 @@
     "winter": 9.2
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Fujisawa City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

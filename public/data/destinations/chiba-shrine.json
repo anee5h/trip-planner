@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Chiba Shrine",
-      "description": "Chiba Shrine (千葉神社, Chiba-jinja) is a Shinto shrine located in Chūō-ku, Chiba City, Chiba Prefecture. Originally a Buddhist temple dedicated to the deity Myōken, the patron of the Chiba clan, it was converted into a Shinto shrine dedicated to Ame-no-Minakanushi (a kami in Japanese mythology conflated with Myōken) during the Meiji period.\nDue to its historical status as one of the principal centers of Myōken worship in Chiba Prefecture associated with the Chiba clan, the shrine is also popularly known as Chiba Dai-Myōken (千葉大妙見, \"Great Myōken [Shrine] of Chiba\"), Myōken Hongū (妙見本宮, the ″Main Shrine (Hongū) of Myōken″), or simply as Myōken-sama (妙見様).",
+      "description": "Chiba Shrine is a visitor destination in Chiba City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "千葉神社",
-      "description": "千葉神社（ちばじんじゃ）は、千葉県千葉市中央区にある神社。旧社格は県社。神紋は三光紋（月星）、社紋は九曜紋。",
+      "description": "千葉神社はChiba Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["歴史"]
     }
   },
@@ -39,22 +39,22 @@
     "lat": 35.611805555555556,
     "lng": 140.12383333333335
   },
-  "description": "Chiba Shrine (千葉神社, Chiba-jinja) is a Shinto shrine located in Chūō-ku, Chiba City, Chiba Prefecture. Originally a Buddhist temple dedicated to the deity Myōken, the patron of the Chiba clan, it was converted into a Shinto shrine dedicated to Ame-no-Minakanushi (a kami in Japanese mythology conflated with Myōken) during the Meiji period.\nDue to its historical status as one of the principal centers of Myōken worship in Chiba Prefecture associated with the Chiba clan, the shrine is also popularly known as Chiba Dai-Myōken (千葉大妙見, \"Great Myōken [Shrine] of Chiba\"), Myōken Hongū (妙見本宮, the ″Main Shrine (Hongū) of Myōken″), or simply as Myōken-sama (妙見様).",
+  "description": "Chiba Shrine is a visitor destination in Chiba City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 66,
-    "car": 56
+    "train": 25,
+    "car": 35
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -63,7 +63,7 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 25,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 3,
     "rainFriendly": 3,
@@ -71,17 +71,17 @@
   },
   "ratings": {
     "overall": 9.5,
-    "couple": 9.2,
-    "summer": 8.3,
-    "winter": 7.4,
-    "rain": 8.1,
-    "food": 7.2,
-    "photography": 7.9,
+    "couple": 9,
+    "summer": 8.5,
+    "winter": 7.5,
+    "rain": 5.5,
+    "food": 7,
+    "photography": 8,
     "relaxation": 7,
     "value": 9.5,
-    "uniqueness": 6.8,
-    "family": 9.3,
-    "accessibility": 8.4
+    "uniqueness": 7,
+    "family": 9.5,
+    "accessibility": 8.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -96,7 +96,7 @@
     "winter": 8
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Chiba City.",
@@ -108,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -123,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -152,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

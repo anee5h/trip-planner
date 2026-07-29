@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Kasori Shell Mounds",
-      "description": "The Kasori Shell Mounds (加曽利貝塚, Kasori kaizuka) is an archaeological site in the Sakuragi neighborhood of Wakaba ward of the city of Chiba, Chiba Prefecture, in the Kantō region of Japan. It contains the largest known shell midden found in Japan, and was designated a National Historic Site of Japan in 1971. Its status was raised to that of a special National Historic Site in 2017.",
-      "highlights": ["Culture"]
+      "description": "Kasori Shell Mounds is a visitor destination in Chiba City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "highlights": ["History", "Museum"]
     },
     "ja": {
       "name": "加曽利貝塚",
-      "description": "加曽利貝塚（かそりかいづか）は、千葉県千葉市若葉区桜木8丁目にある縄文時代の貝塚を伴う環状集落の遺跡である。日本最大級の貝塚であり、学史上でも著名な標式遺跡としても知られる。1971年（昭和46年）に北貝塚が、1977年（昭和52年）に南貝塚が国の史跡に指定され、2017年（平成29年）に国の特別史跡に指定された。",
-      "highlights": ["展望"]
+      "description": "加曽利貝塚はChiba Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["歴史", "博物館"]
     }
   },
   "prefecture": "Chiba",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.city.chiba.jp/kasori/infomation/overview/kasori_index.html",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
-  "tags": ["Culture", "Chiba City", "v1.9.2"],
+  "categories": ["History", "Museum"],
+  "tags": ["History", "Museum", "Chiba City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kasori%20Shell%20Midden%20Dugouts.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,8 +39,8 @@
     "lat": 35.623333333333,
     "lng": 140.16472222222
   },
-  "description": "The Kasori Shell Mounds (加曽利貝塚, Kasori kaizuka) is an archaeological site in the Sakuragi neighborhood of Wakaba ward of the city of Chiba, Chiba Prefecture, in the Kantō region of Japan. It contains the largest known shell midden found in Japan, and was designated a National Historic Site of Japan in 1971. Its status was raised to that of a special National Historic Site in 2017.",
-  "highlights": ["Culture"],
+  "description": "Kasori Shell Mounds is a visitor destination in Chiba City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "highlights": ["History", "Museum"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
@@ -51,10 +51,10 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 68,
-    "car": 58
+    "train": 25,
+    "car": 35
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -63,25 +63,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 70,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 6,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 8.2,
-    "couple": 7.4,
-    "summer": 7.9,
-    "winter": 8.4,
-    "rain": 8.9,
-    "food": 7.8,
-    "photography": 8.3,
-    "relaxation": 8.8,
-    "value": 7.7,
-    "uniqueness": 8.2,
-    "family": 8.7,
-    "accessibility": 7.6
+    "overall": 8,
+    "couple": 7.5,
+    "summer": 8,
+    "winter": 8.5,
+    "rain": 5.5,
+    "food": 8,
+    "photography": 8.5,
+    "relaxation": 9,
+    "value": 7.5,
+    "uniqueness": 8,
+    "family": 8.5,
+    "accessibility": 7.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -96,7 +96,7 @@
     "winter": 8
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Chiba City.",
@@ -108,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -123,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -152,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

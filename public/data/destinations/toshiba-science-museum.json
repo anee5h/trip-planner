@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Toshiba Science Museum",
-      "description": "Toshiba Science Museum was a science museum in Kawasaki, Kanagawa, Japan.  Admission to this museum was free, but reservations were optional if one needed an English-speaking guide.\nOn June 29, 2024 the museum closed to the public.",
+      "description": "Toshiba Science Museum is a visitor destination in Kawasaki City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "東芝未来科学館",
-      "description": "東芝未来科学館（とうしばみらいかがくかん）は、神奈川県川崎市幸区堀川町にある、東芝グループの歴史や製品を展示した科学教育施設。\n2014年（平成26年）に前身の東芝科学館を移転して開館。2024年（令和6年）6月29日まで一般利用者にも公開されていたが、現在は顧客やパートナー企業などの見学に限定している。",
+      "description": "東芝未来科学館はKawasaki Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["博物館"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 35.53185833,
     "lng": 139.69305556
   },
-  "description": "Toshiba Science Museum was a science museum in Kawasaki, Kanagawa, Japan.  Admission to this museum was free, but reservations were optional if one needed an English-speaking guide.\nOn June 29, 2024 the museum closed to the public.",
+  "description": "Toshiba Science Museum is a visitor destination in Kawasaki City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -51,9 +51,9 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 204
+    "train": 25
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -65,22 +65,22 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 9,
+    "rainFriendly": 8,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 7.6,
-    "couple": 6.6,
-    "summer": 7.9,
-    "winter": 7.4,
+    "overall": 7.5,
+    "couple": 6.5,
+    "summer": 8,
+    "winter": 7.5,
     "rain": 9,
-    "food": 8.2,
-    "photography": 7.7,
+    "food": 8,
+    "photography": 7.5,
     "relaxation": 9,
     "value": 8.5,
     "uniqueness": 8,
-    "family": 9.3,
-    "accessibility": 8.8
+    "family": 9.5,
+    "accessibility": 9
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 7
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Low",
+  "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kawasaki City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

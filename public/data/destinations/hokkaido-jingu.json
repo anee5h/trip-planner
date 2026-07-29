@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Hokkaido Jingu",
-      "description": "The Hokkaidō Shrine (北海道神宮, Hokkaidō Jingū), named the Sapporo Shrine (札幌神社, Sapporo Jinja) until 1964, is a Shinto shrine located in Sapporo, Hokkaido, Japan. Sited in Maruyama Park, Chūō-ku, Sapporo, Hokkaido, the Hokkaido Shrine enshrines four kami including the soul of the Emperor Meiji. A number of early explorers of Hokkaidō such as Mamiya Rinzō are also enshrined.",
+      "description": "Hokkaido Jingu is a visitor destination in Sapporo City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "北海道神宮",
-      "description": "北海道神宮（ほっかいどうじんぐう）は、北海道札幌市中央区にある神社（神宮）。円山公園に隣接する。1964年（昭和39年）までは札幌神社。",
+      "description": "北海道神宮はSapporo Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["歴史"]
     }
   },
@@ -39,21 +39,21 @@
     "lat": 43.05423527,
     "lng": 141.30770534
   },
-  "description": "The Hokkaidō Shrine (北海道神宮, Hokkaidō Jingū), named the Sapporo Shrine (札幌神社, Sapporo Jinja) until 1964, is a Shinto shrine located in Sapporo, Hokkaido, Japan. Sited in Maruyama Park, Chūō-ku, Sapporo, Hokkaido, the Hokkaido Shrine enshrines four kami including the soul of the Emperor Meiji. A number of early explorers of Hokkaidō such as Mamiya Rinzō are also enshrined.",
+  "description": "Hokkaido Jingu is a visitor destination in Sapporo City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 195
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,7 +62,7 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 25,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 3,
     "rainFriendly": 3,
@@ -70,17 +70,17 @@
   },
   "ratings": {
     "overall": 6.5,
-    "couple": 9.4,
-    "summer": 7.7,
-    "winter": 7.8,
-    "rain": 7.9,
+    "couple": 9.5,
+    "summer": 7.5,
+    "winter": 8,
+    "rain": 5.5,
     "food": 8,
-    "photography": 8.1,
-    "relaxation": 8.2,
-    "value": 8.3,
-    "uniqueness": 8.4,
+    "photography": 8,
+    "relaxation": 8,
+    "value": 8.5,
+    "uniqueness": 8.5,
     "family": 8.5,
-    "accessibility": 6.8
+    "accessibility": 7
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 7.2
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

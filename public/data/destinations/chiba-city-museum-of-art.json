@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Chiba City Museum of Art",
-      "description": "museum in Chiba-city, Japan",
+      "description": "Chiba City Museum of Art is a visitor destination in Chiba City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "千葉市美術館",
-      "description": "千葉市美術館（ちばしびじゅつかん）は、千葉県千葉市中央区にある美術館。1995年（平成7年）11月1日開館。2020年（令和2年）7月11日リニューアルオープン。",
+      "description": "千葉市美術館はChiba Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["博物館"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 35.608986,
     "lng": 140.12465
   },
-  "description": "museum in Chiba-city, Japan",
+  "description": "Chiba City Museum of Art is a visitor destination in Chiba City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -51,10 +51,10 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 67,
-    "car": 57
+    "train": 25,
+    "car": 35
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -66,22 +66,22 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 9,
+    "rainFriendly": 8,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 8.9,
-    "couple": 9.1,
-    "summer": 9.4,
-    "winter": 6.3,
+    "overall": 9,
+    "couple": 9,
+    "summer": 9.5,
+    "winter": 6.5,
     "rain": 9,
-    "food": 6.9,
-    "photography": 7.2,
+    "food": 7,
+    "photography": 7,
     "relaxation": 7.5,
-    "value": 9.4,
-    "uniqueness": 6.3,
-    "family": 6.6,
-    "accessibility": 6.9
+    "value": 9.5,
+    "uniqueness": 6.5,
+    "family": 6.5,
+    "accessibility": 7
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -96,7 +96,7 @@
     "winter": 8.1
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Low",
+  "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Chiba City.",
@@ -108,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -123,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -152,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

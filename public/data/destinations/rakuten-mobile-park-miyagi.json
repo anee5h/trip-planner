@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Rakuten Mobile Park Miyagi",
-      "description": "Rakuten Mobile Saikyo Park Miyagi (楽天モバイル 最強パーク宮城, Rakuten Mobairu Saikyō Pāku Miyagi), also named Miyagi Baseball Stadium, is a baseball stadium in Miyaginohara Sports Park in Sendai, Miyagi Prefecture, Japan. The 30,508-seat park is owned by the prefecture and operated by Rakuten, which has used it as the home field for the Tohoku Rakuten Golden Eagles of Nippon Professional Baseball (NPB) since 2005. Its symmetrical playing surface is the only all natural grass field in the Pacific League (PL).",
+      "description": "Rakuten Mobile Park Miyagi is a visitor destination in Sendai City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
       "highlights": ["Nature"]
     },
     "ja": {
       "name": "宮城球場",
-      "description": "宮城球場（みやぎきゅうじょう）は、宮城県仙台市宮城野区の宮城野原公園総合運動場内にある野球場。2005年（平成17年）よりプロ野球・パシフィック・リーグの東北楽天ゴールデンイーグルスの専用球場（本拠地）として使用されているほか、高校野球などのアマチュア野球も開催されている（後述）。\n上記と同年より命名権（ネーミングライツ）が導入されており、現在は楽天モバイル 最強パーク宮城（らくてんモバイル さいきょうパークみやぎ）が優先される愛称として使用されている。",
+      "description": "宮城球場は仙台市にある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["自然"]
     }
   },
@@ -38,23 +38,23 @@
     "lat": 38.25620556,
     "lng": 140.9025
   },
-  "description": "Rakuten Mobile Saikyo Park Miyagi (楽天モバイル 最強パーク宮城, Rakuten Mobairu Saikyō Pāku Miyagi), also named Miyagi Baseball Stadium, is a baseball stadium in Miyaginohara Sports Park in Sendai, Miyagi Prefecture, Japan. The 30,508-seat park is owned by the prefecture and operated by Rakuten, which has used it as the home field for the Tohoku Rakuten Golden Eagles of Nippon Professional Baseball (NPB) since 2005. Its symmetrical playing surface is the only all natural grass field in the Pacific League (PL).",
+  "description": "Rakuten Mobile Park Miyagi is a visitor destination in Sendai City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
     "train": 25,
     "bus": 35,
-    "car": 40
+    "car": 35
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1.5,
     "max": 4
@@ -63,25 +63,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 10,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 6.2,
+    "overall": 6,
     "couple": 8.5,
-    "summer": 8.2,
+    "summer": 8,
     "winter": 9.5,
-    "rain": 9.2,
-    "food": 8.9,
-    "photography": 8.6,
-    "relaxation": 8.3,
+    "rain": 5.5,
+    "food": 9,
+    "photography": 8.5,
+    "relaxation": 8.5,
     "value": 8,
-    "uniqueness": 9.3,
+    "uniqueness": 9.5,
     "family": 9,
-    "accessibility": 8.7
+    "accessibility": 8.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -96,7 +96,7 @@
     "winter": 9.1
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
@@ -108,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -117,11 +117,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -146,7 +144,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

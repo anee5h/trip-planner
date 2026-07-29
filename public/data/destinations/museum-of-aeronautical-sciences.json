@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Museum of Aeronautical Sciences",
-      "description": "Narita International Airport (成田国際空港, Narita Kokusai Kūkō; IATA: NRT, ICAO: RJAA) — originally known as New Tokyo International Airport (新東京国際空港, Shin Tōkyō Kokusai Kūkō) — is the secondary international airport serving the Greater Tokyo Area, the other being Haneda Airport (HND). It is about 60 km (37 mi) east of central Tokyo in Narita, Chiba. The facility, since July 2019, covers 1,137 hectares (2,810 acres) of land and construction to expand to nearly 2,300 ha (5,700 acres) is underway.",
+      "description": "Museum of Aeronautical Sciences is a visitor destination in Narita City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "成田国際空港",
-      "description": "成田国際空港（なりたこくさいくうこう、英語: Narita International Airport）は、千葉県成田市にある日本最大の国際空港。略称は成田空港（なりたくうこう、英: Narita Airport）。空港コードはNRT。",
+      "description": "成田国際空港はNarita Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["博物館"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 35.7649,
     "lng": 140.38845
   },
-  "description": "Narita International Airport (成田国際空港, Narita Kokusai Kūkō; IATA: NRT, ICAO: RJAA) — originally known as New Tokyo International Airport (新東京国際空港, Shin Tōkyō Kokusai Kūkō) — is the secondary international airport serving the Greater Tokyo Area, the other being Haneda Airport (HND). It is about 60 km (37 mi) east of central Tokyo in Narita, Chiba. The facility, since July 2019, covers 1,137 hectares (2,810 acres) of land and construction to expand to nearly 2,300 ha (5,700 acres) is underway.",
+  "description": "Museum of Aeronautical Sciences is a visitor destination in Narita City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -51,9 +51,9 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 200
+    "train": 25
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -65,21 +65,21 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 9,
+    "rainFriendly": 8,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 9.1,
-    "couple": 7.4,
-    "summer": 6.7,
-    "winter": 7.8,
+    "overall": 9,
+    "couple": 7.5,
+    "summer": 6.5,
+    "winter": 8,
     "rain": 9,
-    "food": 6.6,
-    "photography": 7.7,
-    "relaxation": 8.8,
-    "value": 8.1,
-    "uniqueness": 9.2,
-    "family": 6.9,
+    "food": 6.5,
+    "photography": 7.5,
+    "relaxation": 9,
+    "value": 8,
+    "uniqueness": 9,
+    "family": 7,
     "accessibility": 8
   },
   "ratingsSchemaVersion": 2,
@@ -95,7 +95,7 @@
     "winter": 7.2
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Low",
+  "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Narita City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

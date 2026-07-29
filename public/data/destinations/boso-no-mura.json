@@ -6,28 +6,25 @@
   "content": {
     "en": {
       "name": "Boso-no-Mura",
-      "description": "outdoor museum in Chiba prefecture, Japan",
-      "highlights": ["Culture"]
+      "description": "Boso-no-Mura is a visitor destination in the surrounding area. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Museum"]
     },
     "ja": {
       "name": "千葉県立房総のむら",
-      "description": "千葉県立房総のむら（ちばけんりつぼうそうのむら、英称:Experience Museum Chiba Prefectural Boso-no-Mura）は、千葉県印旛郡栄町にある県立の体験型博物館。敷地は栄町と成田市にまたがり、龍角寺古墳群・岩屋古墳、旧学習院初等科正堂、旧御子神家住宅など、国の史跡・重要文化財が良好に保存されている。",
-      "highlights": ["展望"]
+      "description": "千葉県立房総のむらは周辺地域にある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["博物館"]
     }
   },
   "prefecture": "Chiba",
   "region": "Kanto",
   "kind": "museum",
-  "role": "poi",
+  "role": "standalone",
   "placeType": "destination",
-  "areaId": "naritasan",
-  "relationships": {
-    "parentDestinationId": "narita-city"
-  },
+  "relationships": {},
   "officialWebsite": "http://www.chiba-muse.or.jp/MURA/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
-  "tags": ["Culture", "Narita City", "v1.9.2"],
+  "categories": ["Museum"],
+  "tags": ["Museum", "Narita City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Winkels%20en%20woningen%20in%20Boso%20no%20mura%2C%20-21%20maart%202014%20a.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,8 +36,8 @@
     "lat": 35.822861,
     "lng": 140.273167
   },
-  "description": "outdoor museum in Chiba prefecture, Japan",
-  "highlights": ["Culture"],
+  "description": "Boso-no-Mura is a visitor destination in the surrounding area. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Museum"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
@@ -51,9 +48,9 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 203
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +59,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 80,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 8,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 8.6,
-    "couple": 7.6,
-    "summer": 8.7,
-    "winter": 6.4,
-    "rain": 7.5,
+    "overall": 8.5,
+    "couple": 7.5,
+    "summer": 8.5,
+    "winter": 6.5,
+    "rain": 5.5,
     "food": 7,
-    "photography": 8.1,
-    "relaxation": 9.2,
-    "value": 6.9,
+    "photography": 8,
+    "relaxation": 9,
+    "value": 7,
     "uniqueness": 8,
     "family": 7.5,
-    "accessibility": 8.6
+    "accessibility": 8.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +92,7 @@
     "winter": 8
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Narita City.",
@@ -107,7 +104,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +119,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +146,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

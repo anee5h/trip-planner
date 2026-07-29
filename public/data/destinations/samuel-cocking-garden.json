@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Samuel Cocking Garden",
-      "description": "The Samuel Cocking Garden (江の島サムエル・コッキング苑, Enoshima Samueru Kokkingu En), also known as the Enoshima Tropical Plants Garden, is a small botanical garden on the small island of Enoshima in Japan. The address is 2-3-28 Enoshima, Fujisawa, Kanagawa.",
+      "description": "Samuel Cocking Garden is a visitor destination in Fujisawa City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
       "highlights": ["Nature"]
     },
     "ja": {
       "name": "江の島サムエル・コッキング苑",
-      "description": "江の島サムエル・コッキング苑（えのしまサムエル・コッキングえん）は、神奈川県藤沢市江の島二丁目にある、藤沢市立の有料観光施設。苑内に江ノ島電鉄の経営する江の島展望灯台などを含む。また日本で初めてのフレンチトースト専門店『LON CAFE』がある。",
+      "description": "江の島サムエル・コッキング苑はFujisawa Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["自然"]
     }
   },
@@ -39,21 +39,21 @@
     "lat": 35.29972222,
     "lng": 139.47833333
   },
-  "description": "The Samuel Cocking Garden (江の島サムエル・コッキング苑, Enoshima Samueru Kokkingu En), also known as the Enoshima Tropical Plants Garden, is a small botanical garden on the small island of Enoshima in Japan. The address is 2-3-28 Enoshima, Fujisawa, Kanagawa.",
+  "description": "Samuel Cocking Garden is a visitor destination in Fujisawa City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 203
+    "train": 25
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1.5,
     "max": 4
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 10,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 8,
-    "couple": 6.4,
-    "summer": 7.3,
-    "winter": 6.4,
-    "rain": 8.9,
+    "couple": 6.5,
+    "summer": 7.5,
+    "winter": 6.5,
+    "rain": 5.5,
     "food": 8,
-    "photography": 7.1,
-    "relaxation": 6.2,
-    "value": 8.7,
-    "uniqueness": 7.8,
-    "family": 6.9,
-    "accessibility": 9.4
+    "photography": 7,
+    "relaxation": 6,
+    "value": 8.5,
+    "uniqueness": 8,
+    "family": 7,
+    "accessibility": 9.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 7.6
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Fujisawa City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

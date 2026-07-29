@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Fushimi Inari Taisha",
-      "description": "Fushimi Inari-taisha (Japanese: 伏見稲荷大社) is the head shrine of the kami Inari, located in Fushimi-ku, Kyoto, Japan. The shrine sits at the base of a mountain, also named Inari, which is 233 metres (764 ft) above sea level, and includes trails up the mountain to many smaller shrines which span 4 kilometres (2.5 mi) and take approximately 2 hours to walk up. It is unclear whether the mountain's name, Inariyama, or the shrine's name came first.",
-      "highlights": ["Culture"]
+      "description": "Fushimi Inari Taisha is a visitor destination in Kyoto City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "highlights": ["History"]
     },
     "ja": {
       "name": "伏見稲荷大社",
-      "description": "伏見稲荷大社（ふしみいなりたいしゃ）は、京都府京都市伏見区深草薮之内町にある神社。式内社（名神大社）、二十二社（上七社）の一社。旧社格は官幣大社で、現在は単立神社となっている。",
-      "highlights": ["展望"]
+      "description": "伏見稲荷大社はKyoto Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["歴史"]
     }
   },
   "prefecture": "Kyoto",
   "region": "Kansai",
-  "kind": "museum",
+  "kind": "shrine",
   "role": "poi",
   "placeType": "destination",
   "areaId": "fushimi",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://inari.jp/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
-  "tags": ["Culture", "Kyoto City", "v1.9.2"],
+  "categories": ["History"],
+  "tags": ["History", "Kyoto City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fushimiinari-taisha%2C%20naihaiden-1.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,23 +39,22 @@
     "lat": 34.967202,
     "lng": 135.773386
   },
-  "description": "Fushimi Inari-taisha (Japanese: 伏見稲荷大社) is the head shrine of the kami Inari, located in Fushimi-ku, Kyoto, Japan. The shrine sits at the base of a mountain, also named Inari, which is 233 metres (764 ft) above sea level, and includes trails up the mountain to many smaller shrines which span 4 kilometres (2.5 mi) and take approximately 2 hours to walk up. It is unclear whether the mountain's name, Inariyama, or the shrine's name came first.",
-  "highlights": ["Culture"],
+  "description": "Fushimi Inari Taisha is a visitor destination in Kyoto City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 229,
-    "bus": 229,
-    "shinkansen": 129
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -67,21 +66,21 @@
   "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 8,
-    "couple": 7.6,
-    "summer": 8.7,
-    "winter": 8.2,
-    "rain": 9.3,
+    "couple": 7.5,
+    "summer": 8.5,
+    "winter": 8,
+    "rain": 5.5,
     "food": 7,
-    "photography": 8.1,
-    "relaxation": 7.6,
-    "value": 8.7,
-    "uniqueness": 6.4,
-    "family": 9.3,
+    "photography": 8,
+    "relaxation": 7.5,
+    "value": 8.5,
+    "uniqueness": 6.5,
+    "family": 9.5,
     "accessibility": 7
   },
   "ratingsSchemaVersion": 2,
@@ -97,7 +96,7 @@
     "winter": 6.4
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
@@ -109,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

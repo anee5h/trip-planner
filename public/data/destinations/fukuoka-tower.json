@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Fukuoka Tower",
-      "description": "Fukuoka Tower (福岡タワー, Fukuoka Tawā) is a 234-metre (768 ft) tall tower located in the Momochihama area of Fukuoka, Japan. It is the tallest seaside tower in Japan. The highest observation deck at 123 metres has a 360° view of the surrounding area, being most visited at sunset.",
+      "description": "Fukuoka Tower is a visitor destination in Fukuoka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
       "highlights": ["Viewpoint"]
     },
     "ja": {
       "name": "福岡タワー",
-      "description": "福岡タワー（ふくおかタワー）は、福岡県福岡市早良区のシーサイドももち地区にあるランドマークタワー（電波塔）。高さは234メートルで、日本で1番高い海浜タワーでもある。\n1989年のアジア太平洋博覧会（通称：よかトピア）に合わせてそのモニュメントとして、また福岡市政100周年のシンボルとして建設された。",
+      "description": "福岡タワーはFukuoka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["展望"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 33.59330555555555,
     "lng": 130.3515
   },
-  "description": "Fukuoka Tower (福岡タワー, Fukuoka Tawā) is a 234-metre (768 ft) tall tower located in the Momochihama area of Fukuoka, Japan. It is the tallest seaside tower in Japan. The highest observation deck at 123 metres has a 360° view of the surrounding area, being most visited at sunset.",
+  "description": "Fukuoka Tower is a visitor destination in Fukuoka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
   "highlights": ["Viewpoint"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -51,10 +51,9 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 197,
-    "shinkansen": 297
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -63,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 75,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 6,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 7.3,
-    "couple": 7.7,
-    "summer": 7.6,
-    "winter": 9.1,
-    "rain": 9,
-    "food": 7.1,
+    "overall": 7.5,
+    "couple": 7.5,
+    "summer": 7.5,
+    "winter": 9,
+    "rain": 7.5,
+    "food": 7,
     "photography": 7,
     "relaxation": 8.5,
-    "value": 6.6,
+    "value": 6.5,
     "uniqueness": 6.5,
     "family": 8,
-    "accessibility": 7.9
+    "accessibility": 8
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -96,7 +95,7 @@
     "winter": 8.9
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "moderate",
   "reservation": "Check the official website before visiting.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
@@ -108,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -123,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -152,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

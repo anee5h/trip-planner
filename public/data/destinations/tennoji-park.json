@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Tennoji Park",
-      "description": "The Tennōji Park (天王寺公園, Tennōji Kōen) is a park with botanical garden at 1–108, Chausuyama-cho, Tennōji-ku, Osaka, Japan.",
-      "highlights": ["Nature", "History"]
+      "description": "Tennoji Park is a visitor destination in Osaka City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "highlights": ["History"]
     },
     "ja": {
       "name": "天王寺公園",
-      "description": "天王寺公園（てんのうじこうえん）は、大阪府大阪市天王寺区茶臼山町にある市立公園。\n上町台地上および西斜面に位置しており、総面積は約28万m2。園内には天王寺動物園や植物温室、大阪市立美術館、慶沢園を擁する大阪を代表する都市公園である。",
-      "highlights": ["自然", "歴史"]
+      "description": "天王寺公園はOsaka Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["歴史"]
     }
   },
   "prefecture": "Osaka",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.city.osaka.lg.jp/contents/wdu170/tennojizoo/top.html",
   "officialWebsiteRequirement": "none",
-  "categories": ["Nature", "History"],
-  "tags": ["Nature", "History", "Osaka City", "v1.9.2"],
+  "categories": ["History"],
+  "tags": ["History", "Osaka City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tennoji%20park01s3200.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,23 +39,22 @@
     "lat": 34.65,
     "lng": 135.51
   },
-  "description": "The Tennōji Park (天王寺公園, Tennōji Kōen) is a park with botanical garden at 1–108, Chausuyama-cho, Tennōji-ku, Osaka, Japan.",
-  "highlights": ["Nature", "History"],
+  "description": "Tennoji Park is a visitor destination in Osaka City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 192,
-    "bus": 212,
-    "shinkansen": 152
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1.5,
     "max": 4
@@ -71,18 +70,18 @@
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 8.2,
-    "couple": 6.7,
-    "summer": 6.4,
-    "winter": 7.9,
-    "rain": 7.6,
-    "food": 7.3,
+    "overall": 8,
+    "couple": 6.5,
+    "summer": 6.5,
+    "winter": 8,
+    "rain": 5.5,
+    "food": 7.5,
     "photography": 7,
-    "relaxation": 6.7,
-    "value": 6.4,
+    "relaxation": 6.5,
+    "value": 6.5,
     "uniqueness": 9.5,
-    "family": 9.2,
-    "accessibility": 8.9
+    "family": 9,
+    "accessibility": 9
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -97,7 +96,7 @@
     "winter": 7.7
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
@@ -109,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

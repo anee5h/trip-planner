@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Osaka Aquarium Kaiyukan",
-      "description": "The Osaka Aquarium Kaiyukan (海遊館, Kaiyūkan; known as the Kaiyukan) is an aquarium located in the ward of Minato in Osaka, Osaka Prefecture, Japan, near Osaka Bay. When it opened in 1990, it was the largest public aquarium in the world. \nThe aquarium is a member of the Japanese Association of Zoos and Aquariums and is accredited as a Museum-equivalent facilities by the Museum Act from Ministry of Education, Culture, Sports, Science and Technology.",
-      "highlights": ["Museum"]
+      "description": "Osaka Aquarium Kaiyukan is a visitor destination in Osaka City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Aquarium"]
     },
     "ja": {
       "name": "海遊館",
-      "description": "海遊館（かいゆうかん、Osaka Aquarium KAIYUKAN）は、大阪府大阪市港区海岸通1丁目にある水族館。",
-      "highlights": ["博物館"]
+      "description": "海遊館はOsaka Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["水族館"]
     }
   },
   "prefecture": "Osaka",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.kaiyukan.com/",
   "officialWebsiteRequirement": "recommended",
-  "categories": ["Museum"],
-  "tags": ["Museum", "Osaka City", "v1.9.2"],
+  "categories": ["Aquarium"],
+  "tags": ["Aquarium", "Osaka City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Osaka%20Kaiyukan01s3872.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,8 +39,8 @@
     "lat": 34.654472222222,
     "lng": 135.42888888889
   },
-  "description": "The Osaka Aquarium Kaiyukan (海遊館, Kaiyūkan; known as the Kaiyukan) is an aquarium located in the ward of Minato in Osaka, Osaka Prefecture, Japan, near Osaka Bay. When it opened in 1990, it was the largest public aquarium in the world. \nThe aquarium is a member of the Japanese Association of Zoos and Aquariums and is accredited as a Museum-equivalent facilities by the Museum Act from Ministry of Education, Culture, Sports, Science and Technology.",
-  "highlights": ["Museum"],
+  "description": "Osaka Aquarium Kaiyukan is a visitor destination in Osaka City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Aquarium"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
   "budgetMax": 8500,
@@ -51,11 +51,10 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 186,
-    "bus": 206,
-    "shinkansen": 146
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -67,22 +66,22 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 9,
+    "rainFriendly": 8,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 6.4,
+    "overall": 6.5,
     "couple": 9,
-    "summer": 8.3,
-    "winter": 9.4,
+    "summer": 8.5,
+    "winter": 9.5,
     "rain": 9,
-    "food": 6.4,
-    "photography": 9.1,
-    "relaxation": 6.8,
+    "food": 6.5,
+    "photography": 9,
+    "relaxation": 7,
     "value": 9.5,
-    "uniqueness": 7.2,
-    "family": 8.3,
-    "accessibility": 7.6
+    "uniqueness": 7,
+    "family": 8.5,
+    "accessibility": 7.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -97,7 +96,7 @@
     "winter": 8.4
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Low",
+  "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
@@ -109,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Shinsho-ji",
-      "description": "Narita-san (成田山 \"Narita mountain\") Shinshō-ji (新勝寺 \"New victory temple\") is a Shingon Buddhist temple located in central Narita, Chiba, Japan. It was founded in 940 by Kanchō Daisōjō, a disciple of Kōbō Daishi. It is a lead temple in the Chisan branch (Chisan-ha 智山派) of New Shingon (Shingi Shingon 新義真言宗), includes a large complex of buildings and grounds, and is one of the best-known temples in the Kantō region.",
+      "description": "Shinsho-ji is a visitor destination in Narita City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "成田山新勝寺",
-      "description": "成田山新勝寺（なりたさんしんしょうじ）は、日本の千葉県成田市成田にある真言宗智山派の仏教寺院であり、同派の大本山の一つである。山号は成田山。本尊は不動明王で、当寺は不動明王信仰の一大中心地である。",
+      "description": "成田山新勝寺はNarita Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["歴史"]
     }
   },
@@ -39,21 +39,21 @@
     "lat": 35.78608,
     "lng": 140.31831
   },
-  "description": "Narita-san (成田山 \"Narita mountain\") Shinshō-ji (新勝寺 \"New victory temple\") is a Shingon Buddhist temple located in central Narita, Chiba, Japan. It was founded in 940 by Kanchō Daisōjō, a disciple of Kōbō Daishi. It is a lead temple in the Chisan branch (Chisan-ha 智山派) of New Shingon (Shingi Shingon 新義真言宗), includes a large complex of buildings and grounds, and is one of the best-known temples in the Kantō region.",
+  "description": "Shinsho-ji is a visitor destination in Narita City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 201
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -69,18 +69,18 @@
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 9.3,
-    "couple": 8.3,
-    "summer": 6.2,
-    "winter": 9.1,
-    "rain": 7,
+    "overall": 9.5,
+    "couple": 8.5,
+    "summer": 6,
+    "winter": 9,
+    "rain": 5.5,
     "food": 6.5,
-    "photography": 7.8,
-    "relaxation": 9.1,
-    "value": 8.6,
+    "photography": 8,
+    "relaxation": 9,
+    "value": 8.5,
     "uniqueness": 6.5,
-    "family": 9.4,
-    "accessibility": 7.3
+    "family": 9.5,
+    "accessibility": 7.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 8.9
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Narita City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

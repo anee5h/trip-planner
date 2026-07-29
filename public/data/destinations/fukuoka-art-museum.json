@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Fukuoka Art Museum",
-      "description": "Fukuoka Art Museum (福岡市美術館, Fukuoka-shi Bijutsukan) is an art museum in Fukuoka, Japan. It contains a notable collection of Western and Asian art, and exhibits various temporary exhibitions. In November 2010 it hosted a large exhibition of Marc Chagall's work.",
+      "description": "Fukuoka Art Museum is a visitor destination in Fukuoka City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "福岡市美術館",
-      "description": "福岡市美術館（ふくおかしびじゅつかん）は、福岡県福岡市中央区にある市立の美術館。大濠公園の敷地内にある。",
+      "description": "福岡市美術館はFukuoka Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["博物館"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 33.58383,
     "lng": 130.37951
   },
-  "description": "Fukuoka Art Museum (福岡市美術館, Fukuoka-shi Bijutsukan) is an art museum in Fukuoka, Japan. It contains a notable collection of Western and Asian art, and exhibits various temporary exhibitions. In November 2010 it hosted a large exhibition of Marc Chagall's work.",
+  "description": "Fukuoka Art Museum is a visitor destination in Fukuoka City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -51,10 +51,9 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 202,
-    "shinkansen": 302
+    "train": 25
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -66,22 +65,22 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 9,
+    "rainFriendly": 8,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 9.1,
-    "couple": 6.2,
-    "summer": 9.3,
+    "overall": 9,
+    "couple": 6,
+    "summer": 9.5,
     "winter": 9,
     "rain": 9,
-    "food": 8.4,
-    "photography": 8.1,
-    "relaxation": 7.8,
+    "food": 8.5,
+    "photography": 8,
+    "relaxation": 8,
     "value": 7.5,
-    "uniqueness": 7.2,
-    "family": 6.9,
-    "accessibility": 6.6
+    "uniqueness": 7,
+    "family": 7,
+    "accessibility": 6.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -96,7 +95,7 @@
     "winter": 7.2
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Low",
+  "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
@@ -108,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -123,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -152,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

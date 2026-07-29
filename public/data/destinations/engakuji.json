@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Engakuji",
-      "description": "Zuirokusan Engaku   Kōshō Zenji (瑞鹿山円覚興聖禅寺), or Engaku-ji (円覚寺), is one of the most important Zen Buddhist temple complexes in Japan and is ranked second among Kamakura's Five Mountains. It is situated in the city of Kamakura, in Kanagawa Prefecture to the south of Tokyo.\nFounded in 1282 (Kamakura period) by Chinese Zen monk Mugaku Sōgen, the temple maintains the classical Japanese Zen monastic design, and both the Shariden and the Great Bell (大鐘, Ogane) are designated National Treasures.",
+      "description": "Engakuji is a visitor destination in Kamakura City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "円覚寺",
-      "description": "円覚寺（えんがくじ）は、神奈川県鎌倉市山ノ内にある寺院。正式には瑞鹿山円覚興聖禅寺（ずいろくさんえんがくこうしょうぜんじ 山号: 瑞鹿山）と号する。臨済宗円覚寺派の大本山であり、鎌倉五山第二位に列せられる。",
+      "description": "円覚寺はKamakura Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["歴史"]
     }
   },
@@ -39,21 +39,21 @@
     "lat": 35.33770445,
     "lng": 139.54749763
   },
-  "description": "Zuirokusan Engaku   Kōshō Zenji (瑞鹿山円覚興聖禅寺), or Engaku-ji (円覚寺), is one of the most important Zen Buddhist temple complexes in Japan and is ranked second among Kamakura's Five Mountains. It is situated in the city of Kamakura, in Kanagawa Prefecture to the south of Tokyo.\nFounded in 1282 (Kamakura period) by Chinese Zen monk Mugaku Sōgen, the temple maintains the classical Japanese Zen monastic design, and both the Shariden and the Great Bell (大鐘, Ogane) are designated National Treasures.",
+  "description": "Engakuji is a visitor destination in Kamakura City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 201
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -69,18 +69,18 @@
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 8.1,
+    "overall": 8,
     "couple": 6.5,
-    "summer": 7.8,
-    "winter": 7.3,
-    "rain": 8.6,
-    "food": 8.1,
-    "photography": 9.4,
-    "relaxation": 8.9,
-    "value": 6.8,
-    "uniqueness": 6.3,
-    "family": 7.6,
-    "accessibility": 7.1
+    "summer": 8,
+    "winter": 7.5,
+    "rain": 5.5,
+    "food": 8,
+    "photography": 9.5,
+    "relaxation": 9,
+    "value": 7,
+    "uniqueness": 6.5,
+    "family": 7.5,
+    "accessibility": 7
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 8.7
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kamakura City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

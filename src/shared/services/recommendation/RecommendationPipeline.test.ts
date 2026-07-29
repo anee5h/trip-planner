@@ -26,6 +26,21 @@ describe("recommendation diversification", () => {
       recommendation("osaka-castle", 90, "osaka-city", "osaka-castle"),
     ]);
 
-    expect(results.map(({ id }) => id)).toEqual(["kyoto-city", "osaka-castle"]);
+    expect(results.slice(0, 2).map(({ id }) => id)).toEqual([
+      "kyoto-city",
+      "osaka-castle",
+    ]);
+    expect(results).toHaveLength(4);
+  });
+
+  it("does not accumulate category penalties across every selected result", () => {
+    const results = diversifyRecommendations(
+      Array.from({ length: 25 }, (_, index) =>
+        recommendation(`museum-${index}`, 100 - index),
+      ),
+    );
+
+    expect(results).toHaveLength(25);
+    expect(results[0].id).toBe("museum-0");
   });
 });

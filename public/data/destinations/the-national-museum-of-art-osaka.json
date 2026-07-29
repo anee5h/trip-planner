@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "The National Museum of Art, Osaka",
-      "description": "The National Museum of Art, Osaka (国立国際美術館, Kokuritsu Kokusai Bijutsukan) is a subterranean Japanese art museum located on the island of Nakanoshima, located between the Dōjima River and the Tosabori River, about 10 minutes west of Higobashi Station in central Osaka.\nThe official Japanese title of the museum translates as the \"National Museum of International Art\". The museum is also known by the English acronym NMAO (National Museum of Art, Osaka).",
+      "description": "The National Museum of Art, Osaka is a visitor destination in Osaka City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "国立国際美術館",
-      "description": "国立国際美術館（こくりつこくさいびじゅつかん）は、大阪市北区中之島にある、独立行政法人国立美術館が管轄する美術館である。収蔵品は第二次世界大戦以後の国内外の現代美術が中心だが、現代美術以外の企画展なども開催している。設立は1977年（昭和52年）。",
+      "description": "国立国際美術館はOsaka Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["博物館"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 34.691786,
     "lng": 135.492024
   },
-  "description": "The National Museum of Art, Osaka (国立国際美術館, Kokuritsu Kokusai Bijutsukan) is a subterranean Japanese art museum located on the island of Nakanoshima, located between the Dōjima River and the Tosabori River, about 10 minutes west of Higobashi Station in central Osaka.\nThe official Japanese title of the museum translates as the \"National Museum of International Art\". The museum is also known by the English acronym NMAO (National Museum of Art, Osaka).",
+  "description": "The National Museum of Art, Osaka is a visitor destination in Osaka City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -51,11 +51,10 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 195,
-    "bus": 215,
-    "shinkansen": 155
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -67,22 +66,22 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 9,
+    "rainFriendly": 8,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 6.3,
-    "couple": 6.8,
+    "overall": 6.5,
+    "couple": 7,
     "summer": 9.5,
-    "winter": 8.8,
+    "winter": 9,
     "rain": 9,
-    "food": 9.2,
+    "food": 9,
     "photography": 8.5,
-    "relaxation": 7.8,
-    "value": 8.9,
-    "uniqueness": 8.2,
+    "relaxation": 8,
+    "value": 9,
+    "uniqueness": 8,
     "family": 7.5,
-    "accessibility": 8.6
+    "accessibility": 8.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -97,7 +96,7 @@
     "winter": 7.6
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Low",
+  "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
@@ -109,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

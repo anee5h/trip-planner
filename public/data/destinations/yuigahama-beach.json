@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Yuigahama Beach",
-      "description": "Yuigahama (由比ヶ浜海岸) is a beach near Kamakura, a city in Kanagawa Prefecture, Japan. The relation between the beach and its neighboring areas is complex. Although Yuigahama is legally the entire 3.2 km beach that goes from Inamuragasaki, which separates it from Shichirigahama, to Zaimokuza's Iijima cape, which separates it from Kotsubo and the Miura Peninsula, the name is customarily used to indicate the portion west of the Namerigawa river, while the eastern half is called Zaimokuza Beach (材木座海岸).",
+      "description": "Yuigahama Beach is a visitor destination in Kamakura City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
       "highlights": ["Nature"]
     },
     "ja": {
       "name": "由比ヶ浜",
-      "description": "由比ヶ浜（ゆいがはま）は、神奈川県鎌倉市にある相模湾に面した砂浜海岸である。著名な海水浴場がある湘南の海として知られ、毎年夏になると多くの海水浴客でにぎわう。\n本項は、鎌倉市鎌倉地域にある、行政上の町名である由比ガ浜（ゆいがはま）についても解説する。",
+      "description": "由比ヶ浜はKamakura Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["自然"]
     }
   },
@@ -39,21 +39,21 @@
     "lat": 35.313325,
     "lng": 139.54553333333334
   },
-  "description": "Yuigahama (由比ヶ浜海岸) is a beach near Kamakura, a city in Kanagawa Prefecture, Japan. The relation between the beach and its neighboring areas is complex. Although Yuigahama is legally the entire 3.2 km beach that goes from Inamuragasaki, which separates it from Shichirigahama, to Zaimokuza's Iijima cape, which separates it from Kotsubo and the Miura Peninsula, the name is customarily used to indicate the portion west of the Namerigawa river, while the eastern half is called Zaimokuza Beach (材木座海岸).",
+  "description": "Yuigahama Beach is a visitor destination in Kamakura City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 197
+    "train": 25
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1.5,
     "max": 4
@@ -62,24 +62,24 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 5,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 9.2,
-    "couple": 8.3,
-    "summer": 8.6,
-    "winter": 8.9,
-    "rain": 9.2,
+    "overall": 9,
+    "couple": 8.5,
+    "summer": 8.5,
+    "winter": 9,
+    "rain": 5.5,
     "food": 9.5,
-    "photography": 6.4,
-    "relaxation": 6.7,
+    "photography": 6.5,
+    "relaxation": 6.5,
     "value": 7,
-    "uniqueness": 8.9,
-    "family": 9.2,
+    "uniqueness": 9,
+    "family": 9,
     "accessibility": 9.5
   },
   "ratingsSchemaVersion": 2,
@@ -95,7 +95,7 @@
     "winter": 7.3
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kamakura City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

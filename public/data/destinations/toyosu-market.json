@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Toyosu Market",
-      "description": "The Toyosu Market (豊洲市場, Toyosu Shijō) is a wholesale market in Tokyo, located in the Toyosu area of the Kōtō ward. There are two markets for seafood, one for general wholesale and one for bidding, and one market for fruits and vegetables, with each in its own building. Tourists can observe the auction market on a second floor viewing deck.",
-      "highlights": ["Food"]
+      "description": "Toyosu Market is a visitor destination in Koto City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Food", "Market"]
     },
     "ja": {
       "name": "豊洲市場",
-      "description": "豊洲市場（とよすしじょう）は、東京都江東区豊洲六丁目にある公設の卸売市場で、都内に11か所ある東京都中央卸売市場の一つ。築地市場（中央区築地）の代替施設として建設された。2018年9月13日に開場記念式典が行われ、同年10月11日に取引を開始した。",
-      "highlights": ["グルメ"]
+      "description": "豊洲市場はKoto Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["グルメ", "市場"]
     }
   },
   "prefecture": "Tokyo",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.shijou.metro.tokyo.lg.jp/toyosu/",
   "officialWebsiteRequirement": "none",
-  "categories": ["Food"],
-  "tags": ["Food", "Koto City", "v1.9.2"],
+  "categories": ["Food", "Market"],
+  "tags": ["Food", "Market", "Koto City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toyosu%20fish%20market-4b.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,21 +39,21 @@
     "lat": 35.64416666666666,
     "lng": 139.7836111111111
   },
-  "description": "The Toyosu Market (豊洲市場, Toyosu Shijō) is a wholesale market in Tokyo, located in the Toyosu area of the Kōtō ward. There are two markets for seafood, one for general wholesale and one for bidding, and one market for fruits and vegetables, with each in its own building. Tourists can observe the auction market on a second floor viewing deck.",
-  "highlights": ["Food"],
+  "description": "Toyosu Market is a visitor destination in Koto City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Food", "Market"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 202
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 55,
+  "indoorPercent": 25,
   "comfort": {
     "heatTolerance": 6,
-    "rainFriendly": 6,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 7.6,
-    "couple": 7.1,
-    "summer": 6.8,
+    "overall": 7.5,
+    "couple": 7,
+    "summer": 7,
     "winter": 6.5,
-    "rain": 6.2,
-    "food": 9.3,
+    "rain": 5.5,
+    "food": 9.5,
     "photography": 9,
-    "relaxation": 7.1,
-    "value": 6.8,
+    "relaxation": 7,
+    "value": 7,
     "uniqueness": 6.5,
-    "family": 6.2,
-    "accessibility": 9.3
+    "family": 6,
+    "accessibility": 9.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 8.1
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Koto City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

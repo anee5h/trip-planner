@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Kobe Harborland",
-      "description": "Harborland (神戸ハーバーランド, kōbe-hābārando) is a shopping district in Chuo-ku, Kobe, Japan. Kobe Port Tower is located there.\nThis shopping district was made on the site of the former freight yard, Minatogawa Kamotsu Station of the Japanese National Railways.",
+      "description": "Kobe Harborland is a visitor destination in Kobe City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
       "highlights": ["Culture"]
     },
     "ja": {
       "name": "神戸ハーバーランド",
-      "description": "神戸ハーバーランド（こうべハーバーランド）は、兵庫県神戸市中央区にある再開発地区。地元を中心に、単にハーバーランド (Harborland)と表記・呼称されることもある。",
-      "highlights": ["展望"]
+      "description": "神戸ハーバーランドはKobe Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["文化"]
     }
   },
   "prefecture": "Hyogo",
   "region": "Kansai",
-  "kind": "museum",
+  "kind": "district",
   "role": "poi",
   "placeType": "destination",
   "areaId": "kobe-waterfront",
@@ -39,22 +39,21 @@
     "lat": 34.67905556,
     "lng": 135.18180556
   },
-  "description": "Harborland (神戸ハーバーランド, kōbe-hābārando) is a shopping district in Chuo-ku, Kobe, Japan. Kobe Port Tower is located there.\nThis shopping district was made on the site of the former freight yard, Minatogawa Kamotsu Station of the Japanese National Railways.",
+  "description": "Kobe Harborland is a visitor destination in Kobe City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
   "highlights": ["Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 199,
-    "shinkansen": 169
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -63,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 30,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 7.7,
-    "couple": 7.4,
-    "summer": 6.7,
-    "winter": 7.6,
-    "rain": 6.9,
-    "food": 7.8,
-    "photography": 7.1,
-    "relaxation": 6.4,
-    "value": 7.3,
-    "uniqueness": 6.6,
+    "overall": 7.5,
+    "couple": 7.5,
+    "summer": 6.5,
+    "winter": 7.5,
+    "rain": 5.5,
+    "food": 8,
+    "photography": 7,
+    "relaxation": 6.5,
+    "value": 7.5,
+    "uniqueness": 6.5,
     "family": 7.5,
-    "accessibility": 6.8
+    "accessibility": 7
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -96,7 +95,7 @@
     "winter": 7.2
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
@@ -108,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -123,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -152,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

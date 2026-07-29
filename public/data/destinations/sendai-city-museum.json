@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Sendai City Museum",
-      "description": "The Sendai City Museum (仙台市博物館, Sendai-shi Hakubutsukan) is the main museum of Sendai, Japan, and is located in the former Third Bailey of Sendai Castle.\nThe museum displays various artifacts related to the Date clan and the history of Sendai. Date Masamune's famous suit of armor and artifacts related to Hasekura Tsunenaga's visit to Rome are sometimes on display.",
+      "description": "Sendai City Museum is a visitor destination in Sendai City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "仙台市博物館",
-      "description": "仙台市博物館（せんだいしはくぶつかん）は、宮城県仙台市青葉区川内にある仙台市立の博物館である。仙台だけでなく東北地方の歴史、文化史、美術、工芸資料を展示する人文科学系総合博物館と標榜する。\n伊達家が仙台市へ寄贈した文化財を保管、研究するために1961年（昭和36年）に開館した。",
+      "description": "仙台市博物館は仙台市にある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["博物館"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 38.256065,
     "lng": 140.856685
   },
-  "description": "The Sendai City Museum (仙台市博物館, Sendai-shi Hakubutsukan) is the main museum of Sendai, Japan, and is located in the former Third Bailey of Sendai Castle.\nThe museum displays various artifacts related to the Date clan and the history of Sendai. Date Masamune's famous suit of armor and artifacts related to Hasekura Tsunenaga's visit to Rome are sometimes on display.",
+  "description": "Sendai City Museum is a visitor destination in Sendai City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -51,11 +51,11 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 32,
-    "bus": 42,
-    "car": 47
+    "train": 25,
+    "bus": 35,
+    "car": 35
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -67,21 +67,21 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 9,
+    "rainFriendly": 8,
     "walkingIntensity": 3
   },
   "ratings": {
     "overall": 8.5,
-    "couple": 6.6,
-    "summer": 6.3,
-    "winter": 9.4,
-    "rain": 9.1,
-    "food": 8.8,
+    "couple": 6.5,
+    "summer": 6.5,
+    "winter": 9.5,
+    "rain": 9,
+    "food": 9,
     "photography": 8.5,
-    "relaxation": 8.2,
-    "value": 7.9,
-    "uniqueness": 7.6,
-    "family": 7.3,
+    "relaxation": 8,
+    "value": 8,
+    "uniqueness": 7.5,
+    "family": 7.5,
     "accessibility": 7
   },
   "ratingsSchemaVersion": 2,
@@ -97,7 +97,7 @@
     "winter": 7.6
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Low",
+  "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
@@ -109,7 +109,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +124,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +151,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

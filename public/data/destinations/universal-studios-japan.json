@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Universal Studios Japan",
-      "description": "Universal Studios Japan (ユニバーサル・スタジオ・ジャパン) is a theme park located in Osaka, Japan. Opened on March 31, 2001, it is one of six Universal Studios theme parks worldwide and was the first to open outside the United States. The park is owned and operated by USJ LLC, a wholly owned subsidiary of Comcast NBCUniversal.",
-      "highlights": ["Culture"]
+      "description": "Universal Studios Japan is a visitor destination in Osaka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Theme Park"]
     },
     "ja": {
       "name": "ユニバーサル・スタジオ・ジャパン",
-      "description": "ユニバーサル・スタジオ・ジャパン（英: Universal Studios Japan、略称: USJ）は、大阪府大阪市此花区にあるテーマパーク。\n米国のNBCユニバーサル（コムキャスト傘下）のテーマパーク部門であるユニバーサル・デスティネーションズ&エクスペリエンシズが運営しており、世界に5か所あるユニバーサル・スタジオ・テーマパークのひとつである。2017年以降はNBCユニバーサルが完全に所有・運営している。",
-      "highlights": ["展望"]
+      "description": "ユニバーサル・スタジオ・ジャパンはOsaka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["テーマパーク"]
     }
   },
   "prefecture": "Osaka",
   "region": "Kansai",
-  "kind": "museum",
+  "kind": "park",
   "role": "poi",
   "placeType": "destination",
   "areaId": "bay-area",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.usj.co.jp/",
   "officialWebsiteRequirement": "required",
-  "categories": ["Culture"],
-  "tags": ["Culture", "Osaka City", "v1.9.2"],
+  "categories": ["Theme Park"],
+  "tags": ["Theme Park", "Osaka City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Harry%20Potter%20and%20the%20Forbidden%20Journey%20USJ.JPG?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,23 +39,22 @@
     "lat": 34.6647,
     "lng": 135.433
   },
-  "description": "Universal Studios Japan (ユニバーサル・スタジオ・ジャパン) is a theme park located in Osaka, Japan. Opened on March 31, 2001, it is one of six Universal Studios theme parks worldwide and was the first to open outside the United States. The park is owned and operated by USJ LLC, a wholly owned subsidiary of Comcast NBCUniversal.",
-  "highlights": ["Culture"],
+  "description": "Universal Studios Japan is a visitor destination in Osaka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Theme Park"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 192,
-    "bus": 212,
-    "shinkansen": 152
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -64,25 +63,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 35,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 8.1,
-    "couple": 9.1,
-    "summer": 6.2,
+    "overall": 8,
+    "couple": 9,
+    "summer": 6,
     "winter": 8.5,
-    "rain": 7.4,
-    "food": 6.3,
-    "photography": 6.8,
-    "relaxation": 9.1,
+    "rain": 5.5,
+    "food": 6.5,
+    "photography": 7,
+    "relaxation": 9,
     "value": 8,
-    "uniqueness": 6.9,
-    "family": 7.4,
-    "accessibility": 6.3
+    "uniqueness": 7,
+    "family": 7.5,
+    "accessibility": 6.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -97,7 +96,7 @@
     "winter": 6.9
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Check the official website before visiting.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
@@ -109,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

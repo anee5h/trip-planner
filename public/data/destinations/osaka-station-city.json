@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Osaka Station City",
-      "description": "building in Kita-ku, Osaka Prefecture, Japan",
+      "description": "Osaka Station City is a visitor destination in Osaka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
       "highlights": ["Culture"]
     },
     "ja": {
       "name": "大阪ステーションシティ",
-      "description": "大阪ステーションシティ（おおさかステーションシティ、英語: OSAKA STATION CITY）は、大阪市北区梅田三丁目に所在するJR大阪駅の駅ビルであり、JR大阪駅を中核とした複合商業施設である。ホテルやオフィス、ファッションビル、百貨店、シネマコンプレックスなどで構成される。\n2011年5月4日に、JR西日本による再開発によって大阪駅南側と北側の駅ビルが誕生した（駅南側については既存駅ビルの増築と改称）。",
-      "highlights": ["展望"]
+      "description": "大阪ステーションシティはOsaka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["文化"]
     }
   },
   "prefecture": "Osaka",
   "region": "Kansai",
-  "kind": "museum",
+  "kind": "station",
   "role": "poi",
   "placeType": "destination",
   "areaId": "umeda-kita",
@@ -38,7 +38,7 @@
     "lat": 34.702777777777776,
     "lng": 135.495
   },
-  "description": "building in Kita-ku, Osaka Prefecture, Japan",
+  "description": "Osaka Station City is a visitor destination in Osaka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
   "highlights": ["Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -50,11 +50,10 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 192,
-    "bus": 212,
-    "shinkansen": 152
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -63,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 65,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 6,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 6.5,
-    "couple": 9.3,
+    "couple": 9.5,
     "summer": 9,
-    "winter": 8.7,
-    "rain": 8.4,
-    "food": 8.1,
-    "photography": 7.8,
+    "winter": 8.5,
+    "rain": 7.5,
+    "food": 8,
+    "photography": 8,
     "relaxation": 7.5,
-    "value": 7.2,
-    "uniqueness": 6.9,
-    "family": 6.6,
-    "accessibility": 6.3
+    "value": 7,
+    "uniqueness": 7,
+    "family": 6.5,
+    "accessibility": 6.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -96,7 +95,7 @@
     "winter": 6.9
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
@@ -108,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -123,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -152,8 +149,43 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
   },
-  "officialWebsite": "https://osakastationcity.com/"
+  "officialWebsite": "https://osakastationcity.com/",
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  }
 }

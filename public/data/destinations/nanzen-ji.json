@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Nanzen-ji",
-      "description": "Nanzen-in (南禅院) is one of the tatchu sub-temples of Nanzen-ji, a Rinzai school Zen Buddhist temple in the Fukuchi neighborhood of Sakyō-ku in the city of Kyoto Japan. Its honzon is a Kamakura period statue of Emperor Kameyama, which is a National Important Cultural Property.",
+      "description": "Nanzen-ji is a visitor destination in Kyoto City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "南禅院",
-      "description": "南禅院（なんぜんいん）は、京都市左京区南禅寺福地町にある臨済宗南禅寺派の寺院。大本山南禅寺の塔頭。本尊は亀山法皇像。",
+      "description": "南禅院はKyoto Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["歴史"]
     }
   },
@@ -39,23 +39,22 @@
     "lat": 35.0103,
     "lng": 135.79386944
   },
-  "description": "Nanzen-in (南禅院) is one of the tatchu sub-temples of Nanzen-ji, a Rinzai school Zen Buddhist temple in the Fukuchi neighborhood of Sakyō-ku in the city of Kyoto Japan. Its honzon is a Kamakura period statue of Emperor Kameyama, which is a National Important Cultural Property.",
+  "description": "Nanzen-ji is a visitor destination in Kyoto City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 229,
-    "bus": 229,
-    "shinkansen": 129
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -71,17 +70,17 @@
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 8.8,
+    "overall": 9,
     "couple": 8,
-    "summer": 8.9,
-    "winter": 8.2,
-    "rain": 9.1,
-    "food": 8.4,
-    "photography": 7.7,
-    "relaxation": 8.6,
-    "value": 7.9,
-    "uniqueness": 8.8,
-    "family": 8.1,
+    "summer": 9,
+    "winter": 8,
+    "rain": 5.5,
+    "food": 8.5,
+    "photography": 7.5,
+    "relaxation": 8.5,
+    "value": 8,
+    "uniqueness": 9,
+    "family": 8,
     "accessibility": 9
   },
   "ratingsSchemaVersion": 2,
@@ -97,7 +96,7 @@
     "winter": 9.4
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
@@ -109,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

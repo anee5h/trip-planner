@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Osaki Hachimangu",
-      "description": "Ōsaki Hachimangū (大崎八幡宮) is a Shinto shrine located in Aoba-ku, Sendai, Miyagi, Japan. The main shrine building (社殿, shaden) has been designated a National Treasure of Japan.",
+      "description": "Osaki Hachimangu is a visitor destination in Sendai City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "大崎八幡宮",
-      "description": "大崎八幡宮（おおさきはちまんぐう）は、宮城県仙台市青葉区八幡にある神社である。旧社格は村社。社殿（本殿・石の間・拝殿）は国宝に指定されており、どんと祭や裸参りで知られる。",
+      "description": "大崎八幡宮は仙台市にある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["歴史"]
     }
   },
@@ -39,23 +39,23 @@
     "lat": 38.2722,
     "lng": 140.845
   },
-  "description": "Ōsaki Hachimangū (大崎八幡宮) is a Shinto shrine located in Aoba-ku, Sendai, Miyagi, Japan. The main shrine building (社殿, shaden) has been designated a National Treasure of Japan.",
+  "description": "Osaki Hachimangu is a visitor destination in Sendai City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 26,
-    "bus": 36,
-    "car": 41
+    "train": 25,
+    "bus": 35,
+    "car": 35
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -64,25 +64,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 25,
+  "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 3,
     "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 6.2,
+    "overall": 6,
     "couple": 8.5,
-    "summer": 6.2,
-    "winter": 8.9,
-    "rain": 6.6,
-    "food": 7.7,
+    "summer": 6,
+    "winter": 9,
+    "rain": 5.5,
+    "food": 7.5,
     "photography": 7,
-    "relaxation": 8.1,
-    "value": 7.4,
+    "relaxation": 8,
+    "value": 7.5,
     "uniqueness": 8.5,
-    "family": 7.8,
-    "accessibility": 8.9
+    "family": 8,
+    "accessibility": 9
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -97,7 +97,7 @@
     "winter": 6.3
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
@@ -109,7 +109,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +124,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +151,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

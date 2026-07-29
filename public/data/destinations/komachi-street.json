@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Komachi Street",
-      "description": "Komachi Street is a visitor destination in Kamakura City.",
-      "highlights": ["Food"]
+      "description": "Komachi Street is a visitor destination in Kamakura City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Shopping", "Food"]
     },
     "ja": {
       "name": "小町通り",
-      "description": "小町通り（こまちどおり）は神奈川県鎌倉市の通りの一つ。",
-      "highlights": ["グルメ"]
+      "description": "小町通りはKamakura Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["ショッピング", "グルメ"]
     }
   },
   "prefecture": "Kanagawa",
   "region": "Kanto",
-  "kind": "district",
+  "kind": "shopping",
   "role": "poi",
   "placeType": "destination",
   "areaId": "central-kamakura",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "http://www.kamakura-komachi.com/",
   "officialWebsiteRequirement": "none",
-  "categories": ["Food"],
-  "tags": ["Food", "Kamakura City", "v1.9.2"],
+  "categories": ["Shopping", "Food"],
+  "tags": ["Shopping", "Food", "Kamakura City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Komachi%20Dori-Kamakura.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,21 +39,21 @@
     "lat": 35.32153,
     "lng": 139.55232
   },
-  "description": "Komachi Street is a visitor destination in Kamakura City.",
-  "highlights": ["Food"],
+  "description": "Komachi Street is a visitor destination in Kamakura City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Shopping", "Food"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 196
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,24 +62,24 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 55,
+  "indoorPercent": 30,
   "comfort": {
     "heatTolerance": 6,
-    "rainFriendly": 6,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 7.2,
+    "overall": 7,
     "couple": 7.5,
-    "summer": 6.8,
-    "winter": 7.9,
-    "rain": 7.2,
-    "food": 8.3,
-    "photography": 7.6,
-    "relaxation": 8.7,
+    "summer": 7,
+    "winter": 8,
+    "rain": 5.5,
+    "food": 8.5,
+    "photography": 7.5,
+    "relaxation": 8.5,
     "value": 8,
-    "uniqueness": 9.1,
-    "family": 8.4,
+    "uniqueness": 9,
+    "family": 8.5,
     "accessibility": 9.5
   },
   "ratingsSchemaVersion": 2,
@@ -95,7 +95,7 @@
     "winter": 6.9
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kamakura City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

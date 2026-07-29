@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Renkeiji",
-      "description": "Hon-Kawagoe Station (本川越駅, Honkawagoe-eki) is a passenger railway station on the Seibu Shinjuku Line located in the city of Kawagoe, Saitama, Japan, operated by the private railway operator Seibu Railway. This is one of three main stations of the city; the other two are Kawagoe Station and Kawagoeshi Station.",
+      "description": "Renkeiji is a visitor destination in Kawagoe City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "本川越駅",
-      "description": "本川越駅（ほんかわごええき）は、埼玉県川越市新富町一丁目にある、西武鉄道新宿線の駅である。2012年10月20日に「時の鐘と蔵のまち」という副駅名が付けられている。駅番号はSS29、同線の終着駅。",
+      "description": "本川越駅はKawagoe Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["歴史"]
     }
   },
@@ -39,21 +39,21 @@
     "lat": 35.91376389,
     "lng": 139.4811833
   },
-  "description": "Hon-Kawagoe Station (本川越駅, Honkawagoe-eki) is a passenger railway station on the Seibu Shinjuku Line located in the city of Kawagoe, Saitama, Japan, operated by the private railway operator Seibu Railway. This is one of three main stations of the city; the other two are Kawagoe Station and Kawagoeshi Station.",
+  "description": "Renkeiji is a visitor destination in Kawagoe City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 200
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -69,17 +69,17 @@
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 6.6,
-    "couple": 7.6,
-    "summer": 8.3,
-    "winter": 7.2,
-    "rain": 9.5,
-    "food": 6.8,
-    "photography": 9.1,
-    "relaxation": 6.4,
-    "value": 8.7,
-    "uniqueness": 9.4,
-    "family": 8.3,
+    "overall": 6.5,
+    "couple": 7.5,
+    "summer": 8.5,
+    "winter": 7,
+    "rain": 5.5,
+    "food": 7,
+    "photography": 9,
+    "relaxation": 6.5,
+    "value": 8.5,
+    "uniqueness": 9.5,
+    "family": 8.5,
     "accessibility": 9
   },
   "ratingsSchemaVersion": 2,
@@ -95,7 +95,7 @@
     "winter": 6.4
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kawagoe City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Meriken Park",
-      "description": "Meriken Park (メリケンパーク, Meriken pāku) is a waterfront park located in the port city of Kobe, Hyōgo Prefecture, Japan.  The park features the Kobe Port Tower, Kobe Maritime Museum, and a memorial to victims of the Great Hanshin earthquake.  The name of the park comes from the word \"American,\" which was commonly translated as \"Meriken\" during the Meiji era.",
+      "description": "Meriken Park is a visitor destination in Kobe City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
       "highlights": ["Nature"]
     },
     "ja": {
       "name": "メリケンパーク",
-      "description": "メリケンパークは、神戸市中央区の神戸港にある港湾緑地。",
+      "description": "メリケンパークはKobe Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["自然"]
     }
   },
@@ -38,22 +38,21 @@
     "lat": 34.68166667,
     "lng": 135.18833333
   },
-  "description": "Meriken Park (メリケンパーク, Meriken pāku) is a waterfront park located in the port city of Kobe, Hyōgo Prefecture, Japan.  The park features the Kobe Port Tower, Kobe Maritime Museum, and a memorial to victims of the Great Hanshin earthquake.  The name of the park comes from the word \"American,\" which was commonly translated as \"Meriken\" during the Meiji era.",
+  "description": "Meriken Park is a visitor destination in Kobe City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 201,
-    "shinkansen": 171
+    "train": 25
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1.5,
     "max": 4
@@ -62,25 +61,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 10,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 9.4,
-    "couple": 7.1,
-    "summer": 6.6,
-    "winter": 7.9,
-    "rain": 7.4,
-    "food": 8.7,
-    "photography": 8.2,
+    "overall": 9.5,
+    "couple": 7,
+    "summer": 6.5,
+    "winter": 8,
+    "rain": 5.5,
+    "food": 8.5,
+    "photography": 8,
     "relaxation": 9.5,
-    "value": 7.4,
-    "uniqueness": 6.9,
-    "family": 8.2,
-    "accessibility": 7.7
+    "value": 7.5,
+    "uniqueness": 7,
+    "family": 8,
+    "accessibility": 7.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +94,7 @@
     "winter": 9.3
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
@@ -107,7 +106,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -116,11 +115,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -145,7 +142,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

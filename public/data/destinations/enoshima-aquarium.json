@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Enoshima Aquarium",
-      "description": "Enoshima Aquarium or  New Enoshima Aquarium (新江ノ島水族館, Shin Enoshima Suizokukan) is a public aquarium located on Katase Beach in Fujisawa City, Kanagawa Prefecture, Japan. Its nickname is \"Enosui,\" an abbreviation of the Japanese name. The aquarium is accredited as a Museum-equivalent facilities by the Museum Act from Ministry of Education, Culture, Sports, Science and Technology.",
-      "highlights": ["Museum"]
+      "description": "Enoshima Aquarium is a visitor destination in Fujisawa City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Aquarium"]
     },
     "ja": {
       "name": "新江ノ島水族館",
-      "description": "新江ノ島水族館（しんえのしますいぞくかん）は、神奈川県藤沢市片瀬海岸の湘南海岸公園にある水族館。\n愛称はえのすい。江の島水族館の後継施設である。",
-      "highlights": ["博物館"]
+      "description": "新江ノ島水族館はFujisawa Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["水族館"]
     }
   },
   "prefecture": "Kanagawa",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.enosui.com/",
   "officialWebsiteRequirement": "recommended",
-  "categories": ["Museum"],
-  "tags": ["Museum", "Fujisawa City", "v1.9.2"],
+  "categories": ["Aquarium"],
+  "tags": ["Aquarium", "Fujisawa City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/New%20Enoshima%20Aquarium.JPG?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,8 +39,8 @@
     "lat": 35.309667,
     "lng": 139.479889
   },
-  "description": "Enoshima Aquarium or  New Enoshima Aquarium (新江ノ島水族館, Shin Enoshima Suizokukan) is a public aquarium located on Katase Beach in Fujisawa City, Kanagawa Prefecture, Japan. Its nickname is \"Enosui,\" an abbreviation of the Japanese name. The aquarium is accredited as a Museum-equivalent facilities by the Museum Act from Ministry of Education, Culture, Sports, Science and Technology.",
-  "highlights": ["Museum"],
+  "description": "Enoshima Aquarium is a visitor destination in Fujisawa City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Aquarium"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
   "budgetMax": 8500,
@@ -51,9 +51,9 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 199
+    "train": 25
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -65,22 +65,22 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 9,
+    "rainFriendly": 8,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 8.3,
-    "couple": 8.2,
-    "summer": 9.3,
-    "winter": 8.8,
+    "overall": 8.5,
+    "couple": 8,
+    "summer": 9.5,
+    "winter": 9,
     "rain": 9,
-    "food": 7.6,
-    "photography": 7.1,
-    "relaxation": 8.2,
-    "value": 9.3,
+    "food": 7.5,
+    "photography": 7,
+    "relaxation": 8,
+    "value": 9.5,
     "uniqueness": 7,
     "family": 6.5,
-    "accessibility": 7.6
+    "accessibility": 7.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 7
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Low",
+  "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Fujisawa City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Kyoto International Manga Museum",
-      "description": "The Kyoto International Manga Museum (京都国際マンガミュージアム, Kyōto Kokusai Manga Myūjiamu) is located in Nakagyō-ku, Kyoto, Japan. The museum's collection includes approximately 300,000 items as of 2016, with 50,000 volumes of manga that can be accessed and read by visitors and approximately 250,000 items in its closed-stack collection, which can be accessed via a dedicated research room supported by reference facilities. Collected materials include Edo period woodblock prints, pre-war magazines, post-war rental books, and popular modern series from around the world.",
+      "description": "Kyoto International Manga Museum is a visitor destination in Kyoto City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "京都国際マンガミュージアム",
-      "description": "京都国際マンガミュージアム（きょうとこくさいマンガミュージアム、Kyoto International Manga Museum）とは京都市中京区の旧・龍池小学校跡地にある日本最大の漫画博物館である。\n国内外の漫画に関する貴重な資料を集める日本初の総合的な漫画ミュージアムとして2006年11月25日に開館した。明治時代の雑誌や戦後の貸本などの貴重な歴史資料、現代の人気作品、世界各国の名作など約30万点（2011年現在）を所蔵している。",
+      "description": "京都国際マンガミュージアムはKyoto Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["博物館"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 35.0116867,
     "lng": 135.7591715
   },
-  "description": "The Kyoto International Manga Museum (京都国際マンガミュージアム, Kyōto Kokusai Manga Myūjiamu) is located in Nakagyō-ku, Kyoto, Japan. The museum's collection includes approximately 300,000 items as of 2016, with 50,000 volumes of manga that can be accessed and read by visitors and approximately 250,000 items in its closed-stack collection, which can be accessed via a dedicated research room supported by reference facilities. Collected materials include Edo period woodblock prints, pre-war magazines, post-war rental books, and popular modern series from around the world.",
+  "description": "Kyoto International Manga Museum is a visitor destination in Kyoto City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -51,11 +51,10 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 235,
-    "bus": 235,
-    "shinkansen": 135
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -67,22 +66,22 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 9,
+    "rainFriendly": 8,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 9.2,
-    "couple": 8.8,
-    "summer": 8.1,
-    "winter": 7.4,
+    "overall": 9,
+    "couple": 9,
+    "summer": 8,
+    "winter": 7.5,
     "rain": 9,
-    "food": 7.8,
-    "photography": 7.1,
-    "relaxation": 8.2,
+    "food": 8,
+    "photography": 7,
+    "relaxation": 8,
     "value": 7.5,
-    "uniqueness": 6.8,
-    "family": 7.9,
-    "accessibility": 7.2
+    "uniqueness": 7,
+    "family": 8,
+    "accessibility": 7
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -97,7 +96,7 @@
     "winter": 6.2
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Low",
+  "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
@@ -109,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

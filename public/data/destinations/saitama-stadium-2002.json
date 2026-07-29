@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Saitama Stadium 2002",
-      "description": "Saitama Stadium 2002 (埼玉スタジアム2002, Saitama Sutajiamu Nimarumaruni), a.k.a. the Saitama Stadium (埼玉スタジアム, Saitama Sutajiamu) or simply Saisuta (埼スタ), is a football stadium located in Midori-ku, Saitama, Japan.\nCurrently, J1 League club Urawa Red Diamonds use this stadium for home games.",
-      "highlights": ["Culture"]
+      "description": "Saitama Stadium 2002 is a visitor destination in Saitama City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Culture", "Shopping"]
     },
     "ja": {
       "name": "埼玉スタジアム2002",
-      "description": "埼玉スタジアム2002（さいたまスタジアムにまるまるに）は、埼玉県さいたま市緑区美園の埼玉スタジアム2002公園内にあるサッカー専用スタジアム。略称は「埼玉スタジアム」「埼スタ」。施設は埼玉県が所有し、埼玉スタジアム2002公園マネジメントネットワーク（代表団体：公益財団法人埼玉県公園緑地協会、構成団体：埼玉ビルメンテナンス協同組合、一般社団法人埼玉県造園業協会）が指定管理者として運営管理を行っている。",
-      "highlights": ["展望"]
+      "description": "埼玉スタジアム2002はSaitama Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["文化", "ショッピング"]
     }
   },
   "prefecture": "Saitama",
   "region": "Kanto",
-  "kind": "museum",
+  "kind": "district",
   "role": "poi",
   "placeType": "destination",
   "areaId": "iwatsuki",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.stadium2002.com/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
-  "tags": ["Culture", "Saitama City", "v1.9.2"],
+  "categories": ["Culture", "Shopping"],
+  "tags": ["Culture", "Shopping", "Saitama City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Saitama%20stadium2002-1.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,21 +39,21 @@
     "lat": 35.903142,
     "lng": 139.717492
   },
-  "description": "Saitama Stadium 2002 (埼玉スタジアム2002, Saitama Sutajiamu Nimarumaruni), a.k.a. the Saitama Stadium (埼玉スタジアム, Saitama Sutajiamu) or simply Saisuta (埼スタ), is a football stadium located in Midori-ku, Saitama, Japan.\nCurrently, J1 League club Urawa Red Diamonds use this stadium for home games.",
-  "highlights": ["Culture"],
+  "description": "Saitama Stadium 2002 is a visitor destination in Saitama City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Culture", "Shopping"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 64
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 55,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 6,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 9.1,
-    "couple": 8.4,
-    "summer": 9.3,
-    "winter": 8.4,
-    "rain": 7.5,
-    "food": 6.6,
+    "overall": 9,
+    "couple": 8.5,
+    "summer": 9.5,
+    "winter": 8.5,
+    "rain": 5.5,
+    "food": 6.5,
     "photography": 7.5,
-    "relaxation": 6.6,
-    "value": 9.1,
-    "uniqueness": 8.2,
-    "family": 7.3,
-    "accessibility": 8.2
+    "relaxation": 6.5,
+    "value": 9,
+    "uniqueness": 8,
+    "family": 7.5,
+    "accessibility": 8
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 6.4
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Saitama City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

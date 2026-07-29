@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Osu Shopping District",
-      "description": "Nagoya (名古屋市, Nagoya-shi; [naꜜ.ɡo.ja, -ŋo.ja, na.ɡo.jaꜜ.ɕi, -ŋo.jaꜜ.ɕi] , locally [na.ɡo.ja, -ŋo.ja]) is the capital and most populous city of Aichi Prefecture in Japan. It is the largest city in the Chūbu region, the fourth-most populous city in Japan (with a 2025 population of 2.3 million), and the principal city of the Chūkyō metropolitan area, which is itself the third-most populous metropolitan area in Japan (with a population of 10.11 million). Nagoya is located on the Pacific coast in central Honshu, and its seaport is the largest in Japan.",
-      "highlights": ["Food"]
+      "description": "Osu Shopping District is a visitor destination in Nagoya City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Shopping", "Food"]
     },
     "ja": {
       "name": "名古屋市",
-      "description": "名古屋市（なごやし）は、愛知県北西部の尾張地方に位置する市。愛知県の県庁所在地であり、中部地方（東海地方）で最多の人口・経済規模を有する首位都市である。政令指定都市・中枢中核都市に指定されている。",
-      "highlights": ["グルメ"]
+      "description": "名古屋市はNagoya Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["ショッピング", "グルメ"]
     }
   },
   "prefecture": "Aichi",
   "region": "Chubu",
-  "kind": "district",
+  "kind": "shopping",
   "role": "poi",
   "placeType": "destination",
   "areaId": "osu",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.city.nagoya.jp/",
   "officialWebsiteRequirement": "none",
-  "categories": ["Food"],
-  "tags": ["Food", "Nagoya City", "v1.9.2"],
+  "categories": ["Shopping", "Food"],
+  "tags": ["Shopping", "Food", "Nagoya City", "v1.9.2"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Nagoya_Station_-_View_from_the_Main_Building_in_Nagoya_Campus_of_Aichi_University_2022-6-29.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,22 +39,21 @@
     "lat": 35.18333333,
     "lng": 136.9
   },
-  "description": "Nagoya (名古屋市, Nagoya-shi; [naꜜ.ɡo.ja, -ŋo.ja, na.ɡo.jaꜜ.ɕi, -ŋo.jaꜜ.ɕi] , locally [na.ɡo.ja, -ŋo.ja]) is the capital and most populous city of Aichi Prefecture in Japan. It is the largest city in the Chūbu region, the fourth-most populous city in Japan (with a 2025 population of 2.3 million), and the principal city of the Chūkyō metropolitan area, which is itself the third-most populous metropolitan area in Japan (with a population of 10.11 million). Nagoya is located on the Pacific coast in central Honshu, and its seaport is the largest in Japan.",
-  "highlights": ["Food"],
+  "description": "Osu Shopping District is a visitor destination in Nagoya City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Shopping", "Food"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 205,
-    "shinkansen": 95
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -63,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 55,
+  "indoorPercent": 30,
   "comfort": {
     "heatTolerance": 6,
-    "rainFriendly": 6,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 8.6,
-    "couple": 8.6,
-    "summer": 6.9,
-    "winter": 8.6,
-    "rain": 6.9,
-    "food": 8.6,
-    "photography": 6.9,
-    "relaxation": 8.6,
-    "value": 6.9,
-    "uniqueness": 8.6,
-    "family": 6.9,
-    "accessibility": 8.6
+    "overall": 8.5,
+    "couple": 8.5,
+    "summer": 7,
+    "winter": 8.5,
+    "rain": 5.5,
+    "food": 8.5,
+    "photography": 7,
+    "relaxation": 8.5,
+    "value": 7,
+    "uniqueness": 8.5,
+    "family": 7,
+    "accessibility": 8.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -96,7 +95,7 @@
     "winter": 8.6
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
@@ -108,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -123,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -152,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

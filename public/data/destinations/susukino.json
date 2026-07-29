@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Susukino",
-      "description": "Susukino (すすきの) is a district in Chūō-ku, Sapporo, Hokkaidō, Japan known for entertainment and nightlife. The district contains many restaurants, bars, hotels, and adult-entertainment establishments. The name Susukino is often written as 薄野 in kanji and ススキノ in katakana, and directly translates as \"zebra grass field\".",
+      "description": "Susukino is a visitor destination in Sapporo City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
       "highlights": ["Culture"]
     },
     "ja": {
       "name": "すすきの",
-      "description": "すすきの（ススキノ、薄野、英: Susukino）は、北海道札幌市中央区にある、すすきの交差点を中心とした歓楽街・繁華街。札幌駅周辺や大通地区とともに札幌の中心市街地を構成している。日本国内外から観光客が訪れる観光地にもなっている。",
-      "highlights": ["展望"]
+      "description": "すすきのはSapporo Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["文化"]
     }
   },
   "prefecture": "Hokkaido",
@@ -38,21 +38,21 @@
     "lat": 43.054904,
     "lng": 141.353383
   },
-  "description": "Susukino (すすきの) is a district in Chūō-ku, Sapporo, Hokkaidō, Japan known for entertainment and nightlife. The district contains many restaurants, bars, hotels, and adult-entertainment establishments. The name Susukino is often written as 薄野 in kanji and ススキノ in katakana, and directly translates as \"zebra grass field\".",
+  "description": "Susukino is a visitor destination in Sapporo City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
   "highlights": ["Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 200
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -61,25 +61,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 30,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 6.3,
-    "couple": 8.7,
-    "summer": 7.6,
-    "winter": 8.3,
-    "rain": 7.2,
-    "food": 7.9,
-    "photography": 6.8,
-    "relaxation": 9.1,
-    "value": 6.4,
-    "uniqueness": 8.7,
-    "family": 9.4,
-    "accessibility": 8.3
+    "overall": 6.5,
+    "couple": 8.5,
+    "summer": 7.5,
+    "winter": 8.5,
+    "rain": 5.5,
+    "food": 8,
+    "photography": 7,
+    "relaxation": 9,
+    "value": 6.5,
+    "uniqueness": 8.5,
+    "family": 9.5,
+    "accessibility": 8.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -94,7 +94,7 @@
     "winter": 7.5
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
@@ -106,7 +106,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -115,11 +115,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -144,7 +142,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

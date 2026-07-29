@@ -41,7 +41,8 @@ export function diversifyRecommendations(
   const selected: PipelineRecommendation[] = [];
 
   // ponytail: O(n²) is deliberate for a sub-1k catalogue; add spatial indexes only if profiling requires it.
-  while (remaining.length > 0) {
+  const visibleLimit = Math.min(20, remaining.length);
+  while (remaining.length > 0 && selected.length < visibleLimit) {
     let bestIndex = -1;
     let bestAdjustedScore = -Infinity;
 
@@ -57,26 +58,32 @@ export function diversifyRecommendations(
 
       const adjustedScore =
         candidate.score -
-        selected.reduce((penalty, place) => {
-          const sameArea =
-            candidate.areaId && candidate.areaId === place.areaId ? 18 : 0;
-          const sameParent =
-            parentId && parentId === place.relationships?.parentDestinationId
-              ? 8
-              : 0;
-          const sameCategory =
-            candidate.categories[0] &&
-            candidate.categories[0] === place.categories[0]
-              ? 6
-              : 0;
-          return (
-            penalty +
-            sameArea +
-            sameParent +
-            sameCategory +
-            (coordinatesWithinOneKm(candidate, place) ? 8 : 0)
-          );
-        }, 0);
+        Math.min(
+          30,
+          Math.max(
+            0,
+            ...selected.map((place) => {
+              const sameArea =
+                candidate.areaId && candidate.areaId === place.areaId ? 18 : 0;
+              const sameParent =
+                parentId &&
+                parentId === place.relationships?.parentDestinationId
+                  ? 8
+                  : 0;
+              const sameCategory =
+                candidate.categories[0] &&
+                candidate.categories[0] === place.categories[0]
+                  ? 6
+                  : 0;
+              return (
+                sameArea +
+                sameParent +
+                sameCategory +
+                (coordinatesWithinOneKm(candidate, place) ? 8 : 0)
+              );
+            }),
+          ),
+        );
 
       if (
         adjustedScore > bestAdjustedScore ||
@@ -93,7 +100,10 @@ export function diversifyRecommendations(
     selected.push(remaining.splice(bestIndex, 1)[0]);
   }
 
-  return selected;
+  return [
+    ...selected,
+    ...remaining.sort((a, b) => b.score - a.score || a.id.localeCompare(b.id)),
+  ];
 }
 
 export function buildRecommendationCandidate(

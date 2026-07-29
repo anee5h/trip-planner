@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Tempozan Ferris Wheel",
-      "description": "Tempozan Ferris Wheel (Japanese: 天保山大観覧車, Hepburn: Tenpōzan Daikanransha) is a 112-meter-tall (367 ft) Ferris wheel located in Osaka, Japan, at Tempozan Harbor Village, next to Osaka Aquarium Kaiyukan, one of the largest aquariums in the world. The wheel has a height of 112.5 metres (369 ft) and diameter of 100 metres (330 ft).",
+      "description": "Tempozan Ferris Wheel is a visitor destination in Osaka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
       "highlights": ["Culture"]
     },
     "ja": {
       "name": "天保山大観覧車",
-      "description": "天保山大観覧車（てんぽうざんだいかんらんしゃ）は大阪市港区の天保山ハーバービレッジにある観覧車である。1997年7月12日開業、高さ112.5m、直径は100mで、一時は世界最大の観覧車であった。株式会社海遊館（旧大阪ウォーターフロント開発）が運営を行っている。",
-      "highlights": ["展望"]
+      "description": "天保山大観覧車はOsaka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["文化"]
     }
   },
   "prefecture": "Osaka",
   "region": "Kansai",
-  "kind": "museum",
+  "kind": "viewpoint",
   "role": "poi",
   "placeType": "destination",
   "areaId": "bay-area",
@@ -39,7 +39,7 @@
     "lat": 34.6562,
     "lng": 135.431
   },
-  "description": "Tempozan Ferris Wheel (Japanese: 天保山大観覧車, Hepburn: Tenpōzan Daikanransha) is a 112-meter-tall (367 ft) Ferris wheel located in Osaka, Japan, at Tempozan Harbor Village, next to Osaka Aquarium Kaiyukan, one of the largest aquariums in the world. The wheel has a height of 112.5 metres (369 ft) and diameter of 100 metres (330 ft).",
+  "description": "Tempozan Ferris Wheel is a visitor destination in Osaka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
   "highlights": ["Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -51,11 +51,10 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 190,
-    "bus": 210,
-    "shinkansen": 150
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -64,25 +63,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 30,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 6.3,
-    "couple": 6.9,
-    "summer": 6.2,
-    "winter": 7.1,
-    "rain": 6.4,
-    "food": 9.1,
-    "photography": 8.4,
-    "relaxation": 9.3,
-    "value": 8.6,
-    "uniqueness": 7.9,
-    "family": 7.2,
-    "accessibility": 8.1
+    "overall": 6.5,
+    "couple": 7,
+    "summer": 6,
+    "winter": 7,
+    "rain": 5.5,
+    "food": 9,
+    "photography": 8.5,
+    "relaxation": 9.5,
+    "value": 8.5,
+    "uniqueness": 8,
+    "family": 7,
+    "accessibility": 8
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -97,7 +96,7 @@
     "winter": 8.7
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
@@ -109,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

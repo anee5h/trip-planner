@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Shinsekai",
-      "description": "Shinsekai (新世界, lit. \"New World\"; pronounced [ɕĩɰ̃se̞ꜜka̠i]) is a neighbourhood located next to south Osaka City's downtown \"Minami\" area. The neighbourhood was created in 1912 with New York (specifically, Coney Island) as a model for its southern half and Paris for its northern half.",
+      "description": "Shinsekai is a visitor destination in Osaka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
       "highlights": ["Culture"]
     },
     "ja": {
       "name": "新世界 (大阪)",
-      "description": "新世界（しんせかい）は、大阪府大阪市浪速区恵美須東に位置する繁華街。中央やや北寄りに通天閣が建ち、南東部にジャンジャン横丁がある。\n地元では、初代通天閣と遊園地ルナパークが開業した1912年（明治45年）7月3日を、まち開きの日としている。",
-      "highlights": ["展望"]
+      "description": "新世界 (大阪)はOsaka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["文化"]
     }
   },
   "prefecture": "Osaka",
   "region": "Kansai",
-  "kind": "museum",
+  "kind": "district",
   "role": "poi",
   "placeType": "destination",
   "areaId": "namba-minami",
@@ -39,23 +39,22 @@
     "lat": 34.652222222222,
     "lng": 135.50611111111
   },
-  "description": "Shinsekai (新世界, lit. \"New World\"; pronounced [ɕĩɰ̃se̞ꜜka̠i]) is a neighbourhood located next to south Osaka City's downtown \"Minami\" area. The neighbourhood was created in 1912 with New York (specifically, Coney Island) as a model for its southern half and Paris for its northern half.",
+  "description": "Shinsekai is a visitor destination in Osaka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
   "highlights": ["Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 189,
-    "bus": 209,
-    "shinkansen": 149
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -64,25 +63,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 30,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 6.8,
-    "couple": 8.6,
-    "summer": 7.9,
-    "winter": 8.8,
-    "rain": 8.1,
+    "overall": 7,
+    "couple": 8.5,
+    "summer": 8,
+    "winter": 9,
+    "rain": 5.5,
     "food": 9,
-    "photography": 8.3,
-    "relaxation": 9.2,
+    "photography": 8.5,
+    "relaxation": 9,
     "value": 8.5,
-    "uniqueness": 9.4,
-    "family": 8.7,
-    "accessibility": 6.2
+    "uniqueness": 9.5,
+    "family": 8.5,
+    "accessibility": 6
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -97,7 +96,7 @@
     "winter": 8.4
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
@@ -109,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

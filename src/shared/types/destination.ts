@@ -236,7 +236,12 @@ export interface Destination {
   };
   bestMonths: number[];
   bestSeason?: string;
-  weatherDependence?: string;
+  weatherDependence?: "low" | "moderate" | "high";
+  ratingMetadata?: {
+    rubricVersion: number;
+    method: "assisted" | "manual";
+    confidence: "low" | "medium" | "high";
+  };
   tags: string[];
   reservation: string;
   parking: string;

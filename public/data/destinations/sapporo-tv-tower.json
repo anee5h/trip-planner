@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Sapporo TV Tower",
-      "description": "The Sapporo TV Tower (Japanese: さっぽろテレビ塔, Hepburn: Sapporo Terebi-tō), built in 1957, is a 147.2-metre-high (483 ft) TV tower with an observation deck at a height of 90.38 metres. Located on the ground of Odori Park, in the northern city of Sapporo, Hokkaido, Japan, the tower is open to tourists.",
+      "description": "Sapporo TV Tower is a visitor destination in Sapporo City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
       "highlights": ["Viewpoint"]
     },
     "ja": {
       "name": "さっぽろテレビ塔",
-      "description": "さっぽろテレビ塔（さっぽろテレビとう）は北海道札幌市中央区大通西1丁目の大通公園内にある展望塔である。札幌市中心部にあり、電波塔として総工費1億7000万円で建設され、1957年（昭和32年）に完成、同年8月24日に開業した。高さは144メートル。",
+      "description": "さっぽろテレビ塔はSapporo Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["展望"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 43.06111111,
     "lng": 141.35638889
   },
-  "description": "The Sapporo TV Tower (Japanese: さっぽろテレビ塔, Hepburn: Sapporo Terebi-tō), built in 1957, is a 147.2-metre-high (483 ft) TV tower with an observation deck at a height of 90.38 metres. Located on the ground of Odori Park, in the northern city of Sapporo, Hokkaido, Japan, the tower is open to tourists.",
+  "description": "Sapporo TV Tower is a visitor destination in Sapporo City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
   "highlights": ["Viewpoint"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -51,9 +51,9 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 200
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 75,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 6,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 9.3,
-    "couple": 8.6,
+    "overall": 9.5,
+    "couple": 8.5,
     "summer": 7.5,
-    "winter": 8.2,
-    "rain": 7.1,
-    "food": 7.8,
-    "photography": 6.7,
-    "relaxation": 7.4,
-    "value": 6.3,
-    "uniqueness": 8.6,
-    "family": 9.3,
-    "accessibility": 8.2
+    "winter": 8,
+    "rain": 7,
+    "food": 8,
+    "photography": 6.5,
+    "relaxation": 7.5,
+    "value": 6.5,
+    "uniqueness": 8.5,
+    "family": 9.5,
+    "accessibility": 8
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 7.4
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "moderate",
   "reservation": "Check the official website before visiting.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Kitano Ijinkan",
-      "description": "Kobe ( KOH-bay; Japanese: 神戸, romanized: Kōbe, pronounced [koꜜː.be] ), officially Kobe City (神戸市, Kōbe-shi; [koː.beꜜ.ɕi]), is the capital city of Hyōgo Prefecture, Japan. With a population of around 1.5 million, Kobe is Japan's seventh-largest city and the third-largest port city after Tokyo and Yokohama. It is located in the Kansai region, which makes up the southern side of the main island of Honshū, on the north shore of Osaka Bay.",
-      "highlights": ["Culture"]
+      "description": "Kitano Ijinkan is a visitor destination in Kobe City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "highlights": ["History", "Museum"]
     },
     "ja": {
       "name": "神戸市",
-      "description": "神戸市（こうべし）は、兵庫県の南東部に位置する市。兵庫県の県庁所在地および人口が最多の市で、政令指定都市である。\n市域は垂水区・須磨区・長田区・兵庫区・中央区・灘区・東灘区・北区・西区の9区から構成される。",
-      "highlights": ["展望"]
+      "description": "神戸市はKobe Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["歴史", "博物館"]
     }
   },
   "prefecture": "Hyogo",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "http://www.city.kobe.lg.jp/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
-  "tags": ["Culture", "Kobe City", "v1.9.2"],
+  "categories": ["History", "Museum"],
+  "tags": ["History", "Museum", "Kobe City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe%20Port%20Tower%20and%20Maritime%20Museum%2C%20November%202016.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,8 +39,8 @@
     "lat": 34.69016666666667,
     "lng": 135.19544444444443
   },
-  "description": "Kobe ( KOH-bay; Japanese: 神戸, romanized: Kōbe, pronounced [koꜜː.be] ), officially Kobe City (神戸市, Kōbe-shi; [koː.beꜜ.ɕi]), is the capital city of Hyōgo Prefecture, Japan. With a population of around 1.5 million, Kobe is Japan's seventh-largest city and the third-largest port city after Tokyo and Yokohama. It is located in the Kansai region, which makes up the southern side of the main island of Honshū, on the north shore of Osaka Bay.",
-  "highlights": ["Culture"],
+  "description": "Kitano Ijinkan is a visitor destination in Kobe City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "highlights": ["History", "Museum"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
@@ -51,10 +51,9 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 203,
-    "shinkansen": 173
+    "train": 25
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -63,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 70,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 6,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 7.3,
-    "couple": 7.2,
-    "summer": 8.3,
-    "winter": 9.4,
-    "rain": 7.1,
-    "food": 6.6,
-    "photography": 7.7,
-    "relaxation": 8.8,
+    "overall": 7.5,
+    "couple": 7,
+    "summer": 8.5,
+    "winter": 9.5,
+    "rain": 5.5,
+    "food": 6.5,
+    "photography": 7.5,
+    "relaxation": 9,
     "value": 6.5,
-    "uniqueness": 9.4,
-    "family": 7.1,
-    "accessibility": 8.2
+    "uniqueness": 9.5,
+    "family": 7,
+    "accessibility": 8
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -96,7 +95,7 @@
     "winter": 7.6
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
@@ -108,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -123,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -152,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

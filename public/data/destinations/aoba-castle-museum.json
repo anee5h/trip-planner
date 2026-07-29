@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Aoba Castle Museum",
-      "description": "museum in Sendai, Miyagi, Japan",
-      "highlights": ["Museum", "History"]
+      "description": "Aoba Castle Museum is a visitor destination in Sendai City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Museum"]
     },
     "ja": {
       "name": "青葉城資料展示館",
-      "description": "青葉城資料展示館は仙台市にある観光スポットです。",
-      "highlights": ["博物館", "歴史"]
+      "description": "青葉城資料展示館は仙台市にある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["博物館"]
     }
   },
   "prefecture": "Miyagi",
@@ -25,8 +25,8 @@
     "parentDestinationId": "sendai-city"
   },
   "officialWebsiteRequirement": "recommended",
-  "categories": ["Museum", "History"],
-  "tags": ["Museum", "History", "Sendai City", "v1.9.2"],
+  "categories": ["Museum"],
+  "tags": ["Museum", "Sendai City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mask%20request%20by%20Sendai%20castle%20museum.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -38,8 +38,8 @@
     "lat": 38.25211,
     "lng": 140.855945
   },
-  "description": "museum in Sendai, Miyagi, Japan",
-  "highlights": ["Museum", "History"],
+  "description": "Aoba Castle Museum is a visitor destination in Sendai City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
   "budgetMax": 8500,
@@ -50,11 +50,11 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 28,
-    "bus": 38,
-    "car": 43
+    "train": 25,
+    "bus": 35,
+    "car": 35
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -66,22 +66,22 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 9,
+    "rainFriendly": 8,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 8.3,
+    "overall": 8.5,
     "couple": 7.5,
     "summer": 8,
     "winter": 8.5,
     "rain": 9,
-    "food": 7.9,
-    "photography": 8.4,
-    "relaxation": 7.3,
-    "value": 7.8,
-    "uniqueness": 8.3,
-    "family": 8.8,
-    "accessibility": 7.7
+    "food": 8,
+    "photography": 8.5,
+    "relaxation": 7.5,
+    "value": 8,
+    "uniqueness": 8.5,
+    "family": 9,
+    "accessibility": 7.5
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -96,7 +96,7 @@
     "winter": 8.1
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Low",
+  "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
@@ -108,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -123,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -152,8 +150,43 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
   },
-  "officialWebsite": "https://honmarukaikan.com/tenji/"
+  "officialWebsite": "https://honmarukaikan.com/tenji/",
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  }
 }

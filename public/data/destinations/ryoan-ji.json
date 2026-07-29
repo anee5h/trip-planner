@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Ryoan-ji",
-      "description": "Kyoto ( or ; Japanese: 京都, Kyōto [kʲoꜜː.to] ), officially Kyoto City (京都市, Kyōto-shi; [kʲoː.toꜜ.ɕi] ), is the capital city of Kyoto Prefecture in the Kansai region of Japan's largest and most populous island of Honshu. As of 2020, the city had a population of 1.46 million, making it the ninth-most populous city in Japan. More than half (56.8%) of Kyoto Prefecture's population resides in the city.",
+      "description": "Ryoan-ji is a visitor destination in Kyoto City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "京都市",
-      "description": "京都市（きょうとし  地元発音）は、京都府南部にある市。京都府の府庁所在地および人口が最多の市で、政令指定都市である。市域は11の行政区から成り、人口約143万人で、近畿地方（関西）では大阪市・神戸市に次ぐ。",
+      "description": "京都市はKyoto Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["歴史"]
     }
   },
@@ -39,23 +39,22 @@
     "lat": 35.01161111111111,
     "lng": 135.76811111111112
   },
-  "description": "Kyoto ( or ; Japanese: 京都, Kyōto [kʲoꜜː.to] ), officially Kyoto City (京都市, Kyōto-shi; [kʲoː.toꜜ.ɕi] ), is the capital city of Kyoto Prefecture in the Kansai region of Japan's largest and most populous island of Honshu. As of 2020, the city had a population of 1.46 million, making it the ninth-most populous city in Japan. More than half (56.8%) of Kyoto Prefecture's population resides in the city.",
+  "description": "Ryoan-ji is a visitor destination in Kyoto City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 228,
-    "bus": 228,
-    "shinkansen": 128
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -71,17 +70,17 @@
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 6.3,
+    "overall": 6.5,
     "couple": 6.5,
-    "summer": 8.4,
-    "winter": 6.9,
-    "rain": 8.8,
-    "food": 7.3,
-    "photography": 9.2,
-    "relaxation": 7.7,
-    "value": 6.2,
-    "uniqueness": 8.1,
-    "family": 6.6,
+    "summer": 8.5,
+    "winter": 7,
+    "rain": 5.5,
+    "food": 7.5,
+    "photography": 9,
+    "relaxation": 7.5,
+    "value": 6,
+    "uniqueness": 8,
+    "family": 6.5,
     "accessibility": 8.5
   },
   "ratingsSchemaVersion": 2,
@@ -97,7 +96,7 @@
     "winter": 9.3
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
@@ -109,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

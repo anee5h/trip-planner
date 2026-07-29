@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Omiya Park",
-      "description": "Ōmiya Park (大宮公園, Ōmiya Kōen) is a public park located 1 km (0.62 mi) northeast of Ōmiya Station and the most visited park in Saitama. The park encompasses a huge area of 67.9 ha (168 acres) (as of 2004) and is famous for Japanese Red Pine forest and cherry blossoms. In particular, the park ranks in the Top 100 Locations in Japan for Cherry Blossoms.",
+      "description": "Omiya Park is a visitor destination in Saitama City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
       "highlights": ["Nature"]
     },
     "ja": {
       "name": "大宮公園",
-      "description": "大宮公園（おおみやこうえん）は、埼玉県さいたま市大宮区および見沼区にある、67.8 haの面積を有する埼玉県営の都市公園（広域公園）である。1990年（平成2年）に日本さくら名所100選に選定。",
+      "description": "大宮公園はSaitama Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["自然"]
     }
   },
@@ -39,21 +39,21 @@
     "lat": 35.919,
     "lng": 139.631
   },
-  "description": "Ōmiya Park (大宮公園, Ōmiya Kōen) is a public park located 1 km (0.62 mi) northeast of Ōmiya Station and the most visited park in Saitama. The park encompasses a huge area of 67.9 ha (168 acres) (as of 2004) and is famous for Japanese Red Pine forest and cherry blossoms. In particular, the park ranks in the Top 100 Locations in Japan for Cherry Blossoms.",
+  "description": "Omiya Park is a visitor destination in Saitama City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 62
+    "train": 25
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1.5,
     "max": 4
@@ -62,25 +62,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 10,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 6.9,
+    "overall": 7,
     "couple": 7,
-    "summer": 6.7,
-    "winter": 6.4,
-    "rain": 9.5,
-    "food": 7.6,
-    "photography": 7.3,
+    "summer": 6.5,
+    "winter": 6.5,
+    "rain": 5.5,
+    "food": 7.5,
+    "photography": 7.5,
     "relaxation": 7,
-    "value": 6.7,
-    "uniqueness": 6.4,
+    "value": 6.5,
+    "uniqueness": 6.5,
     "family": 9.5,
-    "accessibility": 9.2
+    "accessibility": 9
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -95,7 +95,7 @@
     "winter": 8
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Saitama City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

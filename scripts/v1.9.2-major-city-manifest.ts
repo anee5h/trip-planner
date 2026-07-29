@@ -126,7 +126,7 @@ export const V192_CITY_EXPANSION: readonly CityExpansionTarget[] = [
   },
   {
     hubId: "narita-city",
-    minimumChildren: 7,
+    minimumChildren: 4,
     candidates: [
       ...places("naritasan", [
         "Naritasan Shinshoji",
@@ -138,12 +138,7 @@ export const V192_CITY_EXPANSION: readonly CityExpansionTarget[] = [
         "Sakura-no-Yama Park",
         "Narita Airport Observation Decks",
       ]),
-      ...places("naritasan", ["Boso-no-Mura"]),
-      ...places("naritasan", [
-        "historic streets of Sawara",
-        "Katori Jingu",
-        "Shinsho-ji",
-      ]),
+      ...places("naritasan", ["Shinsho-ji"]),
     ],
   },
   {
@@ -214,7 +209,7 @@ export const V192_CITY_EXPANSION: readonly CityExpansionTarget[] = [
         "Nunobiki Falls",
         "Nankinmachi Chinatown",
       ]),
-      ...places("rokko", ["Kobe Animal Kingdom"]),
+      ...places("port-island", ["Kobe Animal Kingdom"]),
     ],
   },
   {

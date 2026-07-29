@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Kyoto National Museum",
-      "description": "The Kyoto National Museum (京都国立博物館, Kyōto Kokuritsu Hakubutsukan) is one of the major art museums in Japan. Located in Kyoto's Higashiyama ward, the museum focuses on pre-modern Japanese and Asian art.",
+      "description": "Kyoto National Museum is a visitor destination in Kyoto City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "京都国立博物館",
-      "description": "京都国立博物館（きょうとこくりつはくぶつかん）は、独立行政法人国立文化財機構が運営する博物館。1897年（明治30年）5月に開館した。現館長は松本伸之。",
+      "description": "京都国立博物館はKyoto Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["博物館"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 34.989993,
     "lng": 135.773121
   },
-  "description": "The Kyoto National Museum (京都国立博物館, Kyōto Kokuritsu Hakubutsukan) is one of the major art museums in Japan. Located in Kyoto's Higashiyama ward, the museum focuses on pre-modern Japanese and Asian art.",
+  "description": "Kyoto National Museum is a visitor destination in Kyoto City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -51,11 +51,10 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 235,
-    "bus": 235,
-    "shinkansen": 135
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -67,21 +66,21 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 9,
+    "rainFriendly": 8,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 6.8,
+    "overall": 7,
     "couple": 8.5,
-    "summer": 6.8,
+    "summer": 7,
     "winter": 8.5,
     "rain": 9,
     "food": 8.5,
-    "photography": 6.8,
+    "photography": 7,
     "relaxation": 8.5,
-    "value": 6.8,
+    "value": 7,
     "uniqueness": 8.5,
-    "family": 6.8,
+    "family": 7,
     "accessibility": 8.5
   },
   "ratingsSchemaVersion": 2,
@@ -97,7 +96,7 @@
     "winter": 8.5
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Low",
+  "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
@@ -109,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

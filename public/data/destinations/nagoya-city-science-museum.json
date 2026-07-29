@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Nagoya City Science Museum",
-      "description": "The Nagoya City Science Museum (名古屋市科学館, Nagoya-shi Kagakukan) is a museum located in Sakae, Nagoya, the center of Nagoya City, in central Japan.\nThe museum houses one of the largest planetariums in the world and has three main sections on modern technology, life sciences and general science with a variety of hands-on exhibits. In 2012 much of the museum was renovated to coincide with the opening of the Planetarium.",
+      "description": "Nagoya City Science Museum is a visitor destination in Nagoya City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "名古屋市科学館",
-      "description": "名古屋市科学館（なごやしかがくかん）は、愛知県名古屋市中区の白川公園（芸術と科学の杜）内にある市立の科学館。市政70周年の記念事業の一環として建設された。世界最大級のプラネタリウムを擁する。",
+      "description": "名古屋市科学館はNagoya Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["博物館"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 35.16477222,
     "lng": 136.89966667
   },
-  "description": "The Nagoya City Science Museum (名古屋市科学館, Nagoya-shi Kagakukan) is a museum located in Sakae, Nagoya, the center of Nagoya City, in central Japan.\nThe museum houses one of the largest planetariums in the world and has three main sections on modern technology, life sciences and general science with a variety of hands-on exhibits. In 2012 much of the museum was renovated to coincide with the opening of the Planetarium.",
+  "description": "Nagoya City Science Museum is a visitor destination in Nagoya City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -51,10 +51,9 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 199,
-    "shinkansen": 89
+    "train": 25
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -66,21 +65,21 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 9,
+    "rainFriendly": 8,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 9.1,
-    "couple": 7.6,
-    "summer": 8.7,
-    "winter": 8.2,
-    "rain": 9.3,
+    "overall": 9,
+    "couple": 7.5,
+    "summer": 8.5,
+    "winter": 8,
+    "rain": 9,
     "food": 7,
     "photography": 6.5,
-    "relaxation": 7.6,
-    "value": 8.7,
-    "uniqueness": 6.4,
-    "family": 9.3,
+    "relaxation": 7.5,
+    "value": 8.5,
+    "uniqueness": 6.5,
+    "family": 9.5,
     "accessibility": 7
   },
   "ratingsSchemaVersion": 2,
@@ -96,7 +95,7 @@
     "winter": 6.4
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Low",
+  "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
@@ -108,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -123,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -152,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

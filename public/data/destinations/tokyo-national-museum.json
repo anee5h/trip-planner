@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Tokyo National Museum",
-      "description": "The Tokyo National Museum (東京国立博物館, Tōkyō Kokuritsu Hakubutsukan) or TNM is an art museum in Ueno Park in the Taitō ward of Tokyo, Japan. It is considered the oldest national museum and the largest art museum in Japan. The museum collects, preserves, and displays a comprehensive collection of artwork and cultural objects from Asia, with a focus on ancient and medieval Japanese art and Asian art along the Silk Road.",
+      "description": "Tokyo National Museum is a visitor destination in Taito City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "東京国立博物館",
-      "description": "東京国立博物館（とうきょうこくりつはくぶつかん）は、日本と東洋の文化財（美術品、考古遺物など）の収集保管、展示公開、調査研究、普及などを目的として独立行政法人国立文化財機構が運営する、日本の国立博物館である。東京都台東区の上野恩賜公園内にある。1872年（明治5年）に創設された日本最古かつ最大の博物館であり、本館、表慶館、東洋館、平成館、法隆寺宝物館の5つの展示館と資料館その他の施設からなる。",
+      "description": "東京国立博物館はTaito Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["博物館"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 35.71888888888889,
     "lng": 139.7763888888889
   },
-  "description": "The Tokyo National Museum (東京国立博物館, Tōkyō Kokuritsu Hakubutsukan) or TNM is an art museum in Ueno Park in the Taitō ward of Tokyo, Japan. It is considered the oldest national museum and the largest art museum in Japan. The museum collects, preserves, and displays a comprehensive collection of artwork and cultural objects from Asia, with a focus on ancient and medieval Japanese art and Asian art along the Silk Road.",
+  "description": "Tokyo National Museum is a visitor destination in Taito City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -51,9 +51,9 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 200
+    "train": 25
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -65,21 +65,21 @@
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
-    "rainFriendly": 9,
+    "rainFriendly": 8,
     "walkingIntensity": 3
   },
   "ratings": {
-    "overall": 6.7,
-    "couple": 8.9,
-    "summer": 8.2,
+    "overall": 6.5,
+    "couple": 9,
+    "summer": 8,
     "winter": 7.5,
     "rain": 9,
-    "food": 7.7,
+    "food": 7.5,
     "photography": 7,
-    "relaxation": 6.3,
+    "relaxation": 6.5,
     "value": 9,
     "uniqueness": 6.5,
-    "family": 9.2,
+    "family": 9,
     "accessibility": 8.5
   },
   "ratingsSchemaVersion": 2,
@@ -95,7 +95,7 @@
     "winter": 7.3
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Low",
+  "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Taito City.",
@@ -107,7 +107,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,11 +122,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -151,7 +149,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

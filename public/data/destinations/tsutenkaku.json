@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Tsutenkaku",
-      "description": "Tsūtenkaku (通天閣; lit. \"Tower Reaching Heaven\") is a tower and landmark of Osaka, Japan, and advertises the Hitachi company. It is located in the Shinsekai district of Naniwa-ku, Osaka.",
-      "highlights": ["Culture"]
+      "description": "Tsutenkaku is a visitor destination in Osaka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+      "highlights": ["Viewpoint"]
     },
     "ja": {
       "name": "通天閣",
-      "description": "通天閣（つうてんかく、英: TSUTENKAKU TOWER）は、大阪府大阪市浪速区の新世界に所在するNANKAIグループの展望塔。現在の通天閣は2代目で、1912年に初代通天閣が誕生した後、1956年に現行の塔が建造されている。2007年5月15日に登録有形文化財となった。",
+      "description": "通天閣はOsaka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["展望"]
     }
   },
   "prefecture": "Osaka",
   "region": "Kansai",
-  "kind": "museum",
+  "kind": "tower",
   "role": "poi",
   "placeType": "destination",
   "areaId": "namba-minami",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://www.tsutenkaku.co.jp/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
-  "tags": ["Culture", "Osaka City", "v1.9.2"],
+  "categories": ["Viewpoint"],
+  "tags": ["Viewpoint", "Osaka City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/New%20Tsutenkaku%20in%20201409%20003.JPG?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,8 +39,8 @@
     "lat": 34.65222222222222,
     "lng": 135.50611111111112
   },
-  "description": "Tsūtenkaku (通天閣; lit. \"Tower Reaching Heaven\") is a tower and landmark of Osaka, Japan, and advertises the Hitachi company. It is located in the Shinsekai district of Naniwa-ku, Osaka.",
-  "highlights": ["Culture"],
+  "description": "Tsutenkaku is a visitor destination in Osaka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+  "highlights": ["Viewpoint"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
@@ -51,11 +51,10 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 190,
-    "bus": 210,
-    "shinkansen": 150
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 5,
+  "totalTripHours": 4,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -64,25 +63,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 60,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 6,
     "walkingIntensity": 6
   },
   "ratings": {
     "overall": 9,
-    "couple": 8.2,
-    "summer": 7.1,
-    "winter": 7.8,
-    "rain": 6.7,
-    "food": 7.4,
-    "photography": 6.3,
-    "relaxation": 8.6,
-    "value": 9.3,
-    "uniqueness": 8.2,
-    "family": 8.9,
-    "accessibility": 7.8
+    "couple": 8,
+    "summer": 7,
+    "winter": 8,
+    "rain": 5.5,
+    "food": 7.5,
+    "photography": 6.5,
+    "relaxation": 8.5,
+    "value": 9.5,
+    "uniqueness": 8,
+    "family": 9,
+    "accessibility": 8
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -97,7 +96,7 @@
     "winter": 7
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
@@ -109,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

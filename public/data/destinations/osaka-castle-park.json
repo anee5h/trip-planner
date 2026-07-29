@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Osaka Castle Park",
-      "description": "Osaka Castle Park (大阪城公園, Osaka-Jō-Kōen) is a public urban park and historical site situated at Osaka-Jō in Chūō-ku, Osaka, Japan. It lies on the south of the Ōkawa (Kyū-Yodo River) and occupies a large area in the center of the city of Osaka. This park is the second largest park in the city.",
-      "highlights": ["Nature", "History"]
+      "description": "Osaka Castle Park is a visitor destination in Osaka City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "highlights": ["History"]
     },
     "ja": {
       "name": "大阪城公園",
-      "description": "大阪城公園（おおさかじょうこうえん）は、大阪府大阪市中央区大阪城にある都市公園（歴史公園）である。",
-      "highlights": ["自然", "歴史"]
+      "description": "大阪城公園はOsaka Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "highlights": ["歴史"]
     }
   },
   "prefecture": "Osaka",
   "region": "Kansai",
-  "kind": "park",
+  "kind": "castle",
   "role": "poi",
   "placeType": "destination",
   "areaId": "osaka-castle",
@@ -26,8 +26,8 @@
   },
   "officialWebsite": "https://osakacastlepark.jp/",
   "officialWebsiteRequirement": "none",
-  "categories": ["Nature", "History"],
-  "tags": ["Nature", "History", "Osaka City", "v1.9.2"],
+  "categories": ["History"],
+  "tags": ["History", "Osaka City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Osaka%20Castle%2001bs3200.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -39,23 +39,22 @@
     "lat": 34.687378,
     "lng": 135.525844
   },
-  "description": "Osaka Castle Park (大阪城公園, Osaka-Jō-Kōen) is a public urban park and historical site situated at Osaka-Jō in Chūō-ku, Osaka, Japan. It lies on the south of the Ōkawa (Kyū-Yodo River) and occupies a large area in the center of the city of Osaka. This park is the second largest park in the city.",
-  "highlights": ["Nature", "History"],
+  "description": "Osaka Castle Park is a visitor destination in Osaka City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
+    "tickets": 0,
+    "food": 2200,
     "cafe": 400
   },
   "transportOptions": {
-    "train": 191,
-    "bus": 211,
-    "shinkansen": 151
+    "train": 25,
+    "bus": 35
   },
-  "totalTripHours": 6,
+  "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1.5,
     "max": 4
@@ -64,25 +63,25 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 25,
+  "indoorPercent": 35,
   "comfort": {
     "heatTolerance": 3,
     "rainFriendly": 3,
     "walkingIntensity": 6
   },
   "ratings": {
-    "overall": 6.2,
-    "couple": 7.2,
-    "summer": 6.7,
+    "overall": 6,
+    "couple": 7,
+    "summer": 6.5,
     "winter": 8,
-    "rain": 7.5,
-    "food": 8.8,
-    "photography": 8.3,
-    "relaxation": 6.2,
-    "value": 9.1,
+    "rain": 5.5,
+    "food": 9,
+    "photography": 8.5,
+    "relaxation": 6,
+    "value": 9,
     "uniqueness": 7,
     "family": 6.5,
-    "accessibility": 7.8
+    "accessibility": 8
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
@@ -97,7 +96,7 @@
     "winter": 9.4
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "weatherDependence": "Medium",
+  "weatherDependence": "high",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
@@ -109,7 +108,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "published",
+    "lifecycle": "in_review",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,11 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "reviewedAt": "2026-07-29",
-    "reviewedBy": "TabiMap editorial",
     "checkedAt": "2026-07-29",
-    "freshness": "current",
-    "changeSummary": "v1.9.2 major-city expansion",
+    "freshness": "review_due",
+    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
         {
@@ -153,7 +150,42 @@
         "changedBy": "TabiMap editorial",
         "summary": "Added bilingual source-backed city POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-07-29",
+        "changedBy": "TabiMap data audit",
+        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
       }
     ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   }
 }
