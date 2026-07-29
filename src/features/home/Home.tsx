@@ -1,22 +1,12 @@
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  Sparkles,
-  Search,
-  Utensils,
-  Trees,
-  Palette,
-  Camera,
-  Sun,
-  CloudRain,
-  ThermometerSun,
-  Navigation,
-  Waves,
-  Landmark,
-  Snowflake,
+  ArrowRight,
   Calendar,
   Dices,
   MapPin,
+  Navigation,
+  Sparkles,
 } from "lucide-react";
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import type { Destination } from "@/shared/types/destination";
@@ -32,8 +22,8 @@ import { Slider } from "@/shared/components/ui/slider";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { getTabWeatherSummary } from "@/shared/services/weather/WeatherTabService";
+import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
 import RouletteModal from "@/features/home/components/RouletteModal";
-
 import { useTripPlannerState } from "@/features/home/hooks/useTripPlannerState";
 import { useWeatherContext } from "@/features/home/hooks/useWeatherContext";
 import { useTripRecommendations } from "@/features/home/hooks/useTripRecommendations";
@@ -41,44 +31,56 @@ import { useLocale } from "@/shared/context/LocaleContext";
 
 const HOME_COPY = {
   en: {
-    baseLocation: "Base Location",
+    baseLocation: "Tokyo Station",
     change: "Change",
     pickDate: "Pick custom forecast date",
     inYourArea: "in your area",
-    reveal: "Reveal Top Match",
-    surprise: "Surprise Me 🎲",
-    browse: "Browse All",
-    planner: "Trip Planner",
-    quickMatch: "Find your match in 30s",
-    vibe: "What's the vibe?",
-    weather: "Weather condition?",
-    budget: "Max Budget (couple)",
+    surprise: "Surprise Me",
+    browse: "Browse All Destinations",
+    planner: "Plan your day",
+    quickMatch: "Personalized match",
+    vibe: "What are you in the mood for?",
+    weather: "Preferred weather",
+    duration: "Trip type",
+    anyDuration: "Any duration",
+    halfDay: "Half day (≤4h)",
+    dayTrip: "Day trip (5–12h)",
+    weekend: "Weekend (>12h)",
+    budget: "Max budget (for 2 people)",
+    budgetNote: "Estimated total for two people, excluding accommodation.",
     findMatch: "Find My Match",
     topMatches: "Your Top Matches",
-    ranked: "Ranked by our algorithm based on your preferences.",
+    ranked: "Ranked by how well they match your conditions and preferences.",
+    seeAll: "See all matches",
   },
   ja: {
-    baseLocation: "出発地",
+    baseLocation: "東京駅",
     change: "変更",
     pickDate: "予報日を選択",
     inYourArea: "現在地周辺",
-    reveal: "おすすめを見る",
-    surprise: "おまかせ 🎲",
-    browse: "すべて見る",
-    planner: "旅のプランナー",
-    quickMatch: "30秒でぴったりの旅先を提案",
+    surprise: "おまかせ",
+    browse: "すべての旅先を見る",
+    planner: "今日の旅を計画",
+    quickMatch: "あなた向けに提案",
     vibe: "どんな気分ですか？",
-    weather: "天気は？",
+    weather: "好みの天気",
+    duration: "旅のタイプ",
+    anyDuration: "時間を指定しない",
+    halfDay: "半日（4時間以内）",
+    dayTrip: "日帰り（5〜12時間）",
+    weekend: "週末（12時間超）",
     budget: "予算上限（2人）",
-    findMatch: "おすすめを探す",
+    budgetNote: "宿泊費を除く、2人分の目安です。",
+    findMatch: "ぴったりを探す",
     topMatches: "あなたへのおすすめ",
-    ranked: "好みと条件に合わせておすすめ順に表示しています。",
+    ranked: "条件や好みに合う順に表示しています。",
+    seeAll: "おすすめをすべて見る",
   },
 } as const;
 
 const TRIP_LABELS = {
   en: {
-    any: "Anything goes",
+    any: "Anything",
     themepark: "Theme Parks",
     sea: "Sea Escape",
     history: "History & Culture",
@@ -87,10 +89,10 @@ const TRIP_LABELS = {
     nature: "Nature & Outdoors",
     cool: "Cool Escape",
     photography: "Photography",
-    anyWeather: "Perfect Weather",
-    rainy: "Looks like Rain",
-    summer: "Scorching Hot",
-    winter: "Freezing Cold",
+    anyWeather: "Any weather",
+    rainy: "Rainy",
+    summer: "Hot",
+    winter: "Cold",
   },
   ja: {
     any: "なんでも",
@@ -102,7 +104,7 @@ const TRIP_LABELS = {
     nature: "自然・アウトドア",
     cool: "涼しい場所",
     photography: "写真旅",
-    anyWeather: "晴れ・快適",
+    anyWeather: "どんな天気でも",
     rainy: "雨の日",
     summer: "暑い日",
     winter: "寒い日",
@@ -133,10 +135,8 @@ export default function Home() {
   const copy = HOME_COPY[locale];
   const labels = TRIP_LABELS[locale];
   const allDestinations = getDestinationList(locale) as Destination[];
-
   const { isVisited, homeStationCoords, homeStation } = useTripStore();
   const { user } = useAuth();
-
   const {
     tripType,
     setTripType,
@@ -147,8 +147,9 @@ export default function Home() {
     partySize,
     weather,
     setWeather,
+    tripDuration,
+    setTripDuration,
   } = useTripPlannerState(user);
-
   const {
     weatherContext,
     setWeatherContext,
@@ -159,23 +160,20 @@ export default function Home() {
     currentTab,
     handleCustomDateSelect,
   } = useWeatherContext(homeStationCoords);
-
   const currentSituation = useMemo(() => {
     if (!weatherContext || !currentTab) return null;
     return getTabWeatherSummary(currentTab, weatherContext.forecastMap);
   }, [weatherContext, currentTab]);
-
   const { recommendedDestinations, rouletteCandidates } =
     useTripRecommendations({
       allDestinations,
       currentTab: currentTab || undefined,
       weatherContextMap: weatherContext?.forecastMap
-        ? (new Map(
-            Array.from(weatherContext.forecastMap.entries()).map(([k, v]) => [
-              k,
-              { desc: v.desc, icon: v.icon },
-            ]),
-          ) as Map<string, { desc: string; icon: string }>)
+        ? new Map(
+            Array.from(weatherContext.forecastMap.entries()).map(
+              ([key, value]) => [key, { desc: value.desc, icon: value.icon }],
+            ),
+          )
         : undefined,
       tripType,
       budget,
@@ -183,451 +181,213 @@ export default function Home() {
       publicModes,
       partySize,
       weather,
+      tripDuration,
       homeStationCoords,
       isVisited,
     });
-
   const [rouletteOpen, setRouletteOpen] = useState(false);
-
   const topRecommendations = recommendedDestinations.slice(0, 3);
+  const scrollToRecommendations = () =>
+    document
+      .getElementById("recommendations")
+      ?.scrollIntoView({ behavior: "smooth" });
+
+  const selectClass =
+    "h-12 rounded-xl border-slate-200 bg-slate-50 font-medium dark:border-slate-800 dark:bg-slate-950";
+  const moodOptions = [
+    ["any", labels.any],
+    ["themepark", labels.themepark],
+    ["sea", labels.sea],
+    ["history", labels.history],
+    ["art", labels.art],
+    ["food", labels.food],
+    ["nature", labels.nature],
+    ["cool", labels.cool],
+    ["photography", labels.photography],
+  ];
+  const weatherOptions = [
+    ["any", labels.anyWeather],
+    ["rainy", labels.rainy],
+    ["summer", labels.summer],
+    ["winter", labels.winter],
+  ];
+  const durationOptions: [TripDuration, string][] = [
+    ["any", copy.anyDuration],
+    ["halfDay", copy.halfDay],
+    ["dayTrip", copy.dayTrip],
+    ["weekend", copy.weekend],
+  ];
 
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Hero & Planner Section */}
-      <section className="relative pt-8 pb-12 sm:pt-12 lg:pt-16 lg:pb-20 overflow-hidden bg-slate-50 dark:bg-slate-950">
-        <div className="absolute inset-0 bg-grid-slate-200/50 dark:bg-grid-slate-800/50 [mask-image:linear-gradient(0deg,transparent,black)] -z-10" />
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Contextual Hero */}
-            <div className="flex flex-col items-start text-left w-full">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm text-xs font-bold text-slate-700 dark:text-slate-200 mb-6">
-                <MapPin className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                <span>
-                  {copy.baseLocation}:{" "}
-                  {homeStation ||
-                    (locale === "ja" ? "東京駅" : "Tokyo Station")}
-                </span>
-                <Link
-                  to="/settings?section=general&return=/"
-                  className="ml-1 text-emerald-600 dark:text-emerald-400 hover:underline font-extrabold"
-                >
-                  {copy.change}
-                </Link>
-              </div>
-              {currentSituation ? (
-                <div className="mb-10 w-full">
-                  <div className="flex flex-wrap items-center gap-2 mb-6">
-                    {weatherContext?.tabs.map((tab) => (
-                      <button
-                        key={tab.id}
-                        onClick={() => {
-                          if (weatherContext && !tab.isCustom) {
-                            const cleanTabs = weatherContext.tabs.filter(
-                              (t) => !t.isCustom,
-                            );
-                            setWeatherContext({
-                              ...weatherContext,
-                              tabs: cleanTabs,
-                            });
-                            setCustomDate(null);
-                          }
-                          setActiveTabId(tab.id);
-                        }}
-                        className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold h-9 flex items-center transition-all focus:outline-none ${
-                          activeTabId === tab.id
-                            ? "bg-emerald-600 text-white shadow-md"
-                            : "bg-slate-100 text-slate-500 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700"
-                        }`}
-                      >
-                        {localizeWeatherText(tab.label, locale)}
-                      </button>
-                    ))}
-
-                    {/* Custom Date Picker (Bounded to Open-Meteo 10-day forecast) */}
-                    {weatherContext && (
-                      <div className="relative inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3.5 py-1.5 h-9 text-xs font-semibold text-slate-600 dark:text-slate-300 shadow-sm hover:border-emerald-500 transition-colors">
-                        <Calendar className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                        <input
-                          type="date"
-                          min={weatherContext.minDate}
-                          max={weatherContext.maxDate}
-                          value={customDate || ""}
-                          onChange={(e) => {
-                            const val = e.target.value;
-                            if (val) {
-                              setCustomDate(val);
-                              handleCustomDateSelect(val);
-                            }
-                          }}
-                          className="bg-transparent border-none p-0 text-xs font-semibold text-slate-700 dark:text-slate-200 focus:outline-none cursor-pointer"
-                          title={copy.pickDate}
-                        />
-                      </div>
-                    )}
-                  </div>
-
-                  <p className="text-slate-500 dark:text-slate-400 font-bold mb-2 tracking-widest uppercase text-xs">
-                    {locale === "ja" && currentTab?.dates[0]
-                      ? new Date(
-                          `${currentTab.dates[0]}T00:00:00`,
-                        ).toLocaleDateString("ja-JP", {
-                          month: "long",
-                          day: "numeric",
-                          weekday: "short",
-                        })
-                      : currentSituation.dateLabel}
-                  </p>
-                  <div className="flex items-center text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
-                    <span>{currentSituation.temp}°C</span>
-                    <span className="mx-4 text-slate-200 dark:text-slate-800">
-                      |
-                    </span>
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-500">
-                      {localizeWeatherText(currentSituation.desc, locale)}{" "}
-                      {copy.inYourArea}
-                    </span>
-                  </div>
-                  <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-800 dark:text-slate-100 mt-6 leading-tight">
-                    {locale === "ja" ? (
-                      <>
-                        この条件なら、
-                        <br />
-                        ここがおすすめです…
-                      </>
-                    ) : (
-                      <>
-                        Based on today's conditions,
-                        <br />
-                        you should go to…
-                      </>
-                    )}
-                  </h1>
-                </div>
-              ) : (
-                <div className="h-40 animate-pulse bg-slate-200 dark:bg-slate-800 rounded-2xl w-full max-w-lg mb-10" />
-              )}
-
-              <div className="flex flex-col sm:flex-row gap-3 w-full">
-                <Button
-                  size="lg"
-                  className="w-full sm:w-auto h-14 px-6 text-base font-bold rounded-full bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 shadow-xl"
-                  onClick={() =>
-                    document
-                      .getElementById("recommendations")
-                      ?.scrollIntoView({ behavior: "smooth" })
+    <div className="flex min-h-screen flex-col">
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-emerald-50/60 dark:from-slate-950 dark:via-slate-950 dark:to-emerald-950/30">
+        <div className="pointer-events-none absolute -right-24 top-12 h-72 w-72 rounded-full bg-emerald-200/40 blur-3xl dark:bg-emerald-900/20" />
+        <div className="pointer-events-none absolute -left-24 bottom-0 h-64 w-64 rounded-full bg-sky-100/60 blur-3xl dark:bg-sky-950/30" />
+        <div className="container relative mx-auto px-4">
+          <div className="flex flex-wrap items-center gap-3 border-b border-slate-200/80 py-5 text-sm dark:border-slate-800">
+            <span className="inline-flex items-center gap-2 font-bold text-slate-800 dark:text-slate-100">
+              <MapPin className="h-4 w-4 text-emerald-600" />
+              {homeStation || copy.baseLocation}
+            </span>
+            <Link
+              to="/settings?section=general&return=/"
+              className="font-bold text-emerald-600 hover:underline"
+            >
+              {copy.change}
+            </Link>
+            <span className="hidden h-5 w-px bg-slate-300 sm:block dark:bg-slate-700" />
+            {weatherContext?.tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => {
+                  if (weatherContext && !tab.isCustom) {
+                    setWeatherContext({
+                      ...weatherContext,
+                      tabs: weatherContext.tabs.filter(
+                        (item) => !item.isCustom,
+                      ),
+                    });
+                    setCustomDate(null);
                   }
-                >
-                  <Sparkles className="w-5 h-5 mr-2" />
-                  {copy.reveal}
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  aria-label="Open destination roulette wheel"
-                  onClick={() => setRouletteOpen(true)}
-                  className="w-full sm:w-auto h-14 px-6 text-base font-bold rounded-full bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800"
-                >
-                  <Dices className="w-5 h-5 mr-2 text-emerald-600 dark:text-emerald-400" />
-                  {copy.surprise}
-                </Button>
-                <Link to="/destinations" className="w-full sm:w-auto">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="w-full h-14 px-6 text-base font-bold rounded-full bg-white/50 backdrop-blur-sm dark:bg-slate-900/50 border-slate-300 hover:bg-slate-100"
-                  >
-                    {copy.browse}
-                  </Button>
-                </Link>
-              </div>
+                  setActiveTabId(tab.id);
+                }}
+                className={`rounded-lg px-2.5 py-1.5 text-xs font-bold transition-colors ${activeTabId === tab.id ? "bg-emerald-600 text-white" : "text-slate-500 hover:bg-white dark:text-slate-400 dark:hover:bg-slate-900"}`}
+              >
+                {localizeWeatherText(tab.label, locale)}
+              </button>
+            ))}
+            {weatherContext && (
+              <label className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-bold text-slate-600 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300">
+                <Calendar className="h-3.5 w-3.5 text-emerald-600" />
+                <input
+                  type="date"
+                  min={weatherContext.minDate}
+                  max={weatherContext.maxDate}
+                  value={customDate || ""}
+                  onChange={(event) => {
+                    if (event.target.value) {
+                      setCustomDate(event.target.value);
+                      handleCustomDateSelect(event.target.value);
+                    }
+                  }}
+                  title={copy.pickDate}
+                  className="w-[7.5rem] bg-transparent text-xs focus:outline-none dark:text-slate-200"
+                />
+              </label>
+            )}
+            {currentSituation && (
+              <span className="inline-flex items-center gap-2 font-bold text-slate-700 dark:text-slate-200">
+                <span className="text-emerald-600">
+                  {currentSituation.temp}°C
+                </span>
+                {localizeWeatherText(currentSituation.desc, locale)}{" "}
+                {copy.inYourArea}
+              </span>
+            )}
+          </div>
+
+          <div className="grid items-center gap-10 py-10 lg:grid-cols-[0.9fr_1.1fr] lg:py-16">
+            <div className="max-w-xl">
+              <h1 className="text-5xl font-extrabold leading-[1.05] tracking-tight text-slate-900 dark:text-white sm:text-6xl">
+                {locale === "ja" ? (
+                  <>
+                    今日は、
+                    <br />
+                    どこへ行く？
+                  </>
+                ) : (
+                  <>
+                    Where should
+                    <br />
+                    you go today?
+                  </>
+                )}
+              </h1>
+              <p className="mt-6 max-w-md text-lg leading-8 text-slate-600 dark:text-slate-300">
+                {locale === "ja"
+                  ? "場所、天気、予算、好みに合わせて、今日のおすすめを提案します。"
+                  : "Personalized recommendations based on your location, weather, budget, and preferences."}
+              </p>
             </div>
 
-            <RouletteModal
-              isOpen={rouletteOpen}
-              onClose={() => setRouletteOpen(false)}
-              candidates={rouletteCandidates as Destination[]}
-              partySize={partySize}
-              carMode={carMode}
-              publicModes={publicModes}
-            />
-
-            {/* Smart Planner Card */}
-            <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800 relative">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center">
-                  <Navigation className="w-6 h-6 mr-2 text-emerald-500" />
-                  {copy.planner}
-                </h3>
-                <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-200 dark:border-emerald-800">
-                  {copy.quickMatch}
-                </span>
-              </div>
-
-              <div className="space-y-6">
-                {/* Trip Type */}
-                <div className="space-y-3">
-                  <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
+            <div>
+              <div className="rounded-3xl border border-slate-200/80 bg-white p-6 shadow-xl shadow-slate-200/50 dark:border-slate-800 dark:bg-slate-900 dark:shadow-none sm:p-8">
+                <div className="mb-6 flex items-center justify-between gap-4">
+                  <h2 className="flex items-center text-xl font-bold text-slate-900 dark:text-white">
+                    <Navigation className="mr-2 h-5 w-5 text-emerald-600" />
+                    {copy.planner}
+                  </h2>
+                  <span className="hidden rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700 sm:block dark:bg-emerald-950/60 dark:text-emerald-300">
+                    {copy.quickMatch}
+                  </span>
+                </div>
+                <div className="grid gap-4 sm:grid-cols-3">
+                  <label className="space-y-2 text-sm font-bold text-slate-700 dark:text-slate-300">
                     {copy.vibe}
+                    <Select
+                      value={tripType}
+                      onValueChange={(value) => value && setTripType(value)}
+                    >
+                      <SelectTrigger className={selectClass}>
+                        {labels[tripType as keyof typeof labels] || labels.any}
+                      </SelectTrigger>
+                      <SelectContent>
+                        {moodOptions.map(([value, label]) => (
+                          <SelectItem key={value} value={value}>
+                            {label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </label>
-                  <Select
-                    value={tripType}
-                    onValueChange={(val: string | null) => {
-                      if (val) setTripType(val);
-                    }}
-                  >
-                    <SelectTrigger className="h-14 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-colors rounded-xl font-medium text-base">
-                      {tripType === "any" && (
-                        <div className="flex items-center">
-                          <Sparkles className="w-5 h-5 mr-3 text-slate-400" />{" "}
-                          {labels.any}
-                        </div>
-                      )}
-                      {tripType === "themepark" && (
-                        <div className="flex items-center">
-                          <Sparkles className="w-5 h-5 mr-3 text-pink-500" />{" "}
-                          {labels.themepark}
-                        </div>
-                      )}
-                      {tripType === "sea" && (
-                        <div className="flex items-center">
-                          <Waves className="w-5 h-5 mr-3 text-blue-500" />{" "}
-                          {labels.sea}
-                        </div>
-                      )}
-                      {tripType === "history" && (
-                        <div className="flex items-center">
-                          <Landmark className="w-5 h-5 mr-3 text-amber-700" />{" "}
-                          {labels.history}
-                        </div>
-                      )}
-                      {tripType === "art" && (
-                        <div className="flex items-center">
-                          <Palette className="w-5 h-5 mr-3 text-purple-500" />{" "}
-                          {labels.art}
-                        </div>
-                      )}
-                      {tripType === "food" && (
-                        <div className="flex items-center">
-                          <Utensils className="w-5 h-5 mr-3 text-orange-500" />{" "}
-                          {labels.food}
-                        </div>
-                      )}
-                      {tripType === "nature" && (
-                        <div className="flex items-center">
-                          <Trees className="w-5 h-5 mr-3 text-emerald-500" />{" "}
-                          {labels.nature}
-                        </div>
-                      )}
-                      {tripType === "cool" && (
-                        <div className="flex items-center">
-                          <Snowflake className="w-5 h-5 mr-3 text-sky-400" />{" "}
-                          {labels.cool}
-                        </div>
-                      )}
-                      {tripType === "photography" && (
-                        <div className="flex items-center">
-                          <Camera className="w-5 h-5 mr-3 text-rose-400" />{" "}
-                          {labels.photography}
-                        </div>
-                      )}
-                    </SelectTrigger>
-                    <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
-                      <SelectItem
-                        value="any"
-                        className="py-3 px-4 cursor-pointer focus:bg-slate-50 dark:focus:bg-slate-900 rounded-lg"
-                      >
-                        <div className="flex items-center">
-                          <Sparkles className="w-5 h-5 mr-3 text-slate-400" />{" "}
-                          <span className="text-base font-medium">
-                            {labels.any}
-                          </span>
-                        </div>
-                      </SelectItem>
-                      <SelectItem
-                        value="themepark"
-                        className="py-3 px-4 cursor-pointer focus:bg-slate-50 dark:focus:bg-slate-900 rounded-lg"
-                      >
-                        <div className="flex items-center">
-                          <Sparkles className="w-5 h-5 mr-3 text-pink-500" />{" "}
-                          <span className="text-base font-medium">
-                            {labels.themepark}
-                          </span>
-                        </div>
-                      </SelectItem>
-                      <SelectItem
-                        value="sea"
-                        className="py-3 px-4 cursor-pointer focus:bg-slate-50 dark:focus:bg-slate-900 rounded-lg"
-                      >
-                        <div className="flex items-center">
-                          <Waves className="w-5 h-5 mr-3 text-blue-500" />{" "}
-                          <span className="text-base font-medium">
-                            {labels.sea}
-                          </span>
-                        </div>
-                      </SelectItem>
-                      <SelectItem
-                        value="history"
-                        className="py-3 px-4 cursor-pointer focus:bg-slate-50 dark:focus:bg-slate-900 rounded-lg"
-                      >
-                        <div className="flex items-center">
-                          <Landmark className="w-5 h-5 mr-3 text-amber-700" />{" "}
-                          <span className="text-base font-medium">
-                            {labels.history}
-                          </span>
-                        </div>
-                      </SelectItem>
-                      <SelectItem
-                        value="art"
-                        className="py-3 px-4 cursor-pointer focus:bg-slate-50 dark:focus:bg-slate-900 rounded-lg"
-                      >
-                        <div className="flex items-center">
-                          <Palette className="w-5 h-5 mr-3 text-purple-500" />{" "}
-                          <span className="text-base font-medium">
-                            {labels.art}
-                          </span>
-                        </div>
-                      </SelectItem>
-                      <SelectItem
-                        value="food"
-                        className="py-3 px-4 cursor-pointer focus:bg-slate-50 dark:focus:bg-slate-900 rounded-lg"
-                      >
-                        <div className="flex items-center">
-                          <Utensils className="w-5 h-5 mr-3 text-orange-500" />{" "}
-                          <span className="text-base font-medium">
-                            {labels.food}
-                          </span>
-                        </div>
-                      </SelectItem>
-                      <SelectItem
-                        value="nature"
-                        className="py-3 px-4 cursor-pointer focus:bg-slate-50 dark:focus:bg-slate-900 rounded-lg"
-                      >
-                        <div className="flex items-center">
-                          <Trees className="w-5 h-5 mr-3 text-emerald-500" />{" "}
-                          <span className="text-base font-medium">
-                            {labels.nature}
-                          </span>
-                        </div>
-                      </SelectItem>
-                      <SelectItem
-                        value="cool"
-                        className="py-3 px-4 cursor-pointer focus:bg-slate-50 dark:focus:bg-slate-900 rounded-lg"
-                      >
-                        <div className="flex items-center">
-                          <Snowflake className="w-5 h-5 mr-3 text-sky-400" />{" "}
-                          <span className="text-base font-medium">
-                            {labels.cool}
-                          </span>
-                        </div>
-                      </SelectItem>
-                      <SelectItem
-                        value="photography"
-                        className="py-3 px-4 cursor-pointer focus:bg-slate-50 dark:focus:bg-slate-900 rounded-lg"
-                      >
-                        <div className="flex items-center">
-                          <Camera className="w-5 h-5 mr-3 text-rose-400" />{" "}
-                          <span className="text-base font-medium">
-                            {labels.photography}
-                          </span>
-                        </div>
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                {/* Weather */}
-                <div className="space-y-3">
-                  <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
+                  <label className="space-y-2 text-sm font-bold text-slate-700 dark:text-slate-300">
                     {copy.weather}
+                    <Select
+                      value={weather}
+                      onValueChange={(value) => value && setWeather(value)}
+                    >
+                      <SelectTrigger className={selectClass}>
+                        {labels[weather as keyof typeof labels] ||
+                          labels.anyWeather}
+                      </SelectTrigger>
+                      <SelectContent>
+                        {weatherOptions.map(([value, label]) => (
+                          <SelectItem key={value} value={value}>
+                            {label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </label>
-                  <Select
-                    value={weather}
-                    onValueChange={(val: string | null) => {
-                      if (val) setWeather(val);
-                    }}
-                  >
-                    <SelectTrigger className="h-14 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-colors rounded-xl font-medium text-base">
-                      {weather === "any" && (
-                        <div className="flex items-center">
-                          <Sun className="w-5 h-5 mr-3 text-amber-500" />{" "}
-                          {labels.anyWeather}
-                        </div>
-                      )}
-                      {weather === "rainy" && (
-                        <div className="flex items-center">
-                          <CloudRain className="w-5 h-5 mr-3 text-blue-500" />{" "}
-                          {labels.rainy}
-                        </div>
-                      )}
-                      {weather === "summer" && (
-                        <div className="flex items-center">
-                          <ThermometerSun className="w-5 h-5 mr-3 text-red-500" />{" "}
-                          {labels.summer}
-                        </div>
-                      )}
-                      {weather === "winter" && (
-                        <div className="flex items-center">
-                          <Snowflake className="w-5 h-5 mr-3 text-sky-400" />{" "}
-                          {labels.winter}
-                        </div>
-                      )}
-                    </SelectTrigger>
-                    <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
-                      <SelectItem
-                        value="any"
-                        className="py-3 px-4 cursor-pointer focus:bg-slate-50 dark:focus:bg-slate-900 rounded-lg"
-                      >
-                        <div className="flex items-center">
-                          <Sun className="w-5 h-5 mr-3 text-amber-500" />{" "}
-                          <span className="text-base font-medium">
-                            {labels.anyWeather}
-                          </span>
-                        </div>
-                      </SelectItem>
-                      <SelectItem
-                        value="rainy"
-                        className="py-3 px-4 cursor-pointer focus:bg-slate-50 dark:focus:bg-slate-900 rounded-lg"
-                      >
-                        <div className="flex items-center">
-                          <CloudRain className="w-5 h-5 mr-3 text-blue-500" />{" "}
-                          <span className="text-base font-medium">
-                            {labels.rainy}
-                          </span>
-                        </div>
-                      </SelectItem>
-                      <SelectItem
-                        value="summer"
-                        className="py-3 px-4 cursor-pointer focus:bg-slate-50 dark:focus:bg-slate-900 rounded-lg"
-                      >
-                        <div className="flex items-center">
-                          <ThermometerSun className="w-5 h-5 mr-3 text-red-500" />{" "}
-                          <span className="text-base font-medium">
-                            {labels.summer}
-                          </span>
-                        </div>
-                      </SelectItem>
-                      <SelectItem
-                        value="winter"
-                        className="py-3 px-4 cursor-pointer focus:bg-slate-50 dark:focus:bg-slate-900 rounded-lg"
-                      >
-                        <div className="flex items-center">
-                          <Snowflake className="w-5 h-5 mr-3 text-sky-400" />{" "}
-                          <span className="text-base font-medium">
-                            {labels.winter}
-                          </span>
-                        </div>
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <label className="space-y-2 text-sm font-bold text-slate-700 dark:text-slate-300">
+                    {copy.duration}
+                    <Select
+                      value={tripDuration}
+                      onValueChange={(value) =>
+                        value && setTripDuration(value as TripDuration)
+                      }
+                    >
+                      <SelectTrigger className={selectClass}>
+                        {
+                          durationOptions.find(
+                            ([value]) => value === tripDuration,
+                          )?.[1]
+                        }
+                      </SelectTrigger>
+                      <SelectContent>
+                        {durationOptions.map(([value, label]) => (
+                          <SelectItem key={value} value={value}>
+                            {label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </label>
                 </div>
-
-                {/* Budget */}
-                <div className="space-y-4 pt-2">
-                  <div className="flex justify-between items-center">
-                    <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
-                      {copy.budget}
-                    </label>
-                    <span className="text-sm font-medium bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400 px-2 py-1 rounded-md">
+                <div className="mt-6 space-y-3">
+                  <div className="flex items-center justify-between text-sm font-bold text-slate-700 dark:text-slate-300">
+                    <span>{copy.budget}</span>
+                    <span className="rounded-lg border border-slate-200 px-3 py-1.5 text-base text-slate-900 dark:border-slate-700 dark:text-white">
                       ¥{budget.toLocaleString()}
                     </span>
                   </div>
@@ -635,50 +395,79 @@ export default function Home() {
                     value={[budget]}
                     max={100000}
                     step={5000}
-                    onValueChange={(val: number | readonly number[]) =>
-                      setBudget(Array.isArray(val) ? val[0] : val)
+                    onValueChange={(value) =>
+                      setBudget(Array.isArray(value) ? value[0] : value)
                     }
-                    className="w-full"
                   />
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    {copy.budgetNote}
+                  </p>
                 </div>
-
                 <Button
-                  className="w-full h-12 mt-4 text-base font-bold bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200"
-                  onClick={() => {
-                    document
-                      .getElementById("recommendations")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                  }}
+                  className="mt-6 h-12 w-full rounded-xl bg-emerald-700 text-base font-bold text-white hover:bg-emerald-800"
+                  onClick={scrollToRecommendations}
                 >
-                  <Search className="w-5 h-5 mr-2" />
+                  <Sparkles className="mr-2 h-5 w-5" />
                   {copy.findMatch}
                 </Button>
+              </div>
+              <div className="mt-3 grid grid-cols-2 gap-3">
+                <Button
+                  variant="outline"
+                  className="h-12 rounded-xl bg-white text-base font-bold dark:bg-slate-900"
+                  onClick={() => setRouletteOpen(true)}
+                >
+                  <Dices className="mr-2 h-5 w-5" />
+                  {copy.surprise}
+                </Button>
+                <Link to="/destinations">
+                  <Button
+                    variant="outline"
+                    className="h-12 w-full rounded-xl bg-white text-base font-bold dark:bg-slate-900"
+                  >
+                    {copy.browse}
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Top Recommendations */}
+      <RouletteModal
+        isOpen={rouletteOpen}
+        onClose={() => setRouletteOpen(false)}
+        candidates={rouletteCandidates as Destination[]}
+        partySize={partySize}
+        carMode={carMode}
+        publicModes={publicModes}
+      />
+
       <section
         id="recommendations"
-        className="py-20 bg-white dark:bg-background"
+        className="bg-white py-16 dark:bg-background sm:py-20"
       >
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
+          <div className="mb-10 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight mb-2">
+              <h2 className="mb-2 text-3xl font-bold tracking-tight">
                 {copy.topMatches}
               </h2>
               <p className="text-slate-500 dark:text-slate-400">
                 {copy.ranked}
               </p>
             </div>
+            <Link
+              to="/destinations"
+              className="inline-flex items-center font-bold text-emerald-600 hover:text-emerald-700"
+            >
+              {copy.seeAll}
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {topRecommendations.map((dest: any, index: number) => (
-              <div key={dest.id} className="flex flex-col h-full">
+              <div key={dest.id} className="flex h-full flex-col">
                 <div className="flex-grow">
                   <DestinationCard
                     destination={dest as Destination}

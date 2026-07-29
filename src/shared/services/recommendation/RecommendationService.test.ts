@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { getRecommendations, getValidModes } from "./RecommendationService";
+import { matchesTripDuration } from "./RecommendationContext";
 import type { Destination } from "@/shared/types/destination";
 
 const mockDestinations = [
@@ -199,6 +200,35 @@ describe("RecommendationService Unit Tests", () => {
 
     const ids = results.map((r) => r.id);
     expect(ids).not.toContain("hakone-onsen");
+  });
+
+  it("filters destinations by the selected trip duration band", () => {
+    const shortTrip = {
+      ...mockDestinations[0],
+      id: "short-trip",
+      totalTripHours: 4,
+    };
+    const destinations = [...mockDestinations, shortTrip];
+    const results = getRecommendations(destinations, {
+      tripType: "any",
+      budget: 100000,
+      carMode: "none",
+      publicModes: ["train", "bus", "shinkansen"],
+      partySize: 2,
+      currentWeatherCondition: "any",
+      visitedIds: [],
+      currentWeather: null,
+      homeStationCoords: homeCoords,
+      tripDuration: "halfDay",
+    });
+
+    expect(results.map((result) => result.id)).toContain("short-trip");
+    expect(results.map((result) => result.id)).not.toContain("hakone-onsen");
+    expect(matchesTripDuration(4, "halfDay")).toBe(true);
+    expect(matchesTripDuration(5, "halfDay")).toBe(false);
+    expect(matchesTripDuration(5, "dayTrip")).toBe(true);
+    expect(matchesTripDuration(12, "dayTrip")).toBe(true);
+    expect(matchesTripDuration(13, "weekend")).toBe(true);
   });
 
   it("correctly identifies valid transport modes with getValidModes", () => {

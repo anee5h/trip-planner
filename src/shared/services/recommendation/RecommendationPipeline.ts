@@ -4,7 +4,10 @@ import {
   getDistance,
   getDynamicTransportOptions,
 } from "@/shared/utils/distance";
-import type { RecommendationContext } from "./RecommendationContext";
+import {
+  matchesTripDuration,
+  type RecommendationContext,
+} from "./RecommendationContext";
 import { createRecommendationMatch } from "./RecommendationExplainability";
 import {
   calculateConfidence,
@@ -23,6 +26,8 @@ export function runRecommendationPipeline(
 ): PipelineRecommendation[] {
   const eligible = destinations.filter((destination) => {
     if (!destination.id || context.visitedIds.includes(destination.id))
+      return false;
+    if (!matchesTripDuration(destination.totalTripHours, context.tripDuration))
       return false;
     const modes = getValidModes(
       destination,

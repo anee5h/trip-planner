@@ -3,6 +3,7 @@ import type { Destination } from "@/shared/types/destination";
 import type { WeatherTab } from "@/shared/services/weather/WeatherTabService";
 import { getRecommendations } from "@/shared/services/recommendation/RecommendationService";
 import { useTripStore } from "@/shared/hooks/useTripStore";
+import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
 
 interface UseTripRecommendationsProps {
   allDestinations: Destination[];
@@ -14,6 +15,7 @@ interface UseTripRecommendationsProps {
   publicModes: string[];
   partySize: number;
   weather: string;
+  tripDuration: TripDuration;
   homeStationCoords: { lat: number; lng: number } | null;
   isVisited: (id: string) => boolean;
 }
@@ -28,6 +30,7 @@ export function useTripRecommendations({
   publicModes,
   partySize,
   weather,
+  tripDuration,
   homeStationCoords,
   isVisited,
 }: UseTripRecommendationsProps) {
@@ -52,6 +55,7 @@ export function useTripRecommendations({
       visitedIds: [],
       homeStationCoords: homeStationCoords || { lat: 35.6812, lng: 139.7671 },
       userRatings: destinationRatings,
+      tripDuration,
     });
   }, [
     allDestinations,
@@ -63,6 +67,7 @@ export function useTripRecommendations({
     publicModes,
     partySize,
     weather,
+    tripDuration,
     homeStationCoords,
     destinationRatings,
   ]);
@@ -79,6 +84,7 @@ export function useTripRecommendations({
         .filter((d) => isVisited(d.id))
         .map((d) => d.id),
       homeStationCoords: homeStationCoords || { lat: 35.6812, lng: 139.7671 },
+      tripDuration: "any",
     });
   }, [
     allDestinations,

@@ -8,8 +8,18 @@ interface ReleaseNotesModalProps {
 
 const RELEASES = [
   {
-    version: "v1.8.9",
+    version: "v1.8.10",
     tag: "Current",
+    date: "July 2026",
+    title: "Personalized Homepage Planner",
+    highlights: [
+      "Redesigned the homepage with a clean, CSS-only recommendation hero and compact weather context",
+      "Added mood, preferred weather, trip duration, and budget controls to the homepage planner",
+      "Added quick roulette and destination browsing actions while keeping the existing destination cards unchanged",
+    ],
+  },
+  {
+    version: "v1.8.9",
     date: "July 2026",
     title: "Manual Official Website QA",
     highlights: [

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import type { User } from "@supabase/supabase-js";
+import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
 
 export function useTripPlannerState(user: User | null) {
   const [tripType, setTripType] = useState<string>("any");
@@ -13,6 +14,7 @@ export function useTripPlannerState(user: User | null) {
   ]);
   const [partySize, setPartySize] = useState<number>(2);
   const [weather, setWeather] = useState<string>("any");
+  const [tripDuration, setTripDuration] = useState<TripDuration>("any");
 
   useEffect(() => {
     if (user?.user_metadata?.preferences) {
@@ -42,5 +44,7 @@ export function useTripPlannerState(user: User | null) {
     setPartySize,
     weather,
     setWeather,
+    tripDuration,
+    setTripDuration,
   };
 }
