@@ -9,21 +9,21 @@
     "lng": 133.5314
   },
   "tags": ["12 Original Keeps", "Top 100 Castle", "Complete Palace Complex"],
-  "rating": 4.7,
+  "rating": 9.4,
   "ratings": {
-    "overall": 4.7,
-    "scenery": 4.7,
-    "accessibility": 4.2,
-    "crowd": 4,
-    "couple": 4.5,
-    "summer": 4.3,
-    "winter": 4.2,
-    "rain": 3.8,
-    "food": 4.4,
-    "photography": 4.9,
-    "relaxation": 4.6,
-    "value": 4.7,
-    "uniqueness": 4.8
+    "overall": 9.4,
+    "scenery": 9.4,
+    "accessibility": 8.4,
+    "crowd": 8,
+    "couple": 9,
+    "summer": 8.6,
+    "winter": 8.4,
+    "rain": 7.6,
+    "food": 8.8,
+    "photography": 9.8,
+    "relaxation": 9.2,
+    "value": 9.4,
+    "uniqueness": 9.6
   },
   "status": "beta",
   "travelEstimate": {
@@ -95,5 +95,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "medium"
+  "walkingIntensity": "medium",
+  "ratingsSchemaVersion": 2
 }

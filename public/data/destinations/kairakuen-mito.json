@@ -9,21 +9,21 @@
     "lng": 140.4533
   },
   "tags": ["Three Great Gardens", "Plum Blossoms", "Historical Park"],
-  "rating": 4.6,
+  "rating": 9.2,
   "ratings": {
-    "overall": 4.6,
-    "scenery": 4.8,
-    "accessibility": 4.3,
-    "crowd": 4.2,
-    "couple": 4.5,
-    "summer": 4.3,
-    "winter": 4.2,
-    "rain": 3.8,
-    "food": 4.4,
-    "photography": 4.9,
-    "relaxation": 4.6,
-    "value": 4.7,
-    "uniqueness": 4.8
+    "overall": 9.2,
+    "scenery": 9.6,
+    "accessibility": 8.6,
+    "crowd": 8.4,
+    "couple": 9,
+    "summer": 8.6,
+    "winter": 8.4,
+    "rain": 7.6,
+    "food": 8.8,
+    "photography": 9.8,
+    "relaxation": 9.2,
+    "value": 9.4,
+    "uniqueness": 9.6
   },
   "status": "verified",
   "travelEstimate": {
@@ -98,5 +98,6 @@
   },
   "walkingIntensity": "low",
   "role": "standalone",
-  "placeType": "destination"
+  "placeType": "destination",
+  "ratingsSchemaVersion": 2
 }

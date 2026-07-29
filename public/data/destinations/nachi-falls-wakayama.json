@@ -13,21 +13,21 @@
     "UNESCO World Heritage",
     "Tallest Single Drop Waterfall"
   ],
-  "rating": 4.9,
+  "rating": 9.8,
   "ratings": {
-    "overall": 4.9,
-    "scenery": 5,
-    "accessibility": 4.1,
-    "crowd": 4.2,
-    "couple": 4.8,
-    "summer": 4.7,
-    "winter": 4.5,
-    "rain": 4.4,
-    "food": 4.3,
-    "photography": 5,
-    "relaxation": 4.8,
-    "value": 4.8,
-    "uniqueness": 5
+    "overall": 9.8,
+    "scenery": 10,
+    "accessibility": 8.2,
+    "crowd": 8.4,
+    "couple": 9.6,
+    "summer": 9.4,
+    "winter": 9,
+    "rain": 8.8,
+    "food": 8.6,
+    "photography": 10,
+    "relaxation": 9.6,
+    "value": 9.6,
+    "uniqueness": 10
   },
   "categories": ["nature", "culture", "sightseeing"],
   "budgetMin": 3000,
@@ -89,5 +89,6 @@
   "schemaVersion": 2,
   "walkingIntensity": "low",
   "role": "standalone",
-  "placeType": "destination"
+  "placeType": "destination",
+  "ratingsSchemaVersion": 2
 }

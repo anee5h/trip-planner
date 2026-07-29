@@ -9,21 +9,21 @@
     "lng": 141.0644
   },
   "tags": ["Three Great Views", "Pine Covered Islands", "Coastal Bay"],
-  "rating": 4.8,
+  "rating": 9.6,
   "ratings": {
-    "overall": 4.8,
-    "scenery": 5,
-    "accessibility": 4.5,
-    "crowd": 4.2,
-    "couple": 4.8,
-    "summer": 4.6,
-    "winter": 4.4,
-    "rain": 3.8,
-    "food": 4.7,
-    "photography": 4.9,
-    "relaxation": 4.8,
-    "value": 4.7,
-    "uniqueness": 4.9
+    "overall": 9.6,
+    "scenery": 10,
+    "accessibility": 9,
+    "crowd": 8.4,
+    "couple": 9.6,
+    "summer": 9.2,
+    "winter": 8.8,
+    "rain": 7.6,
+    "food": 9.4,
+    "photography": 9.8,
+    "relaxation": 9.6,
+    "value": 9.4,
+    "uniqueness": 9.8
   },
   "categories": ["nature", "sightseeing", "culture"],
   "budgetMin": 3000,
@@ -86,5 +86,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "low"
+  "walkingIntensity": "low",
+  "ratingsSchemaVersion": 2
 }

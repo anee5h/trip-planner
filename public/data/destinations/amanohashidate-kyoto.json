@@ -9,21 +9,21 @@
     "lng": 135.1919
   },
   "tags": ["Three Great Views", "Pine Sandbar", "Miyazu Bay View"],
-  "rating": 4.8,
+  "rating": 9.6,
   "ratings": {
-    "overall": 4.8,
-    "scenery": 5,
-    "accessibility": 4.3,
-    "crowd": 4.1,
-    "couple": 4.8,
-    "summer": 4.7,
-    "winter": 4.5,
-    "rain": 3.7,
-    "food": 4.6,
-    "photography": 4.9,
-    "relaxation": 4.7,
-    "value": 4.6,
-    "uniqueness": 4.9
+    "overall": 9.6,
+    "scenery": 10,
+    "accessibility": 8.6,
+    "crowd": 8.2,
+    "couple": 9.6,
+    "summer": 9.4,
+    "winter": 9,
+    "rain": 7.4,
+    "food": 9.2,
+    "photography": 9.8,
+    "relaxation": 9.4,
+    "value": 9.2,
+    "uniqueness": 9.8
   },
   "categories": ["nature", "sightseeing", "romance"],
   "budgetMin": 3000,
@@ -87,5 +87,6 @@
     "walkingIntensity": 3
   },
   "reservation": "None required",
-  "parking": "Available on site"
+  "parking": "Available on site",
+  "ratingsSchemaVersion": 2
 }

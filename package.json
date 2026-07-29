@@ -27,6 +27,7 @@
     "report:editorial-freshness": "tsx scripts/report-editorial-freshness.ts",
     "sync-destination-details": "tsx scripts/sync-destination-details.ts",
     "normalize-destination-budgets": "tsx scripts/normalize-destination-budgets.ts",
+    "normalize-legacy-ratings": "tsx scripts/normalize-legacy-ratings.ts",
     "apply-city-hub-relationships": "tsx scripts/apply-city-hub-relationships.ts",
     "add-reviewed-city-hubs": "tsx scripts/add-reviewed-city-hubs.ts",
     "classify-standalone-destinations": "tsx scripts/classify-standalone-destinations.ts",

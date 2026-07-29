@@ -9,21 +9,21 @@
     "lng": 135.5262
   },
   "tags": ["Top 100 Castle", "Toyotomi Hideyoshi", "Cherry Blossom Park"],
-  "rating": 4.7,
+  "rating": 9.4,
   "ratings": {
-    "overall": 4.7,
-    "scenery": 4.7,
-    "accessibility": 4.8,
-    "crowd": 4.6,
-    "couple": 4.6,
-    "summer": 4.3,
-    "winter": 4.4,
-    "rain": 4.1,
-    "food": 4.7,
-    "photography": 4.8,
-    "relaxation": 4.4,
-    "value": 4.7,
-    "uniqueness": 4.7
+    "overall": 9.4,
+    "scenery": 9.4,
+    "accessibility": 9.6,
+    "crowd": 9.2,
+    "couple": 9.2,
+    "summer": 8.6,
+    "winter": 8.8,
+    "rain": 8.2,
+    "food": 9.4,
+    "photography": 9.6,
+    "relaxation": 8.8,
+    "value": 9.4,
+    "uniqueness": 9.4
   },
   "categories": ["history", "culture", "sightseeing"],
   "budgetMin": 3000,
@@ -92,5 +92,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "medium"
+  "walkingIntensity": "medium",
+  "ratingsSchemaVersion": 2
 }

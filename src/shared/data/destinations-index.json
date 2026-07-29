@@ -965,21 +965,21 @@
       "lng": 135.1919
     },
     "tags": ["Three Great Views", "Pine Sandbar", "Miyazu Bay View"],
-    "rating": 4.8,
+    "rating": 9.6,
     "ratings": {
-      "overall": 4.8,
-      "scenery": 5,
-      "accessibility": 4.3,
-      "crowd": 4.1,
-      "couple": 4.8,
-      "summer": 4.7,
-      "winter": 4.5,
-      "rain": 3.7,
-      "food": 4.6,
-      "photography": 4.9,
-      "relaxation": 4.7,
-      "value": 4.6,
-      "uniqueness": 4.9
+      "overall": 9.6,
+      "scenery": 10,
+      "accessibility": 8.6,
+      "crowd": 8.2,
+      "couple": 9.6,
+      "summer": 9.4,
+      "winter": 9,
+      "rain": 7.4,
+      "food": 9.2,
+      "photography": 9.8,
+      "relaxation": 9.4,
+      "value": 9.2,
+      "uniqueness": 9.8
     },
     "categories": ["nature", "sightseeing", "romance"],
     "budgetMin": 3000,
@@ -1043,7 +1043,8 @@
       "walkingIntensity": 3
     },
     "reservation": "None required",
-    "parking": "Available on site"
+    "parking": "Available on site",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "arakawa-city",
@@ -1231,21 +1232,21 @@
       "Kintan & Gintan Baths",
       "Historic Ryokan"
     ],
-    "rating": 4.8,
+    "rating": 9.6,
     "ratings": {
-      "overall": 4.8,
-      "scenery": 4.7,
-      "accessibility": 4.6,
-      "crowd": 4.3,
-      "couple": 4.8,
-      "summer": 4.3,
-      "winter": 4.9,
-      "rain": 4.4,
-      "food": 4.8,
-      "photography": 4.6,
-      "relaxation": 5,
-      "value": 4.5,
-      "uniqueness": 4.9
+      "overall": 9.6,
+      "scenery": 9.4,
+      "accessibility": 9.2,
+      "crowd": 8.6,
+      "couple": 9.6,
+      "summer": 8.6,
+      "winter": 9.8,
+      "rain": 8.8,
+      "food": 9.6,
+      "photography": 9.2,
+      "relaxation": 10,
+      "value": 9,
+      "uniqueness": 9.8
     },
     "categories": ["onsen", "relaxation", "culture"],
     "budgetMin": 6000,
@@ -1318,7 +1319,8 @@
       "attribution": "Lead photograph of Art Tower Mito via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Art%20Tower%20Mito"
     },
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "asago-city",
@@ -2106,21 +2108,21 @@
       "lng": 136.9089
     },
     "tags": ["Three Great Shrines", "Kusanagi Sword", "Ancient Forest Shrine"],
-    "rating": 4.7,
+    "rating": 9.4,
     "ratings": {
-      "overall": 4.7,
-      "scenery": 4.7,
-      "accessibility": 4.7,
-      "crowd": 4.3,
-      "couple": 4.6,
-      "summer": 4.3,
-      "winter": 4.6,
-      "rain": 4.2,
-      "food": 4.7,
-      "photography": 4.6,
-      "relaxation": 4.7,
-      "value": 4.7,
-      "uniqueness": 4.8
+      "overall": 9.4,
+      "scenery": 9.4,
+      "accessibility": 9.4,
+      "crowd": 8.6,
+      "couple": 9.2,
+      "summer": 8.6,
+      "winter": 9.2,
+      "rain": 8.4,
+      "food": 9.4,
+      "photography": 9.2,
+      "relaxation": 9.4,
+      "value": 9.4,
+      "uniqueness": 9.6
     },
     "categories": ["culture", "history", "religion"],
     "budgetMin": 2000,
@@ -2187,7 +2189,8 @@
     },
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "beppu-hells-oita",
@@ -2371,21 +2374,21 @@
       "Mountain Fortress",
       "Castle in the Sky"
     ],
-    "rating": 4.8,
+    "rating": 9.6,
     "ratings": {
-      "overall": 4.8,
-      "scenery": 5,
-      "accessibility": 3.8,
-      "crowd": 3.9,
-      "couple": 4.5,
-      "summer": 4.3,
-      "winter": 4.2,
-      "rain": 3.8,
-      "food": 4.4,
-      "photography": 4.9,
-      "relaxation": 4.6,
-      "value": 4.7,
-      "uniqueness": 4.8
+      "overall": 9.6,
+      "scenery": 10,
+      "accessibility": 7.6,
+      "crowd": 7.8,
+      "couple": 9,
+      "summer": 8.6,
+      "winter": 8.4,
+      "rain": 7.6,
+      "food": 8.8,
+      "photography": 9.8,
+      "relaxation": 9.2,
+      "value": 9.4,
+      "uniqueness": 9.6
     },
     "status": "verified",
     "travelEstimate": {
@@ -2463,7 +2466,8 @@
     },
     "walkingIntensity": "medium",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "bunkyo-city",
@@ -5606,21 +5610,21 @@
       "lng": 137.2439
     },
     "tags": ["Three Famous Springs", "Top Onsen Town", "Thermal Baths"],
-    "rating": 4.8,
+    "rating": 9.6,
     "ratings": {
-      "overall": 4.8,
-      "scenery": 4.7,
-      "accessibility": 4.4,
-      "crowd": 4,
-      "couple": 4.8,
-      "summer": 4.2,
-      "winter": 4.9,
-      "rain": 4.5,
-      "food": 4.7,
-      "photography": 4.6,
-      "relaxation": 5,
-      "value": 4.6,
-      "uniqueness": 4.8
+      "overall": 9.6,
+      "scenery": 9.4,
+      "accessibility": 8.8,
+      "crowd": 8,
+      "couple": 9.6,
+      "summer": 8.4,
+      "winter": 9.8,
+      "rain": 9,
+      "food": 9.4,
+      "photography": 9.2,
+      "relaxation": 10,
+      "value": 9.2,
+      "uniqueness": 9.6
     },
     "categories": ["onsen", "relaxation", "culture"],
     "budgetMin": 5000,
@@ -5690,7 +5694,8 @@
     },
     "walkingIntensity": "medium",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "gifu-castle-gifu",
@@ -7233,21 +7238,21 @@
       "Ropeway Observatory",
       "Panoramic Bay View"
     ],
-    "rating": 4.9,
+    "rating": 9.8,
     "ratings": {
-      "overall": 4.9,
-      "scenery": 5,
-      "accessibility": 4.4,
-      "crowd": 4.5,
-      "couple": 4.9,
-      "summer": 4.7,
-      "winter": 4.8,
-      "rain": 3.5,
-      "food": 4.3,
-      "photography": 5,
-      "relaxation": 4.2,
-      "value": 4.7,
-      "uniqueness": 4.9
+      "overall": 9.8,
+      "scenery": 10,
+      "accessibility": 8.8,
+      "crowd": 9,
+      "couple": 9.8,
+      "summer": 9.4,
+      "winter": 9.6,
+      "rain": 7,
+      "food": 8.6,
+      "photography": 10,
+      "relaxation": 8.4,
+      "value": 9.4,
+      "uniqueness": 9.8
     },
     "categories": ["sightseeing", "nature", "romance"],
     "budgetMin": 3000,
@@ -7324,7 +7329,8 @@
     },
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "hakuba-village",
@@ -7976,21 +7982,21 @@
       "Top 100 Castle",
       "National Treasure"
     ],
-    "rating": 4.9,
+    "rating": 9.8,
     "ratings": {
-      "overall": 4.9,
-      "scenery": 5,
-      "accessibility": 4.7,
-      "crowd": 4.6,
-      "couple": 4.5,
-      "summer": 4.3,
-      "winter": 4.2,
-      "rain": 3.8,
-      "food": 4.4,
-      "photography": 4.9,
-      "relaxation": 4.6,
-      "value": 4.7,
-      "uniqueness": 4.8
+      "overall": 9.8,
+      "scenery": 10,
+      "accessibility": 9.4,
+      "crowd": 9.2,
+      "couple": 9,
+      "summer": 8.6,
+      "winter": 8.4,
+      "rain": 7.6,
+      "food": 8.8,
+      "photography": 9.8,
+      "relaxation": 9.2,
+      "value": 9.4,
+      "uniqueness": 9.6
     },
     "status": "beta",
     "travelEstimate": {
@@ -8061,7 +8067,8 @@
     },
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "hino-city",
@@ -8261,21 +8268,21 @@
       "lng": 140.4636
     },
     "tags": ["12 Original Keeps", "Top 100 Castle", "Cherry Blossom Haven"],
-    "rating": 4.7,
+    "rating": 9.4,
     "ratings": {
-      "overall": 4.7,
-      "scenery": 4.9,
-      "accessibility": 4.2,
-      "crowd": 4.4,
-      "couple": 4.5,
-      "summer": 4.3,
-      "winter": 4.2,
-      "rain": 3.8,
-      "food": 4.4,
-      "photography": 4.9,
-      "relaxation": 4.6,
-      "value": 4.7,
-      "uniqueness": 4.8
+      "overall": 9.4,
+      "scenery": 9.8,
+      "accessibility": 8.4,
+      "crowd": 8.8,
+      "couple": 9,
+      "summer": 8.6,
+      "winter": 8.4,
+      "rain": 7.6,
+      "food": 8.8,
+      "photography": 9.8,
+      "relaxation": 9.2,
+      "value": 9.4,
+      "uniqueness": 9.6
     },
     "status": "verified",
     "travelEstimate": {
@@ -8341,7 +8348,8 @@
       "walkingIntensity": 3
     },
     "reservation": "None required",
-    "parking": "Available on site"
+    "parking": "Available on site",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "hiroshima-city",
@@ -9436,21 +9444,21 @@
       "National Treasure",
       "Amaterasu Sun Goddess"
     ],
-    "rating": 4.9,
+    "rating": 9.8,
     "ratings": {
-      "overall": 4.9,
-      "scenery": 4.9,
-      "accessibility": 4.5,
-      "crowd": 4.5,
-      "couple": 4.8,
-      "summer": 4.4,
-      "winter": 4.7,
-      "rain": 4.3,
-      "food": 4.9,
-      "photography": 4.7,
-      "relaxation": 4.8,
-      "value": 4.8,
-      "uniqueness": 5
+      "overall": 9.8,
+      "scenery": 9.8,
+      "accessibility": 9,
+      "crowd": 9,
+      "couple": 9.6,
+      "summer": 8.8,
+      "winter": 9.4,
+      "rain": 8.6,
+      "food": 9.8,
+      "photography": 9.4,
+      "relaxation": 9.6,
+      "value": 9.6,
+      "uniqueness": 10
     },
     "categories": ["culture", "history", "religion"],
     "budgetMin": 3000,
@@ -9521,7 +9529,8 @@
     },
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "itabashi-city",
@@ -10145,21 +10154,21 @@
       "lng": 132.6856
     },
     "tags": ["Three Great Shrines", "National Treasure", "Okuninushi Enmusubi"],
-    "rating": 4.8,
+    "rating": 9.6,
     "ratings": {
-      "overall": 4.8,
-      "scenery": 4.8,
-      "accessibility": 4.2,
-      "crowd": 4.1,
-      "couple": 4.9,
-      "summer": 4.3,
-      "winter": 4.6,
-      "rain": 4.2,
-      "food": 4.6,
-      "photography": 4.8,
-      "relaxation": 4.7,
-      "value": 4.7,
-      "uniqueness": 4.9
+      "overall": 9.6,
+      "scenery": 9.6,
+      "accessibility": 8.4,
+      "crowd": 8.2,
+      "couple": 9.8,
+      "summer": 8.6,
+      "winter": 9.2,
+      "rain": 8.4,
+      "food": 9.2,
+      "photography": 9.6,
+      "relaxation": 9.4,
+      "value": 9.4,
+      "uniqueness": 9.8
     },
     "categories": ["culture", "history", "religion"],
     "budgetMin": 3000,
@@ -10231,7 +10240,8 @@
     "reservation": "None required",
     "parking": "Available on site",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "jogashima",
@@ -10488,21 +10498,21 @@
       "lng": 140.4533
     },
     "tags": ["Three Great Gardens", "Plum Blossoms", "Historical Park"],
-    "rating": 4.6,
+    "rating": 9.2,
     "ratings": {
-      "overall": 4.6,
-      "scenery": 4.8,
-      "accessibility": 4.3,
-      "crowd": 4.2,
-      "couple": 4.5,
-      "summer": 4.3,
-      "winter": 4.2,
-      "rain": 3.8,
-      "food": 4.4,
-      "photography": 4.9,
-      "relaxation": 4.6,
-      "value": 4.7,
-      "uniqueness": 4.8
+      "overall": 9.2,
+      "scenery": 9.6,
+      "accessibility": 8.6,
+      "crowd": 8.4,
+      "couple": 9,
+      "summer": 8.6,
+      "winter": 8.4,
+      "rain": 7.6,
+      "food": 8.8,
+      "photography": 9.8,
+      "relaxation": 9.2,
+      "value": 9.4,
+      "uniqueness": 9.6
     },
     "status": "verified",
     "travelEstimate": {
@@ -10577,7 +10587,8 @@
     },
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kakunodate-samurai-district-akita",
@@ -11672,21 +11683,21 @@
       "Lake Chuzenji Outlet",
       "Nikko National Park"
     ],
-    "rating": 4.8,
+    "rating": 9.6,
     "ratings": {
-      "overall": 4.8,
-      "scenery": 4.9,
-      "accessibility": 4.6,
-      "crowd": 4.4,
-      "couple": 4.7,
-      "summer": 4.8,
-      "winter": 4.7,
-      "rain": 4.2,
-      "food": 4.2,
-      "photography": 4.9,
-      "relaxation": 4.5,
-      "value": 4.7,
-      "uniqueness": 4.8
+      "overall": 9.6,
+      "scenery": 9.8,
+      "accessibility": 9.2,
+      "crowd": 8.8,
+      "couple": 9.4,
+      "summer": 9.6,
+      "winter": 9.4,
+      "rain": 8.4,
+      "food": 8.4,
+      "photography": 9.8,
+      "relaxation": 9,
+      "value": 9.4,
+      "uniqueness": 9.6
     },
     "categories": ["nature", "sightseeing"],
     "budgetMin": 2000,
@@ -11759,7 +11770,8 @@
     },
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kinugawa-onsen",
@@ -12480,21 +12492,21 @@
       "Ten Million Dollar View",
       "Kobe Skyline"
     ],
-    "rating": 4.9,
+    "rating": 9.8,
     "ratings": {
-      "overall": 4.9,
-      "scenery": 5,
-      "accessibility": 4.2,
-      "crowd": 4.3,
-      "couple": 4.9,
-      "summer": 4.6,
-      "winter": 4.7,
-      "rain": 3.4,
-      "food": 4.1,
-      "photography": 5,
-      "relaxation": 4.4,
-      "value": 4.8,
-      "uniqueness": 4.9
+      "overall": 9.8,
+      "scenery": 10,
+      "accessibility": 8.4,
+      "crowd": 8.6,
+      "couple": 9.8,
+      "summer": 9.2,
+      "winter": 9.4,
+      "rain": 6.8,
+      "food": 8.2,
+      "photography": 10,
+      "relaxation": 8.8,
+      "value": 9.6,
+      "uniqueness": 9.8
     },
     "categories": ["sightseeing", "nature", "romance"],
     "budgetMin": 3000,
@@ -12564,7 +12576,8 @@
     },
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kofu-city",
@@ -12665,21 +12678,21 @@
       "lng": 133.9361
     },
     "tags": ["Three Great Gardens", "Landscape Garden", "Okayama Castle View"],
-    "rating": 4.8,
+    "rating": 9.6,
     "ratings": {
-      "overall": 4.8,
-      "scenery": 4.9,
-      "accessibility": 4.5,
-      "crowd": 4.3,
-      "couple": 4.5,
-      "summer": 4.3,
-      "winter": 4.2,
-      "rain": 3.8,
-      "food": 4.4,
-      "photography": 4.9,
-      "relaxation": 4.6,
-      "value": 4.7,
-      "uniqueness": 4.8
+      "overall": 9.6,
+      "scenery": 9.8,
+      "accessibility": 9,
+      "crowd": 8.6,
+      "couple": 9,
+      "summer": 8.6,
+      "winter": 8.4,
+      "rain": 7.6,
+      "food": 8.8,
+      "photography": 9.8,
+      "relaxation": 9.2,
+      "value": 9.4,
+      "uniqueness": 9.6
     },
     "status": "verified",
     "travelEstimate": {
@@ -12740,7 +12753,8 @@
       "walkingIntensity": 3
     },
     "reservation": "None required",
-    "parking": "Available on site"
+    "parking": "Available on site",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "koto-city",
@@ -13014,21 +13028,21 @@
       "lng": 130.7058
     },
     "tags": ["Top 100 Castle", "Impregnable Stone Walls", "Kato Kiyomasa"],
-    "rating": 4.8,
+    "rating": 9.6,
     "ratings": {
-      "overall": 4.8,
-      "scenery": 4.8,
-      "accessibility": 4.4,
-      "crowd": 4.2,
-      "couple": 4.7,
-      "summer": 4.3,
-      "winter": 4.5,
-      "rain": 4.1,
-      "food": 4.6,
-      "photography": 4.9,
-      "relaxation": 4.4,
-      "value": 4.7,
-      "uniqueness": 4.8
+      "overall": 9.6,
+      "scenery": 9.6,
+      "accessibility": 8.8,
+      "crowd": 8.4,
+      "couple": 9.4,
+      "summer": 8.6,
+      "winter": 9,
+      "rain": 8.2,
+      "food": 9.2,
+      "photography": 9.8,
+      "relaxation": 8.8,
+      "value": 9.4,
+      "uniqueness": 9.6
     },
     "categories": ["history", "culture", "sightseeing"],
     "budgetMin": 4000,
@@ -13100,7 +13114,8 @@
     },
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kumano-kodo-koya-wakayama",
@@ -13661,21 +13676,21 @@
       "Golden Pavilion",
       "Kiyomizu Stage"
     ],
-    "rating": 5,
+    "rating": 10,
     "ratings": {
-      "overall": 5,
-      "scenery": 5,
-      "accessibility": 4.7,
-      "crowd": 4.7,
-      "couple": 4.9,
-      "summer": 4.5,
-      "winter": 4.7,
-      "rain": 4.4,
-      "food": 4.9,
-      "photography": 5,
-      "relaxation": 4.5,
-      "value": 4.8,
-      "uniqueness": 5
+      "overall": 10,
+      "scenery": 10,
+      "accessibility": 9.4,
+      "crowd": 9.4,
+      "couple": 9.8,
+      "summer": 9,
+      "winter": 9.4,
+      "rain": 8.8,
+      "food": 9.8,
+      "photography": 10,
+      "relaxation": 9,
+      "value": 9.6,
+      "uniqueness": 10
     },
     "categories": ["culture", "history", "sightseeing"],
     "budgetMin": 3000,
@@ -13740,7 +13755,8 @@
     "schemaVersion": 2,
     "walkingIntensity": "high",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "lake-sagami",
@@ -14098,21 +14114,21 @@
       "lng": 133.8003
     },
     "tags": ["12 Original Keeps", "Top 100 Castle", "Highest Stone Walls"],
-    "rating": 4.6,
+    "rating": 9.2,
     "ratings": {
-      "overall": 4.6,
-      "scenery": 4.6,
-      "accessibility": 4.3,
-      "crowd": 3.9,
-      "couple": 4.5,
-      "summer": 4.3,
-      "winter": 4.2,
-      "rain": 3.8,
-      "food": 4.4,
-      "photography": 4.9,
-      "relaxation": 4.6,
-      "value": 4.7,
-      "uniqueness": 4.8
+      "overall": 9.2,
+      "scenery": 9.2,
+      "accessibility": 8.6,
+      "crowd": 7.8,
+      "couple": 9,
+      "summer": 8.6,
+      "winter": 8.4,
+      "rain": 7.6,
+      "food": 8.8,
+      "photography": 9.8,
+      "relaxation": 9.2,
+      "value": 9.4,
+      "uniqueness": 9.6
     },
     "status": "verified",
     "travelEstimate": {
@@ -14178,7 +14194,8 @@
       "walkingIntensity": 3
     },
     "reservation": "None required",
-    "parking": "Available on site"
+    "parking": "Available on site",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "maruoka-castle-fukui",
@@ -14385,21 +14402,21 @@
       "Top 100 Castle",
       "Black Plover Castle"
     ],
-    "rating": 4.8,
+    "rating": 9.6,
     "ratings": {
-      "overall": 4.8,
-      "scenery": 4.8,
-      "accessibility": 4.3,
-      "crowd": 4.1,
-      "couple": 4.5,
-      "summer": 4.3,
-      "winter": 4.2,
-      "rain": 3.8,
-      "food": 4.4,
-      "photography": 4.9,
-      "relaxation": 4.6,
-      "value": 4.7,
-      "uniqueness": 4.8
+      "overall": 9.6,
+      "scenery": 9.6,
+      "accessibility": 8.6,
+      "crowd": 8.2,
+      "couple": 9,
+      "summer": 8.6,
+      "winter": 8.4,
+      "rain": 7.6,
+      "food": 8.8,
+      "photography": 9.8,
+      "relaxation": 9.2,
+      "value": 9.4,
+      "uniqueness": 9.6
     },
     "status": "beta",
     "travelEstimate": {
@@ -14467,7 +14484,8 @@
     },
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "matsumoto-castle-nagano",
@@ -14650,21 +14668,21 @@
       "lng": 141.0644
     },
     "tags": ["Three Great Views", "Pine Covered Islands", "Coastal Bay"],
-    "rating": 4.8,
+    "rating": 9.6,
     "ratings": {
-      "overall": 4.8,
-      "scenery": 5,
-      "accessibility": 4.5,
-      "crowd": 4.2,
-      "couple": 4.8,
-      "summer": 4.6,
-      "winter": 4.4,
-      "rain": 3.8,
-      "food": 4.7,
-      "photography": 4.9,
-      "relaxation": 4.8,
-      "value": 4.7,
-      "uniqueness": 4.9
+      "overall": 9.6,
+      "scenery": 10,
+      "accessibility": 9,
+      "crowd": 8.4,
+      "couple": 9.6,
+      "summer": 9.2,
+      "winter": 8.8,
+      "rain": 7.6,
+      "food": 9.4,
+      "photography": 9.8,
+      "relaxation": 9.6,
+      "value": 9.4,
+      "uniqueness": 9.8
     },
     "categories": ["nature", "sightseeing", "culture"],
     "budgetMin": 3000,
@@ -14731,7 +14749,8 @@
     },
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "meguro-city",
@@ -15456,21 +15475,21 @@
       "Floating Torii Gate",
       "Three Views of Japan"
     ],
-    "rating": 5,
+    "rating": 10,
     "ratings": {
-      "overall": 5,
-      "scenery": 5,
-      "accessibility": 4.3,
-      "crowd": 4.4,
-      "couple": 5,
-      "summer": 4.6,
-      "winter": 4.7,
-      "rain": 4.3,
-      "food": 4.8,
-      "photography": 5,
-      "relaxation": 4.7,
-      "value": 4.8,
-      "uniqueness": 5
+      "overall": 10,
+      "scenery": 10,
+      "accessibility": 8.6,
+      "crowd": 8.8,
+      "couple": 10,
+      "summer": 9.2,
+      "winter": 9.4,
+      "rain": 8.6,
+      "food": 9.6,
+      "photography": 10,
+      "relaxation": 9.4,
+      "value": 9.6,
+      "uniqueness": 10
     },
     "categories": ["culture", "history", "sightseeing"],
     "budgetMin": 3000,
@@ -15545,7 +15564,8 @@
     },
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "miyazaki-city",
@@ -16329,21 +16349,21 @@
       "Ten Million Dollar View",
       "Nagasaki Harbor Panorama"
     ],
-    "rating": 4.8,
+    "rating": 9.6,
     "ratings": {
-      "overall": 4.8,
-      "scenery": 5,
-      "accessibility": 4.3,
-      "crowd": 4.3,
-      "couple": 4.9,
-      "summer": 4.5,
-      "winter": 4.7,
-      "rain": 3.5,
-      "food": 4.3,
-      "photography": 5,
-      "relaxation": 4.3,
-      "value": 4.7,
-      "uniqueness": 4.9
+      "overall": 9.6,
+      "scenery": 10,
+      "accessibility": 8.6,
+      "crowd": 8.6,
+      "couple": 9.8,
+      "summer": 9,
+      "winter": 9.4,
+      "rain": 7,
+      "food": 8.6,
+      "photography": 10,
+      "relaxation": 8.6,
+      "value": 9.4,
+      "uniqueness": 9.8
     },
     "categories": ["sightseeing", "nature", "romance"],
     "budgetMin": 3000,
@@ -16415,7 +16435,8 @@
     "reservation": "None required",
     "parking": "Available on site",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "mozufuruichi-kofun-osaka",
@@ -16530,21 +16551,21 @@
       "UNESCO World Heritage",
       "Tallest Single Drop Waterfall"
     ],
-    "rating": 4.9,
+    "rating": 9.8,
     "ratings": {
-      "overall": 4.9,
-      "scenery": 5,
-      "accessibility": 4.1,
-      "crowd": 4.2,
-      "couple": 4.8,
-      "summer": 4.7,
-      "winter": 4.5,
-      "rain": 4.4,
-      "food": 4.3,
-      "photography": 5,
-      "relaxation": 4.8,
-      "value": 4.8,
-      "uniqueness": 5
+      "overall": 9.8,
+      "scenery": 10,
+      "accessibility": 8.2,
+      "crowd": 8.4,
+      "couple": 9.6,
+      "summer": 9.4,
+      "winter": 9,
+      "rain": 8.8,
+      "food": 8.6,
+      "photography": 10,
+      "relaxation": 9.6,
+      "value": 9.6,
+      "uniqueness": 10
     },
     "categories": ["nature", "culture", "sightseeing"],
     "budgetMin": 3000,
@@ -16606,7 +16627,8 @@
     "schemaVersion": 2,
     "walkingIntensity": "low",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nagano-city",
@@ -17967,21 +17989,21 @@
       "Great Buddha",
       "Bow Deer Park"
     ],
-    "rating": 4.9,
+    "rating": 9.8,
     "ratings": {
-      "overall": 4.9,
-      "scenery": 4.9,
-      "accessibility": 4.6,
-      "crowd": 4.5,
-      "couple": 4.8,
-      "summer": 4.4,
-      "winter": 4.6,
-      "rain": 4.2,
-      "food": 4.6,
-      "photography": 4.9,
-      "relaxation": 4.7,
-      "value": 4.8,
-      "uniqueness": 5
+      "overall": 9.8,
+      "scenery": 9.8,
+      "accessibility": 9.2,
+      "crowd": 9,
+      "couple": 9.6,
+      "summer": 8.8,
+      "winter": 9.2,
+      "rain": 8.4,
+      "food": 9.2,
+      "photography": 9.8,
+      "relaxation": 9.4,
+      "value": 9.6,
+      "uniqueness": 10
     },
     "categories": ["culture", "history", "sightseeing"],
     "budgetMin": 2000,
@@ -18047,7 +18069,8 @@
     },
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "naruto-city",
@@ -18511,21 +18534,21 @@
       "Nightingale Floors",
       "Tokugawa Shogunate"
     ],
-    "rating": 4.8,
+    "rating": 9.6,
     "ratings": {
-      "overall": 4.8,
-      "scenery": 4.8,
-      "accessibility": 4.7,
-      "crowd": 4.4,
-      "couple": 4.7,
-      "summer": 4.4,
-      "winter": 4.5,
-      "rain": 4.2,
-      "food": 4.5,
-      "photography": 4.8,
-      "relaxation": 4.6,
-      "value": 4.7,
-      "uniqueness": 4.9
+      "overall": 9.6,
+      "scenery": 9.6,
+      "accessibility": 9.4,
+      "crowd": 8.8,
+      "couple": 9.4,
+      "summer": 8.8,
+      "winter": 9,
+      "rain": 8.4,
+      "food": 9,
+      "photography": 9.6,
+      "relaxation": 9.2,
+      "value": 9.4,
+      "uniqueness": 9.8
     },
     "categories": ["history", "culture", "sightseeing"],
     "budgetMin": 3000,
@@ -18591,7 +18614,8 @@
     },
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nikko-toshogu-shrine-tochigi",
@@ -20169,21 +20193,21 @@
       "lng": 135.5262
     },
     "tags": ["Top 100 Castle", "Toyotomi Hideyoshi", "Cherry Blossom Park"],
-    "rating": 4.7,
+    "rating": 9.4,
     "ratings": {
-      "overall": 4.7,
-      "scenery": 4.7,
-      "accessibility": 4.8,
-      "crowd": 4.6,
-      "couple": 4.6,
-      "summer": 4.3,
-      "winter": 4.4,
-      "rain": 4.1,
-      "food": 4.7,
-      "photography": 4.8,
-      "relaxation": 4.4,
-      "value": 4.7,
-      "uniqueness": 4.7
+      "overall": 9.4,
+      "scenery": 9.4,
+      "accessibility": 9.6,
+      "crowd": 9.2,
+      "couple": 9.2,
+      "summer": 8.6,
+      "winter": 8.8,
+      "rain": 8.2,
+      "food": 9.4,
+      "photography": 9.6,
+      "relaxation": 8.8,
+      "value": 9.4,
+      "uniqueness": 9.4
     },
     "categories": ["history", "culture", "sightseeing"],
     "budgetMin": 3000,
@@ -20255,7 +20279,8 @@
     },
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ota-city",
@@ -27543,21 +27568,21 @@
       "lng": 132.5653
     },
     "tags": ["12 Original Keeps", "Top 100 Castle", "Coastal Hill Castle"],
-    "rating": 4.6,
+    "rating": 9.2,
     "ratings": {
-      "overall": 4.6,
-      "scenery": 4.6,
-      "accessibility": 4,
-      "crowd": 3.7,
-      "couple": 4.5,
-      "summer": 4.3,
-      "winter": 4.2,
-      "rain": 3.8,
-      "food": 4.4,
-      "photography": 4.9,
-      "relaxation": 4.6,
-      "value": 4.7,
-      "uniqueness": 4.8
+      "overall": 9.2,
+      "scenery": 9.2,
+      "accessibility": 8,
+      "crowd": 7.4,
+      "couple": 9,
+      "summer": 8.6,
+      "winter": 8.4,
+      "rain": 7.6,
+      "food": 8.8,
+      "photography": 9.8,
+      "relaxation": 9.2,
+      "value": 9.4,
+      "uniqueness": 9.6
     },
     "status": "beta",
     "travelEstimate": {
@@ -27625,7 +27650,8 @@
     },
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "low"
+    "walkingIntensity": "low",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "yakushima-town",
@@ -30309,21 +30335,21 @@
       "lng": 134.8144
     },
     "tags": ["Willow Canal", "7 Public Bathhouses", "Yukata Stroll"],
-    "rating": 4.9,
+    "rating": 9.8,
     "ratings": {
-      "overall": 4.9,
-      "scenery": 4.9,
-      "accessibility": 4.2,
-      "crowd": 4.2,
-      "couple": 4.9,
-      "summer": 4.5,
-      "winter": 4.9,
-      "rain": 4.6,
-      "food": 4.9,
-      "photography": 4.9,
-      "relaxation": 5,
-      "value": 4.6,
-      "uniqueness": 4.9
+      "overall": 9.8,
+      "scenery": 9.8,
+      "accessibility": 8.4,
+      "crowd": 8.4,
+      "couple": 9.8,
+      "summer": 9,
+      "winter": 9.8,
+      "rain": 9.2,
+      "food": 9.8,
+      "photography": 9.8,
+      "relaxation": 10,
+      "value": 9.2,
+      "uniqueness": 9.8
     },
     "categories": ["onsen", "relaxation", "culture"],
     "budgetMin": 7000,
@@ -30390,7 +30416,8 @@
     },
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kintai-bridge-yamaguchi",
@@ -30489,21 +30516,21 @@
       "lng": 133.5314
     },
     "tags": ["12 Original Keeps", "Top 100 Castle", "Complete Palace Complex"],
-    "rating": 4.7,
+    "rating": 9.4,
     "ratings": {
-      "overall": 4.7,
-      "scenery": 4.7,
-      "accessibility": 4.2,
-      "crowd": 4,
-      "couple": 4.5,
-      "summer": 4.3,
-      "winter": 4.2,
-      "rain": 3.8,
-      "food": 4.4,
-      "photography": 4.9,
-      "relaxation": 4.6,
-      "value": 4.7,
-      "uniqueness": 4.8
+      "overall": 9.4,
+      "scenery": 9.4,
+      "accessibility": 8.4,
+      "crowd": 8,
+      "couple": 9,
+      "summer": 8.6,
+      "winter": 8.4,
+      "rain": 7.6,
+      "food": 8.8,
+      "photography": 9.8,
+      "relaxation": 9.2,
+      "value": 9.4,
+      "uniqueness": 9.6
     },
     "status": "beta",
     "travelEstimate": {
@@ -30575,7 +30602,8 @@
     },
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kochi-city",
@@ -31098,21 +31126,21 @@
       "Ropeway Access",
       "Hilltop Fortress"
     ],
-    "rating": 4.8,
+    "rating": 9.6,
     "ratings": {
-      "overall": 4.8,
-      "scenery": 4.9,
-      "accessibility": 4.4,
-      "crowd": 4.2,
-      "couple": 4.5,
-      "summer": 4.3,
-      "winter": 4.2,
-      "rain": 3.8,
-      "food": 4.4,
-      "photography": 4.9,
-      "relaxation": 4.6,
-      "value": 4.7,
-      "uniqueness": 4.8
+      "overall": 9.6,
+      "scenery": 9.8,
+      "accessibility": 8.8,
+      "crowd": 8.4,
+      "couple": 9,
+      "summer": 8.6,
+      "winter": 8.4,
+      "rain": 7.6,
+      "food": 8.8,
+      "photography": 9.8,
+      "relaxation": 9.2,
+      "value": 9.4,
+      "uniqueness": 9.6
     },
     "status": "beta",
     "travelEstimate": {
@@ -31184,7 +31212,8 @@
     },
     "reservation": "None required",
     "parking": "Available on site",
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "matsuyama-city",
@@ -31370,21 +31399,21 @@
       "30,000 Sakura Trees",
       "UNESCO World Heritage"
     ],
-    "rating": 4.9,
+    "rating": 9.8,
     "ratings": {
-      "overall": 4.9,
-      "scenery": 5,
-      "accessibility": 4.2,
-      "crowd": 4.6,
-      "couple": 4.9,
-      "summer": 4.4,
-      "winter": 4.3,
-      "rain": 3.9,
-      "food": 4.5,
-      "photography": 5,
-      "relaxation": 4.6,
-      "value": 4.7,
-      "uniqueness": 5
+      "overall": 9.8,
+      "scenery": 10,
+      "accessibility": 8.4,
+      "crowd": 9.2,
+      "couple": 9.8,
+      "summer": 8.8,
+      "winter": 8.6,
+      "rain": 7.8,
+      "food": 9,
+      "photography": 10,
+      "relaxation": 9.2,
+      "value": 9.4,
+      "uniqueness": 10
     },
     "categories": ["nature", "seasons", "sightseeing"],
     "budgetMin": 3000,
@@ -31454,7 +31483,8 @@
     "parking": "Available on site",
     "walkingIntensity": "medium",
     "role": "standalone",
-    "placeType": "destination"
+    "placeType": "destination",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "mount-zao-yamagata",

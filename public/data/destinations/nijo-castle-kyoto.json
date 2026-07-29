@@ -14,21 +14,21 @@
     "Nightingale Floors",
     "Tokugawa Shogunate"
   ],
-  "rating": 4.8,
+  "rating": 9.6,
   "ratings": {
-    "overall": 4.8,
-    "scenery": 4.8,
-    "accessibility": 4.7,
-    "crowd": 4.4,
-    "couple": 4.7,
-    "summer": 4.4,
-    "winter": 4.5,
-    "rain": 4.2,
-    "food": 4.5,
-    "photography": 4.8,
-    "relaxation": 4.6,
-    "value": 4.7,
-    "uniqueness": 4.9
+    "overall": 9.6,
+    "scenery": 9.6,
+    "accessibility": 9.4,
+    "crowd": 8.8,
+    "couple": 9.4,
+    "summer": 8.8,
+    "winter": 9,
+    "rain": 8.4,
+    "food": 9,
+    "photography": 9.6,
+    "relaxation": 9.2,
+    "value": 9.4,
+    "uniqueness": 9.8
   },
   "categories": ["history", "culture", "sightseeing"],
   "budgetMin": 3000,
@@ -94,5 +94,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "low"
+  "walkingIntensity": "low",
+  "ratingsSchemaVersion": 2
 }

@@ -14,21 +14,21 @@
     "Golden Pavilion",
     "Kiyomizu Stage"
   ],
-  "rating": 5,
+  "rating": 10,
   "ratings": {
-    "overall": 5,
-    "scenery": 5,
-    "accessibility": 4.7,
-    "crowd": 4.7,
-    "couple": 4.9,
-    "summer": 4.5,
-    "winter": 4.7,
-    "rain": 4.4,
-    "food": 4.9,
-    "photography": 5,
-    "relaxation": 4.5,
-    "value": 4.8,
-    "uniqueness": 5
+    "overall": 10,
+    "scenery": 10,
+    "accessibility": 9.4,
+    "crowd": 9.4,
+    "couple": 9.8,
+    "summer": 9,
+    "winter": 9.4,
+    "rain": 8.8,
+    "food": 9.8,
+    "photography": 10,
+    "relaxation": 9,
+    "value": 9.6,
+    "uniqueness": 10
   },
   "categories": ["culture", "history", "sightseeing"],
   "budgetMin": 3000,
@@ -93,5 +93,6 @@
   "schemaVersion": 2,
   "walkingIntensity": "high",
   "role": "standalone",
-  "placeType": "destination"
+  "placeType": "destination",
+  "ratingsSchemaVersion": 2
 }

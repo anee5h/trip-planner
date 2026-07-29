@@ -13,21 +13,21 @@
     "Ten Million Dollar View",
     "Nagasaki Harbor Panorama"
   ],
-  "rating": 4.8,
+  "rating": 9.6,
   "ratings": {
-    "overall": 4.8,
-    "scenery": 5,
-    "accessibility": 4.3,
-    "crowd": 4.3,
-    "couple": 4.9,
-    "summer": 4.5,
-    "winter": 4.7,
-    "rain": 3.5,
-    "food": 4.3,
-    "photography": 5,
-    "relaxation": 4.3,
-    "value": 4.7,
-    "uniqueness": 4.9
+    "overall": 9.6,
+    "scenery": 10,
+    "accessibility": 8.6,
+    "crowd": 8.6,
+    "couple": 9.8,
+    "summer": 9,
+    "winter": 9.4,
+    "rain": 7,
+    "food": 8.6,
+    "photography": 10,
+    "relaxation": 8.6,
+    "value": 9.4,
+    "uniqueness": 9.8
   },
   "categories": ["sightseeing", "nature", "romance"],
   "budgetMin": 3000,
@@ -99,5 +99,6 @@
   "reservation": "None required",
   "parking": "Available on site",
   "role": "standalone",
-  "placeType": "destination"
+  "placeType": "destination",
+  "ratingsSchemaVersion": 2
 }

@@ -9,21 +9,21 @@
     "lng": 134.8144
   },
   "tags": ["Willow Canal", "7 Public Bathhouses", "Yukata Stroll"],
-  "rating": 4.9,
+  "rating": 9.8,
   "ratings": {
-    "overall": 4.9,
-    "scenery": 4.9,
-    "accessibility": 4.2,
-    "crowd": 4.2,
-    "couple": 4.9,
-    "summer": 4.5,
-    "winter": 4.9,
-    "rain": 4.6,
-    "food": 4.9,
-    "photography": 4.9,
-    "relaxation": 5,
-    "value": 4.6,
-    "uniqueness": 4.9
+    "overall": 9.8,
+    "scenery": 9.8,
+    "accessibility": 8.4,
+    "crowd": 8.4,
+    "couple": 9.8,
+    "summer": 9,
+    "winter": 9.8,
+    "rain": 9.2,
+    "food": 9.8,
+    "photography": 9.8,
+    "relaxation": 10,
+    "value": 9.2,
+    "uniqueness": 9.8
   },
   "categories": ["onsen", "relaxation", "culture"],
   "budgetMin": 7000,
@@ -90,5 +90,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "medium"
+  "walkingIntensity": "medium",
+  "ratingsSchemaVersion": 2
 }

@@ -13,21 +13,21 @@
     "30,000 Sakura Trees",
     "UNESCO World Heritage"
   ],
-  "rating": 4.9,
+  "rating": 9.8,
   "ratings": {
-    "overall": 4.9,
-    "scenery": 5,
-    "accessibility": 4.2,
-    "crowd": 4.6,
-    "couple": 4.9,
-    "summer": 4.4,
-    "winter": 4.3,
-    "rain": 3.9,
-    "food": 4.5,
-    "photography": 5,
-    "relaxation": 4.6,
-    "value": 4.7,
-    "uniqueness": 5
+    "overall": 9.8,
+    "scenery": 10,
+    "accessibility": 8.4,
+    "crowd": 9.2,
+    "couple": 9.8,
+    "summer": 8.8,
+    "winter": 8.6,
+    "rain": 7.8,
+    "food": 9,
+    "photography": 10,
+    "relaxation": 9.2,
+    "value": 9.4,
+    "uniqueness": 10
   },
   "categories": ["nature", "seasons", "sightseeing"],
   "budgetMin": 3000,
@@ -97,5 +97,6 @@
   "parking": "Available on site",
   "walkingIntensity": "medium",
   "role": "standalone",
-  "placeType": "destination"
+  "placeType": "destination",
+  "ratingsSchemaVersion": 2
 }

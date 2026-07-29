@@ -9,21 +9,21 @@
     "lng": 136.9089
   },
   "tags": ["Three Great Shrines", "Kusanagi Sword", "Ancient Forest Shrine"],
-  "rating": 4.7,
+  "rating": 9.4,
   "ratings": {
-    "overall": 4.7,
-    "scenery": 4.7,
-    "accessibility": 4.7,
-    "crowd": 4.3,
-    "couple": 4.6,
-    "summer": 4.3,
-    "winter": 4.6,
-    "rain": 4.2,
-    "food": 4.7,
-    "photography": 4.6,
-    "relaxation": 4.7,
-    "value": 4.7,
-    "uniqueness": 4.8
+    "overall": 9.4,
+    "scenery": 9.4,
+    "accessibility": 9.4,
+    "crowd": 8.6,
+    "couple": 9.2,
+    "summer": 8.6,
+    "winter": 9.2,
+    "rain": 8.4,
+    "food": 9.4,
+    "photography": 9.2,
+    "relaxation": 9.4,
+    "value": 9.4,
+    "uniqueness": 9.6
   },
   "categories": ["culture", "history", "religion"],
   "budgetMin": 2000,
@@ -86,5 +86,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "low"
+  "walkingIntensity": "low",
+  "ratingsSchemaVersion": 2
 }

@@ -14,21 +14,21 @@
     "Great Buddha",
     "Bow Deer Park"
   ],
-  "rating": 4.9,
+  "rating": 9.8,
   "ratings": {
-    "overall": 4.9,
-    "scenery": 4.9,
-    "accessibility": 4.6,
-    "crowd": 4.5,
-    "couple": 4.8,
-    "summer": 4.4,
-    "winter": 4.6,
-    "rain": 4.2,
-    "food": 4.6,
-    "photography": 4.9,
-    "relaxation": 4.7,
-    "value": 4.8,
-    "uniqueness": 5
+    "overall": 9.8,
+    "scenery": 9.8,
+    "accessibility": 9.2,
+    "crowd": 9,
+    "couple": 9.6,
+    "summer": 8.8,
+    "winter": 9.2,
+    "rain": 8.4,
+    "food": 9.2,
+    "photography": 9.8,
+    "relaxation": 9.4,
+    "value": 9.6,
+    "uniqueness": 10
   },
   "categories": ["culture", "history", "sightseeing"],
   "budgetMin": 2000,
@@ -94,5 +94,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "low"
+  "walkingIntensity": "low",
+  "ratingsSchemaVersion": 2
 }

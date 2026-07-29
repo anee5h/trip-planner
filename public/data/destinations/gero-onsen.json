@@ -9,21 +9,21 @@
     "lng": 137.2439
   },
   "tags": ["Three Famous Springs", "Top Onsen Town", "Thermal Baths"],
-  "rating": 4.8,
+  "rating": 9.6,
   "ratings": {
-    "overall": 4.8,
-    "scenery": 4.7,
-    "accessibility": 4.4,
-    "crowd": 4,
-    "couple": 4.8,
-    "summer": 4.2,
-    "winter": 4.9,
-    "rain": 4.5,
-    "food": 4.7,
-    "photography": 4.6,
-    "relaxation": 5,
-    "value": 4.6,
-    "uniqueness": 4.8
+    "overall": 9.6,
+    "scenery": 9.4,
+    "accessibility": 8.8,
+    "crowd": 8,
+    "couple": 9.6,
+    "summer": 8.4,
+    "winter": 9.8,
+    "rain": 9,
+    "food": 9.4,
+    "photography": 9.2,
+    "relaxation": 10,
+    "value": 9.2,
+    "uniqueness": 9.6
   },
   "categories": ["onsen", "relaxation", "culture"],
   "budgetMin": 5000,
@@ -93,5 +93,6 @@
   },
   "walkingIntensity": "medium",
   "role": "standalone",
-  "placeType": "destination"
+  "placeType": "destination",
+  "ratingsSchemaVersion": 2
 }

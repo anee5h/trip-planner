@@ -14,21 +14,21 @@
     "Floating Torii Gate",
     "Three Views of Japan"
   ],
-  "rating": 5,
+  "rating": 10,
   "ratings": {
-    "overall": 5,
-    "scenery": 5,
-    "accessibility": 4.3,
-    "crowd": 4.4,
-    "couple": 5,
-    "summer": 4.6,
-    "winter": 4.7,
-    "rain": 4.3,
-    "food": 4.8,
-    "photography": 5,
-    "relaxation": 4.7,
-    "value": 4.8,
-    "uniqueness": 5
+    "overall": 10,
+    "scenery": 10,
+    "accessibility": 8.6,
+    "crowd": 8.8,
+    "couple": 10,
+    "summer": 9.2,
+    "winter": 9.4,
+    "rain": 8.6,
+    "food": 9.6,
+    "photography": 10,
+    "relaxation": 9.4,
+    "value": 9.6,
+    "uniqueness": 10
   },
   "categories": ["culture", "history", "sightseeing"],
   "budgetMin": 3000,
@@ -103,5 +103,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "low"
+  "walkingIntensity": "low",
+  "ratingsSchemaVersion": 2
 }

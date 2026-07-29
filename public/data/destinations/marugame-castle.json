@@ -9,21 +9,21 @@
     "lng": 133.8003
   },
   "tags": ["12 Original Keeps", "Top 100 Castle", "Highest Stone Walls"],
-  "rating": 4.6,
+  "rating": 9.2,
   "ratings": {
-    "overall": 4.6,
-    "scenery": 4.6,
-    "accessibility": 4.3,
-    "crowd": 3.9,
-    "couple": 4.5,
-    "summer": 4.3,
-    "winter": 4.2,
-    "rain": 3.8,
-    "food": 4.4,
-    "photography": 4.9,
-    "relaxation": 4.6,
-    "value": 4.7,
-    "uniqueness": 4.8
+    "overall": 9.2,
+    "scenery": 9.2,
+    "accessibility": 8.6,
+    "crowd": 7.8,
+    "couple": 9,
+    "summer": 8.6,
+    "winter": 8.4,
+    "rain": 7.6,
+    "food": 8.8,
+    "photography": 9.8,
+    "relaxation": 9.2,
+    "value": 9.4,
+    "uniqueness": 9.6
   },
   "status": "verified",
   "travelEstimate": {
@@ -89,5 +89,6 @@
     "walkingIntensity": 3
   },
   "reservation": "None required",
-  "parking": "Available on site"
+  "parking": "Available on site",
+  "ratingsSchemaVersion": 2
 }

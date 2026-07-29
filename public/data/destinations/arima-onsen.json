@@ -9,21 +9,21 @@
     "lng": 135.2472
   },
   "tags": ["Three Famous Springs", "Kintan & Gintan Baths", "Historic Ryokan"],
-  "rating": 4.8,
+  "rating": 9.6,
   "ratings": {
-    "overall": 4.8,
-    "scenery": 4.7,
-    "accessibility": 4.6,
-    "crowd": 4.3,
-    "couple": 4.8,
-    "summer": 4.3,
-    "winter": 4.9,
-    "rain": 4.4,
-    "food": 4.8,
-    "photography": 4.6,
-    "relaxation": 5,
-    "value": 4.5,
-    "uniqueness": 4.9
+    "overall": 9.6,
+    "scenery": 9.4,
+    "accessibility": 9.2,
+    "crowd": 8.6,
+    "couple": 9.6,
+    "summer": 8.6,
+    "winter": 9.8,
+    "rain": 8.8,
+    "food": 9.6,
+    "photography": 9.2,
+    "relaxation": 10,
+    "value": 9,
+    "uniqueness": 9.8
   },
   "categories": ["onsen", "relaxation", "culture"],
   "budgetMin": 6000,
@@ -96,5 +96,6 @@
     "attribution": "Lead photograph of Art Tower Mito via Wikipedia/Wikimedia Commons",
     "sourceUrl": "https://en.wikipedia.org/wiki/Art%20Tower%20Mito"
   },
-  "walkingIntensity": "low"
+  "walkingIntensity": "low",
+  "ratingsSchemaVersion": 2
 }
