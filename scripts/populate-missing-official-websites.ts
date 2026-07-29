@@ -35,8 +35,7 @@ const OFFICIAL_WEBSITE_MAP: Record<string, string> = {
   "bitchu-matsuyama-castle":
     "https://www.city.takahashi.lg.jp/site/bitchu-matsuyama-castle/",
   "boso-peninsula": "https://maruchiba.jp/",
-  "chiba-nokogiriyama":
-    "https://www.town.kyonan.tokushima.jp/site/nokogiriyama/",
+  "chiba-nokogiriyama": "https://www.town.kyonan.chiba.jp/site/nokogiriyama/",
   "chiba-port-tower": "https://chiba-porttower.com/",
   "chiba-sawara": "https://www.city.katori.lg.jp/",
   "chiba-yoro-valley": "https://www.town.otaki.chiba.jp/",
