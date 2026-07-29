@@ -1,3 +1,8 @@
+import type {
+  ImplicitUserProfile,
+  PersonalizationSettings,
+} from "./PersonalizationService";
+
 export type TripDuration = "any" | "halfDay" | "dayTrip" | "weekend";
 
 export type ActualWeatherCondition =
@@ -52,6 +57,8 @@ export interface RecommendationContext {
   homeStationCoords?: { lat: number; lng: number } | null;
   userRatings?: Record<string, "up" | "down">;
   tripDuration?: TripDuration;
+  userProfile?: ImplicitUserProfile;
+  personalizationSettings?: PersonalizationSettings;
 }
 
 export function resolveRecommendationWeather(context: RecommendationContext) {

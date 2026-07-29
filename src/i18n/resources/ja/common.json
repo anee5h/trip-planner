@@ -36,6 +36,17 @@
     "matchConfidence": "マッチ度",
     "matchReasons": "おすすめの理由",
     "matchedPreferences": "一致した条件",
+    "personalization": {
+      "title": "パーソナライズ設定",
+      "enableLabel": "履歴パーソナライズを有効化",
+      "enableHelp": "保存済み・訪問済みの場所に基いてランキングを最適化",
+      "noveltyLabel": "新奇性プレファレンス",
+      "noveltyBalanced": "バランス",
+      "noveltyNovel": "未訪問スポット優先",
+      "noveltyFamiliar": "訪問済み・類似スポット優先",
+      "resetAction": "関心プロファイルをリセット",
+      "resetConfirm": "パーソナライズプロファイルをリセットしてもよろしいですか？"
+    },
     "confidence": {
       "verifiedCatalogData": "検証済みのスポット・料金データ",
       "liveWeatherAvailable": "リアルタイム気象データ連携済み",

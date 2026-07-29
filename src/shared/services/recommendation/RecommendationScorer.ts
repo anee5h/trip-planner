@@ -6,6 +6,7 @@ import {
 import { getEstimatedBudgetRange } from "@/shared/services/budget/BudgetService";
 import { getFixedSeason } from "@/shared/utils/season";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
+import { personalizationService } from "./PersonalizationService";
 
 export const SCORING_WEIGHTS = {
   // Base & Ratings
@@ -350,6 +351,16 @@ export function calculateScore(
     score += 25;
   } else if (userRatings?.[dest.id] === "down") {
     score -= 1000;
+  }
+
+  // Personalization Multiplier
+  if (context.userProfile) {
+    const pMultiplier = personalizationService.calculateMultiplier(
+      dest,
+      context.userProfile,
+      context.personalizationSettings,
+    );
+    score = Math.round(score * pMultiplier);
   }
 
   return {
