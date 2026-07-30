@@ -22,7 +22,7 @@ export interface DestinationCombo {
 export function findNearbyCombinations(
   primary: Destination,
   context?: Partial<RecommendationContext>,
-  maxCount: number = 3,
+  maxCount: number = 5,
   catchmentScope: "nearby" | "wider" = "nearby",
 ): DestinationCombo[] {
   if (!primary) return [];
@@ -30,6 +30,7 @@ export function findNearbyCombinations(
   const all = getDestinationList() as Destination[];
   const primaryCoords = primary.coordinates;
   const primaryParentId = primary.relationships?.parentDestinationId;
+  const isPrimaryHub = primary.role === "hub" || primary.kind === "city";
 
   const isUrbanHub =
     primary.prefecture === "Tokyo" ||
@@ -38,7 +39,6 @@ export function findNearbyCombinations(
     primary.region === "Kanto";
 
   // Adaptive Catchment Radius limits
-  // Dense urban hub: preferred 8-12 km (nearby), hard max 20 km (wider)
   const maxRadiusKm = catchmentScope === "wider" ? 20 : isUrbanHub ? 12 : 15;
   const maxTransitMins = catchmentScope === "wider" ? 45 : 35;
 
@@ -46,17 +46,19 @@ export function findNearbyCombinations(
     place: Destination;
     distKm: number;
     transitMins: number;
+    isChildOfPrimary: boolean;
   }> = [];
 
   for (const place of all) {
     if (!place.id || place.id === primary.id) continue;
     if (place.role === "hub" || place.kind === "city") continue; // Never pick cities or hubs as POI stops
 
-    // Do not pair parent hub with its own child attraction
-    if (
-      place.id === primaryParentId ||
-      place.relationships?.parentDestinationId === primary.id
-    ) {
+    const isChildOfPrimary =
+      Boolean(place.relationships?.parentDestinationId) &&
+      place.relationships?.parentDestinationId === primary.id;
+
+    // If primary is NOT a hub, do not pair it directly with its parent hub
+    if (!isPrimaryHub && place.id === primaryParentId) {
       continue;
     }
 
@@ -70,28 +72,34 @@ export function findNearbyCombinations(
         place.coordinates.lat,
         place.coordinates.lng,
       );
-      transitMins = Math.max(10, Math.round(distKm * 4 + 5));
+      transitMins = Math.max(8, Math.round(distKm * 4 + 5));
     } else if (
-      primaryParentId &&
-      place.relationships?.parentDestinationId === primaryParentId
+      isChildOfPrimary ||
+      (primaryParentId &&
+        place.relationships?.parentDestinationId === primaryParentId)
     ) {
-      distKm = 2.0; // Same city/ward hub area
-      transitMins = 15;
+      distKm = 1.5; // Same city/ward hub area
+      transitMins = 12;
     } else if (primary.prefecture && place.prefecture === primary.prefecture) {
-      distKm = 6.0; // Same prefecture
-      transitMins = 25;
+      distKm = 5.0; // Same prefecture
+      transitMins = 20;
     }
 
-    // TRANSIT OVERRIDES STRAIGHT-LINE DISTANCE
-    if (distKm <= maxRadiusKm && transitMins <= maxTransitMins) {
-      candidates.push({ place, distKm, transitMins });
+    // Direct child POIs of a hub are ALWAYS valid
+    if (
+      isChildOfPrimary ||
+      (distKm <= maxRadiusKm && transitMins <= maxTransitMins)
+    ) {
+      candidates.push({ place, distKm, transitMins, isChildOfPrimary });
     }
   }
 
-  // Sort candidate secondary destinations nearest & shortest transit first
-  candidates.sort(
-    (a, b) => a.transitMins - b.transitMins || a.distKm - b.distKm,
-  );
+  // Sort candidate secondary destinations: direct child POIs first, then nearest transit
+  candidates.sort((a, b) => {
+    if (a.isChildOfPrimary && !b.isChildOfPrimary) return -1;
+    if (!a.isChildOfPrimary && b.isChildOfPrimary) return 1;
+    return a.transitMins - b.transitMins || a.distKm - b.distKm;
+  });
 
   const combos: DestinationCombo[] = [];
   const usedCategorySets = new Set<string>();
@@ -133,7 +141,6 @@ export function findNearbyCombinations(
     const budgetMin = (primary.budgetMin ?? 0) + (sec.budgetMin ?? 0);
     const budgetMax = (primary.budgetMax ?? 0) + (sec.budgetMax ?? 0);
 
-    // Weather compatibility check
     let isWeatherMatched = true;
     if (context?.weather?.actual?.condition === "rainy") {
       const pRain = primary.ratings?.rain ?? 5;

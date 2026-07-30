@@ -88,6 +88,7 @@ export function generateDayPlan(
     };
   }
 
+  const isPrimaryHub = primary.role === "hub" || primary.kind === "city";
   const planType: DayPlanType = options?.planType || "full_day";
   const pace: DayPlanPace = options?.pace || "balanced";
   const partySize = Math.max(1, options?.partySize || 1);
@@ -96,7 +97,6 @@ export function generateDayPlan(
     options?.startTime || "09:00",
   );
 
-  // Target max duration in minutes: Half-day = 300 mins (5h), Full-day = 600 mins (10h)
   const maxTargetMins = planType === "half_day" ? 300 : 600;
 
   let maxEndTimeMins: number | null = null;
@@ -104,12 +104,10 @@ export function generateDayPlan(
     maxEndTimeMins = parseTimeToMinutes(options.maxEndTime);
   }
 
-  // Calculate pace multiplier
   const paceMultiplier =
     pace === "relaxed" ? 1.25 : pace === "packed" ? 0.8 : 1.0;
 
-  // Max search count based on catchment scope
-  const maxComboCount = catchmentScope === "wider" ? 5 : 3;
+  const maxComboCount = catchmentScope === "wider" ? 6 : 4;
   const combos = findNearbyCombinations(
     primary,
     options?.context,
@@ -117,15 +115,27 @@ export function generateDayPlan(
     catchmentScope,
   );
 
-  // Filter combos to strictly valid real destination stops (excluding cities/hubs)
   const validCombos = combos.filter(
     (c) =>
       c.secondary && c.secondary.role !== "hub" && c.secondary.kind !== "city",
   );
 
-  const secondary = validCombos[0]?.secondary ?? null;
-  const tertiary =
-    planType === "full_day" ? (validCombos[1]?.secondary ?? null) : null;
+  // Real POI stops selection based on primary role
+  let stop1: Destination | null = null;
+  let stop2: Destination | null = null;
+  let stop3: Destination | null = null;
+
+  if (isPrimaryHub) {
+    stop1 = validCombos[0]?.secondary ?? null;
+    stop2 = validCombos[1]?.secondary ?? null;
+    stop3 =
+      planType === "full_day" ? (validCombos[2]?.secondary ?? null) : null;
+  } else {
+    stop1 = primary;
+    stop2 = validCombos[0]?.secondary ?? null;
+    stop3 =
+      planType === "full_day" ? (validCombos[1]?.secondary ?? null) : null;
+  }
 
   const uncertainDisclosures: Array<{ destinationId: string; name: string }> =
     [];
@@ -142,39 +152,29 @@ export function generateDayPlan(
     }
   }
 
-  if (primary.role !== "hub" && primary.kind !== "city") checkHours(primary);
-  if (secondary) checkHours(secondary);
-  if (tertiary) checkHours(tertiary);
+  if (stop1) checkHours(stop1);
+  if (stop2) checkHours(stop2);
+  if (stop3) checkHours(stop3);
 
-  // Determine Primary Destination Visit Duration
-  let primaryVisitMins = 30; // Default 30 min orientation for hubs
-  if (primary.role !== "hub" && primary.kind !== "city") {
-    const basePrimaryVisit = Math.round(
-      ((primary.recommendedVisitHours?.min ?? 1.5) +
-        (primary.recommendedVisitHours?.max ?? 2.5)) *
-        30,
-    );
-    primaryVisitMins = Math.min(
-      120,
-      Math.max(45, Math.round(basePrimaryVisit * paceMultiplier)),
-    );
-  }
-
-  // Check real destination count available
+  // Count available real POI stops
   let availableRealStops = 0;
-  if (primary.role !== "hub" && primary.kind !== "city") availableRealStops++;
-  if (secondary) availableRealStops++;
-  if (tertiary) availableRealStops++;
+  if (stop1) availableRealStops++;
+  if (stop2) availableRealStops++;
+  if (stop3) availableRealStops++;
 
   const minRequiredRealStops = planType === "half_day" ? 2 : 3;
 
-  // Handle Full-day fallback to Half-day when exactly 2 stops exist
+  // Handle Full-day fallback to Half-day when exactly 2 real POI stops exist
   if (planType === "full_day" && availableRealStops === 2) {
     return {
       id: `plan-${primary.id}`,
       title: {
-        en: `Suggested Day Outing around ${getLocalizedPlace(primary, "en").name}`,
-        ja: `${getLocalizedPlace(primary, "ja").name} 周辺のモデルコース`,
+        en: isPrimaryHub
+          ? `Plan a day from ${getLocalizedPlace(primary, "en").name}`
+          : `Plan around ${getLocalizedPlace(primary, "en").name}`,
+        ja: isPrimaryHub
+          ? `${getLocalizedPlace(primary, "ja").name}発モデルコース`
+          : `${getLocalizedPlace(primary, "ja").name} 周辺モデルコース`,
       },
       steps: [],
       totalDurationMinutes: 0,
@@ -195,8 +195,12 @@ export function generateDayPlan(
     return {
       id: `plan-${primary.id}`,
       title: {
-        en: `Suggested Day Outing around ${getLocalizedPlace(primary, "en").name}`,
-        ja: `${getLocalizedPlace(primary, "ja").name} 周辺のモデルコース`,
+        en: isPrimaryHub
+          ? `Plan a day from ${getLocalizedPlace(primary, "en").name}`
+          : `Plan around ${getLocalizedPlace(primary, "en").name}`,
+        ja: isPrimaryHub
+          ? `${getLocalizedPlace(primary, "ja").name}発モデルコース`
+          : `${getLocalizedPlace(primary, "ja").name} 周辺モデルコース`,
       },
       steps: [],
       totalDurationMinutes: 0,
@@ -212,47 +216,23 @@ export function generateDayPlan(
     };
   }
 
-  // Build Final Steps with Time Feasibility & Return Allowance
+  // Build Final Timeline Steps
   const steps: DayPlanStep[] = [];
   let currentMins = startMinsFromMidnight;
-  let minCostPerPerson = primary.budgetMin ?? 0;
-  let maxCostPerPerson = primary.budgetMax ?? 0;
+  let minCostPerPerson = 0;
+  let maxCostPerPerson = 0;
 
   const primLocEn = getLocalizedPlace(primary, "en");
   const primLocJa = getLocalizedPlace(primary, "ja");
 
-  // Step A: Primary Destination / Hub Orientation Anchor
-  const startPrimStr = formatTimeFromMidnight(currentMins);
-  currentMins += primaryVisitMins;
-  const endPrimStr = formatTimeFromMidnight(currentMins);
-
-  if (primary.role !== "hub" && primary.kind !== "city") {
-    steps.push({
-      id: `step-${primary.id}`,
-      type: "destination",
-      timeBlock: "morning",
-      startTime: startPrimStr,
-      endTime: endPrimStr,
-      durationMinutes: primaryVisitMins,
-      destination: primary,
-      title: {
-        en: formatPlaceName(primLocEn, "en"),
-        ja: formatPlaceName(primLocJa, "ja"),
-      },
-      description: {
-        en: `Explore ${primLocEn.name} and top highlights.`,
-        ja: `${primLocJa.name}の主要ハイライトを巡る。`,
-      },
-      hasUncertainHours: !primary.openingHours && !primary.businessHours,
-    });
-  } else {
-    // Hub Anchor orientation node (30 min)
+  // Step 0: Hub Anchor orientation (if primary is a hub/city)
+  if (isPrimaryHub) {
     steps.push({
       id: `step-hub-anchor`,
       type: "buffer",
       timeBlock: "morning",
-      startTime: startPrimStr,
-      endTime: endPrimStr,
+      startTime: formatTimeFromMidnight(currentMins),
+      endTime: formatTimeFromMidnight(currentMins + 30),
       durationMinutes: 30,
       destination: primary,
       title: {
@@ -260,9 +240,80 @@ export function generateDayPlan(
         ja: `${primLocJa.name}集合・出発`,
       },
     });
+    currentMins += 30;
   }
 
-  // Transit / short break after primary stop
+  // Helper to append a POI stop step
+  function appendPoiStep(poi: Destination, block: "morning" | "afternoon") {
+    const rawVisit = Math.round(
+      ((poi.recommendedVisitHours?.min ?? 1.5) +
+        (poi.recommendedVisitHours?.max ?? 2.5)) *
+        30,
+    );
+    const visitMins = Math.min(
+      120,
+      Math.max(45, Math.round(rawVisit * paceMultiplier)),
+    );
+    const startStr = formatTimeFromMidnight(currentMins);
+    currentMins += visitMins;
+    const endStr = formatTimeFromMidnight(currentMins);
+
+    const locEn = getLocalizedPlace(poi, "en");
+    const locJa = getLocalizedPlace(poi, "ja");
+
+    steps.push({
+      id: `step-${poi.id}`,
+      type: "destination",
+      timeBlock: block,
+      startTime: startStr,
+      endTime: endStr,
+      durationMinutes: visitMins,
+      destination: poi,
+      title: {
+        en: formatPlaceName(locEn, "en"),
+        ja: formatPlaceName(locJa, "ja"),
+      },
+      description: {
+        en: `Explore ${locEn.name} and top highlights.`,
+        ja: `${locJa.name}の主要ハイライトを巡る。`,
+      },
+      hasUncertainHours: !poi.openingHours && !poi.businessHours,
+    });
+
+    minCostPerPerson += poi.budgetMin ?? 0;
+    maxCostPerPerson += poi.budgetMax ?? 0;
+  }
+
+  // Helper to append a transit step
+  function appendTransitStep(
+    toPoi: Destination,
+    block: "morning" | "afternoon",
+  ) {
+    const travelMins = 15;
+    const locEn = getLocalizedPlace(toPoi, "en");
+    const locJa = getLocalizedPlace(toPoi, "ja");
+
+    steps.push({
+      id: `travel-${toPoi.id}`,
+      type: "travel",
+      timeBlock: block,
+      startTime: formatTimeFromMidnight(currentMins),
+      endTime: formatTimeFromMidnight(currentMins + travelMins),
+      durationMinutes: travelMins,
+      title: {
+        en: `Transit to ${locEn.name}`,
+        ja: `${locJa.name}へ移動`,
+      },
+    });
+    currentMins += travelMins;
+  }
+
+  // Render Stop 1
+  if (stop1) {
+    appendPoiStep(stop1, "morning");
+  }
+
+  // Morning Break
   steps.push({
     id: "buffer-morning",
     type: "buffer",
@@ -295,120 +346,19 @@ export function generateDayPlan(
   minCostPerPerson += 1500;
   maxCostPerPerson += 2500;
 
-  // Secondary Destination
-  if (secondary) {
-    const secDistKm = validCombos[0]?.interDistanceKm ?? 1.5;
-    const travelMins = Math.min(
-      45,
-      Math.max(
-        15,
-        Math.round((validCombos[0]?.estimatedInterTravelMinutes ?? 20) / 5) * 5,
-      ),
-    );
-
-    steps.push({
-      id: `travel-${secondary.id}`,
-      type: "travel",
-      timeBlock: "afternoon",
-      startTime: formatTimeFromMidnight(currentMins),
-      endTime: formatTimeFromMidnight(currentMins + travelMins),
-      durationMinutes: travelMins,
-      title: {
-        en: `Transit to ${secondary.name} (${secDistKm} km)`,
-        ja: `${secondary.name}へ移動 (${secDistKm}km)`,
-      },
-    });
-    currentMins += travelMins;
-
-    const secVisitMins = Math.min(
-      120,
-      Math.max(
-        45,
-        Math.round(
-          ((secondary.recommendedVisitHours?.min ?? 1) +
-            (secondary.recommendedVisitHours?.max ?? 2)) *
-            30 *
-            paceMultiplier,
-        ),
-      ),
-    );
-    const startSecStr = formatTimeFromMidnight(currentMins);
-    currentMins += secVisitMins;
-    const endSecStr = formatTimeFromMidnight(currentMins);
-
-    const secLocEn = getLocalizedPlace(secondary, "en");
-    const secLocJa = getLocalizedPlace(secondary, "ja");
-
-    steps.push({
-      id: `step-${secondary.id}`,
-      type: "destination",
-      timeBlock: "afternoon",
-      startTime: startSecStr,
-      endTime: endSecStr,
-      durationMinutes: secVisitMins,
-      destination: secondary,
-      title: {
-        en: formatPlaceName(secLocEn, "en"),
-        ja: formatPlaceName(secLocJa, "ja"),
-      },
-      description: {
-        en: `Visit ${secLocEn.name} nearby.`,
-        ja: `近隣の${secLocJa.name}をあわせて散策。`,
-      },
-      hasUncertainHours: !secondary.openingHours && !secondary.businessHours,
-    });
-
-    minCostPerPerson += secondary.budgetMin ?? 0;
-    maxCostPerPerson += secondary.budgetMax ?? 0;
+  // Render Stop 2
+  if (stop2) {
+    appendTransitStep(stop2, "afternoon");
+    appendPoiStep(stop2, "afternoon");
   }
 
-  // Tertiary Destination for full day
-  if (planType === "full_day" && tertiary) {
-    const tertDistKm = validCombos[1]?.interDistanceKm ?? 2.0;
-    const travelMins = 15;
-
-    steps.push({
-      id: `travel-${tertiary.id}`,
-      type: "travel",
-      timeBlock: "afternoon",
-      startTime: formatTimeFromMidnight(currentMins),
-      endTime: formatTimeFromMidnight(currentMins + travelMins),
-      durationMinutes: travelMins,
-      title: {
-        en: `Transit to ${tertiary.name} (${tertDistKm} km)`,
-        ja: `${tertiary.name}へ移動 (${tertDistKm}km)`,
-      },
-    });
-    currentMins += travelMins;
-
-    const tertLocEn = getLocalizedPlace(tertiary, "en");
-    const tertLocJa = getLocalizedPlace(tertiary, "ja");
-    const tertVisitMins = 60;
-
-    steps.push({
-      id: `step-${tertiary.id}`,
-      type: "destination",
-      timeBlock: "afternoon",
-      startTime: formatTimeFromMidnight(currentMins),
-      endTime: formatTimeFromMidnight(currentMins + tertVisitMins),
-      durationMinutes: tertVisitMins,
-      destination: tertiary,
-      title: {
-        en: formatPlaceName(tertLocEn, "en"),
-        ja: formatPlaceName(tertLocJa, "ja"),
-      },
-      description: {
-        en: `Explore ${tertLocEn.name} in the late afternoon.`,
-        ja: `夕方にかけて${tertLocJa.name}を散策。`,
-      },
-      hasUncertainHours: !tertiary.openingHours && !tertiary.businessHours,
-    });
-    currentMins += tertVisitMins;
-    minCostPerPerson += tertiary.budgetMin ?? 0;
-    maxCostPerPerson += tertiary.budgetMax ?? 0;
+  // Render Stop 3 for full day
+  if (planType === "full_day" && stop3) {
+    appendTransitStep(stop3, "afternoon");
+    appendPoiStep(stop3, "afternoon");
   }
 
-  // Evening & Dinner (with return transit allowance and buffer)
+  // Evening & Dinner
   if (planType === "full_day") {
     if (currentMins < 17 * 60) {
       const eveningBufferMins = 17 * 60 - currentMins;
@@ -442,7 +392,6 @@ export function generateDayPlan(
     });
     currentMins += 60;
 
-    // Return to anchor allowance
     steps.push({
       id: "buffer-return",
       type: "buffer",
@@ -467,13 +416,16 @@ export function generateDayPlan(
     maxEndTimeMins !== null &&
     startMinsFromMidnight + totalDurationMinutes > maxEndTimeMins;
 
-  // Hard maximum ceiling check (10 hours = 600 mins for full day, 5 hours = 300 mins for half day)
   if (totalDurationMinutes > maxTargetMins + 30 || exceedsMaxEndTime) {
     return {
       id: `plan-${primary.id}`,
       title: {
-        en: `Suggested Day Outing around ${primLocEn.name}`,
-        ja: `${primLocJa.name} 周辺のモデルコース`,
+        en: isPrimaryHub
+          ? `Plan a day from ${primLocEn.name}`
+          : `Plan around ${primLocEn.name}`,
+        ja: isPrimaryHub
+          ? `${primLocJa.name}発モデルコース`
+          : `${primLocJa.name} 周辺モデルコース`,
       },
       steps: [],
       totalDurationMinutes: 0,
@@ -492,14 +444,12 @@ export function generateDayPlan(
   return {
     id: `plan-${primary.id}`,
     title: {
-      en:
-        primary.role === "hub" || primary.kind === "city"
-          ? `Plan a day from ${primLocEn.name}`
-          : `Plan around ${primLocEn.name}`,
-      ja:
-        primary.role === "hub" || primary.kind === "city"
-          ? `${primLocJa.name}発 1日モデルコース`
-          : `${primLocJa.name} 周辺モデルコース`,
+      en: isPrimaryHub
+        ? `Plan a day from ${primLocEn.name}`
+        : `Plan around ${primLocEn.name}`,
+      ja: isPrimaryHub
+        ? `${primLocJa.name}発 1日モデルコース`
+        : `${primLocJa.name} 周辺モデルコース`,
     },
     steps,
     totalDurationMinutes,
