@@ -48,6 +48,9 @@ import {
   Share2,
   ExternalLink,
   Plus,
+  Navigation,
+  PlusSquare,
+  CheckSquare,
   BookOpen,
   ChevronDown,
   ChevronUp,
@@ -233,6 +236,9 @@ export default function DestinationDetails() {
     homeStation,
     homeStationCoords,
     getDestinationRating,
+    isComparing,
+    toggleCompare,
+    compareList,
   } = useTripStore();
   const [destination, setDestination] = useState<Destination | null>(null);
   const [destLoading, setDestLoading] = useState(true);
@@ -772,8 +778,55 @@ export default function DestinationDetails() {
                   title={locale === "ja" ? "ルート検索" : "Get Directions"}
                   className="w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 bg-white/15 hover:bg-white/25 text-slate-100 backdrop-blur-md border border-white/20"
                 >
-                  <MapPin className="w-4 h-4 text-emerald-400" />
+                  <Navigation className="w-4 h-4 text-emerald-400" />
                 </a>
+
+                {/* Symbol-Only Compare Button */}
+                <button
+                  onClick={() => {
+                    if (
+                      !isComparing(destination.id) &&
+                      compareList.length >= 4
+                    ) {
+                      alert(
+                        locale === "ja"
+                          ? "一度に比較できるのは最大4件までです。"
+                          : "You can only compare up to 4 destinations at a time.",
+                      );
+                      return;
+                    }
+                    toggleCompare(destination.id);
+                  }}
+                  aria-label={
+                    isComparing(destination.id)
+                      ? locale === "ja"
+                        ? "比較から削除"
+                        : "Remove from Compare"
+                      : locale === "ja"
+                        ? "比較に追加"
+                        : "Add to Compare"
+                  }
+                  title={
+                    isComparing(destination.id)
+                      ? locale === "ja"
+                        ? "比較から削除"
+                        : "Remove from Compare"
+                      : locale === "ja"
+                        ? "比較に追加"
+                        : "Add to Compare"
+                  }
+                  className={`w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 backdrop-blur-md border ${
+                    isComparing(destination.id)
+                      ? "bg-indigo-600 text-white border-indigo-400 shadow-md"
+                      : "bg-white/15 hover:bg-white/25 text-slate-100 border-white/20"
+                  }`}
+                >
+                  {isComparing(destination.id) ? (
+                    <CheckSquare className="w-4 h-4 text-white" />
+                  ) : (
+                    <PlusSquare className="w-4 h-4" />
+                  )}
+                </button>
 
                 {/* Symbol-Only Share Button */}
                 <button
