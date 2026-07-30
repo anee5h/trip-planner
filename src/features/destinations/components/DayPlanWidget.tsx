@@ -1,4 +1,5 @@
 import { useState, useMemo, useRef } from "react";
+import { Link } from "react-router-dom";
 import type { Destination } from "@/shared/types/destination";
 import {
   generateDayPlan,
@@ -568,9 +569,18 @@ export function DayPlanWidget({
                               </span>
                               <div className="space-y-1 min-w-0 flex-1">
                                 <div className="flex items-center gap-2 flex-wrap">
-                                  <h5 className="text-sm font-bold text-slate-900 dark:text-white truncate">
-                                    {step.title[locale]}
-                                  </h5>
+                                  {step.destination?.id ? (
+                                    <Link
+                                      to={`/destinations/${step.destination.id}`}
+                                      className="text-sm font-bold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 hover:underline transition-colors truncate"
+                                    >
+                                      {step.title[locale]}
+                                    </Link>
+                                  ) : (
+                                    <h5 className="text-sm font-bold text-slate-900 dark:text-white truncate">
+                                      {step.title[locale]}
+                                    </h5>
+                                  )}
                                   {step.hasUncertainHours && (
                                     <Badge
                                       variant="secondary"

@@ -11154,7 +11154,7 @@
     },
     "prefecture": "Tokyo",
     "region": "Kanto",
-    "kind": "museum",
+    "kind": "district",
     "role": "poi",
     "placeType": "destination",
     "areaId": "central-shinjuku",
@@ -11163,7 +11163,7 @@
     },
     "officialWebsite": "http://goldengai.jp/",
     "officialWebsiteRequirement": "optional",
-    "categories": ["Culture"],
+    "categories": ["Nightlife", "Dining", "Historic Alley"],
     "tags": ["Culture", "Shinjuku City", "v1.9.2"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shinjuku%20Golden%20Gai.jpg?width=1600",
     "imageMetadata": {
@@ -18539,7 +18539,7 @@
     },
     "prefecture": "Tokyo",
     "region": "Kanto",
-    "kind": "museum",
+    "kind": "district",
     "role": "poi",
     "placeType": "destination",
     "areaId": "central-shinjuku",
@@ -18548,7 +18548,7 @@
     },
     "officialWebsite": "http://www.kabukicho.or.jp/",
     "officialWebsiteRequirement": "optional",
-    "categories": ["Culture"],
+    "categories": ["Nightlife", "Entertainment", "District"],
     "tags": ["Culture", "Shinjuku City", "v1.9.2"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gate%20of%20Kabuki-cho%20Ichiban-gai.jpg?width=1600",
     "imageMetadata": {
@@ -18793,7 +18793,7 @@
     },
     "prefecture": "Tokyo",
     "region": "Kanto",
-    "kind": "museum",
+    "kind": "district",
     "role": "poi",
     "placeType": "destination",
     "areaId": "kagurazaka",
@@ -18801,7 +18801,7 @@
       "parentDestinationId": "shinjuku-city"
     },
     "officialWebsiteRequirement": "optional",
-    "categories": ["Culture"],
+    "categories": ["Dining", "Historic Street", "Culture"],
     "tags": ["Culture", "Shinjuku City", "v1.9.2"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg",
     "imageMetadata": {
@@ -47697,6 +47697,7 @@
   {
     "id": "shinjuku-gyo-en",
     "name": "Shinjuku Gyo-en",
+    "businessHours": "09:00 - 16:30 (Closed Mondays)",
     "nameJa": "新宿区",
     "aliases": ["Shinjuku", "新宿区"],
     "content": {
@@ -47713,7 +47714,7 @@
     },
     "prefecture": "Tokyo",
     "region": "Kanto",
-    "kind": "museum",
+    "kind": "park",
     "role": "poi",
     "placeType": "destination",
     "areaId": "central-shinjuku",
@@ -54061,6 +54062,7 @@
   {
     "id": "tokyo-metropolitan-government-building-shinjuku",
     "name": "Tokyo Metropolitan Government Building Observatories",
+    "businessHours": "09:30 - 22:00",
     "prefecture": "Tokyo",
     "region": "Kanto",
     "categories": ["Observation Deck", "Landmark", "Architecture", "Free"],

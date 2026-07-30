@@ -44,6 +44,26 @@ export interface DayPlanOptions {
   context?: Partial<RecommendationContext>;
 }
 
+export function requiresOpeningHours(dest: Destination): boolean {
+  if (!dest || !dest.id) return false;
+  if (dest.role === "hub" || dest.kind === "city") return false;
+
+  const openAirKinds = [
+    "district",
+    "neighborhood",
+    "street",
+    "area",
+    "market",
+    "viewpoint",
+    "scenery",
+    "park",
+  ];
+  if (dest.kind && openAirKinds.includes(dest.kind.toLowerCase())) {
+    return false;
+  }
+  return true;
+}
+
 export function isRealDestinationStop(step: DayPlanStep): boolean {
   if (
     step.type !== "destination" ||
@@ -141,8 +161,9 @@ export function generateDayPlan(
     [];
 
   function checkHours(dest: Destination) {
+    if (!requiresOpeningHours(dest)) return;
     const localized = getLocalizedPlace(dest, "en");
-    if (!dest.openingHours && !dest.businessHours && dest.role !== "hub") {
+    if (!dest.openingHours && !dest.businessHours) {
       if (!uncertainDisclosures.some((u) => u.destinationId === dest.id)) {
         uncertainDisclosures.push({
           destinationId: dest.id,
@@ -277,7 +298,8 @@ export function generateDayPlan(
         en: `Explore ${locEn.name} and top highlights.`,
         ja: `${locJa.name}の主要ハイライトを巡る。`,
       },
-      hasUncertainHours: !poi.openingHours && !poi.businessHours,
+      hasUncertainHours:
+        requiresOpeningHours(poi) && !poi.openingHours && !poi.businessHours,
     });
 
     minCostPerPerson += poi.budgetMin ?? 0;

@@ -52,8 +52,6 @@ import {
 import { localizeRecommendationReason } from "@/shared/utils/recommendationLabels";
 import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
 import { getCityArea } from "@/shared/data/cityAreas";
-import { recommendationConfidenceScorer } from "@/shared/services/recommendation/RecommendationConfidenceScorer";
-import { ShieldCheck } from "lucide-react";
 import { RecommendationFeedbackControl } from "@/features/recommendations/components/RecommendationFeedbackControl";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
 
@@ -193,31 +191,6 @@ export default function DestinationCard({
               #{rank}
             </Badge>
           )}
-          {(() => {
-            const conf = recommendationConfidenceScorer.calculateConfidence(
-              destination,
-              {
-                hasWeatherData: true,
-                hasTransportData: preferredTransport !== null,
-                hasBudgetData: true,
-              },
-            );
-            const confColor =
-              conf.confidenceBand === "HIGH"
-                ? "bg-emerald-600/90 text-white"
-                : conf.confidenceBand === "MEDIUM"
-                  ? "bg-sky-600/90 text-white"
-                  : "bg-amber-600/90 text-white";
-            return (
-              <Badge
-                className={`${confColor} backdrop-blur-md font-extrabold border border-white/20 shadow-md flex items-center gap-1 text-[10px] px-2 py-0.5`}
-                title={`Data & Match Confidence: ${Math.round(conf.overallConfidence * 100)}%`}
-              >
-                <ShieldCheck className="w-3 h-3" />
-                {conf.confidenceBand}
-              </Badge>
-            );
-          })()}
           {destination.kind && (
             <Badge className="bg-emerald-600/90 text-white font-extrabold capitalize backdrop-blur-md border border-white/20 shadow-md">
               {destination.kind}
