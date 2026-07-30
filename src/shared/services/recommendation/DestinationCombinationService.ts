@@ -23,6 +23,7 @@ export function findNearbyCombinations(
   primary: Destination,
   context?: Partial<RecommendationContext>,
   maxCount: number = 3,
+  catchmentScope: "nearby" | "wider" = "nearby",
 ): DestinationCombo[] {
   if (!primary) return [];
 
@@ -30,14 +31,26 @@ export function findNearbyCombinations(
   const primaryCoords = primary.coordinates;
   const primaryParentId = primary.relationships?.parentDestinationId;
 
+  const isUrbanHub =
+    primary.prefecture === "Tokyo" ||
+    primary.prefecture === "Osaka" ||
+    primary.prefecture === "Kyoto" ||
+    primary.region === "Kanto";
+
+  // Adaptive Catchment Radius limits
+  // Dense urban hub: preferred 8-12 km (nearby), hard max 20 km (wider)
+  const maxRadiusKm = catchmentScope === "wider" ? 20 : isUrbanHub ? 12 : 15;
+  const maxTransitMins = catchmentScope === "wider" ? 45 : 35;
+
   const candidates: Array<{
     place: Destination;
     distKm: number;
+    transitMins: number;
   }> = [];
 
   for (const place of all) {
     if (!place.id || place.id === primary.id) continue;
-    if (place.role === "hub" || place.kind === "city") continue; // Skip hubs/cities as secondary stops
+    if (place.role === "hub" || place.kind === "city") continue; // Never pick cities or hubs as POI stops
 
     // Do not pair parent hub with its own child attraction
     if (
@@ -48,6 +61,8 @@ export function findNearbyCombinations(
     }
 
     let distKm = 999;
+    let transitMins = 999;
+
     if (primaryCoords && place.coordinates) {
       distKm = getDistance(
         primaryCoords.lat,
@@ -55,30 +70,33 @@ export function findNearbyCombinations(
         place.coordinates.lat,
         place.coordinates.lng,
       );
+      transitMins = Math.max(10, Math.round(distKm * 4 + 5));
     } else if (
       primaryParentId &&
       place.relationships?.parentDestinationId === primaryParentId
     ) {
       distKm = 2.0; // Same city/ward hub area
+      transitMins = 15;
     } else if (primary.prefecture && place.prefecture === primary.prefecture) {
       distKm = 6.0; // Same prefecture
-    } else if (primary.region && place.region === primary.region) {
-      distKm = 15.0; // Same region
+      transitMins = 25;
     }
 
-    // Distance constraint: max 25km for day combinations
-    if (distKm <= 25) {
-      candidates.push({ place, distKm });
+    // TRANSIT OVERRIDES STRAIGHT-LINE DISTANCE
+    if (distKm <= maxRadiusKm && transitMins <= maxTransitMins) {
+      candidates.push({ place, distKm, transitMins });
     }
   }
 
-  // Sort candidate secondary destinations nearest first
-  candidates.sort((a, b) => a.distKm - b.distKm);
+  // Sort candidate secondary destinations nearest & shortest transit first
+  candidates.sort(
+    (a, b) => a.transitMins - b.transitMins || a.distKm - b.distKm,
+  );
 
   const combos: DestinationCombo[] = [];
   const usedCategorySets = new Set<string>();
 
-  for (const { place: sec, distKm } of candidates) {
+  for (const { place: sec, distKm, transitMins } of candidates) {
     if (combos.length >= maxCount) break;
 
     // Avoid redundant combinations from identical main categories
@@ -93,9 +111,6 @@ export function findNearbyCombinations(
       continue;
     }
 
-    // Calculate inter-destination travel time
-    const travelMins = Math.max(10, Math.round((distKm / 25) * 60));
-
     // Calculate combined visit hours
     const pVisitMin =
       primary.recommendedVisitHours?.min ?? primary.totalTripHours ?? 2;
@@ -108,7 +123,7 @@ export function findNearbyCombinations(
     const combinedVisitMax = Math.round((pVisitMax + sVisitMax) * 10) / 10;
 
     // Inter-travel hours
-    const interTravelHours = travelMins / 60;
+    const interTravelHours = transitMins / 60;
     const combinedTotalMin =
       Math.round((combinedVisitMin + interTravelHours) * 10) / 10;
     const combinedTotalMax =
@@ -138,12 +153,12 @@ export function findNearbyCombinations(
       explanationJa = `徒歩圏内のスポット (${Math.round(distKm * 10) / 10}km) — ハシゴ観光に最適です。`;
     } else if (primary.prefecture && primary.prefecture === sec.prefecture) {
       reasonCode = "COMBO_SAME_AREA";
-      explanationEn = `Nearby in ${primary.prefecture} (~${travelMins} mins travel time).`;
-      explanationJa = `${primary.prefecture}内の近隣スポット (移動 約${travelMins}分)。`;
+      explanationEn = `Nearby in ${primary.prefecture} (~${transitMins} mins travel time).`;
+      explanationJa = `${primary.prefecture}内の近隣スポット (移動 約${transitMins}分)。`;
     } else {
       reasonCode = "COMBO_THEMATIC_COMPLEMENT";
-      explanationEn = `Complementary nearby experience (~${travelMins} mins travel time).`;
-      explanationJa = `合わせて楽しめる近隣体験 (移動 約${travelMins}分)。`;
+      explanationEn = `Complementary nearby experience (~${transitMins} mins travel time).`;
+      explanationJa = `合わせて楽しめる近隣体験 (移動 約${transitMins}分)。`;
     }
 
     usedCategorySets.add(categoryKey);
@@ -152,7 +167,7 @@ export function findNearbyCombinations(
       primary,
       secondary: sec,
       interDistanceKm: Math.round(distKm * 10) / 10,
-      estimatedInterTravelMinutes: travelMins,
+      estimatedInterTravelMinutes: transitMins,
       combinedVisitHours: [combinedVisitMin, combinedVisitMax],
       combinedTotalHours: [combinedTotalMin, combinedTotalMax],
       combinedBudgetRange: [budgetMin, budgetMax],

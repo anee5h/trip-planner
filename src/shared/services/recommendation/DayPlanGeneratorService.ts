@@ -25,12 +25,14 @@ export interface DayPlan {
   totalBudgetRange: [number, number];
   isOverfilled: boolean;
   isUnfeasible?: boolean;
+  canFallbackToHalfDay?: boolean;
   unfeasibleErrorMessage?: { en: string; ja: string };
   uncertainHoursDisclosures: Array<{ destinationId: string; name: string }>;
 }
 
 export type DayPlanPace = "relaxed" | "balanced" | "packed";
 export type DayPlanType = "half_day" | "full_day";
+export type CatchmentScope = "nearby" | "wider";
 
 export interface DayPlanOptions {
   planType?: DayPlanType;
@@ -38,7 +40,22 @@ export interface DayPlanOptions {
   pace?: DayPlanPace;
   partySize?: number;
   maxEndTime?: string;
+  catchmentScope?: CatchmentScope;
   context?: Partial<RecommendationContext>;
+}
+
+export function isRealDestinationStop(step: DayPlanStep): boolean {
+  if (
+    step.type !== "destination" ||
+    !step.destination ||
+    !step.destination.id
+  ) {
+    return false;
+  }
+  if (step.destination.role === "hub" || step.destination.kind === "city") {
+    return false;
+  }
+  return step.durationMinutes > 0;
 }
 
 function parseTimeToMinutes(timeStr: string): number {
@@ -74,6 +91,7 @@ export function generateDayPlan(
   const planType: DayPlanType = options?.planType || "full_day";
   const pace: DayPlanPace = options?.pace || "balanced";
   const partySize = Math.max(1, options?.partySize || 1);
+  const catchmentScope: CatchmentScope = options?.catchmentScope || "nearby";
   const startMinsFromMidnight = parseTimeToMinutes(
     options?.startTime || "09:00",
   );
@@ -90,10 +108,24 @@ export function generateDayPlan(
   const paceMultiplier =
     pace === "relaxed" ? 1.25 : pace === "packed" ? 0.8 : 1.0;
 
-  const combos = findNearbyCombinations(primary, options?.context, 3);
-  const secondary = combos[0]?.secondary ?? null;
+  // Max search count based on catchment scope
+  const maxComboCount = catchmentScope === "wider" ? 5 : 3;
+  const combos = findNearbyCombinations(
+    primary,
+    options?.context,
+    maxComboCount,
+    catchmentScope,
+  );
+
+  // Filter combos to strictly valid real destination stops (excluding cities/hubs)
+  const validCombos = combos.filter(
+    (c) =>
+      c.secondary && c.secondary.role !== "hub" && c.secondary.kind !== "city",
+  );
+
+  const secondary = validCombos[0]?.secondary ?? null;
   const tertiary =
-    planType === "full_day" ? (combos[1]?.secondary ?? null) : null;
+    planType === "full_day" ? (validCombos[1]?.secondary ?? null) : null;
 
   const uncertainDisclosures: Array<{ destinationId: string; name: string }> =
     [];
@@ -110,119 +142,34 @@ export function generateDayPlan(
     }
   }
 
-  checkHours(primary);
+  if (primary.role !== "hub" && primary.kind !== "city") checkHours(primary);
   if (secondary) checkHours(secondary);
   if (tertiary) checkHours(tertiary);
 
-  // Step 1: Primary Destination Visit Duration
-  const basePrimaryVisit = Math.round(
-    ((primary.recommendedVisitHours?.min ?? 1.5) +
-      (primary.recommendedVisitHours?.max ?? 2.5)) *
-      30,
-  );
-  let primaryVisitMins = Math.max(
-    45,
-    Math.round(basePrimaryVisit * paceMultiplier),
-  );
-
-  // Determine which optional stops fit within target duration
-  let includeTertiary = Boolean(tertiary) && planType === "full_day";
-  let includeSecondary = Boolean(secondary);
-  let includeDinner = planType === "full_day";
-
-  // Simulate total minutes calculation with deterministic pruning
-  function calculateTotalPlanMinutes(
-    incSec: boolean,
-    incTert: boolean,
-    incDin: boolean,
-    primMins: number,
-  ): number {
-    let mins = primMins + 15 + 60; // primary + buffer + lunch
-    if (incSec && secondary) {
-      const travelMins = Math.max(
-        15,
-        Math.round((combos[0]?.estimatedInterTravelMinutes ?? 20) / 5) * 5,
-      );
-      const secVisitMins = Math.max(
+  // Determine Primary Destination Visit Duration
+  let primaryVisitMins = 30; // Default 30 min orientation for hubs
+  if (primary.role !== "hub" && primary.kind !== "city") {
+    const basePrimaryVisit = Math.round(
+      ((primary.recommendedVisitHours?.min ?? 1.5) +
+        (primary.recommendedVisitHours?.max ?? 2.5)) *
         30,
-        Math.round(
-          ((secondary.recommendedVisitHours?.min ?? 1) +
-            (secondary.recommendedVisitHours?.max ?? 2)) *
-            30 *
-            paceMultiplier,
-        ),
-      );
-      mins += travelMins + secVisitMins;
-    }
-    if (incTert && tertiary) {
-      mins += 15 + 45; // travel + tertiary visit
-    }
-    if (incDin) {
-      mins += 60; // dinner
-    }
-    return mins;
-  }
-
-  // Prune Tertiary if exceeding target or maxEndTime
-  if (includeTertiary) {
-    const estimatedMins = calculateTotalPlanMinutes(
-      includeSecondary,
-      true,
-      includeDinner,
-      primaryVisitMins,
     );
-    const exceedsWindow =
-      maxEndTimeMins !== null &&
-      startMinsFromMidnight + estimatedMins > maxEndTimeMins;
-    if (estimatedMins > maxTargetMins || exceedsWindow) {
-      includeTertiary = false;
-    }
-  }
-
-  // Prune Secondary if still exceeding target or maxEndTime
-  if (includeSecondary) {
-    const estimatedMins = calculateTotalPlanMinutes(
-      true,
-      includeTertiary,
-      includeDinner,
-      primaryVisitMins,
+    primaryVisitMins = Math.min(
+      120,
+      Math.max(45, Math.round(basePrimaryVisit * paceMultiplier)),
     );
-    const exceedsWindow =
-      maxEndTimeMins !== null &&
-      startMinsFromMidnight + estimatedMins > maxEndTimeMins;
-    if (estimatedMins > maxTargetMins || exceedsWindow) {
-      includeSecondary = false;
-    }
   }
 
-  // Reduce Primary Visit duration to minimum if needed
-  let estimatedMins = calculateTotalPlanMinutes(
-    includeSecondary,
-    includeTertiary,
-    includeDinner,
-    primaryVisitMins,
-  );
-  let exceedsWindow =
-    maxEndTimeMins !== null &&
-    startMinsFromMidnight + estimatedMins > maxEndTimeMins;
-  if (
-    (estimatedMins > maxTargetMins || exceedsWindow) &&
-    primaryVisitMins > 60
-  ) {
-    primaryVisitMins = 60;
-    estimatedMins = calculateTotalPlanMinutes(
-      includeSecondary,
-      includeTertiary,
-      includeDinner,
-      primaryVisitMins,
-    );
-    exceedsWindow =
-      maxEndTimeMins !== null &&
-      startMinsFromMidnight + estimatedMins > maxEndTimeMins;
-  }
+  // Check real destination count available
+  let availableRealStops = 0;
+  if (primary.role !== "hub" && primary.kind !== "city") availableRealStops++;
+  if (secondary) availableRealStops++;
+  if (tertiary) availableRealStops++;
 
-  // Check if even minimal plan fails window
-  if (estimatedMins > maxTargetMins + 30 || exceedsWindow) {
+  const minRequiredRealStops = planType === "half_day" ? 2 : 3;
+
+  // Handle Full-day fallback to Half-day when exactly 2 stops exist
+  if (planType === "full_day" && availableRealStops === 2) {
     return {
       id: `plan-${primary.id}`,
       title: {
@@ -234,15 +181,38 @@ export function generateDayPlan(
       totalBudgetRange: [0, 0],
       isOverfilled: false,
       isUnfeasible: true,
+      canFallbackToHalfDay: true,
       unfeasibleErrorMessage: {
-        en: "We couldn’t create a realistic plan within this time window. Try a later end time or a faster pace.",
-        ja: "この時間枠内に現実的なプランを作成できませんでした。終了時間を遅くするか、速いペースをお試しください。",
+        en: "We couldn’t build a realistic full-day plan, but a half-day plan is available.",
+        ja: "1日コースには十分な立ち寄り先が見つかりませんでしたが、半日プラン（2スポット）が利用可能です。",
       },
       uncertainHoursDisclosures: uncertainDisclosures,
     };
   }
 
-  // Build Final Steps
+  // Fail if fewer than minRequiredRealStops
+  if (availableRealStops < minRequiredRealStops) {
+    return {
+      id: `plan-${primary.id}`,
+      title: {
+        en: `Suggested Day Outing around ${getLocalizedPlace(primary, "en").name}`,
+        ja: `${getLocalizedPlace(primary, "ja").name} 周辺のモデルコース`,
+      },
+      steps: [],
+      totalDurationMinutes: 0,
+      totalBudgetRange: [0, 0],
+      isOverfilled: false,
+      isUnfeasible: true,
+      canFallbackToHalfDay: false,
+      unfeasibleErrorMessage: {
+        en: "We couldn’t find enough suitable nearby stops for this schedule. Try a wider area, different interests, or a shorter plan.",
+        ja: "このスケジュールに適合する周辺スポットが不足しています。エリア範囲を広げるか、短時間のプランをお試しください。",
+      },
+      uncertainHoursDisclosures: uncertainDisclosures,
+    };
+  }
+
+  // Build Final Steps with Time Feasibility & Return Allowance
   const steps: DayPlanStep[] = [];
   let currentMins = startMinsFromMidnight;
   let minCostPerPerson = primary.budgetMin ?? 0;
@@ -251,32 +221,48 @@ export function generateDayPlan(
   const primLocEn = getLocalizedPlace(primary, "en");
   const primLocJa = getLocalizedPlace(primary, "ja");
 
-  // Step A: Primary Destination
+  // Step A: Primary Destination / Hub Orientation Anchor
   const startPrimStr = formatTimeFromMidnight(currentMins);
   currentMins += primaryVisitMins;
   const endPrimStr = formatTimeFromMidnight(currentMins);
 
-  steps.push({
-    id: `step-${primary.id}`,
-    type: "destination",
-    timeBlock: "morning",
-    startTime: startPrimStr,
-    endTime: endPrimStr,
-    durationMinutes: primaryVisitMins,
-    destination: primary,
-    title: {
-      en: formatPlaceName(primLocEn, "en"),
-      ja: formatPlaceName(primLocJa, "ja"),
-    },
-    description: {
-      en: `Explore ${primLocEn.name} and top highlights.`,
-      ja: `${primLocJa.name}の主要ハイライトを巡る。`,
-    },
-    hasUncertainHours:
-      !primary.openingHours && !primary.businessHours && primary.role !== "hub",
-  });
+  if (primary.role !== "hub" && primary.kind !== "city") {
+    steps.push({
+      id: `step-${primary.id}`,
+      type: "destination",
+      timeBlock: "morning",
+      startTime: startPrimStr,
+      endTime: endPrimStr,
+      durationMinutes: primaryVisitMins,
+      destination: primary,
+      title: {
+        en: formatPlaceName(primLocEn, "en"),
+        ja: formatPlaceName(primLocJa, "ja"),
+      },
+      description: {
+        en: `Explore ${primLocEn.name} and top highlights.`,
+        ja: `${primLocJa.name}の主要ハイライトを巡る。`,
+      },
+      hasUncertainHours: !primary.openingHours && !primary.businessHours,
+    });
+  } else {
+    // Hub Anchor orientation node (30 min)
+    steps.push({
+      id: `step-hub-anchor`,
+      type: "buffer",
+      timeBlock: "morning",
+      startTime: startPrimStr,
+      endTime: endPrimStr,
+      durationMinutes: 30,
+      destination: primary,
+      title: {
+        en: `Start at ${primLocEn.name}`,
+        ja: `${primLocJa.name}集合・出発`,
+      },
+    });
+  }
 
-  // Transit/buffer
+  // Transit / short break after primary stop
   steps.push({
     id: "buffer-morning",
     type: "buffer",
@@ -309,12 +295,15 @@ export function generateDayPlan(
   minCostPerPerson += 1500;
   maxCostPerPerson += 2500;
 
-  // Secondary Destination if included
-  if (includeSecondary && secondary) {
-    const secDistKm = combos[0]?.interDistanceKm ?? 1.5;
-    const travelMins = Math.max(
-      15,
-      Math.round((combos[0]?.estimatedInterTravelMinutes ?? 20) / 5) * 5,
+  // Secondary Destination
+  if (secondary) {
+    const secDistKm = validCombos[0]?.interDistanceKm ?? 1.5;
+    const travelMins = Math.min(
+      45,
+      Math.max(
+        15,
+        Math.round((validCombos[0]?.estimatedInterTravelMinutes ?? 20) / 5) * 5,
+      ),
     );
 
     steps.push({
@@ -331,13 +320,16 @@ export function generateDayPlan(
     });
     currentMins += travelMins;
 
-    const secVisitMins = Math.max(
-      30,
-      Math.round(
-        ((secondary.recommendedVisitHours?.min ?? 1) +
-          (secondary.recommendedVisitHours?.max ?? 2)) *
-          30 *
-          paceMultiplier,
+    const secVisitMins = Math.min(
+      120,
+      Math.max(
+        45,
+        Math.round(
+          ((secondary.recommendedVisitHours?.min ?? 1) +
+            (secondary.recommendedVisitHours?.max ?? 2)) *
+            30 *
+            paceMultiplier,
+        ),
       ),
     );
     const startSecStr = formatTimeFromMidnight(currentMins);
@@ -363,19 +355,16 @@ export function generateDayPlan(
         en: `Visit ${secLocEn.name} nearby.`,
         ja: `近隣の${secLocJa.name}をあわせて散策。`,
       },
-      hasUncertainHours:
-        !secondary.openingHours &&
-        !secondary.businessHours &&
-        secondary.role !== "hub",
+      hasUncertainHours: !secondary.openingHours && !secondary.businessHours,
     });
 
     minCostPerPerson += secondary.budgetMin ?? 0;
     maxCostPerPerson += secondary.budgetMax ?? 0;
   }
 
-  // Tertiary Destination if included
-  if (includeTertiary && tertiary) {
-    const tertDistKm = combos[1]?.interDistanceKm ?? 2.0;
+  // Tertiary Destination for full day
+  if (planType === "full_day" && tertiary) {
+    const tertDistKm = validCombos[1]?.interDistanceKm ?? 2.0;
     const travelMins = 15;
 
     steps.push({
@@ -394,7 +383,7 @@ export function generateDayPlan(
 
     const tertLocEn = getLocalizedPlace(tertiary, "en");
     const tertLocJa = getLocalizedPlace(tertiary, "ja");
-    const tertVisitMins = 45;
+    const tertVisitMins = 60;
 
     steps.push({
       id: `step-${tertiary.id}`,
@@ -412,19 +401,15 @@ export function generateDayPlan(
         en: `Explore ${tertLocEn.name} in the late afternoon.`,
         ja: `夕方にかけて${tertLocJa.name}を散策。`,
       },
-      hasUncertainHours:
-        !tertiary.openingHours &&
-        !tertiary.businessHours &&
-        tertiary.role !== "hub",
+      hasUncertainHours: !tertiary.openingHours && !tertiary.businessHours,
     });
     currentMins += tertVisitMins;
     minCostPerPerson += tertiary.budgetMin ?? 0;
     maxCostPerPerson += tertiary.budgetMax ?? 0;
   }
 
-  // Dinner & Evening if included (placed in Evening block)
-  if (includeDinner) {
-    // If current time is earlier than 17:00, add evening transition buffer
+  // Evening & Dinner (with return transit allowance and buffer)
+  if (planType === "full_day") {
     if (currentMins < 17 * 60) {
       const eveningBufferMins = 17 * 60 - currentMins;
       steps.push({
@@ -456,17 +441,65 @@ export function generateDayPlan(
       },
     });
     currentMins += 60;
+
+    // Return to anchor allowance
+    steps.push({
+      id: "buffer-return",
+      type: "buffer",
+      timeBlock: "evening",
+      startTime: formatTimeFromMidnight(currentMins),
+      endTime: formatTimeFromMidnight(currentMins + 30),
+      durationMinutes: 30,
+      title: {
+        en: `Return transit to ${primLocEn.name} / Station`,
+        ja: `${primLocJa.name} / 駅への帰路移動`,
+      },
+    });
+    currentMins += 30;
+
     minCostPerPerson += 3000;
     maxCostPerPerson += 5000;
   }
 
   const totalDurationMinutes = currentMins - startMinsFromMidnight;
 
+  const exceedsMaxEndTime =
+    maxEndTimeMins !== null &&
+    startMinsFromMidnight + totalDurationMinutes > maxEndTimeMins;
+
+  // Hard maximum ceiling check (10 hours = 600 mins for full day, 5 hours = 300 mins for half day)
+  if (totalDurationMinutes > maxTargetMins + 30 || exceedsMaxEndTime) {
+    return {
+      id: `plan-${primary.id}`,
+      title: {
+        en: `Suggested Day Outing around ${primLocEn.name}`,
+        ja: `${primLocJa.name} 周辺のモデルコース`,
+      },
+      steps: [],
+      totalDurationMinutes: 0,
+      totalBudgetRange: [0, 0],
+      isOverfilled: false,
+      isUnfeasible: true,
+      canFallbackToHalfDay: false,
+      unfeasibleErrorMessage: {
+        en: "We couldn’t create a realistic plan within this time window. Try a later end time or a faster pace.",
+        ja: "この時間枠内に現実的なプランを作成できませんでした。終了時間を遅くするか、速いペースをお試しください。",
+      },
+      uncertainHoursDisclosures: uncertainDisclosures,
+    };
+  }
+
   return {
     id: `plan-${primary.id}`,
     title: {
-      en: `Suggested Day Outing around ${primLocEn.name}`,
-      ja: `${primLocJa.name} 周辺のモデルコース`,
+      en:
+        primary.role === "hub" || primary.kind === "city"
+          ? `Plan a day from ${primLocEn.name}`
+          : `Plan around ${primLocEn.name}`,
+      ja:
+        primary.role === "hub" || primary.kind === "city"
+          ? `${primLocJa.name}発 1日モデルコース`
+          : `${primLocJa.name} 周辺モデルコース`,
     },
     steps,
     totalDurationMinutes,

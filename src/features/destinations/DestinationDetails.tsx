@@ -107,7 +107,6 @@ import {
   getWeatherDescription,
 } from "@/shared/hooks/useWeather";
 import { budgetService } from "@/shared/services/budget/BudgetService";
-import { HubPlannerWidget } from "@/features/destinations/components/HubPlannerWidget";
 
 function WeatherIcon({ type }: { type: string }) {
   if (type === "sun") return <Sun className="w-6 h-6 text-amber-500" />;
@@ -1757,18 +1756,13 @@ export default function DestinationDetails() {
                   </div>
                 )}
 
-              {/* Progressive Day Plan Generator */}
+              {/* Unified Progressive Day Plan Generator */}
               <DayPlanWidget
                 destination={destination}
                 locale={locale}
                 partySize={partySize}
                 onSaveToItinerary={() => setPickerOpen(true)}
               />
-
-              {/* Hub-Based Travel Planner (if Hub) */}
-              {destination.role === "hub" && (
-                <HubPlannerWidget hub={destination} locale={locale} />
-              )}
 
               {/* Progressive Cost Breakdown */}
               <TripCostBreakdownWidget
