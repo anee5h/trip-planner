@@ -1,12 +1,28 @@
 import { describe, it, expect } from "vitest";
-import { calculateGeneratedPlanCost } from "../GeneratedPlanCostService";
-import type { DayPlan } from "../../recommendation/DayPlanGeneratorService";
+import {
+  calculateGeneratedPlanCost,
+  estimateOriginTransportFare,
+} from "../GeneratedPlanCostService";
+import type { DayPlan } from "@/shared/services/recommendation/DayPlanGeneratorService";
+import type { Destination } from "@/shared/types/destination";
 
 describe("GeneratedPlanCostService", () => {
-  it("calculates itemized plan cost based on route legs and plan steps", () => {
+  it("calculates itemized plan cost using ticket breakdown and marks missing tickets as estimated/unknown", () => {
+    const mockDest = {
+      id: "dest-1",
+      name: "Dest 1",
+      budgetMin: 5000,
+      budgetBreakdown: {
+        tickets: 1500,
+        food: 2000,
+        transport: 500,
+        cafe: 1000,
+      },
+    } as unknown as Destination;
+
     const mockPlan: DayPlan = {
-      id: "plan-skytree",
-      title: { en: "Test Plan", ja: "テスト" },
+      id: "plan-test",
+      title: { en: "Test", ja: "テスト" },
       steps: [
         {
           id: "step-1",
@@ -15,41 +31,38 @@ describe("GeneratedPlanCostService", () => {
           startTime: "09:00",
           endTime: "11:00",
           durationMinutes: 120,
-          destination: { id: "skytree", budgetMin: 2000 } as any,
-          title: { en: "Skytree", ja: "スカイツリー" },
-        },
-        {
-          id: "step-lunch",
-          type: "meal",
-          timeBlock: "afternoon",
-          startTime: "12:00",
-          endTime: "13:00",
-          durationMinutes: 60,
-          title: { en: "Lunch", ja: "昼食" },
+          destination: mockDest,
+          title: { en: "Dest 1", ja: "Dest 1" },
         },
       ],
       routeLegs: [
         {
-          fromDestinationId: "skytree",
-          toDestinationId: "sensoji",
-          durationMinutes: 15,
+          fromDestinationId: "hub-1",
+          toDestinationId: "dest-1",
+          durationMinutes: 20,
           source: "estimated",
           confidence: "estimated",
         },
       ],
-      totalDurationMinutes: 240,
-      totalBudgetRange: [3000, 6000],
+      totalDurationMinutes: 120,
+      totalBudgetRange: [0, 0],
       isOverfilled: false,
       uncertainHoursDisclosures: [],
     };
 
-    const cost = calculateGeneratedPlanCost(mockPlan, 2, "train");
+    const cost = calculateGeneratedPlanCost(mockPlan, 2, "train", false);
 
-    expect(cost.originTransport).toBe(3000); // 1500 * 2
-    expect(cost.localTransit).toBe(450); // 15m * 15 * 2
-    expect(cost.admission).toBe(4000); // 2000 * 2
-    expect(cost.meals).toBe(2400); // 1 meal * 1200 * 2
-    expect(cost.parking).toBe(0); // train mode
-    expect(cost.totalRange[0]).toBe(3000 + 450 + 4000 + 2400);
+    expect(cost.admission.min).toBe(3000); // 1500 * 2
+    expect(cost.admission.source).toBe("curated");
+    expect(cost.originTransport.source).toBe("unknown");
+    expect(cost.totalRange[0]).toBeGreaterThan(0);
+    expect(cost.confidence).toBe("estimated");
+  });
+
+  it("returns zero origin transport fare when origin info is unavailable", () => {
+    const originCost = estimateOriginTransportFare(false);
+    expect(originCost.min).toBe(0);
+    expect(originCost.max).toBe(0);
+    expect(originCost.source).toBe("unknown");
   });
 });

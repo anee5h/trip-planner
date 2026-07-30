@@ -48,9 +48,31 @@ export function getItineraryGroups(tripId: string): ItineraryGroup[] {
   return data[tripId] || [];
 }
 
-export function isGroupSaved(tripId: string, pairKey: string): boolean {
+export function isGroupSavedInTrip(tripId: string, pairKey: string): boolean {
   const groups = getItineraryGroups(tripId);
   return groups.some((g) => g.pairKey === pairKey);
+}
+
+export function isGroupSavedInAnyTrip(pairKey: string): boolean {
+  const data = loadStorage();
+  return Object.values(data).some((groups) =>
+    groups.some((g) => g.pairKey === pairKey),
+  );
+}
+
+export function getTripsContainingGroup(pairKey: string): string[] {
+  const data = loadStorage();
+  const tripIds: string[] = [];
+  Object.entries(data).forEach(([tripId, groups]) => {
+    if (groups.some((g) => g.pairKey === pairKey)) {
+      tripIds.push(tripId);
+    }
+  });
+  return tripIds;
+}
+
+export function isGroupSaved(tripId: string, pairKey: string): boolean {
+  return isGroupSavedInTrip(tripId, pairKey);
 }
 
 export function saveItineraryGroup(

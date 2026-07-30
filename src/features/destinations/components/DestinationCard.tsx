@@ -498,7 +498,10 @@ export default function DestinationCard({
       <ItineraryPickerModal
         isOpen={pickerOpen}
         onClose={() => setPickerOpen(false)}
-        destination={{ id: destination.id, name: localizedDestination.name }}
+        payload={{
+          type: "destination",
+          destination: { id: destination.id, name: localizedDestination.name },
+        }}
       />
 
       <MarkVisitedModal

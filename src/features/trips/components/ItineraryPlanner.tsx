@@ -244,6 +244,13 @@ export default function ItineraryPlanner({
               onSelect={(d) => setSelectedDestId(d.id)}
               placeholder={`-- ${t("ui.selectPlace")} --`}
               locale={i18n.language === "ja" ? "ja" : "en"}
+              activeItineraryDestinations={trip?.stops
+                ?.map((s) =>
+                  s.destinationId
+                    ? getDestinationList().find((d) => d.id === s.destinationId)
+                    : null,
+                )
+                .filter((d): d is Destination => Boolean(d))}
             />
           </div>
         ) : (

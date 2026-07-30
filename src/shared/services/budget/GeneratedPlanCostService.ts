@@ -1,79 +1,214 @@
-import type { DayPlan } from "../recommendation/DayPlanGeneratorService";
+import type { Destination } from "@/shared/types/destination";
+import type {
+  DayPlan,
+  PlanAssumption,
+  RouteLeg,
+} from "@/shared/services/recommendation/DayPlanGeneratorService";
 
-export interface PlanCostBreakdown {
-  originTransport: number;
-  localTransit: number;
-  admission: number;
-  meals: number;
-  parking: number;
+export interface CostComponent {
+  min: number;
+  max: number;
+  source: "curated" | "estimated" | "unknown";
+}
+
+export interface GeneratedPlanCostResult {
+  originTransport: CostComponent;
+  localTransit: CostComponent;
+  admission: CostComponent;
+  meals: CostComponent;
+  parking: CostComponent;
   totalRange: [number, number];
-  confidence: "high" | "estimated";
+  confidence: "verified" | "estimated";
+  assumptions: PlanAssumption[];
+}
+
+export function estimateLocalTransitFare(
+  leg: RouteLeg,
+  transportMode: "car" | "train" = "train",
+): CostComponent {
+  if (leg.curatedFare) {
+    return {
+      min: leg.curatedFare.min,
+      max: leg.curatedFare.max,
+      source: "curated",
+    };
+  }
+
+  if (transportMode === "car") {
+    // Car tolls/gas per leg based on duration/distance
+    const mins = Math.max(5, leg.durationMinutes);
+    const estFare = Math.round((mins * 20) / 100) * 100;
+    return {
+      min: estFare,
+      max: Math.round(estFare * 1.3),
+      source: "estimated",
+    };
+  }
+
+  const mins = Math.max(5, leg.durationMinutes);
+  let fareMin = 210;
+  if (mins <= 15) fareMin = 210;
+  else if (mins <= 30) fareMin = 350;
+  else if (mins <= 45) fareMin = 550;
+  else fareMin = 880;
+
+  return {
+    min: fareMin,
+    max: Math.round(fareMin * 1.2),
+    source: "estimated",
+  };
+}
+
+export function estimateOriginTransportFare(
+  hasOriginInfo: boolean = false,
+  originFareMin?: number,
+  originFareMax?: number,
+): CostComponent {
+  if (!hasOriginInfo) {
+    return { min: 0, max: 0, source: "unknown" };
+  }
+  return {
+    min: originFareMin ?? 1500,
+    max: originFareMax ?? 3000,
+    source: "curated",
+  };
 }
 
 export function calculateGeneratedPlanCost(
   plan: DayPlan,
   partySize: number = 1,
-  selectedTransport: "train" | "car" = "train",
-): PlanCostBreakdown {
+  transportMode: "car" | "train" = "train",
+  hasOriginInfo: boolean = false,
+): GeneratedPlanCostResult {
   const safeParty = Math.max(1, partySize);
+  const assumptions: PlanAssumption[] = [];
+  let isAnyUnknownOrEstimated = false;
 
-  let localTransit = 0;
-  let admissionMin = 0;
-  let admissionMax = 0;
-  let mealsMin = 0;
-  let mealsMax = 0;
-  let parkingCost = 0;
-  let hasEstimatedTransitLegs = false;
-
-  // 1. Calculate local transit from route legs
-  if (plan.routeLegs) {
-    plan.routeLegs.forEach((leg) => {
-      // 15 JPY per transit minute per person
-      localTransit += leg.durationMinutes * 15 * safeParty;
-      if (leg.confidence === "estimated") {
-        hasEstimatedTransitLegs = true;
-      }
-    });
-  }
-
-  // 2. Calculate admission & meals from plan steps
+  // 1. Admission Tickets (deduplicated by destination ID)
+  const uniqueDestinationsMap = new Map<string, Destination>();
   plan.steps.forEach((step) => {
-    if (step.destination) {
-      const bMin = step.destination.budgetMin ?? 0;
-      const bMax = step.destination.budgetMax ?? bMin;
-      admissionMin += bMin * safeParty;
-      admissionMax += bMax * safeParty;
-    } else if (step.type === "meal") {
-      mealsMin += 1200 * safeParty;
-      mealsMax += 2500 * safeParty;
+    if (
+      step.type === "destination" &&
+      step.destination &&
+      step.destination.id &&
+      step.destination.role !== "hub" &&
+      step.destination.kind !== "city"
+    ) {
+      uniqueDestinationsMap.set(step.destination.id, step.destination);
     }
   });
 
-  // 3. Parking cost for car mode
-  if (selectedTransport === "car") {
-    parkingCost = 1000;
+  let totalAdmissionMin = 0;
+  let totalAdmissionMax = 0;
+  let hasMissingTickets = false;
+
+  uniqueDestinationsMap.forEach((dest) => {
+    if (typeof dest.budgetBreakdown?.tickets === "number") {
+      const ticketVal = dest.budgetBreakdown.tickets;
+      totalAdmissionMin += ticketVal * safeParty;
+      totalAdmissionMax += ticketVal * safeParty;
+    } else {
+      hasMissingTickets = true;
+      isAnyUnknownOrEstimated = true;
+      assumptions.push({
+        type: "estimated_cost",
+        destinationId: dest.id,
+        message: {
+          en: `Ticket cost for ${dest.name} is excluded or unverified.`,
+          ja: `${dest.nameJa || dest.name}の入場チケット料金は未確認のため含まれていません。`,
+        },
+      });
+    }
+  });
+
+  const admissionComp: CostComponent = {
+    min: totalAdmissionMin,
+    max: totalAdmissionMax,
+    source: hasMissingTickets ? "unknown" : "curated",
+  };
+
+  // 2. Local Transit (per leg)
+  let totalTransitMin = 0;
+  let totalTransitMax = 0;
+  const legs = plan.routeLegs || [];
+  legs.forEach((leg) => {
+    const est = estimateLocalTransitFare(leg, transportMode);
+    if (est.source !== "curated") isAnyUnknownOrEstimated = true;
+    totalTransitMin += est.min * safeParty;
+    totalTransitMax += est.max * safeParty;
+  });
+
+  const localTransitComp: CostComponent = {
+    min: totalTransitMin,
+    max: totalTransitMax,
+    source: legs.some((l) => l.source === "estimated")
+      ? "estimated"
+      : "curated",
+  };
+
+  // 3. Origin Transport
+  const originComp = estimateOriginTransportFare(hasOriginInfo);
+  if (originComp.source === "unknown") {
+    assumptions.push({
+      type: "estimated_cost",
+      message: {
+        en: "Origin transport is not included in this estimate.",
+        ja: "出発地からの交通費は本見積もりに含まれていません。",
+      },
+    });
   }
 
-  // 4. Origin transport (base regional transit estimate)
-  const originTransport = 1500 * safeParty;
+  // 4. Meals (only if meal step exists)
+  const mealSteps = plan.steps.filter((s) => s.type === "meal");
+  const mealCostPerPersonMin = 1500;
+  const mealCostPerPersonMax = 2500;
+  const totalMealsMin = mealSteps.length * mealCostPerPersonMin * safeParty;
+  const totalMealsMax = mealSteps.length * mealCostPerPersonMax * safeParty;
+  const mealsComp: CostComponent = {
+    min: totalMealsMin,
+    max: totalMealsMax,
+    source: mealSteps.length > 0 ? "estimated" : "unknown",
+  };
 
-  const totalMin =
-    originTransport + localTransit + admissionMin + mealsMin + parkingCost;
-  const totalMax =
-    originTransport + localTransit + admissionMax + mealsMax + parkingCost;
+  // 5. Parking (only for car mode)
+  const totalParkingMin = transportMode === "car" ? 1000 : 0;
+  const totalParkingMax = transportMode === "car" ? 2000 : 0;
+  const parkingComp: CostComponent = {
+    min: totalParkingMin,
+    max: totalParkingMax,
+    source: transportMode === "car" ? "estimated" : "unknown",
+  };
 
-  const confidence =
-    hasEstimatedTransitLegs || plan.steps.some((s) => s.hasUncertainHours)
-      ? "estimated"
-      : "high";
+  // Deduplicate assumptions
+  const seenMsg = new Set<string>();
+  const deduplicatedAssumptions = assumptions.filter((a) => {
+    const k = `${a.type}:${a.destinationId || ""}:${a.message.en}`;
+    if (seenMsg.has(k)) return false;
+    seenMsg.add(k);
+    return true;
+  });
+
+  const grandTotalMin =
+    originComp.min +
+    localTransitComp.min +
+    admissionComp.min +
+    mealsComp.min +
+    parkingComp.min;
+  const grandTotalMax =
+    originComp.max +
+    localTransitComp.max +
+    admissionComp.max +
+    mealsComp.max +
+    parkingComp.max;
 
   return {
-    originTransport,
-    localTransit,
-    admission: admissionMin,
-    meals: mealsMin,
-    parking: parkingCost,
-    totalRange: [totalMin, totalMax],
-    confidence,
+    originTransport: originComp,
+    localTransit: localTransitComp,
+    admission: admissionComp,
+    meals: mealsComp,
+    parking: parkingComp,
+    totalRange: [grandTotalMin, grandTotalMax],
+    confidence: isAnyUnknownOrEstimated ? "estimated" : "verified",
+    assumptions: deduplicatedAssumptions,
   };
 }

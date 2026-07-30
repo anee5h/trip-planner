@@ -1,7 +1,10 @@
 import type { Destination } from "@/shared/types/destination";
 import type { CatchmentScope } from "@/shared/types/planner";
 import { findNearbyCombinations } from "./DestinationCombinationService";
-import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
+import {
+  getLocalizedPlace,
+  getCanonicalPlaces,
+} from "@/shared/services/place/PlaceCatalog";
 import { formatPlaceName } from "@/shared/utils/placeLabels";
 import type { RecommendationContext } from "./RecommendationContext";
 import {
@@ -26,6 +29,8 @@ export interface RouteLeg {
   fromDestinationId?: string;
   toDestinationId?: string;
   durationMinutes: number;
+  distanceKm?: number;
+  curatedFare?: { min: number; max: number };
   source: TransitEstimateResult["source"];
   confidence: TransitEstimateResult["confidence"];
 }
@@ -150,15 +155,17 @@ export function resolveReturnEndpoint(
   if (mode === "anchor") return anchor;
   if (mode === "none") return null;
 
+  const catsToUse = catalogue.length ? catalogue : getCanonicalPlaces();
+
   const rels = finalStop.relationships as Record<string, unknown> | undefined;
   const nearestStationId = rels?.nearestStationId as string | undefined;
   if (nearestStationId) {
-    const st = catalogue.find((d) => d.id === nearestStationId);
+    const st = catsToUse.find((d) => d.id === nearestStationId);
     if (st) return st;
   }
 
   if (finalStop.relationships?.parentDestinationId) {
-    const parent = catalogue.find(
+    const parent = catsToUse.find(
       (d) => d.id === finalStop.relationships?.parentDestinationId,
     );
     if (parent && (parent.role === "hub" || parent.kind === "city")) {
@@ -167,7 +174,7 @@ export function resolveReturnEndpoint(
   }
 
   if (hasCoordinates(finalStop)) {
-    const nearbyStations = catalogue.filter(
+    const nearbyStations = catsToUse.filter(
       (d) => d.kind === "station" && hasCoordinates(d),
     );
     let closest: Destination | null = null;
@@ -216,7 +223,10 @@ export function generateDayPlan(
   const catchmentScope: CatchmentScope = options?.catchmentScope || "nearby";
   const returnMode: ReturnMode =
     options?.returnMode ?? (isPrimaryHub ? "anchor" : "nearest_station");
-  const catalogue = options?.catalogue || [];
+  const catalogue =
+    options?.catalogue && options.catalogue.length
+      ? options.catalogue
+      : getCanonicalPlaces();
 
   const startMinsFromMidnight = parseTimeToMinutes(
     options?.startTime || "09:00",
@@ -376,6 +386,7 @@ export function generateDayPlan(
           : `${getLocalizedPlace(primary, "ja").name} 周辺モデルコース`,
       },
       steps: [],
+      returnMode,
       totalDurationMinutes: 0,
       totalBudgetRange: [0, 0],
       isOverfilled: false,
@@ -433,6 +444,12 @@ export function generateDayPlan(
 
   const planCost = calculateGeneratedPlanCost(rawPlan, partySize);
   rawPlan.totalBudgetRange = planCost.totalRange;
+  if (planCost.assumptions.length > 0) {
+    rawPlan.assumptions = [
+      ...(rawPlan.assumptions || []),
+      ...planCost.assumptions,
+    ];
+  }
 
   return rawPlan;
 }
@@ -484,6 +501,16 @@ function simulateRouteIncremental(
       nextCand = remaining.shift()!;
       const dest = nextCand.destination;
       const transit = estimateLocalTransitMinutes(currentLocation, dest, scope);
+      if (!transit.usable && currentLocation.id !== dest.id) {
+        return {
+          steps: [],
+          routeLegs: [],
+          assumptions: [],
+          totalMins: 0,
+          returnEndpoint: null,
+          feasible: false,
+        };
+      }
       bestTransitMins =
         currentLocation.id === dest.id ? 0 : transit.durationMinutes;
       bestTransitResult = transit;
@@ -539,6 +566,17 @@ function simulateRouteIncremental(
     if (currentLocation.id !== dest.id && bestTransitResult) {
       const destLocEn = getLocalizedPlace(dest, "en");
       const destLocJa = getLocalizedPlace(dest, "ja");
+
+      let distKm: number | undefined = undefined;
+      if (hasCoordinates(currentLocation) && hasCoordinates(dest)) {
+        distKm = getDistance(
+          currentLocation.coordinates.lat,
+          currentLocation.coordinates.lng,
+          dest.coordinates.lat,
+          dest.coordinates.lng,
+        );
+      }
+
       steps.push({
         id: `travel-${currentLocation.id}-${dest.id}`,
         type: "travel",
@@ -555,6 +593,7 @@ function simulateRouteIncremental(
         fromDestinationId: currentLocation.id,
         toDestinationId: dest.id,
         durationMinutes: bestTransitMins,
+        distanceKm: distKm,
         source: bestTransitResult.source,
         confidence: bestTransitResult.confidence,
       });
@@ -577,26 +616,55 @@ function simulateRouteIncremental(
       : nextCand.preferredVisitMins;
     const projectedEnd = currentMins + visitMins;
 
-    if (
-      !lunchInserted &&
-      startMins < 13 * 60 &&
-      currentMins < 12 * 60 &&
-      projectedEnd > 12 * 60
-    ) {
-      steps.push({
-        id: "meal-lunch",
-        type: "meal",
-        timeBlock: "afternoon",
-        startTime: formatTimeFromMidnight(currentMins),
-        endTime: formatTimeFromMidnight(currentMins + 60),
-        durationMinutes: 60,
-        title: {
-          en: "Lunch Break — Local Dining",
-          ja: "昼食 — 地元の人気グルメ",
-        },
-      });
-      currentMins += 60;
-      lunchInserted = true;
+    // Lunch Scheduling Contract (Max 30m idle gap)
+    if (!lunchInserted && startMins < 13 * 60) {
+      if (currentMins >= 11 * 60 + 30 && currentMins <= 13 * 60) {
+        steps.push({
+          id: "meal-lunch",
+          type: "meal",
+          timeBlock: "afternoon",
+          startTime: formatTimeFromMidnight(currentMins),
+          endTime: formatTimeFromMidnight(currentMins + 60),
+          durationMinutes: 60,
+          title: {
+            en: "Lunch Break — Local Dining",
+            ja: "昼食 — 地元の人気グルメ",
+          },
+        });
+        currentMins += 60;
+        lunchInserted = true;
+      } else if (currentMins < 11 * 60 + 30 && projectedEnd > 12 * 60) {
+        const gap = 11 * 60 + 30 - currentMins;
+        if (gap > 0 && gap <= 30) {
+          steps.push({
+            id: "buffer-lunch",
+            type: "buffer",
+            timeBlock: "morning",
+            startTime: formatTimeFromMidnight(currentMins),
+            endTime: formatTimeFromMidnight(11 * 60 + 30),
+            durationMinutes: gap,
+            title: {
+              en: "Short Break",
+              ja: "小休憩",
+            },
+          });
+          currentMins = 11 * 60 + 30;
+          steps.push({
+            id: "meal-lunch",
+            type: "meal",
+            timeBlock: "afternoon",
+            startTime: formatTimeFromMidnight(currentMins),
+            endTime: formatTimeFromMidnight(currentMins + 60),
+            durationMinutes: 60,
+            title: {
+              en: "Lunch Break — Local Dining",
+              ja: "昼食 — 地元の人気グルメ",
+            },
+          });
+          currentMins += 60;
+          lunchInserted = true;
+        }
+      }
     }
 
     const locEn = getLocalizedPlace(dest, "en");
@@ -633,12 +701,25 @@ function simulateRouteIncremental(
     primary,
     catalogue,
   );
+
   if (returnEndpoint && returnEndpoint.id !== currentLocation.id) {
     const retTransit = estimateLocalTransitMinutes(
       currentLocation,
       returnEndpoint,
       scope,
     );
+
+    if (!retTransit.usable && returnMode !== "none") {
+      return {
+        steps: [],
+        routeLegs: [],
+        assumptions: [],
+        totalMins: 0,
+        returnEndpoint: null,
+        feasible: false,
+      };
+    }
+
     if (retTransit.usable && retTransit.durationMinutes > 0) {
       const retEn = getLocalizedPlace(returnEndpoint, "en");
       const retJa = getLocalizedPlace(returnEndpoint, "ja");
@@ -735,9 +816,16 @@ export function rebuildPlanFromEditedStops(
     startMins,
     scope,
     returnMode,
-    [],
+    getCanonicalPlaces(),
     preserveOrder,
   );
+
+  if (!rebuilt.feasible) {
+    return {
+      ...originalPlan,
+      isUnfeasible: true,
+    };
+  }
 
   const newPlan: DayPlan = {
     ...originalPlan,
@@ -745,6 +833,7 @@ export function rebuildPlanFromEditedStops(
     routeLegs: rebuilt.routeLegs,
     assumptions: rebuilt.assumptions,
     totalDurationMinutes: rebuilt.totalMins,
+    isUnfeasible: false,
   };
 
   const planCost = calculateGeneratedPlanCost(newPlan, partySize);

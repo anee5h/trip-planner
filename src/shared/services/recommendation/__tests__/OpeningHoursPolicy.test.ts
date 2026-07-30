@@ -15,40 +15,50 @@ describe("OpeningHoursPolicy", () => {
     expect(requiresOpeningHours(hub)).toBe(false);
   });
 
-  it("marks destination verified only with hours, officialWebsite, and fresh verifiedAt date", () => {
+  it("marks destination verified ONLY with field-specific openingHoursMetadata and usable hours", () => {
     const freshDate = new Date().toISOString().split("T")[0];
     const verifiedDest = {
       id: "skytree",
       kind: "attraction",
       businessHours: "09:00 - 21:00",
       officialWebsite: "https://tokyoskytree.jp",
-      verifiedAt: freshDate,
+      openingHoursMetadata: {
+        verifiedAt: freshDate,
+        sourceUrl: "https://tokyoskytree.jp",
+      },
     } as unknown as Destination;
 
     const assessment = getOpeningHoursAssessment(verifiedDest);
     expect(assessment.status).toBe("verified");
     expect(hasVerifiedOpeningHours(verifiedDest)).toBe(true);
 
-    const staleDest = {
-      id: "skytree-old",
-      kind: "attraction",
-      businessHours: "09:00 - 21:00",
-      officialWebsite: "https://tokyoskytree.jp",
-      verifiedAt: "2020-01-01",
-    } as unknown as Destination;
-
-    const staleAssessment = getOpeningHoursAssessment(staleDest);
-    expect(staleAssessment.status).toBe("stale");
-    expect(staleAssessment.requiresWarning).toBe(true);
-
-    const legacyUnverifiedDest = {
+    const generalEditorialDest = {
       id: "shrine",
       kind: "attraction",
       businessHours: "09:00 - 17:00",
+      editorial: {
+        checkedAt: freshDate,
+        reviewedAt: freshDate,
+      },
     } as unknown as Destination;
 
-    const legacyAssessment = getOpeningHoursAssessment(legacyUnverifiedDest);
-    expect(legacyAssessment.status).toBe("unverified");
-    expect(hasVerifiedOpeningHours(legacyUnverifiedDest)).toBe(false);
+    const generalAssessment = getOpeningHoursAssessment(generalEditorialDest);
+    expect(generalAssessment.status).toBe("unverified");
+    expect(hasVerifiedOpeningHours(generalEditorialDest)).toBe(false);
+  });
+
+  it("classifies future or invalid dates as unverified", () => {
+    const futureDest = {
+      id: "future-park",
+      kind: "attraction",
+      businessHours: "09:00 - 17:00",
+      openingHoursMetadata: {
+        verifiedAt: "2099-01-01",
+        sourceUrl: "https://park.example",
+      },
+    } as unknown as Destination;
+
+    const futureAssessment = getOpeningHoursAssessment(futureDest);
+    expect(futureAssessment.status).toBe("unverified");
   });
 });

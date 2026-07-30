@@ -17,14 +17,25 @@ import { getValidModes } from "@/shared/services/recommendation/RecommendationSe
 import { calculateScore } from "@/shared/services/recommendation/RecommendationScorer";
 import { createRecommendationMatch } from "@/shared/services/recommendation/RecommendationExplainability";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
-import { findNearbyCombinations } from "@/shared/services/recommendation/DestinationCombinationService";
+import {
+  findNearbyCombinations,
+  type DestinationCombo,
+} from "@/shared/services/recommendation/DestinationCombinationService";
 import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
-import { ItineraryPickerModal } from "@/features/trips/components/ItineraryPickerModal";
+import {
+  ItineraryPickerModal,
+  type PendingItinerarySave,
+} from "@/features/trips/components/ItineraryPickerModal";
+import {
+  isGroupSavedInAnyTrip,
+  getTripsContainingGroup,
+  getCombinationKey,
+  type ItineraryGroup,
+} from "@/shared/services/trips/ItineraryGroupService";
 import { MarkVisitedModal } from "./components/MarkVisitedModal";
 import { VisitedDateModal } from "./components/VisitedDateModal";
 import { DestinationPlanningSection } from "./components/DestinationPlanningSection";
 import { requiresOpeningHours } from "@/shared/services/recommendation/OpeningHoursPolicy";
-import type { DayPlan } from "@/shared/services/recommendation/DayPlanGeneratorService";
 import { DestinationDetailsSkeleton } from "@/shared/components/ui/Skeleton";
 import { BucketListButton } from "@/shared/components/ui/BucketListButton";
 import { useDelayedSkeleton } from "@/shared/hooks/useDelayedSkeleton";
@@ -248,9 +259,8 @@ export default function DestinationDetails() {
   const [destination, setDestination] = useState<Destination | null>(null);
   const [destLoading, setDestLoading] = useState(true);
 
-  const [pickerOpen, setPickerOpen] = useState(false);
-  const [pendingSavePlan, setPendingSavePlan] = useState<DayPlan | undefined>(
-    undefined,
+  const [pendingSave, setPendingSave] = useState<PendingItinerarySave | null>(
+    null,
   );
   const [markVisitedOpen, setMarkVisitedOpen] = useState(false);
   const [visitedHistoryOpen, setVisitedHistoryOpen] = useState(false);
@@ -262,7 +272,7 @@ export default function DestinationDetails() {
 
   const handleAddToItinerary = () => {
     if (!destination) return;
-    setPickerOpen(true);
+    setPendingSave({ type: "destination", destination });
   };
 
   useEffect(() => {
@@ -1621,7 +1631,7 @@ export default function DestinationDetails() {
                 </div>
 
                 <div className="grid grid-cols-1 gap-4">
-                  {nearbyCombinations.map((combo) => {
+                  {nearbyCombinations.map((combo: DestinationCombo) => {
                     const secLocalized = getLocalizedPlace(
                       combo.secondary,
                       locale,
@@ -1643,6 +1653,18 @@ export default function DestinationDetails() {
                                 <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 px-2 py-0.5 rounded-md">
                                   + {combo.secondary.categories?.[0]}
                                 </span>
+                                {isGroupSavedInAnyTrip(
+                                  getCombinationKey(
+                                    combo.primary.id,
+                                    combo.secondary.id,
+                                  ),
+                                ) && (
+                                  <span className="text-[10px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/40 border border-emerald-300 dark:border-emerald-700 px-2 py-0.5 rounded-md">
+                                    {locale === "ja"
+                                      ? `${getTripsContainingGroup(getCombinationKey(combo.primary.id, combo.secondary.id)).length}つの旅行に保存済み`
+                                      : `Saved in ${getTripsContainingGroup(getCombinationKey(combo.primary.id, combo.secondary.id)).length} ${getTripsContainingGroup(getCombinationKey(combo.primary.id, combo.secondary.id)).length === 1 ? "trip" : "trips"}`}
+                                  </span>
+                                )}
                                 <span className="inline-flex items-center gap-1 text-xs text-slate-500 font-medium">
                                   <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
                                   {combo.interDistanceKm} km (
@@ -1697,7 +1719,28 @@ export default function DestinationDetails() {
                               variant="outline"
                               size="sm"
                               onClick={() => {
-                                setPickerOpen(true);
+                                const pairKey = getCombinationKey(
+                                  combo.primary.id,
+                                  combo.secondary.id,
+                                );
+                                const comboGroup: ItineraryGroup = {
+                                  id: pairKey,
+                                  type: "destination_pair",
+                                  pairKey,
+                                  title: {
+                                    en: `${combo.primary.name} & ${combo.secondary.name}`,
+                                    ja: `${combo.primary.nameJa || combo.primary.name}＆${combo.secondary.nameJa || combo.secondary.name}`,
+                                  },
+                                  destinations: [
+                                    combo.primary,
+                                    combo.secondary,
+                                  ],
+                                  createdAt: new Date().toISOString(),
+                                };
+                                setPendingSave({
+                                  type: "destination_pair",
+                                  group: comboGroup,
+                                });
                               }}
                               className="flex-1 sm:flex-none border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-bold text-xs rounded-xl min-h-[40px] px-3.5"
                             >
@@ -1781,8 +1824,11 @@ export default function DestinationDetails() {
                 partySize={partySize}
                 selectedTransport={selectedTransport}
                 onSaveToItinerary={(plan) => {
-                  setPendingSavePlan(plan);
-                  setPickerOpen(true);
+                  if (plan) {
+                    setPendingSave({ type: "generated_plan", plan });
+                  } else if (destination) {
+                    setPendingSave({ type: "destination", destination });
+                  }
                 }}
               />
             </div>
@@ -2283,13 +2329,9 @@ export default function DestinationDetails() {
       {destination && (
         <>
           <ItineraryPickerModal
-            isOpen={pickerOpen}
-            onClose={() => {
-              setPickerOpen(false);
-              setPendingSavePlan(undefined);
-            }}
-            destination={{ id: destination.id, name: destination.name }}
-            plan={pendingSavePlan}
+            isOpen={pendingSave !== null}
+            onClose={() => setPendingSave(null)}
+            payload={pendingSave}
           />
 
           <MarkVisitedModal

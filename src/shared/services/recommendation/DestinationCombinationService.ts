@@ -27,7 +27,7 @@ export interface DestinationCombo {
 
 export function findNearbyCombinations(
   primary: Destination,
-  _context?: Partial<RecommendationContext>,
+  context?: Partial<RecommendationContext>,
   maxCount: number = 5,
   catchmentScope: "nearby" | "wider" = "nearby",
 ): DestinationCombo[] {
@@ -113,12 +113,14 @@ export function findNearbyCombinations(
     const secondaryDur = getEffectiveVisitDuration(secondary);
 
     const visitMinMins = primaryDur.minMins + secondaryDur.minMins;
+    const visitPrefMins = primaryDur.prefMins + secondaryDur.prefMins;
     const visitMaxMins = primaryDur.maxMins + secondaryDur.maxMins;
 
     const totalMinMins = visitMinMins + cand.transitMins;
+    const totalPrefMins = visitPrefMins + cand.transitMins;
     const totalMaxMins = visitMaxMins + cand.transitMins;
 
-    if (totalMinMins > 600) {
+    if (totalMinMins > 600 || totalPrefMins > 600) {
       continue;
     }
 
@@ -139,6 +141,11 @@ export function findNearbyCombinations(
 
     usedCategorySets.add(cat);
 
+    const isWeatherMatched = context?.weather?.actual
+      ? context.weather.actual.condition === "clear" ||
+        context.weather.actual.condition === "cloudy"
+      : true;
+
     combos.push({
       primary,
       secondary,
@@ -154,7 +161,7 @@ export function findNearbyCombinations(
       ],
       combinedMaxMinutes: totalMaxMins,
       combinedBudgetRange,
-      isWeatherMatched: false,
+      isWeatherMatched,
       reasonCode: cand.isChildOfPrimary
         ? "primary_sub_spot"
         : "nearby_high_synergy",

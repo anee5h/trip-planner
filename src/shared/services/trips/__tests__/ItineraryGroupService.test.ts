@@ -4,7 +4,9 @@ import {
   saveItineraryGroup,
   getItineraryGroups,
   removeItineraryGroup,
-  isGroupSaved,
+  isGroupSavedInTrip,
+  isGroupSavedInAnyTrip,
+  getTripsContainingGroup,
   type ItineraryGroup,
 } from "../ItineraryGroupService";
 
@@ -23,7 +25,7 @@ describe("ItineraryGroupService", () => {
     expect(key1).toBe("combination:sensoji:tokyo-skytree");
   });
 
-  it("saves, retrieves, deduplicates, and removes itinerary groups", () => {
+  it("saves pair to multiple trips independently", () => {
     const pairKey = getCombinationKey("d1", "d2");
     const mockGroup: ItineraryGroup = {
       id: "group-1",
@@ -34,20 +36,22 @@ describe("ItineraryGroupService", () => {
       createdAt: new Date().toISOString(),
     };
 
-    saveItineraryGroup("trip-123", mockGroup);
-
-    const retrieved = getItineraryGroups("trip-123");
     if (typeof localStorage !== "undefined") {
-      expect(isGroupSaved("trip-123", pairKey)).toBe(true);
-      expect(retrieved.length).toBe(1);
-      expect(retrieved[0].id).toBe("group-1");
+      saveItineraryGroup("trip-1", mockGroup);
+      saveItineraryGroup("trip-2", mockGroup);
 
-      saveItineraryGroup("trip-123", mockGroup);
-      expect(getItineraryGroups("trip-123").length).toBe(1);
+      expect(getItineraryGroups("trip-1").length).toBe(1);
+      expect(isGroupSavedInTrip("trip-1", pairKey)).toBe(true);
+      expect(isGroupSavedInTrip("trip-2", pairKey)).toBe(true);
+      expect(isGroupSavedInAnyTrip(pairKey)).toBe(true);
 
-      removeItineraryGroup("trip-123", "group-1");
-      expect(getItineraryGroups("trip-123").length).toBe(0);
-      expect(isGroupSaved("trip-123", pairKey)).toBe(false);
+      const containingTrips = getTripsContainingGroup(pairKey);
+      expect(containingTrips).toContain("trip-1");
+      expect(containingTrips).toContain("trip-2");
+
+      removeItineraryGroup("trip-1", "group-1");
+      expect(isGroupSavedInTrip("trip-1", pairKey)).toBe(false);
+      expect(isGroupSavedInTrip("trip-2", pairKey)).toBe(true);
     }
   });
 });

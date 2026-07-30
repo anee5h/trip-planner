@@ -26,7 +26,7 @@ import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import { formatPlaceName } from "@/shared/utils/placeLabels";
 import { Link, useLocation } from "react-router-dom";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
-import type { PlanCostBreakdown } from "@/shared/services/budget/GeneratedPlanCostService";
+import type { GeneratedPlanCostResult } from "@/shared/services/budget/GeneratedPlanCostService";
 
 export interface TripCostBreakdownWidgetProps {
   destination: Destination;
@@ -35,7 +35,7 @@ export interface TripCostBreakdownWidgetProps {
   activeTransportMode?: string;
   defaultExpanded?: boolean;
   hasGeneratedPlan?: boolean;
-  planCostBreakdown?: PlanCostBreakdown;
+  planCostBreakdown?: GeneratedPlanCostResult;
 }
 
 export function TripCostBreakdownWidget({
@@ -55,16 +55,17 @@ export function TripCostBreakdownWidget({
     if (planCostBreakdown) {
       return {
         transport:
-          planCostBreakdown.originTransport + planCostBreakdown.localTransit,
-        tickets: planCostBreakdown.admission,
-        food: [
-          planCostBreakdown.meals * 0.7,
-          planCostBreakdown.meals * 1.3,
-        ] as [number, number],
-        cafe: 500 * partySize,
-        parking: planCostBreakdown.parking,
-        isFreeTicket: planCostBreakdown.admission === 0,
-        confidence: "high" as const,
+          planCostBreakdown.originTransport.min +
+          planCostBreakdown.localTransit.min,
+        tickets: planCostBreakdown.admission.min,
+        food: [planCostBreakdown.meals.min, planCostBreakdown.meals.max] as [
+          number,
+          number,
+        ],
+        cafe: 0,
+        parking: planCostBreakdown.parking.min,
+        isFreeTicket: planCostBreakdown.admission.min === 0,
+        confidence: planCostBreakdown.confidence,
         partyRange: planCostBreakdown.totalRange,
         perPersonRange: [
           Math.round(planCostBreakdown.totalRange[0] / partySize),

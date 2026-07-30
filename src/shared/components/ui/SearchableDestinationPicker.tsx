@@ -118,8 +118,14 @@ export function SearchableDestinationPicker({
 
   useEffect(() => {
     if (isOpen) {
+      document.body.style.overflow = "hidden";
       setTimeout(() => inputRef.current?.focus(), 50);
+    } else {
+      document.body.style.overflow = "";
     }
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isOpen]);
 
   useEffect(() => {
@@ -199,219 +205,237 @@ export function SearchableDestinationPicker({
 
       {/* Dropdown / Mobile Sheet */}
       {isOpen && (
-        <div
-          id={listboxId}
-          role="listbox"
-          className="absolute z-50 left-0 right-0 mt-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl overflow-hidden animate-in fade-in-50 duration-150 max-h-[80vh] sm:max-h-80 flex flex-col"
-        >
-          <div className="p-2.5 border-b border-slate-100 dark:border-slate-800 flex items-center gap-2 bg-slate-50/50 dark:bg-slate-850 shrink-0">
-            <Search className="w-4 h-4 text-slate-400 shrink-0" />
-            <input
-              ref={inputRef}
-              type="text"
-              role="combobox"
-              aria-expanded="true"
-              aria-controls={listboxId}
-              aria-activedescendant={
-                flatOptions[activeIndex]
-                  ? `option-${uniqueId}-${flatOptions[activeIndex].id}`
-                  : undefined
-              }
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              onKeyDown={handleKeyDown}
-              placeholder={
-                locale === "ja"
-                  ? "都市・スポット名で検索..."
-                  : "Type to search..."
-              }
-              className="w-full bg-transparent text-sm font-medium text-slate-900 dark:text-white focus:outline-none placeholder:text-slate-400"
-            />
-            {query && (
-              <button
-                type="button"
-                onClick={() => setQuery("")}
-                className="p-1 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-md text-slate-400"
-              >
-                <X className="w-3.5 h-3.5" />
-              </button>
-            )}
-          </div>
+        <>
+          {/* Backdrop for mobile bottom sheet */}
+          <div
+            className="sm:hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40"
+            onClick={() => {
+              setIsOpen(false);
+              triggerRef.current?.focus();
+            }}
+          />
 
-          <div className="overflow-y-auto p-1.5 space-y-3 flex-1">
-            {/* Search Query Active */}
-            {query.trim() ? (
-              searchResults.length === 0 ? (
-                <div className="p-4 text-center text-xs text-slate-400 font-medium">
-                  {locale === "ja"
-                    ? "該当するスポットが見つかりません"
-                    : "No matching destinations found"}
-                </div>
+          <div
+            id={listboxId}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Destination search picker"
+            className="z-50 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden animate-in fade-in-50 duration-150 flex flex-col max-sm:fixed max-sm:inset-x-0 max-sm:bottom-0 max-sm:rounded-b-none max-sm:rounded-t-3xl max-sm:pb-[env(safe-area-inset-bottom)] max-sm:max-h-[85dvh] sm:absolute sm:left-0 sm:right-0 sm:mt-1.5 sm:rounded-2xl sm:max-h-80"
+          >
+            {/* Header / Search Input */}
+            <div className="p-3 sm:p-2.5 border-b border-slate-100 dark:border-slate-800 flex items-center gap-2 bg-slate-50/50 dark:bg-slate-850 shrink-0">
+              <Search className="w-4 h-4 text-slate-400 shrink-0" />
+              <input
+                ref={inputRef}
+                type="text"
+                role="combobox"
+                aria-expanded="true"
+                aria-controls={listboxId}
+                aria-activedescendant={
+                  flatOptions[activeIndex]
+                    ? `option-${uniqueId}-${flatOptions[activeIndex].id}`
+                    : undefined
+                }
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder={
+                  locale === "ja"
+                    ? "都市・スポット名で検索..."
+                    : "Type to search..."
+                }
+                className="w-full bg-transparent text-sm font-medium text-slate-900 dark:text-white focus:outline-none placeholder:text-slate-400"
+              />
+              {query && (
+                <button
+                  type="button"
+                  onClick={() => setQuery("")}
+                  className="p-1 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-md text-slate-400"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
+            </div>
+
+            <div className="overflow-y-auto p-2 space-y-3 flex-1">
+              {/* Search Query Active */}
+              {query.trim() ? (
+                searchResults.length === 0 ? (
+                  <div className="p-4 text-center text-xs text-slate-400 font-medium">
+                    {locale === "ja"
+                      ? "該当するスポットが見つかりません"
+                      : "No matching destinations found"}
+                  </div>
+                ) : (
+                  <div className="space-y-0.5" role="listbox">
+                    {searchResults.map((dest, idx) => {
+                      const isSelected = dest.id === value;
+                      const isActive = idx === activeIndex;
+                      return (
+                        <button
+                          key={dest.id}
+                          id={`option-${uniqueId}-${dest.id}`}
+                          role="option"
+                          aria-selected={isSelected}
+                          type="button"
+                          onClick={() => {
+                            onSelect(dest);
+                            setIsOpen(false);
+                            setQuery("");
+                            triggerRef.current?.focus();
+                          }}
+                          className={`w-full flex items-center justify-between p-2.5 rounded-xl text-left text-xs transition-colors ${
+                            isActive
+                              ? "bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white"
+                              : ""
+                          } ${
+                            isSelected
+                              ? "bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 font-bold"
+                              : "text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-850"
+                          }`}
+                        >
+                          <div className="min-w-0 flex-1 pr-2">
+                            <div className="font-bold truncate">
+                              {formatPlaceName(dest, locale)}
+                            </div>
+                            <div className="text-[10px] text-slate-400 truncate">
+                              {dest.prefecture} •{" "}
+                              {dest.categories?.[0] || dest.kind}
+                            </div>
+                          </div>
+                          {isSelected && (
+                            <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )
               ) : (
-                <div className="space-y-0.5">
-                  {searchResults.map((dest, idx) => {
-                    const isSelected = dest.id === value;
-                    const isActive = idx === activeIndex;
-                    return (
-                      <button
-                        key={dest.id}
-                        id={`option-${uniqueId}-${dest.id}`}
-                        role="option"
-                        aria-selected={isSelected}
-                        type="button"
-                        onClick={() => {
-                          onSelect(dest);
-                          setIsOpen(false);
-                          setQuery("");
-                          triggerRef.current?.focus();
-                        }}
-                        className={`w-full flex items-center justify-between p-2.5 rounded-xl text-left text-xs transition-colors ${
-                          isActive
-                            ? "bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white"
-                            : ""
-                        } ${
-                          isSelected
-                            ? "bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 font-bold"
-                            : "text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-850"
-                        }`}
-                      >
-                        <div className="min-w-0 flex-1 pr-2">
-                          <div className="font-bold truncate">
+                /* Non-search Initial Suggestion Groups */
+                <div className="space-y-3" role="listbox">
+                  {suggestionGroups?.recent.length ? (
+                    <div>
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
+                        <Clock className="w-3 h-3 text-slate-400" />
+                        {locale === "ja"
+                          ? "最近見たスポット"
+                          : "Recently Viewed"}
+                      </span>
+                      {suggestionGroups.recent.map((dest) => (
+                        <button
+                          key={dest.id}
+                          id={`option-${uniqueId}-${dest.id}`}
+                          role="option"
+                          aria-selected={dest.id === value}
+                          type="button"
+                          onClick={() => {
+                            onSelect(dest);
+                            setIsOpen(false);
+                            triggerRef.current?.focus();
+                          }}
+                          className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
+                        >
+                          <span className="font-medium truncate">
                             {formatPlaceName(dest, locale)}
-                          </div>
-                          <div className="text-[10px] text-slate-400 truncate">
-                            {dest.prefecture} •{" "}
-                            {dest.categories?.[0] || dest.kind}
-                          </div>
-                        </div>
-                        {isSelected && (
-                          <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                        )}
-                      </button>
-                    );
-                  })}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  ) : null}
+
+                  {suggestionGroups?.itinerary.length ? (
+                    <div>
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
+                        <MapPin className="w-3 h-3 text-emerald-500" />
+                        {locale === "ja"
+                          ? "この旅行のスポット"
+                          : "In This Trip"}
+                      </span>
+                      {suggestionGroups.itinerary.map((dest) => (
+                        <button
+                          key={dest.id}
+                          id={`option-${uniqueId}-${dest.id}`}
+                          role="option"
+                          aria-selected={dest.id === value}
+                          type="button"
+                          onClick={() => {
+                            onSelect(dest);
+                            setIsOpen(false);
+                            triggerRef.current?.focus();
+                          }}
+                          className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
+                        >
+                          <span className="font-medium truncate">
+                            {formatPlaceName(dest, locale)}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  ) : null}
+
+                  {suggestionGroups?.saved.length ? (
+                    <div>
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
+                        <Bookmark className="w-3 h-3 text-purple-500" />
+                        {locale === "ja" ? "保存したスポット" : "Saved Places"}
+                      </span>
+                      {suggestionGroups.saved.map((dest) => (
+                        <button
+                          key={dest.id}
+                          id={`option-${uniqueId}-${dest.id}`}
+                          role="option"
+                          aria-selected={dest.id === value}
+                          type="button"
+                          onClick={() => {
+                            onSelect(dest);
+                            setIsOpen(false);
+                            triggerRef.current?.focus();
+                          }}
+                          className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
+                        >
+                          <span className="font-medium truncate">
+                            {formatPlaceName(dest, locale)}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  ) : null}
+
+                  {suggestionGroups?.popular.length ? (
+                    <div>
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
+                        <Sparkles className="w-3 h-3 text-amber-500" />
+                        {locale === "ja"
+                          ? "人気のスポット"
+                          : "Popular Destinations"}
+                      </span>
+                      {suggestionGroups.popular.map((dest) => (
+                        <button
+                          key={dest.id}
+                          id={`option-${uniqueId}-${dest.id}`}
+                          role="option"
+                          aria-selected={dest.id === value}
+                          type="button"
+                          onClick={() => {
+                            onSelect(dest);
+                            setIsOpen(false);
+                            triggerRef.current?.focus();
+                          }}
+                          className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
+                        >
+                          <span className="font-medium truncate">
+                            {formatPlaceName(dest, locale)}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
-              )
-            ) : (
-              /* Non-search Initial Suggestion Groups */
-              <div className="space-y-3">
-                {suggestionGroups?.recent.length ? (
-                  <div>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
-                      <Clock className="w-3 h-3 text-slate-400" />
-                      {locale === "ja" ? "最近見たスポット" : "Recently Viewed"}
-                    </span>
-                    {suggestionGroups.recent.map((dest) => (
-                      <button
-                        key={dest.id}
-                        id={`option-${uniqueId}-${dest.id}`}
-                        role="option"
-                        aria-selected={dest.id === value}
-                        type="button"
-                        onClick={() => {
-                          onSelect(dest);
-                          setIsOpen(false);
-                          triggerRef.current?.focus();
-                        }}
-                        className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
-                      >
-                        <span className="font-medium truncate">
-                          {formatPlaceName(dest, locale)}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                ) : null}
-
-                {suggestionGroups?.itinerary.length ? (
-                  <div>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
-                      <MapPin className="w-3 h-3 text-emerald-500" />
-                      {locale === "ja" ? "この旅行のスポット" : "In This Trip"}
-                    </span>
-                    {suggestionGroups.itinerary.map((dest) => (
-                      <button
-                        key={dest.id}
-                        id={`option-${uniqueId}-${dest.id}`}
-                        role="option"
-                        aria-selected={dest.id === value}
-                        type="button"
-                        onClick={() => {
-                          onSelect(dest);
-                          setIsOpen(false);
-                          triggerRef.current?.focus();
-                        }}
-                        className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
-                      >
-                        <span className="font-medium truncate">
-                          {formatPlaceName(dest, locale)}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                ) : null}
-
-                {suggestionGroups?.saved.length ? (
-                  <div>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
-                      <Bookmark className="w-3 h-3 text-purple-500" />
-                      {locale === "ja" ? "保存したスポット" : "Saved Places"}
-                    </span>
-                    {suggestionGroups.saved.map((dest) => (
-                      <button
-                        key={dest.id}
-                        id={`option-${uniqueId}-${dest.id}`}
-                        role="option"
-                        aria-selected={dest.id === value}
-                        type="button"
-                        onClick={() => {
-                          onSelect(dest);
-                          setIsOpen(false);
-                          triggerRef.current?.focus();
-                        }}
-                        className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
-                      >
-                        <span className="font-medium truncate">
-                          {formatPlaceName(dest, locale)}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                ) : null}
-
-                {suggestionGroups?.popular.length ? (
-                  <div>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
-                      <Sparkles className="w-3 h-3 text-amber-500" />
-                      {locale === "ja"
-                        ? "人気のスポット"
-                        : "Popular Destinations"}
-                    </span>
-                    {suggestionGroups.popular.map((dest) => (
-                      <button
-                        key={dest.id}
-                        id={`option-${uniqueId}-${dest.id}`}
-                        role="option"
-                        aria-selected={dest.id === value}
-                        type="button"
-                        onClick={() => {
-                          onSelect(dest);
-                          setIsOpen(false);
-                          triggerRef.current?.focus();
-                        }}
-                        className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
-                      >
-                        <span className="font-medium truncate">
-                          {formatPlaceName(dest, locale)}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                ) : null}
-              </div>
-            )}
+              )}
+            </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );

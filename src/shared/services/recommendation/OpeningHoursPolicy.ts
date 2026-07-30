@@ -57,39 +57,47 @@ export function getOpeningHoursAssessment(
   }
 
   const hasHours = Boolean(dest.businessHours || dest.openingHours);
-  const sourceUrl = dest.officialWebsite;
-  const hasSourceUrl = Boolean(sourceUrl);
-  const verifiedAt = (dest as unknown as Record<string, unknown>).verifiedAt as
-    string | undefined;
+  const meta = dest.openingHoursMetadata;
 
-  if (hasHours && hasSourceUrl && verifiedAt) {
-    const verifiedDate = new Date(verifiedAt);
-    const ageInDays =
-      (now.getTime() - verifiedDate.getTime()) / (1000 * 60 * 60 * 24);
+  const fieldVerifiedAt = meta?.verifiedAt || dest.verifiedAt;
+  const sourceUrl = meta?.sourceUrl || dest.officialWebsite;
+  const displayText =
+    typeof dest.businessHours === "string" ? dest.businessHours : undefined;
 
-    if (ageInDays <= FRESHNESS_WINDOW_DAYS) {
+  if (hasHours && fieldVerifiedAt && sourceUrl) {
+    const verifiedDate = new Date(fieldVerifiedAt);
+    const isValidDate =
+      !Number.isNaN(verifiedDate.getTime()) &&
+      verifiedDate.getTime() <= now.getTime();
+
+    if (isValidDate) {
+      const ageInDays =
+        (now.getTime() - verifiedDate.getTime()) / (1000 * 60 * 60 * 24);
+
+      if (ageInDays <= FRESHNESS_WINDOW_DAYS) {
+        return {
+          accessType: "scheduled",
+          status: "verified",
+          requiresWarning: false,
+          displayText,
+          sourceUrl,
+          verifiedAt: fieldVerifiedAt,
+          lastAdmission: meta?.lastAdmission,
+          closedDays: meta?.closedDays,
+        };
+      }
+
       return {
         accessType: "scheduled",
-        status: "verified",
-        requiresWarning: false,
-        displayText:
-          typeof dest.businessHours === "string"
-            ? dest.businessHours
-            : undefined,
+        status: "stale",
+        requiresWarning: true,
+        displayText,
         sourceUrl,
-        verifiedAt,
+        verifiedAt: fieldVerifiedAt,
+        lastAdmission: meta?.lastAdmission,
+        closedDays: meta?.closedDays,
       };
     }
-
-    return {
-      accessType: "scheduled",
-      status: "stale",
-      requiresWarning: true,
-      displayText:
-        typeof dest.businessHours === "string" ? dest.businessHours : undefined,
-      sourceUrl,
-      verifiedAt,
-    };
   }
 
   if (hasHours) {
@@ -97,8 +105,7 @@ export function getOpeningHoursAssessment(
       accessType: "scheduled",
       status: "unverified",
       requiresWarning: true,
-      displayText:
-        typeof dest.businessHours === "string" ? dest.businessHours : undefined,
+      displayText,
       sourceUrl,
     };
   }

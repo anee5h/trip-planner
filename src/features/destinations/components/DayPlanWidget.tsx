@@ -12,6 +12,7 @@ import {
   type DayPlanPace,
   type CatchmentScope,
 } from "@/shared/services/recommendation/DayPlanGeneratorService";
+import { toast } from "sonner";
 import { Card, CardContent } from "@/shared/components/ui/card";
 import { Button } from "@/shared/components/ui/button";
 import { Badge } from "@/shared/components/ui/badge";
@@ -131,12 +132,36 @@ export function DayPlanWidget({
 
   const handleRemoveStep = (stepId: string) => {
     if (!generatedPlan) return;
+    const remainingDestStops = generatedPlan.steps
+      .filter((s) => s.id !== stepId)
+      .filter(isRealDestinationStop);
+    const minThreshold = planType === "half_day" ? 2 : 3;
+
+    if (remainingDestStops.length < minThreshold) {
+      toast.error(
+        locale === "ja"
+          ? `${planType === "half_day" ? "半日" : "1日"}コースには最低${minThreshold}箇所のスポットが必要です。`
+          : `A ${planType === "half_day" ? "half-day" : "full-day"} plan needs at least ${minThreshold} destinations.`,
+      );
+      return;
+    }
+
     const updated = removeStepFromPlan(
       generatedPlan,
       stepId,
       catchmentScope,
       partySize,
     );
+
+    if (updated.isUnfeasible) {
+      toast.error(
+        locale === "ja"
+          ? "このスポットを削除すると移動プランが不成立になります。"
+          : "Removing this step creates an unrealistic travel leg.",
+      );
+      return;
+    }
+
     setGeneratedPlan(updated);
     onPlanGenerated?.(updated);
   };
@@ -150,6 +175,16 @@ export function DayPlanWidget({
       catchmentScope,
       partySize,
     );
+
+    if (updated.isUnfeasible) {
+      toast.error(
+        locale === "ja"
+          ? "この順番では移動時間に無理が生じます。"
+          : "That order creates an unrealistic travel leg.",
+      );
+      return;
+    }
+
     setGeneratedPlan(updated);
     onPlanGenerated?.(updated);
   };
