@@ -453,13 +453,6 @@ export default function DestinationCard({
           )}
         </Button>
 
-        {/* Bucket List Action */}
-        <BucketListButton
-          destinationId={destination.id}
-          destinationName={localizedDestination.name}
-          variant="button"
-        />
-
         {/* Explore - dominant CTA takes remaining space */}
         <Link
           to={{
