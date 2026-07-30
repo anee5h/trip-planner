@@ -19546,8 +19546,8 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kanayama_Shrine_in_Atsuta-ku,_Nagoya_01.jpg"
     },
     "coordinates": {
-      "lat": 35.788479,
-      "lng": 139.902695
+      "lat": 35.5342,
+      "lng": 139.7161
     },
     "description": "Kanayama Shrine is a visitor destination in Kawasaki City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
     "highlights": ["History"],
@@ -28774,8 +28774,8 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:251213_Maruyama_Park_Kyoto_Japan08s3.jpg"
     },
     "coordinates": {
-      "lat": 35.00333333,
-      "lng": 135.78138889
+      "lat": 43.0542,
+      "lng": 141.3175
     },
     "description": "Maruyama Park is a visitor destination in Sapporo City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
     "highlights": ["Nature"],
@@ -32267,7 +32267,7 @@
     "region": "Kansai",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Kondagobyoyama_Kofun_air.jpg/960px-Kondagobyoyama_Kofun_air.jpg",
-    "description": "Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan is a UNESCO World Heritage Site in Osaka, designated for its outstanding universal cultural or natural value.",
+    "description": "Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan is a UNESCO World Heritage Site in Sakai City, designated for its outstanding universal cultural value.",
     "highlights": [
       "UNESCO Heritage Monument",
       "Historic Landmark",
@@ -32341,7 +32341,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "sakai-city"
+    },
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -32362,7 +32364,23 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://www.mozufuruichi-kofun.jp/"
+    "officialWebsite": "https://www.mozufuruichi-kofun.jp/",
+    "content": {
+      "en": {
+        "name": "Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan",
+        "description": "Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan is a UNESCO World Heritage Site in Sakai City, designated for its outstanding universal cultural value.",
+        "highlights": [
+          "UNESCO World Heritage",
+          "Ancient Kofun Tombs",
+          "Emperor Nintoku Tomb"
+        ]
+      },
+      "ja": {
+        "name": "百舌鳥・古市古墳群-古代日本の墳墓群-",
+        "description": "百舌鳥・古市古墳群はSakai Cityにあるユネスコ世界文化遺産の古代墳墓群です。仁徳天皇陵古墳など古代日本の壮大な巨石・前方後円墳群を身近に体感できます。",
+        "highlights": ["ユネスコ世界遺産", "仁徳天皇陵古墳", "古代史跡"]
+      }
+    }
   },
   {
     "id": "musashi-ichinomiya-hikawa-shrine",
@@ -35293,8 +35311,8 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokyo-International-Airport_Satellite.jpg"
     },
     "coordinates": {
-      "lat": 35.553333333333,
-      "lng": 139.78111111111
+      "lat": 35.7647,
+      "lng": 140.3863
     },
     "description": "Narita Airport Observation Decks is a visitor destination in Narita City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
     "highlights": ["Viewpoint"],
@@ -44678,8 +44696,8 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:100_views_edo_071.jpg"
     },
     "coordinates": {
-      "lat": 35.671611,
-      "lng": 139.801472
+      "lat": 34.9878,
+      "lng": 135.7717
     },
     "description": "Sanjusangen-do is a visitor destination in Kyoto City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
     "highlights": ["History"],
