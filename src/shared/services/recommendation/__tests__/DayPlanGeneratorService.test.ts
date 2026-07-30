@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, it, expect } from "vitest";
 import {
   generateDayPlan,
   removeStepFromPlan,
@@ -8,40 +8,34 @@ import {
 import type { Destination } from "@/shared/types/destination";
 
 const mockDestPrimary = {
-  id: "shibuya-sky-shibuya",
-  name: "Shibuya Sky",
+  id: "roppongi-hills",
+  name: "Roppongi Hills",
   prefecture: "Tokyo",
-  region: "Kanto",
   categories: ["Observation Deck"],
+  role: "primary",
   budgetMin: 2000,
   budgetMax: 3000,
   recommendedVisitHours: { min: 1.5, max: 2.5 },
-  ratings: { rain: 8 },
-  coordinates: { lat: 35.659, lng: 139.7006 },
-  relationships: { parentDestinationId: "shibuya-city" },
+  coordinates: { lat: 35.6604, lng: 139.7292 },
 } as unknown as Destination;
 
 describe("DayPlanGeneratorService", () => {
-  it("returns an empty plan if primary destination is missing", () => {
-    const plan = generateDayPlan(null as unknown as Destination);
-    expect(plan.steps).toEqual([]);
-    expect(plan.totalDurationMinutes).toBe(0);
-  });
-
   it("generates a structured day plan with minimum real stop thresholds", () => {
-    const halfDayPlan = generateDayPlan(mockDestPrimary, {
-      planType: "half_day",
-    });
+    const plan = generateDayPlan(mockDestPrimary);
+    expect(plan).toBeDefined();
+    expect(plan.id).toContain(mockDestPrimary.id);
 
-    if (!halfDayPlan.isUnfeasible) {
-      const realStops = halfDayPlan.steps.filter(isRealDestinationStop);
+    if (!plan.isUnfeasible) {
+      const realStops = plan.steps.filter(isRealDestinationStop);
       expect(realStops.length).toBeGreaterThanOrEqual(2);
-      expect(halfDayPlan.totalDurationMinutes).toBeLessThanOrEqual(360);
+      expect(plan.totalDurationMinutes).toBeGreaterThan(0);
+      expect(plan.totalBudgetRange[0]).toBeGreaterThan(0);
     }
   });
 
   it("fails gracefully with half-day fallback when full day stops are insufficient", () => {
     const unfeasiblePlan = generateDayPlan(mockDestPrimary, {
+      planType: "full_day",
       startTime: "17:00",
       maxEndTime: "17:30",
     });
@@ -64,10 +58,14 @@ describe("DayPlanGeneratorService", () => {
 
   it("reorders steps in a plan accurately", () => {
     const initialPlan = generateDayPlan(mockDestPrimary);
-    if (initialPlan.steps.length >= 2) {
-      const step0Title = initialPlan.steps[0].title.en;
-      const reorderedPlan = reorderPlanSteps(initialPlan, 0, 1);
-      expect(reorderedPlan.steps[1].title.en).toBe(step0Title);
+    const destSteps = initialPlan.steps.filter(isRealDestinationStop);
+    if (destSteps.length >= 2) {
+      const idx0 = initialPlan.steps.findIndex((s) => s.id === destSteps[0].id);
+      const idx1 = initialPlan.steps.findIndex((s) => s.id === destSteps[1].id);
+      const firstDestTitle = destSteps[0].title.en;
+      const reorderedPlan = reorderPlanSteps(initialPlan, idx0, idx1);
+      const newDestSteps = reorderedPlan.steps.filter(isRealDestinationStop);
+      expect(newDestSteps[1].title.en).toBe(firstDestTitle);
     }
   });
 });

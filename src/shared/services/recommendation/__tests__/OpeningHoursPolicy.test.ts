@@ -15,17 +15,31 @@ describe("OpeningHoursPolicy", () => {
     expect(requiresOpeningHours(hub)).toBe(false);
   });
 
-  it("marks destination verified only with hours, sourceUrl, and verifiedAt date", () => {
+  it("marks destination verified only with hours, officialWebsite, and fresh verifiedAt date", () => {
+    const freshDate = new Date().toISOString().split("T")[0];
     const verifiedDest = {
       id: "skytree",
       kind: "attraction",
       businessHours: "09:00 - 21:00",
       officialWebsite: "https://tokyoskytree.jp",
+      verifiedAt: freshDate,
     } as unknown as Destination;
 
     const assessment = getOpeningHoursAssessment(verifiedDest);
     expect(assessment.status).toBe("verified");
     expect(hasVerifiedOpeningHours(verifiedDest)).toBe(true);
+
+    const staleDest = {
+      id: "skytree-old",
+      kind: "attraction",
+      businessHours: "09:00 - 21:00",
+      officialWebsite: "https://tokyoskytree.jp",
+      verifiedAt: "2020-01-01",
+    } as unknown as Destination;
+
+    const staleAssessment = getOpeningHoursAssessment(staleDest);
+    expect(staleAssessment.status).toBe("stale");
+    expect(staleAssessment.requiresWarning).toBe(true);
 
     const legacyUnverifiedDest = {
       id: "shrine",

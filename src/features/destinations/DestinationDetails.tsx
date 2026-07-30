@@ -23,7 +23,8 @@ import { ItineraryPickerModal } from "@/features/trips/components/ItineraryPicke
 import { MarkVisitedModal } from "./components/MarkVisitedModal";
 import { VisitedDateModal } from "./components/VisitedDateModal";
 import { DestinationPlanningSection } from "./components/DestinationPlanningSection";
-import { requiresOpeningHours } from "@/shared/services/recommendation/DayPlanGeneratorService";
+import { requiresOpeningHours } from "@/shared/services/recommendation/OpeningHoursPolicy";
+import type { DayPlan } from "@/shared/services/recommendation/DayPlanGeneratorService";
 import { DestinationDetailsSkeleton } from "@/shared/components/ui/Skeleton";
 import { BucketListButton } from "@/shared/components/ui/BucketListButton";
 import { useDelayedSkeleton } from "@/shared/hooks/useDelayedSkeleton";
@@ -248,6 +249,9 @@ export default function DestinationDetails() {
   const [destLoading, setDestLoading] = useState(true);
 
   const [pickerOpen, setPickerOpen] = useState(false);
+  const [pendingSavePlan, setPendingSavePlan] = useState<DayPlan | undefined>(
+    undefined,
+  );
   const [markVisitedOpen, setMarkVisitedOpen] = useState(false);
   const [visitedHistoryOpen, setVisitedHistoryOpen] = useState(false);
   const [showAllTopSights, setShowAllTopSights] = useState(false);
@@ -1776,7 +1780,10 @@ export default function DestinationDetails() {
                 locale={locale}
                 partySize={partySize}
                 selectedTransport={selectedTransport}
-                onSaveToItinerary={() => setPickerOpen(true)}
+                onSaveToItinerary={(plan) => {
+                  setPendingSavePlan(plan);
+                  setPickerOpen(true);
+                }}
               />
             </div>
           </div>
@@ -2277,8 +2284,12 @@ export default function DestinationDetails() {
         <>
           <ItineraryPickerModal
             isOpen={pickerOpen}
-            onClose={() => setPickerOpen(false)}
+            onClose={() => {
+              setPickerOpen(false);
+              setPendingSavePlan(undefined);
+            }}
             destination={{ id: destination.id, name: destination.name }}
+            plan={pendingSavePlan}
           />
 
           <MarkVisitedModal

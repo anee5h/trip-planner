@@ -23,9 +23,11 @@ export interface OpeningHoursAssessment {
   closedDays?: string;
 }
 
+const FRESHNESS_WINDOW_DAYS = 180;
+
 export function getOpeningHoursAssessment(
   dest: Destination,
-  _now?: Date,
+  now: Date = new Date(),
 ): OpeningHoursAssessment {
   if (!dest || !dest.id) {
     return {
@@ -57,15 +59,36 @@ export function getOpeningHoursAssessment(
   const hasHours = Boolean(dest.businessHours || dest.openingHours);
   const sourceUrl = dest.officialWebsite;
   const hasSourceUrl = Boolean(sourceUrl);
+  const verifiedAt = (dest as unknown as Record<string, unknown>).verifiedAt as
+    string | undefined;
 
-  if (hasHours && hasSourceUrl) {
+  if (hasHours && hasSourceUrl && verifiedAt) {
+    const verifiedDate = new Date(verifiedAt);
+    const ageInDays =
+      (now.getTime() - verifiedDate.getTime()) / (1000 * 60 * 60 * 24);
+
+    if (ageInDays <= FRESHNESS_WINDOW_DAYS) {
+      return {
+        accessType: "scheduled",
+        status: "verified",
+        requiresWarning: false,
+        displayText:
+          typeof dest.businessHours === "string"
+            ? dest.businessHours
+            : undefined,
+        sourceUrl,
+        verifiedAt,
+      };
+    }
+
     return {
       accessType: "scheduled",
-      status: "verified",
-      requiresWarning: false,
+      status: "stale",
+      requiresWarning: true,
       displayText:
         typeof dest.businessHours === "string" ? dest.businessHours : undefined,
       sourceUrl,
+      verifiedAt,
     };
   }
 
@@ -73,7 +96,7 @@ export function getOpeningHoursAssessment(
     return {
       accessType: "scheduled",
       status: "unverified",
-      requiresWarning: false,
+      requiresWarning: true,
       displayText:
         typeof dest.businessHours === "string" ? dest.businessHours : undefined,
       sourceUrl,

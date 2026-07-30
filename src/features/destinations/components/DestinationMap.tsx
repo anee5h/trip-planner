@@ -1,10 +1,14 @@
+import { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
-import { useEffect } from "react";
 import type { Destination } from "@/shared/types/destination";
 import { Link } from "react-router-dom";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { Button } from "@/shared/components/ui/button";
+import { useLocale } from "@/shared/context/LocaleContext";
+import { formatPlaceName } from "@/shared/utils/placeLabels";
+import { ItineraryPickerModal } from "@/features/trips/components/ItineraryPickerModal";
+import { Compass, CalendarPlus } from "lucide-react";
 
 interface DestinationMapProps {
   destinations: Destination[];
@@ -38,7 +42,10 @@ export default function DestinationMap({
   carMode,
   publicModes,
 }: DestinationMapProps) {
-  // Center roughly on Yokohama/Tokyo
+  const { locale } = useLocale();
+  const [selectedPickerDest, setSelectedPickerDest] =
+    useState<Destination | null>(null);
+
   const center: [number, number] = [35.5, 139.6];
 
   const linkState =
@@ -47,7 +54,7 @@ export default function DestinationMap({
       : undefined;
 
   return (
-    <div className="w-full h-[600px] rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm z-0">
+    <div className="w-full h-[600px] rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm z-0 relative">
       <MapContainer
         center={center}
         zoom={8}
@@ -72,38 +79,79 @@ export default function DestinationMap({
               popupAnchor: [0, -16],
             });
 
+            const placeName = formatPlaceName(dest, locale);
+
             return (
               <Marker key={dest.id} position={[lat, lng]} icon={customIcon}>
                 <Popup className="custom-popup">
-                  <div className="font-sans min-w-[200px] p-3">
+                  <div className="font-sans min-w-[220px] max-w-[260px] p-3">
                     <img
                       src={dest.heroImage}
-                      alt={dest.name}
+                      alt={placeName}
                       className="w-full h-28 object-cover rounded-md mb-2"
                     />
-                    <h3 className="font-bold text-lg mb-0">{dest.name}</h3>
-                    <div className="text-sm font-medium text-emerald-600 mb-2">
-                      ★ {dest.ratings.overall}/10
+                    <h3 className="font-bold text-base text-slate-900 dark:text-white mb-0.5 truncate">
+                      {placeName}
+                    </h3>
+                    <div className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 mb-1.5">
+                      ★ {dest.ratings?.overall ?? 4.5}/10
                     </div>
-                    <p className="text-sm text-slate-500 mb-3">
+                    <p className="text-xs text-slate-500 line-clamp-2 mb-3">
                       {dest.description
                         ? `${dest.description.slice(0, 60)}...`
                         : dest.categories?.join(" • ")}
                     </p>
-                    <Link to={`/destinations/${dest.id}`} state={linkState}>
+
+                    {/* Action Bar with Explore and Add to Trip buttons */}
+                    <div className="flex items-center gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+                      <Link
+                        to={`/destinations/${dest.id}`}
+                        state={linkState}
+                        className="flex-1 min-w-0"
+                      >
+                        <Button
+                          size="sm"
+                          className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs px-2 h-8"
+                        >
+                          <Compass className="w-3.5 h-3.5 mr-1 shrink-0" />
+                          <span className="truncate">
+                            {locale === "ja" ? "ガイドを見る" : "Explore"}
+                          </span>
+                        </Button>
+                      </Link>
+
                       <Button
                         size="sm"
-                        className="w-full bg-emerald-600 hover:bg-emerald-700"
+                        variant="outline"
+                        className="flex-1 min-w-0 border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-600 dark:hover:text-emerald-400 font-semibold text-xs px-2 h-8"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedPickerDest(dest);
+                        }}
                       >
-                        View Guide
+                        <CalendarPlus className="w-3.5 h-3.5 mr-1 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                        <span className="truncate">
+                          {locale === "ja" ? "日程に追加" : "Add to Trip"}
+                        </span>
                       </Button>
-                    </Link>
+                    </div>
                   </div>
                 </Popup>
               </Marker>
             );
           })}
       </MapContainer>
+
+      {selectedPickerDest && (
+        <ItineraryPickerModal
+          isOpen={Boolean(selectedPickerDest)}
+          onClose={() => setSelectedPickerDest(null)}
+          destination={{
+            id: selectedPickerDest.id,
+            name: formatPlaceName(selectedPickerDest, locale),
+          }}
+        />
+      )}
     </div>
   );
 }

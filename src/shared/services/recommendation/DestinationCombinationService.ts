@@ -16,6 +16,7 @@ export interface DestinationCombo {
   combinedVisitHours: [number, number];
   combinedTotalHours: [number, number];
   combinedBudgetRange: [number, number];
+  combinedMaxMinutes?: number;
   isWeatherMatched: boolean;
   reasonCode: string;
   explanation: {
@@ -26,7 +27,7 @@ export interface DestinationCombo {
 
 export function findNearbyCombinations(
   primary: Destination,
-  context?: Partial<RecommendationContext>,
+  _context?: Partial<RecommendationContext>,
   maxCount: number = 5,
   catchmentScope: "nearby" | "wider" = "nearby",
 ): DestinationCombo[] {
@@ -55,21 +56,11 @@ export function findNearbyCombinations(
       continue;
     }
 
-    let curatedMinutes: number | undefined;
-    if (
-      isChildOfPrimary ||
-      (primaryParentId &&
-        place.relationships?.parentDestinationId === primaryParentId)
-    ) {
-      curatedMinutes = 12;
-    }
-
     const transitEst = estimateLocalTransitMinutes(
       primary,
       place,
       catchmentScope,
       {
-        curatedMinutes,
         areaDensity:
           primary.prefecture === "Tokyo" || primary.prefecture === "Osaka"
             ? "dense_urban"
@@ -81,15 +72,16 @@ export function findNearbyCombinations(
       continue;
     }
 
-    let distKm = 0.0;
-    if (hasCoordinates(primary) && hasCoordinates(place)) {
-      distKm = getDistance(
-        primary.coordinates.lat,
-        primary.coordinates.lng,
-        place.coordinates.lat,
-        place.coordinates.lng,
-      );
+    if (!hasCoordinates(primary) || !hasCoordinates(place)) {
+      continue;
     }
+
+    const distKm = getDistance(
+      primary.coordinates.lat,
+      primary.coordinates.lng,
+      place.coordinates.lat,
+      place.coordinates.lng,
+    );
 
     candidates.push({
       place,
@@ -108,95 +100,71 @@ export function findNearbyCombinations(
   const combos: DestinationCombo[] = [];
   const usedCategorySets = new Set<string>();
 
-  for (const { place: sec, distKm, transitMins } of candidates) {
+  for (const cand of candidates) {
     if (combos.length >= maxCount) break;
 
-    const primaryCat = primary.categories?.[0] ?? "";
-    const secCat = sec.categories?.[0] ?? "";
-    const categoryKey = [primaryCat, secCat].sort().join("::");
-    if (
-      primaryCat &&
-      primaryCat === secCat &&
-      usedCategorySets.has(categoryKey)
-    ) {
+    const secondary = cand.place;
+    const cat = secondary.categories?.[0] || secondary.kind || "attraction";
+    if (usedCategorySets.has(cat) && combos.length >= 2) {
       continue;
     }
 
-    const pEff = getEffectiveVisitDuration(primary);
-    const sEff = getEffectiveVisitDuration(sec);
+    const primaryDur = getEffectiveVisitDuration(primary);
+    const secondaryDur = getEffectiveVisitDuration(secondary);
 
-    const pVisitMinMins = pEff.minMins;
-    const pVisitPrefMins = pEff.prefMins;
-    const pVisitMaxMins = pEff.maxMins;
+    const visitMinMins = primaryDur.minMins + secondaryDur.minMins;
+    const visitMaxMins = primaryDur.maxMins + secondaryDur.maxMins;
 
-    const sVisitMinMins = sEff.minMins;
-    const sVisitPrefMins = sEff.prefMins;
-    const sVisitMaxMins = sEff.maxMins;
+    const totalMinMins = visitMinMins + cand.transitMins;
+    const totalMaxMins = visitMaxMins + cand.transitMins;
 
-    const combinedMinMinutes = pVisitMinMins + sVisitMinMins + transitMins;
-    const combinedPrefMinutes = pVisitPrefMins + sVisitPrefMins + transitMins;
-    const combinedMaxMinutes = pVisitMaxMins + sVisitMaxMins + transitMins;
-
-    // Exclude combination if min or preferred total minutes exceeds 10 hours (600 mins)
-    if (combinedMinMinutes > 600 || combinedPrefMinutes > 600) {
+    if (totalMinMins > 600) {
       continue;
     }
 
-    const displayMaxMinutes = Math.min(combinedMaxMinutes, 600);
+    const clampedTotalMaxMins = Math.min(600, totalMaxMins);
 
-    const combinedVisitMin =
-      Math.round(((pVisitMinMins + sVisitMinMins) / 60) * 10) / 10;
-    const combinedVisitMax =
-      Math.round(((pVisitMaxMins + sVisitMaxMins) / 60) * 10) / 10;
+    const pMinCost = primary.budgetMin ?? 0;
+    const pMaxCost = primary.budgetMax ?? 0;
+    const sMinCost = secondary.budgetMin ?? 0;
+    const sMaxCost = secondary.budgetMax ?? 0;
 
-    const combinedTotalMin = Math.round((combinedMinMinutes / 60) * 10) / 10;
-    const displayTotalMax = Math.round((displayMaxMinutes / 60) * 10) / 10;
+    const combinedBudgetRange: [number, number] = [
+      pMinCost + sMinCost,
+      pMaxCost + sMaxCost,
+    ];
 
-    const budgetMin = (primary.budgetMin ?? 0) + (sec.budgetMin ?? 0);
-    const budgetMax = (primary.budgetMax ?? 0) + (sec.budgetMax ?? 0);
+    const primaryName = primary.name;
+    const secondaryName = secondary.name;
 
-    let isWeatherMatched = true;
-    if (context?.weather?.actual?.condition === "rainy") {
-      const pRain = primary.ratings?.rain ?? 5;
-      const sRain = sec.ratings?.rain ?? 5;
-      if (pRain < 6 || sRain < 6) {
-        isWeatherMatched = false;
-      }
-    }
-
-    let reasonCode = "COMBO_NEARBY_WALKABLE";
-    let explanationEn = "";
-    let explanationJa = "";
-
-    if (distKm <= 2.5) {
-      reasonCode = "COMBO_NEARBY_WALKABLE";
-      explanationEn = `Walkable pair (${Math.round(distKm * 10) / 10} km) — easy multi-stop trip.`;
-      explanationJa = `徒歩圏内のスポット (${Math.round(distKm * 10) / 10}km) — ハシゴ観光に最適です。`;
-    } else if (primary.prefecture && primary.prefecture === sec.prefecture) {
-      reasonCode = "COMBO_SAME_AREA";
-      explanationEn = `Nearby in ${primary.prefecture} (~${transitMins} mins travel time).`;
-      explanationJa = `${primary.prefecture}内の近隣スポット (移動 約${transitMins}分)。`;
-    } else {
-      reasonCode = "COMBO_THEMATIC_COMPLEMENT";
-      explanationEn = `Complementary nearby experience (~${transitMins} mins travel time).`;
-      explanationJa = `合わせて楽しめる近隣体験 (移動 約${transitMins}分)。`;
-    }
-
-    usedCategorySets.add(categoryKey);
+    usedCategorySets.add(cat);
 
     combos.push({
       primary,
-      secondary: sec,
-      interDistanceKm: Math.round(distKm * 10) / 10,
-      estimatedInterTravelMinutes: transitMins,
-      combinedVisitHours: [combinedVisitMin, combinedVisitMax],
-      combinedTotalHours: [combinedTotalMin, displayTotalMax],
-      combinedBudgetRange: [budgetMin, budgetMax],
-      isWeatherMatched,
-      reasonCode,
+      secondary,
+      interDistanceKm: Number(cand.distKm.toFixed(1)),
+      estimatedInterTravelMinutes: cand.transitMins,
+      combinedVisitHours: [
+        Number((visitMinMins / 60).toFixed(1)),
+        Number((visitMaxMins / 60).toFixed(1)),
+      ],
+      combinedTotalHours: [
+        Number((totalMinMins / 60).toFixed(1)),
+        Number((clampedTotalMaxMins / 60).toFixed(1)),
+      ],
+      combinedMaxMinutes: totalMaxMins,
+      combinedBudgetRange,
+      isWeatherMatched: false,
+      reasonCode: cand.isChildOfPrimary
+        ? "primary_sub_spot"
+        : "nearby_high_synergy",
       explanation: {
-        en: explanationEn,
-        ja: explanationJa,
+        en: cand.isChildOfPrimary
+          ? `${secondaryName} is an iconic spot located within ${primaryName}. Combine them for a seamless half-day experience.`
+          : `${secondaryName} is just ${cand.transitMins} mins from ${primaryName}. Great to visit together in one day.`,
+        ja: cand.isChildOfPrimary
+          ? `${secondaryName}は${primaryName}内に位置する主要スポットです。合わせて半日コースで巡るのがおすすめです。`
+          : `${secondaryName}は${primaryName}から移動約${cand.transitMins}分。1日で効率よく巡ることができます。`,
       },
     });
   }

@@ -131,16 +131,27 @@ export function DayPlanWidget({
 
   const handleRemoveStep = (stepId: string) => {
     if (!generatedPlan) return;
-    setGeneratedPlan((prev: DayPlan | null) =>
-      prev ? removeStepFromPlan(prev, stepId) : null,
+    const updated = removeStepFromPlan(
+      generatedPlan,
+      stepId,
+      catchmentScope,
+      partySize,
     );
+    setGeneratedPlan(updated);
+    onPlanGenerated?.(updated);
   };
 
   const handleReorder = (fromIdx: number, toIdx: number) => {
     if (!generatedPlan) return;
-    setGeneratedPlan((prev: DayPlan | null) =>
-      prev ? reorderPlanSteps(prev, fromIdx, toIdx) : null,
+    const updated = reorderPlanSteps(
+      generatedPlan,
+      fromIdx,
+      toIdx,
+      catchmentScope,
+      partySize,
     );
+    setGeneratedPlan(updated);
+    onPlanGenerated?.(updated);
   };
 
   const handleSave = () => {

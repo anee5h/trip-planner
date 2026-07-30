@@ -1,5 +1,5 @@
 import type { Destination } from "@/shared/types/destination";
-import type { CatchmentScope } from "./DayPlanGeneratorService";
+import type { CatchmentScope } from "@/shared/types/planner";
 import { getDistance } from "@/shared/utils/distance";
 
 export interface TransitEstimationContext {
@@ -33,7 +33,6 @@ export function estimateLocalTransitMinutes(
   scope: CatchmentScope = "nearby",
   context?: TransitEstimationContext,
 ): TransitEstimateResult {
-  // 1. Same destination check
   if (from.id === to.id) {
     return {
       usable: true,
@@ -45,7 +44,6 @@ export function estimateLocalTransitMinutes(
 
   const maxTransitMinutes = scope === "wider" ? 45 : 35;
 
-  // 2. Curated precedence
   if (
     typeof context?.curatedMinutes === "number" &&
     context.curatedMinutes > 0
@@ -68,7 +66,6 @@ export function estimateLocalTransitMinutes(
     };
   }
 
-  // 3. Combination precedence
   if (
     typeof context?.combinationMinutes === "number" &&
     context.combinationMinutes > 0
@@ -91,7 +88,6 @@ export function estimateLocalTransitMinutes(
     };
   }
 
-  // 4. Coordinate validation
   if (!hasCoordinates(from) || !hasCoordinates(to)) {
     return {
       usable: false,
@@ -102,7 +98,6 @@ export function estimateLocalTransitMinutes(
     };
   }
 
-  // 4-parameter getDistance(lat1, lon1, lat2, lon2)
   const distKm = getDistance(
     from.coordinates.lat,
     from.coordinates.lng,

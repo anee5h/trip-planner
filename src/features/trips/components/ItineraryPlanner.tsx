@@ -243,6 +243,7 @@ export default function ItineraryPlanner({
               value={selectedDestId}
               onSelect={(d) => setSelectedDestId(d.id)}
               placeholder={`-- ${t("ui.selectPlace")} --`}
+              locale={i18n.language === "ja" ? "ja" : "en"}
             />
           </div>
         ) : (

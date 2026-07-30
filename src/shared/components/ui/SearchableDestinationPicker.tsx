@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo, useRef, useEffect, useId } from "react";
 import type { Destination } from "@/shared/types/destination";
 import { getCanonicalPlaces } from "@/shared/services/place/PlaceCatalog";
 import { formatPlaceName } from "@/shared/utils/placeLabels";
@@ -37,9 +37,11 @@ export function SearchableDestinationPicker({
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const triggerRef = useRef<HTMLButtonElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const listboxId = "destination-picker-listbox";
+  const uniqueId = useId();
+  const listboxId = `destination-picker-listbox-${uniqueId}`;
 
   const allDestinations = useMemo(() => getCanonicalPlaces(), []);
 
@@ -144,6 +146,7 @@ export function SearchableDestinationPicker({
 
     if (e.key === "Escape") {
       setIsOpen(false);
+      triggerRef.current?.focus();
       e.preventDefault();
       return;
     }
@@ -159,6 +162,7 @@ export function SearchableDestinationPicker({
       onSelect(flatOptions[activeIndex]);
       setIsOpen(false);
       setQuery("");
+      triggerRef.current?.focus();
     }
   };
 
@@ -166,13 +170,14 @@ export function SearchableDestinationPicker({
     <div ref={containerRef} className={`relative ${className}`}>
       {/* Trigger Button */}
       <button
+        ref={triggerRef}
         type="button"
         role="combobox"
         aria-expanded={isOpen}
         aria-controls={listboxId}
         aria-activedescendant={
           isOpen && flatOptions[activeIndex]
-            ? `option-${flatOptions[activeIndex].id}`
+            ? `option-${uniqueId}-${flatOptions[activeIndex].id}`
             : undefined
         }
         onClick={() => setIsOpen(!isOpen)}
@@ -204,6 +209,14 @@ export function SearchableDestinationPicker({
             <input
               ref={inputRef}
               type="text"
+              role="combobox"
+              aria-expanded="true"
+              aria-controls={listboxId}
+              aria-activedescendant={
+                flatOptions[activeIndex]
+                  ? `option-${uniqueId}-${flatOptions[activeIndex].id}`
+                  : undefined
+              }
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={handleKeyDown}
@@ -242,7 +255,7 @@ export function SearchableDestinationPicker({
                     return (
                       <button
                         key={dest.id}
-                        id={`option-${dest.id}`}
+                        id={`option-${uniqueId}-${dest.id}`}
                         role="option"
                         aria-selected={isSelected}
                         type="button"
@@ -250,6 +263,7 @@ export function SearchableDestinationPicker({
                           onSelect(dest);
                           setIsOpen(false);
                           setQuery("");
+                          triggerRef.current?.focus();
                         }}
                         className={`w-full flex items-center justify-between p-2.5 rounded-xl text-left text-xs transition-colors ${
                           isActive
@@ -290,13 +304,14 @@ export function SearchableDestinationPicker({
                     {suggestionGroups.recent.map((dest) => (
                       <button
                         key={dest.id}
-                        id={`option-${dest.id}`}
+                        id={`option-${uniqueId}-${dest.id}`}
                         role="option"
                         aria-selected={dest.id === value}
                         type="button"
                         onClick={() => {
                           onSelect(dest);
                           setIsOpen(false);
+                          triggerRef.current?.focus();
                         }}
                         className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
                       >
@@ -317,13 +332,14 @@ export function SearchableDestinationPicker({
                     {suggestionGroups.itinerary.map((dest) => (
                       <button
                         key={dest.id}
-                        id={`option-${dest.id}`}
+                        id={`option-${uniqueId}-${dest.id}`}
                         role="option"
                         aria-selected={dest.id === value}
                         type="button"
                         onClick={() => {
                           onSelect(dest);
                           setIsOpen(false);
+                          triggerRef.current?.focus();
                         }}
                         className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
                       >
@@ -344,13 +360,14 @@ export function SearchableDestinationPicker({
                     {suggestionGroups.saved.map((dest) => (
                       <button
                         key={dest.id}
-                        id={`option-${dest.id}`}
+                        id={`option-${uniqueId}-${dest.id}`}
                         role="option"
                         aria-selected={dest.id === value}
                         type="button"
                         onClick={() => {
                           onSelect(dest);
                           setIsOpen(false);
+                          triggerRef.current?.focus();
                         }}
                         className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
                       >
@@ -373,13 +390,14 @@ export function SearchableDestinationPicker({
                     {suggestionGroups.popular.map((dest) => (
                       <button
                         key={dest.id}
-                        id={`option-${dest.id}`}
+                        id={`option-${uniqueId}-${dest.id}`}
                         role="option"
                         aria-selected={dest.id === value}
                         type="button"
                         onClick={() => {
                           onSelect(dest);
                           setIsOpen(false);
+                          triggerRef.current?.focus();
                         }}
                         className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
                       >

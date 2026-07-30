@@ -6,7 +6,7 @@ import {
 import type { Destination } from "@/shared/types/destination";
 
 describe("DayPlanGeneratorRouting", () => {
-  it("populates routeLegs and respects anchor POI protection", () => {
+  it("populates routeLegs, rejects unusable transit, and respects anchor POI protection", () => {
     const primary = {
       id: "tokyo-skytree",
       name: "Tokyo Skytree",
@@ -19,12 +19,33 @@ describe("DayPlanGeneratorRouting", () => {
 
     const plan = generateDayPlan(primary, { planType: "half_day" });
 
-    if (!plan.isUnfeasible) {
-      expect(plan.routeLegs).toBeDefined();
-      expect(plan.steps.some((s) => s.destination?.id === primary.id)).toBe(
-        true,
-      );
-    }
+    expect(plan.isUnfeasible).toBe(false);
+    expect(plan.routeLegs).toBeDefined();
+    expect(plan.steps.some((s) => s.destination?.id === primary.id)).toBe(true);
+  });
+
+  it("defaults POI plan returnMode to nearest_station", () => {
+    const primary = {
+      id: "sensoji",
+      kind: "temple",
+      coordinates: { lat: 35.7148, lng: 139.7967 },
+      relationships: { nearestStationId: "asakusa-station" },
+    } as unknown as Destination;
+
+    const catalog = [
+      {
+        id: "asakusa-station",
+        name: "Asakusa Station",
+        kind: "station",
+      } as Destination,
+    ];
+
+    const plan = generateDayPlan(primary, {
+      planType: "half_day",
+      catalogue: catalog,
+    });
+
+    expect(plan.returnMode).toBe("nearest_station");
   });
 
   it("resolves nearest station endpoint when returnMode is nearest_station", () => {

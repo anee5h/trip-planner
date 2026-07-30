@@ -28,7 +28,11 @@ export function DestinationPlanningSection({
 
   const costBreakdown =
     hasValidGeneratedPlan && generatedPlan
-      ? calculateGeneratedPlanCost(generatedPlan, partySize, selectedTransport)
+      ? calculateGeneratedPlanCost(
+          generatedPlan,
+          partySize,
+          selectedTransport === "car" ? "car" : "train",
+        )
       : undefined;
 
   return (
