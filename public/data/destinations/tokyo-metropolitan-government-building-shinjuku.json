@@ -1,6 +1,7 @@
 {
   "id": "tokyo-metropolitan-government-building-shinjuku",
   "name": "Tokyo Metropolitan Government Building Observatories",
+  "businessHours": "09:30 - 22:00",
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Observation Deck", "Landmark", "Architecture", "Free"],

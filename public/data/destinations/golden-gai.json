@@ -17,7 +17,7 @@
   },
   "prefecture": "Tokyo",
   "region": "Kanto",
-  "kind": "museum",
+  "kind": "district",
   "role": "poi",
   "placeType": "destination",
   "areaId": "central-shinjuku",
@@ -26,7 +26,7 @@
   },
   "officialWebsite": "http://goldengai.jp/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
+  "categories": ["Nightlife", "Dining", "Historic Alley"],
   "tags": ["Culture", "Shinjuku City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shinjuku%20Golden%20Gai.jpg?width=1600",
   "imageMetadata": {
