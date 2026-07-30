@@ -245,6 +245,8 @@ export interface Destination {
   tags: string[];
   reservation: string;
   parking: string;
+  openingHours?: string;
+  businessHours?: string;
   notes: string;
   schemaVersion?: 2;
   imageMetadata?: DestinationImageMetadata;
