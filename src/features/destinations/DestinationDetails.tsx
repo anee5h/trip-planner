@@ -17,6 +17,8 @@ import { getValidModes } from "@/shared/services/recommendation/RecommendationSe
 import { calculateScore } from "@/shared/services/recommendation/RecommendationScorer";
 import { createRecommendationMatch } from "@/shared/services/recommendation/RecommendationExplainability";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
+import { findNearbyCombinations } from "@/shared/services/recommendation/DestinationCombinationService";
+import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
 import { ItineraryPickerModal } from "@/features/trips/components/ItineraryPickerModal";
 import { MarkVisitedModal } from "./components/MarkVisitedModal";
 import { VisitedDateModal } from "./components/VisitedDateModal";
@@ -50,6 +52,7 @@ import {
   Plus,
   Navigation,
   Scale,
+  Sparkles,
   BookOpen,
   ChevronDown,
   ChevronUp,
@@ -541,6 +544,11 @@ export default function DestinationDetails() {
     selectedTransportState && availableModes.includes(selectedTransportState)
       ? selectedTransportState
       : defaultMode;
+
+  const nearbyCombinations = useMemo(() => {
+    if (!destination) return [];
+    return findNearbyCombinations(destination, undefined, 3);
+  }, [destination]);
 
   const showSkeleton = useDelayedSkeleton(destLoading, 120);
 
@@ -1580,6 +1588,104 @@ export default function DestinationDetails() {
                 )}
               </TabsContent>
             </Tabs>
+
+            {/* Nearby Destination Combinations Section */}
+            {nearbyCombinations.length > 0 && (
+              <div className="mt-8 space-y-4">
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <Sparkles className="w-5 h-5 text-amber-500 fill-amber-400/20 shrink-0" />
+                    {locale === "ja"
+                      ? "あわせて訪れたい周辺スポット"
+                      : "Perfect Pairs & Nearby Combinations"}
+                  </h3>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                    {locale === "ja"
+                      ? `「${localizedDestination ? formatPlaceName(localizedDestination, locale) : destination.name}」とセットで楽しめる周辺のおすすめコース`
+                      : `Pair ${localizedDestination ? formatPlaceName(localizedDestination, locale) : destination.name} with nearby highlights for a complete outing.`}
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 gap-4">
+                  {nearbyCombinations.map((combo) => {
+                    const secLocalized = getLocalizedPlace(
+                      combo.secondary,
+                      locale,
+                    );
+                    return (
+                      <Card
+                        key={combo.secondary.id}
+                        className="overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 transition-all shadow-sm"
+                      >
+                        <CardContent className="p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                          <div className="flex items-start gap-4 flex-1 min-w-0">
+                            <img
+                              src={secLocalized.heroImage}
+                              alt={secLocalized.name}
+                              className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl object-cover shrink-0 border border-slate-100 dark:border-slate-800"
+                            />
+                            <div className="space-y-1 min-w-0">
+                              <div className="flex items-center gap-2 flex-wrap">
+                                <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 px-2 py-0.5 rounded-md">
+                                  + {combo.secondary.categories?.[0]}
+                                </span>
+                                <span className="inline-flex items-center gap-1 text-xs text-slate-500 font-medium">
+                                  <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                                  {combo.interDistanceKm} km (
+                                  {combo.estimatedInterTravelMinutes} min)
+                                </span>
+                              </div>
+                              <h4 className="font-bold text-base text-slate-900 dark:text-white truncate">
+                                {formatPlaceName(secLocalized, locale)}
+                              </h4>
+                              <p className="text-xs text-slate-600 dark:text-slate-400">
+                                {combo.explanation[locale]}
+                              </p>
+                              <div className="flex items-center gap-3 text-xs font-semibold text-slate-700 dark:text-slate-300 pt-1">
+                                <span className="inline-flex items-center gap-1">
+                                  <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                                  {combo.combinedVisitHours[0]}–
+                                  {combo.combinedVisitHours[1]}h visit
+                                </span>
+                                <span>•</span>
+                                <span>
+                                  {formatLocalizedJPYRange(
+                                    [
+                                      combo.combinedBudgetRange[0] * partySize,
+                                      combo.combinedBudgetRange[1] * partySize,
+                                    ],
+                                    locale,
+                                  )}{" "}
+                                  total
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <Link
+                            to={{
+                              pathname: `/destinations/${combo.secondary.id}`,
+                              search: location.search,
+                            }}
+                            className="w-full sm:w-auto shrink-0"
+                          >
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              className="w-full border-slate-300 dark:border-slate-700 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 hover:text-emerald-600 font-semibold"
+                            >
+                              {locale === "ja"
+                                ? "スポットを見る"
+                                : "View Combo"}
+                            </Button>
+                          </Link>
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Sidebar */}
