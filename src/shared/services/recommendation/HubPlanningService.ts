@@ -59,31 +59,46 @@ export class HubPlanningService {
     const partySize = Math.max(1, options.partySize || 2);
     const travelMode = options.travelMode || "train";
 
-    // 1. Discover child POIs for this hub
+    // 1. Discover POIs for this hub
     const directChildren = DestinationRelationshipService.getChildDestinations(
       hub.id,
     );
     const featuredChildren =
       DestinationRelationshipService.getFeaturedChildDestinations(hub);
 
-    // Combine & deduplicate available POIs
     const candidateMap = new Map<string, Destination>();
     for (const d of [...featuredChildren, ...directChildren]) {
       if (d.id !== hub.id) candidateMap.set(d.id, d);
     }
 
     // Fallback to nearby destinations if child list is small
-    if (candidateMap.size < 3 && hub.coordinates) {
+    if (candidateMap.size < 4 && hub.coordinates) {
       const nearby = DestinationRelationshipService.getNearbyDestinations(hub);
       for (const d of nearby) {
         if (d.id !== hub.id) candidateMap.set(d.id, d);
       }
     }
 
-    const candidates = Array.from(candidateMap.values());
+    // STRICT GEOGRAPHIC & CATEGORY FILTERING
+    // Stops MUST NOT be another hub/city and MUST be within 15km of the hub
+    const candidates = Array.from(candidateMap.values()).filter((d) => {
+      if (d.id === hub.id) return false;
+      if (d.role === "hub" || d.kind === "city") return false; // Never pick cities/hubs as POI stops
 
-    // Filter by plan type count
-    const targetCount = planType === "half_day" ? 2 : 4;
+      if (hub.coordinates && d.coordinates) {
+        const dist = getDistance(
+          hub.coordinates.lat,
+          hub.coordinates.lng,
+          d.coordinates.lat,
+          d.coordinates.lng,
+        );
+        return dist <= 15; // Strict 15km radius constraint around hub
+      }
+      return d.prefecture === hub.prefecture;
+    });
+
+    // Target stop count: half day = 2 stops, full day = 3 stops
+    const targetCount = planType === "half_day" ? 2 : 3;
     const selectedPois = candidates.slice(0, targetCount);
 
     // 2. Build Plan Items with Intra-Hub Local Movement
@@ -117,16 +132,18 @@ export class HubPlanningService {
           poi.coordinates.lat,
           poi.coordinates.lng,
         );
-        transitTime = Math.max(8, Math.round(distKm * 4 + 5)); // ~15km/h local bus/walk
-        transitCost = distKm > 8 ? 420 : 210; // tiered local fare
+        transitTime = Math.min(30, Math.max(8, Math.round(distKm * 4 + 5))); // Cap intra-hub transit to max 30 mins
+        transitCost = distKm > 8 ? 420 : 210;
       }
 
-      const visitTime = (poi.recommendedVisitHours?.min || 1.5) * 60;
+      // Cap individual POI visit duration between 45 and 120 minutes for realistic day planning
+      const rawVisit = (poi.recommendedVisitHours?.min || 1.5) * 60;
+      const visitTime = Math.min(120, Math.max(45, Math.round(rawVisit)));
       cumulativeVisitMinutes += visitTime + transitTime;
 
       items.push({
         destination: poi,
-        visitDurationMinutes: Math.round(visitTime),
+        visitDurationMinutes: visitTime,
         localTransitTimeMinutes: transitTime,
         localTransitCost: transitCost,
         isHub: false,
@@ -201,7 +218,11 @@ export class HubPlanningService {
       .map((col) => ({ id: col.id, title: col.name }));
 
     // 7. Title & Summary
-    const totalHours = Math.max(3, Math.round(cumulativeVisitMinutes / 60));
+    const totalHours = Math.min(
+      planType === "half_day" ? 5 : 9,
+      Math.max(3, Math.round(cumulativeVisitMinutes / 60)),
+    );
+
     const title = {
       en:
         planType === "half_day"

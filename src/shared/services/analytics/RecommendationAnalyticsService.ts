@@ -3,6 +3,7 @@ import { ANALYTICS_SCHEMA_VERSION } from "./RecommendationAnalyticsTypes";
 import type {
   AnyRecommendationAnalyticsEvent,
   BaseAnalyticsEvent,
+  PlanningToolAnalyticsEvent,
 } from "./RecommendationAnalyticsTypes";
 import { telemetryPipeline } from "./RecommendationTelemetryPipeline";
 
@@ -159,7 +160,7 @@ class RecommendationAnalyticsService {
         (event as { destinationId?: string }).destinationId ||
         (event as { destinationIds?: string[] }).destinationIds?.join(",") ||
         "";
-      const dedupKey = `${event.eventType}:${destId}:${(event as { reasonCode?: string }).reasonCode || ""}:${(event as { isHelpful?: boolean }).isHelpful ?? ""}`;
+      const dedupKey = `${event.eventType}:${destId}:${(event as { reasonCode?: string }).reasonCode || ""}:${(event as { isHelpful?: boolean }).isHelpful ?? ""}:${(event as { planType?: string }).planType || ""}`;
 
       if (this.isDuplicate(dedupKey)) {
         return false;
@@ -304,6 +305,29 @@ class RecommendationAnalyticsService {
       destinationId,
       reasonCode,
       isHelpful,
+    });
+  }
+
+  public trackPlanningToolEvent(
+    eventType: PlanningToolAnalyticsEvent["eventType"],
+    destinationId: string,
+    details?: {
+      planType?: "half_day" | "full_day";
+      durationMode?: string;
+      pace?: "relaxed" | "balanced" | "packed";
+      partySize?: number;
+      generatedStopCount?: number;
+      generatedDurationMinutes?: number;
+    },
+    locale: "en" | "ja" = "en",
+  ): boolean {
+    const base = this.createBaseEvent(eventType, locale);
+    return this.emitEvent({
+      ...base,
+      eventType,
+      destinationId,
+      source: "destination_details",
+      ...details,
     });
   }
 }

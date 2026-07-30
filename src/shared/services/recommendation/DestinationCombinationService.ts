@@ -24,7 +24,7 @@ export function findNearbyCombinations(
   context?: Partial<RecommendationContext>,
   maxCount: number = 3,
 ): DestinationCombo[] {
-  if (!primary || !primary.coordinates) return [];
+  if (!primary) return [];
 
   const all = getDestinationList() as Destination[];
   const primaryCoords = primary.coordinates;
@@ -37,7 +37,7 @@ export function findNearbyCombinations(
 
   for (const place of all) {
     if (!place.id || place.id === primary.id) continue;
-    if (!place.coordinates) continue;
+    if (place.role === "hub" || place.kind === "city") continue; // Skip hubs/cities as secondary stops
 
     // Do not pair parent hub with its own child attraction
     if (
@@ -47,16 +47,28 @@ export function findNearbyCombinations(
       continue;
     }
 
-    const dist = getDistance(
-      primaryCoords.lat,
-      primaryCoords.lng,
-      place.coordinates.lat,
-      place.coordinates.lng,
-    );
+    let distKm = 999;
+    if (primaryCoords && place.coordinates) {
+      distKm = getDistance(
+        primaryCoords.lat,
+        primaryCoords.lng,
+        place.coordinates.lat,
+        place.coordinates.lng,
+      );
+    } else if (
+      primaryParentId &&
+      place.relationships?.parentDestinationId === primaryParentId
+    ) {
+      distKm = 2.0; // Same city/ward hub area
+    } else if (primary.prefecture && place.prefecture === primary.prefecture) {
+      distKm = 6.0; // Same prefecture
+    } else if (primary.region && place.region === primary.region) {
+      distKm = 15.0; // Same region
+    }
 
-    // Distance constraint: max 20km for combinations
-    if (dist <= 20) {
-      candidates.push({ place, distKm: dist });
+    // Distance constraint: max 25km for day combinations
+    if (distKm <= 25) {
+      candidates.push({ place, distKm });
     }
   }
 
@@ -81,7 +93,7 @@ export function findNearbyCombinations(
       continue;
     }
 
-    // Calculate inter-destination travel time (average speed 25 km/h for urban transit/walking)
+    // Calculate inter-destination travel time
     const travelMins = Math.max(10, Math.round((distKm / 25) * 60));
 
     // Calculate combined visit hours
@@ -106,7 +118,7 @@ export function findNearbyCombinations(
     const budgetMin = (primary.budgetMin ?? 0) + (sec.budgetMin ?? 0);
     const budgetMax = (primary.budgetMax ?? 0) + (sec.budgetMax ?? 0);
 
-    // Weather compatibility check (rain rating >= 6 is good for rainy days)
+    // Weather compatibility check
     let isWeatherMatched = true;
     if (context?.weather?.actual?.condition === "rainy") {
       const pRain = primary.ratings?.rain ?? 5;
@@ -116,7 +128,6 @@ export function findNearbyCombinations(
       }
     }
 
-    // Determine reason code and explanations
     let reasonCode = "COMBO_NEARBY_WALKABLE";
     let explanationEn = "";
     let explanationJa = "";

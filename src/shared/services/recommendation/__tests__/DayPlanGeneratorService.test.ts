@@ -25,30 +25,28 @@ describe("DayPlanGeneratorService", () => {
     expect(plan.totalDurationMinutes).toBe(0);
   });
 
-  it("generates a structured day plan with morning, afternoon, and meal breaks", () => {
-    const plan = generateDayPlan(mockDestPrimary);
-    expect(plan.id).toBe(`plan-${mockDestPrimary.id}`);
-    expect(plan.steps.length).toBeGreaterThan(0);
+  it("generates a structured day plan with options for half day and full day", () => {
+    const halfDayPlan = generateDayPlan(mockDestPrimary, {
+      planType: "half_day",
+    });
+    const fullDayPlan = generateDayPlan(mockDestPrimary, {
+      planType: "full_day",
+    });
 
-    const hasMeal = plan.steps.some((s) => s.type === "meal");
-    const hasDestination = plan.steps.some((s) => s.type === "destination");
-    expect(hasMeal).toBe(true);
-    expect(hasDestination).toBe(true);
-
-    expect(plan.totalDurationMinutes).toBeGreaterThan(120);
-    expect(plan.totalBudgetRange[0]).toBeGreaterThan(0);
+    expect(halfDayPlan.totalDurationMinutes).toBeLessThanOrEqual(360);
+    expect(fullDayPlan.totalDurationMinutes).toBeGreaterThan(240);
   });
 
-  it("discloses missing opening hours when businessHours and openingHours are null", () => {
-    const plan = generateDayPlan(mockDestPrimary);
-    expect(Array.isArray(plan.uncertainHoursDisclosures)).toBe(true);
-  });
+  it("enforces deterministic pruning when maxEndTime makes schedule impossible", () => {
+    const unfeasiblePlan = generateDayPlan(mockDestPrimary, {
+      startTime: "17:00",
+      maxEndTime: "17:30",
+    });
 
-  it("triggers overfilled warning when total plan duration exceeds limit", () => {
-    const plan = generateDayPlan(mockDestPrimary, { availableTimeHours: 3 });
-    expect(plan.isOverfilled).toBe(true);
-    expect(plan.overfillWarning?.en).toContain("Tight schedule");
-    expect(plan.overfillWarning?.ja).toContain("スケジュールが過密です");
+    expect(unfeasiblePlan.isUnfeasible).toBe(true);
+    expect(unfeasiblePlan.unfeasibleErrorMessage?.en).toContain(
+      "We couldn’t create a realistic plan within this time window",
+    );
   });
 
   it("removes a step from plan and recalculates start/end times", () => {

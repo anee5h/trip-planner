@@ -1004,18 +1004,24 @@ export default function DestinationDetails() {
             </section>
 
             <Tabs defaultValue="logistics" className="w-full">
-              <TabsList className="w-full justify-start h-auto p-1 bg-white dark:bg-slate-900 border shadow-sm rounded-xl overflow-x-auto overflow-y-hidden">
+              <TabsList className="w-full justify-start h-auto p-1.5 bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 rounded-2xl overflow-x-auto gap-1">
                 <TabsTrigger
                   value="logistics"
-                  className="rounded-lg py-2.5 px-4"
+                  className="rounded-xl py-2.5 px-5 font-bold text-xs transition-all text-slate-600 dark:text-slate-400 aria-selected:bg-white dark:aria-selected:bg-slate-900 aria-selected:text-emerald-600 dark:aria-selected:text-emerald-400 aria-selected:shadow-sm"
                 >
                   {copy.logistics}
                 </TabsTrigger>
-                <TabsTrigger value="ratings" className="rounded-lg py-2.5 px-4">
+                <TabsTrigger
+                  value="ratings"
+                  className="rounded-xl py-2.5 px-5 font-bold text-xs transition-all text-slate-600 dark:text-slate-400 aria-selected:bg-white dark:aria-selected:bg-slate-900 aria-selected:text-emerald-600 dark:aria-selected:text-emerald-400 aria-selected:shadow-sm"
+                >
                   {copy.ratings}
                 </TabsTrigger>
                 {matchDetails && (
-                  <TabsTrigger value="match" className="rounded-lg py-2.5 px-4">
+                  <TabsTrigger
+                    value="match"
+                    className="rounded-xl py-2.5 px-5 font-bold text-xs transition-all text-slate-600 dark:text-slate-400 aria-selected:bg-white dark:aria-selected:bg-slate-900 aria-selected:text-emerald-600 dark:aria-selected:text-emerald-400 aria-selected:shadow-sm"
+                  >
                     {copy.match}
                   </TabsTrigger>
                 )}
@@ -1692,18 +1698,79 @@ export default function DestinationDetails() {
               </div>
             )}
 
-            {/* Suggested Day Plan Widget */}
-            <div className="mt-8">
+            {/* Unified "Plan this trip" Progressive Section */}
+            <div className="mt-12 space-y-6 pt-8 border-t border-slate-200 dark:border-slate-800">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div>
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                    {locale === "ja" ? "旅行計画ツール" : "Planning Tools"}
+                  </span>
+                  <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white mt-0.5">
+                    {locale === "ja" ? "このスポットを計画" : "Plan this trip"}
+                  </h3>
+                </div>
+
+                {/* Plan Assumptions Disclosure Trigger */}
+                {destination.role !== "hub" &&
+                  !destination.openingHours &&
+                  !destination.businessHours && (
+                    <div className="text-xs">
+                      <span className="text-amber-600 dark:text-amber-400 font-bold mr-2">
+                        {locale === "ja"
+                          ? "※ 営業時間未確認あり"
+                          : "Some opening hours are unverified"}
+                      </span>
+                    </div>
+                  )}
+              </div>
+
+              {/* Plan Assumptions Expandable Drawer */}
+              {destination.role !== "hub" &&
+                !destination.openingHours &&
+                !destination.businessHours && (
+                  <div className="p-3.5 bg-amber-50/60 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-900/40 rounded-2xl text-xs space-y-2 text-slate-700 dark:text-slate-300">
+                    <div className="font-bold text-amber-900 dark:text-amber-200 flex items-center gap-1.5">
+                      <Info className="w-4 h-4 text-amber-600 shrink-0" />
+                      <span>
+                        {locale === "ja"
+                          ? "計画の前提条件・補足情報"
+                          : "Plan assumptions"}
+                      </span>
+                    </div>
+                    <ul className="list-disc list-inside space-y-1 text-slate-600 dark:text-slate-400">
+                      <li>
+                        {locale === "ja"
+                          ? `${destination.name} の営業時間は最新の公式発表を事前確認してください。`
+                          : `Opening hours for ${destination.name} are unverified. Please confirm before visiting.`}
+                      </li>
+                      <li>
+                        {locale === "ja"
+                          ? "モデルコース内の移動時間は標準的な公共交通機関の所要時間を前提としています。"
+                          : "Travel segments assume average public transit or walking times."}
+                      </li>
+                      <li>
+                        {locale === "ja"
+                          ? "予算範囲は一般的な拝観料・食事・ローカル交通費に基づきます。"
+                          : "Cost estimates reflect typical admission, dining, and local fare ranges."}
+                      </li>
+                    </ul>
+                  </div>
+                )}
+
+              {/* Progressive Day Plan Generator */}
               <DayPlanWidget
                 destination={destination}
                 locale={locale}
                 partySize={partySize}
                 onSaveToItinerary={() => setPickerOpen(true)}
               />
-            </div>
 
-            {/* Itemized Trip Cost Breakdown Widget */}
-            <div className="mt-8">
+              {/* Hub-Based Travel Planner (if Hub) */}
+              {destination.role === "hub" && (
+                <HubPlannerWidget hub={destination} locale={locale} />
+              )}
+
+              {/* Progressive Cost Breakdown */}
               <TripCostBreakdownWidget
                 destination={destination}
                 locale={locale}
@@ -1953,13 +2020,6 @@ export default function DestinationDetails() {
             </Card>
           </div>
         </div>
-
-        {/* Hub-Based Travel Planner Widget */}
-        {destination.role === "hub" && (
-          <div className="mt-12">
-            <HubPlannerWidget hub={destination} locale={locale} />
-          </div>
-        )}
 
         {/* Top Sights & Attractions (For City / Ward / Town Hubs) */}
         {destination.role === "hub" && featuredChildSights.length > 0 && (
