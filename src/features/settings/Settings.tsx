@@ -18,6 +18,8 @@ import {
   CheckCircle2,
   Loader2,
 } from "lucide-react";
+import { personalizationService } from "@/shared/services/recommendation/PersonalizationService";
+import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
 import { Button } from "@/shared/components/ui/button";
 import { PageHeader } from "@/shared/components/ui/PageHeader";
 import { toast } from "sonner";
@@ -440,6 +442,115 @@ export default function Settings() {
                       onChange={(e) => setPartySize(parseInt(e.target.value))}
                       className="w-full accent-emerald-500"
                     />
+                  </div>
+
+                  {/* Recommendation Personalization & Privacy */}
+                  <div className="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-4">
+                    <h4 className="text-sm font-extrabold text-slate-900 dark:text-white">
+                      Recommendation Personalization & Privacy
+                    </h4>
+
+                    <div className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800">
+                      <div>
+                        <div className="text-xs font-bold text-slate-900 dark:text-white">
+                          History-Based Personalization
+                        </div>
+                        <div className="text-[11px] text-slate-500">
+                          Adjust recommendation rankings using saved and visited
+                          destinations
+                        </div>
+                      </div>
+                      <input
+                        type="checkbox"
+                        checked={personalizationService.getSettings().enabled}
+                        onChange={(e) => {
+                          personalizationService.updateSettings({
+                            enabled: e.target.checked,
+                          });
+                          toast.success("Personalization updated");
+                        }}
+                        className="w-4 h-4 accent-emerald-600 rounded cursor-pointer"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
+                        Novelty Preference
+                      </label>
+                      <div className="grid grid-cols-3 gap-3">
+                        {[
+                          { id: "BALANCED", label: "Balanced" },
+                          { id: "NOVEL", label: "Prefer Unvisited" },
+                          { id: "FAMILIAR", label: "Prefer Visited" },
+                        ].map((nov) => (
+                          <button
+                            key={nov.id}
+                            type="button"
+                            onClick={() => {
+                              personalizationService.updateSettings({
+                                novelty: nov.id as any,
+                              });
+                              toast.success(`Novelty set to ${nov.label}`);
+                            }}
+                            className={`p-3 rounded-2xl text-xs font-bold border transition-all ${
+                              personalizationService.getSettings().novelty ===
+                              nov.id
+                                ? "bg-emerald-500 text-white border-emerald-500"
+                                : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
+                            }`}
+                          >
+                            {nov.label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800">
+                      <div>
+                        <div className="text-xs font-bold text-slate-900 dark:text-white">
+                          Analytics & Telemetry Opt-Out
+                        </div>
+                        <div className="text-[11px] text-slate-500">
+                          Stop sending zero-PII recommendation quality events
+                          and purge queue
+                        </div>
+                      </div>
+                      <input
+                        type="checkbox"
+                        checked={recommendationAnalytics.getOptOut()}
+                        onChange={(e) => {
+                          recommendationAnalytics.setOptOut(e.target.checked);
+                          toast.success(
+                            e.target.checked
+                              ? "Telemetry opted out"
+                              : "Telemetry enabled",
+                          );
+                        }}
+                        className="w-4 h-4 accent-emerald-600 rounded cursor-pointer"
+                      />
+                    </div>
+
+                    <div className="pt-2">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        onClick={() => {
+                          if (
+                            window.confirm(
+                              "Are you sure you want to reset your personalization profile?",
+                            )
+                          ) {
+                            personalizationService.resetSettings();
+                            toast.success(
+                              "Personalization profile reset to defaults",
+                            );
+                          }
+                        }}
+                        className="text-xs text-rose-600 dark:text-rose-400 border-rose-200 dark:border-rose-900 hover:bg-rose-50 dark:hover:bg-rose-950/30 font-bold"
+                      >
+                        Reset Personalization Profile
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>
