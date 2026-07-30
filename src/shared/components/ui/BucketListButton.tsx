@@ -49,7 +49,7 @@ export function BucketListButton({
         title={active ? t("ui.onBucketList") : t("ui.bucketList")}
         className={`px-4 py-2 rounded-xl flex items-center gap-2 font-semibold text-sm transition-all active:scale-95 shadow-sm border ${
           active
-            ? "bg-rose-500 hover:bg-rose-600 text-white border-rose-400"
+            ? "bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-500"
             : "bg-slate-900/60 hover:bg-slate-900 text-white border-white/20 backdrop-blur-md"
         } ${className}`}
       >
@@ -67,7 +67,7 @@ export function BucketListButton({
         title={active ? t("ui.onBucketList") : t("ui.bucketList")}
         className={`w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 backdrop-blur-md border ${
           active
-            ? "bg-rose-500 text-white border-rose-400 shadow-md"
+            ? "bg-emerald-500 text-white border-emerald-400 shadow-md"
             : "bg-white/15 hover:bg-white/25 text-slate-100 border-white/20"
         } ${className}`}
       >
@@ -83,7 +83,7 @@ export function BucketListButton({
       aria-label={active ? "Remove from bucket list" : "Add to bucket list"}
       title={active ? t("ui.onBucketList") : t("ui.bucketList")}
       className={`p-2 bg-white/70 hover:bg-white dark:bg-slate-900/70 dark:hover:bg-slate-900 backdrop-blur-sm rounded-full transition-all active:scale-95 duration-150 shadow-sm text-slate-700 dark:text-slate-200 ${
-        active ? "!bg-rose-500 !text-white !border-rose-400" : ""
+        active ? "!bg-emerald-500 !text-white !border-emerald-400" : ""
       } ${className}`}
     >
       <Bookmark
