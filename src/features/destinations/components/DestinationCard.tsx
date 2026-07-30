@@ -32,8 +32,6 @@ import {
   CheckSquare,
   Sun,
   Plus,
-  ThumbsUp,
-  ThumbsDown,
   Timer,
 } from "lucide-react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
@@ -41,7 +39,6 @@ import { formatJPYRange } from "@/shared/services/budget/BudgetService";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
 import { useLocale } from "@/shared/context/LocaleContext";
-import { useTranslation } from "react-i18next";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import {
   formatPlaceName,
@@ -78,7 +75,6 @@ export default function DestinationCard({
   reasonCodes,
 }: DestinationCardProps) {
   const { locale } = useLocale();
-  const { t } = useTranslation();
   const localizedDestination = getLocalizedPlace(destination, locale);
   const parent =
     DestinationRelationshipService.getParentDestination(destination);
@@ -93,13 +89,10 @@ export default function DestinationCard({
     isComparing,
     toggleCompare,
     compareList,
-    getDestinationRating,
-    setDestinationRating,
     homeStationCoords,
   } = useTripStore();
   const visited = isVisited(destination.id);
   const comparing = isComparing(destination.id);
-  const rating = getDestinationRating(destination.id);
   const cardCopy =
     locale === "ja"
       ? {
@@ -460,70 +453,12 @@ export default function DestinationCard({
           )}
         </Button>
 
-        {/* Thumbs Up - bare icon, no container */}
-        <Button
-          variant="ghost"
-          size="icon-sm"
-          title={rating === "up" ? t("ui.removeThumbsUp") : t("ui.thumbsUp")}
-          aria-label={
-            rating === "up" ? t("ui.removeThumbsUp") : t("ui.thumbsUp")
-          }
-          className={`shrink-0 ${
-            rating === "up"
-              ? "text-emerald-600"
-              : "text-slate-500 hover:text-emerald-600"
-          }`}
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            setDestinationRating(destination.id, rating === "up" ? null : "up");
-            recommendationAnalytics.trackFeedback(
-              destination.id,
-              rating !== "up",
-              reasonCodes,
-            );
-          }}
-        >
-          <ThumbsUp
-            className="w-4 h-4"
-            fill={rating === "up" ? "currentColor" : "none"}
-          />
-        </Button>
-
-        {/* Thumbs Down - bare icon, no container */}
-        <Button
-          variant="ghost"
-          size="icon-sm"
-          title={
-            rating === "down" ? t("ui.removeThumbsDown") : t("ui.thumbsDown")
-          }
-          aria-label={
-            rating === "down" ? t("ui.removeThumbsDown") : t("ui.thumbsDown")
-          }
-          className={`shrink-0 ${
-            rating === "down"
-              ? "text-rose-600"
-              : "text-slate-500 hover:text-rose-600"
-          }`}
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            setDestinationRating(
-              destination.id,
-              rating === "down" ? null : "down",
-            );
-            recommendationAnalytics.trackFeedback(
-              destination.id,
-              false,
-              reasonCodes,
-            );
-          }}
-        >
-          <ThumbsDown
-            className="w-4 h-4"
-            fill={rating === "down" ? "currentColor" : "none"}
-          />
-        </Button>
+        {/* Bucket List Action */}
+        <BucketListButton
+          destinationId={destination.id}
+          destinationName={localizedDestination.name}
+          variant="button"
+        />
 
         {/* Explore - dominant CTA takes remaining space */}
         <Link
