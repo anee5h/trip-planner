@@ -232,12 +232,10 @@ describe("RecommendationService Unit Tests", () => {
 
     expect(results.map((result) => result.id)).toContain("short-trip");
     expect(results.map((result) => result.id)).not.toContain("hakone-onsen");
-    expect(matchesTripDuration(4, "halfDay")).toBe(true);
-    expect(matchesTripDuration(4.5, "halfDay")).toBe(true);
-    expect(matchesTripDuration(5, "halfDay")).toBe(false);
-    expect(matchesTripDuration(5, "dayTrip")).toBe(true);
-    expect(matchesTripDuration(12, "dayTrip")).toBe(true);
-    expect(matchesTripDuration(13, "weekend")).toBe(true);
+    expect(matchesTripDuration(3, "shortOuting")).toBe(true);
+    expect(matchesTripDuration(5, "halfDay")).toBe(true);
+    expect(matchesTripDuration(8, "fullDay")).toBe(true);
+    expect(matchesTripDuration(15, "weekend")).toBe(true);
   });
 
   it("correctly identifies valid transport modes with getValidModes", () => {

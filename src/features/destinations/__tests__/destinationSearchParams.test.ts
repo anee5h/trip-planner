@@ -98,7 +98,7 @@ describe("destinationSearchParams", () => {
       partySize: 2,
       weather: "rainy",
       budgetTier: "comfortable",
-      tripDuration: "dayTrip" as const,
+      tripDuration: "fullDay" as const,
       budget: BUDGET_TIER_LIMITS.comfortable,
       carMode: "rental",
       publicModes: ["train", "shinkansen"],

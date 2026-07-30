@@ -3,7 +3,8 @@ import type {
   PersonalizationSettings,
 } from "./PersonalizationService";
 
-export type TripDuration = "any" | "halfDay" | "dayTrip" | "weekend";
+export type TripDuration =
+  "any" | "shortOuting" | "halfDay" | "fullDay" | "weekend";
 
 export type ActualWeatherCondition =
   "clear" | "cloudy" | "rainy" | "stormy" | "snowy" | "unknown";
@@ -33,10 +34,12 @@ export function matchesTripDuration(
   tripDuration: TripDuration = "any",
 ): boolean {
   if (tripDuration === "any") return true;
-  if (tripDuration === "halfDay") return totalTripHours < 5;
-  if (tripDuration === "dayTrip")
-    return totalTripHours >= 5 && totalTripHours <= 12;
-  return totalTripHours > 12;
+  if (tripDuration === "shortOuting") return totalTripHours < 4;
+  if (tripDuration === "halfDay")
+    return totalTripHours >= 4 && totalTripHours < 7.5;
+  if (tripDuration === "fullDay")
+    return totalTripHours >= 7.5 && totalTripHours <= 14;
+  return totalTripHours > 14;
 }
 
 export interface RecommendationContext {
@@ -57,8 +60,14 @@ export interface RecommendationContext {
   homeStationCoords?: { lat: number; lng: number } | null;
   userRatings?: Record<string, "up" | "down">;
   tripDuration?: TripDuration;
+  availableTimeHours?: number;
   userProfile?: ImplicitUserProfile;
   personalizationSettings?: PersonalizationSettings;
+}
+
+export interface TripDurationContext {
+  homeStationCoords?: { lat: number; lng: number } | null;
+  availableTimeHours?: number;
 }
 
 export function resolveRecommendationWeather(context: RecommendationContext) {

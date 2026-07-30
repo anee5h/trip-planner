@@ -825,17 +825,22 @@ export default function DestinationFilters({
                 <SelectTrigger className="h-9 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-lg text-xs font-medium">
                   {tripDuration === "any"
                     ? "Any duration"
-                    : tripDuration === "halfDay"
-                      ? "Half day"
-                      : tripDuration === "dayTrip"
-                        ? "Day trip"
-                        : "Weekend"}
+                    : tripDuration === "shortOuting"
+                      ? "Short Outing (<4h)"
+                      : tripDuration === "halfDay"
+                        ? "Half Day (4–7.5h)"
+                        : tripDuration === "fullDay"
+                          ? "Full Day (7.5–14h)"
+                          : "Weekend (>14h)"}
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="any">Any duration</SelectItem>
-                  <SelectItem value="halfDay">Half day</SelectItem>
-                  <SelectItem value="dayTrip">Day trip</SelectItem>
-                  <SelectItem value="weekend">Weekend</SelectItem>
+                  <SelectItem value="shortOuting">
+                    Short Outing (&lt;4h)
+                  </SelectItem>
+                  <SelectItem value="halfDay">Half Day (4–7.5h)</SelectItem>
+                  <SelectItem value="fullDay">Full Day (7.5–14h)</SelectItem>
+                  <SelectItem value="weekend">Weekend (&gt;14h)</SelectItem>
                 </SelectContent>
               </Select>
             </div>
