@@ -32,11 +32,16 @@ import {
   Sun,
   Plus,
   Timer,
+  AlertTriangle,
 } from "lucide-react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
+import {
+  estimateTripDuration,
+  formatTripDurationLabel,
+} from "@/shared/services/recommendation/TripDurationService";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import {
@@ -60,6 +65,7 @@ interface DestinationCardProps {
   partySize?: number;
   carMode?: string;
   publicModes?: string[];
+  availableTimeHours?: number;
   showFeedbackControl?: boolean;
   reasonCodes?: string[];
 }
@@ -70,6 +76,7 @@ export default function DestinationCard({
   partySize = 2,
   carMode,
   publicModes,
+  availableTimeHours,
   showFeedbackControl = true,
   reasonCodes,
 }: DestinationCardProps) {
@@ -149,6 +156,18 @@ export default function DestinationCard({
     publicModes,
     partySize,
     homeStationCoords ?? undefined,
+  );
+  const preferredModes = [
+    ...(carMode && carMode !== "none" ? [carMode] : []),
+    ...(publicModes || ["train", "shinkansen", "bus", "flight"]),
+  ];
+  const durationEst = estimateTripDuration(
+    destination,
+    {
+      homeStationCoords: homeStationCoords ?? undefined,
+      availableTimeHours,
+    },
+    preferredModes,
   );
 
   return (
@@ -378,15 +397,33 @@ export default function DestinationCard({
               <div className="flex items-center whitespace-nowrap min-w-0">
                 <Timer className="w-4 h-4 mr-1.5 text-slate-400 shrink-0" />
                 <span className="truncate">
-                  {destination.recommendedVisitHours
-                    ? locale === "ja"
-                      ? `滞在 ${destination.recommendedVisitHours.min}–${destination.recommendedVisitHours.max}時間`
-                      : `${destination.recommendedVisitHours.min}–${destination.recommendedVisitHours.max}h visit`
-                    : locale === "ja"
-                      ? "滞在時間目安なし"
-                      : "Visit time unavailable"}
+                  {durationEst
+                    ? formatTripDurationLabel(durationEst, locale)
+                    : destination.recommendedVisitHours
+                      ? locale === "ja"
+                        ? `滞在 ${destination.recommendedVisitHours.min}–${destination.recommendedVisitHours.max}時間`
+                        : `${destination.recommendedVisitHours.min}–${destination.recommendedVisitHours.max}h visit`
+                      : locale === "ja"
+                        ? "滞在時間目安なし"
+                        : "Visit time unavailable"}
                 </span>
               </div>
+              {(durationEst?.isBorderline || durationEst?.isImpossible) && (
+                <div
+                  className={`col-span-2 flex items-center text-xs font-semibold px-2.5 py-1.5 rounded-lg border ${
+                    durationEst.isImpossible
+                      ? "bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-800"
+                      : "bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border-amber-200 dark:border-amber-800"
+                  }`}
+                >
+                  <AlertTriangle className="w-3.5 h-3.5 mr-1.5 shrink-0" />
+                  <span>
+                    {locale === "ja"
+                      ? durationEst.warningMessage?.ja
+                      : durationEst.warningMessage?.en}
+                  </span>
+                </div>
+              )}
               <div className="flex items-center whitespace-nowrap min-w-0">
                 <Sun className="w-4 h-4 mr-1.5 text-slate-400 shrink-0" />
                 <span className="truncate">

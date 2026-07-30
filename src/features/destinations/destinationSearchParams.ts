@@ -114,7 +114,14 @@ export function parseDestinationSearchParams(
             : defaults.budgetTier,
     vibe: params.get("vibe") ?? defaults.vibe,
     tripDuration:
-      (params.get("duration") as TripDuration | null) ?? defaults.tripDuration,
+      params.get("duration") === "shortOuting" ||
+      params.get("duration") === "halfDay" ||
+      params.get("duration") === "fullDay" ||
+      params.get("duration") === "weekend"
+        ? (params.get("duration") as TripDuration)
+        : params.get("duration") === "dayTrip"
+          ? "fullDay"
+          : defaults.tripDuration,
     walkingIntensity: params.get("walking") ?? defaults.walkingIntensity,
     suitabilities: params.getAll("suitability"),
     interests: params.getAll("interest"),
