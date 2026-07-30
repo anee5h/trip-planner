@@ -297,7 +297,10 @@ export function getEffectiveBudgetBreakdown(dest: Destination): {
   }
   const totalRec = dest.budgetRecommended || dest.budgetMin || 12000;
   const transport = 3000;
-  const tickets = dest.role === "hub" ? 1500 : 2000;
+
+  // Check if destination is free ticket
+  const isFree = isFreeDestination(dest);
+  const tickets = isFree ? 0 : dest.role === "hub" ? 1500 : 2000;
   const remaining = Math.max(2000, totalRec - transport - tickets);
   const food = Math.round(remaining * 0.65);
   const cafe = Math.round(remaining * 0.35);
@@ -305,10 +308,100 @@ export function getEffectiveBudgetBreakdown(dest: Destination): {
   return { transport, tickets, food, cafe };
 }
 
+export function isFreeDestination(dest: Destination): boolean {
+  if (!dest) return false;
+  if (dest.budgetMin === 0 && dest.budgetMax === 0) return true;
+  const freeKeywords = [
+    "free observatory",
+    "free",
+    "park",
+    "shrine",
+    "temple",
+    "garden",
+  ];
+  const hasFreeCategory = dest.categories?.some((c) =>
+    freeKeywords.some((k) => c.toLowerCase().includes(k)),
+  );
+  const hasFreeTag = dest.tags?.some((t) =>
+    freeKeywords.some((k) => t.toLowerCase().includes(k)),
+  );
+  return Boolean(hasFreeCategory || hasFreeTag);
+}
+
+export interface ItemizedCostBreakdown {
+  transport: number;
+  tickets: number;
+  food: PriceRange;
+  cafe: number;
+  parking: number;
+  perPersonRange: PriceRange;
+  partyRange: PriceRange;
+  isFreeTicket: boolean;
+  confidence: "high" | "medium" | "estimated";
+}
+
+export function calculateItemizedTripCost(
+  dest: Destination,
+  options: {
+    activeMode?: string;
+    partySize?: number;
+    budgetTier?: BudgetTier;
+    totalTripHours?: number;
+    homeCoords?: { lat: number; lng: number };
+  } = {},
+): ItemizedCostBreakdown {
+  const partySize = options.partySize ?? 2;
+  const mode = options.activeMode ?? "train";
+  const budgetTier = options.budgetTier ?? "standard";
+  const totalTripHours = options.totalTripHours ?? dest.totalTripHours ?? 6;
+
+  const isFreeTicket = isFreeDestination(dest);
+  const breakdown = getEffectiveBudgetBreakdown(dest);
+
+  const transport = getTransportCost(dest, mode, partySize, options.homeCoords);
+  const tickets = isFreeTicket ? 0 : breakdown.tickets * partySize;
+  const food = getDiningFoodRange(budgetTier, totalTripHours, partySize);
+  const cafe = breakdown.cafe * partySize;
+  const parking = mode === "car" || mode === "my_car" ? 1200 : 0;
+
+  const minPartyTotal = Math.round(
+    transport + tickets + food[0] + cafe + parking,
+  );
+  const maxPartyTotal = Math.round(
+    transport + tickets + food[1] + cafe + parking,
+  );
+
+  const perPersonMin = Math.round(minPartyTotal / partySize);
+  const perPersonMax = Math.round(maxPartyTotal / partySize);
+
+  let confidence: "high" | "medium" | "estimated" = "estimated";
+  if (
+    dest.transportFares?.[mode as keyof typeof dest.transportFares] !==
+    undefined
+  ) {
+    confidence = "high";
+  } else if (dest.budgetBreakdown) {
+    confidence = "medium";
+  }
+
+  return {
+    transport,
+    tickets,
+    food,
+    cafe,
+    parking,
+    perPersonRange: [perPersonMin, perPersonMax],
+    partyRange: [minPartyTotal, maxPartyTotal],
+    isFreeTicket,
+    confidence,
+  };
+}
+
 // Class wrapper kept for DestinationDetails.tsx which calls budgetService.getTransportCost()
-// TODO: remove once DestinationDetails is updated to named imports
 export const budgetService = {
   getTransportCost,
   getAdjustedBudget,
   getEffectiveBudgetBreakdown,
+  calculateItemizedTripCost,
+  isFreeDestination,
 };

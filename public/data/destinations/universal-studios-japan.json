@@ -17,7 +17,7 @@
   },
   "prefecture": "Osaka",
   "region": "Kansai",
-  "kind": "museum",
+  "kind": "theme_park",
   "role": "poi",
   "placeType": "destination",
   "areaId": "bay-area",
@@ -26,7 +26,7 @@
   },
   "officialWebsite": "https://www.usj.co.jp/",
   "officialWebsiteRequirement": "required",
-  "categories": ["Culture"],
+  "categories": ["Theme Park", "Entertainment"],
   "tags": ["Culture", "Osaka City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Harry%20Potter%20and%20the%20Forbidden%20Journey%20USJ.JPG?width=1600",
   "imageMetadata": {
@@ -41,14 +41,14 @@
   },
   "description": "Universal Studios Japan is a visitor destination in Osaka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
   "highlights": ["Theme Park"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
+  "budgetMin": 10900,
+  "budgetRecommended": 16000,
+  "budgetMax": 22000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
-    "cafe": 400
+    "tickets": 8800,
+    "food": 4000,
+    "cafe": 1200
   },
   "transportOptions": {
     "train": 192,
