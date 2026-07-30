@@ -28,14 +28,13 @@ import {
   JapaneseYen,
   Bookmark,
   CheckCircle2,
-  PlusSquare,
-  CheckSquare,
+  Scale,
   Sun,
   Plus,
   Timer,
 } from "lucide-react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import { formatJPYRange } from "@/shared/services/budget/BudgetService";
+import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
 import { useLocale } from "@/shared/context/LocaleContext";
@@ -367,11 +366,13 @@ export default function DestinationCard({
               <div className="flex items-center whitespace-nowrap min-w-0">
                 <JapaneseYen className="w-4 h-4 mr-1.5 text-slate-400 shrink-0" />
                 <span className="truncate">
-                  {formatJPYRange([
-                    destination.budgetMin * partySize,
-                    destination.budgetMax * partySize,
-                  ])}{" "}
-                  {locale === "ja" ? "目安" : "est."}
+                  {formatLocalizedJPYRange(
+                    [
+                      destination.budgetMin * partySize,
+                      destination.budgetMax * partySize,
+                    ],
+                    locale,
+                  )}
                 </span>
               </div>
               <div className="flex items-center whitespace-nowrap min-w-0">
@@ -432,8 +433,8 @@ export default function DestinationCard({
           aria-label={comparing ? cardCopy.removeCompare : cardCopy.compare}
           className={
             comparing
-              ? "bg-slate-900 hover:bg-slate-800 text-white shrink-0"
-              : "shrink-0 text-slate-500"
+              ? "bg-indigo-600 hover:bg-indigo-700 text-white shrink-0 shadow-sm border border-indigo-500"
+              : "shrink-0 text-slate-600 dark:text-slate-300 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-950/40"
           }
           onClick={(e) => {
             e.preventDefault();
@@ -447,9 +448,9 @@ export default function DestinationCard({
           }}
         >
           {comparing ? (
-            <CheckSquare className="w-4 h-4" />
+            <Scale className="w-4 h-4 text-white" />
           ) : (
-            <PlusSquare className="w-4 h-4" />
+            <Scale className="w-4 h-4 text-slate-600 dark:text-slate-300" />
           )}
         </Button>
 

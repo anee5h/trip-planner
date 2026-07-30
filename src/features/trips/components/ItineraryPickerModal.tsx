@@ -94,7 +94,7 @@ export function ItineraryPickerModal({
       }}
     >
       <div
-        className="w-full max-w-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden transition-all animate-in fade-in zoom-in-95 duration-200 max-h-[85vh] flex flex-col"
+        className="w-full max-w-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden animate-page-enter max-h-[85vh] flex flex-col"
         role="dialog"
         aria-modal="true"
         aria-labelledby="itinerary-modal-title"

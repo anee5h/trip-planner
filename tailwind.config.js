@@ -56,14 +56,6 @@ module.exports = {
         info: "#3b82f6",
       },
       spacing: {
-        xs: "4px",
-        sm: "8px",
-        md: "12px", // deprecated - use base (16px) or sm (8px)
-        base: "16px",
-        lg: "16px",
-        xl: "24px",
-        xxl: "32px",
-        xxxl: "48px",
         layout: "64px",
         huge: "96px",
       },
