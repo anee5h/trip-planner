@@ -79,7 +79,9 @@
       "confirmed": true
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "nara-city"
+  },
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,

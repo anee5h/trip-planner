@@ -5,7 +5,7 @@
   "region": "Kansai",
   "categories": ["World Heritage", "Culture", "Sightseeing"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Horyu-ji10s3200.jpg/960px-Horyu-ji10s3200.jpg",
-  "description": "Buddhist Monuments in the Horyu-ji Area is a UNESCO World Heritage Site in Nara, designated for its outstanding universal cultural or natural value.",
+  "description": "Buddhist Monuments in the Horyu-ji Area is a UNESCO World Heritage Site in Ikaruga Town, Nara, home to the world's oldest surviving wooden structures.",
   "highlights": [
     "UNESCO Heritage Monument",
     "Historic Landmark",
@@ -100,5 +100,21 @@
     "min": 5,
     "max": 7
   },
-  "officialWebsite": "http://www.horyuji.or.jp/"
+  "officialWebsite": "http://www.horyuji.or.jp/",
+  "content": {
+    "en": {
+      "name": "Buddhist Monuments in the Horyu-ji Area",
+      "description": "Buddhist Monuments in the Horyu-ji Area is a UNESCO World Heritage Site in Ikaruga Town, Nara, home to the world's oldest surviving wooden structures.",
+      "highlights": [
+        "UNESCO World Heritage",
+        "Horyu-ji Temple",
+        "World's Oldest Wooden Structure"
+      ]
+    },
+    "ja": {
+      "name": "法隆寺地域の仏教建造物",
+      "description": "法隆寺地域の仏教建造物はIkaruga Townにあるユネスコ世界文化遺産です。世界最古の木造建築群である法隆寺や法起寺の五重塔など古代仏教美術の最高峰を鑑賞できます。",
+      "highlights": ["ユネスコ世界遺産", "法隆寺", "世界最古の木造建築"]
+    }
+  }
 }
