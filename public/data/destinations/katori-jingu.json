@@ -43,7 +43,7 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
+    "tickets": 0,
     "food": 1400,
     "cafe": 400
   },

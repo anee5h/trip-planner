@@ -41,14 +41,14 @@
   },
   "description": "Nunobiki Ropeway is a visitor destination in Kobe City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
   "highlights": ["Viewpoint"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
+  "budgetMin": 3500,
+  "budgetRecommended": 5000,
   "budgetMax": 7000,
   "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
-    "cafe": 400
+    "transport": 800,
+    "tickets": 1560,
+    "food": 2000,
+    "cafe": 640
   },
   "transportOptions": {
     "train": 205,

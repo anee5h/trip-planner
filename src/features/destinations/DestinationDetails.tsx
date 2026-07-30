@@ -988,15 +988,17 @@ export default function DestinationDetails() {
               </div>
 
               <div className="flex flex-wrap gap-2">
-                {destination.tags.map((tag) => (
-                  <Badge
-                    key={tag}
-                    variant="secondary"
-                    className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
-                  >
-                    #{localizePlaceLabel(tag, locale)}
-                  </Badge>
-                ))}
+                {destination.tags
+                  .filter((tag) => tag !== "v1.9.2" && !tag.startsWith("v1."))
+                  .map((tag) => (
+                    <Badge
+                      key={tag}
+                      variant="secondary"
+                      className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
+                    >
+                      #{localizePlaceLabel(tag, locale)}
+                    </Badge>
+                  ))}
               </div>
             </section>
 
@@ -1721,9 +1723,12 @@ export default function DestinationDetails() {
                   {copy.overall}
                 </div>
                 <div className="w-full h-px bg-white/20 mb-4"></div>
-                <p className="text-emerald-50 text-sm">
-                  {localizeEditorialValue(destination.notes, locale)}
-                </p>
+                {destination.notes &&
+                  !destination.notes.startsWith("Source-backed") && (
+                    <p className="text-emerald-50 text-sm">
+                      {localizeEditorialValue(destination.notes, locale)}
+                    </p>
+                  )}
               </CardContent>
             </Card>
 

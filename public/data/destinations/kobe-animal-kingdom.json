@@ -41,14 +41,14 @@
   },
   "description": "Kobe Animal Kingdom is a visitor destination in Kobe City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
   "highlights": ["Nature"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
+  "budgetMin": 5000,
+  "budgetRecommended": 7500,
+  "budgetMax": 10000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
-    "cafe": 400
+    "tickets": 2200,
+    "food": 2500,
+    "cafe": 800
   },
   "transportOptions": {
     "train": 203,
