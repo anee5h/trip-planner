@@ -118,7 +118,9 @@ export function SearchableDestinationPicker({
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      if (window.innerWidth < 640) {
+        document.body.style.overflow = "hidden";
+      }
       setTimeout(() => inputRef.current?.focus(), 50);
     } else {
       document.body.style.overflow = "";

@@ -73,6 +73,7 @@ export interface DayPlan {
   isUnfeasible?: boolean;
   canFallbackToHalfDay?: boolean;
   unfeasibleErrorMessage?: { en: string; ja: string };
+  anchor_exceeds_time_window?: boolean;
   uncertainHoursDisclosures: Array<{ destinationId: string; name: string }>;
 }
 
@@ -303,78 +304,119 @@ export function generateDayPlan(
     (c) => c.required || c.routeScore > -999,
   );
 
-  usableCandidates.sort((a, b) => {
-    if (b.routeScore !== a.routeScore) return b.routeScore - a.routeScore;
-    if (a.recommendationScore !== b.recommendationScore)
-      return b.recommendationScore - a.recommendationScore;
-    return a.destination.id.localeCompare(b.destination.id);
-  });
+  const realStopThreshold = planType === "half_day" ? 2 : 3;
 
-  const maxPoiCount = planType === "full_day" ? 3 : 2;
-  const selectedCandidates: PlannedCandidate[] = [];
+  const requiredCandidates = usableCandidates.filter(
+    (c) =>
+      c.required &&
+      c.destination.role !== "hub" &&
+      c.destination.kind !== "city" &&
+      c.destination.kind !== "district",
+  );
+  const optionalCandidates = usableCandidates
+    .filter((c) => !c.required)
+    .sort((a, b) => b.routeScore - a.routeScore);
 
-  const requiredCandidate = usableCandidates.find((c) => c.required);
-  if (requiredCandidate) {
-    selectedCandidates.push(requiredCandidate);
+  const optionalStopsNeeded = Math.max(
+    0,
+    realStopThreshold - requiredCandidates.length,
+  );
+
+  interface SubsetSimulation {
+    candidates: PlannedCandidate[];
+    route: any;
+    usedMinimumDurations: boolean;
+    preferredTotal: number;
+    actualTotal: number;
+    score: number;
+    transitTotal: number;
   }
 
-  for (const cand of usableCandidates) {
-    if (selectedCandidates.length >= maxPoiCount) break;
-    if (
-      !selectedCandidates.some((c) => c.destination.id === cand.destination.id)
-    ) {
-      selectedCandidates.push(cand);
-    }
-  }
+  const validSimulations: SubsetSimulation[] = [];
 
-  const minRequiredRealStops = planType === "half_day" ? 2 : 3;
-  const activeCandidates = [...selectedCandidates];
-  let useMinimumVisitTimes = false;
-
-  let builtRoute: {
-    steps: DayPlanStep[];
-    routeLegs: RouteLeg[];
-    assumptions: PlanAssumption[];
-    totalMins: number;
-    returnEndpoint: Destination | null;
-    feasible: boolean;
-  } | null = null;
-
-  while (activeCandidates.length >= minRequiredRealStops) {
-    builtRoute = simulateRouteIncremental(
+  function evaluateSubset(subset: PlannedCandidate[]) {
+    let route = simulateRouteIncremental(
       primary,
       isPrimaryHub,
-      activeCandidates,
-      useMinimumVisitTimes,
+      subset,
+      false,
       startMinsFromMidnight,
       catchmentScope,
       returnMode,
       catalogue,
     );
+    let usedMin = false;
+    let actual = route.totalMins;
 
-    if (builtRoute.feasible && builtRoute.totalMins <= hardAvailableMinutes) {
-      break;
+    if (!route.feasible || route.totalMins > hardAvailableMinutes) {
+      route = simulateRouteIncremental(
+        primary,
+        isPrimaryHub,
+        subset,
+        true,
+        startMinsFromMidnight,
+        catchmentScope,
+        returnMode,
+        catalogue,
+      );
+      usedMin = true;
+      actual = route.totalMins;
     }
 
-    if (!useMinimumVisitTimes) {
-      useMinimumVisitTimes = true;
-      continue;
-    }
+    if (route.feasible && route.totalMins <= hardAvailableMinutes) {
+      const preferredTotal = subset.reduce(
+        (acc, c) => acc + c.preferredVisitMins,
+        0,
+      );
+      const score = subset.reduce((acc, c) => acc + c.recommendationScore, 0);
+      const transitTotal = route.routeLegs.reduce(
+        (acc, l) => acc + l.durationMinutes,
+        0,
+      );
 
-    const prunableIndex = activeCandidates.findLastIndex((c) => !c.required);
-    if (prunableIndex !== -1) {
-      activeCandidates.splice(prunableIndex, 1);
-      useMinimumVisitTimes = false;
-    } else {
-      break;
+      validSimulations.push({
+        candidates: subset,
+        route,
+        usedMinimumDurations: usedMin,
+        preferredTotal,
+        actualTotal: actual,
+        score,
+        transitTotal,
+      });
     }
   }
 
-  if (
-    !builtRoute ||
-    !builtRoute.feasible ||
-    builtRoute.totalMins > hardAvailableMinutes
-  ) {
+  const getSubsets = (arr: PlannedCandidate[], size: number) => {
+    const result: PlannedCandidate[][] = [];
+    const run = (curr: PlannedCandidate[], idx: number) => {
+      if (curr.length === size) {
+        result.push([...curr]);
+        return;
+      }
+      for (let i = idx; i < arr.length; i++) {
+        run([...curr, arr[i]], i + 1);
+      }
+    };
+    run([], 0);
+    return result;
+  };
+
+  const phase1Subsets = getSubsets(optionalCandidates, optionalStopsNeeded);
+  for (const sub of phase1Subsets) {
+    evaluateSubset([...requiredCandidates, ...sub]);
+  }
+
+  if (requiredCandidates.length + optionalStopsNeeded + 1 <= 4) {
+    const phase2Subsets = getSubsets(
+      optionalCandidates,
+      optionalStopsNeeded + 1,
+    );
+    for (const sub of phase2Subsets) {
+      evaluateSubset([...requiredCandidates, ...sub]);
+    }
+  }
+
+  if (validSimulations.length === 0) {
     return {
       id: `plan-${primary.id}`,
       title: {
@@ -392,14 +434,41 @@ export function generateDayPlan(
       isOverfilled: false,
       isUnfeasible: true,
       canFallbackToHalfDay:
-        planType === "full_day" && activeCandidates.length >= 2,
+        planType === "full_day" && usableCandidates.length >= 2,
       unfeasibleErrorMessage: {
         en: "We couldn’t create a realistic plan within this time window.",
         ja: "この時間枠内に現実的なプランを作成できませんでした。",
       },
+      anchor_exceeds_time_window: !isPrimaryHub,
       uncertainHoursDisclosures: [],
     };
   }
+
+  validSimulations.sort((a, b) => {
+    if (b.preferredTotal !== a.preferredTotal)
+      return b.preferredTotal - a.preferredTotal;
+    if (a.usedMinimumDurations !== b.usedMinimumDurations)
+      return a.usedMinimumDurations ? 1 : -1;
+    if (b.score !== a.score) return b.score - a.score;
+    if (a.transitTotal !== b.transitTotal)
+      return a.transitTotal - b.transitTotal;
+    const aComp = a.usedMinimumDurations ? a.preferredTotal - a.actualTotal : 0;
+    const bComp = b.usedMinimumDurations ? b.preferredTotal - b.actualTotal : 0;
+    if (aComp !== bComp) return aComp - bComp;
+    const aIds = a.candidates
+      .map((c) => c.destination.id)
+      .sort()
+      .join(",");
+    const bIds = b.candidates
+      .map((c) => c.destination.id)
+      .sort()
+      .join(",");
+    return aIds.localeCompare(bIds);
+  });
+
+  const bestSim = validSimulations[0];
+  const builtRoute = bestSim.route;
+  const activeCandidates = bestSim.candidates;
 
   const uncertainHoursDisclosures: Array<{
     destinationId: string;
@@ -408,7 +477,7 @@ export function generateDayPlan(
 
   activeCandidates.forEach((c) => {
     const assessment = getOpeningHoursAssessment(c.destination);
-    if (assessment.requiresWarning && assessment.status !== "not_required") {
+    if (assessment.status === "stale" || assessment.status === "unverified") {
       const loc = getLocalizedPlace(c.destination, "en");
       uncertainHoursDisclosures.push({
         destinationId: c.destination.id,

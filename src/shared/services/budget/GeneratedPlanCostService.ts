@@ -9,6 +9,7 @@ export interface CostComponent {
   min: number;
   max: number;
   source: "curated" | "estimated" | "unknown";
+  applicable: boolean;
 }
 
 export interface GeneratedPlanCostResult {
@@ -31,6 +32,7 @@ export function estimateLocalTransitFare(
       min: leg.curatedFare.min,
       max: leg.curatedFare.max,
       source: "curated",
+      applicable: true,
     };
   }
 
@@ -42,6 +44,7 @@ export function estimateLocalTransitFare(
       min: estFare,
       max: Math.round(estFare * 1.3),
       source: "estimated",
+      applicable: true,
     };
   }
 
@@ -56,6 +59,7 @@ export function estimateLocalTransitFare(
     min: fareMin,
     max: Math.round(fareMin * 1.2),
     source: "estimated",
+    applicable: true,
   };
 }
 
@@ -65,12 +69,13 @@ export function estimateOriginTransportFare(
   originFareMax?: number,
 ): CostComponent {
   if (!hasOriginInfo) {
-    return { min: 0, max: 0, source: "unknown" };
+    return { min: 0, max: 0, source: "unknown", applicable: true };
   }
   return {
     min: originFareMin ?? 1500,
     max: originFareMax ?? 3000,
     source: "curated",
+    applicable: true,
   };
 }
 
@@ -110,6 +115,7 @@ export function calculateGeneratedPlanCost(
     } else {
       hasMissingTickets = true;
       isAnyUnknownOrEstimated = true;
+      isAnyUnknownOrEstimated = true;
       assumptions.push({
         type: "estimated_cost",
         destinationId: dest.id,
@@ -125,6 +131,7 @@ export function calculateGeneratedPlanCost(
     min: totalAdmissionMin,
     max: totalAdmissionMax,
     source: hasMissingTickets ? "unknown" : "curated",
+    applicable: true,
   };
 
   // 2. Local Transit (per leg)
@@ -144,11 +151,13 @@ export function calculateGeneratedPlanCost(
     source: legs.some((l) => l.source === "estimated")
       ? "estimated"
       : "curated",
+    applicable: legs.length > 0,
   };
 
   // 3. Origin Transport
   const originComp = estimateOriginTransportFare(hasOriginInfo);
   if (originComp.source === "unknown") {
+    isAnyUnknownOrEstimated = true;
     assumptions.push({
       type: "estimated_cost",
       message: {
@@ -168,6 +177,7 @@ export function calculateGeneratedPlanCost(
     min: totalMealsMin,
     max: totalMealsMax,
     source: mealSteps.length > 0 ? "estimated" : "unknown",
+    applicable: mealSteps.length > 0,
   };
 
   // 5. Parking (only for car mode)
@@ -177,6 +187,7 @@ export function calculateGeneratedPlanCost(
     min: totalParkingMin,
     max: totalParkingMax,
     source: transportMode === "car" ? "estimated" : "unknown",
+    applicable: transportMode === "car",
   };
 
   // Deduplicate assumptions

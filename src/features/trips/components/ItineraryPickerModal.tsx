@@ -71,20 +71,27 @@ export function ItineraryPickerModal({
         const plan = payload.plan;
         const destSteps = plan.steps.filter(isRealDestinationStop);
         let addedCount = 0;
+        const uniqueDests: Destination[] = [];
+        const seenIds = new Set<string>();
 
         destSteps.forEach((step) => {
-          if (step.destination) {
-            const isDup = currentTrip.stops.some(
-              (s) => s.destinationId === step.destination!.id,
-            );
-            if (!isDup) {
-              currentTrip = addStopToTrip(currentTrip, {
-                name: step.destination.name,
-                type: "destination",
-                destinationId: step.destination.id,
-              });
-              addedCount++;
-            }
+          if (step.destination && !seenIds.has(step.destination.id)) {
+            seenIds.add(step.destination.id);
+            uniqueDests.push(step.destination);
+          }
+        });
+
+        uniqueDests.forEach((dest) => {
+          const isDup = currentTrip.stops.some(
+            (s) => s.destinationId === dest.id,
+          );
+          if (!isDup) {
+            currentTrip = addStopToTrip(currentTrip, {
+              name: dest.name,
+              type: "destination",
+              destinationId: dest.id,
+            });
+            addedCount++;
           }
         });
 
@@ -94,7 +101,7 @@ export function ItineraryPickerModal({
           id: plan.id,
           type: "generated_plan",
           title: plan.title,
-          destinations: destSteps.map((s) => s.destination!).filter(Boolean),
+          destinations: uniqueDests,
           plan,
           createdAt: new Date().toISOString(),
         };
@@ -217,21 +224,33 @@ export function ItineraryPickerModal({
 
       if (payload.type === "generated_plan") {
         const destSteps = payload.plan.steps.filter(isRealDestinationStop);
+        const uniqueDests: Destination[] = [];
+        const seenIds = new Set<string>();
+
         destSteps.forEach((step) => {
-          if (step.destination) {
-            currentTrip = addStopToTrip(currentTrip, {
-              name: step.destination.name,
-              type: "destination",
-              destinationId: step.destination.id,
-            });
+          if (step.destination && !seenIds.has(step.destination.id)) {
+            seenIds.add(step.destination.id);
+            uniqueDests.push(step.destination);
           }
         });
 
+        uniqueDests.forEach((dest) => {
+          currentTrip = addStopToTrip(currentTrip, {
+            name: dest.name,
+            type: "destination",
+            destinationId: dest.id,
+          });
+        });
+
         updateTrip(created.id, { stops: currentTrip.stops });
-        saveItineraryGroup(
-          created.id,
-          payload.plan as unknown as ItineraryGroup,
-        );
+        saveItineraryGroup(created.id, {
+          id: payload.plan.id,
+          type: "generated_plan",
+          title: payload.plan.title,
+          destinations: uniqueDests,
+          plan: payload.plan,
+          createdAt: new Date().toISOString(),
+        });
 
         toast.success(`Created "${created.title}" & saved plan!`, {
           id: "itinerary-create-plan-success",

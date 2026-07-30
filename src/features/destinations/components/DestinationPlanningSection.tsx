@@ -11,6 +11,7 @@ interface DestinationPlanningSectionProps {
   partySize: number;
   selectedTransport: string;
   onSaveToItinerary: (plan?: DayPlan) => void;
+  onPlanGenerated?: (plan: DayPlan | null) => void;
 }
 
 export function DestinationPlanningSection({
@@ -19,8 +20,16 @@ export function DestinationPlanningSection({
   partySize,
   selectedTransport,
   onSaveToItinerary,
+  onPlanGenerated,
 }: DestinationPlanningSectionProps) {
-  const [generatedPlan, setGeneratedPlan] = useState<DayPlan | null>(null);
+  const [generatedPlan, setGeneratedPlanState] = useState<DayPlan | null>(null);
+
+  const setGeneratedPlan = (plan: DayPlan | null) => {
+    setGeneratedPlanState(plan);
+    if (onPlanGenerated) {
+      onPlanGenerated(plan);
+    }
+  };
 
   const hasValidGeneratedPlan = Boolean(
     generatedPlan && !generatedPlan.isUnfeasible,

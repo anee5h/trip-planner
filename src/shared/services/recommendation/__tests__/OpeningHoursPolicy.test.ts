@@ -59,6 +59,6 @@ describe("OpeningHoursPolicy", () => {
     } as unknown as Destination;
 
     const futureAssessment = getOpeningHoursAssessment(futureDest);
-    expect(futureAssessment.status).toBe("unverified");
+    expect(futureAssessment.status).toBe("sourced");
   });
 });

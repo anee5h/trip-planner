@@ -10,7 +10,7 @@ export type AccessType =
   | "unknown";
 
 export type OpeningHoursStatus =
-  "verified" | "stale" | "unverified" | "not_required";
+  "verified" | "sourced" | "stale" | "unverified" | "not_required";
 
 export interface OpeningHoursAssessment {
   accessType: AccessType;
@@ -21,6 +21,12 @@ export interface OpeningHoursAssessment {
   verifiedAt?: string;
   lastAdmission?: string;
   closedDays?: string;
+}
+
+function isExplicitlyOpenAccess(dest: Destination): boolean {
+  if (!dest.businessHours) return false;
+  const lower = dest.businessHours.toLowerCase();
+  return lower.includes("24 hours") || lower.includes("open access");
 }
 
 const FRESHNESS_WINDOW_DAYS = 180;
@@ -45,10 +51,7 @@ export function getOpeningHoursAssessment(
   }
 
   const category = resolvePlanningCategory(dest);
-  if (
-    category === "district_park" &&
-    (!dest.businessHours || dest.businessHours === "Open access")
-  ) {
+  if (category === "district_park" && isExplicitlyOpenAccess(dest)) {
     return {
       accessType: "open_area",
       status: "not_required",
@@ -98,6 +101,18 @@ export function getOpeningHoursAssessment(
         closedDays: meta?.closedDays,
       };
     }
+  }
+
+  if (hasHours && sourceUrl) {
+    return {
+      accessType: "scheduled",
+      status: "sourced",
+      requiresWarning: false,
+      displayText,
+      sourceUrl,
+      lastAdmission: meta?.lastAdmission,
+      closedDays: meta?.closedDays,
+    };
   }
 
   if (hasHours) {

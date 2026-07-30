@@ -259,6 +259,7 @@ export default function DestinationDetails() {
   const [destination, setDestination] = useState<Destination | null>(null);
   const [destLoading, setDestLoading] = useState(true);
 
+  const [generatedPlan, setGeneratedPlan] = useState<any>(null);
   const [pendingSave, setPendingSave] = useState<PendingItinerarySave | null>(
     null,
   );
@@ -1771,51 +1772,52 @@ export default function DestinationDetails() {
                 </div>
 
                 {/* Plan Assumptions Disclosure Trigger */}
-                {destination.role !== "hub" &&
-                  !destination.openingHours &&
-                  !destination.businessHours && (
-                    <div className="text-xs">
-                      <span className="text-amber-600 dark:text-amber-400 font-bold mr-2">
-                        {locale === "ja"
-                          ? "※ 営業時間未確認あり"
-                          : "Some opening hours are unverified"}
-                      </span>
-                    </div>
-                  )}
+                {(generatedPlan?.uncertainHoursDisclosures?.length > 0 ||
+                  generatedPlan?.assumptions?.length > 0) && (
+                  <div className="text-xs">
+                    <span className="text-amber-600 dark:text-amber-400 font-bold mr-2">
+                      {locale === "ja"
+                        ? "※ 計画の前提条件あり"
+                        : "Plan assumptions applied"}
+                    </span>
+                  </div>
+                )}
               </div>
 
               {/* Plan Assumptions Expandable Drawer */}
-              {destination.role !== "hub" &&
-                !destination.openingHours &&
-                !destination.businessHours && (
-                  <div className="p-3.5 bg-amber-50/60 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-900/40 rounded-2xl text-xs space-y-2 text-slate-700 dark:text-slate-300">
-                    <div className="font-bold text-amber-900 dark:text-amber-200 flex items-center gap-1.5">
-                      <Info className="w-4 h-4 text-amber-600 shrink-0" />
-                      <span>
-                        {locale === "ja"
-                          ? "計画の前提条件・補足情報"
-                          : "Plan assumptions"}
-                      </span>
-                    </div>
-                    <ul className="list-disc list-inside space-y-1 text-slate-600 dark:text-slate-400">
-                      <li>
-                        {locale === "ja"
-                          ? `${destination.name} の営業時間は最新の公式発表を事前確認してください。`
-                          : `Opening hours for ${destination.name} are unverified. Please confirm before visiting.`}
-                      </li>
-                      <li>
-                        {locale === "ja"
-                          ? "モデルコース内の移動時間は標準的な公共交通機関の所要時間を前提としています。"
-                          : "Travel segments assume average public transit or walking times."}
-                      </li>
-                      <li>
-                        {locale === "ja"
-                          ? "予算範囲は一般的な拝観料・食事・ローカル交通費に基づきます。"
-                          : "Cost estimates reflect typical admission, dining, and local fare ranges."}
-                      </li>
-                    </ul>
+              {(generatedPlan?.uncertainHoursDisclosures?.length > 0 ||
+                generatedPlan?.assumptions?.length > 0) && (
+                <div className="p-3.5 bg-amber-50/60 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-900/40 rounded-2xl text-xs space-y-2 text-slate-700 dark:text-slate-300">
+                  <div className="font-bold text-amber-900 dark:text-amber-200 flex items-center gap-1.5">
+                    <Info className="w-4 h-4 text-amber-600 shrink-0" />
+                    <span>
+                      {locale === "ja"
+                        ? "計画の前提条件・補足情報"
+                        : "Plan assumptions"}
+                    </span>
                   </div>
-                )}
+                  <ul className="list-disc list-inside space-y-1 text-slate-600 dark:text-slate-400">
+                    {generatedPlan.uncertainHoursDisclosures?.map(
+                      (disclosure: any, idx: number) => (
+                        <li key={`hours-${idx}`}>
+                          {locale === "ja"
+                            ? `${disclosure.name} の営業時間は未確認または古い可能性があります。訪問前にご確認ください。`
+                            : `Opening hours for ${disclosure.name} are unverified or stale. Please confirm before visiting.`}
+                        </li>
+                      ),
+                    )}
+                    {generatedPlan.assumptions?.map(
+                      (assumption: any, idx: number) => (
+                        <li key={`assumption-${idx}`}>
+                          {locale === "ja"
+                            ? assumption.message.ja
+                            : assumption.message.en}
+                        </li>
+                      ),
+                    )}
+                  </ul>
+                </div>
+              )}
 
               {/* Progressive Planning Section */}
               <DestinationPlanningSection
@@ -1823,6 +1825,7 @@ export default function DestinationDetails() {
                 locale={locale}
                 partySize={partySize}
                 selectedTransport={selectedTransport}
+                onPlanGenerated={setGeneratedPlan}
                 onSaveToItinerary={(plan) => {
                   if (plan) {
                     setPendingSave({ type: "generated_plan", plan });

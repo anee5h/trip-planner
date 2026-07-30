@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { useEffect } from "react";
 import L from "leaflet";
 import type { Destination } from "@/shared/types/destination";
 import { formatPlaceName } from "@/shared/utils/placeLabels";
@@ -29,6 +30,19 @@ const defaultMarkerIcon = L.icon({
   popupAnchor: [1, -34],
   shadowSize: [41, 41],
 });
+
+function FitDestinations({ destinations }: { destinations: Destination[] }) {
+  const map = useMap();
+  useEffect(() => {
+    if (destinations.length > 0) {
+      const bounds = L.latLngBounds(
+        destinations.map((d) => [d.coordinates!.lat, d.coordinates!.lng]),
+      );
+      map.fitBounds(bounds, { padding: [50, 50], maxZoom: 15 });
+    }
+  }, [destinations, map]);
+  return null;
+}
 
 export interface DestinationMapProps {
   destinations: Destination[];
@@ -84,6 +98,7 @@ export default function DestinationMap({
         scrollWheelZoom={false}
         className="h-full w-full z-0"
       >
+        <FitDestinations destinations={validDestinations} />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
