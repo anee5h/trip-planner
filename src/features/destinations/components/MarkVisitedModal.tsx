@@ -27,14 +27,14 @@ export function MarkVisitedModal({
   const getCurrentYearStr = () => String(new Date().getFullYear());
 
   const [precision, setPrecision] = useState<DatePrecision>("exact");
-  const [exactDate, setExactDate] = useState<string>(getTodayStr());
+  const [exactDate, setExactDate] = useState<string>("");
   const [monthYear, setMonthYear] = useState<string>(getCurrentMonthStr());
   const [yearVal, setYearVal] = useState<string>(getCurrentYearStr());
 
   useEffect(() => {
     if (isOpen) {
       setPrecision("exact");
-      setExactDate(getTodayStr());
+      setExactDate("");
       setMonthYear(getCurrentMonthStr());
       setYearVal(getCurrentYearStr());
     }
@@ -45,7 +45,7 @@ export function MarkVisitedModal({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     let finalValue = "";
-    if (precision === "exact") finalValue = exactDate;
+    if (precision === "exact") finalValue = exactDate || getTodayStr();
     else if (precision === "month") finalValue = monthYear;
     else if (precision === "year") finalValue = yearVal;
 
@@ -73,7 +73,7 @@ export function MarkVisitedModal({
       }}
     >
       <div
-        className="w-full max-w-md max-h-[90vh] sm:max-h-[85vh] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl overflow-hidden transition-all animate-in zoom-in-95 duration-200 flex flex-col"
+        className="w-full max-w-md max-h-[90vh] sm:max-h-[85vh] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl overflow-hidden animate-page-enter flex flex-col"
         role="dialog"
         aria-modal="true"
         aria-labelledby="mark-visited-modal-title"
@@ -166,8 +166,13 @@ export function MarkVisitedModal({
                 <input
                   type="date"
                   value={exactDate}
+                  onClick={() => {
+                    if (!exactDate) setExactDate(getTodayStr());
+                  }}
+                  onFocus={() => {
+                    if (!exactDate) setExactDate(getTodayStr());
+                  }}
                   onChange={(e) => setExactDate(e.target.value)}
-                  required
                   max={getTodayStr()}
                   className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium"
                 />

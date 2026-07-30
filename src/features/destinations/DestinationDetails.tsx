@@ -49,8 +49,7 @@ import {
   ExternalLink,
   Plus,
   Navigation,
-  PlusSquare,
-  CheckSquare,
+  Scale,
   BookOpen,
   ChevronDown,
   ChevronUp,
@@ -822,9 +821,9 @@ export default function DestinationDetails() {
                   }`}
                 >
                   {isComparing(destination.id) ? (
-                    <CheckSquare className="w-4 h-4 text-white" />
+                    <Scale className="w-4 h-4 text-white" />
                   ) : (
-                    <PlusSquare className="w-4 h-4" />
+                    <Scale className="w-4 h-4 text-slate-100" />
                   )}
                 </button>
 

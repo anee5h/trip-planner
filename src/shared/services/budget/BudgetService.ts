@@ -3,11 +3,46 @@ import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTr
 import type { BudgetTier, PriceRange } from "@/shared/types/planner";
 import { MEAL_PRICE_RANGES } from "@/shared/types/planner";
 
+function formatSingleJPYValue(val: number, locale: "en" | "ja" = "en"): string {
+  if (locale === "ja") {
+    if (val >= 10000) {
+      const man = val / 10000;
+      return `${Number.isInteger(man) ? man : man.toFixed(1)}万`;
+    }
+    if (val >= 1000) {
+      const sen = val / 1000;
+      return `${Number.isInteger(sen) ? sen : sen.toFixed(1)}千`;
+    }
+    return `${val}`;
+  }
+
+  // English formatting
+  if (val >= 1000) {
+    const k = val / 1000;
+    return `${Number.isInteger(k) ? k : k.toFixed(1)}k`;
+  }
+  return `${val}`;
+}
+
+export function formatLocalizedJPYRange(
+  range: PriceRange,
+  locale: "en" | "ja" = "en",
+): string {
+  const [min, max] = range.map((value) => Math.round(value));
+  const rangeSep = locale === "ja" ? "〜" : "–";
+
+  if (min === max) {
+    return `¥${formatSingleJPYValue(min, locale)}`;
+  }
+
+  return `¥${formatSingleJPYValue(min, locale)}${rangeSep}${formatSingleJPYValue(max, locale)}`;
+}
+
 export function formatJPYRange(range: PriceRange): string {
   const [min, max] = range.map((value) => Math.round(value));
   return min === max
     ? `¥${min.toLocaleString()}`
-    : `¥${min.toLocaleString()}–¥${max.toLocaleString()}`;
+    : `¥${min.toLocaleString()}–${max.toLocaleString()}`;
 }
 
 export function getDiningFoodRange(
