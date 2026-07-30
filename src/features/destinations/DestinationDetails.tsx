@@ -23,6 +23,7 @@ import { ItineraryPickerModal } from "@/features/trips/components/ItineraryPicke
 import { MarkVisitedModal } from "./components/MarkVisitedModal";
 import { VisitedDateModal } from "./components/VisitedDateModal";
 import { DayPlanWidget } from "./components/DayPlanWidget";
+import { TripCostBreakdownWidget } from "./components/TripCostBreakdownWidget";
 import { DestinationDetailsSkeleton } from "@/shared/components/ui/Skeleton";
 import { BucketListButton } from "@/shared/components/ui/BucketListButton";
 import { useDelayedSkeleton } from "@/shared/hooks/useDelayedSkeleton";
@@ -1695,6 +1696,16 @@ export default function DestinationDetails() {
                 locale={locale}
                 partySize={partySize}
                 onSaveToItinerary={() => setPickerOpen(true)}
+              />
+            </div>
+
+            {/* Itemized Trip Cost Breakdown Widget */}
+            <div className="mt-8">
+              <TripCostBreakdownWidget
+                destination={destination}
+                locale={locale}
+                partySize={partySize}
+                activeTransportMode={selectedTransport}
               />
             </div>
           </div>
