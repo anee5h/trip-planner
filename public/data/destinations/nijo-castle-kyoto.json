@@ -103,5 +103,6 @@
   "role": "poi",
   "placeType": "destination",
   "areaId": "central-kyoto",
-  "officialWebsite": "https://nijo-jocastle.city.kyoto.lg.jp/"
+  "officialWebsite": "https://nijo-jocastle.city.kyoto.lg.jp/",
+  "businessHours": "09:00 - 17:00 (Daily)"
 }

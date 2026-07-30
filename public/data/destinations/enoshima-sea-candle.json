@@ -162,5 +162,6 @@
     "rubricVersion": 1,
     "method": "assisted",
     "confidence": "low"
-  }
+  },
+  "businessHours": "Open access"
 }

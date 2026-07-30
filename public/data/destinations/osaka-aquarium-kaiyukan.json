@@ -164,5 +164,6 @@
     "rubricVersion": 1,
     "method": "assisted",
     "confidence": "low"
-  }
+  },
+  "businessHours": "10:00 - 20:00 (Last admission 19:00)"
 }

@@ -99,5 +99,6 @@
   "role": "poi",
   "placeType": "destination",
   "areaId": "chiba-port",
-  "officialWebsite": "https://chiba-porttower.com/"
+  "officialWebsite": "https://chiba-porttower.com/",
+  "businessHours": "10:00 - 21:00 (Last admission 20:30)"
 }

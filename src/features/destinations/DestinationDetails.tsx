@@ -2005,11 +2005,10 @@ export default function DestinationDetails() {
                         href={destination.officialWebsite}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm font-bold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 break-all"
                       >
-                        {locale === "ja"
-                          ? "公式サイトを見る ↗"
-                          : "Visit official website ↗"}
+                        {destination.officialWebsite}
+                        <ExternalLink className="w-3.5 h-3.5 shrink-0" />
                       </a>
                     </div>
                   )}

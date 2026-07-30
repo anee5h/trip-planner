@@ -92,5 +92,6 @@
   "recommendedVisitHours": {
     "min": 4,
     "max": 10
-  }
+  },
+  "businessHours": "Open access"
 }

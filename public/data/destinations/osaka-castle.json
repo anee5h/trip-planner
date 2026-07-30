@@ -101,5 +101,6 @@
   "role": "poi",
   "placeType": "destination",
   "areaId": "osaka-castle",
-  "officialWebsite": "https://www.osakacastle.net/"
+  "officialWebsite": "https://www.osakacastle.net/",
+  "businessHours": "09:00 - 17:00 (Last admission 16:30)"
 }

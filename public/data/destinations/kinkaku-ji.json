@@ -164,5 +164,6 @@
     "rubricVersion": 1,
     "method": "assisted",
     "confidence": "low"
-  }
+  },
+  "businessHours": "09:00 - 17:00 (Daily)"
 }
