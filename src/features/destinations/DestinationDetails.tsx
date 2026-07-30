@@ -52,6 +52,7 @@ import {
   Plus,
   Navigation,
   Scale,
+  Sparkles,
   BookOpen,
   ChevronDown,
   ChevronUp,
@@ -1593,7 +1594,7 @@ export default function DestinationDetails() {
               <div className="mt-8 space-y-4">
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                    <span>✨</span>
+                    <Sparkles className="w-5 h-5 text-amber-500 fill-amber-400/20 shrink-0" />
                     {locale === "ja"
                       ? "あわせて訪れたい周辺スポット"
                       : "Perfect Pairs & Nearby Combinations"}
@@ -1628,8 +1629,9 @@ export default function DestinationDetails() {
                                 <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 px-2 py-0.5 rounded-md">
                                   + {combo.secondary.categories?.[0]}
                                 </span>
-                                <span className="text-xs text-slate-500 font-medium">
-                                  📍 {combo.interDistanceKm} km (
+                                <span className="inline-flex items-center gap-1 text-xs text-slate-500 font-medium">
+                                  <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                                  {combo.interDistanceKm} km (
                                   {combo.estimatedInterTravelMinutes} min)
                                 </span>
                               </div>
@@ -1640,8 +1642,9 @@ export default function DestinationDetails() {
                                 {combo.explanation[locale]}
                               </p>
                               <div className="flex items-center gap-3 text-xs font-semibold text-slate-700 dark:text-slate-300 pt-1">
-                                <span>
-                                  ⏱️ {combo.combinedVisitHours[0]}–
+                                <span className="inline-flex items-center gap-1">
+                                  <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                                  {combo.combinedVisitHours[0]}–
                                   {combo.combinedVisitHours[1]}h visit
                                 </span>
                                 <span>•</span>
