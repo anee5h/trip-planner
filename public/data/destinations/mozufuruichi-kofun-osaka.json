@@ -5,7 +5,7 @@
   "region": "Kansai",
   "categories": ["World Heritage", "Culture", "Sightseeing"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Kondagobyoyama_Kofun_air.jpg/960px-Kondagobyoyama_Kofun_air.jpg",
-  "description": "Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan is a UNESCO World Heritage Site in Osaka, designated for its outstanding universal cultural or natural value.",
+  "description": "Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan is a UNESCO World Heritage Site in Sakai City, designated for its outstanding universal cultural value.",
   "highlights": [
     "UNESCO Heritage Monument",
     "Historic Landmark",
@@ -79,7 +79,9 @@
       "confirmed": true
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "sakai-city"
+  },
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,
@@ -100,5 +102,21 @@
     "min": 5,
     "max": 7
   },
-  "officialWebsite": "https://www.mozufuruichi-kofun.jp/"
+  "officialWebsite": "https://www.mozufuruichi-kofun.jp/",
+  "content": {
+    "en": {
+      "name": "Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan",
+      "description": "Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan is a UNESCO World Heritage Site in Sakai City, designated for its outstanding universal cultural value.",
+      "highlights": [
+        "UNESCO World Heritage",
+        "Ancient Kofun Tombs",
+        "Emperor Nintoku Tomb"
+      ]
+    },
+    "ja": {
+      "name": "百舌鳥・古市古墳群-古代日本の墳墓群-",
+      "description": "百舌鳥・古市古墳群はSakai Cityにあるユネスコ世界文化遺産の古代墳墓群です。仁徳天皇陵古墳など古代日本の壮大な巨石・前方後円墳群を身近に体感できます。",
+      "highlights": ["ユネスコ世界遺産", "仁徳天皇陵古墳", "古代史跡"]
+    }
+  }
 }
