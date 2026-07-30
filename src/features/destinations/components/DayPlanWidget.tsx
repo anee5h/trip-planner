@@ -500,6 +500,48 @@ export function DayPlanWidget({
         {/* GENERATED TIMELINE */}
         {hasGenerated && generatedPlan && !generatedPlan.isUnfeasible && (
           <div className="space-y-6">
+            {/* Consolidated Opening Hours & Assumptions Disclosure */}
+            {generatedPlan.uncertainHoursDisclosures.length > 0 && (
+              <details className="bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-900/40 rounded-xl p-3 text-xs group">
+                <summary className="font-bold text-amber-900 dark:text-amber-300 flex items-center justify-between cursor-pointer list-none">
+                  <span className="flex items-center gap-2">
+                    <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
+                    {locale === "ja"
+                      ? "一部スポットの営業時間が未確認です（タップで前提条件を確認）"
+                      : "Some opening hours are unverified (click to view plan assumptions)"}
+                  </span>
+                  <span className="text-[10px] uppercase font-mono font-bold text-amber-700 dark:text-amber-400 group-open:rotate-180 transition-transform">
+                    ▼
+                  </span>
+                </summary>
+
+                <div className="mt-3 pt-3 border-t border-amber-200/60 dark:border-amber-900/40 space-y-2 text-amber-950 dark:text-amber-200">
+                  <div className="font-semibold text-amber-900 dark:text-amber-300">
+                    {locale === "ja"
+                      ? "計画の前提条件・補足情報"
+                      : "Plan assumptions"}
+                  </div>
+                  <ul className="list-disc list-inside space-y-1 text-slate-600 dark:text-slate-300">
+                    <li>
+                      {locale === "ja"
+                        ? `以下のスポットは営業時間が未確認です: ${generatedPlan.uncertainHoursDisclosures.map((u) => u.name).join("、")}`
+                        : `Opening hours are unverified for: ${generatedPlan.uncertainHoursDisclosures.map((u) => u.name).join(", ")}.`}
+                    </li>
+                    <li>
+                      {locale === "ja"
+                        ? "モデルコース内の移動時間は標準的な公共交通機関の所要時間を前提としています。"
+                        : "Travel segments assume average public transit or walking times."}
+                    </li>
+                    <li>
+                      {locale === "ja"
+                        ? "予算範囲は一般的な拝観料・食事・ローカル交通費に基づきます。"
+                        : "Cost estimates reflect typical admission, dining, and local fare ranges."}
+                    </li>
+                  </ul>
+                </div>
+              </details>
+            )}
+
             {/* Real Stop Badge Count Header */}
             <div className="flex items-center justify-between text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider pb-2 border-b border-slate-100 dark:border-slate-800">
               <span>

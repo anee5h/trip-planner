@@ -27,12 +27,13 @@ import { formatPlaceName } from "@/shared/utils/placeLabels";
 import { Link, useLocation } from "react-router-dom";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
 
-interface TripCostBreakdownWidgetProps {
+export interface TripCostBreakdownWidgetProps {
   destination: Destination;
   locale: "en" | "ja";
   partySize?: number;
   activeTransportMode?: string;
   defaultExpanded?: boolean;
+  hasGeneratedPlan?: boolean;
 }
 
 export function TripCostBreakdownWidget({
@@ -41,6 +42,7 @@ export function TripCostBreakdownWidget({
   partySize = 2,
   activeTransportMode = "train",
   defaultExpanded = false,
+  hasGeneratedPlan = false,
 }: TripCostBreakdownWidgetProps) {
   const location = useLocation();
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
@@ -52,6 +54,14 @@ export function TripCostBreakdownWidget({
       partySize,
     });
   }, [destination, activeTransportMode, partySize]);
+
+  const headerTitle = hasGeneratedPlan
+    ? locale === "ja"
+      ? "プラン算出費用"
+      : "Your plan cost"
+    : locale === "ja"
+      ? "概算滞在費用"
+      : "Estimated visit cost";
 
   // Find 1-2 lower cost or free alternatives in the same area
   const lowerCostAlternatives = useMemo(() => {
@@ -94,9 +104,7 @@ export function TripCostBreakdownWidget({
             <div className="flex items-center gap-2 flex-wrap mb-1">
               <h3 className="text-lg font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
                 <JapaneseYen className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
-                {locale === "ja"
-                  ? "概算予算・概算費用"
-                  : "Estimated Trip Budget"}
+                {headerTitle}
               </h3>
               {cost.confidence === "high" && (
                 <Badge className="bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800 text-[10px] font-bold">

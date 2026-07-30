@@ -1651,44 +1651,58 @@ export default function DestinationDetails() {
                               <p className="text-xs text-slate-600 dark:text-slate-400">
                                 {combo.explanation[locale]}
                               </p>
-                              <div className="flex items-center gap-3 text-xs font-semibold text-slate-700 dark:text-slate-300 pt-1">
+                              <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-700 dark:text-slate-300 pt-1">
                                 <span className="inline-flex items-center gap-1">
                                   <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                                  {combo.combinedVisitHours[0]}–
-                                  {combo.combinedVisitHours[1]}h visit
+                                  {locale === "ja"
+                                    ? "合計所要時間: "
+                                    : "Combined time: "}
+                                  {combo.combinedTotalHours[0]}–
+                                  {combo.combinedTotalHours[1]}h
                                 </span>
                                 <span>•</span>
                                 <span>
+                                  {locale === "ja"
+                                    ? "概算合計: "
+                                    : "Estimated total: "}
                                   {formatLocalizedJPYRange(
                                     [
                                       combo.combinedBudgetRange[0] * partySize,
                                       combo.combinedBudgetRange[1] * partySize,
                                     ],
                                     locale,
-                                  )}{" "}
-                                  total
+                                  )}
                                 </span>
                               </div>
                             </div>
                           </div>
 
-                          <Link
-                            to={{
-                              pathname: `/destinations/${combo.secondary.id}`,
-                              search: location.search,
-                            }}
-                            className="w-full sm:w-auto shrink-0"
-                          >
+                          <div className="flex items-center gap-2 w-full sm:w-auto shrink-0">
+                            <Link
+                              to={{
+                                pathname: `/destinations/${combo.secondary.id}`,
+                                search: location.search,
+                              }}
+                              className="flex-1 sm:flex-none"
+                            >
+                              <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl min-h-[40px] px-4">
+                                {locale === "ja" ? "詳細を見る" : "Explore"}
+                              </Button>
+                            </Link>
                             <Button
                               variant="outline"
                               size="sm"
-                              className="w-full border-slate-300 dark:border-slate-700 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 hover:text-emerald-600 font-semibold"
+                              onClick={() => {
+                                setPickerOpen(true);
+                              }}
+                              className="flex-1 sm:flex-none border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-bold text-xs rounded-xl min-h-[40px] px-3.5"
                             >
+                              <Plus className="w-3.5 h-3.5 mr-1" />
                               {locale === "ja"
-                                ? "スポットを見る"
-                                : "View Combo"}
+                                ? "旅程に追加"
+                                : "Add to itinerary"}
                             </Button>
-                          </Link>
+                          </div>
                         </CardContent>
                       </Card>
                     );
@@ -1770,6 +1784,7 @@ export default function DestinationDetails() {
                 locale={locale}
                 partySize={partySize}
                 activeTransportMode={selectedTransport}
+                hasGeneratedPlan={false}
               />
             </div>
           </div>
