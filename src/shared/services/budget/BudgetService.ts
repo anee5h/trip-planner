@@ -358,10 +358,17 @@ export function calculateItemizedTripCost(
   const isFreeTicket = isFreeDestination(dest);
   const breakdown = getEffectiveBudgetBreakdown(dest);
 
-  const transport = getTransportCost(dest, mode, partySize, options.homeCoords);
-  const tickets = isFreeTicket ? 0 : breakdown.tickets * partySize;
+  const rawTransport = getTransportCost(
+    dest,
+    mode,
+    partySize,
+    options.homeCoords,
+  );
+  const transport =
+    Number.isNaN(rawTransport) || !rawTransport ? 0 : rawTransport;
+  const tickets = isFreeTicket ? 0 : (breakdown.tickets || 0) * partySize;
   const food = getDiningFoodRange(budgetTier, totalTripHours, partySize);
-  const cafe = breakdown.cafe * partySize;
+  const cafe = (breakdown.cafe || 0) * partySize;
   const parking = mode === "car" || mode === "my_car" ? 1200 : 0;
 
   const minPartyTotal = Math.round(

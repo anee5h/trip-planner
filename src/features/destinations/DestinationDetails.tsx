@@ -107,6 +107,7 @@ import {
   getWeatherDescription,
 } from "@/shared/hooks/useWeather";
 import { budgetService } from "@/shared/services/budget/BudgetService";
+import { HubPlannerWidget } from "@/features/destinations/components/HubPlannerWidget";
 
 function WeatherIcon({ type }: { type: string }) {
   if (type === "sun") return <Sun className="w-6 h-6 text-amber-500" />;
@@ -1952,6 +1953,13 @@ export default function DestinationDetails() {
             </Card>
           </div>
         </div>
+
+        {/* Hub-Based Travel Planner Widget */}
+        {destination.role === "hub" && (
+          <div className="mt-12">
+            <HubPlannerWidget hub={destination} locale={locale} />
+          </div>
+        )}
 
         {/* Top Sights & Attractions (For City / Ward / Town Hubs) */}
         {destination.role === "hub" && featuredChildSights.length > 0 && (
