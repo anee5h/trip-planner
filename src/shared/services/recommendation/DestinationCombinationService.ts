@@ -2,6 +2,7 @@ import type { Destination } from "@/shared/types/destination";
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import { getDistance } from "@/shared/utils/distance";
 import type { RecommendationContext } from "./RecommendationContext";
+import { getEffectiveVisitDuration } from "./DayPlanGeneratorService";
 
 export interface DestinationCombo {
   primary: Destination;
@@ -119,13 +120,13 @@ export function findNearbyCombinations(
       continue;
     }
 
-    // Calculate combined visit hours
-    const pVisitMin =
-      primary.recommendedVisitHours?.min ?? primary.totalTripHours ?? 2;
-    const pVisitMax =
-      primary.recommendedVisitHours?.max ?? primary.totalTripHours ?? 3;
-    const sVisitMin = sec.recommendedVisitHours?.min ?? sec.totalTripHours ?? 2;
-    const sVisitMax = sec.recommendedVisitHours?.max ?? sec.totalTripHours ?? 3;
+    // Calculate normalized combined visit hours
+    const pEff = getEffectiveVisitDuration(primary);
+    const sEff = getEffectiveVisitDuration(sec);
+    const pVisitMin = pEff.minMins / 60;
+    const pVisitMax = pEff.maxMins / 60;
+    const sVisitMin = sEff.minMins / 60;
+    const sVisitMax = sEff.maxMins / 60;
 
     const combinedVisitMin = Math.round((pVisitMin + sVisitMin) * 10) / 10;
     const combinedVisitMax = Math.round((pVisitMax + sVisitMax) * 10) / 10;
@@ -136,6 +137,12 @@ export function findNearbyCombinations(
       Math.round((combinedVisitMin + interTravelHours) * 10) / 10;
     const combinedTotalMax =
       Math.round((combinedVisitMax + interTravelHours) * 10) / 10;
+
+    // Exclude combination if min total hours exceeds 10 hours
+    if (combinedTotalMin > 10.0) {
+      continue;
+    }
+    const displayTotalMax = Math.min(combinedTotalMax, 10.0);
 
     // Budget range
     const budgetMin = (primary.budgetMin ?? 0) + (sec.budgetMin ?? 0);
@@ -176,7 +183,7 @@ export function findNearbyCombinations(
       interDistanceKm: Math.round(distKm * 10) / 10,
       estimatedInterTravelMinutes: transitMins,
       combinedVisitHours: [combinedVisitMin, combinedVisitMax],
-      combinedTotalHours: [combinedTotalMin, combinedTotalMax],
+      combinedTotalHours: [combinedTotalMin, displayTotalMax],
       combinedBudgetRange: [budgetMin, budgetMax],
       isWeatherMatched,
       reasonCode,

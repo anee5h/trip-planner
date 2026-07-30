@@ -41,6 +41,7 @@ interface DayPlanWidgetProps {
   locale?: "en" | "ja";
   partySize?: number;
   onSaveToItinerary?: (plan: DayPlan) => void;
+  onPlanGenerated?: (plan: DayPlan | null) => void;
 }
 
 export function DayPlanWidget({
@@ -48,6 +49,7 @@ export function DayPlanWidget({
   locale = "en",
   partySize: externalPartySize = 2,
   onSaveToItinerary,
+  onPlanGenerated,
 }: DayPlanWidgetProps) {
   const isHubOrCity = destination.role === "hub" || destination.kind === "city";
 
@@ -97,6 +99,8 @@ export function DayPlanWidget({
     setHasGenerated(true);
     setShowConfig(false);
 
+    onPlanGenerated?.(newPlan);
+
     if (!newPlan.isUnfeasible) {
       recommendationAnalytics.trackPlanningToolEvent(
         isRegen ? "day_plan_regenerated" : "day_plan_generated",
@@ -121,6 +125,7 @@ export function DayPlanWidget({
   const handleStartOver = () => {
     setHasGenerated(false);
     setGeneratedPlan(null);
+    onPlanGenerated?.(null);
     setShowConfig(false);
   };
 

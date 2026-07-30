@@ -22,8 +22,8 @@ import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService"
 import { ItineraryPickerModal } from "@/features/trips/components/ItineraryPickerModal";
 import { MarkVisitedModal } from "./components/MarkVisitedModal";
 import { VisitedDateModal } from "./components/VisitedDateModal";
-import { DayPlanWidget } from "./components/DayPlanWidget";
-import { TripCostBreakdownWidget } from "./components/TripCostBreakdownWidget";
+import { DestinationPlanningSection } from "./components/DestinationPlanningSection";
+import { requiresOpeningHours } from "@/shared/services/recommendation/DayPlanGeneratorService";
 import { DestinationDetailsSkeleton } from "@/shared/components/ui/Skeleton";
 import { BucketListButton } from "@/shared/components/ui/BucketListButton";
 import { useDelayedSkeleton } from "@/shared/hooks/useDelayedSkeleton";
@@ -1770,21 +1770,13 @@ export default function DestinationDetails() {
                   </div>
                 )}
 
-              {/* Unified Progressive Day Plan Generator */}
-              <DayPlanWidget
+              {/* Progressive Planning Section */}
+              <DestinationPlanningSection
                 destination={destination}
                 locale={locale}
                 partySize={partySize}
+                selectedTransport={selectedTransport}
                 onSaveToItinerary={() => setPickerOpen(true)}
-              />
-
-              {/* Progressive Cost Breakdown */}
-              <TripCostBreakdownWidget
-                destination={destination}
-                locale={locale}
-                partySize={partySize}
-                activeTransportMode={selectedTransport}
-                hasGeneratedPlan={false}
               />
             </div>
           </div>
@@ -1864,39 +1856,6 @@ export default function DestinationDetails() {
                             destination.bestSeason,
                             locale,
                           )}
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                  <div className="flex items-center gap-3">
-                    <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">
-                      <JapaneseYen className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                        {budgetLabel}
-                      </div>
-                      <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
-                        <JapaneseYen className="inline w-3 h-3" />
-                        {(destination.budgetMin * partySize).toLocaleString()}
-                        –<JapaneseYen className="inline w-3 h-3" />
-                        {(destination.budgetMax * partySize).toLocaleString()}
-                      </div>
-                    </div>
-                  </div>
-                  {nearbyPlaces.length > 0 && (
-                    <div className="flex items-center gap-3">
-                      <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">
-                        <MapPin className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                          {copy.nearby}
-                        </div>
-                        <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
-                          {locale === "ja"
-                            ? `${nearbyPlaces.length}件の関連スポット`
-                            : `${nearbyPlaces.length} related places`}
                         </div>
                       </div>
                     </div>
@@ -1988,6 +1947,44 @@ export default function DestinationDetails() {
 
             <Card>
               <CardContent className="p-6 space-y-4">
+                <h3 className="font-bold text-slate-900 dark:text-white">
+                  {locale === "ja"
+                    ? "基本情報・アクセス"
+                    : "Practical Information"}
+                </h3>
+
+                {/* Opening Hours & Access Status */}
+                {requiresOpeningHours(destination) && (
+                  <div>
+                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
+                      {locale === "ja" ? "営業時間" : "Opening hours"}
+                    </h4>
+                    <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
+                      {destination.businessHours ||
+                        destination.openingHours || (
+                          <span className="text-amber-600 dark:text-amber-400">
+                            {locale === "ja"
+                              ? "未確認（公式ウェブサイトで確認してください）"
+                              : "Not yet verified — check official website before visiting"}
+                          </span>
+                        )}
+                    </p>
+                  </div>
+                )}
+                {!requiresOpeningHours(destination) &&
+                  destination.role !== "hub" && (
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
+                        {locale === "ja" ? "アクセス状態" : "Access"}
+                      </h4>
+                      <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
+                        {locale === "ja"
+                          ? "散策自由（個別施設により営業時間が異なります）"
+                          : "Open access; individual facilities may have separate hours"}
+                      </p>
+                    </div>
+                  )}
+
                 {destination.reservation && (
                   <div>
                     <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
@@ -2008,10 +2005,11 @@ export default function DestinationDetails() {
                         href={destination.officialWebsite}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-sm font-medium text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 break-all"
+                        className="inline-flex items-center gap-1.5 text-sm font-bold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
                       >
-                        {destination.officialWebsite}
-                        <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                        {locale === "ja"
+                          ? "公式サイトを見る ↗"
+                          : "Visit official website ↗"}
                       </a>
                     </div>
                   )}

@@ -16,6 +16,7 @@ import {
   Calendar as CalendarIcon,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { SearchableDestinationPicker } from "@/shared/components/ui/SearchableDestinationPicker";
 
 interface ItineraryPlannerProps {
   trip: Trip;
@@ -238,18 +239,11 @@ export default function ItineraryPlanner({
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
               {t("ui.selectPlace")}
             </label>
-            <select
+            <SearchableDestinationPicker
               value={selectedDestId}
-              onChange={(e) => setSelectedDestId(e.target.value)}
-              className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-            >
-              <option value="">-- {t("ui.selectPlace")} --</option>
-              {destinations.map((d) => (
-                <option key={d.id} value={d.id}>
-                  {d.name} ({d.prefecture})
-                </option>
-              ))}
-            </select>
+              onSelect={(d) => setSelectedDestId(d.id)}
+              placeholder={`-- ${t("ui.selectPlace")} --`}
+            />
           </div>
         ) : (
           <div>

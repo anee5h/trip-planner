@@ -4,6 +4,26 @@ import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import { formatPlaceName } from "@/shared/utils/placeLabels";
 import type { RecommendationContext } from "./RecommendationContext";
 
+export type ReturnMode = "anchor" | "nearest_station" | "none";
+
+export interface RouteLeg {
+  fromDestinationId?: string;
+  toDestinationId?: string;
+  durationMinutes: number;
+  source: "curated" | "combination" | "estimated";
+  confidence: "verified" | "estimated";
+}
+
+export interface PlanAssumption {
+  type:
+    | "unverified_hours"
+    | "estimated_transit"
+    | "estimated_cost"
+    | "seasonal_access";
+  destinationId?: string;
+  message: { en: string; ja: string };
+}
+
 export interface DayPlanStep {
   id: string;
   type: "destination" | "meal" | "buffer" | "travel";
@@ -21,6 +41,8 @@ export interface DayPlan {
   id: string;
   title: { en: string; ja: string };
   steps: DayPlanStep[];
+  routeLegs?: RouteLeg[];
+  assumptions?: PlanAssumption[];
   totalDurationMinutes: number;
   totalBudgetRange: [number, number];
   isOverfilled: boolean;
@@ -41,7 +63,111 @@ export interface DayPlanOptions {
   partySize?: number;
   maxEndTime?: string;
   catchmentScope?: CatchmentScope;
+  returnMode?: ReturnMode;
   context?: Partial<RecommendationContext>;
+}
+
+export function parseTimeToMinutes(timeStr: string): number {
+  if (!timeStr || typeof timeStr !== "string") return 9 * 60;
+  const parts = timeStr.split(":");
+  const h = parseInt(parts[0], 10);
+  const m = parseInt(parts[1], 10);
+  if (!Number.isFinite(h) || !Number.isFinite(m)) return 9 * 60;
+  const validH = Math.min(23, Math.max(0, h));
+  const validM = Math.min(59, Math.max(0, m));
+  return validH * 60 + validM;
+}
+
+export function getEffectiveVisitDuration(dest: Destination): {
+  minMins: number;
+  prefMins: number;
+  maxMins: number;
+} {
+  const k = (dest.kind || "").toLowerCase();
+  const cats = (dest.categories || []).map((c) => c.toLowerCase());
+
+  // Theme Parks / Major Attractions
+  if (k === "theme_park" || cats.includes("theme park")) {
+    return { minMins: 300, prefMins: 420, maxMins: 600 };
+  }
+  // Indoor Attractions / Entertainment
+  if (cats.includes("entertainment") || k === "indoor_attraction") {
+    return { minMins: 90, prefMins: 150, maxMins: 180 };
+  }
+  // Observation Decks
+  if (cats.includes("observation deck") || k === "viewpoint") {
+    return { minMins: 60, prefMins: 90, maxMins: 180 };
+  }
+  // Museums
+  if (k === "museum" || cats.includes("museum")) {
+    return { minMins: 90, prefMins: 150, maxMins: 240 };
+  }
+  // Shrines & Temples
+  if (cats.includes("shrine") || cats.includes("temple") || k === "shrine") {
+    return { minMins: 30, prefMins: 60, maxMins: 120 };
+  }
+  // Districts / Neighborhoods / Parks
+  if (
+    k === "district" ||
+    k === "neighborhood" ||
+    k === "park" ||
+    k === "street"
+  ) {
+    return { minMins: 90, prefMins: 150, maxMins: 240 };
+  }
+
+  // Generic fallback
+  return { minMins: 45, prefMins: 90, maxMins: 120 };
+}
+
+export function estimateLocalTransitMinutes(
+  from: Destination,
+  to: Destination,
+  _scope: CatchmentScope = "nearby",
+): {
+  durationMinutes: number;
+  confidence: "verified" | "estimated";
+  isUnverified: boolean;
+} {
+  if (from.id === to.id)
+    return { durationMinutes: 0, confidence: "verified", isUnverified: false };
+
+  // Calculate distance
+  let distKm = 2.0;
+  if (from.coordinates?.lat && to.coordinates?.lat) {
+    const lat1 = (from.coordinates.lat * Math.PI) / 180;
+    const lat2 = (to.coordinates.lat * Math.PI) / 180;
+    const dLat = ((to.coordinates.lat - from.coordinates.lat) * Math.PI) / 180;
+    const dLon = ((to.coordinates.lng - from.coordinates.lng) * Math.PI) / 180;
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    distKm = 6371 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  }
+
+  // Conservative distance floors
+  let estMins = 15;
+  if (distKm <= 0.8) {
+    estMins = Math.max(8, Math.round(distKm * 12));
+  } else if (distKm <= 2.0) {
+    estMins = 15 + Math.round((distKm - 0.8) * 8);
+  } else if (distKm <= 5.0) {
+    estMins = 25 + Math.round((distKm - 2.0) * 4);
+  } else if (distKm <= 12.0) {
+    estMins = 35 + Math.round((distKm - 5.0) * 2);
+  } else {
+    estMins = 45;
+  }
+
+  // Round upward to next 5 minutes
+  const roundedMins = Math.ceil(estMins / 5) * 5;
+  const isUnverified = !from.coordinates || !to.coordinates;
+
+  return {
+    durationMinutes: Math.min(45, Math.max(10, roundedMins)),
+    confidence: isUnverified ? "estimated" : "verified",
+    isUnverified,
+  };
 }
 
 export function requiresOpeningHours(dest: Destination): boolean {
@@ -76,12 +202,6 @@ export function isRealDestinationStop(step: DayPlanStep): boolean {
     return false;
   }
   return step.durationMinutes > 0;
-}
-
-function parseTimeToMinutes(timeStr: string): number {
-  if (!timeStr) return 9 * 60;
-  const [h, m] = timeStr.split(":").map(Number);
-  return (h || 9) * 60 + (m || 0);
 }
 
 function formatTimeFromMidnight(mins: number): string {
