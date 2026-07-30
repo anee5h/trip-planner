@@ -2,7 +2,11 @@ import type { Destination } from "@/shared/types/destination";
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import { getDistance } from "@/shared/utils/distance";
 import type { RecommendationContext } from "./RecommendationContext";
-import { getEffectiveVisitDuration } from "./DayPlanGeneratorService";
+import { getEffectiveVisitDuration } from "./VisitDurationPolicy";
+import {
+  estimateLocalTransitMinutes,
+  hasCoordinates,
+} from "./LocalTransitEstimator";
 
 export interface DestinationCombo {
   primary: Destination;
@@ -29,19 +33,8 @@ export function findNearbyCombinations(
   if (!primary) return [];
 
   const all = getDestinationList() as Destination[];
-  const primaryCoords = primary.coordinates;
   const primaryParentId = primary.relationships?.parentDestinationId;
   const isPrimaryHub = primary.role === "hub" || primary.kind === "city";
-
-  const isUrbanHub =
-    primary.prefecture === "Tokyo" ||
-    primary.prefecture === "Osaka" ||
-    primary.prefecture === "Kyoto" ||
-    primary.region === "Kanto";
-
-  // Adaptive Catchment Radius limits
-  const maxRadiusKm = catchmentScope === "wider" ? 20 : isUrbanHub ? 12 : 15;
-  const maxTransitMins = catchmentScope === "wider" ? 45 : 35;
 
   const candidates: Array<{
     place: Destination;
@@ -52,50 +45,60 @@ export function findNearbyCombinations(
 
   for (const place of all) {
     if (!place.id || place.id === primary.id) continue;
-    if (place.role === "hub" || place.kind === "city") continue; // Never pick cities or hubs as POI stops
+    if (place.role === "hub" || place.kind === "city") continue;
 
     const isChildOfPrimary =
       Boolean(place.relationships?.parentDestinationId) &&
       place.relationships?.parentDestinationId === primary.id;
 
-    // If primary is NOT a hub, do not pair it directly with its parent hub
     if (!isPrimaryHub && place.id === primaryParentId) {
       continue;
     }
 
-    let distKm = 999;
-    let transitMins = 999;
-
-    if (primaryCoords && place.coordinates) {
-      distKm = getDistance(
-        primaryCoords.lat,
-        primaryCoords.lng,
-        place.coordinates.lat,
-        place.coordinates.lng,
-      );
-      transitMins = Math.max(8, Math.round(distKm * 4 + 5));
-    } else if (
+    let curatedMinutes: number | undefined;
+    if (
       isChildOfPrimary ||
       (primaryParentId &&
         place.relationships?.parentDestinationId === primaryParentId)
     ) {
-      distKm = 1.5; // Same city/ward hub area
-      transitMins = 12;
-    } else if (primary.prefecture && place.prefecture === primary.prefecture) {
-      distKm = 5.0; // Same prefecture
-      transitMins = 20;
+      curatedMinutes = 12;
     }
 
-    // Direct child POIs of a hub are ALWAYS valid
-    if (
-      isChildOfPrimary ||
-      (distKm <= maxRadiusKm && transitMins <= maxTransitMins)
-    ) {
-      candidates.push({ place, distKm, transitMins, isChildOfPrimary });
+    const transitEst = estimateLocalTransitMinutes(
+      primary,
+      place,
+      catchmentScope,
+      {
+        curatedMinutes,
+        areaDensity:
+          primary.prefecture === "Tokyo" || primary.prefecture === "Osaka"
+            ? "dense_urban"
+            : "suburban",
+      },
+    );
+
+    if (!transitEst.usable) {
+      continue;
     }
+
+    let distKm = 0.0;
+    if (hasCoordinates(primary) && hasCoordinates(place)) {
+      distKm = getDistance(
+        primary.coordinates.lat,
+        primary.coordinates.lng,
+        place.coordinates.lat,
+        place.coordinates.lng,
+      );
+    }
+
+    candidates.push({
+      place,
+      distKm,
+      transitMins: transitEst.durationMinutes,
+      isChildOfPrimary,
+    });
   }
 
-  // Sort candidate secondary destinations: direct child POIs first, then nearest transit
   candidates.sort((a, b) => {
     if (a.isChildOfPrimary && !b.isChildOfPrimary) return -1;
     if (!a.isChildOfPrimary && b.isChildOfPrimary) return 1;
@@ -108,7 +111,6 @@ export function findNearbyCombinations(
   for (const { place: sec, distKm, transitMins } of candidates) {
     if (combos.length >= maxCount) break;
 
-    // Avoid redundant combinations from identical main categories
     const primaryCat = primary.categories?.[0] ?? "";
     const secCat = sec.categories?.[0] ?? "";
     const categoryKey = [primaryCat, secCat].sort().join("::");
@@ -120,31 +122,36 @@ export function findNearbyCombinations(
       continue;
     }
 
-    // Calculate normalized combined visit hours
     const pEff = getEffectiveVisitDuration(primary);
     const sEff = getEffectiveVisitDuration(sec);
-    const pVisitMin = pEff.minMins / 60;
-    const pVisitMax = pEff.maxMins / 60;
-    const sVisitMin = sEff.minMins / 60;
-    const sVisitMax = sEff.maxMins / 60;
 
-    const combinedVisitMin = Math.round((pVisitMin + sVisitMin) * 10) / 10;
-    const combinedVisitMax = Math.round((pVisitMax + sVisitMax) * 10) / 10;
+    const pVisitMinMins = pEff.minMins;
+    const pVisitPrefMins = pEff.prefMins;
+    const pVisitMaxMins = pEff.maxMins;
 
-    // Inter-travel hours
-    const interTravelHours = transitMins / 60;
-    const combinedTotalMin =
-      Math.round((combinedVisitMin + interTravelHours) * 10) / 10;
-    const combinedTotalMax =
-      Math.round((combinedVisitMax + interTravelHours) * 10) / 10;
+    const sVisitMinMins = sEff.minMins;
+    const sVisitPrefMins = sEff.prefMins;
+    const sVisitMaxMins = sEff.maxMins;
 
-    // Exclude combination if min total hours exceeds 10 hours
-    if (combinedTotalMin > 10.0) {
+    const combinedMinMinutes = pVisitMinMins + sVisitMinMins + transitMins;
+    const combinedPrefMinutes = pVisitPrefMins + sVisitPrefMins + transitMins;
+    const combinedMaxMinutes = pVisitMaxMins + sVisitMaxMins + transitMins;
+
+    // Exclude combination if min or preferred total minutes exceeds 10 hours (600 mins)
+    if (combinedMinMinutes > 600 || combinedPrefMinutes > 600) {
       continue;
     }
-    const displayTotalMax = Math.min(combinedTotalMax, 10.0);
 
-    // Budget range
+    const displayMaxMinutes = Math.min(combinedMaxMinutes, 600);
+
+    const combinedVisitMin =
+      Math.round(((pVisitMinMins + sVisitMinMins) / 60) * 10) / 10;
+    const combinedVisitMax =
+      Math.round(((pVisitMaxMins + sVisitMaxMins) / 60) * 10) / 10;
+
+    const combinedTotalMin = Math.round((combinedMinMinutes / 60) * 10) / 10;
+    const displayTotalMax = Math.round((displayMaxMinutes / 60) * 10) / 10;
+
     const budgetMin = (primary.budgetMin ?? 0) + (sec.budgetMin ?? 0);
     const budgetMax = (primary.budgetMax ?? 0) + (sec.budgetMax ?? 0);
 

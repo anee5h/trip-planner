@@ -3,13 +3,14 @@ import type { Destination } from "@/shared/types/destination";
 import { DayPlanWidget } from "./DayPlanWidget";
 import { TripCostBreakdownWidget } from "./TripCostBreakdownWidget";
 import type { DayPlan } from "@/shared/services/recommendation/DayPlanGeneratorService";
+import { calculateGeneratedPlanCost } from "@/shared/services/budget/GeneratedPlanCostService";
 
 interface DestinationPlanningSectionProps {
   destination: Destination;
   locale: "en" | "ja";
   partySize: number;
   selectedTransport: string;
-  onSaveToItinerary: () => void;
+  onSaveToItinerary: (plan?: DayPlan) => void;
 }
 
 export function DestinationPlanningSection({
@@ -25,6 +26,11 @@ export function DestinationPlanningSection({
     generatedPlan && !generatedPlan.isUnfeasible,
   );
 
+  const costBreakdown =
+    hasValidGeneratedPlan && generatedPlan
+      ? calculateGeneratedPlanCost(generatedPlan, partySize, selectedTransport)
+      : undefined;
+
   return (
     <div className="space-y-6">
       {/* Unified Progressive Day Plan Generator */}
@@ -32,7 +38,7 @@ export function DestinationPlanningSection({
         destination={destination}
         locale={locale}
         partySize={partySize}
-        onSaveToItinerary={onSaveToItinerary}
+        onSaveToItinerary={() => onSaveToItinerary(generatedPlan || undefined)}
         onPlanGenerated={(plan) => setGeneratedPlan(plan)}
       />
 
@@ -43,6 +49,7 @@ export function DestinationPlanningSection({
         partySize={partySize}
         activeTransportMode={selectedTransport}
         hasGeneratedPlan={hasValidGeneratedPlan}
+        planCostBreakdown={costBreakdown}
       />
     </div>
   );

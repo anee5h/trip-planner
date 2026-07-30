@@ -26,6 +26,7 @@ import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import { formatPlaceName } from "@/shared/utils/placeLabels";
 import { Link, useLocation } from "react-router-dom";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
+import type { PlanCostBreakdown } from "@/shared/services/budget/GeneratedPlanCostService";
 
 export interface TripCostBreakdownWidgetProps {
   destination: Destination;
@@ -34,6 +35,7 @@ export interface TripCostBreakdownWidgetProps {
   activeTransportMode?: string;
   defaultExpanded?: boolean;
   hasGeneratedPlan?: boolean;
+  planCostBreakdown?: PlanCostBreakdown;
 }
 
 export function TripCostBreakdownWidget({
@@ -43,17 +45,38 @@ export function TripCostBreakdownWidget({
   activeTransportMode = "train",
   defaultExpanded = false,
   hasGeneratedPlan = false,
+  planCostBreakdown,
 }: TripCostBreakdownWidgetProps) {
   const location = useLocation();
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
   const [viewMode, setViewMode] = useState<"party" | "perPerson">("party");
 
   const cost = useMemo(() => {
+    if (planCostBreakdown) {
+      return {
+        transport:
+          planCostBreakdown.originTransport + planCostBreakdown.localTransit,
+        tickets: planCostBreakdown.admission,
+        food: [
+          planCostBreakdown.meals * 0.7,
+          planCostBreakdown.meals * 1.3,
+        ] as [number, number],
+        cafe: 500 * partySize,
+        parking: planCostBreakdown.parking,
+        isFreeTicket: planCostBreakdown.admission === 0,
+        confidence: "high" as const,
+        partyRange: planCostBreakdown.totalRange,
+        perPersonRange: [
+          Math.round(planCostBreakdown.totalRange[0] / partySize),
+          Math.round(planCostBreakdown.totalRange[1] / partySize),
+        ] as [number, number],
+      };
+    }
     return calculateItemizedTripCost(destination, {
       activeMode: activeTransportMode,
       partySize,
     });
-  }, [destination, activeTransportMode, partySize]);
+  }, [destination, activeTransportMode, partySize, planCostBreakdown]);
 
   const headerTitle = hasGeneratedPlan
     ? locale === "ja"
@@ -63,7 +86,6 @@ export function TripCostBreakdownWidget({
       ? "概算滞在費用"
       : "Estimated visit cost";
 
-  // Find 1-2 lower cost or free alternatives in the same area
   const lowerCostAlternatives = useMemo(() => {
     const combos = findNearbyCombinations(destination, undefined, 5);
     return combos
@@ -98,7 +120,6 @@ export function TripCostBreakdownWidget({
   return (
     <Card className="overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm bg-white dark:bg-slate-900">
       <CardContent className="p-5 sm:p-6 space-y-5">
-        {/* COMPACT SUMMARY HEADER (ALWAYS VISIBLE LOGISTICS SOURCE OF TRUTH) */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 flex-wrap mb-1">
@@ -153,10 +174,8 @@ export function TripCostBreakdownWidget({
           </div>
         </div>
 
-        {/* EXPANDABLE DETAILED COST BREAKDOWN */}
         {isExpanded && (
           <div className="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-6 animate-in fade-in duration-200">
-            {/* Toggle Per-Person vs. Party */}
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                 {locale === "ja" ? "項目別内訳" : "Itemized Categories"}
@@ -190,7 +209,6 @@ export function TripCostBreakdownWidget({
               </div>
             </div>
 
-            {/* Total Cost Range Display */}
             <div className="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/80 dark:border-slate-700/80">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block">
@@ -220,9 +238,7 @@ export function TripCostBreakdownWidget({
               )}
             </div>
 
-            {/* Itemized Categories Progress Bars */}
             <div className="space-y-4">
-              {/* Transport */}
               <div className="space-y-1.5">
                 <div className="flex justify-between text-xs font-bold">
                   <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
@@ -256,7 +272,6 @@ export function TripCostBreakdownWidget({
                 </div>
               </div>
 
-              {/* Admission Tickets */}
               <div className="space-y-1.5">
                 <div className="flex justify-between text-xs font-bold">
                   <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
@@ -291,7 +306,6 @@ export function TripCostBreakdownWidget({
                 </div>
               </div>
 
-              {/* Food & Dining */}
               <div className="space-y-1.5">
                 <div className="flex justify-between text-xs font-bold">
                   <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
@@ -317,7 +331,6 @@ export function TripCostBreakdownWidget({
                 </div>
               </div>
 
-              {/* Café & Snacks */}
               <div className="space-y-1.5">
                 <div className="flex justify-between text-xs font-bold">
                   <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
@@ -343,7 +356,6 @@ export function TripCostBreakdownWidget({
                 </div>
               </div>
 
-              {/* Parking */}
               {cost.parking > 0 && (
                 <div className="space-y-1.5">
                   <div className="flex justify-between text-xs font-bold">
@@ -375,7 +387,6 @@ export function TripCostBreakdownWidget({
               )}
             </div>
 
-            {/* Lower-Cost Alternatives */}
             {lowerCostAlternatives.length > 0 && (
               <div className="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
                 <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">
