@@ -20,6 +20,7 @@ export interface TripStop {
   destinationId?: string;
   name: string;
   notes?: string;
+  date?: string;
   arrivalTime?: string;
   departureTime?: string;
   estimatedCost?: number;

@@ -11,6 +11,7 @@ import {
   ChevronRight,
   AlertCircle,
   MapPin,
+  Loader2,
 } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 
@@ -32,56 +33,101 @@ export function ItineraryPickerModal({
   const { trips, addTrip, updateTrip } = useTripStore();
   const [isCreating, setIsCreating] = useState(false);
   const [newTitle, setNewTitle] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   if (!isOpen) return null;
 
-  const handleSelectTrip = (tripId: string) => {
-    const targetTrip = trips.find((t) => t.id === tripId);
-    if (!targetTrip) return;
-
-    // Duplicate check
-    const isDuplicate = targetTrip.stops.some(
-      (s) => s.destinationId === destination.id,
-    );
-
-    if (isDuplicate) {
-      toast.warning(`Destination already exists in "${targetTrip.title}"`, {
-        id: "itinerary-duplicate-warning",
-      });
-      onClose();
-      return;
-    }
-
-    // Add stop to trip
-    const updated = addStopToTrip(targetTrip, {
-      name: destination.name,
-      type: "destination",
-      destinationId: destination.id,
-    });
-
-    updateTrip(targetTrip.id, { stops: updated.stops });
-
-    toast.success(`Added to "${targetTrip.title}"`, {
-      id: "itinerary-add-success",
-      duration: 4000,
-      action: {
-        label: "View Trip",
-        onClick: () => navigate(`/my-trips?tripId=${targetTrip.id}`),
-      },
-    });
-
+  const handleClose = () => {
+    if (isSubmitting) return;
+    setIsCreating(false);
+    setNewTitle("");
     onClose();
+  };
+
+  const handleSelectTrip = (tripId: string) => {
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+
+    try {
+      const targetTrip = trips.find((t) => t.id === tripId);
+      if (!targetTrip) {
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Duplicate check
+      const isDuplicate = targetTrip.stops.some(
+        (s) => s.destinationId === destination.id,
+      );
+
+      if (isDuplicate) {
+        toast.warning(`Destination already exists in "${targetTrip.title}"`, {
+          id: "itinerary-duplicate-warning",
+        });
+        setIsSubmitting(false);
+        onClose();
+        return;
+      }
+
+      // Add stop to trip
+      const updated = addStopToTrip(targetTrip, {
+        name: destination.name,
+        type: "destination",
+        destinationId: destination.id,
+      });
+
+      updateTrip(targetTrip.id, { stops: updated.stops });
+
+      toast.success(`Added to "${targetTrip.title}"`, {
+        id: "itinerary-add-success",
+        duration: 4000,
+        action: {
+          label: "View Trip",
+          onClick: () => navigate(`/my-trips?tripId=${targetTrip.id}`),
+        },
+      });
+
+      handleClose();
+    } catch (err) {
+      toast.error("Failed to add destination to itinerary.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleCreateNewTrip = (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+
     const titleToUse = newTitle.trim() || `Trip to ${destination.name}`;
 
     try {
       const created = addTrip(titleToUse);
-      handleSelectTrip(created.id);
+
+      // Add stop to newly created trip
+      const updated = addStopToTrip(created, {
+        name: destination.name,
+        type: "destination",
+        destinationId: destination.id,
+      });
+
+      updateTrip(created.id, { stops: updated.stops });
+
+      toast.success(`Created "${created.title}" & added ${destination.name}!`, {
+        id: "itinerary-create-success",
+        duration: 4000,
+        action: {
+          label: "View Trip",
+          onClick: () => navigate(`/my-trips?tripId=${created.id}`),
+        },
+      });
+
+      handleClose();
     } catch (err) {
       toast.error("Failed to create itinerary.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -90,7 +136,7 @@ export function ItineraryPickerModal({
       className="fixed inset-0 z-[9999] flex items-end sm:items-center justify-center bg-slate-950/60 backdrop-blur-sm p-0 sm:p-4"
       onClick={(e) => {
         e.stopPropagation();
-        onClose();
+        handleClose();
       }}
     >
       <div
@@ -118,8 +164,9 @@ export function ItineraryPickerModal({
             </p>
           </div>
           <button
-            onClick={onClose}
-            className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            onClick={handleClose}
+            disabled={isSubmitting}
+            className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors disabled:opacity-40"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -139,14 +186,16 @@ export function ItineraryPickerModal({
                   value={newTitle}
                   onChange={(e) => setNewTitle(e.target.value)}
                   placeholder={`e.g. ${destination.name} Trip`}
+                  disabled={isSubmitting}
                   autoFocus
-                  className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 disabled:opacity-50"
                 />
               </div>
               <div className="flex items-center justify-end gap-2 pt-2">
                 <Button
                   type="button"
                   variant="outline"
+                  disabled={isSubmitting}
                   onClick={() => setIsCreating(false)}
                   className="rounded-xl text-xs font-bold"
                 >
@@ -154,9 +203,17 @@ export function ItineraryPickerModal({
                 </Button>
                 <Button
                   type="submit"
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold px-4"
+                  disabled={isSubmitting}
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold px-4 flex items-center gap-1.5"
                 >
-                  Create & Add
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                      <span>Adding...</span>
+                    </>
+                  ) : (
+                    <span>Create & Add</span>
+                  )}
                 </Button>
               </div>
             </form>
@@ -181,12 +238,13 @@ export function ItineraryPickerModal({
                     return (
                       <button
                         key={trip.id}
+                        disabled={isSubmitting}
                         onClick={() => handleSelectTrip(trip.id)}
                         className={`w-full flex items-center justify-between p-3.5 rounded-2xl border text-left transition-all ${
                           isAlreadyAdded
                             ? "bg-slate-50 dark:bg-slate-800/40 border-slate-200 dark:border-slate-800 hover:bg-amber-500/10 hover:border-amber-500/30"
                             : "bg-white dark:bg-slate-800/80 border-slate-200 dark:border-slate-700/80 hover:bg-emerald-50 dark:hover:bg-slate-800 hover:border-emerald-500/50 shadow-sm"
-                        }`}
+                        } disabled:opacity-50`}
                       >
                         <div className="flex items-center gap-3 min-w-0">
                           <div
@@ -225,8 +283,9 @@ export function ItineraryPickerModal({
               {/* Bottom Action: Create New Itinerary */}
               <div className="pt-2 border-t border-slate-100 dark:border-slate-800">
                 <button
+                  disabled={isSubmitting}
                   onClick={() => setIsCreating(true)}
-                  className="w-full flex items-center justify-center gap-2 p-3 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 text-sm font-bold transition-colors"
+                  className="w-full flex items-center justify-center gap-2 p-3 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 text-sm font-bold transition-colors disabled:opacity-50"
                 >
                   <Plus className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   Create New Itinerary
