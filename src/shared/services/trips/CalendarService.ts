@@ -30,7 +30,7 @@ export function generateIcsContent(trip: Trip): string {
   return [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//TabiMap//Trip Planner//EN",
+    "PRODID:-//Meguruto//Trip Planner//EN",
     "BEGIN:VEVENT",
     `UID:${trip.id}`,
     `DTSTAMP:${formatIcsDate(new Date().toISOString().split("T")[0])}`,

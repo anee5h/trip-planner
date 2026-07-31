@@ -1,5 +1,5 @@
 /**
- * TabiMap motion system.
+ * Meguruto motion system.
  * Single source of truth for animation classes.
  *
  * Duration tiers:

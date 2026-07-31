@@ -185,7 +185,7 @@ export default function Settings() {
 
   const handleExportData = () => {
     const exportData = {
-      app: "TabiMap",
+      app: "Meguruto",
       version: "1.5.2",
       schemaVersion: 1,
       exportedAt: new Date().toISOString(),
@@ -212,7 +212,7 @@ export default function Settings() {
       encodeURIComponent(JSON.stringify(exportData, null, 2));
     const downloadAnchor = document.createElement("a");
     downloadAnchor.setAttribute("href", dataStr);
-    downloadAnchor.setAttribute("download", "tabimap_travel_data.json");
+    downloadAnchor.setAttribute("download", "meguruto_travel_data.json");
     document.body.appendChild(downloadAnchor);
     downloadAnchor.click();
     downloadAnchor.remove();

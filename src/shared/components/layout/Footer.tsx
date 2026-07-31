@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 flex flex-col items-center justify-center text-center gap-4">
         <div>
           <p className="text-sm font-medium text-slate-900 dark:text-slate-100 flex items-center justify-center gap-2">
-            TabiMap{" "}
+            Meguruto{" "}
             <span className="text-xs px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-500">
               v{__APP_VERSION__}
             </span>

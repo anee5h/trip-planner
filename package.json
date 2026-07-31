@@ -1,5 +1,5 @@
 {
-  "name": "tabimap",
+  "name": "meguruto",
   "private": true,
   "version": "2.0.0-alpha.1",
   "type": "module",
@@ -24,6 +24,7 @@
     "validate-links": "tsx scripts/cli/validate-links.ts",
     "check:translation-parity": "node scripts/check-translation-parity.cjs",
     "validate:i18n": "npm run check:translation-parity",
+    "check:branding": "node scripts/check-branding.cjs",
     "report:editorial-freshness": "tsx scripts/report-editorial-freshness.ts",
     "audit:major-city-coverage": "tsx scripts/audit-major-city-coverage.ts",
     "expand:major-city-catalog": "tsx scripts/expand-major-city-catalog.ts",
@@ -39,8 +40,8 @@
     "normalize-municipality-names": "tsx scripts/normalize-municipality-names.ts",
     "add-yokohama-places": "tsx scripts/add-yokohama-places.ts",
     "validate:catalog-fast": "tsx scripts/validate-all.ts --profile fast --no-report",
-    "verify:pr": "npm run test:run && npx tsc -b --noEmit && npm run lint && npm run format:check && npm run validate:i18n && npm run validate:catalog-fast && npm run build",
-    "release:verify": "npm run test:run && npm run pipeline -- --dry-run && npm run validate-all && npm run validate:i18n && npx tsc -b --noEmit && npm run lint && npm run build && npm run format:check"
+    "verify:pr": "npm run test:run && npx tsc -b --noEmit && npm run lint && npm run format:check && npm run validate:i18n && npm run check:branding && npm run validate:catalog-fast && npm run build",
+    "release:verify": "npm run test:run && npm run pipeline -- --dry-run && npm run validate-all && npm run validate:i18n && npm run check:branding && npx tsc -b --noEmit && npm run lint && npm run build && npm run format:check"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",

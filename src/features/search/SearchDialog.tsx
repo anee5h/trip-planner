@@ -130,7 +130,7 @@ export function SearchDialog({
             </span>
           </div>
           <span className="font-semibold text-emerald-600 dark:text-emerald-400">
-            TabiMap Command Palette
+            Meguruto Command Palette
           </span>
         </div>
       </div>

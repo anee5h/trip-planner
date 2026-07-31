@@ -21,7 +21,7 @@ const FAQS = [
   {
     question: "How does the Base Location setting work?",
     answer:
-      "Configure your Base Location (e.g., Tokyo Station, Osaka) in Settings > General. TabiMap uses this as your default home starting point when calculating travel times and daily route plans.",
+      "Configure your Base Location (e.g., Tokyo Station, Osaka) in Settings > General. Meguruto uses this as your default home starting point when calculating travel times and daily route plans.",
   },
   {
     question: "What is the difference between Achievements and Badges?",
@@ -158,7 +158,7 @@ export default function Help() {
             {activeSection === "getting-started" && (
               <div className="space-y-6">
                 <div>
-                  <SectionTitle>Getting Started with TabiMap</SectionTitle>
+                  <SectionTitle>Getting Started with Meguruto</SectionTitle>
                   <Caption className="mt-1">
                     3 simple steps to master your travel exploration in Japan.
                   </Caption>
@@ -207,7 +207,7 @@ export default function Help() {
                 <div>
                   <SectionTitle>Frequently Asked Questions</SectionTitle>
                   <Caption className="mt-1">
-                    Find quick answers to common questions about TabiMap.
+                    Find quick answers to common questions about Meguruto.
                   </Caption>
                 </div>
 
@@ -250,7 +250,8 @@ export default function Help() {
                 <div>
                   <SectionTitle>Keyboard Shortcuts Cheat Sheet</SectionTitle>
                   <Caption className="mt-1">
-                    Speed up your navigation across TabiMap with global hotkeys.
+                    Speed up your navigation across Meguruto with global
+                    hotkeys.
                   </Caption>
                 </div>
 
@@ -278,7 +279,7 @@ export default function Help() {
                 <div>
                   <SectionTitle>Release History & Changelog</SectionTitle>
                   <Caption className="mt-1">
-                    Latest features and improvements added to TabiMap.
+                    Latest features and improvements added to Meguruto.
                   </Caption>
                 </div>
 

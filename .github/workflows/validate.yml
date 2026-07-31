@@ -1,4 +1,4 @@
-name: TabiMap Data Quality & CI Pipeline
+name: Meguruto Data Quality & CI Pipeline
 
 on:
   push:

@@ -125,7 +125,7 @@ export function useTripSync({
         .single()
         .then(({ data, error }) => {
           if (error && error.code !== "PGRST116") {
-            console.error("[TabiMap Sync] Failed to load user_data:", error);
+            console.error("[Meguruto Sync] Failed to load user_data:", error);
             return;
           }
           if (data) {
@@ -297,7 +297,7 @@ export function useTripSync({
           .then(({ error }) => {
             if (error) {
               console.warn(
-                "[TabiMap Sync] Primary upsert failed, retrying core payload without visited_dates/destination_ratings...",
+                "[Meguruto Sync] Primary upsert failed, retrying core payload without visited_dates/destination_ratings...",
                 error,
               );
               delete payload.visited_dates;
@@ -308,7 +308,7 @@ export function useTripSync({
                 .then(({ error: retryErr }) => {
                   if (retryErr) {
                     console.error(
-                      "[TabiMap Sync] Core upsert failed:",
+                      "[Meguruto Sync] Core upsert failed:",
                       retryErr,
                     );
                     toast.error(

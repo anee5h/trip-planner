@@ -69,9 +69,12 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
           {/* Header */}
           <div className="text-center mb-6">
             <div className="text-2xl font-bold mb-1">
-              <span className="text-emerald-400">Tabi</span>
-              <span className="text-white">Map</span>
+              <span className="text-emerald-400">Meguru</span>
+              <span className="text-white">to</span>
             </div>
+            <p className="text-xs text-emerald-200/80 mb-2">
+              {t("brand.tagline")}
+            </p>
             <p className="text-slate-400 text-sm">
               {mode === "signin"
                 ? t("auth.signInPrompt")

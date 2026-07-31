@@ -36,7 +36,7 @@ export default function Profile() {
   const fullName = user?.user_metadata?.full_name || "";
   const username = user?.user_metadata?.username || "";
 
-  const userInitial = (username[0] || user?.email?.[0] || "U").toUpperCase();
+  const userInitial = (username[0] || user?.email?.[0] || "T").toUpperCase();
 
   const joinDate = user?.created_at
     ? new Date(user.created_at).toLocaleDateString("en-US", {
@@ -81,7 +81,7 @@ export default function Profile() {
           </div>
 
           <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-            {user?.email || " traveler@tabimap.com "}
+            {user?.email || "Traveler"}
           </div>
         </div>
 
@@ -196,7 +196,7 @@ export default function Profile() {
           <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
             <SectionTitle>{t("ui.overview")}</SectionTitle>
             <BodyText>
-              Welcome to your TabiMap traveler hub. Here you can manage your
+              Welcome to your Meguruto traveler hub. Here you can manage your
               identity, account preferences, and personal travel summary.
             </BodyText>
           </div>

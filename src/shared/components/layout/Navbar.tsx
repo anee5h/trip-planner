@@ -117,11 +117,11 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           to="/"
-          className="flex items-center gap-2 font-bold text-xl tracking-tight shrink-0"
+          className="flex items-center gap-0 font-bold text-xl tracking-tight shrink-0"
           onClick={() => setMenuOpen(false)}
         >
-          <span className="text-emerald-600 dark:text-emerald-400">Tabi</span>
-          <span className="text-slate-800 dark:text-slate-200">Map</span>
+          <span className="text-emerald-600 dark:text-emerald-400">Meguru</span>
+          <span className="text-slate-800 dark:text-slate-200">to</span>
         </Link>
 
         {/* Global Search Bar (Center / Desktop & Mobile icon) */}
@@ -525,7 +525,7 @@ export default function Navbar() {
                 className="hover:text-emerald-500 font-bold transition-colors cursor-pointer flex items-center gap-1"
                 title="View Release Notes"
               >
-                <span>TabiMap Japan v1.9.4</span>
+                <span>Meguruto v{__APP_VERSION__}</span>
                 <span className="text-[10px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-1.5 py-0.5 rounded font-extrabold border border-emerald-500/20">
                   Notes
                 </span>
@@ -539,7 +539,7 @@ export default function Navbar() {
       <ReleaseNotesModal
         isOpen={releaseNotesOpen}
         onClose={() => setReleaseNotesOpen(false)}
-        version="v1.9.4"
+        version={`v${__APP_VERSION__}`}
       />
     </header>
   );
