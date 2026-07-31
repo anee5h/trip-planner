@@ -25,6 +25,10 @@ export type DayPlanPace = "relaxed" | "balanced" | "packed";
 export type DayPlanType = "half_day" | "full_day";
 export type { CatchmentScope } from "@/shared/types/planner";
 
+export function isHubPrimary(destination: Destination): boolean {
+  return destination.role === "hub" || destination.kind === "city";
+}
+
 export interface RouteLeg {
   fromDestinationId?: string;
   toDestinationId?: string;
@@ -82,6 +86,14 @@ export interface DayPlan {
   unfeasibleErrorMessage?: { en: string; ja: string };
   anchor_exceeds_time_window?: boolean;
   failureReason?: PlanFailureReason;
+  generatedWith?: {
+    planType: DayPlanType;
+    startTime: string;
+    availableMinutes: number;
+    returnMode: ReturnMode;
+    pace: DayPlanPace;
+    catchmentScope: CatchmentScope;
+  };
   uncertainHoursDisclosures: Array<{ destinationId: string; name: string }>;
 }
 
@@ -241,7 +253,7 @@ export function generateDayPlan(
     };
   }
 
-  const isPrimaryHub = primary.role === "hub" || primary.kind === "city";
+  const isPrimaryHub = isHubPrimary(primary);
   const planType: DayPlanType = options?.planType || "full_day";
   const pace: DayPlanPace = options?.pace || "balanced";
   const partySize = Math.max(1, options?.partySize || 1);
@@ -257,18 +269,17 @@ export function generateDayPlan(
     options?.startTime || "09:00",
   );
 
-  const planCeiling =
-    options?.availableMinutes || (planType === "half_day" ? 5 * 60 : 10 * 60);
-  let maxEndTimeMins: number | null = null;
-  if (options?.maxEndTime) {
-    maxEndTimeMins = parseTimeToMinutes(options.maxEndTime);
-  }
-  const requestedWindow =
-    maxEndTimeMins !== null
-      ? maxEndTimeMins - startMinsFromMidnight
-      : planCeiling;
-  const hardAvailableMinutes =
-    options?.availableMinutes || Math.min(planCeiling, requestedWindow);
+  const defaultWindow = planType === "half_day" ? 5 * 60 : 9 * 60;
+  const legacyEndWindow = options?.maxEndTime
+    ? (parseTimeToMinutes(options.maxEndTime) -
+        startMinsFromMidnight +
+        24 * 60) %
+      (24 * 60)
+    : defaultWindow;
+  const hardAvailableMinutes = Math.max(
+    1,
+    options?.availableMinutes ?? legacyEndWindow,
+  );
 
   const paceMultiplier =
     pace === "relaxed" ? 1.25 : pace === "packed" ? 0.8 : 1.0;
@@ -348,6 +359,49 @@ export function generateDayPlan(
     realStopThreshold - requiredCandidates.length,
   );
 
+  const buildUnfeasiblePlan = (failureReason: PlanFailureReason): DayPlan => ({
+    id: `plan-${primary.id}`,
+    title: {
+      en: isPrimaryHub
+        ? `Plan a day from ${getLocalizedPlace(primary, "en").name}`
+        : `Plan around ${getLocalizedPlace(primary, "en").name}`,
+      ja: isPrimaryHub
+        ? `${getLocalizedPlace(primary, "ja").name}発モデルコース`
+        : `${getLocalizedPlace(primary, "ja").name} 周辺モデルコース`,
+    },
+    steps: [],
+    returnMode,
+    totalDurationMinutes: 0,
+    totalBudgetRange: [0, 0],
+    isOverfilled: false,
+    isUnfeasible: true,
+    canFallbackToHalfDay:
+      planType === "full_day" && usableCandidates.length >= 2,
+    failureReason,
+    unfeasibleErrorMessage: {
+      en:
+        failureReason === "anchor_exceeds_time_window"
+          ? "This place needs more time than the selected window."
+          : failureReason === "unusable_return_leg"
+            ? "We couldn’t reach a nearby station from the final stop."
+            : failureReason === "insufficient_real_pois"
+              ? "We couldn’t find enough suitable nearby stops for this schedule."
+              : "We couldn’t create a realistic plan within this time window.",
+      ja: "この時間枠内に現実的なプランを作成できませんでした。",
+    },
+    uncertainHoursDisclosures: [],
+  });
+
+  if (
+    !isPrimaryHub &&
+    getEffectiveVisitDuration(primary).minMins > hardAvailableMinutes
+  ) {
+    return buildUnfeasiblePlan("anchor_exceeds_time_window");
+  }
+  if (optionalCandidates.length < optionalStopsNeeded) {
+    return buildUnfeasiblePlan("insufficient_real_pois");
+  }
+
   interface SubsetSimulation {
     candidates: PlannedCandidate[];
     route: any;
@@ -359,6 +413,9 @@ export function generateDayPlan(
   }
 
   const validSimulations: SubsetSimulation[] = [];
+  const simulationFailures: Array<
+    "unusable_transit_leg" | "unusable_return_leg"
+  > = [];
 
   function evaluateSubset(subset: PlannedCandidate[]) {
     let route = simulateRouteIncremental(
@@ -409,6 +466,8 @@ export function generateDayPlan(
         score,
         transitTotal,
       });
+    } else if ("failureReason" in route && route.failureReason) {
+      simulationFailures.push(route.failureReason);
     }
   }
 
@@ -432,7 +491,10 @@ export function generateDayPlan(
     evaluateSubset([...requiredCandidates, ...sub]);
   }
 
-  if (requiredCandidates.length + optionalStopsNeeded + 1 <= 4) {
+  if (
+    planType === "full_day" &&
+    optionalCandidates.length >= optionalStopsNeeded + 1
+  ) {
     const phase2Subsets = getSubsets(
       optionalCandidates,
       optionalStopsNeeded + 1,
@@ -443,43 +505,30 @@ export function generateDayPlan(
   }
 
   if (validSimulations.length === 0) {
-    return {
-      id: `plan-${primary.id}`,
-      title: {
-        en: isPrimaryHub
-          ? `Plan a day from ${getLocalizedPlace(primary, "en").name}`
-          : `Plan around ${getLocalizedPlace(primary, "en").name}`,
-        ja: isPrimaryHub
-          ? `${getLocalizedPlace(primary, "ja").name}発モデルコース`
-          : `${getLocalizedPlace(primary, "ja").name} 周辺モデルコース`,
-      },
-      steps: [],
-      returnMode,
-      totalDurationMinutes: 0,
-      totalBudgetRange: [0, 0],
-      isOverfilled: false,
-      isUnfeasible: true,
-      canFallbackToHalfDay:
-        planType === "full_day" && usableCandidates.length >= 2,
-      unfeasibleErrorMessage: {
-        en: "We couldn’t create a realistic plan within this time window.",
-        ja: "この時間枠内に現実的なプランを作成できませんでした。",
-      },
-      anchor_exceeds_time_window: !isPrimaryHub,
-      uncertainHoursDisclosures: [],
-    };
+    const failureReason =
+      simulationFailures.length > 0 &&
+      simulationFailures.every((reason) => reason === "unusable_return_leg")
+        ? "unusable_return_leg"
+        : simulationFailures.includes("unusable_transit_leg")
+          ? "unusable_transit_leg"
+          : "no_feasible_candidate_pair";
+    return buildUnfeasiblePlan(failureReason);
   }
 
   validSimulations.sort((a, b) => {
-    if (b.preferredTotal !== a.preferredTotal)
-      return b.preferredTotal - a.preferredTotal;
     if (a.usedMinimumDurations !== b.usedMinimumDurations)
       return a.usedMinimumDurations ? 1 : -1;
     if (b.score !== a.score) return b.score - a.score;
     if (a.transitTotal !== b.transitTotal)
       return a.transitTotal - b.transitTotal;
-    const aComp = a.usedMinimumDurations ? a.preferredTotal - a.actualTotal : 0;
-    const bComp = b.usedMinimumDurations ? b.preferredTotal - b.actualTotal : 0;
+    const aComp = a.usedMinimumDurations
+      ? a.preferredTotal -
+        a.candidates.reduce((sum, candidate) => sum + candidate.minVisitMins, 0)
+      : 0;
+    const bComp = b.usedMinimumDurations
+      ? b.preferredTotal -
+        b.candidates.reduce((sum, candidate) => sum + candidate.minVisitMins, 0)
+      : 0;
     if (aComp !== bComp) return aComp - bComp;
     const aIds = a.candidates
       .map((c) => c.destination.id)
@@ -535,6 +584,14 @@ export function generateDayPlan(
     isOverfilled: false,
     isUnfeasible: false,
     uncertainHoursDisclosures,
+    generatedWith: {
+      planType,
+      startTime: formatTimeFromMidnight(startMinsFromMidnight),
+      availableMinutes: hardAvailableMinutes,
+      returnMode,
+      pace,
+      catchmentScope,
+    },
   };
 
   const planCost = calculateGeneratedPlanCost(rawPlan, partySize);
@@ -606,6 +663,7 @@ function simulateRouteIncremental(
           totalMins: 0,
           returnEndpoint: null,
           feasible: false,
+          failureReason: "unusable_transit_leg" as const,
         };
       }
       bestTransitMins =
@@ -650,6 +708,7 @@ function simulateRouteIncremental(
           totalMins: 0,
           returnEndpoint: null,
           feasible: false,
+          failureReason: "unusable_transit_leg" as const,
         };
       }
 
@@ -812,6 +871,7 @@ function simulateRouteIncremental(
         totalMins: 0,
         returnEndpoint: null,
         feasible: false,
+        failureReason: "unusable_return_leg" as const,
       };
     }
 
@@ -905,7 +965,7 @@ export function rebuildPlanFromEditedStops(
 
   const rebuilt = simulateRouteIncremental(
     primary,
-    primary.role === "hub" || primary.kind === "city",
+    isHubPrimary(primary),
     newCandidates,
     false,
     startMins,

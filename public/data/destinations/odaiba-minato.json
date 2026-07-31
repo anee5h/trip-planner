@@ -45,6 +45,7 @@
     "lat": 35.6190032,
     "lng": 139.7793576
   },
+  "areaId": "odaiba",
   "comfort": {
     "heatTolerance": 8.5,
     "rainFriendly": 6,

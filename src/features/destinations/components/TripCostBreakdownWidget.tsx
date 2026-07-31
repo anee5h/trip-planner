@@ -64,7 +64,9 @@ export function TripCostBreakdownWidget({
         ],
         cafe: 0,
         parking: planCostBreakdown.parking.min,
-        isFreeTicket: planCostBreakdown.admission.min === 0,
+        isFreeTicket:
+          planCostBreakdown.admission.max === 0 &&
+          planCostBreakdown.admission.source === "curated",
         confidence: planCostBreakdown.confidence,
         partyRange: planCostBreakdown.totalRange,
         perPersonRange: [
@@ -253,7 +255,7 @@ export function TripCostBreakdownWidget({
                     ) : (
                       <Train className="w-4 h-4 text-emerald-500 shrink-0" />
                     )}
-                    {locale === "ja" ? "往復交通費" : "Round-trip Transport"}
+                    {locale === "ja" ? "現地交通費" : "Local transport"}
                   </span>
                   <span className="text-slate-900 dark:text-white">
                     {formatLocalizedJPYRange(

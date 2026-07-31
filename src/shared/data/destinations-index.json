@@ -18474,9 +18474,10 @@
     "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     "tags": ["Indoor", "Action"],
     "coordinates": {
-      "lat": 35.6762,
-      "lng": 139.6503
+      "lat": 35.6267,
+      "lng": 139.7758
     },
+    "areaId": "odaiba",
     "comfort": {
       "heatTolerance": 9.3,
       "rainFriendly": 9,
@@ -18504,15 +18505,15 @@
     },
     "collections": [],
     "relationships": {
-      "parentDestinationId": "minato-city"
+      "parentDestinationId": "odaiba-minato"
     },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "walkingIntensity": "low",
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
-      "min": 7,
-      "max": 9
+      "min": 2,
+      "max": 3
     },
     "officialWebsite": "https://tokyo-joypolis.com/",
     "businessHours": "09:00 - 17:00 (Daily)"
@@ -38686,6 +38687,7 @@
       "lat": 35.6190032,
       "lng": 139.7793576
     },
+    "areaId": "odaiba",
     "comfort": {
       "heatTolerance": 8.5,
       "rainFriendly": 6,

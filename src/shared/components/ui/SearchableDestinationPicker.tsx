@@ -36,6 +36,7 @@ export function SearchableDestinationPicker({
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640);
 
   const triggerRef = useRef<HTMLButtonElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -45,6 +46,12 @@ export function SearchableDestinationPicker({
   const listboxId = `picker-listbox-${uniqueId}`;
 
   const activeOptionRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const update = () => setIsMobile(window.innerWidth < 640);
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   useEffect(() => {
     if (isOpen && activeOptionRef.current) {
@@ -189,9 +196,9 @@ export function SearchableDestinationPicker({
       <button
         ref={triggerRef}
         type="button"
-        role="combobox"
+        aria-haspopup={isMobile ? "dialog" : "listbox"}
         aria-expanded={isOpen}
-        aria-controls={listboxId}
+        aria-controls={isMobile ? dialogId : listboxId}
         aria-activedescendant={
           isOpen && flatOptions[activeIndex]
             ? `option-${uniqueId}-${flatOptions[activeIndex].id}`
@@ -219,7 +226,6 @@ export function SearchableDestinationPicker({
         <>
           {/* Backdrop for mobile bottom sheet */}
           <div
-            id={dialogId}
             className="sm:hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40"
             onClick={() => {
               setIsOpen(false);
@@ -228,9 +234,12 @@ export function SearchableDestinationPicker({
           />
 
           <div
-            id={listboxId}
-            role="listbox"
-            aria-label="Destination search options"
+            id={isMobile ? dialogId : listboxId}
+            role={isMobile ? "dialog" : "listbox"}
+            aria-modal={isMobile ? true : undefined}
+            aria-label={
+              isMobile ? "Destination search" : "Destination search options"
+            }
             className="z-50 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden animate-in fade-in-50 duration-150 flex flex-col max-sm:fixed max-sm:inset-x-0 max-sm:bottom-0 max-sm:rounded-b-none max-sm:rounded-t-3xl max-sm:pb-[env(safe-area-inset-bottom)] max-sm:max-h-[85dvh] sm:absolute sm:left-0 sm:right-0 sm:mt-1.5 sm:rounded-2xl sm:max-h-80"
           >
             {/* Header / Search Input */}
@@ -278,7 +287,7 @@ export function SearchableDestinationPicker({
                       : "No matching destinations found"}
                   </div>
                 ) : (
-                  <div className="space-y-0.5" role="listbox">
+                  <div className="space-y-0.5">
                     {searchResults.map((dest, idx) => {
                       const isSelected = dest.id === value;
                       const isActive = idx === activeIndex;
@@ -325,7 +334,7 @@ export function SearchableDestinationPicker({
                 )
               ) : (
                 /* Non-search Initial Suggestion Groups */
-                <div className="space-y-3" role="listbox">
+                <div className="space-y-3">
                   {suggestionGroups?.recent.length ? (
                     <div>
                       <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">

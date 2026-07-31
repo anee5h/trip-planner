@@ -6,11 +6,13 @@ import {
   removeStepFromPlan,
   reorderPlanSteps,
   isRealDestinationStop,
+  isHubPrimary,
   type DayPlan,
   type DayPlanStep,
   type DayPlanType,
   type DayPlanPace,
   type CatchmentScope,
+  type ReturnMode,
 } from "@/shared/services/recommendation/DayPlanGeneratorService";
 import { toast } from "sonner";
 import { Card, CardContent } from "@/shared/components/ui/card";
@@ -52,7 +54,7 @@ export function DayPlanWidget({
   onSaveToItinerary,
   onPlanGenerated,
 }: DayPlanWidgetProps) {
-  const isHubOrCity = destination.role === "hub" || destination.kind === "city";
+  const isHubOrCity = isHubPrimary(destination);
 
   const [hasGenerated, setHasGenerated] = useState(false);
   const [showConfig, setShowConfig] = useState(false);
@@ -60,10 +62,12 @@ export function DayPlanWidget({
   const [planType, setPlanType] = useState<DayPlanType>("full_day");
   const [startTime, setStartTime] = useState("09:00");
   const [availableMinutes, setAvailableMinutes] = useState<number>(540);
+  const [durationPreset, setDurationPreset] = useState("540");
   const [pace, setPace] = useState<DayPlanPace>("balanced");
   const [partySize, setPartySize] = useState(externalPartySize);
   const [catchmentScope, setCatchmentScope] =
     useState<CatchmentScope>("nearby");
+  const [returnMode, setReturnMode] = useState<ReturnMode>("none");
 
   const finishTime = useMemo(() => {
     const [h, m] = startTime.split(":").map(Number);
@@ -71,7 +75,7 @@ export function DayPlanWidget({
     const endTotal = startTotal + availableMinutes;
     const endH = Math.floor(endTotal / 60) % 24;
     const endM = endTotal % 60;
-    return `${String(endH).padStart(2, "0")}:${String(endM).padStart(2, "0")}`;
+    return `${String(endH).padStart(2, "0")}:${String(endM).padStart(2, "0")}${endTotal >= 24 * 60 ? " (+1 day)" : ""}`;
   }, [startTime, availableMinutes]);
 
   const [generatedPlan, setGeneratedPlan] = useState<DayPlan | null>(null);
@@ -105,6 +109,7 @@ export function DayPlanWidget({
       pace,
       partySize,
       catchmentScope,
+      returnMode,
     });
 
     setGeneratedPlan(newPlan);
@@ -234,6 +239,16 @@ export function DayPlanWidget({
     if (!generatedPlan) return 0;
     return generatedPlan.steps.filter(isRealDestinationStop).length;
   }, [generatedPlan]);
+
+  const preferencesChanged = Boolean(
+    generatedPlan?.generatedWith &&
+    (generatedPlan.generatedWith.planType !== planType ||
+      generatedPlan.generatedWith.startTime !== startTime ||
+      generatedPlan.generatedWith.availableMinutes !== availableMinutes ||
+      generatedPlan.generatedWith.returnMode !== returnMode ||
+      generatedPlan.generatedWith.pace !== pace ||
+      generatedPlan.generatedWith.catchmentScope !== catchmentScope),
+  );
 
   // Product title based on destination role
   const plannerTitle = isHubOrCity
@@ -392,12 +407,11 @@ export function DayPlanWidget({
                   {locale === "ja" ? "滞在可能時間" : "Time available"}
                 </label>
                 <select
-                  value={availableMinutes}
+                  value={durationPreset}
                   onChange={(e) => {
-                    const val = Number(e.target.value);
-                    setAvailableMinutes(val);
-                    if (val <= 300) setPlanType("half_day");
-                    else setPlanType("full_day");
+                    setDurationPreset(e.target.value);
+                    if (e.target.value !== "custom")
+                      setAvailableMinutes(Number(e.target.value));
                   }}
                   className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-3 py-2.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500 min-h-[44px]"
                 >
@@ -409,6 +423,44 @@ export function DayPlanWidget({
                   </option>
                   <option value={540}>
                     {locale === "ja" ? "1日 (9時間)" : "Full day · 9 hours"}
+                  </option>
+                  <option value="custom">
+                    {locale === "ja" ? "カスタム" : "Custom"}
+                  </option>
+                </select>
+                {durationPreset === "custom" && (
+                  <input
+                    type="number"
+                    min={60}
+                    max={720}
+                    value={availableMinutes}
+                    onChange={(e) =>
+                      setAvailableMinutes(
+                        Math.max(
+                          60,
+                          Math.min(720, Number(e.target.value) || 60),
+                        ),
+                      )
+                    }
+                    className="mt-2 w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-3 py-2.5 text-sm font-semibold"
+                  />
+                )}
+              </div>
+
+              <div>
+                <label className="block font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
+                  {locale === "ja" ? "終了地点" : "Finish at"}
+                </label>
+                <select
+                  value={returnMode}
+                  onChange={(e) => setReturnMode(e.target.value as ReturnMode)}
+                  className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-3 py-2.5 text-sm font-semibold"
+                >
+                  <option value="none">
+                    {locale === "ja" ? "最後のスポット" : "Last attraction"}
+                  </option>
+                  <option value="nearest_station">
+                    {locale === "ja" ? "最寄り駅" : "Nearest station"}
                   </option>
                 </select>
               </div>
@@ -609,8 +661,19 @@ export function DayPlanWidget({
         {/* GENERATED TIMELINE */}
         {hasGenerated && generatedPlan && !generatedPlan.isUnfeasible && (
           <div className="space-y-6">
+            {preferencesChanged && (
+              <div
+                className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs font-semibold text-amber-900"
+                role="status"
+              >
+                {locale === "ja"
+                  ? "条件が変更されました。再生成して適用してください。"
+                  : "Preferences changed — regenerate to apply."}
+              </div>
+            )}
             {/* Consolidated Opening Hours & Assumptions Disclosure */}
-            {generatedPlan.uncertainHoursDisclosures.length > 0 && (
+            {(generatedPlan.uncertainHoursDisclosures.length > 0 ||
+              (generatedPlan.assumptions?.length ?? 0) > 0) && (
               <details className="bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-900/40 rounded-xl p-3 text-xs group">
                 <summary className="font-bold text-amber-900 dark:text-amber-300 flex items-center justify-between cursor-pointer list-none">
                   <span className="flex items-center gap-2">
@@ -631,21 +694,18 @@ export function DayPlanWidget({
                       : "Plan assumptions"}
                   </div>
                   <ul className="list-disc list-inside space-y-1 text-slate-600 dark:text-slate-300">
-                    <li>
-                      {locale === "ja"
-                        ? `以下のスポットは営業時間が未確認です: ${generatedPlan.uncertainHoursDisclosures.map((u) => u.name).join("、")}`
-                        : `Opening hours are unverified for: ${generatedPlan.uncertainHoursDisclosures.map((u) => u.name).join(", ")}.`}
-                    </li>
-                    <li>
-                      {locale === "ja"
-                        ? "モデルコース内の移動時間は標準的な公共交通機関の所要時間を前提としています。"
-                        : "Travel segments assume average public transit or walking times."}
-                    </li>
-                    <li>
-                      {locale === "ja"
-                        ? "予算範囲は一般的な拝観料・食事・ローカル交通費に基づきます。"
-                        : "Cost estimates reflect typical admission, dining, and local fare ranges."}
-                    </li>
+                    {generatedPlan.uncertainHoursDisclosures.length > 0 && (
+                      <li>
+                        {locale === "ja"
+                          ? `以下のスポットは営業時間が未確認です: ${generatedPlan.uncertainHoursDisclosures.map((u) => u.name).join("、")}`
+                          : `Opening hours are unverified for: ${generatedPlan.uncertainHoursDisclosures.map((u) => u.name).join(", ")}.`}
+                      </li>
+                    )}
+                    {generatedPlan.assumptions?.map((assumption, index) => (
+                      <li key={`${assumption.type}-${index}`}>
+                        {assumption.message[locale]}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </details>

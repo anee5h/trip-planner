@@ -61,4 +61,22 @@ describe("OpeningHoursPolicy", () => {
     const futureAssessment = getOpeningHoursAssessment(futureDest);
     expect(futureAssessment.status).toBe("unverified");
   });
+
+  it("does not treat a date without a field source as stale or verified", () => {
+    const assessment = getOpeningHoursAssessment({
+      id: "date-only",
+      businessHours: "09:00 - 17:00",
+      openingHoursMetadata: { verifiedAt: new Date().toISOString() },
+    } as Destination);
+    expect(assessment.status).toBe("unverified");
+  });
+
+  it("treats official sourced hours without a verification date as sourced", () => {
+    const assessment = getOpeningHoursAssessment({
+      id: "official-hours",
+      businessHours: "09:00 - 17:00",
+      officialWebsite: "https://example.com",
+    } as Destination);
+    expect(assessment.status).toBe("sourced");
+  });
 });

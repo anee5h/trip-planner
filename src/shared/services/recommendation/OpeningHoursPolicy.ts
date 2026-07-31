@@ -100,7 +100,7 @@ export function getOpeningHoursAssessment(
       };
     }
 
-    if (hasHours) {
+    if (hasHours && metadataSourceUrl && ageInDays > FRESHNESS_WINDOW_DAYS) {
       return {
         accessType: "scheduled",
         status: "stale",
@@ -112,6 +112,17 @@ export function getOpeningHoursAssessment(
         closedDays: meta?.closedDays,
       };
     }
+
+    return {
+      accessType: "scheduled",
+      status: "unverified",
+      requiresWarning: true,
+      displayText,
+      sourceUrl,
+      verifiedAt: fieldVerifiedAt,
+      lastAdmission: meta?.lastAdmission,
+      closedDays: meta?.closedDays,
+    };
   }
 
   if (hasHours && sourceUrl) {

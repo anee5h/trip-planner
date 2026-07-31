@@ -2031,19 +2031,23 @@ export default function DestinationDetails() {
                     </p>
                   </div>
                 )}
-                {!requiresOpeningHours(destination) &&
-                  destination.role !== "hub" && (
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
+                {!requiresOpeningHours(destination) && (
+                  <div>
+                    <div className="flex items-center justify-between mb-1">
+                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                         {locale === "ja" ? "アクセス状態" : "Access"}
                       </h4>
-                      <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
-                        {locale === "ja"
-                          ? "散策自由（個別施設により営業時間が異なります）"
-                          : "Open access; individual facilities may have separate hours"}
-                      </p>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full border bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-300 dark:border-slate-700">
+                        {locale === "ja" ? "散策自由" : "Open access"}
+                      </span>
                     </div>
-                  )}
+                    <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
+                      {locale === "ja"
+                        ? "散策自由（個別施設により営業時間が異なります）"
+                        : "Open access; individual facilities may have separate hours"}
+                    </p>
+                  </div>
+                )}
 
                 {destination.reservation && (
                   <div>
@@ -2225,6 +2229,7 @@ export default function DestinationDetails() {
 
             <DestinationMap
               destinations={childDestinations}
+              locale={locale}
               carMode={navState?.carMode}
               publicModes={navState?.publicModes}
             />
