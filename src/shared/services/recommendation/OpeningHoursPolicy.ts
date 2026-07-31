@@ -62,18 +62,19 @@ export function getOpeningHoursAssessment(
   const hasHours = Boolean(dest.businessHours || dest.openingHours);
   const meta = dest.openingHoursMetadata;
 
-  const fieldVerifiedAt = meta?.verifiedAt || dest.verifiedAt;
+  const fieldVerifiedAt = meta?.verifiedAt;
   const sourceUrl = meta?.sourceUrl || dest.officialWebsite;
+  const metadataSourceUrl = meta?.sourceUrl;
   const displayText =
     typeof dest.businessHours === "string" ? dest.businessHours : undefined;
 
   if (fieldVerifiedAt) {
     const verifiedDate = new Date(fieldVerifiedAt);
-    const isValidDate =
+    const isValidPastDate =
       !Number.isNaN(verifiedDate.getTime()) &&
       verifiedDate.getTime() <= now.getTime();
 
-    if (!isValidDate) {
+    if (!isValidPastDate) {
       return {
         accessType: "scheduled",
         status: "unverified",
@@ -83,23 +84,23 @@ export function getOpeningHoursAssessment(
       };
     }
 
-    if (hasHours && sourceUrl) {
-      const ageInDays =
-        (now.getTime() - verifiedDate.getTime()) / (1000 * 60 * 60 * 24);
+    const ageInDays =
+      (now.getTime() - verifiedDate.getTime()) / (1000 * 60 * 60 * 24);
 
-      if (ageInDays <= FRESHNESS_WINDOW_DAYS) {
-        return {
-          accessType: "scheduled",
-          status: "verified",
-          requiresWarning: false,
-          displayText,
-          sourceUrl,
-          verifiedAt: fieldVerifiedAt,
-          lastAdmission: meta?.lastAdmission,
-          closedDays: meta?.closedDays,
-        };
-      }
+    if (hasHours && metadataSourceUrl && ageInDays <= FRESHNESS_WINDOW_DAYS) {
+      return {
+        accessType: "scheduled",
+        status: "verified",
+        requiresWarning: false,
+        displayText,
+        sourceUrl: metadataSourceUrl,
+        verifiedAt: fieldVerifiedAt,
+        lastAdmission: meta?.lastAdmission,
+        closedDays: meta?.closedDays,
+      };
+    }
 
+    if (hasHours) {
       return {
         accessType: "scheduled",
         status: "stale",

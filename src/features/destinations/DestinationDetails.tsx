@@ -36,7 +36,10 @@ import {
 import { MarkVisitedModal } from "./components/MarkVisitedModal";
 import { VisitedDateModal } from "./components/VisitedDateModal";
 import { DestinationPlanningSection } from "./components/DestinationPlanningSection";
-import { requiresOpeningHours } from "@/shared/services/recommendation/OpeningHoursPolicy";
+import {
+  requiresOpeningHours,
+  getOpeningHoursAssessment,
+} from "@/shared/services/recommendation/OpeningHoursPolicy";
 import { DestinationDetailsSkeleton } from "@/shared/components/ui/Skeleton";
 import { BucketListButton } from "@/shared/components/ui/BucketListButton";
 import { useDelayedSkeleton } from "@/shared/hooks/useDelayedSkeleton";
@@ -260,7 +263,7 @@ export default function DestinationDetails() {
   const [destination, setDestination] = useState<Destination | null>(null);
   const [destLoading, setDestLoading] = useState(true);
 
-  const [generatedPlan, setGeneratedPlan] = useState<any>(null);
+  const [, setGeneratedPlan] = useState<any>(null);
   const [pendingSave, setPendingSave] = useState<PendingItinerarySave | null>(
     null,
   );
@@ -1772,54 +1775,7 @@ export default function DestinationDetails() {
                     {locale === "ja" ? "このスポットを計画" : "Plan this trip"}
                   </h3>
                 </div>
-
-                {/* Plan Assumptions Disclosure Trigger */}
-                {(generatedPlan?.uncertainHoursDisclosures?.length > 0 ||
-                  generatedPlan?.assumptions?.length > 0) && (
-                  <div className="text-xs">
-                    <span className="text-amber-600 dark:text-amber-400 font-bold mr-2">
-                      {locale === "ja"
-                        ? "※ 計画の前提条件あり"
-                        : "Plan assumptions applied"}
-                    </span>
-                  </div>
-                )}
               </div>
-
-              {/* Plan Assumptions Expandable Drawer */}
-              {(generatedPlan?.uncertainHoursDisclosures?.length > 0 ||
-                generatedPlan?.assumptions?.length > 0) && (
-                <div className="p-3.5 bg-amber-50/60 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-900/40 rounded-2xl text-xs space-y-2 text-slate-700 dark:text-slate-300">
-                  <div className="font-bold text-amber-900 dark:text-amber-200 flex items-center gap-1.5">
-                    <Info className="w-4 h-4 text-amber-600 shrink-0" />
-                    <span>
-                      {locale === "ja"
-                        ? "計画の前提条件・補足情報"
-                        : "Plan assumptions"}
-                    </span>
-                  </div>
-                  <ul className="list-disc list-inside space-y-1 text-slate-600 dark:text-slate-400">
-                    {generatedPlan.uncertainHoursDisclosures?.map(
-                      (disclosure: any, idx: number) => (
-                        <li key={`hours-${idx}`}>
-                          {locale === "ja"
-                            ? `${disclosure.name} の営業時間は未確認または古い可能性があります。訪問前にご確認ください。`
-                            : `Opening hours for ${disclosure.name} are unverified or stale. Please confirm before visiting.`}
-                        </li>
-                      ),
-                    )}
-                    {generatedPlan.assumptions?.map(
-                      (assumption: any, idx: number) => (
-                        <li key={`assumption-${idx}`}>
-                          {locale === "ja"
-                            ? assumption.message.ja
-                            : assumption.message.en}
-                        </li>
-                      ),
-                    )}
-                  </ul>
-                </div>
-              )}
 
               {/* Progressive Planning Section */}
               <DestinationPlanningSection
@@ -2014,9 +1970,55 @@ export default function DestinationDetails() {
                 {/* Opening Hours & Access Status */}
                 {requiresOpeningHours(destination) && (
                   <div>
-                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
-                      {locale === "ja" ? "営業時間" : "Opening hours"}
-                    </h4>
+                    <div className="flex items-center justify-between mb-1">
+                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                        {locale === "ja" ? "営業時間" : "Opening hours"}
+                      </h4>
+                      {(() => {
+                        const assessment =
+                          getOpeningHoursAssessment(destination);
+                        const badgeConfigs: Record<
+                          string,
+                          { bg: string; labelEn: string; labelJa: string }
+                        > = {
+                          verified: {
+                            bg: "bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800",
+                            labelEn: "Verified hours",
+                            labelJa: "確認済み営業時間",
+                          },
+                          sourced: {
+                            bg: "bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+                            labelEn: "Official hours listed",
+                            labelJa: "公式営業時間掲載",
+                          },
+                          stale: {
+                            bg: "bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border-amber-300 dark:border-amber-800",
+                            labelEn: "Hours may be stale",
+                            labelJa: "情報更新が必要",
+                          },
+                          unverified: {
+                            bg: "bg-rose-100 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 border-rose-300 dark:border-rose-800",
+                            labelEn: "Unverified hours",
+                            labelJa: "営業時間未確認",
+                          },
+                          not_required: {
+                            bg: "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-300 dark:border-slate-700",
+                            labelEn: "Open access",
+                            labelJa: "散策自由",
+                          },
+                        };
+                        const cfg =
+                          badgeConfigs[assessment.status] ||
+                          badgeConfigs.unverified;
+                        return (
+                          <span
+                            className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${cfg.bg}`}
+                          >
+                            {locale === "ja" ? cfg.labelJa : cfg.labelEn}
+                          </span>
+                        );
+                      })()}
+                    </div>
                     <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
                       {destination.businessHours ||
                         destination.openingHours || (

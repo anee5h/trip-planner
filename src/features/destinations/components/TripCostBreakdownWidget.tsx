@@ -128,9 +128,13 @@ export function TripCostBreakdownWidget({
                 <JapaneseYen className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                 {headerTitle}
               </h3>
-              {cost.confidence === "high" && (
+              {cost.confidence === "verified" ? (
                 <Badge className="bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800 text-[10px] font-bold">
-                  {locale === "ja" ? "公式データ" : "Curated Fares"}
+                  {locale === "ja" ? "確認済み概算" : "Verified Fares"}
+                </Badge>
+              ) : (
+                <Badge className="bg-amber-50 text-amber-700 dark:bg-amber-950/60 dark:text-amber-300 border-amber-200 dark:border-amber-800 text-[10px] font-bold">
+                  {locale === "ja" ? "推定概算" : "Estimated Fares"}
                 </Badge>
               )}
             </div>
@@ -386,6 +390,13 @@ export function TripCostBreakdownWidget({
                   </div>
                 </div>
               )}
+            </div>
+
+            {/* Scope Note Banner */}
+            <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/80 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-400">
+              {locale === "ja"
+                ? "※ 現地までの広域移動交通費（航空券・新幹線等）は含まれません。"
+                : "Note: Origin transport (flights, shinkansen) to the area is not included."}
             </div>
 
             {lowerCostAlternatives.length > 0 && (

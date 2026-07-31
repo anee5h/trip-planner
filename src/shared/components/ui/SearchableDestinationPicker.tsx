@@ -41,7 +41,16 @@ export function SearchableDestinationPicker({
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const uniqueId = useId();
-  const listboxId = `destination-picker-listbox-${uniqueId}`;
+  const dialogId = `picker-dialog-${uniqueId}`;
+  const listboxId = `picker-listbox-${uniqueId}`;
+
+  const activeOptionRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (isOpen && activeOptionRef.current) {
+      activeOptionRef.current.scrollIntoView({ block: "nearest" });
+    }
+  }, [activeIndex, isOpen]);
 
   const allDestinations = useMemo(() => getCanonicalPlaces(), []);
 
@@ -210,6 +219,7 @@ export function SearchableDestinationPicker({
         <>
           {/* Backdrop for mobile bottom sheet */}
           <div
+            id={dialogId}
             className="sm:hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40"
             onClick={() => {
               setIsOpen(false);
@@ -219,9 +229,8 @@ export function SearchableDestinationPicker({
 
           <div
             id={listboxId}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Destination search picker"
+            role="listbox"
+            aria-label="Destination search options"
             className="z-50 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden animate-in fade-in-50 duration-150 flex flex-col max-sm:fixed max-sm:inset-x-0 max-sm:bottom-0 max-sm:rounded-b-none max-sm:rounded-t-3xl max-sm:pb-[env(safe-area-inset-bottom)] max-sm:max-h-[85dvh] sm:absolute sm:left-0 sm:right-0 sm:mt-1.5 sm:rounded-2xl sm:max-h-80"
           >
             {/* Header / Search Input */}
@@ -276,6 +285,7 @@ export function SearchableDestinationPicker({
                       return (
                         <button
                           key={dest.id}
+                          ref={isActive ? activeOptionRef : null}
                           id={`option-${uniqueId}-${dest.id}`}
                           role="option"
                           aria-selected={isSelected}

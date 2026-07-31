@@ -583,6 +583,7 @@ function simulateRouteIncremental(
 
   let currentLocation: Destination = primary;
   let lunchInserted = false;
+  let visitedPoiCount = 0;
   const remaining = [...candidates];
   const categoryCounts = new Map<string, number>();
 
@@ -590,6 +591,8 @@ function simulateRouteIncremental(
     let nextCand: PlannedCandidate;
     let bestTransitMins = 0;
     let bestTransitResult: TransitEstimateResult | null = null;
+
+    const isFirstHubPoi = isPrimaryHub && visitedPoiCount === 0;
 
     if (preserveOrder) {
       nextCand = remaining.shift()!;
@@ -657,7 +660,7 @@ function simulateRouteIncremental(
     const cat = dest.categories?.[0] || dest.kind || "attraction";
     categoryCounts.set(cat, (categoryCounts.get(cat) || 0) + 1);
 
-    if (currentLocation.id !== dest.id && bestTransitResult) {
+    if (!isFirstHubPoi && currentLocation.id !== dest.id && bestTransitResult) {
       const destLocEn = getLocalizedPlace(dest, "en");
       const destLocJa = getLocalizedPlace(dest, "ja");
 
@@ -704,6 +707,9 @@ function simulateRouteIncremental(
       }
       currentMins += bestTransitMins;
     }
+
+    currentLocation = dest;
+    visitedPoiCount += 1;
 
     const visitMins = useMinVisits
       ? nextCand.minVisitMins

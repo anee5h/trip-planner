@@ -135,8 +135,10 @@ export function calculateGeneratedPlanCost(
   let totalTransitMin = 0;
   let totalTransitMax = 0;
   const legs = plan.routeLegs || [];
-  legs.forEach((leg) => {
-    const est = estimateLocalTransitFare(leg, transportMode);
+  const fareComponents = legs.map((leg) =>
+    estimateLocalTransitFare(leg, transportMode),
+  );
+  fareComponents.forEach((est) => {
     totalTransitMin += est.min * safeParty;
     totalTransitMax += est.max * safeParty;
   });
@@ -144,15 +146,16 @@ export function calculateGeneratedPlanCost(
   const localTransitComp: CostComponent = {
     min: totalTransitMin,
     max: totalTransitMax,
-    source: legs.some((l) => l.source === "estimated")
-      ? "estimated"
-      : "curated",
+    source:
+      fareComponents.length > 0 &&
+      fareComponents.every((c) => c.source === "curated")
+        ? "curated"
+        : "estimated",
     applicable: legs.length > 0,
   };
 
   // 3. Origin Transport
   const originComp = estimateOriginTransportFare(hasOriginInfo);
-  // (We no longer lower confidence here because it's usually not applicable or scoped out.)
 
   // 4. Meals (only if meal step exists)
   const mealSteps = plan.steps.filter((s) => s.type === "meal");
@@ -186,30 +189,21 @@ export function calculateGeneratedPlanCost(
     return true;
   });
 
-  const grandTotalMin =
-    originComp.min +
-    localTransitComp.min +
-    admissionComp.min +
-    mealsComp.min +
-    parkingComp.min;
-  const grandTotalMax =
-    originComp.max +
-    localTransitComp.max +
-    admissionComp.max +
-    mealsComp.max +
-    parkingComp.max;
+  const applicableComponents = [
+    originComp,
+    localTransitComp,
+    admissionComp,
+    mealsComp,
+    parkingComp,
+  ].filter((c) => c.applicable);
 
-  // Compute confidence ONLY on applicable components
-  let computedConfidence: "estimated" | "verified" = "verified";
-  if (
-    (admissionComp.applicable && admissionComp.source !== "curated") ||
-    (localTransitComp.applicable && localTransitComp.source !== "curated") ||
-    (mealsComp.applicable && mealsComp.source !== "curated") ||
-    (parkingComp.applicable && parkingComp.source !== "curated") ||
-    (originComp.applicable && originComp.source !== "curated")
-  ) {
-    computedConfidence = "estimated";
-  }
+  const grandTotalMin = applicableComponents.reduce((sum, c) => sum + c.min, 0);
+  const grandTotalMax = applicableComponents.reduce((sum, c) => sum + c.max, 0);
+
+  const computedConfidence: "estimated" | "verified" =
+    applicableComponents.every((c) => c.source === "curated")
+      ? "verified"
+      : "estimated";
 
   return {
     originTransport: originComp,

@@ -25,6 +25,22 @@ export interface DestinationCombo {
   };
 }
 
+function getCandidateTier(
+  primary: Destination,
+  candidate: Destination,
+): number {
+  if (primary.relationships?.featuredDestinationIds?.includes(candidate.id)) {
+    return 1;
+  }
+  if (candidate.relationships?.parentDestinationId === primary.id) {
+    return 2;
+  }
+  if (primary.areaId && candidate.areaId === primary.areaId) {
+    return 3;
+  }
+  return 4;
+}
+
 export function findNearbyCombinations(
   primary: Destination,
   context?: Partial<RecommendationContext>,
@@ -92,9 +108,16 @@ export function findNearbyCombinations(
   }
 
   candidates.sort((a, b) => {
-    if (a.isChildOfPrimary && !b.isChildOfPrimary) return -1;
-    if (!a.isChildOfPrimary && b.isChildOfPrimary) return 1;
-    return a.transitMins - b.transitMins || a.distKm - b.distKm;
+    const tierA = getCandidateTier(primary, a.place);
+    const tierB = getCandidateTier(primary, b.place);
+    if (tierA !== tierB) return tierA - tierB;
+
+    const ratingA = a.place.ratings?.overall ?? 0;
+    const ratingB = b.place.ratings?.overall ?? 0;
+    if (ratingB !== ratingA) return ratingB - ratingA;
+
+    if (a.distKm !== b.distKm) return a.distKm - b.distKm;
+    return a.place.id.localeCompare(b.place.id);
   });
 
   const combos: DestinationCombo[] = [];

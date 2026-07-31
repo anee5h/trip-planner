@@ -34,7 +34,12 @@ const defaultMarkerIcon = L.icon({
 function FitDestinations({ destinations }: { destinations: Destination[] }) {
   const map = useMap();
   useEffect(() => {
-    if (destinations.length > 0) {
+    if (destinations.length === 1 && destinations[0].coordinates) {
+      map.setView(
+        [destinations[0].coordinates.lat, destinations[0].coordinates.lng],
+        14,
+      );
+    } else if (destinations.length > 1) {
       const bounds = L.latLngBounds(
         destinations.map((d) => [d.coordinates!.lat, d.coordinates!.lng]),
       );
@@ -157,6 +162,10 @@ export default function DestinationMap({
                         destinationName={placeName}
                         variant="button"
                         className="w-full h-8 text-xs font-semibold"
+                        addLabel={locale === "ja" ? "お気に入り" : "Save"}
+                        removeLabel={
+                          locale === "ja" ? "お気に入りから削除" : "Remove"
+                        }
                       />
                     </div>
                   </div>
