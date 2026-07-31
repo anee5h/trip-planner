@@ -119,15 +119,23 @@ export default function Navbar() {
         <Link
           to="/"
           aria-label="Meguruto home"
-          className="flex items-center gap-2 font-bold text-xl tracking-tight shrink-0"
+          className="flex shrink-0 items-center gap-2 font-bold tracking-tight"
           onClick={() => setMenuOpen(false)}
         >
-          <MegurutoMark className="size-7 sm:size-[30px]" />
-          <span className="hidden sm:inline">
-            <span className="text-emerald-600 dark:text-emerald-400">
+          <span
+            data-testid="navbar-brand-mark-frame"
+            className="inline-flex rounded-[10px] bg-white p-[2px] ring-1 ring-slate-200 shadow-sm dark:ring-white/50"
+          >
+            <MegurutoMark className="size-7 min-[390px]:size-[30px]" />
+          </span>
+          <span
+            data-testid="navbar-brand-wordmark"
+            className="hidden min-[360px]:inline text-lg min-[390px]:text-xl"
+          >
+            <span className="text-emerald-600 dark:text-emerald-300">
               Meguru
             </span>
-            <span className="text-slate-800 dark:text-slate-200">to</span>
+            <span className="text-slate-900 dark:text-white">to</span>
           </span>
         </Link>
 
