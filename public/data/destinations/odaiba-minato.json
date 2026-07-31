@@ -79,7 +79,7 @@
   },
   "collections": [],
   "relationships": {
-    "parentDestinationId": "minato-city",
+    "parentDestinationId": "koto-city",
     "featuredDestinationIds": ["miraikan", "joypolis"]
   },
   "bestSeason": "Spring & Autumn",
