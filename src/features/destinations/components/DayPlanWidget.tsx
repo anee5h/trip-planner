@@ -59,10 +59,20 @@ export function DayPlanWidget({
 
   const [planType, setPlanType] = useState<DayPlanType>("full_day");
   const [startTime, setStartTime] = useState("09:00");
+  const [availableMinutes, setAvailableMinutes] = useState<number>(540);
   const [pace, setPace] = useState<DayPlanPace>("balanced");
   const [partySize, setPartySize] = useState(externalPartySize);
   const [catchmentScope, setCatchmentScope] =
     useState<CatchmentScope>("nearby");
+
+  const finishTime = useMemo(() => {
+    const [h, m] = startTime.split(":").map(Number);
+    const startTotal = (h || 9) * 60 + (m || 0);
+    const endTotal = startTotal + availableMinutes;
+    const endH = Math.floor(endTotal / 60) % 24;
+    const endM = endTotal % 60;
+    return `${String(endH).padStart(2, "0")}:${String(endM).padStart(2, "0")}`;
+  }, [startTime, availableMinutes]);
 
   const [generatedPlan, setGeneratedPlan] = useState<DayPlan | null>(null);
 
@@ -91,6 +101,7 @@ export function DayPlanWidget({
     const newPlan = generateDayPlan(destination, {
       planType: activePlanType,
       startTime,
+      availableMinutes,
       pace,
       partySize,
       catchmentScope,
@@ -353,10 +364,12 @@ export function DayPlanWidget({
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 text-xs">
-              {/* Start Time */}
+              {/* Arrive at First Stop */}
               <div>
                 <label className="block font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
-                  {locale === "ja" ? "開始時間" : "Start Time"}
+                  {locale === "ja"
+                    ? "最初のスポットに到着"
+                    : "Arrive at first stop"}
                 </label>
                 <select
                   value={startTime}
@@ -372,7 +385,35 @@ export function DayPlanWidget({
                   )}
                 </select>
               </div>
-              {/* Plan Type */}
+
+              {/* Time Available */}
+              <div>
+                <label className="block font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
+                  {locale === "ja" ? "滞在可能時間" : "Time available"}
+                </label>
+                <select
+                  value={availableMinutes}
+                  onChange={(e) => {
+                    const val = Number(e.target.value);
+                    setAvailableMinutes(val);
+                    if (val <= 300) setPlanType("half_day");
+                    else setPlanType("full_day");
+                  }}
+                  className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-3 py-2.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500 min-h-[44px]"
+                >
+                  <option value={180}>
+                    {locale === "ja" ? "3時間" : "3 hours"}
+                  </option>
+                  <option value={300}>
+                    {locale === "ja" ? "半日 (5時間)" : "Half day · 5 hours"}
+                  </option>
+                  <option value={540}>
+                    {locale === "ja" ? "1日 (9時間)" : "Full day · 9 hours"}
+                  </option>
+                </select>
+              </div>
+
+              {/* Plan Type Target */}
               <div>
                 <label className="block font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
                   {locale === "ja" ? "コース種類" : "Course Type"}
@@ -459,6 +500,23 @@ export function DayPlanWidget({
                   ))}
                 </select>
               </div>
+            </div>
+
+            {/* Planning Window Scope Note Banner */}
+            <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/80 dark:border-slate-700/60 flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs text-slate-600 dark:text-slate-300 gap-1.5">
+              <div className="flex items-center gap-2 font-medium">
+                <Clock className="w-4 h-4 text-emerald-500 shrink-0" />
+                <span>
+                  {locale === "ja"
+                    ? `計画タイムウィンドウ: ${startTime}–${finishTime}`
+                    : `Planning window: ${startTime}–${finishTime}`}
+                </span>
+              </div>
+              <span className="text-[11px] text-slate-400 dark:text-slate-400 font-medium">
+                {locale === "ja"
+                  ? "最初のスポットまでの移動時間は含まれません。"
+                  : "Travel to the first stop is not included."}
+              </span>
             </div>
 
             <div className="flex items-center justify-end gap-3 pt-2">

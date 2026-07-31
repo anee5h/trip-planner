@@ -69,7 +69,7 @@ export function estimateOriginTransportFare(
   originFareMax?: number,
 ): CostComponent {
   if (!hasOriginInfo) {
-    return { min: 0, max: 0, source: "unknown", applicable: true };
+    return { min: 0, max: 0, source: "unknown", applicable: false };
   }
   return {
     min: originFareMin ?? 1500,
@@ -87,7 +87,6 @@ export function calculateGeneratedPlanCost(
 ): GeneratedPlanCostResult {
   const safeParty = Math.max(1, partySize);
   const assumptions: PlanAssumption[] = [];
-  let isAnyUnknownOrEstimated = false;
 
   // 1. Admission Tickets (deduplicated by destination ID)
   const uniqueDestinationsMap = new Map<string, Destination>();
@@ -114,8 +113,6 @@ export function calculateGeneratedPlanCost(
       totalAdmissionMax += ticketVal * safeParty;
     } else {
       hasMissingTickets = true;
-      isAnyUnknownOrEstimated = true;
-      isAnyUnknownOrEstimated = true;
       assumptions.push({
         type: "estimated_cost",
         destinationId: dest.id,
@@ -140,7 +137,6 @@ export function calculateGeneratedPlanCost(
   const legs = plan.routeLegs || [];
   legs.forEach((leg) => {
     const est = estimateLocalTransitFare(leg, transportMode);
-    if (est.source !== "curated") isAnyUnknownOrEstimated = true;
     totalTransitMin += est.min * safeParty;
     totalTransitMax += est.max * safeParty;
   });
@@ -156,16 +152,7 @@ export function calculateGeneratedPlanCost(
 
   // 3. Origin Transport
   const originComp = estimateOriginTransportFare(hasOriginInfo);
-  if (originComp.source === "unknown") {
-    isAnyUnknownOrEstimated = true;
-    assumptions.push({
-      type: "estimated_cost",
-      message: {
-        en: "Origin transport is not included in this estimate.",
-        ja: "出発地からの交通費は本見積もりに含まれていません。",
-      },
-    });
-  }
+  // (We no longer lower confidence here because it's usually not applicable or scoped out.)
 
   // 4. Meals (only if meal step exists)
   const mealSteps = plan.steps.filter((s) => s.type === "meal");
@@ -212,6 +199,18 @@ export function calculateGeneratedPlanCost(
     mealsComp.max +
     parkingComp.max;
 
+  // Compute confidence ONLY on applicable components
+  let computedConfidence: "estimated" | "verified" = "verified";
+  if (
+    (admissionComp.applicable && admissionComp.source !== "curated") ||
+    (localTransitComp.applicable && localTransitComp.source !== "curated") ||
+    (mealsComp.applicable && mealsComp.source !== "curated") ||
+    (parkingComp.applicable && parkingComp.source !== "curated") ||
+    (originComp.applicable && originComp.source !== "curated")
+  ) {
+    computedConfidence = "estimated";
+  }
+
   return {
     originTransport: originComp,
     localTransit: localTransitComp,
@@ -219,7 +218,7 @@ export function calculateGeneratedPlanCost(
     meals: mealsComp,
     parking: parkingComp,
     totalRange: [grandTotalMin, grandTotalMax],
-    confidence: isAnyUnknownOrEstimated ? "estimated" : "verified",
+    confidence: computedConfidence,
     assumptions: deduplicatedAssumptions,
   };
 }

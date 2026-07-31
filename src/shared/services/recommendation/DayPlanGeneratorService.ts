@@ -59,6 +59,13 @@ export interface DayPlanStep {
   hasUncertainHours?: boolean;
 }
 
+export type PlanFailureReason =
+  | "anchor_exceeds_time_window"
+  | "insufficient_real_pois"
+  | "no_feasible_candidate_pair"
+  | "unusable_transit_leg"
+  | "unusable_return_leg";
+
 export interface DayPlan {
   id: string;
   title: { en: string; ja: string };
@@ -74,12 +81,14 @@ export interface DayPlan {
   canFallbackToHalfDay?: boolean;
   unfeasibleErrorMessage?: { en: string; ja: string };
   anchor_exceeds_time_window?: boolean;
+  failureReason?: PlanFailureReason;
   uncertainHoursDisclosures: Array<{ destinationId: string; name: string }>;
 }
 
 export interface DayPlanOptions {
   planType?: DayPlanType;
   startTime?: string;
+  availableMinutes?: number;
   pace?: DayPlanPace;
   partySize?: number;
   maxEndTime?: string;
@@ -140,11 +149,26 @@ export function isRealDestinationStop(step: DayPlanStep): boolean {
   return step.durationMinutes > 0;
 }
 
+export function getTimeBlock(
+  minutes: number,
+): "morning" | "afternoon" | "evening" {
+  const norm = Math.max(0, minutes) % (24 * 60);
+  if (norm < 12 * 60) return "morning";
+  if (norm < 17 * 60) return "afternoon";
+  return "evening";
+}
+
 function formatTimeFromMidnight(mins: number): string {
   const normalized = Math.max(0, mins) % (24 * 60);
   const hours = Math.floor(normalized / 60);
   const minutes = normalized % 60;
   return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
+}
+
+export function isStationDestination(
+  dest: Destination | undefined,
+): dest is Destination {
+  return dest?.kind === "station";
 }
 
 export function resolveReturnEndpoint(
@@ -162,21 +186,21 @@ export function resolveReturnEndpoint(
   const nearestStationId = rels?.nearestStationId as string | undefined;
   if (nearestStationId) {
     const st = catsToUse.find((d) => d.id === nearestStationId);
-    if (st) return st;
+    if (isStationDestination(st)) return st;
   }
 
   if (finalStop.relationships?.parentDestinationId) {
     const parent = catsToUse.find(
       (d) => d.id === finalStop.relationships?.parentDestinationId,
     );
-    if (parent && (parent.role === "hub" || parent.kind === "city")) {
+    if (isStationDestination(parent)) {
       return parent;
     }
   }
 
   if (hasCoordinates(finalStop)) {
     const nearbyStations = catsToUse.filter(
-      (d) => d.kind === "station" && hasCoordinates(d),
+      (d) => isStationDestination(d) && hasCoordinates(d),
     );
     let closest: Destination | null = null;
     let minD = 5.0;
@@ -233,7 +257,8 @@ export function generateDayPlan(
     options?.startTime || "09:00",
   );
 
-  const planCeiling = planType === "half_day" ? 5 * 60 : 10 * 60;
+  const planCeiling =
+    options?.availableMinutes || (planType === "half_day" ? 5 * 60 : 10 * 60);
   let maxEndTimeMins: number | null = null;
   if (options?.maxEndTime) {
     maxEndTimeMins = parseTimeToMinutes(options.maxEndTime);
@@ -242,7 +267,8 @@ export function generateDayPlan(
     maxEndTimeMins !== null
       ? maxEndTimeMins - startMinsFromMidnight
       : planCeiling;
-  const hardAvailableMinutes = Math.min(planCeiling, requestedWindow);
+  const hardAvailableMinutes =
+    options?.availableMinutes || Math.min(planCeiling, requestedWindow);
 
   const paceMultiplier =
     pace === "relaxed" ? 1.25 : pace === "packed" ? 0.8 : 1.0;
@@ -543,17 +569,16 @@ function simulateRouteIncremental(
     steps.push({
       id: "step-hub-anchor",
       type: "buffer",
-      timeBlock: "morning",
+      timeBlock: getTimeBlock(currentMins),
       startTime: formatTimeFromMidnight(currentMins),
-      endTime: formatTimeFromMidnight(currentMins + 30),
-      durationMinutes: 30,
+      endTime: formatTimeFromMidnight(currentMins),
+      durationMinutes: 0,
       destination: primary,
       title: {
         en: `Start at ${getLocalizedPlace(primary, "en").name}`,
         ja: `${getLocalizedPlace(primary, "ja").name}集合・出発`,
       },
     });
-    currentMins += 30;
   }
 
   let currentLocation: Destination = primary;
@@ -649,7 +674,7 @@ function simulateRouteIncremental(
       steps.push({
         id: `travel-${currentLocation.id}-${dest.id}`,
         type: "travel",
-        timeBlock: currentMins < 12 * 60 ? "morning" : "afternoon",
+        timeBlock: getTimeBlock(currentMins),
         startTime: formatTimeFromMidnight(currentMins),
         endTime: formatTimeFromMidnight(currentMins + bestTransitMins),
         durationMinutes: bestTransitMins,
@@ -691,7 +716,7 @@ function simulateRouteIncremental(
         steps.push({
           id: "meal-lunch",
           type: "meal",
-          timeBlock: "afternoon",
+          timeBlock: getTimeBlock(currentMins),
           startTime: formatTimeFromMidnight(currentMins),
           endTime: formatTimeFromMidnight(currentMins + 60),
           durationMinutes: 60,
@@ -708,7 +733,7 @@ function simulateRouteIncremental(
           steps.push({
             id: "buffer-lunch",
             type: "buffer",
-            timeBlock: "morning",
+            timeBlock: getTimeBlock(currentMins),
             startTime: formatTimeFromMidnight(currentMins),
             endTime: formatTimeFromMidnight(11 * 60 + 30),
             durationMinutes: gap,
@@ -721,7 +746,7 @@ function simulateRouteIncremental(
           steps.push({
             id: "meal-lunch",
             type: "meal",
-            timeBlock: "afternoon",
+            timeBlock: getTimeBlock(currentMins),
             startTime: formatTimeFromMidnight(currentMins),
             endTime: formatTimeFromMidnight(currentMins + 60),
             durationMinutes: 60,
@@ -743,12 +768,7 @@ function simulateRouteIncremental(
     steps.push({
       id: `step-${dest.id}`,
       type: "destination",
-      timeBlock:
-        currentMins < 12 * 60
-          ? "morning"
-          : currentMins < 17 * 60
-            ? "afternoon"
-            : "evening",
+      timeBlock: getTimeBlock(currentMins),
       startTime: formatTimeFromMidnight(currentMins),
       endTime: formatTimeFromMidnight(currentMins + visitMins),
       durationMinutes: visitMins,
@@ -795,7 +815,7 @@ function simulateRouteIncremental(
       steps.push({
         id: `travel-return-${returnEndpoint.id}`,
         type: "travel",
-        timeBlock: "evening",
+        timeBlock: getTimeBlock(currentMins),
         startTime: formatTimeFromMidnight(currentMins),
         endTime: formatTimeFromMidnight(
           currentMins + retTransit.durationMinutes,

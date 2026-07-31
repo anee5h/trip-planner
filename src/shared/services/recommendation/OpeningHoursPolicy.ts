@@ -67,13 +67,23 @@ export function getOpeningHoursAssessment(
   const displayText =
     typeof dest.businessHours === "string" ? dest.businessHours : undefined;
 
-  if (hasHours && fieldVerifiedAt && sourceUrl) {
+  if (fieldVerifiedAt) {
     const verifiedDate = new Date(fieldVerifiedAt);
     const isValidDate =
       !Number.isNaN(verifiedDate.getTime()) &&
       verifiedDate.getTime() <= now.getTime();
 
-    if (isValidDate) {
+    if (!isValidDate) {
+      return {
+        accessType: "scheduled",
+        status: "unverified",
+        requiresWarning: true,
+        displayText,
+        sourceUrl,
+      };
+    }
+
+    if (hasHours && sourceUrl) {
       const ageInDays =
         (now.getTime() - verifiedDate.getTime()) / (1000 * 60 * 60 * 24);
 

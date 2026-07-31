@@ -109,7 +109,9 @@ export function findNearbyCombinations(
       continue;
     }
 
-    const primaryDur = getEffectiveVisitDuration(primary);
+    const primaryDur = isPrimaryHub
+      ? { minMins: 0, prefMins: 0, maxMins: 0, source: "default" as const }
+      : getEffectiveVisitDuration(primary);
     const secondaryDur = getEffectiveVisitDuration(secondary);
 
     const visitMinMins = primaryDur.minMins + secondaryDur.minMins;

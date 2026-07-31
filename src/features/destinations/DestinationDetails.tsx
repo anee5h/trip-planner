@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
+import { addRecentlyViewedDestination } from "@/shared/hooks/useRecentlyViewedDestinations";
 import { getDestination } from "@/shared/services/destination/DestinationService";
 import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
 import DestinationCard from "./components/DestinationCard";
@@ -288,6 +289,7 @@ export default function DestinationDetails() {
         setDestination(
           buildRecommendationCandidate(destObj, { homeStationCoords }),
         );
+        addRecentlyViewedDestination(destObj.id);
         setDestLoading(false);
       });
     }

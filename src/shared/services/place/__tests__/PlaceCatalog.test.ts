@@ -21,14 +21,16 @@ describe("PlaceCatalog", () => {
   it("keeps official website links destination-only", () => {
     const places = getCanonicalPlaces();
     expect(places.filter((place) => place.placeType === "hub")).toHaveLength(
-      152,
+      153,
     );
     expect(
       places.filter((place) => place.placeType === "destination"),
-    ).toHaveLength(367);
+    ).toHaveLength(366);
     expect(
       places
-        .filter((place) => place.placeType === "hub")
+        .filter(
+          (place) => place.placeType === "hub" && place.kind !== "district",
+        )
         .every((place) => !place.officialWebsite),
     ).toBe(true);
   });

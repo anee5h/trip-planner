@@ -38642,6 +38642,9 @@
   {
     "id": "odaiba-minato",
     "name": "Odaiba (Minato)",
+    "kind": "district",
+    "role": "hub",
+    "placeType": "hub",
     "prefecture": "Tokyo",
     "region": "Kanto",
     "categories": ["City", "Sea", "Theme Park"],
@@ -38720,7 +38723,8 @@
     },
     "collections": [],
     "relationships": {
-      "parentDestinationId": "minato-city"
+      "parentDestinationId": "minato-city",
+      "featuredDestinationIds": ["miraikan", "joypolis"]
     },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
