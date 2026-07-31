@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
+import { MegurutoMark } from "@/shared/components/brand/MegurutoMark";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { useTranslation } from "react-i18next";
 
@@ -68,9 +69,12 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
         <div className="overflow-y-auto min-h-0 flex-1 pt-2">
           {/* Header */}
           <div className="text-center mb-6">
-            <div className="text-2xl font-bold mb-1">
-              <span className="text-emerald-400">Meguru</span>
-              <span className="text-white">to</span>
+            <div className="mb-1 flex items-center justify-center gap-2 text-2xl font-bold">
+              <MegurutoMark className="size-8" />
+              <span>
+                <span className="text-emerald-400">Meguru</span>
+                <span className="text-white">to</span>
+              </span>
             </div>
             <p className="text-xs text-emerald-200/80 mb-2">
               {t("brand.tagline")}
