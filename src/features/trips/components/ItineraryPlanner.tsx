@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import type { Trip, TripStop } from "@/shared/types/trip";
 import { TripStopType } from "@/shared/types/trip";
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
@@ -16,6 +16,9 @@ import {
   Calendar as CalendarIcon,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { SearchableDestinationPicker } from "@/shared/components/ui/SearchableDestinationPicker";
+import { useTripStore } from "@/shared/hooks/useTripStore";
+import { useRecentlyViewedDestinations } from "@/shared/hooks/useRecentlyViewedDestinations";
 
 interface ItineraryPlannerProps {
   trip: Trip;
@@ -74,14 +77,16 @@ function formatDisplayDate(dateStr: string, locale: string = "en"): string {
         parseInt(parts[1], 10) - 1,
         parseInt(parts[2], 10),
       );
-      return dateObj.toLocaleDateString(locale === "ja" ? "ja-JP" : "en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-      });
+      if (!isNaN(dateObj.getTime())) {
+        return dateObj.toLocaleDateString(locale === "ja" ? "ja-JP" : "en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        });
+      }
     }
   } catch (e) {
-    // Fallback
+    // Fallback to raw string if parsing fails
   }
   return dateStr;
 }
@@ -103,8 +108,16 @@ export default function ItineraryPlanner({
   const [arrivalTime, setArrivalTime] = useState("");
   const [departureTime, setDepartureTime] = useState("");
   const [estimatedCost, setEstimatedCost] = useState("");
+  const { favorites } = useTripStore();
+  const recentDestinations = useRecentlyViewedDestinations();
 
   const destinations = getDestinationList() as Destination[];
+
+  const savedDestinations = useMemo(() => {
+    return (favorites || [])
+      .map((id) => destinations.find((d) => d.id === id))
+      .filter((d): d is Destination => Boolean(d));
+  }, [favorites, destinations]);
 
   // Generate Trip Day Presets (Day 1, Day 2, Day 3)
   const getTripDatePresets = () => {
@@ -238,18 +251,21 @@ export default function ItineraryPlanner({
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
               {t("ui.selectPlace")}
             </label>
-            <select
+            <SearchableDestinationPicker
               value={selectedDestId}
-              onChange={(e) => setSelectedDestId(e.target.value)}
-              className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-            >
-              <option value="">-- {t("ui.selectPlace")} --</option>
-              {destinations.map((d) => (
-                <option key={d.id} value={d.id}>
-                  {d.name} ({d.prefecture})
-                </option>
-              ))}
-            </select>
+              onSelect={(d) => setSelectedDestId(d.id)}
+              placeholder={`-- ${t("ui.selectPlace")} --`}
+              locale={i18n.language === "ja" ? "ja" : "en"}
+              savedDestinations={savedDestinations}
+              recentDestinations={recentDestinations}
+              activeItineraryDestinations={trip?.stops
+                ?.map((s) =>
+                  s.destinationId
+                    ? getDestinationList().find((d) => d.id === s.destinationId)
+                    : null,
+                )
+                .filter((d): d is Destination => Boolean(d))}
+            />
           </div>
         ) : (
           <div>

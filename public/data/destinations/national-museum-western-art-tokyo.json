@@ -100,5 +100,6 @@
     "min": 5,
     "max": 7
   },
-  "officialWebsite": "https://www.nmwa.go.jp/"
+  "officialWebsite": "https://www.nmwa.go.jp/",
+  "businessHours": "09:00 - 17:00 (Daily)"
 }

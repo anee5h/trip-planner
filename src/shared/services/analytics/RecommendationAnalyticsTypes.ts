@@ -9,7 +9,14 @@ export type RecommendationEventType =
   | "reason_code_feedback"
   | "recommendation_impression"
   | "no_result_impression"
-  | "fallback_impression";
+  | "fallback_impression"
+  | "day_plan_creation_started"
+  | "day_plan_generated"
+  | "day_plan_regenerated"
+  | "day_plan_saved"
+  | "day_plan_start_over"
+  | "day_plan_preferences_opened"
+  | "cost_breakdown_opened";
 
 export interface BaseAnalyticsEvent {
   eventId: string;
@@ -76,6 +83,29 @@ export interface FallbackImpressionEvent extends BaseAnalyticsEvent {
   fallbackReason: string;
 }
 
+export interface PlanningToolAnalyticsEvent extends BaseAnalyticsEvent {
+  eventType:
+    | "day_plan_creation_started"
+    | "day_plan_generated"
+    | "day_plan_regenerated"
+    | "day_plan_saved"
+    | "day_plan_start_over"
+    | "day_plan_preferences_opened"
+    | "cost_breakdown_opened";
+  destinationId: string;
+  planType?: "half_day" | "full_day";
+  durationMode?: string;
+  pace?: "relaxed" | "balanced" | "packed";
+  partySize?: number;
+  generatedStopCount?: number;
+  generatedDurationMinutes?: number;
+  primaryRole?: "poi" | "hub";
+  availableMinutes?: number;
+  startTime?: string;
+  returnMode?: "anchor" | "nearest_station" | "none";
+  source: "destination_details";
+}
+
 export type AnyRecommendationAnalyticsEvent =
   | RecommendationFeedbackEvent
   | RecommendationClickEvent
@@ -85,4 +115,5 @@ export type AnyRecommendationAnalyticsEvent =
   | ReasonCodeFeedbackEvent
   | RecommendationImpressionEvent
   | NoResultImpressionEvent
-  | FallbackImpressionEvent;
+  | FallbackImpressionEvent
+  | PlanningToolAnalyticsEvent;

@@ -162,5 +162,6 @@
     "rubricVersion": 1,
     "method": "assisted",
     "confidence": "low"
-  }
+  },
+  "businessHours": "10:00 - 17:00 (Closed Tuesdays)"
 }

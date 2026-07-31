@@ -1,6 +1,9 @@
 {
   "id": "odaiba-minato",
   "name": "Odaiba (Minato)",
+  "kind": "district",
+  "role": "hub",
+  "placeType": "hub",
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["City", "Sea", "Theme Park"],
@@ -42,6 +45,7 @@
     "lat": 35.6190032,
     "lng": 139.7793576
   },
+  "areaId": "odaiba",
   "comfort": {
     "heatTolerance": 8.5,
     "rainFriendly": 6,
@@ -75,7 +79,8 @@
   },
   "collections": [],
   "relationships": {
-    "parentDestinationId": "minato-city"
+    "parentDestinationId": "koto-city",
+    "featuredDestinationIds": ["miraikan", "joypolis"]
   },
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
@@ -85,5 +90,6 @@
     "min": 7,
     "max": 9
   },
-  "officialWebsite": "https://tokyo-odaiba.net/"
+  "officialWebsite": "https://tokyo-odaiba.net/",
+  "businessHours": "09:00 - 17:00 (Daily)"
 }

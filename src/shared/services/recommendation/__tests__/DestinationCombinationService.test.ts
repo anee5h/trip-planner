@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { findNearbyCombinations } from "../DestinationCombinationService";
+import { getEffectiveVisitDuration } from "../DayPlanGeneratorService";
 import type { Destination } from "@/shared/types/destination";
 
 const mockDest1 = {
@@ -40,11 +41,10 @@ describe("DestinationCombinationService", () => {
     const combos = findNearbyCombinations(mockDest1, {}, 1);
     if (combos.length > 0) {
       const combo = combos[0];
-      const pVisitMin = mockDest1.recommendedVisitHours?.min ?? 2;
-      const sVisitMin =
-        combo.secondary.recommendedVisitHours?.min ??
-        combo.secondary.totalTripHours ??
-        2;
+      const pEff = getEffectiveVisitDuration(mockDest1);
+      const sEff = getEffectiveVisitDuration(combo.secondary);
+      const pVisitMin = pEff.minMins / 60;
+      const sVisitMin = sEff.minMins / 60;
       expect(combo.combinedVisitHours[0]).toBeCloseTo(pVisitMin + sVisitMin, 1);
 
       const expectedBudgetMin =

@@ -17,7 +17,7 @@
   },
   "prefecture": "Tokyo",
   "region": "Kanto",
-  "kind": "museum",
+  "kind": "district",
   "role": "poi",
   "placeType": "destination",
   "areaId": "central-shinjuku",
@@ -26,7 +26,7 @@
   },
   "officialWebsite": "http://www.kabukicho.or.jp/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
+  "categories": ["Nightlife", "Entertainment", "District"],
   "tags": ["Culture", "Shinjuku City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gate%20of%20Kabuki-cho%20Ichiban-gai.jpg?width=1600",
   "imageMetadata": {
@@ -162,5 +162,6 @@
     "rubricVersion": 1,
     "method": "assisted",
     "confidence": "low"
-  }
+  },
+  "businessHours": "Open access"
 }

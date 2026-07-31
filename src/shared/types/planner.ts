@@ -4,6 +4,7 @@ export type Vibe =
 export type PartyProfile = "solo" | "couple" | "group";
 export type BudgetTier = "economy" | "standard" | "comfortable" | "luxury";
 export type PriceRange = readonly [min: number, max: number];
+export type CatchmentScope = "nearby" | "wider";
 
 export const PARTY_SIZE: Record<PartyProfile, number> = {
   solo: 1,

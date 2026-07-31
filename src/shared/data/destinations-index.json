@@ -81,7 +81,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "abeno-harukas-300-osaka",
@@ -195,7 +196,8 @@
     },
     "placeType": "destination",
     "areaId": "tennoji-abeno",
-    "officialWebsite": "https://www.abenoharukas-300.jp/observatory/"
+    "officialWebsite": "https://www.abenoharukas-300.jp/observatory/",
+    "businessHours": "09:00 - 22:00 (Last admission 21:30)"
   },
   {
     "id": "abukuma-cave-fukushima",
@@ -284,7 +286,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://abukumado.com/"
+    "officialWebsite": "https://abukumado.com/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "adachi-city",
@@ -374,7 +377,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "aizuwakamatsu-city",
@@ -463,7 +467,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "akasaka-minato",
@@ -546,7 +551,8 @@
       "min": 4,
       "max": 6
     },
-    "officialWebsite": "https://visit-minato-city.tokyo.jp/"
+    "officialWebsite": "https://visit-minato-city.tokyo.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "akihabara-chiyoda",
@@ -635,7 +641,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://visit-chiyoda.tokyo.jp/"
+    "officialWebsite": "https://visit-chiyoda.tokyo.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "akita-city",
@@ -725,7 +732,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "akiu-onsen-miyagi",
@@ -815,7 +823,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://www.akiuonsensyokoukai.com/"
+    "officialWebsite": "https://www.akiuonsensyokoukai.com/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "akiyoshido-cave-yamaguchi",
@@ -903,7 +912,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://akiyoshi-dai.com/"
+    "officialWebsite": "https://akiyoshi-dai.com/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "amami-iriomote-natural-site",
@@ -1011,7 +1021,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://www.env.go.jp/park/iriomote/"
+    "officialWebsite": "https://www.env.go.jp/park/iriomote/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "amanohashidate-kyoto",
@@ -1108,7 +1119,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.amanohashidate.jp/"
+    "officialWebsite": "https://www.amanohashidate.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "ameya-yokocho",
@@ -1274,7 +1286,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "aoba-castle-museum",
@@ -1442,7 +1455,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "aomori-city",
@@ -1536,7 +1550,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "arakawa-city",
@@ -1626,7 +1641,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "arakurayama-sengen-park-yamanashi",
@@ -1717,7 +1733,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.fujiyoshida.net/spot/11"
+    "officialWebsite": "https://www.fujiyoshida.net/spot/11",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "arima-onsen",
@@ -1827,7 +1844,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.arima-onsen.com/"
+    "officialWebsite": "https://www.arima-onsen.com/",
+    "businessHours": "Open access"
   },
   {
     "id": "art-tower-mito",
@@ -1927,7 +1945,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.arttowermito.or.jp/"
+    "officialWebsite": "https://www.arttowermito.or.jp/",
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "asago-city",
@@ -2020,7 +2039,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "asahikawa-city",
@@ -2104,7 +2124,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "asakusa-taito",
@@ -2197,7 +2218,8 @@
       "min": 4,
       "max": 6
     },
-    "officialWebsite": "https://www.taito-city.tokyo.jp/"
+    "officialWebsite": "https://www.taito-city.tokyo.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "ashigara",
@@ -2286,7 +2308,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.town.kaisai.kanagawa.jp/"
+    "officialWebsite": "https://www.town.kaisai.kanagawa.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "ashikaga-city",
@@ -2375,7 +2398,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "ashikaga-flower-park-tochigi",
@@ -2466,7 +2490,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.ashikaga.co.jp/"
+    "officialWebsite": "https://www.ashikaga.co.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "aso-city",
@@ -2554,7 +2579,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "asuka-fujiwara-nara",
@@ -2660,7 +2686,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://asukamura.jp/"
+    "officialWebsite": "https://asukamura.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "atami-city",
@@ -2750,7 +2777,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "atsuta-shrine-nagoya",
@@ -2853,7 +2881,8 @@
     "role": "poi",
     "placeType": "destination",
     "areaId": "atsuta",
-    "officialWebsite": "https://www.atsutajingu.or.jp/"
+    "officialWebsite": "https://www.atsutajingu.or.jp/",
+    "businessHours": "Open 24 hours (Treasure hall 09:00 - 16:30)"
   },
   {
     "id": "beppu-city",
@@ -2941,7 +2970,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "beppu-hells-oita",
@@ -3032,7 +3062,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.umi-jigoku.co.jp/"
+    "officialWebsite": "https://www.umi-jigoku.co.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "biei-town",
@@ -3116,7 +3147,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "bitchu-matsuyama-castle",
@@ -3232,7 +3264,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.city.takahashi.lg.jp/site/bitchu-matsuyama-castle/"
+    "officialWebsite": "https://www.city.takahashi.lg.jp/site/bitchu-matsuyama-castle/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "boso-no-mura",
@@ -3395,7 +3428,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "boso-peninsula",
@@ -3486,7 +3520,8 @@
       "min": 11,
       "max": 13
     },
-    "officialWebsite": "https://maruchiba.jp/"
+    "officialWebsite": "https://maruchiba.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "bunkyo-city",
@@ -3576,7 +3611,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "canal-city-hakata",
@@ -3743,7 +3779,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "chiba-city",
@@ -3856,7 +3893,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "chiba-city-folk-museum",
@@ -4023,7 +4061,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "chiba-city-museum-of-art",
@@ -4190,7 +4229,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "chiba-nokogiriyama",
@@ -4290,7 +4330,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://nokogiriyama.jp/"
+    "officialWebsite": "https://nokogiriyama.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "chiba-park",
@@ -4457,7 +4498,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "chiba-port-park",
@@ -4624,7 +4666,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "chiba-port-tower",
@@ -4727,7 +4770,8 @@
     "role": "poi",
     "placeType": "destination",
     "areaId": "chiba-port",
-    "officialWebsite": "https://chiba-porttower.com/"
+    "officialWebsite": "https://chiba-porttower.com/",
+    "businessHours": "10:00 - 21:00 (Last admission 20:30)"
   },
   {
     "id": "chiba-sawara",
@@ -4822,7 +4866,8 @@
     },
     "role": "standalone",
     "placeType": "destination",
-    "officialWebsite": "https://www.city.katori.lg.jp/"
+    "officialWebsite": "https://www.city.katori.lg.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "chiba-shrine",
@@ -4989,7 +5034,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
   },
   {
     "id": "chiba-yoro-valley",
@@ -5078,7 +5124,8 @@
       "min": 6,
       "max": 8
     },
-    "officialWebsite": "https://www.town.otaki.chiba.jp/"
+    "officialWebsite": "https://www.town.otaki.chiba.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "chiba-zoological-park",
@@ -5245,7 +5292,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "chichibu-city",
@@ -5334,7 +5382,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "chigasaki-city",
@@ -5424,7 +5473,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "chiyoda-city",
@@ -5516,7 +5566,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "chofu-tokyo",
@@ -5610,7 +5661,8 @@
       "min": 4,
       "max": 6
     },
-    "officialWebsite": "https://csa.gr.jp/"
+    "officialWebsite": "https://csa.gr.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "choshi-chiba",
@@ -5704,7 +5756,8 @@
       "min": 8,
       "max": 10
     },
-    "officialWebsite": "https://www.choshikanko.com/"
+    "officialWebsite": "https://www.choshikanko.com/",
+    "businessHours": "Open access"
   },
   {
     "id": "choshi-city",
@@ -5793,7 +5846,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "chuo-city",
@@ -5878,7 +5932,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "cup-noodles-museum-yokohama",
@@ -5972,7 +6027,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.cupnoodles-museum.jp/ja/yokohama/"
+    "officialWebsite": "https://www.cupnoodles-museum.jp/ja/yokohama/",
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "dakigaeri-valley-akita",
@@ -6074,7 +6130,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.city.senboku.akita.jp/sightseeing/spot/05_dakigaeri.html"
+    "officialWebsite": "https://www.city.senboku.akita.jp/sightseeing/spot/05_dakigaeri.html",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "dazaifu-city",
@@ -6162,7 +6219,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "dewa-sanzan-yamagata",
@@ -6254,7 +6312,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "http://www.dewasanzan.jp/"
+    "officialWebsite": "http://www.dewasanzan.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "disneyland",
@@ -6343,7 +6402,8 @@
       "min": 11,
       "max": 13
     },
-    "officialWebsite": "https://www.tokyodisneyresort.jp/tdl/"
+    "officialWebsite": "https://www.tokyodisneyresort.jp/tdl/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "disneysea",
@@ -6432,7 +6492,8 @@
       "min": 12,
       "max": 14
     },
-    "officialWebsite": "https://www.tokyodisneyresort.jp/tds/"
+    "officialWebsite": "https://www.tokyodisneyresort.jp/tds/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "dogo-onsen-ehime",
@@ -6520,7 +6581,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://dogo.jp/"
+    "officialWebsite": "https://dogo.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "dotonbori",
@@ -6688,7 +6750,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "edo-castle-tokyo",
@@ -6792,7 +6855,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://sento.kunaicho.go.jp/Edo/"
+    "officialWebsite": "https://sento.kunaicho.go.jp/Edo/",
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "edogawa-city",
@@ -6882,7 +6946,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "engakuji",
@@ -7048,7 +7113,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "08:30 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "enoshima-aquarium",
@@ -7214,7 +7280,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:00 - 17:00 (Last admission 16:00)"
   },
   {
     "id": "enoshima-island",
@@ -7306,7 +7373,8 @@
       "max": 9
     },
     "areaId": "enoshima",
-    "officialWebsite": "https://www.fujisawa-kanko.jp/"
+    "officialWebsite": "https://www.fujisawa-kanko.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "enoshima-iwaya-caves",
@@ -7480,7 +7548,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.fujisawa-kanko.jp/spot/enoshima/17.html"
+    "officialWebsite": "https://www.fujisawa-kanko.jp/spot/enoshima/17.html",
+    "businessHours": "Open access"
   },
   {
     "id": "enoshima-sea-candle",
@@ -7646,7 +7715,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "enoshima-shrine",
@@ -7812,7 +7882,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
   },
   {
     "id": "former-hokkaido-government-office",
@@ -7978,7 +8049,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "fuji-5-lake",
@@ -8073,7 +8145,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.fujisan.ne.jp/"
+    "officialWebsite": "https://www.fujisan.ne.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "fujikawaguchiko-town",
@@ -8167,7 +8240,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "fujiko-f-fujio-museum",
@@ -8333,7 +8407,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "fujinomiya-city",
@@ -8422,7 +8497,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "fujisawa-city",
@@ -8518,7 +8594,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "fujiyoshida-city",
@@ -8612,7 +8689,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "fukui",
@@ -8701,7 +8779,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.fukuikankou.jp/"
+    "officialWebsite": "https://www.fukuikankou.jp/",
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "fukuoka-art-museum",
@@ -8868,7 +8947,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "fukuoka-castle-ruins",
@@ -9035,7 +9115,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "fukuoka-city",
@@ -9142,7 +9223,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "fukuoka-tower",
@@ -9309,7 +9391,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 22:00 (Last admission 21:30)"
   },
   {
     "id": "fukuoka-yatai",
@@ -9476,7 +9559,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "fukushima-city",
@@ -9566,7 +9650,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "funabashi-city",
@@ -9656,7 +9741,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "furano-city",
@@ -9745,7 +9831,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "fushimi-inari-taisha",
@@ -9913,7 +10000,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open 24 hours (Shrine offices 08:30 - 16:30)"
   },
   {
     "id": "gala-yuzawa",
@@ -10001,7 +10089,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://gala.co.jp/"
+    "officialWebsite": "https://gala.co.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "geibikei-gorge-iwate",
@@ -10092,7 +10181,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.geibikei.co.jp/"
+    "officialWebsite": "https://www.geibikei.co.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "gero-city",
@@ -10186,7 +10276,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "gero-onsen",
@@ -10289,7 +10380,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.gero-spa.or.jp/"
+    "officialWebsite": "https://www.gero-spa.or.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "ghibli-museum",
@@ -10382,7 +10474,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://www.ghibli-museum.jp/"
+    "officialWebsite": "https://www.ghibli-museum.jp/",
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "gifu-castle-gifu",
@@ -10487,7 +10580,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.city.gifu.lg.jp/kanko/gifucastle/"
+    "officialWebsite": "https://www.city.gifu.lg.jp/kanko/gifucastle/",
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "gifu-city",
@@ -10581,7 +10675,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "gifu-gujo-hachiman",
@@ -10681,7 +10776,8 @@
       "min": 9,
       "max": 11
     },
-    "officialWebsite": "https://www.gujokankou.com/"
+    "officialWebsite": "https://www.gujokankou.com/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "gifu-magome-juku",
@@ -10782,7 +10878,8 @@
       "min": 9,
       "max": 11
     },
-    "officialWebsite": "https://kiso-magome.com/"
+    "officialWebsite": "https://kiso-magome.com/",
+    "businessHours": "Open access"
   },
   {
     "id": "ginkaku-ji",
@@ -10950,7 +11047,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "08:30 - 17:00 (Dec-Feb: 09:00 - 16:30)"
   },
   {
     "id": "ginza-urban",
@@ -11044,7 +11142,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://www.ginza.jp/"
+    "officialWebsite": "https://www.ginza.jp/",
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "ginzan-onsen-yamagata",
@@ -11133,7 +11232,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.ginzanonsen.jp/"
+    "officialWebsite": "https://www.ginzanonsen.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "golden-gai",
@@ -11154,7 +11254,7 @@
     },
     "prefecture": "Tokyo",
     "region": "Kanto",
-    "kind": "museum",
+    "kind": "district",
     "role": "poi",
     "placeType": "destination",
     "areaId": "central-shinjuku",
@@ -11163,7 +11263,7 @@
     },
     "officialWebsite": "http://goldengai.jp/",
     "officialWebsiteRequirement": "optional",
-    "categories": ["Culture"],
+    "categories": ["Nightlife", "Dining", "Historic Alley"],
     "tags": ["Culture", "Shinjuku City", "v1.9.2"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shinjuku%20Golden%20Gai.jpg?width=1600",
     "imageMetadata": {
@@ -11299,7 +11399,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "goshikinuma-ponds-fukushima",
@@ -11401,7 +11502,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.urabandai-inf.com/"
+    "officialWebsite": "https://www.urabandai-inf.com/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "gotemba-city",
@@ -11495,7 +11597,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "gotoku-ji",
@@ -11661,7 +11764,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "08:30 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "gunkanjima-hashima-nagasaki",
@@ -11769,7 +11873,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://www.gunkanjima-tour.jp/"
+    "officialWebsite": "https://www.gunkanjima-tour.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "gunma-ikaho-onsen",
@@ -11865,7 +11970,8 @@
       "min": 9,
       "max": 11
     },
-    "officialWebsite": "https://www.ikaho-kankou.com/"
+    "officialWebsite": "https://www.ikaho-kankou.com/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "gunma-kusatsu-onsen",
@@ -11967,7 +12073,8 @@
       "min": 11,
       "max": 13
     },
-    "officialWebsite": "https://www.kusatsu-onsen.ne.jp/"
+    "officialWebsite": "https://www.kusatsu-onsen.ne.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "gunma-shima-onsen",
@@ -12062,7 +12169,8 @@
       "min": 10,
       "max": 12
     },
-    "officialWebsite": "https://www.shimaonsen.com/"
+    "officialWebsite": "https://www.shimaonsen.com/",
+    "businessHours": "Open access"
   },
   {
     "id": "hachinohe-city",
@@ -12152,7 +12260,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "hachioji-castle-tokyo",
@@ -12236,7 +12345,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.city.hachioji.tokyo.jp/kankobunka/001/003/p005221.html"
+    "officialWebsite": "https://www.city.hachioji.tokyo.jp/kankobunka/001/003/p005221.html",
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "hachioji-tokyo",
@@ -12329,7 +12439,8 @@
     "recommendedVisitHours": {
       "min": 7,
       "max": 13
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "hakata-machiya-folk-museum",
@@ -12496,7 +12607,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "hakkeijima",
@@ -12584,7 +12696,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.seaparadise.co.jp/"
+    "officialWebsite": "https://www.seaparadise.co.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "hakodate-city",
@@ -12669,7 +12782,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "hakodate-night-view",
@@ -12783,7 +12897,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://334.co.jp/"
+    "officialWebsite": "https://334.co.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "hakone-town",
@@ -12891,7 +13006,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "hakuba-village",
@@ -12985,7 +13101,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "hamamatsu-city",
@@ -13085,7 +13202,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "harry-potter-studio",
@@ -13168,7 +13286,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.wbstudiotour.jp/"
+    "officialWebsite": "https://www.wbstudiotour.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "hasedera",
@@ -13334,7 +13453,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "08:30 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "hatsukaichi-city",
@@ -13422,7 +13542,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "heian-jingu",
@@ -13590,7 +13711,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "06:00 - 17:30 (Garden 08:30 - 17:00)"
   },
   {
     "id": "higashiyama-sky-tower-nagoya",
@@ -13695,7 +13817,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.higashiyama.city.nagoya.jp/"
+    "officialWebsite": "https://www.higashiyama.city.nagoya.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "hikone-castle-shiga",
@@ -13811,7 +13934,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://hikonecastle.com/"
+    "officialWebsite": "https://hikonecastle.com/",
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "hikone-city",
@@ -13895,7 +14019,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "himeji-castle",
@@ -14004,7 +14129,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.himejicastle.jp/"
+    "officialWebsite": "https://www.himejicastle.jp/",
+    "businessHours": "09:00 - 17:00 (Last admission 16:00)"
   },
   {
     "id": "himeji-city",
@@ -14088,7 +14214,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "hino-city",
@@ -14178,7 +14305,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "hiraizumi-chusonji-iwate",
@@ -14286,7 +14414,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://www.chusonji.or.jp/"
+    "officialWebsite": "https://www.chusonji.or.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "hirosaki-castle",
@@ -14385,7 +14514,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.hirosakijo.jp/"
+    "officialWebsite": "https://www.hirosakijo.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "hirosaki-city",
@@ -14474,7 +14604,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "hiroshima-city",
@@ -14568,7 +14699,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "hiroshima-peace-memorial",
@@ -14672,7 +14804,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://pcf.city.hiroshima.jp/"
+    "officialWebsite": "https://pcf.city.hiroshima.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "hokkaido-jingu",
@@ -14838,7 +14971,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
   },
   {
     "id": "hokkaido-museum-of-modern-art",
@@ -15004,7 +15138,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "hokokuji",
@@ -15170,7 +15305,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "08:30 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "honmaru-palace",
@@ -15337,7 +15473,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "horyuji-temple-nara",
@@ -15457,7 +15594,8 @@
         "description": "法隆寺地域の仏教建造物はIkaruga Townにあるユネスコ世界文化遺産です。世界最古の木造建築群である法隆寺や法起寺の五重塔など古代仏教美術の最高峰を鑑賞できます。",
         "highlights": ["ユネスコ世界遺産", "法隆寺", "世界最古の木造建築"]
       }
-    }
+    },
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "ibaraki-fukuroda-falls",
@@ -15562,7 +15700,8 @@
       "min": 8,
       "max": 10
     },
-    "officialWebsite": "https://www.daigo-kanko.jp/"
+    "officialWebsite": "https://www.daigo-kanko.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "ibaraki-hitachi-seaside-park",
@@ -15662,7 +15801,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://hitachikaihin.jp/"
+    "officialWebsite": "https://hitachikaihin.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "ibaraki-mount-tsukuba",
@@ -15757,7 +15897,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://ttca.jp/"
+    "officialWebsite": "https://ttca.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "ikaruga-town",
@@ -15841,7 +15982,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "ikebukuro-toshima",
@@ -15934,7 +16076,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.toshima-kanko.jp/"
+    "officialWebsite": "https://www.toshima-kanko.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "ikuta-ryokuchi",
@@ -16100,7 +16243,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "imperial-palace-chiyoda",
@@ -16187,7 +16331,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://sento.kunaicho.go.jp/Kyoto/"
+    "officialWebsite": "https://sento.kunaicho.go.jp/Kyoto/",
+    "businessHours": "Open access"
   },
   {
     "id": "inage-seaside-park",
@@ -16354,7 +16499,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "inamuragasaki",
@@ -16528,7 +16674,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.trip-kamakura.com/"
+    "officialWebsite": "https://www.trip-kamakura.com/",
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "inuyama-castle-aichi",
@@ -16618,7 +16765,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://inuyama-castle.jp/"
+    "officialWebsite": "https://inuyama-castle.jp/",
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "inuyama-city",
@@ -16717,7 +16865,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "ise-city",
@@ -16806,7 +16955,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "ise-grand-shrine",
@@ -16914,7 +17064,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.isejingu.or.jp/"
+    "officialWebsite": "https://www.isejingu.or.jp/",
+    "businessHours": "05:00 - 18:00 (Varies seasonally)"
   },
   {
     "id": "ishigaki-city",
@@ -17003,7 +17154,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "itabashi-city",
@@ -17093,7 +17245,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "ito-city",
@@ -17182,7 +17335,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "iwakuni-city",
@@ -17272,7 +17426,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "iwami-ginzan-shimane",
@@ -17376,7 +17531,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://www.ginzan-wm.jp/"
+    "officialWebsite": "https://www.ginzan-wm.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "iwatsuki-ningyo-museum",
@@ -17542,7 +17698,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "iya-valley-tokushima",
@@ -17634,7 +17791,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://miyoshi-tourism.jp/"
+    "officialWebsite": "https://miyoshi-tourism.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "izu",
@@ -17728,7 +17886,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://kanko.city.izu.shizuoka.jp/"
+    "officialWebsite": "https://kanko.city.izu.shizuoka.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "izumo-city",
@@ -17816,7 +17975,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "izumo-taisha",
@@ -17921,7 +18081,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.izumo-kankou.gr.jp/"
+    "officialWebsite": "https://www.izumo-kankou.gr.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "jochi-ji",
@@ -18087,7 +18248,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "08:30 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "jodogahama-beach-iwate",
@@ -18178,7 +18340,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.city.miyako.iwate.jp/kanko/jodogahama.html"
+    "officialWebsite": "https://www.city.miyako.iwate.jp/kanko/jodogahama.html",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "jogashima",
@@ -18267,7 +18430,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.miura-info.ne.jp/"
+    "officialWebsite": "https://www.miura-info.ne.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "joypolis",
@@ -18310,9 +18474,10 @@
     "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     "tags": ["Indoor", "Action"],
     "coordinates": {
-      "lat": 35.6762,
-      "lng": 139.6503
+      "lat": 35.6267,
+      "lng": 139.7758
     },
+    "areaId": "odaiba",
     "comfort": {
       "heatTolerance": 9.3,
       "rainFriendly": 9,
@@ -18340,17 +18505,18 @@
     },
     "collections": [],
     "relationships": {
-      "parentDestinationId": "minato-city"
+      "parentDestinationId": "koto-city"
     },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "walkingIntensity": "low",
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
-      "min": 7,
-      "max": 9
+      "min": 2,
+      "max": 3
     },
-    "officialWebsite": "https://tokyo-joypolis.com/"
+    "officialWebsite": "https://tokyo-joypolis.com/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "jozenji-dori",
@@ -18518,7 +18684,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "08:30 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "kabukicho",
@@ -18539,7 +18706,7 @@
     },
     "prefecture": "Tokyo",
     "region": "Kanto",
-    "kind": "museum",
+    "kind": "district",
     "role": "poi",
     "placeType": "destination",
     "areaId": "central-shinjuku",
@@ -18548,7 +18715,7 @@
     },
     "officialWebsite": "http://www.kabukicho.or.jp/",
     "officialWebsiteRequirement": "optional",
-    "categories": ["Culture"],
+    "categories": ["Nightlife", "Entertainment", "District"],
     "tags": ["Culture", "Shinjuku City", "v1.9.2"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gate%20of%20Kabuki-cho%20Ichiban-gai.jpg?width=1600",
     "imageMetadata": {
@@ -18684,7 +18851,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kagoshima-city",
@@ -18772,7 +18940,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kagurazaka",
@@ -18793,7 +18962,7 @@
     },
     "prefecture": "Tokyo",
     "region": "Kanto",
-    "kind": "museum",
+    "kind": "district",
     "role": "poi",
     "placeType": "destination",
     "areaId": "kagurazaka",
@@ -18801,7 +18970,7 @@
       "parentDestinationId": "shinjuku-city"
     },
     "officialWebsiteRequirement": "optional",
-    "categories": ["Culture"],
+    "categories": ["Dining", "Historic Street", "Culture"],
     "tags": ["Culture", "Shinjuku City", "v1.9.2"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg",
     "imageMetadata": {
@@ -18946,7 +19115,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.kagurazaka.in/"
+    "officialWebsite": "https://www.kagurazaka.in/",
+    "businessHours": "Open access"
   },
   {
     "id": "kairakuen-mito",
@@ -19054,7 +19224,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://ibaraki-kairakuen.jp/"
+    "officialWebsite": "https://ibaraki-kairakuen.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "kakegawa-castle-shizuoka",
@@ -19159,7 +19330,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://kakegawajo.com/"
+    "officialWebsite": "https://kakegawajo.com/",
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "kakunodate-samurai-district-akita",
@@ -19250,7 +19422,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.city.senboku.akita.jp/sightseeing/spot/01_kakunodate.html"
+    "officialWebsite": "https://www.city.senboku.akita.jp/sightseeing/spot/01_kakunodate.html",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "kamakura-city",
@@ -19359,7 +19532,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kamakurakokomae-station",
@@ -19525,7 +19699,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "kanayama-shrine",
@@ -19699,7 +19874,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.kanayama-jinja.or.jp/"
+    "officialWebsite": "https://www.kanayama-jinja.or.jp/",
+    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
   },
   {
     "id": "kanazawa",
@@ -19803,7 +19979,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.kanazawa-kankoukyoukai.or.jp/"
+    "officialWebsite": "https://www.kanazawa-kankoukyoukai.or.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "kanazawa-castle-ishikawa",
@@ -19908,7 +20085,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.pref.ishikawa.jp/kanko/castle/"
+    "officialWebsite": "https://www.pref.ishikawa.jp/kanko/castle/",
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "kannai-yokohama",
@@ -20002,7 +20180,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.welcome.city.yokohama.jp/"
+    "officialWebsite": "https://www.welcome.city.yokohama.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "karuizawa-town",
@@ -20096,7 +20275,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kashiya-yokocho",
@@ -20270,7 +20450,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://koedo.or.jp/"
+    "officialWebsite": "https://koedo.or.jp/",
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "kasori-shell-mounds",
@@ -20437,7 +20618,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "katase-higashihama-beach",
@@ -20603,7 +20785,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "katori-city",
@@ -20692,7 +20875,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "katori-jingu",
@@ -20855,7 +21039,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
   },
   {
     "id": "katsushika-city",
@@ -20945,7 +21130,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kawagoe-castle-saitama",
@@ -21047,7 +21233,8 @@
       "max": 4
     },
     "areaId": "central-kawagoe",
-    "officialWebsite": "https://koedo.or.jp/"
+    "officialWebsite": "https://koedo.or.jp/",
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "kawagoe-city",
@@ -21149,7 +21336,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kawagoe-festival-museum",
@@ -21315,7 +21503,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "kawagoe-hikawa-shrine",
@@ -21481,7 +21670,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
   },
   {
     "id": "kawaguchi-city",
@@ -21571,7 +21761,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kawasaki-city",
@@ -21671,7 +21862,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kawasaki-daishi",
@@ -21837,7 +22029,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "kegon-falls-nikko",
@@ -21947,7 +22140,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.nikko-kankou.org/"
+    "officialWebsite": "https://www.nikko-kankou.org/",
+    "businessHours": "Open access"
   },
   {
     "id": "kennin-ji",
@@ -22123,7 +22317,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.kenninji.jp/"
+    "officialWebsite": "https://www.kenninji.jp/",
+    "businessHours": "08:30 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "kinkaku-ji",
@@ -22291,7 +22486,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "kinosaki-onsen",
@@ -22391,7 +22587,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://kinosaki-spa.gr.jp/"
+    "officialWebsite": "https://kinosaki-spa.gr.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "kintai-bridge-yamaguchi",
@@ -22482,7 +22679,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://kintaikyo.iwakuni-city.net/"
+    "officialWebsite": "https://kintaikyo.iwakuni-city.net/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "kinugawa-onsen",
@@ -22583,7 +22781,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.nikko-kankou.org/"
+    "officialWebsite": "https://www.nikko-kankou.org/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "kirin-beer-yokohama-factory",
@@ -22677,7 +22876,8 @@
       "min": 1.5,
       "max": 3.5
     },
-    "officialWebsite": "https://www.kirin.co.jp/experience/factory/yokohama/"
+    "officialWebsite": "https://www.kirin.co.jp/experience/factory/yokohama/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "kisarazu-city",
@@ -22767,7 +22967,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kiso",
@@ -22862,7 +23063,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://kiso-magome.com/"
+    "officialWebsite": "https://kiso-magome.com/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "kita-city",
@@ -22952,7 +23154,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kita-in",
@@ -23118,7 +23321,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "kitakyushu-city",
@@ -23207,7 +23411,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kitano-ijinkan",
@@ -23374,7 +23579,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "kiyotsu-gorge-niigata",
@@ -23470,7 +23676,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://nakasato-kiyotsu.com/"
+    "officialWebsite": "https://nakasato-kiyotsu.com/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "kobe-animal-kingdom",
@@ -23637,7 +23844,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "kobe-city",
@@ -23740,7 +23948,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kobe-harborland",
@@ -23907,7 +24116,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "kobe-maritime-museum",
@@ -24074,7 +24284,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "kobe-maya-night-view",
@@ -24181,7 +24392,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://mayasan.jp/"
+    "officialWebsite": "https://mayasan.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "kobe-port-tower",
@@ -24348,7 +24560,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kochi-castle",
@@ -24453,7 +24666,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://kochipark.jp/kochijo/"
+    "officialWebsite": "https://kochipark.jp/kochijo/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "kochi-city",
@@ -24541,7 +24755,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kofu-city",
@@ -24634,7 +24849,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "komachi-street",
@@ -24800,7 +25016,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "korakuen-okayama",
@@ -24894,7 +25111,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://okayama-korakuen.jp/"
+    "officialWebsite": "https://okayama-korakuen.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "koriyama-city",
@@ -24984,7 +25202,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "koto-city",
@@ -25078,7 +25297,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kotoku-in-great-buddha",
@@ -25244,7 +25464,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "kouri-island-okinawa",
@@ -25340,7 +25561,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.nakijin-kankou.jp/"
+    "officialWebsite": "https://www.nakijin-kankou.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "koya-town",
@@ -25429,7 +25651,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kumamoto-castle",
@@ -25534,7 +25757,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://kumamoto-guide.jp/kumamoto-castle/"
+    "officialWebsite": "https://kumamoto-guide.jp/kumamoto-castle/",
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "kumamoto-city",
@@ -25627,7 +25851,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kumano-kodo-koya-wakayama",
@@ -25735,7 +25960,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://www.tb-kumano.jp/"
+    "officialWebsite": "https://www.tb-kumano.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "kurashiki-city",
@@ -25823,7 +26049,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kurazukuri-warehouse-district",
@@ -25989,7 +26216,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kurobe-gorge",
@@ -26089,7 +26317,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.kurobe-unazuki.jp/"
+    "officialWebsite": "https://www.kurobe-unazuki.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "kuromon-market",
@@ -26257,7 +26486,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kusatsu-town",
@@ -26347,7 +26577,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kushida-shrine",
@@ -26522,7 +26753,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://yokanavi.com/spot/26906/"
+    "officialWebsite": "https://yokanavi.com/spot/26906/",
+    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
   },
   {
     "id": "kushiro-city",
@@ -26606,7 +26838,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kyoto-city",
@@ -26717,7 +26950,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "kyoto-historic",
@@ -26823,7 +27057,8 @@
       "max": 5
     },
     "areaId": "higashiyama",
-    "officialWebsite": "https://kyoto-travel.kyoto/"
+    "officialWebsite": "https://kyoto-travel.kyoto/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "kyoto-imperial-palace",
@@ -26991,7 +27226,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "kyoto-international-manga-museum",
@@ -27162,7 +27398,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "kyoto-national-museum",
@@ -27330,7 +27567,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "kyoto-railway-museum",
@@ -27498,7 +27736,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "lake-hamanako",
@@ -27587,7 +27826,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.hamanakako.or.jp/"
+    "officialWebsite": "https://www.hamanakako.or.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "lake-sagami",
@@ -27681,7 +27921,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.sagamiko.info/"
+    "officialWebsite": "https://www.sagamiko.info/",
+    "businessHours": "Open access"
   },
   {
     "id": "lake-tazawa-akita",
@@ -27774,7 +28015,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.tazawako.org/"
+    "officialWebsite": "https://www.tazawako.org/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "lake-towada-aomori",
@@ -27865,7 +28107,8 @@
       "min": 4,
       "max": 6
     },
-    "officialWebsite": "https://www.towada.kanko.or.jp/"
+    "officialWebsite": "https://www.towada.kanko.or.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "lazona-kawasaki-plaza",
@@ -28031,7 +28274,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "machida-tokyo",
@@ -28120,7 +28364,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://www.machida-guide.or.jp/"
+    "officialWebsite": "https://www.machida-guide.or.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "maizuru-park",
@@ -28287,7 +28532,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "makuhari-seaside-park",
@@ -28454,7 +28700,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "marugame-castle",
@@ -28553,7 +28800,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.marugame-castle.jp/"
+    "officialWebsite": "https://www.marugame-castle.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "marugame-city",
@@ -28642,7 +28890,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "maruoka-castle-fukui",
@@ -28752,7 +29001,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://maruoka-castle.jp/"
+    "officialWebsite": "https://maruoka-castle.jp/",
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "maruyama-park",
@@ -28918,7 +29168,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "matsudo-city",
@@ -29008,7 +29259,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "matsue-castle",
@@ -29114,7 +29366,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.matsue-castle.jp/"
+    "officialWebsite": "https://www.matsue-castle.jp/",
+    "businessHours": "08:30 - 18:30 (Oct-Mar: 08:30 - 17:00)"
   },
   {
     "id": "matsue-city",
@@ -29198,7 +29451,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "matsumoto-castle-nagano",
@@ -29288,7 +29542,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.matsumoto-castle.jp/"
+    "officialWebsite": "https://www.matsumoto-castle.jp/",
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "matsumoto-city",
@@ -29379,7 +29634,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "matsushima-bay",
@@ -29479,7 +29735,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.matsushima-kanko.org/"
+    "officialWebsite": "https://www.matsushima-kanko.org/",
+    "businessHours": "Open access"
   },
   {
     "id": "matsuyama-castle-ehime",
@@ -29589,7 +29846,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.matsuyamajo.jp/"
+    "officialWebsite": "https://www.matsuyamajo.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "matsuyama-city",
@@ -29673,7 +29931,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "meguro-city",
@@ -29763,7 +30022,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "meriken-park",
@@ -29938,7 +30198,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.harborland.co.jp/"
+    "officialWebsite": "https://www.harborland.co.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "minakami-town",
@@ -30028,7 +30289,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "minato-city",
@@ -30116,7 +30378,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "minato-mirai-yokohama",
@@ -30210,7 +30473,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://minatomirai21.com/"
+    "officialWebsite": "https://minatomirai21.com/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "mine-city",
@@ -30299,7 +30563,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "mirai-tower-nagoya",
@@ -30407,7 +30672,8 @@
     "role": "poi",
     "placeType": "destination",
     "areaId": "sakae",
-    "officialWebsite": "https://www.nagoya-tv-tower.co.jp/"
+    "officialWebsite": "https://www.nagoya-tv-tower.co.jp/",
+    "businessHours": "10:00 - 21:00 (Last admission 20:30)"
   },
   {
     "id": "miraikan",
@@ -30573,7 +30839,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "10:00 - 17:00 (Closed Tuesdays)"
   },
   {
     "id": "mito-castle-ibaraki",
@@ -30678,7 +30945,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.mitokoumon.com/"
+    "officialWebsite": "https://www.mitokoumon.com/",
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "mito-city",
@@ -30767,7 +31035,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "miyajima-itsukushima",
@@ -30880,7 +31149,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.itsukushimajinja.jp/"
+    "officialWebsite": "https://www.itsukushimajinja.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "miyakojima-city",
@@ -30973,7 +31243,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "miyazaki-city",
@@ -31061,7 +31332,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "miyazu-city",
@@ -31145,7 +31417,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "morioka-city",
@@ -31239,7 +31512,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "mother-farm-chiba",
@@ -31323,7 +31597,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.motherfarm.co.jp/"
+    "officialWebsite": "https://www.motherfarm.co.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "motobu-town",
@@ -31407,7 +31682,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "motonosumi-shrine-yamaguchi",
@@ -31496,7 +31772,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://nanavi.jp/sightseeing/motonosumijinja/"
+    "officialWebsite": "https://nanavi.jp/sightseeing/motonosumijinja/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "mount-aso-kumamoto",
@@ -31588,7 +31865,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.aso-kankou.jp/"
+    "officialWebsite": "https://www.aso-kankou.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "mount-bandai-fukushima",
@@ -31682,7 +31960,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://www.bandaisan.or.jp/"
+    "officialWebsite": "https://www.bandaisan.or.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "mount-fuji",
@@ -31784,7 +32063,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.fujisan-climb.jp/"
+    "officialWebsite": "https://www.fujisan-climb.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "mount-inasa-nagasaki",
@@ -31893,7 +32173,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.inasayama.com/"
+    "officialWebsite": "https://www.inasayama.com/",
+    "businessHours": "Open access"
   },
   {
     "id": "mount-moiwa",
@@ -32067,7 +32348,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://mt-moiwa.jp/"
+    "officialWebsite": "https://mt-moiwa.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "mount-yoshino-nara",
@@ -32176,7 +32458,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://yoshinoyama-kankou.com/"
+    "officialWebsite": "https://yoshinoyama-kankou.com/",
+    "businessHours": "Open access"
   },
   {
     "id": "mount-zao-yamagata",
@@ -32278,7 +32561,8 @@
       "min": 4,
       "max": 6
     },
-    "officialWebsite": "https://www.zao-spa.or.jp/"
+    "officialWebsite": "https://www.zao-spa.or.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "mozufuruichi-kofun-osaka",
@@ -32400,7 +32684,8 @@
         "description": "百舌鳥・古市古墳群はSakai Cityにあるユネスコ世界文化遺産の古代墳墓群です。仁徳天皇陵古墳など古代日本の壮大な巨石・前方後円墳群を身近に体感できます。",
         "highlights": ["ユネスコ世界遺産", "仁徳天皇陵古墳", "古代史跡"]
       }
-    }
+    },
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "musashi-ichinomiya-hikawa-shrine",
@@ -32566,7 +32851,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
   },
   {
     "id": "museum-of-aeronautical-sciences",
@@ -32732,7 +33018,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "nachi-falls-wakayama",
@@ -32831,7 +33118,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.nachikan.jp/"
+    "officialWebsite": "https://www.nachikan.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "nagano-bessho-onsen",
@@ -32920,7 +33208,8 @@
       "min": 9,
       "max": 11
     },
-    "officialWebsite": "https://www.bessho-spa.jp/"
+    "officialWebsite": "https://www.bessho-spa.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "nagano-city",
@@ -33022,7 +33311,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "nagano-kamikochi",
@@ -33117,7 +33407,8 @@
       "min": 11,
       "max": 13
     },
-    "officialWebsite": "https://www.kamikochi.or.jp/"
+    "officialWebsite": "https://www.kamikochi.or.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "nagano-narai-juku",
@@ -33218,7 +33509,8 @@
       "min": 8,
       "max": 10
     },
-    "officialWebsite": "https://www.naraijuku.org/"
+    "officialWebsite": "https://www.naraijuku.org/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "nagano-suwa",
@@ -33313,7 +33605,8 @@
       "min": 8,
       "max": 10
     },
-    "officialWebsite": "https://www.suwakanko.jp/"
+    "officialWebsite": "https://www.suwakanko.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "nagano-tsumago-juku",
@@ -33414,7 +33707,8 @@
       "min": 9,
       "max": 11
     },
-    "officialWebsite": "https://tumago.jp/"
+    "officialWebsite": "https://tumago.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "nagasaki-city",
@@ -33502,7 +33796,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "nago-city",
@@ -33586,7 +33881,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "nagoya-castle-aichi",
@@ -33673,7 +33969,8 @@
     },
     "placeType": "destination",
     "areaId": "central-nagoya",
-    "officialWebsite": "https://www.nagoyacastle.jp/"
+    "officialWebsite": "https://www.nagoyacastle.jp/",
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "nagoya-city",
@@ -33788,7 +34085,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "nagoya-city-art-museum",
@@ -33955,7 +34253,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "nagoya-city-science-museum",
@@ -34122,7 +34421,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "nagoya-port-tower",
@@ -34227,7 +34527,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://nagoya-port-building.jp/"
+    "officialWebsite": "https://nagoya-port-building.jp/",
+    "businessHours": "10:00 - 21:00 (Last admission 20:30)"
   },
   {
     "id": "naha-city",
@@ -34311,7 +34612,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "nakano-city",
@@ -34401,7 +34703,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "nakasu",
@@ -34568,7 +34871,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "nankinmachi-chinatown",
@@ -34735,7 +35039,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "nanzen-ji",
@@ -34903,7 +35208,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "08:30 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "naoshima-art-island-kagawa",
@@ -34999,7 +35305,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://naoshima.net/"
+    "officialWebsite": "https://naoshima.net/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "nara-city",
@@ -35083,7 +35390,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "nara-historic",
@@ -35187,7 +35495,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://nara-park.com/"
+    "officialWebsite": "https://nara-park.com/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "nara-park-todaiji",
@@ -35291,7 +35600,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "http://www.todaiji.or.jp/"
+    "officialWebsite": "http://www.todaiji.or.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "narita-airport-observation-decks",
@@ -35457,7 +35767,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "narita-city",
@@ -35548,7 +35859,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "naritasan-park",
@@ -35722,7 +36034,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.naritasan.or.jp/"
+    "officialWebsite": "https://www.naritasan.or.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "naruto-city",
@@ -35811,7 +36124,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "national-museum-of-nature-and-science",
@@ -35977,7 +36291,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:00 - 17:00 (Closed Mondays)"
   },
   {
     "id": "national-museum-western-art-tokyo",
@@ -36081,7 +36396,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://www.nmwa.go.jp/"
+    "officialWebsite": "https://www.nmwa.go.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "nebuta-museum-wa-rasse-aomori",
@@ -36171,7 +36487,8 @@
       "min": 1,
       "max": 3
     },
-    "officialWebsite": "https://www.nebuta.jp/warasse/"
+    "officialWebsite": "https://www.nebuta.jp/warasse/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "nerima-city",
@@ -36261,7 +36578,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "nihon-minka-en",
@@ -36427,7 +36745,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "niigata-city",
@@ -36525,7 +36844,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "nijo-castle-kyoto",
@@ -36632,7 +36952,8 @@
     "role": "poi",
     "placeType": "destination",
     "areaId": "central-kyoto",
-    "officialWebsite": "https://nijo-jocastle.city.kyoto.lg.jp/"
+    "officialWebsite": "https://nijo-jocastle.city.kyoto.lg.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "nijo-market",
@@ -36798,7 +37119,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "nikko-city",
@@ -36887,7 +37209,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "nikko-toshogu-shrine-tochigi",
@@ -36986,7 +37309,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.toshogu.jp/"
+    "officialWebsite": "https://www.toshogu.jp/",
+    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
   },
   {
     "id": "ninna-ji",
@@ -37154,7 +37478,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "08:30 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "niseko-town",
@@ -37238,7 +37563,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "nishiki-market",
@@ -37406,7 +37732,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "noto",
@@ -37506,7 +37833,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.noto-kanko.jp/"
+    "officialWebsite": "https://www.noto-kanko.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "numazu-city",
@@ -37596,7 +37924,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "nunobiki-falls",
@@ -37771,7 +38100,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.kobe-kankou.jp/"
+    "officialWebsite": "https://www.kobe-kankou.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "nunobiki-herb-gardens",
@@ -37938,7 +38268,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "nunobiki-ropeway",
@@ -38105,7 +38436,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "nyuto-onsen-akita",
@@ -38199,7 +38531,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.nyuto-onsenkyo.gr.jp/"
+    "officialWebsite": "https://www.nyuto-onsenkyo.gr.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "oarai-marine-tower",
@@ -38304,11 +38637,15 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://oarai-mt.jp/"
+    "officialWebsite": "https://oarai-mt.jp/",
+    "businessHours": "10:00 - 21:00 (Last admission 20:30)"
   },
   {
     "id": "odaiba-minato",
     "name": "Odaiba (Minato)",
+    "kind": "district",
+    "role": "hub",
+    "placeType": "hub",
     "prefecture": "Tokyo",
     "region": "Kanto",
     "categories": ["City", "Sea", "Theme Park"],
@@ -38350,6 +38687,7 @@
       "lat": 35.6190032,
       "lng": 139.7793576
     },
+    "areaId": "odaiba",
     "comfort": {
       "heatTolerance": 8.5,
       "rainFriendly": 6,
@@ -38387,7 +38725,8 @@
     },
     "collections": [],
     "relationships": {
-      "parentDestinationId": "minato-city"
+      "parentDestinationId": "koto-city",
+      "featuredDestinationIds": ["miraikan", "joypolis"]
     },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
@@ -38397,7 +38736,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://tokyo-odaiba.net/"
+    "officialWebsite": "https://tokyo-odaiba.net/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "odawara-city",
@@ -38483,7 +38823,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "odori-park",
@@ -38649,7 +38990,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "ogasawara-islands-tokyo",
@@ -38749,7 +39091,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://www.ogasawaramura.tokyo.jp/"
+    "officialWebsite": "https://www.ogasawaramura.tokyo.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "ohori-park",
@@ -38916,7 +39259,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "oirase-gorge-aomori",
@@ -39008,7 +39352,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.towada.kanko.or.jp/"
+    "officialWebsite": "https://www.towada.kanko.or.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "okama-crater-yamagata",
@@ -39099,7 +39444,8 @@
       "min": 1,
       "max": 3
     },
-    "officialWebsite": "https://zao-kochan.jp/"
+    "officialWebsite": "https://zao-kochan.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "okayama-city",
@@ -39193,7 +39539,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "okazaki-city",
@@ -39278,7 +39625,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "okinoshima-munakata-fukuoka",
@@ -39382,7 +39730,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://www.okinoshima-heritage.jp/"
+    "officialWebsite": "https://www.okinoshima-heritage.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "okuhida",
@@ -39471,7 +39820,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.okuhida.or.jp/"
+    "officialWebsite": "https://www.okuhida.or.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "ome-tokyo",
@@ -39559,7 +39909,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.omekanko.gr.jp/"
+    "officialWebsite": "https://www.omekanko.gr.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "omiya-bonsai-art-museum",
@@ -39725,7 +40076,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "omiya-bonsai-village",
@@ -39891,7 +40243,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "omiya-park",
@@ -40057,7 +40410,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "omiya-railway",
@@ -40143,7 +40497,8 @@
       "max": 9
     },
     "areaId": "omiya",
-    "officialWebsite": "https://www.railway-museum.jp/"
+    "officialWebsite": "https://www.railway-museum.jp/",
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "omoide-yokocho",
@@ -40309,7 +40664,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "onomichi-city",
@@ -40393,7 +40749,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "osaka-aquarium-kaiyukan",
@@ -40561,7 +40918,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "10:00 - 20:00 (Last admission 19:00)"
   },
   {
     "id": "osaka-castle",
@@ -40669,7 +41027,8 @@
     "role": "poi",
     "placeType": "destination",
     "areaId": "osaka-castle",
-    "officialWebsite": "https://www.osakacastle.net/"
+    "officialWebsite": "https://www.osakacastle.net/",
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "osaka-castle-park",
@@ -40837,7 +41196,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "osaka-city",
@@ -40948,7 +41308,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "osaka-museum-of-housing-and-living",
@@ -41116,7 +41477,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "osaka-station-city",
@@ -41284,7 +41646,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "osaki-hachimangu",
@@ -41452,7 +41815,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
   },
   {
     "id": "osu-kannon",
@@ -41627,7 +41991,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://osu-kannon.jp/"
+    "officialWebsite": "https://osu-kannon.jp/",
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "osu-shopping-district",
@@ -41794,7 +42159,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "ota-city",
@@ -41884,7 +42250,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "otaru-city",
@@ -41972,7 +42339,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "otsu-city",
@@ -42056,7 +42424,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "ouchi-juku-fukushima",
@@ -42154,7 +42523,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://ouchi-juku.com/"
+    "officialWebsite": "https://ouchi-juku.com/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "oura-church-nagasaki",
@@ -42258,7 +42628,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://nagasaki-oura-church.jp/"
+    "officialWebsite": "https://nagasaki-oura-church.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "oze-national-park",
@@ -42353,7 +42724,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.oze-fnd.or.jp/"
+    "officialWebsite": "https://www.oze-fnd.or.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "philosopher-s-walk",
@@ -42521,7 +42893,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "rakuten-mobile-park-miyagi",
@@ -42697,7 +43070,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.rakuteneagles.jp/stadium/"
+    "officialWebsite": "https://www.rakuteneagles.jp/stadium/",
+    "businessHours": "Open access"
   },
   {
     "id": "renkeiji",
@@ -42863,7 +43237,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "08:30 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "roppongi-hills-tokyo-city-view",
@@ -42972,7 +43347,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://tcv.roppongihills.com/"
+    "officialWebsite": "https://tcv.roppongihills.com/",
+    "businessHours": "10:00 - 22:00 (Last admission 21:30)"
   },
   {
     "id": "ryoan-ji",
@@ -43140,7 +43516,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "08:00 - 17:00 (Dec-Feb: 08:30 - 16:30)"
   },
   {
     "id": "ryugado-cave-kochi",
@@ -43229,7 +43606,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://ryugadou.or.jp/"
+    "officialWebsite": "https://ryugadou.or.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "ryusendo-cave-iwate",
@@ -43320,7 +43698,8 @@
       "min": 1,
       "max": 3
     },
-    "officialWebsite": "https://www.iwate-ryusendo.jp/"
+    "officialWebsite": "https://www.iwate-ryusendo.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "sado-island",
@@ -43430,7 +43809,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.visitsado.com/"
+    "officialWebsite": "https://www.visitsado.com/",
+    "businessHours": "Open access"
   },
   {
     "id": "sagamihara-city",
@@ -43520,7 +43900,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "saitama-city",
@@ -43632,7 +44013,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "saitama-nagatoro",
@@ -43727,7 +44109,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.nagatoro.gr.jp/"
+    "officialWebsite": "https://www.nagatoro.gr.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "saitama-shintoshin",
@@ -43893,7 +44276,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "saitama-stadium-2002",
@@ -44059,7 +44443,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "saitama-super-arena",
@@ -44225,7 +44610,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "sakai-city",
@@ -44314,7 +44700,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "sakura-castle-chiba",
@@ -44419,7 +44806,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.city.sakura.lg.jp/soshiki/sakuranooshiro/"
+    "officialWebsite": "https://www.city.sakura.lg.jp/soshiki/sakuranooshiro/",
+    "businessHours": "Open access"
   },
   {
     "id": "sakurajima-volcano-kagoshima",
@@ -44511,7 +44899,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.sakurajima.gr.jp/"
+    "officialWebsite": "https://www.sakurajima.gr.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "samuel-cocking-garden",
@@ -44677,7 +45066,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "sanjusangen-do",
@@ -44853,7 +45243,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.sanjusangendo.jp/"
+    "officialWebsite": "https://www.sanjusangendo.jp/",
+    "businessHours": "08:30 - 17:00 (Nov-Mar: 09:00 - 16:00)"
   },
   {
     "id": "sannai-maruyama-jomon-aomori",
@@ -44957,7 +45348,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://sannaimaruyama.pref.aomori.jp/"
+    "officialWebsite": "https://sannaimaruyama.pref.aomori.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "sapporo-beer-museum",
@@ -45123,7 +45515,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "11:00 - 18:00 (Closed Mondays)"
   },
   {
     "id": "sapporo-city",
@@ -45225,7 +45618,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "sapporo-clock-tower",
@@ -45391,7 +45785,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "sapporo-tv-tower",
@@ -45557,7 +45952,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:00 - 22:00 (Last admission 21:50)"
   },
   {
     "id": "sasuke-inari-shrine",
@@ -45723,7 +46119,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
   },
   {
     "id": "scmaglev-and-railway-park",
@@ -45890,7 +46287,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "semboku-city",
@@ -45979,7 +46377,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "sendai-asaichi-morning-market",
@@ -46155,7 +46554,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://sendaiasaichi.com/"
+    "officialWebsite": "https://sendaiasaichi.com/",
+    "businessHours": "Open access"
   },
   {
     "id": "sendai-castle-ruins-miyagi",
@@ -46252,7 +46652,8 @@
     "role": "poi",
     "placeType": "destination",
     "areaId": "aoba",
-    "officialWebsite": "https://www.sendai-c.ed.jp/~museum/"
+    "officialWebsite": "https://www.sendai-c.ed.jp/~museum/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "sendai-city",
@@ -46365,7 +46766,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "sendai-city-museum",
@@ -46533,7 +46935,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "sendai-mediatheque",
@@ -46701,7 +47104,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "sendai-umino-mori-aquarium",
@@ -46869,7 +47273,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:00 - 17:30 (Last admission 17:00)"
   },
   {
     "id": "setagaya-city",
@@ -46959,7 +47364,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "shibuya-city",
@@ -47051,7 +47457,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 11
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "shibuya-sky-shibuya",
@@ -47154,7 +47561,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.shibuya-scramble-square.com/sky/"
+    "officialWebsite": "https://www.shibuya-scramble-square.com/sky/",
+    "businessHours": "10:00 - 22:30 (Last admission 21:20)"
   },
   {
     "id": "shimonoseki-city",
@@ -47242,7 +47650,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "shin-yokohama-ramen-museum",
@@ -47336,7 +47745,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.raumen.co.jp/"
+    "officialWebsite": "https://www.raumen.co.jp/",
+    "businessHours": "11:00 - 21:00 (Weekends from 10:30)"
   },
   {
     "id": "shinagawa-city",
@@ -47426,7 +47836,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "shingashi-river",
@@ -47600,7 +48011,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://koedo.or.jp/"
+    "officialWebsite": "https://koedo.or.jp/",
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "shinjuku-city",
@@ -47692,11 +48104,13 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "shinjuku-gyo-en",
     "name": "Shinjuku Gyo-en",
+    "businessHours": "09:00 - 16:30 (Closed Mondays)",
     "nameJa": "新宿区",
     "aliases": ["Shinjuku", "新宿区"],
     "content": {
@@ -47713,7 +48127,7 @@
     },
     "prefecture": "Tokyo",
     "region": "Kanto",
-    "kind": "museum",
+    "kind": "park",
     "role": "poi",
     "placeType": "destination",
     "areaId": "central-shinjuku",
@@ -48034,7 +48448,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.shinsaibashi.or.jp/"
+    "officialWebsite": "https://www.shinsaibashi.or.jp/",
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "shinsekai",
@@ -48202,7 +48617,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "shinsho-ji",
@@ -48368,7 +48784,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "08:30 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "shirahama-town",
@@ -48452,7 +48869,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "shirakami-sanchi-aomori",
@@ -48552,7 +48970,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://www.pref.aomori.lg.jp/soshiki/kankyo/kankyo/shirakami.html"
+    "officialWebsite": "https://www.pref.aomori.lg.jp/soshiki/kankyo/kankyo/shirakami.html",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "shirakawa-village",
@@ -48650,7 +49069,8 @@
     "recommendedVisitHours": {
       "min": 5,
       "max": 11
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "shiretoko-national-park-hokkaido",
@@ -48754,7 +49174,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://www.env.go.jp/park/shiretoko/"
+    "officialWebsite": "https://www.env.go.jp/park/shiretoko/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "shizuoka-city",
@@ -48850,7 +49271,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "shonan-kaigan-park",
@@ -49016,7 +49438,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "shuri-castle-okinawa",
@@ -49120,7 +49543,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://oki-park.jp/shurijo/"
+    "officialWebsite": "https://oki-park.jp/shurijo/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "soji-ji-yokohama",
@@ -49214,7 +49638,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://sojiji.jp/"
+    "officialWebsite": "https://sojiji.jp/",
+    "businessHours": "08:30 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "suginami-city",
@@ -49304,7 +49729,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "sumida-city",
@@ -49389,7 +49815,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "sunshine-60-observatory-ikebukuro",
@@ -49493,7 +49920,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://sunshinecity.jp/observatory/"
+    "officialWebsite": "https://sunshinecity.jp/observatory/",
+    "businessHours": "11:00 - 21:00 (Last admission 20:00)"
   },
   {
     "id": "sunshine-aquarium",
@@ -49659,7 +50087,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 21:00 (Last admission 20:00)"
   },
   {
     "id": "sunshine-city",
@@ -49825,7 +50254,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "susukino",
@@ -49999,7 +50429,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.susukino-ta.jp/"
+    "officialWebsite": "https://www.susukino-ta.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "tachikawa-tokyo",
@@ -50092,7 +50523,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "taisho-roman-street",
@@ -50258,7 +50690,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "taito-city",
@@ -50352,7 +50785,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "takachiho-town",
@@ -50445,7 +50879,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "takahashi-city",
@@ -50534,7 +50969,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "takamatsu-city",
@@ -50618,7 +51054,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "takanawa-gateway-minato",
@@ -50717,7 +51154,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.takanawagateway-city.com/"
+    "officialWebsite": "https://www.takanawagateway-city.com/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "takaoka",
@@ -50812,7 +51250,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.takaoka.or.jp/"
+    "officialWebsite": "https://www.takaoka.or.jp/",
+    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
   },
   {
     "id": "takato-castle-nagano",
@@ -50922,7 +51361,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://inadani-see.net/en/takato-castle-site-park/"
+    "officialWebsite": "https://inadani-see.net/en/takato-castle-site-park/",
+    "businessHours": "Open access"
   },
   {
     "id": "takayama-city",
@@ -51018,7 +51458,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "takeda-castle-ruins-hyogo",
@@ -51106,7 +51547,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.city.asago.hyogo.jp/site/takeda-castle/"
+    "officialWebsite": "https://www.city.asago.hyogo.jp/site/takeda-castle/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "takeda-castle-yamanashi",
@@ -51211,7 +51653,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://kofu-kanko.jp/"
+    "officialWebsite": "https://kofu-kanko.jp/",
+    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
   },
   {
     "id": "tama-zoological-park",
@@ -51302,7 +51745,8 @@
       "min": 4,
       "max": 6
     },
-    "officialWebsite": "https://www.tokyo-zoo.net/zoo/tama/"
+    "officialWebsite": "https://www.tokyo-zoo.net/zoo/tama/",
+    "businessHours": "Open access"
   },
   {
     "id": "tanukikoji-shopping-street",
@@ -51468,7 +51912,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "08:30 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "taro-okamoto-museum-of-art",
@@ -51634,7 +52079,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "teamlab-borderless-azabudai",
@@ -51724,7 +52170,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://borderless.teamlab.art/jp/"
+    "officialWebsite": "https://borderless.teamlab.art/jp/",
+    "businessHours": "10:00 - 21:00 (Last admission 20:00)"
   },
   {
     "id": "teamlab-planets",
@@ -51811,7 +52258,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://planets.teamlab.art/tokyo/jp/"
+    "officialWebsite": "https://planets.teamlab.art/tokyo/jp/",
+    "businessHours": "09:00 - 22:00 (Last admission 21:00)"
   },
   {
     "id": "tempozan-ferris-wheel",
@@ -51979,7 +52427,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "tenjin",
@@ -52154,7 +52603,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://yokanavi.com/"
+    "officialWebsite": "https://yokanavi.com/",
+    "businessHours": "Open access"
   },
   {
     "id": "tennoji-park",
@@ -52322,7 +52772,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "teshima-island-kagawa",
@@ -52415,7 +52866,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://teshima-navi.jp/"
+    "officialWebsite": "https://teshima-navi.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "the-museum-of-modern-art-saitama",
@@ -52581,7 +53033,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "the-national-museum-of-art-osaka",
@@ -52749,7 +53202,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "tochoji",
@@ -52916,7 +53370,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "08:30 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "todoroki-ryokuchi",
@@ -53082,7 +53537,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "tojinbo-cliffs-fukui",
@@ -53174,7 +53630,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://kankou-sakai.com/tojinbo/"
+    "officialWebsite": "https://kankou-sakai.com/tojinbo/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "toki-messe-tower-niigata",
@@ -53284,7 +53741,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.tokimesse.com/"
+    "officialWebsite": "https://www.tokimesse.com/",
+    "businessHours": "08:00 - 22:00 (Fridays until 17:00)"
   },
   {
     "id": "toki-no-kane",
@@ -53458,7 +53916,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://koedo.or.jp/"
+    "officialWebsite": "https://koedo.or.jp/",
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "tokorozawa-city",
@@ -53543,7 +54002,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "tokugawa-art-museum",
@@ -53710,7 +54170,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "tokugawa-garden",
@@ -53877,7 +54338,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "tokushima-city",
@@ -53961,7 +54423,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "tokyo-hinohara",
@@ -54056,11 +54519,13 @@
       "min": 6,
       "max": 8
     },
-    "officialWebsite": "https://hinohara-kankou.jp/"
+    "officialWebsite": "https://hinohara-kankou.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "tokyo-metropolitan-government-building-shinjuku",
     "name": "Tokyo Metropolitan Government Building Observatories",
+    "businessHours": "09:30 - 22:00",
     "prefecture": "Tokyo",
     "region": "Kanto",
     "categories": ["Observation Deck", "Landmark", "Architecture", "Free"],
@@ -54250,7 +54715,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.ces-net.jp/mitakevc/"
+    "officialWebsite": "https://www.ces-net.jp/mitakevc/",
+    "businessHours": "Open access"
   },
   {
     "id": "tokyo-national-museum",
@@ -54416,7 +54882,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "tokyo-okutama",
@@ -54516,7 +54983,8 @@
       "min": 8,
       "max": 10
     },
-    "officialWebsite": "https://www.okutama.gr.jp/"
+    "officialWebsite": "https://www.okutama.gr.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "tokyo-skytree-sumida",
@@ -54626,7 +55094,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.tokyo-skytree.jp/"
+    "officialWebsite": "https://www.tokyo-skytree.jp/",
+    "businessHours": "08:00 - 22:00 (Last admission 21:00)"
   },
   {
     "id": "tokyo-station-chiyoda",
@@ -54727,7 +55196,8 @@
     "recommendedVisitHours": {
       "min": 4,
       "max": 10
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "tokyo-tower-minato",
@@ -54826,7 +55296,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.tokyotower.co.jp/"
+    "officialWebsite": "https://www.tokyotower.co.jp/",
+    "businessHours": "09:00 - 22:30 (Last admission 22:00)"
   },
   {
     "id": "tomioka-silk-mill-gunma",
@@ -54930,7 +55401,8 @@
       "min": 5,
       "max": 7
     },
-    "officialWebsite": "https://www.tomioka-silk.jp/"
+    "officialWebsite": "https://www.tomioka-silk.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "toshiba-science-museum",
@@ -55096,7 +55568,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "toshima-city",
@@ -55191,7 +55664,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "tottori-city",
@@ -55279,7 +55753,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "tottori-sand-dunes",
@@ -55368,7 +55843,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.tottori-guide.jp/sakyu/"
+    "officialWebsite": "https://www.tottori-guide.jp/sakyu/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "toyama-alpine",
@@ -55463,7 +55939,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.alpen-route.com/"
+    "officialWebsite": "https://www.alpen-route.com/",
+    "businessHours": "Open access"
   },
   {
     "id": "toyooka-city",
@@ -55553,7 +56030,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "toyosu-market",
@@ -55719,7 +56197,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "toyota-city",
@@ -55804,7 +56283,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "toyota-commemorative-museum-of-industry-and-technology",
@@ -55974,7 +56454,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "tsujido-seaside-park",
@@ -56140,7 +56621,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "tsukuba-city",
@@ -56225,7 +56707,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "tsunoshima-bridge-yamaguchi",
@@ -56318,7 +56801,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.yamaguchi-city.jp/"
+    "officialWebsite": "https://www.yamaguchi-city.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "tsuruga-castle-fukushima",
@@ -56411,7 +56895,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.tsurugajo.com/"
+    "officialWebsite": "https://www.tsurugajo.com/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "tsurugaoka-hachimangu",
@@ -56577,7 +57062,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
   },
   {
     "id": "tsutenkaku",
@@ -56745,7 +57231,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "10:00 - 20:00 (Last admission 19:30)"
   },
   {
     "id": "ueda-castle-nagano",
@@ -56850,7 +57337,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.uedajo.myu-shop.jp/"
+    "officialWebsite": "https://www.uedajo.myu-shop.jp/",
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "ueno-park",
@@ -57016,7 +57504,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "ueno-taito",
@@ -57105,7 +57594,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "ueno-zoo",
@@ -57196,7 +57686,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.tokyo-zoo.net/zoo/ueno/"
+    "officialWebsite": "https://www.tokyo-zoo.net/zoo/ueno/",
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "uji-city",
@@ -57280,7 +57771,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "umeda-sky-building",
@@ -57448,7 +57940,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 22:30 (Last admission 22:00)"
   },
   {
     "id": "universal-studios-japan",
@@ -57616,7 +58109,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "08:30 - 21:30 (Varies seasonally)"
   },
   {
     "id": "urayasu-city",
@@ -57701,7 +58195,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "ushiku-daibutsu",
@@ -57795,7 +58290,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://daibutu.net/"
+    "officialWebsite": "https://daibutu.net/",
+    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
   },
   {
     "id": "utsunomiya-city",
@@ -57881,7 +58377,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "utsunomiya-oya",
@@ -57970,7 +58467,8 @@
       "min": 9,
       "max": 11
     },
-    "officialWebsite": "https://www.oya-official.jp/"
+    "officialWebsite": "https://www.oya-official.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "uwajima-castle",
@@ -58071,7 +58569,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.uwajima-jo.jp/"
+    "officialWebsite": "https://www.uwajima-jo.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "wakayama-city",
@@ -58155,7 +58654,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "yakushima-town",
@@ -58253,7 +58753,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "yamadera-yamagata",
@@ -58344,7 +58845,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.yamaderakankou.com/"
+    "officialWebsite": "https://www.yamaderakankou.com/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "yamagata-city",
@@ -58434,7 +58936,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "yamanashi-fujiyoshida",
@@ -58529,7 +59032,8 @@
       "min": 9,
       "max": 11
     },
-    "officialWebsite": "https://fujiyoshida.net/"
+    "officialWebsite": "https://fujiyoshida.net/",
+    "businessHours": "Open access"
   },
   {
     "id": "yamanashi-nishizawa-valley",
@@ -58618,7 +59122,8 @@
       "min": 8,
       "max": 10
     },
-    "officialWebsite": "https://www.city.yamanashi.yamanashi.jp/"
+    "officialWebsite": "https://www.city.yamanashi.yamanashi.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "yamanashi-shosenkyo-gorge",
@@ -58712,7 +59217,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.shosenkyo-kankoukyoukai.com/"
+    "officialWebsite": "https://www.shosenkyo-kankoukyoukai.com/",
+    "businessHours": "Open access"
   },
   {
     "id": "yamashita-park-yokohama",
@@ -58806,7 +59312,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.welcome.city.yokohama.jp/"
+    "officialWebsite": "https://www.welcome.city.yokohama.jp/",
+    "businessHours": "Open access"
   },
   {
     "id": "yanaka",
@@ -58980,7 +59487,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.yanakaginza.com/"
+    "officialWebsite": "https://www.yanakaginza.com/",
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "yasaka-shrine",
@@ -59156,7 +59664,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.yasaka-jinja.or.jp/"
+    "officialWebsite": "https://www.yasaka-jinja.or.jp/",
+    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
   },
   {
     "id": "yokohama-chinatown",
@@ -59250,7 +59759,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.chinatown.or.jp/"
+    "officialWebsite": "https://www.chinatown.or.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "yokohama-city",
@@ -59368,7 +59878,8 @@
     "recommendedVisitHours": {
       "min": 8,
       "max": 14
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "yokohama-cosmo-world",
@@ -59462,7 +59973,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://cosmoworld.jp/"
+    "officialWebsite": "https://cosmoworld.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "yokohama-landmark-tower-sky-garden",
@@ -59571,7 +60083,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.yokohama-landmark.jp/skygarden/"
+    "officialWebsite": "https://www.yokohama-landmark.jp/skygarden/",
+    "businessHours": "10:00 - 21:00 (Last admission 20:30)"
   },
   {
     "id": "yokohama-marine-tower",
@@ -59670,7 +60183,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://marinetower.yokohama/"
+    "officialWebsite": "https://marinetower.yokohama/",
+    "businessHours": "10:00 - 21:00 (Last admission 20:30)"
   },
   {
     "id": "yokohama-red-brick-warehouse",
@@ -59764,7 +60278,8 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.yokohama-akarenga.jp/"
+    "officialWebsite": "https://www.yokohama-akarenga.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "yokohama-zoorasia",
@@ -59855,7 +60370,8 @@
       "min": 4,
       "max": 6
     },
-    "officialWebsite": "https://www.hama-midorinokyokai.or.jp/zoo/zoorasia/"
+    "officialWebsite": "https://www.hama-midorinokyokai.or.jp/zoo/zoorasia/",
+    "businessHours": "Open access"
   },
   {
     "id": "yokosuka-city",
@@ -59944,7 +60460,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "yomiuriland",
@@ -60038,7 +60555,8 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.yomiuriland.com/"
+    "officialWebsite": "https://www.yomiuriland.com/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "yufu-city",
@@ -60126,7 +60644,8 @@
     "recommendedVisitHours": {
       "min": 6,
       "max": 12
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "yugyo-ji",
@@ -60292,7 +60811,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "08:30 - 17:00 (Last admission 16:30)"
   },
   {
     "id": "yuigahama-beach",
@@ -60458,7 +60978,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "Open access"
   },
   {
     "id": "zao-fox-village-miyagi",
@@ -60549,7 +61070,8 @@
       "min": 1,
       "max": 3
     },
-    "officialWebsite": "http://zao-fox-village.com/"
+    "officialWebsite": "http://zao-fox-village.com/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "zeniarai-benten",
@@ -60723,7 +61245,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.trip-kamakura.com/"
+    "officialWebsite": "https://www.trip-kamakura.com/",
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "zuihoden",
@@ -60891,7 +61414,8 @@
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
-    }
+    },
+    "businessHours": "09:30 - 17:00 (Closed Mondays)"
   },
   {
     "id": "zushi",
@@ -60979,6 +61503,7 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.zushi-kanko.jp/"
+    "officialWebsite": "https://www.zushi-kanko.jp/",
+    "businessHours": "09:00 - 17:00 (Daily)"
   }
 ]

@@ -164,5 +164,6 @@
     "rubricVersion": 1,
     "method": "assisted",
     "confidence": "low"
-  }
+  },
+  "businessHours": "08:00 - 17:00 (Dec-Feb: 08:30 - 16:30)"
 }

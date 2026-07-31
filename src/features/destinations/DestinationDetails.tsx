@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
+import { addRecentlyViewedDestination } from "@/shared/hooks/useRecentlyViewedDestinations";
 import { getDestination } from "@/shared/services/destination/DestinationService";
 import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
 import DestinationCard from "./components/DestinationCard";
@@ -17,13 +18,28 @@ import { getValidModes } from "@/shared/services/recommendation/RecommendationSe
 import { calculateScore } from "@/shared/services/recommendation/RecommendationScorer";
 import { createRecommendationMatch } from "@/shared/services/recommendation/RecommendationExplainability";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
-import { findNearbyCombinations } from "@/shared/services/recommendation/DestinationCombinationService";
+import {
+  findNearbyCombinations,
+  type DestinationCombo,
+} from "@/shared/services/recommendation/DestinationCombinationService";
 import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
-import { ItineraryPickerModal } from "@/features/trips/components/ItineraryPickerModal";
+import {
+  ItineraryPickerModal,
+  type PendingItinerarySave,
+} from "@/features/trips/components/ItineraryPickerModal";
+import {
+  isGroupSavedInAnyTrip,
+  getTripsContainingGroup,
+  getCombinationKey,
+  type ItineraryGroup,
+} from "@/shared/services/trips/ItineraryGroupService";
 import { MarkVisitedModal } from "./components/MarkVisitedModal";
 import { VisitedDateModal } from "./components/VisitedDateModal";
-import { DayPlanWidget } from "./components/DayPlanWidget";
-import { TripCostBreakdownWidget } from "./components/TripCostBreakdownWidget";
+import { DestinationPlanningSection } from "./components/DestinationPlanningSection";
+import {
+  requiresOpeningHours,
+  getOpeningHoursAssessment,
+} from "@/shared/services/recommendation/OpeningHoursPolicy";
 import { DestinationDetailsSkeleton } from "@/shared/components/ui/Skeleton";
 import { BucketListButton } from "@/shared/components/ui/BucketListButton";
 import { useDelayedSkeleton } from "@/shared/hooks/useDelayedSkeleton";
@@ -107,7 +123,6 @@ import {
   getWeatherDescription,
 } from "@/shared/hooks/useWeather";
 import { budgetService } from "@/shared/services/budget/BudgetService";
-import { HubPlannerWidget } from "@/features/destinations/components/HubPlannerWidget";
 
 function WeatherIcon({ type }: { type: string }) {
   if (type === "sun") return <Sun className="w-6 h-6 text-amber-500" />;
@@ -248,7 +263,10 @@ export default function DestinationDetails() {
   const [destination, setDestination] = useState<Destination | null>(null);
   const [destLoading, setDestLoading] = useState(true);
 
-  const [pickerOpen, setPickerOpen] = useState(false);
+  const [, setGeneratedPlan] = useState<any>(null);
+  const [pendingSave, setPendingSave] = useState<PendingItinerarySave | null>(
+    null,
+  );
   const [markVisitedOpen, setMarkVisitedOpen] = useState(false);
   const [visitedHistoryOpen, setVisitedHistoryOpen] = useState(false);
   const [showAllTopSights, setShowAllTopSights] = useState(false);
@@ -259,7 +277,7 @@ export default function DestinationDetails() {
 
   const handleAddToItinerary = () => {
     if (!destination) return;
-    setPickerOpen(true);
+    setPendingSave({ type: "destination", destination });
   };
 
   useEffect(() => {
@@ -274,6 +292,7 @@ export default function DestinationDetails() {
         setDestination(
           buildRecommendationCandidate(destObj, { homeStationCoords }),
         );
+        addRecentlyViewedDestination(destObj.id);
         setDestLoading(false);
       });
     }
@@ -1004,18 +1023,24 @@ export default function DestinationDetails() {
             </section>
 
             <Tabs defaultValue="logistics" className="w-full">
-              <TabsList className="w-full justify-start h-auto p-1 bg-white dark:bg-slate-900 border shadow-sm rounded-xl overflow-x-auto overflow-y-hidden">
+              <TabsList className="w-full justify-start h-auto p-1.5 bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 rounded-2xl overflow-x-auto gap-1">
                 <TabsTrigger
                   value="logistics"
-                  className="rounded-lg py-2.5 px-4"
+                  className="rounded-xl py-2.5 px-5 font-bold text-xs transition-all text-slate-600 dark:text-slate-400 aria-selected:bg-white dark:aria-selected:bg-slate-900 aria-selected:text-emerald-600 dark:aria-selected:text-emerald-400 aria-selected:shadow-sm"
                 >
                   {copy.logistics}
                 </TabsTrigger>
-                <TabsTrigger value="ratings" className="rounded-lg py-2.5 px-4">
+                <TabsTrigger
+                  value="ratings"
+                  className="rounded-xl py-2.5 px-5 font-bold text-xs transition-all text-slate-600 dark:text-slate-400 aria-selected:bg-white dark:aria-selected:bg-slate-900 aria-selected:text-emerald-600 dark:aria-selected:text-emerald-400 aria-selected:shadow-sm"
+                >
                   {copy.ratings}
                 </TabsTrigger>
                 {matchDetails && (
-                  <TabsTrigger value="match" className="rounded-lg py-2.5 px-4">
+                  <TabsTrigger
+                    value="match"
+                    className="rounded-xl py-2.5 px-5 font-bold text-xs transition-all text-slate-600 dark:text-slate-400 aria-selected:bg-white dark:aria-selected:bg-slate-900 aria-selected:text-emerald-600 dark:aria-selected:text-emerald-400 aria-selected:shadow-sm"
+                  >
                     {copy.match}
                   </TabsTrigger>
                 )}
@@ -1612,7 +1637,7 @@ export default function DestinationDetails() {
                 </div>
 
                 <div className="grid grid-cols-1 gap-4">
-                  {nearbyCombinations.map((combo) => {
+                  {nearbyCombinations.map((combo: DestinationCombo) => {
                     const secLocalized = getLocalizedPlace(
                       combo.secondary,
                       locale,
@@ -1634,6 +1659,18 @@ export default function DestinationDetails() {
                                 <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 px-2 py-0.5 rounded-md">
                                   + {combo.secondary.categories?.[0]}
                                 </span>
+                                {isGroupSavedInAnyTrip(
+                                  getCombinationKey(
+                                    combo.primary.id,
+                                    combo.secondary.id,
+                                  ),
+                                ) && (
+                                  <span className="text-[10px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/40 border border-emerald-300 dark:border-emerald-700 px-2 py-0.5 rounded-md">
+                                    {locale === "ja"
+                                      ? `${getTripsContainingGroup(getCombinationKey(combo.primary.id, combo.secondary.id)).length}つの旅行に保存済み`
+                                      : `Saved in ${getTripsContainingGroup(getCombinationKey(combo.primary.id, combo.secondary.id)).length} ${getTripsContainingGroup(getCombinationKey(combo.primary.id, combo.secondary.id)).length === 1 ? "trip" : "trips"}`}
+                                  </span>
+                                )}
                                 <span className="inline-flex items-center gap-1 text-xs text-slate-500 font-medium">
                                   <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
                                   {combo.interDistanceKm} km (
@@ -1646,44 +1683,79 @@ export default function DestinationDetails() {
                               <p className="text-xs text-slate-600 dark:text-slate-400">
                                 {combo.explanation[locale]}
                               </p>
-                              <div className="flex items-center gap-3 text-xs font-semibold text-slate-700 dark:text-slate-300 pt-1">
+                              <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-700 dark:text-slate-300 pt-1">
                                 <span className="inline-flex items-center gap-1">
                                   <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                                  {combo.combinedVisitHours[0]}–
-                                  {combo.combinedVisitHours[1]}h visit
+                                  {locale === "ja"
+                                    ? "合計所要時間: "
+                                    : "Combined time: "}
+                                  {combo.combinedTotalHours[0]}–
+                                  {combo.combinedTotalHours[1]}h
                                 </span>
                                 <span>•</span>
                                 <span>
+                                  {locale === "ja"
+                                    ? "概算合計: "
+                                    : "Estimated total: "}
                                   {formatLocalizedJPYRange(
                                     [
                                       combo.combinedBudgetRange[0] * partySize,
                                       combo.combinedBudgetRange[1] * partySize,
                                     ],
                                     locale,
-                                  )}{" "}
-                                  total
+                                  )}
                                 </span>
                               </div>
                             </div>
                           </div>
 
-                          <Link
-                            to={{
-                              pathname: `/destinations/${combo.secondary.id}`,
-                              search: location.search,
-                            }}
-                            className="w-full sm:w-auto shrink-0"
-                          >
+                          <div className="flex items-center gap-2 w-full sm:w-auto shrink-0">
+                            <Link
+                              to={{
+                                pathname: `/destinations/${combo.secondary.id}`,
+                                search: location.search,
+                              }}
+                              className="flex-1 sm:flex-none"
+                            >
+                              <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl min-h-[40px] px-4">
+                                {locale === "ja" ? "詳細を見る" : "Explore"}
+                              </Button>
+                            </Link>
                             <Button
                               variant="outline"
                               size="sm"
-                              className="w-full border-slate-300 dark:border-slate-700 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 hover:text-emerald-600 font-semibold"
+                              onClick={() => {
+                                const pairKey = getCombinationKey(
+                                  combo.primary.id,
+                                  combo.secondary.id,
+                                );
+                                const comboGroup: ItineraryGroup = {
+                                  id: pairKey,
+                                  type: "destination_pair",
+                                  pairKey,
+                                  title: {
+                                    en: `${combo.primary.name} & ${combo.secondary.name}`,
+                                    ja: `${combo.primary.nameJa || combo.primary.name}＆${combo.secondary.nameJa || combo.secondary.name}`,
+                                  },
+                                  destinations: [
+                                    combo.primary,
+                                    combo.secondary,
+                                  ],
+                                  createdAt: new Date().toISOString(),
+                                };
+                                setPendingSave({
+                                  type: "destination_pair",
+                                  group: comboGroup,
+                                });
+                              }}
+                              className="flex-1 sm:flex-none border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 font-bold text-xs rounded-xl min-h-[40px] px-3.5"
                             >
+                              <Plus className="w-3.5 h-3.5 mr-1" />
                               {locale === "ja"
-                                ? "スポットを見る"
-                                : "View Combo"}
+                                ? "旅程に追加"
+                                : "Add to itinerary"}
                             </Button>
-                          </Link>
+                          </div>
                         </CardContent>
                       </Card>
                     );
@@ -1692,23 +1764,33 @@ export default function DestinationDetails() {
               </div>
             )}
 
-            {/* Suggested Day Plan Widget */}
-            <div className="mt-8">
-              <DayPlanWidget
-                destination={destination}
-                locale={locale}
-                partySize={partySize}
-                onSaveToItinerary={() => setPickerOpen(true)}
-              />
-            </div>
+            {/* Unified "Plan this trip" Progressive Section */}
+            <div className="mt-12 space-y-6 pt-8 border-t border-slate-200 dark:border-slate-800">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div>
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                    {locale === "ja" ? "旅行計画ツール" : "Planning Tools"}
+                  </span>
+                  <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white mt-0.5">
+                    {locale === "ja" ? "このスポットを計画" : "Plan this trip"}
+                  </h3>
+                </div>
+              </div>
 
-            {/* Itemized Trip Cost Breakdown Widget */}
-            <div className="mt-8">
-              <TripCostBreakdownWidget
+              {/* Progressive Planning Section */}
+              <DestinationPlanningSection
                 destination={destination}
                 locale={locale}
                 partySize={partySize}
-                activeTransportMode={selectedTransport}
+                selectedTransport={selectedTransport}
+                onPlanGenerated={setGeneratedPlan}
+                onSaveToItinerary={(plan) => {
+                  if (plan) {
+                    setPendingSave({ type: "generated_plan", plan });
+                  } else if (destination) {
+                    setPendingSave({ type: "destination", destination });
+                  }
+                }}
               />
             </div>
           </div>
@@ -1788,39 +1870,6 @@ export default function DestinationDetails() {
                             destination.bestSeason,
                             locale,
                           )}
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                  <div className="flex items-center gap-3">
-                    <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">
-                      <JapaneseYen className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                        {budgetLabel}
-                      </div>
-                      <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
-                        <JapaneseYen className="inline w-3 h-3" />
-                        {(destination.budgetMin * partySize).toLocaleString()}
-                        –<JapaneseYen className="inline w-3 h-3" />
-                        {(destination.budgetMax * partySize).toLocaleString()}
-                      </div>
-                    </div>
-                  </div>
-                  {nearbyPlaces.length > 0 && (
-                    <div className="flex items-center gap-3">
-                      <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">
-                        <MapPin className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                          {copy.nearby}
-                        </div>
-                        <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
-                          {locale === "ja"
-                            ? `${nearbyPlaces.length}件の関連スポット`
-                            : `${nearbyPlaces.length} related places`}
                         </div>
                       </div>
                     </div>
@@ -1912,6 +1961,94 @@ export default function DestinationDetails() {
 
             <Card>
               <CardContent className="p-6 space-y-4">
+                <h3 className="font-bold text-slate-900 dark:text-white">
+                  {locale === "ja"
+                    ? "基本情報・アクセス"
+                    : "Practical Information"}
+                </h3>
+
+                {/* Opening Hours & Access Status */}
+                {requiresOpeningHours(destination) && (
+                  <div>
+                    <div className="flex items-center justify-between mb-1">
+                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                        {locale === "ja" ? "営業時間" : "Opening hours"}
+                      </h4>
+                      {(() => {
+                        const assessment =
+                          getOpeningHoursAssessment(destination);
+                        const badgeConfigs: Record<
+                          string,
+                          { bg: string; labelEn: string; labelJa: string }
+                        > = {
+                          verified: {
+                            bg: "bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800",
+                            labelEn: "Verified hours",
+                            labelJa: "確認済み営業時間",
+                          },
+                          sourced: {
+                            bg: "bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border-blue-300 dark:border-blue-800",
+                            labelEn: "Official hours listed",
+                            labelJa: "公式営業時間掲載",
+                          },
+                          stale: {
+                            bg: "bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border-amber-300 dark:border-amber-800",
+                            labelEn: "Hours may be stale",
+                            labelJa: "情報更新が必要",
+                          },
+                          unverified: {
+                            bg: "bg-rose-100 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 border-rose-300 dark:border-rose-800",
+                            labelEn: "Unverified hours",
+                            labelJa: "営業時間未確認",
+                          },
+                          not_required: {
+                            bg: "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-300 dark:border-slate-700",
+                            labelEn: "Open access",
+                            labelJa: "散策自由",
+                          },
+                        };
+                        const cfg =
+                          badgeConfigs[assessment.status] ||
+                          badgeConfigs.unverified;
+                        return (
+                          <span
+                            className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${cfg.bg}`}
+                          >
+                            {locale === "ja" ? cfg.labelJa : cfg.labelEn}
+                          </span>
+                        );
+                      })()}
+                    </div>
+                    <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
+                      {destination.businessHours ||
+                        destination.openingHours || (
+                          <span className="text-amber-600 dark:text-amber-400">
+                            {locale === "ja"
+                              ? "未確認（公式ウェブサイトで確認してください）"
+                              : "Not yet verified — check official website before visiting"}
+                          </span>
+                        )}
+                    </p>
+                  </div>
+                )}
+                {!requiresOpeningHours(destination) && (
+                  <div>
+                    <div className="flex items-center justify-between mb-1">
+                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                        {locale === "ja" ? "アクセス状態" : "Access"}
+                      </h4>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full border bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-300 dark:border-slate-700">
+                        {locale === "ja" ? "散策自由" : "Open access"}
+                      </span>
+                    </div>
+                    <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
+                      {locale === "ja"
+                        ? "散策自由（個別施設により営業時間が異なります）"
+                        : "Open access; individual facilities may have separate hours"}
+                    </p>
+                  </div>
+                )}
+
                 {destination.reservation && (
                   <div>
                     <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
@@ -1932,7 +2069,7 @@ export default function DestinationDetails() {
                         href={destination.officialWebsite}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-sm font-medium text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 break-all"
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 break-all"
                       >
                         {destination.officialWebsite}
                         <ExternalLink className="w-3.5 h-3.5 shrink-0" />
@@ -1953,13 +2090,6 @@ export default function DestinationDetails() {
             </Card>
           </div>
         </div>
-
-        {/* Hub-Based Travel Planner Widget */}
-        {destination.role === "hub" && (
-          <div className="mt-12">
-            <HubPlannerWidget hub={destination} locale={locale} />
-          </div>
-        )}
 
         {/* Top Sights & Attractions (For City / Ward / Town Hubs) */}
         {destination.role === "hub" && featuredChildSights.length > 0 && (
@@ -2099,6 +2229,7 @@ export default function DestinationDetails() {
 
             <DestinationMap
               destinations={childDestinations}
+              locale={locale}
               carMode={navState?.carMode}
               publicModes={navState?.publicModes}
             />
@@ -2210,9 +2341,9 @@ export default function DestinationDetails() {
       {destination && (
         <>
           <ItineraryPickerModal
-            isOpen={pickerOpen}
-            onClose={() => setPickerOpen(false)}
-            destination={{ id: destination.id, name: destination.name }}
+            isOpen={pendingSave !== null}
+            onClose={() => setPendingSave(null)}
+            payload={pendingSave}
           />
 
           <MarkVisitedModal

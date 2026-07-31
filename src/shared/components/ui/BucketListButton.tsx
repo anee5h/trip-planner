@@ -9,6 +9,8 @@ interface BucketListButtonProps {
   destinationName?: string;
   variant?: "circle" | "button" | "hero";
   className?: string;
+  addLabel?: string;
+  removeLabel?: string;
 }
 
 export function BucketListButton({
@@ -16,6 +18,8 @@ export function BucketListButton({
   destinationName,
   variant = "circle",
   className = "",
+  addLabel,
+  removeLabel,
 }: BucketListButtonProps) {
   const { t } = useTranslation();
   const { isFavorite, toggleFavorite } = useTripStore();
@@ -41,12 +45,19 @@ export function BucketListButton({
     }
   };
 
+  const currentTitle = active
+    ? removeLabel || t("ui.onBucketList")
+    : addLabel || t("ui.bucketList");
+  const currentAriaLabel = active
+    ? removeLabel || "Remove from bucket list"
+    : addLabel || "Add to bucket list";
+
   if (variant === "button") {
     return (
       <button
         onClick={handleClick}
-        aria-label={active ? "Remove from bucket list" : "Add to bucket list"}
-        title={active ? t("ui.onBucketList") : t("ui.bucketList")}
+        aria-label={currentAriaLabel}
+        title={currentTitle}
         className={`px-4 py-2 rounded-xl flex items-center gap-2 font-semibold text-sm transition-all active:scale-95 shadow-sm border ${
           active
             ? "bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-500"
@@ -54,7 +65,7 @@ export function BucketListButton({
         } ${className}`}
       >
         <Bookmark className={`w-4 h-4 ${active ? "fill-current" : ""}`} />
-        <span>{active ? t("ui.onBucketList") : t("ui.bucketList")}</span>
+        <span>{currentTitle}</span>
       </button>
     );
   }
@@ -63,8 +74,8 @@ export function BucketListButton({
     return (
       <button
         onClick={handleClick}
-        aria-label={active ? "Remove from bucket list" : "Add to bucket list"}
-        title={active ? t("ui.onBucketList") : t("ui.bucketList")}
+        aria-label={currentAriaLabel}
+        title={currentTitle}
         className={`w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 backdrop-blur-md border ${
           active
             ? "bg-emerald-500 text-white border-emerald-400 shadow-md"
@@ -80,8 +91,8 @@ export function BucketListButton({
   return (
     <button
       onClick={handleClick}
-      aria-label={active ? "Remove from bucket list" : "Add to bucket list"}
-      title={active ? t("ui.onBucketList") : t("ui.bucketList")}
+      aria-label={currentAriaLabel}
+      title={currentTitle}
       className={`p-2 bg-white/70 hover:bg-white dark:bg-slate-900/70 dark:hover:bg-slate-900 backdrop-blur-sm rounded-full transition-all active:scale-95 duration-150 shadow-sm text-slate-700 dark:text-slate-200 ${
         active ? "!bg-emerald-500 !text-white !border-emerald-400" : ""
       } ${className}`}

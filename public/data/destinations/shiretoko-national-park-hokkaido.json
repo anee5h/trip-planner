@@ -100,5 +100,6 @@
     "min": 5,
     "max": 7
   },
-  "officialWebsite": "https://www.env.go.jp/park/shiretoko/"
+  "officialWebsite": "https://www.env.go.jp/park/shiretoko/",
+  "businessHours": "09:00 - 17:00 (Daily)"
 }

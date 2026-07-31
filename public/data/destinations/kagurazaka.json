@@ -17,7 +17,7 @@
   },
   "prefecture": "Tokyo",
   "region": "Kanto",
-  "kind": "museum",
+  "kind": "district",
   "role": "poi",
   "placeType": "destination",
   "areaId": "kagurazaka",
@@ -25,7 +25,7 @@
     "parentDestinationId": "shinjuku-city"
   },
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
+  "categories": ["Dining", "Historic Street", "Culture"],
   "tags": ["Culture", "Shinjuku City", "v1.9.2"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg",
   "imageMetadata": {
@@ -170,5 +170,6 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "officialWebsite": "https://www.kagurazaka.in/"
+  "officialWebsite": "https://www.kagurazaka.in/",
+  "businessHours": "Open access"
 }

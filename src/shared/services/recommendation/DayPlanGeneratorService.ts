@@ -1,15 +1,61 @@
 import type { Destination } from "@/shared/types/destination";
+import type { CatchmentScope } from "@/shared/types/planner";
 import { findNearbyCombinations } from "./DestinationCombinationService";
-import type { RecommendationContext } from "./RecommendationContext";
-import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
+import {
+  getLocalizedPlace,
+  getCanonicalPlaces,
+} from "@/shared/services/place/PlaceCatalog";
 import { formatPlaceName } from "@/shared/utils/placeLabels";
+import type { RecommendationContext } from "./RecommendationContext";
+import {
+  getEffectiveVisitDuration,
+  type VisitDuration,
+} from "./VisitDurationPolicy";
+import {
+  estimateLocalTransitMinutes,
+  hasCoordinates,
+  type TransitEstimateResult,
+} from "./LocalTransitEstimator";
+import { getOpeningHoursAssessment } from "./OpeningHoursPolicy";
+import { getDistance } from "@/shared/utils/distance";
+import { calculateGeneratedPlanCost } from "../budget/GeneratedPlanCostService";
+
+export type ReturnMode = "anchor" | "nearest_station" | "none";
+export type DayPlanPace = "relaxed" | "balanced" | "packed";
+export type DayPlanType = "half_day" | "full_day";
+export type { CatchmentScope } from "@/shared/types/planner";
+
+export function isHubPrimary(destination: Destination): boolean {
+  return destination.role === "hub" || destination.kind === "city";
+}
+
+export interface RouteLeg {
+  fromDestinationId?: string;
+  toDestinationId?: string;
+  durationMinutes: number;
+  distanceKm?: number;
+  curatedFare?: { min: number; max: number };
+  source: TransitEstimateResult["source"];
+  confidence: TransitEstimateResult["confidence"];
+}
+
+export interface PlanAssumption {
+  type:
+    | "unverified_hours"
+    | "stale_hours"
+    | "estimated_transit"
+    | "estimated_cost"
+    | "seasonal_access";
+  destinationId?: string;
+  message: { en: string; ja: string };
+}
 
 export interface DayPlanStep {
   id: string;
-  type: "destination" | "travel" | "meal" | "buffer";
+  type: "destination" | "meal" | "buffer" | "travel";
   timeBlock: "morning" | "afternoon" | "evening";
-  startTime: string; // e.g. "09:30"
-  endTime: string; // e.g. "11:30"
+  startTime: string;
+  endTime: string;
   durationMinutes: number;
   destination?: Destination;
   title: { en: string; ja: string };
@@ -17,353 +63,1003 @@ export interface DayPlanStep {
   hasUncertainHours?: boolean;
 }
 
+export type PlanFailureReason =
+  | "anchor_exceeds_time_window"
+  | "insufficient_real_pois"
+  | "no_feasible_candidate_pair"
+  | "unusable_transit_leg"
+  | "unusable_return_leg";
+
 export interface DayPlan {
   id: string;
   title: { en: string; ja: string };
   steps: DayPlanStep[];
+  routeLegs?: RouteLeg[];
+  assumptions?: PlanAssumption[];
+  returnMode?: ReturnMode;
+  returnEndpointId?: string;
   totalDurationMinutes: number;
   totalBudgetRange: [number, number];
   isOverfilled: boolean;
-  overfillWarning?: { en: string; ja: string };
+  isUnfeasible?: boolean;
+  canFallbackToHalfDay?: boolean;
+  unfeasibleErrorMessage?: { en: string; ja: string };
+  failureReason?: PlanFailureReason;
+  generatedWith?: {
+    planType: DayPlanType;
+    startTime: string;
+    availableMinutes: number;
+    returnMode: ReturnMode;
+    pace: DayPlanPace;
+    catchmentScope: CatchmentScope;
+  };
   uncertainHoursDisclosures: Array<{ destinationId: string; name: string }>;
 }
 
-/**
-  Formats a minute offset from 09:00 into "HH:MM" string.
- */
-function formatTime(minutesFromNineAM: number): string {
-  const totalMinutes = 9 * 60 + minutesFromNineAM;
-  const hours = Math.floor(totalMinutes / 60) % 24;
-  const mins = totalMinutes % 60;
-  const hStr = hours.toString().padStart(2, "0");
-  const mStr = mins.toString().padStart(2, "0");
-  return `${hStr}:${mStr}`;
+export interface DayPlanOptions {
+  planType?: DayPlanType;
+  startTime?: string;
+  availableMinutes?: number;
+  pace?: DayPlanPace;
+  partySize?: number;
+  maxEndTime?: string;
+  catchmentScope?: CatchmentScope;
+  returnMode?: ReturnMode;
+  context?: Partial<RecommendationContext>;
+  catalogue?: Destination[];
+}
+
+export interface PlannedCandidate {
+  destination: Destination;
+  recommendationScore: number;
+  routeScore: number;
+  minVisitMins: number;
+  preferredVisitMins: number;
+  maxVisitMins: number;
+  durationSource: VisitDuration["source"];
+  required: boolean;
+}
+
+export {
+  getEffectiveVisitDuration,
+  getTypeFallback,
+  resolvePlanningCategory,
+} from "./VisitDurationPolicy";
+export {
+  estimateLocalTransitMinutes,
+  hasCoordinates,
+} from "./LocalTransitEstimator";
+export {
+  getOpeningHoursAssessment,
+  requiresOpeningHours,
+  hasVerifiedOpeningHours,
+} from "./OpeningHoursPolicy";
+
+export function parseTimeToMinutes(timeStr: string): number {
+  if (!timeStr || typeof timeStr !== "string") return 9 * 60;
+  const parts = timeStr.split(":");
+  const h = parseInt(parts[0], 10);
+  const m = parseInt(parts[1], 10);
+  if (!Number.isFinite(h) || !Number.isFinite(m)) return 9 * 60;
+  const validH = Math.min(23, Math.max(0, h));
+  const validM = Math.min(59, Math.max(0, m));
+  return validH * 60 + validM;
+}
+
+export function isRealDestinationStop(step: DayPlanStep): boolean {
+  if (
+    step.type !== "destination" ||
+    !step.destination ||
+    !step.destination.id
+  ) {
+    return false;
+  }
+  if (step.destination.role === "hub" || step.destination.kind === "city") {
+    return false;
+  }
+  return step.durationMinutes > 0;
+}
+
+export function getTimeBlock(
+  minutes: number,
+): "morning" | "afternoon" | "evening" {
+  const norm = Math.max(0, minutes) % (24 * 60);
+  if (norm < 12 * 60) return "morning";
+  if (norm < 17 * 60) return "afternoon";
+  return "evening";
+}
+
+function formatTimeFromMidnight(mins: number): string {
+  const normalized = Math.max(0, mins) % (24 * 60);
+  const hours = Math.floor(normalized / 60);
+  const minutes = normalized % 60;
+  return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
+}
+
+export function isStationDestination(
+  dest: Destination | undefined,
+): dest is Destination {
+  return dest?.kind === "station";
+}
+
+export function resolveReturnEndpoint(
+  finalStop: Destination,
+  mode: ReturnMode,
+  anchor: Destination,
+  catalogue: Destination[] = [],
+): Destination | null {
+  if (mode === "anchor") return anchor;
+  if (mode === "none") return null;
+
+  const catsToUse = catalogue.length ? catalogue : getCanonicalPlaces();
+
+  const rels = finalStop.relationships as Record<string, unknown> | undefined;
+  const nearestStationId = rels?.nearestStationId as string | undefined;
+  if (nearestStationId) {
+    const st = catsToUse.find((d) => d.id === nearestStationId);
+    if (isStationDestination(st)) return st;
+  }
+
+  if (finalStop.relationships?.parentDestinationId) {
+    const parent = catsToUse.find(
+      (d) => d.id === finalStop.relationships?.parentDestinationId,
+    );
+    if (isStationDestination(parent)) {
+      return parent;
+    }
+  }
+
+  if (hasCoordinates(finalStop)) {
+    const nearbyStations = catsToUse.filter(
+      (d) => isStationDestination(d) && hasCoordinates(d),
+    );
+    let closest: Destination | null = null;
+    let minD = 5.0;
+    for (const st of nearbyStations) {
+      if (hasCoordinates(st)) {
+        const d = getDistance(
+          finalStop.coordinates.lat,
+          finalStop.coordinates.lng,
+          st.coordinates.lat,
+          st.coordinates.lng,
+        );
+        if (d < minD) {
+          minD = d;
+          closest = st;
+        }
+      }
+    }
+    if (closest) return closest;
+  }
+
+  return null;
 }
 
 export function generateDayPlan(
   primary: Destination,
-  context?: Partial<RecommendationContext>,
+  options?: DayPlanOptions,
 ): DayPlan {
   if (!primary) {
     return {
       id: "empty-plan",
-      title: { en: "Empty Day Plan", ja: "空のモデルコース" },
+      title: { en: "Day Plan", ja: "日帰りプラン" },
       steps: [],
       totalDurationMinutes: 0,
       totalBudgetRange: [0, 0],
       isOverfilled: false,
+      isUnfeasible: false,
       uncertainHoursDisclosures: [],
     };
   }
 
-  const combos = findNearbyCombinations(primary, context, 2);
-  const secondary = combos[0]?.secondary ?? null;
-  const tertiary = combos[1]?.secondary ?? null;
+  const isPrimaryHub = isHubPrimary(primary);
+  const planType: DayPlanType = options?.planType || "full_day";
+  const pace: DayPlanPace = options?.pace || "balanced";
+  const partySize = Math.max(1, options?.partySize || 1);
+  const catchmentScope: CatchmentScope = options?.catchmentScope || "nearby";
+  const returnMode: ReturnMode = options?.returnMode ?? "none";
+  const catalogue =
+    options?.catalogue && options.catalogue.length
+      ? options.catalogue
+      : getCanonicalPlaces();
 
-  const steps: DayPlanStep[] = [];
-  let currentTimeMins = 0;
-  let totalMinCost = primary.budgetMin ?? 0;
-  let totalMaxCost = primary.budgetMax ?? 0;
+  const startMinsFromMidnight = parseTimeToMinutes(
+    options?.startTime || "09:00",
+  );
 
-  const uncertainDisclosures: Array<{ destinationId: string; name: string }> =
-    [];
+  const defaultWindow = planType === "half_day" ? 5 * 60 : 9 * 60;
+  const legacyEndWindow = options?.maxEndTime
+    ? (parseTimeToMinutes(options.maxEndTime) -
+        startMinsFromMidnight +
+        24 * 60) %
+      (24 * 60)
+    : defaultWindow;
+  const hardAvailableMinutes = Math.max(
+    1,
+    options?.availableMinutes ?? legacyEndWindow,
+  );
 
-  function checkHours(dest: Destination) {
-    const localized = getLocalizedPlace(dest, "en");
-    if (!dest.openingHours && !dest.businessHours) {
-      uncertainDisclosures.push({
-        destinationId: dest.id,
-        name: localized.name,
+  const paceMultiplier =
+    pace === "relaxed" ? 1.25 : pace === "packed" ? 0.8 : 1.0;
+
+  const maxComboCount = catchmentScope === "wider" ? 8 : 6;
+  const combos = findNearbyCombinations(
+    primary,
+    options?.context,
+    maxComboCount,
+    catchmentScope,
+  );
+
+  const candidatesMap = new Map<string, Destination>();
+  if (!isPrimaryHub) {
+    candidatesMap.set(primary.id, primary);
+  }
+  combos.forEach((c) => {
+    if (
+      c.secondary &&
+      c.secondary.role !== "hub" &&
+      c.secondary.kind !== "city"
+    ) {
+      candidatesMap.set(c.secondary.id, c.secondary);
+    }
+  });
+
+  const plannedCandidates: PlannedCandidate[] = Array.from(
+    candidatesMap.values(),
+  ).map((dest) => {
+    const dur = getEffectiveVisitDuration(dest);
+    const minMins = Math.round(dur.minMins * paceMultiplier);
+    const prefMins = Math.round(dur.prefMins * paceMultiplier);
+    const maxMins = Math.round(dur.maxMins * paceMultiplier);
+    const isAnchor = !isPrimaryHub && dest.id === primary.id;
+
+    const transitEst = estimateLocalTransitMinutes(
+      primary,
+      dest,
+      catchmentScope,
+    );
+    const transitMins = transitEst.usable ? transitEst.durationMinutes : 999;
+    const ratingVal = dest.ratings?.overall ?? 4.5;
+    const baseScore = ratingVal * 20;
+    const routeScore = transitEst.usable ? baseScore - transitMins * 0.8 : -999;
+
+    return {
+      destination: dest,
+      recommendationScore: baseScore,
+      routeScore,
+      minVisitMins: minMins,
+      preferredVisitMins: prefMins,
+      maxVisitMins: maxMins,
+      durationSource: dur.source,
+      required: isAnchor,
+    };
+  });
+
+  const usableCandidates = plannedCandidates.filter(
+    (c) => c.required || c.routeScore > -999,
+  );
+
+  const realStopThreshold = planType === "half_day" ? 2 : 3;
+
+  const requiredCandidates = usableCandidates.filter(
+    (c) =>
+      c.required &&
+      c.destination.role !== "hub" &&
+      c.destination.kind !== "city" &&
+      c.destination.kind !== "district",
+  );
+  const optionalCandidates = usableCandidates
+    .filter((c) => !c.required)
+    .sort((a, b) => b.routeScore - a.routeScore);
+
+  const optionalStopsNeeded = Math.max(
+    0,
+    realStopThreshold - requiredCandidates.length,
+  );
+
+  const buildUnfeasiblePlan = (failureReason: PlanFailureReason): DayPlan => ({
+    id: `plan-${primary.id}`,
+    title: {
+      en: isPrimaryHub
+        ? `Plan a day in ${getLocalizedPlace(primary, "en").name}`
+        : `Plan around ${getLocalizedPlace(primary, "en").name}`,
+      ja: isPrimaryHub
+        ? `${getLocalizedPlace(primary, "ja").name}のモデルコース`
+        : `${getLocalizedPlace(primary, "ja").name} 周辺モデルコース`,
+    },
+    steps: [],
+    returnMode,
+    totalDurationMinutes: 0,
+    totalBudgetRange: [0, 0],
+    isOverfilled: false,
+    isUnfeasible: true,
+    canFallbackToHalfDay:
+      planType === "full_day" && usableCandidates.length >= 2,
+    failureReason,
+    unfeasibleErrorMessage: {
+      en:
+        failureReason === "anchor_exceeds_time_window"
+          ? "This place needs more time than the selected window."
+          : failureReason === "unusable_return_leg"
+            ? "We couldn’t reach a nearby station from the final stop."
+            : failureReason === "insufficient_real_pois"
+              ? "We couldn’t find enough suitable nearby stops for this schedule."
+              : "We couldn’t create a realistic plan within this time window.",
+      ja: "この時間枠内に現実的なプランを作成できませんでした。",
+    },
+    uncertainHoursDisclosures: [],
+  });
+
+  if (
+    !isPrimaryHub &&
+    getEffectiveVisitDuration(primary).minMins > hardAvailableMinutes
+  ) {
+    return buildUnfeasiblePlan("anchor_exceeds_time_window");
+  }
+  if (optionalCandidates.length < optionalStopsNeeded) {
+    return buildUnfeasiblePlan("insufficient_real_pois");
+  }
+
+  interface SubsetSimulation {
+    candidates: PlannedCandidate[];
+    route: any;
+    usedMinimumDurations: boolean;
+    preferredTotal: number;
+    actualTotal: number;
+    score: number;
+    transitTotal: number;
+  }
+
+  const validSimulations: SubsetSimulation[] = [];
+  const simulationFailures: Array<
+    "unusable_transit_leg" | "unusable_return_leg"
+  > = [];
+
+  function evaluateSubset(subset: PlannedCandidate[]) {
+    let route = simulateRouteIncremental(
+      primary,
+      isPrimaryHub,
+      subset,
+      false,
+      startMinsFromMidnight,
+      catchmentScope,
+      returnMode,
+      catalogue,
+    );
+    let usedMin = false;
+    let actual = route.totalMins;
+
+    if (route.feasible && route.totalMins > hardAvailableMinutes) {
+      route = simulateRouteIncremental(
+        primary,
+        isPrimaryHub,
+        subset,
+        false,
+        startMinsFromMidnight,
+        catchmentScope,
+        returnMode,
+        catalogue,
+        false,
+        false,
+      );
+      actual = route.totalMins;
+    }
+
+    if (!route.feasible || route.totalMins > hardAvailableMinutes) {
+      route = simulateRouteIncremental(
+        primary,
+        isPrimaryHub,
+        subset,
+        true,
+        startMinsFromMidnight,
+        catchmentScope,
+        returnMode,
+        catalogue,
+      );
+      usedMin = true;
+      actual = route.totalMins;
+
+      if (route.feasible && route.totalMins > hardAvailableMinutes) {
+        route = simulateRouteIncremental(
+          primary,
+          isPrimaryHub,
+          subset,
+          true,
+          startMinsFromMidnight,
+          catchmentScope,
+          returnMode,
+          catalogue,
+          false,
+          false,
+        );
+        actual = route.totalMins;
+      }
+    }
+
+    if (route.feasible && route.totalMins <= hardAvailableMinutes) {
+      const preferredTotal = subset.reduce(
+        (acc, c) => acc + c.preferredVisitMins,
+        0,
+      );
+      const score = subset.reduce((acc, c) => acc + c.recommendationScore, 0);
+      const transitTotal = route.routeLegs.reduce(
+        (acc, l) => acc + l.durationMinutes,
+        0,
+      );
+
+      validSimulations.push({
+        candidates: subset,
+        route,
+        usedMinimumDurations: usedMin,
+        preferredTotal,
+        actualTotal: actual,
+        score,
+        transitTotal,
       });
+    } else if ("failureReason" in route && route.failureReason) {
+      simulationFailures.push(route.failureReason);
     }
   }
 
-  checkHours(primary);
-  if (secondary) checkHours(secondary);
-  if (tertiary) checkHours(tertiary);
+  const getSubsets = (arr: PlannedCandidate[], size: number) => {
+    const result: PlannedCandidate[][] = [];
+    const run = (curr: PlannedCandidate[], idx: number) => {
+      if (curr.length === size) {
+        result.push([...curr]);
+        return;
+      }
+      for (let i = idx; i < arr.length; i++) {
+        run([...curr, arr[i]], i + 1);
+      }
+    };
+    run([], 0);
+    return result;
+  };
 
-  // 1. MORNING (09:00 - 12:00)
-  // Step A: Primary Destination
-  const primaryVisitMins = Math.round(
-    ((primary.recommendedVisitHours?.min ?? 2) +
-      (primary.recommendedVisitHours?.max ?? 3)) *
-      30,
-  );
+  const phase1Subsets = getSubsets(optionalCandidates, optionalStopsNeeded);
+  for (const sub of phase1Subsets) {
+    evaluateSubset([...requiredCandidates, ...sub]);
+  }
 
-  const startPrimaryTime = formatTime(currentTimeMins);
-  currentTimeMins += primaryVisitMins;
-  const endPrimaryTime = formatTime(currentTimeMins);
+  if (
+    planType === "full_day" &&
+    optionalCandidates.length >= optionalStopsNeeded + 1
+  ) {
+    const phase2Subsets = getSubsets(
+      optionalCandidates,
+      optionalStopsNeeded + 1,
+    );
+    for (const sub of phase2Subsets) {
+      evaluateSubset([...requiredCandidates, ...sub]);
+    }
+  }
+
+  if (validSimulations.length === 0) {
+    const failureReason =
+      simulationFailures.length > 0 &&
+      simulationFailures.every((reason) => reason === "unusable_return_leg")
+        ? "unusable_return_leg"
+        : simulationFailures.includes("unusable_transit_leg")
+          ? "unusable_transit_leg"
+          : "no_feasible_candidate_pair";
+    return buildUnfeasiblePlan(failureReason);
+  }
+
+  validSimulations.sort((a, b) => {
+    if (a.usedMinimumDurations !== b.usedMinimumDurations)
+      return a.usedMinimumDurations ? 1 : -1;
+    if (b.score !== a.score) return b.score - a.score;
+    if (a.transitTotal !== b.transitTotal)
+      return a.transitTotal - b.transitTotal;
+    const aComp = a.usedMinimumDurations
+      ? a.preferredTotal -
+        a.candidates.reduce((sum, candidate) => sum + candidate.minVisitMins, 0)
+      : 0;
+    const bComp = b.usedMinimumDurations
+      ? b.preferredTotal -
+        b.candidates.reduce((sum, candidate) => sum + candidate.minVisitMins, 0)
+      : 0;
+    if (aComp !== bComp) return aComp - bComp;
+    const aIds = a.candidates
+      .map((c) => c.destination.id)
+      .sort()
+      .join(",");
+    const bIds = b.candidates
+      .map((c) => c.destination.id)
+      .sort()
+      .join(",");
+    return aIds.localeCompare(bIds);
+  });
+
+  const bestSim = validSimulations[0];
+  const builtRoute = bestSim.route;
+  const activeCandidates = bestSim.candidates;
+
+  const uncertainHoursDisclosures: Array<{
+    destinationId: string;
+    name: string;
+  }> = [];
+
+  activeCandidates.forEach((c) => {
+    const assessment = getOpeningHoursAssessment(c.destination);
+    if (assessment.status === "stale" || assessment.status === "unverified") {
+      const loc = getLocalizedPlace(c.destination, "en");
+      uncertainHoursDisclosures.push({
+        destinationId: c.destination.id,
+        name: loc.name,
+      });
+    }
+  });
 
   const primLocEn = getLocalizedPlace(primary, "en");
   const primLocJa = getLocalizedPlace(primary, "ja");
 
-  steps.push({
-    id: `step-${primary.id}`,
-    type: "destination",
-    timeBlock: "morning",
-    startTime: startPrimaryTime,
-    endTime: endPrimaryTime,
-    durationMinutes: primaryVisitMins,
-    destination: primary,
+  const rawPlan: DayPlan = {
+    id: `plan-${primary.id}`,
     title: {
-      en: formatPlaceName(primLocEn, "en"),
-      ja: formatPlaceName(primLocJa, "ja"),
+      en: isPrimaryHub
+        ? `Plan a day in ${primLocEn.name}`
+        : `Plan around ${primLocEn.name}`,
+      ja: isPrimaryHub
+        ? `${primLocJa.name}の1日モデルコース`
+        : `${primLocJa.name} 周辺モデルコース`,
     },
-    description: {
-      en: `Explore ${primLocEn.name} and top highlights.`,
-      ja: `${primLocJa.name}の主要ハイライトを巡る。`,
+    steps: builtRoute.steps,
+    routeLegs: builtRoute.routeLegs,
+    assumptions: builtRoute.assumptions,
+    returnMode,
+    returnEndpointId: builtRoute.returnEndpoint?.id,
+    totalDurationMinutes: builtRoute.totalMins,
+    totalBudgetRange: [0, 0],
+    isOverfilled: false,
+    isUnfeasible: false,
+    uncertainHoursDisclosures,
+    generatedWith: {
+      planType,
+      startTime: formatTimeFromMidnight(startMinsFromMidnight),
+      availableMinutes: hardAvailableMinutes,
+      returnMode,
+      pace,
+      catchmentScope,
     },
-    hasUncertainHours: !primary.openingHours && !primary.businessHours,
-  });
+  };
 
-  // Transit/buffer to lunch
-  steps.push({
-    id: "buffer-morning",
-    type: "buffer",
-    timeBlock: "morning",
-    startTime: formatTime(currentTimeMins),
-    endTime: formatTime(currentTimeMins + 15),
-    durationMinutes: 15,
-    title: { en: "15 min short break / walk", ja: "15分 休憩・移動" },
-  });
-  currentTimeMins += 15;
-
-  // 2. LUNCH BREAK (12:00 - 13:00)
-  steps.push({
-    id: "meal-lunch",
-    type: "meal",
-    timeBlock: "afternoon",
-    startTime: formatTime(currentTimeMins),
-    endTime: formatTime(currentTimeMins + 60),
-    durationMinutes: 60,
-    title: {
-      en: "Lunch Break — Local Dining",
-      ja: "昼食 — 地元の人気グルメ",
-    },
-    description: {
-      en: "Enjoy regional specialties or ramen in the surrounding district.",
-      ja: "周辺エリアで名物料理やランチを楽しむ。",
-    },
-  });
-  currentTimeMins += 60;
-  totalMinCost += 1500;
-  totalMaxCost += 2500;
-
-  // 3. AFTERNOON (13:00 - 17:00)
-  if (secondary) {
-    const secDistKm = combos[0]?.interDistanceKm ?? 1.5;
-    const travelMins = Math.max(
-      15,
-      Math.round((combos[0]?.estimatedInterTravelMinutes ?? 20) / 5) * 5,
-    );
-
-    steps.push({
-      id: `travel-${secondary.id}`,
-      type: "travel",
-      timeBlock: "afternoon",
-      startTime: formatTime(currentTimeMins),
-      endTime: formatTime(currentTimeMins + travelMins),
-      durationMinutes: travelMins,
-      title: {
-        en: `Transit to ${secondary.name} (${secDistKm} km)`,
-        ja: `${secondary.name}へ移動 (${secDistKm}km)`,
-      },
-    });
-    currentTimeMins += travelMins;
-
-    const secVisitMins = Math.round(
-      ((secondary.recommendedVisitHours?.min ?? 1.5) +
-        (secondary.recommendedVisitHours?.max ?? 2.5)) *
-        30,
-    );
-    const startSecTime = formatTime(currentTimeMins);
-    currentTimeMins += secVisitMins;
-    const endSecTime = formatTime(currentTimeMins);
-
-    const secLocEn = getLocalizedPlace(secondary, "en");
-    const secLocJa = getLocalizedPlace(secondary, "ja");
-
-    steps.push({
-      id: `step-${secondary.id}`,
-      type: "destination",
-      timeBlock: "afternoon",
-      startTime: startSecTime,
-      endTime: endSecTime,
-      durationMinutes: secVisitMins,
-      destination: secondary,
-      title: {
-        en: formatPlaceName(secLocEn, "en"),
-        ja: formatPlaceName(secLocJa, "ja"),
-      },
-      description: {
-        en: `Visit ${secLocEn.name} nearby.`,
-        ja: `近隣の${secLocJa.name}をあわせて散策。`,
-      },
-      hasUncertainHours: !secondary.openingHours && !secondary.businessHours,
-    });
-
-    totalMinCost += secondary.budgetMin ?? 0;
-    totalMaxCost += secondary.budgetMax ?? 0;
+  const planCost = calculateGeneratedPlanCost(rawPlan, partySize);
+  rawPlan.totalBudgetRange = planCost.totalRange;
+  if (planCost.assumptions.length > 0) {
+    rawPlan.assumptions = [
+      ...(rawPlan.assumptions || []),
+      ...planCost.assumptions,
+    ];
   }
 
-  // 4. EVENING (17:00 - 20:30)
-  steps.push({
-    id: "meal-dinner",
-    type: "meal",
-    timeBlock: "evening",
-    startTime: formatTime(currentTimeMins),
-    endTime: formatTime(currentTimeMins + 75),
-    durationMinutes: 75,
-    title: { en: "Dinner & Evening Relaxation", ja: "夕食 & 夜のひととき" },
-    description: {
-      en: "Relax over a evening dinner or izakaya atmosphere.",
-      ja: "ディナーや居酒屋の雰囲気を楽しむ。",
-    },
-  });
-  currentTimeMins += 75;
-  totalMinCost += 3000;
-  totalMaxCost += 5000;
+  return rawPlan;
+}
 
-  if (tertiary) {
-    const tertLocEn = getLocalizedPlace(tertiary, "en");
-    const tertLocJa = getLocalizedPlace(tertiary, "ja");
-    const tertVisitMins = 60;
+function simulateRouteIncremental(
+  primary: Destination,
+  isPrimaryHub: boolean,
+  candidates: PlannedCandidate[],
+  useMinVisits: boolean,
+  startMins: number,
+  scope: CatchmentScope,
+  returnMode: ReturnMode,
+  catalogue: Destination[],
+  preserveOrder: boolean = false,
+  includeLunch: boolean = true,
+) {
+  const steps: DayPlanStep[] = [];
+  const routeLegs: RouteLeg[] = [];
+  const assumptions: PlanAssumption[] = [];
+  let currentMins = startMins;
+
+  let currentLocation: Destination = primary;
+  let lunchInserted = false;
+  let visitedPoiCount = 0;
+  const remaining = [...candidates];
+  const categoryCounts = new Map<string, number>();
+
+  while (remaining.length > 0) {
+    let nextCand: PlannedCandidate;
+    let bestTransitMins = 0;
+    let bestTransitResult: TransitEstimateResult | null = null;
+
+    const isFirstHubPoi = isPrimaryHub && visitedPoiCount === 0;
+
+    const requiredFirstIndex =
+      !isPrimaryHub && visitedPoiCount === 0
+        ? remaining.findIndex((candidate) => candidate.required)
+        : -1;
+
+    if (requiredFirstIndex >= 0) {
+      [nextCand] = remaining.splice(requiredFirstIndex, 1);
+    } else if (preserveOrder) {
+      nextCand = remaining.shift()!;
+      const dest = nextCand.destination;
+      const transit = estimateLocalTransitMinutes(currentLocation, dest, scope);
+      if (!transit.usable && currentLocation.id !== dest.id) {
+        return {
+          steps: [],
+          routeLegs: [],
+          assumptions: [],
+          totalMins: 0,
+          returnEndpoint: null,
+          feasible: false,
+          failureReason: "unusable_transit_leg" as const,
+        };
+      }
+      bestTransitMins =
+        currentLocation.id === dest.id ? 0 : transit.durationMinutes;
+      bestTransitResult = transit;
+    } else {
+      let bestIdx = -1;
+      let bestScore = -Infinity;
+
+      for (let i = 0; i < remaining.length; i++) {
+        const cand = remaining[i];
+        const dest = cand.destination;
+        const transit = estimateLocalTransitMinutes(
+          currentLocation,
+          dest,
+          scope,
+        );
+
+        if (!transit.usable && currentLocation.id !== dest.id) {
+          continue;
+        }
+
+        const tMins =
+          currentLocation.id === dest.id ? 0 : transit.durationMinutes;
+        const cat = dest.categories?.[0] || dest.kind || "attraction";
+        const catPenalty = (categoryCounts.get(cat) || 0) * 15;
+        const seqScore = cand.recommendationScore - tMins * 0.8 - catPenalty;
+
+        if (seqScore > bestScore) {
+          bestScore = seqScore;
+          bestIdx = i;
+          bestTransitMins = tMins;
+          bestTransitResult = transit;
+        }
+      }
+
+      if (bestIdx === -1) {
+        return {
+          steps: [],
+          routeLegs: [],
+          assumptions: [],
+          totalMins: 0,
+          returnEndpoint: null,
+          feasible: false,
+          failureReason: "unusable_transit_leg" as const,
+        };
+      }
+
+      [nextCand] = remaining.splice(bestIdx, 1);
+    }
+
+    const dest = nextCand.destination;
+    const cat = dest.categories?.[0] || dest.kind || "attraction";
+    categoryCounts.set(cat, (categoryCounts.get(cat) || 0) + 1);
+
+    if (!isFirstHubPoi && currentLocation.id !== dest.id && bestTransitResult) {
+      const destLocEn = getLocalizedPlace(dest, "en");
+      const destLocJa = getLocalizedPlace(dest, "ja");
+
+      let distKm: number | undefined = undefined;
+      if (hasCoordinates(currentLocation) && hasCoordinates(dest)) {
+        distKm = getDistance(
+          currentLocation.coordinates.lat,
+          currentLocation.coordinates.lng,
+          dest.coordinates.lat,
+          dest.coordinates.lng,
+        );
+      }
+
+      steps.push({
+        id: `travel-${currentLocation.id}-${dest.id}`,
+        type: "travel",
+        timeBlock: getTimeBlock(currentMins),
+        startTime: formatTimeFromMidnight(currentMins),
+        endTime: formatTimeFromMidnight(currentMins + bestTransitMins),
+        durationMinutes: bestTransitMins,
+        title: {
+          en: `Transit to ${destLocEn.name}`,
+          ja: `${destLocJa.name}へ移動`,
+        },
+      });
+      routeLegs.push({
+        fromDestinationId: currentLocation.id,
+        toDestinationId: dest.id,
+        durationMinutes: bestTransitMins,
+        distanceKm: distKm,
+        source: bestTransitResult.source,
+        confidence: bestTransitResult.confidence,
+      });
+
+      if (bestTransitResult.confidence === "estimated") {
+        assumptions.push({
+          type: "estimated_transit",
+          destinationId: dest.id,
+          message: {
+            en: `Transit to ${destLocEn.name} is estimated.`,
+            ja: `${destLocJa.name}への移動時間は推定値です。`,
+          },
+        });
+      }
+      currentMins += bestTransitMins;
+    }
+
+    currentLocation = dest;
+    visitedPoiCount += 1;
+
+    const visitMins = useMinVisits
+      ? nextCand.minVisitMins
+      : nextCand.preferredVisitMins;
+    const locEn = getLocalizedPlace(dest, "en");
+    const locJa = getLocalizedPlace(dest, "ja");
+    const assessment = getOpeningHoursAssessment(dest);
 
     steps.push({
-      id: `step-${tertiary.id}`,
+      id: `step-${dest.id}`,
       type: "destination",
-      timeBlock: "evening",
-      startTime: formatTime(currentTimeMins),
-      endTime: formatTime(currentTimeMins + tertVisitMins),
-      durationMinutes: tertVisitMins,
-      destination: tertiary,
+      timeBlock: getTimeBlock(currentMins),
+      startTime: formatTimeFromMidnight(currentMins),
+      endTime: formatTimeFromMidnight(currentMins + visitMins),
+      durationMinutes: visitMins,
+      destination: dest,
       title: {
-        en: formatPlaceName(tertLocEn, "en"),
-        ja: formatPlaceName(tertLocJa, "ja"),
+        en: formatPlaceName(locEn, "en"),
+        ja: formatPlaceName(locJa, "ja"),
       },
-      description: {
-        en: `Night stroll or illumination view at ${tertLocEn.name}.`,
-        ja: `${tertLocJa.name}で夜景や夜の散策。`,
-      },
-      hasUncertainHours: !tertiary.openingHours && !tertiary.businessHours,
+      hasUncertainHours:
+        assessment.requiresWarning && assessment.status !== "not_required",
     });
-    currentTimeMins += tertVisitMins;
-    totalMinCost += tertiary.budgetMin ?? 0;
-    totalMaxCost += tertiary.budgetMax ?? 0;
+    currentMins += visitMins;
+    currentLocation = dest;
+
+    // Lunch can only sit between completed visits, never before the first one.
+    if (
+      includeLunch &&
+      !lunchInserted &&
+      remaining.length > 0 &&
+      startMins < 13 * 60
+    ) {
+      if (currentMins >= 11 * 60 + 30 && currentMins <= 13 * 60) {
+        steps.push({
+          id: "meal-lunch",
+          type: "meal",
+          timeBlock: getTimeBlock(currentMins),
+          startTime: formatTimeFromMidnight(currentMins),
+          endTime: formatTimeFromMidnight(currentMins + 60),
+          durationMinutes: 60,
+          title: {
+            en: "Lunch Break — Local Dining",
+            ja: "昼食 — 地元の人気グルメ",
+          },
+        });
+        currentMins += 60;
+        lunchInserted = true;
+      } else if (currentMins < 11 * 60 + 30) {
+        const gap = 11 * 60 + 30 - currentMins;
+        if (gap > 0 && gap <= 30) {
+          steps.push({
+            id: "buffer-lunch",
+            type: "buffer",
+            timeBlock: getTimeBlock(currentMins),
+            startTime: formatTimeFromMidnight(currentMins),
+            endTime: formatTimeFromMidnight(11 * 60 + 30),
+            durationMinutes: gap,
+            title: {
+              en: "Short Break",
+              ja: "小休憩",
+            },
+          });
+          currentMins = 11 * 60 + 30;
+          steps.push({
+            id: "meal-lunch",
+            type: "meal",
+            timeBlock: getTimeBlock(currentMins),
+            startTime: formatTimeFromMidnight(currentMins),
+            endTime: formatTimeFromMidnight(currentMins + 60),
+            durationMinutes: 60,
+            title: {
+              en: "Lunch Break — Local Dining",
+              ja: "昼食 — 地元の人気グルメ",
+            },
+          });
+          currentMins += 60;
+          lunchInserted = true;
+        }
+      }
+    }
   }
 
-  // Check overfill limits (> 10 hours or > availableTimeHours)
-  const totalHours = currentTimeMins / 60;
-  const maxAllowedHours = context?.availableTimeHours ?? 10;
-  const isOverfilled = totalHours > maxAllowedHours;
+  const returnEndpoint = resolveReturnEndpoint(
+    currentLocation,
+    returnMode,
+    primary,
+    catalogue,
+  );
 
-  let overfillWarning: { en: string; ja: string } | undefined;
-  if (isOverfilled) {
-    const formattedTotal = Math.round(totalHours * 10) / 10;
-    overfillWarning = {
-      en: `Tight schedule: total plan (${formattedTotal}h) exceeds the ${maxAllowedHours}h limit. Consider removing a step.`,
-      ja: `スケジュールが過密です: 合計 (${formattedTotal}時間) が制限 ${maxAllowedHours}時間を超えています。ステップの削減をご検討ください。`,
+  if (returnMode === "nearest_station" && !returnEndpoint) {
+    return {
+      steps: [],
+      routeLegs: [],
+      assumptions: [],
+      totalMins: 0,
+      returnEndpoint: null,
+      feasible: false,
+      failureReason: "unusable_return_leg" as const,
     };
   }
 
-  const primaryLocEn = getLocalizedPlace(primary, "en");
-  const primaryLocJa = getLocalizedPlace(primary, "ja");
+  if (returnEndpoint && returnEndpoint.id !== currentLocation.id) {
+    const retTransit = estimateLocalTransitMinutes(
+      currentLocation,
+      returnEndpoint,
+      scope,
+    );
+
+    if (!retTransit.usable && returnMode !== "none") {
+      return {
+        steps: [],
+        routeLegs: [],
+        assumptions: [],
+        totalMins: 0,
+        returnEndpoint: null,
+        feasible: false,
+        failureReason: "unusable_return_leg" as const,
+      };
+    }
+
+    if (retTransit.usable && retTransit.durationMinutes > 0) {
+      const retEn = getLocalizedPlace(returnEndpoint, "en");
+      const retJa = getLocalizedPlace(returnEndpoint, "ja");
+      steps.push({
+        id: `travel-return-${returnEndpoint.id}`,
+        type: "travel",
+        timeBlock: getTimeBlock(currentMins),
+        startTime: formatTimeFromMidnight(currentMins),
+        endTime: formatTimeFromMidnight(
+          currentMins + retTransit.durationMinutes,
+        ),
+        durationMinutes: retTransit.durationMinutes,
+        title: {
+          en: `Return transit to ${retEn.name}`,
+          ja: `${retJa.name}へ帰路移動`,
+        },
+      });
+      routeLegs.push({
+        fromDestinationId: currentLocation.id,
+        toDestinationId: returnEndpoint.id,
+        durationMinutes: retTransit.durationMinutes,
+        source: retTransit.source,
+        confidence: retTransit.confidence,
+      });
+      currentMins += retTransit.durationMinutes;
+    }
+  }
 
   return {
-    id: `plan-${primary.id}`,
-    title: {
-      en: `Suggested Day Outing around ${primaryLocEn.name}`,
-      ja: `${primaryLocJa.name} 周辺のおすすめ1日モデルコース`,
-    },
     steps,
-    totalDurationMinutes: currentTimeMins,
-    totalBudgetRange: [totalMinCost, totalMaxCost],
-    isOverfilled,
-    overfillWarning,
-    uncertainHoursDisclosures: uncertainDisclosures,
+    routeLegs,
+    assumptions,
+    totalMins: currentMins - startMins,
+    returnEndpoint,
+    feasible: true,
   };
 }
 
-export function removeStepFromPlan(plan: DayPlan, stepId: string): DayPlan {
-  const newSteps = plan.steps.filter((s) => s.id !== stepId);
-
-  // Recalculate duration & start times
-  let currentTime = 0;
-  let newMinCost = 0;
-  let newMaxCost = 0;
-
-  const updatedSteps = newSteps.map((step) => {
-    const start = formatTime(currentTime);
-    currentTime += step.durationMinutes;
-    const end = formatTime(currentTime);
-
-    if (step.destination) {
-      newMinCost += step.destination.budgetMin ?? 0;
-      newMaxCost += step.destination.budgetMax ?? 0;
-    } else if (step.type === "meal") {
-      newMinCost += 2000;
-      newMaxCost += 3500;
-    }
+export function rebuildPlanFromEditedStops(
+  originalPlan: DayPlan,
+  updatedSteps: DayPlanStep[],
+  scope: CatchmentScope = "nearby",
+  partySize: number = 1,
+  preserveOrder: boolean = false,
+): DayPlan {
+  const destinationSteps = updatedSteps.filter(isRealDestinationStop);
+  if (destinationSteps.length === 0) {
+    let currentMins = parseTimeToMinutes(updatedSteps[0]?.startTime || "09:00");
+    const recalculated = updatedSteps.map((step) => {
+      const start = formatTimeFromMidnight(currentMins);
+      currentMins += step.durationMinutes;
+      const end = formatTimeFromMidnight(currentMins);
+      return { ...step, startTime: start, endTime: end };
+    });
 
     return {
-      ...step,
-      startTime: start,
-      endTime: end,
+      ...originalPlan,
+      steps: recalculated,
+      routeLegs: [],
+      totalDurationMinutes:
+        recalculated.length > 0
+          ? parseTimeToMinutes(recalculated[recalculated.length - 1].endTime) -
+            parseTimeToMinutes(recalculated[0].startTime)
+          : 0,
+    };
+  }
+
+  const primary = destinationSteps[0].destination!;
+  const newCandidates: PlannedCandidate[] = destinationSteps.map((step) => {
+    const dest = step.destination!;
+    const dur = getEffectiveVisitDuration(dest);
+    return {
+      destination: dest,
+      recommendationScore: (dest.ratings?.overall ?? 4.5) * 20,
+      routeScore: 80,
+      minVisitMins: dur.minMins,
+      preferredVisitMins: step.durationMinutes || dur.prefMins,
+      maxVisitMins: dur.maxMins,
+      durationSource: dur.source,
+      required: true,
     };
   });
 
-  const totalHours = currentTime / 60;
-  const isOverfilled = totalHours > 10;
+  const startMins = parseTimeToMinutes(
+    originalPlan.steps[0]?.startTime || "09:00",
+  );
+  const returnMode = originalPlan.returnMode || "anchor";
 
-  return {
-    ...plan,
-    steps: updatedSteps,
-    totalDurationMinutes: currentTime,
-    totalBudgetRange: [newMinCost, newMaxCost],
-    isOverfilled,
-    overfillWarning: isOverfilled
-      ? {
-          en: `Tight schedule: total plan (${Math.round(totalHours * 10) / 10}h) exceeds 10h limit.`,
-          ja: `スケジュールが過密です: 合計 (${Math.round(totalHours * 10) / 10}時間) が10時間の制限を超えています。`,
-        }
-      : undefined,
+  const rebuilt = simulateRouteIncremental(
+    primary,
+    isHubPrimary(primary),
+    newCandidates,
+    false,
+    startMins,
+    scope,
+    returnMode,
+    getCanonicalPlaces(),
+    preserveOrder,
+  );
+
+  if (!rebuilt.feasible) {
+    return {
+      ...originalPlan,
+      isUnfeasible: true,
+    };
+  }
+
+  const newPlan: DayPlan = {
+    ...originalPlan,
+    steps: rebuilt.steps,
+    routeLegs: rebuilt.routeLegs,
+    assumptions: rebuilt.assumptions,
+    totalDurationMinutes: rebuilt.totalMins,
+    isUnfeasible: false,
   };
+
+  const planCost = calculateGeneratedPlanCost(newPlan, partySize);
+  newPlan.totalBudgetRange = planCost.totalRange;
+
+  return newPlan;
+}
+
+export function removeStepFromPlan(
+  plan: DayPlan,
+  stepId: string,
+  scope: CatchmentScope = "nearby",
+  partySize: number = 1,
+): DayPlan {
+  const filtered = plan.steps.filter((s) => s.id !== stepId);
+  return rebuildPlanFromEditedStops(plan, filtered, scope, partySize, true);
 }
 
 export function reorderPlanSteps(
   plan: DayPlan,
   fromIndex: number,
   toIndex: number,
+  scope: CatchmentScope = "nearby",
+  partySize: number = 1,
 ): DayPlan {
-  if (
-    fromIndex < 0 ||
-    fromIndex >= plan.steps.length ||
-    toIndex < 0 ||
-    toIndex >= plan.steps.length
-  ) {
-    return plan;
-  }
-
-  const newSteps = [...plan.steps];
-  const [moved] = newSteps.splice(fromIndex, 1);
-  newSteps.splice(toIndex, 0, moved);
-
-  // Recalculate timing
-  let currentTime = 0;
-  const updatedSteps = newSteps.map((step) => {
-    const start = formatTime(currentTime);
-    currentTime += step.durationMinutes;
-    const end = formatTime(currentTime);
-    return {
-      ...step,
-      startTime: start,
-      endTime: end,
-    };
-  });
-
-  return {
-    ...plan,
-    steps: updatedSteps,
-    totalDurationMinutes: currentTime,
-  };
+  const destinationSteps = plan.steps.filter(isRealDestinationStop);
+  const [moved] = destinationSteps.splice(fromIndex, 1);
+  if (!moved) return plan;
+  destinationSteps.splice(toIndex, 0, moved);
+  return rebuildPlanFromEditedStops(
+    plan,
+    destinationSteps,
+    scope,
+    partySize,
+    true,
+  );
 }

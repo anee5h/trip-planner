@@ -237,6 +237,13 @@ export interface Destination {
   bestMonths: number[];
   bestSeason?: string;
   weatherDependence?: "low" | "moderate" | "high";
+  openingHoursMetadata?: {
+    verifiedAt?: string;
+    sourceUrl?: string;
+    lastAdmission?: string;
+    closedDays?: string;
+  };
+  verifiedAt?: string;
   ratingMetadata?: {
     rubricVersion: number;
     method: "assisted" | "manual" | "calculated";

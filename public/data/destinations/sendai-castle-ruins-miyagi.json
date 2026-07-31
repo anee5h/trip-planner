@@ -93,5 +93,6 @@
   "role": "poi",
   "placeType": "destination",
   "areaId": "aoba",
-  "officialWebsite": "https://www.sendai-c.ed.jp/~museum/"
+  "officialWebsite": "https://www.sendai-c.ed.jp/~museum/",
+  "businessHours": "09:00 - 17:00 (Daily)"
 }
