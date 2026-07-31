@@ -24,6 +24,7 @@
     "validate-links": "tsx scripts/cli/validate-links.ts",
     "check:translation-parity": "node scripts/check-translation-parity.cjs",
     "validate:i18n": "npm run check:translation-parity",
+    "check:branding": "node scripts/check-branding.cjs",
     "report:editorial-freshness": "tsx scripts/report-editorial-freshness.ts",
     "audit:major-city-coverage": "tsx scripts/audit-major-city-coverage.ts",
     "expand:major-city-catalog": "tsx scripts/expand-major-city-catalog.ts",

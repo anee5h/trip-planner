@@ -185,7 +185,7 @@ export default function Settings() {
 
   const handleExportData = () => {
     const exportData = {
-      app: "TabiMap",
+      app: "Meguruto",
       version: "1.5.2",
       schemaVersion: 1,
       exportedAt: new Date().toISOString(),

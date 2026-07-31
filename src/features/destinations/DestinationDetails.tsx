@@ -863,7 +863,7 @@ export default function DestinationDetails() {
                     const cleanUrl = `${window.location.origin}/destinations/${destination.id}`;
                     const shareData = {
                       title: destination.name,
-                      text: `Check out ${destination.name} in ${destination.prefecture}, Japan on TabiMap!`,
+                      text: `Check out ${destination.name} in ${destination.prefecture}, Japan on Meguruto!`,
                       url: cleanUrl,
                     };
                     if (navigator.share) {

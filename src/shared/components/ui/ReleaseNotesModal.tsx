@@ -642,7 +642,7 @@ const RELEASES = [
   {
     version: "v1.7.0",
     date: "July 2026",
-    title: "TabiMap Design Polish",
+    title: "Meguruto Design Polish",
     highlights: [
       "Unified PageHeader component across major feature views",
       "Deepened dark mode theme contrast & glassmorphism system",
@@ -676,7 +676,7 @@ export function ReleaseNotesModal({
             <div>
               <div className="flex items-center gap-2">
                 <h2 className="text-lg font-extrabold tracking-tight">
-                  TabiMap Release Notes
+                  Meguruto Release Notes
                 </h2>
                 <span className="text-xs font-black px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                   {version}
@@ -742,7 +742,7 @@ export function ReleaseNotesModal({
 
         {/* Footer */}
         <div className="p-4 bg-slate-50 dark:bg-slate-900/80 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500">
-          <span>TabiMap Japan &copy; 2026</span>
+          <span>Meguruto Japan &copy; 2026</span>
           <button
             onClick={onClose}
             className="px-4 py-1.5 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold text-xs hover:opacity-90 transition-opacity"

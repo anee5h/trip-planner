@@ -59,7 +59,7 @@ export function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
         }
 
         toast.success(
-          "Feedback submitted! Thank you for helping improve TabiMap.",
+          "Feedback submitted! Thank you for helping improve Meguruto.",
         );
         setIsSubmitting(false);
         setSubmitted(true);
@@ -95,7 +95,7 @@ export function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
                 Send Feedback
               </h2>
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                Help us improve TabiMap for travelers
+                Help us improve Meguruto for travelers
               </p>
             </div>
           </div>
@@ -126,7 +126,7 @@ export function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
               <div className="pt-2 flex flex-col gap-2">
                 <a
                   href={`mailto:kaihatsu.studio@gmail.com?subject=${encodeURIComponent(
-                    `TabiMap Feedback (${feedbackType})`,
+                    `Meguruto Feedback (${feedbackType})`,
                   )}&body=${encodeURIComponent(message)}`}
                   className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-bold text-slate-700 dark:text-slate-200 transition-colors"
                 >

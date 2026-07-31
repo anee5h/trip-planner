@@ -108,7 +108,7 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
         <form onSubmit={handleSubmit} className="p-6 space-y-6">
           {isUnset && (
             <div className="bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-xl p-3.5 text-xs text-emerald-800 dark:text-emerald-300 font-medium leading-relaxed">
-              ✨ Welcome to TabiMap! Please set your travel preferences below.
+              ✨ Welcome to Meguruto! Please set your travel preferences below.
               We'll use these to customize your recommendations, car mode
               filters, and budget estimates.
             </div>

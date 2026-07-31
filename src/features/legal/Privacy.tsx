@@ -5,7 +5,7 @@ export default function Privacy() {
       <div className="prose dark:prose-invert">
         <p className="mb-4">Last updated: July 21, 2026</p>
         <p className="mb-4">
-          At TabiMap, we take your privacy seriously. This Privacy Policy
+          At Meguruto, we take your privacy seriously. This Privacy Policy
           explains how we collect, use, and protect your personal information.
         </p>
 

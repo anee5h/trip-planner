@@ -1,18 +1,18 @@
-# 🗾 TabiMap
+# 🗾 Meguruto
 
-**TabiMap** is a travel planner for **local travellers in Japan** looking for day trips and weekend getaways.
+**Meguruto** is a Japan trip planner and destination decision engine for **local travellers in Japan** looking for day trips and weekend getaways.
 
-Instead of spending hours comparing destinations, checking the weather, estimating travel costs and reading travel blogs, TabiMap helps you find places that match **your budget, available time and travel preferences**.
+Instead of spending hours comparing destinations, checking the weather, estimating travel costs and reading travel blogs, Meguruto helps you find places that match **your budget, available time and travel preferences**.
 
-Whether you're looking for a quick day trip or planning your next weekend escape, TabiMap helps answer one simple question:
+Whether you're looking for a quick day trip or planning your next weekend escape, Meguruto helps answer one simple question:
 
 > **Where should we go this weekend?**
 
-🌐 **Live Demo:** https://tabimap-cld.pages.dev
+🌐 **Live:** https://meguruto.app
 
 ---
 
-# Why I built TabiMap
+# Why I built Meguruto
 
 After moving to Japan, I realised that planning a simple trip involved opening multiple apps and websites.
 
@@ -20,7 +20,7 @@ I'd usually have Google Maps open for travel times, a weather forecast in anothe
 
 There are plenty of websites showing places to visit, but very few help narrow them down based on your own situation.
 
-I built TabiMap to simplify that process.
+I built Meguruto to simplify that process.
 
 Instead of browsing endless lists, the app recommends destinations based on things that actually matter when planning a trip:
 

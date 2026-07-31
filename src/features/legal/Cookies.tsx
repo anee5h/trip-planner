@@ -5,7 +5,7 @@ export default function Cookies() {
       <div className="prose dark:prose-invert">
         <p className="mb-4">Last updated: July 21, 2026</p>
         <p className="mb-4">
-          This Cookie Policy explains how TabiMap uses cookies and similar
+          This Cookie Policy explains how Meguruto uses cookies and similar
           technologies to recognize you when you visit our website.
         </p>
 
