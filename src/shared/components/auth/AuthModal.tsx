@@ -71,10 +71,13 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[100] p-4 flex items-center justify-center bg-slate-950/70 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-[100] p-4 flex items-center justify-center bg-slate-950/50 dark:bg-slate-950/75 backdrop-blur-sm animate-in fade-in duration-200"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
-      <div className="relative w-full max-w-md max-h-[90vh] sm:max-h-[85vh] rounded-2xl p-6 sm:p-8 flex flex-col overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl">
+      <div
+        data-testid="auth-modal-card"
+        className="relative w-full max-w-md max-h-[90vh] sm:max-h-[85vh] rounded-2xl p-6 sm:p-8 flex flex-col overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-2xl"
+      >
         {/* Close */}
         <button
           onClick={onClose}
@@ -97,12 +100,17 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
           {/* Header */}
           <div className="text-center mb-6">
             <div className="mb-4 flex items-center justify-center gap-2 text-[21px] font-bold leading-none">
-              <MegurutoMark className="size-7" />
-              <span>
-                <span className="text-emerald-600 dark:text-emerald-400">
+              <span
+                data-testid="auth-brand-mark-frame"
+                className="inline-flex rounded-[10px] bg-slate-50 p-[2px] ring-1 ring-slate-200 shadow-sm dark:bg-white dark:ring-white/70"
+              >
+                <MegurutoMark className="size-7" />
+              </span>
+              <span className="text-[21px] font-bold leading-none tracking-tight">
+                <span className="text-emerald-600 dark:text-emerald-300">
                   Meguru
                 </span>
-                <span className="text-slate-900 dark:text-white">to</span>
+                <span className="text-slate-950 dark:text-white">to</span>
               </span>
             </div>
             <h2 className="text-lg font-semibold text-slate-950 dark:text-white">
@@ -173,7 +181,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-white/10 bg-white dark:bg-white/[0.05] text-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 outline-none focus:ring-2 focus:ring-emerald-500"
+              className="w-full rounded-xl border px-4 py-3 text-sm outline-none border-slate-300 bg-white text-slate-900 placeholder:text-slate-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/25 dark:border-slate-700 dark:bg-slate-950/60 dark:text-white dark:placeholder:text-slate-400"
             />
             <div className="relative">
               <input
@@ -182,7 +190,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full rounded-xl border border-slate-300 dark:border-white/10 bg-white dark:bg-white/[0.05] px-4 py-3 pr-14 text-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 outline-none focus:ring-2 focus:ring-emerald-500"
+                className="w-full rounded-xl border px-4 py-3 pr-14 text-sm outline-none border-slate-300 bg-white text-slate-900 placeholder:text-slate-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/25 dark:border-slate-700 dark:bg-slate-950/60 dark:text-white dark:placeholder:text-slate-400"
               />
               <button
                 type="button"
