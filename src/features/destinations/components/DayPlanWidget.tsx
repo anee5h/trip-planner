@@ -805,9 +805,9 @@ export function DayPlanWidget({
 
                   <div className="space-y-2 pl-3 border-l-2 border-slate-100 dark:border-slate-800 ml-3">
                     {blockSteps.map((step: DayPlanStep) => {
-                      const globalIdx = generatedPlan.steps.findIndex(
-                        (s: DayPlanStep) => s.id === step.id,
-                      );
+                      const destinationIndex = generatedPlan.steps
+                        .filter(isRealDestinationStop)
+                        .findIndex((s: DayPlanStep) => s.id === step.id);
 
                       if (step.type === "destination") {
                         return (
@@ -824,12 +824,12 @@ export function DayPlanWidget({
                                   {step.destination?.id ? (
                                     <Link
                                       to={`/destinations/${step.destination.id}`}
-                                      className="text-sm font-bold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 hover:underline transition-colors truncate"
+                                      className="text-sm font-bold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 hover:underline transition-colors"
                                     >
                                       {step.title[locale]}
                                     </Link>
                                   ) : (
-                                    <h5 className="text-sm font-bold text-slate-900 dark:text-white truncate">
+                                    <h5 className="text-sm font-bold text-slate-900 dark:text-white">
                                       {step.title[locale]}
                                     </h5>
                                   )}
@@ -854,25 +854,31 @@ export function DayPlanWidget({
 
                             {/* Reorder / Remove Controls */}
                             <div className="flex items-center gap-1 opacity-80 group-hover:opacity-100 shrink-0">
-                              {globalIdx > 0 && (
+                              {destinationIndex > 0 && (
                                 <button
                                   type="button"
                                   onClick={() =>
-                                    handleReorder(globalIdx, globalIdx - 1)
+                                    handleReorder(
+                                      destinationIndex,
+                                      destinationIndex - 1,
+                                    )
                                   }
-                                  className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-white rounded min-h-[36px] min-w-[36px] flex items-center justify-center"
+                                  className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-white rounded min-h-[44px] min-w-[44px] flex items-center justify-center"
                                   title="Move up"
                                 >
                                   <MoveUp className="w-3.5 h-3.5" />
                                 </button>
                               )}
-                              {globalIdx < generatedPlan.steps.length - 1 && (
+                              {destinationIndex < realStopCount - 1 && (
                                 <button
                                   type="button"
                                   onClick={() =>
-                                    handleReorder(globalIdx, globalIdx + 1)
+                                    handleReorder(
+                                      destinationIndex,
+                                      destinationIndex + 1,
+                                    )
                                   }
-                                  className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-white rounded min-h-[36px] min-w-[36px] flex items-center justify-center"
+                                  className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-white rounded min-h-[44px] min-w-[44px] flex items-center justify-center"
                                   title="Move down"
                                 >
                                   <MoveDown className="w-3.5 h-3.5" />
@@ -881,7 +887,7 @@ export function DayPlanWidget({
                               <button
                                 type="button"
                                 onClick={() => handleRemoveStep(step.id)}
-                                className="p-1 text-slate-400 hover:text-rose-600 rounded min-h-[36px] min-w-[36px] flex items-center justify-center"
+                                className="p-1 text-slate-400 hover:text-rose-600 rounded min-h-[44px] min-w-[44px] flex items-center justify-center"
                                 title="Remove stop"
                               >
                                 <Trash2 className="w-3.5 h-3.5" />
@@ -904,14 +910,6 @@ export function DayPlanWidget({
                               <Utensils className="w-3.5 h-3.5 text-amber-600" />
                               <span>{step.title[locale]}</span>
                             </div>
-                            <button
-                              type="button"
-                              onClick={() => handleRemoveStep(step.id)}
-                              className="text-slate-400 hover:text-rose-600 p-1 min-h-[36px] min-w-[36px] flex items-center justify-center"
-                              title="Remove meal"
-                            >
-                              <X className="w-3.5 h-3.5" />
-                            </button>
                           </div>
                         );
                       }

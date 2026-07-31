@@ -195,7 +195,11 @@ export function SearchableDestinationPicker({
   };
 
   const handleMobileDialogKeyDown = (e: React.KeyboardEvent) => {
-    handleKeyDown(e);
+    if (e.key === "Escape") {
+      closePicker();
+      e.preventDefault();
+      return;
+    }
     if (!isMobile || e.key !== "Tab") return;
     const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
       "button:not([disabled]), input:not([disabled])",
@@ -221,11 +225,6 @@ export function SearchableDestinationPicker({
         aria-haspopup={isMobile ? "dialog" : "listbox"}
         aria-expanded={isOpen}
         aria-controls={isMobile ? dialogId : listboxId}
-        aria-activedescendant={
-          isOpen && flatOptions[activeIndex]
-            ? `option-${uniqueId}-${flatOptions[activeIndex].id}`
-            : undefined
-        }
         onClick={() => setIsOpen(!isOpen)}
         onKeyDown={handleKeyDown}
         className="w-full flex items-center justify-between gap-2 px-3.5 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl text-left text-sm font-medium text-slate-900 dark:text-white hover:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all shadow-sm min-h-[44px]"
@@ -256,8 +255,8 @@ export function SearchableDestinationPicker({
 
           <div
             ref={isMobile ? dialogRef : undefined}
-            id={isMobile ? dialogId : listboxId}
-            role={isMobile ? "dialog" : "listbox"}
+            id={isMobile ? dialogId : undefined}
+            role={isMobile ? "dialog" : undefined}
             aria-modal={isMobile ? true : undefined}
             aria-label={
               isMobile ? "Destination search" : "Destination search options"
@@ -273,7 +272,7 @@ export function SearchableDestinationPicker({
                   type="button"
                   onClick={closePicker}
                   aria-label="Close destination search"
-                  className="p-1 text-slate-400"
+                  className="p-1 text-slate-400 min-h-[44px] min-w-[44px] flex items-center justify-center"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -311,8 +310,8 @@ export function SearchableDestinationPicker({
             </div>
 
             <div
-              id={isMobile ? listboxId : undefined}
-              role={isMobile ? "listbox" : undefined}
+              id={listboxId}
+              role="listbox"
               className="overflow-y-auto p-2 space-y-3 flex-1"
             >
               {/* Search Query Active */}

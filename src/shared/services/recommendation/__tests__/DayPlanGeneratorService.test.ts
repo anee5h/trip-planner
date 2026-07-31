@@ -64,6 +64,28 @@ describe("DayPlanGeneratorService", () => {
     }
   });
 
+  it("starts the first attraction at the selected arrival time before considering lunch", () => {
+    const plan = generateDayPlan(mockDestPrimary, {
+      planType: "half_day",
+      startTime: "13:00",
+      availableMinutes: 300,
+    });
+
+    const firstStop = plan.steps.find(isRealDestinationStop);
+    expect(firstStop?.startTime).toBe("13:00");
+  });
+
+  it("omits lunch instead of rejecting a tight otherwise-valid route", () => {
+    const plan = generateDayPlan(mockDestPrimary, {
+      planType: "half_day",
+      startTime: "11:00",
+      availableMinutes: 240,
+    });
+
+    expect(plan.isUnfeasible).toBe(false);
+    expect(plan.steps.some((step) => step.type === "meal")).toBe(false);
+  });
+
   it("removes a step from plan and recalculates start/end times", () => {
     const initialPlan = generateDayPlan(mockDestPrimary);
     if (initialPlan.steps.length > 0) {
@@ -79,10 +101,8 @@ describe("DayPlanGeneratorService", () => {
     const initialPlan = generateDayPlan(mockDestPrimary);
     const destSteps = initialPlan.steps.filter(isRealDestinationStop);
     if (destSteps.length >= 2) {
-      const idx0 = initialPlan.steps.findIndex((s) => s.id === destSteps[0].id);
-      const idx1 = initialPlan.steps.findIndex((s) => s.id === destSteps[1].id);
       const firstDestTitle = destSteps[0].title.en;
-      const reorderedPlan = reorderPlanSteps(initialPlan, idx0, idx1);
+      const reorderedPlan = reorderPlanSteps(initialPlan, 0, 1);
       if (!reorderedPlan.isUnfeasible) {
         const newDestSteps = reorderedPlan.steps.filter(isRealDestinationStop);
         expect(newDestSteps[1].title.en).toBe(firstDestTitle);

@@ -1,6 +1,20 @@
-import { describe, it, expect } from "vitest";
+import { act } from "react";
+import { createRoot, type Root } from "react-dom/client";
+import { MemoryRouter } from "react-router-dom";
+import { afterEach, describe, it, expect } from "vitest";
 import { generateDayPlan } from "@/shared/services/recommendation/DayPlanGeneratorService";
 import type { Destination } from "@/shared/types/destination";
+import { DayPlanWidget } from "../DayPlanWidget";
+
+let root: Root | undefined;
+let host: HTMLDivElement | undefined;
+
+afterEach(() => {
+  act(() => root?.unmount());
+  host?.remove();
+  root = undefined;
+  host = undefined;
+});
 
 const mockPoi1 = {
   id: "poi-1",
@@ -44,6 +58,44 @@ const mockHub = {
 } as unknown as Destination;
 
 describe("DayPlanGeneratorService - Disclosures & Hub Routing", () => {
+  it("reorders destination cards despite intervening travel steps", () => {
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    act(() => {
+      root!.render(
+        <MemoryRouter>
+          <DayPlanWidget destination={mockPoi1} />
+        </MemoryRouter>,
+      );
+    });
+
+    act(() => {
+      Array.from(host!.querySelectorAll("button"))
+        .find((button) => button.textContent?.includes("Create day plan"))
+        ?.click();
+    });
+    act(() => {
+      Array.from(host!.querySelectorAll("button"))
+        .find((button) => button.textContent?.includes("Generate Plan"))
+        ?.click();
+    });
+
+    const before = Array.from(
+      host.querySelectorAll('a[href^="/destinations/"]'),
+    ).map((link) => link.textContent);
+    const moveDown = host.querySelector<HTMLButtonElement>(
+      '[title="Move down"]',
+    );
+    expect(moveDown).not.toBeNull();
+
+    act(() => moveDown!.click());
+    const after = Array.from(
+      host.querySelectorAll('a[href^="/destinations/"]'),
+    ).map((link) => link.textContent);
+    expect(after[0]).not.toBe(before[0]);
+  });
+
   it("populates uncertainHoursDisclosures for unverified or stale locations", () => {
     const unverifiedPoi: Destination = {
       ...mockPoi1,

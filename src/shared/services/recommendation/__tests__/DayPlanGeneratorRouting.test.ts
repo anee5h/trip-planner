@@ -1,11 +1,15 @@
 import { describe, it, expect } from "vitest";
 import {
   generateDayPlan,
+  isRealDestinationStop,
   resolveReturnEndpoint,
 } from "../DayPlanGeneratorService";
+import { getCanonicalPlaces } from "@/shared/services/place/PlaceCatalog";
 import type { Destination } from "@/shared/types/destination";
 
 describe("DayPlanGeneratorRouting", () => {
+  const canonicalPlaces = getCanonicalPlaces();
+
   it("populates routeLegs, rejects unusable transit, and respects anchor POI protection", () => {
     const primary = {
       id: "tokyo-skytree",
@@ -84,5 +88,37 @@ describe("DayPlanGeneratorRouting", () => {
     expect(
       resolveReturnEndpoint(finalStop, "nearest_station", finalStop, catalog),
     ).toBeNull();
+  });
+
+  it("builds exactly two real POIs for canonical Odaiba half-day plans", () => {
+    const odaiba = canonicalPlaces.find(
+      (place) => place.id === "odaiba-minato",
+    );
+    expect(odaiba).toBeDefined();
+
+    const plan = generateDayPlan(odaiba!, {
+      planType: "half_day",
+      availableMinutes: 300,
+    });
+
+    expect(plan.isUnfeasible).toBe(false);
+    expect(plan.steps.filter(isRealDestinationStop)).toHaveLength(2);
+  });
+
+  it("keeps canonical Shibuya Sky feasible with a nearby partner", () => {
+    const shibuyaSky = canonicalPlaces.find(
+      (place) => place.id === "shibuya-sky-shibuya",
+    );
+    expect(shibuyaSky).toBeDefined();
+
+    const plan = generateDayPlan(shibuyaSky!, {
+      planType: "half_day",
+      availableMinutes: 300,
+    });
+
+    expect(plan.isUnfeasible).toBe(false);
+    expect(
+      plan.steps.filter(isRealDestinationStop).length,
+    ).toBeGreaterThanOrEqual(2);
   });
 });

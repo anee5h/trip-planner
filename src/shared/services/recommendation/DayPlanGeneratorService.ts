@@ -429,6 +429,22 @@ export function generateDayPlan(
     let usedMin = false;
     let actual = route.totalMins;
 
+    if (route.feasible && route.totalMins > hardAvailableMinutes) {
+      route = simulateRouteIncremental(
+        primary,
+        isPrimaryHub,
+        subset,
+        false,
+        startMinsFromMidnight,
+        catchmentScope,
+        returnMode,
+        catalogue,
+        false,
+        false,
+      );
+      actual = route.totalMins;
+    }
+
     if (!route.feasible || route.totalMins > hardAvailableMinutes) {
       route = simulateRouteIncremental(
         primary,
@@ -442,6 +458,22 @@ export function generateDayPlan(
       );
       usedMin = true;
       actual = route.totalMins;
+
+      if (route.feasible && route.totalMins > hardAvailableMinutes) {
+        route = simulateRouteIncremental(
+          primary,
+          isPrimaryHub,
+          subset,
+          true,
+          startMinsFromMidnight,
+          catchmentScope,
+          returnMode,
+          catalogue,
+          false,
+          false,
+        );
+        actual = route.totalMins;
+      }
     }
 
     if (route.feasible && route.totalMins <= hardAvailableMinutes) {
@@ -614,6 +646,7 @@ function simulateRouteIncremental(
   returnMode: ReturnMode,
   catalogue: Destination[],
   preserveOrder: boolean = false,
+  includeLunch: boolean = true,
 ) {
   const steps: DayPlanStep[] = [];
   const routeLegs: RouteLeg[] = [];
@@ -633,7 +666,14 @@ function simulateRouteIncremental(
 
     const isFirstHubPoi = isPrimaryHub && visitedPoiCount === 0;
 
-    if (preserveOrder) {
+    const requiredFirstIndex =
+      !isPrimaryHub && visitedPoiCount === 0
+        ? remaining.findIndex((candidate) => candidate.required)
+        : -1;
+
+    if (requiredFirstIndex >= 0) {
+      [nextCand] = remaining.splice(requiredFirstIndex, 1);
+    } else if (preserveOrder) {
       nextCand = remaining.shift()!;
       const dest = nextCand.destination;
       const transit = estimateLocalTransitMinutes(currentLocation, dest, scope);
@@ -755,10 +795,35 @@ function simulateRouteIncremental(
     const visitMins = useMinVisits
       ? nextCand.minVisitMins
       : nextCand.preferredVisitMins;
-    const projectedEnd = currentMins + visitMins;
+    const locEn = getLocalizedPlace(dest, "en");
+    const locJa = getLocalizedPlace(dest, "ja");
+    const assessment = getOpeningHoursAssessment(dest);
 
-    // Lunch Scheduling Contract (Max 30m idle gap)
-    if (!lunchInserted && startMins < 13 * 60) {
+    steps.push({
+      id: `step-${dest.id}`,
+      type: "destination",
+      timeBlock: getTimeBlock(currentMins),
+      startTime: formatTimeFromMidnight(currentMins),
+      endTime: formatTimeFromMidnight(currentMins + visitMins),
+      durationMinutes: visitMins,
+      destination: dest,
+      title: {
+        en: formatPlaceName(locEn, "en"),
+        ja: formatPlaceName(locJa, "ja"),
+      },
+      hasUncertainHours:
+        assessment.requiresWarning && assessment.status !== "not_required",
+    });
+    currentMins += visitMins;
+    currentLocation = dest;
+
+    // Lunch can only sit between completed visits, never before the first one.
+    if (
+      includeLunch &&
+      !lunchInserted &&
+      remaining.length > 0 &&
+      startMins < 13 * 60
+    ) {
       if (currentMins >= 11 * 60 + 30 && currentMins <= 13 * 60) {
         steps.push({
           id: "meal-lunch",
@@ -774,7 +839,7 @@ function simulateRouteIncremental(
         });
         currentMins += 60;
         lunchInserted = true;
-      } else if (currentMins < 11 * 60 + 30 && projectedEnd > 12 * 60) {
+      } else if (currentMins < 11 * 60 + 30) {
         const gap = 11 * 60 + 30 - currentMins;
         if (gap > 0 && gap <= 30) {
           steps.push({
@@ -807,28 +872,6 @@ function simulateRouteIncremental(
         }
       }
     }
-
-    const locEn = getLocalizedPlace(dest, "en");
-    const locJa = getLocalizedPlace(dest, "ja");
-    const assessment = getOpeningHoursAssessment(dest);
-
-    steps.push({
-      id: `step-${dest.id}`,
-      type: "destination",
-      timeBlock: getTimeBlock(currentMins),
-      startTime: formatTimeFromMidnight(currentMins),
-      endTime: formatTimeFromMidnight(currentMins + visitMins),
-      durationMinutes: visitMins,
-      destination: dest,
-      title: {
-        en: formatPlaceName(locEn, "en"),
-        ja: formatPlaceName(locJa, "ja"),
-      },
-      hasUncertainHours:
-        assessment.requiresWarning && assessment.status !== "not_required",
-    });
-    currentMins += visitMins;
-    currentLocation = dest;
   }
 
   const returnEndpoint = resolveReturnEndpoint(
@@ -1008,8 +1051,15 @@ export function reorderPlanSteps(
   scope: CatchmentScope = "nearby",
   partySize: number = 1,
 ): DayPlan {
-  const steps = [...plan.steps];
-  const [moved] = steps.splice(fromIndex, 1);
-  steps.splice(toIndex, 0, moved);
-  return rebuildPlanFromEditedStops(plan, steps, scope, partySize, true);
+  const destinationSteps = plan.steps.filter(isRealDestinationStop);
+  const [moved] = destinationSteps.splice(fromIndex, 1);
+  if (!moved) return plan;
+  destinationSteps.splice(toIndex, 0, moved);
+  return rebuildPlanFromEditedStops(
+    plan,
+    destinationSteps,
+    scope,
+    partySize,
+    true,
+  );
 }
