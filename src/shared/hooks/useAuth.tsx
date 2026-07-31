@@ -43,6 +43,9 @@ interface AuthContextType {
   signInWithLine: () => Promise<OAuthResponse> | undefined;
   signInWithEmail: (email: string, password: string) => Promise<AuthResponse>;
   signUpWithEmail: (email: string, password: string) => Promise<AuthResponse>;
+  resetPasswordForEmail: (
+    email: string,
+  ) => Promise<{ data: unknown; error: AuthError | null }>;
   signOut: () => Promise<{ error: AuthError | null }> | undefined;
   updateUserProfile: (data: UserProfileUpdateData) => Promise<UserResponse>;
   deleteAccount: () => Promise<void>;
@@ -101,6 +104,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signUpWithEmail = (email: string, password: string) =>
     supabase!.auth.signUp({ email, password });
 
+  const resetPasswordForEmail = (email: string) =>
+    supabase!.auth.resetPasswordForEmail(email, {
+      redirectTo: window.location.origin,
+    });
+
   const signOut = () => supabase?.auth.signOut();
 
   const updateUserProfile = async (data: UserProfileUpdateData) => {
@@ -135,6 +143,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         signInWithLine,
         signInWithEmail,
         signUpWithEmail,
+        resetPasswordForEmail,
         signOut,
         updateUserProfile,
         deleteAccount,

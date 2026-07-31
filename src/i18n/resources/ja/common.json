@@ -4,7 +4,10 @@
     "signUp": "新規登録",
     "signOut": "サインアウト",
     "createAccount": "アカウントを作成",
-    "pleaseWait": "お待ちください…"
+    "pleaseWait": "お待ちください…",
+    "close": "閉じる",
+    "show": "表示",
+    "hide": "非表示"
   },
   "navigation": {
     "destinations": "目的地",
@@ -30,10 +33,18 @@
     "label": "検索"
   },
   "auth": {
-    "signInPrompt": "おかえりなさい。旅程を同期するにはサインインしてください。",
-    "signUpPrompt": "アカウントを作成して旅程を保存しましょう。",
+    "signInTitle": "おかえりなさい",
+    "signInPrompt": "サインインして旅の計画を続けましょう。",
+    "signUpTitle": "アカウントを作成",
+    "signUpPrompt": "旅程、パスポートの進捗、行きたいリストを保存できます。",
     "noAccount": "アカウントをお持ちでないですか？",
-    "hasAccount": "すでにアカウントをお持ちですか？"
+    "hasAccount": "すでにアカウントをお持ちですか？",
+    "forgotPassword": "パスワードをお忘れですか？",
+    "resetEmailRequired": "先にメールアドレスを入力してください。",
+    "resetEmailSent": "パスワード再設定リンクをメールで送信しました。",
+    "legalPrefix": "アカウントを作成すると、",
+    "legalAnd": "および",
+    "legalSuffix": "に同意したものとみなされます。"
   },
   "recommendation": {
     "matchConfidence": "マッチ度",

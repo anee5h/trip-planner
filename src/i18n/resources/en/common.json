@@ -4,7 +4,10 @@
     "signUp": "Sign Up",
     "signOut": "Sign Out",
     "createAccount": "Create Account",
-    "pleaseWait": "Please wait..."
+    "pleaseWait": "Please wait...",
+    "close": "Close",
+    "show": "Show",
+    "hide": "Hide"
   },
   "navigation": {
     "destinations": "Destinations",
@@ -30,10 +33,18 @@
     "label": "Search"
   },
   "auth": {
-    "signInPrompt": "Welcome back! Sign in to sync your trips.",
-    "signUpPrompt": "Create an account to save your trips.",
+    "signInTitle": "Welcome back",
+    "signInPrompt": "Sign in to continue planning your trips.",
+    "signUpTitle": "Create your account",
+    "signUpPrompt": "Save your trips, Passport progress, and bucket list.",
     "noAccount": "Don't have an account?",
-    "hasAccount": "Already have an account?"
+    "hasAccount": "Already have an account?",
+    "forgotPassword": "Forgot password?",
+    "resetEmailRequired": "Enter your email address first.",
+    "resetEmailSent": "Check your email for a password reset link.",
+    "legalPrefix": "By creating an account, you agree to the",
+    "legalAnd": "and",
+    "legalSuffix": "."
   },
   "recommendation": {
     "matchConfidence": "Match Confidence",

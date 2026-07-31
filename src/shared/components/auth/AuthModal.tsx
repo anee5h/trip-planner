@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
+import { Link } from "react-router-dom";
 import { MegurutoMark } from "@/shared/components/brand/MegurutoMark";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { useTranslation } from "react-i18next";
@@ -10,11 +11,17 @@ interface AuthModalProps {
 }
 
 export function AuthModal({ isOpen, onClose }: AuthModalProps) {
-  const { signInWithGoogle, signInWithEmail, signUpWithEmail } = useAuth();
+  const {
+    signInWithGoogle,
+    signInWithEmail,
+    signUpWithEmail,
+    resetPasswordForEmail,
+  } = useAuth();
   const { t } = useTranslation();
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
@@ -43,20 +50,40 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
     }
   };
 
+  const handlePasswordReset = async () => {
+    setError("");
+    setSuccess("");
+    if (!email) {
+      setError(t("auth.resetEmailRequired"));
+      return;
+    }
+    setLoading(true);
+    try {
+      const { error } = await resetPasswordForEmail(email);
+      if (error) throw error;
+      setSuccess(t("auth.resetEmailSent"));
+    } catch (err: any) {
+      setError(err.message ?? "Something went wrong");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return createPortal(
     <div
       className="fixed inset-0 z-[100] p-4 flex items-center justify-center bg-slate-950/70 backdrop-blur-md animate-in fade-in duration-200"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
-      <div className="relative w-full max-w-md max-h-[90vh] sm:max-h-[85vh] rounded-2xl p-6 sm:p-8 flex flex-col overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl">
+      <div className="relative w-full max-w-md max-h-[90vh] sm:max-h-[85vh] rounded-2xl p-6 sm:p-8 flex flex-col overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl">
         {/* Close */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 z-10"
+          aria-label={t("actions.close")}
+          className="absolute top-4 right-4 z-10 flex size-9 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-white"
         >
           <svg
-            width="16"
-            height="16"
+            width="18"
+            height="18"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -69,17 +96,21 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
         <div className="overflow-y-auto min-h-0 flex-1 pt-2">
           {/* Header */}
           <div className="text-center mb-6">
-            <div className="mb-1 flex items-center justify-center gap-2 text-2xl font-bold">
-              <MegurutoMark className="size-8" />
+            <div className="mb-4 flex items-center justify-center gap-2 text-[21px] font-bold leading-none">
+              <MegurutoMark className="size-7" />
               <span>
-                <span className="text-emerald-400">Meguru</span>
-                <span className="text-white">to</span>
+                <span className="text-emerald-600 dark:text-emerald-400">
+                  Meguru
+                </span>
+                <span className="text-slate-900 dark:text-white">to</span>
               </span>
             </div>
-            <p className="text-xs text-emerald-200/80 mb-2">
-              {t("brand.tagline")}
-            </p>
-            <p className="text-slate-400 text-sm">
+            <h2 className="text-lg font-semibold text-slate-950 dark:text-white">
+              {mode === "signin"
+                ? t("auth.signInTitle")
+                : t("auth.signUpTitle")}
+            </h2>
+            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
               {mode === "signin"
                 ? t("auth.signInPrompt")
                 : t("auth.signUpPrompt")}
@@ -91,7 +122,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
             {/* Google */}
             <button
               onClick={() => signInWithGoogle()}
-              className="flex items-center gap-3 w-full px-4 py-3 rounded-xl bg-white text-gray-800 font-medium text-sm hover:bg-gray-100 transition-all duration-200 hover:scale-[1.01]"
+              className="flex items-center gap-3 w-full px-4 py-3 rounded-xl bg-white dark:bg-white text-gray-800 font-medium text-sm border border-slate-200 dark:border-transparent hover:bg-slate-50 dark:hover:bg-gray-100 transition-all duration-200 hover:scale-[1.01]"
             >
               <svg width="20" height="20" viewBox="0 0 24 24">
                 <path
@@ -117,22 +148,22 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
           {/* Divider */}
           <div className="flex items-center gap-3 mb-6">
-            <div className="flex-1 h-px bg-white/10" />
-            <span className="text-slate-500 text-xs">
+            <div className="flex-1 h-px bg-slate-200 dark:bg-white/10" />
+            <span className="text-slate-500 dark:text-slate-500 text-xs">
               or continue with email
             </span>
-            <div className="flex-1 h-px bg-white/10" />
+            <div className="flex-1 h-px bg-slate-200 dark:bg-white/10" />
           </div>
 
           {/* Email form */}
           <form onSubmit={handleEmail} className="flex flex-col gap-3">
             {error && (
-              <div className="text-red-400 text-sm bg-red-400/10 rounded-lg px-3 py-2">
+              <div className="text-red-700 dark:text-red-400 text-sm bg-red-50 dark:bg-red-400/10 rounded-lg px-3 py-2">
                 {error}
               </div>
             )}
             {success && (
-              <div className="text-emerald-400 text-sm bg-emerald-400/10 rounded-lg px-3 py-2">
+              <div className="text-emerald-700 dark:text-emerald-400 text-sm bg-emerald-50 dark:bg-emerald-400/10 rounded-lg px-3 py-2">
                 {success}
               </div>
             )}
@@ -142,24 +173,35 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-slate-500 outline-none focus:ring-2 focus:ring-emerald-500"
-              style={{
-                background: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(255,255,255,0.1)",
-              }}
+              className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-white/10 bg-white dark:bg-white/[0.05] text-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 outline-none focus:ring-2 focus:ring-emerald-500"
             />
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-slate-500 outline-none focus:ring-2 focus:ring-emerald-500"
-              style={{
-                background: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(255,255,255,0.1)",
-              }}
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="w-full rounded-xl border border-slate-300 dark:border-white/10 bg-white dark:bg-white/[0.05] px-4 py-3 pr-14 text-sm text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 outline-none focus:ring-2 focus:ring-emerald-500"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((visible) => !visible)}
+                className="absolute right-2 top-1/2 flex h-9 min-w-9 -translate-y-1/2 items-center justify-center rounded-lg px-2 text-xs font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white"
+              >
+                {showPassword ? t("actions.hide") : t("actions.show")}
+              </button>
+            </div>
+            {mode === "signin" && (
+              <button
+                type="button"
+                onClick={handlePasswordReset}
+                disabled={loading}
+                className="self-start text-sm font-medium text-emerald-700 hover:text-emerald-600 disabled:opacity-50 dark:text-emerald-400 dark:hover:text-emerald-300"
+              >
+                {t("auth.forgotPassword")}
+              </button>
+            )}
             <button
               type="submit"
               disabled={loading}
@@ -171,10 +213,31 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                   ? t("actions.signIn")
                   : t("actions.createAccount")}
             </button>
+            {mode === "signup" && (
+              <p className="text-center text-xs leading-relaxed text-slate-500">
+                {t("auth.legalPrefix")}{" "}
+                <Link
+                  to="/terms"
+                  onClick={onClose}
+                  className="text-slate-700 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white"
+                >
+                  {t("legal.terms")}
+                </Link>{" "}
+                {t("auth.legalAnd")}{" "}
+                <Link
+                  to="/privacy"
+                  onClick={onClose}
+                  className="text-slate-700 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white"
+                >
+                  {t("legal.privacy")}
+                </Link>
+                {t("auth.legalSuffix")}
+              </p>
+            )}
           </form>
 
           {/* Toggle */}
-          <p className="text-center text-slate-400 text-sm mt-4">
+          <p className="text-center text-slate-500 dark:text-slate-400 text-sm mt-4">
             {mode === "signin" ? t("auth.noAccount") : t("auth.hasAccount")}{" "}
             <button
               onClick={() => {
@@ -182,7 +245,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 setError("");
                 setSuccess("");
               }}
-              className="text-emerald-400 hover:text-emerald-300 font-medium"
+              className="text-emerald-700 hover:text-emerald-600 dark:text-emerald-400 dark:hover:text-emerald-300 font-medium"
             >
               {mode === "signin" ? t("actions.signUp") : t("actions.signIn")}
             </button>
