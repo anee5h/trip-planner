@@ -3,7 +3,7 @@ export default function Privacy() {
     <div className="container mx-auto px-4 py-12 max-w-3xl">
       <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
       <div className="prose dark:prose-invert">
-        <p className="mb-4">Last updated: July 21, 2026</p>
+        <p className="mb-4">Last updated: July 31, 2026</p>
         <p className="mb-4">
           At Meguruto, we take your privacy seriously. This Privacy Policy
           explains how we collect, use, and protect your personal information.
@@ -33,6 +33,9 @@ export default function Privacy() {
         <p className="mb-4">
           Your data is stored securely using industry-standard encryption. We do
           not sell your personal data to third parties.
+        </p>
+        <p className="mb-4">
+          For privacy questions, contact kaihatsu.studio@gmail.com.
         </p>
       </div>
     </div>

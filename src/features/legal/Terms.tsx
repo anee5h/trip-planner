@@ -3,7 +3,7 @@ export default function Terms() {
     <div className="container mx-auto px-4 py-12 max-w-3xl">
       <h1 className="text-3xl font-bold mb-6">Terms and Conditions</h1>
       <div className="prose dark:prose-invert">
-        <p className="mb-4">Last updated: July 21, 2026</p>
+        <p className="mb-4">Last updated: July 31, 2026</p>
         <p className="mb-4">
           Welcome to Meguruto. By accessing or using our website and services,
           you agree to be bound by these Terms and Conditions.
@@ -32,6 +32,9 @@ export default function Terms() {
           consequential, or punitive damages resulting from your use of our
           service or any travel decisions you make based on our provided
           information.
+        </p>
+        <p className="mb-4">
+          Questions about these Terms can be sent to kaihatsu.studio@gmail.com.
         </p>
       </div>
     </div>

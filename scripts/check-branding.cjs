@@ -1,39 +1,94 @@
 const fs = require("fs");
 const path = require("path");
 
-const publicFiles = [
+const roots = ["src", "public", ".github"];
+const rootFiles = [
   "README.md",
   "index.html",
-  "src/features/destinations/DestinationDetails.tsx",
-  "src/features/help/Help.tsx",
-  "src/features/legal/Cookies.tsx",
-  "src/features/legal/Privacy.tsx",
-  "src/features/legal/Terms.tsx",
-  "src/features/profile/Profile.tsx",
-  "src/features/search/SearchDialog.tsx",
-  "src/features/settings/Settings.tsx",
-  "src/shared/components/auth/AuthModal.tsx",
-  "src/shared/components/feedback/FeedbackModal.tsx",
-  "src/shared/components/layout/Footer.tsx",
-  "src/shared/components/layout/Navbar.tsx",
-  "src/shared/components/profile/PreferencesModal.tsx",
-  "src/shared/components/ui/ReleaseNotesModal.tsx",
+  "package.json",
+  "package-lock.json",
 ];
+const extensions = new Set([
+  ".cjs",
+  ".css",
+  ".html",
+  ".json",
+  ".jsx",
+  ".md",
+  ".ts",
+  ".tsx",
+  ".yaml",
+  ".yml",
+]);
+const ignoredDirectories = new Set([".git", "dist", "node_modules"]);
+const historicalCatalogDirectories = new Set([
+  "public/data",
+  "src/shared/data",
+]);
+const legacyBrand = /tabimap/gi;
+const preservedIdentifiers = new Set([
+  "tabimap-qa-image-overrides",
+  "tabimap-qa-website-overrides",
+  "tabimap-showcase-badges",
+  "tabimap_analytics_event_queue",
+  "tabimap_analytics_opt_out",
+  "tabimap_analytics_session_id",
+  "tabimap_dismissed_preferences_prompt",
+  "tabimap_experiment_overrides",
+  "tabimap_experiment_session_id",
+  "tabimap_feedback_history",
+  "tabimap_image_qa_overrides",
+  "tabimap_itinerary_groups_v1",
+  "tabimap_official_website_qa",
+  "tabimap_personalization_settings",
+  "tabimap_phase-one-editorial-worklist",
+  "tabimap_qa_state",
+  "tabimap_recently_viewed_destinations",
+  "tabimap_theme",
+]);
 
-const legacyBrand = /\btabi[\s-]?map\b/i;
-const preservedIdentifiers = ["tabimap-showcase-badges"];
-const failures = publicFiles.filter((file) => {
-  let contents = fs.readFileSync(path.resolve(file), "utf8");
-  preservedIdentifiers.forEach((identifier) => {
-    contents = contents.replaceAll(identifier, "");
+function collectFiles(directory) {
+  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const file = path.join(directory, entry.name);
+    const relative = path
+      .relative(process.cwd(), file)
+      .replaceAll(path.sep, "/");
+    if (entry.isDirectory()) {
+      if (
+        ignoredDirectories.has(entry.name) ||
+        historicalCatalogDirectories.has(relative)
+      ) {
+        return [];
+      }
+      return collectFiles(file);
+    }
+    return extensions.has(path.extname(entry.name)) ? [file] : [];
   });
-  return legacyBrand.test(contents);
-});
+}
+
+const files = [
+  ...rootFiles,
+  ...roots.flatMap((root) => collectFiles(path.resolve(root))),
+];
+const failures = [];
+
+for (const file of files) {
+  const contents = fs.readFileSync(file, "utf8");
+  for (const match of contents.matchAll(legacyBrand)) {
+    const start = match.index;
+    const identifier = contents
+      .slice(start)
+      .match(/^tabimap(?:[_-][a-z0-9]+)+/i)?.[0];
+    if (!identifier || !preservedIdentifiers.has(identifier.toLowerCase())) {
+      failures.push(`${path.relative(process.cwd(), file)}:${start + 1}`);
+    }
+  }
+}
 
 if (failures.length) {
   console.error("Legacy public brand found in:");
-  failures.forEach((file) => console.error(`- ${file}`));
+  failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);
 }
 
-console.log(`Brand consistency passed: ${publicFiles.length} public files.`);
+console.log(`Brand consistency passed: ${files.length} public files.`);

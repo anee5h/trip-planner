@@ -9,7 +9,6 @@ interface ReleaseNotesModalProps {
 const RELEASES = [
   {
     version: "v1.9.4",
-    tag: "Current",
     date: "July 2026",
     title: "Planner and Catalogue Safety",
     highlights: [

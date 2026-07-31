@@ -22,6 +22,9 @@
   "footer": {
     "tagline": "日本の旅を計画・比較できるガイド"
   },
+  "brand": {
+    "tagline": "めぐると、見つかる。"
+  },
   "search": {
     "placeholder": "目的地・コレクションを検索…",
     "label": "検索"

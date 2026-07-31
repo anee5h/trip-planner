@@ -54,7 +54,7 @@ export function toCanonicalPlace(destination: Destination): CanonicalPlace {
             reviewedAt: "2026-07-28",
             checkedAt: "2026-07-28",
             freshness: "current",
-            reviewedBy: "TabiMap editorial",
+            reviewedBy: "Meguruto editorial",
             changeSummary: "Phase 1 bilingual hub review",
           }
         : { lifecycle: "legacy", sources: [] }),

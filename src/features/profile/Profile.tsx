@@ -36,7 +36,7 @@ export default function Profile() {
   const fullName = user?.user_metadata?.full_name || "";
   const username = user?.user_metadata?.username || "";
 
-  const userInitial = (username[0] || user?.email?.[0] || "U").toUpperCase();
+  const userInitial = (username[0] || user?.email?.[0] || "T").toUpperCase();
 
   const joinDate = user?.created_at
     ? new Date(user.created_at).toLocaleDateString("en-US", {
@@ -81,7 +81,7 @@ export default function Profile() {
           </div>
 
           <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-            {user?.email || " traveler@meguruto.app "}
+            {user?.email || "Traveler"}
           </div>
         </div>
 

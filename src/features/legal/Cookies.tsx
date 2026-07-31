@@ -3,7 +3,7 @@ export default function Cookies() {
     <div className="container mx-auto px-4 py-12 max-w-3xl">
       <h1 className="text-3xl font-bold mb-6">Cookie Policy</h1>
       <div className="prose dark:prose-invert">
-        <p className="mb-4">Last updated: July 21, 2026</p>
+        <p className="mb-4">Last updated: July 31, 2026</p>
         <p className="mb-4">
           This Cookie Policy explains how Meguruto uses cookies and similar
           technologies to recognize you when you visit our website.
@@ -30,6 +30,9 @@ export default function Cookies() {
           cookies. If you choose to reject cookies, you may still use our
           website, though your access to some functionality (like logging in)
           may be restricted.
+        </p>
+        <p className="mb-4">
+          For cookie questions, contact kaihatsu.studio@gmail.com.
         </p>
       </div>
     </div>

@@ -22,6 +22,9 @@
   "footer": {
     "tagline": "Your Japan trip planner & decision engine."
   },
+  "brand": {
+    "tagline": "めぐると、見つかる。"
+  },
   "search": {
     "placeholder": "Search destinations, collections...",
     "label": "Search"

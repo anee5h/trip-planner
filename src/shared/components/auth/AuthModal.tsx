@@ -73,7 +73,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               <span className="text-white">to</span>
             </div>
             <p className="text-xs text-emerald-200/80 mb-2">
-              めぐると、見つかる。
+              {t("brand.tagline")}
             </p>
             <p className="text-slate-400 text-sm">
               {mode === "signin"
