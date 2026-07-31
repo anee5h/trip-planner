@@ -23,6 +23,7 @@ import { GlobalSearch } from "@/features/search/GlobalSearch";
 import { FeedbackModal } from "@/shared/components/feedback/FeedbackModal";
 import { ReleaseNotesModal } from "@/shared/components/ui/ReleaseNotesModal";
 import { useLocale } from "@/shared/context/LocaleContext";
+import { MegurutoMark } from "@/shared/components/brand/MegurutoMark";
 import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
@@ -117,11 +118,17 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           to="/"
-          className="flex items-center gap-0 font-bold text-xl tracking-tight shrink-0"
+          aria-label="Meguruto home"
+          className="flex items-center gap-2 font-bold text-xl tracking-tight shrink-0"
           onClick={() => setMenuOpen(false)}
         >
-          <span className="text-emerald-600 dark:text-emerald-400">Meguru</span>
-          <span className="text-slate-800 dark:text-slate-200">to</span>
+          <MegurutoMark className="size-7 sm:size-[30px]" />
+          <span className="hidden sm:inline">
+            <span className="text-emerald-600 dark:text-emerald-400">
+              Meguru
+            </span>
+            <span className="text-slate-800 dark:text-slate-200">to</span>
+          </span>
         </Link>
 
         {/* Global Search Bar (Center / Desktop & Mobile icon) */}
