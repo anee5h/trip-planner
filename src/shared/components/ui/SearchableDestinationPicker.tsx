@@ -41,6 +41,8 @@ export function SearchableDestinationPicker({
   const triggerRef = useRef<HTMLButtonElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const wasOpenRef = useRef(false);
   const uniqueId = useId();
   const dialogId = `picker-dialog-${uniqueId}`;
   const listboxId = `picker-listbox-${uniqueId}`;
@@ -52,6 +54,8 @@ export function SearchableDestinationPicker({
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
   }, []);
+
+  const closePicker = () => setIsOpen(false);
 
   useEffect(() => {
     if (isOpen && activeOptionRef.current) {
@@ -134,17 +138,19 @@ export function SearchableDestinationPicker({
 
   useEffect(() => {
     if (isOpen) {
-      if (window.innerWidth < 640) {
+      wasOpenRef.current = true;
+      if (isMobile) {
         document.body.style.overflow = "hidden";
       }
       setTimeout(() => inputRef.current?.focus(), 50);
     } else {
       document.body.style.overflow = "";
+      if (wasOpenRef.current) triggerRef.current?.focus();
     }
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isOpen]);
+  }, [isOpen, isMobile]);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -152,7 +158,7 @@ export function SearchableDestinationPicker({
         containerRef.current &&
         !containerRef.current.contains(e.target as Node)
       ) {
-        setIsOpen(false);
+        closePicker();
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -169,8 +175,7 @@ export function SearchableDestinationPicker({
     }
 
     if (e.key === "Escape") {
-      setIsOpen(false);
-      triggerRef.current?.focus();
+      closePicker();
       e.preventDefault();
       return;
     }
@@ -184,9 +189,26 @@ export function SearchableDestinationPicker({
     } else if (e.key === "Enter" && flatOptions[activeIndex]) {
       e.preventDefault();
       onSelect(flatOptions[activeIndex]);
-      setIsOpen(false);
+      closePicker();
       setQuery("");
-      triggerRef.current?.focus();
+    }
+  };
+
+  const handleMobileDialogKeyDown = (e: React.KeyboardEvent) => {
+    handleKeyDown(e);
+    if (!isMobile || e.key !== "Tab") return;
+    const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
+      "button:not([disabled]), input:not([disabled])",
+    );
+    if (!focusable?.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
     }
   };
 
@@ -228,23 +250,34 @@ export function SearchableDestinationPicker({
           <div
             className="sm:hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40"
             onClick={() => {
-              setIsOpen(false);
-              triggerRef.current?.focus();
+              closePicker();
             }}
           />
 
           <div
+            ref={isMobile ? dialogRef : undefined}
             id={isMobile ? dialogId : listboxId}
             role={isMobile ? "dialog" : "listbox"}
             aria-modal={isMobile ? true : undefined}
             aria-label={
               isMobile ? "Destination search" : "Destination search options"
             }
+            onKeyDown={isMobile ? handleMobileDialogKeyDown : undefined}
             className="z-50 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden animate-in fade-in-50 duration-150 flex flex-col max-sm:fixed max-sm:inset-x-0 max-sm:bottom-0 max-sm:rounded-b-none max-sm:rounded-t-3xl max-sm:pb-[env(safe-area-inset-bottom)] max-sm:max-h-[85dvh] sm:absolute sm:left-0 sm:right-0 sm:mt-1.5 sm:rounded-2xl sm:max-h-80"
           >
             {/* Header / Search Input */}
             <div className="p-3 sm:p-2.5 border-b border-slate-100 dark:border-slate-800 flex items-center gap-2 bg-slate-50/50 dark:bg-slate-850 shrink-0">
               <Search className="w-4 h-4 text-slate-400 shrink-0" />
+              {isMobile && (
+                <button
+                  type="button"
+                  onClick={closePicker}
+                  aria-label="Close destination search"
+                  className="p-1 text-slate-400"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
               <input
                 ref={inputRef}
                 type="text"
@@ -277,7 +310,11 @@ export function SearchableDestinationPicker({
               )}
             </div>
 
-            <div className="overflow-y-auto p-2 space-y-3 flex-1">
+            <div
+              id={isMobile ? listboxId : undefined}
+              role={isMobile ? "listbox" : undefined}
+              className="overflow-y-auto p-2 space-y-3 flex-1"
+            >
               {/* Search Query Active */}
               {query.trim() ? (
                 searchResults.length === 0 ? (
@@ -301,9 +338,8 @@ export function SearchableDestinationPicker({
                           type="button"
                           onClick={() => {
                             onSelect(dest);
-                            setIsOpen(false);
+                            closePicker();
                             setQuery("");
-                            triggerRef.current?.focus();
                           }}
                           className={`w-full flex items-center justify-between p-2.5 rounded-xl text-left text-xs transition-colors ${
                             isActive
@@ -352,8 +388,7 @@ export function SearchableDestinationPicker({
                           type="button"
                           onClick={() => {
                             onSelect(dest);
-                            setIsOpen(false);
-                            triggerRef.current?.focus();
+                            closePicker();
                           }}
                           className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
                         >
@@ -382,8 +417,7 @@ export function SearchableDestinationPicker({
                           type="button"
                           onClick={() => {
                             onSelect(dest);
-                            setIsOpen(false);
-                            triggerRef.current?.focus();
+                            closePicker();
                           }}
                           className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
                         >
@@ -410,8 +444,7 @@ export function SearchableDestinationPicker({
                           type="button"
                           onClick={() => {
                             onSelect(dest);
-                            setIsOpen(false);
-                            triggerRef.current?.focus();
+                            closePicker();
                           }}
                           className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
                         >
@@ -440,8 +473,7 @@ export function SearchableDestinationPicker({
                           type="button"
                           onClick={() => {
                             onSelect(dest);
-                            setIsOpen(false);
-                            triggerRef.current?.focus();
+                            closePicker();
                           }}
                           className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
                         >

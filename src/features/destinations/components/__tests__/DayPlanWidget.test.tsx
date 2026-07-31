@@ -75,5 +75,13 @@ describe("DayPlanGeneratorService - Disclosures & Hub Routing", () => {
 
     const firstLeg = legs[0];
     expect(firstLeg.fromDestinationId).not.toBe("hub-1");
+
+    const firstRealStop = plan.steps.find(
+      (step) => step.type === "destination",
+    );
+    expect(firstRealStop?.startTime).toBe("09:00");
+    expect(plan.steps.some((step) => step.destination?.id === "hub-1")).toBe(
+      false,
+    );
   });
 });

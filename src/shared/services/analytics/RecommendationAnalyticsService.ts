@@ -318,6 +318,10 @@ class RecommendationAnalyticsService {
       partySize?: number;
       generatedStopCount?: number;
       generatedDurationMinutes?: number;
+      primaryRole?: "poi" | "hub";
+      availableMinutes?: number;
+      startTime?: string;
+      returnMode?: "anchor" | "nearest_station" | "none";
     },
     locale: "en" | "ja" = "en",
   ): boolean {

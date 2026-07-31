@@ -69,10 +69,7 @@ export function TripCostBreakdownWidget({
           planCostBreakdown.admission.source === "curated",
         confidence: planCostBreakdown.confidence,
         partyRange: planCostBreakdown.totalRange,
-        perPersonRange: [
-          Math.round(planCostBreakdown.totalRange[0] / partySize),
-          Math.round(planCostBreakdown.totalRange[1] / partySize),
-        ] as [number, number],
+        perPersonRange: planCostBreakdown.totalRange,
       };
     }
     return calculateItemizedTripCost(destination, {
@@ -80,6 +77,66 @@ export function TripCostBreakdownWidget({
       partySize,
     });
   }, [destination, activeTransportMode, partySize, planCostBreakdown]);
+
+  const displayRange = (range: [number, number]): [number, number] =>
+    viewMode === "party"
+      ? range
+      : [Math.round(range[0] / partySize), Math.round(range[1] / partySize)];
+  const transportRange: [number, number] = planCostBreakdown
+    ? [
+        planCostBreakdown.originTransport.min +
+          planCostBreakdown.localTransit.min,
+        planCostBreakdown.originTransport.max +
+          planCostBreakdown.localTransit.max,
+      ]
+    : [cost.transport, cost.transport];
+  const admissionRange: [number, number] = planCostBreakdown
+    ? [planCostBreakdown.admission.min, planCostBreakdown.admission.max]
+    : [cost.tickets, cost.tickets];
+  const mealRange: [number, number] = planCostBreakdown
+    ? [planCostBreakdown.meals.min, planCostBreakdown.meals.max]
+    : [cost.food[0], cost.food[1]];
+  const cafeRange: [number, number] = planCostBreakdown
+    ? [0, 0]
+    : [cost.cafe, cost.cafe];
+  const parkingRange: [number, number] = planCostBreakdown
+    ? [planCostBreakdown.parking.min, planCostBreakdown.parking.max]
+    : [cost.parking, cost.parking];
+  const hasMeals = planCostBreakdown
+    ? planCostBreakdown.meals.applicable
+    : true;
+  const hasCafe = !planCostBreakdown && cafeRange[1] > 0;
+  const hasTransport = planCostBreakdown
+    ? planCostBreakdown.localTransit.applicable
+    : transportRange[1] > 0;
+  const hasParking = planCostBreakdown
+    ? planCostBreakdown.parking.applicable
+    : parkingRange[1] > 0;
+  const visiblePartyRanges = planCostBreakdown
+    ? [
+        ...(hasTransport ? [transportRange] : []),
+        admissionRange,
+        ...(hasMeals ? [mealRange] : []),
+        ...(hasParking ? [parkingRange] : []),
+      ]
+    : [];
+  const totalRange: [number, number] = planCostBreakdown
+    ? visiblePartyRanges.reduce<[number, number]>(
+        (total, range) => [total[0] + range[0], total[1] + range[1]],
+        [0, 0],
+      )
+    : [cost.partyRange[0], cost.partyRange[1]];
+  const displayedTotalRange: [number, number] =
+    viewMode === "party"
+      ? totalRange
+      : planCostBreakdown
+        ? visiblePartyRanges
+            .map(displayRange)
+            .reduce<[number, number]>(
+              (total, range) => [total[0] + range[0], total[1] + range[1]],
+              [0, 0],
+            )
+        : [cost.perPersonRange[0], cost.perPersonRange[1]];
 
   const headerTitle = hasGeneratedPlan
     ? locale === "ja"
@@ -99,8 +156,7 @@ export function TripCostBreakdownWidget({
 
   if (!destination) return null;
 
-  const totalMax =
-    viewMode === "party" ? cost.partyRange[1] : cost.perPersonRange[1];
+  const totalMax = displayedTotalRange[1];
 
   function getCategoryWidth(amount: number): number {
     if (!totalMax || totalMax === 0) return 0;
@@ -153,7 +209,7 @@ export function TripCostBreakdownWidget({
                 {locale === "ja" ? "概算合計" : "Est. Range"}
               </div>
               <div className="text-base font-extrabold text-slate-900 dark:text-white">
-                {formatLocalizedJPYRange(cost.partyRange, locale)}
+                {formatLocalizedJPYRange(totalRange, locale)}
               </div>
             </div>
 
@@ -228,12 +284,7 @@ export function TripCostBreakdownWidget({
                       : "Per Person Total"}
                 </span>
                 <div className="text-2xl font-extrabold text-slate-900 dark:text-white mt-0.5">
-                  {formatLocalizedJPYRange(
-                    viewMode === "party"
-                      ? cost.partyRange
-                      : cost.perPersonRange,
-                    locale,
-                  )}
+                  {formatLocalizedJPYRange(displayedTotalRange, locale)}
                 </div>
               </div>
 
@@ -246,38 +297,37 @@ export function TripCostBreakdownWidget({
             </div>
 
             <div className="space-y-4">
-              <div className="space-y-1.5">
-                <div className="flex justify-between text-xs font-bold">
-                  <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                    {activeTransportMode === "car" ||
-                    activeTransportMode === "my_car" ? (
-                      <Car className="w-4 h-4 text-sky-500 shrink-0" />
-                    ) : (
-                      <Train className="w-4 h-4 text-emerald-500 shrink-0" />
-                    )}
-                    {locale === "ja" ? "現地交通費" : "Local transport"}
-                  </span>
-                  <span className="text-slate-900 dark:text-white">
-                    {formatLocalizedJPYRange(
-                      viewMode === "party"
-                        ? [cost.transport, cost.transport]
-                        : [
-                            cost.transport / partySize,
-                            cost.transport / partySize,
-                          ],
-                      locale,
-                    )}
-                  </span>
+              {hasTransport && (
+                <div className="space-y-1.5">
+                  <div className="flex justify-between text-xs font-bold">
+                    <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                      {activeTransportMode === "car" ||
+                      activeTransportMode === "my_car" ? (
+                        <Car className="w-4 h-4 text-sky-500 shrink-0" />
+                      ) : (
+                        <Train className="w-4 h-4 text-emerald-500 shrink-0" />
+                      )}
+                      {locale === "ja" ? "現地交通費" : "Local transport"}
+                    </span>
+                    <span className="text-slate-900 dark:text-white">
+                      {formatLocalizedJPYRange(
+                        viewMode === "party"
+                          ? transportRange
+                          : displayRange(transportRange),
+                        locale,
+                      )}
+                    </span>
+                  </div>
+                  <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-emerald-500 rounded-full transition-all"
+                      style={{
+                        width: `${getCategoryWidth(displayRange(transportRange)[1])}%`,
+                      }}
+                    />
+                  </div>
                 </div>
-                <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-emerald-500 rounded-full transition-all"
-                    style={{
-                      width: `${getCategoryWidth(viewMode === "party" ? cost.transport : cost.transport / partySize)}%`,
-                    }}
-                  />
-                </div>
-              </div>
+              )}
 
               <div className="space-y-1.5">
                 <div className="flex justify-between text-xs font-bold">
@@ -292,78 +342,83 @@ export function TripCostBreakdownWidget({
                       ? locale === "ja"
                         ? "無料"
                         : "Free"
-                      : formatLocalizedJPYRange(
-                          viewMode === "party"
-                            ? [cost.tickets, cost.tickets]
-                            : [
-                                cost.tickets / partySize,
-                                cost.tickets / partySize,
-                              ],
-                          locale,
-                        )}
+                      : planCostBreakdown?.admission.source === "unknown"
+                        ? locale === "ja"
+                          ? "変動・未確認"
+                          : "Variable / unknown admission"
+                        : formatLocalizedJPYRange(
+                            viewMode === "party"
+                              ? admissionRange
+                              : displayRange(admissionRange),
+                            locale,
+                          )}
                   </span>
                 </div>
                 <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                   <div
                     className="h-full bg-purple-500 rounded-full transition-all"
                     style={{
-                      width: `${cost.isFreeTicket ? 0 : getCategoryWidth(viewMode === "party" ? cost.tickets : cost.tickets / partySize)}%`,
+                      width: `${cost.isFreeTicket ? 0 : getCategoryWidth(displayRange(admissionRange)[1])}%`,
                     }}
                   />
                 </div>
               </div>
 
-              <div className="space-y-1.5">
-                <div className="flex justify-between text-xs font-bold">
-                  <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                    <Utensils className="w-4 h-4 text-amber-500 shrink-0" />
-                    {locale === "ja" ? "食事・ランチ" : "Food & Dining"}
-                  </span>
-                  <span className="text-slate-900 dark:text-white">
-                    {formatLocalizedJPYRange(
-                      viewMode === "party"
-                        ? cost.food
-                        : [cost.food[0] / partySize, cost.food[1] / partySize],
-                      locale,
-                    )}
-                  </span>
+              {hasMeals && (
+                <div className="space-y-1.5">
+                  <div className="flex justify-between text-xs font-bold">
+                    <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                      <Utensils className="w-4 h-4 text-amber-500 shrink-0" />
+                      {locale === "ja" ? "食事・ランチ" : "Food & Dining"}
+                    </span>
+                    <span className="text-slate-900 dark:text-white">
+                      {formatLocalizedJPYRange(
+                        viewMode === "party"
+                          ? mealRange
+                          : displayRange(mealRange),
+                        locale,
+                      )}
+                    </span>
+                  </div>
+                  <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-amber-500 rounded-full transition-all"
+                      style={{
+                        width: `${getCategoryWidth(displayRange(mealRange)[1])}%`,
+                      }}
+                    />
+                  </div>
                 </div>
-                <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-amber-500 rounded-full transition-all"
-                    style={{
-                      width: `${getCategoryWidth(viewMode === "party" ? cost.food[1] : cost.food[1] / partySize)}%`,
-                    }}
-                  />
-                </div>
-              </div>
+              )}
 
-              <div className="space-y-1.5">
-                <div className="flex justify-between text-xs font-bold">
-                  <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                    <Coffee className="w-4 h-4 text-rose-500 shrink-0" />
-                    {locale === "ja" ? "カフェ・軽食" : "Café & Snacks"}
-                  </span>
-                  <span className="text-slate-900 dark:text-white">
-                    {formatLocalizedJPYRange(
-                      viewMode === "party"
-                        ? [cost.cafe, cost.cafe]
-                        : [cost.cafe / partySize, cost.cafe / partySize],
-                      locale,
-                    )}
-                  </span>
+              {hasCafe && (
+                <div className="space-y-1.5">
+                  <div className="flex justify-between text-xs font-bold">
+                    <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                      <Coffee className="w-4 h-4 text-rose-500 shrink-0" />
+                      {locale === "ja" ? "カフェ・軽食" : "Café & Snacks"}
+                    </span>
+                    <span className="text-slate-900 dark:text-white">
+                      {formatLocalizedJPYRange(
+                        viewMode === "party"
+                          ? cafeRange
+                          : displayRange(cafeRange),
+                        locale,
+                      )}
+                    </span>
+                  </div>
+                  <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-rose-500 rounded-full transition-all"
+                      style={{
+                        width: `${getCategoryWidth(displayRange(cafeRange)[1])}%`,
+                      }}
+                    />
+                  </div>
                 </div>
-                <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-rose-500 rounded-full transition-all"
-                    style={{
-                      width: `${getCategoryWidth(viewMode === "party" ? cost.cafe : cost.cafe / partySize)}%`,
-                    }}
-                  />
-                </div>
-              </div>
+              )}
 
-              {cost.parking > 0 && (
+              {hasParking && (
                 <div className="space-y-1.5">
                   <div className="flex justify-between text-xs font-bold">
                     <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
@@ -373,11 +428,8 @@ export function TripCostBreakdownWidget({
                     <span className="text-slate-900 dark:text-white">
                       {formatLocalizedJPYRange(
                         viewMode === "party"
-                          ? [cost.parking, cost.parking]
-                          : [
-                              cost.parking / partySize,
-                              cost.parking / partySize,
-                            ],
+                          ? parkingRange
+                          : displayRange(parkingRange),
                         locale,
                       )}
                     </span>
@@ -386,7 +438,7 @@ export function TripCostBreakdownWidget({
                     <div
                       className="h-full bg-indigo-500 rounded-full transition-all"
                       style={{
-                        width: `${getCategoryWidth(viewMode === "party" ? cost.parking : cost.parking / partySize)}%`,
+                        width: `${getCategoryWidth(displayRange(parkingRange)[1])}%`,
                       }}
                     />
                   </div>

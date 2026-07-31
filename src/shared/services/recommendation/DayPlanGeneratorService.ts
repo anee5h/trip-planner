@@ -84,7 +84,6 @@ export interface DayPlan {
   isUnfeasible?: boolean;
   canFallbackToHalfDay?: boolean;
   unfeasibleErrorMessage?: { en: string; ja: string };
-  anchor_exceeds_time_window?: boolean;
   failureReason?: PlanFailureReason;
   generatedWith?: {
     planType: DayPlanType;
@@ -258,8 +257,7 @@ export function generateDayPlan(
   const pace: DayPlanPace = options?.pace || "balanced";
   const partySize = Math.max(1, options?.partySize || 1);
   const catchmentScope: CatchmentScope = options?.catchmentScope || "nearby";
-  const returnMode: ReturnMode =
-    options?.returnMode ?? (isPrimaryHub ? "anchor" : "nearest_station");
+  const returnMode: ReturnMode = options?.returnMode ?? "none";
   const catalogue =
     options?.catalogue && options.catalogue.length
       ? options.catalogue
@@ -363,10 +361,10 @@ export function generateDayPlan(
     id: `plan-${primary.id}`,
     title: {
       en: isPrimaryHub
-        ? `Plan a day from ${getLocalizedPlace(primary, "en").name}`
+        ? `Plan a day in ${getLocalizedPlace(primary, "en").name}`
         : `Plan around ${getLocalizedPlace(primary, "en").name}`,
       ja: isPrimaryHub
-        ? `${getLocalizedPlace(primary, "ja").name}発モデルコース`
+        ? `${getLocalizedPlace(primary, "ja").name}のモデルコース`
         : `${getLocalizedPlace(primary, "ja").name} 周辺モデルコース`,
     },
     steps: [],
@@ -568,10 +566,10 @@ export function generateDayPlan(
     id: `plan-${primary.id}`,
     title: {
       en: isPrimaryHub
-        ? `Plan a day from ${primLocEn.name}`
+        ? `Plan a day in ${primLocEn.name}`
         : `Plan around ${primLocEn.name}`,
       ja: isPrimaryHub
-        ? `${primLocJa.name}発 1日モデルコース`
+        ? `${primLocJa.name}の1日モデルコース`
         : `${primLocJa.name} 周辺モデルコース`,
     },
     steps: builtRoute.steps,
@@ -621,22 +619,6 @@ function simulateRouteIncremental(
   const routeLegs: RouteLeg[] = [];
   const assumptions: PlanAssumption[] = [];
   let currentMins = startMins;
-
-  if (isPrimaryHub) {
-    steps.push({
-      id: "step-hub-anchor",
-      type: "buffer",
-      timeBlock: getTimeBlock(currentMins),
-      startTime: formatTimeFromMidnight(currentMins),
-      endTime: formatTimeFromMidnight(currentMins),
-      durationMinutes: 0,
-      destination: primary,
-      title: {
-        en: `Start at ${getLocalizedPlace(primary, "en").name}`,
-        ja: `${getLocalizedPlace(primary, "ja").name}集合・出発`,
-      },
-    });
-  }
 
   let currentLocation: Destination = primary;
   let lunchInserted = false;
@@ -855,6 +837,18 @@ function simulateRouteIncremental(
     primary,
     catalogue,
   );
+
+  if (returnMode === "nearest_station" && !returnEndpoint) {
+    return {
+      steps: [],
+      routeLegs: [],
+      assumptions: [],
+      totalMins: 0,
+      returnEndpoint: null,
+      feasible: false,
+      failureReason: "unusable_return_leg" as const,
+    };
+  }
 
   if (returnEndpoint && returnEndpoint.id !== currentLocation.id) {
     const retTransit = estimateLocalTransitMinutes(

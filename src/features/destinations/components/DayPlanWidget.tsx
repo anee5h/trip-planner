@@ -43,6 +43,8 @@ interface DayPlanWidgetProps {
   destination: Destination;
   locale?: "en" | "ja";
   partySize?: number;
+  onPartySizeChange?: (partySize: number) => void;
+  generatedCostRange?: [number, number];
   onSaveToItinerary?: (plan: DayPlan) => void;
   onPlanGenerated?: (plan: DayPlan | null) => void;
 }
@@ -51,6 +53,8 @@ export function DayPlanWidget({
   destination,
   locale = "en",
   partySize: externalPartySize = 2,
+  onPartySizeChange,
+  generatedCostRange,
   onSaveToItinerary,
   onPlanGenerated,
 }: DayPlanWidgetProps) {
@@ -64,7 +68,7 @@ export function DayPlanWidget({
   const [availableMinutes, setAvailableMinutes] = useState<number>(540);
   const [durationPreset, setDurationPreset] = useState("540");
   const [pace, setPace] = useState<DayPlanPace>("balanced");
-  const [partySize, setPartySize] = useState(externalPartySize);
+  const partySize = externalPartySize;
   const [catchmentScope, setCatchmentScope] =
     useState<CatchmentScope>("nearby");
   const [returnMode, setReturnMode] = useState<ReturnMode>("none");
@@ -80,14 +84,29 @@ export function DayPlanWidget({
 
   const [generatedPlan, setGeneratedPlan] = useState<DayPlan | null>(null);
 
-  const containerRef = useRef<HTMLDivElement>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
 
   const handleStartCreation = () => {
     setShowConfig(true);
+    const analyticsDetails = {
+      primaryRole: isHubOrCity ? ("hub" as const) : ("poi" as const),
+      planType,
+      availableMinutes,
+      startTime,
+      returnMode,
+      pace,
+      partySize,
+    };
     recommendationAnalytics.trackPlanningToolEvent(
       "day_plan_creation_started",
       destination.id,
-      {},
+      analyticsDetails,
+      locale,
+    );
+    recommendationAnalytics.trackPlanningToolEvent(
+      "day_plan_preferences_opened",
+      destination.id,
+      analyticsDetails,
       locale,
     );
   };
@@ -126,6 +145,10 @@ export function DayPlanWidget({
           planType: activePlanType,
           pace,
           partySize,
+          primaryRole: isHubOrCity ? "hub" : "poi",
+          availableMinutes,
+          startTime,
+          returnMode,
           generatedStopCount: newPlan.steps.filter(isRealDestinationStop)
             .length,
           generatedDurationMinutes: newPlan.totalDurationMinutes,
@@ -135,7 +158,7 @@ export function DayPlanWidget({
     }
 
     setTimeout(() => {
-      containerRef.current?.focus();
+      resultRef.current?.focus();
     }, 100);
   };
 
@@ -144,6 +167,12 @@ export function DayPlanWidget({
     setGeneratedPlan(null);
     onPlanGenerated?.(null);
     setShowConfig(false);
+    recommendationAnalytics.trackPlanningToolEvent(
+      "day_plan_start_over",
+      destination.id,
+      { primaryRole: isHubOrCity ? "hub" : "poi" },
+      locale,
+    );
   };
 
   const handleRemoveStep = (stepId: string) => {
@@ -214,6 +243,11 @@ export function DayPlanWidget({
       {
         planType,
         partySize,
+        primaryRole: isHubOrCity ? "hub" : "poi",
+        availableMinutes,
+        startTime,
+        returnMode,
+        pace,
         generatedStopCount: generatedPlan.steps.filter(isRealDestinationStop)
           .length,
       },
@@ -253,8 +287,8 @@ export function DayPlanWidget({
   // Product title based on destination role
   const plannerTitle = isHubOrCity
     ? locale === "ja"
-      ? `${destination.nameJa || destination.name}発 1日コース`
-      : `Plan a day from ${destination.name}`
+      ? `${destination.nameJa || destination.name}周辺の1日コース`
+      : `Plan a day in ${destination.name}`
     : locale === "ja"
       ? `${destination.nameJa || destination.name} 周辺モデルコース`
       : `Plan around ${destination.name}`;
@@ -266,11 +300,7 @@ export function DayPlanWidget({
   );
 
   return (
-    <Card
-      ref={containerRef}
-      tabIndex={-1}
-      className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
-    >
+    <Card className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50">
       {/* Header */}
       <div className="bg-slate-50/80 dark:bg-slate-950/80 border-b border-slate-100 dark:border-slate-800 p-5 sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
@@ -290,8 +320,8 @@ export function DayPlanWidget({
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                 {isHubOrCity
                   ? locale === "ja"
-                    ? `${destination.nameJa || destination.name}を拠点に周辺の見どころ・グルメを効率よく巡るプラン`
-                    : `Customized local itinerary starting from ${destination.name} hub.`
+                    ? `${destination.nameJa || destination.name}周辺の見どころ・グルメを効率よく巡るプラン`
+                    : `Customized itinerary of ${destination.name}'s nearby attractions.`
                   : locale === "ja"
                     ? `${destination.nameJa || destination.name}を中心に近隣スポットを組み合わせたおすすめコース`
                     : `Model itinerary combining ${destination.name} with nearby highlights.`}
@@ -312,7 +342,7 @@ export function DayPlanWidget({
               <div className="w-px h-4 bg-slate-200 dark:bg-slate-700" />
               <div>
                 {formatLocalizedJPYRange(
-                  generatedPlan.totalBudgetRange,
+                  generatedCostRange ?? generatedPlan.totalBudgetRange,
                   locale,
                 )}
               </div>
@@ -329,7 +359,7 @@ export function DayPlanWidget({
               <p className="leading-relaxed">
                 {isHubOrCity
                   ? locale === "ja"
-                    ? `${destination.nameJa || destination.name}を起点に、移動時間と滞在バランスを最適化した1日・半日コースを作成します。`
+                    ? `${destination.nameJa || destination.name}周辺で、移動時間と滞在バランスを最適化した1日・半日コースを作成します。`
                     : `Create a customized itinerary combining ${destination.name} with nearby highlights and dining.`
                   : locale === "ja"
                     ? `${destination.nameJa || destination.name}への訪問を中心に、徒歩・ローカル移動圏内の周辺スポットを組み立てます。`
@@ -352,7 +382,11 @@ export function DayPlanWidget({
             >
               <Plus className="w-4 h-4" />
               <span>
-                {locale === "ja" ? "プランを作成" : "Create day plan"}
+                {locale === "ja"
+                  ? "プランを作成"
+                  : isHubOrCity
+                    ? "Create area plan"
+                    : "Create day plan"}
               </span>
             </Button>
           </div>
@@ -431,6 +465,11 @@ export function DayPlanWidget({
                 {durationPreset === "custom" && (
                   <input
                     type="number"
+                    aria-label={
+                      locale === "ja"
+                        ? "カスタム滞在時間（分）"
+                        : "Custom time available in minutes"
+                    }
                     min={60}
                     max={720}
                     value={availableMinutes}
@@ -542,7 +581,7 @@ export function DayPlanWidget({
                 </label>
                 <select
                   value={partySize}
-                  onChange={(e) => setPartySize(Number(e.target.value))}
+                  onChange={(e) => onPartySizeChange?.(Number(e.target.value))}
                   className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-3 py-2.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500 min-h-[44px]"
                 >
                   {[1, 2, 3, 4, 5, 6].map((n) => (
@@ -599,7 +638,9 @@ export function DayPlanWidget({
         {/* UNFEASIBLE PLAN ALERT WITH HALF-DAY FALLBACK */}
         {hasGenerated && generatedPlan && generatedPlan.isUnfeasible && (
           <div
+            ref={resultRef}
             role="alert"
+            tabIndex={-1}
             className="p-5 bg-rose-50/90 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800/60 rounded-2xl space-y-4 animate-in fade-in duration-200 text-xs"
           >
             <div className="flex items-start gap-3 text-rose-900 dark:text-rose-200">
@@ -660,7 +701,7 @@ export function DayPlanWidget({
 
         {/* GENERATED TIMELINE */}
         {hasGenerated && generatedPlan && !generatedPlan.isUnfeasible && (
-          <div className="space-y-6">
+          <div ref={resultRef} tabIndex={-1} className="space-y-6">
             {preferencesChanged && (
               <div
                 className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs font-semibold text-amber-900"

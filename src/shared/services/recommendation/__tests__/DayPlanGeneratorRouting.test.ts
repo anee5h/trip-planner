@@ -24,7 +24,7 @@ describe("DayPlanGeneratorRouting", () => {
     expect(plan.steps.some((s) => s.destination?.id === primary.id)).toBe(true);
   });
 
-  it("defaults POI plan returnMode to nearest_station", () => {
+  it("defaults POI plan returnMode to no return transit", () => {
     const primary = {
       id: "sensoji",
       kind: "temple",
@@ -45,7 +45,7 @@ describe("DayPlanGeneratorRouting", () => {
       catalogue: catalog,
     });
 
-    expect(plan.returnMode).toBe("nearest_station");
+    expect(plan.returnMode).toBe("none");
   });
 
   it("resolves nearest station endpoint when returnMode is nearest_station", () => {
@@ -70,5 +70,19 @@ describe("DayPlanGeneratorRouting", () => {
       catalog,
     );
     expect(endpoint?.id).toBe("asakusa-station");
+  });
+
+  it("does not treat a non-station as a nearest-station endpoint", () => {
+    const finalStop = {
+      id: "sensoji",
+      relationships: { nearestStationId: "asakusa-ward" },
+    } as unknown as Destination;
+    const catalog = [
+      { id: "asakusa-ward", name: "Asakusa", kind: "district" },
+    ] as Destination[];
+
+    expect(
+      resolveReturnEndpoint(finalStop, "nearest_station", finalStop, catalog),
+    ).toBeNull();
   });
 });

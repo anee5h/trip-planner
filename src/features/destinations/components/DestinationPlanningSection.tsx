@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Destination } from "@/shared/types/destination";
 import { DayPlanWidget } from "./DayPlanWidget";
 import { TripCostBreakdownWidget } from "./TripCostBreakdownWidget";
@@ -23,6 +23,9 @@ export function DestinationPlanningSection({
   onPlanGenerated,
 }: DestinationPlanningSectionProps) {
   const [generatedPlan, setGeneratedPlanState] = useState<DayPlan | null>(null);
+  const [activePartySize, setActivePartySize] = useState(partySize);
+
+  useEffect(() => setActivePartySize(partySize), [partySize]);
 
   const setGeneratedPlan = (plan: DayPlan | null) => {
     setGeneratedPlanState(plan);
@@ -39,7 +42,7 @@ export function DestinationPlanningSection({
     hasValidGeneratedPlan && generatedPlan
       ? calculateGeneratedPlanCost(
           generatedPlan,
-          partySize,
+          activePartySize,
           selectedTransport === "car" ? "car" : "train",
         )
       : undefined;
@@ -50,8 +53,20 @@ export function DestinationPlanningSection({
       <DayPlanWidget
         destination={destination}
         locale={locale}
-        partySize={partySize}
-        onSaveToItinerary={() => onSaveToItinerary(generatedPlan || undefined)}
+        partySize={activePartySize}
+        onPartySizeChange={setActivePartySize}
+        generatedCostRange={costBreakdown?.totalRange}
+        onSaveToItinerary={() =>
+          onSaveToItinerary(
+            generatedPlan
+              ? {
+                  ...generatedPlan,
+                  totalBudgetRange:
+                    costBreakdown?.totalRange ?? generatedPlan.totalBudgetRange,
+                }
+              : undefined,
+          )
+        }
         onPlanGenerated={(plan) => setGeneratedPlan(plan)}
       />
 
@@ -59,7 +74,7 @@ export function DestinationPlanningSection({
       <TripCostBreakdownWidget
         destination={destination}
         locale={locale}
-        partySize={partySize}
+        partySize={activePartySize}
         activeTransportMode={selectedTransport}
         hasGeneratedPlan={hasValidGeneratedPlan}
         planCostBreakdown={costBreakdown}
