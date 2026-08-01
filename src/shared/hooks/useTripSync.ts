@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { User } from "@supabase/supabase-js";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
@@ -56,6 +56,18 @@ interface LocalSnapshot {
   visitedDates: VisitDates;
   destinationRatings: DestinationRatings;
   homeStation: string;
+}
+
+export type ProfileSyncStatus =
+  "idle" | "loading" | "ready" | "saving" | "error";
+
+export type TripSyncStatus = "idle" | "loading" | "ready" | "saving" | "error";
+
+export interface UseTripSyncReturn {
+  profileSyncStatus: ProfileSyncStatus;
+  tripSyncStatus: TripSyncStatus;
+  retryProfileHydration: () => void;
+  retryTripHydration: () => void;
 }
 
 const destinationById = new Map<string, Destination>(
@@ -248,8 +260,15 @@ export function useTripSync({
   setTrips,
   destinationRatings,
   setDestinationRatings,
-}: UseTripSyncProps) {
+}: UseTripSyncProps): UseTripSyncReturn {
+  const [profileSyncStatus, setProfileSyncStatus] =
+    useState<ProfileSyncStatus>("idle");
+  const [tripSyncStatus, setTripSyncStatus] = useState<TripSyncStatus>("idle");
+  const [retryProfileTrigger, setRetryProfileTrigger] = useState<number>(0);
+  const [retryTripTrigger, setRetryTripTrigger] = useState<number>(0);
+
   const hydratedUserIdRef = useRef<string | null>(null);
+  const hydratedTripsUserIdRef = useRef<string | null>(null);
   const previousUserIdRef = useRef(user?.id);
   const hydrationVersionRef = useRef(0);
   const profileSyncTimeoutRef = useRef<
@@ -589,7 +608,7 @@ export function useTripSync({
         })
         .catch((error) => {
           console.error("Failed to sync trips to cloud", error);
-          toast.error("Failed to sync trips to cloud. Saved locally.", {
+          toast.error("Failed to sync trips to cloud.", {
             id: "trip-sync-error",
           });
         });
@@ -602,4 +621,19 @@ export function useTripSync({
       }
     };
   }, [trips, user?.id, setTrips]);
+
+  const retryProfileHydration = () => {
+    setRetryProfileTrigger((prev: number) => prev + 1);
+  };
+
+  const retryTripHydration = () => {
+    setRetryTripTrigger((prev: number) => prev + 1);
+  };
+
+  return {
+    profileSyncStatus,
+    tripSyncStatus,
+    retryProfileHydration,
+    retryTripHydration,
+  };
 }

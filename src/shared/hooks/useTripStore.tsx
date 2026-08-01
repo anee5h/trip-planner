@@ -3,6 +3,10 @@ import type { ReactNode } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { useTripSync } from "@/shared/hooks/useTripSync";
+import type {
+  ProfileSyncStatus,
+  TripSyncStatus,
+} from "@/shared/hooks/useTripSync";
 import destinationsIndex from "@/shared/data/destinations-meta.json";
 import type { Trip, TripStop } from "@/shared/types/trip";
 import * as TripService from "@/shared/services/trips/TripService";
@@ -81,6 +85,11 @@ interface TripStoreContextType {
   ) => void;
   setDestinationRating: (id: string, rating: "up" | "down" | null) => void;
   getDestinationRating: (id: string) => "up" | "down" | null;
+
+  profileSyncStatus: ProfileSyncStatus;
+  tripSyncStatus: TripSyncStatus;
+  retryProfileHydration: () => void;
+  retryTripHydration: () => void;
 }
 
 const TripStoreContext = createContext<TripStoreContextType | undefined>(
@@ -129,7 +138,12 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     destinationRatings[id] ?? null;
 
   // Modular cloud persistence & initial load hook
-  useTripSync({
+  const {
+    profileSyncStatus,
+    tripSyncStatus,
+    retryProfileHydration,
+    retryTripHydration,
+  } = useTripSync({
     user,
     favorites,
     setFavorites,
@@ -547,6 +561,10 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
         setDestinationRatings,
         setDestinationRating,
         getDestinationRating,
+        profileSyncStatus,
+        tripSyncStatus,
+        retryProfileHydration,
+        retryTripHydration,
       }}
     >
       {children}
