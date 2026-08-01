@@ -342,28 +342,31 @@ export default function Destinations() {
       });
     }
 
-    // 0.5. Filter by Region & Prefecture
-    if (selectedRegions.length > 0 || selectedPrefectures.length > 0) {
+    // 0.5. Filter by Where Location Picker (Region, Prefecture, City, Area)
+    const hasLocationFilter =
+      selectedRegions.length > 0 ||
+      selectedPrefectures.length > 0 ||
+      selectedCities.length > 0 ||
+      selectedAreas.length > 0;
+
+    if (hasLocationFilter) {
       result = result.filter((dest) => {
-        const matchRegion = selectedRegions.includes(dest.region);
-        const matchPref = selectedPrefectures.includes(dest.prefecture);
-        return matchRegion || matchPref;
+        const matchRegion =
+          selectedRegions.length > 0 && selectedRegions.includes(dest.region);
+        const matchPref =
+          selectedPrefectures.length > 0 &&
+          selectedPrefectures.includes(dest.prefecture);
+        const matchCity =
+          selectedCities.length > 0 &&
+          (selectedCities.includes(dest.id) ||
+            (dest.relationships?.parentDestinationId &&
+              selectedCities.includes(dest.relationships.parentDestinationId)));
+        const matchArea =
+          selectedAreas.length > 0 &&
+          Boolean(dest.areaId && selectedAreas.includes(dest.areaId));
+
+        return matchRegion || matchPref || matchCity || matchArea;
       });
-    }
-
-    if (selectedCities.length > 0) {
-      result = result.filter(
-        (dest) =>
-          selectedCities.includes(dest.id) ||
-          (dest.relationships?.parentDestinationId &&
-            selectedCities.includes(dest.relationships.parentDestinationId)),
-      );
-    }
-
-    if (selectedAreas.length > 0) {
-      result = result.filter(
-        (dest) => dest.areaId && selectedAreas.includes(dest.areaId),
-      );
     }
 
     if (indoorMin > 0) {

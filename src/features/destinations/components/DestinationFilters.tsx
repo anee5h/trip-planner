@@ -34,8 +34,6 @@ import {
 import { getCollections } from "@/shared/data/collections";
 import type { BudgetTier } from "@/shared/types/planner";
 import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
-import { CITY_AREAS } from "@/shared/data/cityAreas";
-import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import WhereLocationPicker from "./WhereLocationPicker";
 
 interface DestinationFiltersProps {
@@ -219,160 +217,6 @@ export default function DestinationFilters({
     maxTravelTime !== "any" ||
     activeAdvancedCount > 0;
 
-  // Active filter chips calculation
-  const activeChips: { id: string; label: string; onRemove: () => void }[] = [];
-
-  selectedRegions.forEach((r) =>
-    activeChips.push({
-      id: `region-${r}`,
-      label: `${r} Region`,
-      onRemove: () => setSelectedRegions((prev) => prev.filter((x) => x !== r)),
-    }),
-  );
-
-  selectedPrefectures.forEach((p) =>
-    activeChips.push({
-      id: `pref-${p}`,
-      label: p,
-      onRemove: () =>
-        setSelectedPrefectures((prev) => prev.filter((x) => x !== p)),
-    }),
-  );
-
-  selectedCities.forEach((c) => {
-    const hub = getDestinationList().find((h) => h.id === c);
-    activeChips.push({
-      id: `city-${c}`,
-      label: hub?.name || c,
-      onRemove: () => setSelectedCities(selectedCities.filter((x) => x !== c)),
-    });
-  });
-
-  selectedAreas.forEach((a) => {
-    const area = CITY_AREAS.find((item) => item.id === a);
-    activeChips.push({
-      id: `area-${a}`,
-      label: area ? area.name.en : a,
-      onRemove: () => setSelectedAreas(selectedAreas.filter((x) => x !== a)),
-    });
-  });
-
-  selectedCollections.forEach((colId) => {
-    const col = availableCollections.find((c) => c.id === colId);
-    activeChips.push({
-      id: `col-${colId}`,
-      label: col ? col.name : colId,
-      onRemove: () =>
-        setSelectedCollections((prev) => prev.filter((x) => x !== colId)),
-    });
-  });
-
-  if (vibe !== "any") {
-    activeChips.push({
-      id: "vibe",
-      label: `Vibe: ${vibe}`,
-      onRemove: () => setVibe("any"),
-    });
-  }
-
-  if (tripDuration !== "any") {
-    const durLabel =
-      tripDuration === "shortOuting"
-        ? "Short outing"
-        : tripDuration === "halfDay"
-          ? "Half day"
-          : tripDuration === "fullDay"
-            ? "Full day"
-            : "Weekend";
-    activeChips.push({
-      id: "duration",
-      label: durLabel,
-      onRemove: () => setTripDuration("any"),
-    });
-  }
-
-  if (budgetTier !== "standard") {
-    activeChips.push({
-      id: "budget",
-      label: `Budget: ${budgetTier[0].toUpperCase() + budgetTier.slice(1)}`,
-      onRemove: () => setBudgetTier("standard"),
-    });
-  }
-
-  if (carMode !== "none") {
-    activeChips.push({
-      id: "carMode",
-      label: carMode === "my_car" ? "My car" : "Rental car",
-      onRemove: () => setCarMode("none"),
-    });
-  }
-
-  if (maxTravelTime !== "any") {
-    activeChips.push({
-      id: "maxTime",
-      label: `Max ${maxTravelTime}m`,
-      onRemove: () => setMaxTravelTime("any"),
-    });
-  }
-
-  if (walkingIntensity !== "all") {
-    activeChips.push({
-      id: "walking",
-      label: `Walking: ${walkingIntensity}`,
-      onRemove: () => setWalkingIntensity("all"),
-    });
-  }
-
-  if (indoorMin > 0) {
-    activeChips.push({
-      id: "indoor",
-      label: indoorMin >= 90 ? "Fully indoors" : "Mostly indoors",
-      onRemove: () => setIndoorMin(0),
-    });
-  }
-
-  if (weather !== "any") {
-    activeChips.push({
-      id: "weather",
-      label:
-        weather === "rainy"
-          ? "Rain-friendly"
-          : weather === "hot"
-            ? "Cool in heat"
-            : "Good in cold",
-      onRemove: () => setWeather("any"),
-    });
-  }
-
-  if (season !== "any") {
-    activeChips.push({
-      id: "season",
-      label: `Season: ${season}`,
-      onRemove: () => setSeason("any"),
-    });
-  }
-
-  suitabilities.forEach((s) =>
-    activeChips.push({
-      id: `suitability-${s}`,
-      label:
-        s === "family"
-          ? "Family-friendly"
-          : s === "accessible"
-            ? "Accessible"
-            : s,
-      onRemove: () => setSuitabilities((prev) => prev.filter((x) => x !== s)),
-    }),
-  );
-
-  interests.forEach((i) =>
-    activeChips.push({
-      id: `interest-${i}`,
-      label: i,
-      onRemove: () => setInterests((prev) => prev.filter((x) => x !== i)),
-    }),
-  );
-
   return (
     <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-3 sm:p-4 shadow-sm mb-6 transition-all duration-200">
       {/* Search Input Bar */}
@@ -399,7 +243,7 @@ export default function DestinationFilters({
         </div>
       </div>
 
-      {/* Primary Always-Visible Filter Bar (Logical Sequence: Where -> Getting around -> Travel time -> Duration -> Vibe -> Collections -> Budget -> More filters) */}
+      {/* Primary Always-Visible Filter Bar (Logical Sequence: Where -> Getting around -> Travel time -> Duration -> Vibe -> Collections -> Budget -> More filters -> Clear all) */}
       <div className="flex items-center justify-between gap-2 overflow-x-auto pb-1 scrollbar-none">
         <div className="flex items-center gap-2 shrink-0">
           {/* 1. Where Location Picker */}
@@ -672,9 +516,20 @@ export default function DestinationFilters({
               </span>
             )}
           </button>
+
+          {/* 9. Conditional Clear All button directly on primary toolbar */}
+          {hasActiveFilters && (
+            <button
+              type="button"
+              onClick={onReset}
+              className="h-9 px-3 rounded-xl text-xs font-bold text-slate-500 hover:text-rose-600 dark:hover:text-rose-400 underline transition-colors shrink-0"
+            >
+              Clear all
+            </button>
+          )}
         </div>
 
-        {/* 9. Right side Sort dropdown */}
+        {/* 10. Right side Sort dropdown */}
         <div className="flex items-center gap-2 shrink-0">
           <Select
             value={sortBy}
@@ -763,38 +618,6 @@ export default function DestinationFilters({
           </Select>
         </div>
       </div>
-
-      {/* Active Filter Chips Bar */}
-      {activeChips.length > 0 && (
-        <div className="flex items-center flex-wrap gap-1.5 pt-3 mt-2 border-t border-slate-100 dark:border-slate-800">
-          {activeChips.map((chip) => (
-            <span
-              key={chip.id}
-              className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 text-xs font-semibold border border-emerald-200 dark:border-emerald-800"
-            >
-              {chip.label}
-              <button
-                type="button"
-                onClick={chip.onRemove}
-                className="p-0.5 hover:bg-emerald-200/50 dark:hover:bg-emerald-800/50 rounded-full transition-colors"
-              >
-                <X className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
-              </button>
-            </span>
-          ))}
-
-          {/* Conditional Reset / Clear All button */}
-          {hasActiveFilters && (
-            <button
-              type="button"
-              onClick={onReset}
-              className="text-xs font-bold text-slate-500 hover:text-rose-600 dark:hover:text-rose-400 underline ml-1"
-            >
-              Clear all
-            </button>
-          )}
-        </div>
-      )}
 
       {/* Compact "More Filters" Floating Modal Window */}
       {modalOpen && (
