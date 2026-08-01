@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Input } from "@/shared/components/ui/input";
 import { useAuth } from "@/shared/hooks/useAuth";
 import {
@@ -24,6 +24,8 @@ import {
   Map as MapIcon,
   Car,
   Compass,
+  Layers,
+  ChevronDown,
 } from "lucide-react";
 
 import { getCollections } from "@/shared/data/collections";
@@ -132,6 +134,8 @@ export default function DestinationFilters({
 }: DestinationFiltersProps) {
   const { user } = useAuth();
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [collectionPopoverOpen, setCollectionPopoverOpen] = useState(false);
+  const collectionPopoverRef = useRef<HTMLDivElement>(null);
 
   const availableCollections = getCollections();
 
@@ -146,6 +150,20 @@ export default function DestinationFilters({
       setCarMode("none");
     }
   }, [showRental, showMyCar, carMode, setCarMode]);
+
+  // Click outside listener for Collection Popover
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        collectionPopoverRef.current &&
+        !collectionPopoverRef.current.contains(event.target as Node)
+      ) {
+        setCollectionPopoverOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   // Derived Getting Around simplified value
   const gettingAroundValue =
@@ -174,10 +192,9 @@ export default function DestinationFilters({
     }
   };
 
-  // Active drawer filters count
+  // Active drawer filters count (Collections is on main bar)
   const activeAdvancedCount =
     (partySize !== 2 ? 1 : 0) +
-    selectedCollections.length +
     (indoorMin > 0 ? 1 : 0) +
     (weather !== "any" ? 1 : 0) +
     (walkingIntensity !== "all" ? 1 : 0) +
@@ -193,6 +210,7 @@ export default function DestinationFilters({
     selectedPrefectures.length > 0 ||
     selectedCities.length > 0 ||
     selectedAreas.length > 0 ||
+    selectedCollections.length > 0 ||
     vibe !== "any" ||
     tripDuration !== "any" ||
     budgetTier !== "standard" ||
@@ -235,6 +253,16 @@ export default function DestinationFilters({
       id: `area-${a}`,
       label: area ? area.name.en : a,
       onRemove: () => setSelectedAreas(selectedAreas.filter((x) => x !== a)),
+    });
+  });
+
+  selectedCollections.forEach((colId) => {
+    const col = availableCollections.find((c) => c.id === colId);
+    activeChips.push({
+      id: `col-${colId}`,
+      label: col ? col.name : colId,
+      onRemove: () =>
+        setSelectedCollections((prev) => prev.filter((x) => x !== colId)),
     });
   });
 
@@ -344,16 +372,6 @@ export default function DestinationFilters({
     }),
   );
 
-  selectedCollections.forEach((colId) => {
-    const col = availableCollections.find((c) => c.id === colId);
-    activeChips.push({
-      id: `col-${colId}`,
-      label: col ? col.name : colId,
-      onRemove: () =>
-        setSelectedCollections((prev) => prev.filter((x) => x !== colId)),
-    });
-  });
-
   return (
     <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-3 sm:p-4 shadow-sm mb-6 transition-all duration-200">
       {/* Search Input Bar */}
@@ -394,6 +412,81 @@ export default function DestinationFilters({
             selectedAreas={selectedAreas}
             setSelectedAreas={setSelectedAreas}
           />
+
+          {/* Curated Collections Multi-Select Dropdown Popover */}
+          <div className="relative" ref={collectionPopoverRef}>
+            <button
+              type="button"
+              onClick={() => setCollectionPopoverOpen(!collectionPopoverOpen)}
+              className={`h-9 px-3 rounded-xl border text-xs font-bold flex items-center justify-between gap-1.5 transition-all ${
+                selectedCollections.length > 0
+                  ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300"
+                  : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:border-emerald-500"
+              }`}
+            >
+              <div className="flex items-center gap-1">
+                <Layers className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                <span className="truncate max-w-[120px]">
+                  {selectedCollections.length === 0
+                    ? "Collections"
+                    : `${selectedCollections.length} Collection${selectedCollections.length === 1 ? "" : "s"}`}
+                </span>
+              </div>
+              <ChevronDown className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+            </button>
+
+            {collectionPopoverOpen && (
+              <div className="absolute left-0 mt-2 w-72 max-h-80 overflow-y-auto bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-50 p-3.5 space-y-3">
+                <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                    Curated Collections
+                  </span>
+                  {selectedCollections.length > 0 && (
+                    <button
+                      onClick={() => setSelectedCollections([])}
+                      className="text-[11px] font-semibold text-rose-500 hover:underline"
+                    >
+                      Clear
+                    </button>
+                  )}
+                </div>
+
+                <div className="space-y-1">
+                  {availableCollections.map((col) => {
+                    const isChecked = selectedCollections.includes(col.id);
+                    return (
+                      <label
+                        key={col.id}
+                        className="flex items-center gap-2 cursor-pointer text-xs text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 p-1.5 rounded-lg transition-colors"
+                      >
+                        <input
+                          type="checkbox"
+                          checked={isChecked}
+                          onChange={() => {
+                            setSelectedCollections((prev) =>
+                              prev.includes(col.id)
+                                ? prev.filter((id) => id !== col.id)
+                                : [...prev, col.id],
+                            );
+                          }}
+                          className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 w-3.5 h-3.5"
+                        />
+                        <span
+                          className={
+                            isChecked
+                              ? "font-bold text-emerald-600 dark:text-emerald-400"
+                              : ""
+                          }
+                        >
+                          {col.name}
+                        </span>
+                      </label>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
 
           {/* Vibe Filter */}
           <Select
@@ -812,39 +905,6 @@ export default function DestinationFilters({
                   </div>
                 </div>
               )}
-
-              {/* Collections */}
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-slate-800 dark:text-slate-200">
-                  Curated Collections
-                </label>
-                <div className="flex flex-wrap gap-1.5">
-                  {availableCollections.map((col) => {
-                    const active = selectedCollections.includes(col.id);
-                    return (
-                      <button
-                        key={col.id}
-                        type="button"
-                        onClick={() =>
-                          setSelectedCollections((prev) =>
-                            prev.includes(col.id)
-                              ? prev.filter((id) => id !== col.id)
-                              : [...prev, col.id],
-                          )
-                        }
-                        className={`py-1 px-2.5 rounded-lg border text-xs font-medium transition-all ${
-                          active
-                            ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 font-bold"
-                            : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400"
-                        }`}
-                      >
-                        {active ? "✓ " : ""}
-                        {col.name}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
 
               {/* Indoor Preference */}
               <div className="space-y-2">
