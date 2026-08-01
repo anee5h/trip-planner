@@ -7,6 +7,7 @@ import type {
   ProfileSyncStatus,
   TripSyncStatus,
 } from "@/shared/hooks/useTripSync";
+import { clearLegacyAccountStorage } from "@/shared/utils/clearLegacyAccountStorage";
 import destinationsIndex from "@/shared/data/destinations-meta.json";
 import type { Trip, TripStop } from "@/shared/types/trip";
 import * as TripService from "@/shared/services/trips/TripService";
@@ -98,6 +99,12 @@ const TripStoreContext = createContext<TripStoreContextType | undefined>(
 
 export function TripStoreProvider({ children }: { children: ReactNode }) {
   const { user } = useAuth();
+
+  // One-time startup purge of legacy localStorage account cache keys
+  useEffect(() => {
+    clearLegacyAccountStorage();
+  }, []);
+
   const [favorites, setFavorites] = useState<string[]>([]);
   const [visited, setVisited] = useState<string[]>([]);
   const [visitedPrefectures, setVisitedPrefectures] = useState<string[]>([]);
