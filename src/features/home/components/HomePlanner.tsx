@@ -17,6 +17,9 @@ import {
   Wallet,
   Minus,
   Plus,
+  Check,
+  ChevronRight,
+  X,
 } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import {
@@ -50,6 +53,101 @@ interface HomePlannerProps {
   isDirty: boolean;
   onApplyMatches: () => void;
   onSurpriseMe: () => void;
+}
+
+interface MobileOption {
+  value: string;
+  label: string;
+  description?: string;
+  icon?: React.ElementType;
+}
+
+function MobileOptionSheet({
+  title,
+  options,
+  value,
+  onChange,
+  onClose,
+}: {
+  title: string;
+  options: MobileOption[];
+  value: string;
+  onChange: (value: string) => void;
+  onClose: () => void;
+}) {
+  const { t } = useTranslation();
+  React.useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [onClose]);
+
+  return (
+    <div
+      className="fixed inset-0 z-50 lg:hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-label={title}
+    >
+      <button
+        type="button"
+        aria-label={title}
+        className="absolute inset-0 w-full bg-slate-950/60 backdrop-blur-sm"
+        onClick={onClose}
+      />
+      <div className="absolute inset-x-0 bottom-0 max-h-[85dvh] overflow-y-auto rounded-t-3xl border border-slate-200 bg-white p-4 pb-[env(safe-area-inset-bottom)] shadow-2xl dark:border-slate-700 dark:bg-[hsl(var(--surface-overlay))]">
+        <div className="mb-3 flex items-center justify-between">
+          <h2 className="text-base font-extrabold text-slate-900 dark:text-[hsl(var(--text-primary))]">
+            {title}
+          </h2>
+          <button
+            type="button"
+            aria-label={t("ui.close")}
+            onClick={onClose}
+            className="flex h-11 w-11 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-[hsl(var(--surface-raised))]"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+        <div className="space-y-1">
+          {options.map((option) => {
+            const Icon = option.icon;
+            const selected = option.value === value;
+            return (
+              <button
+                key={option.value}
+                type="button"
+                onClick={() => {
+                  onChange(option.value);
+                  onClose();
+                }}
+                className={`flex min-h-14 w-full items-center gap-3 rounded-xl px-3 text-left transition-colors ${
+                  selected
+                    ? "bg-emerald-50 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-200"
+                    : "text-slate-800 hover:bg-slate-50 dark:text-slate-100 dark:hover:bg-[hsl(var(--surface-raised))]"
+                }`}
+              >
+                {Icon && <Icon className="h-4 w-4 shrink-0 text-emerald-500" />}
+                <span className="min-w-0 flex-1">
+                  <span className="block text-sm font-bold">
+                    {option.label}
+                  </span>
+                  {option.description && (
+                    <span className="block text-xs text-slate-500 dark:text-slate-400">
+                      {option.description}
+                    </span>
+                  )}
+                </span>
+                {selected && <Check className="h-4 w-4 shrink-0" />}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 const VIBE_LABELS: Record<
@@ -119,6 +217,9 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
   onSurpriseMe,
 }) => {
   const { t } = useTranslation();
+  const [mobileField, setMobileField] = React.useState<
+    "vibe" | "duration" | "budget" | "transport" | null
+  >(null);
   const translate = (key: string) => t(key as never);
   const primaryButtonLabel = !hasUserApplied
     ? t("home.find")
@@ -132,6 +233,33 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
   const currentTransport =
     TRANSPORT_LABELS[transportPreference] || TRANSPORT_LABELS.public;
   const TransportIcon = currentTransport.icon;
+  const mobileOptions: Record<
+    NonNullable<typeof mobileField>,
+    MobileOption[]
+  > = {
+    vibe: Object.entries(VIBE_LABELS).map(([value, item]) => ({
+      value,
+      label: translate(`home.vibes.${value}`),
+      icon: item.icon,
+    })),
+    duration: Object.entries(DURATION_LABELS).map(([value, item]) => ({
+      value,
+      label: translate(`home.durations.${value}`),
+      description: item.hint,
+      icon: Clock,
+    })),
+    budget: Object.entries(BUDGET_TIER_LABELS).map(([value]) => ({
+      value,
+      label: translate(`home.budgets.${value}`),
+      description: translate(`home.budgetHints.${value}`),
+      icon: Wallet,
+    })),
+    transport: Object.entries(TRANSPORT_LABELS).map(([value, item]) => ({
+      value,
+      label: translate(`home.transportOptions.${value}`),
+      icon: item.icon,
+    })),
+  };
 
   return (
     <div className="w-full">
@@ -362,211 +490,169 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
         </div>
       </div>
 
-      {/* MOBILE VIEW: Row-Based Form Card (lg:hidden) */}
-      <div className="lg:hidden bg-white dark:bg-slate-900 p-5 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800 space-y-3">
-        <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-2">
-          <span className="text-base font-extrabold text-slate-900 dark:text-white">
-            {t("home.planner")}
-          </span>
-          <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-1 rounded-full border border-emerald-200 dark:border-emerald-800">
-            {t("home.plannerHint")}
-          </span>
-        </div>
-
-        {/* Row 1: Vibe */}
-        <div className="flex items-center justify-between h-13 px-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800">
-          <span className="text-xs font-bold text-slate-600 dark:text-slate-400">
-            {t("home.whatKind")}
-          </span>
-          <Select
-            value={vibe}
-            onValueChange={(val: string | null) => {
-              if (val) onVibeChange(val);
-            }}
-          >
-            <SelectTrigger className="border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs text-slate-900 dark:text-white flex items-center gap-1.5 w-auto">
-              <VibeIcon className={`w-3.5 h-3.5 ${currentVibe.color}`} />
-              <span>{translate(`home.vibes.${vibe}`)}</span>
-            </SelectTrigger>
-            <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
-              {Object.entries(VIBE_LABELS).map(([key, item]) => {
-                const Icon = item.icon;
-                return (
-                  <SelectItem
-                    key={key}
-                    value={key}
-                    className="py-2 px-3 cursor-pointer"
-                  >
-                    <div className="flex items-center text-xs font-semibold">
-                      <Icon className={`w-4 h-4 mr-2 ${item.color}`} />
-                      <span>{translate(`home.vibes.${key}`)}</span>
-                    </div>
-                  </SelectItem>
-                );
-              })}
-            </SelectContent>
-          </Select>
-        </div>
-
-        {/* Row 2: Duration */}
-        <div className="flex items-center justify-between h-13 px-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800">
-          <span className="text-xs font-bold text-slate-600 dark:text-slate-400">
-            {t("home.howMuchTime")}
-          </span>
-          <Select
-            value={tripDuration}
-            onValueChange={(val: string | null) => {
-              if (val) onTripDurationChange(val as HomepageTripDuration);
-            }}
-          >
-            <SelectTrigger className="border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs text-slate-900 dark:text-white flex items-center gap-1.5 w-auto">
-              <Clock className="w-3.5 h-3.5 text-emerald-500" />
-              <span>{translate(`home.durations.${tripDuration}`)}</span>
-            </SelectTrigger>
-            <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
-              {Object.entries(DURATION_LABELS).map(([key, item]) => (
-                <SelectItem
-                  key={key}
-                  value={key}
-                  className="py-2 px-3 cursor-pointer"
-                >
-                  <div className="flex items-center justify-between text-xs font-semibold w-full gap-3">
-                    <span>{translate(`home.durations.${key}`)}</span>
-                    <span className="text-slate-400 text-[10px]">
-                      {item.hint}
-                    </span>
-                  </div>
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-
-        {/* Row 3: Party */}
-        <div className="flex items-center justify-between h-13 px-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800">
-          <span className="text-xs font-bold text-slate-600 dark:text-slate-400">
-            {t("home.party")}
-          </span>
-          <div className="flex items-center gap-3">
-            <span className="text-xs font-bold text-slate-900 dark:text-white">
-              {t("home.people", { count: partySize })}
+      <div className="space-y-2 lg:hidden">
+        <div className="rounded-[20px] border border-slate-200 bg-white p-4 shadow-xl dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-card))]">
+          <div className="mb-3 flex items-center justify-between">
+            <span className="text-base font-extrabold text-slate-900 dark:text-[hsl(var(--text-primary))]">
+              {t("home.planner")}
             </span>
-            <div className="flex items-center gap-1 bg-slate-200/70 dark:bg-slate-800 rounded-lg p-0.5">
-              <button
-                type="button"
-                aria-label={t("home.decreaseParty")}
-                disabled={partySize <= 1}
-                onClick={() => onPartySizeChange(Math.max(1, partySize - 1))}
-                className="w-11 h-11 flex items-center justify-center rounded hover:bg-white dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 disabled:opacity-40"
-              >
-                <Minus className="w-3.5 h-3.5" />
-              </button>
-              <button
-                type="button"
-                aria-label={t("home.increaseParty")}
-                disabled={partySize >= 8}
-                onClick={() => onPartySizeChange(Math.min(8, partySize + 1))}
-                className="w-11 h-11 flex items-center justify-center rounded hover:bg-white dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 disabled:opacity-40"
-              >
-                <Plus className="w-3.5 h-3.5" />
-              </button>
+            <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
+              {t("home.plannerHint")}
+            </span>
+          </div>
+          <div className="space-y-2">
+            {[
+              {
+                field: "vibe" as const,
+                label: t("home.vibe"),
+                value: translate(`home.vibes.${vibe}`),
+                icon: VibeIcon,
+              },
+              {
+                field: "duration" as const,
+                label: t("home.duration"),
+                value: translate(`home.durations.${tripDuration}`),
+                icon: Clock,
+              },
+              {
+                field: "budget" as const,
+                label: t("home.budget"),
+                value: translate(`home.budgets.${budgetTier}`),
+                icon: Wallet,
+              },
+              {
+                field: "transport" as const,
+                label: t("home.transport"),
+                value: translate(
+                  `home.transportOptions.${transportPreference}`,
+                ),
+                icon: TransportIcon,
+              },
+            ]
+              .slice(0, 2)
+              .map(({ field, label, value, icon: Icon }) => (
+                <button
+                  key={field}
+                  type="button"
+                  onClick={() => setMobileField(field)}
+                  className="flex h-14 w-full items-center justify-between rounded-[14px] border border-slate-200 px-3 text-left dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-raised))]"
+                >
+                  <span className="text-xs font-bold text-slate-600 dark:text-[hsl(var(--text-secondary))]">
+                    {label}
+                  </span>
+                  <span className="flex min-w-0 items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-[hsl(var(--text-primary))]">
+                    <Icon className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
+                    <span className="truncate">{value}</span>
+                    <ChevronRight className="h-4 w-4 shrink-0 text-slate-400" />
+                  </span>
+                </button>
+              ))}
+            <div className="flex h-14 items-center justify-between rounded-[14px] border border-slate-200 px-3 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-raised))]">
+              <span className="text-xs font-bold text-slate-600 dark:text-[hsl(var(--text-secondary))]">
+                {t("home.party")}
+              </span>
+              <div className="grid h-11 w-[150px] grid-cols-[44px_1fr_44px] overflow-hidden rounded-xl border border-slate-200 dark:border-slate-700">
+                <button
+                  type="button"
+                  aria-label={t("home.decreaseParty")}
+                  disabled={partySize <= 1}
+                  onClick={() => onPartySizeChange(Math.max(1, partySize - 1))}
+                  className="flex items-center justify-center text-slate-700 disabled:opacity-40 dark:text-slate-100"
+                >
+                  <Minus className="h-3.5 w-3.5" />
+                </button>
+                <span className="flex items-center justify-center border-x border-slate-200 text-sm font-extrabold text-slate-900 dark:border-slate-700 dark:text-white">
+                  {partySize}
+                </span>
+                <button
+                  type="button"
+                  aria-label={t("home.increaseParty")}
+                  disabled={partySize >= 8}
+                  onClick={() => onPartySizeChange(Math.min(8, partySize + 1))}
+                  className="flex items-center justify-center text-slate-700 disabled:opacity-40 dark:text-slate-100"
+                >
+                  <Plus className="h-3.5 w-3.5" />
+                </button>
+              </div>
             </div>
+            {[
+              {
+                field: "budget" as const,
+                label: t("home.budget"),
+                value: translate(`home.budgets.${budgetTier}`),
+                icon: Wallet,
+              },
+              {
+                field: "transport" as const,
+                label: t("home.transport"),
+                value: translate(
+                  `home.transportOptions.${transportPreference}`,
+                ),
+                icon: TransportIcon,
+              },
+            ].map(({ field, label, value, icon: Icon }) => (
+              <button
+                key={field}
+                type="button"
+                onClick={() => setMobileField(field)}
+                className="flex h-14 w-full items-center justify-between rounded-[14px] border border-slate-200 px-3 text-left dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-raised))]"
+              >
+                <span className="text-xs font-bold text-slate-600 dark:text-[hsl(var(--text-secondary))]">
+                  {label}
+                </span>
+                <span className="flex min-w-0 items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-[hsl(var(--text-primary))]">
+                  <Icon className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
+                  <span className="truncate">{value}</span>
+                  <ChevronRight className="h-4 w-4 shrink-0 text-slate-400" />
+                </span>
+              </button>
+            ))}
+          </div>
+          <div className="mt-3 flex flex-col gap-2">
+            <Button
+              size="lg"
+              className="h-[52px] w-full rounded-xl bg-slate-900 text-sm font-extrabold text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900"
+              onClick={onApplyMatches}
+            >
+              <Search className="mr-2 h-4 w-4" />
+              {primaryButtonLabel}
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              size="lg"
+              className="h-[50px] w-full rounded-xl border-emerald-300/80 bg-emerald-50/70 text-xs font-bold text-emerald-700 hover:bg-emerald-100 dark:border-emerald-800/80 dark:bg-emerald-950/40 dark:text-emerald-300"
+              onClick={onSurpriseMe}
+            >
+              <Shuffle className="mr-1.5 h-3.5 w-3.5" />
+              {t("home.surprise")}
+            </Button>
           </div>
         </div>
-
-        {/* Row 4: Budget */}
-        <div className="flex items-center justify-between h-13 px-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800">
-          <span className="text-xs font-bold text-slate-600 dark:text-slate-400">
-            {t("home.budget")}
-          </span>
-          <Select
-            value={budgetTier}
-            onValueChange={(val: string | null) => {
-              if (val) onBudgetTierChange(val as BudgetTier);
+        {mobileField && (
+          <MobileOptionSheet
+            title={t(`home.${mobileField}`)}
+            options={mobileOptions[mobileField]}
+            value={
+              mobileField === "vibe"
+                ? vibe
+                : mobileField === "duration"
+                  ? tripDuration
+                  : mobileField === "budget"
+                    ? budgetTier
+                    : transportPreference
+            }
+            onClose={() => setMobileField(null)}
+            onChange={(value) => {
+              if (mobileField === "vibe") onVibeChange(value);
+              else if (mobileField === "duration")
+                onTripDurationChange(value as HomepageTripDuration);
+              else if (mobileField === "budget")
+                onBudgetTierChange(value as BudgetTier);
+              else onTransportPreferenceChange(value as TransportPreference);
             }}
-          >
-            <SelectTrigger className="border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs text-slate-900 dark:text-white flex items-center gap-1.5 w-auto">
-              <Wallet className="w-3.5 h-3.5 text-emerald-500" />
-              <span>{translate(`home.budgets.${budgetTier}`)}</span>
-            </SelectTrigger>
-            <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
-              {Object.entries(BUDGET_TIER_LABELS).map(([key]) => (
-                <SelectItem
-                  key={key}
-                  value={key}
-                  className="py-2 px-3 cursor-pointer"
-                >
-                  <div className="flex items-center justify-between text-xs font-semibold w-full gap-3">
-                    <span>{translate(`home.budgets.${key}`)}</span>
-                    <span className="text-slate-400 text-[10px]">
-                      {translate(`home.budgetHints.${key}`)}
-                    </span>
-                  </div>
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-
-        {/* Row 5: Getting around */}
-        <div className="flex items-center justify-between h-13 px-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800">
-          <span className="text-xs font-bold text-slate-600 dark:text-slate-400">
-            {t("home.transport")}
-          </span>
-          <Select
-            value={transportPreference}
-            onValueChange={(val: string | null) => {
-              if (val) onTransportPreferenceChange(val as TransportPreference);
-            }}
-          >
-            <SelectTrigger className="border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs text-slate-900 dark:text-white flex items-center gap-1.5 w-auto">
-              <TransportIcon className="w-3.5 h-3.5 text-emerald-500" />
-              <span>
-                {translate(`home.transportOptions.${transportPreference}`)}
-              </span>
-            </SelectTrigger>
-            <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
-              {Object.entries(TRANSPORT_LABELS).map(([key, item]) => {
-                const Icon = item.icon;
-                return (
-                  <SelectItem
-                    key={key}
-                    value={key}
-                    className="py-2 px-3 cursor-pointer"
-                  >
-                    <div className="flex items-center text-xs font-semibold">
-                      <Icon className="w-4 h-4 mr-2 text-slate-400" />
-                      <span>{translate(`home.transportOptions.${key}`)}</span>
-                    </div>
-                  </SelectItem>
-                );
-              })}
-            </SelectContent>
-          </Select>
-        </div>
-
-        {/* Action Buttons */}
-        <div className="pt-2 flex flex-col gap-2">
-          <Button
-            size="lg"
-            className="w-full h-12 text-sm font-extrabold rounded-xl bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 shadow-lg"
-            onClick={onApplyMatches}
-          >
-            <Search className="w-4 h-4 mr-2" />
-            {primaryButtonLabel}
-          </Button>
-
-          <Button
-            type="button"
-            variant="outline"
-            size="lg"
-            className="w-full h-11 text-xs font-bold rounded-xl bg-emerald-50/70 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-300/80 dark:border-emerald-800/80 hover:bg-emerald-100 dark:hover:bg-emerald-900/50"
-            onClick={onSurpriseMe}
-          >
-            <Shuffle className="w-3.5 h-3.5 mr-1.5 text-emerald-600 dark:text-emerald-400" />
-            <span>{t("home.surprise")}</span>
-          </Button>
-        </div>
+          />
+        )}
       </div>
     </div>
   );

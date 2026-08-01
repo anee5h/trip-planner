@@ -16,7 +16,10 @@ import { useLocale } from "@/shared/context/LocaleContext";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
-import { formatPrefecture } from "@/shared/utils/placeLabels";
+import {
+  formatPrefecture,
+  localizePlaceLabel,
+} from "@/shared/utils/placeLabels";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useTranslation } from "react-i18next";
 
@@ -27,6 +30,8 @@ interface RouletteModalProps {
   partySize?: number;
   carMode?: string;
   publicModes?: string[];
+  tripDuration?: "shortOuting" | "halfDay" | "fullDay";
+  expansion?: "exact" | "duration" | "budget";
 }
 
 export default function RouletteModal({
@@ -36,16 +41,37 @@ export default function RouletteModal({
   partySize = 2,
   carMode,
   publicModes,
+  tripDuration = "halfDay",
+  expansion = "exact",
 }: RouletteModalProps) {
   const { locale } = useLocale();
   const { t } = useTranslation();
   const { homeStationCoords } = useTripStore();
 
   const [spinning, setSpinning] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentDisplay, setCurrentDisplay] = useState<Destination | null>(
+    candidates[0] ?? null,
+  );
   const [winner, setWinner] = useState<Destination | null>(null);
 
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const candidateQueueRef = useRef<Destination[]>([]);
+  const candidateKey = candidates.map((candidate) => candidate.id).join(",");
+
+  const nextQueuedCandidate = useCallback(() => {
+    if (candidateQueueRef.current.length === 0) {
+      candidateQueueRef.current = [...candidates].sort(
+        () => Math.random() - 0.5,
+      );
+    }
+    return candidateQueueRef.current.shift() ?? null;
+  }, [candidates]);
+
+  useEffect(() => {
+    candidateQueueRef.current = [];
+    setCurrentDisplay(candidates[0] ?? null);
+    setWinner(null);
+  }, [candidateKey, candidates]);
 
   const startSpin = useCallback(() => {
     if (candidates.length === 0) return;
@@ -54,27 +80,17 @@ export default function RouletteModal({
     setSpinning(true);
     setWinner(null);
 
-    const winningIndex = Math.floor(Math.random() * candidates.length);
-    const targetWinner = candidates[winningIndex];
-
-    let currentIdx = currentIndex;
-    let ticksLeft =
-      15 +
-      ((winningIndex - (currentIdx % candidates.length) + candidates.length) %
-        candidates.length);
-    if (ticksLeft < 15) ticksLeft += candidates.length;
-
-    const totalTicks = ticksLeft;
+    const totalTicks = Math.min(15, candidates.length);
     let count = 0;
 
     const tick = () => {
       count++;
-      currentIdx = (currentIdx + 1) % candidates.length;
-      setCurrentIndex(currentIdx);
+      const nextCandidate = nextQueuedCandidate();
+      setCurrentDisplay(nextCandidate);
 
       if (count >= totalTicks) {
         setSpinning(false);
-        setWinner(targetWinner);
+        setWinner(nextCandidate);
       } else {
         const nextDelay = 50 + Math.floor((count / totalTicks) * 250);
         timerRef.current = setTimeout(tick, nextDelay);
@@ -82,7 +98,7 @@ export default function RouletteModal({
     };
 
     timerRef.current = setTimeout(tick, 50);
-  }, [candidates, currentIndex]);
+  }, [candidates.length, nextQueuedCandidate]);
 
   useEffect(() => {
     if (isOpen && candidates.length > 0) {
@@ -95,26 +111,44 @@ export default function RouletteModal({
 
   if (!isOpen) return null;
 
-  const currentDisplay = spinning
-    ? candidates[currentIndex]
-    : winner || candidates[0];
+  const displayedCandidate = spinning
+    ? currentDisplay
+    : winner || currentDisplay;
 
-  const localized = currentDisplay
-    ? getLocalizedPlace(currentDisplay, locale)
+  const localized = displayedCandidate
+    ? getLocalizedPlace(displayedCandidate, locale)
     : null;
 
-  const bestTransport = currentDisplay
+  const bestTransport = displayedCandidate
     ? getFastestPreferredTransport(
-        currentDisplay,
+        displayedCandidate,
         carMode,
         publicModes,
         partySize,
         homeStationCoords || undefined,
       )
     : null;
+  const transportLabel = bestTransport
+    ? (t(`home.transportModes.${bestTransport.mode}` as never) as string)
+    : t("home.transportModes.travel");
+  const durationLabel = t(`home.durations.${tripDuration}`) as string;
+  const locationLabel = displayedCandidate
+    ? [
+        formatPrefecture(displayedCandidate.prefecture, locale),
+        displayedCandidate.categories[0] &&
+          localizePlaceLabel(displayedCandidate.categories[0], locale),
+      ]
+        .filter(Boolean)
+        .join(" · ")
+    : "";
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-label={t("home.roulette.title")}
+    >
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-slate-950/70 backdrop-blur-sm transition-opacity"
@@ -122,9 +156,9 @@ export default function RouletteModal({
       />
 
       {/* Dialog */}
-      <div className="relative w-full max-w-lg bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200">
+      <div className="relative z-10 w-full max-w-lg overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl animate-in fade-in zoom-in-95 duration-200 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))]">
         {/* Header */}
-        <div className="flex items-center justify-between p-5 border-b border-slate-100 dark:border-slate-800">
+        <div className="flex items-center justify-between border-b border-slate-100 p-5 dark:border-[hsl(var(--border-subtle))]">
           <div className="flex items-center gap-2.5">
             <div className="p-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">
               <Dices className="w-5 h-5" />
@@ -150,8 +184,13 @@ export default function RouletteModal({
 
         {/* Content */}
         <div className="p-6 text-center">
-          {currentDisplay && localized ? (
+          {displayedCandidate && localized ? (
             <div className="space-y-5">
+              {expansion !== "exact" && (
+                <p className="text-xs font-medium text-emerald-700 dark:text-emerald-300">
+                  {t("home.roulette.expanded")}
+                </p>
+              )}
               {/* Card preview */}
               <div
                 className={`relative h-64 rounded-2xl overflow-hidden shadow-lg transition-all duration-150 border ${
@@ -161,7 +200,7 @@ export default function RouletteModal({
                 }`}
               >
                 <LazyImage
-                  src={currentDisplay.heroImage}
+                  src={displayedCandidate.heroImage}
                   alt={localized.name}
                   className="w-full h-full object-cover"
                 />
@@ -186,22 +225,35 @@ export default function RouletteModal({
                 <div className="absolute bottom-4 left-4 right-4 text-left text-white">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-[11px] font-bold px-2 py-0.5 rounded-md bg-white/20 backdrop-blur-sm">
-                      {formatPrefecture(currentDisplay.prefecture, locale)}
+                      {locationLabel}
                     </span>
-                    {bestTransport && (
-                      <span className="text-[11px] font-bold px-2 py-0.5 rounded-md bg-emerald-500/80 backdrop-blur-sm flex items-center gap-1">
-                        <Clock className="w-3 h-3" />
-                        {formatTransportTime(bestTransport.timeRange)}
-                      </span>
-                    )}
                   </div>
                   <h3 className="text-2xl font-extrabold line-clamp-1">
                     {localized.name}
                   </h3>
-                  <p className="text-xs text-slate-200 line-clamp-1 mt-0.5">
-                    {currentDisplay.description}
-                  </p>
                 </div>
+              </div>
+
+              <div className="space-y-2 text-left">
+                <div className="flex flex-wrap items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-300">
+                  <span className="inline-flex items-center gap-1">
+                    <Clock className="h-3.5 w-3.5 text-emerald-500" />
+                    {bestTransport
+                      ? formatTransportTime(bestTransport.timeRange)
+                      : t("home.transportModes.travel")}
+                  </span>
+                  <span className="text-slate-300 dark:text-slate-600">·</span>
+                  <span>{transportLabel}</span>
+                  <span className="text-slate-300 dark:text-slate-600">·</span>
+                  <span>{durationLabel}</span>
+                </div>
+                <p className="rounded-xl bg-emerald-50 px-3 py-2 text-xs font-medium leading-relaxed text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-200">
+                  {
+                    t("home.roulette.reason", {
+                      duration: durationLabel,
+                    }) as string
+                  }
+                </p>
               </div>
 
               {/* Action buttons */}
@@ -223,7 +275,7 @@ export default function RouletteModal({
                     className="flex-1"
                   >
                     <Button className="w-full h-12 rounded-2xl font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-500/25">
-                      <span>{t("home.roulette.viewDestination")}</span>
+                      <span>{t("home.roulette.viewDetails")}</span>
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </Link>

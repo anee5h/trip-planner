@@ -83,7 +83,7 @@ export const BucketListRail: React.FC<BucketListRailProps> = ({
 
   // Full Rail for Signed-In Users with Saved Items (Dense ~2.2 cards visible on mobile)
   return (
-    <section className="py-8 sm:py-12 lg:py-16 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-100 dark:border-slate-800/80">
+    <section className="border-t border-slate-100 bg-slate-50 py-10 sm:py-12 lg:py-12 dark:border-slate-800/80 dark:bg-slate-900/50">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Section Header */}
         <div className="flex items-start justify-between mb-4 sm:mb-6 gap-3">
@@ -108,7 +108,7 @@ export const BucketListRail: React.FC<BucketListRailProps> = ({
           {savedDestinations.map((dest, index) => (
             <div
               key={dest.id}
-              className="w-[46vw] min-w-[160px] max-w-[180px] sm:w-auto sm:min-w-[270px] sm:max-w-[290px] shrink-0 snap-start flex flex-col h-full"
+              className="flex h-full w-[46vw] min-w-[160px] max-w-[180px] shrink-0 snap-start flex-col sm:w-[250px] sm:min-w-[250px] sm:max-w-[250px]"
             >
               <HomeMatchCard
                 destination={dest}

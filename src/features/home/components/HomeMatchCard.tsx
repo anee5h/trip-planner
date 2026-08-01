@@ -9,6 +9,10 @@ import { getFastestPreferredTransport } from "@/shared/services/transport/Prefer
 import { formatTransportTime } from "@/shared/services/transport/formatters";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { useTranslation } from "react-i18next";
+import {
+  formatPrefecture,
+  localizePlaceLabel,
+} from "@/shared/utils/placeLabels";
 
 interface HomeMatchCardProps {
   destination: Destination;
@@ -35,23 +39,6 @@ function parseCleanTitle(fullName: string): {
   return { title: fullName };
 }
 
-/**
- * Derives trip duration band ("Short outing", "Half day", "Full day")
- */
-function getTripDurationKey(destination: Destination): string {
-  const tripHours =
-    destination.totalTripHours ||
-    (destination.recommendedVisitHours
-      ? (destination.recommendedVisitHours.min +
-          destination.recommendedVisitHours.max) /
-        2
-      : 4);
-
-  if (tripHours < 4) return "shortOuting";
-  if (tripHours < 7.5) return "halfDay";
-  return "fullDay";
-}
-
 export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   destination,
   rank,
@@ -63,10 +50,20 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
 }) => {
   const { locale } = useLocale();
   const { t } = useTranslation();
-  const translate = (key: string) => t(key as never);
   const localized = getLocalizedPlace(destination, locale);
   const { title, subtitle } = parseCleanTitle(localized.name);
-  const durationKey = getTripDurationKey(destination);
+  const areaAndCategory = [
+    formatPrefecture(destination.prefecture, locale),
+    destination.categories[0] &&
+      localizePlaceLabel(destination.categories[0], locale),
+  ]
+    .filter(Boolean)
+    .join(" · ");
+  const strongestReason =
+    reason ??
+    (destination.indoorPercent >= 60
+      ? t("home.indoorReason")
+      : (destination.highlights[0] ?? localized.description));
 
   // Preferred transport calculation
   const bestTransport = getFastestPreferredTransport(
@@ -95,7 +92,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   return (
     <Link
       to={`/destinations/${destination.id}`}
-      className="group relative bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl sm:rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col h-full cursor-pointer"
+      className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-md transition-all duration-300 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900"
     >
       <div className="relative aspect-[4/3] sm:h-48 sm:aspect-auto w-full overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0">
         <LazyImage
@@ -128,11 +125,9 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
         </div>
       </div>
 
-      {/* Card Body - Equal Height Structure */}
-      <div className="p-3 sm:p-4 flex flex-col flex-1 justify-between gap-2">
+      <div className="flex flex-1 flex-col gap-2 p-3 sm:p-4">
         <div>
-          {/* Reserved 2-Line Height for Title */}
-          <div className="min-h-[2.5rem] flex flex-col justify-start">
+          <div className="min-h-[2.5rem]">
             <h3 className="text-xs sm:text-base font-extrabold text-slate-900 dark:text-white line-clamp-2 leading-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
               {title}
             </h3>
@@ -142,8 +137,11 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
               </span>
             )}
           </div>
+          <p className="mt-1 line-clamp-1 text-[10px] font-semibold text-slate-500 dark:text-slate-400 sm:text-xs">
+            {areaAndCategory}
+          </p>
 
-          <div className="flex items-center gap-1.5 mt-2 text-[10px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400 flex-wrap">
+          <div className="mt-2 flex flex-wrap items-center gap-1.5 text-[10px] font-semibold text-slate-500 dark:text-slate-400 sm:text-xs">
             <span className="flex items-center gap-1 truncate">
               <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-400 shrink-0" />
               <span className="truncate">{travelTimeText}</span>
@@ -158,9 +156,8 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
               <span>{transportDisplay.label}</span>
             </span>
           </div>
-          <p className="mt-1 text-[10px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400 line-clamp-1">
-            {reason ?? t("home.matchReason")} ·{" "}
-            {translate(`home.durations.${durationKey}`)}
+          <p className="mt-3 line-clamp-2 rounded-lg bg-emerald-50 px-2.5 py-2 text-[10px] font-semibold text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-200 sm:text-xs">
+            {strongestReason}
           </p>
         </div>
       </div>

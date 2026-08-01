@@ -18,6 +18,7 @@ vi.mock("@/shared/hooks/useTripStore", () => ({
 
 let root: Root | undefined;
 let host: HTMLDivElement | undefined;
+let latestRoulette: ReturnType<typeof useTripRecommendations> | undefined;
 
 afterEach(() => {
   act(() => root?.unmount());
@@ -25,10 +26,36 @@ afterEach(() => {
   root = undefined;
   host = undefined;
   getRecommendations.mockClear();
+  latestRoulette = undefined;
 });
 
 function Harness() {
   useTripRecommendations({
+    allDestinations: [],
+    actualWeather: { desc: "Rain", temperatureC: 18 },
+    vibe: "art",
+    budget: 40_000,
+    carMode: "none",
+    publicModes: ["train"],
+    partySize: 2,
+    budgetTier: "standard",
+    tripDuration: "fullDay",
+    homeStationCoords: { lat: 35.68, lng: 139.76 },
+    isVisited: () => false,
+    rouletteConstraints: {
+      budget: 10_000,
+      carMode: "rental",
+      publicModes: [],
+      partySize: 3,
+      budgetTier: "economy",
+      tripDuration: "halfDay",
+    },
+  });
+  return null;
+}
+
+function FallbackHarness() {
+  latestRoulette = useTripRecommendations({
     allDestinations: [],
     actualWeather: { desc: "Rain", temperatureC: 18 },
     vibe: "art",
@@ -71,5 +98,34 @@ describe("useTripRecommendations", () => {
       userRatings: { down: "down" },
       weather: { actual: { condition: "rainy", temperatureC: 18 } },
     });
+  });
+
+  it("expands roulette only after a small exact pool and caps the fallback pool", () => {
+    getRecommendations.mockImplementation((_, context: any) => {
+      if (context.vibe !== "any") return [];
+      if (context.budget === 10_000) {
+        return Array.from(
+          { length: context.tripDuration === "halfDay" ? 2 : 1 },
+          (_, index) => ({ id: `${context.tripDuration}-${index}` }),
+        );
+      }
+      return Array.from({ length: 24 }, (_, index) => ({
+        id: `expanded-${index}`,
+      }));
+    });
+
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    act(() => root!.render(<FallbackHarness />));
+
+    expect(latestRoulette?.rouletteExpansion).toBe("budget");
+    expect(latestRoulette?.rouletteCandidates).toHaveLength(20);
+    const rouletteContexts = getRecommendations.mock.calls
+      .map(([, context]) => context as { vibe?: string; budget?: number })
+      .filter((context) => context.vibe === "any");
+    expect(rouletteContexts.some((context) => context.budget === 12_000)).toBe(
+      true,
+    );
   });
 });

@@ -3,6 +3,7 @@ import {
   calculateConfidence,
   calculateScore,
   CONFIDENCE_MULTIPLIERS,
+  getValidModes,
   ratingReliability,
 } from "../RecommendationScorer";
 import { normalizeWeatherDescription } from "../RecommendationContext";
@@ -163,6 +164,29 @@ describe("RecommendationScorer Unit Tests", () => {
     expect(result.eligible).toBe(false);
     expect(result.ineligibleReason).toBe("NO_VALID_TRANSPORT");
     expect(result.score).toBeGreaterThan(-100);
+  });
+
+  it("preserves private transport when budget preferences filter public modes", () => {
+    const carDestination = {
+      ...mockDest,
+      transportOptions: { train: 60, car: 70, my_car: 65 },
+    };
+
+    expect(
+      getValidModes(carDestination, "rental", [], undefined, "standard"),
+    ).toEqual(["car"]);
+    expect(
+      getValidModes(carDestination, "my_car", [], undefined, "economy"),
+    ).toEqual(["my_car"]);
+    expect(
+      getValidModes(
+        carDestination,
+        "rental",
+        ["train", "flight"],
+        undefined,
+        "standard",
+      ),
+    ).toEqual(["car", "train"]);
   });
 
   it("applies +25 boost for thumbs up and -1000 penalty for thumbs down", () => {

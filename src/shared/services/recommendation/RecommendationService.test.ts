@@ -154,6 +154,23 @@ describe("RecommendationService Unit Tests", () => {
     expect(ids).not.toContain("fuji-climbing");
   });
 
+  it("returns recommendations for car-only searches with a budget tier", () => {
+    const results = getRecommendations(mockDestinations, {
+      tripType: "any",
+      budget: 50_000,
+      carMode: "rental",
+      publicModes: [],
+      partySize: 2,
+      budgetTier: "standard",
+      currentWeatherCondition: "any",
+      visitedIds: [],
+      currentWeather: null,
+      homeStationCoords: homeCoords,
+    });
+
+    expect(results.map((result) => result.id)).toContain("hakone-onsen");
+  });
+
   it("prioritizes rainy-friendly indoor/onsen destinations when weather is rainy", () => {
     const results = getRecommendations(mockDestinations, {
       tripType: "any",

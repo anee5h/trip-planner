@@ -70,7 +70,7 @@ export const CollectionsRail: React.FC = () => {
   };
 
   return (
-    <section className="py-8 sm:py-12 lg:py-16 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-100 dark:border-slate-800/80">
+    <section className="border-t border-slate-100 bg-slate-50 py-10 sm:py-12 lg:py-12 dark:border-slate-800/80 dark:bg-slate-900/50">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <div className="flex items-start justify-between mb-4 sm:mb-6 gap-3">
