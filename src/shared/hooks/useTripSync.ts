@@ -49,15 +49,6 @@ interface UseTripSyncProps {
   ) => void;
 }
 
-interface LocalSnapshot {
-  favorites: string[];
-  visited: string[];
-  visitedPrefectures: string[];
-  visitedDates: VisitDates;
-  destinationRatings: DestinationRatings;
-  homeStation: string;
-}
-
 export type ProfileSyncStatus =
   "idle" | "loading" | "ready" | "saving" | "error";
 
@@ -121,20 +112,6 @@ function normalizeVisitDates(value: unknown): VisitDates {
   }
 
   return normalized;
-}
-
-function mergeVisitDates(local: VisitDates, remote: unknown): VisitDates {
-  const merged = normalizeVisitDates(local);
-  const remoteDates = normalizeVisitDates(remote);
-
-  for (const [destinationId, dates] of Object.entries(remoteDates)) {
-    merged[destinationId] = uniqueStrings([
-      ...normalizeDateValues(merged[destinationId]),
-      ...normalizeDateValues(dates),
-    ]).sort();
-  }
-
-  return merged;
 }
 
 function normalizeDestinationRatings(value: unknown): DestinationRatings {
@@ -437,33 +414,7 @@ export function useTripSync({
       hydratedUserIdRef.current = userId;
     };
 
-    const hydrateTrips = async () => {
-      const tripRepository = new SupabaseTripRepository();
-
-      try {
-        const fetchedTrips = await tripRepository.fetchTrips(userId);
-
-        if (
-          !isCurrentHydration() ||
-          !fetchedTrips ||
-          fetchedTrips.length === 0 ||
-          !setTrips
-        ) {
-          return;
-        }
-
-        setTrips(fetchedTrips);
-        previousTripsRef.current = fetchedTrips;
-      } catch (error) {
-        console.warn(
-          "Could not load trips from server, using local copy.",
-          error,
-        );
-      }
-    };
-
     void hydrateUserData();
-    void hydrateTrips();
 
     return () => {
       if (hydrationVersionRef.current === hydrationVersion) {
@@ -472,6 +423,7 @@ export function useTripSync({
     };
   }, [
     user?.id,
+    retryProfileTrigger,
     setFavorites,
     setVisited,
     setVisitedPrefectures,
@@ -479,17 +431,64 @@ export function useTripSync({
     setLastSyncedDate,
     setHomeStation,
     setHomeStationCoords,
-    setTrips,
     setDestinationRatings,
   ]);
 
-  // Persist profile changes only after successful hydration. The payload is
-  // rebuilt defensively so dated visits can never be dropped from `visited`.
+  // Hydrate trips exclusively from Supabase
+  useEffect(() => {
+    const userId = user?.id;
+
+    if (!userId) {
+      hydratedTripsUserIdRef.current = null;
+      setTripSyncStatus("idle");
+      return;
+    }
+
+    hydratedTripsUserIdRef.current = null;
+    setTripSyncStatus("loading");
+    const hydrationVersion = hydrationVersionRef.current;
+
+    const isCurrentHydration = () =>
+      hydrationVersionRef.current === hydrationVersion &&
+      previousUserIdRef.current === userId;
+
+    const hydrateTrips = async () => {
+      const tripRepository = new SupabaseTripRepository();
+
+      try {
+        const fetchedTrips = await tripRepository.fetchTrips(userId);
+
+        if (!isCurrentHydration()) return;
+
+        const resolvedTrips = fetchedTrips || [];
+        setTrips?.(resolvedTrips);
+        previousTripsRef.current = resolvedTrips;
+        hydratedTripsUserIdRef.current = userId;
+        setTripSyncStatus("ready");
+      } catch (error) {
+        if (!isCurrentHydration()) return;
+        console.error(
+          "[Meguruto Sync] Failed to load trips from server:",
+          error,
+        );
+        setTripSyncStatus("error");
+      }
+    };
+
+    void hydrateTrips();
+  }, [user?.id, retryTripTrigger, setTrips]);
+
+  // Persist profile changes only after successful hydration
   useEffect(() => {
     const userId = user?.id;
     const client = supabase;
 
-    if (!userId || !client || hydratedUserIdRef.current !== userId) {
+    if (
+      !userId ||
+      !client ||
+      hydratedUserIdRef.current !== userId ||
+      profileSyncStatus === "error"
+    ) {
       return;
     }
 
@@ -498,6 +497,7 @@ export function useTripSync({
     }
 
     profileSyncTimeoutRef.current = setTimeout(() => {
+      setProfileSyncStatus("saving");
       const normalizedVisitedDates = normalizeVisitDates(visitedDates ?? {});
       const safeVisited = uniqueStrings([
         ...visited,
@@ -528,12 +528,14 @@ export function useTripSync({
         .then(({ error }) => {
           if (error) {
             console.error("[Meguruto Sync] Failed to sync user_data:", error);
-            toast.error("Failed to sync profile to cloud. Saved locally.", {
+            setProfileSyncStatus("error");
+            toast.error("Failed to sync profile to cloud.", {
               id: "user-data-sync-error",
             });
             return;
           }
 
+          setProfileSyncStatus("ready");
           const syncedDate = getDatePart(updatedAt);
           if (syncedDate) {
             setLastSyncedDate?.(syncedDate);
@@ -558,11 +560,15 @@ export function useTripSync({
     setLastSyncedDate,
   ]);
 
-  // Persist trip changes after profile hydration.
+  // Persist trip changes only after dedicated trip hydration completes
   useEffect(() => {
     const userId = user?.id;
 
-    if (!userId || hydratedUserIdRef.current !== userId) {
+    if (
+      !userId ||
+      hydratedTripsUserIdRef.current !== userId ||
+      tripSyncStatus === "error"
+    ) {
       return;
     }
 
@@ -573,6 +579,7 @@ export function useTripSync({
     }
 
     tripSyncTimeoutRef.current = setTimeout(() => {
+      setTripSyncStatus("saving");
       const deletedTrips = previousTripsRef.current.filter(
         (previousTrip) => !trips.some((trip) => trip.id === previousTrip.id),
       );
@@ -605,9 +612,11 @@ export function useTripSync({
       void Promise.all([...deleteRequests, ...saveRequests])
         .then(() => {
           previousTripsRef.current = tripsToSave;
+          setTripSyncStatus("ready");
         })
         .catch((error) => {
           console.error("Failed to sync trips to cloud", error);
+          setTripSyncStatus("error");
           toast.error("Failed to sync trips to cloud.", {
             id: "trip-sync-error",
           });
