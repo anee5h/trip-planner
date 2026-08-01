@@ -169,6 +169,28 @@
 }
 
 @layer utilities {
+  .destination-filter-modal-body {
+    scrollbar-width: thin;
+    scrollbar-color: #94a3b8 transparent;
+  }
+
+  .destination-filter-modal-body::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .destination-filter-modal-body::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .destination-filter-modal-body::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 999px;
+  }
+
+  .destination-filter-modal-body::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+  }
+
   /* Duration tiers: fast=150ms, normal=250ms, slow=400ms */
 
   @keyframes page-enter {

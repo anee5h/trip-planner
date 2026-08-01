@@ -47,7 +47,7 @@ export function estimateBetween(
     baseMinutes = 10;
     costPerKm = 18;
     baseCost = 300;
-    label = mode === "my_car" ? "My Car" : "Rental Car";
+    label = mode === "my_car" ? "Personal Car" : "Rental Car";
   } else if (mode === "bus") {
     avgSpeedKmH = 50;
     baseMinutes = 20;

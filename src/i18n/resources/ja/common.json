@@ -219,11 +219,11 @@
       "economy": "費用を抑える",
       "standard": "バランス重視",
       "comfortable": "快適さ重視",
-      "luxury": "上質な旅"
+      "luxury": "選択肢を広く"
     },
     "transportOptions": {
       "public": "公共交通",
-      "myCar": "自家用車",
+      "myCar": "マイカー",
       "rentalCar": "レンタカー",
       "either": "どちらでも"
     },
@@ -279,7 +279,7 @@
       "bus": "バス",
       "flight": "飛行機",
       "car": "レンタカー",
-      "my_car": "自家用車",
+      "my_car": "マイカー",
       "travel": "移動"
     },
     "roulette": {

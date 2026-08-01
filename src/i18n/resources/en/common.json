@@ -212,18 +212,18 @@
     "budgets": {
       "economy": "Economy",
       "standard": "Standard",
-      "comfortable": "Comfortable",
-      "luxury": "Luxury"
+      "comfortable": "Comfort",
+      "luxury": "Flexible"
     },
     "budgetHints": {
       "economy": "Budget friendly",
       "standard": "Balanced spending",
       "comfortable": "Higher comfort",
-      "luxury": "Premium experience"
+      "luxury": "Keep options open"
     },
     "transportOptions": {
       "public": "Public transit",
-      "myCar": "My car",
+      "myCar": "Personal car",
       "rentalCar": "Rental car",
       "either": "Either"
     },
@@ -279,7 +279,7 @@
       "bus": "Bus",
       "flight": "Flight",
       "car": "Rental car",
-      "my_car": "My car",
+      "my_car": "Personal car",
       "travel": "Travel"
     },
     "roulette": {

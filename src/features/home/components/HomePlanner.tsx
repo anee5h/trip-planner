@@ -186,8 +186,8 @@ const BUDGET_TIER_LABELS: Record<BudgetTier, { label: string; desc: string }> =
   {
     economy: { label: "Economy", desc: "Budget friendly" },
     standard: { label: "Standard", desc: "Balanced spending" },
-    comfortable: { label: "Comfortable", desc: "Higher comfort" },
-    luxury: { label: "Luxury", desc: "Premium experience" },
+    comfortable: { label: "Comfort", desc: "Higher comfort" },
+    luxury: { label: "Flexible", desc: "Keep options open" },
   };
 
 const TRANSPORT_LABELS: Record<
@@ -195,7 +195,7 @@ const TRANSPORT_LABELS: Record<
   { label: string; icon: React.ElementType }
 > = {
   public: { label: "Public transit", icon: Train },
-  myCar: { label: "My car", icon: Car },
+  myCar: { label: "Personal car", icon: Car },
   rentalCar: { label: "Rental car", icon: Car },
   either: { label: "Either", icon: Shuffle },
 };

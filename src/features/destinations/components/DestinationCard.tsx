@@ -344,6 +344,8 @@ export default function DestinationCard({
                   ? formatTransportTime(preferredTransport.timeRange)
                   : "N/A";
 
+                const isDriving = mode === "car" || mode === "my_car";
+
                 return (
                   <div className="flex items-center whitespace-nowrap min-w-0">
                     <Icon className="w-4 h-4 mr-1.5 text-slate-400 shrink-0" />
@@ -351,6 +353,7 @@ export default function DestinationCard({
                       {locale === "ja"
                         ? formattedTime.replace("h", "時間").replace("m", "分")
                         : formattedTime}
+                      {isDriving ? " · Driving" : ""}
                     </span>
                   </div>
                 );
@@ -365,6 +368,7 @@ export default function DestinationCard({
                     ],
                     locale,
                   )}
+                  {partySize > 1 ? ` total for ${partySize}` : ""}
                 </span>
               </div>
               <div className="flex items-center whitespace-nowrap min-w-0">

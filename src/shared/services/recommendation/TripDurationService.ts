@@ -50,11 +50,11 @@ export function formatTripDurationLabel(
     case "shortOuting":
       return `Short Outing (${hours}h)`;
     case "halfDay":
-      return `Half-Day Trip (${hours}h)`;
+      return `Half-Day (${hours}h)`;
     case "fullDay":
-      return `Full-Day Trip (${hours}h)`;
+      return `Full-Day (${hours}h)`;
     case "weekend":
-      return `Weekend / Overnight (${hours}h)`;
+      return `Weekend (${hours}h)`;
     default:
       return `${hours}h total`;
   }

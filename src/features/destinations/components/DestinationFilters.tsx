@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Input } from "@/shared/components/ui/input";
 import { useAuth } from "@/shared/hooks/useAuth";
+import { useLocale } from "@/shared/context/LocaleContext";
 import {
   Select,
   SelectContent,
@@ -10,69 +11,34 @@ import {
 import {
   Search,
   Clock,
-  Train,
-  Bus,
-  TrainFront,
-  Plane,
   Star,
-  Heart,
   Footprints,
   Coins,
-  ThermometerSun,
-  Snowflake,
   Filter,
-  ChevronDown,
-  ChevronUp,
-  RotateCcw,
-  MapPin,
   X,
   Sparkles,
+  Compass,
+  Layers,
+  ChevronDown,
+  Minus,
+  Plus,
+  RotateCcw,
+  ShieldCheck,
+  Palette,
+  CloudSun,
+  Route,
+  CalendarDays,
+  Train,
+  TrainFront,
+  Plane,
+  Car,
+  Bus,
 } from "lucide-react";
 
-const REGION_PREFECTURES_MAP: Record<string, string[]> = {
-  Kanto: [
-    "Tokyo",
-    "Kanagawa",
-    "Saitama",
-    "Chiba",
-    "Ibaraki",
-    "Tochigi",
-    "Gunma",
-  ],
-  Chubu: [
-    "Aichi",
-    "Gifu",
-    "Shizuoka",
-    "Nagano",
-    "Yamanashi",
-    "Niigata",
-    "Ishikawa",
-    "Fukui",
-    "Toyama",
-  ],
-  Kansai: ["Osaka", "Kyoto", "Hyogo", "Nara", "Shiga", "Mie"],
-  Tohoku: ["Miyagi", "Aomori", "Iwate", "Akita", "Yamagata", "Fukushima"],
-  Kyushu: [
-    "Fukuoka",
-    "Nagasaki",
-    "Kumamoto",
-    "Oita",
-    "Miyazaki",
-    "Kagoshima",
-    "Saga",
-  ],
-  Hokkaido: ["Hokkaido"],
-  Chugoku: ["Hiroshima", "Okayama", "Yamaguchi", "Shimane", "Tottori"],
-  Shikoku: ["Ehime", "Kagawa", "Kochi", "Tokushima"],
-  Okinawa: ["Okinawa"],
-};
-
 import { getCollections } from "@/shared/data/collections";
-import { Layers } from "lucide-react";
 import type { BudgetTier } from "@/shared/types/planner";
 import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
-import { CITY_AREAS } from "@/shared/data/cityAreas";
-import { getDestinationList } from "@/shared/services/destination/DestinationService";
+import WhereLocationPicker from "./WhereLocationPicker";
 
 interface DestinationFiltersProps {
   searchQuery: string;
@@ -107,6 +73,8 @@ interface DestinationFiltersProps {
   setWeather: (val: "any" | "rainy" | "hot" | "cold") => void;
   budgetTier: BudgetTier;
   setBudgetTier: (val: BudgetTier) => void;
+  vibe: string;
+  setVibe: (val: string) => void;
   tripDuration: TripDuration;
   setTripDuration: (val: TripDuration) => void;
   walkingIntensity: string;
@@ -115,6 +83,9 @@ interface DestinationFiltersProps {
   setSuitabilities: (val: string[] | ((prev: string[]) => string[])) => void;
   interests: string[];
   setInterests: (val: string[] | ((prev: string[]) => string[])) => void;
+  viewMode: "grid" | "map";
+  setViewMode: (val: "grid" | "map") => void;
+  totalResultsCount?: number;
   onReset: () => void;
 }
 
@@ -127,10 +98,10 @@ export default function DestinationFilters({
   setSelectedPrefectures,
   selectedCollections,
   setSelectedCollections,
-  selectedCities,
-  setSelectedCities,
-  selectedAreas,
-  setSelectedAreas,
+  selectedCities: _selectedCities,
+  setSelectedCities: _setSelectedCities,
+  selectedAreas: _selectedAreas,
+  setSelectedAreas: _setSelectedAreas,
   indoorMin,
   setIndoorMin,
   season,
@@ -147,36 +118,28 @@ export default function DestinationFilters({
   setWeather,
   budgetTier,
   setBudgetTier,
+  vibe,
+  setVibe,
   tripDuration,
   setTripDuration,
   walkingIntensity,
   setWalkingIntensity,
   suitabilities,
   setSuitabilities,
-  interests,
-  setInterests,
+  interests: _interests,
+  setInterests: _setInterests,
+  totalResultsCount = 0,
   onReset,
 }: DestinationFiltersProps) {
   const { user } = useAuth();
-  const [expanded, setExpanded] = useState(false);
-  const [regionPopoverOpen, setRegionPopoverOpen] = useState(false);
+  const { locale } = useLocale();
+  const isJa = locale === "ja";
+
+  const [modalOpen, setModalOpen] = useState(false);
   const [collectionPopoverOpen, setCollectionPopoverOpen] = useState(false);
-  const popoverRef = useRef<HTMLDivElement>(null);
   const collectionPopoverRef = useRef<HTMLDivElement>(null);
 
   const availableCollections = getCollections();
-  const cityOptions = getDestinationList()
-    .filter(
-      (place) =>
-        place.role === "hub" &&
-        CITY_AREAS.some((area) => area.parentDestinationId === place.id),
-    )
-    .sort((a, b) => (a.name ?? "").localeCompare(b.name ?? ""));
-  const areaOptions = CITY_AREAS.filter(
-    (area) =>
-      selectedCities.length === 0 ||
-      selectedCities.includes(area.parentDestinationId),
-  );
 
   const carOwnership = user?.user_metadata?.preferences?.carOwnership || "all";
   const showRental = carOwnership === "all" || carOwnership === "rental";
@@ -190,92 +153,285 @@ export default function DestinationFilters({
     }
   }, [showRental, showMyCar, carMode, setCarMode]);
 
-  // Click outside listener for Region/Prefecture Popover
+  // Click outside listener for Collection Popover
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
-        popoverRef.current &&
-        !popoverRef.current.contains(event.target as Node)
+        collectionPopoverRef.current &&
+        !collectionPopoverRef.current.contains(event.target as Node)
       ) {
-        setRegionPopoverOpen(false);
+        setCollectionPopoverOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Region Toggle Handler
-  const toggleRegion = (regionName: string) => {
-    const prefsInRegion = REGION_PREFECTURES_MAP[regionName] || [];
-    const isRegionSelected = selectedRegions.includes(regionName);
+  const selectedTransportModes = [
+    ...(carMode === "my_car" || carMode === "rental" ? [carMode] : []),
+    ...(publicModes.includes("train") ? ["local"] : []),
+    ...(publicModes.includes("shinkansen") ? ["express"] : []),
+    ...(publicModes.includes("bus") ? ["bus"] : []),
+    ...(publicModes.includes("flight") ? ["flight"] : []),
+  ];
 
-    if (isRegionSelected) {
-      setSelectedRegions((prev) => prev.filter((r) => r !== regionName));
-      setSelectedPrefectures((prev) =>
-        prev.filter((p) => !prefsInRegion.includes(p)),
+  const handleGettingAroundChange = (val: string | null) => {
+    if (!val) return;
+    if (
+      val === "local" ||
+      val === "express" ||
+      val === "bus" ||
+      val === "flight"
+    ) {
+      const mode =
+        val === "local"
+          ? "train"
+          : val === "express"
+            ? "shinkansen"
+            : val === "bus"
+              ? "bus"
+              : "flight";
+      setPublicModes(
+        publicModes.includes(mode)
+          ? publicModes.filter((item) => item !== mode)
+          : [...publicModes, mode],
       );
-    } else {
-      setSelectedRegions((prev) => [...prev, regionName]);
-      setSelectedPrefectures((prev) =>
-        Array.from(new Set([...prev, ...prefsInRegion])),
-      );
+    } else if (val === "my_car") {
+      setCarMode(carMode === "my_car" ? "none" : "my_car");
+    } else if (val === "rental") {
+      setCarMode(carMode === "rental" ? "none" : "rental");
+    } else if (val === "either") {
+      setCarMode("none");
+      setPublicModes([]);
     }
   };
 
-  // Prefecture Toggle Handler
-  const togglePrefecture = (regionName: string, prefName: string) => {
-    const prefsInRegion = REGION_PREFECTURES_MAP[regionName] || [];
-    const isPrefSelected = selectedPrefectures.includes(prefName);
+  // Build active chips for non-default selections only (Bilingual)
+  const activeChips: { id: string; label: string; onRemove: () => void }[] = [];
 
-    let nextPrefs: string[];
-    if (isPrefSelected) {
-      nextPrefs = selectedPrefectures.filter((p) => p !== prefName);
-    } else {
-      nextPrefs = [...selectedPrefectures, prefName];
-    }
-    setSelectedPrefectures(nextPrefs);
-
-    // Sync Region state
-    const allSelected = prefsInRegion.every((p) => nextPrefs.includes(p));
-    if (allSelected) {
-      if (!selectedRegions.includes(regionName)) {
-        setSelectedRegions((prev) => [...prev, regionName]);
-      }
-    } else {
-      if (selectedRegions.includes(regionName)) {
-        setSelectedRegions((prev) => prev.filter((r) => r !== regionName));
-      }
-    }
+  if (searchQuery) {
+    activeChips.push({
+      id: "search",
+      label: isJa ? `検索: "${searchQuery}"` : `Search: "${searchQuery}"`,
+      onRemove: () => setSearchQuery(""),
+    });
+  }
+  selectedRegions.forEach((r) =>
+    activeChips.push({
+      id: `region-${r}`,
+      label: isJa ? `${r}地方` : `${r} Region`,
+      onRemove: () => setSelectedRegions((prev) => prev.filter((x) => x !== r)),
+    }),
+  );
+  selectedPrefectures.forEach((p) =>
+    activeChips.push({
+      id: `pref-${p}`,
+      label: p,
+      onRemove: () =>
+        setSelectedPrefectures((prev) => prev.filter((x) => x !== p)),
+    }),
+  );
+  selectedCollections.forEach((c) => {
+    const colObj = availableCollections.find((x) => x.id === c);
+    activeChips.push({
+      id: `col-${c}`,
+      label: colObj ? colObj.name : c,
+      onRemove: () =>
+        setSelectedCollections((prev) => prev.filter((x) => x !== c)),
+    });
+  });
+  const transportLabels: Record<string, string> = {
+    local: isJa ? "在来線" : "Local trains",
+    express: isJa ? "特急・新幹線" : "Express trains & Shinkansen",
+    bus: isJa ? "バス" : "Bus",
+    flight: isJa ? "国内線" : "Domestic flights",
+    my_car: isJa ? "マイカー" : "Personal car",
+    rental: isJa ? "レンタカー" : "Rental car",
   };
+  selectedTransportModes.forEach((mode) => {
+    activeChips.push({
+      id: `transport-${mode}`,
+      label: transportLabels[mode],
+      onRemove: () => handleGettingAroundChange(mode),
+    });
+  });
+  if (budgetTier !== "standard") {
+    const budgetMap: Record<BudgetTier, string> = {
+      economy: isJa ? "エコノミー" : "Economy",
+      standard: isJa ? "スタンダード" : "Standard",
+      comfortable: isJa ? "コンフォート" : "Comfort",
+      luxury: isJa ? "贅沢" : "Flexible",
+    };
+    activeChips.push({
+      id: "budget",
+      label: budgetMap[budgetTier] || budgetTier,
+      onRemove: () => setBudgetTier("standard"),
+    });
+  }
+  if (partySize !== 2) {
+    activeChips.push({
+      id: "party",
+      label: isJa ? `${partySize}名` : `${partySize} people`,
+      onRemove: () => setPartySize(2),
+    });
+  }
+  if (tripDuration !== "any") {
+    const durationMap: Record<string, string> = {
+      shortOuting: isJa ? "1〜2時間" : "1–2 hours",
+      halfDay: isJa ? "半日" : "Half day",
+      fullDay: isJa ? "終日" : "Full day",
+      weekend: isJa ? "宿泊" : "Overnight",
+    };
+    activeChips.push({
+      id: "duration",
+      label: durationMap[tripDuration] || tripDuration,
+      onRemove: () => setTripDuration("any"),
+    });
+  }
+  if (vibe !== "any") {
+    const vibeMap: Record<string, string> = {
+      art: isJa ? "アート・美術館" : "Art & museums",
+      food: isJa ? "グルメ・食" : "Food",
+      nature: isJa ? "自然・絶景" : "Nature",
+      history: isJa ? "歴史・文化" : "History",
+      sea: isJa ? "海・ビーチ" : "Sea",
+      photography: isJa ? "写真映え" : "Photography",
+      themeParks: isJa ? "テーマパーク" : "Theme parks",
+    };
+    activeChips.push({
+      id: "vibe",
+      label: vibeMap[vibe] || vibe,
+      onRemove: () => setVibe("any"),
+    });
+  }
+  if (indoorMin > 0) {
+    const indoorMap: Record<number, string> = {
+      30: isJa ? "屋外中心" : "Mostly outdoors",
+      50: isJa ? "バランス" : "Balanced",
+      70: isJa ? "屋内中心" : "Mostly indoors",
+      90: isJa ? "屋内のみ" : "Indoors only",
+    };
+    activeChips.push({
+      id: "indoor",
+      label:
+        indoorMap[indoorMin] || (isJa ? "屋内の好み" : "Indoor preference"),
+      onRemove: () => setIndoorMin(0),
+    });
+  }
+  if (weather !== "any") {
+    const weatherMap: Record<string, string> = {
+      rainy: isJa ? "雨の日におすすめ" : "Rain-friendly",
+      hot: isJa ? "暑い日に快適" : "Heat-friendly",
+      cold: isJa ? "寒い日におすすめ" : "Cold-friendly",
+    };
+    activeChips.push({
+      id: "weather",
+      label: weatherMap[weather] || weather,
+      onRemove: () => setWeather("any"),
+    });
+  }
+  if (walkingIntensity !== "all") {
+    const walkingMap: Record<string, string> = {
+      low: isJa ? "歩きやすい" : "Easy walking",
+      medium: isJa ? "普通" : "Moderate walking",
+      high: isJa ? "歩行量多め" : "Challenging walking",
+    };
+    activeChips.push({
+      id: "walking",
+      label: walkingMap[walkingIntensity] || walkingIntensity,
+      onRemove: () => setWalkingIntensity("all"),
+    });
+  }
+  suitabilities.forEach((s) => {
+    const labelMap: Record<string, string> = {
+      family: isJa ? "ファミリー向け" : "Family-friendly",
+      accessible: isJa ? "バリアフリー段差なし" : "Step-free access",
+    };
+    activeChips.push({
+      id: `suit-${s}`,
+      label: labelMap[s] || s,
+      onRemove: () => setSuitabilities((prev) => prev.filter((x) => x !== s)),
+    });
+  });
+  if (season !== "any") {
+    const seasonMap: Record<string, string> = {
+      spring: isJa ? "春" : "Spring",
+      summer: isJa ? "夏" : "Summer",
+      autumn: isJa ? "秋" : "Autumn",
+      winter: isJa ? "冬" : "Winter",
+    };
+    activeChips.push({
+      id: "season",
+      label: seasonMap[season] || season,
+      onRemove: () => setSeason("any"),
+    });
+  }
 
-  // Active Advanced Filters Count
-  const activeAdvancedCount =
-    (carMode !== "none" ? 1 : 0) +
-    (publicModes.length < 4 ? 1 : 0) +
-    (budgetTier !== "standard" ? 1 : 0) +
-    (walkingIntensity !== "all" ? 1 : 0) +
-    (partySize !== 2 ? 1 : 0) +
-    selectedCities.length +
-    selectedAreas.length +
-    (indoorMin > 0 ? 1 : 0) +
-    (season !== "any" ? 1 : 0) +
-    suitabilities.length +
-    interests.length;
-
-  const totalSelectedGeoCount =
-    selectedRegions.length + selectedPrefectures.length;
+  const activeAdvancedCount = activeChips.length;
+  const hasActiveFilters = activeChips.length > 0;
+  const preferenceSummaries = {
+    vibe:
+      vibe === "any"
+        ? isJa
+          ? "指定なし"
+          : "No preference"
+        : {
+            art: isJa ? "アート・美術館" : "Art & museums",
+            food: isJa ? "グルメ・食" : "Food",
+            nature: isJa ? "自然・絶景" : "Nature",
+            history: isJa ? "歴史・文化" : "History",
+            sea: isJa ? "海・ビーチ" : "Sea",
+            photography: isJa ? "写真映え" : "Photography",
+            themeParks: isJa ? "テーマパーク" : "Theme parks",
+          }[vibe] || vibe,
+    weather:
+      weather === "any"
+        ? isJa
+          ? "指定なし"
+          : "No preference"
+        : {
+            rainy: isJa ? "雨の日におすすめ" : "Rain-friendly",
+            hot: isJa ? "暑い日に快適" : "Heat-friendly",
+            cold: isJa ? "寒い日におすすめ" : "Cold-friendly",
+          }[weather],
+    walking:
+      walkingIntensity === "all"
+        ? isJa
+          ? "指定なし"
+          : "No preference"
+        : {
+            low: isJa ? "歩きやすい" : "Easy walking",
+            medium: isJa ? "普通" : "Moderate",
+            high: isJa ? "歩行量多め" : "Challenging",
+          }[walkingIntensity] || walkingIntensity,
+    season:
+      season === "any"
+        ? isJa
+          ? "指定なし"
+          : "No preference"
+        : {
+            spring: isJa ? "春" : "Spring",
+            summer: isJa ? "夏" : "Summer",
+            autumn: isJa ? "秋" : "Autumn",
+            winter: isJa ? "冬" : "Winter",
+          }[season] || season,
+  };
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm mb-6 transition-all duration-200">
-      {/* Primary Toolbar Row (Compact) */}
-      <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-3">
-        {/* Search Field */}
+    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-3.5 sm:p-4 shadow-sm mb-6 transition-all duration-200">
+      {/* 1-Row Primary Filter Toolbar */}
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+        {/* Search Input Bar */}
         <div className="relative flex-1 min-w-[200px]">
-          <Search className="absolute left-3.5 top-3 h-4 w-4 text-slate-400" />
+          <Search className="absolute left-3.5 top-2.5 h-4 w-4 text-slate-400" />
           <Input
             type="search"
-            placeholder="Search destination, keyword..."
-            className="pl-10 pr-8 h-10 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 focus-visible:ring-emerald-500 rounded-xl text-sm font-medium"
+            placeholder={
+              isJa
+                ? "目的地、キーワードで検索..."
+                : "Search destination, keyword..."
+            }
+            className="pl-10 pr-8 h-9 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 focus-visible:ring-emerald-500 rounded-xl text-xs font-medium"
             value={searchQuery}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setSearchQuery(e.target.value)
@@ -284,238 +440,136 @@ export default function DestinationFilters({
           {searchQuery && (
             <button
               onClick={() => setSearchQuery("")}
-              className="absolute right-2.5 top-2.5 p-0.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+              className="absolute right-2.5 top-2 p-0.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
             >
               <X className="w-3.5 h-3.5" />
             </button>
           )}
         </div>
 
-        {/* Region & Prefecture Multi-Select Dropdown Popover */}
-        <div className="relative" ref={popoverRef}>
-          <button
-            type="button"
-            onClick={() => setRegionPopoverOpen(!regionPopoverOpen)}
-            className={`h-10 px-3.5 rounded-xl border text-sm font-medium flex items-center justify-between gap-2 min-w-[200px] transition-colors ${
-              totalSelectedGeoCount > 0
-                ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300 font-bold"
-                : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:border-emerald-500"
-            }`}
-          >
-            <span className="flex items-center gap-1.5 truncate">
-              <MapPin className="w-4 h-4 text-emerald-500 shrink-0" />
-              {totalSelectedGeoCount === 0
-                ? "All Regions & Prefectures"
-                : `${selectedPrefectures.length} Prefecture${selectedPrefectures.length === 1 ? "" : "s"} selected`}
-            </span>
-            <ChevronDown className="w-4 h-4 text-slate-400 shrink-0" />
-          </button>
+        {/* Filter Controls Row */}
+        <div className="flex items-center gap-2 flex-wrap shrink-0">
+          {/* 1. All Regions & Prefectures Dropdown */}
+          <WhereLocationPicker
+            selectedRegions={selectedRegions}
+            setSelectedRegions={setSelectedRegions}
+            selectedPrefectures={selectedPrefectures}
+            setSelectedPrefectures={setSelectedPrefectures}
+          />
 
-          {/* Region / Prefecture Popover Content */}
-          {regionPopoverOpen && (
-            <div className="absolute left-0 mt-2 w-80 md:w-96 max-h-96 overflow-y-auto bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-50 p-4 space-y-4">
-              <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                  Filter by Region / Prefecture
+          {/* 2. All Collections Dropdown */}
+          <div className="relative" ref={collectionPopoverRef}>
+            <button
+              type="button"
+              onClick={() => setCollectionPopoverOpen(!collectionPopoverOpen)}
+              className={`h-9 px-3 rounded-xl border text-xs font-medium flex items-center justify-between gap-1.5 transition-all ${
+                selectedCollections.length > 0
+                  ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300 font-bold"
+                  : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:border-emerald-500"
+              }`}
+            >
+              <div className="flex items-center gap-1.5 min-w-0">
+                <Layers className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                <span className="whitespace-nowrap">
+                  {selectedCollections.length === 0
+                    ? isJa
+                      ? "コレクション"
+                      : "All Collections"
+                    : `${selectedCollections.length} ${isJa ? "件" : "Collection"}${selectedCollections.length === 1 || isJa ? "" : "s"}`}
                 </span>
-                {totalSelectedGeoCount > 0 && (
-                  <button
-                    onClick={() => {
-                      setSelectedRegions([]);
-                      setSelectedPrefectures([]);
-                    }}
-                    className="text-xs font-semibold text-rose-500 hover:underline"
-                  >
-                    Clear Selected
-                  </button>
-                )}
               </div>
+              <ChevronDown className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+            </button>
 
-              {Object.entries(REGION_PREFECTURES_MAP).map(
-                ([region, prefectures]) => {
-                  const isRegionChecked = selectedRegions.includes(region);
-                  return (
-                    <div key={region} className="space-y-1.5">
-                      <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900 px-2.5 py-1.5 rounded-lg">
-                        <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-slate-800 dark:text-slate-200">
-                          <input
-                            type="checkbox"
-                            checked={isRegionChecked}
-                            onChange={() => toggleRegion(region)}
-                            className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 w-3.5 h-3.5"
-                          />
-                          {region} Region
-                        </label>
-                        <span className="text-[10px] text-slate-400 font-medium">
-                          ({prefectures.length} Prefs)
-                        </span>
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-1 pl-4 pt-1">
-                        {prefectures.map((pref) => {
-                          const isPrefChecked =
-                            selectedPrefectures.includes(pref);
-                          return (
-                            <label
-                              key={pref}
-                              className="flex items-center gap-2 cursor-pointer text-xs text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white py-0.5"
-                            >
-                              <input
-                                type="checkbox"
-                                checked={isPrefChecked}
-                                onChange={() => togglePrefecture(region, pref)}
-                                className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 w-3 h-3"
-                              />
-                              <span
-                                className={
-                                  isPrefChecked
-                                    ? "font-bold text-emerald-600 dark:text-emerald-400"
-                                    : ""
-                                }
-                              >
-                                {pref}
-                              </span>
-                            </label>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  );
-                },
-              )}
-            </div>
-          )}
-        </div>
-
-        {/* Curated Collections Multi-Select Dropdown Popover */}
-        <div className="relative" ref={collectionPopoverRef}>
-          <button
-            type="button"
-            onClick={() => setCollectionPopoverOpen(!collectionPopoverOpen)}
-            className={`h-10 px-3.5 rounded-xl border text-sm font-medium flex items-center justify-between gap-2 min-w-[180px] transition-colors ${
-              selectedCollections.length > 0
-                ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300 font-bold"
-                : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:border-emerald-500"
-            }`}
-          >
-            <span className="flex items-center gap-1.5 truncate">
-              <Layers className="w-4 h-4 text-emerald-500 shrink-0" />
-              {selectedCollections.length === 0
-                ? "All Collections"
-                : `${selectedCollections.length} Collection${selectedCollections.length === 1 ? "" : "s"}`}
-            </span>
-            <ChevronDown className="w-4 h-4 text-slate-400 shrink-0" />
-          </button>
-
-          {/* Collection Popover Content */}
-          {collectionPopoverOpen && (
-            <div className="absolute left-0 mt-2 w-72 max-h-80 overflow-y-auto bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-50 p-3.5 space-y-3">
-              <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                  Filter by Collection (OR)
-                </span>
-                {selectedCollections.length > 0 && (
-                  <button
-                    onClick={() => setSelectedCollections([])}
-                    className="text-xs font-semibold text-rose-500 hover:underline"
-                  >
-                    Clear
-                  </button>
-                )}
-              </div>
-
-              <div className="space-y-1.5">
-                {availableCollections.map((col) => {
-                  const isChecked = selectedCollections.includes(col.id);
-                  return (
-                    <label
-                      key={col.id}
-                      className="flex items-center gap-2 cursor-pointer text-xs text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 p-1.5 rounded-lg transition-colors"
+            {collectionPopoverOpen && (
+              <div className="absolute left-0 mt-2 w-72 max-h-80 overflow-y-auto bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-50 p-3.5 space-y-3">
+                <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                    {isJa ? "厳選コレクション" : "Curated Collections"}
+                  </span>
+                  {selectedCollections.length > 0 && (
+                    <button
+                      onClick={() => setSelectedCollections([])}
+                      className="text-[11px] font-semibold text-rose-500 hover:underline"
                     >
-                      <input
-                        type="checkbox"
-                        checked={isChecked}
-                        onChange={() => {
-                          setSelectedCollections((prev) =>
-                            prev.includes(col.id)
-                              ? prev.filter((id) => id !== col.id)
-                              : [...prev, col.id],
-                          );
-                        }}
-                        className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 w-3.5 h-3.5"
-                      />
-                      <span
-                        className={
-                          isChecked
-                            ? "font-bold text-emerald-600 dark:text-emerald-400"
-                            : ""
-                        }
-                      >
-                        {col.name}
-                      </span>
-                    </label>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-        </div>
+                      {isJa ? "クリア" : "Clear"}
+                    </button>
+                  )}
+                </div>
 
-        {/* Sort By Dropdown */}
-        <div className="w-full lg:w-48">
+                <div className="space-y-1">
+                  {availableCollections.map((col) => {
+                    const isChecked = selectedCollections.includes(col.id);
+                    return (
+                      <label
+                        key={col.id}
+                        className="flex items-center gap-2 cursor-pointer text-xs text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 p-1.5 rounded-lg transition-colors"
+                      >
+                        <input
+                          type="checkbox"
+                          checked={isChecked}
+                          onChange={() => {
+                            setSelectedCollections((prev) =>
+                              prev.includes(col.id)
+                                ? prev.filter((id) => id !== col.id)
+                                : [...prev, col.id],
+                            );
+                          }}
+                          className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 w-3.5 h-3.5"
+                        />
+                        <span
+                          className={
+                            isChecked
+                              ? "font-bold text-emerald-600 dark:text-emerald-400"
+                              : ""
+                          }
+                        >
+                          {col.name}
+                        </span>
+                      </label>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* 3. Recommended / Sort Dropdown */}
           <Select
             value={sortBy}
             onValueChange={(val: string | null) => {
               if (val) setSortBy(val);
             }}
           >
-            <SelectTrigger className="h-10 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-colors rounded-xl font-medium text-xs">
+            <SelectTrigger className="h-9 w-36 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-colors rounded-xl font-medium text-xs">
               {sortBy === "recommended" && (
-                <div className="flex items-center">
-                  <Sparkles className="w-3.5 h-3.5 mr-2 text-emerald-500" />{" "}
-                  Recommended
+                <div className="flex items-center whitespace-nowrap">
+                  <Sparkles className="w-3.5 h-3.5 mr-1.5 text-emerald-500 shrink-0" />{" "}
+                  {isJa ? "おすすめ順" : "Recommended"}
                 </div>
               )}
               {sortBy === "overall" && (
-                <div className="flex items-center">
-                  <Star className="w-3.5 h-3.5 mr-2 text-amber-500" /> Highest
-                  Rated
+                <div className="flex items-center whitespace-nowrap">
+                  <Star className="w-3.5 h-3.5 mr-1.5 text-amber-500 shrink-0" />{" "}
+                  {isJa ? "評価が高い順" : "Top Rated"}
                 </div>
               )}
               {sortBy === "travelTime" && (
-                <div className="flex items-center">
-                  <Clock className="w-3.5 h-3.5 mr-2 text-blue-500" /> Fastest
-                  Travel
+                <div className="flex items-center whitespace-nowrap">
+                  <Clock className="w-3.5 h-3.5 mr-1.5 text-blue-500 shrink-0" />{" "}
+                  {isJa ? "移動時間が短い順" : "Fastest"}
                 </div>
               )}
               {sortBy === "budget" && (
-                <div className="flex items-center">
-                  <Coins className="w-3.5 h-3.5 mr-2 text-emerald-500" /> Lowest
-                  Budget
+                <div className="flex items-center whitespace-nowrap">
+                  <Coins className="w-3.5 h-3.5 mr-1.5 text-emerald-500 shrink-0" />{" "}
+                  {isJa ? "予算が安い順" : "Lowest Budget"}
                 </div>
               )}
               {sortBy === "walking" && (
-                <div className="flex items-center">
-                  <Footprints className="w-3.5 h-3.5 mr-2 text-slate-500" />{" "}
-                  Least Walking
-                </div>
-              )}
-              {sortBy === "couple" && (
-                <div className="flex items-center">
-                  <Heart className="w-3.5 h-3.5 mr-2 text-rose-500" /> Best for
-                  Couples
-                </div>
-              )}
-              {sortBy === "summer" && (
-                <div className="flex items-center">
-                  <ThermometerSun className="w-3.5 h-3.5 mr-2 text-orange-500" />{" "}
-                  Best for Summer
-                </div>
-              )}
-              {sortBy === "winter" && (
-                <div className="flex items-center">
-                  <Snowflake className="w-3.5 h-3.5 mr-2 text-cyan-500" /> Best
-                  for Winter
+                <div className="flex items-center whitespace-nowrap">
+                  <Footprints className="w-3.5 h-3.5 mr-1.5 text-slate-500 shrink-0" />{" "}
+                  {isJa ? "歩行量が少ない順" : "Least Walk"}
                 </div>
               )}
             </SelectTrigger>
@@ -524,532 +578,693 @@ export default function DestinationFilters({
                 value="recommended"
                 className="py-2 px-3 text-xs cursor-pointer"
               >
-                <div className="flex items-center">
+                <div className="flex items-center whitespace-nowrap">
                   <Sparkles className="w-3.5 h-3.5 mr-2 text-emerald-500" />{" "}
-                  Recommended
+                  {isJa ? "おすすめ順" : "Recommended"}
                 </div>
               </SelectItem>
               <SelectItem
                 value="overall"
                 className="py-2 px-3 text-xs cursor-pointer"
               >
-                <div className="flex items-center">
-                  <Star className="w-3.5 h-3.5 mr-2 text-amber-500" /> Highest
-                  Rated
+                <div className="flex items-center whitespace-nowrap">
+                  <Star className="w-3.5 h-3.5 mr-2 text-amber-500" />{" "}
+                  {isJa ? "評価が高い順" : "Highest Rated"}
                 </div>
               </SelectItem>
               <SelectItem
                 value="travelTime"
                 className="py-2 px-3 text-xs cursor-pointer"
               >
-                <div className="flex items-center">
-                  <Clock className="w-3.5 h-3.5 mr-2 text-blue-500" /> Fastest
-                  Travel
+                <div className="flex items-center whitespace-nowrap">
+                  <Clock className="w-3.5 h-3.5 mr-2 text-blue-500" />{" "}
+                  {isJa ? "移動時間が短い順" : "Fastest Travel"}
                 </div>
               </SelectItem>
               <SelectItem
                 value="budget"
                 className="py-2 px-3 text-xs cursor-pointer"
               >
-                <div className="flex items-center">
-                  <Coins className="w-3.5 h-3.5 mr-2 text-emerald-500" /> Lowest
-                  Budget
+                <div className="flex items-center whitespace-nowrap">
+                  <Coins className="w-3.5 h-3.5 mr-2 text-emerald-500" />{" "}
+                  {isJa ? "予算が安い順" : "Lowest Budget"}
                 </div>
               </SelectItem>
               <SelectItem
                 value="walking"
                 className="py-2 px-3 text-xs cursor-pointer"
               >
-                <div className="flex items-center">
+                <div className="flex items-center whitespace-nowrap">
                   <Footprints className="w-3.5 h-3.5 mr-2 text-slate-500" />{" "}
-                  Least Walking
-                </div>
-              </SelectItem>
-              <SelectItem
-                value="couple"
-                className="py-2 px-3 text-xs cursor-pointer"
-              >
-                <div className="flex items-center">
-                  <Heart className="w-3.5 h-3.5 mr-2 text-rose-500" /> Best for
-                  Couples
-                </div>
-              </SelectItem>
-              <SelectItem
-                value="summer"
-                className="py-2 px-3 text-xs cursor-pointer"
-              >
-                <div className="flex items-center">
-                  <ThermometerSun className="w-3.5 h-3.5 mr-2 text-orange-500" />{" "}
-                  Best for Summer
-                </div>
-              </SelectItem>
-              <SelectItem
-                value="winter"
-                className="py-2 px-3 text-xs cursor-pointer"
-              >
-                <div className="flex items-center">
-                  <Snowflake className="w-3.5 h-3.5 mr-2 text-cyan-500" /> Best
-                  for Winter
+                  {isJa ? "歩行量が少ない順" : "Least Walking"}
                 </div>
               </SelectItem>
             </SelectContent>
           </Select>
+
+          {/* 4. Filters Trigger Button */}
+          <button
+            type="button"
+            onClick={() => setModalOpen(true)}
+            className={`h-9 px-3.5 rounded-xl border text-xs font-bold flex items-center gap-1.5 transition-all shrink-0 ${
+              activeAdvancedCount > 0
+                ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 shadow-sm"
+                : "border-emerald-500/60 bg-emerald-50/30 text-emerald-700 dark:bg-emerald-950/20 dark:text-emerald-300 hover:border-emerald-500"
+            }`}
+          >
+            <Filter className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+            <span>{isJa ? "フィルター" : "Filters"}</span>
+            {activeAdvancedCount > 0 && (
+              <span className="bg-emerald-600 text-white rounded-full w-4 h-4 text-[10px] flex items-center justify-center font-bold">
+                {activeAdvancedCount}
+              </span>
+            )}
+            <ChevronDown className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+          </button>
+
+          {/* 5. Reset Button */}
+          {hasActiveFilters && (
+            <button
+              type="button"
+              onClick={onReset}
+              className="h-9 px-3 rounded-xl border border-slate-200 dark:border-slate-800 text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-rose-600 hover:border-rose-300 flex items-center gap-1 transition-colors shrink-0"
+            >
+              <RotateCcw className="w-3 h-3" />
+              <span>{isJa ? "リセット" : "Reset"}</span>
+            </button>
+          )}
         </div>
-
-        {/* More Filters Toggle */}
-        <button
-          onClick={() => setExpanded(!expanded)}
-          className={`h-10 px-3.5 rounded-xl border text-xs font-bold flex items-center justify-center gap-1.5 transition-colors ${
-            expanded || activeAdvancedCount > 0
-              ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300"
-              : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:border-emerald-500"
-          }`}
-        >
-          <Filter className="w-3.5 h-3.5 text-emerald-500" />
-          <span>Filters</span>
-          {activeAdvancedCount > 0 && (
-            <span className="bg-emerald-500 text-white rounded-full w-4 h-4 text-[10px] flex items-center justify-center">
-              {activeAdvancedCount}
-            </span>
-          )}
-          {expanded ? (
-            <ChevronUp className="w-3.5 h-3.5" />
-          ) : (
-            <ChevronDown className="w-3.5 h-3.5" />
-          )}
-        </button>
-
-        {/* Quick Reset */}
-        <button
-          type="button"
-          onClick={onReset}
-          className="h-10 px-3.5 rounded-xl border border-slate-200 dark:border-slate-800 text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all flex items-center gap-1.5 shrink-0"
-          title="Reset all active filters"
-        >
-          <RotateCcw className="w-3.5 h-3.5 text-slate-400" />
-          Reset
-        </button>
       </div>
 
-      {/* Collapsible Advanced Filters Drawer */}
-      {expanded && (
-        <div className="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 space-y-5 animate-in fade-in slide-in-from-top-2 duration-200">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {/* Transport Options */}
-            <div className="space-y-2 lg:col-span-2">
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                Transport Mode
-              </label>
-              <div className="flex flex-col sm:flex-row gap-2">
-                <div className="flex gap-1.5 flex-1">
-                  <button
-                    onClick={() => setCarMode("none")}
-                    className={`flex-1 py-2 px-2 rounded-lg border text-xs font-bold transition-colors ${
-                      carMode === "none"
-                        ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400"
-                        : "border-slate-200 text-slate-600 dark:border-slate-800 dark:text-slate-400"
-                    }`}
-                  >
-                    No Car
-                  </button>
-                  {showRental && (
-                    <button
-                      onClick={() => setCarMode("rental")}
-                      className={`flex-1 py-2 px-2 rounded-lg border text-xs font-bold transition-colors ${
-                        carMode === "rental"
-                          ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400"
-                          : "border-slate-200 text-slate-600 dark:border-slate-800 dark:text-slate-400"
-                      }`}
-                    >
-                      Rental
-                    </button>
-                  )}
-                  {showMyCar && (
-                    <button
-                      onClick={() => setCarMode("my_car")}
-                      className={`flex-1 py-2 px-2 rounded-lg border text-xs font-bold transition-colors ${
-                        carMode === "my_car"
-                          ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400"
-                          : "border-slate-200 text-slate-600 dark:border-slate-800 dark:text-slate-400"
-                      }`}
-                    >
-                      My Car
-                    </button>
-                  )}
-                </div>
-                <div className="flex gap-1.5 flex-1">
-                  <button
-                    onClick={() =>
-                      setPublicModes(
-                        publicModes.includes("train")
-                          ? publicModes.filter((m) => m !== "train")
-                          : [...publicModes, "train"],
-                      )
-                    }
-                    className={`flex-1 py-2 px-2 rounded-lg border text-xs font-bold flex items-center justify-center gap-1 transition-colors ${
-                      publicModes.includes("train")
-                        ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400"
-                        : "border-slate-200 text-slate-600 dark:border-slate-800 dark:text-slate-400"
-                    }`}
-                  >
-                    <Train className="w-3 h-3" /> Train
-                  </button>
-                  <button
-                    onClick={() =>
-                      setPublicModes(
-                        publicModes.includes("shinkansen")
-                          ? publicModes.filter((m) => m !== "shinkansen")
-                          : [...publicModes, "shinkansen"],
-                      )
-                    }
-                    className={`flex-1 py-2 px-2 rounded-lg border text-xs font-bold flex items-center justify-center gap-1 transition-colors ${
-                      publicModes.includes("shinkansen")
-                        ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400"
-                        : "border-slate-200 text-slate-600 dark:border-slate-800 dark:text-slate-400"
-                    }`}
-                  >
-                    <TrainFront className="w-3 h-3" /> Shinkansen
-                  </button>
-                  <button
-                    onClick={() =>
-                      setPublicModes(
-                        publicModes.includes("bus")
-                          ? publicModes.filter((m) => m !== "bus")
-                          : [...publicModes, "bus"],
-                      )
-                    }
-                    className={`flex-1 py-2 px-2 rounded-lg border text-xs font-bold flex items-center justify-center gap-1 transition-colors ${
-                      publicModes.includes("bus")
-                        ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400"
-                        : "border-slate-200 text-slate-600 dark:border-slate-800 dark:text-slate-400"
-                    }`}
-                  >
-                    <Bus className="w-3 h-3" /> Bus
-                  </button>
-                  <button
-                    onClick={() =>
-                      setPublicModes(
-                        publicModes.includes("flight")
-                          ? publicModes.filter((m) => m !== "flight")
-                          : [...publicModes, "flight"],
-                      )
-                    }
-                    className={`flex-1 py-2 px-2 rounded-lg border text-xs font-bold flex items-center justify-center gap-1 transition-colors ${
-                      publicModes.includes("flight")
-                        ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400"
-                        : "border-slate-200 text-slate-600 dark:border-slate-800 dark:text-slate-400"
-                    }`}
-                  >
-                    <Plane className="w-3 h-3" /> Flight
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Party, budget, and duration */}
-            <div className="space-y-2 lg:col-span-1">
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                Travel party: {partySize}{" "}
-                {partySize === 1 ? "person" : "people"}
-              </label>
-              <input
-                type="range"
-                min={1}
-                max={10}
-                value={partySize}
-                onChange={(event) => setPartySize(Number(event.target.value))}
-                className="w-full accent-emerald-500"
-              />
-            </div>
-            <div className="space-y-2 lg:col-span-1">
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                Weather condition
-              </label>
-              <Select
-                value={weather}
-                onValueChange={(value) =>
-                  value && setWeather(value as typeof weather)
-                }
+      {/* Applied Active-Filter Chips Row (Below Primary Toolbar) */}
+      {activeChips.length > 0 && (
+        <div className="flex items-center flex-wrap gap-1.5 pt-3 mt-3 border-t border-slate-100 dark:border-slate-800">
+          <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mr-1">
+            {isJa ? "適用中:" : "Applied:"}
+          </span>
+          {activeChips.map((chip) => (
+            <span
+              key={chip.id}
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 text-xs font-bold border border-emerald-200 dark:border-emerald-800 shadow-2xs whitespace-normal break-words max-w-full"
+            >
+              <span>{chip.label}</span>
+              <button
+                type="button"
+                onClick={chip.onRemove}
+                className="p-0.5 hover:bg-emerald-200/60 dark:hover:bg-emerald-800/60 rounded-full transition-colors shrink-0"
+                title={isJa ? `解除: ${chip.label}` : `Remove ${chip.label}`}
               >
-                <SelectTrigger className="h-9 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-lg text-xs font-medium">
-                  {weather === "any"
-                    ? "Any weather"
-                    : weather === "rainy"
-                      ? "Looks like rain"
-                      : weather === "hot"
-                        ? "Scorching hot"
-                        : "Freezing cold"}
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="any">Any weather</SelectItem>
-                  <SelectItem value="rainy">Looks like rain</SelectItem>
-                  <SelectItem value="hot">Scorching hot</SelectItem>
-                  <SelectItem value="cold">Freezing cold</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <div className="space-y-2 lg:col-span-1">
+                <X className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
+              </button>
+            </span>
+          ))}
+          <button
+            type="button"
+            onClick={onReset}
+            className="text-[11px] font-bold text-slate-500 hover:text-rose-600 dark:hover:text-rose-400 underline ml-1"
+          >
+            {isJa ? "すべてクリア" : "Clear all"}
+          </button>
+        </div>
+      )}
+
+      {/* Mobile-Friendly & Desktop-Wide "Trip preferences" Bottom Sheet / Floating Modal Window */}
+      {modalOpen && (
+        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-900/60 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="w-full max-w-3xl max-h-[92vh] sm:max-h-[85vh] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
+            {/* Modal Fixed Header */}
+            <div className="flex-none px-4 sm:px-6 py-3 border-b border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 z-20 space-y-1 shadow-sm">
               <div className="flex items-center justify-between">
-                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                  Budget
-                </label>
-                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">
-                  for the whole party
-                </span>
-              </div>
-              <Select
-                value={budgetTier}
-                onValueChange={(val) => val && setBudgetTier(val as BudgetTier)}
-              >
-                <SelectTrigger className="h-9 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-lg text-xs font-medium">
-                  {budgetTier[0].toUpperCase() + budgetTier.slice(1)}
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="economy">Economy</SelectItem>
-                  <SelectItem value="standard">Standard</SelectItem>
-                  <SelectItem value="comfortable">Comfortable</SelectItem>
-                  <SelectItem value="luxury">Luxury</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <div className="space-y-2 lg:col-span-1">
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                Trip duration
-              </label>
-              <Select
-                value={tripDuration}
-                onValueChange={(val) =>
-                  val && setTripDuration(val as TripDuration)
-                }
-              >
-                <SelectTrigger className="h-9 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-lg text-xs font-medium">
-                  {tripDuration === "any"
-                    ? "Any duration"
-                    : tripDuration === "shortOuting"
-                      ? "Short Outing (<4h)"
-                      : tripDuration === "halfDay"
-                        ? "Half Day (4–7.5h)"
-                        : tripDuration === "fullDay"
-                          ? "Full Day (7.5–14h)"
-                          : "Weekend (>14h)"}
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="any">Any duration</SelectItem>
-                  <SelectItem value="shortOuting">
-                    Short Outing (&lt;4h)
-                  </SelectItem>
-                  <SelectItem value="halfDay">Half Day (4–7.5h)</SelectItem>
-                  <SelectItem value="fullDay">Full Day (7.5–14h)</SelectItem>
-                  <SelectItem value="weekend">Weekend (&gt;14h)</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-
-          <div className="pt-3 border-t border-slate-100 dark:border-slate-800">
-            <div className="grid grid-cols-1 gap-4 pb-4 md:grid-cols-2">
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                  Parent city
-                </label>
-                <Select
-                  value={selectedCities[0] ?? "all"}
-                  onValueChange={(value) => {
-                    setSelectedCities(value && value !== "all" ? [value] : []);
-                    setSelectedAreas([]);
-                  }}
-                >
-                  <SelectTrigger className="h-9 rounded-lg bg-slate-50 text-xs dark:bg-slate-950">
-                    {selectedCities.length
-                      ? cityOptions.find(
-                          (city) => city.id === selectedCities[0],
-                        )?.name
-                      : "All cities"}
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All cities</SelectItem>
-                    {cityOptions.map((city) => (
-                      <SelectItem key={city.id} value={city.id}>
-                        {city.name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                  City area
-                </label>
-                <Select
-                  value={selectedAreas[0] ?? "all"}
-                  onValueChange={(value) =>
-                    setSelectedAreas(value && value !== "all" ? [value] : [])
-                  }
-                >
-                  <SelectTrigger className="h-9 rounded-lg bg-slate-50 text-xs dark:bg-slate-950">
-                    {selectedAreas.length
-                      ? areaOptions.find((area) => area.id === selectedAreas[0])
-                          ?.name.en
-                      : "All areas"}
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All areas</SelectItem>
-                    {areaOptions.map((area) => (
-                      <SelectItem key={area.id} value={area.id}>
-                        {area.name.en}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-            </div>
-            <div className="space-y-2">
-              <label className="block text-xs font-bold text-slate-700 dark:text-slate-300">
-                Walking Intensity
-              </label>
-              <div className="grid grid-cols-4 gap-1.5">
-                {[
-                  { id: "all", label: "Any" },
-                  { id: "low", label: "🟢 Low" },
-                  { id: "medium", label: "🟡 Moderate" },
-                  { id: "high", label: "🔴 High" },
-                ].map((item) => {
-                  const isSelected = walkingIntensity === item.id;
-                  return (
-                    <button
-                      key={item.id}
-                      type="button"
-                      onClick={() => setWalkingIntensity(item.id)}
-                      className={`px-2 py-1.5 rounded-xl text-xs font-bold border transition-all ${
-                        isSelected
-                          ? "bg-emerald-500 text-white border-emerald-500 shadow-sm"
-                          : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-emerald-300"
-                      }`}
-                    >
-                      {item.label}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
-              <div className="space-y-2">
-                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300">
-                  Indoor options
-                </label>
+                <div className="flex items-center gap-2.5">
+                  <h3 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white">
+                    {isJa ? "こだわり・条件設定" : "Trip preferences"}
+                  </h3>
+                  {activeAdvancedCount > 0 && (
+                    <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300">
+                      {activeAdvancedCount} {isJa ? "件適用" : "active"}
+                    </span>
+                  )}
+                </div>
                 <button
-                  type="button"
-                  onClick={() => setIndoorMin(indoorMin >= 70 ? 0 : 70)}
-                  className={`rounded-xl border px-3 py-1.5 text-xs font-bold ${
-                    indoorMin >= 70
-                      ? "border-emerald-500 bg-emerald-500 text-white"
-                      : "border-slate-200 bg-slate-50 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
-                  }`}
+                  onClick={() => setModalOpen(false)}
+                  className="w-10 h-10 flex items-center justify-center text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors shrink-0"
+                  title={isJa ? "閉じる" : "Close preferences"}
                 >
-                  {indoorMin >= 70 ? "✓ " : ""}Mostly indoors
+                  <X className="w-5 h-5" />
                 </button>
               </div>
-              <div className="space-y-2">
-                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300">
-                  Season
-                </label>
-                <div className="flex flex-wrap gap-1.5">
-                  {["any", "spring", "summer", "autumn", "winter"].map(
-                    (value) => (
-                      <button
-                        key={value}
-                        type="button"
-                        onClick={() => setSeason(value)}
-                        className={`rounded-xl border px-2 py-1.5 text-xs font-bold capitalize ${
-                          season === value
-                            ? "border-emerald-500 bg-emerald-500 text-white"
-                            : "border-slate-200 bg-slate-50 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
-                        }`}
-                      >
-                        {value}
-                      </button>
-                    ),
-                  )}
+              <p className="text-xs font-medium text-slate-500 dark:text-slate-400 leading-normal">
+                {isJa
+                  ? "「希望条件」でおすすめ順が変わり、「必須条件」で合わない目的地を除外します。"
+                  : "Preferences improve your ranking. Requirements remove unsuitable destinations."}
+              </p>
+            </div>
+
+            {/* Modal Body (Scrollable Region with 24px bottom padding) */}
+            <div className="destination-filter-modal-body flex-1 min-h-0 overflow-y-auto pl-4 pr-6 sm:pl-6 sm:pr-8 py-4 space-y-5">
+              {/* SECTION 1: TRIP ESSENTIALS */}
+              <div className="space-y-3 rounded-xl border border-slate-200/70 bg-slate-50 p-4 dark:border-slate-800/70 dark:bg-slate-900/40">
+                <div className="flex items-center justify-between pb-1 border-b border-slate-200 dark:border-slate-800">
+                  <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white">
+                    <ShieldCheck className="w-4 h-4 text-slate-500 dark:text-slate-400 shrink-0" />
+                    <span>{isJa ? "旅行の基本設定" : "TRIP ESSENTIALS"}</span>
+                  </div>
+                  <span className="text-[11px] text-slate-600 dark:text-slate-300 font-semibold">
+                    {isJa
+                      ? "費用と利用できる選択肢を設定"
+                      : "Sets costs and available options"}
+                  </span>
+                </div>
+
+                <div className="flex w-full max-w-sm items-center justify-between gap-2 sm:gap-4">
+                  <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                    {isJa ? "旅行人数" : "Travel party"}
+                  </label>
+                  <div className="h-10 w-40 sm:w-52 p-1 bg-slate-100 dark:bg-slate-900 rounded-xl flex items-center justify-between px-2">
+                    <button
+                      type="button"
+                      disabled={partySize <= 1}
+                      onClick={() => setPartySize(Math.max(1, partySize - 1))}
+                      className="w-8 h-8 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 disabled:opacity-30 transition-colors shadow-xs shrink-0"
+                    >
+                      <Minus className="w-3.5 h-3.5" />
+                    </button>
+                    <span className="text-xs font-bold text-slate-900 dark:text-white">
+                      {isJa
+                        ? `${partySize}名`
+                        : `${partySize} ${partySize === 1 ? "person" : "people"}`}
+                    </span>
+                    <button
+                      type="button"
+                      disabled={partySize >= 10}
+                      onClick={() => setPartySize(Math.min(10, partySize + 1))}
+                      className="w-8 h-8 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 disabled:opacity-30 transition-colors shadow-xs shrink-0"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Transport */}
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                      {isJa ? "移動手段" : "Transport"}
+                    </label>
+                    <button
+                      type="button"
+                      onClick={() => handleGettingAroundChange("either")}
+                      className={`h-8 px-3 rounded-lg border text-xs font-bold transition-colors ${
+                        selectedTransportModes.length === 0
+                          ? "border-slate-300 bg-white text-slate-900 shadow-xs dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                          : "border-transparent text-slate-600 hover:border-slate-200 hover:bg-slate-50 dark:text-slate-400 dark:hover:border-slate-800 dark:hover:bg-slate-900"
+                      }`}
+                    >
+                      {selectedTransportModes.length === 0
+                        ? isJa
+                          ? "すべての移動手段"
+                          : "Any transport"
+                        : isJa
+                          ? `${selectedTransportModes.length}件選択 · クリア`
+                          : `${selectedTransportModes.length} selected · Clear`}
+                    </button>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                    {[
+                      {
+                        val: "local",
+                        label: isJa ? "在来線" : "Local trains",
+                        icon: Train,
+                      },
+                      {
+                        val: "express",
+                        label: isJa
+                          ? "特急・新幹線"
+                          : "Express trains & Shinkansen",
+                        icon: TrainFront,
+                      },
+                      {
+                        val: "flight",
+                        label: isJa ? "国内線" : "Domestic flights",
+                        icon: Plane,
+                      },
+                      { val: "bus", label: isJa ? "バス" : "Bus", icon: Bus },
+                      {
+                        val: "my_car",
+                        label: isJa ? "マイカー" : "Personal car",
+                        icon: Car,
+                      },
+                      {
+                        val: "rental",
+                        label: isJa ? "レンタカー" : "Rental car",
+                        icon: Car,
+                      },
+                    ].map((opt) => {
+                      const isSelected = selectedTransportModes.includes(
+                        opt.val,
+                      );
+                      const Icon = opt.icon;
+                      return (
+                        <button
+                          key={opt.val}
+                          type="button"
+                          onClick={() => handleGettingAroundChange(opt.val)}
+                          className={`relative min-h-[56px] px-3 py-2 rounded-xl border text-xs font-bold text-center flex flex-col gap-1 items-center justify-center transition-all leading-tight whitespace-normal break-words ${
+                            isSelected
+                              ? "border-emerald-500 bg-emerald-50 text-emerald-700 shadow-sm dark:bg-emerald-950/50 dark:text-emerald-300"
+                              : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-400"
+                          }`}
+                        >
+                          {isSelected && (
+                            <span className="absolute right-2 top-1.5 text-emerald-600 dark:text-emerald-300">
+                              ✓
+                            </span>
+                          )}
+                          <Icon className="w-4 h-4" />
+                          {opt.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Budget preference */}
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <label className="flex items-center gap-2 text-xs font-bold text-slate-700 dark:text-slate-300">
+                      <Coins className="w-4 h-4 text-emerald-600" />
+                      {isJa ? "予算の目安" : "Budget preference"}
+                    </label>
+                    <span className="text-[10px] text-slate-600 dark:text-slate-300 font-semibold">
+                      {isJa ? "交通費の概算を含む" : "Includes transport"}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    {[
+                      {
+                        val: "economy",
+                        label: isJa ? "エコノミー" : "Economy",
+                        desc: isJa ? "費用を抑える" : "Budget friendly",
+                      },
+                      {
+                        val: "standard",
+                        label: isJa ? "スタンダード" : "Standard",
+                        desc: isJa ? "バランス重視" : "Balanced spending",
+                      },
+                      {
+                        val: "comfortable",
+                        label: isJa ? "コンフォート" : "Comfort",
+                        desc: isJa ? "快適さ重視" : "Higher comfort",
+                      },
+                      {
+                        val: "luxury",
+                        label: isJa ? "贅沢" : "Flexible",
+                        desc: isJa ? "選択肢を広く" : "Keep options open",
+                      },
+                    ].map((opt) => {
+                      const isSelected = budgetTier === opt.val;
+                      return (
+                        <button
+                          key={opt.val}
+                          type="button"
+                          onClick={() => setBudgetTier(opt.val as BudgetTier)}
+                          className={`min-h-[52px] px-3 py-2 rounded-xl border text-left transition-all ${
+                            isSelected
+                              ? opt.val === "standard"
+                                ? "border-slate-300 bg-white text-slate-900 shadow-xs dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                                : "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 shadow-sm"
+                              : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-400"
+                          }`}
+                        >
+                          <span className="block text-xs font-bold">
+                            {opt.label}
+                          </span>
+                          <span className="mt-0.5 block text-[10px] font-medium text-slate-500 dark:text-slate-400">
+                            {opt.desc}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Accessibility Requirements Multi-Select Chips */}
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                      {isJa
+                        ? "バリアフリー・環境"
+                        : "Accessibility & requirements"}
+                    </label>
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 font-semibold">
+                      {isJa ? "詳細は施設に要確認" : "Confirm venue details"}
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {[
+                      {
+                        id: "family",
+                        label: isJa ? "ファミリー向け" : "Family-friendly",
+                      },
+                      {
+                        id: "accessible",
+                        label: isJa
+                          ? "バリアフリー段差なし"
+                          : "Step-free access",
+                      },
+                    ].map((s) => {
+                      const active = suitabilities.includes(s.id);
+                      return (
+                        <button
+                          key={s.id}
+                          type="button"
+                          onClick={() =>
+                            setSuitabilities((prev) =>
+                              prev.includes(s.id)
+                                ? prev.filter((x) => x !== s.id)
+                                : [...prev, s.id],
+                            )
+                          }
+                          className={`min-h-[36px] px-3 py-1.5 rounded-xl border text-xs font-bold transition-all text-left flex items-center gap-1 leading-snug whitespace-normal break-words ${
+                            active
+                              ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 shadow-2xs"
+                              : "bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300"
+                          }`}
+                        >
+                          {active ? "✓ " : ""}
+                          {s.label}
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
 
-          {/* Suitability & Interests Checkboxes */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 pt-3 border-t border-slate-100 dark:border-slate-800">
-            <div className="space-y-2">
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                Suitability
-              </label>
-              <div className="flex flex-wrap gap-1.5">
-                {[
-                  { id: "solo", label: "Solo Friendly" },
-                  { id: "couple", label: "Couple Friendly" },
-                  { id: "family", label: "Family Friendly" },
-                  { id: "accessible", label: "Accessible" },
-                ].map((s) => {
-                  const active = suitabilities.includes(s.id);
-                  return (
-                    <button
-                      key={s.id}
-                      type="button"
-                      onClick={() =>
-                        setSuitabilities((prev) =>
-                          prev.includes(s.id)
-                            ? prev.filter((x) => x !== s.id)
-                            : [...prev, s.id],
-                        )
-                      }
-                      className={`py-1 px-2.5 rounded-lg border text-xs font-medium transition-all ${
-                        active
-                          ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400 font-bold"
-                          : "border-slate-200 text-slate-600 dark:border-slate-800 dark:text-slate-400"
-                      }`}
-                    >
-                      {active ? "✓ " : ""}
-                      {s.label}
-                    </button>
-                  );
-                })}
+              {/* SECTION 2: RANKING PREFERENCES */}
+              <div className="space-y-3 rounded-xl border border-slate-200/70 bg-slate-50/50 p-4 dark:border-slate-800/70 dark:bg-slate-950">
+                <div className="flex items-center justify-between pb-1 border-b border-slate-200 dark:border-slate-800">
+                  <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white">
+                    <Compass className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>{isJa ? "希望条件" : "RANKING PREFERENCES"}</span>
+                  </div>
+                  <span className="text-[11px] text-slate-500 dark:text-slate-400 font-semibold">
+                    {isJa ? "マッチ度順に並び替え" : "Re-ranks destinations"}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-[11fr_9fr] gap-3">
+                  {/* Time at Destination Segmented Track */}
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                      {isJa ? "現地滞在時間" : "Time at destination"}
+                    </label>
+                    <div className="min-h-[40px] p-1 bg-slate-100 dark:bg-slate-900 rounded-xl grid grid-cols-3 sm:grid-cols-5 gap-1">
+                      {[
+                        { val: "any", label: isJa ? "指定なし" : "Any" },
+                        {
+                          val: "shortOuting",
+                          label: isJa ? "1〜2時間" : "1–2 hrs",
+                        },
+                        { val: "halfDay", label: isJa ? "半日" : "Half day" },
+                        { val: "fullDay", label: isJa ? "終日" : "Full day" },
+                        { val: "weekend", label: isJa ? "宿泊" : "Overnight" },
+                      ].map((opt) => {
+                        const isSelected = tripDuration === opt.val;
+                        return (
+                          <button
+                            key={opt.val}
+                            type="button"
+                            onClick={() =>
+                              setTripDuration(opt.val as TripDuration)
+                            }
+                            className={`min-h-[32px] px-1 py-1 rounded-xl text-xs font-bold text-center flex items-center justify-center transition-all leading-tight whitespace-normal break-words ${
+                              isSelected
+                                ? "bg-white dark:bg-slate-800 text-slate-950 dark:text-white shadow-xs border border-slate-200/80 dark:border-slate-700 font-extrabold"
+                                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                            }`}
+                          >
+                            {opt.label}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Indoor Preference Segmented Track */}
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                      {isJa ? "屋内の快適性" : "Indoor preference"}
+                    </label>
+                    <div className="min-h-[40px] p-1 bg-slate-100 dark:bg-slate-900 rounded-xl grid grid-cols-2 sm:grid-cols-4 gap-1">
+                      {[
+                        { val: 0, label: isJa ? "指定なし" : "Any" },
+                        { val: 30, label: isJa ? "屋外中心" : "Outdoors" },
+                        { val: 50, label: isJa ? "バランス" : "Mixed" },
+                        { val: 70, label: isJa ? "屋内中心" : "Indoors" },
+                      ].map((opt) => {
+                        const isSelected = indoorMin === opt.val;
+                        return (
+                          <button
+                            key={opt.val}
+                            type="button"
+                            onClick={() => setIndoorMin(opt.val)}
+                            className={`min-h-[32px] px-2 py-1 rounded-xl text-xs font-bold text-center flex items-center justify-center transition-all leading-tight whitespace-normal break-words ${
+                              isSelected
+                                ? "bg-white dark:bg-slate-800 text-slate-950 dark:text-white shadow-xs border border-slate-200/80 dark:border-slate-700 font-extrabold"
+                                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                            }`}
+                          >
+                            {opt.label}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Vibe / Atmosphere Multi-Select Chips */}
+                <details className="group border-t border-slate-100 dark:border-slate-800 pt-3">
+                  <summary className="flex items-center justify-between cursor-pointer list-none text-xs font-bold text-slate-700 dark:text-slate-300">
+                    <span className="flex items-center gap-2">
+                      <Palette className="w-4 h-4 text-emerald-600" />
+                      {isJa ? "旅の雰囲気・テーマ" : "Vibe & atmosphere"}
+                    </span>
+                    <span className="flex items-center gap-2 text-[11px] font-medium text-slate-500 dark:text-slate-400">
+                      {preferenceSummaries.vibe}
+                      <ChevronDown className="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" />
+                    </span>
+                  </summary>
+                  <div className="flex flex-wrap gap-1.5 pt-2">
+                    {[
+                      {
+                        val: "art",
+                        label: isJa ? "アート・美術館" : "Art & museums",
+                      },
+                      { val: "food", label: isJa ? "グルメ・食" : "Food" },
+                      { val: "nature", label: isJa ? "自然・絶景" : "Nature" },
+                      {
+                        val: "history",
+                        label: isJa ? "歴史・文化" : "History",
+                      },
+                      { val: "sea", label: isJa ? "海・ビーチ" : "Sea" },
+                      {
+                        val: "photography",
+                        label: isJa ? "写真映え" : "Photography",
+                      },
+                      {
+                        val: "themeParks",
+                        label: isJa ? "テーマパーク" : "Theme parks",
+                      },
+                    ].map((opt) => {
+                      const isSelected = vibe === opt.val;
+                      return (
+                        <button
+                          key={opt.val}
+                          type="button"
+                          onClick={() => setVibe(opt.val)}
+                          className={`min-h-[36px] px-3 py-1.5 rounded-xl border text-xs font-bold transition-all whitespace-normal break-words flex items-center leading-snug ${
+                            isSelected
+                              ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 shadow-2xs"
+                              : "bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300"
+                          }`}
+                        >
+                          {isSelected ? "✓ " : ""}
+                          {opt.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </details>
+
+                {/* Weather Suitability Multi-Select Chips */}
+                <details className="group border-t border-slate-100 dark:border-slate-800 pt-3">
+                  <summary className="flex items-center justify-between cursor-pointer list-none text-xs font-bold text-slate-700 dark:text-slate-300">
+                    <span className="flex items-center gap-2">
+                      <CloudSun className="w-4 h-4 text-emerald-600" />
+                      {isJa ? "天候への対応力" : "Weather suitability"}
+                    </span>
+                    <span className="flex items-center gap-2 text-[11px] font-medium text-slate-500 dark:text-slate-400">
+                      {preferenceSummaries.weather}
+                      <ChevronDown className="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" />
+                    </span>
+                  </summary>
+                  <div className="flex flex-wrap gap-1.5 pt-2">
+                    {[
+                      {
+                        val: "rainy",
+                        label: isJa ? "雨の日におすすめ" : "Rain-friendly",
+                      },
+                      {
+                        val: "hot",
+                        label: isJa ? "暑い日に快適" : "Heat-friendly",
+                      },
+                      {
+                        val: "cold",
+                        label: isJa ? "寒い日におすすめ" : "Cold-friendly",
+                      },
+                    ].map((w) => {
+                      const isSelected = weather === w.val;
+                      return (
+                        <button
+                          key={w.val}
+                          type="button"
+                          onClick={() => setWeather(w.val as typeof weather)}
+                          className={`min-h-[36px] px-3 py-1.5 rounded-xl border text-xs font-bold transition-all whitespace-normal break-words flex items-center leading-snug ${
+                            isSelected
+                              ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 shadow-2xs"
+                              : "bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300"
+                          }`}
+                        >
+                          {isSelected ? "✓ " : ""}
+                          {w.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </details>
+
+                {/* Walking Difficulty Descriptive Cards */}
+                <details className="group border-t border-slate-100 dark:border-slate-800 pt-3">
+                  <summary className="flex items-center justify-between cursor-pointer list-none text-xs font-bold text-slate-700 dark:text-slate-300">
+                    <span className="flex items-center gap-2">
+                      <Route className="w-4 h-4 text-emerald-600" />
+                      {isJa ? "歩行負荷の目安" : "Walking difficulty"}
+                    </span>
+                    <span className="flex items-center gap-2 text-[11px] font-medium text-slate-500 dark:text-slate-400">
+                      {preferenceSummaries.walking}
+                      <ChevronDown className="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" />
+                    </span>
+                  </summary>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 pt-2">
+                    {[
+                      {
+                        id: "low",
+                        label: isJa ? "歩きやすい" : "Easy walking",
+                        desc: isJa ? "平坦メイン" : "Mostly flat",
+                      },
+                      {
+                        id: "medium",
+                        label: isJa ? "普通" : "Moderate",
+                        desc: isJa ? "多少の坂・歩行" : "Slopes & walk",
+                      },
+                      {
+                        id: "high",
+                        label: isJa ? "歩行量多め" : "Challenging",
+                        desc: isJa ? "長距離・登山" : "Long walks",
+                      },
+                    ].map((w) => {
+                      const isSelected = walkingIntensity === w.id;
+                      return (
+                        <button
+                          key={w.id}
+                          type="button"
+                          onClick={() => setWalkingIntensity(w.id)}
+                          className={`p-2.5 rounded-2xl border text-left transition-all min-h-[64px] flex flex-col justify-center ${
+                            isSelected
+                              ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40"
+                              : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 hover:border-slate-300"
+                          }`}
+                        >
+                          <div
+                            className={`text-xs font-bold leading-tight ${isSelected ? "text-emerald-700 dark:text-emerald-300" : "text-slate-800 dark:text-slate-200"}`}
+                          >
+                            {isSelected ? "✓ " : ""}
+                            {w.label}
+                          </div>
+                          <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 leading-tight">
+                            {w.desc}
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </details>
+
+                {/* Best Season Multi-Select Chips */}
+                <details className="group border-y border-slate-100 dark:border-slate-800 py-3">
+                  <summary className="flex items-center justify-between cursor-pointer list-none text-xs font-bold text-slate-700 dark:text-slate-300">
+                    <span className="flex items-center gap-2">
+                      <CalendarDays className="w-4 h-4 text-emerald-600" />
+                      {isJa ? "おすすめの季節" : "Best season"}
+                    </span>
+                    <span className="flex items-center gap-2 text-[11px] font-medium text-slate-500 dark:text-slate-400">
+                      {preferenceSummaries.season}
+                      <ChevronDown className="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" />
+                    </span>
+                  </summary>
+                  <div className="flex flex-wrap gap-1.5 pt-2">
+                    {["spring", "summer", "autumn", "winter"].map((val) => {
+                      const isSelected = season === val;
+                      const labelMap: Record<string, string> = {
+                        any: isJa ? "指定なし" : "No preference",
+                        spring: isJa ? "春" : "Spring",
+                        summer: isJa ? "夏" : "Summer",
+                        autumn: isJa ? "秋" : "Autumn",
+                        winter: isJa ? "冬" : "Winter",
+                      };
+                      return (
+                        <button
+                          key={val}
+                          type="button"
+                          onClick={() => setSeason(val)}
+                          className={`min-h-[36px] px-3 py-1.5 rounded-xl border text-xs font-bold transition-all whitespace-normal break-words flex items-center leading-snug ${
+                            isSelected
+                              ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 shadow-2xs"
+                              : "bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300"
+                          }`}
+                        >
+                          {isSelected ? "✓ " : ""}
+                          {labelMap[val]}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </details>
               </div>
             </div>
 
-            <div className="space-y-2">
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                Interests
-              </label>
-              <div className="flex flex-wrap gap-1.5">
-                {[
-                  { id: "nature", label: "Nature" },
-                  { id: "history", label: "History" },
-                  { id: "food", label: "Food" },
-                  { id: "hiking", label: "Hiking" },
-                  { id: "photography", label: "Photography" },
-                ].map((interest) => {
-                  const active = interests.includes(interest.id);
-                  return (
-                    <button
-                      key={interest.id}
-                      type="button"
-                      onClick={() =>
-                        setInterests((prev) =>
-                          prev.includes(interest.id)
-                            ? prev.filter((x) => x !== interest.id)
-                            : [...prev, interest.id],
-                        )
-                      }
-                      className={`py-1 px-2.5 rounded-lg border text-xs font-medium transition-all ${
-                        active
-                          ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400 font-bold"
-                          : "border-slate-200 text-slate-600 dark:border-slate-800 dark:text-slate-400"
-                      }`}
-                    >
-                      {active ? "✓ " : ""}
-                      {interest.label}
-                    </button>
-                  );
-                })}
-              </div>
+            {/* Modal Fixed Footer */}
+            <div className="flex-none px-4 sm:px-6 py-3.5 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 z-20 flex items-center justify-between gap-3 shadow-sm">
+              {hasActiveFilters ? (
+                <button
+                  type="button"
+                  onClick={onReset}
+                  className="rounded-lg px-2.5 py-2 text-xs font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-100 hover:text-rose-600 dark:hover:bg-slate-900 dark:hover:text-rose-400 transition-colors whitespace-nowrap"
+                >
+                  {isJa ? "条件をリセット" : "Reset preferences"}
+                </button>
+              ) : (
+                <span />
+              )}
+              <button
+                type="button"
+                onClick={() => setModalOpen(false)}
+                className="px-5 sm:px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs rounded-xl shadow-md hover:shadow-lg transition-all active:scale-95 whitespace-nowrap"
+              >
+                {isJa
+                  ? `${totalResultsCount}件の目的地を表示`
+                  : `Show ${totalResultsCount} destinations`}
+              </button>
             </div>
           </div>
         </div>

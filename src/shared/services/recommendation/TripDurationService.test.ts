@@ -37,15 +37,13 @@ describe("TripDurationService", () => {
       "サクッと外出 (2.5時間)",
     );
 
-    expect(formatTripDurationLabel(estHalf, "en")).toBe("Half-Day Trip (6h)");
+    expect(formatTripDurationLabel(estHalf, "en")).toBe("Half-Day (6h)");
     expect(formatTripDurationLabel(estHalf, "ja")).toBe("半日日帰り (6時間)");
 
-    expect(formatTripDurationLabel(estFull, "en")).toBe("Full-Day Trip (10h)");
+    expect(formatTripDurationLabel(estFull, "en")).toBe("Full-Day (10h)");
     expect(formatTripDurationLabel(estFull, "ja")).toBe("1日日帰り (10時間)");
 
-    expect(formatTripDurationLabel(estWeekend, "en")).toBe(
-      "Weekend / Overnight (18h)",
-    );
+    expect(formatTripDurationLabel(estWeekend, "en")).toBe("Weekend (18h)");
     expect(formatTripDurationLabel(estWeekend, "ja")).toBe(
       "1泊2日/週末 (18時間)",
     );

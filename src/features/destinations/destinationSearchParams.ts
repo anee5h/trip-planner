@@ -18,7 +18,7 @@ export const DEFAULT_DESTINATION_EXPLORER_STATE = {
   maxBudget: BUDGET_TIER_LIMITS.standard,
   sortBy: "recommended",
   carMode: "none",
-  publicModes: ["train", "shinkansen", "bus", "flight"],
+  publicModes: [] as string[],
   partySize: 2,
   partyProfile: "couple" as PartyProfile,
   weather: "any" as "any" | "rainy" | "hot" | "cold",
@@ -109,7 +109,7 @@ export function parseDestinationSearchParams(
       rawBudgetTier === "standard" ||
       rawBudgetTier === "comfortable" ||
       rawBudgetTier === "luxury"
-        ? rawBudgetTier
+        ? (rawBudgetTier as BudgetTier)
         : rawBudgetTier === "budget"
           ? "economy"
           : rawBudgetTier === "premium"

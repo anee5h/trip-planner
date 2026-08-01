@@ -8,6 +8,7 @@ import {
 } from "../destinationSearchParams";
 import { DEFAULT_PLANNER_BUDGET_TIER } from "@/features/home/hooks/useTripPlannerState";
 import { BUDGET_TIER_LIMITS } from "@/shared/types/planner";
+import destinations from "@/shared/data/destinations-index.json";
 
 describe("destinationSearchParams", () => {
   it("round-trips Explorer filters, search, view, and page", () => {
@@ -73,6 +74,16 @@ describe("destinationSearchParams", () => {
       ),
     ).toBe(false);
     expect(hasRestrictedTransportSelection("none", ["train"])).toBe(true);
+  });
+
+  it("keeps Any transport distinct from public transport", () => {
+    const any = parseDestinationSearchParams(new URLSearchParams("mode=none"));
+    const publicOnly = parseDestinationSearchParams(
+      new URLSearchParams("mode=train&mode=shinkansen&mode=bus&mode=flight"),
+    );
+
+    expect(any.publicModes).toEqual([]);
+    expect(publicOnly.publicModes).toHaveLength(4);
   });
 
   it("persists preferred weather and derives profile from numeric party size", () => {
@@ -200,7 +211,14 @@ describe("destinationSearchParams", () => {
   it("PLN-004: default budgetTier maps to the correct BUDGET_TIER_LIMITS numeric value", () => {
     const expectedBudget =
       BUDGET_TIER_LIMITS[DEFAULT_DESTINATION_EXPLORER_STATE.budgetTier];
-    // The default maxBudget in the Explorer must equal the BUDGET_TIER_LIMITS value for the default tier.
     expect(expectedBudget).toBe(DEFAULT_DESTINATION_EXPLORER_STATE.maxBudget);
+  });
+
+  it("filters destination count when budgetTier is set to economy", () => {
+    const economyDestinations = destinations.filter(
+      (dest) => (dest.budgetMax ?? dest.budgetMin ?? Infinity) < 10000,
+    );
+    expect(economyDestinations.length).toBeGreaterThan(0);
+    expect(economyDestinations.length).toBeLessThan(destinations.length);
   });
 });

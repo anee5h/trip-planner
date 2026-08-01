@@ -314,6 +314,8 @@ export default function Destinations() {
     publicModes,
     partySize,
     budgetTier,
+    vibe,
+    weather,
     tripDuration,
     walkingIntensity,
     suitabilities,
@@ -339,25 +341,13 @@ export default function Destinations() {
     // 0.5. Filter by Region & Prefecture
     if (selectedRegions.length > 0 || selectedPrefectures.length > 0) {
       result = result.filter((dest) => {
-        const matchRegion = selectedRegions.includes(dest.region);
-        const matchPref = selectedPrefectures.includes(dest.prefecture);
+        const matchRegion =
+          selectedRegions.length > 0 && selectedRegions.includes(dest.region);
+        const matchPref =
+          selectedPrefectures.length > 0 &&
+          selectedPrefectures.includes(dest.prefecture);
         return matchRegion || matchPref;
       });
-    }
-
-    if (selectedCities.length > 0) {
-      result = result.filter(
-        (dest) =>
-          selectedCities.includes(dest.id) ||
-          (dest.relationships?.parentDestinationId &&
-            selectedCities.includes(dest.relationships.parentDestinationId)),
-      );
-    }
-
-    if (selectedAreas.length > 0) {
-      result = result.filter(
-        (dest) => dest.areaId && selectedAreas.includes(dest.areaId),
-      );
     }
 
     if (indoorMin > 0) {
@@ -385,6 +375,105 @@ export default function Destinations() {
     if (query) {
       const tokens = tokenizeQuery(searchQuery);
       result = result.filter((dest) => matchesDestination(dest, tokens));
+    }
+
+    // 1.5. Budget filters use a destination's upper estimate: a trip must be
+    // possible within the selected amount, not merely start below it.
+    if (budgetTier !== "standard") {
+      result = result.filter((dest) => {
+        const estimatedCost = dest.budgetMax ?? dest.budgetMin ?? Infinity;
+        if (budgetTier === "economy") return estimatedCost < 10000;
+        if (budgetTier === "comfortable") return estimatedCost < 20000;
+        return budgetTier === "luxury" || estimatedCost < 40000;
+      });
+    }
+
+    // 1.6. Vibe & Atmosphere Filter
+    if (vibe !== "any") {
+      result = result.filter((dest) => {
+        const cats = (dest.categories || []).map((c) => c.toLowerCase());
+        const tags = (dest.tags || []).map((t) => t.toLowerCase());
+        const name = (dest.name || "").toLowerCase();
+        const desc = (dest.description || "").toLowerCase();
+
+        const matches = (keywords: string[]) =>
+          keywords.some(
+            (kw) =>
+              cats.some((c) => c.includes(kw)) ||
+              tags.some((t) => t.includes(kw)) ||
+              name.includes(kw) ||
+              desc.includes(kw),
+          );
+
+        switch (vibe) {
+          case "art":
+            return matches(["art", "museum", "gallery", "culture", "exhibit"]);
+          case "food":
+            return matches([
+              "food",
+              "gourmet",
+              "dining",
+              "market",
+              "seafood",
+              "ramen",
+              "sake",
+              "eat",
+            ]);
+          case "nature":
+            return matches([
+              "nature",
+              "park",
+              "garden",
+              "mountain",
+              "view",
+              "waterfall",
+              "lake",
+              "scenic",
+              "forest",
+            ]);
+          case "history":
+            return matches([
+              "history",
+              "castle",
+              "shrine",
+              "temple",
+              "historic",
+              "heritage",
+              "ruins",
+            ]);
+          case "sea":
+            return matches([
+              "sea",
+              "beach",
+              "ocean",
+              "coast",
+              "island",
+              "bay",
+              "port",
+            ]);
+          case "photography":
+            return matches([
+              "photo",
+              "scenic",
+              "view",
+              "spot",
+              "illumination",
+              "landscape",
+              "panoramic",
+            ]);
+          case "themeParks":
+            return matches([
+              "theme",
+              "amusement",
+              "entertainment",
+              "aquarium",
+              "zoo",
+              "park",
+            ]);
+          default:
+            return true;
+        }
+      });
     }
 
     // Budget tiers are ranking preferences. Neutral transport and duration
@@ -525,6 +614,8 @@ export default function Destinations() {
     selectedAreas,
     indoorMin,
     season,
+    weather,
+    vibe,
     searchQuery,
     suitabilities,
     interests,
@@ -628,6 +719,8 @@ export default function Destinations() {
           setBudgetTier(tier);
           setMaxBudget(BUDGET_TIER_LIMITS[tier]);
         }}
+        vibe={vibe}
+        setVibe={setVibe}
         tripDuration={tripDuration}
         setTripDuration={setTripDuration}
         walkingIntensity={walkingIntensity}
@@ -636,6 +729,9 @@ export default function Destinations() {
         setSuitabilities={setSuitabilities}
         interests={interests}
         setInterests={setInterests}
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        totalResultsCount={filteredAndSortedDestinations.length}
         onReset={resetFilters}
       />
 
@@ -649,69 +745,6 @@ export default function Destinations() {
             {filteredAndSortedDestinations.length === 1 ? "" : "s"} matching
           </span>
         </div>
-
-        {(searchQuery ||
-          budgetTier !== "standard" ||
-          selectedCities.length > 0 ||
-          selectedAreas.length > 0 ||
-          indoorMin > 0 ||
-          season !== "any" ||
-          suitabilities.length > 0 ||
-          interests.length > 0) && (
-          <div className="flex items-center gap-2 flex-wrap">
-            {searchQuery && (
-              <span className="inline-flex items-center text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 px-2.5 py-1 rounded-full">
-                Search: "{searchQuery}"
-                <button
-                  onClick={() => setSearchQuery("")}
-                  aria-label="Clear search query"
-                  className="ml-1.5 hover:text-emerald-900 dark:hover:text-emerald-100 font-bold"
-                >
-                  ×
-                </button>
-              </span>
-            )}
-            {budgetTier !== "standard" && (
-              <span className="inline-flex items-center text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 px-2.5 py-1 rounded-full">
-                Budget: {budgetTier}
-                <button
-                  onClick={() => {
-                    setBudgetTier("standard");
-                    setMaxBudget(BUDGET_TIER_LIMITS.standard);
-                  }}
-                  aria-label="Clear budget filter"
-                  className="ml-1.5 hover:text-emerald-900 dark:hover:text-emerald-100 font-bold"
-                >
-                  ×
-                </button>
-              </span>
-            )}
-            {suitabilities.map((suit) => (
-              <span
-                key={suit}
-                className="inline-flex items-center text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 px-2.5 py-1 rounded-full capitalize"
-              >
-                {suit}
-                <button
-                  onClick={() =>
-                    setSuitabilities(suitabilities.filter((s) => s !== suit))
-                  }
-                  aria-label={`Remove ${suit} filter`}
-                  className="ml-1.5 hover:text-emerald-900 dark:hover:text-emerald-100 font-bold"
-                >
-                  ×
-                </button>
-              </span>
-            ))}
-            <button
-              onClick={resetFilters}
-              aria-label="Reset all filters"
-              className="text-xs font-bold text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 underline ml-2"
-            >
-              Reset All
-            </button>
-          </div>
-        )}
       </div>
 
       {filteredAndSortedDestinations.length === 0 ? (

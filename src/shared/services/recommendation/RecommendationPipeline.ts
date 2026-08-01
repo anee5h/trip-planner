@@ -185,7 +185,7 @@ export function runRecommendationPipeline(
           )[1],
       ),
     );
-    return lowestCost <= context.budget;
+    return context.budgetTier === "luxury" || lowestCost <= context.budget;
   });
 
   const scored = eligible.map((candidate) => {
