@@ -20,8 +20,6 @@ import {
   Filter,
   X,
   Sparkles,
-  Grid,
-  Map as MapIcon,
   Car,
   Compass,
   Layers,
@@ -132,8 +130,6 @@ export default function DestinationFilters({
   setSuitabilities,
   interests,
   setInterests,
-  viewMode,
-  setViewMode,
   totalResultsCount = 0,
   onReset,
 }: DestinationFiltersProps) {
@@ -298,7 +294,7 @@ export default function DestinationFilters({
   if (budgetTier !== "standard") {
     activeChips.push({
       id: "budget",
-      label: budgetTier[0].toUpperCase() + budgetTier.slice(1),
+      label: `Budget: ${budgetTier[0].toUpperCase() + budgetTier.slice(1)}`,
       onRemove: () => setBudgetTier("standard"),
     });
   }
@@ -403,10 +399,10 @@ export default function DestinationFilters({
         </div>
       </div>
 
-      {/* Primary Always-Visible Filter Bar */}
+      {/* Primary Always-Visible Filter Bar (Logical Sequence: Where -> Getting around -> Travel time -> Duration -> Vibe -> Collections -> Budget -> More filters) */}
       <div className="flex items-center justify-between gap-2 overflow-x-auto pb-1 scrollbar-none">
         <div className="flex items-center gap-2 shrink-0">
-          {/* Where Hierarchical Picker */}
+          {/* 1. Where Location Picker */}
           <WhereLocationPicker
             selectedRegions={selectedRegions}
             setSelectedRegions={setSelectedRegions}
@@ -418,7 +414,142 @@ export default function DestinationFilters({
             setSelectedAreas={setSelectedAreas}
           />
 
-          {/* Curated Collections Multi-Select Dropdown Popover */}
+          {/* 2. Getting Around Filter */}
+          <Select
+            value={gettingAroundValue}
+            onValueChange={handleGettingAroundChange}
+          >
+            <SelectTrigger
+              className={`h-9 px-3 rounded-xl border text-xs font-bold transition-all ${
+                gettingAroundValue !== "public"
+                  ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300"
+                  : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300"
+              }`}
+            >
+              <div className="flex items-center gap-1">
+                <Car className="w-3.5 h-3.5 text-emerald-500" />
+                <span>
+                  {gettingAroundValue === "public"
+                    ? "Public transit"
+                    : gettingAroundValue === "my_car"
+                      ? "My car"
+                      : gettingAroundValue === "rental"
+                        ? "Rental car"
+                        : "Either"}
+                </span>
+              </div>
+            </SelectTrigger>
+            <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800">
+              <SelectItem value="public">Public transit</SelectItem>
+              {showMyCar && <SelectItem value="my_car">My car</SelectItem>}
+              {showRental && <SelectItem value="rental">Rental car</SelectItem>}
+              <SelectItem value="either">Either</SelectItem>
+            </SelectContent>
+          </Select>
+
+          {/* 3. Max Travel Time Filter */}
+          <Select
+            value={maxTravelTime}
+            onValueChange={(val: string | null) =>
+              val && setMaxTravelTime(val as typeof maxTravelTime)
+            }
+          >
+            <SelectTrigger
+              className={`h-9 px-3 rounded-xl border text-xs font-bold transition-all ${
+                maxTravelTime !== "any"
+                  ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300"
+                  : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300"
+              }`}
+            >
+              <div className="flex items-center gap-1">
+                <Clock className="w-3.5 h-3.5 text-emerald-500" />
+                <span>
+                  {maxTravelTime === "any"
+                    ? "Travel time"
+                    : `≤ ${maxTravelTime} mins`}
+                </span>
+              </div>
+            </SelectTrigger>
+            <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800">
+              <SelectItem value="any">Any travel time</SelectItem>
+              <SelectItem value="30">30 minutes</SelectItem>
+              <SelectItem value="60">60 minutes</SelectItem>
+              <SelectItem value="90">90 minutes</SelectItem>
+            </SelectContent>
+          </Select>
+
+          {/* 4. Duration Filter */}
+          <Select
+            value={tripDuration}
+            onValueChange={(val: string | null) =>
+              val && setTripDuration(val as TripDuration)
+            }
+          >
+            <SelectTrigger
+              className={`h-9 px-3 rounded-xl border text-xs font-bold transition-all ${
+                tripDuration !== "any"
+                  ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300"
+                  : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300"
+              }`}
+            >
+              <div className="flex items-center gap-1">
+                <Clock className="w-3.5 h-3.5 text-emerald-500" />
+                <span>
+                  {tripDuration === "any"
+                    ? "Duration"
+                    : tripDuration === "shortOuting"
+                      ? "Short outing"
+                      : tripDuration === "halfDay"
+                        ? "Half day"
+                        : tripDuration === "fullDay"
+                          ? "Full day"
+                          : "Weekend"}
+                </span>
+              </div>
+            </SelectTrigger>
+            <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800">
+              <SelectItem value="any">Any duration</SelectItem>
+              <SelectItem value="shortOuting">Short outing (&lt;4h)</SelectItem>
+              <SelectItem value="halfDay">Half day (4–7.5h)</SelectItem>
+              <SelectItem value="fullDay">Full day (7.5–14h)</SelectItem>
+              <SelectItem value="weekend">Weekend (&gt;14h)</SelectItem>
+            </SelectContent>
+          </Select>
+
+          {/* 5. Vibe Filter */}
+          <Select
+            value={vibe}
+            onValueChange={(val: string | null) => val && setVibe(val)}
+          >
+            <SelectTrigger
+              className={`h-9 px-3 rounded-xl border text-xs font-bold transition-all ${
+                vibe !== "any"
+                  ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300"
+                  : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300"
+              }`}
+            >
+              <div className="flex items-center gap-1">
+                <Compass className="w-3.5 h-3.5 text-emerald-500" />
+                <span>
+                  {vibe === "any"
+                    ? "Vibe"
+                    : vibe[0].toUpperCase() + vibe.slice(1)}
+                </span>
+              </div>
+            </SelectTrigger>
+            <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800">
+              <SelectItem value="any">Anything goes</SelectItem>
+              <SelectItem value="art">Art & museums</SelectItem>
+              <SelectItem value="food">Food</SelectItem>
+              <SelectItem value="nature">Nature</SelectItem>
+              <SelectItem value="history">History</SelectItem>
+              <SelectItem value="sea">Sea</SelectItem>
+              <SelectItem value="photography">Photography</SelectItem>
+              <SelectItem value="themeParks">Theme parks</SelectItem>
+            </SelectContent>
+          </Select>
+
+          {/* 6. Curated Collections Multi-Select Dropdown Popover */}
           <div className="relative" ref={collectionPopoverRef}>
             <button
               type="button"
@@ -493,78 +624,7 @@ export default function DestinationFilters({
             )}
           </div>
 
-          {/* Vibe Filter */}
-          <Select
-            value={vibe}
-            onValueChange={(val: string | null) => val && setVibe(val)}
-          >
-            <SelectTrigger
-              className={`h-9 px-3 rounded-xl border text-xs font-bold transition-all ${
-                vibe !== "any"
-                  ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300"
-                  : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300"
-              }`}
-            >
-              <div className="flex items-center gap-1">
-                <Compass className="w-3.5 h-3.5 text-emerald-500" />
-                <span>
-                  {vibe === "any"
-                    ? "Vibe"
-                    : vibe[0].toUpperCase() + vibe.slice(1)}
-                </span>
-              </div>
-            </SelectTrigger>
-            <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800">
-              <SelectItem value="any">Anything goes</SelectItem>
-              <SelectItem value="art">Art & museums</SelectItem>
-              <SelectItem value="food">Food</SelectItem>
-              <SelectItem value="nature">Nature</SelectItem>
-              <SelectItem value="history">History</SelectItem>
-              <SelectItem value="sea">Sea</SelectItem>
-              <SelectItem value="photography">Photography</SelectItem>
-              <SelectItem value="themeParks">Theme parks</SelectItem>
-            </SelectContent>
-          </Select>
-
-          {/* Duration Filter */}
-          <Select
-            value={tripDuration}
-            onValueChange={(val: string | null) =>
-              val && setTripDuration(val as TripDuration)
-            }
-          >
-            <SelectTrigger
-              className={`h-9 px-3 rounded-xl border text-xs font-bold transition-all ${
-                tripDuration !== "any"
-                  ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300"
-                  : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300"
-              }`}
-            >
-              <div className="flex items-center gap-1">
-                <Clock className="w-3.5 h-3.5 text-emerald-500" />
-                <span>
-                  {tripDuration === "any"
-                    ? "Duration"
-                    : tripDuration === "shortOuting"
-                      ? "Short outing"
-                      : tripDuration === "halfDay"
-                        ? "Half day"
-                        : tripDuration === "fullDay"
-                          ? "Full day"
-                          : "Weekend"}
-                </span>
-              </div>
-            </SelectTrigger>
-            <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800">
-              <SelectItem value="any">Any duration</SelectItem>
-              <SelectItem value="shortOuting">Short outing (&lt;4h)</SelectItem>
-              <SelectItem value="halfDay">Half day (4–7.5h)</SelectItem>
-              <SelectItem value="fullDay">Full day (7.5–14h)</SelectItem>
-              <SelectItem value="weekend">Weekend (&gt;14h)</SelectItem>
-            </SelectContent>
-          </Select>
-
-          {/* Budget Filter */}
+          {/* 7. Budget Filter (Clear "Budget" Trigger Label) */}
           <Select
             value={budgetTier}
             onValueChange={(val: string | null) =>
@@ -580,7 +640,11 @@ export default function DestinationFilters({
             >
               <div className="flex items-center gap-1">
                 <Coins className="w-3.5 h-3.5 text-emerald-500" />
-                <span>{budgetTier[0].toUpperCase() + budgetTier.slice(1)}</span>
+                <span>
+                  {budgetTier === "standard"
+                    ? "Budget"
+                    : `Budget: ${budgetTier[0].toUpperCase() + budgetTier.slice(1)}`}
+                </span>
               </div>
             </SelectTrigger>
             <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800">
@@ -591,71 +655,7 @@ export default function DestinationFilters({
             </SelectContent>
           </Select>
 
-          {/* Getting Around Filter */}
-          <Select
-            value={gettingAroundValue}
-            onValueChange={handleGettingAroundChange}
-          >
-            <SelectTrigger
-              className={`h-9 px-3 rounded-xl border text-xs font-bold transition-all ${
-                gettingAroundValue !== "public"
-                  ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300"
-                  : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300"
-              }`}
-            >
-              <div className="flex items-center gap-1">
-                <Car className="w-3.5 h-3.5 text-emerald-500" />
-                <span>
-                  {gettingAroundValue === "public"
-                    ? "Public transit"
-                    : gettingAroundValue === "my_car"
-                      ? "My car"
-                      : gettingAroundValue === "rental"
-                        ? "Rental car"
-                        : "Either"}
-                </span>
-              </div>
-            </SelectTrigger>
-            <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800">
-              <SelectItem value="public">Public transit</SelectItem>
-              {showMyCar && <SelectItem value="my_car">My car</SelectItem>}
-              {showRental && <SelectItem value="rental">Rental car</SelectItem>}
-              <SelectItem value="either">Either</SelectItem>
-            </SelectContent>
-          </Select>
-
-          {/* Max Travel Time Filter */}
-          <Select
-            value={maxTravelTime}
-            onValueChange={(val: string | null) =>
-              val && setMaxTravelTime(val as typeof maxTravelTime)
-            }
-          >
-            <SelectTrigger
-              className={`h-9 px-3 rounded-xl border text-xs font-bold transition-all ${
-                maxTravelTime !== "any"
-                  ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300"
-                  : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300"
-              }`}
-            >
-              <div className="flex items-center gap-1">
-                <Clock className="w-3.5 h-3.5 text-emerald-500" />
-                <span>
-                  {maxTravelTime === "any"
-                    ? "Travel time"
-                    : `≤ ${maxTravelTime} mins`}
-                </span>
-              </div>
-            </SelectTrigger>
-            <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800">
-              <SelectItem value="any">Any travel time</SelectItem>
-              <SelectItem value="30">30 minutes</SelectItem>
-              <SelectItem value="60">60 minutes</SelectItem>
-              <SelectItem value="90">90 minutes</SelectItem>
-            </SelectContent>
-          </Select>
-
-          {/* More Filters Toggle */}
+          {/* 8. More Filters Toggle */}
           <button
             onClick={() => setModalOpen(true)}
             className={`h-9 px-3 rounded-xl border text-xs font-bold flex items-center justify-center gap-1.5 transition-all shrink-0 ${
@@ -674,7 +674,7 @@ export default function DestinationFilters({
           </button>
         </div>
 
-        {/* Right side Sort & View controls */}
+        {/* 9. Right side Sort dropdown */}
         <div className="flex items-center gap-2 shrink-0">
           <Select
             value={sortBy}
@@ -761,32 +761,6 @@ export default function DestinationFilters({
               </SelectItem>
             </SelectContent>
           </Select>
-
-          {/* Grid / Map View Toggle */}
-          <div className="flex items-center bg-slate-100 dark:bg-slate-950 p-0.5 rounded-xl border border-slate-200 dark:border-slate-800">
-            <button
-              onClick={() => setViewMode("grid")}
-              className={`p-1.5 rounded-lg text-xs font-bold transition-all ${
-                viewMode === "grid"
-                  ? "bg-white dark:bg-slate-800 text-emerald-600 shadow-sm"
-                  : "text-slate-500 hover:text-slate-800 dark:hover:text-white"
-              }`}
-              title="Grid View"
-            >
-              <Grid className="w-3.5 h-3.5" />
-            </button>
-            <button
-              onClick={() => setViewMode("map")}
-              className={`p-1.5 rounded-lg text-xs font-bold transition-all ${
-                viewMode === "map"
-                  ? "bg-white dark:bg-slate-800 text-emerald-600 shadow-sm"
-                  : "text-slate-500 hover:text-slate-800 dark:hover:text-white"
-              }`}
-              title="Map View"
-            >
-              <MapIcon className="w-3.5 h-3.5" />
-            </button>
-          </div>
         </div>
       </div>
 
