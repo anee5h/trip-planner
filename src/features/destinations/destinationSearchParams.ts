@@ -25,6 +25,7 @@ export const DEFAULT_DESTINATION_EXPLORER_STATE = {
   budgetTier: "standard" as BudgetTier,
   vibe: "any",
   tripDuration: "any" as TripDuration,
+  maxTravelTime: "any" as "any" | "30" | "60" | "90",
   walkingIntensity: "all",
   suitabilities: [] as string[],
   interests: [] as string[],
@@ -74,6 +75,12 @@ export function parseDestinationSearchParams(
         : partyProfile === "group"
           ? 4
           : 2;
+
+  const rawMaxTime = params.get("maxTime");
+  const maxTravelTime =
+    rawMaxTime === "30" || rawMaxTime === "60" || rawMaxTime === "90"
+      ? rawMaxTime
+      : defaults.maxTravelTime;
 
   return {
     searchQuery: params.get("q") ?? defaults.searchQuery,
@@ -125,6 +132,7 @@ export function parseDestinationSearchParams(
         : params.get("duration") === "dayTrip"
           ? "fullDay"
           : defaults.tripDuration,
+    maxTravelTime,
     walkingIntensity: params.get("walking") ?? defaults.walkingIntensity,
     suitabilities: params.getAll("suitability"),
     interests: params.getAll("interest"),
@@ -162,6 +170,7 @@ export function serializeDestinationSearchParams(
   params.set("budgetTier", state.budgetTier);
   params.set("vibe", state.vibe);
   params.set("duration", state.tripDuration);
+  if (state.maxTravelTime !== "any") params.set("maxTime", state.maxTravelTime);
   params.set("walking", state.walkingIntensity);
   appendAll("suitability", state.suitabilities);
   appendAll("interest", state.interests);

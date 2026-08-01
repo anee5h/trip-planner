@@ -90,6 +90,9 @@ export default function Destinations() {
   const [tripDuration, setTripDuration] = useState<TripDuration>(
     initialExplorerState.tripDuration,
   );
+  const [maxTravelTime, setMaxTravelTime] = useState<
+    "any" | "30" | "60" | "90"
+  >(initialExplorerState.maxTravelTime);
   const [walkingIntensity, setWalkingIntensity] = useState(
     initialExplorerState.walkingIntensity,
   );
@@ -176,6 +179,7 @@ export default function Destinations() {
     setVibe(restored.vibe);
     setWeather(restored.weather);
     setTripDuration(restored.tripDuration);
+    setMaxTravelTime(restored.maxTravelTime);
     setWalkingIntensity(restored.walkingIntensity);
     setSuitabilities(restored.suitabilities);
     setInterests(restored.interests);
@@ -207,6 +211,7 @@ export default function Destinations() {
       vibe,
       weather,
       tripDuration,
+      maxTravelTime,
       walkingIntensity,
       suitabilities,
       interests,
@@ -236,6 +241,7 @@ export default function Destinations() {
     vibe,
     weather,
     tripDuration,
+    maxTravelTime,
     walkingIntensity,
     suitabilities,
     interests,
@@ -387,6 +393,27 @@ export default function Destinations() {
       result = result.filter((dest) => matchesDestination(dest, tokens));
     }
 
+    // Maximum Travel Time Filter
+    if (maxTravelTime !== "any") {
+      const timeLimit = Number(maxTravelTime);
+      result = result.filter((dest) => {
+        const times = getValidModes(
+          dest,
+          carMode,
+          publicModes,
+          homeStationCoords ?? undefined,
+          budgetTier,
+        ).map(
+          (m) =>
+            (dest.transportOptions?.[
+              m as keyof typeof dest.transportOptions
+            ] as number) || 999,
+        );
+        const fastest = times.length > 0 ? Math.min(...times) : 999;
+        return fastest <= timeLimit;
+      });
+    }
+
     // Budget tiers are ranking preferences. Neutral transport and duration
     // settings must keep the complete catalogue browsable.
     if (
@@ -515,6 +542,7 @@ export default function Destinations() {
     partySize,
     budgetTier,
     tripDuration,
+    maxTravelTime,
     walkingIntensity,
     homeStationCoords,
     catalogContext,
@@ -549,6 +577,7 @@ export default function Destinations() {
     setVibe(defaults.vibe);
     setWeather(defaults.weather);
     setTripDuration(defaults.tripDuration);
+    setMaxTravelTime(defaults.maxTravelTime);
     setWalkingIntensity(defaults.walkingIntensity);
     setSuitabilities(defaults.suitabilities);
     setInterests(defaults.interests);
@@ -628,14 +657,21 @@ export default function Destinations() {
           setBudgetTier(tier);
           setMaxBudget(BUDGET_TIER_LIMITS[tier]);
         }}
+        vibe={vibe}
+        setVibe={setVibe}
         tripDuration={tripDuration}
         setTripDuration={setTripDuration}
+        maxTravelTime={maxTravelTime}
+        setMaxTravelTime={setMaxTravelTime}
         walkingIntensity={walkingIntensity}
         setWalkingIntensity={setWalkingIntensity}
         suitabilities={suitabilities}
         setSuitabilities={setSuitabilities}
         interests={interests}
         setInterests={setInterests}
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        totalResultsCount={filteredAndSortedDestinations.length}
         onReset={resetFilters}
       />
 
