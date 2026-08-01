@@ -149,7 +149,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero & Full-Width Planner Section */}
-      <section className="relative pt-6 pb-6 sm:pt-8 sm:pb-8 lg:pt-10 lg:pb-10 overflow-hidden bg-slate-50 dark:bg-slate-950">
+      <section className="relative overflow-hidden bg-slate-50 pb-6 pt-6 sm:pb-8 sm:pt-8 lg:pb-8 lg:pt-10 dark:bg-slate-950">
         <div className="absolute inset-0 bg-grid-slate-200/50 dark:bg-grid-slate-800/50 [mask-image:linear-gradient(0deg,transparent,black)] -z-10" />
         <div className="container mx-auto px-4 max-w-6xl">
           {/* 2-Row Mobile Context Controls (No Clipping) */}
@@ -333,6 +333,7 @@ export default function Home() {
         partySize={resolvedDraft.partySize}
         carMode={resolvedDraft.carMode}
         publicModes={resolvedDraft.publicModes}
+        tripDuration={tripDuration}
         expansion={rouletteExpansion}
       />
 

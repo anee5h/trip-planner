@@ -272,6 +272,7 @@
     "rainReason": "Well suited to rain",
     "hotReason": "Comfortable on hot days",
     "coldReason": "A strong cold-weather choice",
+    "indoorReason": "A comfortable indoor pick",
     "transportModes": {
       "train": "Train",
       "shinkansen": "Shinkansen",
@@ -289,8 +290,10 @@
       "spinAgain": "Spin again",
       "close": "Close roulette",
       "viewDestination": "View destination",
+      "viewDetails": "View details",
       "empty": "No candidates available to spin.",
-      "expanded": "Expanded the search slightly to give you more variety."
+      "expanded": "Expanded the search slightly to give you more variety.",
+      "reason": "Selected because it fits your {{duration}} plan, budget, and transport preference."
     }
   },
   "ui": {

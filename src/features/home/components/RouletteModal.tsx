@@ -16,7 +16,10 @@ import { useLocale } from "@/shared/context/LocaleContext";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
-import { formatPrefecture } from "@/shared/utils/placeLabels";
+import {
+  formatPrefecture,
+  localizePlaceLabel,
+} from "@/shared/utils/placeLabels";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useTranslation } from "react-i18next";
 
@@ -27,6 +30,7 @@ interface RouletteModalProps {
   partySize?: number;
   carMode?: string;
   publicModes?: string[];
+  tripDuration?: "shortOuting" | "halfDay" | "fullDay";
   expansion?: "exact" | "duration" | "budget";
 }
 
@@ -37,6 +41,7 @@ export default function RouletteModal({
   partySize = 2,
   carMode,
   publicModes,
+  tripDuration = "halfDay",
   expansion = "exact",
 }: RouletteModalProps) {
   const { locale } = useLocale();
@@ -123,6 +128,19 @@ export default function RouletteModal({
         homeStationCoords || undefined,
       )
     : null;
+  const transportLabel = bestTransport
+    ? (t(`home.transportModes.${bestTransport.mode}` as never) as string)
+    : t("home.transportModes.travel");
+  const durationLabel = t(`home.durations.${tripDuration}`) as string;
+  const locationLabel = displayedCandidate
+    ? [
+        formatPrefecture(displayedCandidate.prefecture, locale),
+        displayedCandidate.categories[0] &&
+          localizePlaceLabel(displayedCandidate.categories[0], locale),
+      ]
+        .filter(Boolean)
+        .join(" · ")
+    : "";
 
   return (
     <div
@@ -207,22 +225,35 @@ export default function RouletteModal({
                 <div className="absolute bottom-4 left-4 right-4 text-left text-white">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-[11px] font-bold px-2 py-0.5 rounded-md bg-white/20 backdrop-blur-sm">
-                      {formatPrefecture(displayedCandidate.prefecture, locale)}
+                      {locationLabel}
                     </span>
-                    {bestTransport && (
-                      <span className="text-[11px] font-bold px-2 py-0.5 rounded-md bg-emerald-500/80 backdrop-blur-sm flex items-center gap-1">
-                        <Clock className="w-3 h-3" />
-                        {formatTransportTime(bestTransport.timeRange)}
-                      </span>
-                    )}
                   </div>
                   <h3 className="text-2xl font-extrabold line-clamp-1">
                     {localized.name}
                   </h3>
-                  <p className="text-xs text-slate-200 line-clamp-1 mt-0.5">
-                    {displayedCandidate.description}
-                  </p>
                 </div>
+              </div>
+
+              <div className="space-y-2 text-left">
+                <div className="flex flex-wrap items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-300">
+                  <span className="inline-flex items-center gap-1">
+                    <Clock className="h-3.5 w-3.5 text-emerald-500" />
+                    {bestTransport
+                      ? formatTransportTime(bestTransport.timeRange)
+                      : t("home.transportModes.travel")}
+                  </span>
+                  <span className="text-slate-300 dark:text-slate-600">·</span>
+                  <span>{transportLabel}</span>
+                  <span className="text-slate-300 dark:text-slate-600">·</span>
+                  <span>{durationLabel}</span>
+                </div>
+                <p className="rounded-xl bg-emerald-50 px-3 py-2 text-xs font-medium leading-relaxed text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-200">
+                  {
+                    t("home.roulette.reason", {
+                      duration: durationLabel,
+                    }) as string
+                  }
+                </p>
               </div>
 
               {/* Action buttons */}
@@ -244,7 +275,7 @@ export default function RouletteModal({
                     className="flex-1"
                   >
                     <Button className="w-full h-12 rounded-2xl font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-500/25">
-                      <span>{t("home.roulette.viewDestination")}</span>
+                      <span>{t("home.roulette.viewDetails")}</span>
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </Link>

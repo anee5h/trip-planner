@@ -272,6 +272,7 @@
     "rainReason": "雨の日におすすめ",
     "hotReason": "暑い日に快適",
     "coldReason": "寒い日におすすめ",
+    "indoorReason": "屋内中心で快適に過ごせます",
     "transportModes": {
       "train": "電車",
       "shinkansen": "新幹線",
@@ -289,8 +290,10 @@
       "spinAgain": "もう一度回す",
       "close": "ルーレットを閉じる",
       "viewDestination": "目的地を見る",
+      "viewDetails": "詳細を見る",
       "empty": "ルーレット用の候補がありません。",
-      "expanded": "候補を増やすため、検索条件を少し広げました。"
+      "expanded": "候補を増やすため、検索条件を少し広げました。",
+      "reason": "{{duration}}の予定、予算、移動手段に合うため選ばれました。"
     }
   },
   "ui": {

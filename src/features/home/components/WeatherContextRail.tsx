@@ -85,7 +85,7 @@ export const WeatherContextRail: React.FC<WeatherContextRailProps> = ({
   );
 
   return (
-    <section className="py-8 sm:py-12 lg:py-16 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-900">
+    <section className="border-t border-slate-100 bg-white py-10 sm:py-12 lg:py-12 dark:border-slate-900 dark:bg-slate-950">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <div className="flex items-start justify-between mb-4 sm:mb-6 gap-3">
@@ -110,7 +110,7 @@ export const WeatherContextRail: React.FC<WeatherContextRailProps> = ({
           {deduplicatedPicks.map((dest, index) => (
             <div
               key={dest.id}
-              className="w-[46vw] min-w-[160px] max-w-[180px] sm:w-auto sm:min-w-[270px] sm:max-w-[290px] shrink-0 snap-start flex flex-col h-full"
+              className="flex h-full w-[46vw] min-w-[160px] max-w-[180px] shrink-0 snap-start flex-col sm:w-[250px] sm:min-w-[250px] sm:max-w-[250px]"
             >
               <HomeMatchCard
                 destination={dest}

@@ -48,11 +48,11 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
     <section
       id="recommendations"
       tabIndex={-1}
-      className="py-8 sm:py-12 lg:py-16 bg-white dark:bg-slate-950"
+      className="bg-white py-10 sm:py-12 lg:py-12 dark:bg-slate-950"
     >
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Section Header */}
-        <div className="flex items-start justify-between mb-4 sm:mb-6 gap-3">
+        <div className="mb-4 flex items-start justify-between gap-3 sm:mb-6">
           <div className="min-w-0">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight flex items-center gap-2">
               <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-500 shrink-0" />
@@ -72,12 +72,12 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
         {/* Top 5 Recommendations Horizontal Scroll Rail */}
         <div
           ref={railRef}
-          className="flex gap-3 sm:gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none py-2 -mx-4 px-4 sm:mx-0 sm:px-0"
+          className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 py-2 scrollbar-none sm:mx-0 sm:gap-4 sm:px-0"
         >
           {topFive.map((dest, index) => (
             <div
               key={dest.id}
-              className="w-[46vw] min-w-[160px] max-w-[180px] sm:w-auto sm:min-w-[270px] sm:max-w-[290px] shrink-0 snap-start flex flex-col h-full"
+              className="flex h-full w-[46vw] min-w-[160px] max-w-[180px] shrink-0 snap-start flex-col sm:w-[250px] sm:min-w-[250px] sm:max-w-[250px]"
             >
               <HomeMatchCard
                 destination={dest}
@@ -86,7 +86,6 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
                 partySize={appliedState.partySize}
                 carMode={appliedState.carMode}
                 publicModes={appliedState.publicModes}
-                reason={t("home.matchReason")}
               />
             </div>
           ))}
