@@ -85,7 +85,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   return (
     <Link
       to={`/destinations/${destination.id}`}
-      className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-md transition-all duration-300 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900"
+      className="group relative flex h-full flex-1 cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-md transition-all duration-300 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900"
     >
       <div className="relative aspect-[4/3] sm:h-48 sm:aspect-auto w-full overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0">
         <LazyImage
@@ -118,19 +118,20 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col gap-2 p-3 sm:p-4">
-        <div>
-          <div className="min-h-[2.5rem]">
-            <h3 className="text-xs sm:text-base font-extrabold text-slate-900 dark:text-white line-clamp-2 leading-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-              {title}
-            </h3>
-            {subtitle && (
-              <span className="text-[10px] sm:text-xs font-semibold text-slate-400 dark:text-slate-500 truncate mt-0.5">
-                {subtitle}
-              </span>
-            )}
-          </div>
-          <p className="mt-1 line-clamp-1 text-[10px] font-semibold text-slate-500 dark:text-slate-400 sm:text-xs">
+      <div className="flex flex-1 flex-col justify-between p-3 sm:p-4">
+        <div className="flex flex-col min-h-[3.25rem] sm:min-h-[4rem]">
+          <h3 className="text-xs sm:text-base font-extrabold text-slate-900 dark:text-white line-clamp-2 leading-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+            {title}
+          </h3>
+          {subtitle && (
+            <span className="text-[10px] sm:text-xs font-semibold text-slate-400 dark:text-slate-500 truncate mt-0.5">
+              {subtitle}
+            </span>
+          )}
+        </div>
+
+        <div className="mt-auto pt-2">
+          <p className="line-clamp-1 text-[10px] font-semibold text-slate-500 dark:text-slate-400 sm:text-xs">
             {areaAndCategory}
           </p>
 
