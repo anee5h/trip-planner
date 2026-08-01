@@ -481,7 +481,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             type="button"
             variant="outline"
             size="lg"
-            className="h-11 px-6 text-sm font-bold rounded-xl bg-emerald-50/80 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 shadow-sm transition-all flex items-center gap-2"
+            className="h-11 px-6 text-sm font-bold rounded-xl border-slate-300 bg-white text-slate-700 hover:border-slate-400 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800 transition-colors flex items-center gap-2"
             onClick={onSurpriseMe}
           >
             <Shuffle className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
@@ -621,7 +621,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
               type="button"
               variant="outline"
               size="lg"
-              className="h-[50px] w-full rounded-xl border-emerald-300/80 bg-emerald-50/70 text-xs font-bold text-emerald-700 hover:bg-emerald-100 dark:border-emerald-800/80 dark:bg-emerald-950/40 dark:text-emerald-300"
+              className="h-[50px] w-full rounded-xl border-slate-300 bg-white text-xs font-bold text-slate-700 hover:border-slate-400 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
               onClick={onSurpriseMe}
             >
               <Shuffle className="mr-1.5 h-3.5 w-3.5" />

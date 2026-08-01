@@ -10,20 +10,9 @@ export interface DefaultDurationOptions {
 }
 
 export function getDefaultTripDuration({
-  selection,
-  currentTime = new Date(),
-  timeZone = "Asia/Tokyo",
+  selection: _selection,
+  currentTime: _currentTime = new Date(),
+  timeZone: _timeZone = "Asia/Tokyo",
 }: DefaultDurationOptions): HomepageTripDuration {
-  if (selection.type !== "today") return "fullDay";
-
-  const hourStr = new Intl.DateTimeFormat("en-US", {
-    hour: "numeric",
-    hourCycle: "h23",
-    timeZone,
-  }).format(currentTime);
-  const hour = parseInt(hourStr, 10);
-
-  if (hour < 12) return "fullDay";
-  if (hour < 16) return "halfDay";
-  return "shortOuting";
+  return "halfDay";
 }
