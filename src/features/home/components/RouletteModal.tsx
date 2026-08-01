@@ -141,6 +141,7 @@ export default function RouletteModal({
         .filter(Boolean)
         .join(" · ")
     : "";
+  const displayName = localized?.name || displayedCandidate?.name || "";
 
   return (
     <div
@@ -220,21 +221,17 @@ export default function RouletteModal({
                     <span>{t("home.roulette.match")}</span>
                   </div>
                 )}
-
-                {/* Destination info */}
-                <div className="absolute bottom-4 left-4 right-4 text-left text-white">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[11px] font-bold px-2 py-0.5 rounded-md bg-white/20 backdrop-blur-sm">
-                      {locationLabel}
-                    </span>
-                  </div>
-                  <h3 className="text-2xl font-extrabold line-clamp-1">
-                    {localized.name}
-                  </h3>
-                </div>
               </div>
 
               <div className="space-y-2 text-left">
+                <div>
+                  <h3 className="line-clamp-2 text-xl font-extrabold text-slate-900 dark:text-white">
+                    {displayName}
+                  </h3>
+                  <p className="mt-1 text-xs font-medium text-slate-500 dark:text-slate-400">
+                    {locationLabel}
+                  </p>
+                </div>
                 <div className="flex flex-wrap items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-300">
                   <span className="inline-flex items-center gap-1">
                     <Clock className="h-3.5 w-3.5 text-emerald-500" />
@@ -247,13 +244,6 @@ export default function RouletteModal({
                   <span className="text-slate-300 dark:text-slate-600">·</span>
                   <span>{durationLabel}</span>
                 </div>
-                <p className="rounded-xl bg-emerald-50 px-3 py-2 text-xs font-medium leading-relaxed text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-200">
-                  {
-                    t("home.roulette.reason", {
-                      duration: durationLabel,
-                    }) as string
-                  }
-                </p>
               </div>
 
               {/* Action buttons */}
