@@ -3,6 +3,11 @@ import type { ReactNode } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { useTripSync } from "@/shared/hooks/useTripSync";
+import type {
+  ProfileSyncStatus,
+  TripSyncStatus,
+} from "@/shared/hooks/useTripSync";
+import { clearLegacyAccountStorage } from "@/shared/utils/clearLegacyAccountStorage";
 import destinationsIndex from "@/shared/data/destinations-meta.json";
 import type { Trip, TripStop } from "@/shared/types/trip";
 import * as TripService from "@/shared/services/trips/TripService";
@@ -81,6 +86,11 @@ interface TripStoreContextType {
   ) => void;
   setDestinationRating: (id: string, rating: "up" | "down" | null) => void;
   getDestinationRating: (id: string) => "up" | "down" | null;
+
+  profileSyncStatus: ProfileSyncStatus;
+  tripSyncStatus: TripSyncStatus;
+  retryProfileHydration: () => void;
+  retryTripHydration: () => void;
 }
 
 const TripStoreContext = createContext<TripStoreContextType | undefined>(
@@ -89,44 +99,35 @@ const TripStoreContext = createContext<TripStoreContextType | undefined>(
 
 export function TripStoreProvider({ children }: { children: ReactNode }) {
   const { user } = useAuth();
-  const [favorites, setFavorites] = useLocalStorage<string[]>(
-    "trip-planner-favorites",
-    [],
-  );
-  const [visited, setVisited] = useLocalStorage<string[]>(
-    "trip-planner-visited",
-    [],
-  );
-  const [visitedPrefectures, setVisitedPrefectures] = useLocalStorage<string[]>(
-    "trip-planner-visited-prefs",
-    [],
-  );
-  const [visitedDates, setVisitedDates] = useLocalStorage<
+
+  // One-time startup purge of legacy localStorage account cache keys
+  useEffect(() => {
+    clearLegacyAccountStorage();
+  }, []);
+
+  const [favorites, setFavorites] = useState<string[]>([]);
+  const [visited, setVisited] = useState<string[]>([]);
+  const [visitedPrefectures, setVisitedPrefectures] = useState<string[]>([]);
+  const [visitedDates, setVisitedDates] = useState<
     Record<string, string[] | string>
-  >("trip-planner-visited-dates", {});
+  >({});
   // Note: compareList is intentionally kept local-only (stored in localStorage, not synced to cloud)
   const [compareList, setCompareList] = useLocalStorage<string[]>(
     "trip-planner-compare",
     [],
   );
-  const [homeStation, setHomeStation] = useLocalStorage<string>(
-    "trip-planner-home-station",
-    "Tokyo Station",
-  );
-  const [homeStationCoords, setHomeStationCoords] = useLocalStorage<{
+  const [homeStation, setHomeStation] = useState<string>("Tokyo Station");
+  const [homeStationCoords, setHomeStationCoords] = useState<{
     lat: number;
     lng: number;
-  } | null>(
-    "trip-planner-home-station-coords",
-    { lat: 35.6812, lng: 139.7671 }, // Tokyo Station default
-  );
+  } | null>({ lat: 35.6812, lng: 139.7671 }); // Tokyo Station default
 
   const [lastSyncedDate, setLastSyncedDate] = useState<string | null>(null);
 
-  const [trips, setTrips] = useLocalStorage<Trip[]>("trip-planner-trips", []);
-  const [destinationRatings, setDestinationRatings] = useLocalStorage<
+  const [trips, setTrips] = useState<Trip[]>([]);
+  const [destinationRatings, setDestinationRatings] = useState<
     Record<string, "up" | "down">
-  >("trip-planner-ratings", {});
+  >({});
 
   const setDestinationRating = (id: string, rating: "up" | "down" | null) => {
     setDestinationRatings((prev) => {
@@ -144,7 +145,12 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     destinationRatings[id] ?? null;
 
   // Modular cloud persistence & initial load hook
-  useTripSync({
+  const {
+    profileSyncStatus,
+    tripSyncStatus,
+    retryProfileHydration,
+    retryTripHydration,
+  } = useTripSync({
     user,
     favorites,
     setFavorites,
@@ -562,6 +568,10 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
         setDestinationRatings,
         setDestinationRating,
         getDestinationRating,
+        profileSyncStatus,
+        tripSyncStatus,
+        retryProfileHydration,
+        retryTripHydration,
       }}
     >
       {children}

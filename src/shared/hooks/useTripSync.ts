@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { User } from "@supabase/supabase-js";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
@@ -49,13 +49,16 @@ interface UseTripSyncProps {
   ) => void;
 }
 
-interface LocalSnapshot {
-  favorites: string[];
-  visited: string[];
-  visitedPrefectures: string[];
-  visitedDates: VisitDates;
-  destinationRatings: DestinationRatings;
-  homeStation: string;
+export type ProfileSyncStatus =
+  "idle" | "loading" | "ready" | "saving" | "error";
+
+export type TripSyncStatus = "idle" | "loading" | "ready" | "saving" | "error";
+
+export interface UseTripSyncReturn {
+  profileSyncStatus: ProfileSyncStatus;
+  tripSyncStatus: TripSyncStatus;
+  retryProfileHydration: () => void;
+  retryTripHydration: () => void;
 }
 
 const destinationById = new Map<string, Destination>(
@@ -109,20 +112,6 @@ function normalizeVisitDates(value: unknown): VisitDates {
   }
 
   return normalized;
-}
-
-function mergeVisitDates(local: VisitDates, remote: unknown): VisitDates {
-  const merged = normalizeVisitDates(local);
-  const remoteDates = normalizeVisitDates(remote);
-
-  for (const [destinationId, dates] of Object.entries(remoteDates)) {
-    merged[destinationId] = uniqueStrings([
-      ...normalizeDateValues(merged[destinationId]),
-      ...normalizeDateValues(dates),
-    ]).sort();
-  }
-
-  return merged;
 }
 
 function normalizeDestinationRatings(value: unknown): DestinationRatings {
@@ -248,8 +237,15 @@ export function useTripSync({
   setTrips,
   destinationRatings,
   setDestinationRatings,
-}: UseTripSyncProps) {
+}: UseTripSyncProps): UseTripSyncReturn {
+  const [profileSyncStatus, setProfileSyncStatus] =
+    useState<ProfileSyncStatus>("idle");
+  const [tripSyncStatus, setTripSyncStatus] = useState<TripSyncStatus>("idle");
+  const [retryProfileTrigger, setRetryProfileTrigger] = useState<number>(0);
+  const [retryTripTrigger, setRetryTripTrigger] = useState<number>(0);
+
   const hydratedUserIdRef = useRef<string | null>(null);
+  const hydratedTripsUserIdRef = useRef<string | null>(null);
   const previousUserIdRef = useRef(user?.id);
   const hydrationVersionRef = useRef(0);
   const profileSyncTimeoutRef = useRef<
@@ -260,25 +256,7 @@ export function useTripSync({
   >(null);
   const previousTripsRef = useRef<Trip[]>(trips);
 
-  const localSnapshotRef = useRef<LocalSnapshot>({
-    favorites,
-    visited,
-    visitedPrefectures,
-    visitedDates: visitedDates ?? {},
-    destinationRatings: destinationRatings ?? {},
-    homeStation,
-  });
-
-  localSnapshotRef.current = {
-    favorites,
-    visited,
-    visitedPrefectures,
-    visitedDates: visitedDates ?? {},
-    destinationRatings: destinationRatings ?? {},
-    homeStation,
-  };
-
-  // Clear account-scoped local state on logout or account switch.
+  // Clear account-scoped memory state on logout or account switch.
   useEffect(() => {
     const previousUserId = previousUserIdRef.current;
     const currentUserId = user?.id;
@@ -286,14 +264,6 @@ export function useTripSync({
       Boolean(previousUserId) && previousUserId !== currentUserId;
 
     if (accountChanged || (previousUserId && !currentUserId)) {
-      localSnapshotRef.current = {
-        favorites: [],
-        visited: [],
-        visitedPrefectures: [],
-        visitedDates: {},
-        destinationRatings: {},
-        homeStation: "Tokyo Station",
-      };
       hydratedUserIdRef.current = null;
       hydrationVersionRef.current += 1;
 
@@ -331,8 +301,7 @@ export function useTripSync({
     setDestinationRatings,
   ]);
 
-  // Hydrate account data, reconcile all passport fields, and persist the
-  // reconciled snapshot before allowing later background writes.
+  // Hydrate user account data exclusively from Supabase without local merging
   useEffect(() => {
     const userId = user?.id;
     const client = supabase;
@@ -350,8 +319,6 @@ export function useTripSync({
       previousUserIdRef.current === userId;
 
     const hydrateUserData = async () => {
-      const snapshot = localSnapshotRef.current;
-
       const { data, error } = await client
         .from("user_data")
         .select("*")
@@ -368,94 +335,78 @@ export function useTripSync({
         return;
       }
 
-      const remoteFavorites = normalizeStringArray(data?.favorites);
-      const remoteVisited = normalizeStringArray(data?.visited);
-      const remotePrefectures = normalizeStringArray(data?.visited_prefectures);
-      const mergedVisitedDates = mergeVisitDates(
-        snapshot.visitedDates,
-        data?.visited_dates,
-      );
+      if (!data) {
+        // Create initial row for new account
+        const defaultPayload = {
+          id: userId,
+          favorites: [],
+          visited: [],
+          visited_prefectures: [],
+          visited_dates: {},
+          destination_ratings: {},
+          home_station: "Tokyo Station",
+          updated_at: new Date().toISOString(),
+        };
 
-      const reconciledFavorites = uniqueStrings([
-        ...snapshot.favorites,
-        ...remoteFavorites,
-      ]);
+        const { error: createError } = await client
+          .from("user_data")
+          .insert(defaultPayload);
 
-      // Every destination with a visit date must also exist in `visited`.
-      const reconciledVisited = uniqueStrings([
-        ...snapshot.visited,
-        ...remoteVisited,
-        ...Object.keys(mergedVisitedDates),
-      ]);
+        if (!isCurrentHydration()) return;
 
-      const reconciledPrefectures = deriveVisitedPrefectures(
-        reconciledVisited,
-        [...snapshot.visitedPrefectures, ...remotePrefectures],
-      );
+        if (createError) {
+          console.error(
+            "[Meguruto Sync] Failed to initialize user_data row:",
+            createError,
+          );
+          return;
+        }
 
-      const reconciledRatings: DestinationRatings = {
-        ...normalizeDestinationRatings(data?.destination_ratings),
-        ...snapshot.destinationRatings,
-      };
-
-      const remoteHomeStation =
-        typeof data?.home_station === "string" &&
-        data.home_station.length > 0 &&
-        data.home_station !== "Tokyo Station"
-          ? data.home_station
-          : null;
-
-      const reconciledHomeStation =
-        remoteHomeStation ?? snapshot.homeStation ?? "Tokyo Station";
-
-      const updatedAt = new Date().toISOString();
-      const payload = {
-        id: userId,
-        favorites: reconciledFavorites,
-        visited: reconciledVisited,
-        visited_prefectures: reconciledPrefectures,
-        visited_dates: mergedVisitedDates,
-        destination_ratings: reconciledRatings,
-        home_station: reconciledHomeStation,
-        updated_at: updatedAt,
-      };
-
-      const { error: saveError } = await client
-        .from("user_data")
-        .upsert(payload);
-
-      if (!isCurrentHydration()) return;
-
-      if (saveError) {
-        console.error(
-          "[Meguruto Sync] Failed to persist reconciled user_data:",
-          saveError,
-        );
-        toast.error(
-          "Cloud profile could not be reconciled. Sync has been paused.",
-          { id: "user-data-reconcile-error" },
-        );
+        setFavorites([]);
+        setVisited([]);
+        setVisitedPrefectures([]);
+        setVisitedDates?.({});
+        setDestinationRatings?.({});
+        setHomeStation("Tokyo Station");
+        hydratedUserIdRef.current = userId;
         return;
       }
 
-      setFavorites(reconciledFavorites);
-      setVisited(reconciledVisited);
-      setVisitedPrefectures(reconciledPrefectures);
-      setVisitedDates?.(mergedVisitedDates);
-      setDestinationRatings?.(reconciledRatings);
-      setHomeStation(reconciledHomeStation);
+      const loadedDates = normalizeVisitDates(data.visited_dates);
+      const loadedVisited = uniqueStrings([
+        ...normalizeStringArray(data.visited),
+        ...Object.keys(loadedDates),
+      ]);
+      const loadedPrefectures = deriveVisitedPrefectures(
+        loadedVisited,
+        normalizeStringArray(data.visited_prefectures),
+      );
+      const loadedFavorites = normalizeStringArray(data.favorites);
+      const loadedRatings = normalizeDestinationRatings(
+        data.destination_ratings,
+      );
+      const loadedHomeStation =
+        typeof data.home_station === "string" &&
+        data.home_station.length > 0 &&
+        data.home_station !== "Tokyo Station"
+          ? data.home_station
+          : "Tokyo Station";
 
-      const syncedDate = getDatePart(updatedAt);
+      setFavorites(loadedFavorites);
+      setVisited(loadedVisited);
+      setVisitedPrefectures(loadedPrefectures);
+      setVisitedDates?.(loadedDates);
+      setDestinationRatings?.(loadedRatings);
+      setHomeStation(loadedHomeStation);
+
+      const syncedDate = getDatePart(data.updated_at);
       if (syncedDate) {
         setLastSyncedDate?.(syncedDate);
       }
 
-      if (
-        reconciledHomeStation !== "Tokyo Station" &&
-        reconciledHomeStation !== snapshot.homeStation
-      ) {
+      if (loadedHomeStation !== "Tokyo Station") {
         void resolveHomeStationCoordinates(
-          reconciledHomeStation,
+          loadedHomeStation,
           setHomeStationCoords,
         );
       }
@@ -463,33 +414,7 @@ export function useTripSync({
       hydratedUserIdRef.current = userId;
     };
 
-    const hydrateTrips = async () => {
-      const tripRepository = new SupabaseTripRepository();
-
-      try {
-        const fetchedTrips = await tripRepository.fetchTrips(userId);
-
-        if (
-          !isCurrentHydration() ||
-          !fetchedTrips ||
-          fetchedTrips.length === 0 ||
-          !setTrips
-        ) {
-          return;
-        }
-
-        setTrips(fetchedTrips);
-        previousTripsRef.current = fetchedTrips;
-      } catch (error) {
-        console.warn(
-          "Could not load trips from server, using local copy.",
-          error,
-        );
-      }
-    };
-
     void hydrateUserData();
-    void hydrateTrips();
 
     return () => {
       if (hydrationVersionRef.current === hydrationVersion) {
@@ -498,6 +423,7 @@ export function useTripSync({
     };
   }, [
     user?.id,
+    retryProfileTrigger,
     setFavorites,
     setVisited,
     setVisitedPrefectures,
@@ -505,17 +431,64 @@ export function useTripSync({
     setLastSyncedDate,
     setHomeStation,
     setHomeStationCoords,
-    setTrips,
     setDestinationRatings,
   ]);
 
-  // Persist profile changes only after successful hydration. The payload is
-  // rebuilt defensively so dated visits can never be dropped from `visited`.
+  // Hydrate trips exclusively from Supabase
+  useEffect(() => {
+    const userId = user?.id;
+
+    if (!userId) {
+      hydratedTripsUserIdRef.current = null;
+      setTripSyncStatus("idle");
+      return;
+    }
+
+    hydratedTripsUserIdRef.current = null;
+    setTripSyncStatus("loading");
+    const hydrationVersion = hydrationVersionRef.current;
+
+    const isCurrentHydration = () =>
+      hydrationVersionRef.current === hydrationVersion &&
+      previousUserIdRef.current === userId;
+
+    const hydrateTrips = async () => {
+      const tripRepository = new SupabaseTripRepository();
+
+      try {
+        const fetchedTrips = await tripRepository.fetchTrips(userId);
+
+        if (!isCurrentHydration()) return;
+
+        const resolvedTrips = fetchedTrips || [];
+        setTrips?.(resolvedTrips);
+        previousTripsRef.current = resolvedTrips;
+        hydratedTripsUserIdRef.current = userId;
+        setTripSyncStatus("ready");
+      } catch (error) {
+        if (!isCurrentHydration()) return;
+        console.error(
+          "[Meguruto Sync] Failed to load trips from server:",
+          error,
+        );
+        setTripSyncStatus("error");
+      }
+    };
+
+    void hydrateTrips();
+  }, [user?.id, retryTripTrigger, setTrips]);
+
+  // Persist profile changes only after successful hydration
   useEffect(() => {
     const userId = user?.id;
     const client = supabase;
 
-    if (!userId || !client || hydratedUserIdRef.current !== userId) {
+    if (
+      !userId ||
+      !client ||
+      hydratedUserIdRef.current !== userId ||
+      profileSyncStatus === "error"
+    ) {
       return;
     }
 
@@ -524,6 +497,7 @@ export function useTripSync({
     }
 
     profileSyncTimeoutRef.current = setTimeout(() => {
+      setProfileSyncStatus("saving");
       const normalizedVisitedDates = normalizeVisitDates(visitedDates ?? {});
       const safeVisited = uniqueStrings([
         ...visited,
@@ -554,12 +528,14 @@ export function useTripSync({
         .then(({ error }) => {
           if (error) {
             console.error("[Meguruto Sync] Failed to sync user_data:", error);
-            toast.error("Failed to sync profile to cloud. Saved locally.", {
+            setProfileSyncStatus("error");
+            toast.error("Failed to sync profile to cloud.", {
               id: "user-data-sync-error",
             });
             return;
           }
 
+          setProfileSyncStatus("ready");
           const syncedDate = getDatePart(updatedAt);
           if (syncedDate) {
             setLastSyncedDate?.(syncedDate);
@@ -584,11 +560,15 @@ export function useTripSync({
     setLastSyncedDate,
   ]);
 
-  // Persist trip changes after profile hydration.
+  // Persist trip changes only after dedicated trip hydration completes
   useEffect(() => {
     const userId = user?.id;
 
-    if (!userId || hydratedUserIdRef.current !== userId) {
+    if (
+      !userId ||
+      hydratedTripsUserIdRef.current !== userId ||
+      tripSyncStatus === "error"
+    ) {
       return;
     }
 
@@ -599,6 +579,7 @@ export function useTripSync({
     }
 
     tripSyncTimeoutRef.current = setTimeout(() => {
+      setTripSyncStatus("saving");
       const deletedTrips = previousTripsRef.current.filter(
         (previousTrip) => !trips.some((trip) => trip.id === previousTrip.id),
       );
@@ -631,10 +612,12 @@ export function useTripSync({
       void Promise.all([...deleteRequests, ...saveRequests])
         .then(() => {
           previousTripsRef.current = tripsToSave;
+          setTripSyncStatus("ready");
         })
         .catch((error) => {
           console.error("Failed to sync trips to cloud", error);
-          toast.error("Failed to sync trips to cloud. Saved locally.", {
+          setTripSyncStatus("error");
+          toast.error("Failed to sync trips to cloud.", {
             id: "trip-sync-error",
           });
         });
@@ -647,4 +630,19 @@ export function useTripSync({
       }
     };
   }, [trips, user?.id, setTrips]);
+
+  const retryProfileHydration = () => {
+    setRetryProfileTrigger((prev: number) => prev + 1);
+  };
+
+  const retryTripHydration = () => {
+    setRetryTripTrigger((prev: number) => prev + 1);
+  };
+
+  return {
+    profileSyncStatus,
+    tripSyncStatus,
+    retryProfileHydration,
+    retryTripHydration,
+  };
 }
