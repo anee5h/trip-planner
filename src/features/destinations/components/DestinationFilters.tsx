@@ -26,6 +26,10 @@ import {
   Compass,
   Layers,
   ChevronDown,
+  Sun,
+  CloudRain,
+  Snowflake,
+  Check,
 } from "lucide-react";
 
 import { getCollections } from "@/shared/data/collections";
@@ -133,7 +137,7 @@ export default function DestinationFilters({
   onReset,
 }: DestinationFiltersProps) {
   const { user } = useAuth();
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const [collectionPopoverOpen, setCollectionPopoverOpen] = useState(false);
   const collectionPopoverRef = useRef<HTMLDivElement>(null);
 
@@ -192,7 +196,7 @@ export default function DestinationFilters({
     }
   };
 
-  // Active drawer filters count (Collections is on main bar)
+  // Active modal filters count
   const activeAdvancedCount =
     (partySize !== 2 ? 1 : 0) +
     (indoorMin > 0 ? 1 : 0) +
@@ -652,7 +656,7 @@ export default function DestinationFilters({
 
           {/* More Filters Toggle */}
           <button
-            onClick={() => setDrawerOpen(true)}
+            onClick={() => setModalOpen(true)}
             className={`h-9 px-3 rounded-xl border text-xs font-bold flex items-center justify-center gap-1.5 transition-all shrink-0 ${
               activeAdvancedCount > 0
                 ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300"
@@ -817,57 +821,200 @@ export default function DestinationFilters({
         </div>
       )}
 
-      {/* More Filters Drawer (Desktop right slide-over, Mobile bottom sheet) */}
-      {drawerOpen && (
-        <div className="fixed inset-0 z-50 flex justify-end bg-slate-900/50 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="w-full sm:w-[420px] h-full bg-white dark:bg-slate-950 border-l border-slate-200 dark:border-slate-800 flex flex-col shadow-2xl animate-in slide-in-from-right duration-300">
-            {/* Drawer Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 dark:border-slate-800">
-              <div className="flex items-center gap-2">
-                <Filter className="w-4 h-4 text-emerald-500" />
-                <h3 className="text-base font-bold text-slate-900 dark:text-white">
-                  More filters
-                </h3>
-                {activeAdvancedCount > 0 && (
-                  <span className="bg-emerald-500 text-white rounded-full px-2 py-0.5 text-xs font-bold">
-                    {activeAdvancedCount}
-                  </span>
-                )}
-              </div>
+      {/* Airbnb-Style "More Filters" Floating Modal Window */}
+      {modalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="w-full max-w-2xl max-h-[90vh] sm:max-h-[85vh] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
+            {/* Modal Sticky Header */}
+            <div className="px-6 py-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between sticky top-0 bg-white/95 dark:bg-slate-950/95 backdrop-blur-sm z-10">
+              <div className="w-8" />
+              <h3 className="text-base font-bold text-slate-900 dark:text-white text-center flex-1">
+                Filters
+              </h3>
               <button
-                onClick={() => setDrawerOpen(false)}
-                className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
+                onClick={() => setModalOpen(false)}
+                className="p-2 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            {/* Drawer Content */}
-            <div className="flex-1 overflow-y-auto p-5 space-y-6">
-              {/* Party Size */}
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-slate-800 dark:text-slate-200">
-                  Travel party: {partySize}{" "}
-                  {partySize === 1 ? "person" : "people"}
-                </label>
-                <input
-                  type="range"
-                  min={1}
-                  max={10}
-                  value={partySize}
-                  onChange={(e) => setPartySize(Number(e.target.value))}
-                  className="w-full accent-emerald-500"
-                />
+            {/* Modal Body (Scrollable Airbnb Sections) */}
+            <div className="flex-1 overflow-y-auto px-6 py-6 space-y-7 divide-y divide-slate-100 dark:divide-slate-800">
+              {/* Travel Party */}
+              <div className="space-y-3">
+                <div>
+                  <h4 className="text-base font-bold text-slate-900 dark:text-white">
+                    Travel party
+                  </h4>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                    Select party size for tailored recommendations
+                  </p>
+                </div>
+                <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
+                  <span className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                    {partySize} {partySize === 1 ? "Person" : "People"}
+                  </span>
+                  <input
+                    type="range"
+                    min={1}
+                    max={10}
+                    value={partySize}
+                    onChange={(e) => setPartySize(Number(e.target.value))}
+                    className="w-48 accent-emerald-500 cursor-pointer"
+                  />
+                </div>
               </div>
 
-              {/* Public Transport Modes Refinement */}
+              {/* Indoor Preference (Airbnb Segmented Pill Bar) */}
+              <div className="pt-6 space-y-3">
+                <div>
+                  <h4 className="text-base font-bold text-slate-900 dark:text-white">
+                    Indoor preference
+                  </h4>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                    Filter by indoor percentage
+                  </p>
+                </div>
+                <div className="inline-flex bg-slate-100 dark:bg-slate-900 p-1 rounded-2xl border border-slate-200 dark:border-slate-800 w-full sm:w-auto">
+                  {[
+                    { val: 0, label: "Any" },
+                    { val: 70, label: "Mostly indoors" },
+                    { val: 90, label: "Fully indoors" },
+                  ].map((opt) => (
+                    <button
+                      key={opt.val}
+                      type="button"
+                      onClick={() => setIndoorMin(opt.val)}
+                      className={`flex-1 sm:flex-none px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+                        indoorMin === opt.val
+                          ? "bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm"
+                          : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Weather Suitability (Icon Cards Grid) */}
+              <div className="pt-6 space-y-3">
+                <div>
+                  <h4 className="text-base font-bold text-slate-900 dark:text-white">
+                    Weather suitability
+                  </h4>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                    Find places comfortable in specific conditions
+                  </p>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  {[
+                    { val: "any", label: "Any weather", icon: Sun },
+                    { val: "rainy", label: "Rain-friendly", icon: CloudRain },
+                    { val: "hot", label: "Cool in heat", icon: Sun },
+                    { val: "cold", label: "Good in cold", icon: Snowflake },
+                  ].map((w) => {
+                    const isSelected = weather === w.val;
+                    const Icon = w.icon;
+                    return (
+                      <button
+                        key={w.val}
+                        type="button"
+                        onClick={() => setWeather(w.val as typeof weather)}
+                        className={`p-3.5 rounded-2xl border text-left transition-all flex flex-col justify-between gap-3 ${
+                          isSelected
+                            ? "border-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/30 ring-2 ring-emerald-500"
+                            : "border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-white dark:bg-slate-900"
+                        }`}
+                      >
+                        <Icon
+                          className={`w-5 h-5 ${isSelected ? "text-emerald-600 dark:text-emerald-400" : "text-slate-400"}`}
+                        />
+                        <span
+                          className={`text-xs font-bold ${isSelected ? "text-slate-900 dark:text-white" : "text-slate-700 dark:text-slate-300"}`}
+                        >
+                          {w.label}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Walking Difficulty (Airbnb Style Cards) */}
+              <div className="pt-6 space-y-3">
+                <div>
+                  <h4 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <Footprints className="w-4 h-4 text-emerald-500" />
+                    Walking difficulty
+                  </h4>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                    Filter destinations by physical exertion
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {[
+                    {
+                      id: "all",
+                      label: "Any difficulty",
+                      desc: "No preference",
+                    },
+                    {
+                      id: "low",
+                      label: "Easy",
+                      desc: "Mostly flat, limited walking",
+                    },
+                    {
+                      id: "medium",
+                      label: "Moderate",
+                      desc: "Regular walking and slopes",
+                    },
+                    {
+                      id: "high",
+                      label: "Challenging",
+                      desc: "Long walks, steep paths or hiking",
+                    },
+                  ].map((w) => {
+                    const isSelected = walkingIntensity === w.id;
+                    return (
+                      <button
+                        key={w.id}
+                        type="button"
+                        onClick={() => setWalkingIntensity(w.id)}
+                        className={`p-3.5 rounded-2xl border text-left transition-all ${
+                          isSelected
+                            ? "border-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/30 ring-2 ring-emerald-500"
+                            : "border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-white dark:bg-slate-900"
+                        }`}
+                      >
+                        <div
+                          className={`text-xs font-bold ${isSelected ? "text-slate-900 dark:text-white" : "text-slate-800 dark:text-slate-200"}`}
+                        >
+                          {w.label}
+                        </div>
+                        <div className="text-[11px] text-slate-500 dark:text-slate-400 font-normal mt-1">
+                          {w.desc}
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Public Transport Mode Refinement */}
               {(gettingAroundValue === "public" ||
                 gettingAroundValue === "either") && (
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-800 dark:text-slate-200">
-                    Public Transport Options
-                  </label>
-                  <div className="grid grid-cols-2 gap-2">
+                <div className="pt-6 space-y-3">
+                  <div>
+                    <h4 className="text-base font-bold text-slate-900 dark:text-white">
+                      Public transport modes
+                    </h4>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                      Enable or disable transit options
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     {[
                       { id: "train", label: "Train", icon: Train },
                       {
@@ -891,14 +1038,20 @@ export default function DestinationFilters({
                                 : [...publicModes, mode.id],
                             )
                           }
-                          className={`py-2 px-3 rounded-xl border text-xs font-bold flex items-center justify-center gap-1.5 transition-all ${
+                          className={`p-3 rounded-2xl border text-left transition-all flex flex-col justify-between gap-2 ${
                             active
-                              ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300"
-                              : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400"
+                              ? "border-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/30 ring-2 ring-emerald-500"
+                              : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900"
                           }`}
                         >
-                          <Icon className="w-3.5 h-3.5" />
-                          {mode.label}
+                          <Icon
+                            className={`w-4 h-4 ${active ? "text-emerald-600 dark:text-emerald-400" : "text-slate-400"}`}
+                          />
+                          <span
+                            className={`text-xs font-bold ${active ? "text-slate-900 dark:text-white" : "text-slate-700 dark:text-slate-300"}`}
+                          >
+                            {mode.label}
+                          </span>
                         </button>
                       );
                     })}
@@ -906,120 +1059,13 @@ export default function DestinationFilters({
                 </div>
               )}
 
-              {/* Indoor Preference */}
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-slate-800 dark:text-slate-200">
-                  Indoor Preference
-                </label>
-                <div className="grid grid-cols-3 gap-2">
-                  {[
-                    { val: 0, label: "Any" },
-                    { val: 70, label: "Mostly indoors" },
-                    { val: 90, label: "Fully indoors" },
-                  ].map((opt) => (
-                    <button
-                      key={opt.val}
-                      type="button"
-                      onClick={() => setIndoorMin(opt.val)}
-                      className={`py-2 px-2 rounded-xl border text-xs font-bold transition-all ${
-                        indoorMin === opt.val
-                          ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300"
-                          : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400"
-                      }`}
-                    >
-                      {opt.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Weather Suitability */}
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-slate-800 dark:text-slate-200">
-                  Weather suitability
-                </label>
-                <div className="grid grid-cols-2 gap-2">
-                  {[
-                    { val: "any", label: "Any" },
-                    { val: "rainy", label: "Rain-friendly" },
-                    { val: "hot", label: "Comfortable in heat" },
-                    { val: "cold", label: "Good in cold weather" },
-                  ].map((w) => (
-                    <button
-                      key={w.val}
-                      type="button"
-                      onClick={() => setWeather(w.val as typeof weather)}
-                      className={`py-2 px-2.5 rounded-xl border text-xs font-bold transition-all ${
-                        weather === w.val
-                          ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300"
-                          : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400"
-                      }`}
-                    >
-                      {w.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Walking Difficulty */}
-              <div className="space-y-2">
-                <div className="flex items-center gap-1">
-                  <Footprints className="w-3.5 h-3.5 text-emerald-500" />
-                  <label className="text-xs font-bold text-slate-800 dark:text-slate-200">
-                    Walking
-                  </label>
-                </div>
-                <div className="grid grid-cols-2 gap-2">
-                  {[
-                    { id: "all", label: "Any", desc: "No preference" },
-                    {
-                      id: "low",
-                      label: "Easy",
-                      desc: "Mostly flat, limited walking",
-                    },
-                    {
-                      id: "medium",
-                      label: "Moderate",
-                      desc: "Regular walking and slopes",
-                    },
-                    {
-                      id: "high",
-                      label: "Challenging",
-                      desc: "Long walks, steep paths/hiking",
-                    },
-                  ].map((w) => (
-                    <button
-                      key={w.id}
-                      type="button"
-                      onClick={() => setWalkingIntensity(w.id)}
-                      className={`p-2.5 rounded-xl border text-left transition-all ${
-                        walkingIntensity === w.id
-                          ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40"
-                          : "border-slate-200 dark:border-slate-800"
-                      }`}
-                    >
-                      <div
-                        className={`text-xs font-bold ${
-                          walkingIntensity === w.id
-                            ? "text-emerald-700 dark:text-emerald-300"
-                            : "text-slate-800 dark:text-slate-200"
-                        }`}
-                      >
-                        {w.label}
-                      </div>
-                      <div className="text-[10px] text-slate-500 dark:text-slate-400 font-normal mt-0.5">
-                        {w.desc}
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
               {/* Practical Requirements (Suitability) */}
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-slate-800 dark:text-slate-200">
-                  Practical Requirements
-                </label>
+              <div className="pt-6 space-y-3">
+                <div>
+                  <h4 className="text-base font-bold text-slate-900 dark:text-white">
+                    Practical requirements
+                  </h4>
+                </div>
                 <div className="flex flex-wrap gap-2">
                   {[
                     { id: "family", label: "Family-friendly" },
@@ -1037,13 +1083,15 @@ export default function DestinationFilters({
                               : [...prev, s.id],
                           )
                         }
-                        className={`py-1.5 px-3 rounded-xl border text-xs font-bold transition-all ${
+                        className={`py-2 px-4 rounded-xl border text-xs font-bold transition-all flex items-center gap-1.5 ${
                           active
-                            ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300"
-                            : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400"
+                            ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300"
+                            : "border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300"
                         }`}
                       >
-                        {active ? "✓ " : ""}
+                        {active && (
+                          <Check className="w-3.5 h-3.5 text-emerald-600" />
+                        )}
                         {s.label}
                       </button>
                     );
@@ -1051,12 +1099,14 @@ export default function DestinationFilters({
                 </div>
               </div>
 
-              {/* Multiple Interests */}
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-slate-800 dark:text-slate-200">
-                  Interests
-                </label>
-                <div className="flex flex-wrap gap-1.5">
+              {/* Interests */}
+              <div className="pt-6 space-y-3">
+                <div>
+                  <h4 className="text-base font-bold text-slate-900 dark:text-white">
+                    Interests
+                  </h4>
+                </div>
+                <div className="flex flex-wrap gap-2">
                   {[
                     { id: "nature", label: "Nature" },
                     { id: "history", label: "History" },
@@ -1076,10 +1126,10 @@ export default function DestinationFilters({
                               : [...prev, interest.id],
                           )
                         }
-                        className={`py-1 px-2.5 rounded-lg border text-xs font-medium transition-all ${
+                        className={`py-2 px-3.5 rounded-xl border text-xs font-medium transition-all ${
                           active
-                            ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 font-bold"
-                            : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400"
+                            ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 font-bold"
+                            : "border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300"
                         }`}
                       >
                         {active ? "✓ " : ""}
@@ -1091,21 +1141,23 @@ export default function DestinationFilters({
               </div>
 
               {/* Season */}
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-slate-800 dark:text-slate-200">
-                  Season
-                </label>
-                <div className="flex flex-wrap gap-1.5">
+              <div className="pt-6 space-y-3">
+                <div>
+                  <h4 className="text-base font-bold text-slate-900 dark:text-white">
+                    Season
+                  </h4>
+                </div>
+                <div className="inline-flex bg-slate-100 dark:bg-slate-900 p-1 rounded-2xl border border-slate-200 dark:border-slate-800 flex-wrap">
                   {["any", "spring", "summer", "autumn", "winter"].map(
                     (val) => (
                       <button
                         key={val}
                         type="button"
                         onClick={() => setSeason(val)}
-                        className={`py-1 px-3 rounded-lg border text-xs font-bold capitalize transition-all ${
+                        className={`px-3.5 py-1.5 rounded-xl text-xs font-bold capitalize transition-all ${
                           season === val
-                            ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300"
-                            : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400"
+                            ? "bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm"
+                            : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                         }`}
                       >
                         {val}
@@ -1116,21 +1168,21 @@ export default function DestinationFilters({
               </div>
             </div>
 
-            {/* Sticky Drawer Footer */}
-            <div className="p-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-900">
+            {/* Airbnb-Style Sticky Modal Footer */}
+            <div className="px-6 py-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between bg-white dark:bg-slate-950 sticky bottom-0 z-10">
               <button
                 type="button"
                 onClick={onReset}
-                className="text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-rose-600 dark:hover:text-rose-400 underline"
+                className="text-xs font-bold text-slate-900 dark:text-white underline hover:opacity-80 transition-opacity"
               >
                 Clear all
               </button>
               <button
                 type="button"
-                onClick={() => setDrawerOpen(false)}
-                className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md transition-colors"
+                onClick={() => setModalOpen(false)}
+                className="px-6 py-3 bg-slate-900 hover:bg-slate-800 dark:bg-emerald-600 dark:hover:bg-emerald-700 text-white font-bold text-xs rounded-full shadow-lg transition-all"
               >
-                Show {totalResultsCount} places
+                Show {totalResultsCount} destinations
               </button>
             </div>
           </div>
