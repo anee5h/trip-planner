@@ -186,7 +186,7 @@ const BUDGET_TIER_LABELS: Record<BudgetTier, { label: string; desc: string }> =
   {
     economy: { label: "Economy", desc: "Budget friendly" },
     standard: { label: "Standard", desc: "Balanced spending" },
-    comfortable: { label: "Comfortable", desc: "Higher comfort" },
+    comfortable: { label: "Comfort", desc: "Higher comfort" },
     luxury: { label: "Flexible", desc: "Keep options open" },
   };
 

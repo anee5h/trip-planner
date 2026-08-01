@@ -259,7 +259,7 @@ export default function DestinationFilters({
     const budgetMap: Record<BudgetTier, string> = {
       economy: isJa ? "エコノミー" : "Economy",
       standard: isJa ? "スタンダード" : "Standard",
-      comfortable: isJa ? "コンフォート" : "Comfortable",
+      comfortable: isJa ? "コンフォート" : "Comfort",
       luxury: isJa ? "贅沢" : "Flexible",
     };
     activeChips.push({
@@ -693,7 +693,7 @@ export default function DestinationFilters({
         <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-900/60 backdrop-blur-md animate-in fade-in duration-200">
           <div className="w-full max-w-3xl max-h-[92vh] sm:max-h-[85vh] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
             {/* Modal Fixed Header */}
-            <div className="flex-none px-4 sm:px-6 py-3 border-b border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 z-20 space-y-1">
+            <div className="flex-none px-4 sm:px-6 py-3 border-b border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 z-20 space-y-1 shadow-sm">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
                   <h3 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white">
@@ -701,7 +701,7 @@ export default function DestinationFilters({
                   </h3>
                   {activeAdvancedCount > 0 && (
                     <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300">
-                      {activeAdvancedCount} {isJa ? "件の希望" : "preferences"}
+                      {activeAdvancedCount} {isJa ? "件適用" : "active"}
                     </span>
                   )}
                 </div>
@@ -721,52 +721,47 @@ export default function DestinationFilters({
             </div>
 
             {/* Modal Body (Scrollable Region with 24px bottom padding) */}
-            <div className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 py-4 space-y-5">
-              {/* SECTION 1: TRIP REQUIREMENTS */}
-              <div className="space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900/50">
+            <div className="destination-filter-modal-body flex-1 min-h-0 overflow-y-auto pl-4 pr-6 sm:pl-6 sm:pr-8 py-4 space-y-5">
+              {/* SECTION 1: TRIP ESSENTIALS */}
+              <div className="space-y-3 rounded-xl border border-slate-200/70 bg-slate-50 p-4 dark:border-slate-800/70 dark:bg-slate-900/40">
                 <div className="flex items-center justify-between pb-1 border-b border-slate-200 dark:border-slate-800">
                   <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white">
                     <ShieldCheck className="w-4 h-4 text-slate-500 dark:text-slate-400 shrink-0" />
-                    <span>{isJa ? "必須条件" : "TRIP REQUIREMENTS"}</span>
+                    <span>{isJa ? "旅行の基本設定" : "TRIP ESSENTIALS"}</span>
                   </div>
                   <span className="text-[11px] text-slate-600 dark:text-slate-300 font-semibold">
                     {isJa
-                      ? "条件に合わない目的地を除外"
-                      : "Filters destinations"}
+                      ? "費用と利用できる選択肢を設定"
+                      : "Sets costs and available options"}
                   </span>
                 </div>
 
-                <div className="w-full sm:w-52">
-                  {/* Travel Party Control */}
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                      {isJa ? "旅行人数" : "Travel party"}
-                    </label>
-                    <div className="h-10 p-1 bg-slate-100 dark:bg-slate-900 rounded-xl flex items-center justify-between px-2">
-                      <button
-                        type="button"
-                        disabled={partySize <= 1}
-                        onClick={() => setPartySize(Math.max(1, partySize - 1))}
-                        className="w-8 h-8 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 disabled:opacity-30 transition-colors shadow-xs shrink-0"
-                      >
-                        <Minus className="w-3.5 h-3.5" />
-                      </button>
-                      <span className="text-xs font-bold text-slate-900 dark:text-white">
-                        {isJa
-                          ? `${partySize}名`
-                          : `${partySize} ${partySize === 1 ? "person" : "people"}`}
-                      </span>
-                      <button
-                        type="button"
-                        disabled={partySize >= 10}
-                        onClick={() =>
-                          setPartySize(Math.min(10, partySize + 1))
-                        }
-                        className="w-8 h-8 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 disabled:opacity-30 transition-colors shadow-xs shrink-0"
-                      >
-                        <Plus className="w-3.5 h-3.5" />
-                      </button>
-                    </div>
+                <div className="flex w-full max-w-sm items-center justify-between gap-2 sm:gap-4">
+                  <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                    {isJa ? "旅行人数" : "Travel party"}
+                  </label>
+                  <div className="h-10 w-40 sm:w-52 p-1 bg-slate-100 dark:bg-slate-900 rounded-xl flex items-center justify-between px-2">
+                    <button
+                      type="button"
+                      disabled={partySize <= 1}
+                      onClick={() => setPartySize(Math.max(1, partySize - 1))}
+                      className="w-8 h-8 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 disabled:opacity-30 transition-colors shadow-xs shrink-0"
+                    >
+                      <Minus className="w-3.5 h-3.5" />
+                    </button>
+                    <span className="text-xs font-bold text-slate-900 dark:text-white">
+                      {isJa
+                        ? `${partySize}名`
+                        : `${partySize} ${partySize === 1 ? "person" : "people"}`}
+                    </span>
+                    <button
+                      type="button"
+                      disabled={partySize >= 10}
+                      onClick={() => setPartySize(Math.min(10, partySize + 1))}
+                      className="w-8 h-8 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 disabled:opacity-30 transition-colors shadow-xs shrink-0"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                    </button>
                   </div>
                 </div>
 
@@ -785,7 +780,13 @@ export default function DestinationFilters({
                           : "border-transparent text-slate-600 hover:border-slate-200 hover:bg-slate-50 dark:text-slate-400 dark:hover:border-slate-800 dark:hover:bg-slate-900"
                       }`}
                     >
-                      {isJa ? "すべての移動手段" : "Any transport"}
+                      {selectedTransportModes.length === 0
+                        ? isJa
+                          ? "すべての移動手段"
+                          : "Any transport"
+                        : isJa
+                          ? `${selectedTransportModes.length}件選択 · クリア`
+                          : `${selectedTransportModes.length} selected · Clear`}
                     </button>
                   </div>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -872,7 +873,7 @@ export default function DestinationFilters({
                       },
                       {
                         val: "comfortable",
-                        label: isJa ? "コンフォート" : "Comfortable",
+                        label: isJa ? "コンフォート" : "Comfort",
                         desc: isJa ? "快適さ重視" : "Higher comfort",
                       },
                       {
@@ -960,8 +961,8 @@ export default function DestinationFilters({
               </div>
 
               {/* SECTION 2: RANKING PREFERENCES */}
-              <div className="space-y-3 rounded-2xl border border-emerald-100 bg-emerald-50/50 p-4 dark:border-emerald-950/60 dark:bg-emerald-950/10">
-                <div className="flex items-center justify-between pb-1 border-b border-emerald-100 dark:border-emerald-950/60">
+              <div className="space-y-3 rounded-xl border border-slate-200/70 bg-slate-50/50 p-4 dark:border-slate-800/70 dark:bg-slate-950">
+                <div className="flex items-center justify-between pb-1 border-b border-slate-200 dark:border-slate-800">
                   <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white">
                     <Compass className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>{isJa ? "希望条件" : "RANKING PREFERENCES"}</span>
@@ -971,7 +972,7 @@ export default function DestinationFilters({
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-[11fr_9fr] gap-3">
                   {/* Time at Destination Segmented Track */}
                   <div className="space-y-1.5">
                     <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
@@ -982,7 +983,7 @@ export default function DestinationFilters({
                         { val: "any", label: isJa ? "指定なし" : "Any" },
                         {
                           val: "shortOuting",
-                          label: isJa ? "1〜2時間" : "1–2 hours",
+                          label: isJa ? "1〜2時間" : "1–2 hrs",
                         },
                         { val: "halfDay", label: isJa ? "半日" : "Half day" },
                         { val: "fullDay", label: isJa ? "終日" : "Full day" },
@@ -1056,10 +1057,6 @@ export default function DestinationFilters({
                   <div className="flex flex-wrap gap-1.5 pt-2">
                     {[
                       {
-                        val: "any",
-                        label: isJa ? "指定なし" : "No preference",
-                      },
-                      {
                         val: "art",
                         label: isJa ? "アート・美術館" : "Art & museums",
                       },
@@ -1114,10 +1111,6 @@ export default function DestinationFilters({
                   <div className="flex flex-wrap gap-1.5 pt-2">
                     {[
                       {
-                        val: "any",
-                        label: isJa ? "指定なし" : "No preference",
-                      },
-                      {
                         val: "rainy",
                         label: isJa ? "雨の日におすすめ" : "Rain-friendly",
                       },
@@ -1164,11 +1157,6 @@ export default function DestinationFilters({
                   </summary>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 pt-2">
                     {[
-                      {
-                        id: "all",
-                        label: isJa ? "指定なし" : "No preference",
-                        desc: isJa ? "すべての地形" : "Any terrain",
-                      },
                       {
                         id: "low",
                         label: isJa ? "歩きやすい" : "Easy walking",
@@ -1225,45 +1213,43 @@ export default function DestinationFilters({
                     </span>
                   </summary>
                   <div className="flex flex-wrap gap-1.5 pt-2">
-                    {["any", "spring", "summer", "autumn", "winter"].map(
-                      (val) => {
-                        const isSelected = season === val;
-                        const labelMap: Record<string, string> = {
-                          any: isJa ? "指定なし" : "No preference",
-                          spring: isJa ? "春" : "Spring",
-                          summer: isJa ? "夏" : "Summer",
-                          autumn: isJa ? "秋" : "Autumn",
-                          winter: isJa ? "冬" : "Winter",
-                        };
-                        return (
-                          <button
-                            key={val}
-                            type="button"
-                            onClick={() => setSeason(val)}
-                            className={`min-h-[36px] px-3 py-1.5 rounded-xl border text-xs font-bold transition-all whitespace-normal break-words flex items-center leading-snug ${
-                              isSelected
-                                ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 shadow-2xs"
-                                : "bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300"
-                            }`}
-                          >
-                            {isSelected ? "✓ " : ""}
-                            {labelMap[val]}
-                          </button>
-                        );
-                      },
-                    )}
+                    {["spring", "summer", "autumn", "winter"].map((val) => {
+                      const isSelected = season === val;
+                      const labelMap: Record<string, string> = {
+                        any: isJa ? "指定なし" : "No preference",
+                        spring: isJa ? "春" : "Spring",
+                        summer: isJa ? "夏" : "Summer",
+                        autumn: isJa ? "秋" : "Autumn",
+                        winter: isJa ? "冬" : "Winter",
+                      };
+                      return (
+                        <button
+                          key={val}
+                          type="button"
+                          onClick={() => setSeason(val)}
+                          className={`min-h-[36px] px-3 py-1.5 rounded-xl border text-xs font-bold transition-all whitespace-normal break-words flex items-center leading-snug ${
+                            isSelected
+                              ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 shadow-2xs"
+                              : "bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300"
+                          }`}
+                        >
+                          {isSelected ? "✓ " : ""}
+                          {labelMap[val]}
+                        </button>
+                      );
+                    })}
                   </div>
                 </details>
               </div>
             </div>
 
             {/* Modal Fixed Footer */}
-            <div className="flex-none px-4 sm:px-6 py-3.5 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 z-20 flex items-center justify-between gap-3">
+            <div className="flex-none px-4 sm:px-6 py-3.5 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 z-20 flex items-center justify-between gap-3 shadow-sm">
               {hasActiveFilters ? (
                 <button
                   type="button"
                   onClick={onReset}
-                  className="text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 underline transition-colors whitespace-nowrap"
+                  className="rounded-lg px-2.5 py-2 text-xs font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-100 hover:text-rose-600 dark:hover:bg-slate-900 dark:hover:text-rose-400 transition-colors whitespace-nowrap"
                 >
                   {isJa ? "条件をリセット" : "Reset preferences"}
                 </button>

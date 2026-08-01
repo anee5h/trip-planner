@@ -212,7 +212,7 @@
     "budgets": {
       "economy": "Economy",
       "standard": "Standard",
-      "comfortable": "Comfortable",
+      "comfortable": "Comfort",
       "luxury": "Flexible"
     },
     "budgetHints": {
