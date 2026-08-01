@@ -184,7 +184,7 @@ export default function TripDetails({
         </div>
 
         {/* Journal Right Area */}
-        <div className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-3xl h-fit space-y-4">
+        <div className="h-fit space-y-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900 sm:p-5">
           <h4 className="text-md font-bold text-slate-950 dark:text-white">
             Trip Journal Notes
           </h4>
