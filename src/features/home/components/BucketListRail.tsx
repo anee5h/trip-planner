@@ -117,7 +117,6 @@ export const BucketListRail: React.FC<BucketListRailProps> = ({
                 partySize={partySize}
                 carMode={carMode}
                 publicModes={publicModes}
-                reason={t("home.savedReason")}
               />
             </div>
           ))}
