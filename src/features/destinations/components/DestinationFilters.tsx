@@ -959,7 +959,7 @@ export default function DestinationFilters({
                 gettingAroundValue === "either") && (
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-slate-800 dark:text-slate-200">
-                    Public transport modes
+                    Public transport options
                   </label>
                   <div className="grid grid-cols-2 gap-2">
                     {[

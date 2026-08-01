@@ -685,69 +685,6 @@ export default function Destinations() {
             {filteredAndSortedDestinations.length === 1 ? "" : "s"} matching
           </span>
         </div>
-
-        {(searchQuery ||
-          budgetTier !== "standard" ||
-          selectedCities.length > 0 ||
-          selectedAreas.length > 0 ||
-          indoorMin > 0 ||
-          season !== "any" ||
-          suitabilities.length > 0 ||
-          interests.length > 0) && (
-          <div className="flex items-center gap-2 flex-wrap">
-            {searchQuery && (
-              <span className="inline-flex items-center text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 px-2.5 py-1 rounded-full">
-                Search: "{searchQuery}"
-                <button
-                  onClick={() => setSearchQuery("")}
-                  aria-label="Clear search query"
-                  className="ml-1.5 hover:text-emerald-900 dark:hover:text-emerald-100 font-bold"
-                >
-                  ×
-                </button>
-              </span>
-            )}
-            {budgetTier !== "standard" && (
-              <span className="inline-flex items-center text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 px-2.5 py-1 rounded-full">
-                Budget: {budgetTier}
-                <button
-                  onClick={() => {
-                    setBudgetTier("standard");
-                    setMaxBudget(BUDGET_TIER_LIMITS.standard);
-                  }}
-                  aria-label="Clear budget filter"
-                  className="ml-1.5 hover:text-emerald-900 dark:hover:text-emerald-100 font-bold"
-                >
-                  ×
-                </button>
-              </span>
-            )}
-            {suitabilities.map((suit) => (
-              <span
-                key={suit}
-                className="inline-flex items-center text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 px-2.5 py-1 rounded-full capitalize"
-              >
-                {suit}
-                <button
-                  onClick={() =>
-                    setSuitabilities(suitabilities.filter((s) => s !== suit))
-                  }
-                  aria-label={`Remove ${suit} filter`}
-                  className="ml-1.5 hover:text-emerald-900 dark:hover:text-emerald-100 font-bold"
-                >
-                  ×
-                </button>
-              </span>
-            ))}
-            <button
-              onClick={resetFilters}
-              aria-label="Reset all filters"
-              className="text-xs font-bold text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 underline ml-2"
-            >
-              Reset All
-            </button>
-          </div>
-        )}
       </div>
 
       {filteredAndSortedDestinations.length === 0 ? (
