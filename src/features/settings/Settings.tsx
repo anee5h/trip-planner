@@ -221,7 +221,7 @@ export default function Settings() {
   };
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 max-w-6xl space-y-8 animate-in fade-in duration-200">
+    <div className="container mx-auto max-w-6xl space-y-6 px-4 py-6 sm:px-6 sm:py-8 lg:px-8 animate-in fade-in duration-200">
       <PageHeader
         title={t("ui.settingsTitle")}
         subtitle={t("ui.settingsSubtitle")}
@@ -265,7 +265,7 @@ export default function Settings() {
         <div className="lg:col-span-9">
           <form
             onSubmit={handleSave}
-            className="p-6 md:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-6"
+            className="space-y-5 rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900 sm:p-6"
           >
             {saveSuccess && (
               <div className="p-3.5 rounded-2xl bg-emerald-50 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 text-xs font-bold flex items-center gap-2">

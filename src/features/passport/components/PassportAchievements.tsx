@@ -22,7 +22,7 @@ export function PassportAchievements() {
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="flex flex-col justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900 md:flex-row md:items-center sm:p-5">
         <div className="space-y-1">
           <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
             <Trophy className="w-4 h-4" />
@@ -58,7 +58,7 @@ export function PassportAchievements() {
           return (
             <div
               key={ach.id}
-              className={`p-6 rounded-3xl border transition-all ${
+              className={`rounded-2xl border p-4 transition-all sm:p-5 ${
                 status.isUnlocked
                   ? "bg-white dark:bg-slate-900 border-amber-200/80 dark:border-amber-800/60 shadow-sm"
                   : "bg-slate-50/50 dark:bg-slate-900/40 border-slate-200/50 dark:border-slate-800/50 opacity-75"
