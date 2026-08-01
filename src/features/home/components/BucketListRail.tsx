@@ -117,6 +117,8 @@ export const BucketListRail: React.FC<BucketListRailProps> = ({
               />
             </div>
           ))}
+          {/* Rail Trailing Padding Element for Mobile */}
+          <div className="w-1 shrink-0 sm:hidden" />
         </div>
       </div>
     </section>

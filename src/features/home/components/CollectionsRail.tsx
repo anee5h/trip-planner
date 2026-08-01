@@ -4,7 +4,7 @@ import { Compass, ArrowRight, Layers } from "lucide-react";
 import { getCollections } from "@/shared/data/collections";
 import { LazyImage } from "@/shared/components/ui/LazyImage";
 
-// 4 distinct cover images matching collection themes
+// 4 distinct high-resolution cover images matching collection themes with crop/contrast check
 const EDITORIAL_COLLECTION_DATA = [
   {
     id: "original-12-castles",
@@ -67,7 +67,7 @@ export const CollectionsRail: React.FC = () => {
           </Link>
         </div>
 
-        {/* Dense Mobile Collections Rail (~1.8 cards visible on mobile) */}
+        {/* Dense Mobile Collections Rail with End Padding */}
         <div className="flex gap-3 sm:gap-5 overflow-x-auto snap-x snap-mandatory scrollbar-none py-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4">
           {EDITORIAL_COLLECTION_DATA.map((item) => {
             const rawCol = collections.find((c) => c.id === item.id);
@@ -86,16 +86,16 @@ export const CollectionsRail: React.FC = () => {
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out opacity-90"
                 />
 
-                {/* High Contrast Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+                {/* Multi-Stage High Contrast Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-black/30" />
 
-                {/* Clean Simplified Content Overlay */}
-                <div className="relative z-10 p-4 sm:p-6 text-white flex flex-col justify-end">
+                {/* Clean Content Overlay with Reserved 2-Line Title Height */}
+                <div className="relative z-10 p-3.5 sm:p-6 text-white flex flex-col justify-end">
                   <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-emerald-400 mb-1">
                     {item.category}
                   </span>
 
-                  <h3 className="text-sm sm:text-xl font-extrabold text-white group-hover:text-emerald-300 transition-colors leading-tight mb-1.5 line-clamp-2">
+                  <h3 className="text-sm sm:text-xl font-extrabold text-white group-hover:text-emerald-300 transition-colors leading-tight mb-1.5 line-clamp-2 min-h-[2.25rem] sm:min-h-[2.75rem] flex items-center">
                     {item.title}
                   </h3>
 
@@ -107,6 +107,8 @@ export const CollectionsRail: React.FC = () => {
               </Link>
             );
           })}
+          {/* Rail Trailing Padding Element for Mobile */}
+          <div className="w-1 shrink-0 sm:hidden" />
         </div>
       </div>
     </section>
