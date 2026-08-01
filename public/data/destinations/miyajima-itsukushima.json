@@ -45,6 +45,10 @@
     {
       "collectionId": "islands-japan",
       "sortOrder": 11
+    },
+    {
+      "collectionId": "three-great-views",
+      "sortOrder": 3
     }
   ],
   "transportOptions": {

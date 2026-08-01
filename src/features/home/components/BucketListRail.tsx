@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Bookmark, ArrowRight, Sparkles, LogIn } from "lucide-react";
+import { Bookmark, Sparkles, LogIn } from "lucide-react";
 import type { Destination } from "@/shared/types/destination";
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
+import { useAuthModal } from "@/shared/context/AuthModalContext";
+import { useTranslation } from "react-i18next";
+import { SectionViewAllLink } from "./SectionViewAllLink";
 import HomeMatchCard from "./HomeMatchCard";
 
 interface BucketListRailProps {
@@ -22,6 +25,8 @@ export const BucketListRail: React.FC<BucketListRailProps> = ({
 }) => {
   const { favorites } = useTripStore();
   const { user } = useAuth();
+  const { openAuthModal } = useAuthModal();
+  const { t } = useTranslation();
   const allDestinations = getDestinationList() as Destination[];
 
   const savedDestinations: Destination[] = favorites
@@ -42,12 +47,12 @@ export const BucketListRail: React.FC<BucketListRailProps> = ({
               </div>
               <div className="flex flex-col">
                 <span className="text-sm font-extrabold text-slate-900 dark:text-white">
-                  {user ? "Start your bucket list" : "Save places for later"}
+                  {user ? t("home.startBucketList") : t("home.savePlaces")}
                 </span>
                 <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
                   {user
-                    ? "Save places you want to explore later."
-                    : "Sign in to keep your bucket list across devices."}
+                    ? t("home.startBucketListDescription")
+                    : t("home.savePlacesDescription")}
                 </span>
               </div>
             </div>
@@ -58,16 +63,17 @@ export const BucketListRail: React.FC<BucketListRailProps> = ({
                 className="inline-flex items-center gap-1.5 text-xs font-extrabold px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white shadow-sm transition-colors whitespace-nowrap self-start sm:self-auto"
               >
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>Explore destinations</span>
+                <span>{t("home.exploreDestinations")}</span>
               </Link>
             ) : (
-              <Link
-                to="/login"
+              <button
+                type="button"
+                onClick={openAuthModal}
                 className="inline-flex items-center gap-1.5 text-xs font-extrabold px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 shadow-sm transition-colors whitespace-nowrap self-start sm:self-auto cursor-pointer"
               >
                 <LogIn className="w-3.5 h-3.5" />
-                <span>Sign in</span>
-              </Link>
+                <span>{t("actions.signIn")}</span>
+              </button>
             )}
           </div>
         </div>
@@ -84,20 +90,17 @@ export const BucketListRail: React.FC<BucketListRailProps> = ({
           <div className="min-w-0">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight flex items-center gap-2">
               <Bookmark className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-500 fill-emerald-500/20 shrink-0" />
-              <span>Your bucket list</span>
+              <span>{t("home.bucketList")}</span>
             </h2>
             <p className="text-[13px] sm:text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-              Places you've saved for later.
+              {t("home.bucketDescription")}
             </p>
           </div>
 
-          <Link
+          <SectionViewAllLink
             to="/bucket-list"
-            className="shrink-0 pt-1 text-xs sm:text-sm font-bold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors inline-flex items-center gap-1 group"
-          >
-            <span>View all</span>
-            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-          </Link>
+            ariaLabel={t("home.viewAllBucketList")}
+          />
         </div>
 
         {/* Dense Mobile Saved Places Rail */}
@@ -114,6 +117,7 @@ export const BucketListRail: React.FC<BucketListRailProps> = ({
                 partySize={partySize}
                 carMode={carMode}
                 publicModes={publicModes}
+                reason={t("home.savedReason")}
               />
             </div>
           ))}

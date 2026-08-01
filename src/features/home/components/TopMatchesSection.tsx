@@ -1,10 +1,11 @@
 import React, { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import type { Destination } from "@/shared/types/destination";
 import HomeMatchCard from "./HomeMatchCard";
 import { serializePlannerSearchParams } from "@/features/destinations/destinationSearchParams";
 import type { ResolvedPlannerState } from "../hooks/useTripPlannerState";
+import { useTranslation } from "react-i18next";
+import { SectionViewAllLink } from "./SectionViewAllLink";
 
 interface TopMatchesSectionProps {
   recommendations: Destination[];
@@ -17,6 +18,7 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
   hasUserApplied,
   appliedState,
 }) => {
+  const { t } = useTranslation();
   const topFive = recommendations.slice(0, 5);
   const railRef = useRef<HTMLDivElement>(null);
 
@@ -28,8 +30,8 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
   }, [recommendations, appliedState]);
 
   const headingText = hasUserApplied
-    ? "Your best matches right now"
-    : "Top matches for today";
+    ? t("home.yourMatches")
+    : t("home.topMatches");
 
   // Serializes applied filters to search params without serializing actual forecast weather
   const searchParamsString = serializePlannerSearchParams({
@@ -45,6 +47,7 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
   return (
     <section
       id="recommendations"
+      tabIndex={-1}
       className="py-8 sm:py-12 lg:py-16 bg-white dark:bg-slate-950"
     >
       <div className="container mx-auto px-4 max-w-6xl">
@@ -56,17 +59,14 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
               <span>{headingText}</span>
             </h2>
             <p className="text-[13px] sm:text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-              Smart picks tailored to your current situation and preferences.
+              {t("home.matchesDescription")}
             </p>
           </div>
 
-          <Link
+          <SectionViewAllLink
             to={`/destinations?${searchParamsString}`}
-            className="shrink-0 pt-1 text-xs sm:text-sm font-bold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors inline-flex items-center gap-1 group"
-          >
-            <span>View all</span>
-            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-          </Link>
+            ariaLabel={t("home.viewAllTopMatches")}
+          />
         </div>
 
         {/* Top 5 Recommendations Horizontal Scroll Rail */}
@@ -86,6 +86,7 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
                 partySize={appliedState.partySize}
                 carMode={appliedState.carMode}
                 publicModes={appliedState.publicModes}
+                reason={t("home.matchReason")}
               />
             </div>
           ))}

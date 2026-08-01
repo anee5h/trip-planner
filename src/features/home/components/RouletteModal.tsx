@@ -18,6 +18,7 @@ import { getFastestPreferredTransport } from "@/shared/services/transport/Prefer
 import { formatTransportTime } from "@/shared/services/transport/formatters";
 import { formatPrefecture } from "@/shared/utils/placeLabels";
 import { useTripStore } from "@/shared/hooks/useTripStore";
+import { useTranslation } from "react-i18next";
 
 interface RouletteModalProps {
   isOpen: boolean;
@@ -37,6 +38,7 @@ export default function RouletteModal({
   publicModes,
 }: RouletteModalProps) {
   const { locale } = useLocale();
+  const { t } = useTranslation();
   const { homeStationCoords } = useTripStore();
 
   const [spinning, setSpinning] = useState(false);
@@ -129,16 +131,17 @@ export default function RouletteModal({
             </div>
             <div>
               <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                <span>Destination Roulette</span>
+                <span>{t("home.roulette.title")}</span>
                 <Sparkles className="w-4 h-4 text-emerald-500" />
               </h2>
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                Let fate pick your next day-trip escape
+                {t("home.roulette.subtitle")}
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
+            aria-label={t("home.roulette.close")}
             className="p-2 rounded-xl text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
           >
             <X className="w-5 h-5" />
@@ -169,13 +172,13 @@ export default function RouletteModal({
                   <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950/40 backdrop-blur-[2px] text-white">
                     <Dices className="w-10 h-10 animate-spin text-emerald-400 mb-2" />
                     <span className="text-xs font-bold uppercase tracking-widest text-emerald-300">
-                      Selecting...
+                      {t("home.roulette.selecting")}
                     </span>
                   </div>
                 ) : (
                   <div className="absolute top-3 left-3 bg-emerald-500 text-white font-extrabold text-xs px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 animate-bounce">
                     <Trophy className="w-3.5 h-3.5" />
-                    <span>Your Match!</span>
+                    <span>{t("home.roulette.match")}</span>
                   </div>
                 )}
 
@@ -210,7 +213,7 @@ export default function RouletteModal({
                   className="flex-1 h-12 rounded-2xl font-bold border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
                 >
                   <Dices className="w-4 h-4 mr-2 text-emerald-500" />
-                  Spin Again
+                  {t("home.roulette.spinAgain")}
                 </Button>
 
                 {winner && (
@@ -220,7 +223,7 @@ export default function RouletteModal({
                     className="flex-1"
                   >
                     <Button className="w-full h-12 rounded-2xl font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-500/25">
-                      <span>View Destination</span>
+                      <span>{t("home.roulette.viewDestination")}</span>
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </Link>
@@ -230,7 +233,7 @@ export default function RouletteModal({
           ) : (
             <div className="py-12 text-slate-400">
               <MapPin className="w-10 h-10 mx-auto mb-2 opacity-50" />
-              <p>No candidates available to spin.</p>
+              <p>{t("home.roulette.empty")}</p>
             </div>
           )}
         </div>

@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { CloudRain, Sun, ThermometerSun, Snowflake } from "lucide-react";
 import type { Destination } from "@/shared/types/destination";
 import HomeMatchCard from "./HomeMatchCard";
+import { useTranslation } from "react-i18next";
+import { SectionViewAllLink } from "./SectionViewAllLink";
 
 interface WeatherContextRailProps {
   recommendations: Destination[];
@@ -21,12 +22,21 @@ export const WeatherContextRail: React.FC<WeatherContextRailProps> = ({
   carMode,
   publicModes,
 }) => {
+  const { t } = useTranslation();
   const isRainy =
     weatherDesc.toLowerCase().includes("rain") ||
     weatherDesc.toLowerCase().includes("drizzle");
   const isHot = temperatureC >= 30;
   const isCold = temperatureC <= 10;
 
+  if (!isRainy && !isHot && !isCold) return null;
+
+  const weatherFilter = isRainy ? "rainy" : isHot ? "hot" : "cold";
+  const reason = isRainy
+    ? t("home.rainReason")
+    : isHot
+      ? t("home.hotReason")
+      : t("home.coldReason");
   const topFiveIds = new Set(recommendations.slice(0, 5).map((d) => d.id));
 
   // Filter weather-tailored destinations
@@ -38,15 +48,8 @@ export const WeatherContextRail: React.FC<WeatherContextRailProps> = ({
         dest.kind === "shrine" ||
         (dest.ratings?.rain && dest.ratings.rain >= 7)
       );
-    if (isHot)
-      return (
-        dest.kind === "beach" ||
-        dest.kind === "lake" ||
-        dest.kind === "waterfall" ||
-        dest.kind === "park" ||
-        (dest.ratings?.summer && dest.ratings.summer >= 7)
-      );
-    return true;
+    if (isHot) return (dest.ratings?.summer ?? 0) >= 7;
+    return (dest.ratings?.winter ?? 0) >= 7;
   });
 
   // Enforce Max 2 Overlap Rule with Top 5 matches
@@ -89,19 +92,17 @@ export const WeatherContextRail: React.FC<WeatherContextRailProps> = ({
           <div className="min-w-0">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight flex items-center gap-2">
               {weatherIcon}
-              <span>Good for today’s weather</span>
+              <span>{t("home.weather")}</span>
             </h2>
             <p className="text-[13px] sm:text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-              Places that work well in today’s conditions.
+              {t("home.weatherDescription")}
             </p>
           </div>
 
-          <Link
-            to="/destinations"
-            className="shrink-0 pt-1 text-xs sm:text-sm font-bold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors inline-flex items-center gap-1 group"
-          >
-            <span>Explore →</span>
-          </Link>
+          <SectionViewAllLink
+            to={`/destinations?weather=${weatherFilter}`}
+            ariaLabel={t("home.viewAllWeather")}
+          />
         </div>
 
         {/* Dense Mobile Weather Rail (~2.2 cards visible on mobile) */}
@@ -118,6 +119,7 @@ export const WeatherContextRail: React.FC<WeatherContextRailProps> = ({
                 partySize={partySize}
                 carMode={carMode}
                 publicModes={publicModes}
+                reason={reason}
               />
             </div>
           ))}

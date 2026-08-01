@@ -118,6 +118,29 @@ describe("destinationSearchParams", () => {
     expect(parsed.walkingIntensity).toBe("all");
   });
 
+  it.each(["my_car", "rental"] as const)(
+    "preserves %s as a car-only planner search",
+    (carMode) => {
+      const params = serializePlannerSearchParams({
+        vibe: "any",
+        partySize: 2,
+        budgetTier: "standard",
+        tripDuration: "fullDay",
+        budget: BUDGET_TIER_LIMITS.standard,
+        carMode,
+        publicModes: [],
+      });
+
+      expect(new URLSearchParams(params).get("mode")).toBe("none");
+      expect(
+        parseDestinationSearchParams(new URLSearchParams(params)),
+      ).toMatchObject({
+        carMode,
+        publicModes: [],
+      });
+    },
+  );
+
   it("PLN-002: re-serialization of parsed planner params is stable (idempotent round-trip)", () => {
     const original = serializePlannerSearchParams({
       vibe: "food",

@@ -16,8 +16,10 @@ import TopMatchesSection from "./components/TopMatchesSection";
 import BucketListRail from "./components/BucketListRail";
 import WeatherContextRail from "./components/WeatherContextRail";
 import CollectionsRail from "./components/CollectionsRail";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
+  const { t } = useTranslation();
   const allDestinations = getDestinationList() as Destination[];
 
   const { isVisited, favorites, homeStationCoords, homeStation } =
@@ -80,16 +82,34 @@ export default function Home() {
       tripDuration: resolvedApplied.tripDuration,
       homeStationCoords,
       isVisited,
+      rouletteConstraints: resolvedDraft,
     });
 
   const [rouletteOpen, setRouletteOpen] = useState(false);
+  const [datePickerOpen, setDatePickerOpen] = useState(false);
+  const forecastDates = useMemo(() => {
+    if (!weatherContext) return [];
+    const dates: string[] = [];
+    const cursor = new Date(`${weatherContext.minDate}T00:00:00`);
+    const end = new Date(`${weatherContext.maxDate}T00:00:00`);
+    while (cursor <= end) {
+      dates.push(
+        `${cursor.getFullYear()}-${String(cursor.getMonth() + 1).padStart(2, "0")}-${String(cursor.getDate()).padStart(2, "0")}`,
+      );
+      cursor.setDate(cursor.getDate() + 1);
+    }
+    return dates;
+  }, [weatherContext]);
+
+  const selectedDate =
+    customDate || currentTab?.dates?.[0] || weatherContext?.minDate;
 
   const handleApplyAndScroll = useCallback(() => {
     applyPlannerState();
     const el = document.getElementById("recommendations");
     if (el) {
       el.scrollIntoView?.({ behavior: "smooth" });
-      el.focus?.();
+      el.focus();
     }
   }, [applyPlannerState]);
 
@@ -114,7 +134,7 @@ export default function Home() {
                   to="/settings?section=general&return=/"
                   className="ml-1 text-emerald-600 dark:text-emerald-400 hover:underline font-extrabold"
                 >
-                  Change
+                  {t("home.change")}
                 </Link>
               </div>
 
@@ -157,24 +177,43 @@ export default function Home() {
                   </button>
                 ))}
 
-                {/* Custom Date Picker */}
-                <div className="relative inline-flex items-center gap-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full px-2.5 py-1 text-xs font-bold shadow-sm hover:border-emerald-500 transition-colors">
-                  <Calendar className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                  <input
-                    type="date"
-                    min={weatherContext.minDate}
-                    max={weatherContext.maxDate}
-                    value={customDate || ""}
-                    onChange={(e) => {
-                      const val = e.target.value;
-                      if (val) {
-                        setCustomDate(val);
-                        handleCustomDateSelect(val);
-                      }
-                    }}
-                    className="bg-transparent border-none p-0 text-xs font-bold text-slate-700 dark:text-slate-200 focus:outline-none cursor-pointer"
-                    title="Pick custom forecast date"
-                  />
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={() => setDatePickerOpen((open) => !open)}
+                    className="inline-flex min-h-8 items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-bold text-slate-700 shadow-sm transition-colors hover:border-emerald-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"
+                    aria-expanded={datePickerOpen}
+                  >
+                    <Calendar className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                    <span>{selectedDate?.replaceAll("-", "/")}</span>
+                  </button>
+                  {datePickerOpen && (
+                    <div className="absolute right-0 top-full z-30 mt-2 w-72 rounded-xl border border-slate-200 bg-white p-3 shadow-xl dark:border-slate-800 dark:bg-slate-900">
+                      <div className="grid grid-cols-2 gap-1.5">
+                        {forecastDates.map((date) => {
+                          const active = date === selectedDate;
+                          return (
+                            <button
+                              key={date}
+                              type="button"
+                              onClick={() => {
+                                setCustomDate(date);
+                                handleCustomDateSelect(date);
+                                setDatePickerOpen(false);
+                              }}
+                              className={`min-h-11 rounded-lg px-2 text-xs font-bold transition-colors ${
+                                active
+                                  ? "bg-emerald-600 text-white"
+                                  : "bg-slate-50 text-slate-700 hover:bg-emerald-50 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
+                              }`}
+                            >
+                              {date.replaceAll("-", "/")}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             )}
@@ -183,11 +222,10 @@ export default function Home() {
           {/* Centered Headline with Scaled Mobile Typography (28px) */}
           <div className="text-center max-w-3xl mx-auto mb-6">
             <h1 className="text-[28px] leading-[1.08] sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-              Where will you go next?
+              {t("home.headline")}
             </h1>
             <p className="text-[13px] sm:text-sm md:text-base text-slate-500 dark:text-slate-400 font-medium mt-2 leading-relaxed">
-              Personalized day-trip ideas based on your time, budget, and travel
-              style.
+              {t("home.subtitle")}
             </p>
           </div>
 

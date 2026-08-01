@@ -28,6 +28,7 @@ import {
 import type { BudgetTier } from "@/shared/types/planner";
 import type { HomepageTripDuration } from "../services/PlannerBudgetPolicy";
 import type { TransportPreference } from "../services/TransportResolver";
+import { useTranslation } from "react-i18next";
 
 interface HomePlannerProps {
   vibe: string;
@@ -117,19 +118,17 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
   onApplyMatches,
   onSurpriseMe,
 }) => {
+  const { t } = useTranslation();
+  const translate = (key: string) => t(key as never);
   const primaryButtonLabel = !hasUserApplied
-    ? "Find matches"
+    ? t("home.find")
     : isDirty
-      ? "Update matches"
-      : "View matches";
+      ? t("home.update")
+      : t("home.view");
 
   const currentVibe = VIBE_LABELS[vibe] || VIBE_LABELS.any;
   const VibeIcon = currentVibe.icon;
 
-  const currentDuration =
-    DURATION_LABELS[tripDuration] || DURATION_LABELS.fullDay;
-  const currentBudget =
-    BUDGET_TIER_LABELS[budgetTier] || BUDGET_TIER_LABELS.standard;
   const currentTransport =
     TRANSPORT_LABELS[transportPreference] || TRANSPORT_LABELS.public;
   const TransportIcon = currentTransport.icon;
@@ -156,7 +155,9 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                   <VibeIcon
                     className={`w-4 h-4 shrink-0 ${currentVibe.color}`}
                   />
-                  <span className="truncate">{currentVibe.label}</span>
+                  <span className="truncate">
+                    {translate(`home.vibes.${vibe}`)}
+                  </span>
                 </div>
               </SelectTrigger>
               <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
@@ -170,7 +171,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                     >
                       <div className="flex items-center text-xs font-semibold">
                         <Icon className={`w-4 h-4 mr-2.5 ${item.color}`} />
-                        <span>{item.label}</span>
+                        <span>{translate(`home.vibes.${key}`)}</span>
                       </div>
                     </SelectItem>
                   );
@@ -184,7 +185,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
           {/* Segment 2: Duration (20%) */}
           <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-850 transition-colors flex flex-col justify-center relative cursor-pointer">
             <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-0.5">
-              Duration
+              {t("home.duration")}
             </span>
             <Select
               value={tripDuration}
@@ -195,7 +196,9 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
               <SelectTrigger className="w-full border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs sm:text-sm text-slate-900 dark:text-white flex items-center justify-between">
                 <div className="flex items-center gap-2 truncate">
                   <Clock className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span className="truncate">{currentDuration.label}</span>
+                  <span className="truncate">
+                    {translate(`home.durations.${tripDuration}`)}
+                  </span>
                 </div>
               </SelectTrigger>
               <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
@@ -206,7 +209,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                     className="py-2.5 px-3 cursor-pointer"
                   >
                     <div className="flex items-center justify-between text-xs font-semibold w-full gap-3">
-                      <span>{item.label}</span>
+                      <span>{translate(`home.durations.${key}`)}</span>
                       <span className="text-slate-400 text-[10px]">
                         {item.hint}
                       </span>
@@ -222,7 +225,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
           {/* Segment 3: Party (20%) */}
           <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-850 transition-colors flex flex-col justify-center">
             <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-0.5">
-              Party
+              {t("home.party")}
             </span>
             <div className="flex items-center justify-between gap-1 text-xs font-bold text-slate-900 dark:text-white">
               <div className="flex items-center gap-1.5 truncate">
@@ -232,19 +235,19 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
               <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 rounded-lg p-0.5">
                 <button
                   type="button"
-                  aria-label="Decrease party size"
+                  aria-label={t("home.decreaseParty")}
                   disabled={partySize <= 1}
                   onClick={() => onPartySizeChange(Math.max(1, partySize - 1))}
-                  className="w-5 h-5 flex items-center justify-center rounded hover:bg-white dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 disabled:opacity-40"
+                  className="w-11 h-11 flex items-center justify-center rounded hover:bg-white dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 disabled:opacity-40"
                 >
                   <Minus className="w-3 h-3" />
                 </button>
                 <button
                   type="button"
-                  aria-label="Increase party size"
+                  aria-label={t("home.increaseParty")}
                   disabled={partySize >= 8}
                   onClick={() => onPartySizeChange(Math.min(8, partySize + 1))}
-                  className="w-5 h-5 flex items-center justify-center rounded hover:bg-white dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 disabled:opacity-40"
+                  className="w-11 h-11 flex items-center justify-center rounded hover:bg-white dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 disabled:opacity-40"
                 >
                   <Plus className="w-3 h-3" />
                 </button>
@@ -257,7 +260,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
           {/* Segment 4: Budget (20%) */}
           <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-850 transition-colors flex flex-col justify-center relative cursor-pointer">
             <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-0.5">
-              Budget
+              {t("home.budget")}
             </span>
             <Select
               value={budgetTier}
@@ -268,20 +271,22 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
               <SelectTrigger className="w-full border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs sm:text-sm text-slate-900 dark:text-white flex items-center justify-between">
                 <div className="flex items-center gap-2 truncate">
                   <Wallet className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span className="truncate">{currentBudget.label}</span>
+                  <span className="truncate">
+                    {t(`home.budgets.${budgetTier}`)}
+                  </span>
                 </div>
               </SelectTrigger>
               <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
-                {Object.entries(BUDGET_TIER_LABELS).map(([key, item]) => (
+                {Object.entries(BUDGET_TIER_LABELS).map(([key]) => (
                   <SelectItem
                     key={key}
                     value={key}
                     className="py-2.5 px-3 cursor-pointer"
                   >
                     <div className="flex flex-col text-xs font-semibold">
-                      <span>{item.label}</span>
+                      <span>{translate(`home.budgets.${key}`)}</span>
                       <span className="text-slate-400 text-[10px] font-normal">
-                        {item.desc}
+                        {translate(`home.budgetHints.${key}`)}
                       </span>
                     </div>
                   </SelectItem>
@@ -295,7 +300,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
           {/* Segment 5: Getting Around (20%) */}
           <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-850 transition-colors flex flex-col justify-center relative cursor-pointer">
             <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-0.5">
-              Getting around
+              {t("home.transport")}
             </span>
             <Select
               value={transportPreference}
@@ -307,7 +312,9 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
               <SelectTrigger className="w-full border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs sm:text-sm text-slate-900 dark:text-white flex items-center justify-between">
                 <div className="flex items-center gap-2 truncate">
                   <TransportIcon className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span className="truncate">{currentTransport.label}</span>
+                  <span className="truncate">
+                    {translate(`home.transportOptions.${transportPreference}`)}
+                  </span>
                 </div>
               </SelectTrigger>
               <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
@@ -321,7 +328,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                     >
                       <div className="flex items-center text-xs font-semibold">
                         <Icon className="w-4 h-4 mr-2 text-slate-400" />
-                        <span>{item.label}</span>
+                        <span>{translate(`home.transportOptions.${key}`)}</span>
                       </div>
                     </SelectItem>
                   );
@@ -350,7 +357,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             onClick={onSurpriseMe}
           >
             <Shuffle className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-            <span>Surprise me 🎲</span>
+            <span>{t("home.surprise")}</span>
           </Button>
         </div>
       </div>
@@ -359,17 +366,17 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
       <div className="lg:hidden bg-white dark:bg-slate-900 p-5 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800 space-y-3">
         <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-2">
           <span className="text-base font-extrabold text-slate-900 dark:text-white">
-            Trip Planner
+            {t("home.planner")}
           </span>
           <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-1 rounded-full border border-emerald-200 dark:border-emerald-800">
-            Find your match in 30s
+            {t("home.plannerHint")}
           </span>
         </div>
 
         {/* Row 1: Vibe */}
         <div className="flex items-center justify-between h-13 px-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800">
           <span className="text-xs font-bold text-slate-600 dark:text-slate-400">
-            What kind of day?
+            {t("home.whatKind")}
           </span>
           <Select
             value={vibe}
@@ -379,7 +386,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
           >
             <SelectTrigger className="border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs text-slate-900 dark:text-white flex items-center gap-1.5 w-auto">
               <VibeIcon className={`w-3.5 h-3.5 ${currentVibe.color}`} />
-              <span>{currentVibe.label}</span>
+              <span>{translate(`home.vibes.${vibe}`)}</span>
             </SelectTrigger>
             <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
               {Object.entries(VIBE_LABELS).map(([key, item]) => {
@@ -392,7 +399,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                   >
                     <div className="flex items-center text-xs font-semibold">
                       <Icon className={`w-4 h-4 mr-2 ${item.color}`} />
-                      <span>{item.label}</span>
+                      <span>{translate(`home.vibes.${key}`)}</span>
                     </div>
                   </SelectItem>
                 );
@@ -404,7 +411,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
         {/* Row 2: Duration */}
         <div className="flex items-center justify-between h-13 px-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800">
           <span className="text-xs font-bold text-slate-600 dark:text-slate-400">
-            How much time?
+            {t("home.howMuchTime")}
           </span>
           <Select
             value={tripDuration}
@@ -414,7 +421,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
           >
             <SelectTrigger className="border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs text-slate-900 dark:text-white flex items-center gap-1.5 w-auto">
               <Clock className="w-3.5 h-3.5 text-emerald-500" />
-              <span>{currentDuration.label}</span>
+              <span>{translate(`home.durations.${tripDuration}`)}</span>
             </SelectTrigger>
             <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
               {Object.entries(DURATION_LABELS).map(([key, item]) => (
@@ -424,7 +431,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                   className="py-2 px-3 cursor-pointer"
                 >
                   <div className="flex items-center justify-between text-xs font-semibold w-full gap-3">
-                    <span>{item.label}</span>
+                    <span>{translate(`home.durations.${key}`)}</span>
                     <span className="text-slate-400 text-[10px]">
                       {item.hint}
                     </span>
@@ -438,28 +445,28 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
         {/* Row 3: Party */}
         <div className="flex items-center justify-between h-13 px-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800">
           <span className="text-xs font-bold text-slate-600 dark:text-slate-400">
-            Travel party
+            {t("home.party")}
           </span>
           <div className="flex items-center gap-3">
             <span className="text-xs font-bold text-slate-900 dark:text-white">
-              {partySize} {partySize === 1 ? "person" : "people"}
+              {t("home.people", { count: partySize })}
             </span>
             <div className="flex items-center gap-1 bg-slate-200/70 dark:bg-slate-800 rounded-lg p-0.5">
               <button
                 type="button"
-                aria-label="Decrease party size"
+                aria-label={t("home.decreaseParty")}
                 disabled={partySize <= 1}
                 onClick={() => onPartySizeChange(Math.max(1, partySize - 1))}
-                className="w-6 h-6 flex items-center justify-center rounded hover:bg-white dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 disabled:opacity-40"
+                className="w-11 h-11 flex items-center justify-center rounded hover:bg-white dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 disabled:opacity-40"
               >
                 <Minus className="w-3.5 h-3.5" />
               </button>
               <button
                 type="button"
-                aria-label="Increase party size"
+                aria-label={t("home.increaseParty")}
                 disabled={partySize >= 8}
                 onClick={() => onPartySizeChange(Math.min(8, partySize + 1))}
-                className="w-6 h-6 flex items-center justify-center rounded hover:bg-white dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 disabled:opacity-40"
+                className="w-11 h-11 flex items-center justify-center rounded hover:bg-white dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 disabled:opacity-40"
               >
                 <Plus className="w-3.5 h-3.5" />
               </button>
@@ -470,7 +477,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
         {/* Row 4: Budget */}
         <div className="flex items-center justify-between h-13 px-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800">
           <span className="text-xs font-bold text-slate-600 dark:text-slate-400">
-            Budget
+            {t("home.budget")}
           </span>
           <Select
             value={budgetTier}
@@ -480,19 +487,19 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
           >
             <SelectTrigger className="border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs text-slate-900 dark:text-white flex items-center gap-1.5 w-auto">
               <Wallet className="w-3.5 h-3.5 text-emerald-500" />
-              <span>{currentBudget.label}</span>
+              <span>{translate(`home.budgets.${budgetTier}`)}</span>
             </SelectTrigger>
             <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
-              {Object.entries(BUDGET_TIER_LABELS).map(([key, item]) => (
+              {Object.entries(BUDGET_TIER_LABELS).map(([key]) => (
                 <SelectItem
                   key={key}
                   value={key}
                   className="py-2 px-3 cursor-pointer"
                 >
                   <div className="flex items-center justify-between text-xs font-semibold w-full gap-3">
-                    <span>{item.label}</span>
+                    <span>{translate(`home.budgets.${key}`)}</span>
                     <span className="text-slate-400 text-[10px]">
-                      {item.desc}
+                      {translate(`home.budgetHints.${key}`)}
                     </span>
                   </div>
                 </SelectItem>
@@ -504,7 +511,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
         {/* Row 5: Getting around */}
         <div className="flex items-center justify-between h-13 px-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800">
           <span className="text-xs font-bold text-slate-600 dark:text-slate-400">
-            Getting around
+            {t("home.transport")}
           </span>
           <Select
             value={transportPreference}
@@ -514,7 +521,9 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
           >
             <SelectTrigger className="border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs text-slate-900 dark:text-white flex items-center gap-1.5 w-auto">
               <TransportIcon className="w-3.5 h-3.5 text-emerald-500" />
-              <span>{currentTransport.label}</span>
+              <span>
+                {translate(`home.transportOptions.${transportPreference}`)}
+              </span>
             </SelectTrigger>
             <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
               {Object.entries(TRANSPORT_LABELS).map(([key, item]) => {
@@ -527,7 +536,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                   >
                     <div className="flex items-center text-xs font-semibold">
                       <Icon className="w-4 h-4 mr-2 text-slate-400" />
-                      <span>{item.label}</span>
+                      <span>{translate(`home.transportOptions.${key}`)}</span>
                     </div>
                   </SelectItem>
                 );
@@ -555,7 +564,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             onClick={onSurpriseMe}
           >
             <Shuffle className="w-3.5 h-3.5 mr-1.5 text-emerald-600 dark:text-emerald-400" />
-            <span>Surprise Me 🎲</span>
+            <span>{t("home.surprise")}</span>
           </Button>
         </div>
       </div>

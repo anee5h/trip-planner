@@ -62,6 +62,10 @@ vi.mock("@/shared/context/LocaleContext", () => ({
   }),
 }));
 
+vi.mock("@/shared/context/AuthModalContext", () => ({
+  useAuthModal: () => ({ openAuthModal: vi.fn() }),
+}));
+
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
     t: (key: string) => key,
@@ -103,10 +107,10 @@ describe("Home Integration Tests", () => {
   it("renders homepage planner and top matches section", () => {
     const container = renderHome();
 
-    expect(container.textContent).toContain("Where will you go next?");
-    expect(container.textContent).toContain("Trip Planner");
-    expect(container.textContent).toContain("Find matches");
-    expect(container.textContent).toContain("Top matches for today");
+    expect(container.textContent).toContain("home.headline");
+    expect(container.textContent).toContain("home.planner");
+    expect(container.textContent).toContain("home.find");
+    expect(container.textContent).toContain("home.topMatches");
   });
 
   it("transitions button state: Find matches -> View matches -> Update matches", () => {
@@ -115,11 +119,11 @@ describe("Home Integration Tests", () => {
     // 1. Initial state: Find matches
     let primaryBtn = Array.from(container.querySelectorAll("button")).find(
       (b) =>
-        b.textContent?.includes("Find matches") ||
-        b.textContent?.includes("View matches") ||
-        b.textContent?.includes("Update matches"),
+        b.textContent?.includes("home.find") ||
+        b.textContent?.includes("home.view") ||
+        b.textContent?.includes("home.update"),
     );
-    expect(primaryBtn?.textContent).toContain("Find matches");
+    expect(primaryBtn?.textContent).toContain("home.find");
 
     // 2. Click Find matches to apply initial planner state
     act(() => {
@@ -128,15 +132,15 @@ describe("Home Integration Tests", () => {
 
     primaryBtn = Array.from(container.querySelectorAll("button")).find(
       (b) =>
-        b.textContent?.includes("Find matches") ||
-        b.textContent?.includes("View matches") ||
-        b.textContent?.includes("Update matches"),
+        b.textContent?.includes("home.find") ||
+        b.textContent?.includes("home.view") ||
+        b.textContent?.includes("home.update"),
     );
-    expect(primaryBtn?.textContent).toContain("View matches");
+    expect(primaryBtn?.textContent).toContain("home.view");
 
     // 3. Edit draft control (party size) -> button becomes Update matches
     const plusBtn = container.querySelector(
-      'button[aria-label="Increase party size"]',
+      'button[aria-label="home.increaseParty"]',
     ) as HTMLButtonElement;
     expect(plusBtn).toBeDefined();
 
@@ -146,20 +150,18 @@ describe("Home Integration Tests", () => {
 
     primaryBtn = Array.from(container.querySelectorAll("button")).find(
       (b) =>
-        b.textContent?.includes("Find matches") ||
-        b.textContent?.includes("View matches") ||
-        b.textContent?.includes("Update matches"),
+        b.textContent?.includes("home.find") ||
+        b.textContent?.includes("home.view") ||
+        b.textContent?.includes("home.update"),
     );
-    expect(primaryBtn?.textContent).toContain("Update matches");
+    expect(primaryBtn?.textContent).toContain("home.update");
   });
 
   it("Surprise Me opens modal without applying draft planner state to top matches", () => {
     const container = renderHome();
 
     const surpriseBtn = Array.from(container.querySelectorAll("button")).find(
-      (b) =>
-        b.textContent?.includes("Surprise me") ||
-        b.textContent?.includes("Surprise Me"),
+      (b) => b.textContent?.includes("home.surprise"),
     );
     expect(surpriseBtn).toBeDefined();
 
@@ -168,6 +170,6 @@ describe("Home Integration Tests", () => {
     });
 
     // Heading should still say "Top matches for today" because applyPlannerState was not called
-    expect(container.textContent).toContain("Top matches for today");
+    expect(container.textContent).toContain("home.topMatches");
   });
 });

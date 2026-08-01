@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { useAuth } from "@/shared/hooks/useAuth";
-import { AuthModal } from "@/shared/components/auth/AuthModal";
+import { useAuthModal } from "@/shared/context/AuthModalContext";
 import { GlobalSearch } from "@/features/search/GlobalSearch";
 import { FeedbackModal } from "@/shared/components/feedback/FeedbackModal";
 import { ReleaseNotesModal } from "@/shared/components/ui/ReleaseNotesModal";
@@ -32,7 +32,7 @@ export default function Navbar() {
   const { locale, setLocale } = useLocale();
   const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [authOpen, setAuthOpen] = useState(false);
+  const { openAuthModal } = useAuthModal();
   const [feedbackOpen, setFeedbackOpen] = useState(false);
   const [releaseNotesOpen, setReleaseNotesOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
@@ -340,7 +340,7 @@ export default function Navbar() {
               </div>
             ) : (
               <Button
-                onClick={() => setAuthOpen(true)}
+                onClick={openAuthModal}
                 className="group bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white rounded-full font-bold shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 px-6"
               >
                 <LogIn className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1" />
@@ -349,7 +349,6 @@ export default function Navbar() {
             )}
           </div>
 
-          <AuthModal isOpen={authOpen} onClose={() => setAuthOpen(false)} />
           <FeedbackModal
             isOpen={feedbackOpen}
             onClose={() => setFeedbackOpen(false)}
@@ -522,7 +521,7 @@ export default function Navbar() {
               <button
                 onClick={() => {
                   setMenuOpen(false);
-                  setAuthOpen(true);
+                  openAuthModal();
                 }}
                 className="flex items-center justify-center gap-2 mt-2 w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white rounded-xl py-3 font-bold shadow-md transition-all duration-300"
               >
