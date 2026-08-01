@@ -175,6 +175,9 @@
     "change": "Change",
     "planner": "Trip Planner",
     "plannerHint": "Find your match in 30s",
+    "moreDates": "More dates",
+    "chooseForecastDay": "Choose a forecast day",
+    "closeForecastDayPicker": "Close forecast day picker",
     "vibe": "Vibe",
     "duration": "Duration",
     "party": "Travel party",
@@ -286,7 +289,8 @@
       "spinAgain": "Spin again",
       "close": "Close roulette",
       "viewDestination": "View destination",
-      "empty": "No candidates available to spin."
+      "empty": "No candidates available to spin.",
+      "expanded": "Expanded the search slightly to give you more variety."
     }
   },
   "ui": {

@@ -41,6 +41,14 @@
     --ring: 142.1 76.2% 36.3%;
 
     --radius: 0.75rem;
+
+    --surface-page: 210 40% 98%;
+    --surface-card: 0 0% 100%;
+    --surface-raised: 210 40% 96.1%;
+    --surface-overlay: 0 0% 100%;
+    --border-subtle: 214.3 31.8% 91.4%;
+    --text-primary: 222.2 84% 4.9%;
+    --text-secondary: 215.4 16.3% 40%;
   }
 
   .dark {
@@ -80,6 +88,14 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 142.1 70.6% 45.3%;
+
+    --surface-page: 222.2 47.4% 6.5%;
+    --surface-card: 217.2 32.6% 12%;
+    --surface-raised: 217.2 32.6% 17.5%;
+    --surface-overlay: 217.2 32.6% 14%;
+    --border-subtle: 217.2 24% 24%;
+    --text-primary: 210 40% 98%;
+    --text-secondary: 215 20.2% 70%;
   }
 }
 

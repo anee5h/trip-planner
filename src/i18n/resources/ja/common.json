@@ -175,6 +175,9 @@
     "change": "変更",
     "planner": "旅のプランナー",
     "plannerHint": "30秒でぴったりの旅先を提案",
+    "moreDates": "他の日付",
+    "chooseForecastDay": "予報日を選ぶ",
+    "closeForecastDayPicker": "予報日の選択を閉じる",
     "vibe": "気分",
     "duration": "時間",
     "party": "人数",
@@ -286,7 +289,8 @@
       "spinAgain": "もう一度回す",
       "close": "ルーレットを閉じる",
       "viewDestination": "目的地を見る",
-      "empty": "ルーレット用の候補がありません。"
+      "empty": "ルーレット用の候補がありません。",
+      "expanded": "候補を増やすため、検索条件を少し広げました。"
     }
   },
   "ui": {

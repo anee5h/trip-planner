@@ -97,12 +97,18 @@ export function getValidModes(
   }
 
   if (budgetTier) {
-    const hasMode = (mode: string) => validModes.includes(mode);
+    const carModes = validModes.filter(
+      (mode) => mode === "car" || mode === "my_car",
+    );
+    const publicTransportModes = validModes.filter(
+      (mode) => mode !== "car" && mode !== "my_car",
+    );
+    const hasMode = (mode: string) => publicTransportModes.includes(mode);
     const choose = (preferred: string[], fallback: string[]) => {
       const primary = preferred.filter(hasMode);
       return primary.length > 0 ? primary : fallback.filter(hasMode);
     };
-    validModes =
+    const preferredPublicModes =
       budgetTier === "economy"
         ? choose(["train", "bus"], ["shinkansen", "flight"])
         : budgetTier === "standard"
@@ -110,6 +116,7 @@ export function getValidModes(
           : budgetTier === "comfortable"
             ? choose(["shinkansen", "train", "bus"], ["flight"])
             : choose(["shinkansen", "flight", "train", "bus"], []);
+    validModes = [...carModes, ...preferredPublicModes];
   }
 
   if (
