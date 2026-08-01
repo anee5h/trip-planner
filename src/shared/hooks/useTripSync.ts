@@ -260,25 +260,7 @@ export function useTripSync({
   >(null);
   const previousTripsRef = useRef<Trip[]>(trips);
 
-  const localSnapshotRef = useRef<LocalSnapshot>({
-    favorites,
-    visited,
-    visitedPrefectures,
-    visitedDates: visitedDates ?? {},
-    destinationRatings: destinationRatings ?? {},
-    homeStation,
-  });
-
-  localSnapshotRef.current = {
-    favorites,
-    visited,
-    visitedPrefectures,
-    visitedDates: visitedDates ?? {},
-    destinationRatings: destinationRatings ?? {},
-    homeStation,
-  };
-
-  // Clear account-scoped local state on logout or account switch.
+  // Clear account-scoped memory state on logout or account switch.
   useEffect(() => {
     const previousUserId = previousUserIdRef.current;
     const currentUserId = user?.id;
@@ -286,14 +268,6 @@ export function useTripSync({
       Boolean(previousUserId) && previousUserId !== currentUserId;
 
     if (accountChanged || (previousUserId && !currentUserId)) {
-      localSnapshotRef.current = {
-        favorites: [],
-        visited: [],
-        visitedPrefectures: [],
-        visitedDates: {},
-        destinationRatings: {},
-        homeStation: "Tokyo Station",
-      };
       hydratedUserIdRef.current = null;
       hydrationVersionRef.current += 1;
 
@@ -331,8 +305,7 @@ export function useTripSync({
     setDestinationRatings,
   ]);
 
-  // Hydrate account data, reconcile all passport fields, and persist the
-  // reconciled snapshot before allowing later background writes.
+  // Hydrate user account data exclusively from Supabase without local merging
   useEffect(() => {
     const userId = user?.id;
     const client = supabase;
@@ -350,8 +323,6 @@ export function useTripSync({
       previousUserIdRef.current === userId;
 
     const hydrateUserData = async () => {
-      const snapshot = localSnapshotRef.current;
-
       const { data, error } = await client
         .from("user_data")
         .select("*")
@@ -368,94 +339,78 @@ export function useTripSync({
         return;
       }
 
-      const remoteFavorites = normalizeStringArray(data?.favorites);
-      const remoteVisited = normalizeStringArray(data?.visited);
-      const remotePrefectures = normalizeStringArray(data?.visited_prefectures);
-      const mergedVisitedDates = mergeVisitDates(
-        snapshot.visitedDates,
-        data?.visited_dates,
-      );
+      if (!data) {
+        // Create initial row for new account
+        const defaultPayload = {
+          id: userId,
+          favorites: [],
+          visited: [],
+          visited_prefectures: [],
+          visited_dates: {},
+          destination_ratings: {},
+          home_station: "Tokyo Station",
+          updated_at: new Date().toISOString(),
+        };
 
-      const reconciledFavorites = uniqueStrings([
-        ...snapshot.favorites,
-        ...remoteFavorites,
-      ]);
+        const { error: createError } = await client
+          .from("user_data")
+          .insert(defaultPayload);
 
-      // Every destination with a visit date must also exist in `visited`.
-      const reconciledVisited = uniqueStrings([
-        ...snapshot.visited,
-        ...remoteVisited,
-        ...Object.keys(mergedVisitedDates),
-      ]);
+        if (!isCurrentHydration()) return;
 
-      const reconciledPrefectures = deriveVisitedPrefectures(
-        reconciledVisited,
-        [...snapshot.visitedPrefectures, ...remotePrefectures],
-      );
+        if (createError) {
+          console.error(
+            "[Meguruto Sync] Failed to initialize user_data row:",
+            createError,
+          );
+          return;
+        }
 
-      const reconciledRatings: DestinationRatings = {
-        ...normalizeDestinationRatings(data?.destination_ratings),
-        ...snapshot.destinationRatings,
-      };
-
-      const remoteHomeStation =
-        typeof data?.home_station === "string" &&
-        data.home_station.length > 0 &&
-        data.home_station !== "Tokyo Station"
-          ? data.home_station
-          : null;
-
-      const reconciledHomeStation =
-        remoteHomeStation ?? snapshot.homeStation ?? "Tokyo Station";
-
-      const updatedAt = new Date().toISOString();
-      const payload = {
-        id: userId,
-        favorites: reconciledFavorites,
-        visited: reconciledVisited,
-        visited_prefectures: reconciledPrefectures,
-        visited_dates: mergedVisitedDates,
-        destination_ratings: reconciledRatings,
-        home_station: reconciledHomeStation,
-        updated_at: updatedAt,
-      };
-
-      const { error: saveError } = await client
-        .from("user_data")
-        .upsert(payload);
-
-      if (!isCurrentHydration()) return;
-
-      if (saveError) {
-        console.error(
-          "[Meguruto Sync] Failed to persist reconciled user_data:",
-          saveError,
-        );
-        toast.error(
-          "Cloud profile could not be reconciled. Sync has been paused.",
-          { id: "user-data-reconcile-error" },
-        );
+        setFavorites([]);
+        setVisited([]);
+        setVisitedPrefectures([]);
+        setVisitedDates?.({});
+        setDestinationRatings?.({});
+        setHomeStation("Tokyo Station");
+        hydratedUserIdRef.current = userId;
         return;
       }
 
-      setFavorites(reconciledFavorites);
-      setVisited(reconciledVisited);
-      setVisitedPrefectures(reconciledPrefectures);
-      setVisitedDates?.(mergedVisitedDates);
-      setDestinationRatings?.(reconciledRatings);
-      setHomeStation(reconciledHomeStation);
+      const loadedDates = normalizeVisitDates(data.visited_dates);
+      const loadedVisited = uniqueStrings([
+        ...normalizeStringArray(data.visited),
+        ...Object.keys(loadedDates),
+      ]);
+      const loadedPrefectures = deriveVisitedPrefectures(
+        loadedVisited,
+        normalizeStringArray(data.visited_prefectures),
+      );
+      const loadedFavorites = normalizeStringArray(data.favorites);
+      const loadedRatings = normalizeDestinationRatings(
+        data.destination_ratings,
+      );
+      const loadedHomeStation =
+        typeof data.home_station === "string" &&
+        data.home_station.length > 0 &&
+        data.home_station !== "Tokyo Station"
+          ? data.home_station
+          : "Tokyo Station";
 
-      const syncedDate = getDatePart(updatedAt);
+      setFavorites(loadedFavorites);
+      setVisited(loadedVisited);
+      setVisitedPrefectures(loadedPrefectures);
+      setVisitedDates?.(loadedDates);
+      setDestinationRatings?.(loadedRatings);
+      setHomeStation(loadedHomeStation);
+
+      const syncedDate = getDatePart(data.updated_at);
       if (syncedDate) {
         setLastSyncedDate?.(syncedDate);
       }
 
-      if (
-        reconciledHomeStation !== "Tokyo Station" &&
-        reconciledHomeStation !== snapshot.homeStation
-      ) {
+      if (loadedHomeStation !== "Tokyo Station") {
         void resolveHomeStationCoordinates(
-          reconciledHomeStation,
+          loadedHomeStation,
           setHomeStationCoords,
         );
       }
