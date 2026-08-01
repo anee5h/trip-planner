@@ -723,10 +723,10 @@ export default function DestinationFilters({
             {/* Modal Body (Scrollable Region with 24px bottom padding) */}
             <div className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 py-4 space-y-5">
               {/* SECTION 1: TRIP REQUIREMENTS */}
-              <div className="space-y-3">
-                <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800/80">
+              <div className="space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900/50">
+                <div className="flex items-center justify-between pb-1 border-b border-slate-200 dark:border-slate-800">
                   <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white">
-                    <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <ShieldCheck className="w-4 h-4 text-slate-500 dark:text-slate-400 shrink-0" />
                     <span>{isJa ? "必須条件" : "TRIP REQUIREMENTS"}</span>
                   </div>
                   <span className="text-[11px] text-slate-600 dark:text-slate-300 font-semibold">
@@ -960,8 +960,8 @@ export default function DestinationFilters({
               </div>
 
               {/* SECTION 2: RANKING PREFERENCES */}
-              <div className="pt-1 space-y-3">
-                <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800/80">
+              <div className="space-y-3 rounded-2xl border border-emerald-100 bg-emerald-50/50 p-4 dark:border-emerald-950/60 dark:bg-emerald-950/10">
+                <div className="flex items-center justify-between pb-1 border-b border-emerald-100 dark:border-emerald-950/60">
                   <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white">
                     <Compass className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>{isJa ? "希望条件" : "RANKING PREFERENCES"}</span>
