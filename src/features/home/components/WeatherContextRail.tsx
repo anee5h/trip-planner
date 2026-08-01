@@ -32,11 +32,6 @@ export const WeatherContextRail: React.FC<WeatherContextRailProps> = ({
   if (!isRainy && !isHot && !isCold) return null;
 
   const weatherFilter = isRainy ? "rainy" : isHot ? "hot" : "cold";
-  const reason = isRainy
-    ? t("home.rainReason")
-    : isHot
-      ? t("home.hotReason")
-      : t("home.coldReason");
   const topFiveIds = new Set(recommendations.slice(0, 5).map((d) => d.id));
 
   // Filter weather-tailored destinations
@@ -119,7 +114,6 @@ export const WeatherContextRail: React.FC<WeatherContextRailProps> = ({
                 partySize={partySize}
                 carMode={carMode}
                 publicModes={publicModes}
-                reason={reason}
               />
             </div>
           ))}

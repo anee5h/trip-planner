@@ -21,7 +21,6 @@ interface HomeMatchCardProps {
   partySize?: number;
   carMode?: string;
   publicModes?: string[];
-  reason?: string;
 }
 
 /**
@@ -46,7 +45,6 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   partySize = 2,
   carMode = "none",
   publicModes = ["shinkansen", "limited_express", "local_train", "bus"],
-  reason,
 }) => {
   const { locale } = useLocale();
   const { t } = useTranslation();
@@ -59,11 +57,6 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   ]
     .filter(Boolean)
     .join(" · ");
-  const strongestReason =
-    reason ??
-    (destination.indoorPercent >= 60
-      ? t("home.indoorReason")
-      : (destination.highlights[0] ?? localized.description));
 
   // Preferred transport calculation
   const bestTransport = getFastestPreferredTransport(
@@ -156,9 +149,6 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
               <span>{transportDisplay.label}</span>
             </span>
           </div>
-          <p className="mt-3 line-clamp-2 rounded-lg bg-emerald-50 px-2.5 py-2 text-[10px] font-semibold text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-200 sm:text-xs">
-            {strongestReason}
-          </p>
         </div>
       </div>
     </Link>
