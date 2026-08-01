@@ -6,7 +6,6 @@ import {
   getCollectionProgress,
   getCollectionContent,
 } from "@/shared/utils/collections";
-import CollectionBadge from "@/shared/components/ui/CollectionBadge";
 import DestinationCard from "@/features/destinations/components/DestinationCard";
 import { ArrowLeft, ExternalLink, Frown, CheckCircle2 } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
@@ -47,7 +46,7 @@ export default function CollectionDetails() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl">
       {/* Navigation Back */}
-      <div className="mb-6">
+      <div className="mb-4">
         <Link
           to="/collections"
           className="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-emerald-600 dark:text-slate-400 dark:hover:text-emerald-400 transition-colors"
@@ -57,40 +56,23 @@ export default function CollectionDetails() {
       </div>
 
       {/* Hero Header */}
-      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 md:p-8 shadow-sm mb-10">
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
-          <div className="flex items-center gap-2">
-            <CollectionBadge collection={collection} size="md" />
-            <Badge
-              variant="outline"
-              className="capitalize text-xs font-semibold"
-            >
-              {collection.type} {t("ui.collection")}
-            </Badge>
-          </div>
+      <div className="mb-8 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6">
+        <Badge
+          variant="outline"
+          className="text-[10px] font-bold uppercase tracking-wide"
+        >
+          {collection.category} · {collection.type}
+        </Badge>
 
-          {collection.officialSource && collection.sourceUrl && (
-            <a
-              href={collection.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors bg-slate-50 dark:bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700"
-            >
-              <ExternalLink className="w-3.5 h-3.5 mr-1.5 text-emerald-500" />
-              {t("ui.source")}: {collection.officialSource}
-            </a>
-          )}
-        </div>
-
-        <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
+        <h1 className="mb-3 text-3xl font-extrabold text-slate-900 dark:text-white md:text-4xl">
           {content.name}
         </h1>
-        <p className="text-slate-600 dark:text-slate-400 text-base md:text-lg max-w-3xl leading-relaxed mb-8">
+        <p className="mb-6 max-w-3xl text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
           {content.description}
         </p>
 
         {/* Progress Tracker */}
-        <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 rounded-2xl p-4 max-w-xl mb-6">
+        <div className="mb-5 max-w-xl">
           <div className="flex justify-between items-center text-sm font-bold mb-2">
             <span className="text-slate-800 dark:text-slate-200 flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-500" />
@@ -109,71 +91,77 @@ export default function CollectionDetails() {
           </div>
         </div>
 
-        {/* Provenance & Audit Trust Panel */}
         {collection.metadata && (
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-medium text-slate-500 dark:text-slate-400 pt-4 border-t border-slate-200 dark:border-slate-800">
-            <div>
-              <span className="text-slate-400 dark:text-slate-500">
-                Authority:
-              </span>{" "}
-              <span className="font-semibold text-slate-700 dark:text-slate-200 capitalize">
-                {collection.metadata.authority.replace("_", " ")}
-              </span>
-            </div>
-            {(collection.metadata.verificationSource ||
-              collection.officialSource) && (
+          <details className="border-t border-slate-200 pt-4 text-xs text-slate-500 dark:border-slate-800 dark:text-slate-400">
+            <summary className="cursor-pointer font-bold text-slate-700 dark:text-slate-200">
+              {t("ui.aboutCollection")}
+            </summary>
+            <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2">
               <div>
                 <span className="text-slate-400 dark:text-slate-500">
-                  Source:
+                  {t("ui.authority")}:
                 </span>{" "}
-                {collection.sourceUrl ? (
-                  <a
-                    href={collection.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 inline-flex items-center"
-                  >
-                    {collection.metadata.verificationSource ||
-                      collection.officialSource}
-                    <ExternalLink className="w-3 h-3 ml-1" />
-                  </a>
-                ) : (
+                <span className="font-semibold text-slate-700 dark:text-slate-200 capitalize">
+                  {collection.metadata.authority.replace("_", " ")}
+                </span>
+              </div>
+              {(collection.metadata.verificationSource ||
+                collection.officialSource) && (
+                <div>
+                  <span className="text-slate-400 dark:text-slate-500">
+                    {t("ui.source")}:
+                  </span>{" "}
+                  {collection.sourceUrl ? (
+                    <a
+                      href={collection.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 inline-flex items-center"
+                    >
+                      {collection.metadata.verificationSource ||
+                        collection.officialSource}
+                      <ExternalLink className="w-3 h-3 ml-1" />
+                    </a>
+                  ) : (
+                    <span className="font-semibold text-slate-700 dark:text-slate-200">
+                      {collection.metadata.verificationSource ||
+                        collection.officialSource}
+                    </span>
+                  )}
+                </div>
+              )}
+              <div>
+                <span className="text-slate-400 dark:text-slate-500">
+                  {t("ui.lastReviewed")}:
+                </span>{" "}
+                <span className="font-semibold text-slate-700 dark:text-slate-200">
+                  {collection.metadata.lastVerified}
+                </span>
+              </div>
+              {collection.metadata.expectedMembers && (
+                <div>
+                  <span className="text-slate-400 dark:text-slate-500">
+                    {t("ui.expected")}:
+                  </span>{" "}
                   <span className="font-semibold text-slate-700 dark:text-slate-200">
-                    {collection.metadata.verificationSource ||
-                      collection.officialSource}
+                    {collection.metadata.expectedMembers} {t("ui.destinations")}
                   </span>
-                )}
-              </div>
-            )}
-            <div>
-              <span className="text-slate-400 dark:text-slate-500">
-                Last Reviewed:
-              </span>{" "}
-              <span className="font-semibold text-slate-700 dark:text-slate-200">
-                {collection.metadata.lastVerified}
-              </span>
+                </div>
+              )}
+              {collection.metadata.reviewIntervalMonths && (
+                <div>
+                  <span className="text-slate-400 dark:text-slate-500">
+                    {t("ui.auditCycle")}:
+                  </span>{" "}
+                  <span className="font-semibold text-slate-700 dark:text-slate-200">
+                    {t("ui.everyMonths", {
+                      count: collection.metadata.reviewIntervalMonths,
+                    })}
+                  </span>
+                </div>
+              )}
             </div>
-            {collection.metadata.expectedMembers && (
-              <div>
-                <span className="text-slate-400 dark:text-slate-500">
-                  Expected Members:
-                </span>{" "}
-                <span className="font-semibold text-slate-700 dark:text-slate-200">
-                  {collection.metadata.expectedMembers} destinations
-                </span>
-              </div>
-            )}
-            {collection.metadata.reviewIntervalMonths && (
-              <div>
-                <span className="text-slate-400 dark:text-slate-500">
-                  Audit Cycle:
-                </span>{" "}
-                <span className="font-semibold text-slate-700 dark:text-slate-200">
-                  Every {collection.metadata.reviewIntervalMonths} months
-                </span>
-              </div>
-            )}
-          </div>
+          </details>
         )}
       </div>
 
@@ -192,7 +180,19 @@ export default function CollectionDetails() {
         <div>
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white">
-              Included Destinations ({destinations.length})
+              {t("ui.includedDestinations", { count: destinations.length })}
+              {collection.metadata.expectedMembers &&
+                collection.metadata.expectedMembers !== destinations.length && (
+                  <span className="mt-1 block text-xs font-medium text-slate-500 dark:text-slate-400">
+                    {t("ui.currentlyCatalogued", {
+                      count: destinations.length,
+                    })}{" "}
+                    ·{" "}
+                    {t("ui.expected", {
+                      count: collection.metadata.expectedMembers,
+                    })}
+                  </span>
+                )}
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

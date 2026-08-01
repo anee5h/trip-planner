@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { getCollections } from "@/shared/data/collections";
 import {
@@ -6,11 +7,8 @@ import {
   getCollectionProgress,
   getCollectionContent,
 } from "@/shared/utils/collections";
-import CollectionBadge from "@/shared/components/ui/CollectionBadge";
-import { ExternalLink, CheckCircle2 } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
 import { useLocale } from "@/shared/context/LocaleContext";
-
 import { PageHeader } from "@/shared/components/ui/PageHeader";
 import { useTranslation } from "react-i18next";
 
@@ -25,97 +23,73 @@ export default function CollectionsDirectory() {
   );
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-7xl">
+    <div className="container mx-auto max-w-7xl px-4 py-6 sm:py-8">
       <PageHeader
         title={t("ui.curatedCollections")}
         subtitle={t("ui.curatedGuides")}
-        description={t("ui.curatedGuides")}
+        compact
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {availableCollections.map((col) => {
-          const destinations = getDestinationsForCollection(col.id, locale);
-          const progress = getCollectionProgress(col.id, visited, locale);
-          const content = getCollectionContent(col, locale);
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
+        {availableCollections.map((collection) => {
+          const destinations = getDestinationsForCollection(
+            collection.id,
+            locale,
+          );
+          const progress = getCollectionProgress(
+            collection.id,
+            visited,
+            locale,
+          );
+          const content = getCollectionContent(collection, locale);
 
           return (
-            <div
-              key={col.id}
-              className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+            <Link
+              key={collection.id}
+              to={`/collections/${collection.slug}`}
+              className="group flex min-h-64 flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-md dark:border-slate-800 dark:bg-slate-900"
             >
-              <div>
-                <div className="flex flex-wrap items-center justify-between gap-2.5 mb-4">
-                  <CollectionBadge collection={col} size="md" />
-                  <Badge
-                    variant="outline"
-                    className="capitalize text-xs font-semibold"
-                  >
-                    {col.type} {t("ui.collection")}
-                  </Badge>
+              <Badge
+                variant="outline"
+                className="w-fit text-[10px] font-bold uppercase tracking-wide"
+              >
+                {collection.category}
+              </Badge>
+              <h2 className="mt-3 text-2xl font-extrabold text-slate-900 transition-colors group-hover:text-emerald-600 dark:text-white dark:group-hover:text-emerald-400">
+                {content.name}
+              </h2>
+              <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                {content.description}
+              </p>
+
+              <div className="mt-auto pt-5">
+                <div className="mb-2 flex items-center justify-between text-xs font-bold">
+                  <span className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
+                    {progress.visited} / {progress.total}{" "}
+                    {t("ui.visited").toLowerCase()}
+                  </span>
+                  <span className="text-emerald-600 dark:text-emerald-400">
+                    {progress.percent}%
+                  </span>
                 </div>
-
-                <Link
-                  to={`/collections/${col.slug}`}
-                  className="group block mb-3"
-                >
-                  <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                    {content.name}
-                  </h2>
-                </Link>
-
-                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
-                  {content.description}
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-4">
-                {/* Progress Bar & Stat */}
-                <div>
-                  <div className="flex justify-between items-center text-xs font-bold mb-1.5">
-                    <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
-                      {progress.visited} / {progress.total}{" "}
-                      {t("ui.visited").toLowerCase()}
-                    </span>
-                    <span className="text-emerald-600 dark:text-emerald-400">
-                      {progress.percent}%
-                    </span>
-                  </div>
-                  <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-emerald-500 transition-all duration-500 rounded-full"
-                      style={{ width: `${progress.percent}%` }}
-                    />
-                  </div>
+                <div className="h-1.5 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
+                  <div
+                    className="h-full rounded-full bg-emerald-500 transition-all duration-500"
+                    style={{ width: `${progress.percent}%` }}
+                  />
                 </div>
-
-                {/* Footer Metadata & Link */}
-                <div className="flex items-center justify-between text-xs font-medium pt-1">
-                  {col.officialSource && col.sourceUrl ? (
-                    <a
-                      href={col.sourceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors truncate max-w-[60%]"
-                    >
-                      <ExternalLink className="w-3 h-3 mr-1 shrink-0" />
-                      <span className="truncate">{col.officialSource}</span>
-                    </a>
-                  ) : (
-                    <span className="text-slate-400">
-                      {destinations.length} {t("ui.destinations")}
-                    </span>
-                  )}
-
-                  <Link
-                    to={`/collections/${col.slug}`}
-                    className="inline-flex items-center font-bold text-emerald-600 dark:text-emerald-400 hover:underline shrink-0"
-                  >
-                    {t("ui.viewCollection")} →
-                  </Link>
+                <div className="mt-4 flex items-center justify-between text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                  <span>
+                    {destinations.length} {t("ui.destinations")}
+                  </span>
+                  <span className="inline-flex items-center gap-1">
+                    {t("ui.viewCollection")}{" "}
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
                 </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>
