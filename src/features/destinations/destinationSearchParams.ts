@@ -18,14 +18,13 @@ export const DEFAULT_DESTINATION_EXPLORER_STATE = {
   maxBudget: BUDGET_TIER_LIMITS.standard,
   sortBy: "recommended",
   carMode: "none",
-  publicModes: ["train", "shinkansen", "bus", "flight"],
+  publicModes: [] as string[],
   partySize: 2,
   partyProfile: "couple" as PartyProfile,
   weather: "any" as "any" | "rainy" | "hot" | "cold",
   budgetTier: "standard" as BudgetTier,
   vibe: "any",
   tripDuration: "any" as TripDuration,
-  maxTravelTime: "any" as "any" | "30" | "60" | "90",
   walkingIntensity: "all",
   suitabilities: [] as string[],
   interests: [] as string[],
@@ -76,12 +75,6 @@ export function parseDestinationSearchParams(
           ? 4
           : 2;
 
-  const rawMaxTime = params.get("maxTime");
-  const maxTravelTime =
-    rawMaxTime === "30" || rawMaxTime === "60" || rawMaxTime === "90"
-      ? rawMaxTime
-      : defaults.maxTravelTime;
-
   return {
     searchQuery: params.get("q") ?? defaults.searchQuery,
     selectedRegions: params.getAll("region"),
@@ -116,7 +109,7 @@ export function parseDestinationSearchParams(
       rawBudgetTier === "standard" ||
       rawBudgetTier === "comfortable" ||
       rawBudgetTier === "luxury"
-        ? rawBudgetTier
+        ? (rawBudgetTier as BudgetTier)
         : rawBudgetTier === "budget"
           ? "economy"
           : rawBudgetTier === "premium"
@@ -132,7 +125,6 @@ export function parseDestinationSearchParams(
         : params.get("duration") === "dayTrip"
           ? "fullDay"
           : defaults.tripDuration,
-    maxTravelTime,
     walkingIntensity: params.get("walking") ?? defaults.walkingIntensity,
     suitabilities: params.getAll("suitability"),
     interests: params.getAll("interest"),
@@ -170,7 +162,6 @@ export function serializeDestinationSearchParams(
   params.set("budgetTier", state.budgetTier);
   params.set("vibe", state.vibe);
   params.set("duration", state.tripDuration);
-  if (state.maxTravelTime !== "any") params.set("maxTime", state.maxTravelTime);
   params.set("walking", state.walkingIntensity);
   appendAll("suitability", state.suitabilities);
   appendAll("interest", state.interests);

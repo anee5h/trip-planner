@@ -1176,7 +1176,7 @@ export default function DestinationDetails() {
                             <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
                               <span className="text-slate-500 flex items-center">
                                 <Car className="w-4 h-4 mr-1.5" />{" "}
-                                {locale === "ja" ? "自家用車" : "My Car"}
+                                {locale === "ja" ? "マイカー" : "Personal Car"}
                               </span>
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
@@ -1261,7 +1261,8 @@ export default function DestinationDetails() {
                                 locale === "ja" ? "新幹線" : "Shinkansen",
                               car:
                                 locale === "ja" ? "レンタカー" : "Rental Car",
-                              my_car: locale === "ja" ? "自家用車" : "My Car",
+                              my_car:
+                                locale === "ja" ? "マイカー" : "Personal Car",
                               bus: locale === "ja" ? "バス" : "Bus",
                               flight: locale === "ja" ? "飛行機" : "Flight",
                             };
@@ -1315,7 +1316,10 @@ export default function DestinationDetails() {
                                       train: copy.localTrain,
                                       shinkansen: "Shinkansen",
                                       car: "Rental Car & Tolls",
-                                      my_car: "My Car (Gas & Tolls)",
+                                      my_car:
+                                        locale === "ja"
+                                          ? "マイカー (ガソリン代・高速代)"
+                                          : "Personal Car (Gas & Tolls)",
                                       bus:
                                         locale === "ja"
                                           ? "高速バス"

@@ -156,7 +156,7 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
                 >
                   <Car className="w-5 h-5" />
                   <span className="text-xs font-medium text-center leading-tight">
-                    My Car
+                    Personal Car
                   </span>
                 </button>
               </div>
@@ -187,7 +187,7 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
                       : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-emerald-200"
                   }`}
                 >
-                  Own Car
+                  Personal Car
                 </button>
                 <button
                   type="button"

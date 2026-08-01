@@ -90,9 +90,6 @@ export default function Destinations() {
   const [tripDuration, setTripDuration] = useState<TripDuration>(
     initialExplorerState.tripDuration,
   );
-  const [maxTravelTime, setMaxTravelTime] = useState<
-    "any" | "30" | "60" | "90"
-  >(initialExplorerState.maxTravelTime);
   const [walkingIntensity, setWalkingIntensity] = useState(
     initialExplorerState.walkingIntensity,
   );
@@ -179,7 +176,6 @@ export default function Destinations() {
     setVibe(restored.vibe);
     setWeather(restored.weather);
     setTripDuration(restored.tripDuration);
-    setMaxTravelTime(restored.maxTravelTime);
     setWalkingIntensity(restored.walkingIntensity);
     setSuitabilities(restored.suitabilities);
     setInterests(restored.interests);
@@ -211,7 +207,6 @@ export default function Destinations() {
       vibe,
       weather,
       tripDuration,
-      maxTravelTime,
       walkingIntensity,
       suitabilities,
       interests,
@@ -241,7 +236,6 @@ export default function Destinations() {
     vibe,
     weather,
     tripDuration,
-    maxTravelTime,
     walkingIntensity,
     suitabilities,
     interests,
@@ -320,6 +314,8 @@ export default function Destinations() {
     publicModes,
     partySize,
     budgetTier,
+    vibe,
+    weather,
     tripDuration,
     walkingIntensity,
     suitabilities,
@@ -342,30 +338,15 @@ export default function Destinations() {
       });
     }
 
-    // 0.5. Filter by Where Location Picker (Region, Prefecture, City, Area)
-    const hasLocationFilter =
-      selectedRegions.length > 0 ||
-      selectedPrefectures.length > 0 ||
-      selectedCities.length > 0 ||
-      selectedAreas.length > 0;
-
-    if (hasLocationFilter) {
+    // 0.5. Filter by Region & Prefecture
+    if (selectedRegions.length > 0 || selectedPrefectures.length > 0) {
       result = result.filter((dest) => {
         const matchRegion =
           selectedRegions.length > 0 && selectedRegions.includes(dest.region);
         const matchPref =
           selectedPrefectures.length > 0 &&
           selectedPrefectures.includes(dest.prefecture);
-        const matchCity =
-          selectedCities.length > 0 &&
-          (selectedCities.includes(dest.id) ||
-            (dest.relationships?.parentDestinationId &&
-              selectedCities.includes(dest.relationships.parentDestinationId)));
-        const matchArea =
-          selectedAreas.length > 0 &&
-          Boolean(dest.areaId && selectedAreas.includes(dest.areaId));
-
-        return matchRegion || matchPref || matchCity || matchArea;
+        return matchRegion || matchPref;
       });
     }
 
@@ -396,24 +377,102 @@ export default function Destinations() {
       result = result.filter((dest) => matchesDestination(dest, tokens));
     }
 
-    // Maximum Travel Time Filter
-    if (maxTravelTime !== "any") {
-      const timeLimit = Number(maxTravelTime);
+    // 1.5. Budget filters use a destination's upper estimate: a trip must be
+    // possible within the selected amount, not merely start below it.
+    if (budgetTier !== "standard") {
       result = result.filter((dest) => {
-        const times = getValidModes(
-          dest,
-          carMode,
-          publicModes,
-          homeStationCoords ?? undefined,
-          budgetTier,
-        ).map(
-          (m) =>
-            (dest.transportOptions?.[
-              m as keyof typeof dest.transportOptions
-            ] as number) || 999,
-        );
-        const fastest = times.length > 0 ? Math.min(...times) : 999;
-        return fastest <= timeLimit;
+        const estimatedCost = dest.budgetMax ?? dest.budgetMin ?? Infinity;
+        if (budgetTier === "economy") return estimatedCost < 10000;
+        if (budgetTier === "comfortable") return estimatedCost < 20000;
+        return budgetTier === "luxury" || estimatedCost < 40000;
+      });
+    }
+
+    // 1.6. Vibe & Atmosphere Filter
+    if (vibe !== "any") {
+      result = result.filter((dest) => {
+        const cats = (dest.categories || []).map((c) => c.toLowerCase());
+        const tags = (dest.tags || []).map((t) => t.toLowerCase());
+        const name = (dest.name || "").toLowerCase();
+        const desc = (dest.description || "").toLowerCase();
+
+        const matches = (keywords: string[]) =>
+          keywords.some(
+            (kw) =>
+              cats.some((c) => c.includes(kw)) ||
+              tags.some((t) => t.includes(kw)) ||
+              name.includes(kw) ||
+              desc.includes(kw),
+          );
+
+        switch (vibe) {
+          case "art":
+            return matches(["art", "museum", "gallery", "culture", "exhibit"]);
+          case "food":
+            return matches([
+              "food",
+              "gourmet",
+              "dining",
+              "market",
+              "seafood",
+              "ramen",
+              "sake",
+              "eat",
+            ]);
+          case "nature":
+            return matches([
+              "nature",
+              "park",
+              "garden",
+              "mountain",
+              "view",
+              "waterfall",
+              "lake",
+              "scenic",
+              "forest",
+            ]);
+          case "history":
+            return matches([
+              "history",
+              "castle",
+              "shrine",
+              "temple",
+              "historic",
+              "heritage",
+              "ruins",
+            ]);
+          case "sea":
+            return matches([
+              "sea",
+              "beach",
+              "ocean",
+              "coast",
+              "island",
+              "bay",
+              "port",
+            ]);
+          case "photography":
+            return matches([
+              "photo",
+              "scenic",
+              "view",
+              "spot",
+              "illumination",
+              "landscape",
+              "panoramic",
+            ]);
+          case "themeParks":
+            return matches([
+              "theme",
+              "amusement",
+              "entertainment",
+              "aquarium",
+              "zoo",
+              "park",
+            ]);
+          default:
+            return true;
+        }
       });
     }
 
@@ -545,7 +604,6 @@ export default function Destinations() {
     partySize,
     budgetTier,
     tripDuration,
-    maxTravelTime,
     walkingIntensity,
     homeStationCoords,
     catalogContext,
@@ -556,6 +614,8 @@ export default function Destinations() {
     selectedAreas,
     indoorMin,
     season,
+    weather,
+    vibe,
     searchQuery,
     suitabilities,
     interests,
@@ -580,7 +640,6 @@ export default function Destinations() {
     setVibe(defaults.vibe);
     setWeather(defaults.weather);
     setTripDuration(defaults.tripDuration);
-    setMaxTravelTime(defaults.maxTravelTime);
     setWalkingIntensity(defaults.walkingIntensity);
     setSuitabilities(defaults.suitabilities);
     setInterests(defaults.interests);
@@ -664,8 +723,6 @@ export default function Destinations() {
         setVibe={setVibe}
         tripDuration={tripDuration}
         setTripDuration={setTripDuration}
-        maxTravelTime={maxTravelTime}
-        setMaxTravelTime={setMaxTravelTime}
         walkingIntensity={walkingIntensity}
         setWalkingIntensity={setWalkingIntensity}
         suitabilities={suitabilities}
