@@ -1,0 +1,173 @@
+/**
+ * @vitest-environment jsdom
+ */
+import { act } from "react";
+import { createRoot, type Root } from "react-dom/client";
+import { MemoryRouter } from "react-router-dom";
+import { afterEach, describe, it, expect, vi } from "vitest";
+import Home from "../Home";
+
+(globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
+
+vi.mock("@/features/home/hooks/useWeatherContext", () => ({
+  useWeatherContext: () => ({
+    weatherContext: {
+      tabs: [{ id: "today", label: "Today", isCustom: false }],
+      forecastMap: {},
+      minDate: "2026-08-01",
+      maxDate: "2026-08-10",
+    },
+    setWeatherContext: vi.fn(),
+    activeTabId: "today",
+    setActiveTabId: vi.fn(),
+    customDate: null,
+    setCustomDate: vi.fn(),
+    currentTab: { id: "today", label: "Today", isCustom: false },
+    handleCustomDateSelect: vi.fn(),
+  }),
+}));
+
+vi.mock("@/shared/services/weather/WeatherTabService", () => ({
+  getTabWeatherSummary: () => ({
+    dateLabel: "SATURDAY, AUG 1",
+    temp: 28,
+    desc: "Sunny",
+  }),
+}));
+
+vi.mock("@/shared/hooks/useTripStore", () => ({
+  useTripStore: () => ({
+    favorites: [],
+    isVisited: () => false,
+    isFavorite: () => false,
+    toggleFavorite: vi.fn(),
+    homeStationCoords: { lat: 35.6812, lng: 139.7671 },
+    homeStation: "Tokyo Station",
+    isComparing: () => false,
+    toggleCompare: vi.fn(),
+    compareList: [],
+  }),
+}));
+
+vi.mock("@/shared/hooks/useAuth", () => ({
+  useAuth: () => ({
+    user: null,
+  }),
+}));
+
+vi.mock("@/shared/context/LocaleContext", () => ({
+  useLocale: () => ({
+    locale: "en",
+    setLocale: vi.fn(),
+  }),
+}));
+
+vi.mock("react-i18next", () => ({
+  useTranslation: () => ({
+    t: (key: string) => key,
+    i18n: { language: "en" },
+  }),
+  initReactI18next: {
+    type: "3rdParty",
+    init: vi.fn(),
+  },
+}));
+
+let root: Root | undefined;
+let host: HTMLDivElement | undefined;
+
+afterEach(() => {
+  if (root) {
+    act(() => root!.unmount());
+  }
+  host?.remove();
+  root = undefined;
+  host = undefined;
+});
+
+function renderHome() {
+  host = document.createElement("div");
+  document.body.appendChild(host);
+  root = createRoot(host);
+  act(() => {
+    root!.render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>,
+    );
+  });
+  return host;
+}
+
+describe("Home Integration Tests", () => {
+  it("renders homepage planner and top matches section", () => {
+    const container = renderHome();
+
+    expect(container.textContent).toContain("Where will you go next?");
+    expect(container.textContent).toContain("Trip Planner");
+    expect(container.textContent).toContain("Find matches");
+    expect(container.textContent).toContain("Top matches for today");
+  });
+
+  it("transitions button state: Find matches -> View matches -> Update matches", () => {
+    const container = renderHome();
+
+    // 1. Initial state: Find matches
+    let primaryBtn = Array.from(container.querySelectorAll("button")).find(
+      (b) =>
+        b.textContent?.includes("Find matches") ||
+        b.textContent?.includes("View matches") ||
+        b.textContent?.includes("Update matches"),
+    );
+    expect(primaryBtn?.textContent).toContain("Find matches");
+
+    // 2. Click Find matches to apply initial planner state
+    act(() => {
+      primaryBtn?.click();
+    });
+
+    primaryBtn = Array.from(container.querySelectorAll("button")).find(
+      (b) =>
+        b.textContent?.includes("Find matches") ||
+        b.textContent?.includes("View matches") ||
+        b.textContent?.includes("Update matches"),
+    );
+    expect(primaryBtn?.textContent).toContain("View matches");
+
+    // 3. Edit draft control (party size) -> button becomes Update matches
+    const plusBtn = container.querySelector(
+      'button[aria-label="Increase party size"]',
+    ) as HTMLButtonElement;
+    expect(plusBtn).toBeDefined();
+
+    act(() => {
+      plusBtn.click();
+    });
+
+    primaryBtn = Array.from(container.querySelectorAll("button")).find(
+      (b) =>
+        b.textContent?.includes("Find matches") ||
+        b.textContent?.includes("View matches") ||
+        b.textContent?.includes("Update matches"),
+    );
+    expect(primaryBtn?.textContent).toContain("Update matches");
+  });
+
+  it("Surprise Me opens modal without applying draft planner state to top matches", () => {
+    const container = renderHome();
+
+    const surpriseBtn = Array.from(container.querySelectorAll("button")).find(
+      (b) =>
+        b.textContent?.includes("Surprise me") ||
+        b.textContent?.includes("Surprise Me"),
+    );
+    expect(surpriseBtn).toBeDefined();
+
+    act(() => {
+      surpriseBtn?.click();
+    });
+
+    // Heading should still say "Top matches for today" because applyPlannerState was not called
+    expect(container.textContent).toContain("Top matches for today");
+  });
+});

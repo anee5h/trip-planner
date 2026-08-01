@@ -1,20 +1,23 @@
-import { useState, useEffect } from "react";
-import { createPortal } from "react-dom";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Link } from "react-router-dom";
-import type { Destination } from "@/shared/types/destination";
-import { Button } from "@/shared/components/ui/button";
 import {
   Dices,
-  Sparkles,
-  MapPin,
-  Star,
-  ArrowRight,
   X,
-  Compass,
+  Sparkles,
+  Trophy,
+  MapPin,
+  Clock,
+  ArrowRight,
 } from "lucide-react";
-
-import { getAdjustedBudget } from "@/shared/utils/utils";
-import { getValidModes } from "@/shared/services/recommendation/RecommendationService";
+import type { Destination } from "@/shared/types/destination";
+import { Button } from "@/shared/components/ui/button";
+import { LazyImage } from "@/shared/components/ui/LazyImage";
+import { useLocale } from "@/shared/context/LocaleContext";
+import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
+import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
+import { formatTransportTime } from "@/shared/services/transport/formatters";
+import { formatPrefecture } from "@/shared/utils/placeLabels";
+import { useTripStore } from "@/shared/hooks/useTripStore";
 
 interface RouletteModalProps {
   isOpen: boolean;
@@ -30,15 +33,22 @@ export default function RouletteModal({
   onClose,
   candidates,
   partySize = 2,
-  carMode = "none",
-  publicModes = ["train"],
+  carMode,
+  publicModes,
 }: RouletteModalProps) {
+  const { locale } = useLocale();
+  const { homeStationCoords } = useTripStore();
+
   const [spinning, setSpinning] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [winner, setWinner] = useState<Destination | null>(null);
 
-  const startSpin = () => {
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const startSpin = useCallback(() => {
     if (candidates.length === 0) return;
+    if (timerRef.current) clearTimeout(timerRef.current);
+
     setSpinning(true);
     setWinner(null);
 
@@ -65,18 +75,21 @@ export default function RouletteModal({
         setWinner(targetWinner);
       } else {
         const nextDelay = 50 + Math.floor((count / totalTicks) * 250);
-        setTimeout(tick, nextDelay);
+        timerRef.current = setTimeout(tick, nextDelay);
       }
     };
 
-    setTimeout(tick, 50);
-  };
+    timerRef.current = setTimeout(tick, 50);
+  }, [candidates, currentIndex]);
 
   useEffect(() => {
     if (isOpen && candidates.length > 0) {
       startSpin();
     }
-  }, [isOpen, candidates]);
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, [isOpen, candidates, startSpin]);
 
   if (!isOpen) return null;
 
@@ -84,169 +97,144 @@ export default function RouletteModal({
     ? candidates[currentIndex]
     : winner || candidates[0];
 
-  const modalContent = (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-md overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl animate-in zoom-in-95 duration-200">
+  const localized = currentDisplay
+    ? getLocalizedPlace(currentDisplay, locale)
+    : null;
+
+  const bestTransport = currentDisplay
+    ? getFastestPreferredTransport(
+        currentDisplay,
+        carMode,
+        publicModes,
+        partySize,
+        homeStationCoords || undefined,
+      )
+    : null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      {/* Backdrop */}
+      <div
+        className="fixed inset-0 bg-slate-950/70 backdrop-blur-sm transition-opacity"
+        onClick={onClose}
+      />
+
+      {/* Dialog */}
+      <div className="relative w-full max-w-lg bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200">
         {/* Header */}
-        <div className="relative bg-gradient-to-r from-emerald-600 to-teal-700 p-6 text-white text-center">
+        <div className="flex items-center justify-between p-5 border-b border-slate-100 dark:border-slate-800">
+          <div className="flex items-center gap-2.5">
+            <div className="p-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">
+              <Dices className="w-5 h-5" />
+            </div>
+            <div>
+              <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <span>Destination Roulette</span>
+                <Sparkles className="w-4 h-4 text-emerald-500" />
+              </h2>
+              <p className="text-xs text-slate-500 dark:text-slate-400">
+                Let fate pick your next day-trip escape
+              </p>
+            </div>
+          </div>
           <button
             onClick={onClose}
-            className="absolute right-4 top-4 text-white/80 hover:text-white p-1 rounded-full hover:bg-white/10 transition-colors"
+            className="p-2 rounded-xl text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/20 backdrop-blur-md mb-2 shadow-inner">
-            <Dices
-              className={`w-6 h-6 text-amber-300 ${spinning ? "animate-spin" : ""}`}
-            />
-          </div>
-          <h2 className="text-2xl font-extrabold tracking-tight">
-            Destination Roulette
-          </h2>
-          <p className="text-xs text-emerald-100 mt-1 font-medium">
-            {spinning
-              ? "Shuffling destinations based on your filters..."
-              : "Your random adventure has been chosen!"}
-          </p>
         </div>
 
-        {/* Content Body */}
-        <div className="p-6">
-          {candidates.length === 0 ? (
-            <div className="text-center py-8">
-              <Compass className="w-12 h-12 text-slate-400 mx-auto mb-3 animate-bounce" />
-              <p className="text-slate-600 dark:text-slate-400 font-semibold text-sm">
-                No unvisited destinations match your current filters.
-              </p>
-              <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                Try expanding your budget or transport options!
-              </p>
-            </div>
-          ) : (
-            <div>
-              {/* Destination Card Container */}
+        {/* Content */}
+        <div className="p-6 text-center">
+          {currentDisplay && localized ? (
+            <div className="space-y-5">
+              {/* Card preview */}
               <div
-                className={`relative rounded-2xl overflow-hidden border transition-all duration-300 ${
+                className={`relative h-64 rounded-2xl overflow-hidden shadow-lg transition-all duration-150 border ${
                   spinning
-                    ? "border-emerald-300 dark:border-emerald-800 scale-[0.98]"
-                    : "border-emerald-500/50 shadow-lg shadow-emerald-500/10 scale-100"
+                    ? "scale-[0.98] border-emerald-400/50 dark:border-emerald-500/50"
+                    : "scale-100 border-emerald-500 ring-2 ring-emerald-500/20"
                 }`}
               >
-                {/* Hero Image */}
-                <div className="relative h-48 w-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
-                  {currentDisplay?.heroImage ? (
-                    <img
-                      src={currentDisplay.heroImage}
-                      alt={currentDisplay.name}
-                      className="w-full h-full object-cover transition-transform duration-500"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-slate-400">
-                      <MapPin className="w-8 h-8 opacity-50" />
-                    </div>
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <LazyImage
+                  src={currentDisplay.heroImage}
+                  alt={localized.name}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
 
-                  {/* Badge */}
-                  <div className="absolute top-3 left-3 bg-emerald-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-md flex items-center gap-1">
-                    <Sparkles className="w-3 h-3" />
-                    <span>
-                      {spinning
-                        ? "Spinning..."
-                        : (currentDisplay as any).match
-                          ? `${(currentDisplay as any).match.confidence}% Match`
-                          : "Surprise Match"}
+                {/* Status overlay */}
+                {spinning ? (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950/40 backdrop-blur-[2px] text-white">
+                    <Dices className="w-10 h-10 animate-spin text-emerald-400 mb-2" />
+                    <span className="text-xs font-bold uppercase tracking-widest text-emerald-300">
+                      Selecting...
                     </span>
                   </div>
+                ) : (
+                  <div className="absolute top-3 left-3 bg-emerald-500 text-white font-extrabold text-xs px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 animate-bounce">
+                    <Trophy className="w-3.5 h-3.5" />
+                    <span>Your Match!</span>
+                  </div>
+                )}
 
-                  {/* Rating */}
-                  <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-amber-300 text-xs font-extrabold px-2.5 py-1 rounded-full flex items-center gap-1">
-                    <Star className="w-3.5 h-3.5 fill-amber-300 text-amber-300" />
-                    <span>
-                      {currentDisplay?.ratings?.overall?.toFixed(1) || "4.5"}
+                {/* Destination info */}
+                <div className="absolute bottom-4 left-4 right-4 text-left text-white">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-[11px] font-bold px-2 py-0.5 rounded-md bg-white/20 backdrop-blur-sm">
+                      {formatPrefecture(currentDisplay.prefecture, locale)}
                     </span>
+                    {bestTransport && (
+                      <span className="text-[11px] font-bold px-2 py-0.5 rounded-md bg-emerald-500/80 backdrop-blur-sm flex items-center gap-1">
+                        <Clock className="w-3 h-3" />
+                        {formatTransportTime(bestTransport.timeRange)}
+                      </span>
+                    )}
                   </div>
-
-                  {/* Title overlay */}
-                  <div className="absolute bottom-3 left-4 right-4 text-white">
-                    <p className="text-xs font-semibold text-emerald-300 uppercase tracking-wider">
-                      {currentDisplay?.prefecture} Prefecture
-                    </p>
-                    <h3 className="text-xl font-extrabold leading-tight drop-shadow-md">
-                      {currentDisplay?.name}
-                    </h3>
-                  </div>
-                </div>
-
-                {/* Details snippet */}
-                <div className="p-4 bg-slate-50 dark:bg-slate-800/60 space-y-2">
-                  <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 leading-relaxed">
-                    {currentDisplay?.description}
+                  <h3 className="text-2xl font-extrabold line-clamp-1">
+                    {localized.name}
+                  </h3>
+                  <p className="text-xs text-slate-200 line-clamp-1 mt-0.5">
+                    {currentDisplay.description}
                   </p>
-
-                  <div className="flex items-center justify-between text-xs pt-1 text-slate-500 dark:text-slate-400 border-t border-slate-200/60 dark:border-slate-700/60">
-                    <span>
-                      Est. Budget:{" "}
-                      <strong className="text-emerald-600 dark:text-emerald-400">
-                        ¥
-                        {(currentDisplay
-                          ? getAdjustedBudget(
-                              currentDisplay,
-                              getValidModes(
-                                currentDisplay,
-                                carMode,
-                                publicModes,
-                              )[0] || "train",
-                              partySize,
-                            )
-                          : 15000
-                        ).toLocaleString()}
-                      </strong>
-                    </span>
-                    <span>
-                      Vibe:{" "}
-                      <strong className="text-slate-700 dark:text-slate-200 font-medium">
-                        {currentDisplay?.categories?.[0] || "Scenic"}
-                      </strong>
-                    </span>
-                  </div>
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex gap-3 mt-5">
+              {/* Action buttons */}
+              <div className="flex items-center gap-3 pt-2">
                 <Button
                   variant="outline"
                   onClick={startSpin}
                   disabled={spinning}
-                  className="flex-1 h-11 rounded-xl font-bold border-slate-200 dark:border-slate-700 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400"
+                  className="flex-1 h-12 rounded-2xl font-bold border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
                 >
-                  <Dices
-                    className={`w-4 h-4 mr-2 ${spinning ? "animate-spin" : ""}`}
-                  />
+                  <Dices className="w-4 h-4 mr-2 text-emerald-500" />
                   Spin Again
                 </Button>
 
-                {winner && !spinning && (
+                {winner && (
                   <Link
                     to={`/destinations/${winner.id}`}
-                    state={{ carMode, publicModes, partySize }}
                     onClick={onClose}
                     className="flex-1"
                   >
-                    <Button className="w-full h-11 rounded-xl font-bold bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white shadow-md">
-                      View Details
-                      <ArrowRight className="w-4 h-4 ml-1.5" />
+                    <Button className="w-full h-12 rounded-2xl font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-500/25">
+                      <span>View Destination</span>
+                      <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </Link>
                 )}
               </div>
+            </div>
+          ) : (
+            <div className="py-12 text-slate-400">
+              <MapPin className="w-10 h-10 mx-auto mb-2 opacity-50" />
+              <p>No candidates available to spin.</p>
             </div>
           )}
         </div>
       </div>
     </div>
   );
-
-  return createPortal(modalContent, document.body);
 }

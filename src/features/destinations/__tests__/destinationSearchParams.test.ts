@@ -156,6 +156,24 @@ describe("destinationSearchParams", () => {
     );
   });
 
+  it("omits weather parameter when manualWeatherPreference is undefined", () => {
+    const serialized = serializePlannerSearchParams({
+      vibe: "nature",
+      partySize: 2,
+      budgetTier: "standard",
+      tripDuration: "fullDay",
+      budget: 40000,
+      carMode: "none",
+      publicModes: ["train"],
+    });
+
+    const params = new URLSearchParams(serialized);
+    expect(params.has("weather")).toBe(false);
+    expect(params.get("vibe")).toBe("nature");
+    expect(params.get("partySize")).toBe("2");
+    expect(params.get("budgetTier")).toBe("standard");
+  });
+
   it("PLN-004: default budgetTier maps to the correct BUDGET_TIER_LIMITS numeric value", () => {
     const expectedBudget =
       BUDGET_TIER_LIMITS[DEFAULT_DESTINATION_EXPLORER_STATE.budgetTier];

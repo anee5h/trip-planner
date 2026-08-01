@@ -168,9 +168,10 @@ export function serializeDestinationSearchParams(
 
 export function serializePlannerSearchParams(input: {
   vibe: string;
-  partyProfile: PartyProfile;
+  partyProfile?: PartyProfile;
   partySize: number;
-  weather: "any" | "rainy" | "hot" | "cold";
+  weather?: "any" | "rainy" | "hot" | "cold";
+  manualWeatherPreference?: "rainy" | "hot" | "cold";
   budgetTier: BudgetTier;
   tripDuration: TripDuration;
   budget: number;
@@ -178,14 +179,21 @@ export function serializePlannerSearchParams(input: {
   publicModes: string[];
 }): string {
   const params = new URLSearchParams();
-  params.set("vibe", input.vibe);
+  if (input.vibe && input.vibe !== "any") params.set("vibe", input.vibe);
   params.set("party", partyProfileForSize(input.partySize));
   params.set("partySize", String(input.partySize));
-  if (input.weather !== "any") params.set("weather", input.weather);
+  const weatherPref =
+    input.manualWeatherPreference ??
+    (input.weather && input.weather !== "any" ? input.weather : undefined);
+  if (weatherPref) params.set("weather", weatherPref);
   params.set("budgetTier", input.budgetTier);
-  params.set("duration", input.tripDuration);
+  if (input.tripDuration && input.tripDuration !== "any") {
+    params.set("duration", input.tripDuration);
+  }
   params.set("budget", String(input.budget));
-  params.set("car", input.carMode);
+  if (input.carMode && input.carMode !== "none") {
+    params.set("car", input.carMode);
+  }
   input.publicModes.forEach((mode) => params.append("mode", mode));
   return params.toString();
 }
