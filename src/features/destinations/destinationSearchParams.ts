@@ -90,9 +90,12 @@ export function parseDestinationSearchParams(
     maxBudget: parseNumber(params.get("budget"), defaults.maxBudget),
     sortBy: params.get("sort") ?? defaults.sortBy,
     carMode: params.get("car") ?? defaults.carMode,
-    publicModes: params.has("mode")
-      ? params.getAll("mode")
-      : defaults.publicModes,
+    publicModes:
+      params.get("mode") === "none"
+        ? []
+        : params.has("mode")
+          ? params.getAll("mode")
+          : defaults.publicModes,
     partySize,
     partyProfile: partyProfileForSize(partySize),
     weather:
@@ -151,7 +154,8 @@ export function serializeDestinationSearchParams(
   params.set("budget", String(state.maxBudget));
   params.set("sort", state.sortBy);
   params.set("car", state.carMode);
-  appendAll("mode", state.publicModes);
+  if (state.publicModes.length === 0) params.set("mode", "none");
+  else appendAll("mode", state.publicModes);
   params.set("party", partyProfileForSize(state.partySize));
   params.set("partySize", String(state.partySize));
   if (state.weather !== "any") params.set("weather", state.weather);
@@ -168,9 +172,10 @@ export function serializeDestinationSearchParams(
 
 export function serializePlannerSearchParams(input: {
   vibe: string;
-  partyProfile: PartyProfile;
+  partyProfile?: PartyProfile;
   partySize: number;
-  weather: "any" | "rainy" | "hot" | "cold";
+  weather?: "any" | "rainy" | "hot" | "cold";
+  manualWeatherPreference?: "rainy" | "hot" | "cold";
   budgetTier: BudgetTier;
   tripDuration: TripDuration;
   budget: number;
@@ -178,14 +183,22 @@ export function serializePlannerSearchParams(input: {
   publicModes: string[];
 }): string {
   const params = new URLSearchParams();
-  params.set("vibe", input.vibe);
+  if (input.vibe && input.vibe !== "any") params.set("vibe", input.vibe);
   params.set("party", partyProfileForSize(input.partySize));
   params.set("partySize", String(input.partySize));
-  if (input.weather !== "any") params.set("weather", input.weather);
+  const weatherPref =
+    input.manualWeatherPreference ??
+    (input.weather && input.weather !== "any" ? input.weather : undefined);
+  if (weatherPref) params.set("weather", weatherPref);
   params.set("budgetTier", input.budgetTier);
-  params.set("duration", input.tripDuration);
+  if (input.tripDuration && input.tripDuration !== "any") {
+    params.set("duration", input.tripDuration);
+  }
   params.set("budget", String(input.budget));
-  params.set("car", input.carMode);
-  input.publicModes.forEach((mode) => params.append("mode", mode));
+  if (input.carMode && input.carMode !== "none") {
+    params.set("car", input.carMode);
+  }
+  if (input.publicModes.length === 0) params.set("mode", "none");
+  else input.publicModes.forEach((mode) => params.append("mode", mode));
   return params.toString();
 }

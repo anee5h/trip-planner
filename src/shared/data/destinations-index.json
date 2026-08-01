@@ -1058,7 +1058,12 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "three-great-views",
+        "sortOrder": 2
+      }
+    ],
     "transportOptions": {
       "train": 160,
       "bus": 190,
@@ -29671,7 +29676,12 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "three-great-views",
+        "sortOrder": 1
+      }
+    ],
     "transportOptions": {
       "train": 240,
       "bus": 280,
@@ -31085,6 +31095,10 @@
       {
         "collectionId": "islands-japan",
         "sortOrder": 11
+      },
+      {
+        "collectionId": "three-great-views",
+        "sortOrder": 3
       }
     ],
     "transportOptions": {

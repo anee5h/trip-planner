@@ -1,67 +1,179 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import type { User } from "@supabase/supabase-js";
-import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
-import { BUDGET_TIER_LIMITS, type BudgetTier } from "@/shared/types/planner";
+import type { BudgetTier } from "@/shared/types/planner";
+import {
+  getPlannerBudgetLimit,
+  type HomepageTripDuration,
+} from "../services/PlannerBudgetPolicy";
+import {
+  resolveTransportSelection,
+  type TransportPreference,
+} from "../services/TransportResolver";
+import {
+  getDefaultTripDuration,
+  type ForecastDateSelection,
+} from "../services/DefaultDurationPolicy";
 
-/**
- * PLN-001: budgetTier is the canonical planner state.
- * The numeric budget is always derived from the tier to prevent impossible
- * combinations (e.g., economy tier with a ¥75,000 budget).
- *
- * PLN-004: Default values are sourced from constants so that Home and the
- * Explorer reset to exactly the same state.
- */
 export const DEFAULT_PLANNER_BUDGET_TIER: BudgetTier = "standard";
 
-export function useTripPlannerState(user: User | null) {
-  const [tripType, setTripType] = useState<string>("any");
-  const [weather, setWeather] = useState<"any" | "rainy" | "hot" | "cold">(
-    "any",
-  );
-  const [budgetTier, setBudgetTier] = useState<BudgetTier>(
-    DEFAULT_PLANNER_BUDGET_TIER,
-  );
-  const [carMode, setCarMode] = useState<string>("none");
-  const [publicModes, setPublicModes] = useState<string[]>([
-    "train",
-    "shinkansen",
-    "bus",
-    "flight",
-  ]);
-  const [partySize, setPartySize] = useState<number>(2);
+export interface PlannerControlsState {
+  vibe: string;
+  tripDuration: HomepageTripDuration;
+  partySize: number;
+  budgetTier: BudgetTier;
+  transportPreference: TransportPreference;
+}
+
+export interface ResolvedPlannerState extends PlannerControlsState {
+  budget: number;
+  carMode: "none" | "my_car" | "rental";
+  publicModes: string[];
+}
+
+export function useTripPlannerState(
+  user: User | null,
+  initialDateSelection: ForecastDateSelection = { type: "today" },
+) {
+  const initialDuration = getDefaultTripDuration({
+    selection: initialDateSelection,
+  });
+
+  const [configuredCarMode, setConfiguredCarMode] = useState<
+    "none" | "my_car" | "rental"
+  >("none");
+
+  const [draftState, setDraftState] = useState<PlannerControlsState>({
+    vibe: "any",
+    tripDuration: initialDuration,
+    partySize: 2,
+    budgetTier: DEFAULT_PLANNER_BUDGET_TIER,
+    transportPreference: "public",
+  });
+
+  const [appliedState, setAppliedState] = useState<PlannerControlsState>({
+    vibe: "any",
+    tripDuration: initialDuration,
+    partySize: 2,
+    budgetTier: DEFAULT_PLANNER_BUDGET_TIER,
+    transportPreference: "public",
+  });
+
+  const [hasUserApplied, setHasUserApplied] = useState(false);
 
   useEffect(() => {
     if (user?.user_metadata?.preferences) {
-      setCarMode(user.user_metadata.preferences.carMode || "none");
-      setPublicModes(
-        user.user_metadata.preferences.publicModes || [
-          "train",
-          "shinkansen",
-          "bus",
-          "flight",
-        ],
-      );
-      setPartySize(user.user_metadata.preferences.partySize || 2);
+      const prefs = user.user_metadata.preferences;
+      const userCarMode = prefs.carMode || "none";
+      const userPartySize = prefs.partySize || 2;
+      setConfiguredCarMode(userCarMode);
+
+      setDraftState((prev) => ({
+        ...prev,
+        partySize: userPartySize,
+      }));
+      setAppliedState((prev) => ({
+        ...prev,
+        partySize: userPartySize,
+      }));
     }
   }, [user]);
 
-  // PLN-001: numeric budget is always derived — no impossible combinations possible.
-  const budget = BUDGET_TIER_LIMITS[budgetTier];
+  const isDirty = useMemo(() => {
+    return (
+      draftState.vibe !== appliedState.vibe ||
+      draftState.tripDuration !== appliedState.tripDuration ||
+      draftState.partySize !== appliedState.partySize ||
+      draftState.budgetTier !== appliedState.budgetTier ||
+      draftState.transportPreference !== appliedState.transportPreference
+    );
+  }, [draftState, appliedState]);
+
+  const applyPlannerState = useCallback(() => {
+    setAppliedState(draftState);
+    setHasUserApplied(true);
+  }, [draftState]);
+
+  const resolveFullState = useCallback(
+    (state: PlannerControlsState): ResolvedPlannerState => {
+      const { carMode, publicModes } = resolveTransportSelection(
+        state.transportPreference,
+        configuredCarMode,
+      );
+      const budget = getPlannerBudgetLimit(
+        state.budgetTier,
+        state.partySize,
+        state.tripDuration,
+      );
+      return {
+        ...state,
+        budget,
+        carMode,
+        publicModes,
+      };
+    },
+    [configuredCarMode],
+  );
+
+  const resolvedDraft = useMemo(
+    () => resolveFullState(draftState),
+    [resolveFullState, draftState],
+  );
+
+  const resolvedApplied = useMemo(
+    () => resolveFullState(appliedState),
+    [resolveFullState, appliedState],
+  );
+
+  // Setters for draft state
+  const setVibe = useCallback((vibe: string) => {
+    setDraftState((prev) => ({ ...prev, vibe }));
+  }, []);
+
+  const setTripDuration = useCallback((tripDuration: HomepageTripDuration) => {
+    setDraftState((prev) => ({ ...prev, tripDuration }));
+  }, []);
+
+  const setPartySize = useCallback((partySize: number) => {
+    const clamped = Math.max(1, Math.min(8, partySize));
+    setDraftState((prev) => ({ ...prev, partySize: clamped }));
+  }, []);
+
+  const setBudgetTier = useCallback((budgetTier: BudgetTier) => {
+    setDraftState((prev) => ({ ...prev, budgetTier }));
+  }, []);
+
+  const setTransportPreference = useCallback(
+    (transportPreference: TransportPreference) => {
+      setDraftState((prev) => ({ ...prev, transportPreference }));
+    },
+    [],
+  );
 
   return {
-    tripType,
-    setTripType,
-    weather,
-    setWeather,
-    budget,
-    budgetTier,
-    setBudgetTier,
-    carMode,
-    setCarMode,
-    publicModes,
-    setPublicModes,
-    partySize,
+    // Draft control values & setters
+    draftState,
+    vibe: draftState.vibe,
+    setVibe,
+    setTripType: setVibe, // Alias for backward compatibility
+    tripDuration: draftState.tripDuration,
+    setTripDuration,
+    partySize: draftState.partySize,
     setPartySize,
-    tripDuration: "any" as TripDuration,
+    budgetTier: draftState.budgetTier,
+    setBudgetTier,
+    transportPreference: draftState.transportPreference,
+    setTransportPreference,
+
+    // Resolved draft & applied states
+    resolvedDraft,
+    resolvedApplied,
+
+    // State machine flags & actions
+    hasUserApplied,
+    isDirty,
+    applyPlannerState,
+
+    // Configured user preference
+    configuredCarMode,
   };
 }

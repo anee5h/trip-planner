@@ -32,7 +32,12 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "three-great-views",
+      "sortOrder": 2
+    }
+  ],
   "transportOptions": {
     "train": 160,
     "bus": 190,

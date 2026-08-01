@@ -17,6 +17,17 @@ interface SearchDialogProps {
   onKeyDown: (e: React.KeyboardEvent) => void;
 }
 
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  return isMobile;
+}
+
 export function SearchDialog({
   isOpen,
   onClose,
@@ -30,6 +41,7 @@ export function SearchDialog({
   onKeyDown,
 }: SearchDialogProps) {
   const [viewportHeight, setViewportHeight] = useState<number | null>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (!isOpen) return;
@@ -50,8 +62,12 @@ export function SearchDialog({
 
   if (!isOpen) return null;
 
+  const placeholderText = isMobile
+    ? "Search Meguruto"
+    : "Search destinations, collections, actions... (e.g., 'Kyoto', 'UNESCO')";
+
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-4 sm:pt-16 p-3 sm:p-4">
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-2 sm:pt-16 p-2 sm:p-4">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity animate-in fade-in duration-150"
@@ -60,39 +76,62 @@ export function SearchDialog({
 
       {/* Command Palette Card */}
       <div
-        className="relative w-full max-w-2xl max-h-[calc(100dvh-2rem)] bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 overflow-hidden animate-in fade-in zoom-in-95 duration-150 z-10 flex flex-col"
+        className="relative w-full max-w-2xl max-h-[calc(100dvh-1rem)] sm:max-h-[calc(100dvh-2rem)] bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 overflow-hidden animate-in fade-in zoom-in-95 duration-150 z-10 flex flex-col"
         style={
           viewportHeight
-            ? { maxHeight: `${Math.max(viewportHeight - 32, 160)}px` }
+            ? { maxHeight: `${Math.max(viewportHeight - 16, 160)}px` }
             : undefined
         }
       >
-        {/* Header Search Bar */}
-        <div className="flex items-center gap-3 px-5 py-4 border-b border-slate-100 dark:border-slate-800">
-          <Search className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-          <input
-            type="text"
-            autoFocus
-            value={query}
-            onChange={(e) => onQueryChange(e.target.value)}
-            onKeyDown={onKeyDown}
-            placeholder="Search destinations, collections, actions... (e.g., 'Kyoto', 'UNESCO')"
-            className="w-full bg-transparent text-sm md:text-base font-semibold text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none"
-          />
-          {query && (
+        {/* Header Search Bar with 3-column grid layout */}
+        <div className="grid grid-cols-[44px_minmax(0,1fr)_44px] items-center border-b border-slate-100 dark:border-slate-800 h-14 sm:h-16 px-1">
+          {/* Col 1: Centered Search Icon in 44px tap target */}
+          <div className="flex items-center justify-center w-11 h-11">
+            <Search className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+          </div>
+
+          {/* Col 2: Shrinkable Input */}
+          <div className="min-w-0 px-1 flex items-center gap-2">
+            <input
+              type="text"
+              autoFocus
+              value={query}
+              onChange={(e) => onQueryChange(e.target.value)}
+              onKeyDown={onKeyDown}
+              placeholder={placeholderText}
+              className="w-full bg-transparent text-sm sm:text-base font-semibold text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none truncate"
+            />
+            {query && (
+              <button
+                type="button"
+                onClick={() => onQueryChange("")}
+                aria-label="Clear search input"
+                className="p-1 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
+          </div>
+
+          {/* Col 3: Close control - X icon on mobile, ESC badge on desktop */}
+          <div className="flex items-center justify-center w-11 h-11">
             <button
-              onClick={() => onQueryChange("")}
-              className="p-1 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              type="button"
+              onClick={onClose}
+              aria-label="Close search"
+              className="sm:hidden flex items-center justify-center w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
             >
-              <X className="w-4 h-4" />
+              <X className="w-5 h-5" />
             </button>
-          )}
-          <button
-            onClick={onClose}
-            className="text-xs font-bold px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors shrink-0"
-          >
-            ESC
-          </button>
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label="Close search"
+              className="hidden sm:flex text-xs font-bold px-2.5 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors shrink-0"
+            >
+              ESC
+            </button>
+          </div>
         </div>
 
         {/* Results Container */}
@@ -107,8 +146,8 @@ export function SearchDialog({
           />
         </div>
 
-        {/* Footer Shortcut Hints */}
-        <div className="px-5 py-2.5 bg-slate-50 dark:bg-slate-950/60 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
+        {/* Footer Shortcut Hints - Hidden on Mobile */}
+        <div className="hidden sm:flex px-5 py-2.5 bg-slate-50 dark:bg-slate-950/60 border-t border-slate-100 dark:border-slate-800 items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
           <div className="flex items-center gap-3">
             <span>
               <kbd className="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 font-mono text-[10px]">

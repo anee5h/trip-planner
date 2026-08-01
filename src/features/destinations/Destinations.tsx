@@ -364,6 +364,17 @@ export default function Destinations() {
       result = result.filter((dest) => dest.indoorPercent >= indoorMin);
     }
 
+    if (weather !== "any") {
+      result = result.filter((dest) => {
+        if (weather === "rainy") {
+          return dest.indoorPercent >= 50 || (dest.ratings?.rain ?? 0) >= 7;
+        }
+        return (
+          (dest.ratings?.[weather === "hot" ? "summer" : "winter"] ?? 0) >= 7
+        );
+      });
+    }
+
     if (season !== "any") {
       result = result.filter(
         (dest) => dest.season?.[season as keyof Destination["season"]] >= 7,

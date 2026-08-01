@@ -19,6 +19,15 @@ interface UseTripRecommendationsProps {
   tripDuration: TripDuration;
   homeStationCoords: { lat: number; lng: number } | null;
   isVisited: (id: string) => boolean;
+  rouletteConstraints?: Pick<
+    UseTripRecommendationsProps,
+    | "budget"
+    | "carMode"
+    | "publicModes"
+    | "partySize"
+    | "budgetTier"
+    | "tripDuration"
+  >;
 }
 
 export function useTripRecommendations({
@@ -34,6 +43,7 @@ export function useTripRecommendations({
   tripDuration,
   homeStationCoords,
   isVisited,
+  rouletteConstraints,
 }: UseTripRecommendationsProps) {
   const { destinationRatings } = useTripStore();
   const visitedIds = useMemo(
@@ -83,23 +93,46 @@ export function useTripRecommendations({
   ]);
 
   const rouletteCandidates = useMemo(() => {
-    return getRecommendations(allDestinations, {
-      vibe: "any",
-      budget: 100000,
+    const constraints = rouletteConstraints ?? {
+      budget,
       carMode,
       publicModes,
       partySize,
-      currentWeatherCondition: "any",
+      budgetTier,
+      tripDuration,
+    };
+    return getRecommendations(allDestinations, {
+      vibe: "any",
+      budget: constraints.budget,
+      carMode: constraints.carMode,
+      publicModes: constraints.publicModes,
+      partySize: constraints.partySize,
+      budgetTier: constraints.budgetTier,
+      weather: {
+        actual: actualWeather
+          ? {
+              condition: normalizeWeatherDescription(actualWeather.desc),
+              temperatureC: actualWeather.temperatureC,
+            }
+          : undefined,
+      },
       visitedIds,
       homeStationCoords: homeStationCoords || { lat: 35.6812, lng: 139.7671 },
-      tripDuration: "any",
+      userRatings: destinationRatings,
+      tripDuration: constraints.tripDuration,
     });
   }, [
     allDestinations,
+    actualWeather,
+    budget,
+    budgetTier,
     carMode,
-    publicModes,
-    partySize,
+    destinationRatings,
     homeStationCoords,
+    partySize,
+    publicModes,
+    rouletteConstraints,
+    tripDuration,
     visitedIds,
   ]);
 

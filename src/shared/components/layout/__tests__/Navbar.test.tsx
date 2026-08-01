@@ -23,6 +23,10 @@ vi.mock("@/shared/context/LocaleContext", () => ({
   }),
 }));
 
+vi.mock("@/shared/context/AuthModalContext", () => ({
+  useAuthModal: () => ({ openAuthModal: vi.fn() }),
+}));
+
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
     t: (key: string) => key,
