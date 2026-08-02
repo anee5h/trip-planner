@@ -83,7 +83,7 @@
   "officialWebsite": "https://www.motherfarm.co.jp/",
   "businessHours": "Open access",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "official",

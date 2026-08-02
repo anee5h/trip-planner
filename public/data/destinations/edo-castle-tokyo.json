@@ -59,12 +59,11 @@
     "train": 15
   },
   "highlights": [
+    "Massive Tenshudai Castle Base",
     "Fujimi-yagura Watchtower",
-    "Tenshudai Castle Keep Base",
-    "Otemon Gate & Moat",
-    "Ninomaru Garden"
+    "Imperial Palace East Gardens"
   ],
-  "description": "The historic seat of the Tokugawa Shogunate and current Imperial Palace, featuring massive cyclopean stone ramparts, historic watchtowers, and the Imperial Palace East Gardens.",
+  "description": "The massive historic castle grounds of Tokugawa Shogunate, featuring stone ramparts, Fujimi-yagura watchtower, and East Gardens.",
   "budgetBreakdown": {
     "transport": 489,
     "tickets": 0,
@@ -103,7 +102,7 @@
   "officialWebsite": "https://sento.kunaicho.go.jp/Edo/",
   "businessHours": "09:00 - 17:00 (Last admission 16:30)",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "official",
@@ -118,22 +117,25 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Edo Castle Ruins",
+  "nameJa": "江戸城跡（皇居東御苑）",
   "content": {
     "en": {
       "name": "Edo Castle Ruins (Imperial Palace)",
-      "description": "The historic seat of the Tokugawa Shogunate and current Imperial Palace, featuring massive cyclopean stone ramparts, historic watchtowers, and the Imperial Palace East Gardens.",
+      "description": "The massive historic castle grounds of Tokugawa Shogunate, featuring stone ramparts, Fujimi-yagura watchtower, and East Gardens.",
       "highlights": [
+        "Massive Tenshudai Castle Base",
         "Fujimi-yagura Watchtower",
-        "Tenshudai Castle Keep Base",
-        "Otemon Gate & Moat",
-        "Ninomaru Garden"
+        "Imperial Palace East Gardens"
       ]
     },
     "ja": {
-      "name": "Edo Castle Ruins",
-      "description": "Edo Castle Ruinsは東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
-      "highlights": ["-散策", "城散策", "&散策", "庭園散策"]
+      "name": "江戸城跡（皇居東御苑）",
+      "description": "徳川将軍家の居城跡。本丸天守台の巨大な石垣や富士見櫓、四季の花々が咲き誇る皇居東御苑を自由に見学できます。",
+      "highlights": [
+        "巨大な本丸天守台石垣",
+        "現存する富士見櫓",
+        "四季の皇居東御苑散策"
+      ]
     }
   },
   "ratingMetadata": {

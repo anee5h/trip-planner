@@ -89,7 +89,7 @@
   "officialWebsite": "https://www.tokyo-zoo.net/zoo/ueno/",
   "businessHours": "09:30 - 17:00 (Closed Mondays)",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "official",

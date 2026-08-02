@@ -98,7 +98,7 @@
   "officialWebsite": "https://www.tokyotower.co.jp/",
   "businessHours": "09:00 - 22:30 (Last admission 22:00)",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "official",

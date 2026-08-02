@@ -104,7 +104,7 @@
   "officialWebsite": "https://www.daigo-kanko.jp/",
   "businessHours": "Open access",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "official",

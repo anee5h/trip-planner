@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Funabashi_montage.jpg/1280px-Funabashi_montage.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Funabashi_montage.jpg/1280px-Funabashi_montage.jpg",
-  "description": "Commercial hub on Tokyo Bay featuring Andersen Park and vibrant shopping complexes.",
-  "highlights": ["Explore Funabashi City", "Local Culture & Cuisine"],
+  "description": "A major commercial Chiba city home to Hanzankansen Park, Funabashi Andersen Park, and lively shopping districts.",
+  "highlights": [
+    "Funabashi Andersen Park",
+    "LaLaport TOKYO-BAY",
+    "Funabashi Port Market"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -89,7 +93,7 @@
   },
   "businessHours": "Open access",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",
@@ -104,17 +108,25 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Funabashi市",
+  "nameJa": "船橋市",
   "content": {
     "en": {
       "name": "Funabashi City",
-      "description": "Commercial hub on Tokyo Bay featuring Andersen Park and vibrant shopping complexes.",
-      "highlights": ["Explore Funabashi City", "Local Culture & Cuisine"]
+      "description": "A major commercial Chiba city home to Hanzankansen Park, Funabashi Andersen Park, and lively shopping districts.",
+      "highlights": [
+        "Funabashi Andersen Park",
+        "LaLaport TOKYO-BAY",
+        "Funabashi Port Market"
+      ]
     },
     "ja": {
-      "name": "Funabashi市",
-      "description": "Funabashi市は千葉県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-      "highlights": ["市散策", "&散策"]
+      "name": "船橋市",
+      "description": "ふなばしアンデルセン公園や大型ショッピングモール、港の海鮮市場が集まる千葉県中西部の活気ある都市です。",
+      "highlights": [
+        "ふなばしアンデルセン公園",
+        "ららぽーとTOKYO-BAY",
+        "船橋港の海鮮市場"
+      ]
     }
   },
   "ratingMetadata": {

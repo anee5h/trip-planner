@@ -97,7 +97,7 @@
   },
   "officialWebsite": "https://www.yokoso.metro.tokyo.lg.jp/",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "official",

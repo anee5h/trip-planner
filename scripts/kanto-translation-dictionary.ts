@@ -125,6 +125,57 @@ export const KANTO_TRANSLATION_MAP: Record<string, KantoTranslationEntry> = {
     ],
     jaHighlights: ["銀座ショッピング街", "日本橋と歴史的建築", "築地場外市場"],
   },
+  "chichibu-city": {
+    nameJa: "秩父市",
+    enDescription:
+      "A scenic mountain city in Saitama famed for Chichibu Shrine, Hitsujiyama Park pink moss, and Nagatoro river rafting.",
+    jaDescription:
+      "秩父神社、羊山公園の芝桜の丘、長瀞ラインくだりなど豊かな自然と歴史に育まれた埼玉県の代表的な山岳観光都市です。",
+    enHighlights: [
+      "Chichibu Shrine & Festival",
+      "Hitsujiyama Pink Moss Hill",
+      "Nagatoro River Rafting",
+    ],
+    jaHighlights: [
+      "秩父神社と秩父夜祭",
+      "羊山公園の芝桜の丘",
+      "長瀞ラインくだり",
+    ],
+  },
+  "chigasaki-city": {
+    nameJa: "茅ヶ崎市",
+    enDescription:
+      "A relaxed Shonan coastal resort city known for Southern Beach Chigasaki, Eboshi Rock views, and surf culture.",
+    jaDescription:
+      "サザンビーチちがさきや烏帽子岩の景観、サーフィン文化が根付く湘南海岸の明るく開放的なビーチリゾート都市です。",
+    enHighlights: [
+      "Southern Beach Chigasaki",
+      "Eboshi Rock Coastal Views",
+      "Shonan Surf Culture",
+    ],
+    jaHighlights: [
+      "サザンビーチちがさき",
+      "烏帽子岩のモニュメントと海景観",
+      "湘南サーフィン文化",
+    ],
+  },
+  "edo-castle-tokyo": {
+    nameJa: "江戸城跡（皇居東御苑）",
+    enDescription:
+      "The massive historic castle grounds of Tokugawa Shogunate, featuring stone ramparts, Fujimi-yagura watchtower, and East Gardens.",
+    jaDescription:
+      "徳川将軍家の居城跡。本丸天守台の巨大な石垣や富士見櫓、四季の花々が咲き誇る皇居東御苑を自由に見学できます。",
+    enHighlights: [
+      "Massive Tenshudai Castle Base",
+      "Fujimi-yagura Watchtower",
+      "Imperial Palace East Gardens",
+    ],
+    jaHighlights: [
+      "巨大な本丸天守台石垣",
+      "現存する富士見櫓",
+      "四季の皇居東御苑散策",
+    ],
+  },
   "edogawa-city": {
     nameJa: "江戸川区",
     enDescription:
@@ -140,6 +191,23 @@ export const KANTO_TRANSLATION_MAP: Record<string, KantoTranslationEntry> = {
       "葛西臨海公園",
       "葛西臨海水族園",
       "東京湾ウォーターフロント",
+    ],
+  },
+  "funabashi-city": {
+    nameJa: "船橋市",
+    enDescription:
+      "A major commercial Chiba city home to Hanzankansen Park, Funabashi Andersen Park, and lively shopping districts.",
+    jaDescription:
+      "ふなばしアンデルセン公園や大型ショッピングモール、港の海鮮市場が集まる千葉県中西部の活気ある都市です。",
+    enHighlights: [
+      "Funabashi Andersen Park",
+      "LaLaport TOKYO-BAY",
+      "Funabashi Port Market",
+    ],
+    jaHighlights: [
+      "ふなばしアンデルセン公園",
+      "ららぽーとTOKYO-BAY",
+      "船橋港の海鮮市場",
     ],
   },
   "ginza-itoya": {
@@ -321,119 +389,264 @@ export const KANTO_TRANSLATION_MAP: Record<string, KantoTranslationEntry> = {
       "家老詰所と大広間",
     ],
   },
-  "koto-city": {
-    nameJa: "江東区",
+  "kawaguchi-city": {
+    nameJa: "川口市",
     enDescription:
-      "A modern bayfront ward housing teamLab Planets, Toyosu Market, Kiyosumi Gardens, and Tokyo Big Sight.",
+      "A major Saitama industrial and residential city near Tokyo, famous for cast-metal heritage, Aokicho Park, and greenery.",
     jaDescription:
-      "豊洲市場やteamLab Planets、清澄庭園、東京ビッグサイトなどを擁し、下町の歴史と臨海部の最新施設が同居する注目の街です。",
+      "荒川を隔てて東京都と接する埼玉県の主要都市。伝統的な鋳物産業の歴史、青木町公園、川口市立グリーンセンターが親しまれています。",
     enHighlights: [
-      "Toyosu Seafood Market",
-      "teamLab Planets Tokyo",
-      "Kiyosumi Traditional Garden",
-    ],
-    jaHighlights: ["豊洲市場", "teamLab Planets", "清澄庭園"],
-  },
-  "lake-sagami": {
-    nameJa: "相模湖",
-    enDescription:
-      "A picturesque artificial lake resort in Kanagawa offering boat rentals, Pleasure Forest amusement park, and mountain views.",
-    jaDescription:
-      "相模川を留めて作られた神奈川県の湖リゾート。ボート遊びやさがみ湖リゾート プレジャーフォレストの遊具が人気です。",
-    enHighlights: [
-      "Boating & Water Sports",
-      "Pleasure Forest Amusement Park",
-      "Illumillion Light Display",
+      "Cast-Metal Industrial History",
+      "Aokicho Park",
+      "Kawaguchi Green Center",
     ],
     jaHighlights: [
-      "ボート遊びと湖畔散策",
-      "プレジャーフォレスト遊園地",
-      "さがみ湖イルミリオン",
+      "伝統の鋳物産業歴史",
+      "青木町公園",
+      "川口市立グリーンセンター",
     ],
   },
-  miraikan: {
-    nameJa: "日本科学未来館",
+  "kisarazu-city": {
+    nameJa: "木更津市",
     enDescription:
-      "A cutting-edge science and technology museum in Odaiba featuring interactive robotics, space exploration, and Geo-Cosmos Earth display.",
+      "A Tokyo Bay coastal Chiba city known for Tokyo Bay Aqua-Line's Umihotaru, Mitsui Outlet Park, and fresh clam harvesting.",
     jaDescription:
-      "お台場にある国立の科学館。最先端のロボット技術、宇宙探査、地球環境を映し出す巨大な「Geo-Cosmos」などを体験学習できます。",
+      "東京湾アクアラインの拠点「海ほたる」や三井アウトレットパーク、潮干狩りで知られる房総半島西部の港町です。",
     enHighlights: [
-      "Geo-Cosmos Globe",
-      "Robotics & AI Demonstrations",
-      "Interactive Science Exhibits",
+      "Tokyo Bay Aqua-Line Umihotaru",
+      "Mitsui Outlet Park Kisarazu",
+      "Coastal Clam Harvesting",
     ],
     jaHighlights: [
-      "Geo-Cosmos（シンボル展示）",
-      "ロボット・AIの実演展示",
-      "体験型科学プログラム",
+      "東京湾アクアライン海ほたる",
+      "三井アウトレットパーク木更津",
+      "海岸の潮干狩り体験",
     ],
   },
-  "mito-castle-ibaraki": {
-    nameJa: "水戸城跡と弘道館",
+  "kusatsu-town": {
+    nameJa: "草津町",
     enDescription:
-      "The historical center of Mito featuring the restored Otemon gate, Kodokan clan school (Japan's largest), and moat trails.",
+      "Japan's famous hot spring town in Gunma, centered on Yubatake (hot water field) and Mount Shirane natural scenery.",
     jaDescription:
-      "水戸徳川家の居城跡。日本最大の藩校「弘道館」や復元された二の丸大手門があり、梅の季節や歴史散策に最適です。",
+      "日本屈指の源泉湧出量を誇る草津温泉の町。中央の湯畑、伝統の湯もみ、白根山を臨む豊かな自然が人々を引き寄せます。",
     enHighlights: [
-      "Kodokan Historic Han School",
-      "Restored Otemon Gate",
-      "Mito Tokugawa Clan History",
+      "Yubatake Hot Water Field",
+      "Yumomi Cooling Performances",
+      "Sainokawara Park Baths",
     ],
     jaHighlights: [
-      "日本最大の藩校「弘道館」",
-      "復元された二の丸大手門",
-      "水戸徳川家の城郭遺構",
+      "湯畑の熱気景観",
+      "伝統の湯もみショー",
+      "西の河原公園大露天風呂",
     ],
   },
-  "oarai-marine-tower": {
-    nameJa: "大洗マリンタワー",
+  "minakami-town": {
+    nameJa: "みなかみ町",
     enDescription:
-      "A 60-meter glass triangular tower overlooking the Pacific Ocean and Oarai Port, featuring a 360-degree observation deck.",
+      "An outdoor adventure resort in northern Gunma offering Tone River rafting, Tanigawadake ropeway, and hot spring lodges.",
     jaDescription:
-      "大洗港にそびえる高さ60mの正三角形ガラス張りタワー。大洗の街並みと太平洋の大パノラマを360度見渡せます。",
+      "谷川岳の麓に広がるアウトドアと温泉の町。利根川のラフティング、谷川岳ロープウェイのパノラマ、水上温泉郷を楽しめます。",
     enHighlights: [
-      "60m Glass Triangular Tower",
-      "360-Degree Pacific Ocean Views",
-      "Oarai Port Panorama",
+      "Tanigawadake Ropeway",
+      "Tone River Rafting",
+      "Minakami Onsen Town",
     ],
     jaHighlights: [
-      "高さ60mのガラス張りタワー",
-      "太平洋360度大パノラマ",
-      "大洗港と街並みの景観",
+      "谷川岳ロープウェイ絶景",
+      "利根川ラフティング体験",
+      "水上温泉郷の湯巡り",
     ],
   },
-  "omiya-railway": {
-    nameJa: "鉄道博物館（大宮）",
+  "minato-city": {
+    nameJa: "港区",
     enDescription:
-      "Japan's premier railway museum in Saitama, featuring real historic trains, Bullet train simulators, and interactive exhibits.",
+      "Tokyo's international waterfront ward housing Tokyo Tower, Roppongi Hills, Odaiba, and luxury embassy districts.",
     jaDescription:
-      "JR東日本が運営する日本最大級の鉄道博物館。実物の蒸気機関車や新幹線、本格的な運転シミュレータが揃います。",
+      "東京タワー、六本木ヒルズ、お台場、国際色豊かな大使館街を擁する、日本のトレンド・文化・国際ビジネスの中心エリアです。",
     enHighlights: [
-      "36 Historic Railway Vehicles",
-      "Shinkansen Driving Simulators",
-      "Interactive Train Exhibits",
+      "Tokyo Tower Landmark",
+      "Roppongi Cultural District",
+      "Odaiba Seaside Park",
+    ],
+    jaHighlights: ["東京タワー", "六本木文化エリア", "お台場海浜公園"],
+  },
+  "narita-city": {
+    nameJa: "成田市",
+    enDescription:
+      "The historic home of Naritasan Shinshoji Temple, lively Omotesando market street, and Narita International Airport.",
+    jaDescription:
+      "成田国際空港を擁する日本の玄関口。千成堂やうなぎ料理店が並ぶ成田山表参道と、1000年以上の歴史を持つ成田山新勝寺が有名です。",
+    enHighlights: [
+      "Naritasan Shinshoji Temple",
+      "Historic Omotesando Eel Street",
+      "Narita International Airport",
+    ],
+    jaHighlights: ["成田山新勝寺", "歴史ある参道とうなぎ料理", "成田国際空港"],
+  },
+  "odawara-city": {
+    nameJa: "小田原市",
+    enDescription:
+      "Kanagawa's historic gateway to Hakone, featuring the formidable Odawara Castle, kamaboko seafood, and ocean views.",
+    jaDescription:
+      "小田原城を中心に発展した北条氏の城下町。箱根への玄関口であり、かまぼこ・小田原提灯・相模湾の新鮮な海鮮が名物です。",
+    enHighlights: [
+      "Odawara Castle Keep & Park",
+      "Kamaboko Seafood Village",
+      "Sagami Bay Coastline",
     ],
     jaHighlights: [
-      "36両の実物車両展示",
-      "新幹線運転シミュレータ",
-      "体験型鉄道展示",
+      "小田原城天守閣",
+      "小田原かまぼこ通り",
+      "相模湾の海鮮グルメ",
     ],
   },
-  "oze-national-park": {
-    nameJa: "尾瀬国立公園",
+  "roppongi-hills-tokyo-city-view": {
+    nameJa: "六本木ヒルズ展望台（東京シティビュー）",
     enDescription:
-      "A famous high-altitude wetland national park spanning Gunma, Fukushima, and Niigata, famous for wooden boardwalk hikes and Skunk Cabbage flowers.",
+      "An indoor/outdoor rooftop observation deck on the 52nd floor of Roppongi Hills offer breathtaking 360-degree Tokyo views.",
     jaDescription:
-      "本州最大級の高層湿原。木道が続く広大な湿原で、春のミズバショウや秋の草紅葉などの素晴らしい自然景観を歩いて巡れます。",
+      "六本木ヒルズ森タワー52階（高さ250m）にある展望台。ガラス張りの屋内回廊や屋上スカイデッキから東京タワーと都心のパノラマを一望できます。",
     enHighlights: [
-      "Wooden Boardwalk Wetland Hikes",
-      "Mizubashou Water Plant Flowers",
-      "Mount Shibutsu Views",
+      "250m Panoramic Indoor Gallery",
+      "Open-Air Rooftop Sky Deck",
+      "Tokyo Tower & Mt. Fuji Views",
     ],
     jaHighlights: [
-      "湿原を巡る木道ハイキング",
-      "ミズバショウと草紅葉",
-      "至仏山と燧ヶ岳の景観",
+      "高さ250mの屋内展望ギャラリー",
+      "オープンエアの屋上スカイデッキ",
+      "東京タワーと富士山のパノラマ",
+    ],
+  },
+  "sagamihara-city": {
+    nameJa: "相模原市",
+    enDescription:
+      "A spacious green Kanagawa city home to Lake Sagami, JAXA Sagamihara Campus, and Sagamihara Park.",
+    jaDescription:
+      "相模湖や相模原公園、JAXA相模原キャンパスを擁する、豊かな自然と宇宙科学技術が共存する神奈川県北部の令指定都市です。",
+    enHighlights: [
+      "Lake Sagami Resort",
+      "JAXA Space Campus",
+      "Sagamihara Park Greenery",
+    ],
+    jaHighlights: ["相模湖リゾート", "JAXA相模原キャンパス", "県立相模原公園"],
+  },
+  "shibuya-sky-shibuya": {
+    nameJa: "渋谷スカイ",
+    enDescription:
+      "A breathtaking 229-meter rooftop observation deck at Shibuya Scramble Square offering 360-degree views of Tokyo and Mount Fuji.",
+    jaDescription:
+      "渋谷スクランブルスクエアの屋上にある高さ229mの展望施設。スクランブル交差点や東京タワー、富士山を360度見渡せます。",
+    enHighlights: [
+      "229m Open-Air Sky Stage",
+      "360 Panoramic Tokyo Views",
+      "Shibuya Scramble Crossing Overlook",
+    ],
+    jaHighlights: [
+      "高さ229mの屋上展望空間",
+      "360度東京パノラマ絶景",
+      "真下のスクランブル交差点",
+    ],
+  },
+  "tokorozawa-city": {
+    nameJa: "所沢市",
+    enDescription:
+      "A popular Saitama culture city featuring Tokorozawa Sakura Town, Kadokawa Musashino Museum, and Sayama Tea fields.",
+    jaDescription:
+      "角川武蔵野ミュージアムがある「ところざわサクラタウン」、狭山茶の茶畑、西武園ゆうえんちが親しまれるカルチャーシティです。",
+    enHighlights: [
+      "Kadokawa Musashino Museum",
+      "Tokorozawa Sakura Town",
+      "Sayama Tea Fields",
+    ],
+    jaHighlights: [
+      "角川武蔵野ミュージアム",
+      "ところざわサクラタウン",
+      "狭山茶の茶畑散策",
+    ],
+  },
+  "tsukuba-city": {
+    nameJa: "つくば市",
+    enDescription:
+      "Japan's premier Science City home to Mount Tsukuba, JAXA Tsukuba Space Center, and Tsukuba Botanical Garden.",
+    jaDescription:
+      "筑波山とJAXA筑波宇宙センター、筑波実験植物園を擁する、日本の先端科学技術と豊かな自然が融合した学術研究都市です。",
+    enHighlights: [
+      "Mount Tsukuba Cable Car",
+      "JAXA Tsukuba Space Center",
+      "Tsukuba Botanical Garden",
+    ],
+    jaHighlights: [
+      "筑波山ロープウェイ絶景",
+      "JAXA筑波宇宙センター",
+      "筑波実験植物園",
+    ],
+  },
+  "urayasu-city": {
+    nameJa: "浦安市",
+    enDescription:
+      "A famous Tokyo Bay city in Chiba home to Tokyo Disney Resort (Disneyland & DisneySea) and Ikspiari shopping mall.",
+    jaDescription:
+      "東京ディズニーリゾート（ディズニーランド＆ディズニーシー）や商業施設イクスピアリを擁する、日本有数のテーマパーク都市です。",
+    enHighlights: [
+      "Tokyo Disney Resort Theme Parks",
+      "Ikspiari Shopping Complex",
+      "Tokyo Bay Waterfront Walks",
+    ],
+    jaHighlights: [
+      "東京ディズニーリゾート",
+      "イクスピアリ",
+      "東京湾ウォーターフロント散策",
+    ],
+  },
+  "utsunomiya-city": {
+    nameJa: "宇都宮市",
+    enDescription:
+      "Tochigi's prefectural capital famed for Utsunomiya gyoza dumpling culture, Oya Stone quarries, and Futaarayama Shrine.",
+    jaDescription:
+      "「餃子の街」として全国に知られる栃木県の県都。大谷石の巨大地下空間（大谷資料館）や宇都宮二荒山神社が見どころです。",
+    enHighlights: [
+      "Famous Utsunomiya Gyoza Dining",
+      "Oya Stone Quarry Museum",
+      "Utsunomiya Futaarayama Shrine",
+    ],
+    jaHighlights: [
+      "宇都宮餃子の食べ歩き",
+      "大谷資料館の巨大地下空間",
+      "宇都宮二荒山神社",
+    ],
+  },
+  "yokosuka-city": {
+    nameJa: "横須賀市",
+    enDescription:
+      "A naval port city on Tokyo Bay known for Mikasa Park, Yokosuka Naval Port cruises, and Dobuita Street navy burger culture.",
+    jaDescription:
+      "東京湾口にある歴史ある軍港都市。記念艦三笠がある三笠公園、横須賀軍港めぐり、ドブ板通りのネイビーバーガーが有名です。",
+    enHighlights: [
+      "Historic Battleship Mikasa Park",
+      "Yokosuka Naval Port Cruise",
+      "Dobuita Street Navy Burgers",
+    ],
+    jaHighlights: [
+      "記念艦三笠と三笠公園",
+      "横須賀軍港めぐりクルーズ",
+      "ドブ板通りのネイビーバーガー",
+    ],
+  },
+  "takao-599-museum": {
+    nameJa: "高尾599ミュージアム",
+    enDescription:
+      "A stylish modern nature museum at the foot of Mount Takao showcasing preserved flora, fauna, and mountain history.",
+    jaDescription:
+      "高尾山の麓に位置するスタイリッシュな自然ミュージアム。アクリル樹脂に封入された植物標本やカフェ、芝生広場が魅力です。",
+    enHighlights: [
+      "Acrylic Resin Flora & Fauna Display",
+      "Modern Architecture & Cafe",
+      "Mount Takao Nature Gateway",
+    ],
+    jaHighlights: [
+      "アクリル樹脂の美表標本展示",
+      "洗練された建築とカフェ",
+      "高尾山麓の自然発信拠点",
     ],
   },
   "play-museum-tachikawa": {
@@ -452,286 +665,5 @@ export const KANTO_TRANSLATION_MAP: Record<string, KantoTranslationEntry> = {
       "体を使って遊ぶアート空間",
       "GREEN SPRINGS施設内",
     ],
-  },
-  "sakura-castle-chiba": {
-    nameJa: "佐倉城址公園",
-    enDescription:
-      "A historic castle park in Chiba surrounded by dry moats and earthen ramparts, housing National Museum of Japanese History.",
-    jaDescription:
-      "千葉県唯一の日本100名城。土塁や空堀の遺構と、敷地内にある国立歴史民俗博物館が魅力の緑豊かな城郭公園です。",
-    enHighlights: [
-      "Historic Earthen Ramparts & Moats",
-      "National Museum of Japanese History",
-      "Cherry Blossom Park",
-    ],
-    jaHighlights: [
-      "巨大な土塁と空堀の遺構",
-      "国立歴史民俗博物館",
-      "さくらの名所公園",
-    ],
-  },
-  "shibuya-sky-shibuya": {
-    nameJa: "SHIBUYA SKY",
-    enDescription:
-      "A breathtaking 229-meter rooftop observation deck at Shibuya Scramble Square offering 360-degree views of Tokyo and Mount Fuji.",
-    jaDescription:
-      "渋谷スクランブルスクエアの屋上にある高さ229mの展望施設。スクランブル交差点や東京タワー、富士山を360度見渡せます。",
-    enHighlights: [
-      "229m Open-Air Sky Stage",
-      "360 Panoramic Tokyo Views",
-      "Shibuya Scramble Crossing Overlook",
-    ],
-    jaHighlights: [
-      "高さ229mの屋上展望空間",
-      "360度東京パノラマ絶景",
-      "真下のスクランブル交差点",
-    ],
-  },
-  "sunshine-60-observatory-ikebukuro": {
-    nameJa: "サンシャイン60展望台 てんぼうパーク",
-    enDescription:
-      "An indoor sky park 251 meters above Ikebukuro featuring artificial turf lawns, panoramic Tokyo views, and relaxing cafes.",
-    jaDescription:
-      "池袋サンシャイン60の最上階（海抜251m）にある展望公園。緑豊かな人工芝が広がり、都心の絶景をのんびり楽しめます。",
-    enHighlights: [
-      "251m Indoor Sky Park",
-      "Green Lawn Relaxation Zone",
-      "Panoramic Tokyo Views",
-    ],
-    jaHighlights: [
-      "海抜251mの屋内天空公園",
-      "芝生広場の癒し空間",
-      "都心360度の眺望",
-    ],
-  },
-  "tachikawa-tokyo": {
-    nameJa: "立川市",
-    enDescription:
-      "A vibrant western Tokyo sub-center featuring Showa Kinen Park, GREEN SPRINGS, and IKEA Tachikawa.",
-    jaDescription:
-      "国営昭和記念公園の広大な緑、複合施設GREEN SPRINGS、PLAY! MUSEUMなどが集まる立川駅周辺の利便性の高い都市です。",
-    enHighlights: [
-      "Showa Kinen National Park",
-      "GREEN SPRINGS Lifestyle Complex",
-      "PLAY! MUSEUM",
-    ],
-    jaHighlights: ["国営昭和記念公園", "GREEN SPRINGS", "PLAY! MUSEUM"],
-  },
-  "takao-599-museum": {
-    nameJa: "TAKAO 599 MUSEUM",
-    enDescription:
-      "A stylish modern nature museum at the foot of Mount Takao showcasing preserved flora, fauna, and mountain history.",
-    jaDescription:
-      "高尾山の麓に位置するスタイリッシュな自然ミュージアム。アクリル樹脂に封入された植物標本やカフェ、芝生広場が魅力です。",
-    enHighlights: [
-      "Acrylic Resin Flora & Fauna Display",
-      "Modern Architecture & Cafe",
-      "Mount Takao Nature Gateway",
-    ],
-    jaHighlights: [
-      "アクリル樹脂の美表標本展示",
-      "洗練された建築とカフェ",
-      "高尾山麓の自然発信拠点",
-    ],
-  },
-  "takanawa-gateway-minato": {
-    nameJa: "高輪ゲートウェイ",
-    enDescription:
-      "A modern futuristic station complex designed by Kengo Kuma in Minato ward, featuring wooden architecture and AI robotics.",
-    jaDescription:
-      "隈研吾氏がデザインを手掛けたJR山手線の新駅。木材を多用した大屋根建築と最新のAIロボット、周辺の再開発街並みが特徴です。",
-    enHighlights: [
-      "Kengo Kuma Wooden Architecture",
-      "AI Robots & Self-Checkout Store",
-      "TAKANAWA GATEWAY CITY Area",
-    ],
-    jaHighlights: [
-      "隈研吾デザインの大屋根建築",
-      "最新AIロボットと無人店舗",
-      "TAKANAWA GATEWAY CITY",
-    ],
-  },
-  "tama-zoological-park": {
-    nameJa: "多摩動物公園",
-    enDescription:
-      "A vast 50-hectare hillside zoo in Hino, Tokyo, featuring free-roaming African animals, Koala House, and Lion Bus tours.",
-    jaDescription:
-      "日野市の豊かな多摩丘陵に広がる50ヘクタールの広い動物園。ライオンバスやコアラ館、アジア・アフリカゾーンの自然展示が人気です。",
-    enHighlights: [
-      "50-Hectare Hillside Enclosures",
-      "Famous Lion Bus Tour",
-      "Koala House & Butterfly Pavilion",
-    ],
-    jaHighlights: [
-      "50ヘクタールの丘陵動物園",
-      "人気のライオンバス",
-      "コアラ館と昆虫園",
-    ],
-  },
-  "teamlab-borderless-azabudai": {
-    nameJa: "チームラボボーダレス（麻布台ヒルズ）",
-    enDescription:
-      "An extraordinary digital art museum in Azabudai Hills where artworks move, interact, and blend without boundaries.",
-    jaDescription:
-      "麻布台ヒルズに移転オープンした世界的なデジタルアートミュージアム。境界のないアート群が空間を自在に巡り、人と融合します。",
-    enHighlights: [
-      "Boundaryless Digital Art Works",
-      "Interactive Light Displays",
-      "EN TEA HOUSE Experience",
-    ],
-    jaHighlights: [
-      "境界のないデジタルアート群",
-      "インタラクティブな光空間",
-      "EN TEA HOUSE（お茶のアート）",
-    ],
-  },
-  "teamlab-planets": {
-    nameJa: "チームラボプラネッツ（豊洲）",
-    enDescription:
-      "An immersive water-filled digital art museum in Toyosu where visitors walk barefoot through water pools and flower gardens.",
-    jaDescription:
-      "豊洲にある「水に入るミュージアム」。裸足になって巨大なデジタルアート作品の水に入り、体全体で作品と一体化する没入体験ができます。",
-    enHighlights: [
-      "Walk Barefoot Through Water Art",
-      "Floating Flower Garden",
-      "Infinite Mirror Rooms",
-    ],
-    jaHighlights: [
-      "裸足で水に入るデジタルアート",
-      "浮遊する花々の庭園",
-      "無限の鏡空間",
-    ],
-  },
-  "tokyo-metropolitan-government-building-shinjuku": {
-    nameJa: "東京都庁展望室",
-    enDescription:
-      "A famous free twin-tower observation deck on the 45th floor of Kenzo Tange's skyscraper, offering views of Mount Fuji.",
-    jaDescription:
-      "丹下健三氏設計の東京都庁舎45階（高さ202m）にある無料の展望室。都心の眺望や天候が良い日には富士山を望めます。",
-    enHighlights: [
-      "Free 45F Observation Deck",
-      "Kenzo Tange Architecture",
-      "Mount Fuji & Tokyo Skyline Views",
-    ],
-    jaHighlights: [
-      "45階の無料展望室（高さ202m）",
-      "丹下健三設計の庁舎建築",
-      "富士山と都心パノラマ景観",
-    ],
-  },
-  "tokyo-mt-mitake": {
-    nameJa: "御岳山",
-    enDescription:
-      "A sacred mountain in Okutama, Tokyo, featuring Musashi Mitake Shrine, scenic hiking paths, cable car, and rock garden trail.",
-    jaDescription:
-      "青梅市奥多摩に位置する古くからの霊山。武蔵御嶽神社、ケーブルカー、ロックガーデン（苔むした渓流沿い）のハイキングが人気です。",
-    enHighlights: [
-      "Musashi Mitake Shrine",
-      "Mitake Cable Car",
-      "Scenic Rock Garden Stream Trail",
-    ],
-    jaHighlights: [
-      "武蔵御嶽神社",
-      "御岳登山鉄道ケーブルカー",
-      "ロックガーデンの渓流散策",
-    ],
-  },
-  "tokyo-station-chiyoda": {
-    nameJa: "東京駅（丸の内赤れんが駅舎）",
-    enDescription:
-      "Japan's primary railway hub featuring Kingo Tatsuno's restored 1914 red-brick station building, Marunouchi plaza, and Ramen Street.",
-    jaDescription:
-      "1914年創建の歴史的赤れんが駅舎。ドーム状の美しい天井、丸の内駅前広場、東京駅一番街のラーメンストリートが集まる日本の玄関口です。",
-    enHighlights: [
-      "Restored 1914 Red-Brick Station Building",
-      "Marunouchi Square & Skyscraper Views",
-      "Tokyo Ramen Street",
-    ],
-    jaHighlights: [
-      "創建当時の赤れんが駅舎とドーム天井",
-      "丸の内駅前広場の景観",
-      "東京ラーメンストリート",
-    ],
-  },
-  "ueno-zoo": {
-    nameJa: "東京都恩賜上野動物園",
-    enDescription:
-      "Japan's oldest zoo located in Ueno Park, home to giant pandas, historic 5-story pagoda backdrop, and 300+ animal species.",
-    jaDescription:
-      "1882年開園の日本最古の動物園。ジャイアントパンダ、旧寛永寺五重塔を背景とした展示、約300種の動物に出会える上野の象徴です。",
-    enHighlights: [
-      "Giant Panda Enclosures",
-      "Historic 5-Story Pagoda Backdrop",
-      "Shinobazu Pond Waterfront Aviary",
-    ],
-    jaHighlights: [
-      "人気ジャイアントパンダ",
-      "旧寛永寺五重塔の歴史景観",
-      "不忍池の水鳥舎",
-    ],
-  },
-  "utsunomiya-oya": {
-    nameJa: "宇都宮・大谷エリア",
-    enDescription:
-      "A unique destination near Utsunomiya featuring Oya History Museum's vast underground stone quarry chamber and Oya Kannon Buddha.",
-    jaDescription:
-      "宇都宮市大谷町に広がる大谷石の産地。映画撮影地にもなる大谷資料館の巨大地下採掘場跡と大谷観音が神秘的な雰囲気を醸し出します。",
-    enHighlights: [
-      "Oya Underground Stone Quarry Chamber",
-      "Oya Kannon Carved Cliff Buddha",
-      "Utsunomiya Gyoza Dining",
-    ],
-    jaHighlights: [
-      "大谷資料館の巨大地下空間",
-      "大谷観音の崖彫り仏像",
-      "宇都宮餃子食べ歩き",
-    ],
-  },
-  "yokohama-marine-tower": {
-    nameJa: "横浜マリンタワー",
-    enDescription:
-      "A historic 106-meter waterfront lattice tower in Yokohama near Yamashita Park, featuring observation decks and night illumination.",
-    jaDescription:
-      "横浜開港100周年記念事業で建てられた高さ106mのシンボルタワー。展望フロアからは横浜港やベイブリッジを一望できます。",
-    enHighlights: [
-      "106m Waterfront Lattice Tower",
-      "Yokohama Port & Bay Bridge Panorama",
-      "Media Art & Lounge Bar",
-    ],
-    jaHighlights: [
-      "高さ106mの横浜港シンボルタワー",
-      "横浜港とベイブリッジの眺望",
-      "メディアアートと展望フロア",
-    ],
-  },
-  "yokohama-zoorasia": {
-    nameJa: "よこはま動物園ズーラシア",
-    enDescription:
-      "One of Japan's largest state-of-the-art zoos in Yokohama, reproducing natural habitats across 8 global ecological zones.",
-    jaDescription:
-      "「生命の共生・自然の調和」をテーマにした日本最大級の広大な動物園。世界8つの気候帯に分けられた自然に近い環境で動物を観察できます。",
-    enHighlights: [
-      "8 Global Climate Zone Habitats",
-      "Rare Animals Like Okapi & Proboscis Monkey",
-      "Vast Natural Park Setting",
-    ],
-    jaHighlights: [
-      "世界8エリアの自然再現展示",
-      "オカピなどの希少動物",
-      "広大な自然公園環境",
-    ],
-  },
-  zushi: {
-    nameJa: "逗子・横須賀",
-    enDescription:
-      "A charming Miura Peninsula area featuring Zushi Beach resort, Hayama coastal views, and Yokosuka Verny Park.",
-    jaDescription:
-      "逗子海岸の海水浴リゾート、葉山の御用邸海岸景色、横須賀のヴェルニー公園や軍港めぐりを楽しめる湘南・三浦エリアです。",
-    enHighlights: [
-      "Zushi Beach Resort",
-      "Hayama Imperial Coast Views",
-      "Yokosuka Naval Port Cruise",
-    ],
-    jaHighlights: ["逗子海岸リゾート", "葉山海岸の景観", "横須賀軍港めぐり"],
   },
 };

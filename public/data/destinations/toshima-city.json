@@ -101,7 +101,7 @@
   },
   "businessHours": "Open access",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",

@@ -97,7 +97,7 @@
   "officialWebsite": "https://www.takanawagateway-city.com/",
   "businessHours": "09:00 - 17:00 (Daily)",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "official",

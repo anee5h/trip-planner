@@ -59,12 +59,11 @@
     "train": 15
   },
   "highlights": [
-    "52F Glass Indoor Observation Deck",
-    "Open-Air Sky Deck (270m)",
-    "Front-Row Tokyo Tower Night View",
-    "Mori Art Museum Access"
+    "250m Panoramic Indoor Gallery",
+    "Open-Air Rooftop Sky Deck",
+    "Tokyo Tower & Mt. Fuji Views"
   ],
-  "description": "Located on the 52nd floor and rooftop of Mori Tower (270m height), offering the iconic front-row view of Tokyo Tower framed against the Tokyo Bay skyline.",
+  "description": "An indoor/outdoor rooftop observation deck on the 52nd floor of Roppongi Hills offer breathtaking 360-degree Tokyo views.",
   "budgetBreakdown": {
     "transport": 354,
     "tickets": 2357,
@@ -108,7 +107,7 @@
   "officialWebsite": "https://tcv.roppongihills.com/",
   "businessHours": "10:00 - 22:00 (Last admission 21:30)",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "official",
@@ -123,22 +122,25 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Roppongi Hills Observation Deck",
+  "nameJa": "六本木ヒルズ展望台（東京シティビュー）",
   "content": {
     "en": {
       "name": "Roppongi Hills Observation Deck (Tokyo City View)",
-      "description": "Located on the 52nd floor and rooftop of Mori Tower (270m height), offering the iconic front-row view of Tokyo Tower framed against the Tokyo Bay skyline.",
+      "description": "An indoor/outdoor rooftop observation deck on the 52nd floor of Roppongi Hills offer breathtaking 360-degree Tokyo views.",
       "highlights": [
-        "52F Glass Indoor Observation Deck",
-        "Open-Air Sky Deck (270m)",
-        "Front-Row Tokyo Tower Night View",
-        "Mori Art Museum Access"
+        "250m Panoramic Indoor Gallery",
+        "Open-Air Rooftop Sky Deck",
+        "Tokyo Tower & Mt. Fuji Views"
       ]
     },
     "ja": {
-      "name": "Roppongi Hills Observation Deck",
-      "description": "Roppongi Hills Observation Deckは東京都にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-      "highlights": ["52F散策", "-   (270m)散策", "-散策", "美術館散策"]
+      "name": "六本木ヒルズ展望台（東京シティビュー）",
+      "description": "六本木ヒルズ森タワー52階（高さ250m）にある展望台。ガラス張りの屋内回廊や屋上スカイデッキから東京タワーと都心のパノラマを一望できます。",
+      "highlights": [
+        "高さ250mの屋内展望ギャラリー",
+        "オープンエアの屋上スカイデッキ",
+        "東京タワーと富士山のパノラマ"
+      ]
     }
   },
   "ratingMetadata": {

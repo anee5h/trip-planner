@@ -384,7 +384,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -596,7 +596,7 @@
     "officialWebsite": "https://visit-minato-city.tokyo.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -724,7 +724,7 @@
     "officialWebsite": "https://visit-chiyoda.tokyo.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -1366,7 +1366,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -1785,7 +1785,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -2126,7 +2126,7 @@
     "officialWebsite": "https://www.arttowermito.or.jp/",
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -2437,7 +2437,7 @@
     "officialWebsite": "https://www.taito-city.tokyo.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -2565,7 +2565,7 @@
     "officialWebsite": "https://www.town.kaisai.kanagawa.jp/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -2697,7 +2697,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -2827,7 +2827,7 @@
     "officialWebsite": "https://www.ashikaga.co.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -3744,7 +3744,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -3900,7 +3900,7 @@
     "officialWebsite": "https://maruchiba.jp/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -4033,7 +4033,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -4501,7 +4501,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -4671,7 +4671,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -4832,7 +4832,7 @@
     "officialWebsite": "https://nokogiriyama.jp/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -4986,7 +4986,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -5156,7 +5156,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -5320,7 +5320,7 @@
     "officialWebsite": "https://chiba-porttower.com/",
     "businessHours": "10:00 - 21:00 (Last admission 20:30)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -5460,7 +5460,7 @@
     "officialWebsite": "https://www.city.katori.lg.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -5614,7 +5614,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -5764,7 +5764,7 @@
     "officialWebsite": "https://www.town.otaki.chiba.jp/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -5913,7 +5913,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -5984,8 +5984,12 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/20/Chichibu_Yomatsuri.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/2/20/Chichibu_Yomatsuri.jpg",
-    "description": "Mountain valley city famous for Hitsujiyama Park pink moss phlox, Chichibu Shrine, and steam train locomotives.",
-    "highlights": ["Explore Chichibu City", "Local Culture & Cuisine"],
+    "description": "A scenic mountain city in Saitama famed for Chichibu Shrine, Hitsujiyama Park pink moss, and Nagatoro river rafting.",
+    "highlights": [
+      "Chichibu Shrine & Festival",
+      "Hitsujiyama Pink Moss Hill",
+      "Nagatoro River Rafting"
+    ],
     "totalTripHours": 6,
     "budgetMin": 3500,
     "budgetRecommended": 14250,
@@ -6063,7 +6067,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -6078,17 +6082,25 @@
       "reviewedBy": "Meguruto Editorial Reviewer",
       "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
     },
-    "nameJa": "Chichibu市",
+    "nameJa": "秩父市",
     "content": {
       "en": {
         "name": "Chichibu City",
-        "description": "Mountain valley city famous for Hitsujiyama Park pink moss phlox, Chichibu Shrine, and steam train locomotives.",
-        "highlights": ["Explore Chichibu City", "Local Culture & Cuisine"]
+        "description": "A scenic mountain city in Saitama famed for Chichibu Shrine, Hitsujiyama Park pink moss, and Nagatoro river rafting.",
+        "highlights": [
+          "Chichibu Shrine & Festival",
+          "Hitsujiyama Pink Moss Hill",
+          "Nagatoro River Rafting"
+        ]
       },
       "ja": {
-        "name": "Chichibu市",
-        "description": "Chichibu市は埼玉県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-        "highlights": ["市散策", "&散策"]
+        "name": "秩父市",
+        "description": "秩父神社、羊山公園の芝桜の丘、長瀞ラインくだりなど豊かな自然と歴史に育まれた埼玉県の代表的な山岳観光都市です。",
+        "highlights": [
+          "秩父神社と秩父夜祭",
+          "羊山公園の芝桜の丘",
+          "長瀞ラインくだり"
+        ]
       }
     },
     "ratingMetadata": {
@@ -6108,8 +6120,12 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Chigasaki_City_Hall_20170721.JPG/3840px-Chigasaki_City_Hall_20170721.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Chigasaki_City_Hall_20170721.JPG/3840px-Chigasaki_City_Hall_20170721.JPG",
-    "description": "Shonan coastal resort city celebrated for Southern Beach, Eboshi Rock, and beach culture.",
-    "highlights": ["Explore Chigasaki City", "Local Culture & Cuisine"],
+    "description": "A relaxed Shonan coastal resort city known for Southern Beach Chigasaki, Eboshi Rock views, and surf culture.",
+    "highlights": [
+      "Southern Beach Chigasaki",
+      "Eboshi Rock Coastal Views",
+      "Shonan Surf Culture"
+    ],
     "totalTripHours": 6,
     "budgetMin": 3500,
     "budgetRecommended": 14250,
@@ -6188,7 +6204,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -6203,17 +6219,25 @@
       "reviewedBy": "Meguruto Editorial Reviewer",
       "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
     },
-    "nameJa": "Chigasaki市",
+    "nameJa": "茅ヶ崎市",
     "content": {
       "en": {
         "name": "Chigasaki City",
-        "description": "Shonan coastal resort city celebrated for Southern Beach, Eboshi Rock, and beach culture.",
-        "highlights": ["Explore Chigasaki City", "Local Culture & Cuisine"]
+        "description": "A relaxed Shonan coastal resort city known for Southern Beach Chigasaki, Eboshi Rock views, and surf culture.",
+        "highlights": [
+          "Southern Beach Chigasaki",
+          "Eboshi Rock Coastal Views",
+          "Shonan Surf Culture"
+        ]
       },
       "ja": {
-        "name": "Chigasaki市",
-        "description": "Chigasaki市は神奈川県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-        "highlights": ["市散策", "&散策"]
+        "name": "茅ヶ崎市",
+        "description": "サザンビーチちがさきや烏帽子岩の景観、サーフィン文化が根付く湘南海岸の明るく開放的なビーチリゾート都市です。",
+        "highlights": [
+          "サザンビーチちがさき",
+          "烏帽子岩のモニュメントと海景観",
+          "湘南サーフィン文化"
+        ]
       }
     },
     "ratingMetadata": {
@@ -6460,7 +6484,7 @@
     "businessHours": "Open access",
     "kind": "city",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -6593,7 +6617,7 @@
     "officialWebsite": "https://www.choshikanko.com/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -6721,7 +6745,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -6856,7 +6880,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -7405,7 +7429,7 @@
     "officialWebsite": "https://www.tokyodisneyresort.jp/tdl/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -7537,7 +7561,7 @@
     "officialWebsite": "https://www.tokyodisneyresort.jp/tds/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -7890,12 +7914,11 @@
       "train": 15
     },
     "highlights": [
+      "Massive Tenshudai Castle Base",
       "Fujimi-yagura Watchtower",
-      "Tenshudai Castle Keep Base",
-      "Otemon Gate & Moat",
-      "Ninomaru Garden"
+      "Imperial Palace East Gardens"
     ],
-    "description": "The historic seat of the Tokugawa Shogunate and current Imperial Palace, featuring massive cyclopean stone ramparts, historic watchtowers, and the Imperial Palace East Gardens.",
+    "description": "The massive historic castle grounds of Tokugawa Shogunate, featuring stone ramparts, Fujimi-yagura watchtower, and East Gardens.",
     "budgetBreakdown": {
       "transport": 489,
       "tickets": 0,
@@ -7934,7 +7957,7 @@
     "officialWebsite": "https://sento.kunaicho.go.jp/Edo/",
     "businessHours": "09:00 - 17:00 (Last admission 16:30)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -7949,22 +7972,25 @@
       "reviewedBy": "Meguruto Editorial Reviewer",
       "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
     },
-    "nameJa": "Edo Castle Ruins",
+    "nameJa": "江戸城跡（皇居東御苑）",
     "content": {
       "en": {
         "name": "Edo Castle Ruins (Imperial Palace)",
-        "description": "The historic seat of the Tokugawa Shogunate and current Imperial Palace, featuring massive cyclopean stone ramparts, historic watchtowers, and the Imperial Palace East Gardens.",
+        "description": "The massive historic castle grounds of Tokugawa Shogunate, featuring stone ramparts, Fujimi-yagura watchtower, and East Gardens.",
         "highlights": [
+          "Massive Tenshudai Castle Base",
           "Fujimi-yagura Watchtower",
-          "Tenshudai Castle Keep Base",
-          "Otemon Gate & Moat",
-          "Ninomaru Garden"
+          "Imperial Palace East Gardens"
         ]
       },
       "ja": {
-        "name": "Edo Castle Ruins",
-        "description": "Edo Castle Ruinsは東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
-        "highlights": ["-散策", "城散策", "&散策", "庭園散策"]
+        "name": "江戸城跡（皇居東御苑）",
+        "description": "徳川将軍家の居城跡。本丸天守台の巨大な石垣や富士見櫓、四季の花々が咲き誇る皇居東御苑を自由に見学できます。",
+        "highlights": [
+          "巨大な本丸天守台石垣",
+          "現存する富士見櫓",
+          "四季の皇居東御苑散策"
+        ]
       }
     },
     "ratingMetadata": {
@@ -8068,7 +8094,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -8219,7 +8245,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -8388,7 +8414,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -8541,7 +8567,7 @@
     "officialWebsite": "https://www.fujisawa-kanko.jp/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -8683,7 +8709,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -8861,7 +8887,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -9029,7 +9055,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -9557,7 +9583,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -10913,8 +10939,12 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Funabashi_montage.jpg/1280px-Funabashi_montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Funabashi_montage.jpg/1280px-Funabashi_montage.jpg",
-    "description": "Commercial hub on Tokyo Bay featuring Andersen Park and vibrant shopping complexes.",
-    "highlights": ["Explore Funabashi City", "Local Culture & Cuisine"],
+    "description": "A major commercial Chiba city home to Hanzankansen Park, Funabashi Andersen Park, and lively shopping districts.",
+    "highlights": [
+      "Funabashi Andersen Park",
+      "LaLaport TOKYO-BAY",
+      "Funabashi Port Market"
+    ],
     "totalTripHours": 6,
     "budgetMin": 3500,
     "budgetRecommended": 14250,
@@ -10993,7 +11023,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -11008,17 +11038,25 @@
       "reviewedBy": "Meguruto Editorial Reviewer",
       "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
     },
-    "nameJa": "Funabashi市",
+    "nameJa": "船橋市",
     "content": {
       "en": {
         "name": "Funabashi City",
-        "description": "Commercial hub on Tokyo Bay featuring Andersen Park and vibrant shopping complexes.",
-        "highlights": ["Explore Funabashi City", "Local Culture & Cuisine"]
+        "description": "A major commercial Chiba city home to Hanzankansen Park, Funabashi Andersen Park, and lively shopping districts.",
+        "highlights": [
+          "Funabashi Andersen Park",
+          "LaLaport TOKYO-BAY",
+          "Funabashi Port Market"
+        ]
       },
       "ja": {
-        "name": "Funabashi市",
-        "description": "Funabashi市は千葉県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-        "highlights": ["市散策", "&散策"]
+        "name": "船橋市",
+        "description": "ふなばしアンデルセン公園や大型ショッピングモール、港の海鮮市場が集まる千葉県中西部の活気ある都市です。",
+        "highlights": [
+          "ふなばしアンデルセン公園",
+          "ららぽーとTOKYO-BAY",
+          "船橋港の海鮮市場"
+        ]
       }
     },
     "ratingMetadata": {
@@ -11760,7 +11798,7 @@
     "officialWebsite": "https://www.ghibli-museum.jp/",
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -12470,7 +12508,7 @@
     "officialWebsite": "https://www.ginza.jp/",
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -12720,7 +12758,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -13099,7 +13137,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -13365,7 +13403,7 @@
     "officialWebsite": "https://www.ikaho-kankou.com/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -13507,7 +13545,7 @@
     "officialWebsite": "https://www.kusatsu-onsen.ne.jp/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -13647,7 +13685,7 @@
     "officialWebsite": "https://www.shimaonsen.com/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -13871,7 +13909,7 @@
     "officialWebsite": "https://www.city.hachioji.tokyo.jp/kankobunka/001/003/p005221.html",
     "businessHours": "09:00 - 17:00 (Last admission 16:30)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -14015,7 +14053,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -14987,7 +15025,7 @@
     "officialWebsite": "https://www.wbstudiotour.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -15138,7 +15176,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -16056,7 +16094,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -17043,7 +17081,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -17498,7 +17536,7 @@
     "officialWebsite": "https://www.daigo-kanko.jp/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -17643,7 +17681,7 @@
     "officialWebsite": "https://hitachikaihin.jp/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -17783,7 +17821,7 @@
     "officialWebsite": "https://ttca.jp/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -18001,7 +18039,7 @@
     "officialWebsite": "https://www.toshima-kanko.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -18148,7 +18186,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -18296,7 +18334,7 @@
     "officialWebsite": "https://sento.kunaicho.go.jp/Kyoto/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -18444,7 +18482,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -18612,7 +18650,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -19256,7 +19294,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -19689,7 +19727,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -20241,7 +20279,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -20483,7 +20521,7 @@
     "officialWebsite": "https://www.miura-info.ne.jp/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -20614,7 +20652,7 @@
     "officialWebsite": "https://tokyo-joypolis.com/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -20942,7 +20980,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -21207,7 +21245,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -21385,7 +21423,7 @@
     "officialWebsite": "https://ibaraki-kairakuen.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -21877,7 +21915,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -22045,7 +22083,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -22656,7 +22694,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -22835,7 +22873,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -23004,7 +23042,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -23154,7 +23192,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -23293,7 +23331,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -23448,7 +23486,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -23588,7 +23626,7 @@
     "officialWebsite": "https://koedo.or.jp/",
     "businessHours": "09:00 - 17:00 (Last admission 16:30)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -23884,7 +23922,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -24053,7 +24091,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -24124,8 +24162,12 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg/1920px-Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg/1920px-Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg",
-    "description": "Industrial and residential hub bordering Tokyo across the Arakawa River.",
-    "highlights": ["Explore Kawaguchi City", "Local Culture & Cuisine"],
+    "description": "A major Saitama industrial and residential city near Tokyo, famous for cast-metal heritage, Aokicho Park, and greenery.",
+    "highlights": [
+      "Cast-Metal Industrial History",
+      "Aokicho Park",
+      "Kawaguchi Green Center"
+    ],
     "totalTripHours": 6,
     "budgetMin": 3500,
     "budgetRecommended": 14250,
@@ -24204,7 +24246,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -24219,17 +24261,25 @@
       "reviewedBy": "Meguruto Editorial Reviewer",
       "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
     },
-    "nameJa": "Kawaguchi市",
+    "nameJa": "川口市",
     "content": {
       "en": {
         "name": "Kawaguchi City",
-        "description": "Industrial and residential hub bordering Tokyo across the Arakawa River.",
-        "highlights": ["Explore Kawaguchi City", "Local Culture & Cuisine"]
+        "description": "A major Saitama industrial and residential city near Tokyo, famous for cast-metal heritage, Aokicho Park, and greenery.",
+        "highlights": [
+          "Cast-Metal Industrial History",
+          "Aokicho Park",
+          "Kawaguchi Green Center"
+        ]
       },
       "ja": {
-        "name": "Kawaguchi市",
-        "description": "Kawaguchi市は埼玉県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-        "highlights": ["市散策", "&散策"]
+        "name": "川口市",
+        "description": "荒川を隔てて東京都と接する埼玉県の主要都市。伝統的な鋳物産業の歴史、青木町公園、川口市立グリーンセンターが親しまれています。",
+        "highlights": [
+          "伝統の鋳物産業歴史",
+          "青木町公園",
+          "川口市立グリーンセンター"
+        ]
       }
     },
     "ratingMetadata": {
@@ -24490,7 +24540,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -24661,7 +24711,7 @@
     "officialWebsite": "https://www.nikko-kankou.org/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -25335,7 +25385,7 @@
     "officialWebsite": "https://www.nikko-kankou.org/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -25520,8 +25570,12 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Kisarazu_montage.jpg/1280px-Kisarazu_montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Kisarazu_montage.jpg/1280px-Kisarazu_montage.jpg",
-    "description": "Tokyo Bay Aqua-Line bridge terminal featuring Umihotaru floating parking island and Mitsui Outlet Park.",
-    "highlights": ["Explore Kisarazu City", "Local Culture & Cuisine"],
+    "description": "A Tokyo Bay coastal Chiba city known for Tokyo Bay Aqua-Line's Umihotaru, Mitsui Outlet Park, and fresh clam harvesting.",
+    "highlights": [
+      "Tokyo Bay Aqua-Line Umihotaru",
+      "Mitsui Outlet Park Kisarazu",
+      "Coastal Clam Harvesting"
+    ],
     "totalTripHours": 6,
     "budgetMin": 3500,
     "budgetRecommended": 14250,
@@ -25600,7 +25654,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -25615,17 +25669,25 @@
       "reviewedBy": "Meguruto Editorial Reviewer",
       "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
     },
-    "nameJa": "Kisarazu市",
+    "nameJa": "木更津市",
     "content": {
       "en": {
         "name": "Kisarazu City",
-        "description": "Tokyo Bay Aqua-Line bridge terminal featuring Umihotaru floating parking island and Mitsui Outlet Park.",
-        "highlights": ["Explore Kisarazu City", "Local Culture & Cuisine"]
+        "description": "A Tokyo Bay coastal Chiba city known for Tokyo Bay Aqua-Line's Umihotaru, Mitsui Outlet Park, and fresh clam harvesting.",
+        "highlights": [
+          "Tokyo Bay Aqua-Line Umihotaru",
+          "Mitsui Outlet Park Kisarazu",
+          "Coastal Clam Harvesting"
+        ]
       },
       "ja": {
-        "name": "Kisarazu市",
-        "description": "Kisarazu市は千葉県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-        "highlights": ["市散策", "&散策"]
+        "name": "木更津市",
+        "description": "東京湾アクアラインの拠点「海ほたる」や三井アウトレットパーク、潮干狩りで知られる房総半島西部の港町です。",
+        "highlights": [
+          "東京湾アクアライン海ほたる",
+          "三井アウトレットパーク木更津",
+          "海岸の潮干狩り体験"
+        ]
       }
     },
     "ratingMetadata": {
@@ -25825,7 +25887,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -25972,7 +26034,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -27669,7 +27731,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -28018,7 +28080,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -28165,7 +28227,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -28919,7 +28981,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -29260,8 +29322,12 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E6%B9%AF%E7%95%912.jpg/1280px-%E6%B9%AF%E7%95%912.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E6%B9%AF%E7%95%912.jpg/1280px-%E6%B9%AF%E7%95%912.jpg",
-    "description": "One of Japan's top three hot spring resorts, centered around the steaming Yubatake hot spring field.",
-    "highlights": ["Explore Kusatsu Town", "Local Culture & Cuisine"],
+    "description": "Japan's famous hot spring town in Gunma, centered on Yubatake (hot water field) and Mount Shirane natural scenery.",
+    "highlights": [
+      "Yubatake Hot Water Field",
+      "Yumomi Cooling Performances",
+      "Sainokawara Park Baths"
+    ],
     "totalTripHours": 6,
     "budgetMin": 3500,
     "budgetRecommended": 14250,
@@ -29340,7 +29406,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -29355,17 +29421,25 @@
       "reviewedBy": "Meguruto Editorial Reviewer",
       "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
     },
-    "nameJa": "Kusatsu町",
+    "nameJa": "草津町",
     "content": {
       "en": {
         "name": "Kusatsu Town",
-        "description": "One of Japan's top three hot spring resorts, centered around the steaming Yubatake hot spring field.",
-        "highlights": ["Explore Kusatsu Town", "Local Culture & Cuisine"]
+        "description": "Japan's famous hot spring town in Gunma, centered on Yubatake (hot water field) and Mount Shirane natural scenery.",
+        "highlights": [
+          "Yubatake Hot Water Field",
+          "Yumomi Cooling Performances",
+          "Sainokawara Park Baths"
+        ]
       },
       "ja": {
-        "name": "Kusatsu町",
-        "description": "Kusatsu町は群馬県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-        "highlights": ["町散策", "&散策"]
+        "name": "草津町",
+        "description": "日本屈指の源泉湧出量を誇る草津温泉の町。中央の湯畑、伝統の湯もみ、白根山を臨む豊かな自然が人々を引き寄せます。",
+        "highlights": [
+          "湯畑の熱気景観",
+          "伝統の湯もみショー",
+          "西の河原公園大露天風呂"
+        ]
       }
     },
     "ratingMetadata": {
@@ -30718,7 +30792,7 @@
     "officialWebsite": "https://www.sagamiko.info/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -31055,7 +31129,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -31213,7 +31287,7 @@
     "businessHours": "09:00 - 17:00 (Daily)",
     "kind": "city",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -31530,7 +31604,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -32963,7 +33037,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -33188,8 +33262,12 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Tanigawa01.JPG/1280px-Tanigawa01.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Tanigawa01.JPG/1280px-Tanigawa01.JPG",
-    "description": "Alpine outdoor adventure resort famous for Tone River white-water rafting, Tanigawadake peak, and thermal baths.",
-    "highlights": ["Explore Minakami Town", "Local Culture & Cuisine"],
+    "description": "An outdoor adventure resort in northern Gunma offering Tone River rafting, Tanigawadake ropeway, and hot spring lodges.",
+    "highlights": [
+      "Tanigawadake Ropeway",
+      "Tone River Rafting",
+      "Minakami Onsen Town"
+    ],
     "totalTripHours": 6,
     "budgetMin": 3500,
     "budgetRecommended": 14250,
@@ -33268,7 +33346,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -33283,17 +33361,25 @@
       "reviewedBy": "Meguruto Editorial Reviewer",
       "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
     },
-    "nameJa": "Minakami町",
+    "nameJa": "みなかみ町",
     "content": {
       "en": {
         "name": "Minakami Town",
-        "description": "Alpine outdoor adventure resort famous for Tone River white-water rafting, Tanigawadake peak, and thermal baths.",
-        "highlights": ["Explore Minakami Town", "Local Culture & Cuisine"]
+        "description": "An outdoor adventure resort in northern Gunma offering Tone River rafting, Tanigawadake ropeway, and hot spring lodges.",
+        "highlights": [
+          "Tanigawadake Ropeway",
+          "Tone River Rafting",
+          "Minakami Onsen Town"
+        ]
       },
       "ja": {
-        "name": "Minakami町",
-        "description": "Minakami町は群馬県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-        "highlights": ["町散策", "&散策"]
+        "name": "みなかみ町",
+        "description": "谷川岳の麓に広がるアウトドアと温泉の町。利根川のラフティング、谷川岳ロープウェイのパノラマ、水上温泉郷を楽しめます。",
+        "highlights": [
+          "谷川岳ロープウェイ絶景",
+          "利根川ラフティング体験",
+          "水上温泉郷の湯巡り"
+        ]
       }
     },
     "ratingMetadata": {
@@ -33313,8 +33399,12 @@
     "categories": ["Travel Hub", "Special Ward"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9a/20110405-TokyoTower-Sakura01.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/9/9a/20110405-TokyoTower-Sakura01.jpg",
-    "description": "Tokyo's international waterfront hub encompassing Tokyo Tower, Roppongi Hills, Odaiba, and Azabudai Hills.",
-    "highlights": ["Explore Minato City", "Local Culture & Cuisine"],
+    "description": "Tokyo's international waterfront ward housing Tokyo Tower, Roppongi Hills, Odaiba, and luxury embassy districts.",
+    "highlights": [
+      "Tokyo Tower Landmark",
+      "Roppongi Cultural District",
+      "Odaiba Seaside Park"
+    ],
     "totalTripHours": 6,
     "budgetMin": 3500,
     "budgetRecommended": 14250,
@@ -33391,7 +33481,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -33406,17 +33496,21 @@
       "reviewedBy": "Meguruto Editorial Reviewer",
       "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
     },
-    "nameJa": "Minato市",
+    "nameJa": "港区",
     "content": {
       "en": {
         "name": "Minato City",
-        "description": "Tokyo's international waterfront hub encompassing Tokyo Tower, Roppongi Hills, Odaiba, and Azabudai Hills.",
-        "highlights": ["Explore Minato City", "Local Culture & Cuisine"]
+        "description": "Tokyo's international waterfront ward housing Tokyo Tower, Roppongi Hills, Odaiba, and luxury embassy districts.",
+        "highlights": [
+          "Tokyo Tower Landmark",
+          "Roppongi Cultural District",
+          "Odaiba Seaside Park"
+        ]
       },
       "ja": {
-        "name": "Minato市",
-        "description": "Minato市は東京都にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-        "highlights": ["市散策", "&散策"]
+        "name": "港区",
+        "description": "東京タワー、六本木ヒルズ、お台場、国際色豊かな大使館街を擁する、日本のトレンド・文化・国際ビジネスの中心エリアです。",
+        "highlights": ["東京タワー", "六本木文化エリア", "お台場海浜公園"]
       }
     },
     "ratingMetadata": {
@@ -33877,7 +33971,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -34042,7 +34136,7 @@
     "officialWebsite": "https://www.mitokoumon.com/",
     "businessHours": "09:00 - 17:00 (Last admission 16:30)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -34782,7 +34876,7 @@
     "officialWebsite": "https://www.motherfarm.co.jp/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -36016,7 +36110,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -36185,7 +36279,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -37934,7 +38028,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -38978,7 +39072,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -39049,8 +39143,12 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Narita_montage2.jpg/1280px-Narita_montage2.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Narita_montage2.jpg/1280px-Narita_montage2.jpg",
-    "description": "Global gateway featuring Narita International Airport and thousand-year-old Naritasan Shinshoji Temple.",
-    "highlights": ["Explore Narita City", "Local Culture & Cuisine"],
+    "description": "The historic home of Naritasan Shinshoji Temple, lively Omotesando market street, and Narita International Airport.",
+    "highlights": [
+      "Naritasan Shinshoji Temple",
+      "Historic Omotesando Eel Street",
+      "Narita International Airport"
+    ],
     "totalTripHours": 6,
     "budgetMin": 3500,
     "budgetRecommended": 14250,
@@ -39130,7 +39228,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -39145,17 +39243,25 @@
       "reviewedBy": "Meguruto Editorial Reviewer",
       "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
     },
-    "nameJa": "Narita市",
+    "nameJa": "成田市",
     "content": {
       "en": {
         "name": "Narita City",
-        "description": "Global gateway featuring Narita International Airport and thousand-year-old Naritasan Shinshoji Temple.",
-        "highlights": ["Explore Narita City", "Local Culture & Cuisine"]
+        "description": "The historic home of Naritasan Shinshoji Temple, lively Omotesando market street, and Narita International Airport.",
+        "highlights": [
+          "Naritasan Shinshoji Temple",
+          "Historic Omotesando Eel Street",
+          "Narita International Airport"
+        ]
       },
       "ja": {
-        "name": "Narita市",
-        "description": "Narita市は千葉県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-        "highlights": ["市散策", "&散策"]
+        "name": "成田市",
+        "description": "成田国際空港を擁する日本の玄関口。千成堂やうなぎ料理店が並ぶ成田山表参道と、1000年以上の歴史を持つ成田山新勝寺が有名です。",
+        "highlights": [
+          "成田山新勝寺",
+          "歴史ある参道とうなぎ料理",
+          "成田国際空港"
+        ]
       }
     },
     "ratingMetadata": {
@@ -39272,7 +39378,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -39540,7 +39646,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -39705,7 +39811,7 @@
     "officialWebsite": "https://www.nmwa.go.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -39932,7 +40038,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -40079,7 +40185,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -40745,7 +40851,7 @@
     "officialWebsite": "https://www.toshogu.jp/",
     "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -42109,7 +42215,7 @@
     "officialWebsite": "https://oarai-mt.jp/",
     "businessHours": "10:00 - 21:00 (Last admission 20:30)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -42250,7 +42356,7 @@
     "officialWebsite": "https://tokyo-odaiba.net/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -42299,8 +42405,12 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Odawara_montage.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Odawara_montage.JPG",
-    "description": "Historic castle town and gateway to Hakone, featuring Odawara Castle keep and kamaboko seafood delicacies.",
-    "highlights": ["Explore Odawara City", "Local Culture & Cuisine"],
+    "description": "Kanagawa's historic gateway to Hakone, featuring the formidable Odawara Castle, kamaboko seafood, and ocean views.",
+    "highlights": [
+      "Odawara Castle Keep & Park",
+      "Kamaboko Seafood Village",
+      "Sagami Bay Coastline"
+    ],
     "totalTripHours": 6,
     "budgetMin": 3500,
     "budgetRecommended": 14250,
@@ -42375,7 +42485,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -42390,17 +42500,25 @@
       "reviewedBy": "Meguruto Editorial Reviewer",
       "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
     },
-    "nameJa": "Odawara市",
+    "nameJa": "小田原市",
     "content": {
       "en": {
         "name": "Odawara City",
-        "description": "Historic castle town and gateway to Hakone, featuring Odawara Castle keep and kamaboko seafood delicacies.",
-        "highlights": ["Explore Odawara City", "Local Culture & Cuisine"]
+        "description": "Kanagawa's historic gateway to Hakone, featuring the formidable Odawara Castle, kamaboko seafood, and ocean views.",
+        "highlights": [
+          "Odawara Castle Keep & Park",
+          "Kamaboko Seafood Village",
+          "Sagami Bay Coastline"
+        ]
       },
       "ja": {
-        "name": "Odawara市",
-        "description": "Odawara市は神奈川県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-        "highlights": ["市散策", "&散策"]
+        "name": "小田原市",
+        "description": "小田原城を中心に発展した北条氏の城下町。箱根への玄関口であり、かまぼこ・小田原提灯・相模湾の新鮮な海鮮が名物です。",
+        "highlights": [
+          "小田原城天守閣",
+          "小田原かまぼこ通り",
+          "相模湾の海鮮グルメ"
+        ]
       }
     },
     "ratingMetadata": {
@@ -42677,7 +42795,7 @@
     "officialWebsite": "https://www.ogasawaramura.tokyo.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -43544,7 +43662,7 @@
     "businessHours": "Open access",
     "kind": "city",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -43691,7 +43809,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -43860,7 +43978,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -44029,7 +44147,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -44180,7 +44298,7 @@
     "officialWebsite": "https://www.railway-museum.jp/",
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -44343,7 +44461,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -46000,7 +46118,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -46512,7 +46630,7 @@
     "officialWebsite": "https://www.oze-fnd.or.jp/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -47009,7 +47127,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -47130,12 +47248,11 @@
       "train": 15
     },
     "highlights": [
-      "52F Glass Indoor Observation Deck",
-      "Open-Air Sky Deck (270m)",
-      "Front-Row Tokyo Tower Night View",
-      "Mori Art Museum Access"
+      "250m Panoramic Indoor Gallery",
+      "Open-Air Rooftop Sky Deck",
+      "Tokyo Tower & Mt. Fuji Views"
     ],
-    "description": "Located on the 52nd floor and rooftop of Mori Tower (270m height), offering the iconic front-row view of Tokyo Tower framed against the Tokyo Bay skyline.",
+    "description": "An indoor/outdoor rooftop observation deck on the 52nd floor of Roppongi Hills offer breathtaking 360-degree Tokyo views.",
     "budgetBreakdown": {
       "transport": 354,
       "tickets": 2357,
@@ -47179,7 +47296,7 @@
     "officialWebsite": "https://tcv.roppongihills.com/",
     "businessHours": "10:00 - 22:00 (Last admission 21:30)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -47194,22 +47311,25 @@
       "reviewedBy": "Meguruto Editorial Reviewer",
       "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
     },
-    "nameJa": "Roppongi Hills Observation Deck",
+    "nameJa": "六本木ヒルズ展望台（東京シティビュー）",
     "content": {
       "en": {
         "name": "Roppongi Hills Observation Deck (Tokyo City View)",
-        "description": "Located on the 52nd floor and rooftop of Mori Tower (270m height), offering the iconic front-row view of Tokyo Tower framed against the Tokyo Bay skyline.",
+        "description": "An indoor/outdoor rooftop observation deck on the 52nd floor of Roppongi Hills offer breathtaking 360-degree Tokyo views.",
         "highlights": [
-          "52F Glass Indoor Observation Deck",
-          "Open-Air Sky Deck (270m)",
-          "Front-Row Tokyo Tower Night View",
-          "Mori Art Museum Access"
+          "250m Panoramic Indoor Gallery",
+          "Open-Air Rooftop Sky Deck",
+          "Tokyo Tower & Mt. Fuji Views"
         ]
       },
       "ja": {
-        "name": "Roppongi Hills Observation Deck",
-        "description": "Roppongi Hills Observation Deckは東京都にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-        "highlights": ["52F散策", "-   (270m)散策", "-散策", "美術館散策"]
+        "name": "六本木ヒルズ展望台（東京シティビュー）",
+        "description": "六本木ヒルズ森タワー52階（高さ250m）にある展望台。ガラス張りの屋内回廊や屋上スカイデッキから東京タワーと都心のパノラマを一望できます。",
+        "highlights": [
+          "高さ250mの屋内展望ギャラリー",
+          "オープンエアの屋上スカイデッキ",
+          "東京タワーと富士山のパノラマ"
+        ]
       }
     },
     "ratingMetadata": {
@@ -47691,8 +47811,12 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/95/Sagamihara_montage.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/9/95/Sagamihara_montage.jpg",
-    "description": "Inland city featuring Lake Sagami, JAXA space exploration campus, and mountain hiking trails.",
-    "highlights": ["Explore Sagamihara City", "Local Culture & Cuisine"],
+    "description": "A spacious green Kanagawa city home to Lake Sagami, JAXA Sagamihara Campus, and Sagamihara Park.",
+    "highlights": [
+      "Lake Sagami Resort",
+      "JAXA Space Campus",
+      "Sagamihara Park Greenery"
+    ],
     "totalTripHours": 6,
     "budgetMin": 3500,
     "budgetRecommended": 14250,
@@ -47771,7 +47895,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -47786,17 +47910,25 @@
       "reviewedBy": "Meguruto Editorial Reviewer",
       "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
     },
-    "nameJa": "Sagamihara市",
+    "nameJa": "相模原市",
     "content": {
       "en": {
         "name": "Sagamihara City",
-        "description": "Inland city featuring Lake Sagami, JAXA space exploration campus, and mountain hiking trails.",
-        "highlights": ["Explore Sagamihara City", "Local Culture & Cuisine"]
+        "description": "A spacious green Kanagawa city home to Lake Sagami, JAXA Sagamihara Campus, and Sagamihara Park.",
+        "highlights": [
+          "Lake Sagami Resort",
+          "JAXA Space Campus",
+          "Sagamihara Park Greenery"
+        ]
       },
       "ja": {
-        "name": "Sagamihara市",
-        "description": "Sagamihara市は神奈川県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-        "highlights": ["市散策", "&散策"]
+        "name": "相模原市",
+        "description": "相模湖や相模原公園、JAXA相模原キャンパスを擁する、豊かな自然と宇宙科学技術が共存する神奈川県北部の令指定都市です。",
+        "highlights": [
+          "相模湖リゾート",
+          "JAXA相模原キャンパス",
+          "県立相模原公園"
+        ]
       }
     },
     "ratingMetadata": {
@@ -48052,7 +48184,7 @@
     "officialWebsite": "https://www.nagatoro.gr.jp/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -48200,7 +48332,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -48369,7 +48501,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -48541,7 +48673,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -48796,7 +48928,7 @@
     "officialWebsite": "https://www.city.sakura.lg.jp/soshiki/sakuranooshiro/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -49040,7 +49172,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -50095,7 +50227,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -51404,7 +51536,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -51540,7 +51672,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -51681,7 +51813,7 @@
     "officialWebsite": "https://www.shibuya-scramble-square.com/sky/",
     "businessHours": "10:00 - 22:30 (Last admission 21:20)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -51696,7 +51828,7 @@
       "reviewedBy": "Meguruto Editorial Reviewer",
       "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
     },
-    "nameJa": "SHIBUYA SKY",
+    "nameJa": "渋谷スカイ",
     "content": {
       "en": {
         "name": "Shibuya Sky (Rooftop Observatory)",
@@ -51708,7 +51840,7 @@
         ]
       },
       "ja": {
-        "name": "SHIBUYA SKY",
+        "name": "渋谷スカイ",
         "description": "渋谷スクランブルスクエアの屋上にある高さ229mの展望施設。スクランブル交差点や東京タワー、富士山を360度見渡せます。",
         "highlights": [
           "高さ229mの屋上展望空間",
@@ -52039,7 +52171,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -52185,7 +52317,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -52351,7 +52483,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -52507,7 +52639,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -53021,7 +53153,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -53677,7 +53809,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -54065,7 +54197,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -54199,7 +54331,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -54341,7 +54473,7 @@
     "officialWebsite": "https://sunshinecity.jp/observatory/",
     "businessHours": "11:00 - 21:00 (Last admission 20:00)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -54504,7 +54636,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -54685,7 +54817,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -55022,7 +55154,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -55169,7 +55301,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -55328,7 +55460,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -55734,7 +55866,7 @@
     "officialWebsite": "https://www.takanawagateway-city.com/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -56366,7 +56498,7 @@
     "officialWebsite": "https://www.tokyo-zoo.net/zoo/tama/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -56684,7 +56816,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -56834,7 +56966,7 @@
     "officialWebsite": "https://borderless.teamlab.art/jp/",
     "businessHours": "10:00 - 21:00 (Last admission 20:00)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -56970,7 +57102,7 @@
     "officialWebsite": "https://planets.teamlab.art/tokyo/en/",
     "businessHours": "09:00 - 22:00 (Last admission 21:00)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -57729,7 +57861,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -58235,7 +58367,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -58607,7 +58739,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -58687,8 +58819,12 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/03/Tokorozawa_Aviation_Commemorative_Park.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/0/03/Tokorozawa_Aviation_Commemorative_Park.jpg",
-    "description": "Cultural hub home to Kadokawa Musashino Museum, Totoro's Forest in Sayama Hills, and Belluna Dome.",
-    "highlights": ["Explore Tokorozawa City", "Local Culture & Cuisine"],
+    "description": "A popular Saitama culture city featuring Tokorozawa Sakura Town, Kadokawa Musashino Museum, and Sayama Tea fields.",
+    "highlights": [
+      "Kadokawa Musashino Museum",
+      "Tokorozawa Sakura Town",
+      "Sayama Tea Fields"
+    ],
     "totalTripHours": 6,
     "budgetMin": 3500,
     "budgetRecommended": 14250,
@@ -58762,7 +58898,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -58777,17 +58913,25 @@
       "reviewedBy": "Meguruto Editorial Reviewer",
       "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
     },
-    "nameJa": "Tokorozawa市",
+    "nameJa": "所沢市",
     "content": {
       "en": {
         "name": "Tokorozawa City",
-        "description": "Cultural hub home to Kadokawa Musashino Museum, Totoro's Forest in Sayama Hills, and Belluna Dome.",
-        "highlights": ["Explore Tokorozawa City", "Local Culture & Cuisine"]
+        "description": "A popular Saitama culture city featuring Tokorozawa Sakura Town, Kadokawa Musashino Museum, and Sayama Tea fields.",
+        "highlights": [
+          "Kadokawa Musashino Museum",
+          "Tokorozawa Sakura Town",
+          "Sayama Tea Fields"
+        ]
       },
       "ja": {
-        "name": "Tokorozawa市",
-        "description": "Tokorozawa市は埼玉県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-        "highlights": ["市散策", "&散策"]
+        "name": "所沢市",
+        "description": "角川武蔵野ミュージアムがある「ところざわサクラタウン」、狭山茶の茶畑、西武園ゆうえんちが親しまれるカルチャーシティです。",
+        "highlights": [
+          "角川武蔵野ミュージアム",
+          "ところざわサクラタウン",
+          "狭山茶の茶畑散策"
+        ]
       }
     },
     "ratingMetadata": {
@@ -59313,7 +59457,7 @@
     "officialWebsite": "https://hinohara-kankou.jp/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -59456,7 +59600,7 @@
     },
     "officialWebsite": "https://www.yokoso.metro.tokyo.lg.jp/",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -59595,7 +59739,7 @@
     "officialWebsite": "https://www.ces-net.jp/mitakevc/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -59758,7 +59902,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -59919,7 +60063,7 @@
     "officialWebsite": "https://www.okutama.gr.jp/",
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -60074,7 +60218,7 @@
     "officialWebsite": "https://www.tokyo-skytree.jp/",
     "businessHours": "08:00 - 22:00 (Last admission 21:00)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -60219,7 +60363,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -60361,7 +60505,7 @@
     "officialWebsite": "https://www.tokyotower.co.jp/",
     "businessHours": "09:00 - 22:30 (Last admission 22:00)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -60510,7 +60654,7 @@
     "officialWebsite": "https://www.tomioka-silk.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -60660,7 +60804,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -60823,7 +60967,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -61344,7 +61488,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -61770,7 +61914,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -61841,8 +61985,12 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Tsukuba_Center_%26_Mt.Tsukuba01.jpg/1280px-Tsukuba_Center_%26_Mt.Tsukuba01.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Tsukuba_Center_%26_Mt.Tsukuba01.jpg/1280px-Tsukuba_Center_%26_Mt.Tsukuba01.jpg",
-    "description": "Japan's premier science city, featuring JAXA Space Center, Science Square, and Mount Tsukuba twin peaks.",
-    "highlights": ["Explore Tsukuba City", "Local Culture & Cuisine"],
+    "description": "Japan's premier Science City home to Mount Tsukuba, JAXA Tsukuba Space Center, and Tsukuba Botanical Garden.",
+    "highlights": [
+      "Mount Tsukuba Cable Car",
+      "JAXA Tsukuba Space Center",
+      "Tsukuba Botanical Garden"
+    ],
     "totalTripHours": 6,
     "budgetMin": 3500,
     "budgetRecommended": 14250,
@@ -61916,7 +62064,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -61931,17 +62079,25 @@
       "reviewedBy": "Meguruto Editorial Reviewer",
       "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
     },
-    "nameJa": "Tsukuba市",
+    "nameJa": "つくば市",
     "content": {
       "en": {
         "name": "Tsukuba City",
-        "description": "Japan's premier science city, featuring JAXA Space Center, Science Square, and Mount Tsukuba twin peaks.",
-        "highlights": ["Explore Tsukuba City", "Local Culture & Cuisine"]
+        "description": "Japan's premier Science City home to Mount Tsukuba, JAXA Tsukuba Space Center, and Tsukuba Botanical Garden.",
+        "highlights": [
+          "Mount Tsukuba Cable Car",
+          "JAXA Tsukuba Space Center",
+          "Tsukuba Botanical Garden"
+        ]
       },
       "ja": {
-        "name": "Tsukuba市",
-        "description": "Tsukuba市は茨城県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-        "highlights": ["市散策", "&散策"]
+        "name": "つくば市",
+        "description": "筑波山とJAXA筑波宇宙センター、筑波実験植物園を擁する、日本の先端科学技術と豊かな自然が融合した学術研究都市です。",
+        "highlights": [
+          "筑波山ロープウェイ絶景",
+          "JAXA筑波宇宙センター",
+          "筑波実験植物園"
+        ]
       }
     },
     "ratingMetadata": {
@@ -62247,7 +62403,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -62699,7 +62855,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -62849,7 +63005,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -62974,7 +63130,7 @@
     "officialWebsite": "https://www.tokyo-zoo.net/zoo/ueno/",
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -63450,8 +63606,12 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Tokyo_disney_resort.jpg/1280px-Tokyo_disney_resort.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Tokyo_disney_resort.jpg/1280px-Tokyo_disney_resort.jpg",
-    "description": "Bayfront resort city famous worldwide as the home of Tokyo Disney Resort and Ikspiari.",
-    "highlights": ["Explore Urayasu City", "Local Culture & Cuisine"],
+    "description": "A famous Tokyo Bay city in Chiba home to Tokyo Disney Resort (Disneyland & DisneySea) and Ikspiari shopping mall.",
+    "highlights": [
+      "Tokyo Disney Resort Theme Parks",
+      "Ikspiari Shopping Complex",
+      "Tokyo Bay Waterfront Walks"
+    ],
     "totalTripHours": 6,
     "budgetMin": 3500,
     "budgetRecommended": 14250,
@@ -63525,7 +63685,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -63540,17 +63700,25 @@
       "reviewedBy": "Meguruto Editorial Reviewer",
       "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
     },
-    "nameJa": "Urayasu市",
+    "nameJa": "浦安市",
     "content": {
       "en": {
         "name": "Urayasu City",
-        "description": "Bayfront resort city famous worldwide as the home of Tokyo Disney Resort and Ikspiari.",
-        "highlights": ["Explore Urayasu City", "Local Culture & Cuisine"]
+        "description": "A famous Tokyo Bay city in Chiba home to Tokyo Disney Resort (Disneyland & DisneySea) and Ikspiari shopping mall.",
+        "highlights": [
+          "Tokyo Disney Resort Theme Parks",
+          "Ikspiari Shopping Complex",
+          "Tokyo Bay Waterfront Walks"
+        ]
       },
       "ja": {
-        "name": "Urayasu市",
-        "description": "Urayasu市は千葉県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-        "highlights": ["市散策", "&散策"]
+        "name": "浦安市",
+        "description": "東京ディズニーリゾート（ディズニーランド＆ディズニーシー）や商業施設イクスピアリを擁する、日本有数のテーマパーク都市です。",
+        "highlights": [
+          "東京ディズニーリゾート",
+          "イクスピアリ",
+          "東京湾ウォーターフロント散策"
+        ]
       }
     },
     "ratingMetadata": {
@@ -63654,7 +63822,7 @@
     "officialWebsite": "https://daibutu.net/",
     "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -63703,8 +63871,12 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Utsunomiya-STA_East_LRT.jpg/1920px-Utsunomiya-STA_East_LRT.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Utsunomiya-STA_East_LRT.jpg/1920px-Utsunomiya-STA_East_LRT.jpg",
-    "description": "Prefectural capital acclaimed as Japan's Gyoza dumpling capital, featuring Oya Stone Underground Quarry.",
-    "highlights": ["Explore Utsunomiya City", "Local Culture & Cuisine"],
+    "description": "Tochigi's prefectural capital famed for Utsunomiya gyoza dumpling culture, Oya Stone quarries, and Futaarayama Shrine.",
+    "highlights": [
+      "Famous Utsunomiya Gyoza Dining",
+      "Oya Stone Quarry Museum",
+      "Utsunomiya Futaarayama Shrine"
+    ],
     "totalTripHours": 6,
     "budgetMin": 3500,
     "budgetRecommended": 14250,
@@ -63794,17 +63966,25 @@
       "reviewedBy": "Meguruto Editorial Reviewer",
       "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
     },
-    "nameJa": "Utsunomiya市",
+    "nameJa": "宇都宮市",
     "content": {
       "en": {
         "name": "Utsunomiya City",
-        "description": "Prefectural capital acclaimed as Japan's Gyoza dumpling capital, featuring Oya Stone Underground Quarry.",
-        "highlights": ["Explore Utsunomiya City", "Local Culture & Cuisine"]
+        "description": "Tochigi's prefectural capital famed for Utsunomiya gyoza dumpling culture, Oya Stone quarries, and Futaarayama Shrine.",
+        "highlights": [
+          "Famous Utsunomiya Gyoza Dining",
+          "Oya Stone Quarry Museum",
+          "Utsunomiya Futaarayama Shrine"
+        ]
       },
       "ja": {
-        "name": "Utsunomiya市",
-        "description": "Utsunomiya市は栃木県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-        "highlights": ["市散策", "&散策"]
+        "name": "宇都宮市",
+        "description": "「餃子の街」として全国に知られる栃木県の県都。大谷石の巨大地下空間（大谷資料館）や宇都宮二荒山神社が見どころです。",
+        "highlights": [
+          "宇都宮餃子の食べ歩き",
+          "大谷資料館の巨大地下空間",
+          "宇都宮二荒山神社"
+        ]
       }
     },
     "ratingMetadata": {
@@ -63907,7 +64087,7 @@
     "officialWebsite": "https://www.oya-official.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -64943,7 +65123,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -66185,8 +66365,12 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Verny_Park_-_01.jpg/1280px-Verny_Park_-_01.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Verny_Park_-_01.jpg/1280px-Verny_Park_-_01.jpg",
-    "description": "Naval port city on Tokyo Bay famous for Mikasa Battleship Park and Dobuita Street curry.",
-    "highlights": ["Explore Yokosuka City", "Local Culture & Cuisine"],
+    "description": "A naval port city on Tokyo Bay known for Mikasa Park, Yokosuka Naval Port cruises, and Dobuita Street navy burger culture.",
+    "highlights": [
+      "Historic Battleship Mikasa Park",
+      "Yokosuka Naval Port Cruise",
+      "Dobuita Street Navy Burgers"
+    ],
     "totalTripHours": 6,
     "budgetMin": 3500,
     "budgetRecommended": 14250,
@@ -66264,7 +66448,7 @@
     },
     "businessHours": "Open access",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -66279,17 +66463,25 @@
       "reviewedBy": "Meguruto Editorial Reviewer",
       "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
     },
-    "nameJa": "Yokosuka市",
+    "nameJa": "横須賀市",
     "content": {
       "en": {
         "name": "Yokosuka City",
-        "description": "Naval port city on Tokyo Bay famous for Mikasa Battleship Park and Dobuita Street curry.",
-        "highlights": ["Explore Yokosuka City", "Local Culture & Cuisine"]
+        "description": "A naval port city on Tokyo Bay known for Mikasa Park, Yokosuka Naval Port cruises, and Dobuita Street navy burger culture.",
+        "highlights": [
+          "Historic Battleship Mikasa Park",
+          "Yokosuka Naval Port Cruise",
+          "Dobuita Street Navy Burgers"
+        ]
       },
       "ja": {
-        "name": "Yokosuka市",
-        "description": "Yokosuka市は神奈川県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-        "highlights": ["市散策", "&散策"]
+        "name": "横須賀市",
+        "description": "東京湾口にある歴史ある軍港都市。記念艦三笠がある三笠公園、横須賀軍港めぐり、ドブ板通りのネイビーバーガーが有名です。",
+        "highlights": [
+          "記念艦三笠と三笠公園",
+          "横須賀軍港めぐりクルーズ",
+          "ドブ板通りのネイビーバーガー"
+        ]
       }
     },
     "ratingMetadata": {
@@ -66393,7 +66585,7 @@
     "officialWebsite": "https://www.yomiuriland.com/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -66629,7 +66821,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -66798,7 +66990,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -67058,7 +67250,7 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -67385,7 +67577,7 @@
     "officialWebsite": "https://www.zushi-kanko.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "official",
@@ -67532,7 +67724,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -67675,7 +67867,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -67822,7 +68014,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -67969,7 +68161,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -68116,7 +68308,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -68263,7 +68455,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -68406,7 +68598,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -68549,7 +68741,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -68696,7 +68888,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -68851,7 +69043,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -68994,7 +69186,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -69141,7 +69333,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -69288,7 +69480,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -69435,7 +69627,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -69582,7 +69774,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -69729,7 +69921,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -69876,7 +70068,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -70023,7 +70215,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -70170,7 +70362,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -70317,7 +70509,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -70464,7 +70656,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -70605,7 +70797,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -70752,7 +70944,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -70895,7 +71087,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -71042,7 +71234,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -71191,7 +71383,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -71338,7 +71530,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -71373,7 +71565,7 @@
   {
     "id": "takao-599-museum",
     "name": "Takao 599 Museum",
-    "nameJa": "TAKAO 599 MUSEUM",
+    "nameJa": "高尾599ミュージアム",
     "aliases": [],
     "content": {
       "en": {
@@ -71386,7 +71578,7 @@
         ]
       },
       "ja": {
-        "name": "TAKAO 599 MUSEUM",
+        "name": "高尾599ミュージアム",
         "description": "高尾山の麓に位置するスタイリッシュな自然ミュージアム。アクリル樹脂に封入された植物標本やカフェ、芝生広場が魅力です。",
         "highlights": [
           "アクリル樹脂の美表標本展示",
@@ -71493,7 +71685,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -71640,7 +71832,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -71781,7 +71973,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -71928,7 +72120,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -72075,7 +72267,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -72222,7 +72414,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -72371,7 +72563,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -72518,7 +72710,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -72659,7 +72851,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -72806,7 +72998,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -72953,7 +73145,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -73094,7 +73286,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -73235,7 +73427,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -73376,7 +73568,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -73523,7 +73715,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -73676,7 +73868,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -73823,7 +74015,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -73978,7 +74170,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -74125,7 +74317,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -74268,7 +74460,7 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "approved",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",

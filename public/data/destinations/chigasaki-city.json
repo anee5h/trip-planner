@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Chigasaki_City_Hall_20170721.JPG/3840px-Chigasaki_City_Hall_20170721.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Chigasaki_City_Hall_20170721.JPG/3840px-Chigasaki_City_Hall_20170721.JPG",
-  "description": "Shonan coastal resort city celebrated for Southern Beach, Eboshi Rock, and beach culture.",
-  "highlights": ["Explore Chigasaki City", "Local Culture & Cuisine"],
+  "description": "A relaxed Shonan coastal resort city known for Southern Beach Chigasaki, Eboshi Rock views, and surf culture.",
+  "highlights": [
+    "Southern Beach Chigasaki",
+    "Eboshi Rock Coastal Views",
+    "Shonan Surf Culture"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -89,7 +93,7 @@
   },
   "businessHours": "Open access",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",
@@ -104,17 +108,25 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Chigasaki市",
+  "nameJa": "茅ヶ崎市",
   "content": {
     "en": {
       "name": "Chigasaki City",
-      "description": "Shonan coastal resort city celebrated for Southern Beach, Eboshi Rock, and beach culture.",
-      "highlights": ["Explore Chigasaki City", "Local Culture & Cuisine"]
+      "description": "A relaxed Shonan coastal resort city known for Southern Beach Chigasaki, Eboshi Rock views, and surf culture.",
+      "highlights": [
+        "Southern Beach Chigasaki",
+        "Eboshi Rock Coastal Views",
+        "Shonan Surf Culture"
+      ]
     },
     "ja": {
-      "name": "Chigasaki市",
-      "description": "Chigasaki市は神奈川県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-      "highlights": ["市散策", "&散策"]
+      "name": "茅ヶ崎市",
+      "description": "サザンビーチちがさきや烏帽子岩の景観、サーフィン文化が根付く湘南海岸の明るく開放的なビーチリゾート都市です。",
+      "highlights": [
+        "サザンビーチちがさき",
+        "烏帽子岩のモニュメントと海景観",
+        "湘南サーフィン文化"
+      ]
     }
   },
   "ratingMetadata": {

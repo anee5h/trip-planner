@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Verny_Park_-_01.jpg/1280px-Verny_Park_-_01.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Verny_Park_-_01.jpg/1280px-Verny_Park_-_01.jpg",
-  "description": "Naval port city on Tokyo Bay famous for Mikasa Battleship Park and Dobuita Street curry.",
-  "highlights": ["Explore Yokosuka City", "Local Culture & Cuisine"],
+  "description": "A naval port city on Tokyo Bay known for Mikasa Park, Yokosuka Naval Port cruises, and Dobuita Street navy burger culture.",
+  "highlights": [
+    "Historic Battleship Mikasa Park",
+    "Yokosuka Naval Port Cruise",
+    "Dobuita Street Navy Burgers"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -84,7 +88,7 @@
   },
   "businessHours": "Open access",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",
@@ -99,17 +103,25 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Yokosuka市",
+  "nameJa": "横須賀市",
   "content": {
     "en": {
       "name": "Yokosuka City",
-      "description": "Naval port city on Tokyo Bay famous for Mikasa Battleship Park and Dobuita Street curry.",
-      "highlights": ["Explore Yokosuka City", "Local Culture & Cuisine"]
+      "description": "A naval port city on Tokyo Bay known for Mikasa Park, Yokosuka Naval Port cruises, and Dobuita Street navy burger culture.",
+      "highlights": [
+        "Historic Battleship Mikasa Park",
+        "Yokosuka Naval Port Cruise",
+        "Dobuita Street Navy Burgers"
+      ]
     },
     "ja": {
-      "name": "Yokosuka市",
-      "description": "Yokosuka市は神奈川県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-      "highlights": ["市散策", "&散策"]
+      "name": "横須賀市",
+      "description": "東京湾口にある歴史ある軍港都市。記念艦三笠がある三笠公園、横須賀軍港めぐり、ドブ板通りのネイビーバーガーが有名です。",
+      "highlights": [
+        "記念艦三笠と三笠公園",
+        "横須賀軍港めぐりクルーズ",
+        "ドブ板通りのネイビーバーガー"
+      ]
     }
   },
   "ratingMetadata": {

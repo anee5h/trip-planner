@@ -98,7 +98,7 @@
   "officialWebsite": "https://www.mitokoumon.com/",
   "businessHours": "09:00 - 17:00 (Last admission 16:30)",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "official",

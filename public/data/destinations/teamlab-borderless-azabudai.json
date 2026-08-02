@@ -88,7 +88,7 @@
   "officialWebsite": "https://borderless.teamlab.art/jp/",
   "businessHours": "10:00 - 21:00 (Last admission 20:00)",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "official",

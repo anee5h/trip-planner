@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Narita_montage2.jpg/1280px-Narita_montage2.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Narita_montage2.jpg/1280px-Narita_montage2.jpg",
-  "description": "Global gateway featuring Narita International Airport and thousand-year-old Naritasan Shinshoji Temple.",
-  "highlights": ["Explore Narita City", "Local Culture & Cuisine"],
+  "description": "The historic home of Naritasan Shinshoji Temple, lively Omotesando market street, and Narita International Airport.",
+  "highlights": [
+    "Naritasan Shinshoji Temple",
+    "Historic Omotesando Eel Street",
+    "Narita International Airport"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -90,7 +94,7 @@
   },
   "businessHours": "Open access",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",
@@ -105,17 +109,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Narita市",
+  "nameJa": "成田市",
   "content": {
     "en": {
       "name": "Narita City",
-      "description": "Global gateway featuring Narita International Airport and thousand-year-old Naritasan Shinshoji Temple.",
-      "highlights": ["Explore Narita City", "Local Culture & Cuisine"]
+      "description": "The historic home of Naritasan Shinshoji Temple, lively Omotesando market street, and Narita International Airport.",
+      "highlights": [
+        "Naritasan Shinshoji Temple",
+        "Historic Omotesando Eel Street",
+        "Narita International Airport"
+      ]
     },
     "ja": {
-      "name": "Narita市",
-      "description": "Narita市は千葉県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-      "highlights": ["市散策", "&散策"]
+      "name": "成田市",
+      "description": "成田国際空港を擁する日本の玄関口。千成堂やうなぎ料理店が並ぶ成田山表参道と、1000年以上の歴史を持つ成田山新勝寺が有名です。",
+      "highlights": ["成田山新勝寺", "歴史ある参道とうなぎ料理", "成田国際空港"]
     }
   },
   "ratingMetadata": {

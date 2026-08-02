@@ -103,7 +103,7 @@
   "officialWebsite": "https://www.city.sakura.lg.jp/soshiki/sakuranooshiro/",
   "businessHours": "Open access",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "official",

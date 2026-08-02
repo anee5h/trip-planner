@@ -1,7 +1,7 @@
 {
   "id": "takao-599-museum",
   "name": "Takao 599 Museum",
-  "nameJa": "TAKAO 599 MUSEUM",
+  "nameJa": "高尾599ミュージアム",
   "aliases": [],
   "content": {
     "en": {
@@ -14,7 +14,7 @@
       ]
     },
     "ja": {
-      "name": "TAKAO 599 MUSEUM",
+      "name": "高尾599ミュージアム",
       "description": "高尾山の麓に位置するスタイリッシュな自然ミュージアム。アクリル樹脂に封入された植物標本やカフェ、芝生広場が魅力です。",
       "highlights": [
         "アクリル樹脂の美表標本展示",
@@ -121,7 +121,7 @@
   "collections": [],
   "addedAt": "2026-08-02",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",

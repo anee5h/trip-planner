@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Kisarazu_montage.jpg/1280px-Kisarazu_montage.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Kisarazu_montage.jpg/1280px-Kisarazu_montage.jpg",
-  "description": "Tokyo Bay Aqua-Line bridge terminal featuring Umihotaru floating parking island and Mitsui Outlet Park.",
-  "highlights": ["Explore Kisarazu City", "Local Culture & Cuisine"],
+  "description": "A Tokyo Bay coastal Chiba city known for Tokyo Bay Aqua-Line's Umihotaru, Mitsui Outlet Park, and fresh clam harvesting.",
+  "highlights": [
+    "Tokyo Bay Aqua-Line Umihotaru",
+    "Mitsui Outlet Park Kisarazu",
+    "Coastal Clam Harvesting"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -89,7 +93,7 @@
   },
   "businessHours": "Open access",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",
@@ -104,17 +108,25 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Kisarazu市",
+  "nameJa": "木更津市",
   "content": {
     "en": {
       "name": "Kisarazu City",
-      "description": "Tokyo Bay Aqua-Line bridge terminal featuring Umihotaru floating parking island and Mitsui Outlet Park.",
-      "highlights": ["Explore Kisarazu City", "Local Culture & Cuisine"]
+      "description": "A Tokyo Bay coastal Chiba city known for Tokyo Bay Aqua-Line's Umihotaru, Mitsui Outlet Park, and fresh clam harvesting.",
+      "highlights": [
+        "Tokyo Bay Aqua-Line Umihotaru",
+        "Mitsui Outlet Park Kisarazu",
+        "Coastal Clam Harvesting"
+      ]
     },
     "ja": {
-      "name": "Kisarazu市",
-      "description": "Kisarazu市は千葉県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-      "highlights": ["市散策", "&散策"]
+      "name": "木更津市",
+      "description": "東京湾アクアラインの拠点「海ほたる」や三井アウトレットパーク、潮干狩りで知られる房総半島西部の港町です。",
+      "highlights": [
+        "東京湾アクアライン海ほたる",
+        "三井アウトレットパーク木更津",
+        "海岸の潮干狩り体験"
+      ]
     }
   },
   "ratingMetadata": {

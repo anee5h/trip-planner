@@ -94,7 +94,7 @@
   "officialWebsite": "https://www.city.katori.lg.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "official",

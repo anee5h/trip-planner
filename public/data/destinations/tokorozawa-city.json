@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/03/Tokorozawa_Aviation_Commemorative_Park.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/0/03/Tokorozawa_Aviation_Commemorative_Park.jpg",
-  "description": "Cultural hub home to Kadokawa Musashino Museum, Totoro's Forest in Sayama Hills, and Belluna Dome.",
-  "highlights": ["Explore Tokorozawa City", "Local Culture & Cuisine"],
+  "description": "A popular Saitama culture city featuring Tokorozawa Sakura Town, Kadokawa Musashino Museum, and Sayama Tea fields.",
+  "highlights": [
+    "Kadokawa Musashino Museum",
+    "Tokorozawa Sakura Town",
+    "Sayama Tea Fields"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -84,7 +88,7 @@
   },
   "businessHours": "Open access",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",
@@ -99,17 +103,25 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Tokorozawa市",
+  "nameJa": "所沢市",
   "content": {
     "en": {
       "name": "Tokorozawa City",
-      "description": "Cultural hub home to Kadokawa Musashino Museum, Totoro's Forest in Sayama Hills, and Belluna Dome.",
-      "highlights": ["Explore Tokorozawa City", "Local Culture & Cuisine"]
+      "description": "A popular Saitama culture city featuring Tokorozawa Sakura Town, Kadokawa Musashino Museum, and Sayama Tea fields.",
+      "highlights": [
+        "Kadokawa Musashino Museum",
+        "Tokorozawa Sakura Town",
+        "Sayama Tea Fields"
+      ]
     },
     "ja": {
-      "name": "Tokorozawa市",
-      "description": "Tokorozawa市は埼玉県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-      "highlights": ["市散策", "&散策"]
+      "name": "所沢市",
+      "description": "角川武蔵野ミュージアムがある「ところざわサクラタウン」、狭山茶の茶畑、西武園ゆうえんちが親しまれるカルチャーシティです。",
+      "highlights": [
+        "角川武蔵野ミュージアム",
+        "ところざわサクラタウン",
+        "狭山茶の茶畑散策"
+      ]
     }
   },
   "ratingMetadata": {

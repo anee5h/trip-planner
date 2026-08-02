@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg/1920px-Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg/1920px-Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg",
-  "description": "Industrial and residential hub bordering Tokyo across the Arakawa River.",
-  "highlights": ["Explore Kawaguchi City", "Local Culture & Cuisine"],
+  "description": "A major Saitama industrial and residential city near Tokyo, famous for cast-metal heritage, Aokicho Park, and greenery.",
+  "highlights": [
+    "Cast-Metal Industrial History",
+    "Aokicho Park",
+    "Kawaguchi Green Center"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -89,7 +93,7 @@
   },
   "businessHours": "Open access",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",
@@ -104,17 +108,25 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Kawaguchi市",
+  "nameJa": "川口市",
   "content": {
     "en": {
       "name": "Kawaguchi City",
-      "description": "Industrial and residential hub bordering Tokyo across the Arakawa River.",
-      "highlights": ["Explore Kawaguchi City", "Local Culture & Cuisine"]
+      "description": "A major Saitama industrial and residential city near Tokyo, famous for cast-metal heritage, Aokicho Park, and greenery.",
+      "highlights": [
+        "Cast-Metal Industrial History",
+        "Aokicho Park",
+        "Kawaguchi Green Center"
+      ]
     },
     "ja": {
-      "name": "Kawaguchi市",
-      "description": "Kawaguchi市は埼玉県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-      "highlights": ["市散策", "&散策"]
+      "name": "川口市",
+      "description": "荒川を隔てて東京都と接する埼玉県の主要都市。伝統的な鋳物産業の歴史、青木町公園、川口市立グリーンセンターが親しまれています。",
+      "highlights": [
+        "伝統の鋳物産業歴史",
+        "青木町公園",
+        "川口市立グリーンセンター"
+      ]
     }
   },
   "ratingMetadata": {

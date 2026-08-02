@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Tokyo_disney_resort.jpg/1280px-Tokyo_disney_resort.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Tokyo_disney_resort.jpg/1280px-Tokyo_disney_resort.jpg",
-  "description": "Bayfront resort city famous worldwide as the home of Tokyo Disney Resort and Ikspiari.",
-  "highlights": ["Explore Urayasu City", "Local Culture & Cuisine"],
+  "description": "A famous Tokyo Bay city in Chiba home to Tokyo Disney Resort (Disneyland & DisneySea) and Ikspiari shopping mall.",
+  "highlights": [
+    "Tokyo Disney Resort Theme Parks",
+    "Ikspiari Shopping Complex",
+    "Tokyo Bay Waterfront Walks"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -84,7 +88,7 @@
   },
   "businessHours": "Open access",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",
@@ -99,17 +103,25 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Urayasu市",
+  "nameJa": "浦安市",
   "content": {
     "en": {
       "name": "Urayasu City",
-      "description": "Bayfront resort city famous worldwide as the home of Tokyo Disney Resort and Ikspiari.",
-      "highlights": ["Explore Urayasu City", "Local Culture & Cuisine"]
+      "description": "A famous Tokyo Bay city in Chiba home to Tokyo Disney Resort (Disneyland & DisneySea) and Ikspiari shopping mall.",
+      "highlights": [
+        "Tokyo Disney Resort Theme Parks",
+        "Ikspiari Shopping Complex",
+        "Tokyo Bay Waterfront Walks"
+      ]
     },
     "ja": {
-      "name": "Urayasu市",
-      "description": "Urayasu市は千葉県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-      "highlights": ["市散策", "&散策"]
+      "name": "浦安市",
+      "description": "東京ディズニーリゾート（ディズニーランド＆ディズニーシー）や商業施設イクスピアリを擁する、日本有数のテーマパーク都市です。",
+      "highlights": [
+        "東京ディズニーリゾート",
+        "イクスピアリ",
+        "東京湾ウォーターフロント散策"
+      ]
     }
   },
   "ratingMetadata": {

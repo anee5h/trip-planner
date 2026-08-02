@@ -92,7 +92,7 @@
   "officialWebsite": "https://planets.teamlab.art/tokyo/en/",
   "businessHours": "09:00 - 22:00 (Last admission 21:00)",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "official",

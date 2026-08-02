@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/20/Chichibu_Yomatsuri.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/2/20/Chichibu_Yomatsuri.jpg",
-  "description": "Mountain valley city famous for Hitsujiyama Park pink moss phlox, Chichibu Shrine, and steam train locomotives.",
-  "highlights": ["Explore Chichibu City", "Local Culture & Cuisine"],
+  "description": "A scenic mountain city in Saitama famed for Chichibu Shrine, Hitsujiyama Park pink moss, and Nagatoro river rafting.",
+  "highlights": [
+    "Chichibu Shrine & Festival",
+    "Hitsujiyama Pink Moss Hill",
+    "Nagatoro River Rafting"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -88,7 +92,7 @@
   },
   "businessHours": "Open access",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",
@@ -103,17 +107,25 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Chichibu市",
+  "nameJa": "秩父市",
   "content": {
     "en": {
       "name": "Chichibu City",
-      "description": "Mountain valley city famous for Hitsujiyama Park pink moss phlox, Chichibu Shrine, and steam train locomotives.",
-      "highlights": ["Explore Chichibu City", "Local Culture & Cuisine"]
+      "description": "A scenic mountain city in Saitama famed for Chichibu Shrine, Hitsujiyama Park pink moss, and Nagatoro river rafting.",
+      "highlights": [
+        "Chichibu Shrine & Festival",
+        "Hitsujiyama Pink Moss Hill",
+        "Nagatoro River Rafting"
+      ]
     },
     "ja": {
-      "name": "Chichibu市",
-      "description": "Chichibu市は埼玉県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-      "highlights": ["市散策", "&散策"]
+      "name": "秩父市",
+      "description": "秩父神社、羊山公園の芝桜の丘、長瀞ラインくだりなど豊かな自然と歴史に育まれた埼玉県の代表的な山岳観光都市です。",
+      "highlights": [
+        "秩父神社と秩父夜祭",
+        "羊山公園の芝桜の丘",
+        "長瀞ラインくだり"
+      ]
     }
   },
   "ratingMetadata": {

@@ -101,7 +101,7 @@
   "officialWebsite": "https://www.shibuya-scramble-square.com/sky/",
   "businessHours": "10:00 - 22:30 (Last admission 21:20)",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "official",
@@ -116,7 +116,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "SHIBUYA SKY",
+  "nameJa": "渋谷スカイ",
   "content": {
     "en": {
       "name": "Shibuya Sky (Rooftop Observatory)",
@@ -128,7 +128,7 @@
       ]
     },
     "ja": {
-      "name": "SHIBUYA SKY",
+      "name": "渋谷スカイ",
       "description": "渋谷スクランブルスクエアの屋上にある高さ229mの展望施設。スクランブル交差点や東京タワー、富士山を360度見渡せます。",
       "highlights": [
         "高さ229mの屋上展望空間",

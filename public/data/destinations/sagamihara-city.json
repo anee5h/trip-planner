@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/95/Sagamihara_montage.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/9/95/Sagamihara_montage.jpg",
-  "description": "Inland city featuring Lake Sagami, JAXA space exploration campus, and mountain hiking trails.",
-  "highlights": ["Explore Sagamihara City", "Local Culture & Cuisine"],
+  "description": "A spacious green Kanagawa city home to Lake Sagami, JAXA Sagamihara Campus, and Sagamihara Park.",
+  "highlights": [
+    "Lake Sagami Resort",
+    "JAXA Space Campus",
+    "Sagamihara Park Greenery"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -89,7 +93,7 @@
   },
   "businessHours": "Open access",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",
@@ -104,17 +108,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Sagamihara市",
+  "nameJa": "相模原市",
   "content": {
     "en": {
       "name": "Sagamihara City",
-      "description": "Inland city featuring Lake Sagami, JAXA space exploration campus, and mountain hiking trails.",
-      "highlights": ["Explore Sagamihara City", "Local Culture & Cuisine"]
+      "description": "A spacious green Kanagawa city home to Lake Sagami, JAXA Sagamihara Campus, and Sagamihara Park.",
+      "highlights": [
+        "Lake Sagami Resort",
+        "JAXA Space Campus",
+        "Sagamihara Park Greenery"
+      ]
     },
     "ja": {
-      "name": "Sagamihara市",
-      "description": "Sagamihara市は神奈川県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-      "highlights": ["市散策", "&散策"]
+      "name": "相模原市",
+      "description": "相模湖や相模原公園、JAXA相模原キャンパスを擁する、豊かな自然と宇宙科学技術が共存する神奈川県北部の令指定都市です。",
+      "highlights": ["相模湖リゾート", "JAXA相模原キャンパス", "県立相模原公園"]
     }
   },
   "ratingMetadata": {

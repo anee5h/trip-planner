@@ -96,7 +96,7 @@
   "businessHours": "09:00 - 17:00 (Daily)",
   "kind": "city",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",

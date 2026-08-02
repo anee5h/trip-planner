@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "Special Ward"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9a/20110405-TokyoTower-Sakura01.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/9/9a/20110405-TokyoTower-Sakura01.jpg",
-  "description": "Tokyo's international waterfront hub encompassing Tokyo Tower, Roppongi Hills, Odaiba, and Azabudai Hills.",
-  "highlights": ["Explore Minato City", "Local Culture & Cuisine"],
+  "description": "Tokyo's international waterfront ward housing Tokyo Tower, Roppongi Hills, Odaiba, and luxury embassy districts.",
+  "highlights": [
+    "Tokyo Tower Landmark",
+    "Roppongi Cultural District",
+    "Odaiba Seaside Park"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -87,7 +91,7 @@
   },
   "businessHours": "Open access",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",
@@ -102,17 +106,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Minato市",
+  "nameJa": "港区",
   "content": {
     "en": {
       "name": "Minato City",
-      "description": "Tokyo's international waterfront hub encompassing Tokyo Tower, Roppongi Hills, Odaiba, and Azabudai Hills.",
-      "highlights": ["Explore Minato City", "Local Culture & Cuisine"]
+      "description": "Tokyo's international waterfront ward housing Tokyo Tower, Roppongi Hills, Odaiba, and luxury embassy districts.",
+      "highlights": [
+        "Tokyo Tower Landmark",
+        "Roppongi Cultural District",
+        "Odaiba Seaside Park"
+      ]
     },
     "ja": {
-      "name": "Minato市",
-      "description": "Minato市は東京都にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-      "highlights": ["市散策", "&散策"]
+      "name": "港区",
+      "description": "東京タワー、六本木ヒルズ、お台場、国際色豊かな大使館街を擁する、日本のトレンド・文化・国際ビジネスの中心エリアです。",
+      "highlights": ["東京タワー", "六本木文化エリア", "お台場海浜公園"]
     }
   },
   "ratingMetadata": {

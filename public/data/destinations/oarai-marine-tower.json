@@ -98,7 +98,7 @@
   "officialWebsite": "https://oarai-mt.jp/",
   "businessHours": "10:00 - 21:00 (Last admission 20:30)",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "official",

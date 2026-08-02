@@ -109,7 +109,7 @@
   "officialWebsite": "https://www.nikko-kankou.org/",
   "businessHours": "Open access",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "official",

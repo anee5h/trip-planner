@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Odawara_montage.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Odawara_montage.JPG",
-  "description": "Historic castle town and gateway to Hakone, featuring Odawara Castle keep and kamaboko seafood delicacies.",
-  "highlights": ["Explore Odawara City", "Local Culture & Cuisine"],
+  "description": "Kanagawa's historic gateway to Hakone, featuring the formidable Odawara Castle, kamaboko seafood, and ocean views.",
+  "highlights": [
+    "Odawara Castle Keep & Park",
+    "Kamaboko Seafood Village",
+    "Sagami Bay Coastline"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -85,7 +89,7 @@
   },
   "businessHours": "Open access",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",
@@ -100,17 +104,25 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Odawara市",
+  "nameJa": "小田原市",
   "content": {
     "en": {
       "name": "Odawara City",
-      "description": "Historic castle town and gateway to Hakone, featuring Odawara Castle keep and kamaboko seafood delicacies.",
-      "highlights": ["Explore Odawara City", "Local Culture & Cuisine"]
+      "description": "Kanagawa's historic gateway to Hakone, featuring the formidable Odawara Castle, kamaboko seafood, and ocean views.",
+      "highlights": [
+        "Odawara Castle Keep & Park",
+        "Kamaboko Seafood Village",
+        "Sagami Bay Coastline"
+      ]
     },
     "ja": {
-      "name": "Odawara市",
-      "description": "Odawara市は神奈川県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-      "highlights": ["市散策", "&散策"]
+      "name": "小田原市",
+      "description": "小田原城を中心に発展した北条氏の城下町。箱根への玄関口であり、かまぼこ・小田原提灯・相模湾の新鮮な海鮮が名物です。",
+      "highlights": [
+        "小田原城天守閣",
+        "小田原かまぼこ通り",
+        "相模湾の海鮮グルメ"
+      ]
     }
   },
   "ratingMetadata": {

@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Utsunomiya-STA_East_LRT.jpg/1920px-Utsunomiya-STA_East_LRT.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Utsunomiya-STA_East_LRT.jpg/1920px-Utsunomiya-STA_East_LRT.jpg",
-  "description": "Prefectural capital acclaimed as Japan's Gyoza dumpling capital, featuring Oya Stone Underground Quarry.",
-  "highlights": ["Explore Utsunomiya City", "Local Culture & Cuisine"],
+  "description": "Tochigi's prefectural capital famed for Utsunomiya gyoza dumpling culture, Oya Stone quarries, and Futaarayama Shrine.",
+  "highlights": [
+    "Famous Utsunomiya Gyoza Dining",
+    "Oya Stone Quarry Museum",
+    "Utsunomiya Futaarayama Shrine"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -100,17 +104,25 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Utsunomiya市",
+  "nameJa": "宇都宮市",
   "content": {
     "en": {
       "name": "Utsunomiya City",
-      "description": "Prefectural capital acclaimed as Japan's Gyoza dumpling capital, featuring Oya Stone Underground Quarry.",
-      "highlights": ["Explore Utsunomiya City", "Local Culture & Cuisine"]
+      "description": "Tochigi's prefectural capital famed for Utsunomiya gyoza dumpling culture, Oya Stone quarries, and Futaarayama Shrine.",
+      "highlights": [
+        "Famous Utsunomiya Gyoza Dining",
+        "Oya Stone Quarry Museum",
+        "Utsunomiya Futaarayama Shrine"
+      ]
     },
     "ja": {
-      "name": "Utsunomiya市",
-      "description": "Utsunomiya市は栃木県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-      "highlights": ["市散策", "&散策"]
+      "name": "宇都宮市",
+      "description": "「餃子の街」として全国に知られる栃木県の県都。大谷石の巨大地下空間（大谷資料館）や宇都宮二荒山神社が見どころです。",
+      "highlights": [
+        "宇都宮餃子の食べ歩き",
+        "大谷資料館の巨大地下空間",
+        "宇都宮二荒山神社"
+      ]
     }
   },
   "ratingMetadata": {

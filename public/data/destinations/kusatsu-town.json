@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E6%B9%AF%E7%95%912.jpg/1280px-%E6%B9%AF%E7%95%912.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E6%B9%AF%E7%95%912.jpg/1280px-%E6%B9%AF%E7%95%912.jpg",
-  "description": "One of Japan's top three hot spring resorts, centered around the steaming Yubatake hot spring field.",
-  "highlights": ["Explore Kusatsu Town", "Local Culture & Cuisine"],
+  "description": "Japan's famous hot spring town in Gunma, centered on Yubatake (hot water field) and Mount Shirane natural scenery.",
+  "highlights": [
+    "Yubatake Hot Water Field",
+    "Yumomi Cooling Performances",
+    "Sainokawara Park Baths"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -89,7 +93,7 @@
   },
   "businessHours": "Open access",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",
@@ -104,17 +108,25 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Kusatsu町",
+  "nameJa": "草津町",
   "content": {
     "en": {
       "name": "Kusatsu Town",
-      "description": "One of Japan's top three hot spring resorts, centered around the steaming Yubatake hot spring field.",
-      "highlights": ["Explore Kusatsu Town", "Local Culture & Cuisine"]
+      "description": "Japan's famous hot spring town in Gunma, centered on Yubatake (hot water field) and Mount Shirane natural scenery.",
+      "highlights": [
+        "Yubatake Hot Water Field",
+        "Yumomi Cooling Performances",
+        "Sainokawara Park Baths"
+      ]
     },
     "ja": {
-      "name": "Kusatsu町",
-      "description": "Kusatsu町は群馬県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-      "highlights": ["町散策", "&散策"]
+      "name": "草津町",
+      "description": "日本屈指の源泉湧出量を誇る草津温泉の町。中央の湯畑、伝統の湯もみ、白根山を臨む豊かな自然が人々を引き寄せます。",
+      "highlights": [
+        "湯畑の熱気景観",
+        "伝統の湯もみショー",
+        "西の河原公園大露天風呂"
+      ]
     }
   },
   "ratingMetadata": {

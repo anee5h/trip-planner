@@ -93,7 +93,7 @@
   "officialWebsite": "https://daibutu.net/",
   "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
   "editorial": {
-    "lifecycle": "approved",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "official",
