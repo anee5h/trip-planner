@@ -62,9 +62,9 @@
   "transportOptions": {
     "train": 18
   },
-  "reservation": "None required",
-  "parking": "Public parking available",
-  "notes": "Toshima City travel hub in Tokyo Prefecture.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
   "status": "verified",
   "travelEstimate": {
     "confidence": "high"
@@ -125,17 +125,30 @@
         "Ikebukuro Commercial District",
         "Sunshine City Complex",
         "Tokyo Metropolitan Theatre"
-      ]
+      ],
+      "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
     },
     "ja": {
       "name": "豊島区",
       "description": "池袋駅を中心にサンシャインシティ、乙女ロード、東京芸術劇場などが立ち並び、商業と文化・アニメカルチャーが融合するエリアです。",
-      "highlights": ["豊島区の名所", "市散策", "豊島区の名所"]
+      "highlights": ["豊島区の名所", "市散策", "豊島区の名所"],
+      "notes": "豊島区は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
     }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "豊島区は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

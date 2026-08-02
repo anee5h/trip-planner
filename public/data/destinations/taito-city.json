@@ -62,9 +62,9 @@
   "transportOptions": {
     "train": 16
   },
-  "reservation": "None required",
-  "parking": "Public parking available",
-  "notes": "Taito City travel hub in Tokyo Prefecture.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
   "status": "verified",
   "travelEstimate": {
     "confidence": "high"
@@ -121,17 +121,30 @@
         "Asakusa Cultural Area",
         "Ueno Park & National Museums",
         "Kappabashi Kitchenware Street"
-      ]
+      ],
+      "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
     },
     "ja": {
       "name": "台東区",
       "description": "浅草寺、上野恩賜公園の国立博物館群、谷中銀座のレトロな街並み、合羽橋道具街など、江戸東京の歴史文化が最も色濃く残るエリアです。",
-      "highlights": ["台東区の名所", "公園 & 美術館s散策", "台東区の名所"]
+      "highlights": ["台東区の名所", "公園 & 美術館s散策", "台東区の名所"],
+      "notes": "台東区は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
     }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "台東区は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

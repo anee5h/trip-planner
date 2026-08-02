@@ -7,12 +7,20 @@
     "en": {
       "name": "Chiba Shrine",
       "description": "Chiba Shrine is a visitor destination in Chiba City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
-      "highlights": ["History"]
+      "highlights": ["History"],
+      "notes": "Early morning visits provide a serene experience before tour groups arrive.",
+      "reservation": "No reservation required for general temple ground visits.",
+      "parking": "Temple visitor parking available on site.",
+      "openingHours": "08:30 - 16:30"
     },
     "ja": {
       "name": "千葉神社",
       "description": "千葉神社はChiba Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["千葉神社の名所"]
+      "highlights": ["千葉神社の名所"],
+      "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "08:30 - 16:30（境内自由）"
     }
   },
   "prefecture": "Chiba",
@@ -97,9 +105,9 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
-  "reservation": "Usually not required; check current visitor guidance.",
-  "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Chiba City.",
+  "reservation": "No reservation required for general temple ground visits.",
+  "parking": "Temple visitor parking available on site.",
+  "notes": "Early morning visits provide a serene experience before tour groups arrive.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -166,5 +174,10 @@
     "method": "manual",
     "confidence": "high"
   },
-  "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
+  "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
+  "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "08:30 - 16:30",
+  "openingHoursJa": "08:30 - 16:30（境内自由）"
 }

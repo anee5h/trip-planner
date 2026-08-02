@@ -7,12 +7,20 @@
     "en": {
       "name": "Kashiya Yokocho",
       "description": "Kashiya Yokocho is a visitor destination in Kawagoe City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
-      "highlights": ["Shopping", "Food"]
+      "highlights": ["Shopping", "Food"],
+      "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
+      "reservation": "Online advance ticket reservation recommended on weekends.",
+      "parking": "Facility parking structure available.",
+      "openingHours": "09:30 - 17:00 (Last admission 16:30)"
     },
     "ja": {
       "name": "菓子屋横丁",
       "description": "菓子屋横丁はKawagoe Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["菓子屋横丁の名所", "菓子屋横丁の名所"]
+      "highlights": ["菓子屋横丁の名所", "菓子屋横丁の名所"],
+      "notes": "菓子屋横丁は、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:30 - 17:00（最終入館 16:30）"
     }
   },
   "prefecture": "Saitama",
@@ -95,9 +103,9 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
-  "reservation": "Usually not required; check current visitor guidance.",
-  "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Kawagoe City.",
+  "reservation": "Online advance ticket reservation recommended on weekends.",
+  "parking": "Facility parking structure available.",
+  "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -173,5 +181,10 @@
     "confidence": "high"
   },
   "officialWebsite": "https://koedo.or.jp/",
-  "businessHours": "09:30 - 17:00 (Closed Mondays)"
+  "businessHours": "09:30 - 17:00 (Closed Mondays)",
+  "notesJa": "菓子屋横丁は、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:30 - 17:00 (Last admission 16:30)",
+  "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
 }

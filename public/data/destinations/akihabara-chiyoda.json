@@ -63,9 +63,9 @@
     "food": 6667,
     "cafe": 2222
   },
-  "reservation": "Required for popular maid cafes.",
-  "parking": "Extremely difficult and expensive.",
-  "notes": "Sunday afternoons have a pedestrian paradise on Chuo-dori.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Commercial district paid parking garages available nearby.",
+  "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
   "schemaVersion": 2,
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -116,17 +116,30 @@
         "Radio Kaikan",
         "Electric Town Shops",
         "Anime & Gaming Culture"
-      ]
+      ],
+      "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Commercial district paid parking garages available nearby.",
+      "openingHours": "10:00 - 20:00"
     },
     "ja": {
       "name": "秋葉原",
       "description": "世界的な電気街であり、アニメ・ゲーム・フィギュアなどのポップカルチャー文化の聖地。ラジオ会館や大型家電店が立ち並びます。",
-      "highlights": ["ラジオ会館", "電気街ショッピング", "アニメ・ゲーム文化"]
+      "highlights": ["ラジオ会館", "電気街ショッピング", "アニメ・ゲーム文化"],
+      "notes": "秋葉原は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "10:00 - 20:00（店舗により異なる）"
     }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "秋葉原は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "10:00 - 20:00",
+  "openingHoursJa": "10:00 - 20:00（店舗により異なる）"
 }

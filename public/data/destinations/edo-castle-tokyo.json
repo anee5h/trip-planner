@@ -70,9 +70,9 @@
     "food": 3789,
     "cafe": 1222
   },
-  "reservation": "Free admission to East Gardens; Imperial Palace Inner Grounds require advance household registration.",
-  "parking": "Paid parking structures near Tokyo Station and Marunouchi.",
-  "notes": "Top 100 Castle of Japan #21. Free admission 5 days a week (closed Mondays and Fridays).",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -126,7 +126,11 @@
         "Massive Tenshudai Castle Base",
         "Fujimi-yagura Watchtower",
         "Imperial Palace East Gardens"
-      ]
+      ],
+      "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
     },
     "ja": {
       "name": "江戸城跡（皇居東御苑）",
@@ -135,12 +139,21 @@
         "巨大な本丸天守台石垣",
         "現存する富士見櫓",
         "四季の皇居東御苑散策"
-      ]
+      ],
+      "notes": "江戸城跡（皇居東御苑）は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
     }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "江戸城跡（皇居東御苑）は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

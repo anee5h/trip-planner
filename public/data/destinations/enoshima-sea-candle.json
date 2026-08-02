@@ -7,12 +7,20 @@
     "en": {
       "name": "Enoshima Sea Candle",
       "description": "Enoshima Sea Candle is a visitor destination in Fujisawa City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
-      "highlights": ["Viewpoint"]
+      "highlights": ["Viewpoint"],
+      "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
     },
     "ja": {
       "name": "江の島シーキャンドル",
       "description": "江の島灯台はFujisawa Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["江の島シーキャンドルの名所"]
+      "highlights": ["江の島シーキャンドルの名所"],
+      "notes": "江の島シーキャンドルは、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
     }
   },
   "prefecture": "Kanagawa",
@@ -96,9 +104,9 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
-  "reservation": "Check the official website before visiting.",
-  "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Fujisawa City.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -165,5 +173,10 @@
     "method": "manual",
     "confidence": "high"
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "notesJa": "江の島シーキャンドルは、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

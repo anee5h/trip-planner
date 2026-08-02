@@ -74,7 +74,7 @@
   },
   "reservation": "Advance online booking recommended to skip ticket queues.",
   "parking": "Paid underground parking structure at Tokyo Solamachi complex.",
-  "notes": "Best visibility of Mt. Fuji occurs on crisp, clear winter mornings.",
+  "notes": "Best visibility of Mt. Fuji occurs on crisp, clear winter mornings from the Tembo Deck.",
   "schemaVersion": 2,
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -134,7 +134,11 @@
         "Tembo Galleria (450m)",
         "Tokyo Solamachi Shopping Center",
         "Planetarium Ten"
-      ]
+      ],
+      "notes": "Best visibility of Mt. Fuji occurs on crisp, clear winter mornings from the Tembo Deck.",
+      "reservation": "Advance online booking recommended to skip ticket queues.",
+      "parking": "Paid underground parking structure at Tokyo Solamachi complex.",
+      "openingHours": "08:00 - 22:00 (Last admission 21:00)"
     },
     "ja": {
       "name": "東京スカイツリー",
@@ -144,12 +148,21 @@
         "(450m)散策",
         "東京スカイツリーの名所",
         "東京スカイツリーの名所"
-      ]
+      ],
+      "notes": "東京スカイツリー天望デッキからの富士山の眺望は、空気が澄んだ冬の晴れた早朝が最もおすすめです。",
+      "reservation": "チケットカウンターの混雑を避けるため、オンラインでの日時指定事前予約がおすすめです。",
+      "parking": "東京ソラマチの大型地下有料駐車場をご利用いただけます。",
+      "openingHours": "08:00 - 22:00（最終入場 21:00）"
     }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "東京スカイツリー天望デッキからの富士山の眺望は、空気が澄んだ冬の晴れた早朝が最もおすすめです。",
+  "reservationJa": "チケットカウンターの混雑を避けるため、オンラインでの日時指定事前予約がおすすめです。",
+  "parkingJa": "東京ソラマチの大型地下有料駐車場をご利用いただけます。",
+  "openingHours": "08:00 - 22:00 (Last admission 21:00)",
+  "openingHoursJa": "08:00 - 22:00（最終入場 21:00）"
 }

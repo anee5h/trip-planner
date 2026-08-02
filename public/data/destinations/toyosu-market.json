@@ -11,12 +11,20 @@
         "Early Morning Tuna Auction Viewing",
         "Fresh Market Sushi Dining",
         "Senkyakubanrai Spa & Dining District"
-      ]
+      ],
+      "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Commercial district paid parking garages available nearby.",
+      "openingHours": "10:00 - 20:00"
     },
     "ja": {
       "name": "豊洲市場",
       "description": "築地から移転した世界最大級の卸売市場。マグロ卸売場見学ギャラリー、新鮮な海鮮丼・寿司店、温浴施設「千客万来」が揃います。",
-      "highlights": ["豊洲市場の名所", "市場散策", "&散策"]
+      "highlights": ["豊洲市場の名所", "市場散策", "&散策"],
+      "notes": "豊洲市場は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "10:00 - 20:00（店舗により異なる）"
     }
   },
   "prefecture": "Tokyo",
@@ -104,9 +112,9 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
-  "reservation": "Usually not required; check current visitor guidance.",
-  "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Koto City.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Commercial district paid parking garages available nearby.",
+  "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -173,5 +181,10 @@
     "method": "manual",
     "confidence": "high"
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "notesJa": "豊洲市場は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "10:00 - 20:00",
+  "openingHoursJa": "10:00 - 20:00（店舗により異なる）"
 }

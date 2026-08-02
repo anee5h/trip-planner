@@ -62,9 +62,9 @@
   "transportOptions": {
     "train": 20
   },
-  "reservation": "None required",
-  "parking": "Public parking available",
-  "notes": "Shinagawa City travel hub in Tokyo Prefecture.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
   "status": "verified",
   "travelEstimate": {
     "confidence": "high"
@@ -117,17 +117,30 @@
         "Tennozu Isle Waterfront Boardwalk",
         "Historic Tokaido Shinagawa-juku",
         "Maxell Aqua Park Shinagawa"
-      ]
+      ],
+      "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
     },
     "ja": {
       "name": "品川区",
       "description": "新幹線が発着する品川駅、天王洲アイルのアート水辺エリア、旧東海道の品川宿の歴史が融合する利便性と風情ある港町エリアです。",
-      "highlights": ["品川区の名所", "-散策", "公園散策"]
+      "highlights": ["品川区の名所", "-散策", "公園散策"],
+      "notes": "品川区は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
     }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "品川区は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

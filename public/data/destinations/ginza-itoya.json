@@ -11,7 +11,11 @@
         "12 Floors of Fine Stationery",
         "Custom Notebook & Pen Bar",
         "Design & Lifestyle Goods"
-      ]
+      ],
+      "notes": "Head to the 11th-floor indoor vegetable farm and 12th-floor cafe after browsing custom stationery levels.",
+      "reservation": "No reservation required for store browsing.",
+      "parking": "No private store parking; use paid parking garages along Ginza Chuo-dori.",
+      "openingHours": "10:00 - 19:00 (Sundays/Holidays 10:00 - 19:00)"
     },
     "ja": {
       "name": "銀座 伊東屋",
@@ -20,7 +24,11 @@
         "全12階の文房具専門店",
         "カスタムノート＆万年筆コーナー",
         "デザイン＆ライフスタイル雑貨"
-      ]
+      ],
+      "notes": "オリジナル文具フロアを巡った後は、11階の野菜工場や12階のカフェでのひと休みが人気です。",
+      "reservation": "店舗への入店・見学に事前予約は不要です。",
+      "parking": "専用駐車場なし。銀座中央通り周辺の有料駐車場をご利用ください。",
+      "openingHours": "10:00 - 19:00（日・祝 10:00 - 19:00）"
     }
   },
   "prefecture": "Tokyo",
@@ -104,9 +112,9 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
-  "reservation": "Usually not required; check current visitor guidance.",
-  "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "reservation": "No reservation required for store browsing.",
+  "parking": "No private store parking; use paid parking garages along Ginza Chuo-dori.",
+  "notes": "Head to the 11th-floor indoor vegetable farm and 12th-floor cafe after browsing custom stationery levels.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -151,5 +159,10 @@
     "license": "CC BY-SA 2.0",
     "attribution": "KuniakiIGARASHI",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stationer_by_KuniakiIGARASHI_in_Ginza,_Tokyo.jpg"
-  }
+  },
+  "notesJa": "オリジナル文具フロアを巡った後は、11階の野菜工場や12階のカフェでのひと休みが人気です。",
+  "reservationJa": "店舗への入店・見学に事前予約は不要です。",
+  "parkingJa": "専用駐車場なし。銀座中央通り周辺の有料駐車場をご利用ください。",
+  "openingHours": "10:00 - 19:00 (Sundays/Holidays 10:00 - 19:00)",
+  "openingHoursJa": "10:00 - 19:00（日・祝 10:00 - 19:00）"
 }

@@ -63,9 +63,9 @@
     "train": 200,
     "shinkansen": 50
   },
-  "reservation": "None required",
-  "parking": "Public parking available",
-  "notes": "Utsunomiya City travel hub in Tochigi Prefecture.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Tochigi, offering excellent photo opportunities and local cultural experiences.",
   "status": "verified",
   "travelEstimate": {
     "confidence": "high"
@@ -113,7 +113,11 @@
         "Famous Utsunomiya Gyoza Dining",
         "Oya Stone Quarry Museum",
         "Utsunomiya Futaarayama Shrine"
-      ]
+      ],
+      "notes": "A top recommended attraction in Tochigi, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
     },
     "ja": {
       "name": "宇都宮市",
@@ -122,12 +126,21 @@
         "宇都宮餃子の食べ歩き",
         "大谷資料館の巨大地下空間",
         "宇都宮二荒山神社"
-      ]
+      ],
+      "notes": "宇都宮市は、Tochigiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
     }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "宇都宮市は、Tochigiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

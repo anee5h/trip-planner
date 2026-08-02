@@ -86,6 +86,10 @@ export interface LocalizedPlaceContent {
   name: string;
   description: string;
   highlights: string[];
+  notes?: string;
+  reservation?: string;
+  parking?: string;
+  openingHours?: string;
 }
 
 export interface SourceReference {
@@ -251,10 +255,14 @@ export interface Destination {
   };
   tags: string[];
   reservation: string;
+  reservationJa?: string;
   parking: string;
+  parkingJa?: string;
   openingHours?: string;
+  openingHoursJa?: string;
   businessHours?: string;
   notes: string;
+  notesJa?: string;
   schemaVersion?: 2;
   imageMetadata?: DestinationImageMetadata;
   itinerary?: ItineraryStep[];

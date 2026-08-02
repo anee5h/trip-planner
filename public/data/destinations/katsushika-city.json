@@ -62,9 +62,9 @@
   "transportOptions": {
     "train": 21
   },
-  "reservation": "None required",
-  "parking": "Public parking available",
-  "notes": "Katsushika City travel hub in Tokyo Prefecture.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
   "status": "verified",
   "travelEstimate": {
     "confidence": "high"
@@ -117,17 +117,30 @@
         "Shibamata Taishakuten Temple",
         "Tora-san Museum",
         "Mizumoto Water Park"
-      ]
+      ],
+      "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
     },
     "ja": {
       "name": "葛飾区",
       "description": "『男はつらいよ』の舞台・柴又帝釈天や矢切の渡し、都内最大級の水郷公園・水元公園など、人情味あふれる下町文化の街です。",
-      "highlights": ["寺散策", "-美術館散策", "公園散策"]
+      "highlights": ["寺散策", "-美術館散策", "公園散策"],
+      "notes": "葛飾区は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
     }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "葛飾区は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

@@ -63,9 +63,9 @@
     "food": 4200,
     "cafe": 1800
   },
-  "reservation": "Required online in advance.",
-  "parking": "Paid parking at Azabudai Hills.",
-  "notes": "Timed entry tickets required. Some artworks feature mirror floors; pants recommended.",
+  "reservation": "Advance online booking required.",
+  "parking": "Paid parking structure available at Azabudai Hills.",
+  "notes": "Explore the maze of light and digital projection art freely without fixed map routes.",
   "schemaVersion": 2,
   "status": "verified",
   "travelEstimate": {
@@ -112,7 +112,11 @@
         "Boundaryless Digital Art Works",
         "Interactive Light Displays",
         "EN TEA HOUSE Experience"
-      ]
+      ],
+      "notes": "Explore the maze of light and digital projection art freely without fixed map routes.",
+      "reservation": "Advance online booking required.",
+      "parking": "Paid parking structure available at Azabudai Hills.",
+      "openingHours": "10:00 - 21:00 (Last admission 20:00)"
     },
     "ja": {
       "name": "チームラボボーダレス（麻布台ヒルズ）",
@@ -121,12 +125,21 @@
         "境界のないデジタルアート群",
         "インタラクティブな光空間",
         "EN TEA HOUSE（お茶のアート）"
-      ]
+      ],
+      "notes": "決まった順路がない光とデジタルアートの迷路を、自由に探索しながら体験できます。",
+      "reservation": "日時指定のオンライン事前予約が必要です。",
+      "parking": "麻布台ヒルズ内の有料駐車場をご利用いただけます。",
+      "openingHours": "10:00 - 21:00（最終入場 20:00）"
     }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "決まった順路がない光とデジタルアートの迷路を、自由に探索しながら体験できます。",
+  "reservationJa": "日時指定のオンライン事前予約が必要です。",
+  "parkingJa": "麻布台ヒルズ内の有料駐車場をご利用いただけます。",
+  "openingHours": "10:00 - 21:00 (Last admission 20:00)",
+  "openingHoursJa": "10:00 - 21:00（最終入場 20:00）"
 }

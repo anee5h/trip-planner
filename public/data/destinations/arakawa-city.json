@@ -62,9 +62,9 @@
   "transportOptions": {
     "train": 18
   },
-  "reservation": "None required",
-  "parking": "Public parking available",
-  "notes": "Arakawa City travel hub in Tokyo Prefecture.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
   "status": "verified",
   "travelEstimate": {
     "confidence": "high"
@@ -117,17 +117,30 @@
         "Toden Arakawa Tram Line",
         "Nippori Fabric Street",
         "Sumida Riverfront"
-      ]
+      ],
+      "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
     },
     "ja": {
       "name": "荒川区",
       "description": "都電荒川線（東京さくらトラム）が走り、日暮里繊維街や隅田川沿いの公園など、懐かしいレトロな風情が残る東京下町の街です。",
-      "highlights": ["都電荒川線", "日暮里繊維街", "隅田川テラス"]
+      "highlights": ["都電荒川線", "日暮里繊維街", "隅田川テラス"],
+      "notes": "荒川区は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
     }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "荒川区は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

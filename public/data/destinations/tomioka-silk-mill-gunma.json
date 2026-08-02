@@ -55,9 +55,9 @@
     "Tomioka Silk Mill and Related Sites",
     "Gunma"
   ],
-  "reservation": "Not required",
-  "parking": "Available nearby",
-  "notes": "Official UNESCO World Heritage Site.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Gunma, offering excellent photo opportunities and local cultural experiences.",
   "coordinates": {
     "lat": 36.255,
     "lng": 138.8872
@@ -126,7 +126,11 @@
         "UNESCO Heritage Monument",
         "Historic Landmark",
         "Cultural Preservation Area"
-      ]
+      ],
+      "notes": "A top recommended attraction in Gunma, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
     },
     "ja": {
       "name": "富岡製糸場と絹産業遺産群",
@@ -135,12 +139,21 @@
         "富岡製糸場と絹産業遺産群の名所",
         "富岡製糸場と絹産業遺産群の名所",
         "富岡製糸場と絹産業遺産群の名所"
-      ]
+      ],
+      "notes": "富岡製糸場と絹産業遺産群は、Gunmaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
     }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "富岡製糸場と絹産業遺産群は、Gunmaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

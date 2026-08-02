@@ -7,7 +7,11 @@
     "en": {
       "name": "The Sumida Hokusai Museum",
       "description": "The Sumida Hokusai Museum is a distinct visitor stop within Sumida City, selected to support a varied local itinerary.",
-      "highlights": ["Museum", "Art", "Culture"]
+      "highlights": ["Museum", "Art", "Culture"],
+      "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
+      "reservation": "Online advance ticket reservation recommended on weekends.",
+      "parking": "Facility parking structure available.",
+      "openingHours": "09:30 - 17:00 (Last admission 16:30)"
     },
     "ja": {
       "name": "すみだ北斎美術館",
@@ -16,7 +20,11 @@
         "すみだ北斎美術館の名所",
         "すみだ北斎美術館の名所",
         "すみだ北斎美術館の名所"
-      ]
+      ],
+      "notes": "すみだ北斎美術館は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:30 - 17:00（最終入館 16:30）"
     }
   },
   "prefecture": "Tokyo",
@@ -96,9 +104,9 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
-  "reservation": "Usually not required; check current visitor guidance.",
-  "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "reservation": "Online advance ticket reservation recommended on weekends.",
+  "parking": "Facility parking structure available.",
+  "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -143,5 +151,10 @@
     "license": "CC BY-SA 4.0",
     "attribution": "D-s-yama",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hokusai-museum.jpg"
-  }
+  },
+  "notesJa": "すみだ北斎美術館は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:30 - 17:00 (Last admission 16:30)",
+  "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
 }

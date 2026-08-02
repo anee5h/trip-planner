@@ -86,9 +86,9 @@
     "rainFriendly": 7,
     "walkingIntensity": 3
   },
-  "reservation": "None required",
-  "parking": "Available on site",
-  "notes": "Shrines and Temples of Nikko (Toshogu & UNESCO Heritage) located in Tochigi Prefecture.",
+  "reservation": "No reservation required for general temple ground visits.",
+  "parking": "Temple visitor parking available on site.",
+  "notes": "Early morning visits provide a serene experience before tour groups arrive.",
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -121,17 +121,30 @@
         "Yomeimon Gate",
         "Three Wise Monkeys",
         "Sleeping Cat (Nemuri-neko)"
-      ]
+      ],
+      "notes": "Early morning visits provide a serene experience before tour groups arrive.",
+      "reservation": "No reservation required for general temple ground visits.",
+      "parking": "Temple visitor parking available on site.",
+      "openingHours": "08:30 - 16:30"
     },
     "ja": {
       "name": "日光の社寺",
       "description": "日光の社寺は栃木県の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
-      "highlights": ["日光の社寺の名所", "日光の社寺の名所", "(-)散策"]
+      "highlights": ["日光の社寺の名所", "日光の社寺の名所", "(-)散策"],
+      "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "08:30 - 16:30（境内自由）"
     }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "08:30 - 16:30",
+  "openingHoursJa": "08:30 - 16:30（境内自由）"
 }

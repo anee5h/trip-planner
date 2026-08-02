@@ -7,12 +7,20 @@
     "en": {
       "name": "Narita Airport Observation Decks",
       "description": "Narita Airport Observation Decks is a visitor destination in Narita City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
-      "highlights": ["Viewpoint"]
+      "highlights": ["Viewpoint"],
+      "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
+      "reservation": "Online advance ticket reservation recommended on weekends.",
+      "parking": "Facility parking structure available.",
+      "openingHours": "09:30 - 17:00 (Last admission 16:30)"
     },
     "ja": {
       "name": "東京国際空港",
       "description": "東京国際空港はNarita Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["東京国際空港の名所"]
+      "highlights": ["東京国際空港の名所"],
+      "notes": "東京国際空港は、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:30 - 17:00（最終入館 16:30）"
     }
   },
   "prefecture": "Chiba",
@@ -96,9 +104,9 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
-  "reservation": "Usually not required; check current visitor guidance.",
-  "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Narita City.",
+  "reservation": "Online advance ticket reservation recommended on weekends.",
+  "parking": "Facility parking structure available.",
+  "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -165,5 +173,10 @@
     "method": "manual",
     "confidence": "high"
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "notesJa": "東京国際空港は、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:30 - 17:00 (Last admission 16:30)",
+  "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
 }

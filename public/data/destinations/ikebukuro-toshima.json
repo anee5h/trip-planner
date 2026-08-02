@@ -63,9 +63,9 @@
     "food": 2275,
     "cafe": 975
   },
-  "reservation": "Not required.",
-  "parking": "Sunshine City has parking.",
-  "notes": "Excellent choice for rainy days due to Sunshine City and massive underground networks.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Commercial district paid parking garages available nearby.",
+  "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
   "schemaVersion": 2,
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -116,17 +116,30 @@
         "Sunshine City Aquarium",
         "Pokemon Center Mega Tokyo",
         "Otome Road"
-      ]
+      ],
+      "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Commercial district paid parking garages available nearby.",
+      "openingHours": "10:00 - 20:00"
     },
     "ja": {
       "name": "池袋",
       "description": "Ikebukuroは東京都を代表するショッピングと散策のスポットです。多種多様なショップやグルメが集まり、地元の活気と魅力溢れる時間を楽しめます。",
-      "highlights": ["市散策", "池袋の名所", "池袋の名所"]
+      "highlights": ["市散策", "池袋の名所", "池袋の名所"],
+      "notes": "池袋は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "10:00 - 20:00（店舗により異なる）"
     }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "池袋は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "10:00 - 20:00",
+  "openingHoursJa": "10:00 - 20:00（店舗により異なる）"
 }

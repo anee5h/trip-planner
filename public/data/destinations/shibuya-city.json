@@ -63,9 +63,9 @@
   "transportOptions": {
     "train": 18
   },
-  "reservation": "None required",
-  "parking": "Public underground parking",
-  "notes": "Special Ward of Tokyo Metropolis.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Commercial district paid parking garages available nearby.",
+  "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
   "status": "verified",
   "travelEstimate": {
     "confidence": "high"
@@ -120,17 +120,30 @@
         "Shibuya Scramble Crossing",
         "Harajuku Takeshita Street",
         "Meiji Jingu Shrine"
-      ]
+      ],
+      "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Commercial district paid parking garages available nearby.",
+      "openingHours": "10:00 - 20:00"
     },
     "ja": {
       "name": "渋谷区",
       "description": "スクランブル交差点やSHIBUYA SKY、原宿竹下通り、静寂に包まれた明治神宮を擁し、世界的なトレンドを発信し続ける街です。",
-      "highlights": ["渋谷区の名所", "渋谷区の名所", "神社散策"]
+      "highlights": ["渋谷区の名所", "渋谷区の名所", "神社散策"],
+      "notes": "渋谷区は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "10:00 - 20:00（店舗により異なる）"
     }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "渋谷区は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "10:00 - 20:00",
+  "openingHoursJa": "10:00 - 20:00（店舗により異なる）"
 }

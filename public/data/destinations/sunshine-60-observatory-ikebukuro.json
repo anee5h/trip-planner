@@ -65,9 +65,9 @@
     "food": 3105,
     "cafe": 1150
   },
-  "reservation": "No advance reservation required.",
-  "parking": "Paid parking garage inside Sunshine City complex.",
-  "notes": "Completely indoor and rainproof; perfect for families with young children.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -121,7 +121,11 @@
         "251m Indoor Sky Park",
         "Green Lawn Relaxation Zone",
         "Panoramic Tokyo Views"
-      ]
+      ],
+      "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
     },
     "ja": {
       "name": "サンシャイン60展望台 てんぼうパーク",
@@ -130,12 +134,21 @@
         "海抜251mの屋内天空公園",
         "芝生広場の癒し空間",
         "都心360度の眺望"
-      ]
+      ],
+      "notes": "サンシャイン60展望台 てんぼうパークは、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
     }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "サンシャイン60展望台 てんぼうパークは、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

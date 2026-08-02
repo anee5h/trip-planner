@@ -69,9 +69,9 @@
     "food": 4488,
     "cafe": 1923
   },
-  "reservation": "Required well in advance.",
-  "parking": "Not recommended.",
-  "notes": "You will walk barefoot and water goes up to your knees. Wear shorts or pants that can be rolled up.",
+  "reservation": "Mandatory online timed entry ticket; walk-ins rarely available.",
+  "parking": "No dedicated parking; paid parking available near Shin-Toyosu Station.",
+  "notes": "Wear barefoot-friendly clothing that can be rolled up above knees for knee-deep water exhibits.",
   "schemaVersion": 2,
   "status": "verified",
   "travelEstimate": {
@@ -116,7 +116,11 @@
         "Walk Barefoot Through Water Art",
         "Floating Flower Garden",
         "Infinite Mirror Rooms"
-      ]
+      ],
+      "notes": "Wear barefoot-friendly clothing that can be rolled up above knees for knee-deep water exhibits.",
+      "reservation": "Mandatory online timed entry ticket; walk-ins rarely available.",
+      "parking": "No dedicated parking; paid parking available near Shin-Toyosu Station.",
+      "openingHours": "09:00 - 22:00 (Last admission 21:00)"
     },
     "ja": {
       "name": "チームラボプラネッツ（豊洲）",
@@ -125,12 +129,21 @@
         "裸足で水に入るデジタルアート",
         "浮遊する花々の庭園",
         "無限の鏡空間"
-      ]
+      ],
+      "notes": "膝下まで水に浸かる作品があるため、膝上までまくり上げられる服装と素足での体験が必須です。",
+      "reservation": "日時指定のオンライン事前チケットが必須です。当日券の販売は限られます。",
+      "parking": "専用駐車場なし。新豊洲駅周辺の有料駐車場をご利用ください。",
+      "openingHours": "09:00 - 22:00（最終入場 21:00）"
     }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "膝下まで水に浸かる作品があるため、膝上までまくり上げられる服装と素足での体験が必須です。",
+  "reservationJa": "日時指定のオンライン事前チケットが必須です。当日券の販売は限られます。",
+  "parkingJa": "専用駐車場なし。新豊洲駅周辺の有料駐車場をご利用ください。",
+  "openingHours": "09:00 - 22:00 (Last admission 21:00)",
+  "openingHoursJa": "09:00 - 22:00（最終入場 21:00）"
 }

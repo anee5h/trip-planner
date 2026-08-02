@@ -65,9 +65,9 @@
     "food": 7333,
     "cafe": 2000
   },
-  "reservation": "Not required for public station concourses; reservations recommended for high-end Marunouchi dining.",
-  "parking": "Paid underground parking garages available throughout the Marunouchi and Yaesu districts.",
-  "notes": "Direct access to Narita Express and all Shinkansen lines. Excellent rain-proof indoor routing.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Commercial district paid parking garages available nearby.",
+  "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
   "schemaVersion": 2,
   "bestSeason": "All Year",
   "weatherDependence": "low",
@@ -118,7 +118,11 @@
         "Restored 1914 Red-Brick Station Building",
         "Marunouchi Square & Skyscraper Views",
         "Tokyo Ramen Street"
-      ]
+      ],
+      "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Commercial district paid parking garages available nearby.",
+      "openingHours": "10:00 - 20:00"
     },
     "ja": {
       "name": "東京駅（丸の内赤れんが駅舎）",
@@ -127,12 +131,21 @@
         "創建当時の赤れんが駅舎とドーム天井",
         "丸の内駅前広場の景観",
         "東京ラーメンストリート"
-      ]
+      ],
+      "notes": "東京駅（丸の内赤れんが駅舎）は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "10:00 - 20:00（店舗により異なる）"
     }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "東京駅（丸の内赤れんが駅舎）は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "10:00 - 20:00",
+  "openingHoursJa": "10:00 - 20:00（店舗により異なる）"
 }

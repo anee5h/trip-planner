@@ -1818,12 +1818,20 @@ export default function DestinationDetails() {
                   {copy.overall}
                 </div>
                 <div className="w-full h-px bg-white/20 mb-4"></div>
-                {destination.notes &&
-                  !destination.notes.startsWith("Source-backed") && (
-                    <p className="text-emerald-50 text-sm">
-                      {localizeEditorialValue(destination.notes, locale)}
-                    </p>
-                  )}
+                {(() => {
+                  const notesText =
+                    locale === "ja"
+                      ? destination.content?.ja?.notes ||
+                        destination.notesJa ||
+                        localizeEditorialValue(destination.notes, "ja")
+                      : destination.content?.en?.notes || destination.notes;
+                  return (
+                    notesText &&
+                    !notesText.startsWith("Source-backed") && (
+                      <p className="text-emerald-50 text-sm">{notesText}</p>
+                    )
+                  );
+                })()}
               </CardContent>
             </Card>
 
@@ -2032,14 +2040,30 @@ export default function DestinationDetails() {
                       })()}
                     </div>
                     <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
-                      {destination.businessHours ||
-                        destination.openingHours || (
-                          <span className="text-amber-600 dark:text-amber-400">
-                            {locale === "ja"
-                              ? "未確認（公式ウェブサイトで確認してください）"
-                              : "Not yet verified — check official website before visiting"}
-                          </span>
-                        )}
+                      {(() => {
+                        const rawHours =
+                          destination.businessHours || destination.openingHours;
+                        const displayHours =
+                          locale === "ja"
+                            ? destination.content?.ja?.openingHours ||
+                              destination.openingHoursJa ||
+                              (rawHours
+                                ? rawHours.replace(
+                                    /\(Last admission ([^)]+)\)/i,
+                                    "（最終入場 $1）",
+                                  )
+                                : null)
+                            : destination.content?.en?.openingHours || rawHours;
+                        return (
+                          displayHours || (
+                            <span className="text-amber-600 dark:text-amber-400">
+                              {locale === "ja"
+                                ? "未確認（公式ウェブサイトで確認してください）"
+                                : "Not yet verified — check official website before visiting"}
+                            </span>
+                          )
+                        );
+                      })()}
                     </p>
                   </div>
                 )}
@@ -2067,7 +2091,12 @@ export default function DestinationDetails() {
                       {copy.reservation}
                     </h4>
                     <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
-                      {localizeEditorialValue(destination.reservation, locale)}
+                      {locale === "ja"
+                        ? destination.content?.ja?.reservation ||
+                          destination.reservationJa ||
+                          localizeEditorialValue(destination.reservation, "ja")
+                        : destination.content?.en?.reservation ||
+                          destination.reservation}
                     </p>
                   </div>
                 )}
@@ -2094,7 +2123,12 @@ export default function DestinationDetails() {
                       {copy.parkingLabel}
                     </h4>
                     <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
-                      {localizeEditorialValue(destination.parking, locale)}
+                      {locale === "ja"
+                        ? destination.content?.ja?.parking ||
+                          destination.parkingJa ||
+                          localizeEditorialValue(destination.parking, "ja")
+                        : destination.content?.en?.parking ||
+                          destination.parking}
                     </p>
                   </div>
                 )}

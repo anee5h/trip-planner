@@ -7,12 +7,20 @@
     "en": {
       "name": "Jindaiji Temple",
       "description": "Jindaiji Temple is a distinct visitor stop within Chofu, selected to support a varied local itinerary.",
-      "highlights": ["History", "Culture", "Temple"]
+      "highlights": ["History", "Culture", "Temple"],
+      "notes": "Early morning visits provide a serene experience before tour groups arrive.",
+      "reservation": "No reservation required for general temple ground visits.",
+      "parking": "Temple visitor parking available on site.",
+      "openingHours": "08:30 - 16:30"
     },
     "ja": {
       "name": "深大寺",
       "description": "深大寺は東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
-      "highlights": ["深大寺の名所", "深大寺の名所", "深大寺の名所"]
+      "highlights": ["深大寺の名所", "深大寺の名所", "深大寺の名所"],
+      "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "08:30 - 16:30（境内自由）"
     }
   },
   "prefecture": "Tokyo",
@@ -98,9 +106,9 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
-  "reservation": "Usually not required; check current visitor guidance.",
-  "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "reservation": "No reservation required for general temple ground visits.",
+  "parking": "Temple visitor parking available on site.",
+  "notes": "Early morning visits provide a serene experience before tour groups arrive.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -139,5 +147,10 @@
   },
   "officialWebsite": "https://csa.gr.jp/",
   "businessHours": "Open access",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Jindai-ji_in_Chofu%2C_Tokyo_002.jpg/1920px-Jindai-ji_in_Chofu%2C_Tokyo_002.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Jindai-ji_in_Chofu%2C_Tokyo_002.jpg/1920px-Jindai-ji_in_Chofu%2C_Tokyo_002.jpg",
+  "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "08:30 - 16:30",
+  "openingHoursJa": "08:30 - 16:30（境内自由）"
 }

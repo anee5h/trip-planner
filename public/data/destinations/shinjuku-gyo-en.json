@@ -12,12 +12,20 @@
         "Traditional Japanese Garden & Tea House",
         "Vast Lawn Landscapes",
         "Spring Cherry Blossoms"
-      ]
+      ],
+      "notes": "Enjoy three distinct garden styles (French, English, Japanese) with spectacular spring cherry blossoms.",
+      "reservation": "Advance booking recommended during peak spring cherry blossom season.",
+      "parking": "Paid public parking available near Shinjuku Gate.",
+      "openingHours": "09:00 - 17:30 (Closed Mondays)"
     },
     "ja": {
       "name": "新宿御苑",
       "description": "広さ58ヘクタールの皇室ゆかりの庭園。日本庭園、イギリス風景式庭園、フランス式整形庭園が融合し、四季の自然や桜を楽しめます。",
-      "highlights": ["庭園 &散策", "新宿御苑の名所", "新宿御苑の名所"]
+      "highlights": ["庭園 &散策", "新宿御苑の名所", "新宿御苑の名所"],
+      "notes": "日本庭園、イギリス風景式庭園、フランス式整形庭園の3つの庭園美と四季の花々を愉しめます。",
+      "reservation": "春の特別開園（桜シーズン）の混雑期は事前予約が推奨されます。",
+      "parking": "新宿門横に有料駐車場が完備されています。",
+      "openingHours": "09:00 - 17:30（月曜休園）"
     }
   },
   "prefecture": "Tokyo",
@@ -105,9 +113,9 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
-  "reservation": "Usually not required; check current visitor guidance.",
-  "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "reservation": "Advance booking recommended during peak spring cherry blossom season.",
+  "parking": "Paid public parking available near Shinjuku Gate.",
+  "notes": "Enjoy three distinct garden styles (French, English, Japanese) with spectacular spring cherry blossoms.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -173,5 +181,10 @@
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "日本庭園、イギリス風景式庭園、フランス式整形庭園の3つの庭園美と四季の花々を愉しめます。",
+  "reservationJa": "春の特別開園（桜シーズン）の混雑期は事前予約が推奨されます。",
+  "parkingJa": "新宿門横に有料駐車場が完備されています。",
+  "openingHours": "09:00 - 17:30 (Closed Mondays)",
+  "openingHoursJa": "09:00 - 17:30（月曜休園）"
 }

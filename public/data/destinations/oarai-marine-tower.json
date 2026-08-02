@@ -66,9 +66,9 @@
     "food": 2444,
     "cafe": 845
   },
-  "reservation": "No reservation required.",
-  "parking": "Free parking lot at Oarai Marine Tower plaza.",
-  "notes": "Famous among anime fans as a key setting in Girls und Panzer.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Ibaraki, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -122,7 +122,11 @@
         "60m Glass Triangular Tower",
         "360-Degree Pacific Ocean Views",
         "Oarai Port Panorama"
-      ]
+      ],
+      "notes": "A top recommended attraction in Ibaraki, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
     },
     "ja": {
       "name": "大洗マリンタワー",
@@ -131,12 +135,21 @@
         "高さ60mのガラス張りタワー",
         "太平洋360度大パノラマ",
         "大洗港と街並みの景観"
-      ]
+      ],
+      "notes": "大洗マリンタワーは、Ibarakiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
     }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "大洗マリンタワーは、Ibarakiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

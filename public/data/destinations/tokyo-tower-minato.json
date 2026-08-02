@@ -66,9 +66,9 @@
     "food": 4429,
     "cafe": 1549
   },
-  "reservation": "Top Deck Tour requires reserved time-slot tickets.",
-  "parking": "Paid parking lot adjacent to Shiba Park at the tower base.",
-  "notes": "Special illumination colors light up the tower on Friday and Saturday evenings.",
+  "reservation": "Advance booking recommended for Top Deck Tour; Main Deck tickets available on site.",
+  "parking": "Paid underground parking structure at Tokyo Tower footprint.",
+  "notes": "Visit the Top Deck Tour (250m) for voice-guided historic commentary and glass floor photo spots.",
   "schemaVersion": 2,
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -123,7 +123,11 @@
         "Top Deck Tour (250m)",
         "RED° TOKYO TOWER e-sports park",
         "Landmark Light Night Illumination"
-      ]
+      ],
+      "notes": "Visit the Top Deck Tour (250m) for voice-guided historic commentary and glass floor photo spots.",
+      "reservation": "Advance booking recommended for Top Deck Tour; Main Deck tickets available on site.",
+      "parking": "Paid underground parking structure at Tokyo Tower footprint.",
+      "openingHours": "09:00 - 22:30 (Last admission 22:00)"
     },
     "ja": {
       "name": "東京タワー",
@@ -133,12 +137,21 @@
         "(250m)散策",
         "°   e-公園散策",
         "東京タワーの名所"
-      ]
+      ],
+      "notes": "高さ250mのトップデッキツアーでは、音声ガイドによる歴史解説とガラス床の絶景写真が楽しめます。",
+      "reservation": "トップデッキツアーは事前予約推奨。メインデッキは当日券購入も可能です。",
+      "parking": "東京タワー敷地内の有料地下駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 22:30（最終入場 22:00）"
     }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "高さ250mのトップデッキツアーでは、音声ガイドによる歴史解説とガラス床の絶景写真が楽しめます。",
+  "reservationJa": "トップデッキツアーは事前予約推奨。メインデッキは当日券購入も可能です。",
+  "parkingJa": "東京タワー敷地内の有料地下駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 22:30 (Last admission 22:00)",
+  "openingHoursJa": "09:00 - 22:30（最終入場 22:00）"
 }

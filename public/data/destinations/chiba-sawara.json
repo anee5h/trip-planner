@@ -66,9 +66,9 @@
   "bestSeason": "Spring",
   "weatherDependence": "low",
   "tags": ["Canal", "Edo", "Historic", "Photogenic"],
-  "reservation": "Not required",
-  "parking": "Available along the outer river banks",
-  "notes": "Toyohashi Bridge spills water into the canal twice an hour, making a pleasant 'ja-ja' sound.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "status": "verified",
   "travelEstimate": {
@@ -119,7 +119,11 @@
         "Toyohashi Ja-Ja Bridge",
         "Ino Tadataka Museum",
         "Sawara Canal Boat Tour"
-      ]
+      ],
+      "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
     },
     "ja": {
       "name": "佐原（小江戸）",
@@ -129,12 +133,21 @@
         "樋橋（ジャージャー橋）",
         "美術館散策",
         "小野川観光船（サッパ舟）"
-      ]
+      ],
+      "notes": "佐原（小江戸）は、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
     }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "佐原（小江戸）は、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

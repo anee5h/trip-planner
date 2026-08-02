@@ -61,9 +61,9 @@
     "food": 3250,
     "cafe": 1300
   },
-  "reservation": "No advance reservation required.",
-  "parking": "Municipal paid parking spaces along Yamashita Park waterfront.",
-  "notes": "Recognized as a Lover's Sanctuary with special romantic evening light projections.",
+  "reservation": "No reservation required for street food; restaurant bookings recommended on weekends.",
+  "parking": "Paid parking available at Yamashita Park underground structure.",
+  "notes": "Sample xiaolongbao steamed buns and bubble tea along 500+ colorful Chinese restaurant streets.",
   "schemaVersion": 2,
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -112,17 +112,34 @@
     "en": {
       "name": "Yokohama Chinatown",
       "description": "Yokohama Chinatown is a curated destination within Yokohama City.",
-      "highlights": ["Food", "Culture", "Shopping"]
+      "highlights": ["Food", "Culture", "Shopping"],
+      "notes": "Sample xiaolongbao steamed buns and bubble tea along 500+ colorful Chinese restaurant streets.",
+      "reservation": "No reservation required for street food; restaurant bookings recommended on weekends.",
+      "parking": "Paid parking available at Yamashita Park underground structure.",
+      "openingHours": "10:00 - 22:00 (Varies by shop)"
     },
     "ja": {
       "name": "横浜中華街",
       "description": "横浜中華街は神奈川県を代表するショッピングと散策のスポットです。多種多様なショップやグルメが集まり、地元の活気と魅力溢れる時間を楽しめます。",
-      "highlights": ["横浜中華街の名所", "横浜中華街の名所", "横浜中華街の名所"]
+      "highlights": [
+        "横浜中華街の名所",
+        "横浜中華街の名所",
+        "横浜中華街の名所"
+      ],
+      "notes": "500軒以上の店舗がひしめく日本最大のチャイナタウンで、小籠包や肉まんの食べ歩きが満喫できます。",
+      "reservation": "散策や食べ歩きは予約不要。週末のコース料理レストランは予約推奨です。",
+      "parking": "山下公園地下駐車場や Chinatown パーキングをご利用ください。",
+      "openingHours": "10:00 - 22:00（店舗により異なる）"
     }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "manual",
     "confidence": "high"
-  }
+  },
+  "notesJa": "500軒以上の店舗がひしめく日本最大のチャイナタウンで、小籠包や肉まんの食べ歩きが満喫できます。",
+  "reservationJa": "散策や食べ歩きは予約不要。週末のコース料理レストランは予約推奨です。",
+  "parkingJa": "山下公園地下駐車場や Chinatown パーキングをご利用ください。",
+  "openingHours": "10:00 - 22:00 (Varies by shop)",
+  "openingHoursJa": "10:00 - 22:00（店舗により異なる）"
 }
