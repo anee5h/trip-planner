@@ -127,9 +127,9 @@
     "reviewedBy": "Meguruto Editorial Reviewer"
   },
   "ratingMetadata": {
-    "rubricVersion": 2,
-    "method": "manual",
-    "confidence": "high"
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   },
   "officialWebsite": "https://www.gotokyo.org/en/destinations/eastern-tokyo/kiyosumi-shirakawa/index.html",
   "businessHours": "Open access",

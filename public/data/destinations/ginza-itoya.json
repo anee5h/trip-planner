@@ -139,9 +139,9 @@
     "reviewedBy": "Meguruto Editorial Reviewer"
   },
   "ratingMetadata": {
-    "rubricVersion": 2,
-    "method": "manual",
-    "confidence": "high"
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   },
   "officialWebsite": "https://www.ito-ya.co.jp/",
   "businessHours": "Open access",

@@ -145,9 +145,9 @@
     "reviewedBy": "Meguruto Editorial Reviewer"
   },
   "ratingMetadata": {
-    "rubricVersion": 2,
-    "method": "manual",
-    "confidence": "high"
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
   },
   "officialWebsite": "https://www.hkc.or.jp/eng/",
   "businessHours": "Open access",
