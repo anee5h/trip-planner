@@ -43,7 +43,11 @@ import {
 } from "@/shared/services/recommendation/TripDurationService";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
-import { formatPlaceName, formatPrefecture } from "@/shared/utils/placeLabels";
+import {
+  formatPlaceName,
+  formatPrefecture,
+  localizePlaceLabel,
+} from "@/shared/utils/placeLabels";
 import { localizeRecommendationReason } from "@/shared/utils/recommendationLabels";
 import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
 import { getCityArea } from "@/shared/data/cityAreas";
@@ -184,7 +188,7 @@ export default function DestinationCard({
           )}
           {destination.kind && (
             <Badge className="bg-emerald-600/90 text-white font-extrabold capitalize backdrop-blur-md border border-white/20 shadow-md">
-              {destination.kind}
+              {localizePlaceLabel(destination.kind, locale)}
             </Badge>
           )}
           {destination.tags.slice(0, 1).map((tag) => {
@@ -206,7 +210,7 @@ export default function DestinationCard({
 
             return (
               <Badge key={tag} className={badgeStyle}>
-                {tag}
+                {localizePlaceLabel(tag, locale)}
               </Badge>
             );
           })}
