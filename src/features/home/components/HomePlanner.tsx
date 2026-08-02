@@ -155,21 +155,21 @@ const VIBE_LABELS: Record<
   { label: string; icon: React.ElementType; color: string }
 > = {
   any: { label: "Anything goes", icon: Sparkles, color: "text-slate-400" },
-  art: { label: "Art & Museums", icon: Palette, color: "text-purple-500" },
-  food: { label: "Food & Eating", icon: Utensils, color: "text-orange-500" },
+  art: { label: "Art & museums", icon: Palette, color: "text-purple-500" },
+  food: { label: "Food", icon: Utensils, color: "text-orange-500" },
   nature: {
-    label: "Nature & Outdoors",
+    label: "Nature & outdoors",
     icon: Trees,
     color: "text-emerald-500",
   },
   history: {
-    label: "History & Culture",
+    label: "History & culture",
     icon: Landmark,
     color: "text-amber-700",
   },
-  sea: { label: "Sea Escape", icon: Waves, color: "text-blue-500" },
-  cool: { label: "Cool Escape", icon: Snowflake, color: "text-sky-400" },
-  themepark: { label: "Theme Parks", icon: Sparkles, color: "text-pink-500" },
+  sea: { label: "Beaches & islands", icon: Waves, color: "text-blue-500" },
+  cool: { label: "Cool escapes", icon: Snowflake, color: "text-sky-400" },
+  themepark: { label: "Theme parks", icon: Sparkles, color: "text-pink-500" },
   photography: { label: "Photography", icon: Camera, color: "text-rose-400" },
 };
 
@@ -334,11 +334,11 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                   <SelectItem
                     key={key}
                     value={key}
-                    className="py-2.5 px-3 cursor-pointer"
+                    className="cursor-pointer py-2.5 pl-3 pr-8"
                   >
-                    <div className="flex items-center justify-between text-xs font-semibold w-full gap-3">
+                    <div className="flex w-full items-center justify-between gap-2 text-xs font-semibold">
                       <span>{translate(`home.durations.${key}`)}</span>
-                      <span className="text-slate-400 text-[10px]">
+                      <span className="shrink-0 whitespace-nowrap text-[10px] text-slate-400">
                         {item.hint}
                       </span>
                     </div>
@@ -360,13 +360,13 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                 <Users className="w-4 h-4 text-emerald-500 shrink-0" />
                 <span>{partySize}</span>
               </div>
-              <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 rounded-lg p-0.5">
+              <div className="flex items-center gap-0.5 rounded-lg">
                 <button
                   type="button"
                   aria-label={t("home.decreaseParty")}
                   disabled={partySize <= 1}
                   onClick={() => onPartySizeChange(Math.max(1, partySize - 1))}
-                  className="w-11 h-11 flex items-center justify-center rounded hover:bg-white dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 disabled:opacity-40"
+                  className="flex h-11 w-11 items-center justify-center rounded-lg text-slate-500 hover:bg-emerald-50 hover:text-emerald-600 disabled:opacity-40 dark:text-slate-300 dark:hover:bg-emerald-950/40 dark:hover:text-emerald-400"
                 >
                   <Minus className="w-3 h-3" />
                 </button>
@@ -375,7 +375,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                   aria-label={t("home.increaseParty")}
                   disabled={partySize >= 8}
                   onClick={() => onPartySizeChange(Math.min(8, partySize + 1))}
-                  className="w-11 h-11 flex items-center justify-center rounded hover:bg-white dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 disabled:opacity-40"
+                  className="flex h-11 w-11 items-center justify-center rounded-lg text-slate-500 hover:bg-emerald-50 hover:text-emerald-600 disabled:opacity-40 dark:text-slate-300 dark:hover:bg-emerald-950/40 dark:hover:text-emerald-400"
                 >
                   <Plus className="w-3 h-3" />
                 </button>

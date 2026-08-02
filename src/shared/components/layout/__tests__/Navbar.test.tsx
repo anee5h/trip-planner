@@ -4,6 +4,8 @@ import { MemoryRouter } from "react-router-dom";
 import { afterEach, describe, it, expect, vi } from "vitest";
 import Navbar from "../Navbar";
 
+const localeState = vi.hoisted(() => ({ setLocale: vi.fn() }));
+
 vi.mock("@/shared/hooks/useAuth", () => ({
   useAuth: () => ({
     user: null,
@@ -19,7 +21,7 @@ vi.mock("@/shared/hooks/useAuth", () => ({
 vi.mock("@/shared/context/LocaleContext", () => ({
   useLocale: () => ({
     locale: "en",
-    setLocale: vi.fn(),
+    setLocale: localeState.setLocale,
   }),
 }));
 
@@ -80,5 +82,22 @@ describe("Navbar Component", () => {
     expect(wordmark?.className).toContain("hidden min-[360px]:inline");
     expect(wordmark?.className).not.toContain("sm:inline");
     expect(markFrame?.className).toContain("dark:ring-white/50");
+  });
+
+  it("makes the language menu available in the mobile navbar", () => {
+    const node = renderNavbar();
+    const languageButton = node.querySelector<HTMLButtonElement>(
+      'button[aria-label="Select language"]',
+    );
+
+    expect(languageButton).not.toBeNull();
+    expect(languageButton?.parentElement?.className).not.toContain("hidden");
+
+    act(() => languageButton?.click());
+    const japanese = Array.from(node.querySelectorAll("button")).find(
+      (button) => button.textContent?.includes("日本語"),
+    );
+    act(() => japanese?.click());
+    expect(localeState.setLocale).toHaveBeenCalledWith("ja");
   });
 });

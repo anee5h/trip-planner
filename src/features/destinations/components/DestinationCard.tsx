@@ -26,7 +26,6 @@ import {
   Car,
   Plane,
   JapaneseYen,
-  Bookmark,
   CheckCircle2,
   Scale,
   Sun,
@@ -44,15 +43,10 @@ import {
 } from "@/shared/services/recommendation/TripDurationService";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
-import {
-  formatPlaceName,
-  formatPrefecture,
-  localizePlaceLabel,
-} from "@/shared/utils/placeLabels";
+import { formatPlaceName, formatPrefecture } from "@/shared/utils/placeLabels";
 import { localizeRecommendationReason } from "@/shared/utils/recommendationLabels";
 import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
 import { getCityArea } from "@/shared/data/cityAreas";
-import { RecommendationFeedbackControl } from "@/features/recommendations/components/RecommendationFeedbackControl";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
 
 interface DestinationCardProps {
@@ -64,8 +58,6 @@ interface DestinationCardProps {
   carMode?: string;
   publicModes?: string[];
   availableTimeHours?: number;
-  showFeedbackControl?: boolean;
-  reasonCodes?: string[];
 }
 
 export default function DestinationCard({
@@ -75,8 +67,6 @@ export default function DestinationCard({
   carMode,
   publicModes,
   availableTimeHours,
-  showFeedbackControl = true,
-  reasonCodes,
 }: DestinationCardProps) {
   const { locale } = useLocale();
   const localizedDestination = getLocalizedPlace(destination, locale);
@@ -94,6 +84,7 @@ export default function DestinationCard({
     toggleCompare,
     compareList,
     homeStationCoords,
+    canMutateProfile,
   } = useTripStore();
   const visited = isVisited(destination.id);
   const comparing = isComparing(destination.id);
@@ -146,8 +137,8 @@ export default function DestinationCard({
     .filter((c): c is Collection => Boolean(c));
 
   const sortedCollections = sortCollections(activeCollections);
-  const visibleCollections = sortedCollections.slice(0, 3);
-  const overflowCount = sortedCollections.length - visibleCollections.length;
+  const visibleCollections = sortedCollections.slice(0, 1);
+  const desktopCollectionOverflow = Math.max(0, sortedCollections.length - 1);
   const preferredTransport = getFastestPreferredTransport(
     destination,
     carMode,
@@ -170,7 +161,7 @@ export default function DestinationCard({
 
   return (
     <Card className="overflow-hidden flex flex-col h-full group rounded-card shadow-card hover:shadow-hover hover:-translate-y-1 transition-all duration-300 border-slate-200 dark:border-slate-800">
-      <div className="relative h-60 sm:h-64 aspect-[16/10] overflow-hidden">
+      <div className="relative h-[185px] overflow-hidden md:h-[185px]">
         <LazyImage
           src={localizedDestination.heroImage}
           alt={localizedDestination.name}
@@ -220,77 +211,57 @@ export default function DestinationCard({
             );
           })}
         </div>
-        <div className="absolute top-3 right-3 flex flex-col gap-2 z-10">
-          <button
-            onClick={handleAddToItinerary}
-            aria-label={cardCopy.add}
-            className="p-2 bg-white/70 hover:bg-white backdrop-blur-sm rounded-full transition-all active:scale-95 duration-150 shadow-sm text-slate-700 hover:text-emerald-600"
-            title={cardCopy.add}
-          >
-            <Plus className="w-5 h-5" />
-          </button>
+        <div className="absolute right-3 top-3 z-10 flex">
           <BucketListButton
             destinationId={destination.id}
             destinationName={localizedDestination.name}
+            className="size-10 p-0"
           />
-          <button
-            onClick={handleVisitedClick}
-            aria-label={
-              visited
-                ? "Mark destination as unvisited"
-                : "Mark destination as visited"
-            }
-            className="p-2 bg-white/70 hover:bg-white backdrop-blur-sm rounded-full transition-all active:scale-95 duration-150 shadow-sm text-slate-700"
-            title={locale === "ja" ? "訪問済みにする" : "Mark as Visited"}
-          >
-            <CheckCircle2
-              className={`w-5 h-5 ${visited ? "fill-emerald-500 text-emerald-500" : ""}`}
-            />
-          </button>
+        </div>
+        <div className="absolute bottom-3 right-3 z-20 flex items-center rounded-lg border border-emerald-100 bg-emerald-50/95 px-2.5 py-1 shadow-sm backdrop-blur-sm dark:border-emerald-800/50 dark:bg-emerald-900/90">
+          <span className="text-sm font-bold text-emerald-700 dark:text-emerald-300">
+            ⭐ {destination.ratings.overall}
+          </span>
         </div>
       </div>
 
-      <CardHeader className="pb-2 pt-5">
-        <div className="flex justify-between items-start">
-          <div>
-            <h3 className="text-2xl font-extrabold tracking-tight mb-1">
-              {formatPlaceName(localizedDestination, locale)}
-            </h3>
-            <div className="flex items-center text-sm font-medium text-slate-500 dark:text-slate-400">
-              <MapPin className="w-3.5 h-3.5 mr-1 text-emerald-500" />
-              {locationLabel}
-            </div>
-          </div>
-          <div className="flex items-center bg-emerald-50 border border-emerald-100 dark:bg-emerald-900/30 dark:border-emerald-800/50 px-2.5 py-1 rounded-lg">
-            <span className="text-sm font-bold text-emerald-700 dark:text-emerald-400">
-              ⭐ {destination.ratings.overall}
-            </span>
-          </div>
+      <CardHeader className="p-3 pb-1 md:p-4 md:pb-2">
+        <h3
+          title={formatPlaceName(localizedDestination, locale)}
+          className="line-clamp-2 min-h-10 min-w-0 text-xl font-extrabold leading-[1.15] tracking-tight"
+        >
+          {formatPlaceName(localizedDestination, locale)}
+        </h3>
+
+        <div className="mt-0.5 flex h-5 min-w-0 items-center text-sm font-medium text-slate-500 dark:text-slate-400 md:mt-1">
+          <MapPin className="mr-1 size-3.5 shrink-0 text-emerald-500" />
+          <span className="truncate">{locationLabel}</span>
         </div>
 
-        {/* Curated Collection Badges */}
-        {sortedCollections.length > 0 && (
-          <div className="flex flex-wrap gap-1.5 mt-2.5">
-            {visibleCollections.map((col) => (
-              <Link
-                key={col.id}
-                to={`/collections/${col.slug}`}
-                onClick={(e) => e.stopPropagation()}
-                className="inline-flex shrink-0 max-w-full"
-              >
-                <CollectionBadge collection={col} size="sm" />
-              </Link>
-            ))}
-            {overflowCount > 0 && (
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">
-                +{overflowCount}
-              </span>
-            )}
-          </div>
-        )}
+        <div className="mt-2 hidden min-h-6 items-center gap-1.5 overflow-hidden md:flex">
+          {sortedCollections.length > 0 && (
+            <>
+              {visibleCollections.map((col) => (
+                <Link
+                  key={col.id}
+                  to={`/collections/${col.slug}`}
+                  onClick={(e) => e.stopPropagation()}
+                  className="inline-flex max-w-full shrink-0"
+                >
+                  <CollectionBadge collection={col} size="sm" />
+                </Link>
+              ))}
+              {desktopCollectionOverflow > 0 && (
+                <span className="inline-flex rounded-full border border-slate-200 bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400">
+                  +{desktopCollectionOverflow}
+                </span>
+              )}
+            </>
+          )}
+        </div>
       </CardHeader>
 
-      <CardContent className="pb-5 flex-grow">
+      <CardContent className="flex-grow p-3 pb-2 pt-0 md:p-4 md:pb-3 md:pt-0">
         {(destination as any).match ? (
           // SMART MATCH VIEW (Homepage Recommendation)
           <div className="space-y-4">
@@ -329,8 +300,8 @@ export default function DestinationCard({
           </div>
         ) : (
           // STANDARD EXPLORE VIEW (Simple, elegant tags instead of raw numbers)
-          <div className="space-y-5">
-            <div className="grid grid-cols-2 gap-y-3 gap-x-2 text-sm font-semibold text-slate-700 dark:text-slate-300">
+          <div>
+            <div className="grid grid-cols-2 gap-x-2 gap-y-1.5 text-[13px] font-semibold text-slate-700 dark:text-slate-300 md:min-h-12 md:gap-x-3 md:gap-y-2 md:text-sm">
               {(() => {
                 const mode = preferredTransport?.mode ?? "train";
 
@@ -348,7 +319,7 @@ export default function DestinationCard({
 
                 return (
                   <div className="flex items-center whitespace-nowrap min-w-0">
-                    <Icon className="w-4 h-4 mr-1.5 text-slate-400 shrink-0" />
+                    <Icon className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
                     <span className="truncate">
                       {locale === "ja"
                         ? formattedTime.replace("h", "時間").replace("m", "分")
@@ -358,8 +329,8 @@ export default function DestinationCard({
                   </div>
                 );
               })()}
-              <div className="flex items-center whitespace-nowrap min-w-0">
-                <JapaneseYen className="w-4 h-4 mr-1.5 text-slate-400 shrink-0" />
+              <div className="flex min-w-0 items-center whitespace-nowrap">
+                <JapaneseYen className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
                 <span className="truncate">
                   {formatLocalizedJPYRange(
                     [
@@ -368,11 +339,15 @@ export default function DestinationCard({
                     ],
                     locale,
                   )}
-                  {partySize > 1 ? ` total for ${partySize}` : ""}
+                  {partySize > 1
+                    ? locale === "ja"
+                      ? `（${partySize}人分）`
+                      : ` for ${partySize}`
+                    : ""}
                 </span>
               </div>
               <div className="flex items-center whitespace-nowrap min-w-0">
-                <Timer className="w-4 h-4 mr-1.5 text-slate-400 shrink-0" />
+                <Timer className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
                 <span className="truncate">
                   {durationEst
                     ? formatTripDurationLabel(durationEst, locale)
@@ -402,7 +377,7 @@ export default function DestinationCard({
                 </div>
               )}
               <div className="flex items-center whitespace-nowrap min-w-0">
-                <Sun className="w-4 h-4 mr-1.5 text-slate-400 shrink-0" />
+                <Sun className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
                 <span className="truncate">
                   {locale === "ja"
                     ? destination.walkingSunMin < 3000
@@ -413,42 +388,48 @@ export default function DestinationCard({
                       : "High sun"}
                 </span>
               </div>
-              <div className="flex items-center whitespace-nowrap min-w-0">
-                <Bookmark className="w-4 h-4 mr-1.5 text-slate-400 shrink-0" />
-                <span className="truncate">
-                  {locale === "ja" ? "カップル" : "Couple"}{" "}
-                  {destination.ratings.couple}/10
-                </span>
-              </div>
-            </div>
-
-            <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-              <div className="flex flex-wrap gap-2">
-                {destination.categories.slice(0, 3).map((c) => (
-                  <span
-                    key={c}
-                    className="text-xs font-bold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-md"
-                  >
-                    {localizePlaceLabel(c, locale)}
-                  </span>
-                ))}
-              </div>
             </div>
           </div>
         )}
       </CardContent>
 
-      <CardFooter className="pt-0 flex justify-between items-center gap-1.5">
+      <CardFooter className="flex items-center gap-1 p-3 pt-0 md:gap-1.5 md:p-4 md:pt-0">
+        <button
+          onClick={handleAddToItinerary}
+          aria-label={cardCopy.add}
+          className="flex size-11 shrink-0 items-center justify-center rounded-full text-slate-600 transition-colors hover:bg-slate-100 hover:text-emerald-600 dark:text-slate-300 dark:hover:bg-slate-800"
+          title={cardCopy.add}
+        >
+          <Plus className="size-5" />
+        </button>
+        <button
+          onClick={handleVisitedClick}
+          disabled={!canMutateProfile}
+          aria-pressed={visited}
+          aria-label={
+            visited
+              ? "Mark destination as unvisited"
+              : "Mark destination as visited"
+          }
+          className="flex size-11 shrink-0 items-center justify-center rounded-full text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
+          title={locale === "ja" ? "訪問済みにする" : "Mark as Visited"}
+        >
+          <CheckCircle2
+            className={`size-5 ${visited ? "fill-emerald-500 text-emerald-500" : ""}`}
+          />
+        </button>
+
         {/* Compare - icon-only button */}
         <Button
           variant={comparing ? "default" : "ghost"}
-          size="icon-sm"
+          size="icon"
           title={comparing ? cardCopy.removeCompare : cardCopy.compare}
           aria-label={comparing ? cardCopy.removeCompare : cardCopy.compare}
+          aria-pressed={comparing}
           className={
             comparing
-              ? "bg-indigo-600 hover:bg-indigo-700 text-white shrink-0 shadow-sm border border-indigo-500"
-              : "shrink-0 text-slate-600 dark:text-slate-300 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-950/40"
+              ? "size-11 bg-indigo-600 hover:bg-indigo-700 text-white shrink-0 shadow-sm border border-indigo-500"
+              : "size-11 shrink-0 text-slate-600 dark:text-slate-300 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-950/40"
           }
           onClick={(e) => {
             e.preventDefault();
@@ -475,7 +456,7 @@ export default function DestinationCard({
             search: location.search,
           }}
           state={linkState}
-          className="flex-1"
+          className="ml-auto"
           onClick={() =>
             recommendationAnalytics.trackClick(destination.id, rank)
           }
@@ -483,21 +464,12 @@ export default function DestinationCard({
           <Button
             variant="default"
             size="sm"
-            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm font-semibold"
+            className="min-h-11 bg-emerald-600 px-5 font-semibold text-white shadow-sm hover:bg-emerald-700 md:px-8"
           >
             {cardCopy.explore}
           </Button>
         </Link>
       </CardFooter>
-
-      {showFeedbackControl && (
-        <div className="px-4 pb-3 pt-0">
-          <RecommendationFeedbackControl
-            destinationId={destination.id}
-            reasonCodes={reasonCodes}
-          />
-        </div>
-      )}
 
       <ItineraryPickerModal
         isOpen={pickerOpen}

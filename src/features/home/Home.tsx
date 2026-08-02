@@ -1,10 +1,8 @@
 import { useState, useMemo, useCallback } from "react";
-import { Link } from "react-router-dom";
 import {
   Calendar,
   Cloud,
   CloudLightning,
-  MapPin,
   Snowflake,
   Sun,
   X,
@@ -25,13 +23,13 @@ import BucketListRail from "./components/BucketListRail";
 import WeatherContextRail from "./components/WeatherContextRail";
 import CollectionsRail from "./components/CollectionsRail";
 import { useTranslation } from "react-i18next";
+import StationInput from "@/shared/components/StationInput";
 
 export default function Home() {
   const { t, i18n } = useTranslation();
   const allDestinations = getDestinationList() as Destination[];
 
-  const { isVisited, favorites, homeStationCoords, homeStation } =
-    useTripStore();
+  const { isVisited, favorites, homeStationCoords } = useTripStore();
   const { user } = useAuth();
 
   const {
@@ -73,6 +71,22 @@ export default function Home() {
     if (!weatherContext || !currentTab) return null;
     return getTabWeatherSummary(currentTab, weatherContext.forecastMap);
   }, [weatherContext, currentTab]);
+  const weatherLabel = currentSituation
+    ? t(
+        `home.weatherConditions.${currentSituation.desc.toLowerCase().replace(/\s+/g, "")}`,
+        { defaultValue: currentSituation.desc },
+      )
+    : "";
+  const CurrentWeatherIcon =
+    currentSituation?.icon === "rain"
+      ? Cloud
+      : currentSituation?.icon === "snow"
+        ? Snowflake
+        : currentSituation?.icon === "storm"
+          ? CloudLightning
+          : currentSituation?.icon === "cloud"
+            ? Cloud
+            : Sun;
 
   // Recommendation engine consumes applied state + live weather context
   const { recommendedDestinations, rouletteCandidates, rouletteExpansion } =
@@ -149,70 +163,64 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero & Full-Width Planner Section */}
-      <section className="relative overflow-hidden bg-slate-50 pb-6 pt-6 sm:pb-8 sm:pt-8 lg:pb-8 lg:pt-10 dark:bg-slate-950">
+      <section className="relative overflow-x-clip bg-slate-50 pb-6 pt-6 sm:pb-8 sm:pt-8 lg:pb-8 lg:pt-10 dark:bg-slate-950">
         <div className="absolute inset-0 bg-grid-slate-200/50 dark:bg-grid-slate-800/50 [mask-image:linear-gradient(0deg,transparent,black)] -z-10" />
         <div className="container mx-auto px-4 max-w-6xl">
-          {/* 2-Row Mobile Context Controls (No Clipping) */}
-          <div className="flex flex-col items-center gap-2 mb-5">
-            {/* Row 1: Location & Weather Context */}
+          <div className="mb-3 flex flex-col items-center gap-1.5 sm:mb-5 sm:gap-2">
             <div className="flex flex-wrap items-center justify-center gap-2 text-xs font-bold text-slate-700 dark:text-slate-200">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-                <MapPin className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                <span className="truncate max-w-[120px] sm:max-w-none">
-                  {homeStation || "Tokyo Station"}
-                </span>
-                <Link
-                  to="/settings?section=general&return=/"
-                  className="ml-1 text-emerald-600 dark:text-emerald-400 hover:underline font-extrabold"
-                >
-                  {t("home.change")}
-                </Link>
-              </div>
-
-              {currentSituation && (
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-                  <span className="text-emerald-600 dark:text-emerald-400 font-extrabold">
-                    {currentSituation.desc} · {currentSituation.temp}°C
-                  </span>
-                </div>
-              )}
+              <StationInput />
             </div>
 
-            {/* Row 2: Weather Date Tabs */}
             {weatherContext && (
-              <div className="flex items-center justify-center gap-1.5 flex-wrap">
-                {weatherContext.tabs.map((tab) => (
-                  <button
-                    key={tab.id}
-                    type="button"
-                    onClick={() => {
-                      if (weatherContext && !tab.isCustom) {
-                        const cleanTabs = weatherContext.tabs.filter(
-                          (t) => !t.isCustom,
-                        );
-                        setWeatherContext({
-                          ...weatherContext,
-                          tabs: cleanTabs,
-                        });
-                        setCustomDate(null);
-                      }
-                      setActiveTabId(tab.id);
-                    }}
-                    className={`px-3 py-1 rounded-full text-xs font-bold transition-all focus:outline-none ${
-                      activeTabId === tab.id
-                        ? "bg-emerald-600 text-white shadow-sm"
-                        : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800"
-                    }`}
-                  >
-                    {tab.label}
-                  </button>
-                ))}
+              <div className="grid w-full grid-cols-3 items-center gap-1 sm:w-[450px] sm:max-w-full sm:gap-1.5">
+                {weatherContext.tabs
+                  .filter((tab) => tab.id === "today" || tab.id === "tomorrow")
+                  .map((tab) => (
+                    <button
+                      key={tab.id}
+                      type="button"
+                      onClick={() => {
+                        if (weatherContext && !tab.isCustom) {
+                          const cleanTabs = weatherContext.tabs.filter(
+                            (t) => !t.isCustom,
+                          );
+                          setWeatherContext({
+                            ...weatherContext,
+                            tabs: cleanTabs,
+                          });
+                          setCustomDate(null);
+                        }
+                        setActiveTabId(tab.id);
+                      }}
+                      className={`inline-flex h-9 w-full items-center justify-center overflow-hidden whitespace-nowrap rounded-full px-1 py-1 text-[10px] font-bold transition-all focus:outline-none sm:px-1.5 sm:text-[11px] ${
+                        activeTabId === tab.id
+                          ? "bg-emerald-600 text-white shadow-sm"
+                          : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800"
+                      }`}
+                    >
+                      {t(`home.dateTabs.${tab.id}`, {
+                        defaultValue: tab.label,
+                      })}
+                      {activeTabId === tab.id && currentSituation && (
+                        <>
+                          <span className="mx-0.5">·</span>
+                          <span className="inline-flex items-center gap-0.5 sm:hidden">
+                            <CurrentWeatherIcon className="size-3 shrink-0" />
+                            {currentSituation.temp}°
+                          </span>
+                          <span className="hidden sm:inline">
+                            {weatherLabel} {currentSituation.temp}°
+                          </span>
+                        </>
+                      )}
+                    </button>
+                  ))}
 
-                <div className="relative">
+                <div className="relative w-full">
                   <button
                     type="button"
                     onClick={() => setDatePickerOpen((open) => !open)}
-                    className="inline-flex min-h-8 items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-bold text-slate-700 shadow-sm transition-colors hover:border-emerald-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"
+                    className="inline-flex h-9 w-full items-center justify-center gap-1 overflow-hidden whitespace-nowrap rounded-full border border-slate-200 bg-white px-1 py-1 text-[10px] font-bold text-slate-700 shadow-sm transition-colors hover:border-emerald-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 sm:px-1.5 sm:text-[11px]"
                     aria-expanded={datePickerOpen}
                   >
                     <Calendar className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
@@ -295,12 +303,11 @@ export default function Home() {
             )}
           </div>
 
-          {/* Centered Headline with Scaled Mobile Typography (28px) */}
-          <div className="text-center max-w-3xl mx-auto mb-6">
-            <h1 className="text-[28px] leading-[1.08] sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          <div className="mx-auto mb-4 max-w-3xl text-center sm:mb-6">
+            <h1 className="text-[27px] leading-[1.08] sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
               {t("home.headline")}
             </h1>
-            <p className="text-[13px] sm:text-sm md:text-base text-slate-500 dark:text-slate-400 font-medium mt-2 leading-relaxed">
+            <p className="mt-2 hidden text-sm font-medium leading-relaxed text-slate-500 dark:text-slate-400 sm:block md:text-base">
               {t("home.subtitle")}
             </p>
           </div>

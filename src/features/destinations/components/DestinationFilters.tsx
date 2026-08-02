@@ -16,7 +16,6 @@ import {
   Coins,
   Filter,
   X,
-  Sparkles,
   Compass,
   Layers,
   ChevronDown,
@@ -33,6 +32,22 @@ import {
   Plane,
   Car,
   Bus,
+  Utensils,
+  Trees,
+  Landmark,
+  Waves,
+  Snowflake,
+  Camera,
+  CloudRain,
+  Sun,
+  Flower2,
+  Leaf,
+  PiggyBank,
+  Wallet,
+  Armchair,
+  Mountain,
+  CircleDollarSign,
+  Ticket,
 } from "lucide-react";
 
 import { getCollections } from "@/shared/data/collections";
@@ -294,7 +309,8 @@ export default function DestinationFilters({
       food: isJa ? "グルメ・食" : "Food",
       nature: isJa ? "自然・絶景" : "Nature",
       history: isJa ? "歴史・文化" : "History",
-      sea: isJa ? "海・ビーチ" : "Sea",
+      sea: isJa ? "ビーチ・島" : "Beaches & islands",
+      cool: isJa ? "涼しい場所" : "Cool escapes",
       photography: isJa ? "写真映え" : "Photography",
       themeParks: isJa ? "テーマパーク" : "Theme parks",
     };
@@ -380,7 +396,8 @@ export default function DestinationFilters({
             food: isJa ? "グルメ・食" : "Food",
             nature: isJa ? "自然・絶景" : "Nature",
             history: isJa ? "歴史・文化" : "History",
-            sea: isJa ? "海・ビーチ" : "Sea",
+            sea: isJa ? "ビーチ・島" : "Beaches & islands",
+            cool: isJa ? "涼しい場所" : "Cool escapes",
             photography: isJa ? "写真映え" : "Photography",
             themeParks: isJa ? "テーマパーク" : "Theme parks",
           }[vibe] || vibe,
@@ -418,7 +435,7 @@ export default function DestinationFilters({
   };
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-3.5 sm:p-4 shadow-sm mb-6 transition-all duration-200">
+    <div className="mb-6 rounded-2xl border border-slate-200 bg-white px-3.5 pb-2.5 pt-3.5 shadow-sm transition-all duration-200 dark:border-slate-800 dark:bg-slate-900 sm:p-4">
       {/* 1-Row Primary Filter Toolbar */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
         {/* Search Input Bar */}
@@ -448,7 +465,7 @@ export default function DestinationFilters({
         </div>
 
         {/* Filter Controls Row */}
-        <div className="flex items-center gap-2 flex-wrap shrink-0">
+        <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-2 sm:flex sm:shrink-0 sm:flex-wrap sm:items-center">
           {/* 1. All Regions & Prefectures Dropdown */}
           <WhereLocationPicker
             selectedRegions={selectedRegions}
@@ -458,11 +475,14 @@ export default function DestinationFilters({
           />
 
           {/* 2. All Collections Dropdown */}
-          <div className="relative" ref={collectionPopoverRef}>
+          <div
+            className="relative order-3 min-w-0 sm:order-none"
+            ref={collectionPopoverRef}
+          >
             <button
               type="button"
               onClick={() => setCollectionPopoverOpen(!collectionPopoverOpen)}
-              className={`h-9 px-3 rounded-xl border text-xs font-medium flex items-center justify-between gap-1.5 transition-all ${
+              className={`flex h-9 w-full items-center justify-between gap-1.5 rounded-xl border px-3 text-xs font-medium transition-all sm:w-auto ${
                 selectedCollections.length > 0
                   ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300 font-bold"
                   : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:border-emerald-500"
@@ -541,10 +561,10 @@ export default function DestinationFilters({
               if (val) setSortBy(val);
             }}
           >
-            <SelectTrigger className="h-9 w-36 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition-colors rounded-xl font-medium text-xs">
+            <SelectTrigger className="order-4 h-9 w-full rounded-xl border-slate-200 bg-slate-50 text-xs font-medium transition-colors hover:border-emerald-500 dark:border-slate-800 dark:bg-slate-950 sm:order-none sm:w-36">
               {sortBy === "recommended" && (
                 <div className="flex items-center whitespace-nowrap">
-                  <Sparkles className="w-3.5 h-3.5 mr-1.5 text-emerald-500 shrink-0" />{" "}
+                  <Compass className="w-3.5 h-3.5 mr-1.5 text-emerald-500 shrink-0" />{" "}
                   {isJa ? "おすすめ順" : "Recommended"}
                 </div>
               )}
@@ -579,7 +599,7 @@ export default function DestinationFilters({
                 className="py-2 px-3 text-xs cursor-pointer"
               >
                 <div className="flex items-center whitespace-nowrap">
-                  <Sparkles className="w-3.5 h-3.5 mr-2 text-emerald-500" />{" "}
+                  <Compass className="w-3.5 h-3.5 mr-2 text-emerald-500" />{" "}
                   {isJa ? "おすすめ順" : "Recommended"}
                 </div>
               </SelectItem>
@@ -626,7 +646,7 @@ export default function DestinationFilters({
           <button
             type="button"
             onClick={() => setModalOpen(true)}
-            className={`h-9 px-3.5 rounded-xl border text-xs font-bold flex items-center gap-1.5 transition-all shrink-0 ${
+            className={`order-2 flex h-9 shrink-0 items-center gap-1.5 rounded-xl border px-3.5 text-xs font-bold transition-all sm:order-none ${
               activeAdvancedCount > 0
                 ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 shadow-sm"
                 : "border-emerald-500/60 bg-emerald-50/30 text-emerald-700 dark:bg-emerald-950/20 dark:text-emerald-300 hover:border-emerald-500"
@@ -647,7 +667,7 @@ export default function DestinationFilters({
             <button
               type="button"
               onClick={onReset}
-              className="h-9 px-3 rounded-xl border border-slate-200 dark:border-slate-800 text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-rose-600 hover:border-rose-300 flex items-center gap-1 transition-colors shrink-0"
+              className="hidden h-9 shrink-0 items-center gap-1 rounded-xl border border-slate-200 px-3 text-xs font-bold text-slate-600 transition-colors hover:border-rose-300 hover:text-rose-600 dark:border-slate-800 dark:text-slate-400 sm:flex"
             >
               <RotateCcw className="w-3 h-3" />
               <span>{isJa ? "リセット" : "Reset"}</span>
@@ -658,14 +678,14 @@ export default function DestinationFilters({
 
       {/* Applied Active-Filter Chips Row (Below Primary Toolbar) */}
       {activeChips.length > 0 && (
-        <div className="flex items-center flex-wrap gap-1.5 pt-3 mt-3 border-t border-slate-100 dark:border-slate-800">
-          <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mr-1">
+        <div className="flex items-center justify-end pt-1 sm:mt-3 sm:flex-wrap sm:justify-start sm:gap-1.5 sm:border-t sm:border-slate-100 sm:pt-3 dark:sm:border-slate-800">
+          <span className="mr-1 hidden text-[11px] font-bold uppercase tracking-wider text-slate-400 sm:inline">
             {isJa ? "適用中:" : "Applied:"}
           </span>
           {activeChips.map((chip) => (
             <span
               key={chip.id}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 text-xs font-bold border border-emerald-200 dark:border-emerald-800 shadow-2xs whitespace-normal break-words max-w-full"
+              className="hidden max-w-full items-center gap-1.5 whitespace-normal break-words rounded-lg border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-xs font-bold text-emerald-700 shadow-2xs dark:border-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300 sm:inline-flex"
             >
               <span>{chip.label}</span>
               <button
@@ -865,24 +885,33 @@ export default function DestinationFilters({
                         val: "economy",
                         label: isJa ? "エコノミー" : "Economy",
                         desc: isJa ? "費用を抑える" : "Budget friendly",
+                        icon: PiggyBank,
+                        color: "text-emerald-500",
                       },
                       {
                         val: "standard",
                         label: isJa ? "スタンダード" : "Standard",
                         desc: isJa ? "バランス重視" : "Balanced spending",
+                        icon: Wallet,
+                        color: "text-blue-500",
                       },
                       {
                         val: "comfortable",
                         label: isJa ? "コンフォート" : "Comfort",
                         desc: isJa ? "快適さ重視" : "Higher comfort",
+                        icon: Armchair,
+                        color: "text-violet-500",
                       },
                       {
                         val: "luxury",
                         label: isJa ? "贅沢" : "Flexible",
                         desc: isJa ? "選択肢を広く" : "Keep options open",
+                        icon: CircleDollarSign,
+                        color: "text-amber-500",
                       },
                     ].map((opt) => {
                       const isSelected = budgetTier === opt.val;
+                      const Icon = opt.icon;
                       return (
                         <button
                           key={opt.val}
@@ -896,7 +925,10 @@ export default function DestinationFilters({
                               : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-400"
                           }`}
                         >
-                          <span className="block text-xs font-bold">
+                          <span className="flex items-center gap-1.5 text-xs font-bold">
+                            <Icon
+                              className={`size-3.5 shrink-0 ${opt.color}`}
+                            />
                             {opt.label}
                           </span>
                           <span className="mt-0.5 block text-[10px] font-medium text-slate-500 dark:text-slate-400">
@@ -1057,39 +1089,76 @@ export default function DestinationFilters({
                   <div className="flex flex-wrap gap-1.5 pt-2">
                     {[
                       {
+                        val: "any",
+                        label: isJa ? "なんでも" : "Anything goes",
+                        icon: Compass,
+                        color: "text-slate-400",
+                      },
+                      {
                         val: "art",
                         label: isJa ? "アート・美術館" : "Art & museums",
+                        icon: Palette,
+                        color: "text-purple-500",
                       },
-                      { val: "food", label: isJa ? "グルメ・食" : "Food" },
-                      { val: "nature", label: isJa ? "自然・絶景" : "Nature" },
+                      {
+                        val: "food",
+                        label: isJa ? "グルメ・食" : "Food",
+                        icon: Utensils,
+                        color: "text-orange-500",
+                      },
+                      {
+                        val: "nature",
+                        label: isJa ? "自然・アウトドア" : "Nature & outdoors",
+                        icon: Trees,
+                        color: "text-emerald-500",
+                      },
                       {
                         val: "history",
-                        label: isJa ? "歴史・文化" : "History",
+                        label: isJa ? "歴史・文化" : "History & culture",
+                        icon: Landmark,
+                        color: "text-amber-700",
                       },
-                      { val: "sea", label: isJa ? "海・ビーチ" : "Sea" },
                       {
-                        val: "photography",
-                        label: isJa ? "写真映え" : "Photography",
+                        val: "sea",
+                        label: isJa ? "ビーチ・島" : "Beaches & islands",
+                        icon: Waves,
+                        color: "text-blue-500",
+                      },
+                      {
+                        val: "cool",
+                        label: isJa ? "涼しい場所" : "Cool escapes",
+                        icon: Snowflake,
+                        color: "text-sky-400",
                       },
                       {
                         val: "themeParks",
                         label: isJa ? "テーマパーク" : "Theme parks",
+                        icon: Ticket,
+                        color: "text-pink-500",
+                      },
+                      {
+                        val: "photography",
+                        label: isJa ? "写真映え" : "Photography",
+                        icon: Camera,
+                        color: "text-rose-400",
                       },
                     ].map((opt) => {
                       const isSelected = vibe === opt.val;
+                      const Icon = opt.icon;
                       return (
                         <button
                           key={opt.val}
                           type="button"
                           onClick={() => setVibe(opt.val)}
-                          className={`min-h-[36px] px-3 py-1.5 rounded-xl border text-xs font-bold transition-all whitespace-normal break-words flex items-center leading-snug ${
+                          className={`flex min-h-[36px] items-center gap-1.5 whitespace-normal rounded-xl border px-3 py-1.5 text-xs font-bold leading-snug transition-all ${
                             isSelected
                               ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 shadow-2xs"
                               : "bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300"
                           }`}
                         >
-                          {isSelected ? "✓ " : ""}
-                          {opt.label}
+                          <Icon className={`size-3.5 shrink-0 ${opt.color}`} />
+                          <span>{opt.label}</span>
+                          {isSelected && <span aria-hidden="true">✓</span>}
                         </button>
                       );
                     })}
@@ -1113,30 +1182,38 @@ export default function DestinationFilters({
                       {
                         val: "rainy",
                         label: isJa ? "雨の日におすすめ" : "Rain-friendly",
+                        icon: CloudRain,
+                        color: "text-blue-500",
                       },
                       {
                         val: "hot",
                         label: isJa ? "暑い日に快適" : "Heat-friendly",
+                        icon: Sun,
+                        color: "text-amber-500",
                       },
                       {
                         val: "cold",
                         label: isJa ? "寒い日におすすめ" : "Cold-friendly",
+                        icon: Snowflake,
+                        color: "text-sky-400",
                       },
                     ].map((w) => {
                       const isSelected = weather === w.val;
+                      const Icon = w.icon;
                       return (
                         <button
                           key={w.val}
                           type="button"
                           onClick={() => setWeather(w.val as typeof weather)}
-                          className={`min-h-[36px] px-3 py-1.5 rounded-xl border text-xs font-bold transition-all whitespace-normal break-words flex items-center leading-snug ${
+                          className={`flex min-h-[36px] items-center gap-1.5 whitespace-normal rounded-xl border px-3 py-1.5 text-xs font-bold leading-snug transition-all ${
                             isSelected
                               ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 shadow-2xs"
                               : "bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300"
                           }`}
                         >
-                          {isSelected ? "✓ " : ""}
-                          {w.label}
+                          <Icon className={`size-3.5 shrink-0 ${w.color}`} />
+                          <span>{w.label}</span>
+                          {isSelected && <span aria-hidden="true">✓</span>}
                         </button>
                       );
                     })}
@@ -1161,19 +1238,26 @@ export default function DestinationFilters({
                         id: "low",
                         label: isJa ? "歩きやすい" : "Easy walking",
                         desc: isJa ? "平坦メイン" : "Mostly flat",
+                        icon: Footprints,
+                        color: "text-emerald-500",
                       },
                       {
                         id: "medium",
                         label: isJa ? "普通" : "Moderate",
                         desc: isJa ? "多少の坂・歩行" : "Slopes & walk",
+                        icon: Route,
+                        color: "text-amber-500",
                       },
                       {
                         id: "high",
                         label: isJa ? "歩行量多め" : "Challenging",
                         desc: isJa ? "長距離・登山" : "Long walks",
+                        icon: Mountain,
+                        color: "text-rose-500",
                       },
                     ].map((w) => {
                       const isSelected = walkingIntensity === w.id;
+                      const Icon = w.icon;
                       return (
                         <button
                           key={w.id}
@@ -1185,11 +1269,14 @@ export default function DestinationFilters({
                               : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 hover:border-slate-300"
                           }`}
                         >
-                          <div
-                            className={`text-xs font-bold leading-tight ${isSelected ? "text-emerald-700 dark:text-emerald-300" : "text-slate-800 dark:text-slate-200"}`}
-                          >
-                            {isSelected ? "✓ " : ""}
-                            {w.label}
+                          <div className="flex items-center gap-1.5">
+                            <Icon className={`size-3.5 shrink-0 ${w.color}`} />
+                            <span
+                              className={`text-xs font-bold leading-tight ${isSelected ? "text-emerald-700 dark:text-emerald-300" : "text-slate-800 dark:text-slate-200"}`}
+                            >
+                              {w.label}
+                            </span>
+                            {isSelected && <span aria-hidden="true">✓</span>}
                           </div>
                           <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 leading-tight">
                             {w.desc}
@@ -1213,28 +1300,48 @@ export default function DestinationFilters({
                     </span>
                   </summary>
                   <div className="flex flex-wrap gap-1.5 pt-2">
-                    {["spring", "summer", "autumn", "winter"].map((val) => {
+                    {[
+                      {
+                        val: "spring",
+                        label: isJa ? "春" : "Spring",
+                        icon: Flower2,
+                        color: "text-pink-500",
+                      },
+                      {
+                        val: "summer",
+                        label: isJa ? "夏" : "Summer",
+                        icon: Sun,
+                        color: "text-amber-500",
+                      },
+                      {
+                        val: "autumn",
+                        label: isJa ? "秋" : "Autumn",
+                        icon: Leaf,
+                        color: "text-orange-500",
+                      },
+                      {
+                        val: "winter",
+                        label: isJa ? "冬" : "Winter",
+                        icon: Snowflake,
+                        color: "text-sky-400",
+                      },
+                    ].map((option) => {
+                      const { val, label, icon: Icon, color } = option;
                       const isSelected = season === val;
-                      const labelMap: Record<string, string> = {
-                        any: isJa ? "指定なし" : "No preference",
-                        spring: isJa ? "春" : "Spring",
-                        summer: isJa ? "夏" : "Summer",
-                        autumn: isJa ? "秋" : "Autumn",
-                        winter: isJa ? "冬" : "Winter",
-                      };
                       return (
                         <button
                           key={val}
                           type="button"
                           onClick={() => setSeason(val)}
-                          className={`min-h-[36px] px-3 py-1.5 rounded-xl border text-xs font-bold transition-all whitespace-normal break-words flex items-center leading-snug ${
+                          className={`flex min-h-[36px] items-center gap-1.5 whitespace-normal rounded-xl border px-3 py-1.5 text-xs font-bold leading-snug transition-all ${
                             isSelected
                               ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 shadow-2xs"
                               : "bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300"
                           }`}
                         >
-                          {isSelected ? "✓ " : ""}
-                          {labelMap[val]}
+                          <Icon className={`size-3.5 shrink-0 ${color}`} />
+                          <span>{label}</span>
+                          {isSelected && <span aria-hidden="true">✓</span>}
                         </button>
                       );
                     })}

@@ -23,7 +23,7 @@
     "feedback": "Feedback"
   },
   "footer": {
-    "tagline": "Your Japan trip planner & decision engine."
+    "tagline": "Discover and plan better trips across Japan."
   },
   "brand": {
     "tagline": "めぐると、見つかる。"
@@ -169,6 +169,10 @@
       "explanation": "Estimated budget for the whole party"
     }
   },
+  "origin": {
+    "from": "From",
+    "edit": "Edit"
+  },
   "home": {
     "headline": "Where will you go next?",
     "subtitle": "Personalized day-trip ideas based on your time, budget, and travel style.",
@@ -176,8 +180,25 @@
     "planner": "Trip Planner",
     "plannerHint": "Find your match in 30s",
     "moreDates": "More dates",
-    "chooseForecastDay": "Choose a forecast day",
+    "chooseForecastDay": "Choose a date",
     "closeForecastDayPicker": "Close forecast day picker",
+    "dateTabs": {
+      "today": "Today",
+      "tomorrow": "Tomorrow",
+      "this_weekend": "This Weekend",
+      "sunday": "Sunday"
+    },
+    "weatherConditions": {
+      "clear": "Clear",
+      "sunny": "Sunny",
+      "cloudy": "Cloudy",
+      "foggy": "Foggy",
+      "rainy": "Rainy",
+      "snowy": "Snowy",
+      "rainshowers": "Rain showers",
+      "snowshowers": "Snow showers",
+      "stormy": "Stormy"
+    },
     "vibe": "Vibe",
     "duration": "Duration",
     "party": "Travel party",
@@ -199,8 +220,8 @@
       "food": "Food",
       "nature": "Nature & outdoors",
       "history": "History & culture",
-      "sea": "Sea escape",
-      "cool": "Cool escape",
+      "sea": "Beaches & islands",
+      "cool": "Cool escapes",
       "themepark": "Theme parks",
       "photography": "Photography"
     },
@@ -333,6 +354,9 @@
     "noItineraries": "No itineraries planned yet",
     "noItinerariesHint": "Create a custom itinerary to organize your stops and route.",
     "newTrip": "Plan new trip",
+    "planFirstTrip": "Plan your first trip",
+    "startFromRecommendations": "Start from recommendations",
+    "buildFromSavedDestination": "Build from a saved destination",
     "newItinerary": "Plan new itinerary",
     "emptyBucketList": "Your bucket list is empty",
     "emptyBucketListHint": "Save destinations you would like to visit in the future.",

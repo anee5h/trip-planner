@@ -16,7 +16,10 @@ export default function Footer() {
             </span>
           </p>
           <p className="text-sm text-slate-500 mt-1">
-            {t("footer.tagline", "Your Japan trip planner & decision engine.")}
+            {t(
+              "footer.tagline",
+              "Discover and plan better trips across Japan.",
+            )}
           </p>
         </div>
 

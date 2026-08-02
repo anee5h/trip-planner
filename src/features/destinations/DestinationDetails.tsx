@@ -123,6 +123,7 @@ import {
   getWeatherDescription,
 } from "@/shared/hooks/useWeather";
 import { budgetService } from "@/shared/services/budget/BudgetService";
+import { RecommendationFeedbackControl } from "@/features/recommendations/components/RecommendationFeedbackControl";
 
 function WeatherIcon({ type }: { type: string }) {
   if (type === "sun") return <Sun className="w-6 h-6 text-amber-500" />;
@@ -695,7 +696,7 @@ export default function DestinationDetails() {
                 <Link
                   key={col.id}
                   to={`/collections/${col.slug}`}
-                  className="inline-flex shrink-0 max-w-full"
+                  className="hidden max-w-full shrink-0 md:inline-flex"
                 >
                   <CollectionBadge collection={col} size="md" variant="solid" />
                 </Link>
@@ -707,7 +708,7 @@ export default function DestinationDetails() {
                   return (
                     <Badge
                       key={tag}
-                      className="bg-sky-600 hover:bg-sky-700 text-white font-bold border-sky-300 shadow-md shrink-0 px-2.5 py-0.5 text-xs inline-flex items-center gap-1"
+                      className="hidden bg-sky-600 hover:bg-sky-700 text-white font-bold border-sky-300 shadow-md shrink-0 px-2.5 py-0.5 text-xs items-center gap-1 md:inline-flex"
                     >
                       <Landmark className="w-3 h-3" />{" "}
                       {locale === "ja"
@@ -720,7 +721,7 @@ export default function DestinationDetails() {
                   return (
                     <Badge
                       key={tag}
-                      className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold border-emerald-300 shadow-md shrink-0 px-2.5 py-0.5 text-xs inline-flex items-center gap-1"
+                      className="hidden bg-emerald-600 hover:bg-emerald-700 text-white font-bold border-emerald-300 shadow-md shrink-0 px-2.5 py-0.5 text-xs items-center gap-1 md:inline-flex"
                     >
                       <Building2 className="w-3 h-3" />{" "}
                       {locale === "ja" ? "無料展望台" : "Free Observatory"}
@@ -742,7 +743,7 @@ export default function DestinationDetails() {
                 <Badge
                   key={cat}
                   variant="outline"
-                  className="text-white border-white/20 backdrop-blur-md bg-white/10 shrink-0 px-2.5 py-0.5 text-xs font-medium"
+                  className="hidden text-white border-white/20 backdrop-blur-md bg-white/10 shrink-0 px-2.5 py-0.5 text-xs font-medium md:inline-flex"
                 >
                   {localizePlaceLabel(cat, locale)}
                 </Badge>
@@ -947,6 +948,13 @@ export default function DestinationDetails() {
                     <ChevronDown className="w-3.5 h-3.5" />
                   )}
                 </button>
+              </div>
+
+              <div className="border-t border-slate-100 pt-4 dark:border-slate-800">
+                <RecommendationFeedbackControl
+                  destinationId={destination.id}
+                  compact
+                />
               </div>
 
               {/* Reassuring Beta Travel Estimate Calibration Notice */}

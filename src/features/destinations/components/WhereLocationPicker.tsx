@@ -111,7 +111,12 @@ export default function WhereLocationPicker({
 
   const getButtonLabel = () => {
     if (totalSelections === 0 && selectedRegions.length === 0) {
-      return "All Regions & Prefectures";
+      return (
+        <>
+          <span className="sm:hidden">Anywhere</span>
+          <span className="hidden sm:inline">All Regions & Prefectures</span>
+        </>
+      );
     }
     if (selectedPrefectures.length === 1) {
       return selectedPrefectures[0];
@@ -127,18 +132,18 @@ export default function WhereLocationPicker({
   };
 
   return (
-    <div className="relative" ref={popoverRef}>
+    <div className="relative min-w-0 sm:w-auto" ref={popoverRef}>
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className={`h-9 px-3 rounded-xl border text-xs font-medium flex items-center gap-1.5 transition-all ${
+        className={`flex h-9 w-full items-center gap-1.5 rounded-xl border px-3 text-xs font-medium transition-all sm:w-auto ${
           totalSelections > 0 || selectedRegions.length > 0
             ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300 font-bold"
             : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:border-emerald-500"
         }`}
       >
         <MapPin className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-        <span className="truncate max-w-[150px] sm:max-w-[200px]">
+        <span className="max-w-[150px] truncate sm:max-w-[200px]">
           {getButtonLabel()}
         </span>
         <ChevronDown className="w-3.5 h-3.5 text-slate-400 shrink-0" />

@@ -217,7 +217,7 @@ export default function Navbar() {
               <span>{t("navigation.passport")}</span>
             </Link>
           </nav>
-          <div className="relative hidden md:block">
+          <div className="relative">
             <button
               type="button"
               onClick={() => setLanguageMenuOpen((open) => !open)}
