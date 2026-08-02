@@ -405,6 +405,7 @@ export default function DestinationCard({
         <button
           onClick={handleVisitedClick}
           disabled={!canMutateProfile}
+          aria-pressed={visited}
           aria-label={
             visited
               ? "Mark destination as unvisited"
@@ -424,6 +425,7 @@ export default function DestinationCard({
           size="icon"
           title={comparing ? cardCopy.removeCompare : cardCopy.compare}
           aria-label={comparing ? cardCopy.removeCompare : cardCopy.compare}
+          aria-pressed={comparing}
           className={
             comparing
               ? "size-11 bg-indigo-600 hover:bg-indigo-700 text-white shrink-0 shadow-sm border border-indigo-500"

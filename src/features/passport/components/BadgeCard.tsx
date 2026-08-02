@@ -92,23 +92,23 @@ export function BadgeCard({
       </h4>
 
       {/* Description Snippet */}
-      <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-snug line-clamp-2 mb-3">
+      <p className="mb-3 line-clamp-2 text-xs leading-snug text-slate-500 dark:text-slate-400">
         {badge.description}
       </p>
 
       {/* Footer Pill (Unlocked Date or Rarity Badge) - NO Progress Bar */}
       <div className="mt-auto flex items-center gap-1.5">
         <span
-          className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${rarityConfig.style}`}
+          className={`rounded-full border px-2 py-0.5 text-xs font-bold ${rarityConfig.style}`}
         >
           {rarityConfig.label}
         </span>
         {isUnlocked ? (
-          <span className="inline-flex items-center gap-1 text-[10px] font-extrabold text-emerald-600 dark:text-emerald-400">
+          <span className="inline-flex items-center gap-1 text-xs font-extrabold text-emerald-600 dark:text-emerald-400">
             <CheckCircle2 className="w-3 h-3" /> Unlocked
           </span>
         ) : (
-          <span className="inline-flex items-center gap-1 text-[10px] font-medium text-slate-400">
+          <span className="inline-flex items-center gap-1 text-xs font-medium text-slate-400">
             <Lock className="w-3 h-3" /> Locked
           </span>
         )}

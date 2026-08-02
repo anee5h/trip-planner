@@ -171,7 +171,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                     <Compass className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-200">
+                    <span className="text-xs font-bold uppercase tracking-wider text-emerald-200">
                       Japan Exploration Status
                     </span>
                     <h2 className="text-lg md:text-xl font-extrabold tracking-tight">
@@ -184,7 +184,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                   <span className="text-2xl md:text-3xl font-extrabold tracking-tight">
                     {japanPct}%
                   </span>
-                  <p className="text-[11px] font-medium text-emerald-200">
+                  <p className="text-xs font-medium text-emerald-200">
                     of Japan Explored
                   </p>
                 </div>

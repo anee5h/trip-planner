@@ -179,6 +179,7 @@ describe("DestinationCard responsive content", () => {
     );
     expect(visitedButtons).toHaveLength(1);
     expect(visitedButtons[0].className).not.toContain("md:hidden");
+    expect(visitedButtons[0].getAttribute("aria-pressed")).toBe("false");
   });
 
   it("fills the bucket-list bookmark green when saved", () => {

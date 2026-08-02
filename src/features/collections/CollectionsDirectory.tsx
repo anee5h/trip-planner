@@ -51,7 +51,7 @@ export default function CollectionsDirectory() {
             >
               <Badge
                 variant="outline"
-                className="w-fit text-[10px] font-bold uppercase tracking-wide"
+                className="w-fit text-xs font-bold uppercase tracking-wide"
               >
                 {collection.category}
               </Badge>
@@ -63,7 +63,7 @@ export default function CollectionsDirectory() {
               </p>
 
               <div className="mt-auto pt-5">
-                <div className="mb-2 flex items-center justify-between text-xs font-bold">
+                <div className="mb-2 flex items-center justify-between text-xs font-bold md:text-[13px]">
                   <span className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
                     <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
                     {progress.visited} / {progress.total}{" "}
@@ -79,7 +79,7 @@ export default function CollectionsDirectory() {
                     style={{ width: `${progress.percent}%` }}
                   />
                 </div>
-                <div className="mt-4 flex items-center justify-between text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                <div className="mt-4 flex items-center justify-between text-xs font-bold text-emerald-600 dark:text-emerald-400 md:text-[13px]">
                   <span>
                     {destinations.length} {t("ui.destinations")}
                   </span>
