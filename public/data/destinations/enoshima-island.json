@@ -9,9 +9,9 @@
   "budgetMin": 8000,
   "budgetRecommended": 12000,
   "budgetMax": 16000,
-  "walkingMin": 12000,
-  "walkingSunMin": 8000,
-  "walkingShadeMin": 4000,
+  "walkingMin": 60,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "indoorPercent": 10,
   "ratings": {
     "overall": 9.2,
@@ -89,5 +89,39 @@
   },
   "areaId": "enoshima",
   "officialWebsite": "https://www.fujisawa-kanko.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.fujisawa-kanko.jp/",
+        "title": "Enoshima official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Enoshima",
+  "content": {
+    "en": {
+      "name": "Enoshima",
+      "description": "A delightfully pleasant island just off the coast, full of shrines, coastal cliffs, and sweeping views of Mt. Fuji.",
+      "highlights": ["Enoshima Shrine", "Iwaya Caves", "Enoshima Sea Candle"]
+    },
+    "ja": {
+      "name": "Enoshima",
+      "description": "EnoshimaはKanagawaの主要な観光スポットです。",
+      "highlights": ["Enoshima Shrine", "Iwaya Caves", "Enoshima Sea Candle"]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

@@ -10,9 +10,9 @@
   "budgetMin": 3000,
   "budgetRecommended": 7000,
   "budgetMax": 11000,
-  "walkingMin": 3500,
-  "walkingSunMin": 1200,
-  "walkingShadeMin": 2300,
+  "walkingMin": 35,
+  "walkingSunMin": 21,
+  "walkingShadeMin": 14,
   "indoorPercent": 90,
   "ratings": {
     "overall": 9.6,
@@ -106,5 +106,49 @@
     "max": 4
   },
   "officialWebsite": "https://www.yokohama-landmark.jp/skygarden/",
-  "businessHours": "10:00 - 21:00 (Last admission 20:30)"
+  "businessHours": "10:00 - 21:00 (Last admission 20:30)",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.yokohama-landmark.jp/skygarden/",
+        "title": "Yokohama Landmark Tower (Sky Garden) official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Yokohama Landmark Tower (Sky Garden)",
+  "content": {
+    "en": {
+      "name": "Yokohama Landmark Tower (Sky Garden)",
+      "description": "Ascend to the 69th floor (273m) in just 40 seconds aboard Japan's fastest elevator for 360-degree panoramas of Yokohama Bay Bridge, Minato Mirai, and Mt. Fuji.",
+      "highlights": [
+        "69F Sky Garden Observatory (273m)",
+        "Japan Fastest Elevator (750m/min)",
+        "360-Degree Yokohama Port & Bay Bridge",
+        "Sky Cafe Lounge"
+      ]
+    },
+    "ja": {
+      "name": "Yokohama Landmark Tower (Sky Garden)",
+      "description": "Yokohama Landmark Tower (Sky Garden)はKanagawaの主要な観光スポットです。",
+      "highlights": [
+        "69F Sky Garden Observatory (273m)",
+        "Japan Fastest Elevator (750m/min)",
+        "360-Degree Yokohama Port & Bay Bridge",
+        "Sky Cafe Lounge"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

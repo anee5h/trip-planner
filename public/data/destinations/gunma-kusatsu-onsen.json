@@ -99,5 +99,49 @@
     "max": 13
   },
   "officialWebsite": "https://www.kusatsu-onsen.ne.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.kusatsu-onsen.ne.jp/",
+        "title": "Kusatsu Onsen official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Kusatsu Onsen",
+  "content": {
+    "en": {
+      "name": "Kusatsu Onsen",
+      "description": "Ranked among Japan's top three hot spring towns, famous for its steam-billowing Yubatake central field and acidic, healing baths.",
+      "highlights": [
+        "Yubatake (Hot Water Field)",
+        "Netsunoyu (Yumomi Show)",
+        "Sainokawara Park",
+        "Otowanoyu Public Baths"
+      ]
+    },
+    "ja": {
+      "name": "Kusatsu Onsen",
+      "description": "Kusatsu OnsenはGunmaの主要な観光スポットです。",
+      "highlights": [
+        "Yubatake (Hot Water Field)",
+        "Netsunoyu (Yumomi Show)",
+        "Sainokawara Park",
+        "Otowanoyu Public Baths"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

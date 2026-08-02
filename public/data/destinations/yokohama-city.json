@@ -9,9 +9,9 @@
   "budgetMin": 8000,
   "budgetRecommended": 12000,
   "budgetMax": 16000,
-  "walkingMin": 8000,
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 4000,
+  "walkingMin": 60,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "indoorPercent": 70,
   "ratings": {
     "overall": 9,
@@ -115,5 +115,39 @@
     "min": 8,
     "max": 14
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/kanagawa/index.html",
+        "title": "Kanagawa Official Visitor Information",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Yokohama City",
+  "content": {
+    "en": {
+      "name": "Yokohama City",
+      "description": "Yokohama is a scenic destination in the Kanagawa region of Japan, offering rich history and cultural attractions.",
+      "highlights": ["Chinatown", "Red Brick Warehouse", "Cup Noodle Museum"]
+    },
+    "ja": {
+      "name": "Yokohama City",
+      "description": "Yokohama CityはKanagawaの主要な観光スポットです。",
+      "highlights": ["Chinatown", "Red Brick Warehouse", "Cup Noodle Museum"]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

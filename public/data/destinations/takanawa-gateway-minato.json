@@ -10,9 +10,9 @@
   "budgetMin": 3000,
   "budgetRecommended": 6500,
   "budgetMax": 10000,
-  "walkingMin": 3000,
-  "walkingSunMin": 1200,
-  "walkingShadeMin": 1800,
+  "walkingMin": 30,
+  "walkingSunMin": 18,
+  "walkingShadeMin": 12,
   "indoorPercent": 80,
   "ratings": {
     "overall": 8.4,
@@ -96,5 +96,49 @@
     "max": 4
   },
   "officialWebsite": "https://www.takanawagateway-city.com/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.takanawagateway-city.com/",
+        "title": "Takanawa Gateway official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Takanawa Gateway",
+  "content": {
+    "en": {
+      "name": "Takanawa Gateway",
+      "description": "Designed by world-renowned architect Kengo Kuma, Takanawa Gateway is the newest station on Tokyos iconic Yamanote Line, featuring a dramatic paper-origami glass roof, AI-powered unmanned stores, and futuristic urban planning.",
+      "highlights": [
+        "Kengo Kuma Origami Roof Structure",
+        "TOUCH TO GO Automated Convenience Store",
+        "TAKANAWA GATEWAY CITY Development",
+        "Sengakuji Temple (nearby)"
+      ]
+    },
+    "ja": {
+      "name": "Takanawa Gateway",
+      "description": "Takanawa GatewayはTokyoの主要な観光スポットです。",
+      "highlights": [
+        "Kengo Kuma Origami Roof Structure",
+        "TOUCH TO GO Automated Convenience Store",
+        "TAKANAWA GATEWAY CITY Development",
+        "Sengakuji Temple (nearby)"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

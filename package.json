@@ -26,6 +26,7 @@
     "validate:i18n": "npm run check:translation-parity",
     "check:branding": "node scripts/check-branding.cjs",
     "report:editorial-freshness": "tsx scripts/report-editorial-freshness.ts",
+    "report:editorial-quality": "tsx scripts/report-editorial-quality.ts",
     "audit:major-city-coverage": "tsx scripts/audit-major-city-coverage.ts",
     "expand:major-city-catalog": "tsx scripts/expand-major-city-catalog.ts",
     "audit:v192-expansion-data": "tsx scripts/audit-v192-expansion-data.ts",

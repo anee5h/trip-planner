@@ -10,9 +10,9 @@
   "budgetMin": 3500,
   "budgetRecommended": 8250,
   "budgetMax": 13000,
-  "walkingMin": 3500,
-  "walkingSunMin": 1200,
-  "walkingShadeMin": 2300,
+  "walkingMin": 35,
+  "walkingSunMin": 21,
+  "walkingShadeMin": 14,
   "indoorPercent": 85,
   "ratings": {
     "overall": 9.7,
@@ -106,5 +106,49 @@
     "max": 4
   },
   "officialWebsite": "https://tcv.roppongihills.com/",
-  "businessHours": "10:00 - 22:00 (Last admission 21:30)"
+  "businessHours": "10:00 - 22:00 (Last admission 21:30)",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://tcv.roppongihills.com/",
+        "title": "Roppongi Hills Observation Deck (Tokyo City View) official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Roppongi Hills Observation Deck (Tokyo City View)",
+  "content": {
+    "en": {
+      "name": "Roppongi Hills Observation Deck (Tokyo City View)",
+      "description": "Located on the 52nd floor and rooftop of Mori Tower (270m height), offering the iconic front-row view of Tokyo Tower framed against the Tokyo Bay skyline.",
+      "highlights": [
+        "52F Glass Indoor Observation Deck",
+        "Open-Air Sky Deck (270m)",
+        "Front-Row Tokyo Tower Night View",
+        "Mori Art Museum Access"
+      ]
+    },
+    "ja": {
+      "name": "Roppongi Hills Observation Deck (Tokyo City View)",
+      "description": "Roppongi Hills Observation Deck (Tokyo City View)はTokyoの主要な観光スポットです。",
+      "highlights": [
+        "52F Glass Indoor Observation Deck",
+        "Open-Air Sky Deck (270m)",
+        "Front-Row Tokyo Tower Night View",
+        "Mori Art Museum Access"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

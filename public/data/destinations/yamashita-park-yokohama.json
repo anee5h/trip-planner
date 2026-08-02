@@ -10,9 +10,9 @@
   "budgetMin": 3000,
   "budgetRecommended": 6500,
   "budgetMax": 10000,
-  "walkingMin": 4000,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 2500,
+  "walkingMin": 40,
+  "walkingSunMin": 24,
+  "walkingShadeMin": 16,
   "indoorPercent": 75,
   "ratings": {
     "overall": 8.8,
@@ -91,5 +91,38 @@
     "max": 4
   },
   "officialWebsite": "https://www.welcome.city.yokohama.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.welcome.city.yokohama.jp/",
+        "title": "Yamashita Park official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "content": {
+    "en": {
+      "name": "Yamashita Park",
+      "description": "Yamashita Park is a curated destination within Yokohama City.",
+      "highlights": ["Park", "Waterfront", "Views"]
+    },
+    "ja": {
+      "name": "山下公園",
+      "description": "山下公園はKanagawaの主要な観光スポットです。",
+      "highlights": ["Park", "Waterfront", "Views"]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

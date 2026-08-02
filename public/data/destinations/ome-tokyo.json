@@ -93,5 +93,47 @@
     "max": 9
   },
   "businessHours": "Open access",
-  "kind": "city"
+  "kind": "city",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/tokyo/index.html",
+        "title": "Tokyo Official Visitor Information",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Ome",
+  "content": {
+    "en": {
+      "name": "Ome",
+      "description": "Nostalgic Showa-era movie poster town in western Tokyo surrounded by Mitake Gorge, river rafting, and mountain shrines.",
+      "highlights": [
+        "Mitake Gorge",
+        "Ome Retro Movie Poster Street",
+        "Gyokudo Art Museum"
+      ]
+    },
+    "ja": {
+      "name": "Ome",
+      "description": "OmeはTokyoの主要な観光スポットです。",
+      "highlights": [
+        "Mitake Gorge",
+        "Ome Retro Movie Poster Street",
+        "Gyokudo Art Museum"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

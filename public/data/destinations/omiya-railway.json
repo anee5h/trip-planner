@@ -9,9 +9,9 @@
   "budgetMin": 9700,
   "budgetRecommended": 13700,
   "budgetMax": 17700,
-  "walkingMin": 4000,
-  "walkingSunMin": 500,
-  "walkingShadeMin": 3500,
+  "walkingMin": 40,
+  "walkingSunMin": 24,
+  "walkingShadeMin": 16,
   "indoorPercent": 95,
   "ratings": {
     "overall": 8.8,
@@ -49,7 +49,7 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Namakubi0kei.JPG/330px-Namakubi0kei.JPG",
   "transportOptions": {
-    "train": 100
+    "train": 35
   },
   "highlights": ["Train Simulators", "Historic Cars"],
   "description": "Ōmiya is one of ten wards of the city of Saitama, in Saitama Prefecture, Japan, and is located in the northeastern part of the city. As of 1 March 2021, the ward had an estimated population of 119,298 and a population density of 9,300 persons per km2. Its total area was 12.80 square kilometres (4.94 sq mi). Although Urawa-ku is the governmental center of Saitama City, Ōmiya-ku is the most active commercial and business centre in both Saitama City and Saitama Prefecture thanks to its transport infrastructure, especially railways connected at Ōmiya Station.",
@@ -83,5 +83,39 @@
   },
   "areaId": "omiya",
   "officialWebsite": "https://www.railway-museum.jp/",
-  "businessHours": "09:30 - 17:00 (Closed Mondays)"
+  "businessHours": "09:30 - 17:00 (Closed Mondays)",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.railway-museum.jp/",
+        "title": "Omiya Railway Museum official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Omiya Railway Museum",
+  "content": {
+    "en": {
+      "name": "Omiya Railway Museum",
+      "description": "Ōmiya is one of ten wards of the city of Saitama, in Saitama Prefecture, Japan, and is located in the northeastern part of the city. As of 1 March 2021, the ward had an estimated population of 119,298 and a population density of 9,300 persons per km2. Its total area was 12.80 square kilometres (4.94 sq mi). Although Urawa-ku is the governmental center of Saitama City, Ōmiya-ku is the most active commercial and business centre in both Saitama City and Saitama Prefecture thanks to its transport infrastructure, especially railways connected at Ōmiya Station.",
+      "highlights": ["Train Simulators", "Historic Cars"]
+    },
+    "ja": {
+      "name": "Omiya Railway Museum",
+      "description": "Omiya Railway MuseumはSaitamaの主要な観光スポットです。",
+      "highlights": ["Train Simulators", "Historic Cars"]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

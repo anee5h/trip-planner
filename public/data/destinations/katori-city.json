@@ -86,5 +86,38 @@
     "min": 8,
     "max": 14
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/chiba/index.html",
+        "title": "Chiba Official Visitor Information",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "content": {
+    "en": {
+      "name": "Katori City",
+      "description": "A historic Chiba city containing the preserved canal town of Sawara and Katori Jingu shrine.",
+      "highlights": ["Sawara historic town", "Katori Jingu", "Canal district"]
+    },
+    "ja": {
+      "name": "香取",
+      "description": "香取はChibaの主要な観光スポットです。",
+      "highlights": ["Sawara historic town", "Katori Jingu", "Canal district"]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

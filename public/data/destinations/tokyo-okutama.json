@@ -97,5 +97,49 @@
     "max": 10
   },
   "officialWebsite": "https://www.okutama.gr.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.okutama.gr.jp/",
+        "title": "Okutama official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Okutama",
+  "content": {
+    "en": {
+      "name": "Okutama",
+      "description": "A scenic mountainous escape in western Tokyo, offering dense forests, Nippara Limestone Caves, and peaceful lake views.",
+      "highlights": [
+        "Lake Okutama",
+        "Nippara Limestone Cave",
+        "Mount Mitake Trail",
+        "Hatonosu Gorge"
+      ]
+    },
+    "ja": {
+      "name": "Okutama",
+      "description": "OkutamaはTokyoの主要な観光スポットです。",
+      "highlights": [
+        "Lake Okutama",
+        "Nippara Limestone Cave",
+        "Mount Mitake Trail",
+        "Hatonosu Gorge"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

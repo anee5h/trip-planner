@@ -10,9 +10,9 @@
   "budgetMin": 3000,
   "budgetRecommended": 6500,
   "budgetMax": 10000,
-  "walkingMin": 4000,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 2500,
+  "walkingMin": 40,
+  "walkingSunMin": 24,
+  "walkingShadeMin": 16,
   "indoorPercent": 75,
   "ratings": {
     "overall": 8.8,
@@ -96,5 +96,49 @@
     "max": 4
   },
   "officialWebsite": "https://marinetower.yokohama/",
-  "businessHours": "10:00 - 21:00 (Last admission 20:30)"
+  "businessHours": "10:00 - 21:00 (Last admission 20:30)",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://marinetower.yokohama/",
+        "title": "Yokohama Marine Tower official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Yokohama Marine Tower",
+  "content": {
+    "en": {
+      "name": "Yokohama Marine Tower",
+      "description": "Built in 1961 to mark Yokohama Port's 100th anniversary, this 106-meter historic steel lattice lighthouse tower offers sweeping vistas over Yokohama Bay Bridge and Minato Mirai.",
+      "highlights": [
+        "106m Observation Deck",
+        "Media Art Illumination",
+        "Yamashita Park Promenade",
+        "Chinatown Proximity"
+      ]
+    },
+    "ja": {
+      "name": "Yokohama Marine Tower",
+      "description": "Yokohama Marine TowerはKanagawaの主要な観光スポットです。",
+      "highlights": [
+        "106m Observation Deck",
+        "Media Art Illumination",
+        "Yamashita Park Promenade",
+        "Chinatown Proximity"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

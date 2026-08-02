@@ -15,9 +15,9 @@
   "budgetMin": 3500,
   "budgetRecommended": 14250,
   "budgetMax": 25000,
-  "walkingMin": 4000,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 2500,
+  "walkingMin": 40,
+  "walkingSunMin": 24,
+  "walkingShadeMin": 16,
   "indoorPercent": 50,
   "ratings": {
     "overall": 9.5,
@@ -86,5 +86,39 @@
     "min": 6,
     "max": 12
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/ibaraki/index.html",
+        "title": "Ibaraki Official Visitor Information",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Mito City",
+  "content": {
+    "en": {
+      "name": "Mito City",
+      "description": "Historic Mito feudal clan capital featuring Kairakuen Garden (Three Great Gardens of Japan) and plum blossoms.",
+      "highlights": ["Explore Mito City", "Local Culture & Cuisine"]
+    },
+    "ja": {
+      "name": "Mito City",
+      "description": "Mito CityはIbarakiの主要な観光スポットです。",
+      "highlights": ["Explore Mito City", "Local Culture & Cuisine"]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

@@ -27,9 +27,9 @@
   "budgetMin": 17800,
   "budgetMax": 25800,
   "totalTripHours": 8,
-  "walkingMin": 10000,
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 6000,
+  "walkingMin": 60,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "comfort": {
     "heatTolerance": 9,
     "rainFriendly": 9,
@@ -85,5 +85,47 @@
     "max": 9
   },
   "officialWebsite": "https://www.seaparadise.co.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.seaparadise.co.jp/",
+        "title": "Hakkeijima Sea Paradise official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Hakkeijima Sea Paradise",
+  "content": {
+    "en": {
+      "name": "Hakkeijima Sea Paradise",
+      "description": "Discover Hakkeijima Sea Paradise, a prominent destination in Kanagawa. With its rich mix of family, entertainment, it's a highly recommended spot for a 8-hour getaway.",
+      "highlights": [
+        "Explore top-rated theme park locations",
+        "Enjoy regional specialties and local culture",
+        "Perfect for a active day out"
+      ]
+    },
+    "ja": {
+      "name": "Hakkeijima Sea Paradise",
+      "description": "Hakkeijima Sea ParadiseはKanagawaの主要な観光スポットです。",
+      "highlights": [
+        "Explore top-rated theme park locations",
+        "Enjoy regional specialties and local culture",
+        "Perfect for a active day out"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

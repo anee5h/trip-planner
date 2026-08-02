@@ -86,5 +86,49 @@
     "max": 8
   },
   "officialWebsite": "https://www.town.otaki.chiba.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.town.otaki.chiba.jp/",
+        "title": "Yoro Valley official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Yoro Valley",
+  "content": {
+    "en": {
+      "name": "Yoro Valley",
+      "description": "A scenic forested river valley in the heart of Chiba, famous for its autumn leaves hikes and unique Awamata double waterfall cascades.",
+      "highlights": [
+        "Awamata Falls",
+        "Yoro River Trail",
+        "Kannon Bridge",
+        "Yoro Gorge Onsen"
+      ]
+    },
+    "ja": {
+      "name": "Yoro Valley",
+      "description": "Yoro ValleyはChibaの主要な観光スポットです。",
+      "highlights": [
+        "Awamata Falls",
+        "Yoro River Trail",
+        "Kannon Bridge",
+        "Yoro Gorge Onsen"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

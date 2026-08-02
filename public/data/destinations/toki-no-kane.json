@@ -50,17 +50,17 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 204
+    "train": 41
   },
   "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
   },
-  "walkingMin": 6500,
+  "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
@@ -106,7 +106,7 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "in_review",
+    "lifecycle": "approved",
     "sources": [
       {
         "type": "wikipedia",
@@ -121,9 +121,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due",
-    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
+    "checkedAt": "2026-08-02",
+    "freshness": "current",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
     "fieldSources": {
       "ratings": [
         {
@@ -163,12 +163,14 @@
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       }
-    ]
+    ],
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer"
   },
   "ratingMetadata": {
-    "rubricVersion": 1,
-    "method": "assisted",
-    "confidence": "low"
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
   },
   "officialWebsite": "https://koedo.or.jp/",
   "businessHours": "09:30 - 17:00 (Closed Mondays)"

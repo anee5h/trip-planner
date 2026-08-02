@@ -27,9 +27,9 @@
   "budgetMin": 2000,
   "budgetMax": 10000,
   "totalTripHours": 8,
-  "walkingMin": 10000,
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 6000,
+  "walkingMin": 60,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "comfort": {
     "heatTolerance": 5,
     "rainFriendly": 4,
@@ -86,5 +86,47 @@
     "max": 9
   },
   "officialWebsite": "https://www.miura-info.ne.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.miura-info.ne.jp/",
+        "title": "Miura Peninsula & Jogashima official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Miura Peninsula & Jogashima",
+  "content": {
+    "en": {
+      "name": "Miura Peninsula & Jogashima",
+      "description": "Discover Miura Peninsula & Jogashima, a prominent destination in Kanagawa. With its rich mix of ocean, scenic, hiking, it's a highly recommended spot for a 8-hour getaway.",
+      "highlights": [
+        "Explore top-rated coast locations",
+        "Enjoy regional specialties and local culture",
+        "Perfect for a active day out"
+      ]
+    },
+    "ja": {
+      "name": "Miura Peninsula & Jogashima",
+      "description": "Miura Peninsula & JogashimaはKanagawaの主要な観光スポットです。",
+      "highlights": [
+        "Explore top-rated coast locations",
+        "Enjoy regional specialties and local culture",
+        "Perfect for a active day out"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

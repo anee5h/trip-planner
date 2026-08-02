@@ -26,9 +26,9 @@
     "car": 100
   },
   "totalTripHours": 8,
-  "walkingMin": 150,
-  "walkingSunMin": 50,
-  "walkingShadeMin": 100,
+  "walkingMin": 5,
+  "walkingSunMin": 3,
+  "walkingShadeMin": 2,
   "indoorPercent": 15,
   "coordinates": {
     "lat": 35.7828,
@@ -94,5 +94,49 @@
     "max": 9
   },
   "officialWebsite": "https://www.ces-net.jp/mitakevc/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.ces-net.jp/mitakevc/",
+        "title": "Mt. Mitake official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Mt. Mitake",
+  "content": {
+    "en": {
+      "name": "Mt. Mitake",
+      "description": "A sacred mountain located in Chichibu-Tama-Kai National Park, featuring a historic mountaintop Shinto shrine and scenic river hikes.",
+      "highlights": [
+        "Musashi Mitake Shrine",
+        "Rock Garden Trail",
+        "Mitake Cable Car",
+        "Anago Falls"
+      ]
+    },
+    "ja": {
+      "name": "Mt. Mitake",
+      "description": "Mt. MitakeはTokyoの主要な観光スポットです。",
+      "highlights": [
+        "Musashi Mitake Shrine",
+        "Rock Garden Trail",
+        "Mitake Cable Car",
+        "Anago Falls"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

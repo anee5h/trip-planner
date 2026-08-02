@@ -9,9 +9,9 @@
   "budgetMin": 8000,
   "budgetRecommended": 12000,
   "budgetMax": 16000,
-  "walkingMin": 7000,
-  "walkingSunMin": 3000,
-  "walkingShadeMin": 4000,
+  "walkingMin": 60,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "indoorPercent": 80,
   "ratings": {
     "overall": 9,
@@ -91,5 +91,49 @@
     "max": 7
   },
   "officialWebsite": "https://www.ginza.jp/",
-  "businessHours": "09:30 - 17:00 (Closed Mondays)"
+  "businessHours": "09:30 - 17:00 (Closed Mondays)",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.ginza.jp/",
+        "title": "Ginza official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Ginza",
+  "content": {
+    "en": {
+      "name": "Ginza",
+      "description": "Ginza is a district of Chūō, Tokyo, located south of Yaesu and Kyōbashi, west of Tsukiji, east of Yūrakuchō and Uchisaiwaichō, and north of Shinbashi. It is a popular upscale shopping area of Tokyo, with numerous internationally renowned department stores, boutiques, restaurants and coffeehouses located in the vicinity.",
+      "highlights": [
+        "Itoya Stationery Store",
+        "Seiko Museum",
+        "Ginza Six",
+        "Pedestrian Paradise (Weekends)"
+      ]
+    },
+    "ja": {
+      "name": "Ginza",
+      "description": "GinzaはTokyoの主要な観光スポットです。",
+      "highlights": [
+        "Itoya Stationery Store",
+        "Seiko Museum",
+        "Ginza Six",
+        "Pedestrian Paradise (Weekends)"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

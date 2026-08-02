@@ -26,9 +26,9 @@
     "car": 90
   },
   "totalTripHours": 8,
-  "walkingMin": 130,
-  "walkingSunMin": 60,
-  "walkingShadeMin": 70,
+  "walkingMin": 5,
+  "walkingSunMin": 3,
+  "walkingShadeMin": 2,
   "indoorPercent": 15,
   "coordinates": {
     "lat": 36.2253,
@@ -92,5 +92,49 @@
     "max": 9
   },
   "officialWebsite": "https://ttca.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://ttca.jp/",
+        "title": "Mount Tsukuba official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Mount Tsukuba",
+  "content": {
+    "en": {
+      "name": "Mount Tsukuba",
+      "description": "An iconic double-peaked mountain (Nantaimasan & Nyotaimasan) offering distinct rock trails, a shrine, cable cars, and open views over the Kanto plain.",
+      "highlights": [
+        "Tsukuba Shrine",
+        "Mount Tsukuba Ropeway & Cable Car",
+        "Nantaimasan Peak Trail",
+        "Benten Rock Path"
+      ]
+    },
+    "ja": {
+      "name": "Mount Tsukuba",
+      "description": "Mount TsukubaはIbarakiの主要な観光スポットです。",
+      "highlights": [
+        "Tsukuba Shrine",
+        "Mount Tsukuba Ropeway & Cable Car",
+        "Nantaimasan Peak Trail",
+        "Benten Rock Path"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

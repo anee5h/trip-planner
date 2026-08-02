@@ -10,9 +10,9 @@
   "budgetMin": 4500,
   "budgetRecommended": 7250,
   "budgetMax": 10000,
-  "walkingMin": 8000,
-  "walkingSunMin": 6000,
-  "walkingShadeMin": 2000,
+  "walkingMin": 60,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "indoorPercent": 15,
   "ratings": {
     "overall": 8.9,
@@ -88,5 +88,49 @@
     "max": 6
   },
   "officialWebsite": "https://www.tokyo-zoo.net/zoo/tama/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.tokyo-zoo.net/zoo/tama/",
+        "title": "Tama Zoological Park official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Tama Zoological Park",
+  "content": {
+    "en": {
+      "name": "Tama Zoological Park",
+      "description": "Tama Zoological Park near Tachikawa is a massive 125-acre natural park zoo featuring wide open enclosures, the famous Lion Bus safari, and high-wire orangutan skywalks.",
+      "highlights": [
+        "Lion Bus Safari",
+        "Orangutan Skywalk",
+        "Insectarium Glasshouse",
+        "Cheetah Run"
+      ]
+    },
+    "ja": {
+      "name": "Tama Zoological Park",
+      "description": "Tama Zoological ParkはTokyoの主要な観光スポットです。",
+      "highlights": [
+        "Lion Bus Safari",
+        "Orangutan Skywalk",
+        "Insectarium Glasshouse",
+        "Cheetah Run"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

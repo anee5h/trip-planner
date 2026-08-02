@@ -92,5 +92,49 @@
     "max": 8
   },
   "officialWebsite": "https://hinohara-kankou.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://hinohara-kankou.jp/",
+        "title": "Hinohara official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Hinohara",
+  "content": {
+    "en": {
+      "name": "Hinohara",
+      "description": "Tokyo mainland's only remaining village, beloved for its wild mountains, cascading Hossawa Falls, and deep forest tranquility.",
+      "highlights": [
+        "Hossawa Falls",
+        "Kanoto Rock",
+        "Hinohara Tokyo Citizens Forest",
+        "Kazuma Hot Spring"
+      ]
+    },
+    "ja": {
+      "name": "Hinohara",
+      "description": "HinoharaはTokyoの主要な観光スポットです。",
+      "highlights": [
+        "Hossawa Falls",
+        "Kanoto Rock",
+        "Hinohara Tokyo Citizens Forest",
+        "Kazuma Hot Spring"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

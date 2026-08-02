@@ -15,9 +15,9 @@
   "budgetMin": 3500,
   "budgetRecommended": 14250,
   "budgetMax": 25000,
-  "walkingMin": 4000,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 2500,
+  "walkingMin": 40,
+  "walkingSunMin": 24,
+  "walkingShadeMin": 16,
   "indoorPercent": 50,
   "ratings": {
     "overall": 9.5,
@@ -56,7 +56,7 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 200
+    "train": 14
   },
   "reservation": "None required",
   "parking": "Public parking available",
@@ -90,5 +90,39 @@
     "min": 6,
     "max": 12
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/tokyo/index.html",
+        "title": "Tokyo Official Visitor Information",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Chuo City",
+  "content": {
+    "en": {
+      "name": "Chuo City",
+      "description": "Historic mercantile district housing luxury Ginza shopping avenues, Tsukiji outer seafood markets, and Nihonbashi zero-mile marker.",
+      "highlights": ["Explore Chuo City", "Local Culture & Cuisine"]
+    },
+    "ja": {
+      "name": "Chuo City",
+      "description": "Chuo CityはTokyoの主要な観光スポットです。",
+      "highlights": ["Explore Chuo City", "Local Culture & Cuisine"]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

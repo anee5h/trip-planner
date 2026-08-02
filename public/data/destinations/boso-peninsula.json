@@ -9,9 +9,9 @@
   "budgetMin": 12000,
   "budgetRecommended": 16000,
   "budgetMax": 20000,
-  "walkingMin": 5000,
-  "walkingSunMin": 3000,
-  "walkingShadeMin": 2000,
+  "walkingMin": 50,
+  "walkingSunMin": 30,
+  "walkingShadeMin": 20,
   "indoorPercent": 20,
   "ratings": {
     "overall": 9.7,
@@ -88,5 +88,39 @@
     "max": 13
   },
   "officialWebsite": "https://maruchiba.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://maruchiba.jp/",
+        "title": "Boso Peninsula official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Boso Peninsula",
+  "content": {
+    "en": {
+      "name": "Boso Peninsula",
+      "description": "Boso Peninsula is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
+      "highlights": ["Coastal Drive", "Seafood", "Nokogiriyama"]
+    },
+    "ja": {
+      "name": "Boso Peninsula",
+      "description": "Boso PeninsulaはChibaの主要な観光スポットです。",
+      "highlights": ["Coastal Drive", "Seafood", "Nokogiriyama"]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

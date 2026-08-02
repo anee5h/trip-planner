@@ -10,9 +10,9 @@
   "budgetMin": 4000,
   "budgetRecommended": 9500,
   "budgetMax": 15000,
-  "walkingMin": 4500,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 3000,
+  "walkingMin": 45,
+  "walkingSunMin": 27,
+  "walkingShadeMin": 18,
   "indoorPercent": 90,
   "ratings": {
     "overall": 9.6,
@@ -107,5 +107,49 @@
     "max": 5
   },
   "officialWebsite": "https://www.tokyo-skytree.jp/",
-  "businessHours": "08:00 - 22:00 (Last admission 21:00)"
+  "businessHours": "08:00 - 22:00 (Last admission 21:00)",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.tokyo-skytree.jp/",
+        "title": "Tokyo Skytree official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Tokyo Skytree",
+  "content": {
+    "en": {
+      "name": "Tokyo Skytree",
+      "description": "Rising 634 meters over Tokyo, Tokyo Skytree is the world's tallest broadcasting tower, offering breath-taking 360-degree views of Mt. Fuji and the Kanto Plain from two observation decks.",
+      "highlights": [
+        "Tembo Deck (350m)",
+        "Tembo Galleria (450m)",
+        "Tokyo Solamachi Shopping Center",
+        "Planetarium Ten"
+      ]
+    },
+    "ja": {
+      "name": "Tokyo Skytree",
+      "description": "Tokyo SkytreeはTokyoの主要な観光スポットです。",
+      "highlights": [
+        "Tembo Deck (350m)",
+        "Tembo Galleria (450m)",
+        "Tokyo Solamachi Shopping Center",
+        "Planetarium Ten"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

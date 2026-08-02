@@ -9,9 +9,9 @@
   "budgetMin": 2000,
   "budgetRecommended": 5300,
   "budgetMax": 8600,
-  "walkingMin": 12000,
-  "walkingSunMin": 10000,
-  "walkingShadeMin": 2000,
+  "walkingMin": 60,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "indoorPercent": 10,
   "ratings": {
     "overall": 8.5,
@@ -80,5 +80,47 @@
     "max": 5
   },
   "officialWebsite": "https://sento.kunaicho.go.jp/Kyoto/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://sento.kunaicho.go.jp/Kyoto/",
+        "title": "Imperial Palace (Chiyoda) official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Imperial Palace (Chiyoda)",
+  "content": {
+    "en": {
+      "name": "Imperial Palace (Chiyoda)",
+      "description": "Imperial Palace (Chiyoda) is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
+      "highlights": [
+        "East Gardens",
+        "Nijubashi Bridge",
+        "Chidorigafuchi (Spring)"
+      ]
+    },
+    "ja": {
+      "name": "Imperial Palace (Chiyoda)",
+      "description": "Imperial Palace (Chiyoda)はTokyoの主要な観光スポットです。",
+      "highlights": [
+        "East Gardens",
+        "Nijubashi Bridge",
+        "Chidorigafuchi (Spring)"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

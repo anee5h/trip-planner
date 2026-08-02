@@ -10,9 +10,9 @@
   "budgetMin": 2000,
   "budgetRecommended": 5500,
   "budgetMax": 9000,
-  "walkingMin": 4500,
-  "walkingSunMin": 2000,
-  "walkingShadeMin": 2500,
+  "walkingMin": 45,
+  "walkingSunMin": 27,
+  "walkingShadeMin": 18,
   "indoorPercent": 60,
   "ratings": {
     "overall": 9.6,
@@ -101,5 +101,49 @@
     "max": 5
   },
   "officialWebsite": "https://sento.kunaicho.go.jp/Edo/",
-  "businessHours": "09:00 - 17:00 (Last admission 16:30)"
+  "businessHours": "09:00 - 17:00 (Last admission 16:30)",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://sento.kunaicho.go.jp/Edo/",
+        "title": "Edo Castle Ruins (Imperial Palace) official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Edo Castle Ruins (Imperial Palace)",
+  "content": {
+    "en": {
+      "name": "Edo Castle Ruins (Imperial Palace)",
+      "description": "The historic seat of the Tokugawa Shogunate and current Imperial Palace, featuring massive cyclopean stone ramparts, historic watchtowers, and the Imperial Palace East Gardens.",
+      "highlights": [
+        "Fujimi-yagura Watchtower",
+        "Tenshudai Castle Keep Base",
+        "Otemon Gate & Moat",
+        "Ninomaru Garden"
+      ]
+    },
+    "ja": {
+      "name": "Edo Castle Ruins (Imperial Palace)",
+      "description": "Edo Castle Ruins (Imperial Palace)はTokyoの主要な観光スポットです。",
+      "highlights": [
+        "Fujimi-yagura Watchtower",
+        "Tenshudai Castle Keep Base",
+        "Otemon Gate & Moat",
+        "Ninomaru Garden"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

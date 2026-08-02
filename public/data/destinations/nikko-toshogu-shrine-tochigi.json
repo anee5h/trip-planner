@@ -96,5 +96,46 @@
     "max": 4
   },
   "officialWebsite": "https://www.toshogu.jp/",
-  "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
+  "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.toshogu.jp/",
+        "title": "Shrines and Temples of Nikko (Toshogu & UNESCO Heritage) official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "content": {
+    "en": {
+      "name": "Shrines and Temples of Nikko (Toshogu & UNESCO Heritage)",
+      "description": "UNESCO World Heritage complex housing the lavishly gilded Yomeimon Gate, Tokugawa Ieyasu's mausoleum, and three wise monkeys wood carving.",
+      "highlights": [
+        "Yomeimon Gate",
+        "Three Wise Monkeys",
+        "Sleeping Cat (Nemuri-neko)"
+      ]
+    },
+    "ja": {
+      "name": "日光の社寺",
+      "description": "日光の社寺はTochigiの主要な観光スポットです。",
+      "highlights": [
+        "Yomeimon Gate",
+        "Three Wise Monkeys",
+        "Sleeping Cat (Nemuri-neko)"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

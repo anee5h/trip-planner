@@ -21,9 +21,9 @@
   "budgetMin": 6000,
   "budgetRecommended": 25500,
   "budgetMax": 45000,
-  "walkingMin": 4000,
-  "walkingSunMin": 2000,
-  "walkingShadeMin": 2000,
+  "walkingMin": 40,
+  "walkingSunMin": 24,
+  "walkingShadeMin": 16,
   "indoorPercent": 50,
   "ratings": {
     "overall": 9.7,
@@ -100,5 +100,49 @@
     "min": 8,
     "max": 14
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/kanagawa/index.html",
+        "title": "Kanagawa Official Visitor Information",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Hakone Town",
+  "content": {
+    "en": {
+      "name": "Hakone Town",
+      "description": "Famous hot spring resort town nestled in the Fuji-Hakone-Izu National Park, celebrated for volcanic sulfur valleys, Lake Ashi pirate ships, and art museums.",
+      "highlights": [
+        "Owakudani",
+        "Lake Ashi",
+        "Hakone Shrine Torii",
+        "Hakone Open-Air Museum"
+      ]
+    },
+    "ja": {
+      "name": "Hakone Town",
+      "description": "Hakone TownはKanagawaの主要な観光スポットです。",
+      "highlights": [
+        "Owakudani",
+        "Lake Ashi",
+        "Hakone Shrine Torii",
+        "Hakone Open-Air Museum"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

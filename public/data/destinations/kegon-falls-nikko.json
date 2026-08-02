@@ -72,9 +72,9 @@
     "autumn": 4,
     "winter": 4
   },
-  "walkingMin": 8000,
-  "walkingSunMin": 1800,
-  "walkingShadeMin": 1200,
+  "walkingMin": 60,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
@@ -107,5 +107,38 @@
     "max": 5
   },
   "officialWebsite": "https://www.nikko-kankou.org/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.nikko-kankou.org/",
+        "title": "Kegon Falls (Nikko) official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "content": {
+    "en": {
+      "name": "Kegon Falls (Nikko)",
+      "description": "Kegon Falls is Japan's most famous 97-meter waterfall, carrying the outlet waters of Lake Chuzenji down a dramatic cliff in Nikko National Park.",
+      "highlights": ["Explore Kegon Falls (Nikko)", "Local Culture & Scenery"]
+    },
+    "ja": {
+      "name": "華厳の滝",
+      "description": "華厳の滝はTochigiの主要な観光スポットです。",
+      "highlights": ["Explore Kegon Falls (Nikko)", "Local Culture & Scenery"]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

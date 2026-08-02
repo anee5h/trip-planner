@@ -10,9 +10,9 @@
   "budgetMin": 2500,
   "budgetRecommended": 5500,
   "budgetMax": 8500,
-  "walkingMin": 4500,
-  "walkingSunMin": 2000,
-  "walkingShadeMin": 2500,
+  "walkingMin": 45,
+  "walkingSunMin": 27,
+  "walkingShadeMin": 18,
   "indoorPercent": 50,
   "ratings": {
     "overall": 8.8,
@@ -102,5 +102,49 @@
     "max": 5
   },
   "officialWebsite": "https://www.city.sakura.lg.jp/soshiki/sakuranooshiro/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.sakura.lg.jp/soshiki/sakuranooshiro/",
+        "title": "Sakura Castle Park & Ruins official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Sakura Castle Park & Ruins",
+  "content": {
+    "en": {
+      "name": "Sakura Castle Park & Ruins",
+      "description": "Constructed in 1611 by Doi Toshikatsu, Sakura Castle features impressive preserved earthen ramparts, deep dry moats, and over 1,100 cherry trees surrounding Rekihaku museum.",
+      "highlights": [
+        "Preserved Deep Dry Moats",
+        "Castle Keep Earthworks",
+        "National Museum of Japanese History",
+        "Cherry Blossom Moats"
+      ]
+    },
+    "ja": {
+      "name": "Sakura Castle Park & Ruins",
+      "description": "Sakura Castle Park & RuinsはChibaの主要な観光スポットです。",
+      "highlights": [
+        "Preserved Deep Dry Moats",
+        "Castle Keep Earthworks",
+        "National Museum of Japanese History",
+        "Cherry Blossom Moats"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

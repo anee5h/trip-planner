@@ -10,9 +10,9 @@
   "budgetMin": 3500,
   "budgetRecommended": 7750,
   "budgetMax": 12000,
-  "walkingMin": 3500,
-  "walkingSunMin": 1200,
-  "walkingShadeMin": 2300,
+  "walkingMin": 35,
+  "walkingSunMin": 21,
+  "walkingShadeMin": 14,
   "indoorPercent": 85,
   "ratings": {
     "overall": 9.5,
@@ -96,5 +96,49 @@
     "max": 4
   },
   "officialWebsite": "https://www.tokyotower.co.jp/",
-  "businessHours": "09:00 - 22:30 (Last admission 22:00)"
+  "businessHours": "09:00 - 22:30 (Last admission 22:00)",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.tokyotower.co.jp/",
+        "title": "Tokyo Tower official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Tokyo Tower",
+  "content": {
+    "en": {
+      "name": "Tokyo Tower",
+      "description": "Built in 1958 and standing 332.9 meters tall, Tokyo Tower is the beloved red-and-white lattice symbol of post-war Tokyo, offering glass-floor lookouts and romantic night views.",
+      "highlights": [
+        "Main Deck (150m)",
+        "Top Deck Tour (250m)",
+        "RED° TOKYO TOWER e-sports park",
+        "Landmark Light Night Illumination"
+      ]
+    },
+    "ja": {
+      "name": "Tokyo Tower",
+      "description": "Tokyo TowerはTokyoの主要な観光スポットです。",
+      "highlights": [
+        "Main Deck (150m)",
+        "Top Deck Tour (250m)",
+        "RED° TOKYO TOWER e-sports park",
+        "Landmark Light Night Illumination"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

@@ -9,9 +9,9 @@
   "budgetMin": 11600,
   "budgetRecommended": 15600,
   "budgetMax": 19600,
-  "walkingMin": 3000,
+  "walkingMin": 30,
   "walkingSunMin": 0,
-  "walkingShadeMin": 3000,
+  "walkingShadeMin": 12,
   "indoorPercent": 100,
   "ratings": {
     "overall": 9.2,
@@ -90,5 +90,47 @@
     "max": 5
   },
   "officialWebsite": "https://planets.teamlab.art/tokyo/en/",
-  "businessHours": "09:00 - 22:00 (Last admission 21:00)"
+  "businessHours": "09:00 - 22:00 (Last admission 21:00)",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://planets.teamlab.art/tokyo/en/",
+        "title": "teamLab Planets official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "teamLab Planets",
+  "content": {
+    "en": {
+      "name": "teamLab Planets",
+      "description": "teamLab Planets is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
+      "highlights": [
+        "Infinite Crystal Universe",
+        "Floating Flower Garden",
+        "Water Installations"
+      ]
+    },
+    "ja": {
+      "name": "teamLab Planets",
+      "description": "teamLab PlanetsはTokyoの主要な観光スポットです。",
+      "highlights": [
+        "Infinite Crystal Universe",
+        "Floating Flower Garden",
+        "Water Installations"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

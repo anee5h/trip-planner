@@ -102,5 +102,49 @@
     "max": 10
   },
   "officialWebsite": "https://www.daigo-kanko.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.daigo-kanko.jp/",
+        "title": "Fukuroda Falls official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Fukuroda Falls",
+  "content": {
+    "en": {
+      "name": "Fukuroda Falls",
+      "description": "One of Japan's Top Three Waterfalls, featuring a massive 120-meter drop across four tiers that freezes over completely during cold winters.",
+      "highlights": [
+        "Fukuroda Falls Tunnel & Deck",
+        "Tada Falls Suspension Bridge",
+        "Nagare-no-Kannon Shrine",
+        "Fukuroda Hot Springs (nearby)"
+      ]
+    },
+    "ja": {
+      "name": "Fukuroda Falls",
+      "description": "Fukuroda FallsはIbarakiの主要な観光スポットです。",
+      "highlights": [
+        "Fukuroda Falls Tunnel & Deck",
+        "Tada Falls Suspension Bridge",
+        "Nagare-no-Kannon Shrine",
+        "Fukuroda Hot Springs (nearby)"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

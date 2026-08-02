@@ -86,5 +86,38 @@
     "min": 8,
     "max": 14
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/tochigi/index.html",
+        "title": "Tochigi Official Visitor Information",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "content": {
+    "en": {
+      "name": "Ashikaga City",
+      "description": "A historic Tochigi city with the Ashikaga School and Ashikaga Flower Park, famous for seasonal wisteria.",
+      "highlights": ["Ashikaga Flower Park", "Ashikaga School", "Wisteria"]
+    },
+    "ja": {
+      "name": "足利",
+      "description": "足利はTochigiの主要な観光スポットです。",
+      "highlights": ["Ashikaga Flower Park", "Ashikaga School", "Wisteria"]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

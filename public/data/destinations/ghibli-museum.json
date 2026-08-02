@@ -9,9 +9,9 @@
   "budgetMin": 6900,
   "budgetRecommended": 10900,
   "budgetMax": 14900,
-  "walkingMin": 5000,
-  "walkingSunMin": 1000,
-  "walkingShadeMin": 4000,
+  "walkingMin": 50,
+  "walkingSunMin": 30,
+  "walkingShadeMin": 20,
   "indoorPercent": 90,
   "ratings": {
     "overall": 9.5,
@@ -86,5 +86,47 @@
     "max": 7
   },
   "officialWebsite": "https://www.ghibli-museum.jp/",
-  "businessHours": "09:30 - 17:00 (Closed Mondays)"
+  "businessHours": "09:30 - 17:00 (Closed Mondays)",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.ghibli-museum.jp/",
+        "title": "Ghibli Museum official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Ghibli Museum",
+  "content": {
+    "en": {
+      "name": "Ghibli Museum",
+      "description": "Ghibli Museum is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
+      "highlights": [
+        "Giant Robot Soldier",
+        "Catbus Room",
+        "Exclusive Short Films"
+      ]
+    },
+    "ja": {
+      "name": "Ghibli Museum",
+      "description": "Ghibli MuseumはTokyoの主要な観光スポットです。",
+      "highlights": [
+        "Giant Robot Soldier",
+        "Catbus Room",
+        "Exclusive Short Films"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

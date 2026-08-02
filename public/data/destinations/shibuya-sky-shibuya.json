@@ -10,9 +10,9 @@
   "budgetMin": 3500,
   "budgetRecommended": 8250,
   "budgetMax": 13000,
-  "walkingMin": 3500,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 2000,
+  "walkingMin": 35,
+  "walkingSunMin": 21,
+  "walkingShadeMin": 14,
   "indoorPercent": 70,
   "ratings": {
     "overall": 9.8,
@@ -100,5 +100,49 @@
     "max": 4
   },
   "officialWebsite": "https://www.shibuya-scramble-square.com/sky/",
-  "businessHours": "10:00 - 22:30 (Last admission 21:20)"
+  "businessHours": "10:00 - 22:30 (Last admission 21:20)",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.shibuya-scramble-square.com/sky/",
+        "title": "Shibuya Sky (Rooftop Observatory) official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Shibuya Sky (Rooftop Observatory)",
+  "content": {
+    "en": {
+      "name": "Shibuya Sky (Rooftop Observatory)",
+      "description": "Perched 229 meters directly above Shibuya Crossing atop Shibuya Scramble Square, featuring an open-air rooftop glass-edge deck with 360-degree views of Tokyo Tower and Mt. Fuji.",
+      "highlights": [
+        "Sky Edge Glass Corner",
+        "Cloud Hammocks Rooftop Lawn",
+        "Geo Compass 360 Horizon",
+        "Paradise Lounge Bar"
+      ]
+    },
+    "ja": {
+      "name": "Shibuya Sky (Rooftop Observatory)",
+      "description": "Shibuya Sky (Rooftop Observatory)はTokyoの主要な観光スポットです。",
+      "highlights": [
+        "Sky Edge Glass Corner",
+        "Cloud Hammocks Rooftop Lawn",
+        "Geo Compass 360 Horizon",
+        "Paradise Lounge Bar"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

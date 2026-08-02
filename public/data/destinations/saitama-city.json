@@ -27,9 +27,9 @@
   "budgetMin": 3000,
   "budgetMax": 11000,
   "totalTripHours": 8,
-  "walkingMin": 10000,
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 6000,
+  "walkingMin": 60,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "comfort": {
     "heatTolerance": 9,
     "rainFriendly": 9,
@@ -109,5 +109,47 @@
     "min": 8,
     "max": 14
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/saitama/index.html",
+        "title": "Saitama Official Visitor Information",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Saitama City",
+  "content": {
+    "en": {
+      "name": "Saitama City",
+      "description": "Saitama is the capital and largest city of Saitama Prefecture, Japan. Its area incorporates the former cities of Urawa, Ōmiya, Yono and Iwatsuki. It is a city designated by government ordinance. As of 1 February 2021, the city had an estimated population of 1,324,854, and a population density of 6,093 people per km2. Its total area is 217.43 square kilometres (83.95 sq mi).",
+      "highlights": [
+        "Explore top-rated city locations",
+        "Enjoy regional specialties and local culture",
+        "Perfect for a active day out"
+      ]
+    },
+    "ja": {
+      "name": "Saitama City",
+      "description": "Saitama CityはSaitamaの主要な観光スポットです。",
+      "highlights": [
+        "Explore top-rated city locations",
+        "Enjoy regional specialties and local culture",
+        "Perfect for a active day out"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

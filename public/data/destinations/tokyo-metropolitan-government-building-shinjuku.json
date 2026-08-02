@@ -11,9 +11,9 @@
   "budgetMin": 1500,
   "budgetRecommended": 4250,
   "budgetMax": 7000,
-  "walkingMin": 3000,
-  "walkingSunMin": 1000,
-  "walkingShadeMin": 2000,
+  "walkingMin": 30,
+  "walkingSunMin": 18,
+  "walkingShadeMin": 12,
   "indoorPercent": 95,
   "ratings": {
     "overall": 9.5,
@@ -96,5 +96,49 @@
     "min": 2,
     "max": 4
   },
-  "officialWebsite": "https://www.yokoso.metro.tokyo.lg.jp/"
+  "officialWebsite": "https://www.yokoso.metro.tokyo.lg.jp/",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.yokoso.metro.tokyo.lg.jp/",
+        "title": "Tokyo Metropolitan Government Building Observatories official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Tokyo Metropolitan Government Building Observatories",
+  "content": {
+    "en": {
+      "name": "Tokyo Metropolitan Government Building Observatories",
+      "description": "Perched 202 meters above Shinjuku on the 45th floors of Kenzo Tange iconic twin-tower skyscraper, offering free 360-degree views of Mt. Fuji and Tokyo lights.",
+      "highlights": [
+        "45F Free Observatory Decks (202m)",
+        "360-Degree Tokyo & Mt. Fuji Panorama",
+        "Yellow Memory Piano (South Deck)",
+        "Toyo Ito Architecture"
+      ]
+    },
+    "ja": {
+      "name": "Tokyo Metropolitan Government Building Observatories",
+      "description": "Tokyo Metropolitan Government Building ObservatoriesはTokyoの主要な観光スポットです。",
+      "highlights": [
+        "45F Free Observatory Decks (202m)",
+        "360-Degree Tokyo & Mt. Fuji Panorama",
+        "Yellow Memory Piano (South Deck)",
+        "Toyo Ito Architecture"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

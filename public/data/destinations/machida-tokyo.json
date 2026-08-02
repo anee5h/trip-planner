@@ -94,5 +94,49 @@
     "max": 7
   },
   "businessHours": "09:00 - 17:00 (Daily)",
-  "kind": "city"
+  "kind": "city",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/tokyo/index.html",
+        "title": "Tokyo Official Visitor Information",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Machida",
+  "content": {
+    "en": {
+      "name": "Machida",
+      "description": "Vibrant shopping and commercial hub in western Tokyo bordering Kanagawa, famous for Serigaya Park and Squirrel Garden.",
+      "highlights": [
+        "Machida Squirrel Garden",
+        "Serigaya Park",
+        "Grandberry Park",
+        "Nakamachi Shopping Street"
+      ]
+    },
+    "ja": {
+      "name": "Machida",
+      "description": "MachidaはTokyoの主要な観光スポットです。",
+      "highlights": [
+        "Machida Squirrel Garden",
+        "Serigaya Park",
+        "Grandberry Park",
+        "Nakamachi Shopping Street"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

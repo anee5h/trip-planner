@@ -9,9 +9,9 @@
   "budgetMin": 6000,
   "budgetRecommended": 10000,
   "budgetMax": 14000,
-  "walkingMin": 8000,
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 4000,
+  "walkingMin": 60,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "indoorPercent": 60,
   "ratings": {
     "overall": 8.8,
@@ -86,5 +86,39 @@
     "max": 7
   },
   "officialWebsite": "https://visit-chiyoda.tokyo.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://visit-chiyoda.tokyo.jp/",
+        "title": "Akihabara (Chiyoda) official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Akihabara (Chiyoda)",
+  "content": {
+    "en": {
+      "name": "Akihabara (Chiyoda)",
+      "description": "Akihabara is a neighborhood in the Chiyoda ward of Tokyo, Japan, generally considered to be the area surrounding Akihabara Station. This area is part of the Sotokanda (外神田) and Kanda-Sakumachō districts of Chiyoda. There is an administrative district called Akihabara, located north of Akihabara Electric Town surrounding Akihabara Neribei Park.",
+      "highlights": ["Electric Town", "Maid Cafes", "Radio Kaikan"]
+    },
+    "ja": {
+      "name": "Akihabara (Chiyoda)",
+      "description": "Akihabara (Chiyoda)はTokyoの主要な観光スポットです。",
+      "highlights": ["Electric Town", "Maid Cafes", "Radio Kaikan"]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

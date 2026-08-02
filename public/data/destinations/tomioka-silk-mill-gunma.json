@@ -101,5 +101,46 @@
     "max": 7
   },
   "officialWebsite": "https://www.tomioka-silk.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.tomioka-silk.jp/",
+        "title": "Tomioka Silk Mill and Related Sites official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "content": {
+    "en": {
+      "name": "Tomioka Silk Mill and Related Sites",
+      "description": "Tomioka Silk Mill and Related Sites is a UNESCO World Heritage Site in Gunma, designated for its outstanding universal cultural or natural value.",
+      "highlights": [
+        "UNESCO Heritage Monument",
+        "Historic Landmark",
+        "Cultural Preservation Area"
+      ]
+    },
+    "ja": {
+      "name": "富岡製糸場と絹産業遺産群",
+      "description": "富岡製糸場と絹産業遺産群はGunmaの主要な観光スポットです。",
+      "highlights": [
+        "UNESCO Heritage Monument",
+        "Historic Landmark",
+        "Cultural Preservation Area"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

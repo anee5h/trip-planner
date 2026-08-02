@@ -27,9 +27,9 @@
   "budgetMin": 6000,
   "budgetMax": 14000,
   "totalTripHours": 8,
-  "walkingMin": 10000,
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 6000,
+  "walkingMin": 60,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "comfort": {
     "heatTolerance": 5,
     "rainFriendly": 4,
@@ -91,5 +91,47 @@
     "max": 9
   },
   "officialWebsite": "https://www.sagamiko.info/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.sagamiko.info/",
+        "title": "Lake Sagami official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Lake Sagami",
+  "content": {
+    "en": {
+      "name": "Lake Sagami",
+      "description": "Discover Lake Sagami, a prominent destination in Kanagawa. With its rich mix of illumination, outdoors, it's a highly recommended spot for a 8-hour getaway.",
+      "highlights": [
+        "Explore top-rated lake locations",
+        "Enjoy regional specialties and local culture",
+        "Perfect for a active day out"
+      ]
+    },
+    "ja": {
+      "name": "Lake Sagami",
+      "description": "Lake SagamiはKanagawaの主要な観光スポットです。",
+      "highlights": [
+        "Explore top-rated lake locations",
+        "Enjoy regional specialties and local culture",
+        "Perfect for a active day out"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

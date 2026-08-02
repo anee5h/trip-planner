@@ -15,7 +15,7 @@
   "budgetMin": 0,
   "budgetRecommended": 1000,
   "budgetMax": 2000,
-  "walkingMin": 150,
+  "walkingMin": 5,
   "indoorPercent": 10,
   "ratings": {
     "overall": 9.1,
@@ -64,8 +64,8 @@
   "transportOptions": {
     "train": 60
   },
-  "walkingSunMin": 90,
-  "walkingShadeMin": 60,
+  "walkingSunMin": 3,
+  "walkingShadeMin": 2,
   "comfort": {
     "heatTolerance": 7,
     "rainFriendly": 7,
@@ -81,5 +81,39 @@
     "max": 4
   },
   "officialWebsite": "https://www.city.hachioji.tokyo.jp/kankobunka/001/003/p005221.html",
-  "businessHours": "09:00 - 17:00 (Last admission 16:30)"
+  "businessHours": "09:00 - 17:00 (Last admission 16:30)",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.hachioji.tokyo.jp/kankobunka/001/003/p005221.html",
+        "title": "Hachioji Castle Ruins (Mount Castle) official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Hachioji Castle Ruins (Mount Castle)",
+  "content": {
+    "en": {
+      "name": "Hachioji Castle Ruins (Mount Castle)",
+      "description": "Atmospheric hilltop mountain castle ruins in western Tokyo built by Hojo Ujiteru.",
+      "highlights": ["Reconstructed Bridge", "Honmaru Ruins", "Mountain Trail"]
+    },
+    "ja": {
+      "name": "Hachioji Castle Ruins (Mount Castle)",
+      "description": "Hachioji Castle Ruins (Mount Castle)はTokyoの主要な観光スポットです。",
+      "highlights": ["Reconstructed Bridge", "Honmaru Ruins", "Mountain Trail"]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

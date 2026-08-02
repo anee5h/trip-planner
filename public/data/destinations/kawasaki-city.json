@@ -15,9 +15,9 @@
   "budgetMin": 3500,
   "budgetRecommended": 14250,
   "budgetMax": 25000,
-  "walkingMin": 4000,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 2500,
+  "walkingMin": 40,
+  "walkingSunMin": 24,
+  "walkingShadeMin": 16,
   "indoorPercent": 50,
   "ratings": {
     "overall": 9.5,
@@ -56,7 +56,7 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 200
+    "train": 26
   },
   "reservation": "None required",
   "parking": "Public parking available",
@@ -97,5 +97,39 @@
     "min": 6,
     "max": 12
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/kanagawa/index.html",
+        "title": "Kanagawa Official Visitor Information",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Kawasaki City",
+  "content": {
+    "en": {
+      "name": "Kawasaki City",
+      "description": "Industrial and cultural city between Tokyo and Yokohama, home to Kawasaki Daishi Temple and Fujiko F Fujio Museum.",
+      "highlights": ["Explore Kawasaki City", "Local Culture & Cuisine"]
+    },
+    "ja": {
+      "name": "Kawasaki City",
+      "description": "Kawasaki CityはKanagawaの主要な観光スポットです。",
+      "highlights": ["Explore Kawasaki City", "Local Culture & Cuisine"]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

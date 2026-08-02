@@ -10,9 +10,9 @@
   "budgetMin": 2500,
   "budgetRecommended": 5750,
   "budgetMax": 9000,
-  "walkingMin": 3000,
-  "walkingSunMin": 800,
-  "walkingShadeMin": 2200,
+  "walkingMin": 30,
+  "walkingSunMin": 18,
+  "walkingShadeMin": 12,
   "indoorPercent": 95,
   "ratings": {
     "overall": 9.2,
@@ -96,5 +96,49 @@
     "max": 4
   },
   "officialWebsite": "https://sunshinecity.jp/observatory/",
-  "businessHours": "11:00 - 21:00 (Last admission 20:00)"
+  "businessHours": "11:00 - 21:00 (Last admission 20:00)",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://sunshinecity.jp/observatory/",
+        "title": "Sunshine 60 Observatory (Tenbou Park) official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Sunshine 60 Observatory (Tenbou Park)",
+  "content": {
+    "en": {
+      "name": "Sunshine 60 Observatory (Tenbou Park)",
+      "description": "Located on the 60th floor of Sunshine 60 (251m height) in Ikebukuro, featuring an indoor sky park with real turf lawns, picnic mats, and panoramic vistas.",
+      "highlights": [
+        "251m High-Altitude Artificial Lawn Hill",
+        "Tenbou Park Cafe",
+        "Sunshine Aquarium (nearby)",
+        "360-Degree Kanto View"
+      ]
+    },
+    "ja": {
+      "name": "Sunshine 60 Observatory (Tenbou Park)",
+      "description": "Sunshine 60 Observatory (Tenbou Park)はTokyoの主要な観光スポットです。",
+      "highlights": [
+        "251m High-Altitude Artificial Lawn Hill",
+        "Tenbou Park Cafe",
+        "Sunshine Aquarium (nearby)",
+        "360-Degree Kanto View"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

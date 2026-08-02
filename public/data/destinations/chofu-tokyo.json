@@ -99,5 +99,47 @@
     "max": 6
   },
   "businessHours": "Open access",
-  "kind": "city"
+  "kind": "city",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/tokyo/index.html",
+        "title": "Tokyo Official Visitor Information",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "Chofu",
+  "content": {
+    "en": {
+      "name": "Chofu",
+      "description": "Leafy suburban Tokyo town famous for Jindaiji Temple, hand-made Soba noodles, and GeGeGe no Kitaro anime heritage.",
+      "highlights": [
+        "Jindaiji Temple",
+        "Jindai Botanical Gardens",
+        "Kitaro Chaya Soba"
+      ]
+    },
+    "ja": {
+      "name": "Chofu",
+      "description": "ChofuはTokyoの主要な観光スポットです。",
+      "highlights": [
+        "Jindaiji Temple",
+        "Jindai Botanical Gardens",
+        "Kitaro Chaya Soba"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }

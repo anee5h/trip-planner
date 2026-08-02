@@ -49,7 +49,7 @@
     "Local Culture & Scenery"
   ],
   "totalTripHours": 4,
-  "walkingMin": 3000,
+  "walkingMin": 30,
   "indoorPercent": 30,
   "crowd": {
     "weekday": 4,
@@ -81,12 +81,51 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg/1920px-Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg",
   "walkingIntensity": "low",
-  "walkingSunMin": 1800,
-  "walkingShadeMin": 1200,
+  "walkingSunMin": 18,
+  "walkingShadeMin": 12,
   "recommendedVisitHours": {
     "min": 3,
     "max": 5
   },
   "officialWebsite": "https://www.ashikaga.co.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.ashikaga.co.jp/",
+        "title": "Ashikaga Flower Park Wisteria official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "content": {
+    "en": {
+      "name": "Ashikaga Flower Park Wisteria",
+      "description": "Famed worldwide for its massive 150-year-old Great Wisteria tree and 80-meter white wisteria tunnel in Tochigi.",
+      "highlights": [
+        "Explore Ashikaga Flower Park Wisteria",
+        "Local Culture & Scenery"
+      ]
+    },
+    "ja": {
+      "name": "足利フラワーパーク",
+      "description": "足利フラワーパークはTochigiの主要な観光スポットです。",
+      "highlights": [
+        "Explore Ashikaga Flower Park Wisteria",
+        "Local Culture & Scenery"
+      ]
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  }
 }
