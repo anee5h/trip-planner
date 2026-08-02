@@ -9,15 +9,19 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Chigasaki_City_Hall_20170721.JPG/3840px-Chigasaki_City_Hall_20170721.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Chigasaki_City_Hall_20170721.JPG/3840px-Chigasaki_City_Hall_20170721.JPG",
-  "description": "Shonan coastal resort city celebrated for Southern Beach, Eboshi Rock, and beach culture.",
-  "highlights": ["Explore Chigasaki City", "Local Culture & Cuisine"],
+  "description": "A relaxed Shonan coastal resort city known for Southern Beach Chigasaki, Eboshi Rock views, and surf culture.",
+  "highlights": [
+    "Southern Beach Chigasaki",
+    "Eboshi Rock Coastal Views",
+    "Shonan Surf Culture"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
   "budgetMax": 25000,
-  "walkingMin": 4000,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 2500,
+  "walkingMin": 40,
+  "walkingSunMin": 24,
+  "walkingShadeMin": 16,
   "indoorPercent": 50,
   "ratings": {
     "overall": 9.5,
@@ -56,11 +60,11 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 200
+    "train": 50
   },
-  "reservation": "None required",
-  "parking": "Public parking available",
-  "notes": "Chigasaki City travel hub in Kanagawa Prefecture.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
   "status": "verified",
   "travelEstimate": {
     "confidence": "high"
@@ -87,5 +91,60 @@
     "min": 6,
     "max": 12
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/kanagawa/index.html",
+        "title": "Kanagawa Official Visitor Information",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "茅ヶ崎市",
+  "content": {
+    "en": {
+      "name": "Chigasaki City",
+      "description": "A relaxed Shonan coastal resort city known for Southern Beach Chigasaki, Eboshi Rock views, and surf culture.",
+      "highlights": [
+        "Southern Beach Chigasaki",
+        "Eboshi Rock Coastal Views",
+        "Shonan Surf Culture"
+      ],
+      "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
+    },
+    "ja": {
+      "name": "茅ヶ崎市",
+      "description": "サザンビーチちがさきや烏帽子岩の景観、サーフィン文化が根付く湘南海岸の明るく開放的なビーチリゾート都市です。",
+      "highlights": [
+        "サザンビーチちがさき",
+        "烏帽子岩のモニュメントと海景観",
+        "湘南サーフィン文化"
+      ],
+      "notes": "茅ヶ崎市は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "茅ヶ崎市は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

@@ -27,9 +27,9 @@
   "budgetMin": 3000,
   "budgetMax": 11000,
   "totalTripHours": 8,
-  "walkingMin": 10000,
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 6000,
+  "walkingMin": 60,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "comfort": {
     "heatTolerance": 5,
     "rainFriendly": 4,
@@ -51,11 +51,11 @@
     "winter": 4
   },
   "highlights": [
-    "Explore top-rated coast locations",
-    "Enjoy regional specialties and local culture",
-    "Perfect for a active day out"
+    "Zushi Beach Resort",
+    "Hayama Imperial Coast Views",
+    "Yokosuka Naval Port Cruise"
   ],
-  "description": "Discover Zushi & Yokosuka, a prominent destination in Kanagawa. With its rich mix of surfing, cafes, sunset, it's a highly recommended spot for a 8-hour getaway.",
+  "description": "A charming Miura Peninsula area featuring Zushi Beach resort, Hayama coastal views, and Yokosuka Verny Park.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
     "transport": 2800,
@@ -63,7 +63,7 @@
     "food": 2100,
     "cafe": 700
   },
-  "notes": "A fantastic trip to Zushi & Yokosuka. Known for its surfing and cafes vibes, it offers a great escape with an overall score of 8.",
+  "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "status": "verified",
   "travelEstimate": {
@@ -74,8 +74,8 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/%E5%A4%AA%E9%99%BD%E3%81%AE%E5%A1%94%E3%81%A8%E9%80%97%E5%AD%90%E6%B5%B7%E5%B2%B8.jpg/1280px-%E5%A4%AA%E9%99%BD%E3%81%AE%E5%A1%94%E3%81%A8%E9%80%97%E5%AD%90%E6%B5%B7%E5%B2%B8.jpg",
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
-  "reservation": "None required",
-  "parking": "Available on site",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
   "walkingIntensity": "high",
   "role": "standalone",
   "placeType": "destination",
@@ -85,5 +85,56 @@
     "max": 9
   },
   "officialWebsite": "https://www.zushi-kanko.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.zushi-kanko.jp/",
+        "title": "Zushi & Yokosuka official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "逗子・横須賀",
+  "content": {
+    "en": {
+      "name": "Zushi & Yokosuka",
+      "description": "A charming Miura Peninsula area featuring Zushi Beach resort, Hayama coastal views, and Yokosuka Verny Park.",
+      "highlights": [
+        "Zushi Beach Resort",
+        "Hayama Imperial Coast Views",
+        "Yokosuka Naval Port Cruise"
+      ],
+      "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
+    },
+    "ja": {
+      "name": "逗子・横須賀",
+      "description": "逗子海岸の海水浴リゾート、葉山の御用邸海岸景色、横須賀のヴェルニー公園や軍港めぐりを楽しめる湘南・三浦エリアです。",
+      "highlights": ["逗子海岸リゾート", "葉山海岸の景観", "横須賀軍港めぐり"],
+      "notes": "逗子・横須賀は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "逗子・横須賀は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

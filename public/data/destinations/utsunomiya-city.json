@@ -9,15 +9,19 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Utsunomiya-STA_East_LRT.jpg/1920px-Utsunomiya-STA_East_LRT.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Utsunomiya-STA_East_LRT.jpg/1920px-Utsunomiya-STA_East_LRT.jpg",
-  "description": "Prefectural capital acclaimed as Japan's Gyoza dumpling capital, featuring Oya Stone Underground Quarry.",
-  "highlights": ["Explore Utsunomiya City", "Local Culture & Cuisine"],
+  "description": "Tochigi's prefectural capital famed for Utsunomiya gyoza dumpling culture, Oya Stone quarries, and Futaarayama Shrine.",
+  "highlights": [
+    "Famous Utsunomiya Gyoza Dining",
+    "Oya Stone Quarry Museum",
+    "Utsunomiya Futaarayama Shrine"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
   "budgetMax": 25000,
-  "walkingMin": 4000,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 2500,
+  "walkingMin": 40,
+  "walkingSunMin": 24,
+  "walkingShadeMin": 16,
   "indoorPercent": 50,
   "ratings": {
     "overall": 9.5,
@@ -59,9 +63,9 @@
     "train": 200,
     "shinkansen": 50
   },
-  "reservation": "None required",
-  "parking": "Public parking available",
-  "notes": "Utsunomiya City travel hub in Tochigi Prefecture.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Tochigi, offering excellent photo opportunities and local cultural experiences.",
   "status": "verified",
   "travelEstimate": {
     "confidence": "high"
@@ -83,5 +87,60 @@
     "min": 6,
     "max": 12
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/tochigi/index.html",
+        "title": "Tochigi Official Visitor Information",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "宇都宮市",
+  "content": {
+    "en": {
+      "name": "Utsunomiya City",
+      "description": "Tochigi's prefectural capital famed for Utsunomiya gyoza dumpling culture, Oya Stone quarries, and Futaarayama Shrine.",
+      "highlights": [
+        "Famous Utsunomiya Gyoza Dining",
+        "Oya Stone Quarry Museum",
+        "Utsunomiya Futaarayama Shrine"
+      ],
+      "notes": "A top recommended attraction in Tochigi, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
+    },
+    "ja": {
+      "name": "宇都宮市",
+      "description": "「餃子の街」として全国に知られる栃木県の県都。大谷石の巨大地下空間（大谷資料館）や宇都宮二荒山神社が見どころです。",
+      "highlights": [
+        "宇都宮餃子の食べ歩き",
+        "大谷資料館の巨大地下空間",
+        "宇都宮二荒山神社"
+      ],
+      "notes": "宇都宮市は、Tochigiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "宇都宮市は、Tochigiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

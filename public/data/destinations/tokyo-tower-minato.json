@@ -10,9 +10,9 @@
   "budgetMin": 3500,
   "budgetRecommended": 7750,
   "budgetMax": 12000,
-  "walkingMin": 3500,
-  "walkingSunMin": 1200,
-  "walkingShadeMin": 2300,
+  "walkingMin": 35,
+  "walkingSunMin": 21,
+  "walkingShadeMin": 14,
   "indoorPercent": 85,
   "ratings": {
     "overall": 9.5,
@@ -66,9 +66,9 @@
     "food": 4429,
     "cafe": 1549
   },
-  "reservation": "Top Deck Tour requires reserved time-slot tickets.",
-  "parking": "Paid parking lot adjacent to Shiba Park at the tower base.",
-  "notes": "Special illumination colors light up the tower on Friday and Saturday evenings.",
+  "reservation": "Advance booking recommended for Top Deck Tour; Main Deck tickets available on site.",
+  "parking": "Paid underground parking structure at Tokyo Tower footprint.",
+  "notes": "Visit the Top Deck Tour (250m) for voice-guided historic commentary and glass floor photo spots.",
   "schemaVersion": 2,
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -96,5 +96,62 @@
     "max": 4
   },
   "officialWebsite": "https://www.tokyotower.co.jp/",
-  "businessHours": "09:00 - 22:30 (Last admission 22:00)"
+  "businessHours": "09:00 - 22:30 (Last admission 22:00)",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.tokyotower.co.jp/",
+        "title": "Tokyo Tower official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "東京タワー",
+  "content": {
+    "en": {
+      "name": "Tokyo Tower",
+      "description": "Built in 1958 and standing 332.9 meters tall, Tokyo Tower is the beloved red-and-white lattice symbol of post-war Tokyo, offering glass-floor lookouts and romantic night views.",
+      "highlights": [
+        "Main Deck (150m)",
+        "Top Deck Tour (250m)",
+        "RED° TOKYO TOWER e-sports park",
+        "Landmark Light Night Illumination"
+      ],
+      "notes": "Visit the Top Deck Tour (250m) for voice-guided historic commentary and glass floor photo spots.",
+      "reservation": "Advance booking recommended for Top Deck Tour; Main Deck tickets available on site.",
+      "parking": "Paid underground parking structure at Tokyo Tower footprint.",
+      "openingHours": "09:00 - 22:30 (Last admission 22:00)"
+    },
+    "ja": {
+      "name": "東京タワー",
+      "description": "Tokyo Towerは東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "highlights": [
+        "(150m)散策",
+        "(250m)散策",
+        "°   e-公園散策",
+        "東京タワーの名所"
+      ],
+      "notes": "高さ250mのトップデッキツアーでは、音声ガイドによる歴史解説とガラス床の絶景写真が楽しめます。",
+      "reservation": "トップデッキツアーは事前予約推奨。メインデッキは当日券購入も可能です。",
+      "parking": "東京タワー敷地内の有料地下駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 22:30（最終入場 22:00）"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "高さ250mのトップデッキツアーでは、音声ガイドによる歴史解説とガラス床の絶景写真が楽しめます。",
+  "reservationJa": "トップデッキツアーは事前予約推奨。メインデッキは当日券購入も可能です。",
+  "parkingJa": "東京タワー敷地内の有料地下駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 22:30 (Last admission 22:00)",
+  "openingHoursJa": "09:00 - 22:30（最終入場 22:00）"
 }

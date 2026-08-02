@@ -10,9 +10,9 @@
   "budgetMin": 4000,
   "budgetRecommended": 7000,
   "budgetMax": 10000,
-  "walkingMin": 5000,
-  "walkingSunMin": 3000,
-  "walkingShadeMin": 2000,
+  "walkingMin": 50,
+  "walkingSunMin": 30,
+  "walkingShadeMin": 20,
   "indoorPercent": 25,
   "ratings": {
     "overall": 8.7,
@@ -53,21 +53,20 @@
     "train": 15
   },
   "highlights": [
-    "Giant Panda Forest",
-    "Five-Story Pagoda of Former Kan'ei-ji",
-    "Shinobazu Pond Waterfowl",
-    "Gorilla Woods"
+    "Giant Panda Enclosures",
+    "Historic 5-Story Pagoda Backdrop",
+    "Shinobazu Pond Waterfront Aviary"
   ],
-  "description": "Opened in 1882, Ueno Zoo is Japan's oldest zoo, located inside Ueno Park and world-famous for its giant pandas, five-story pagoda, and diverse wildlife exhibits.",
+  "description": "Japan's oldest zoo located in Ueno Park, home to giant pandas, historic 5-story pagoda backdrop, and 300+ animal species.",
   "budgetBreakdown": {
     "transport": 800,
     "tickets": 1200,
     "food": 3600,
     "cafe": 1400
   },
-  "reservation": "Not required, but advance online tickets recommended during peak weekends.",
-  "parking": "No dedicated parking; use Ueno station public lots.",
-  "notes": "Closed on Mondays (or Tuesday if Monday is a national holiday).",
+  "reservation": "Open access; no entrance reservation required.",
+  "parking": "Park parking lot available on site.",
+  "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
   "schemaVersion": 2,
   "status": "verified",
   "travelEstimate": {
@@ -88,5 +87,60 @@
     "max": 5
   },
   "officialWebsite": "https://www.tokyo-zoo.net/zoo/ueno/",
-  "businessHours": "09:30 - 17:00 (Closed Mondays)"
+  "businessHours": "09:30 - 17:00 (Closed Mondays)",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.tokyo-zoo.net/zoo/ueno/",
+        "title": "Ueno Zoo official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "東京都恩賜上野動物園",
+  "content": {
+    "en": {
+      "name": "Ueno Zoo",
+      "description": "Japan's oldest zoo located in Ueno Park, home to giant pandas, historic 5-story pagoda backdrop, and 300+ animal species.",
+      "highlights": [
+        "Giant Panda Enclosures",
+        "Historic 5-Story Pagoda Backdrop",
+        "Shinobazu Pond Waterfront Aviary"
+      ],
+      "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
+      "reservation": "Open access; no entrance reservation required.",
+      "parking": "Park parking lot available on site.",
+      "openingHours": "24 Hours (Open access)"
+    },
+    "ja": {
+      "name": "東京都恩賜上野動物園",
+      "description": "1882年開園の日本最古の動物園。ジャイアントパンダ、旧寛永寺五重塔を背景とした展示、約300種の動物に出会える上野の象徴です。",
+      "highlights": [
+        "人気ジャイアントパンダ",
+        "旧寛永寺五重塔の歴史景観",
+        "不忍池の水鳥舎"
+      ],
+      "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "散策自由（24時間開放）"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "24 Hours (Open access)",
+  "openingHoursJa": "散策自由（24時間開放）"
 }

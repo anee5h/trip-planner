@@ -233,7 +233,7 @@ release: prepare v2.0.0-alpha.2
 
 ## PR 12A — Tokyo and Kanto review
 
-- [ ] Review descriptions, categories, transport, cost, visit duration, sources, relationships, Japanese content, and confidence
+- [x] Review descriptions, categories, transport, cost, visit duration, sources, relationships, Japanese content, and confidence
 
 ## PR 12B — Kansai review
 

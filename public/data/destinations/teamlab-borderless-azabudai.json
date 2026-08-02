@@ -9,9 +9,9 @@
   "budgetMin": 11600,
   "budgetRecommended": 15600,
   "budgetMax": 19600,
-  "walkingMin": 3000,
+  "walkingMin": 30,
   "walkingSunMin": 0,
-  "walkingShadeMin": 3000,
+  "walkingShadeMin": 12,
   "indoorPercent": 100,
   "ratings": {
     "overall": 9.4,
@@ -52,21 +52,20 @@
     "train": 50
   },
   "highlights": [
-    "Borderless World",
-    "Light Sculpture",
-    "Athletic Forest",
-    "EN TEA HOUSE"
+    "Boundaryless Digital Art Works",
+    "Interactive Light Displays",
+    "EN TEA HOUSE Experience"
   ],
-  "description": "teamLab Borderless at Azabudai Hills is a world-famous museum of artworks without boundaries, a grand world of interactive digital art continuously creating and shifting.",
+  "description": "An extraordinary digital art museum in Azabudai Hills where artworks move, interact, and blend without boundaries.",
   "budgetBreakdown": {
     "transport": 1000,
     "tickets": 8600,
     "food": 4200,
     "cafe": 1800
   },
-  "reservation": "Required online in advance.",
-  "parking": "Paid parking at Azabudai Hills.",
-  "notes": "Timed entry tickets required. Some artworks feature mirror floors; pants recommended.",
+  "reservation": "Advance online booking required.",
+  "parking": "Paid parking structure available at Azabudai Hills.",
+  "notes": "Explore the maze of light and digital projection art freely without fixed map routes.",
   "schemaVersion": 2,
   "status": "verified",
   "travelEstimate": {
@@ -87,5 +86,60 @@
     "max": 5
   },
   "officialWebsite": "https://borderless.teamlab.art/jp/",
-  "businessHours": "10:00 - 21:00 (Last admission 20:00)"
+  "businessHours": "10:00 - 21:00 (Last admission 20:00)",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://borderless.teamlab.art/jp/",
+        "title": "teamLab Borderless official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "チームラボボーダレス（麻布台ヒルズ）",
+  "content": {
+    "en": {
+      "name": "teamLab Borderless",
+      "description": "An extraordinary digital art museum in Azabudai Hills where artworks move, interact, and blend without boundaries.",
+      "highlights": [
+        "Boundaryless Digital Art Works",
+        "Interactive Light Displays",
+        "EN TEA HOUSE Experience"
+      ],
+      "notes": "Explore the maze of light and digital projection art freely without fixed map routes.",
+      "reservation": "Advance online booking required.",
+      "parking": "Paid parking structure available at Azabudai Hills.",
+      "openingHours": "10:00 - 21:00 (Last admission 20:00)"
+    },
+    "ja": {
+      "name": "チームラボボーダレス（麻布台ヒルズ）",
+      "description": "麻布台ヒルズに移転オープンした世界的なデジタルアートミュージアム。境界のないアート群が空間を自在に巡り、人と融合します。",
+      "highlights": [
+        "境界のないデジタルアート群",
+        "インタラクティブな光空間",
+        "EN TEA HOUSE（お茶のアート）"
+      ],
+      "notes": "決まった順路がない光とデジタルアートの迷路を、自由に探索しながら体験できます。",
+      "reservation": "日時指定のオンライン事前予約が必要です。",
+      "parking": "麻布台ヒルズ内の有料駐車場をご利用いただけます。",
+      "openingHours": "10:00 - 21:00（最終入場 20:00）"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "決まった順路がない光とデジタルアートの迷路を、自由に探索しながら体験できます。",
+  "reservationJa": "日時指定のオンライン事前予約が必要です。",
+  "parkingJa": "麻布台ヒルズ内の有料駐車場をご利用いただけます。",
+  "openingHours": "10:00 - 21:00 (Last admission 20:00)",
+  "openingHoursJa": "10:00 - 21:00（最終入場 20:00）"
 }

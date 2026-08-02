@@ -10,9 +10,9 @@
   "budgetMin": 3500,
   "budgetRecommended": 8250,
   "budgetMax": 13000,
-  "walkingMin": 3500,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 2000,
+  "walkingMin": 35,
+  "walkingSunMin": 21,
+  "walkingShadeMin": 14,
   "indoorPercent": 70,
   "ratings": {
     "overall": 9.8,
@@ -59,21 +59,20 @@
     "train": 5
   },
   "highlights": [
-    "Sky Edge Glass Corner",
-    "Cloud Hammocks Rooftop Lawn",
-    "Geo Compass 360 Horizon",
-    "Paradise Lounge Bar"
+    "229m Open-Air Sky Stage",
+    "360 Panoramic Tokyo Views",
+    "Shibuya Scramble Crossing Overlook"
   ],
-  "description": "Perched 229 meters directly above Shibuya Crossing atop Shibuya Scramble Square, featuring an open-air rooftop glass-edge deck with 360-degree views of Tokyo Tower and Mt. Fuji.",
+  "description": "A breathtaking 229-meter rooftop observation deck at Shibuya Scramble Square offering 360-degree views of Tokyo and Mount Fuji.",
   "budgetBreakdown": {
     "transport": 236,
     "tickets": 2946,
     "food": 3771,
     "cafe": 1297
   },
-  "reservation": "Advance online ticket booking required 2 to 4 weeks prior.",
-  "parking": "Underground paid parking at Shibuya Scramble Square.",
-  "notes": "Rooftop deck may close temporarily during heavy rain or strong wind.",
+  "reservation": "Online timed entry ticket required; sunset slots sell out early.",
+  "parking": "Paid parking garages available at Shibuya Scramble Square and nearby complexes.",
+  "notes": "Book sunset timeslots 2-4 weeks in advance for breathtaking Golden Hour photos over Shibuya Crossing.",
   "schemaVersion": 2,
   "status": "verified",
   "travelEstimate": {
@@ -100,5 +99,60 @@
     "max": 4
   },
   "officialWebsite": "https://www.shibuya-scramble-square.com/sky/",
-  "businessHours": "10:00 - 22:30 (Last admission 21:20)"
+  "businessHours": "10:00 - 22:30 (Last admission 21:20)",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.shibuya-scramble-square.com/sky/",
+        "title": "Shibuya Sky (Rooftop Observatory) official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "渋谷スカイ",
+  "content": {
+    "en": {
+      "name": "Shibuya Sky (Rooftop Observatory)",
+      "description": "A breathtaking 229-meter rooftop observation deck at Shibuya Scramble Square offering 360-degree views of Tokyo and Mount Fuji.",
+      "highlights": [
+        "229m Open-Air Sky Stage",
+        "360 Panoramic Tokyo Views",
+        "Shibuya Scramble Crossing Overlook"
+      ],
+      "notes": "Book sunset timeslots 2-4 weeks in advance for breathtaking Golden Hour photos over Shibuya Crossing.",
+      "reservation": "Online timed entry ticket required; sunset slots sell out early.",
+      "parking": "Paid parking garages available at Shibuya Scramble Square and nearby complexes.",
+      "openingHours": "10:00 - 22:30 (Last admission 21:20)"
+    },
+    "ja": {
+      "name": "渋谷スカイ",
+      "description": "渋谷スクランブルスクエアの屋上にある高さ229mの展望施設。スクランブル交差点や東京タワー、富士山を360度見渡せます。",
+      "highlights": [
+        "高さ229mの屋上展望空間",
+        "360度東京パノラマ絶景",
+        "真下のスクランブル交差点"
+      ],
+      "notes": "スクランブル交差点を望む夕景を撮影するには、2〜4週間前の日没時間帯の事前予約が必須です。",
+      "reservation": "日時指定のオンライン事前チケットが必要です。夕方の枠は早期完売します。",
+      "parking": "渋谷スクランブルスクエアおよび周辺商業施設の有料駐車場をご利用いただけます。",
+      "openingHours": "10:00 - 22:30（最終入場 21:20）"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "スクランブル交差点を望む夕景を撮影するには、2〜4週間前の日没時間帯の事前予約が必須です。",
+  "reservationJa": "日時指定のオンライン事前チケットが必要です。夕方の枠は早期完売します。",
+  "parkingJa": "渋谷スクランブルスクエアおよび周辺商業施設の有料駐車場をご利用いただけます。",
+  "openingHours": "10:00 - 22:30 (Last admission 21:20)",
+  "openingHoursJa": "10:00 - 22:30（最終入場 21:20）"
 }

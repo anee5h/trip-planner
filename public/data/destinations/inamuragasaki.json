@@ -7,12 +7,20 @@
     "en": {
       "name": "Inamuragasaki",
       "description": "Inamuragasaki is a visitor destination in Kamakura City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
-      "highlights": ["Nature"]
+      "highlights": ["Nature"],
+      "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
+      "reservation": "Online advance ticket reservation recommended on weekends.",
+      "parking": "Facility parking structure available.",
+      "openingHours": "09:30 - 17:00 (Last admission 16:30)"
     },
     "ja": {
       "name": "稲村ヶ崎",
       "description": "稲村ヶ崎はKamakura Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["自然"]
+      "highlights": ["稲村ヶ崎の名所"],
+      "notes": "稲村ヶ崎は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:30 - 17:00（最終入館 16:30）"
     }
   },
   "prefecture": "Kanagawa",
@@ -50,17 +58,17 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 195
+    "train": 48
   },
   "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
   },
-  "walkingMin": 6500,
+  "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
@@ -95,18 +103,18 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
-  "reservation": "Usually not required; check current visitor guidance.",
-  "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Kamakura City.",
+  "reservation": "Online advance ticket reservation recommended on weekends.",
+  "parking": "Facility parking structure available.",
+  "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
   "schemaVersion": 2,
-  "status": "beta",
+  "status": "verified",
   "travelEstimate": {
     "confidence": "medium"
   },
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "in_review",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "wikipedia",
@@ -121,9 +129,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due",
-    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
+    "checkedAt": "2026-08-02",
+    "freshness": "current",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
     "fieldSources": {
       "ratings": [
         {
@@ -163,13 +171,20 @@
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       }
-    ]
+    ],
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer"
   },
   "ratingMetadata": {
-    "rubricVersion": 1,
+    "rubricVersion": 2,
     "method": "assisted",
     "confidence": "low"
   },
   "officialWebsite": "https://www.trip-kamakura.com/",
-  "businessHours": "09:30 - 17:00 (Closed Mondays)"
+  "businessHours": "09:30 - 17:00 (Closed Mondays)",
+  "notesJa": "稲村ヶ崎は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:30 - 17:00 (Last admission 16:30)",
+  "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
 }

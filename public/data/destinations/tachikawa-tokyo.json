@@ -5,11 +5,11 @@
   "region": "Kanto",
   "categories": ["Nature", "Parks", "Urban"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg/1280px-Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg",
-  "description": "Major Tama region gateway featuring the massive Showa Kinen Park, seasonal flower festivals, and modern dining quarters.",
+  "description": "A vibrant western Tokyo sub-center featuring Showa Kinen Park, GREEN SPRINGS, and IKEA Tachikawa.",
   "highlights": [
-    "Showa Kinen Park",
-    "GREEN SPRINGS Complex",
-    "Tachikawa Anime Mall"
+    "Showa Kinen National Park",
+    "GREEN SPRINGS Lifestyle Complex",
+    "PLAY! MUSEUM"
   ],
   "budgetMin": 6000,
   "budgetMax": 14000,
@@ -50,9 +50,9 @@
   "bestSeason": "Autumn",
   "weatherDependence": "moderate",
   "tags": ["Parks", "Seasonal Flowers", "Family"],
-  "reservation": "Not required",
-  "parking": "Available at Showa Kinen Park",
-  "notes": "Showa Kinen Park is famous for autumn ginkgo and spring cherry blossoms.",
+  "reservation": "Open access; no entrance reservation required.",
+  "parking": "Park parking lot available on site.",
+  "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
   "coordinates": {
     "lat": 35.7139057,
     "lng": 139.4077701
@@ -98,5 +98,56 @@
     "min": 6,
     "max": 12
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/tokyo/index.html",
+        "title": "Tokyo Official Visitor Information",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "立川市",
+  "content": {
+    "en": {
+      "name": "Tachikawa City",
+      "description": "A vibrant western Tokyo sub-center featuring Showa Kinen Park, GREEN SPRINGS, and IKEA Tachikawa.",
+      "highlights": [
+        "Showa Kinen National Park",
+        "GREEN SPRINGS Lifestyle Complex",
+        "PLAY! MUSEUM"
+      ],
+      "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
+      "reservation": "Open access; no entrance reservation required.",
+      "parking": "Park parking lot available on site.",
+      "openingHours": "24 Hours (Open access)"
+    },
+    "ja": {
+      "name": "立川市",
+      "description": "国営昭和記念公園の広大な緑、複合施設GREEN SPRINGS、PLAY! MUSEUMなどが集まる立川駅周辺の利便性の高い都市です。",
+      "highlights": ["国営昭和記念公園", "GREEN SPRINGS", "PLAY! MUSEUM"],
+      "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "散策自由（24時間開放）"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "24 Hours (Open access)",
+  "openingHoursJa": "散策自由（24時間開放）"
 }

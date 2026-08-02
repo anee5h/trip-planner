@@ -44,11 +44,15 @@ const SOLID_COLOR_CLASSES: Record<string, string> = {
     "bg-purple-600 hover:bg-purple-700 text-white font-extrabold border-purple-300 shadow-md",
 };
 
+import { useLocale } from "@/shared/context/LocaleContext";
+import { getCollectionContent } from "@/shared/utils/collections";
+
 interface CollectionBadgeProps {
   collection: Collection;
   className?: string;
   size?: "sm" | "md";
   variant?: "subtle" | "solid";
+  locale?: "en" | "ja";
 }
 
 /**
@@ -59,7 +63,12 @@ export default function CollectionBadge({
   className = "",
   size = "sm",
   variant = "subtle",
+  locale: propLocale,
 }: CollectionBadgeProps) {
+  const { locale: contextLocale } = useLocale();
+  const currentLocale = propLocale || contextLocale || "en";
+  const content = getCollectionContent(collection, currentLocale);
+
   const Icon = ICON_MAP[collection.icon] || Tag;
   const stylesMap =
     variant === "solid" ? SOLID_COLOR_CLASSES : SUBTLE_COLOR_CLASSES;
@@ -74,11 +83,11 @@ export default function CollectionBadge({
 
   return (
     <span
-      aria-label={`Collection: ${collection.name}`}
+      aria-label={`Collection: ${content.name}`}
       className={`inline-flex items-center rounded-full border transition-all whitespace-nowrap shrink-0 max-w-full ${colorStyle} ${sizeStyle} ${className}`}
     >
       <Icon className={`${iconSize} shrink-0`} aria-hidden="true" />
-      <span className="truncate">{collection.name}</span>
+      <span className="truncate">{content.name}</span>
     </span>
   );
 }

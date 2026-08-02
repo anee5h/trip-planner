@@ -17,6 +17,8 @@ export interface Collection {
   slug: string;
   name: string;
   description: string;
+  nameJa?: string;
+  descriptionJa?: string;
   category: string;
   type: "official" | "historical" | "curated";
   /** True for Passport-tracked achievements; false/undefined for browse-only directory collections */

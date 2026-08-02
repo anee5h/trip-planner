@@ -9,13 +9,17 @@
   "categories": ["Castle", "History", "Hiking"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Hachioji_Castle_Hikibashi.JPG/1280px-Hachioji_Castle_Hikibashi.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Hachioji_Castle_Hikibashi.JPG/1280px-Hachioji_Castle_Hikibashi.JPG",
-  "description": "Atmospheric hilltop mountain castle ruins in western Tokyo built by Hojo Ujiteru.",
-  "highlights": ["Reconstructed Bridge", "Honmaru Ruins", "Mountain Trail"],
+  "description": "A historic mountain castle ruin in Hachioji built by Hojo Ujiteru, featuring restored stone walls and scenic forest trails.",
+  "highlights": [
+    "Restored Stone Walls & Residence Site",
+    "History of Hojo Clan",
+    "Forest Trail Hikes"
+  ],
   "totalTripHours": 3,
   "budgetMin": 0,
   "budgetRecommended": 1000,
   "budgetMax": 2000,
-  "walkingMin": 150,
+  "walkingMin": 5,
   "indoorPercent": 10,
   "ratings": {
     "overall": 9.1,
@@ -64,16 +68,16 @@
   "transportOptions": {
     "train": 60
   },
-  "walkingSunMin": 90,
-  "walkingShadeMin": 60,
+  "walkingSunMin": 3,
+  "walkingShadeMin": 2,
   "comfort": {
     "heatTolerance": 7,
     "rainFriendly": 7,
     "walkingIntensity": 3
   },
-  "reservation": "None required",
-  "parking": "Available on site",
-  "notes": "Hachioji Castle Ruins (Mount Castle) located in Tokyo Prefecture.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -81,5 +85,60 @@
     "max": 4
   },
   "officialWebsite": "https://www.city.hachioji.tokyo.jp/kankobunka/001/003/p005221.html",
-  "businessHours": "09:00 - 17:00 (Last admission 16:30)"
+  "businessHours": "09:00 - 17:00 (Last admission 16:30)",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.hachioji.tokyo.jp/kankobunka/001/003/p005221.html",
+        "title": "Hachioji Castle Ruins (Mount Castle) official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "八王子城跡",
+  "content": {
+    "en": {
+      "name": "Hachioji Castle Ruins (Mount Castle)",
+      "description": "A historic mountain castle ruin in Hachioji built by Hojo Ujiteru, featuring restored stone walls and scenic forest trails.",
+      "highlights": [
+        "Restored Stone Walls & Residence Site",
+        "History of Hojo Clan",
+        "Forest Trail Hikes"
+      ],
+      "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
+    },
+    "ja": {
+      "name": "八王子城跡",
+      "description": "北条氏照が築城した日本100名城の一つ。山城の遺構である石垣や御主殿跡が復元され、歴史散策と豊かな自然を楽しめます。",
+      "highlights": [
+        "復元された石垣と御主殿跡",
+        "北条氏の山城歴史",
+        "森林の歴史散策路"
+      ],
+      "notes": "八王子城跡は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "八王子城跡は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

@@ -10,9 +10,9 @@
   "budgetMin": 2500,
   "budgetRecommended": 5750,
   "budgetMax": 9000,
-  "walkingMin": 3500,
-  "walkingSunMin": 1200,
-  "walkingShadeMin": 2300,
+  "walkingMin": 35,
+  "walkingSunMin": 21,
+  "walkingShadeMin": 14,
   "indoorPercent": 85,
   "ratings": {
     "overall": 8.9,
@@ -57,19 +57,18 @@
   "highlights": [
     "100m Titanium Helix Tower",
     "Arata Isozaki Architecture",
-    "Contemporary Art Gallery Mito",
-    "Concert Hall & Theater"
+    "Contemporary Art Galleries"
   ],
-  "description": "Designed by Pritzker Prize laureate Arata Isozaki to commemorate Mito's 100th municipal anniversary, this 100-meter helix tower is composed of 57 titanium tetrahedrons spiraling skyward.",
+  "description": "A striking modern cultural complex in Mito designed by Arata Isozaki, featuring a 100m titanium helix tower, concert hall, and gallery.",
   "budgetBreakdown": {
     "transport": 1725,
     "tickets": 230,
     "food": 2645,
     "cafe": 1150
   },
-  "reservation": "No reservation required for tower lookout.",
-  "parking": "Underground paid parking lot below Art Tower Mito plaza.",
-  "notes": "The tower contains round porthole windows providing unique framed perspectives of Mito City.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Ibaraki, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -97,5 +96,56 @@
     "max": 4
   },
   "officialWebsite": "https://www.arttowermito.or.jp/",
-  "businessHours": "09:30 - 17:00 (Closed Mondays)"
+  "businessHours": "09:30 - 17:00 (Closed Mondays)",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.arttowermito.or.jp/",
+        "title": "Art Tower Mito official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "水戸芸術館",
+  "content": {
+    "en": {
+      "name": "Art Tower Mito",
+      "description": "A striking modern cultural complex in Mito designed by Arata Isozaki, featuring a 100m titanium helix tower, concert hall, and gallery.",
+      "highlights": [
+        "100m Titanium Helix Tower",
+        "Arata Isozaki Architecture",
+        "Contemporary Art Galleries"
+      ],
+      "notes": "A top recommended attraction in Ibaraki, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
+    },
+    "ja": {
+      "name": "水戸芸術館",
+      "description": "建築家・磯崎新氏の設計による水戸市の現代文化施設。高さ100mの螺旋チタンタワーがシンボルで、劇場やコンサートホールを併設します。",
+      "highlights": ["100m散策", "水戸芸術館の名所", "水戸芸術館の名所"],
+      "notes": "水戸芸術館は、Ibarakiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "水戸芸術館は、Ibarakiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

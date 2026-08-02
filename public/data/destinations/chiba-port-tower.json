@@ -10,9 +10,9 @@
   "budgetMin": 2500,
   "budgetRecommended": 5500,
   "budgetMax": 8500,
-  "walkingMin": 3500,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 2000,
+  "walkingMin": 35,
+  "walkingSunMin": 21,
+  "walkingShadeMin": 14,
   "indoorPercent": 80,
   "ratings": {
     "overall": 8.5,
@@ -67,9 +67,9 @@
     "food": 3080,
     "cafe": 1078
   },
-  "reservation": "No reservation required.",
-  "parking": "Free parking lot at Chiba Port Park (over 200 spaces).",
-  "notes": "Special Christmas illumination features a giant 100m tall light-bulb tree on the glass facade.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -100,5 +100,62 @@
   "placeType": "destination",
   "areaId": "chiba-port",
   "officialWebsite": "https://chiba-porttower.com/",
-  "businessHours": "10:00 - 21:00 (Last admission 20:30)"
+  "businessHours": "10:00 - 21:00 (Last admission 20:30)",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://chiba-porttower.com/",
+        "title": "Chiba Port Tower official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "千葉ポートタワー",
+  "content": {
+    "en": {
+      "name": "Chiba Port Tower",
+      "description": "Clad in over 5,500 heat-reflecting glass mirrors, this 125-meter waterfront tower stands in Chiba Port Park, offering panoramic sunset views across Tokyo Bay to Mt. Fuji.",
+      "highlights": [
+        "125m Mirror Glass Facade",
+        "Tokyo Bay Sunset Panorama",
+        "Lover's Sanctuary Promenade",
+        "Chiba Port Park Beach"
+      ],
+      "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
+    },
+    "ja": {
+      "name": "千葉ポートタワー",
+      "description": "Chiba Port Towerは千葉県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "highlights": [
+        "125mハーフミラーガラスの壁面",
+        "東京湾の夕景パノラマ",
+        "恋人の聖地プロムナード",
+        "公園散策"
+      ],
+      "notes": "千葉ポートタワーは、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "千葉ポートタワーは、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

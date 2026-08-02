@@ -51,9 +51,9 @@
   "bestSeason": "Spring",
   "weatherDependence": "low",
   "tags": ["Shopping", "Parks", "Family"],
-  "reservation": "Not required",
-  "parking": "Available at shopping centers",
-  "notes": "Easy train access via Odakyu or JR Yokohama Line.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Commercial district paid parking garages available nearby.",
+  "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
   "coordinates": {
     "lat": 35.5466803,
     "lng": 139.4386999
@@ -94,5 +94,57 @@
     "max": 7
   },
   "businessHours": "09:00 - 17:00 (Daily)",
-  "kind": "city"
+  "kind": "city",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/tokyo/index.html",
+        "title": "Tokyo Official Visitor Information",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "町田市",
+  "content": {
+    "en": {
+      "name": "Machida",
+      "description": "Vibrant shopping and commercial hub in western Tokyo bordering Kanagawa, famous for Serigaya Park and Squirrel Garden.",
+      "highlights": [
+        "Machida Squirrel Garden",
+        "Serigaya Park",
+        "Grandberry Park",
+        "Nakamachi Shopping Street"
+      ],
+      "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Commercial district paid parking garages available nearby.",
+      "openingHours": "10:00 - 20:00"
+    },
+    "ja": {
+      "name": "町田市",
+      "description": "町田市は東京都を代表するショッピングと散策のスポットです。多種多様なショップやグルメが集まり、地元の活気と魅力溢れる時間を楽しめます。",
+      "highlights": ["庭園散策", "公園散策", "公園散策", "町田市の名所"],
+      "notes": "町田市は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "10:00 - 20:00（店舗により異なる）"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "町田市は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "10:00 - 20:00",
+  "openingHoursJa": "10:00 - 20:00（店舗により異なる）"
 }

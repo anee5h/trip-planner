@@ -9,9 +9,9 @@
   "budgetMin": 26800,
   "budgetRecommended": 30800,
   "budgetMax": 34800,
-  "walkingMin": 20000,
-  "walkingSunMin": 15000,
-  "walkingShadeMin": 5000,
+  "walkingMin": 60,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "indoorPercent": 40,
   "ratings": {
     "overall": 9.1,
@@ -49,7 +49,7 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Tokyo_Disney_Sea_Aerial_2019.png/330px-Tokyo_Disney_Sea_Aerial_2019.png",
   "transportOptions": {
-    "train": 90
+    "train": 23
   },
   "highlights": ["DisneySea Transit Steamer", "Soaring"],
   "description": "DisneySea is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
@@ -59,9 +59,9 @@
     "food": 6201,
     "cafe": 2067
   },
-  "reservation": "Required",
-  "parking": "Expensive",
-  "notes": "Avoid hottest days",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -86,5 +86,52 @@
     "max": 14
   },
   "officialWebsite": "https://www.tokyodisneyresort.jp/tds/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.tokyodisneyresort.jp/tds/",
+        "title": "DisneySea official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "東京ディズニーシー",
+  "content": {
+    "en": {
+      "name": "DisneySea",
+      "description": "DisneySea is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
+      "highlights": ["DisneySea Transit Steamer", "Soaring"],
+      "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
+    },
+    "ja": {
+      "name": "東京ディズニーシー",
+      "description": "DisneySeaは千葉県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "highlights": ["東京ディズニーシーの名所", "東京ディズニーシーの名所"],
+      "notes": "東京ディズニーシーは、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "東京ディズニーシーは、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

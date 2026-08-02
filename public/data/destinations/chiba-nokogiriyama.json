@@ -22,13 +22,13 @@
     "cafe": 673
   },
   "transportOptions": {
-    "train": 110,
+    "train": 56,
     "car": 85
   },
   "totalTripHours": 8,
-  "walkingMin": 140,
-  "walkingSunMin": 80,
-  "walkingShadeMin": 60,
+  "walkingMin": 5,
+  "walkingSunMin": 3,
+  "walkingShadeMin": 2,
   "indoorPercent": 10,
   "coordinates": {
     "lat": 35.1587,
@@ -66,9 +66,9 @@
   "bestSeason": "Autumn",
   "weatherDependence": "high",
   "tags": ["Cliff Views", "Buddha", "Pilgrimage", "Active"],
-  "reservation": "Not required",
-  "parking": "Paid parking at ropeway station base",
-  "notes": "Hell Peek viewpoint is extremely high and does not suit travellers prone to vertigo.",
+  "reservation": "Open access; no entrance reservation required.",
+  "parking": "Park parking lot available on site.",
+  "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/3/35/The_port_of_Kanaya.jpg",
   "imageMetadata": {
@@ -97,5 +97,62 @@
     "max": 9
   },
   "officialWebsite": "https://nokogiriyama.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://nokogiriyama.jp/",
+        "title": "Nokogiriyama official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "鋸山",
+  "content": {
+    "en": {
+      "name": "Nokogiriyama",
+      "description": "A saw-toothed mountain showcasing Nihon-ji temple, a massive 31-meter tall stone carving of Buddha, and the dizzying 'View of Hell' cliff overlook.",
+      "highlights": [
+        "Jigoku Nozoki (Hell Peek)",
+        "Nihon-ji Great Buddha",
+        "Nokogiriyama Ropeway",
+        "Hyaku-shaku Kannon"
+      ],
+      "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
+      "reservation": "Open access; no entrance reservation required.",
+      "parking": "Park parking lot available on site.",
+      "openingHours": "24 Hours (Open access)"
+    },
+    "ja": {
+      "name": "鋸山",
+      "description": "Nokogiriyamaは千葉県の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "highlights": [
+        "地獄のぞき",
+        "日本寺大仏",
+        "鋸山ロープウェー",
+        "百尺観音"
+      ],
+      "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "散策自由（24時間開放）"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "24 Hours (Open access)",
+  "openingHoursJa": "散策自由（24時間開放）"
 }

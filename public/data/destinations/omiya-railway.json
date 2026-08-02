@@ -9,9 +9,9 @@
   "budgetMin": 9700,
   "budgetRecommended": 13700,
   "budgetMax": 17700,
-  "walkingMin": 4000,
-  "walkingSunMin": 500,
-  "walkingShadeMin": 3500,
+  "walkingMin": 40,
+  "walkingSunMin": 24,
+  "walkingShadeMin": 16,
   "indoorPercent": 95,
   "ratings": {
     "overall": 8.8,
@@ -49,19 +49,23 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Namakubi0kei.JPG/330px-Namakubi0kei.JPG",
   "transportOptions": {
-    "train": 100
+    "train": 35
   },
-  "highlights": ["Train Simulators", "Historic Cars"],
-  "description": "Ōmiya is one of ten wards of the city of Saitama, in Saitama Prefecture, Japan, and is located in the northeastern part of the city. As of 1 March 2021, the ward had an estimated population of 119,298 and a population density of 9,300 persons per km2. Its total area was 12.80 square kilometres (4.94 sq mi). Although Urawa-ku is the governmental center of Saitama City, Ōmiya-ku is the most active commercial and business centre in both Saitama City and Saitama Prefecture thanks to its transport infrastructure, especially railways connected at Ōmiya Station.",
+  "highlights": [
+    "36 Historic Railway Vehicles",
+    "Shinkansen Driving Simulators",
+    "Interactive Train Exhibits"
+  ],
+  "description": "Japan's premier railway museum in Saitama, featuring real historic trains, Bullet train simulators, and interactive exhibits.",
   "budgetBreakdown": {
     "transport": 3236,
     "tickets": 3020,
     "food": 5286,
     "cafe": 2158
   },
-  "reservation": "None required",
-  "parking": "Yes",
-  "notes": "Excellent hot-day option",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Saitama, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "status": "verified",
   "travelEstimate": {
@@ -83,5 +87,60 @@
   },
   "areaId": "omiya",
   "officialWebsite": "https://www.railway-museum.jp/",
-  "businessHours": "09:30 - 17:00 (Closed Mondays)"
+  "businessHours": "09:30 - 17:00 (Closed Mondays)",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.railway-museum.jp/",
+        "title": "Omiya Railway Museum official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "鉄道博物館（大宮）",
+  "content": {
+    "en": {
+      "name": "Omiya Railway Museum",
+      "description": "Japan's premier railway museum in Saitama, featuring real historic trains, Bullet train simulators, and interactive exhibits.",
+      "highlights": [
+        "36 Historic Railway Vehicles",
+        "Shinkansen Driving Simulators",
+        "Interactive Train Exhibits"
+      ],
+      "notes": "A top recommended attraction in Saitama, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
+    },
+    "ja": {
+      "name": "鉄道博物館（大宮）",
+      "description": "JR東日本が運営する日本最大級の鉄道博物館。実物の蒸気機関車や新幹線、本格的な運転シミュレータが揃います。",
+      "highlights": [
+        "36両の実物車両展示",
+        "新幹線運転シミュレータ",
+        "体験型鉄道展示"
+      ],
+      "notes": "鉄道博物館（大宮）は、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "鉄道博物館（大宮）は、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

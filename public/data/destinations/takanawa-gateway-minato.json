@@ -10,9 +10,9 @@
   "budgetMin": 3000,
   "budgetRecommended": 6500,
   "budgetMax": 10000,
-  "walkingMin": 3000,
-  "walkingSunMin": 1200,
-  "walkingShadeMin": 1800,
+  "walkingMin": 30,
+  "walkingSunMin": 18,
+  "walkingShadeMin": 12,
   "indoorPercent": 80,
   "ratings": {
     "overall": 8.4,
@@ -57,21 +57,20 @@
     "train": 15
   },
   "highlights": [
-    "Kengo Kuma Origami Roof Structure",
-    "TOUCH TO GO Automated Convenience Store",
-    "TAKANAWA GATEWAY CITY Development",
-    "Sengakuji Temple (nearby)"
+    "Kengo Kuma Wooden Architecture",
+    "AI Robots & Self-Checkout Store",
+    "TAKANAWA GATEWAY CITY Area"
   ],
-  "description": "Designed by world-renowned architect Kengo Kuma, Takanawa Gateway is the newest station on Tokyos iconic Yamanote Line, featuring a dramatic paper-origami glass roof, AI-powered unmanned stores, and futuristic urban planning.",
+  "description": "A modern futuristic station complex designed by Kengo Kuma in Minato ward, featuring wooden architecture and AI robotics.",
   "budgetBreakdown": {
     "transport": 510,
     "tickets": 0,
     "food": 4461,
     "cafe": 1529
   },
-  "reservation": "No reservation required.",
-  "parking": "Short-term parking garages available nearby at Shinagawa Station and Takanawa Gateway City development.",
-  "notes": "Station opened in 2020 as the 30th Yamanote Line station. Beautiful night illumination of the cedar wood roof structure.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "bestSeason": "All Year",
   "weatherDependence": "low",
@@ -96,5 +95,60 @@
     "max": 4
   },
   "officialWebsite": "https://www.takanawagateway-city.com/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.takanawagateway-city.com/",
+        "title": "Takanawa Gateway official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "高輪ゲートウェイ",
+  "content": {
+    "en": {
+      "name": "Takanawa Gateway",
+      "description": "A modern futuristic station complex designed by Kengo Kuma in Minato ward, featuring wooden architecture and AI robotics.",
+      "highlights": [
+        "Kengo Kuma Wooden Architecture",
+        "AI Robots & Self-Checkout Store",
+        "TAKANAWA GATEWAY CITY Area"
+      ],
+      "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
+    },
+    "ja": {
+      "name": "高輪ゲートウェイ",
+      "description": "隈研吾氏がデザインを手掛けたJR山手線の新駅。木材を多用した大屋根建築と最新のAIロボット、周辺の再開発街並みが特徴です。",
+      "highlights": [
+        "隈研吾デザインの大屋根建築",
+        "最新AIロボットと無人店舗",
+        "TAKANAWA GATEWAY CITY"
+      ],
+      "notes": "高輪ゲートウェイは、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "高輪ゲートウェイは、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

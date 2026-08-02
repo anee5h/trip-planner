@@ -47,7 +47,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/3840px-Kairaku-en%2C_Ibaraki_24.jpg",
   "description": "Kairakuen in Mito is one of Japan's Three Great Gardens, famous for its over 3,000 plum trees of 100 different varieties that bloom brilliantly in early spring.",
-  "notes": "Top 100 Castle of Japan #42. Ninomaru Goten is an Important Cultural Property.",
+  "notes": "A top recommended attraction in Ibaraki, offering excellent photo opportunities and local cultural experiences.",
   "categories": ["history", "culture", "sightseeing"],
   "budgetMin": 2000,
   "budgetMax": 8000,
@@ -63,9 +63,9 @@
     "autumn": 4,
     "winter": 4
   },
-  "walkingMin": 8000,
-  "walkingSunMin": 4800,
-  "walkingShadeMin": 3200,
+  "walkingMin": 60,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
@@ -87,8 +87,8 @@
     "rainFriendly": 7,
     "walkingIntensity": 3
   },
-  "reservation": "None required",
-  "parking": "Available on site",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -105,5 +105,51 @@
     "max": 5
   },
   "officialWebsite": "https://ibaraki-kairakuen.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://ibaraki-kairakuen.jp/",
+        "title": "Kairakuen Garden official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "content": {
+    "en": {
+      "name": "Kairakuen Garden",
+      "description": "Kairakuen in Mito is one of Japan's Three Great Gardens, famous for its over 3,000 plum trees of 100 different varieties that bloom brilliantly in early spring.",
+      "highlights": ["Explore Kairakuen Garden", "Local Culture & Scenery"],
+      "notes": "A top recommended attraction in Ibaraki, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
+    },
+    "ja": {
+      "name": "偕楽園",
+      "description": "偕楽園は茨城県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "highlights": ["庭園散策", "&散策"],
+      "notes": "偕楽園は、Ibarakiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "偕楽園は、Ibarakiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

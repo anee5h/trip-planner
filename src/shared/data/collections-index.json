@@ -19,6 +19,18 @@
       "verificationSource": "Japan Castle Foundation",
       "reviewIntervalMonths": 24,
       "expectedMembers": 12
+    },
+    "nameJa": "現存十二天守",
+    "descriptionJa": "江戸時代以前から現存する日本全国12箇所の貴重な木造天守閣。",
+    "content": {
+      "en": {
+        "name": "Original 12 Surviving Castles",
+        "description": "Japan's 12 surviving wooden keeps that have endured unaltered since the Edo period or earlier."
+      },
+      "ja": {
+        "name": "現存十二天守",
+        "description": "江戸時代以前から現存する日本全国12箇所の貴重な木造天守閣。"
+      }
     }
   },
   {
@@ -41,6 +53,18 @@
       "verificationSource": "UNESCO World Heritage Centre",
       "reviewIntervalMonths": 12,
       "expectedMembers": 27
+    },
+    "nameJa": "日本のユネスコ世界遺産",
+    "descriptionJa": "顕著な普遍的価値を有し、ユネスコに登録された日本の世界文化遺産・自然遺産。",
+    "content": {
+      "en": {
+        "name": "UNESCO World Heritage Japan",
+        "description": "Cultural and natural sites designated by UNESCO for their outstanding universal value."
+      },
+      "ja": {
+        "name": "日本のユネスコ世界遺産",
+        "description": "顕著な普遍的価値を有し、ユネスコに登録された日本の世界文化遺産・自然遺産。"
+      }
     }
   },
   {
@@ -63,6 +87,18 @@
       "verificationSource": "Agency for Cultural Affairs (国宝)",
       "reviewIntervalMonths": 12,
       "expectedMembers": 220
+    },
+    "nameJa": "日本の国宝建造物・史跡",
+    "descriptionJa": "文化庁により指定された、極めて高い歴史的・芸術的価値を持つ日本の国宝建造物。",
+    "content": {
+      "en": {
+        "name": "National Treasures of Japan",
+        "description": "Japan's finest cultural properties of exceptional historical and artistic significance designated by the Agency for Cultural Affairs."
+      },
+      "ja": {
+        "name": "日本の国宝建造物・史跡",
+        "description": "文化庁により指定された、極めて高い歴史的・芸術的価値を持つ日本の国宝建造物。"
+      }
     }
   },
   {
@@ -85,6 +121,18 @@
       "verificationSource": "Japan Castle Foundation (日本100名城)",
       "reviewIntervalMonths": 24,
       "expectedMembers": 30
+    },
+    "nameJa": "日本100名城",
+    "descriptionJa": "日本城郭協会により選定された、歴史と建築美を兼ね備えた名城群。",
+    "content": {
+      "en": {
+        "name": "Japan's Top Castles",
+        "description": "Certified premier castles selected by the Japan Castle Foundation for architectural and historical significance."
+      },
+      "ja": {
+        "name": "日本100名城",
+        "description": "日本城郭協会により選定された、歴史と建築美を兼ね備えた名城群。"
+      }
     }
   },
   {
@@ -107,6 +155,18 @@
       "verificationSource": "Ministry of the Environment (環境省)",
       "reviewIntervalMonths": 12,
       "expectedMembers": 34
+    },
+    "nameJa": "日本の国立公園",
+    "descriptionJa": "環境省が管理する、日本を代表する優れた自然風景地。",
+    "content": {
+      "en": {
+        "name": "National Parks of Japan",
+        "description": "Japan's premier protected natural sanctuaries administered by the Ministry of the Environment."
+      },
+      "ja": {
+        "name": "日本の国立公園",
+        "description": "環境省が管理する、日本を代表する優れた自然風景地。"
+      }
     }
   },
   {
@@ -129,6 +189,18 @@
       "verificationSource": "Ministry of the Environment (国定公園)",
       "reviewIntervalMonths": 12,
       "expectedMembers": 58
+    },
+    "nameJa": "日本の国定公園",
+    "descriptionJa": "国立公園に準ずる景勝地として都道府県と国が連携して保護する自然公園。",
+    "content": {
+      "en": {
+        "name": "Quasi-National Parks of Japan",
+        "description": "Scenic natural landscapes and prefectural parks managed with national conservation standards."
+      },
+      "ja": {
+        "name": "日本の国定公園",
+        "description": "国立公園に準ずる景勝地として都道府県と国が連携して保護する自然公園。"
+      }
     }
   },
   {
@@ -151,6 +223,18 @@
       "verificationSource": "JNTO / Cultural Heritage Tradition",
       "reviewIntervalMonths": 60,
       "expectedMembers": 3
+    },
+    "nameJa": "日本三名園",
+    "descriptionJa": "兼六園（金沢）、後楽園（岡山）、偕楽園（水戸）からなる日本を代表する三大庭園。",
+    "content": {
+      "en": {
+        "name": "Three Great Gardens",
+        "description": "Japan's three most celebrated traditional landscape gardens (Kenroku-en, Kairaku-en, Koraku-en)."
+      },
+      "ja": {
+        "name": "日本三名園",
+        "description": "兼六園（金沢）、後楽園（岡山）、偕楽園（水戸）からなる日本を代表する三大庭園。"
+      }
     }
   },
   {
@@ -173,6 +257,18 @@
       "verificationSource": "Hayashi Gaho (1643) / JNTO",
       "reviewIntervalMonths": 60,
       "expectedMembers": 3
+    },
+    "nameJa": "日本三景",
+    "descriptionJa": "松島（宮城）、天橋立（京都）、宮島（広島）からなる江戸時代以来の日本三大景勝地。",
+    "content": {
+      "en": {
+        "name": "Three Great Views",
+        "description": "Japan's classic three most celebrated scenic vistas (Nihon Sankei: Matsushima, Amanohashidate, Itsukushima)."
+      },
+      "ja": {
+        "name": "日本三景",
+        "description": "松島（宮城）、天橋立（京都）、宮島（広島）からなる江戸時代以来の日本三大景勝地。"
+      }
     }
   },
   {
@@ -195,6 +291,18 @@
       "verificationSource": "JNTO / Meibaku Tradition",
       "reviewIntervalMonths": 60,
       "expectedMembers": 3
+    },
+    "nameJa": "日本三名瀑",
+    "descriptionJa": "華厳の滝（日光）、袋田の滝（茨城）、那智の滝（和歌山）からなる日本三大名瀑。",
+    "content": {
+      "en": {
+        "name": "Three Great Waterfalls",
+        "description": "Japan's three most majestic natural waterfalls (Nihon Sanmeibaku: Kegon, Nachi, Fukuroda)."
+      },
+      "ja": {
+        "name": "日本三名瀑",
+        "description": "華厳の滝（日光）、袋田の滝（茨城）、那智の滝（和歌山）からなる日本三大名瀑。"
+      }
     }
   },
   {
@@ -217,6 +325,18 @@
       "verificationSource": "Agency for Cultural Affairs / Heritage Tradition",
       "reviewIntervalMonths": 60,
       "expectedMembers": 3
+    },
+    "nameJa": "日本三大仏",
+    "descriptionJa": "奈良の大仏、鎌倉の大仏、高岡の大仏からなる日本三大仏。",
+    "content": {
+      "en": {
+        "name": "Three Great Buddhas",
+        "description": "Japan's three celebrated monumental bronze Buddha statues (Nihon Sandaibutsu: Nara, Kamakura, Takaoka)."
+      },
+      "ja": {
+        "name": "日本三大仏",
+        "description": "奈良の大仏、鎌倉の大仏、高岡の大仏からなる日本三大仏。"
+      }
     }
   },
   {
@@ -239,6 +359,18 @@
       "verificationSource": "Association of Shinto Shrines (神社本庁)",
       "reviewIntervalMonths": 36,
       "expectedMembers": 3
+    },
+    "nameJa": "日本三大神宮",
+    "descriptionJa": "伊勢神宮、鹿島神宮、香取神宮などの格式高い日本三大神宮。",
+    "content": {
+      "en": {
+        "name": "Three Great Shrines",
+        "description": "Japan's three most sacred Shinto shrines deeply connected to imperial history and mythology (Ise, Izumo, Atsuta)."
+      },
+      "ja": {
+        "name": "日本三大神宮",
+        "description": "伊勢神宮、鹿島神宮、香取神宮などの格式高い日本三大神宮。"
+      }
     }
   },
   {
@@ -261,6 +393,18 @@
       "verificationSource": "Japan Cherry Blossom Association (日本さくらの会)",
       "reviewIntervalMonths": 24,
       "expectedMembers": 3
+    },
+    "nameJa": "日本三大桜・名所",
+    "descriptionJa": "弘前公園・吉野山・角館など、日本全国の桜の名所と巨樹。",
+    "content": {
+      "en": {
+        "name": "Japan's Cherry Blossom Spots",
+        "description": "Japan's premier sakura destinations celebrated for overwhelming spring blooms."
+      },
+      "ja": {
+        "name": "日本三大桜・名所",
+        "description": "弘前公園・吉野山・角館など、日本全国の桜の名所と巨樹。"
+      }
     }
   },
   {
@@ -283,6 +427,18 @@
       "verificationSource": "Japan Onsen Association (温泉協会)",
       "reviewIntervalMonths": 24,
       "expectedMembers": 50
+    },
+    "nameJa": "日本名湯・温泉街",
+    "descriptionJa": "草津、有馬、下呂など長い歴史と優れた泉質を誇る日本の名湯温泉街。",
+    "content": {
+      "en": {
+        "name": "Japan's Top Onsen",
+        "description": "Premier traditional hot spring resorts celebrated for healing thermal waters, ryokan hospitality, and historic bathhouse culture."
+      },
+      "ja": {
+        "name": "日本名湯・温泉街",
+        "description": "草津、有馬、下呂など長い歴史と優れた泉質を誇る日本の名湯温泉街。"
+      }
     }
   },
   {
@@ -305,6 +461,18 @@
       "verificationSource": "Agency for Cultural Affairs (重伝統的建造物群保存地区)",
       "reviewIntervalMonths": 12,
       "expectedMembers": 126
+    },
+    "nameJa": "日本の歴史的街並み・重要伝統的建造物群",
+    "descriptionJa": "川越、佐原、角館、倉敷など江戸時代や明治の面影を残す歴史保存地区。",
+    "content": {
+      "en": {
+        "name": "Historic Towns of Japan",
+        "description": "Exceptionally preserved Edo-period post towns, merchant quarters, and castle towns retaining authentic traditional wooden architecture."
+      },
+      "ja": {
+        "name": "日本の歴史的街並み・重要伝統的建造物群",
+        "description": "川越、佐原、角館、倉敷など江戸時代や明治の面影を残す歴史保存地区。"
+      }
     }
   },
   {
@@ -327,6 +495,18 @@
       "verificationSource": "Night View Convention & Tourism Bureau (夜景サミット)",
       "reviewIntervalMonths": 24,
       "expectedMembers": 20
+    },
+    "nameJa": "日本三大夜景・絶景夜景",
+    "descriptionJa": "函館山、摩耶山菊星台、稲佐山をはじめとする日本屈指の夜景スポット。",
+    "content": {
+      "en": {
+        "name": "Japan's Night Views",
+        "description": "Japan's most famous panoramic night views and sky deck observatories overlooking illuminated cityscapes and harbors."
+      },
+      "ja": {
+        "name": "日本三大夜景・絶景夜景",
+        "description": "函館山、摩耶山菊星台、稲佐山をはじめとする日本屈指の夜景スポット。"
+      }
     }
   },
   {
@@ -349,6 +529,18 @@
       "verificationSource": "Ministry of Internal Affairs and Communications",
       "reviewIntervalMonths": 12,
       "expectedMembers": 20
+    },
+    "nameJa": "日本の政令指定都市・主要都市",
+    "descriptionJa": "日本の地域経済・文化・行政を中心的に担う主要都市。",
+    "content": {
+      "en": {
+        "name": "Core Designated Cities of Japan",
+        "description": "Japan's 20 major government ordinance-designated metropolis hubs with statutory city-level autonomy."
+      },
+      "ja": {
+        "name": "日本の政令指定都市・主要都市",
+        "description": "日本の地域経済・文化・行政を中心的に担う主要都市。"
+      }
     }
   },
   {
@@ -371,6 +563,18 @@
       "verificationSource": "Japan Cave Association",
       "reviewIntervalMonths": 24,
       "expectedMembers": 10
+    },
+    "nameJa": "日本の鍾乳洞・洞窟",
+    "descriptionJa": "秋芳洞、龍河洞、あぶくま洞など神秘的な大自然の造形美を誇る大鍾乳洞。",
+    "content": {
+      "en": {
+        "name": "Subterranean Marvels & Caves of Japan",
+        "description": "Explore Japan’s dramatic limestone caverns, volcanic ice caves, and sacred underground stone quarries."
+      },
+      "ja": {
+        "name": "日本の鍾乳洞・洞窟",
+        "description": "秋芳洞、龍河洞、あぶくま洞など神秘的な大自然の造形美を誇る大鍾乳洞。"
+      }
     }
   },
   {
@@ -393,6 +597,18 @@
       "verificationSource": "Japan Scenic Byways",
       "reviewIntervalMonths": 24,
       "expectedMembers": 10
+    },
+    "nameJa": "日本の絶景ドライブコース・海岸線",
+    "descriptionJa": "角島大橋、千畳敷、湘南海岸など海と風を感じる爽快なドライブ街道。",
+    "content": {
+      "en": {
+        "name": "Scenic Coastal Drives of Japan",
+        "description": "Experience breathtaking oceanic highways, sea cliff drives, and coastal bridges spanning Japan’s emerald coastlines."
+      },
+      "ja": {
+        "name": "日本の絶景ドライブコース・海岸線",
+        "description": "角島大橋、千畳敷、湘南海岸など海と風を感じる爽快なドライブ街道。"
+      }
     }
   },
   {
@@ -415,6 +631,18 @@
       "verificationSource": "Japan Society of Civil Engineers",
       "reviewIntervalMonths": 24,
       "expectedMembers": 10
+    },
+    "nameJa": "日本の名橋・建築美の橋",
+    "descriptionJa": "錦帯橋、メガネ橋、角島大橋など構造美と歴史を兼ね備えた日本の名橋。",
+    "content": {
+      "en": {
+        "name": "Scenic & Architectural Bridges of Japan",
+        "description": "Discover Japan’s iconic bridges, from historic wooden archways and vine bridges to sweeping ocean causeways."
+      },
+      "ja": {
+        "name": "日本の名橋・建築美の橋",
+        "description": "錦帯橋、メガネ橋、角島大橋など構造美と歴史を兼ね備えた日本の名橋。"
+      }
     }
   },
   {
@@ -437,6 +665,18 @@
       "verificationSource": "Japan Botanical Gardens Association",
       "reviewIntervalMonths": 24,
       "expectedMembers": 10
+    },
+    "nameJa": "日本のフラワーパーク・名庭園",
+    "descriptionJa": "足利フラワーパークやひたち海浜公園など四季折々の花々が咲き誇る花園。",
+    "content": {
+      "en": {
+        "name": "Japan’s Spectacular Flower Parks & Gardens",
+        "description": "Immerse in vibrant seasonal blooms, cascading wisteria, lavender hills, and historic floral sanctuaries across Japan."
+      },
+      "ja": {
+        "name": "日本のフラワーパーク・名庭園",
+        "description": "足利フラワーパークやひたち海浜公園など四季折々の花々が咲き誇る花園。"
+      }
     }
   },
   {
@@ -459,6 +699,18 @@
       "verificationSource": "Ministry of the Environment Japan",
       "reviewIntervalMonths": 24,
       "expectedMembers": 10
+    },
+    "nameJa": "日本の名瀑・渓谷美",
+    "descriptionJa": "奥入瀬渓流や高千穂峡など、清流と切り立った崖が織りなす渓谷美。",
+    "content": {
+      "en": {
+        "name": "Majestic Waterfalls & River Gorges",
+        "description": "Journey through roaring alpine cascades, volcanic gorges, and serene moss-covered river valleys."
+      },
+      "ja": {
+        "name": "日本の名瀑・渓谷美",
+        "description": "奥入瀬渓流や高千穂峡など、清流と切り立った崖が織りなす渓谷美。"
+      }
     }
   },
   {
@@ -481,6 +733,18 @@
       "verificationSource": "Japan Remote Islands Center",
       "reviewIntervalMonths": 24,
       "expectedMembers": 10
+    },
+    "nameJa": "日本の離島・魅力溢れる島々",
+    "descriptionJa": "江の島、佐渡島、初島など独自の生態系と歴史文化をもつ日本の離島。",
+    "content": {
+      "en": {
+        "name": "Enchanting Islands of Japan",
+        "description": "Discover Japan’s volcanic, subtropical, and historic islands, from primeval forests to ocean retreats."
+      },
+      "ja": {
+        "name": "日本の離島・魅力溢れる島々",
+        "description": "江の島、佐渡島、初島など独自の生態系と歴史文化をもつ日本の離島。"
+      }
     }
   },
   {
@@ -503,6 +767,18 @@
       "verificationSource": "Benesse Art Site Naoshima",
       "reviewIntervalMonths": 24,
       "expectedMembers": 10
+    },
+    "nameJa": "現代アートの島・野外美術館",
+    "descriptionJa": "直島、豊島、箱根彫刻の森などアートと自然が融合した美術館群。",
+    "content": {
+      "en": {
+        "name": "Japan’s Contemporary Art Islands & Open-Air Museums",
+        "description": "Experience world-renowned art sanctuaries where outdoor sculptures, modern galleries, and sea views harmonize."
+      },
+      "ja": {
+        "name": "現代アートの島・野外美術館",
+        "description": "直島、豊島、箱根彫刻の森などアートと自然が融合した美術館群。"
+      }
     }
   },
   {
@@ -525,6 +801,18 @@
       "verificationSource": "Agency for Cultural Affairs Japan",
       "reviewIntervalMonths": 24,
       "expectedMembers": 10
+    },
+    "nameJa": "日本の参詣道・巡礼の道",
+    "descriptionJa": "熊野古道や四国八十八ヶ所など、千年の歴史をもつ信仰と巡礼の道。",
+    "content": {
+      "en": {
+        "name": "Sacred Pilgrimage Routes of Japan",
+        "description": "Walk the sacred mountain paths, ancient spiritual routes, and historic temple trails walked by pilgrims for centuries."
+      },
+      "ja": {
+        "name": "日本の参詣道・巡礼の道",
+        "description": "熊野古道や四国八十八ヶ所など、千年の歴史をもつ信仰と巡礼の道。"
+      }
     }
   },
   {
@@ -547,6 +835,18 @@
       "verificationSource": "TabiMap editorial review",
       "reviewIntervalMonths": 12,
       "expectedMembers": 17
+    },
+    "nameJa": "日本の展望台・タワー",
+    "descriptionJa": "東京スカイツリー、東京タワー、渋谷スカイなど都市の絶景を一望する展望施設。",
+    "content": {
+      "en": {
+        "name": "Japan's Observatories & Towers",
+        "description": "A curated, capped selection of Japan's most important and popular observation towers, high-rise decks, and city viewpoints."
+      },
+      "ja": {
+        "name": "日本の展望台・タワー",
+        "description": "東京スカイツリー、東京タワー、渋谷スカイなど都市の絶景を一望する展望施設。"
+      }
     }
   }
 ]

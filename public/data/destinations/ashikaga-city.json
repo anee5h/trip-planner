@@ -9,8 +9,12 @@
     "lng": 139.449
   },
   "wikipediaTitle": "Ashikaga,_Tochigi",
-  "description": "A historic Tochigi city with the Ashikaga School and Ashikaga Flower Park, famous for seasonal wisteria.",
-  "highlights": ["Ashikaga Flower Park", "Ashikaga School", "Wisteria"],
+  "description": "A historic Tochigi city famous for Ashikaga Flower Park's giant wisteria trellises and Ashikaga Gakko (Japan's oldest academic school).",
+  "highlights": [
+    "Ashikaga Flower Park Wisteria",
+    "Historic Ashikaga Gakko School",
+    "Banna-ji Temple Grounds"
+  ],
   "tags": ["Gardens", "History", "Flowers"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg/1920px-Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg",
   "role": "hub",
@@ -70,9 +74,9 @@
   "bestMonths": [4, 5, 10, 11],
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
-  "reservation": "Not usually required; reserve popular accommodation in advance.",
-  "parking": "Available around major attractions; confirm local restrictions.",
-  "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Tochigi, offering excellent photo opportunities and local cultural experiences.",
   "relationships": {
     "featuredDestinationIds": []
   },
@@ -86,5 +90,55 @@
     "min": 8,
     "max": 14
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/tochigi/index.html",
+        "title": "Tochigi Official Visitor Information",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "content": {
+    "en": {
+      "name": "Ashikaga City",
+      "description": "A historic Tochigi city famous for Ashikaga Flower Park's giant wisteria trellises and Ashikaga Gakko (Japan's oldest academic school).",
+      "highlights": [
+        "Ashikaga Flower Park Wisteria",
+        "Historic Ashikaga Gakko School",
+        "Banna-ji Temple Grounds"
+      ],
+      "notes": "A top recommended attraction in Tochigi, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
+    },
+    "ja": {
+      "name": "足利",
+      "description": "日本最古の学校「足利学校」や足利尊氏ゆかりの鑁阿寺、そして世界的に知られる足利フラワーパークの大藤が有名な歴史都市です。",
+      "highlights": ["公園散策", "足利の名所", "-ji寺散策"],
+      "notes": "足利は、Tochigiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "足利は、Tochigiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

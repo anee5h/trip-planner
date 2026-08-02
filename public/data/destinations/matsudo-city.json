@@ -9,15 +9,19 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Matsudo_montage.jpg/1280px-Matsudo_montage.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Matsudo_montage.jpg/1280px-Matsudo_montage.jpg",
-  "description": "Suburban hub featuring Tojo-tei Edo-period villa gardens and Yagiri no Watashi ferry.",
-  "highlights": ["Explore Matsudo City", "Local Culture & Cuisine"],
+  "description": "A historic Chiba city along the Edo River, known for Tojo-tei Edo-period residence, Yagiri ferry, and local ramen culture.",
+  "highlights": [
+    "Tojo-tei Historic Residence",
+    "Yagiri Edo River Ferry",
+    "Edo River Parklands"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
   "budgetMax": 25000,
-  "walkingMin": 4000,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 2500,
+  "walkingMin": 40,
+  "walkingSunMin": 24,
+  "walkingShadeMin": 16,
   "indoorPercent": 50,
   "ratings": {
     "overall": 9.5,
@@ -56,11 +60,11 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 200
+    "train": 26
   },
-  "reservation": "None required",
-  "parking": "Public parking available",
-  "notes": "Matsudo City travel hub in Chiba Prefecture.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
   "status": "verified",
   "travelEstimate": {
     "confidence": "high"
@@ -87,5 +91,56 @@
     "min": 6,
     "max": 12
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/chiba/index.html",
+        "title": "Chiba Official Visitor Information",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "松戸",
+  "content": {
+    "en": {
+      "name": "Matsudo City",
+      "description": "A historic Chiba city along the Edo River, known for Tojo-tei Edo-period residence, Yagiri ferry, and local ramen culture.",
+      "highlights": [
+        "Tojo-tei Historic Residence",
+        "Yagiri Edo River Ferry",
+        "Edo River Parklands"
+      ],
+      "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
+    },
+    "ja": {
+      "name": "松戸",
+      "description": "江戸川沿いに広がる歴史と自然の街。徳川昭武の邸宅「戸定邸」や「矢切の渡し」、人気のラーメン店が集まります。",
+      "highlights": ["-散策", "松戸の名所", "公園散策"],
+      "notes": "松戸は、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "松戸は、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

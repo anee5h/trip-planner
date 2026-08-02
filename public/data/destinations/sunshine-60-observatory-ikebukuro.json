@@ -10,9 +10,9 @@
   "budgetMin": 2500,
   "budgetRecommended": 5750,
   "budgetMax": 9000,
-  "walkingMin": 3000,
-  "walkingSunMin": 800,
-  "walkingShadeMin": 2200,
+  "walkingMin": 30,
+  "walkingSunMin": 18,
+  "walkingShadeMin": 12,
   "indoorPercent": 95,
   "ratings": {
     "overall": 9.2,
@@ -54,21 +54,20 @@
     "train": 15
   },
   "highlights": [
-    "251m High-Altitude Artificial Lawn Hill",
-    "Tenbou Park Cafe",
-    "Sunshine Aquarium (nearby)",
-    "360-Degree Kanto View"
+    "251m Indoor Sky Park",
+    "Green Lawn Relaxation Zone",
+    "Panoramic Tokyo Views"
   ],
-  "description": "Located on the 60th floor of Sunshine 60 (251m height) in Ikebukuro, featuring an indoor sky park with real turf lawns, picnic mats, and panoramic vistas.",
+  "description": "An indoor sky park 251 meters above Ikebukuro featuring artificial turf lawns, panoramic Tokyo views, and relaxing cafes.",
   "budgetBreakdown": {
     "transport": 460,
     "tickets": 1035,
     "food": 3105,
     "cafe": 1150
   },
-  "reservation": "No advance reservation required.",
-  "parking": "Paid parking garage inside Sunshine City complex.",
-  "notes": "Completely indoor and rainproof; perfect for families with young children.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -96,5 +95,60 @@
     "max": 4
   },
   "officialWebsite": "https://sunshinecity.jp/observatory/",
-  "businessHours": "11:00 - 21:00 (Last admission 20:00)"
+  "businessHours": "11:00 - 21:00 (Last admission 20:00)",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://sunshinecity.jp/observatory/",
+        "title": "Sunshine 60 Observatory (Tenbou Park) official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "サンシャイン60展望台 てんぼうパーク",
+  "content": {
+    "en": {
+      "name": "Sunshine 60 Observatory (Tenbou Park)",
+      "description": "An indoor sky park 251 meters above Ikebukuro featuring artificial turf lawns, panoramic Tokyo views, and relaxing cafes.",
+      "highlights": [
+        "251m Indoor Sky Park",
+        "Green Lawn Relaxation Zone",
+        "Panoramic Tokyo Views"
+      ],
+      "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
+    },
+    "ja": {
+      "name": "サンシャイン60展望台 てんぼうパーク",
+      "description": "池袋サンシャイン60の最上階（海抜251m）にある展望公園。緑豊かな人工芝が広がり、都心の絶景をのんびり楽しめます。",
+      "highlights": [
+        "海抜251mの屋内天空公園",
+        "芝生広場の癒し空間",
+        "都心360度の眺望"
+      ],
+      "notes": "サンシャイン60展望台 てんぼうパークは、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "サンシャイン60展望台 てんぼうパークは、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

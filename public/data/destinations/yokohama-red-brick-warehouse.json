@@ -10,9 +10,9 @@
   "budgetMin": 3000,
   "budgetRecommended": 6500,
   "budgetMax": 10000,
-  "walkingMin": 4000,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 2500,
+  "walkingMin": 40,
+  "walkingSunMin": 24,
+  "walkingShadeMin": 16,
   "indoorPercent": 75,
   "ratings": {
     "overall": 8.8,
@@ -61,9 +61,9 @@
     "food": 3250,
     "cafe": 1300
   },
-  "reservation": "No advance reservation required.",
-  "parking": "Municipal paid parking spaces along Yamashita Park waterfront.",
-  "notes": "Recognized as a Lover's Sanctuary with special romantic evening light projections.",
+  "reservation": "No reservation required for building entry.",
+  "parking": "Paid parking space available adjacent to Red Brick Park.",
+  "notes": "Enjoy shopping, oceanfront craft beers, and seasonal events in historic Meiji-era brick buildings.",
   "schemaVersion": 2,
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -91,5 +91,55 @@
     "max": 4
   },
   "officialWebsite": "https://www.yokohama-akarenga.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.yokohama-akarenga.jp/",
+        "title": "Yokohama Red Brick Warehouse official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "content": {
+    "en": {
+      "name": "Yokohama Red Brick Warehouse",
+      "description": "Yokohama Red Brick Warehouse is a curated destination within Yokohama City.",
+      "highlights": ["Architecture", "Shopping", "Waterfront"],
+      "notes": "Enjoy shopping, oceanfront craft beers, and seasonal events in historic Meiji-era brick buildings.",
+      "reservation": "No reservation required for building entry.",
+      "parking": "Paid parking space available adjacent to Red Brick Park.",
+      "openingHours": "11:00 - 20:00 (Restaurants until 22:00)"
+    },
+    "ja": {
+      "name": "横浜赤レンガ倉庫",
+      "description": "横浜赤レンガ倉庫は神奈川県を代表するショッピングと散策のスポットです。多種多様なショップやグルメが集まり、地元の活気と魅力溢れる時間を楽しめます。",
+      "highlights": [
+        "横浜赤レンガ倉庫の名所",
+        "横浜赤レンガ倉庫の名所",
+        "横浜赤レンガ倉庫の名所"
+      ],
+      "notes": "明治・大正期の歴史的赤レンガ倉庫で、潮風を感じながらショッピングやクラフトビールを楽しめます。",
+      "reservation": "施設への入場・ショップ巡りは事前予約不要です。",
+      "parking": "赤レンガパーク隣接の有料駐車場をご利用いただけます。",
+      "openingHours": "11:00 - 20:00（カフェ・レストランは22:00まで）"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "明治・大正期の歴史的赤レンガ倉庫で、潮風を感じながらショッピングやクラフトビールを楽しめます。",
+  "reservationJa": "施設への入場・ショップ巡りは事前予約不要です。",
+  "parkingJa": "赤レンガパーク隣接の有料駐車場をご利用いただけます。",
+  "openingHours": "11:00 - 20:00 (Restaurants until 22:00)",
+  "openingHoursJa": "11:00 - 20:00（カフェ・レストランは22:00まで）"
 }

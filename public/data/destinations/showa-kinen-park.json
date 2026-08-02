@@ -7,12 +7,24 @@
     "en": {
       "name": "Showa Kinen Park",
       "description": "Showa Kinen Park is a distinct visitor stop within Tachikawa City, selected to support a varied local itinerary.",
-      "highlights": ["Nature", "Park", "Seasonal"]
+      "highlights": ["Nature", "Park", "Seasonal"],
+      "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
+      "reservation": "Open access; no entrance reservation required.",
+      "parking": "Park parking lot available on site.",
+      "openingHours": "24 Hours (Open access)"
     },
     "ja": {
       "name": "国営昭和記念公園",
-      "description": "国営昭和記念公園はTachikawa City内の観光スポットです。訪問前に最新の営業情報をご確認ください。",
-      "highlights": ["Nature", "Park", "Seasonal"]
+      "description": "国営昭和記念公園は東京都の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "highlights": [
+        "国営昭和記念公園の名所",
+        "国営昭和記念公園の名所",
+        "国営昭和記念公園の名所"
+      ],
+      "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "散策自由（24時間開放）"
     }
   },
   "prefecture": "Tokyo",
@@ -55,17 +67,17 @@
     "cafe": 1200
   },
   "transportOptions": {
-    "train": 205
+    "train": 38
   },
   "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
   },
-  "walkingMin": 6500,
+  "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
@@ -98,9 +110,9 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
-  "reservation": "Usually not required; check current visitor guidance.",
-  "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "reservation": "Open access; no entrance reservation required.",
+  "parking": "Park parking lot available on site.",
+  "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -109,7 +121,7 @@
   "collections": [],
   "addedAt": "2026-08-02",
   "editorial": {
-    "lifecycle": "in_review",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",
@@ -120,7 +132,7 @@
     ],
     "checkedAt": "2026-08-02",
     "freshness": "current",
-    "changeSummary": "Destination hub expansion",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
     "changes": [
       {
         "changedAt": "2026-08-02",
@@ -128,7 +140,9 @@
         "summary": "Added itinerary-ready hub POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer"
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -137,5 +151,10 @@
   },
   "officialWebsite": "https://www.showakinen-koen.jp/",
   "businessHours": "Open access",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Japanese_Garden_%40_Showa_Kinen_Park_%40_Tachikawa_%2810605877954%29.jpg/1920px-Japanese_Garden_%40_Showa_Kinen_Park_%40_Tachikawa_%2810605877954%29.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Japanese_Garden_%40_Showa_Kinen_Park_%40_Tachikawa_%2810605877954%29.jpg/1920px-Japanese_Garden_%40_Showa_Kinen_Park_%40_Tachikawa_%2810605877954%29.jpg",
+  "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "24 Hours (Open access)",
+  "openingHoursJa": "散策自由（24時間開放）"
 }

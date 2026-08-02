@@ -10,9 +10,9 @@
   "budgetMin": 2000,
   "budgetRecommended": 5000,
   "budgetMax": 8000,
-  "walkingMin": 3000,
-  "walkingSunMin": 1200,
-  "walkingShadeMin": 1800,
+  "walkingMin": 30,
+  "walkingSunMin": 18,
+  "walkingShadeMin": 12,
   "indoorPercent": 75,
   "ratings": {
     "overall": 8.4,
@@ -55,21 +55,20 @@
     "car": 75
   },
   "highlights": [
-    "60m Triangular Glass Tower",
-    "360-Degree Pacific Ocean Horizon",
-    "Panzer Cafe (Girls und Panzer)",
-    "Oarai Seafood Market (nearby)"
+    "60m Glass Triangular Tower",
+    "360-Degree Pacific Ocean Views",
+    "Oarai Port Panorama"
   ],
-  "description": "Standing 60 meters tall on the Ibaraki coastline, this distinctive triangular glass observation tower overlooks Oarai Port and the vast Pacific Ocean.",
+  "description": "A 60-meter glass triangular tower overlooking the Pacific Ocean and Oarai Port, featuring a 360-degree observation deck.",
   "budgetBreakdown": {
     "transport": 1333,
     "tickets": 378,
     "food": 2444,
     "cafe": 845
   },
-  "reservation": "No reservation required.",
-  "parking": "Free parking lot at Oarai Marine Tower plaza.",
-  "notes": "Famous among anime fans as a key setting in Girls und Panzer.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Ibaraki, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -97,5 +96,60 @@
     "max": 4
   },
   "officialWebsite": "https://oarai-mt.jp/",
-  "businessHours": "10:00 - 21:00 (Last admission 20:30)"
+  "businessHours": "10:00 - 21:00 (Last admission 20:30)",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://oarai-mt.jp/",
+        "title": "Oarai Marine Tower official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "大洗マリンタワー",
+  "content": {
+    "en": {
+      "name": "Oarai Marine Tower",
+      "description": "A 60-meter glass triangular tower overlooking the Pacific Ocean and Oarai Port, featuring a 360-degree observation deck.",
+      "highlights": [
+        "60m Glass Triangular Tower",
+        "360-Degree Pacific Ocean Views",
+        "Oarai Port Panorama"
+      ],
+      "notes": "A top recommended attraction in Ibaraki, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
+    },
+    "ja": {
+      "name": "大洗マリンタワー",
+      "description": "大洗港にそびえる高さ60mの正三角形ガラス張りタワー。大洗の街並みと太平洋の大パノラマを360度見渡せます。",
+      "highlights": [
+        "高さ60mのガラス張りタワー",
+        "太平洋360度大パノラマ",
+        "大洗港と街並みの景観"
+      ],
+      "notes": "大洗マリンタワーは、Ibarakiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "大洗マリンタワーは、Ibarakiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

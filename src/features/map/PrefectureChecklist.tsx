@@ -20,6 +20,8 @@ import {
 import collectionsIndex from "@/shared/data/collections-index.json";
 import destinationsIndex from "@/shared/data/destinations-index.json";
 import type { Collection } from "@/shared/types/collection";
+import { useLocale } from "@/shared/context/LocaleContext";
+import { getCollectionContent } from "@/shared/utils/collections";
 
 const ICON_MAP: Record<string, React.ElementType> = {
   Castle,
@@ -121,6 +123,7 @@ const REGIONS = [
 
 export default function PrefectureChecklist() {
   const { visited, visitedPrefectures, isPrefectureVisited } = useTripStore();
+  const { locale } = useLocale();
 
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1200,
@@ -379,7 +382,7 @@ export default function PrefectureChecklist() {
                         <Icon className="w-4 h-4" />
                       </div>
                       <span className="text-sm font-bold text-slate-900 dark:text-white truncate">
-                        {collection.name}
+                        {getCollectionContent(collection, locale).name}
                       </span>
                     </div>
                     {isCompleted ? (

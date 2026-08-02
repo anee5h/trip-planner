@@ -9,9 +9,9 @@
   "budgetMin": 6500,
   "budgetRecommended": 10500,
   "budgetMax": 14500,
-  "walkingMin": 7000,
-  "walkingSunMin": 5000,
-  "walkingShadeMin": 2000,
+  "walkingMin": 60,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "ratings": {
     "overall": 9,
@@ -51,17 +51,21 @@
   "transportOptions": {
     "train": 50
   },
-  "highlights": ["Senso-ji Temple", "Kaminarimon Gate", "Sumida River Cruise"],
-  "description": "Asakusa is a district in Taitō, Tokyo, Japan. It is known for Sensō-ji, a Buddhist temple dedicated to the bodhisattva Kannon. There are several other temples in Asakusa, as well as various festivals, such as Sanja Matsuri.",
+  "highlights": [
+    "Senso-ji Temple & Kaminarimon",
+    "Nakamise Shopping Street",
+    "Sumida River Cruises"
+  ],
+  "description": "Tokyo's historic cultural heart, centered on Senso-ji Temple, Nakamise shopping street, and traditional rickshaw tours.",
   "budgetBreakdown": {
     "transport": 1105,
     "tickets": 1768,
     "food": 5416,
     "cafe": 2211
   },
-  "reservation": "Not required.",
-  "parking": "Difficult.",
-  "notes": "Go early morning (before 9 AM) to photograph Kaminarimon without crowds.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -86,5 +90,56 @@
     "max": 6
   },
   "officialWebsite": "https://www.taito-city.tokyo.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.taito-city.tokyo.jp/",
+        "title": "Asakusa (Taito) official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "浅草",
+  "content": {
+    "en": {
+      "name": "Asakusa (Taito)",
+      "description": "Tokyo's historic cultural heart, centered on Senso-ji Temple, Nakamise shopping street, and traditional rickshaw tours.",
+      "highlights": [
+        "Senso-ji Temple & Kaminarimon",
+        "Nakamise Shopping Street",
+        "Sumida River Cruises"
+      ],
+      "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
+    },
+    "ja": {
+      "name": "浅草",
+      "description": "都内最古の寺院・浅草寺と雷門、伝統工芸品や和菓子が並ぶ仲見世商店街を中心に、江戸の歴史文化を体感できる観光地です。",
+      "highlights": ["浅草寺と雷門", "仲見世商店街", "隅田川水上バス"],
+      "notes": "浅草は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "浅草は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

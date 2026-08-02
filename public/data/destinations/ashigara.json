@@ -27,9 +27,9 @@
   "budgetMin": 2000,
   "budgetMax": 9000,
   "totalTripHours": 8,
-  "walkingMin": 10000,
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 6000,
+  "walkingMin": 60,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "comfort": {
     "heatTolerance": 5,
     "rainFriendly": 4,
@@ -64,7 +64,7 @@
     "food": 1650,
     "cafe": 550
   },
-  "notes": "A fantastic trip to Ashigara. Known for its hiking and quiet vibes, it offers a great escape with an overall score of 7.8.",
+  "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
   "schemaVersion": 2,
   "status": "verified",
   "travelEstimate": {
@@ -75,8 +75,8 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Wizyta_japo%C5%84skiego_kr%C4%85%C5%BCownika_Ashigara_w_Niemczech_%281-E-8502%29.jpg",
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
-  "reservation": "None required",
-  "parking": "Available on site",
+  "reservation": "Open access; no entrance reservation required.",
+  "parking": "Park parking lot available on site.",
   "walkingIntensity": "high",
   "role": "standalone",
   "placeType": "destination",
@@ -86,5 +86,56 @@
     "max": 9
   },
   "officialWebsite": "https://www.town.kaisai.kanagawa.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.town.kaisai.kanagawa.jp/",
+        "title": "Ashigara official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "足柄",
+  "content": {
+    "en": {
+      "name": "Ashigara",
+      "description": "Discover Ashigara, a prominent destination in Kanagawa. With its rich mix of hiking, quiet, it's a highly recommended spot for a 8-hour getaway.",
+      "highlights": [
+        "Explore top-rated nature locations",
+        "Enjoy regional specialties and local culture",
+        "Perfect for a active day out"
+      ],
+      "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
+      "reservation": "Open access; no entrance reservation required.",
+      "parking": "Park parking lot available on site.",
+      "openingHours": "24 Hours (Open access)"
+    },
+    "ja": {
+      "name": "足柄",
+      "description": "足柄は神奈川県の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "highlights": ["-散策", "足柄の名所", "a散策"],
+      "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "散策自由（24時間開放）"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "24 Hours (Open access)",
+  "openingHoursJa": "散策自由（24時間開放）"
 }

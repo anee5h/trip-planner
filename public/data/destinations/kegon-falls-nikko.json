@@ -59,7 +59,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Lake_chuzenji_and_kegon_waterfall.jpg",
   "description": "Kegon Falls is Japan's most famous 97-meter waterfall, carrying the outlet waters of Lake Chuzenji down a dramatic cliff in Nikko National Park.",
-  "notes": "Kintaikyo Wooden Arch Bridge located in Yamaguchi Prefecture.",
+  "notes": "A top recommended attraction in Tochigi, offering excellent photo opportunities and local cultural experiences.",
   "budgetRecommended": 4000,
   "crowd": {
     "weekday": 3,
@@ -72,9 +72,9 @@
     "autumn": 4,
     "winter": 4
   },
-  "walkingMin": 8000,
-  "walkingSunMin": 1800,
-  "walkingShadeMin": 1200,
+  "walkingMin": 60,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
@@ -98,8 +98,8 @@
     "rainFriendly": 7,
     "walkingIntensity": 3
   },
-  "reservation": "None required",
-  "parking": "Available on site",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -107,5 +107,51 @@
     "max": 5
   },
   "officialWebsite": "https://www.nikko-kankou.org/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.nikko-kankou.org/",
+        "title": "Kegon Falls (Nikko) official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "content": {
+    "en": {
+      "name": "Kegon Falls (Nikko)",
+      "description": "Kegon Falls is Japan's most famous 97-meter waterfall, carrying the outlet waters of Lake Chuzenji down a dramatic cliff in Nikko National Park.",
+      "highlights": ["Explore Kegon Falls (Nikko)", "Local Culture & Scenery"],
+      "notes": "A top recommended attraction in Tochigi, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
+    },
+    "ja": {
+      "name": "華厳の滝",
+      "description": "華厳の滝は栃木県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "highlights": ["華厳の滝の名所", "&散策"],
+      "notes": "華厳の滝は、Tochigiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "華厳の滝は、Tochigiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

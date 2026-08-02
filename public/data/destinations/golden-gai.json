@@ -1,18 +1,34 @@
 {
   "id": "golden-gai",
   "name": "Golden Gai",
-  "nameJa": "新宿ゴールデン街",
+  "nameJa": "ゴールデン街",
   "aliases": ["Shinjuku Golden Gai", "新宿ゴールデン街"],
   "content": {
     "en": {
       "name": "Golden Gai",
-      "description": "Golden Gai is a visitor destination in Shinjuku City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
-      "highlights": ["Culture", "Shopping"]
+      "description": "A famous maze of tiny, character-rich nightlife bars in Shinjuku, preserving Showa-era architectural nostalgia.",
+      "highlights": [
+        "Showa-Era Architecture",
+        "200+ Micro Bars",
+        "Unique Shinjuku Atmosphere"
+      ],
+      "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
     },
     "ja": {
-      "name": "新宿ゴールデン街",
-      "description": "新宿ゴールデン街はShinjuku Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["文化", "ショッピング"]
+      "name": "ゴールデン街",
+      "description": "新宿歌舞伎町に隣接するレトロな飲み屋街。木造長屋に200軒以上の個性豊かな小規模バーが密集する昭和ノスタルジーの聖地です。",
+      "highlights": [
+        "昭和の木造長屋建築",
+        "200軒以上のマイクロバー",
+        "個性溢れるディープな夜の街"
+      ],
+      "notes": "ゴールデン街は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
     }
   },
   "prefecture": "Tokyo",
@@ -39,8 +55,12 @@
     "lat": 35.6939,
     "lng": 139.705
   },
-  "description": "Golden Gai is a visitor destination in Shinjuku City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
-  "highlights": ["Culture", "Shopping"],
+  "description": "A famous maze of tiny, character-rich nightlife bars in Shinjuku, preserving Showa-era architectural nostalgia.",
+  "highlights": [
+    "Showa-Era Architecture",
+    "200+ Micro Bars",
+    "Unique Shinjuku Atmosphere"
+  ],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
@@ -51,17 +71,17 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 203
+    "train": 18
   },
   "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
   },
-  "walkingMin": 6500,
+  "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
@@ -96,18 +116,18 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
-  "reservation": "Usually not required; check current visitor guidance.",
-  "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
-  "status": "beta",
+  "status": "verified",
   "travelEstimate": {
     "confidence": "medium"
   },
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "in_review",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,9 +142,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due",
-    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
+    "checkedAt": "2026-08-02",
+    "freshness": "current",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
     "fieldSources": {
       "ratings": [
         {
@@ -156,12 +176,19 @@
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       }
-    ]
+    ],
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer"
   },
   "ratingMetadata": {
-    "rubricVersion": 1,
+    "rubricVersion": 2,
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "notesJa": "ゴールデン街は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

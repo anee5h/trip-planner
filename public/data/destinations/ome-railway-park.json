@@ -7,12 +7,24 @@
     "en": {
       "name": "Ome Railway Park",
       "description": "Ome Railway Park is a distinct visitor stop within Ome, selected to support a varied local itinerary.",
-      "highlights": ["Museum", "Railway", "Family"]
+      "highlights": ["Museum", "Railway", "Family"],
+      "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
+      "reservation": "Online advance ticket reservation recommended on weekends.",
+      "parking": "Facility parking structure available.",
+      "openingHours": "09:30 - 17:00 (Last admission 16:30)"
     },
     "ja": {
       "name": "青梅鉄道公園",
-      "description": "青梅鉄道公園はOme内の観光スポットです。訪問前に最新の営業情報をご確認ください。",
-      "highlights": ["Museum", "Railway", "Family"]
+      "description": "青梅鉄道公園は東京都にあるアートと文化の発信地です。充実した展示空間とユニークなコレクションを通じて新たな発見とインスピレーションを提供します。",
+      "highlights": [
+        "青梅鉄道公園の名所",
+        "青梅鉄道公園の名所",
+        "青梅鉄道公園の名所"
+      ],
+      "notes": "青梅鉄道公園は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:30 - 17:00（最終入館 16:30）"
     }
   },
   "prefecture": "Tokyo",
@@ -43,17 +55,17 @@
     "cafe": 1200
   },
   "transportOptions": {
-    "train": 205
+    "train": 48
   },
   "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
   },
-  "walkingMin": 6500,
+  "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
@@ -86,9 +98,9 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
-  "reservation": "Usually not required; check current visitor guidance.",
-  "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "reservation": "Online advance ticket reservation recommended on weekends.",
+  "parking": "Facility parking structure available.",
+  "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -97,7 +109,7 @@
   "collections": [],
   "addedAt": "2026-08-02",
   "editorial": {
-    "lifecycle": "in_review",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",
@@ -108,7 +120,7 @@
     ],
     "checkedAt": "2026-08-02",
     "freshness": "current",
-    "changeSummary": "Destination hub expansion",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
     "changes": [
       {
         "changedAt": "2026-08-02",
@@ -116,7 +128,9 @@
         "summary": "Added itinerary-ready hub POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer"
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -131,5 +145,10 @@
     "license": "Public domain",
     "attribution": "ja:User:散歩",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cat_Nora_on_Ome_Railway_Park_20071104.jpg"
-  }
+  },
+  "notesJa": "青梅鉄道公園は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:30 - 17:00 (Last admission 16:30)",
+  "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
 }

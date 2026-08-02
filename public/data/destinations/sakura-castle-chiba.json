@@ -10,9 +10,9 @@
   "budgetMin": 2500,
   "budgetRecommended": 5500,
   "budgetMax": 8500,
-  "walkingMin": 4500,
-  "walkingSunMin": 2000,
-  "walkingShadeMin": 2500,
+  "walkingMin": 45,
+  "walkingSunMin": 27,
+  "walkingShadeMin": 18,
   "indoorPercent": 50,
   "ratings": {
     "overall": 8.8,
@@ -60,21 +60,20 @@
     "car": 45
   },
   "highlights": [
-    "Preserved Deep Dry Moats",
-    "Castle Keep Earthworks",
+    "Historic Earthen Ramparts & Moats",
     "National Museum of Japanese History",
-    "Cherry Blossom Moats"
+    "Cherry Blossom Park"
   ],
-  "description": "Constructed in 1611 by Doi Toshikatsu, Sakura Castle features impressive preserved earthen ramparts, deep dry moats, and over 1,100 cherry trees surrounding Rekihaku museum.",
+  "description": "A historic castle park in Chiba surrounded by dry moats and earthen ramparts, housing National Museum of Japanese History.",
   "budgetBreakdown": {
     "transport": 990,
     "tickets": 660,
     "food": 2750,
     "cafe": 1100
   },
-  "reservation": "No reservation required for castle park.",
-  "parking": "Free parking lot at Sakura Castle Park.",
-  "notes": "Top 100 Castle of Japan #20. One of Kanto's finest cherry blossom viewing spots in early April.",
+  "reservation": "Open access; no entrance reservation required.",
+  "parking": "Park parking lot available on site.",
+  "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
   "schemaVersion": 2,
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -102,5 +101,60 @@
     "max": 5
   },
   "officialWebsite": "https://www.city.sakura.lg.jp/soshiki/sakuranooshiro/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.sakura.lg.jp/soshiki/sakuranooshiro/",
+        "title": "Sakura Castle Park & Ruins official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "佐倉城址公園",
+  "content": {
+    "en": {
+      "name": "Sakura Castle Park & Ruins",
+      "description": "A historic castle park in Chiba surrounded by dry moats and earthen ramparts, housing National Museum of Japanese History.",
+      "highlights": [
+        "Historic Earthen Ramparts & Moats",
+        "National Museum of Japanese History",
+        "Cherry Blossom Park"
+      ],
+      "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
+      "reservation": "Open access; no entrance reservation required.",
+      "parking": "Park parking lot available on site.",
+      "openingHours": "24 Hours (Open access)"
+    },
+    "ja": {
+      "name": "佐倉城址公園",
+      "description": "千葉県唯一の日本100名城。土塁や空堀の遺構と、敷地内にある国立歴史民俗博物館が魅力の緑豊かな城郭公園です。",
+      "highlights": [
+        "巨大な土塁と空堀の遺構",
+        "国立歴史民俗博物館",
+        "さくらの名所公園"
+      ],
+      "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "散策自由（24時間開放）"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "24 Hours (Open access)",
+  "openingHoursJa": "散策自由（24時間開放）"
 }

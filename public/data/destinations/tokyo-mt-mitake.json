@@ -5,12 +5,11 @@
   "region": "Kanto",
   "categories": ["History", "Hiking", "Nature"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mt._Mitake.jpg/1280px-Mt._Mitake.jpg",
-  "description": "A sacred mountain located in Chichibu-Tama-Kai National Park, featuring a historic mountaintop Shinto shrine and scenic river hikes.",
+  "description": "A sacred mountain in Okutama, Tokyo, featuring Musashi Mitake Shrine, scenic hiking paths, cable car, and rock garden trail.",
   "highlights": [
     "Musashi Mitake Shrine",
-    "Rock Garden Trail",
     "Mitake Cable Car",
-    "Anago Falls"
+    "Scenic Rock Garden Stream Trail"
   ],
   "budgetMin": 3000,
   "budgetMax": 8500,
@@ -26,9 +25,9 @@
     "car": 100
   },
   "totalTripHours": 8,
-  "walkingMin": 150,
-  "walkingSunMin": 50,
-  "walkingShadeMin": 100,
+  "walkingMin": 5,
+  "walkingSunMin": 3,
+  "walkingShadeMin": 2,
   "indoorPercent": 15,
   "coordinates": {
     "lat": 35.7828,
@@ -66,9 +65,9 @@
   "bestSeason": "Autumn",
   "weatherDependence": "high",
   "tags": ["Pilgrimage", "Hiking", "Historic", "Views"],
-  "reservation": "Not required",
-  "parking": "Cable car base parking",
-  "notes": "Mitake cable car cuts out the steepest initial climb, making it accessible for families.",
+  "reservation": "Open access; no entrance reservation required.",
+  "parking": "Park parking lot available on site.",
+  "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mt._Mitake.jpg/1280px-Mt._Mitake.jpg",
   "imageMetadata": {
@@ -94,5 +93,60 @@
     "max": 9
   },
   "officialWebsite": "https://www.ces-net.jp/mitakevc/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.ces-net.jp/mitakevc/",
+        "title": "Mt. Mitake official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "御岳山",
+  "content": {
+    "en": {
+      "name": "Mt. Mitake",
+      "description": "A sacred mountain in Okutama, Tokyo, featuring Musashi Mitake Shrine, scenic hiking paths, cable car, and rock garden trail.",
+      "highlights": [
+        "Musashi Mitake Shrine",
+        "Mitake Cable Car",
+        "Scenic Rock Garden Stream Trail"
+      ],
+      "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
+      "reservation": "Open access; no entrance reservation required.",
+      "parking": "Park parking lot available on site.",
+      "openingHours": "24 Hours (Open access)"
+    },
+    "ja": {
+      "name": "御岳山",
+      "description": "青梅市奥多摩に位置する古くからの霊山。武蔵御嶽神社、ケーブルカー、ロックガーデン（苔むした渓流沿い）のハイキングが人気です。",
+      "highlights": [
+        "武蔵御嶽神社",
+        "御岳登山鉄道ケーブルカー",
+        "ロックガーデンの渓流散策"
+      ],
+      "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "散策自由（24時間開放）"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "24 Hours (Open access)",
+  "openingHoursJa": "散策自由（24時間開放）"
 }

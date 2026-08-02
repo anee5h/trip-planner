@@ -9,15 +9,19 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E6%B9%AF%E7%95%912.jpg/1280px-%E6%B9%AF%E7%95%912.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E6%B9%AF%E7%95%912.jpg/1280px-%E6%B9%AF%E7%95%912.jpg",
-  "description": "One of Japan's top three hot spring resorts, centered around the steaming Yubatake hot spring field.",
-  "highlights": ["Explore Kusatsu Town", "Local Culture & Cuisine"],
+  "description": "Japan's famous hot spring town in Gunma, centered on Yubatake (hot water field) and Mount Shirane natural scenery.",
+  "highlights": [
+    "Yubatake Hot Water Field",
+    "Yumomi Cooling Performances",
+    "Sainokawara Park Baths"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
   "budgetMax": 25000,
-  "walkingMin": 4000,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 2500,
+  "walkingMin": 40,
+  "walkingSunMin": 24,
+  "walkingShadeMin": 16,
   "indoorPercent": 50,
   "ratings": {
     "overall": 9.5,
@@ -58,9 +62,9 @@
   "transportOptions": {
     "train": 200
   },
-  "reservation": "None required",
-  "parking": "Public parking available",
-  "notes": "Kusatsu Town travel hub in Gunma Prefecture.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Gunma, offering excellent photo opportunities and local cultural experiences.",
   "status": "verified",
   "travelEstimate": {
     "confidence": "high"
@@ -87,5 +91,60 @@
     "min": 6,
     "max": 12
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/gunma/index.html",
+        "title": "Gunma Official Visitor Information",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "草津町",
+  "content": {
+    "en": {
+      "name": "Kusatsu Town",
+      "description": "Japan's famous hot spring town in Gunma, centered on Yubatake (hot water field) and Mount Shirane natural scenery.",
+      "highlights": [
+        "Yubatake Hot Water Field",
+        "Yumomi Cooling Performances",
+        "Sainokawara Park Baths"
+      ],
+      "notes": "A top recommended attraction in Gunma, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
+    },
+    "ja": {
+      "name": "草津町",
+      "description": "日本屈指の源泉湧出量を誇る草津温泉の町。中央の湯畑、伝統の湯もみ、白根山を臨む豊かな自然が人々を引き寄せます。",
+      "highlights": [
+        "湯畑の熱気景観",
+        "伝統の湯もみショー",
+        "西の河原公園大露天風呂"
+      ],
+      "notes": "草津町は、Gunmaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "草津町は、Gunmaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }

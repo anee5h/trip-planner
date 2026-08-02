@@ -6,11 +6,11 @@
   "region": "Kanto",
   "categories": ["Nature", "Hiking", "Culture"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Takao-san-Top_10.11.13_saturday.JPG/1280px-Takao-san-Top_10.11.13_saturday.JPG",
-  "description": "Historic castle town and mountain gateway at the base of Mt. Takao, offering scenic nature trails and Yakiniku food culture.",
+  "description": "A spacious western Tokyo city known for Mount Takao, Hachioji Castle ruins, and TAKAO 599 MUSEUM.",
   "highlights": [
-    "Mount Takao Cable Car",
+    "Mount Takao Hiking Trails",
     "Hachioji Castle Ruins",
-    "Takao 599 Museum"
+    "TAKAO 599 MUSEUM"
   ],
   "budgetMin": 6500,
   "budgetMax": 15000,
@@ -51,9 +51,9 @@
   "bestSeason": "Autumn",
   "weatherDependence": "moderate",
   "tags": ["Hiking", "Mt. Takao", "Nature"],
-  "reservation": "Not required",
-  "parking": "Available at Takaosanguchi",
-  "notes": "Direct Keio line express trains from Shinjuku.",
+  "reservation": "Open access; no entrance reservation required.",
+  "parking": "Park parking lot available on site.",
+  "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
   "coordinates": {
     "lat": 35.6663595,
     "lng": 139.3163653
@@ -98,5 +98,60 @@
     "min": 7,
     "max": 13
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/tokyo/index.html",
+        "title": "Tokyo Official Visitor Information",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "八王子市",
+  "content": {
+    "en": {
+      "name": "Hachioji City",
+      "description": "A spacious western Tokyo city known for Mount Takao, Hachioji Castle ruins, and TAKAO 599 MUSEUM.",
+      "highlights": [
+        "Mount Takao Hiking Trails",
+        "Hachioji Castle Ruins",
+        "TAKAO 599 MUSEUM"
+      ],
+      "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
+      "reservation": "Open access; no entrance reservation required.",
+      "parking": "Park parking lot available on site.",
+      "openingHours": "24 Hours (Open access)"
+    },
+    "ja": {
+      "name": "八王子市",
+      "description": "高尾山の豊かな自然、日本100名城の八王子城跡、TAKAO 599 MUSEUMを備えた自然と歴史あふれる東京都多摩地域の拠点都市です。",
+      "highlights": [
+        "高尾山のハイキングコース",
+        "八王子城跡の石垣と本丸",
+        "TAKAO 599 MUSEUM"
+      ],
+      "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "散策自由（24時間開放）"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "24 Hours (Open access)",
+  "openingHoursJa": "散策自由（24時間開放）"
 }

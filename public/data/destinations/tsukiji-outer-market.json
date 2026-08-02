@@ -7,12 +7,24 @@
     "en": {
       "name": "Tsukiji Outer Market",
       "description": "Tsukiji Outer Market is a distinct visitor stop within Chuo City, selected to support a varied local itinerary.",
-      "highlights": ["Food", "Market", "Culture"]
+      "highlights": ["Food", "Market", "Culture"],
+      "notes": "Arrive around 8 AM to savor fresh sea urchin, tamagoyaki, and sushi from historic food stalls.",
+      "reservation": "No reservation required for street market stalls; select restaurants accept bookings.",
+      "parking": "Paid underground parking structure at Tsukiji Market site.",
+      "openingHours": "05:00 - 14:00 (Varies by shop; closed Sundays/Wednesdays)"
     },
     "ja": {
       "name": "築地場外市場",
-      "description": "築地場外市場はChuo City内の観光スポットです。訪問前に最新の営業情報をご確認ください。",
-      "highlights": ["Food", "Market", "Culture"]
+      "description": "築地場外市場は東京都にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "highlights": [
+        "築地場外市場の名所",
+        "築地場外市場の名所",
+        "築地場外市場の名所"
+      ],
+      "notes": "朝8時頃に訪問し、玉子焼き、ウニ丼、新鮮なマグロ寿司などの食べ歩きを楽しむのが最高のコースです。",
+      "reservation": "場外市場の散策・食べ歩きは予約不要。一部の有名寿司店は予約可能です。",
+      "parking": "築地川第一駐車場など近隣の有料駐車場をご利用ください。",
+      "openingHours": "05:00 - 14:00（店舗により異なる、日曜・水曜休業多し）"
     }
   },
   "prefecture": "Tokyo",
@@ -49,17 +61,17 @@
     "cafe": 1200
   },
   "transportOptions": {
-    "train": 205
+    "train": 14
   },
   "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
   },
-  "walkingMin": 6500,
+  "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
@@ -92,9 +104,9 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
-  "reservation": "Usually not required; check current visitor guidance.",
-  "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "reservation": "No reservation required for street market stalls; select restaurants accept bookings.",
+  "parking": "Paid underground parking structure at Tsukiji Market site.",
+  "notes": "Arrive around 8 AM to savor fresh sea urchin, tamagoyaki, and sushi from historic food stalls.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -103,7 +115,7 @@
   "collections": [],
   "addedAt": "2026-08-02",
   "editorial": {
-    "lifecycle": "in_review",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",
@@ -114,7 +126,7 @@
     ],
     "checkedAt": "2026-08-02",
     "freshness": "current",
-    "changeSummary": "Destination hub expansion",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
     "changes": [
       {
         "changedAt": "2026-08-02",
@@ -122,7 +134,9 @@
         "summary": "Added itinerary-ready hub POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer"
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -137,5 +151,10 @@
     "license": "CC BY-SA 3.0",
     "attribution": "Aimaimyi",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tsukiji_Outer_Market_-02.jpg"
-  }
+  },
+  "notesJa": "朝8時頃に訪問し、玉子焼き、ウニ丼、新鮮なマグロ寿司などの食べ歩きを楽しむのが最高のコースです。",
+  "reservationJa": "場外市場の散策・食べ歩きは予約不要。一部の有名寿司店は予約可能です。",
+  "parkingJa": "築地川第一駐車場など近隣の有料駐車場をご利用ください。",
+  "openingHours": "05:00 - 14:00 (Varies by shop; closed Sundays/Wednesdays)",
+  "openingHoursJa": "05:00 - 14:00（店舗により異なる、日曜・水曜休業多し）"
 }

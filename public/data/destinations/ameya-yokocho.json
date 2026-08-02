@@ -1,18 +1,34 @@
 {
   "id": "ameya-yokocho",
   "name": "Ameya-Yokocho",
-  "nameJa": "アメヤ横丁",
+  "nameJa": "アメ横",
   "aliases": ["Ameya-Yokochō", "アメヤ横丁"],
   "content": {
     "en": {
       "name": "Ameya-Yokocho",
-      "description": "Ameya-Yokocho is a visitor destination in Taito City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
-      "highlights": ["Shopping", "Food"]
+      "description": "A bustling open-air market street under the train tracks between Ueno and Okachimachi, famous for fresh seafood, clothing, and street food.",
+      "highlights": [
+        "Bustling Market Street",
+        "Fresh Seafood & Snacks",
+        "Under-Track Shopping"
+      ],
+      "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Commercial district paid parking garages available nearby.",
+      "openingHours": "10:00 - 20:00"
     },
     "ja": {
-      "name": "アメヤ横丁",
-      "description": "アメヤ横丁はTaito Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["ショッピング", "グルメ"]
+      "name": "アメ横",
+      "description": "上野駅から御徒町駅の高架下に広がる活気あふれる商店街。新鮮な海産物、衣料品、多国籍なストリートフードが所狭しと並びます。",
+      "highlights": [
+        "活気ある市場通り",
+        "新鮮な海鮮と屋台グルメ",
+        "高架下の商店街"
+      ],
+      "notes": "アメ横は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "10:00 - 20:00（店舗により異なる）"
     }
   },
   "prefecture": "Tokyo",
@@ -39,8 +55,12 @@
     "lat": 35.7100592,
     "lng": 139.7745428
   },
-  "description": "Ameya-Yokocho is a visitor destination in Taito City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
-  "highlights": ["Shopping", "Food"],
+  "description": "A bustling open-air market street under the train tracks between Ueno and Okachimachi, famous for fresh seafood, clothing, and street food.",
+  "highlights": [
+    "Bustling Market Street",
+    "Fresh Seafood & Snacks",
+    "Under-Track Shopping"
+  ],
   "budgetMin": 1500,
   "budgetRecommended": 3200,
   "budgetMax": 7000,
@@ -51,17 +71,17 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 203
+    "train": 16
   },
   "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
   },
-  "walkingMin": 6500,
+  "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
@@ -96,18 +116,18 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
-  "reservation": "Usually not required; check current visitor guidance.",
-  "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Taito City.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Commercial district paid parking garages available nearby.",
+  "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
   "schemaVersion": 2,
-  "status": "beta",
+  "status": "verified",
   "travelEstimate": {
     "confidence": "medium"
   },
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "in_review",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,9 +142,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due",
-    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
+    "checkedAt": "2026-08-02",
+    "freshness": "current",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
     "fieldSources": {
       "ratings": [
         {
@@ -156,12 +176,19 @@
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       }
-    ]
+    ],
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer"
   },
   "ratingMetadata": {
-    "rubricVersion": 1,
+    "rubricVersion": 2,
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "notesJa": "アメ横は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "10:00 - 20:00",
+  "openingHoursJa": "10:00 - 20:00（店舗により異なる）"
 }

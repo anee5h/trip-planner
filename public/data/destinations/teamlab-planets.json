@@ -9,9 +9,9 @@
   "budgetMin": 11600,
   "budgetRecommended": 15600,
   "budgetMax": 19600,
-  "walkingMin": 3000,
+  "walkingMin": 30,
   "walkingSunMin": 0,
-  "walkingShadeMin": 3000,
+  "walkingShadeMin": 12,
   "indoorPercent": 100,
   "ratings": {
     "overall": 9.2,
@@ -58,20 +58,20 @@
     "train": 50
   },
   "highlights": [
-    "Infinite Crystal Universe",
+    "Walk Barefoot Through Water Art",
     "Floating Flower Garden",
-    "Water Installations"
+    "Infinite Mirror Rooms"
   ],
-  "description": "teamLab Planets is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
+  "description": "An immersive water-filled digital art museum in Toyosu where visitors walk barefoot through water pools and flower gardens.",
   "budgetBreakdown": {
     "transport": 1068,
     "tickets": 8121,
     "food": 4488,
     "cafe": 1923
   },
-  "reservation": "Required well in advance.",
-  "parking": "Not recommended.",
-  "notes": "You will walk barefoot and water goes up to your knees. Wear shorts or pants that can be rolled up.",
+  "reservation": "Mandatory online timed entry ticket; walk-ins rarely available.",
+  "parking": "No dedicated parking; paid parking available near Shin-Toyosu Station.",
+  "notes": "Wear barefoot-friendly clothing that can be rolled up above knees for knee-deep water exhibits.",
   "schemaVersion": 2,
   "status": "verified",
   "travelEstimate": {
@@ -90,5 +90,60 @@
     "max": 5
   },
   "officialWebsite": "https://planets.teamlab.art/tokyo/en/",
-  "businessHours": "09:00 - 22:00 (Last admission 21:00)"
+  "businessHours": "09:00 - 22:00 (Last admission 21:00)",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://planets.teamlab.art/tokyo/en/",
+        "title": "teamLab Planets official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "チームラボプラネッツ（豊洲）",
+  "content": {
+    "en": {
+      "name": "teamLab Planets",
+      "description": "An immersive water-filled digital art museum in Toyosu where visitors walk barefoot through water pools and flower gardens.",
+      "highlights": [
+        "Walk Barefoot Through Water Art",
+        "Floating Flower Garden",
+        "Infinite Mirror Rooms"
+      ],
+      "notes": "Wear barefoot-friendly clothing that can be rolled up above knees for knee-deep water exhibits.",
+      "reservation": "Mandatory online timed entry ticket; walk-ins rarely available.",
+      "parking": "No dedicated parking; paid parking available near Shin-Toyosu Station.",
+      "openingHours": "09:00 - 22:00 (Last admission 21:00)"
+    },
+    "ja": {
+      "name": "チームラボプラネッツ（豊洲）",
+      "description": "豊洲にある「水に入るミュージアム」。裸足になって巨大なデジタルアート作品の水に入り、体全体で作品と一体化する没入体験ができます。",
+      "highlights": [
+        "裸足で水に入るデジタルアート",
+        "浮遊する花々の庭園",
+        "無限の鏡空間"
+      ],
+      "notes": "膝下まで水に浸かる作品があるため、膝上までまくり上げられる服装と素足での体験が必須です。",
+      "reservation": "日時指定のオンライン事前チケットが必須です。当日券の販売は限られます。",
+      "parking": "専用駐車場なし。新豊洲駅周辺の有料駐車場をご利用ください。",
+      "openingHours": "09:00 - 22:00（最終入場 21:00）"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "膝下まで水に浸かる作品があるため、膝上までまくり上げられる服装と素足での体験が必須です。",
+  "reservationJa": "日時指定のオンライン事前チケットが必須です。当日券の販売は限られます。",
+  "parkingJa": "専用駐車場なし。新豊洲駅周辺の有料駐車場をご利用ください。",
+  "openingHours": "09:00 - 22:00 (Last admission 21:00)",
+  "openingHoursJa": "09:00 - 22:00（最終入場 21:00）"
 }

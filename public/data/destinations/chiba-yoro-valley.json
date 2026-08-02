@@ -66,9 +66,9 @@
   "bestSeason": "Autumn",
   "weatherDependence": "high",
   "tags": ["Waterfalls", "Foliage", "Hiking", "Valley"],
-  "reservation": "Not required",
-  "parking": "Available near Awamata falls",
-  "notes": "Chiba's most famous spot for late autumn colors, peaking around late November.",
+  "reservation": "Open access; no entrance reservation required.",
+  "parking": "Park parking lot available on site.",
+  "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
   "schemaVersion": 2,
   "status": "verified",
   "travelEstimate": {
@@ -86,5 +86,57 @@
     "max": 8
   },
   "officialWebsite": "https://www.town.otaki.chiba.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.town.otaki.chiba.jp/",
+        "title": "Yoro Valley official website",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "養老渓谷",
+  "content": {
+    "en": {
+      "name": "Yoro Valley",
+      "description": "A scenic forested river valley in the heart of Chiba, famous for its autumn leaves hikes and unique Awamata double waterfall cascades.",
+      "highlights": [
+        "Awamata Falls",
+        "Yoro River Trail",
+        "Kannon Bridge",
+        "Yoro Gorge Onsen"
+      ],
+      "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
+      "reservation": "Open access; no entrance reservation required.",
+      "parking": "Park parking lot available on site.",
+      "openingHours": "24 Hours (Open access)"
+    },
+    "ja": {
+      "name": "養老渓谷",
+      "description": "Yoro Valleyは千葉県の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "highlights": ["粟又の滝", "養老川遊歩道", "観音橋", "養老渓谷温泉"],
+      "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "散策自由（24時間開放）"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "24 Hours (Open access)",
+  "openingHoursJa": "散策自由（24時間開放）"
 }

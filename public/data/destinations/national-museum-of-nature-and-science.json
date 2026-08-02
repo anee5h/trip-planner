@@ -7,12 +7,20 @@
     "en": {
       "name": "National Museum of Nature and Science",
       "description": "National Museum of Nature and Science is a visitor destination in Taito City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
-      "highlights": ["Museum"]
+      "highlights": ["Museum"],
+      "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
+      "reservation": "Online advance ticket reservation recommended on weekends.",
+      "parking": "Facility parking structure available.",
+      "openingHours": "09:30 - 17:00 (Last admission 16:30)"
     },
     "ja": {
       "name": "国立科学博物館",
       "description": "国立科学博物館はTaito Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["博物館"]
+      "highlights": ["国立科学博物館の名所"],
+      "notes": "国立科学博物館は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:30 - 17:00（最終入館 16:30）"
     }
   },
   "prefecture": "Tokyo",
@@ -51,17 +59,17 @@
     "cafe": 550
   },
   "transportOptions": {
-    "train": 205
+    "train": 16
   },
   "totalTripHours": 6,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
   },
-  "walkingMin": 3000,
+  "walkingMin": 30,
   "walkingIntensity": "low",
-  "walkingSunMin": 500,
-  "walkingShadeMin": 2500,
+  "walkingSunMin": 18,
+  "walkingShadeMin": 12,
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
@@ -96,18 +104,18 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "low",
-  "reservation": "Usually not required; check current visitor guidance.",
-  "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Taito City.",
+  "reservation": "Online advance ticket reservation recommended on weekends.",
+  "parking": "Facility parking structure available.",
+  "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
   "schemaVersion": 2,
-  "status": "beta",
+  "status": "verified",
   "travelEstimate": {
     "confidence": "medium"
   },
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "in_review",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,9 +130,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due",
-    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
+    "checkedAt": "2026-08-02",
+    "freshness": "current",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
     "fieldSources": {
       "ratings": [
         {
@@ -156,12 +164,19 @@
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       }
-    ]
+    ],
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer"
   },
   "ratingMetadata": {
-    "rubricVersion": 1,
+    "rubricVersion": 2,
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "09:00 - 17:00 (Closed Mondays)"
+  "businessHours": "09:00 - 17:00 (Closed Mondays)",
+  "notesJa": "国立科学博物館は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:30 - 17:00 (Last admission 16:30)",
+  "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
 }

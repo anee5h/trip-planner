@@ -2,18 +2,30 @@
   "id": "shinjuku-gyo-en",
   "name": "Shinjuku Gyo-en",
   "businessHours": "09:00 - 16:30 (Closed Mondays)",
-  "nameJa": "新宿区",
+  "nameJa": "新宿御苑",
   "aliases": ["Shinjuku", "新宿区"],
   "content": {
     "en": {
       "name": "Shinjuku Gyo-en",
-      "description": "Shinjuku Gyo-en is a visitor destination in Shinjuku City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
-      "highlights": ["Culture"]
+      "description": "A vast 58-hectare national park in Shinjuku blending traditional Japanese, English landscape, and French formal garden styles.",
+      "highlights": [
+        "Traditional Japanese Garden & Tea House",
+        "Vast Lawn Landscapes",
+        "Spring Cherry Blossoms"
+      ],
+      "notes": "Enjoy three distinct garden styles (French, English, Japanese) with spectacular spring cherry blossoms.",
+      "reservation": "Advance booking recommended during peak spring cherry blossom season.",
+      "parking": "Paid public parking available near Shinjuku Gate.",
+      "openingHours": "09:00 - 17:30 (Closed Mondays)"
     },
     "ja": {
-      "name": "新宿区",
-      "description": "新宿区はShinjuku Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["文化"]
+      "name": "新宿御苑",
+      "description": "広さ58ヘクタールの皇室ゆかりの庭園。日本庭園、イギリス風景式庭園、フランス式整形庭園が融合し、四季の自然や桜を楽しめます。",
+      "highlights": ["庭園 &散策", "新宿御苑の名所", "新宿御苑の名所"],
+      "notes": "日本庭園、イギリス風景式庭園、フランス式整形庭園の3つの庭園美と四季の花々を愉しめます。",
+      "reservation": "春の特別開園（桜シーズン）の混雑期は事前予約が推奨されます。",
+      "parking": "新宿門横に有料駐車場が完備されています。",
+      "openingHours": "09:00 - 17:30（月曜休園）"
     }
   },
   "prefecture": "Tokyo",
@@ -40,8 +52,12 @@
     "lat": 35.693888888888885,
     "lng": 139.70341666666667
   },
-  "description": "Shinjuku Gyo-en is a visitor destination in Shinjuku City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
-  "highlights": ["Culture"],
+  "description": "A vast 58-hectare national park in Shinjuku blending traditional Japanese, English landscape, and French formal garden styles.",
+  "highlights": [
+    "Traditional Japanese Garden & Tea House",
+    "Vast Lawn Landscapes",
+    "Spring Cherry Blossoms"
+  ],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
@@ -52,17 +68,17 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 199
+    "train": 18
   },
   "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
   },
-  "walkingMin": 6500,
+  "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
+  "walkingSunMin": 36,
+  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
@@ -97,18 +113,18 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
-  "reservation": "Usually not required; check current visitor guidance.",
-  "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "reservation": "Advance booking recommended during peak spring cherry blossom season.",
+  "parking": "Paid public parking available near Shinjuku Gate.",
+  "notes": "Enjoy three distinct garden styles (French, English, Japanese) with spectacular spring cherry blossoms.",
   "schemaVersion": 2,
-  "status": "beta",
+  "status": "verified",
   "travelEstimate": {
     "confidence": "medium"
   },
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "in_review",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "wikipedia",
@@ -123,9 +139,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due",
-    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
+    "checkedAt": "2026-08-02",
+    "freshness": "current",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
     "fieldSources": {
       "ratings": [
         {
@@ -157,11 +173,18 @@
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       }
-    ]
+    ],
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer"
   },
   "ratingMetadata": {
-    "rubricVersion": 1,
+    "rubricVersion": 2,
     "method": "assisted",
     "confidence": "low"
-  }
+  },
+  "notesJa": "日本庭園、イギリス風景式庭園、フランス式整形庭園の3つの庭園美と四季の花々を愉しめます。",
+  "reservationJa": "春の特別開園（桜シーズン）の混雑期は事前予約が推奨されます。",
+  "parkingJa": "新宿門横に有料駐車場が完備されています。",
+  "openingHours": "09:00 - 17:30 (Closed Mondays)",
+  "openingHoursJa": "09:00 - 17:30（月曜休園）"
 }

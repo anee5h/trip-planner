@@ -16,6 +16,8 @@ import collectionsIndex from "@/shared/data/collections-index.json";
 import destinationsIndex from "@/shared/data/destinations-index.json";
 import type { Collection } from "@/shared/types/collection";
 import type { PassportTab } from "../types";
+import { useLocale } from "@/shared/context/LocaleContext";
+import { getCollectionContent } from "@/shared/utils/collections";
 
 interface PassportOverviewProps {
   onSelectTab: (tab: PassportTab) => void;
@@ -97,6 +99,7 @@ const REGIONS = [
 
 export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
   const { visited, visitedPrefectures, trips } = useTripStore();
+  const { locale } = useLocale();
 
   // Achievement Collections Progress
   const achievementCollections = (collectionsIndex as Collection[]).filter(
@@ -329,7 +332,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                     >
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-sm font-bold text-slate-900 dark:text-white truncate">
-                          {collection.name}
+                          {getCollectionContent(collection, locale).name}
                         </span>
                         {isCompleted ? (
                           <span className="text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">

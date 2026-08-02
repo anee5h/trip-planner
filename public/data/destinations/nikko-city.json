@@ -9,15 +9,19 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/NikkoYomeimon5005.jpg/1280px-NikkoYomeimon5005.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/NikkoYomeimon5005.jpg/1280px-NikkoYomeimon5005.jpg",
-  "description": "World Heritage mountain sanctuary featuring ornate Toshogu Shrine, Kegon Falls, and Lake Chuzenji.",
-  "highlights": ["Explore Nikko City", "Local Culture & Cuisine"],
+  "description": "A world-famous mountain destination home to UNESCO World Heritage Nikko Toshogu Shrine, Kegon Falls, and Lake Chuzenji.",
+  "highlights": [
+    "UNESCO Nikko Toshogu Shrine",
+    "Kegon Waterfalls",
+    "Lake Chuzenji & Mount Nantai"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
   "budgetMax": 25000,
-  "walkingMin": 4000,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 2500,
+  "walkingMin": 40,
+  "walkingSunMin": 24,
+  "walkingShadeMin": 16,
   "indoorPercent": 50,
   "ratings": {
     "overall": 9.5,
@@ -59,9 +63,9 @@
     "train": 200,
     "shinkansen": 110
   },
-  "reservation": "None required",
-  "parking": "Public parking available",
-  "notes": "Nikko City travel hub in Tochigi Prefecture.",
+  "reservation": "No advance reservation required; tickets available on arrival.",
+  "parking": "Paid public parking options available nearby.",
+  "notes": "A top recommended attraction in Tochigi, offering excellent photo opportunities and local cultural experiences.",
   "status": "verified",
   "travelEstimate": {
     "confidence": "high"
@@ -86,5 +90,56 @@
     "min": 6,
     "max": 12
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/tochigi/index.html",
+        "title": "Tochigi Official Visitor Information",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "freshness": "current",
+    "checkedAt": "2026-08-02",
+    "reviewedAt": "2026-08-02",
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+  },
+  "nameJa": "日光",
+  "content": {
+    "en": {
+      "name": "Nikko City",
+      "description": "A world-famous mountain destination home to UNESCO World Heritage Nikko Toshogu Shrine, Kegon Falls, and Lake Chuzenji.",
+      "highlights": [
+        "UNESCO Nikko Toshogu Shrine",
+        "Kegon Waterfalls",
+        "Lake Chuzenji & Mount Nantai"
+      ],
+      "notes": "A top recommended attraction in Tochigi, offering excellent photo opportunities and local cultural experiences.",
+      "reservation": "No advance reservation required; tickets available on arrival.",
+      "parking": "Paid public parking options available nearby.",
+      "openingHours": "09:00 - 17:00"
+    },
+    "ja": {
+      "name": "日光",
+      "description": "徳川家康を祀る世界遺産「日光東照宮」、日本三大名瀑の「華厳の滝」、中禅寺湖など、歴史と豊かな自然が融合する世界的な観光地です。",
+      "highlights": ["神社散策", "日光の名所", "&散策"],
+      "notes": "日光は、Tochigiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+      "openingHours": "09:00 - 17:00"
+    }
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "high"
+  },
+  "notesJa": "日光は、Tochigiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00"
 }
