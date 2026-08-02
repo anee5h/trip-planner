@@ -170,8 +170,8 @@
   },
   "ratingMetadata": {
     "rubricVersion": 2,
-    "method": "manual",
-    "confidence": "high"
+    "method": "assisted",
+    "confidence": "low"
   },
   "businessHours": "Open access",
   "notesJa": "大正浪漫夢通りは、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",

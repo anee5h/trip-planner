@@ -177,8 +177,8 @@
   },
   "ratingMetadata": {
     "rubricVersion": 2,
-    "method": "manual",
-    "confidence": "high"
+    "method": "assisted",
+    "confidence": "low"
   },
   "officialWebsite": "https://www.naritasan.or.jp/",
   "businessHours": "Open access",

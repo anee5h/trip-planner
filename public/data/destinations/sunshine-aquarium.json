@@ -182,8 +182,8 @@
   },
   "ratingMetadata": {
     "rubricVersion": 2,
-    "method": "manual",
-    "confidence": "high"
+    "method": "assisted",
+    "confidence": "low"
   },
   "businessHours": "09:30 - 21:00 (Last admission 20:00)",
   "notesJa": "サンシャイン水族館は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",

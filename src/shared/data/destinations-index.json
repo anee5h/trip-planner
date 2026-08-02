@@ -1472,8 +1472,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:00 - 17:00 (Daily)",
     "notesJa": "アメ横は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -4750,8 +4750,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "千葉市立郷土博物館は、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -4933,8 +4933,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "千葉市美術館は、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -5274,8 +5274,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "Open access",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
@@ -5457,8 +5457,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "Open access",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
@@ -5954,8 +5954,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
     "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
@@ -6279,8 +6279,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "Open access",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
@@ -8780,8 +8780,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "08:30 - 17:00 (Last admission 16:30)",
     "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
@@ -8962,8 +8962,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:00 - 17:00 (Last admission 16:00)",
     "notesJa": "新江ノ島水族館は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -9291,8 +9291,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "officialWebsite": "https://www.fujisawa-kanko.jp/spot/enoshima/17.html",
     "businessHours": "Open access",
@@ -9474,8 +9474,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "Open access",
     "notesJa": "江の島シーキャンドルは、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -9656,8 +9656,8 @@
     "officialWebsite": "http://enoshimajinja.or.jp/",
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
     "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
@@ -10196,8 +10196,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "藤子・F・不二雄ミュージアムは、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -13436,8 +13436,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "Open access",
     "notesJa": "ゴールデン街は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -13828,8 +13828,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "08:30 - 17:00 (Last admission 16:30)",
     "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
@@ -15984,8 +15984,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "08:30 - 17:00 (Last admission 16:30)",
     "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
@@ -17915,8 +17915,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "08:30 - 17:00 (Last admission 16:30)",
     "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
@@ -19085,8 +19085,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "生田緑地は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -19411,8 +19411,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "Open access",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
@@ -19600,8 +19600,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "officialWebsite": "https://www.trip-kamakura.com/",
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
@@ -20695,8 +20695,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "岩槻人形博物館は、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -21260,8 +21260,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "08:30 - 17:00 (Last admission 16:30)",
     "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
@@ -22000,8 +22000,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "Open access",
     "notesJa": "歌舞伎町は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -22286,8 +22286,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "officialWebsite": "https://www.kagurazaka.in/",
     "businessHours": "Open access",
@@ -22987,8 +22987,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "鎌倉高校前駅は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -23176,8 +23176,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "officialWebsite": "https://www.kanayama-jinja.or.jp/",
     "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
@@ -23813,8 +23813,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "officialWebsite": "https://koedo.or.jp/",
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
@@ -23997,8 +23997,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "加曽利貝塚は、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -24179,8 +24179,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "Open access",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
@@ -25141,8 +25141,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "川越まつり会館は、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -25323,8 +25323,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
     "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
@@ -25811,8 +25811,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "平間寺は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -27386,8 +27386,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "喜多院は、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -29096,8 +29096,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "Open access",
     "notesJa": "小町通りは、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -29618,8 +29618,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "高徳院は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -30385,8 +30385,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "Open access",
     "notesJa": "川越市は、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -32572,8 +32572,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "ラゾーナ川崎プラザは、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -33073,8 +33073,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "Open access",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
@@ -35518,8 +35518,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "10:00 - 17:00 (Closed Tuesdays)",
     "notesJa": "日本科学未来館は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -37709,8 +37709,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
     "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
@@ -37891,8 +37891,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "成田国際空港は、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -40710,8 +40710,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "Open access",
     "notesJa": "東京国際空港は、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -41050,8 +41050,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "officialWebsite": "https://www.naritasan.or.jp/",
     "businessHours": "Open access",
@@ -41323,8 +41323,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:00 - 17:00 (Closed Mondays)",
     "notesJa": "国立科学博物館は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -41901,8 +41901,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "日本民家園は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -45629,8 +45629,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "さいたま市大宮盆栽美術館は、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -45811,8 +45811,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "大宮盆栽村は、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -45993,8 +45993,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "Open access",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
@@ -46333,8 +46333,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "思い出横丁は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -49038,8 +49038,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "08:30 - 17:00 (Last admission 16:30)",
     "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
@@ -50308,8 +50308,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "Open access",
     "notesJa": "さいたま市は、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -50490,8 +50490,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "埼玉スタジアム2002は、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -50675,8 +50675,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "さいたまスーパーアリーナは、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -51200,8 +51200,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "Open access",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
@@ -52268,8 +52268,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
     "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
@@ -54444,8 +54444,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "officialWebsite": "https://koedo.or.jp/",
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
@@ -54784,8 +54784,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "notesJa": "日本庭園、イギリス風景式庭園、フランス式整形庭園の3つの庭園美と四季の花々を愉しめます。",
     "reservationJa": "春の特別開園（桜シーズン）の混雑期は事前予約が推奨されます。",
@@ -55311,8 +55311,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "08:30 - 17:00 (Last admission 16:30)",
     "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
@@ -55980,8 +55980,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "Open access",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
@@ -56872,8 +56872,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 21:00 (Last admission 20:00)",
     "notesJa": "サンシャイン水族館は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -57066,8 +57066,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "サンシャインシティは、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -57576,8 +57576,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "Open access",
     "notesJa": "大正浪漫夢通りは、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -59143,8 +59143,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "川崎市岡本太郎美術館は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -60227,8 +60227,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "埼玉県立近代美術館は、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -60746,8 +60746,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "等々力緑地は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -61139,8 +61139,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "officialWebsite": "https://koedo.or.jp/",
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
@@ -62359,8 +62359,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "東京国立博物館は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -63339,8 +63339,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "notesJa": "東芝未来科学館は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -64049,8 +64049,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "Open access",
     "notesJa": "豊洲市場は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
@@ -64488,8 +64488,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "Open access",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
@@ -65003,8 +65003,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
     "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
@@ -65468,8 +65468,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "Open access",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
@@ -67848,8 +67848,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "officialWebsite": "https://www.yanakaginza.com/",
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
@@ -69672,8 +69672,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "08:30 - 17:00 (Last admission 16:30)",
     "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
@@ -69854,8 +69854,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "businessHours": "Open access",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
@@ -70135,8 +70135,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "officialWebsite": "https://www.trip-kamakura.com/",
     "businessHours": "09:30 - 17:00 (Closed Mondays)",

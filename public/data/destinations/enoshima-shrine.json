@@ -170,8 +170,8 @@
   "officialWebsite": "http://enoshimajinja.or.jp/",
   "ratingMetadata": {
     "rubricVersion": 2,
-    "method": "manual",
-    "confidence": "high"
+    "method": "assisted",
+    "confidence": "low"
   },
   "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
   "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",

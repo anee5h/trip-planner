@@ -171,8 +171,8 @@
   },
   "ratingMetadata": {
     "rubricVersion": 2,
-    "method": "manual",
-    "confidence": "high"
+    "method": "assisted",
+    "confidence": "low"
   },
   "businessHours": "09:30 - 17:00 (Closed Mondays)",
   "notesJa": "加曽利貝塚は、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
