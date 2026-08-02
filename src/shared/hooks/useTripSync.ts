@@ -12,6 +12,15 @@ import { formatPrefectureId } from "@/shared/hooks/useTripStore";
 type VisitDates = Record<string, string[] | string>;
 type DestinationRatings = Record<string, "up" | "down">;
 
+interface ProfileSnapshot {
+  favorites: string[];
+  visited: string[];
+  visitedPrefectures: string[];
+  visitedDates: VisitDates;
+  destinationRatings: DestinationRatings;
+  homeStation: string;
+}
+
 interface UseTripSyncProps {
   user: User | null;
   favorites: string[];
@@ -154,6 +163,10 @@ function getDatePart(value: unknown): string | null {
   return /^\d{4}-\d{2}-\d{2}$/.test(datePart) ? datePart : null;
 }
 
+function serializeProfileSnapshot(snapshot: ProfileSnapshot): string {
+  return JSON.stringify(snapshot);
+}
+
 async function resolveHomeStationCoordinates(
   station: string,
   setHomeStationCoords: UseTripSyncProps["setHomeStationCoords"],
@@ -240,6 +253,9 @@ export function useTripSync({
 }: UseTripSyncProps): UseTripSyncReturn {
   const [profileSyncStatus, setProfileSyncStatus] =
     useState<ProfileSyncStatus>("idle");
+  const [profileStatusUserId, setProfileStatusUserId] = useState<string | null>(
+    null,
+  );
   const [tripSyncStatus, setTripSyncStatus] = useState<TripSyncStatus>("idle");
   const [retryProfileTrigger, setRetryProfileTrigger] = useState<number>(0);
   const [retryTripTrigger, setRetryTripTrigger] = useState<number>(0);
@@ -255,6 +271,7 @@ export function useTripSync({
     number | ReturnType<typeof setTimeout> | null
   >(null);
   const previousTripsRef = useRef<Trip[]>(trips);
+  const lastSyncedProfileRef = useRef<string | null>(null);
 
   // Clear account-scoped memory state on logout or account switch.
   useEffect(() => {
@@ -265,6 +282,7 @@ export function useTripSync({
 
     if (accountChanged || (previousUserId && !currentUserId)) {
       hydratedUserIdRef.current = null;
+      lastSyncedProfileRef.current = null;
       hydrationVersionRef.current += 1;
 
       if (profileSyncTimeoutRef.current) {
@@ -287,6 +305,7 @@ export function useTripSync({
       previousTripsRef.current = [];
     } else if (currentUserId && currentUserId !== previousUserId) {
       hydratedUserIdRef.current = null;
+      lastSyncedProfileRef.current = null;
     }
 
     previousUserIdRef.current = currentUserId;
@@ -308,10 +327,16 @@ export function useTripSync({
 
     if (!userId || !client) {
       hydratedUserIdRef.current = null;
+      lastSyncedProfileRef.current = null;
+      setProfileStatusUserId(null);
+      setProfileSyncStatus("idle");
       return;
     }
 
     hydratedUserIdRef.current = null;
+    lastSyncedProfileRef.current = null;
+    setProfileStatusUserId(userId);
+    setProfileSyncStatus("loading");
     const hydrationVersion = ++hydrationVersionRef.current;
 
     const isCurrentHydration = () =>
@@ -329,6 +354,7 @@ export function useTripSync({
 
       if (error) {
         console.error("[Meguruto Sync] Failed to load user_data:", error);
+        setProfileSyncStatus("error");
         toast.error("Cloud data could not be loaded. Sync has been paused.", {
           id: "user-data-load-error",
         });
@@ -359,9 +385,18 @@ export function useTripSync({
             "[Meguruto Sync] Failed to initialize user_data row:",
             createError,
           );
+          setProfileSyncStatus("error");
           return;
         }
 
+        lastSyncedProfileRef.current = serializeProfileSnapshot({
+          favorites: [],
+          visited: [],
+          visitedPrefectures: [],
+          visitedDates: {},
+          destinationRatings: {},
+          homeStation: "Tokyo Station",
+        });
         setFavorites([]);
         setVisited([]);
         setVisitedPrefectures([]);
@@ -369,6 +404,7 @@ export function useTripSync({
         setDestinationRatings?.({});
         setHomeStation("Tokyo Station");
         hydratedUserIdRef.current = userId;
+        setProfileSyncStatus("ready");
         return;
       }
 
@@ -392,6 +428,14 @@ export function useTripSync({
           ? data.home_station
           : "Tokyo Station";
 
+      lastSyncedProfileRef.current = serializeProfileSnapshot({
+        favorites: loadedFavorites,
+        visited: loadedVisited,
+        visitedPrefectures: loadedPrefectures,
+        visitedDates: loadedDates,
+        destinationRatings: loadedRatings,
+        homeStation: loadedHomeStation,
+      });
       setFavorites(loadedFavorites);
       setVisited(loadedVisited);
       setVisitedPrefectures(loadedPrefectures);
@@ -412,6 +456,7 @@ export function useTripSync({
       }
 
       hydratedUserIdRef.current = userId;
+      setProfileSyncStatus("ready");
     };
 
     void hydrateUserData();
@@ -492,32 +537,52 @@ export function useTripSync({
       return;
     }
 
+    const normalizedVisitedDates = normalizeVisitDates(visitedDates ?? {});
+    const safeVisited = uniqueStrings([
+      ...visited,
+      ...Object.keys(normalizedVisitedDates),
+    ]);
+    const safePrefectures = deriveVisitedPrefectures(
+      safeVisited,
+      visitedPrefectures,
+    );
+    const normalizedFavorites = uniqueStrings(favorites);
+    const normalizedRatings = normalizeDestinationRatings(
+      destinationRatings ?? {},
+    );
+    const snapshot = serializeProfileSnapshot({
+      favorites: normalizedFavorites,
+      visited: safeVisited,
+      visitedPrefectures: safePrefectures,
+      visitedDates: normalizedVisitedDates,
+      destinationRatings: normalizedRatings,
+      homeStation,
+    });
+
+    if (lastSyncedProfileRef.current === snapshot) return;
+
     if (profileSyncTimeoutRef.current) {
       clearTimeout(profileSyncTimeoutRef.current);
     }
 
     profileSyncTimeoutRef.current = setTimeout(() => {
+      if (
+        previousUserIdRef.current !== userId ||
+        hydratedUserIdRef.current !== userId
+      ) {
+        return;
+      }
+
       setProfileSyncStatus("saving");
-      const normalizedVisitedDates = normalizeVisitDates(visitedDates ?? {});
-      const safeVisited = uniqueStrings([
-        ...visited,
-        ...Object.keys(normalizedVisitedDates),
-      ]);
-      const safePrefectures = deriveVisitedPrefectures(
-        safeVisited,
-        visitedPrefectures,
-      );
       const updatedAt = new Date().toISOString();
 
       const payload = {
         id: userId,
-        favorites: uniqueStrings(favorites),
+        favorites: normalizedFavorites,
         visited: safeVisited,
         visited_prefectures: safePrefectures,
         visited_dates: normalizedVisitedDates,
-        destination_ratings: normalizeDestinationRatings(
-          destinationRatings ?? {},
-        ),
+        destination_ratings: normalizedRatings,
         home_station: homeStation,
         updated_at: updatedAt,
       };
@@ -526,6 +591,13 @@ export function useTripSync({
         .from("user_data")
         .upsert(payload)
         .then(({ error }) => {
+          if (
+            previousUserIdRef.current !== userId ||
+            hydratedUserIdRef.current !== userId
+          ) {
+            return;
+          }
+
           if (error) {
             console.error("[Meguruto Sync] Failed to sync user_data:", error);
             setProfileSyncStatus("error");
@@ -535,6 +607,7 @@ export function useTripSync({
             return;
           }
 
+          lastSyncedProfileRef.current = snapshot;
           setProfileSyncStatus("ready");
           const syncedDate = getDatePart(updatedAt);
           if (syncedDate) {
@@ -632,6 +705,7 @@ export function useTripSync({
   }, [trips, user?.id, setTrips]);
 
   const retryProfileHydration = () => {
+    if (!user?.id || profileSyncStatus !== "error") return;
     setRetryProfileTrigger((prev: number) => prev + 1);
   };
 
@@ -640,7 +714,11 @@ export function useTripSync({
   };
 
   return {
-    profileSyncStatus,
+    profileSyncStatus: !user?.id
+      ? "idle"
+      : profileStatusUserId === user.id
+        ? profileSyncStatus
+        : "loading",
     tripSyncStatus,
     retryProfileHydration,
     retryTripHydration,

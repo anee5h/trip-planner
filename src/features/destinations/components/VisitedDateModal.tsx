@@ -29,8 +29,13 @@ export function VisitedDateModal({
   onClose,
   destination,
 }: VisitedDateModalProps) {
-  const { getVisitedDates, addVisitedDate, removeVisitedDate, clearAllVisits } =
-    useTripStore();
+  const {
+    getVisitedDates,
+    addVisitedDate,
+    removeVisitedDate,
+    clearAllVisits,
+    canMutateProfile,
+  } = useTripStore();
 
   const getTodayStr = () => new Date().toISOString().split("T")[0];
   const getCurrentMonthStr = () => new Date().toISOString().substring(0, 7);
@@ -56,6 +61,7 @@ export function VisitedDateModal({
 
   const handleAddVisit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!canMutateProfile) return;
     let finalValue = "";
     if (precision === "exact") finalValue = exactDate || getTodayStr();
     else if (precision === "month") finalValue = monthYear;
@@ -149,6 +155,7 @@ export function VisitedDateModal({
                     </div>
                     <button
                       type="button"
+                      disabled={!canMutateProfile}
                       onClick={() => removeVisitedDate(destination.id, d)}
                       className="p-1 text-slate-400 hover:text-red-500 dark:hover:text-red-400 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
                       title="Delete this visit entry"
@@ -296,6 +303,7 @@ export function VisitedDateModal({
 
             <Button
               type="submit"
+              disabled={!canMutateProfile}
               className="w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold py-2.5"
             >
               + Add Visit Entry
@@ -308,8 +316,9 @@ export function VisitedDateModal({
           <div className="pt-1 flex items-center justify-between">
             <button
               type="button"
+              disabled={!canMutateProfile}
               onClick={handleUnmarkAll}
-              className="text-xs font-semibold text-rose-600 dark:text-rose-400 hover:underline flex items-center gap-1.5"
+              className="text-xs font-semibold text-rose-600 dark:text-rose-400 hover:underline flex items-center gap-1.5 disabled:cursor-not-allowed disabled:opacity-50"
             >
               <AlertTriangle className="w-3.5 h-3.5" />
               Unmark Destination as Visited

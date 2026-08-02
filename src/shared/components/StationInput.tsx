@@ -62,6 +62,7 @@ export default function StationInput({ embedded = false }: StationInputProps) {
     setHomeStation,
     homeStationCoords,
     setHomeStationCoords,
+    canMutateProfile,
   } = useTripStore();
 
   type StationData = { name: string; lat: number; lng: number };
@@ -155,6 +156,7 @@ export default function StationInput({ embedded = false }: StationInputProps) {
   };
 
   const handleSet = async () => {
+    if (!canMutateProfile) return;
     if (mode === "station" && selectedStation) {
       setHomeStation(`${selectedStation}, ${selectedPref}`);
       const st = stations.find((s) => s.name === selectedStation);
@@ -205,6 +207,7 @@ export default function StationInput({ embedded = false }: StationInputProps) {
         </span>
         <button
           onClick={() => setIsEditing(true)}
+          disabled={!canMutateProfile}
           className="bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium text-xs px-3 py-1 rounded-md transition-colors shadow-sm ml-2"
         >
           Edit
@@ -288,6 +291,7 @@ export default function StationInput({ embedded = false }: StationInputProps) {
           type="button"
           onClick={handleSet}
           disabled={
+            !canMutateProfile ||
             (mode === "station" && !selectedStation) ||
             (mode === "zip" && !zipCode) ||
             isFetchingZip

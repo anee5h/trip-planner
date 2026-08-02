@@ -22,7 +22,7 @@ export function BucketListButton({
   removeLabel,
 }: BucketListButtonProps) {
   const { t } = useTranslation();
-  const { isFavorite, toggleFavorite } = useTripStore();
+  const { isFavorite, toggleFavorite, canMutateProfile } = useTripStore();
   const active = isFavorite(destinationId);
 
   const handleClick = (e: React.MouseEvent) => {
@@ -56,6 +56,7 @@ export function BucketListButton({
     return (
       <button
         onClick={handleClick}
+        disabled={!canMutateProfile}
         aria-label={currentAriaLabel}
         title={currentTitle}
         className={`px-4 py-2 rounded-xl flex items-center gap-2 font-semibold text-sm transition-all active:scale-95 shadow-sm border ${
@@ -74,6 +75,7 @@ export function BucketListButton({
     return (
       <button
         onClick={handleClick}
+        disabled={!canMutateProfile}
         aria-label={currentAriaLabel}
         title={currentTitle}
         className={`w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 backdrop-blur-md border ${
@@ -91,6 +93,7 @@ export function BucketListButton({
   return (
     <button
       onClick={handleClick}
+      disabled={!canMutateProfile}
       aria-label={currentAriaLabel}
       title={currentTitle}
       className={`p-2 bg-white/70 hover:bg-white dark:bg-slate-900/70 dark:hover:bg-slate-900 backdrop-blur-sm rounded-full transition-all active:scale-95 duration-150 shadow-sm text-slate-700 dark:text-slate-200 ${

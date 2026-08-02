@@ -20,7 +20,7 @@ export function MarkVisitedModal({
   onClose,
   destination,
 }: MarkVisitedModalProps) {
-  const { addVisitedDate } = useTripStore();
+  const { addVisitedDate, canMutateProfile } = useTripStore();
 
   const getTodayStr = () => new Date().toISOString().split("T")[0];
   const getCurrentMonthStr = () => new Date().toISOString().substring(0, 7);
@@ -44,6 +44,7 @@ export function MarkVisitedModal({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!canMutateProfile) return;
     let finalValue = "";
     if (precision === "exact") finalValue = exactDate || getTodayStr();
     else if (precision === "month") finalValue = monthYear;
@@ -261,6 +262,7 @@ export function MarkVisitedModal({
             </Button>
             <Button
               type="submit"
+              disabled={!canMutateProfile}
               className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold px-5"
             >
               Confirm Visit
