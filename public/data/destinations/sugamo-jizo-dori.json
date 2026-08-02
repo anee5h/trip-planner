@@ -1,0 +1,134 @@
+{
+  "id": "sugamo-jizo-dori",
+  "name": "Sugamo Jizo-dori",
+  "nameJa": "巣鴨地蔵通り商店街",
+  "aliases": [],
+  "content": {
+    "en": {
+      "name": "Sugamo Jizo-dori",
+      "description": "Sugamo Jizo-dori is a distinct visitor stop within Toshima City, selected to support a varied local itinerary.",
+      "highlights": ["Culture", "Shopping", "Food"]
+    },
+    "ja": {
+      "name": "巣鴨地蔵通り商店街",
+      "description": "巣鴨地蔵通り商店街はToshima City内の観光スポットです。訪問前に最新の営業情報をご確認ください。",
+      "highlights": ["Culture", "Shopping", "Food"]
+    }
+  },
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "kind": "street",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "toshima-city"
+  },
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Culture", "Shopping", "Food"],
+  "tags": [
+    "Culture",
+    "Shopping",
+    "Food",
+    "Toshima City",
+    "destination-hub-expansion"
+  ],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg/1280px-Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg",
+  "coordinates": {
+    "lat": 35.7355,
+    "lng": 139.7364
+  },
+  "description": "Sugamo Jizo-dori is a distinct visitor stop within Toshima City, selected to support a varied local itinerary.",
+  "highlights": ["Culture", "Shopping", "Food"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 0,
+    "food": 1400,
+    "cafe": 1200
+  },
+  "transportOptions": {
+    "train": 205
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 9.2,
+    "couple": 9.3,
+    "summer": 9.4,
+    "winter": 9.5,
+    "rain": 6,
+    "food": 6.1,
+    "photography": 6.2,
+    "relaxation": 6.3,
+    "value": 6.4,
+    "uniqueness": 6.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9.4,
+    "summer": 7.7,
+    "autumn": 9.4,
+    "winter": 9.3
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-02",
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/western-tokyo/ikebukuro/index.html",
+        "title": "Toshima City official visitor guide",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "checkedAt": "2026-08-02",
+    "freshness": "current",
+    "changeSummary": "Destination hub expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-02",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added itinerary-ready hub POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "officialWebsite": "https://www.gotokyo.org/en/destinations/western-tokyo/ikebukuro/index.html",
+  "businessHours": "Open access"
+}

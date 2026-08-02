@@ -70,7 +70,15 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {},
+  "relationships": {
+    "featuredDestinationIds": [
+      "jindaiji",
+      "jindai-botanical-gardens",
+      "kitaro-chaya",
+      "fudaten-shrine",
+      "chofu-historic-jindaiji-district"
+    ]
+  },
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,
@@ -83,13 +91,13 @@
     "walkingIntensity": 3
   },
   "walkingIntensity": "low",
-  "role": "standalone",
-  "placeType": "destination",
+  "role": "hub",
+  "placeType": "hub",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
     "min": 4,
     "max": 6
   },
-  "officialWebsite": "https://csa.gr.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "kind": "city"
 }

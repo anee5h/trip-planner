@@ -75,7 +75,13 @@
   "parking": "Available around major attractions; confirm local restrictions.",
   "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
   "relationships": {
-    "featuredDestinationIds": []
+    "featuredDestinationIds": [
+      "tama-zoological-park",
+      "takahata-fudoson",
+      "hijikata-toshizo-museum",
+      "keio-rail-land",
+      "keio-mogusaen"
+    ]
   },
   "status": "verified",
   "travelEstimate": {

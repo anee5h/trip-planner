@@ -64,7 +64,15 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {},
+  "relationships": {
+    "featuredDestinationIds": [
+      "yakushi-ike-park",
+      "machida-graphic-arts-museum",
+      "serigaya-park",
+      "buaiso",
+      "nozuta-park"
+    ]
+  },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Machida_city.jpg/1280px-Machida_city.jpg",
   "budgetBreakdown": {
     "transport": 3000,
@@ -78,13 +86,13 @@
     "walkingIntensity": 3
   },
   "walkingIntensity": "low",
-  "role": "standalone",
-  "placeType": "destination",
+  "role": "hub",
+  "placeType": "hub",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
     "min": 5,
     "max": 7
   },
-  "officialWebsite": "https://www.machida-guide.or.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "kind": "city"
 }

@@ -1,0 +1,134 @@
+{
+  "id": "hamarikyu-gardens",
+  "name": "Hamarikyu Gardens",
+  "nameJa": "浜離宮恩賜庭園",
+  "aliases": [],
+  "content": {
+    "en": {
+      "name": "Hamarikyu Gardens",
+      "description": "Hamarikyu Gardens is a distinct visitor stop within Chuo City, selected to support a varied local itinerary.",
+      "highlights": ["Nature", "Garden", "History"]
+    },
+    "ja": {
+      "name": "浜離宮恩賜庭園",
+      "description": "浜離宮恩賜庭園はChuo City内の観光スポットです。訪問前に最新の営業情報をご確認ください。",
+      "highlights": ["Nature", "Garden", "History"]
+    }
+  },
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "kind": "garden",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "chuo-city"
+  },
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Nature", "Garden", "History"],
+  "tags": [
+    "Nature",
+    "Garden",
+    "History",
+    "Chuo City",
+    "destination-hub-expansion"
+  ],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg",
+  "coordinates": {
+    "lat": 35.6597,
+    "lng": 139.7635
+  },
+  "description": "Hamarikyu Gardens is a distinct visitor stop within Chuo City, selected to support a varied local itinerary.",
+  "highlights": ["Nature", "Garden", "History"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 0,
+    "food": 1400,
+    "cafe": 1200
+  },
+  "transportOptions": {
+    "train": 205
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.9,
+    "summer": 9,
+    "winter": 9.1,
+    "rain": 9.2,
+    "food": 9.3,
+    "photography": 9.4,
+    "relaxation": 9.5,
+    "value": 6,
+    "uniqueness": 6.1
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9.4,
+    "summer": 7.7,
+    "autumn": 9.4,
+    "winter": 9.3
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-02",
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
+        "title": "Chuo City official visitor guide",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "checkedAt": "2026-08-02",
+    "freshness": "current",
+    "changeSummary": "Destination hub expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-02",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added itinerary-ready hub POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "officialWebsite": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
+  "businessHours": "Open access"
+}

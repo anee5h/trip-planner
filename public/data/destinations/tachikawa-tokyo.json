@@ -70,7 +70,15 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {},
+  "relationships": {
+    "featuredDestinationIds": [
+      "showa-kinen-park",
+      "polar-science-museum",
+      "play-museum-tachikawa",
+      "tachikawa-manga-park",
+      "suwa-shrine-tachikawa"
+    ]
+  },
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,

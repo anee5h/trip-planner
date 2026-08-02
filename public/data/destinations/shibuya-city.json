@@ -73,7 +73,13 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["shibuya-sky-shibuya"],
+    "featuredDestinationIds": [
+      "shibuya-sky-shibuya",
+      "shibuya-crossing-hachiko",
+      "meiji-jingu",
+      "yoyogi-park",
+      "harajuku-takeshita-street"
+    ],
     "nearbyDestinationIds": ["hakone-town", "chiba-city", "saitama-city"],
     "relatedDestinationIds": ["shinjuku-city"]
   },

@@ -1,0 +1,140 @@
+{
+  "id": "jindaiji",
+  "name": "Jindaiji Temple",
+  "nameJa": "深大寺",
+  "aliases": [],
+  "content": {
+    "en": {
+      "name": "Jindaiji Temple",
+      "description": "Jindaiji Temple is a distinct visitor stop within Chofu, selected to support a varied local itinerary.",
+      "highlights": ["History", "Culture", "Temple"]
+    },
+    "ja": {
+      "name": "深大寺",
+      "description": "深大寺はChofu内の観光スポットです。訪問前に最新の営業情報をご確認ください。",
+      "highlights": ["History", "Culture", "Temple"]
+    }
+  },
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "kind": "temple",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "chofu-tokyo"
+  },
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["History", "Culture", "Temple"],
+  "tags": [
+    "History",
+    "Culture",
+    "Temple",
+    "Chofu",
+    "destination-hub-expansion"
+  ],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/17/Cyofushiyakusyo.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Chofu via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Chofu"
+  },
+  "coordinates": {
+    "lat": 35.6676,
+    "lng": 139.5504
+  },
+  "description": "Jindaiji Temple is a distinct visitor stop within Chofu, selected to support a varied local itinerary.",
+  "highlights": ["History", "Culture", "Temple"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 0,
+    "food": 1400,
+    "cafe": 1200
+  },
+  "transportOptions": {
+    "train": 205
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 6.6,
+    "couple": 6.7,
+    "summer": 6.8,
+    "winter": 6.9,
+    "rain": 7,
+    "food": 7.1,
+    "photography": 7.2,
+    "relaxation": 7.3,
+    "value": 7.4,
+    "uniqueness": 7.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9.4,
+    "summer": 7.7,
+    "autumn": 9.4,
+    "winter": 9.3
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-02",
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://csa.gr.jp/",
+        "title": "Chofu official visitor guide",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "checkedAt": "2026-08-02",
+    "freshness": "current",
+    "changeSummary": "Destination hub expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-02",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added itinerary-ready hub POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "officialWebsite": "https://csa.gr.jp/",
+  "businessHours": "Open access"
+}

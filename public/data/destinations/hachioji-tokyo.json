@@ -71,7 +71,15 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {},
+  "relationships": {
+    "featuredDestinationIds": [
+      "hachioji-castle-tokyo",
+      "mount-takao",
+      "takaosan-yakuoin",
+      "takao-599-museum",
+      "tama-forest-science-garden"
+    ]
+  },
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,
