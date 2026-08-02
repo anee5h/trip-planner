@@ -6,8 +6,17 @@ export function getCollectionContent(
   collection: Collection,
   locale: "en" | "ja",
 ) {
+  const content = collection.content?.[locale];
+  if (content) return content;
+
+  if (locale === "ja" && collection.nameJa) {
+    return {
+      name: collection.nameJa,
+      description: collection.descriptionJa || collection.description,
+    };
+  }
+
   return (
-    collection.content?.[locale] ||
     collection.content?.en || {
       name: collection.name,
       description: collection.description,
