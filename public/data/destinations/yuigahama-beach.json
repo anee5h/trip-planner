@@ -108,7 +108,7 @@
   "parking": "Park parking lot available on site.",
   "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
   "schemaVersion": 2,
-  "status": "beta",
+  "status": "verified",
   "travelEstimate": {
     "confidence": "medium"
   },

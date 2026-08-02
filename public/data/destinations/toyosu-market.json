@@ -116,7 +116,7 @@
   "parking": "Commercial district paid parking garages available nearby.",
   "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
   "schemaVersion": 2,
-  "status": "beta",
+  "status": "verified",
   "travelEstimate": {
     "confidence": "medium"
   },
