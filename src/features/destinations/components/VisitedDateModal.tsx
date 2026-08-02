@@ -316,8 +316,9 @@ export function VisitedDateModal({
           <div className="pt-1 flex items-center justify-between">
             <button
               type="button"
+              disabled={!canMutateProfile}
               onClick={handleUnmarkAll}
-              className="text-xs font-semibold text-rose-600 dark:text-rose-400 hover:underline flex items-center gap-1.5"
+              className="text-xs font-semibold text-rose-600 dark:text-rose-400 hover:underline flex items-center gap-1.5 disabled:cursor-not-allowed disabled:opacity-50"
             >
               <AlertTriangle className="w-3.5 h-3.5" />
               Unmark Destination as Visited
@@ -325,7 +326,6 @@ export function VisitedDateModal({
 
             <Button
               type="button"
-              disabled={!canMutateProfile}
               variant="outline"
               onClick={onClose}
               className="rounded-xl text-xs font-bold"
