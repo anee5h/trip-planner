@@ -110,7 +110,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Ikaho Onsen",
+  "nameJa": "伊香保温泉",
   "content": {
     "en": {
       "name": "Ikaho Onsen",
@@ -123,14 +123,9 @@
       ]
     },
     "ja": {
-      "name": "Ikaho Onsen",
-      "description": "Ikaho OnsenはGunmaの主要な観光スポットです。",
-      "highlights": [
-        "365 Stone Steps (Stone Stairs)",
-        "Ikaho Shrine",
-        "Kogane-no-yu (Golden Water) Baths",
-        "Kajika Bridge"
-      ]
+      "name": "伊香保温泉",
+      "description": "Ikaho Onsenは群馬県の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "highlights": ["365散策", "神社散策", "-no-yu散策", "伊香保温泉の名所"]
     }
   },
   "ratingMetadata": {

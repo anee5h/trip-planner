@@ -52,11 +52,11 @@
     "winter": 4
   },
   "highlights": [
-    "Explore top-rated nature locations",
-    "Enjoy regional specialties and local culture",
-    "Perfect for a active day out"
+    "Wooden Boardwalk Wetland Hikes",
+    "Mizubashou Water Plant Flowers",
+    "Mount Shibutsu Views"
   ],
-  "description": "Oze National Park , is an area consisting of open greenland in Fukushima, Tochigi, Gunma and Niigata Prefectures in Japan. The park is 372 km2 in area and is the 29th national park in Japan.",
+  "description": "A famous high-altitude wetland national park spanning Gunma, Fukushima, and Niigata, famous for wooden boardwalk hikes and Skunk Cabbage flowers.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
     "transport": 3700,
@@ -109,24 +109,24 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Oze National Park",
+  "nameJa": "尾瀬国立公園",
   "content": {
     "en": {
       "name": "Oze National Park",
-      "description": "Oze National Park , is an area consisting of open greenland in Fukushima, Tochigi, Gunma and Niigata Prefectures in Japan. The park is 372 km2 in area and is the 29th national park in Japan.",
+      "description": "A famous high-altitude wetland national park spanning Gunma, Fukushima, and Niigata, famous for wooden boardwalk hikes and Skunk Cabbage flowers.",
       "highlights": [
-        "Explore top-rated nature locations",
-        "Enjoy regional specialties and local culture",
-        "Perfect for a active day out"
+        "Wooden Boardwalk Wetland Hikes",
+        "Mizubashou Water Plant Flowers",
+        "Mount Shibutsu Views"
       ]
     },
     "ja": {
-      "name": "Oze National Park",
-      "description": "Oze National ParkはGunmaの主要な観光スポットです。",
+      "name": "尾瀬国立公園",
+      "description": "本州最大級の高層湿原。木道が続く広大な湿原で、春のミズバショウや秋の草紅葉などの素晴らしい自然景観を歩いて巡れます。",
       "highlights": [
-        "Explore top-rated nature locations",
-        "Enjoy regional specialties and local culture",
-        "Perfect for a active day out"
+        "湿原を巡る木道ハイキング",
+        "ミズバショウと草紅葉",
+        "至仏山と燧ヶ岳の景観"
       ]
     }
   },

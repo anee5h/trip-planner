@@ -60,12 +60,11 @@
     "car": 45
   },
   "highlights": [
-    "Preserved Deep Dry Moats",
-    "Castle Keep Earthworks",
+    "Historic Earthen Ramparts & Moats",
     "National Museum of Japanese History",
-    "Cherry Blossom Moats"
+    "Cherry Blossom Park"
   ],
-  "description": "Constructed in 1611 by Doi Toshikatsu, Sakura Castle features impressive preserved earthen ramparts, deep dry moats, and over 1,100 cherry trees surrounding Rekihaku museum.",
+  "description": "A historic castle park in Chiba surrounded by dry moats and earthen ramparts, housing National Museum of Japanese History.",
   "budgetBreakdown": {
     "transport": 990,
     "tickets": 660,
@@ -119,26 +118,24 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Sakura Castle Park & Ruins",
+  "nameJa": "佐倉城址公園",
   "content": {
     "en": {
       "name": "Sakura Castle Park & Ruins",
-      "description": "Constructed in 1611 by Doi Toshikatsu, Sakura Castle features impressive preserved earthen ramparts, deep dry moats, and over 1,100 cherry trees surrounding Rekihaku museum.",
+      "description": "A historic castle park in Chiba surrounded by dry moats and earthen ramparts, housing National Museum of Japanese History.",
       "highlights": [
-        "Preserved Deep Dry Moats",
-        "Castle Keep Earthworks",
+        "Historic Earthen Ramparts & Moats",
         "National Museum of Japanese History",
-        "Cherry Blossom Moats"
+        "Cherry Blossom Park"
       ]
     },
     "ja": {
-      "name": "Sakura Castle Park & Ruins",
-      "description": "Sakura Castle Park & RuinsはChibaの主要な観光スポットです。",
+      "name": "佐倉城址公園",
+      "description": "千葉県唯一の日本100名城。土塁や空堀の遺構と、敷地内にある国立歴史民俗博物館が魅力の緑豊かな城郭公園です。",
       "highlights": [
-        "Preserved Deep Dry Moats",
-        "Castle Keep Earthworks",
-        "National Museum of Japanese History",
-        "Cherry Blossom Moats"
+        "巨大な土塁と空堀の遺構",
+        "国立歴史民俗博物館",
+        "さくらの名所公園"
       ]
     }
   },

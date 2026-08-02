@@ -10,12 +10,11 @@
   "categories": ["Urban Ward", "Shopping", "Nightlife", "Fashion"],
   "heroImage": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200",
   "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200",
-  "description": "Tokyo's pulse of youth culture, fashion, technology, and entertainment, featuring Shibuya Scramble Crossing, Meiji Shrine, and Harajuku.",
+  "description": "Tokyo's global youth culture, trend, and tech hub, encompassing Shibuya Crossing, Harajuku Takeshita Street, and Meiji Jingu Shrine.",
   "highlights": [
     "Shibuya Scramble Crossing",
-    "Shibuya Sky",
-    "Meiji Jingu",
-    "Yoyogi Park"
+    "Harajuku Takeshita Street",
+    "Meiji Jingu Shrine"
   ],
   "totalTripHours": 5,
   "budgetMin": 3000,
@@ -112,27 +111,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Shibuya City",
+  "nameJa": "渋谷区",
   "content": {
     "en": {
       "name": "Shibuya City",
-      "description": "Tokyo's pulse of youth culture, fashion, technology, and entertainment, featuring Shibuya Scramble Crossing, Meiji Shrine, and Harajuku.",
+      "description": "Tokyo's global youth culture, trend, and tech hub, encompassing Shibuya Crossing, Harajuku Takeshita Street, and Meiji Jingu Shrine.",
       "highlights": [
         "Shibuya Scramble Crossing",
-        "Shibuya Sky",
-        "Meiji Jingu",
-        "Yoyogi Park"
+        "Harajuku Takeshita Street",
+        "Meiji Jingu Shrine"
       ]
     },
     "ja": {
-      "name": "Shibuya City",
-      "description": "Shibuya CityはTokyoの主要な観光スポットです。",
-      "highlights": [
-        "Shibuya Scramble Crossing",
-        "Shibuya Sky",
-        "Meiji Jingu",
-        "Yoyogi Park"
-      ]
+      "name": "渋谷区",
+      "description": "スクランブル交差点やSHIBUYA SKY、原宿竹下通り、静寂に包まれた明治神宮を擁し、世界的なトレンドを発信し続ける街です。",
+      "highlights": ["渋谷区の名所", "渋谷区の名所", "神社散策"]
     }
   },
   "ratingMetadata": {

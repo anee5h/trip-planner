@@ -6,13 +6,17 @@
   "content": {
     "en": {
       "name": "Tokyo National Museum",
-      "description": "Tokyo National Museum is a visitor destination in Taito City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
-      "highlights": ["Museum"]
+      "description": "Japan's oldest national museum in Ueno Park, housing over 110,000 priceless Japanese and Asian cultural artifacts and National Treasures.",
+      "highlights": [
+        "Japanese National Treasures",
+        "Honkan Japanese Gallery",
+        "Ueno Park Cultural Setting"
+      ]
     },
     "ja": {
       "name": "東京国立博物館",
-      "description": "東京国立博物館はTaito Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["博物館"]
+      "description": "1872年創立の日本最古の国立博物館。国宝や重要文化財を含む約12万件の日本・東洋の美術品や考古資料を収蔵・展示します。",
+      "highlights": ["東京国立博物館の名所", "東京国立博物館の名所", "公園散策"]
     }
   },
   "prefecture": "Tokyo",
@@ -39,8 +43,12 @@
     "lat": 35.71888888888889,
     "lng": 139.7763888888889
   },
-  "description": "Tokyo National Museum is a visitor destination in Taito City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
-  "highlights": ["Museum"],
+  "description": "Japan's oldest national museum in Ueno Park, housing over 110,000 priceless Japanese and Asian cultural artifacts and National Treasures.",
+  "highlights": [
+    "Japanese National Treasures",
+    "Honkan Japanese Gallery",
+    "Ueno Park Cultural Setting"
+  ],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
   "budgetMax": 8500,

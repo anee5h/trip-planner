@@ -51,11 +51,11 @@
     "winter": 4
   },
   "highlights": [
-    "Explore top-rated city locations",
-    "Enjoy regional specialties and local culture",
-    "Perfect for a active day out"
+    "Makuhari Messe Event Complex",
+    "Chiba Port Tower",
+    "Chiba Urban Monorail"
   ],
-  "description": "Discover Chiba City, a prominent destination in Kanagawa. With its rich mix of urban, shopping, it's a highly recommended spot for a 8-hour getaway.",
+  "description": "Chiba Prefecture's capital facing Tokyo Bay, home to Makuhari Messe, Chiba Port Tower, and urban monorail system.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
     "transport": 3200,
@@ -127,25 +127,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Chiba City",
+  "nameJa": "千葉市",
   "content": {
     "en": {
       "name": "Chiba City",
-      "description": "Discover Chiba City, a prominent destination in Kanagawa. With its rich mix of urban, shopping, it's a highly recommended spot for a 8-hour getaway.",
+      "description": "Chiba Prefecture's capital facing Tokyo Bay, home to Makuhari Messe, Chiba Port Tower, and urban monorail system.",
       "highlights": [
-        "Explore top-rated city locations",
-        "Enjoy regional specialties and local culture",
-        "Perfect for a active day out"
+        "Makuhari Messe Event Complex",
+        "Chiba Port Tower",
+        "Chiba Urban Monorail"
       ]
     },
     "ja": {
-      "name": "Chiba City",
-      "description": "Chiba CityはChibaの主要な観光スポットです。",
-      "highlights": [
-        "Explore top-rated city locations",
-        "Enjoy regional specialties and local culture",
-        "Perfect for a active day out"
-      ]
+      "name": "千葉市",
+      "description": "東京湾に面する千葉県の県都。幕張メッセ、千葉ポートタワー、世界長都市型モノレールなど見どころが集まる拠点的都市です。",
+      "highlights": ["千葉市の名所", "千葉市の名所", "千葉市の名所"]
     }
   },
   "ratingMetadata": {

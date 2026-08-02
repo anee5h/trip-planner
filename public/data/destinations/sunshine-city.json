@@ -6,13 +6,21 @@
   "content": {
     "en": {
       "name": "Sunshine City",
-      "description": "Sunshine City is a visitor destination in Toshima City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
-      "highlights": ["Culture", "Shopping"]
+      "description": "A major commercial complex in Ikebukuro housing Sunshine 60 Observatory, Sunshine Aquarium, Pokemon Center Tokyo, and Planetarium.",
+      "highlights": [
+        "Sunshine 60 Observatory Park",
+        "Sunshine Aquarium",
+        "Pokemon Center Mega Tokyo"
+      ]
     },
     "ja": {
       "name": "サンシャインシティ",
-      "description": "サンシャインシティはToshima Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["文化", "ショッピング"]
+      "description": "池袋のランドマーク複合施設。展望台「てんぼうパーク」、サンシャイン水族館、ポケモンセンタートウキョーDX、プラネタリウムが集結します。",
+      "highlights": [
+        "60 公園散策",
+        "サンシャインシティの名所",
+        "サンシャインシティの名所"
+      ]
     }
   },
   "prefecture": "Tokyo",
@@ -39,8 +47,12 @@
     "lat": 35.729167,
     "lng": 139.718056
   },
-  "description": "Sunshine City is a visitor destination in Toshima City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
-  "highlights": ["Culture", "Shopping"],
+  "description": "A major commercial complex in Ikebukuro housing Sunshine 60 Observatory, Sunshine Aquarium, Pokemon Center Tokyo, and Planetarium.",
+  "highlights": [
+    "Sunshine 60 Observatory Park",
+    "Sunshine Aquarium",
+    "Pokemon Center Mega Tokyo"
+  ],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,

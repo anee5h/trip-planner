@@ -53,12 +53,11 @@
     "bus": 20
   },
   "highlights": [
-    "Asian Tropical Forest",
-    "African Savanna",
-    "Okapi Habitat",
-    "Subarctic Forest"
+    "8 Global Climate Zone Habitats",
+    "Rare Animals Like Okapi & Proboscis Monkey",
+    "Vast Natural Park Setting"
   ],
-  "description": "Yokohama Zoological Gardens Zoorasia is one of Japan's largest and most modern zoos, featuring expansive naturalistic ecological zones created to mimic animal habitats worldwide.",
+  "description": "One of Japan's largest state-of-the-art zoos in Yokohama, reproducing natural habitats across 8 global ecological zones.",
   "budgetBreakdown": {
     "transport": 1563,
     "tickets": 1563,
@@ -105,26 +104,24 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Yokohama Zoorasia",
+  "nameJa": "よこはま動物園ズーラシア",
   "content": {
     "en": {
       "name": "Yokohama Zoorasia",
-      "description": "Yokohama Zoological Gardens Zoorasia is one of Japan's largest and most modern zoos, featuring expansive naturalistic ecological zones created to mimic animal habitats worldwide.",
+      "description": "One of Japan's largest state-of-the-art zoos in Yokohama, reproducing natural habitats across 8 global ecological zones.",
       "highlights": [
-        "Asian Tropical Forest",
-        "African Savanna",
-        "Okapi Habitat",
-        "Subarctic Forest"
+        "8 Global Climate Zone Habitats",
+        "Rare Animals Like Okapi & Proboscis Monkey",
+        "Vast Natural Park Setting"
       ]
     },
     "ja": {
-      "name": "Yokohama Zoorasia",
-      "description": "Yokohama ZoorasiaはKanagawaの主要な観光スポットです。",
+      "name": "よこはま動物園ズーラシア",
+      "description": "「生命の共生・自然の調和」をテーマにした日本最大級の広大な動物園。世界8つの気候帯に分けられた自然に近い環境で動物を観察できます。",
       "highlights": [
-        "Asian Tropical Forest",
-        "African Savanna",
-        "Okapi Habitat",
-        "Subarctic Forest"
+        "世界8エリアの自然再現展示",
+        "オカピなどの希少動物",
+        "広大な自然公園環境"
       ]
     }
   },

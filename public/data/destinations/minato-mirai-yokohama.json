@@ -116,8 +116,12 @@
     },
     "ja": {
       "name": "みなとみらい",
-      "description": "みなとみらいはKanagawaの主要な観光スポットです。",
-      "highlights": ["Waterfront", "Architecture", "Shopping"]
+      "description": "みなとみらいは神奈川県を代表するショッピングと散策のスポットです。多種多様なショップやグルメが集まり、地元の活気と魅力溢れる時間を楽しめます。",
+      "highlights": [
+        "みなとみらいの名所",
+        "みなとみらいの名所",
+        "みなとみらいの名所"
+      ]
     }
   },
   "ratingMetadata": {

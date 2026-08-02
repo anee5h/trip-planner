@@ -108,7 +108,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Odaiba (Minato)",
+  "nameJa": "お台場",
   "content": {
     "en": {
       "name": "Odaiba (Minato)",
@@ -120,13 +120,9 @@
       ]
     },
     "ja": {
-      "name": "Odaiba (Minato)",
-      "description": "Odaiba (Minato)はTokyoの主要な観光スポットです。",
-      "highlights": [
-        "Gundam Statue",
-        "Odaiba Seaside Park",
-        "Rainbow Bridge View"
-      ]
+      "name": "お台場",
+      "description": "Odaibaは東京都にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "highlights": ["お台場の名所", "公園散策", "お台場の名所"]
     }
   },
   "ratingMetadata": {

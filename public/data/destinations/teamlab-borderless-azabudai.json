@@ -52,12 +52,11 @@
     "train": 50
   },
   "highlights": [
-    "Borderless World",
-    "Light Sculpture",
-    "Athletic Forest",
-    "EN TEA HOUSE"
+    "Boundaryless Digital Art Works",
+    "Interactive Light Displays",
+    "EN TEA HOUSE Experience"
   ],
-  "description": "teamLab Borderless at Azabudai Hills is a world-famous museum of artworks without boundaries, a grand world of interactive digital art continuously creating and shifting.",
+  "description": "An extraordinary digital art museum in Azabudai Hills where artworks move, interact, and blend without boundaries.",
   "budgetBreakdown": {
     "transport": 1000,
     "tickets": 8600,
@@ -104,26 +103,24 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "teamLab Borderless",
+  "nameJa": "チームラボボーダレス（麻布台ヒルズ）",
   "content": {
     "en": {
       "name": "teamLab Borderless",
-      "description": "teamLab Borderless at Azabudai Hills is a world-famous museum of artworks without boundaries, a grand world of interactive digital art continuously creating and shifting.",
+      "description": "An extraordinary digital art museum in Azabudai Hills where artworks move, interact, and blend without boundaries.",
       "highlights": [
-        "Borderless World",
-        "Light Sculpture",
-        "Athletic Forest",
-        "EN TEA HOUSE"
+        "Boundaryless Digital Art Works",
+        "Interactive Light Displays",
+        "EN TEA HOUSE Experience"
       ]
     },
     "ja": {
-      "name": "teamLab Borderless",
-      "description": "teamLab BorderlessはTokyoの主要な観光スポットです。",
+      "name": "チームラボボーダレス（麻布台ヒルズ）",
+      "description": "麻布台ヒルズに移転オープンした世界的なデジタルアートミュージアム。境界のないアート群が空間を自在に巡り、人と融合します。",
       "highlights": [
-        "Borderless World",
-        "Light Sculpture",
-        "Athletic Forest",
-        "EN TEA HOUSE"
+        "境界のないデジタルアート群",
+        "インタラクティブな光空間",
+        "EN TEA HOUSE（お茶のアート）"
       ]
     }
   },

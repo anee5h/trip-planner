@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/NikkoYomeimon5005.jpg/1280px-NikkoYomeimon5005.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/NikkoYomeimon5005.jpg/1280px-NikkoYomeimon5005.jpg",
-  "description": "World Heritage mountain sanctuary featuring ornate Toshogu Shrine, Kegon Falls, and Lake Chuzenji.",
-  "highlights": ["Explore Nikko City", "Local Culture & Cuisine"],
+  "description": "A world-famous mountain destination home to UNESCO World Heritage Nikko Toshogu Shrine, Kegon Falls, and Lake Chuzenji.",
+  "highlights": [
+    "UNESCO Nikko Toshogu Shrine",
+    "Kegon Waterfalls",
+    "Lake Chuzenji & Mount Nantai"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -103,17 +107,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Nikko City",
+  "nameJa": "日光",
   "content": {
     "en": {
       "name": "Nikko City",
-      "description": "World Heritage mountain sanctuary featuring ornate Toshogu Shrine, Kegon Falls, and Lake Chuzenji.",
-      "highlights": ["Explore Nikko City", "Local Culture & Cuisine"]
+      "description": "A world-famous mountain destination home to UNESCO World Heritage Nikko Toshogu Shrine, Kegon Falls, and Lake Chuzenji.",
+      "highlights": [
+        "UNESCO Nikko Toshogu Shrine",
+        "Kegon Waterfalls",
+        "Lake Chuzenji & Mount Nantai"
+      ]
     },
     "ja": {
-      "name": "Nikko City",
-      "description": "Nikko CityはTochigiの主要な観光スポットです。",
-      "highlights": ["Explore Nikko City", "Local Culture & Cuisine"]
+      "name": "日光",
+      "description": "徳川家康を祀る世界遺産「日光東照宮」、日本三大名瀑の「華厳の滝」、中禅寺湖など、歴史と豊かな自然が融合する世界的な観光地です。",
+      "highlights": ["神社散策", "日光の名所", "&散策"]
     }
   },
   "ratingMetadata": {

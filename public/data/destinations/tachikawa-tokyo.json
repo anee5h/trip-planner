@@ -5,11 +5,11 @@
   "region": "Kanto",
   "categories": ["Nature", "Parks", "Urban"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg/1280px-Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg",
-  "description": "Major Tama region gateway featuring the massive Showa Kinen Park, seasonal flower festivals, and modern dining quarters.",
+  "description": "A vibrant western Tokyo sub-center featuring Showa Kinen Park, GREEN SPRINGS, and IKEA Tachikawa.",
   "highlights": [
-    "Showa Kinen Park",
-    "GREEN SPRINGS Complex",
-    "Tachikawa Anime Mall"
+    "Showa Kinen National Park",
+    "GREEN SPRINGS Lifestyle Complex",
+    "PLAY! MUSEUM"
   ],
   "budgetMin": 6000,
   "budgetMax": 14000,
@@ -115,25 +115,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Tachikawa City",
+  "nameJa": "立川市",
   "content": {
     "en": {
       "name": "Tachikawa City",
-      "description": "Major Tama region gateway featuring the massive Showa Kinen Park, seasonal flower festivals, and modern dining quarters.",
+      "description": "A vibrant western Tokyo sub-center featuring Showa Kinen Park, GREEN SPRINGS, and IKEA Tachikawa.",
       "highlights": [
-        "Showa Kinen Park",
-        "GREEN SPRINGS Complex",
-        "Tachikawa Anime Mall"
+        "Showa Kinen National Park",
+        "GREEN SPRINGS Lifestyle Complex",
+        "PLAY! MUSEUM"
       ]
     },
     "ja": {
-      "name": "Tachikawa City",
-      "description": "Tachikawa CityはTokyoの主要な観光スポットです。",
-      "highlights": [
-        "Showa Kinen Park",
-        "GREEN SPRINGS Complex",
-        "Tachikawa Anime Mall"
-      ]
+      "name": "立川市",
+      "description": "国営昭和記念公園の広大な緑、複合施設GREEN SPRINGS、PLAY! MUSEUMなどが集まる立川駅周辺の利便性の高い都市です。",
+      "highlights": ["国営昭和記念公園", "GREEN SPRINGS", "PLAY! MUSEUM"]
     }
   },
   "ratingMetadata": {

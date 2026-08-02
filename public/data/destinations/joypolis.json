@@ -52,8 +52,12 @@
   "transportOptions": {
     "train": 18
   },
-  "highlights": ["Halfpipe Tokyo", "VR Attractions"],
-  "description": "Joypolis Odaiba is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
+  "highlights": [
+    "Indoor Roller Coasters",
+    "Cutting-Edge VR Experiences",
+    "Interactive Arcade Attractions"
+  ],
+  "description": "Japan's largest indoor theme park located in Odaiba, featuring high-tech VR rides, roller coasters, and arcade attractions.",
   "budgetBreakdown": {
     "transport": 1053,
     "tickets": 10526,
@@ -98,17 +102,25 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Joypolis Odaiba",
+  "nameJa": "東京ジョイポリス（お台場）",
   "content": {
     "en": {
       "name": "Joypolis Odaiba",
-      "description": "Joypolis Odaiba is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
-      "highlights": ["Halfpipe Tokyo", "VR Attractions"]
+      "description": "Japan's largest indoor theme park located in Odaiba, featuring high-tech VR rides, roller coasters, and arcade attractions.",
+      "highlights": [
+        "Indoor Roller Coasters",
+        "Cutting-Edge VR Experiences",
+        "Interactive Arcade Attractions"
+      ]
     },
     "ja": {
-      "name": "Joypolis Odaiba",
-      "description": "Joypolis OdaibaはTokyoの主要な観光スポットです。",
-      "highlights": ["Halfpipe Tokyo", "VR Attractions"]
+      "name": "東京ジョイポリス（お台場）",
+      "description": "お台場デックス東京ビーチ内にある国内最大級の屋内型テーマパーク。最新のVRアトラクションや屋内コースターを楽しめます。",
+      "highlights": [
+        "屋内型絶叫コースター",
+        "最新鋭VRアトラクション",
+        "体験型デジタルアトラクション"
+      ]
     }
   },
   "ratingMetadata": {

@@ -5,12 +5,11 @@
   "region": "Kanto",
   "categories": ["History", "Hiking", "Nature"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Mt._Mitake.jpg/1280px-Mt._Mitake.jpg",
-  "description": "A sacred mountain located in Chichibu-Tama-Kai National Park, featuring a historic mountaintop Shinto shrine and scenic river hikes.",
+  "description": "A sacred mountain in Okutama, Tokyo, featuring Musashi Mitake Shrine, scenic hiking paths, cable car, and rock garden trail.",
   "highlights": [
     "Musashi Mitake Shrine",
-    "Rock Garden Trail",
     "Mitake Cable Car",
-    "Anago Falls"
+    "Scenic Rock Garden Stream Trail"
   ],
   "budgetMin": 3000,
   "budgetMax": 8500,
@@ -111,26 +110,24 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Mt. Mitake",
+  "nameJa": "御岳山",
   "content": {
     "en": {
       "name": "Mt. Mitake",
-      "description": "A sacred mountain located in Chichibu-Tama-Kai National Park, featuring a historic mountaintop Shinto shrine and scenic river hikes.",
+      "description": "A sacred mountain in Okutama, Tokyo, featuring Musashi Mitake Shrine, scenic hiking paths, cable car, and rock garden trail.",
       "highlights": [
         "Musashi Mitake Shrine",
-        "Rock Garden Trail",
         "Mitake Cable Car",
-        "Anago Falls"
+        "Scenic Rock Garden Stream Trail"
       ]
     },
     "ja": {
-      "name": "Mt. Mitake",
-      "description": "Mt. MitakeはTokyoの主要な観光スポットです。",
+      "name": "御岳山",
+      "description": "青梅市奥多摩に位置する古くからの霊山。武蔵御嶽神社、ケーブルカー、ロックガーデン（苔むした渓流沿い）のハイキングが人気です。",
       "highlights": [
-        "Musashi Mitake Shrine",
-        "Rock Garden Trail",
-        "Mitake Cable Car",
-        "Anago Falls"
+        "武蔵御嶽神社",
+        "御岳登山鉄道ケーブルカー",
+        "ロックガーデンの渓流散策"
       ]
     }
   },

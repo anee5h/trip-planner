@@ -114,7 +114,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Nokogiriyama",
+  "nameJa": "鋸山",
   "content": {
     "en": {
       "name": "Nokogiriyama",
@@ -127,14 +127,9 @@
       ]
     },
     "ja": {
-      "name": "Nokogiriyama",
-      "description": "NokogiriyamaはChibaの主要な観光スポットです。",
-      "highlights": [
-        "Jigoku Nozoki (Hell Peek)",
-        "Nihon-ji Great Buddha",
-        "Nokogiriyama Ropeway",
-        "Hyaku-shaku Kannon"
-      ]
+      "name": "鋸山",
+      "description": "Nokogiriyamaは千葉県の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "highlights": ["地獄のぞき", "日本寺大仏", "鋸山ロープウェー", "百尺観音"]
     }
   },
   "ratingMetadata": {

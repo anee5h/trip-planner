@@ -125,12 +125,8 @@
     },
     "ja": {
       "name": "日光の社寺",
-      "description": "日光の社寺はTochigiの主要な観光スポットです。",
-      "highlights": [
-        "Yomeimon Gate",
-        "Three Wise Monkeys",
-        "Sleeping Cat (Nemuri-neko)"
-      ]
+      "description": "日光の社寺は栃木県の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "highlights": ["日光の社寺の名所", "日光の社寺の名所", "(-)散策"]
     }
   },
   "ratingMetadata": {

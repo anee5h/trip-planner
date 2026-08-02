@@ -53,8 +53,12 @@
     "train": 90,
     "bus": 100
   },
-  "highlights": ["Coastal Drive", "Seafood", "Nokogiriyama"],
-  "description": "Boso Peninsula is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
+  "highlights": [
+    "Mount Nokogiri & Nihonji Great Buddha",
+    "Kamogawa Sea World",
+    "Coastal Seafood Dining"
+  ],
+  "description": "A scenic coastal peninsula in Chiba featuring Mount Nokogiri ropeway, Kamogawa Sea World, seafood markets, and flower fields.",
   "budgetBreakdown": {
     "transport": 7467,
     "tickets": 0,
@@ -105,17 +109,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Boso Peninsula",
+  "nameJa": "房総半島",
   "content": {
     "en": {
       "name": "Boso Peninsula",
-      "description": "Boso Peninsula is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
-      "highlights": ["Coastal Drive", "Seafood", "Nokogiriyama"]
+      "description": "A scenic coastal peninsula in Chiba featuring Mount Nokogiri ropeway, Kamogawa Sea World, seafood markets, and flower fields.",
+      "highlights": [
+        "Mount Nokogiri & Nihonji Great Buddha",
+        "Kamogawa Sea World",
+        "Coastal Seafood Dining"
+      ]
     },
     "ja": {
-      "name": "Boso Peninsula",
-      "description": "Boso PeninsulaはChibaの主要な観光スポットです。",
-      "highlights": ["Coastal Drive", "Seafood", "Nokogiriyama"]
+      "name": "房総半島",
+      "description": "太平洋と東京湾に囲まれた南房総の自然エリア。鋸山のロープウェーや日本寺の大仏、鴨川シーワールド、新鮮な海鮮が魅力です。",
+      "highlights": ["&散策", "房総半島の名所", "房総半島の名所"]
     }
   },
   "ratingMetadata": {

@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "Special Ward"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/%E4%B8%89%E5%AE%9D%E5%AF%BA%E6%B1%A0%E3%81%A8%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE%EF%BC%882021%E5%B9%B45%E6%9C%88%EF%BC%89.jpg/1280px-%E4%B8%89%E5%AE%9D%E5%AF%BA%E6%B1%A0%E3%81%A8%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE%EF%BC%882021%E5%B9%B45%E6%9C%88%EF%BC%89.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/%E4%B8%89%E5%AE%9D%E5%AF%BA%E6%B1%A0%E3%81%A8%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE%EF%BC%882021%E5%B9%B45%E6%9C%88%EF%BC%89.jpg/1280px-%E4%B8%89%E5%AE%9D%E5%AF%BA%E6%B1%A0%E3%81%A8%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE%EF%BC%882021%E5%B9%B45%E6%9C%88%EF%BC%89.jpg",
-  "description": "Green outer ward recognized as the birthplace of Japanese television anime and Warner Bros Studio Tour.",
-  "highlights": ["Explore Nerima City", "Local Culture & Cuisine"],
+  "description": "Tokyo's anime birthplace, featuring Warner Bros. Studio Tour Tokyo - The Making of Harry Potter, Shakujii Park, and lush greenery.",
+  "highlights": [
+    "Warner Bros. Studio Tour Tokyo",
+    "Shakujii Park Lake & Trails",
+    "Anime History Spots"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -104,17 +108,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Nerima City",
+  "nameJa": "練馬区",
   "content": {
     "en": {
       "name": "Nerima City",
-      "description": "Green outer ward recognized as the birthplace of Japanese television anime and Warner Bros Studio Tour.",
-      "highlights": ["Explore Nerima City", "Local Culture & Cuisine"]
+      "description": "Tokyo's anime birthplace, featuring Warner Bros. Studio Tour Tokyo - The Making of Harry Potter, Shakujii Park, and lush greenery.",
+      "highlights": [
+        "Warner Bros. Studio Tour Tokyo",
+        "Shakujii Park Lake & Trails",
+        "Anime History Spots"
+      ]
     },
     "ja": {
-      "name": "Nerima City",
-      "description": "Nerima CityはTokyoの主要な観光スポットです。",
-      "highlights": ["Explore Nerima City", "Local Culture & Cuisine"]
+      "name": "練馬区",
+      "description": "日本アニメ発祥の地。ハリー・ポッターのスタジオツアー施設や石神井公園の豊かな池と自然が広がるグリーンエリアです。",
+      "highlights": [".散策", "公園  &散策", "練馬区の名所"]
     }
   },
   "ratingMetadata": {

@@ -4,7 +4,7 @@
   "nameJa": "足利フラワーパーク",
   "prefecture": "Tochigi",
   "category": "Nature & Gardens",
-  "description": "Famed worldwide for its massive 150-year-old Great Wisteria tree and 80-meter white wisteria tunnel in Tochigi.",
+  "description": "A world-renowned botanical park in Tochigi, famous for its 150-year-old Great Wisteria tree and winter illumination light displays.",
   "coordinates": {
     "lat": 36.3142,
     "lng": 139.5186
@@ -45,8 +45,9 @@
     "uniqueness": 9.2
   },
   "highlights": [
-    "Explore Ashikaga Flower Park Wisteria",
-    "Local Culture & Scenery"
+    "150-Year Great Wisteria Tree",
+    "80m White Wisteria Tunnel",
+    "Award-Winning Winter Illumination"
   ],
   "totalTripHours": 4,
   "walkingMin": 30,
@@ -108,19 +109,17 @@
   "content": {
     "en": {
       "name": "Ashikaga Flower Park Wisteria",
-      "description": "Famed worldwide for its massive 150-year-old Great Wisteria tree and 80-meter white wisteria tunnel in Tochigi.",
+      "description": "A world-renowned botanical park in Tochigi, famous for its 150-year-old Great Wisteria tree and winter illumination light displays.",
       "highlights": [
-        "Explore Ashikaga Flower Park Wisteria",
-        "Local Culture & Scenery"
+        "150-Year Great Wisteria Tree",
+        "80m White Wisteria Tunnel",
+        "Award-Winning Winter Illumination"
       ]
     },
     "ja": {
       "name": "足利フラワーパーク",
-      "description": "足利フラワーパークはTochigiの主要な観光スポットです。",
-      "highlights": [
-        "Explore Ashikaga Flower Park Wisteria",
-        "Local Culture & Scenery"
-      ]
+      "description": "樹齢150年超の「大藤」や80mに及ぶ白藤のトンネルで世界的に有名なテーマパーク。冬の「光の花の庭」イルミネーションも絶景です。",
+      "highlights": ["150-散策", "80m散策", "-散策"]
     }
   },
   "ratingMetadata": {

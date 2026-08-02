@@ -54,12 +54,11 @@
     "car": 0
   },
   "highlights": [
-    "Marunouchi Red Brick Building",
-    "Tokyo Ramen Street",
-    "Imperial Palace East Gardens (nearby)",
-    "Character Street"
+    "Restored 1914 Red-Brick Station Building",
+    "Marunouchi Square & Skyscraper Views",
+    "Tokyo Ramen Street"
   ],
-  "description": "Japans premier railway terminal, featuring the restored 1914 Marunouchi red-brick facade, subterranean shopping passages, world-class ramen eateries, and immediate proximity to the Imperial Palace grounds.",
+  "description": "Japan's primary railway hub featuring Kingo Tatsuno's restored 1914 red-brick station building, Marunouchi plaza, and Ramen Street.",
   "budgetBreakdown": {
     "transport": 667,
     "tickets": 0,
@@ -110,26 +109,24 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Tokyo Station",
+  "nameJa": "東京駅（丸の内赤れんが駅舎）",
   "content": {
     "en": {
       "name": "Tokyo Station",
-      "description": "Japans premier railway terminal, featuring the restored 1914 Marunouchi red-brick facade, subterranean shopping passages, world-class ramen eateries, and immediate proximity to the Imperial Palace grounds.",
+      "description": "Japan's primary railway hub featuring Kingo Tatsuno's restored 1914 red-brick station building, Marunouchi plaza, and Ramen Street.",
       "highlights": [
-        "Marunouchi Red Brick Building",
-        "Tokyo Ramen Street",
-        "Imperial Palace East Gardens (nearby)",
-        "Character Street"
+        "Restored 1914 Red-Brick Station Building",
+        "Marunouchi Square & Skyscraper Views",
+        "Tokyo Ramen Street"
       ]
     },
     "ja": {
-      "name": "Tokyo Station",
-      "description": "Tokyo StationはTokyoの主要な観光スポットです。",
+      "name": "東京駅（丸の内赤れんが駅舎）",
+      "description": "1914年創建の歴史的赤れんが駅舎。ドーム状の美しい天井、丸の内駅前広場、東京駅一番街のラーメンストリートが集まる日本の玄関口です。",
       "highlights": [
-        "Marunouchi Red Brick Building",
-        "Tokyo Ramen Street",
-        "Imperial Palace East Gardens (nearby)",
-        "Character Street"
+        "創建当時の赤れんが駅舎とドーム天井",
+        "丸の内駅前広場の景観",
+        "東京ラーメンストリート"
       ]
     }
   },

@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "Special Ward"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Tomioka_Hachiman-gu_201708.jpg/1280px-Tomioka_Hachiman-gu_201708.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Tomioka_Hachiman-gu_201708.jpg/1280px-Tomioka_Hachiman-gu_201708.jpg",
-  "description": "Waterfront bay area featuring teamLab Planets, Toyosu Fish Market, and Kiyosumi Shirakawa cafe arcades.",
-  "highlights": ["Explore Koto City", "Local Culture & Cuisine"],
+  "description": "A modern bayfront ward housing teamLab Planets, Toyosu Market, Kiyosumi Gardens, and Tokyo Big Sight.",
+  "highlights": [
+    "Toyosu Seafood Market",
+    "teamLab Planets Tokyo",
+    "Kiyosumi Traditional Garden"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -112,17 +116,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Koto City",
+  "nameJa": "江東区",
   "content": {
     "en": {
       "name": "Koto City",
-      "description": "Waterfront bay area featuring teamLab Planets, Toyosu Fish Market, and Kiyosumi Shirakawa cafe arcades.",
-      "highlights": ["Explore Koto City", "Local Culture & Cuisine"]
+      "description": "A modern bayfront ward housing teamLab Planets, Toyosu Market, Kiyosumi Gardens, and Tokyo Big Sight.",
+      "highlights": [
+        "Toyosu Seafood Market",
+        "teamLab Planets Tokyo",
+        "Kiyosumi Traditional Garden"
+      ]
     },
     "ja": {
-      "name": "Koto City",
-      "description": "Koto CityはTokyoの主要な観光スポットです。",
-      "highlights": ["Explore Koto City", "Local Culture & Cuisine"]
+      "name": "江東区",
+      "description": "豊洲市場やteamLab Planets、清澄庭園、東京ビッグサイトなどを擁し、下町の歴史と臨海部の最新施設が同居する注目の街です。",
+      "highlights": ["豊洲市場", "teamLab Planets", "清澄庭園"]
     }
   },
   "ratingMetadata": {

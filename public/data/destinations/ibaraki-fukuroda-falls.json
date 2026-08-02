@@ -119,7 +119,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Fukuroda Falls",
+  "nameJa": "袋田の滝",
   "content": {
     "en": {
       "name": "Fukuroda Falls",
@@ -132,13 +132,13 @@
       ]
     },
     "ja": {
-      "name": "Fukuroda Falls",
-      "description": "Fukuroda FallsはIbarakiの主要な観光スポットです。",
+      "name": "袋田の滝",
+      "description": "Fukuroda Fallsは茨城県の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
       "highlights": [
-        "Fukuroda Falls Tunnel & Deck",
-        "Tada Falls Suspension Bridge",
-        "Nagare-no-Kannon Shrine",
-        "Fukuroda Hot Springs (nearby)"
+        "&散策",
+        "袋田の滝の名所",
+        "-no-神社散策",
+        "袋田の滝の名所"
       ]
     }
   },

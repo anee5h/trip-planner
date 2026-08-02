@@ -54,12 +54,11 @@
     "train": 15
   },
   "highlights": [
-    "251m High-Altitude Artificial Lawn Hill",
-    "Tenbou Park Cafe",
-    "Sunshine Aquarium (nearby)",
-    "360-Degree Kanto View"
+    "251m Indoor Sky Park",
+    "Green Lawn Relaxation Zone",
+    "Panoramic Tokyo Views"
   ],
-  "description": "Located on the 60th floor of Sunshine 60 (251m height) in Ikebukuro, featuring an indoor sky park with real turf lawns, picnic mats, and panoramic vistas.",
+  "description": "An indoor sky park 251 meters above Ikebukuro featuring artificial turf lawns, panoramic Tokyo views, and relaxing cafes.",
   "budgetBreakdown": {
     "transport": 460,
     "tickets": 1035,
@@ -113,26 +112,24 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Sunshine 60 Observatory (Tenbou Park)",
+  "nameJa": "サンシャイン60展望台 てんぼうパーク",
   "content": {
     "en": {
       "name": "Sunshine 60 Observatory (Tenbou Park)",
-      "description": "Located on the 60th floor of Sunshine 60 (251m height) in Ikebukuro, featuring an indoor sky park with real turf lawns, picnic mats, and panoramic vistas.",
+      "description": "An indoor sky park 251 meters above Ikebukuro featuring artificial turf lawns, panoramic Tokyo views, and relaxing cafes.",
       "highlights": [
-        "251m High-Altitude Artificial Lawn Hill",
-        "Tenbou Park Cafe",
-        "Sunshine Aquarium (nearby)",
-        "360-Degree Kanto View"
+        "251m Indoor Sky Park",
+        "Green Lawn Relaxation Zone",
+        "Panoramic Tokyo Views"
       ]
     },
     "ja": {
-      "name": "Sunshine 60 Observatory (Tenbou Park)",
-      "description": "Sunshine 60 Observatory (Tenbou Park)はTokyoの主要な観光スポットです。",
+      "name": "サンシャイン60展望台 てんぼうパーク",
+      "description": "池袋サンシャイン60の最上階（海抜251m）にある展望公園。緑豊かな人工芝が広がり、都心の絶景をのんびり楽しめます。",
       "highlights": [
-        "251m High-Altitude Artificial Lawn Hill",
-        "Tenbou Park Cafe",
-        "Sunshine Aquarium (nearby)",
-        "360-Degree Kanto View"
+        "海抜251mの屋内天空公園",
+        "芝生広場の癒し空間",
+        "都心360度の眺望"
       ]
     }
   },

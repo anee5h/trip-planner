@@ -54,12 +54,11 @@
     "train": 25
   },
   "highlights": [
-    "106m Observation Deck",
-    "Media Art Illumination",
-    "Yamashita Park Promenade",
-    "Chinatown Proximity"
+    "106m Waterfront Lattice Tower",
+    "Yokohama Port & Bay Bridge Panorama",
+    "Media Art & Lounge Bar"
   ],
-  "description": "Built in 1961 to mark Yokohama Port's 100th anniversary, this 106-meter historic steel lattice lighthouse tower offers sweeping vistas over Yokohama Bay Bridge and Minato Mirai.",
+  "description": "A historic 106-meter waterfront lattice tower in Yokohama near Yamashita Park, featuring observation decks and night illumination.",
   "budgetBreakdown": {
     "transport": 650,
     "tickets": 1300,
@@ -113,26 +112,24 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Yokohama Marine Tower",
+  "nameJa": "横浜マリンタワー",
   "content": {
     "en": {
       "name": "Yokohama Marine Tower",
-      "description": "Built in 1961 to mark Yokohama Port's 100th anniversary, this 106-meter historic steel lattice lighthouse tower offers sweeping vistas over Yokohama Bay Bridge and Minato Mirai.",
+      "description": "A historic 106-meter waterfront lattice tower in Yokohama near Yamashita Park, featuring observation decks and night illumination.",
       "highlights": [
-        "106m Observation Deck",
-        "Media Art Illumination",
-        "Yamashita Park Promenade",
-        "Chinatown Proximity"
+        "106m Waterfront Lattice Tower",
+        "Yokohama Port & Bay Bridge Panorama",
+        "Media Art & Lounge Bar"
       ]
     },
     "ja": {
-      "name": "Yokohama Marine Tower",
-      "description": "Yokohama Marine TowerはKanagawaの主要な観光スポットです。",
+      "name": "横浜マリンタワー",
+      "description": "横浜開港100周年記念事業で建てられた高さ106mのシンボルタワー。展望フロアからは横浜港やベイブリッジを一望できます。",
       "highlights": [
-        "106m Observation Deck",
-        "Media Art Illumination",
-        "Yamashita Park Promenade",
-        "Chinatown Proximity"
+        "高さ106mの横浜港シンボルタワー",
+        "横浜港とベイブリッジの眺望",
+        "メディアアートと展望フロア"
       ]
     }
   },

@@ -126,12 +126,8 @@
     },
     "ja": {
       "name": "小笠原諸島",
-      "description": "小笠原諸島はTokyoの主要な観光スポットです。",
-      "highlights": [
-        "UNESCO Heritage Monument",
-        "Historic Landmark",
-        "Cultural Preservation Area"
-      ]
+      "description": "小笠原諸島は東京都にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "highlights": ["小笠原諸島の名所", "小笠原諸島の名所", "小笠原諸島の名所"]
     }
   },
   "ratingMetadata": {

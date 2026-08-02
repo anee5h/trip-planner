@@ -1,7 +1,7 @@
 {
   "id": "musashi-ichinomiya-hikawa-shrine",
   "name": "Musashi Ichinomiya Hikawa Shrine",
-  "nameJa": "氷川神社",
+  "nameJa": "武蔵一宮氷川神社",
   "aliases": ["Hikawa Shrine (Saitama)", "氷川神社"],
   "content": {
     "en": {
@@ -10,9 +10,9 @@
       "highlights": ["History"]
     },
     "ja": {
-      "name": "氷川神社",
+      "name": "武蔵一宮氷川神社",
       "description": "氷川神社はSaitama Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["歴史"]
+      "highlights": ["武蔵一宮氷川神社の名所"]
     }
   },
   "prefecture": "Saitama",

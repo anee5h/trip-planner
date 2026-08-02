@@ -111,7 +111,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Machida",
+  "nameJa": "町田市",
   "content": {
     "en": {
       "name": "Machida",
@@ -124,14 +124,9 @@
       ]
     },
     "ja": {
-      "name": "Machida",
-      "description": "MachidaはTokyoの主要な観光スポットです。",
-      "highlights": [
-        "Machida Squirrel Garden",
-        "Serigaya Park",
-        "Grandberry Park",
-        "Nakamachi Shopping Street"
-      ]
+      "name": "町田市",
+      "description": "町田市は東京都を代表するショッピングと散策のスポットです。多種多様なショップやグルメが集まり、地元の活気と魅力溢れる時間を楽しめます。",
+      "highlights": ["庭園散策", "公園散策", "公園散策", "町田市の名所"]
     }
   },
   "ratingMetadata": {

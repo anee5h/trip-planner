@@ -1,18 +1,22 @@
 {
   "id": "kagurazaka",
   "name": "Kagurazaka",
-  "nameJa": "Kagurazaka",
+  "nameJa": "神楽坂",
   "aliases": ["Shinjuku", "Kagurazaka"],
   "content": {
     "en": {
       "name": "Kagurazaka",
-      "description": "Kagurazaka is a visitor destination in Shinjuku City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
-      "highlights": ["Culture"]
+      "description": "A stylish cobblestone slope district blending traditional Japanese geisha house heritage with European bistros and cafes.",
+      "highlights": [
+        "Cobblestone Alleyways",
+        "Geisha Heritage & Tea Houses",
+        "French Bistros & Cafes"
+      ]
     },
     "ja": {
-      "name": "Kagurazaka",
-      "description": "KagurazakaはShinjuku Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["文化"]
+      "name": "神楽坂",
+      "description": "石畳の路地や花街の面影を残す情緒豊かな坂の街。和の伝統店舗とフランス風のカフェやビストロが洗練された魅力を醸し出します。",
+      "highlights": ["神楽坂の名所", "&散策", "&散策"]
     }
   },
   "prefecture": "Tokyo",
@@ -38,8 +42,12 @@
     "lat": 35.70138889,
     "lng": 139.70972222
   },
-  "description": "Kagurazaka is a visitor destination in Shinjuku City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
-  "highlights": ["Culture"],
+  "description": "A stylish cobblestone slope district blending traditional Japanese geisha house heritage with European bistros and cafes.",
+  "highlights": [
+    "Cobblestone Alleyways",
+    "Geisha Heritage & Tea Houses",
+    "French Bistros & Cafes"
+  ],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,

@@ -114,7 +114,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Okutama",
+  "nameJa": "奥多摩",
   "content": {
     "en": {
       "name": "Okutama",
@@ -127,13 +127,13 @@
       ]
     },
     "ja": {
-      "name": "Okutama",
-      "description": "OkutamaはTokyoの主要な観光スポットです。",
+      "name": "奥多摩",
+      "description": "奥多摩町は東京都の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
       "highlights": [
-        "Lake Okutama",
-        "Nippara Limestone Cave",
-        "Mount Mitake Trail",
-        "Hatonosu Gorge"
+        "奥多摩の名所",
+        "奥多摩の名所",
+        "奥多摩の名所",
+        "奥多摩の名所"
       ]
     }
   },

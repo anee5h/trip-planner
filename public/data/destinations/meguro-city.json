@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "Special Ward"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Cherry_Blossoms_in_Meguro_River_Park_-_Lanterns_along_the_River_%2840844860114%29.jpg/3840px-Cherry_Blossoms_in_Meguro_River_Park_-_Lanterns_along_the_River_%2840844860114%29.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Cherry_Blossoms_in_Meguro_River_Park_-_Lanterns_along_the_River_%2840844860114%29.jpg/3840px-Cherry_Blossoms_in_Meguro_River_Park_-_Lanterns_along_the_River_%2840844860114%29.jpg",
-  "description": "Trendy residential ward celebrated for Meguro River cherry blossoms, Nakameguro cafes, and boutique design studios.",
-  "highlights": ["Explore Meguro City", "Local Culture & Cuisine"],
+  "description": "A trendy riverside ward famous for Meguro River cherry blossoms, stylish boutiques, cafes, and Tokyo Metropolitan Teien Art Museum.",
+  "highlights": [
+    "Meguro River Cherry Blossoms",
+    "Teien Art Museum & Gardens",
+    "Stylish Cafes & Shops"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -104,17 +108,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Meguro City",
+  "nameJa": "目黒区",
   "content": {
     "en": {
       "name": "Meguro City",
-      "description": "Trendy residential ward celebrated for Meguro River cherry blossoms, Nakameguro cafes, and boutique design studios.",
-      "highlights": ["Explore Meguro City", "Local Culture & Cuisine"]
+      "description": "A trendy riverside ward famous for Meguro River cherry blossoms, stylish boutiques, cafes, and Tokyo Metropolitan Teien Art Museum.",
+      "highlights": [
+        "Meguro River Cherry Blossoms",
+        "Teien Art Museum & Gardens",
+        "Stylish Cafes & Shops"
+      ]
     },
     "ja": {
-      "name": "Meguro City",
-      "description": "Meguro CityはTokyoの主要な観光スポットです。",
-      "highlights": ["Explore Meguro City", "Local Culture & Cuisine"]
+      "name": "目黒区",
+      "description": "目黒川沿いの桜並木、オシャレなインテリアショップやカフェ、東京都庭園美術館の緑が広がる洗練された感性が集まるエリアです。",
+      "highlights": ["目黒区の名所", "美術館 &庭園s散策", "&散策"]
     }
   },
   "ratingMetadata": {

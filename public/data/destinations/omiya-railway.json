@@ -51,8 +51,12 @@
   "transportOptions": {
     "train": 35
   },
-  "highlights": ["Train Simulators", "Historic Cars"],
-  "description": "Ōmiya is one of ten wards of the city of Saitama, in Saitama Prefecture, Japan, and is located in the northeastern part of the city. As of 1 March 2021, the ward had an estimated population of 119,298 and a population density of 9,300 persons per km2. Its total area was 12.80 square kilometres (4.94 sq mi). Although Urawa-ku is the governmental center of Saitama City, Ōmiya-ku is the most active commercial and business centre in both Saitama City and Saitama Prefecture thanks to its transport infrastructure, especially railways connected at Ōmiya Station.",
+  "highlights": [
+    "36 Historic Railway Vehicles",
+    "Shinkansen Driving Simulators",
+    "Interactive Train Exhibits"
+  ],
+  "description": "Japan's premier railway museum in Saitama, featuring real historic trains, Bullet train simulators, and interactive exhibits.",
   "budgetBreakdown": {
     "transport": 3236,
     "tickets": 3020,
@@ -100,17 +104,25 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Omiya Railway Museum",
+  "nameJa": "鉄道博物館（大宮）",
   "content": {
     "en": {
       "name": "Omiya Railway Museum",
-      "description": "Ōmiya is one of ten wards of the city of Saitama, in Saitama Prefecture, Japan, and is located in the northeastern part of the city. As of 1 March 2021, the ward had an estimated population of 119,298 and a population density of 9,300 persons per km2. Its total area was 12.80 square kilometres (4.94 sq mi). Although Urawa-ku is the governmental center of Saitama City, Ōmiya-ku is the most active commercial and business centre in both Saitama City and Saitama Prefecture thanks to its transport infrastructure, especially railways connected at Ōmiya Station.",
-      "highlights": ["Train Simulators", "Historic Cars"]
+      "description": "Japan's premier railway museum in Saitama, featuring real historic trains, Bullet train simulators, and interactive exhibits.",
+      "highlights": [
+        "36 Historic Railway Vehicles",
+        "Shinkansen Driving Simulators",
+        "Interactive Train Exhibits"
+      ]
     },
     "ja": {
-      "name": "Omiya Railway Museum",
-      "description": "Omiya Railway MuseumはSaitamaの主要な観光スポットです。",
-      "highlights": ["Train Simulators", "Historic Cars"]
+      "name": "鉄道博物館（大宮）",
+      "description": "JR東日本が運営する日本最大級の鉄道博物館。実物の蒸気機関車や新幹線、本格的な運転シミュレータが揃います。",
+      "highlights": [
+        "36両の実物車両展示",
+        "新幹線運転シミュレータ",
+        "体験型鉄道展示"
+      ]
     }
   },
   "ratingMetadata": {

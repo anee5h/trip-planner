@@ -118,7 +118,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Edo Castle Ruins (Imperial Palace)",
+  "nameJa": "Edo Castle Ruins",
   "content": {
     "en": {
       "name": "Edo Castle Ruins (Imperial Palace)",
@@ -131,14 +131,9 @@
       ]
     },
     "ja": {
-      "name": "Edo Castle Ruins (Imperial Palace)",
-      "description": "Edo Castle Ruins (Imperial Palace)はTokyoの主要な観光スポットです。",
-      "highlights": [
-        "Fujimi-yagura Watchtower",
-        "Tenshudai Castle Keep Base",
-        "Otemon Gate & Moat",
-        "Ninomaru Garden"
-      ]
+      "name": "Edo Castle Ruins",
+      "description": "Edo Castle Ruinsは東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "highlights": ["-散策", "城散策", "&散策", "庭園散策"]
     }
   },
   "ratingMetadata": {

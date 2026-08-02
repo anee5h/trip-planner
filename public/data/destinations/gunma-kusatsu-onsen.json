@@ -116,7 +116,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Kusatsu Onsen",
+  "nameJa": "草津温泉",
   "content": {
     "en": {
       "name": "Kusatsu Onsen",
@@ -129,13 +129,13 @@
       ]
     },
     "ja": {
-      "name": "Kusatsu Onsen",
-      "description": "Kusatsu OnsenはGunmaの主要な観光スポットです。",
+      "name": "草津温泉",
+      "description": "Kusatsu Onsenは群馬県の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
       "highlights": [
-        "Yubatake (Hot Water Field)",
-        "Netsunoyu (Yumomi Show)",
-        "Sainokawara Park",
-        "Otowanoyu Public Baths"
+        "草津温泉の名所",
+        "草津温泉の名所",
+        "公園散策",
+        "草津温泉の名所"
       ]
     }
   },

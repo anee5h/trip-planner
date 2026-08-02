@@ -1,18 +1,26 @@
 {
   "id": "play-museum-tachikawa",
   "name": "PLAY! Museum",
-  "nameJa": "PLAY! MUSEUM",
+  "nameJa": "PLAY! MUSEUM（立川）",
   "aliases": [],
   "content": {
     "en": {
       "name": "PLAY! Museum",
-      "description": "PLAY! Museum is a distinct visitor stop within Tachikawa City, selected to support a varied local itinerary.",
-      "highlights": ["Museum", "Art", "Family"]
+      "description": "A creative art museum for adults and children in Tachikawa GREEN SPRINGS, featuring interactive picture book and pop culture exhibits.",
+      "highlights": [
+        "Picture Book Art Exhibits",
+        "Interactive Play Space",
+        "GREEN SPRINGS Complex Setting"
+      ]
     },
     "ja": {
-      "name": "PLAY! MUSEUM",
-      "description": "PLAY! MUSEUMはTachikawa City内の観光スポットです。訪問前に最新の営業情報をご確認ください。",
-      "highlights": ["Museum", "Art", "Family"]
+      "name": "PLAY! MUSEUM（立川）",
+      "description": "立川GREEN SPRINGS内にある絵本やマンガ、アートをテーマにした体験型美術館。大人も子供もワクワクできる展示が魅力です。",
+      "highlights": [
+        "絵本・アートの体験型展示",
+        "体を使って遊ぶアート空間",
+        "GREEN SPRINGS施設内"
+      ]
     }
   },
   "prefecture": "Tokyo",
@@ -43,8 +51,12 @@
     "lat": 35.7049,
     "lng": 139.4135
   },
-  "description": "PLAY! Museum is a distinct visitor stop within Tachikawa City, selected to support a varied local itinerary.",
-  "highlights": ["Museum", "Art", "Family"],
+  "description": "A creative art museum for adults and children in Tachikawa GREEN SPRINGS, featuring interactive picture book and pop culture exhibits.",
+  "highlights": [
+    "Picture Book Art Exhibits",
+    "Interactive Play Space",
+    "GREEN SPRINGS Complex Setting"
+  ],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,

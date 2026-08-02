@@ -1,7 +1,7 @@
 {
   "id": "shonan-kaigan-park",
   "name": "Shonan Kaigan Park",
-  "nameJa": "湘南海岸公園 (藤沢市)",
+  "nameJa": "湘南海岸公園",
   "aliases": ["Shonan Monorail", "湘南海岸公園 (藤沢市)"],
   "content": {
     "en": {
@@ -10,9 +10,9 @@
       "highlights": ["Nature"]
     },
     "ja": {
-      "name": "湘南海岸公園 (藤沢市)",
+      "name": "湘南海岸公園",
       "description": "湘南海岸公園 (藤沢市)はFujisawa Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["自然"]
+      "highlights": ["湘南海岸公園の名所"]
     }
   },
   "prefecture": "Kanagawa",

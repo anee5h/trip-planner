@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "Special Ward"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Kyu-Furukawa_House_1.jpg/1280px-Kyu-Furukawa_House_1.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Kyu-Furukawa_House_1.jpg/1280px-Kyu-Furukawa_House_1.jpg",
-  "description": "Northern riverside borough featuring Asukayama Park cherry blossoms and Akabane izakaya alleys.",
-  "highlights": ["Explore Kita City", "Local Culture & Cuisine"],
+  "description": "A northern Tokyo ward known for Asukayama Park's cherry blossoms, historic paper museum, and Akabane's bar culture.",
+  "highlights": [
+    "Asukayama Cherry Blossom Park",
+    "Akabane Retro Izakaya Streets",
+    "Kyuo-Furukawa Gardens"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -104,17 +108,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Kita City",
+  "nameJa": "北区",
   "content": {
     "en": {
       "name": "Kita City",
-      "description": "Northern riverside borough featuring Asukayama Park cherry blossoms and Akabane izakaya alleys.",
-      "highlights": ["Explore Kita City", "Local Culture & Cuisine"]
+      "description": "A northern Tokyo ward known for Asukayama Park's cherry blossoms, historic paper museum, and Akabane's bar culture.",
+      "highlights": [
+        "Asukayama Cherry Blossom Park",
+        "Akabane Retro Izakaya Streets",
+        "Kyuo-Furukawa Gardens"
+      ]
     },
     "ja": {
-      "name": "Kita City",
-      "description": "Kita CityはTokyoの主要な観光スポットです。",
-      "highlights": ["Explore Kita City", "Local Culture & Cuisine"]
+      "name": "北区",
+      "description": "飛鳥山の桜の名所や紙の博物館、赤羽の賑やかな大衆酒場街など、歴史と庶民的な活気が調和する東京北部のエリアです。",
+      "highlights": ["公園散策", "北区の名所", "-庭園s散策"]
     }
   },
   "ratingMetadata": {

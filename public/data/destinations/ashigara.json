@@ -103,7 +103,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Ashigara",
+  "nameJa": "足柄",
   "content": {
     "en": {
       "name": "Ashigara",
@@ -115,13 +115,9 @@
       ]
     },
     "ja": {
-      "name": "Ashigara",
-      "description": "AshigaraはKanagawaの主要な観光スポットです。",
-      "highlights": [
-        "Explore top-rated nature locations",
-        "Enjoy regional specialties and local culture",
-        "Perfect for a active day out"
-      ]
+      "name": "足柄",
+      "description": "足柄は神奈川県の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "highlights": ["-散策", "足柄の名所", "a散策"]
     }
   },
   "ratingMetadata": {

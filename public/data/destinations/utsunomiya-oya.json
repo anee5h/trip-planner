@@ -52,8 +52,12 @@
     "train": 100,
     "car": 150
   },
-  "highlights": ["Oya History Museum", "Utsunomiya Gyoza"],
-  "description": "Utsunomiya & Oya is a scenic destination in the Tochigi region of Japan, offering rich history and cultural attractions.",
+  "highlights": [
+    "Oya Underground Stone Quarry Chamber",
+    "Oya Kannon Carved Cliff Buddha",
+    "Utsunomiya Gyoza Dining"
+  ],
+  "description": "A unique destination near Utsunomiya featuring Oya History Museum's vast underground stone quarry chamber and Oya Kannon Buddha.",
   "budgetBreakdown": {
     "transport": 3238,
     "tickets": 1727,
@@ -103,17 +107,25 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Utsunomiya & Oya",
+  "nameJa": "宇都宮・大谷エリア",
   "content": {
     "en": {
       "name": "Utsunomiya & Oya",
-      "description": "Utsunomiya & Oya is a scenic destination in the Tochigi region of Japan, offering rich history and cultural attractions.",
-      "highlights": ["Oya History Museum", "Utsunomiya Gyoza"]
+      "description": "A unique destination near Utsunomiya featuring Oya History Museum's vast underground stone quarry chamber and Oya Kannon Buddha.",
+      "highlights": [
+        "Oya Underground Stone Quarry Chamber",
+        "Oya Kannon Carved Cliff Buddha",
+        "Utsunomiya Gyoza Dining"
+      ]
     },
     "ja": {
-      "name": "Utsunomiya & Oya",
-      "description": "Utsunomiya & OyaはTochigiの主要な観光スポットです。",
-      "highlights": ["Oya History Museum", "Utsunomiya Gyoza"]
+      "name": "宇都宮・大谷エリア",
+      "description": "宇都宮市大谷町に広がる大谷石の産地。映画撮影地にもなる大谷資料館の巨大地下採掘場跡と大谷観音が神秘的な雰囲気を醸し出します。",
+      "highlights": [
+        "大谷資料館の巨大地下空間",
+        "大谷観音の崖彫り仏像",
+        "宇都宮餃子食べ歩き"
+      ]
     }
   },
   "ratingMetadata": {

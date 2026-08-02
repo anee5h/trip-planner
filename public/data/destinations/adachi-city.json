@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "Special Ward"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Nishiarai_Daishi.jpg/1280px-Nishiarai_Daishi.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Nishiarai_Daishi.jpg/1280px-Nishiarai_Daishi.jpg",
-  "description": "Northeastern borough home to Nishiarai Daishi Temple and scenic Arakawa riverbank parks.",
-  "highlights": ["Explore Adachi City", "Local Culture & Cuisine"],
+  "description": "A vibrant northern Tokyo ward known for the picturesque Arakawa riverfront, historic Senju station area, and traditional downtown shopping streets.",
+  "highlights": [
+    "Arakawa Riverfront Park",
+    "Kita-Senju Shopping Streets",
+    "Toneri Park"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -104,17 +108,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Adachi City",
+  "nameJa": "足立区",
   "content": {
     "en": {
       "name": "Adachi City",
-      "description": "Northeastern borough home to Nishiarai Daishi Temple and scenic Arakawa riverbank parks.",
-      "highlights": ["Explore Adachi City", "Local Culture & Cuisine"]
+      "description": "A vibrant northern Tokyo ward known for the picturesque Arakawa riverfront, historic Senju station area, and traditional downtown shopping streets.",
+      "highlights": [
+        "Arakawa Riverfront Park",
+        "Kita-Senju Shopping Streets",
+        "Toneri Park"
+      ]
     },
     "ja": {
-      "name": "Adachi City",
-      "description": "Adachi CityはTokyoの主要な観光スポットです。",
-      "highlights": ["Explore Adachi City", "Local Culture & Cuisine"]
+      "name": "足立区",
+      "description": "荒川の河川敷や歴史ある宿場町の面影を残す北千住周辺を中心に、下町情緒溢れる商店街と親水公園が広がる東京北部のエリアです。",
+      "highlights": ["荒川河川敷公園", "北千住宿場町商店街", "舎人公園"]
     }
   },
   "ratingMetadata": {

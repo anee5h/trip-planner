@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "Special Ward"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/75/Seijo_namikimichi_231011.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/7/75/Seijo_namikimichi_231011.jpg",
-  "description": "Sprawling green ward known for Shimokitazawa vintage fashion alleys, Todoroki Ravine, and Gotokuji lucky cat temple.",
-  "highlights": ["Explore Setagaya City", "Local Culture & Cuisine"],
+  "description": "A spacious green residential ward known for Shimokitazawa's indie fashion, Sangenjaya nightlife, Todoroki Valley, and Gotokuji cat temple.",
+  "highlights": [
+    "Shimokitazawa Indie Culture",
+    "Todoroki Ravine Valley",
+    "Sangenjaya Dining Alleyways"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -104,17 +108,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Setagaya City",
+  "nameJa": "世田谷区",
   "content": {
     "en": {
       "name": "Setagaya City",
-      "description": "Sprawling green ward known for Shimokitazawa vintage fashion alleys, Todoroki Ravine, and Gotokuji lucky cat temple.",
-      "highlights": ["Explore Setagaya City", "Local Culture & Cuisine"]
+      "description": "A spacious green residential ward known for Shimokitazawa's indie fashion, Sangenjaya nightlife, Todoroki Valley, and Gotokuji cat temple.",
+      "highlights": [
+        "Shimokitazawa Indie Culture",
+        "Todoroki Ravine Valley",
+        "Sangenjaya Dining Alleyways"
+      ]
     },
     "ja": {
-      "name": "Setagaya City",
-      "description": "Setagaya CityはTokyoの主要な観光スポットです。",
-      "highlights": ["Explore Setagaya City", "Local Culture & Cuisine"]
+      "name": "世田谷区",
+      "description": "下北沢の古着・演劇カルチャー、三軒茶屋のレトロ酒場、都内唯一の渓谷・等々力渓谷や豪徳寺など多彩な魅力を持つ緑豊なエリアです。",
+      "highlights": ["世田谷区の名所", "世田谷区の名所", "世田谷区の名所"]
     }
   },
   "ratingMetadata": {

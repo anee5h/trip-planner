@@ -98,7 +98,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Mother Farm (Futtsu)",
+  "nameJa": "マザー牧場",
   "content": {
     "en": {
       "name": "Mother Farm (Futtsu)",
@@ -106,9 +106,9 @@
       "highlights": ["Sheep Shearing Show", "Alpaca Farm", "Flower Fields"]
     },
     "ja": {
-      "name": "Mother Farm (Futtsu)",
-      "description": "Mother Farm (Futtsu)はChibaの主要な観光スポットです。",
-      "highlights": ["Sheep Shearing Show", "Alpaca Farm", "Flower Fields"]
+      "name": "マザー牧場",
+      "description": "Mother Farmは千葉県の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "highlights": ["マザー牧場の名所", "マザー牧場の名所", "マザー牧場の名所"]
     }
   },
   "ratingMetadata": {

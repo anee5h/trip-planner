@@ -109,7 +109,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Nagatoro",
+  "nameJa": "長瀞",
   "content": {
     "en": {
       "name": "Nagatoro",
@@ -122,14 +122,9 @@
       ]
     },
     "ja": {
-      "name": "Nagatoro",
-      "description": "NagatoroはSaitamaの主要な観光スポットです。",
-      "highlights": [
-        "Nagatoro Line Kudari (Boat Cruise)",
-        "Iwadatami Rock Terrace",
-        "Hodosan Shrine",
-        "Mount Hodo Ropeway"
-      ]
+      "name": "長瀞",
+      "description": "Nagatoroは埼玉県の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "highlights": ["長瀞の名所", "長瀞の名所", "神社散策", "長瀞の名所"]
     }
   },
   "ratingMetadata": {

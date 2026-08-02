@@ -109,7 +109,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Sawara",
+  "nameJa": "佐原（小江戸）",
   "content": {
     "en": {
       "name": "Sawara",
@@ -122,13 +122,13 @@
       ]
     },
     "ja": {
-      "name": "Sawara",
-      "description": "SawaraはChibaの主要な観光スポットです。",
+      "name": "佐原（小江戸）",
+      "description": "Sawaraは千葉県の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
       "highlights": [
-        "Ono River Historic District",
-        "Toyohashi Ja-Ja Bridge",
-        "Ino Tadataka Museum",
-        "Sawara Canal Boat Tour"
+        "小野川沿いの歴史的建造物群",
+        "樋橋（ジャージャー橋）",
+        "美術館散策",
+        "小野川観光船（サッパ舟）"
       ]
     }
   },

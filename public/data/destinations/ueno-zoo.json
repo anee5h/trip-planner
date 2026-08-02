@@ -53,12 +53,11 @@
     "train": 15
   },
   "highlights": [
-    "Giant Panda Forest",
-    "Five-Story Pagoda of Former Kan'ei-ji",
-    "Shinobazu Pond Waterfowl",
-    "Gorilla Woods"
+    "Giant Panda Enclosures",
+    "Historic 5-Story Pagoda Backdrop",
+    "Shinobazu Pond Waterfront Aviary"
   ],
-  "description": "Opened in 1882, Ueno Zoo is Japan's oldest zoo, located inside Ueno Park and world-famous for its giant pandas, five-story pagoda, and diverse wildlife exhibits.",
+  "description": "Japan's oldest zoo located in Ueno Park, home to giant pandas, historic 5-story pagoda backdrop, and 300+ animal species.",
   "budgetBreakdown": {
     "transport": 800,
     "tickets": 1200,
@@ -105,26 +104,24 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Ueno Zoo",
+  "nameJa": "東京都恩賜上野動物園",
   "content": {
     "en": {
       "name": "Ueno Zoo",
-      "description": "Opened in 1882, Ueno Zoo is Japan's oldest zoo, located inside Ueno Park and world-famous for its giant pandas, five-story pagoda, and diverse wildlife exhibits.",
+      "description": "Japan's oldest zoo located in Ueno Park, home to giant pandas, historic 5-story pagoda backdrop, and 300+ animal species.",
       "highlights": [
-        "Giant Panda Forest",
-        "Five-Story Pagoda of Former Kan'ei-ji",
-        "Shinobazu Pond Waterfowl",
-        "Gorilla Woods"
+        "Giant Panda Enclosures",
+        "Historic 5-Story Pagoda Backdrop",
+        "Shinobazu Pond Waterfront Aviary"
       ]
     },
     "ja": {
-      "name": "Ueno Zoo",
-      "description": "Ueno ZooはTokyoの主要な観光スポットです。",
+      "name": "東京都恩賜上野動物園",
+      "description": "1882年開園の日本最古の動物園。ジャイアントパンダ、旧寛永寺五重塔を背景とした展示、約300種の動物に出会える上野の象徴です。",
       "highlights": [
-        "Giant Panda Forest",
-        "Five-Story Pagoda of Former Kan'ei-ji",
-        "Shinobazu Pond Waterfowl",
-        "Gorilla Woods"
+        "人気ジャイアントパンダ",
+        "旧寛永寺五重塔の歴史景観",
+        "不忍池の水鳥舎"
       ]
     }
   },

@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "Special Ward"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Itabashi-at-nakajuku.JPG/1280px-Itabashi-at-nakajuku.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Itabashi-at-nakajuku.JPG/1280px-Itabashi-at-nakajuku.JPG",
-  "description": "Residential borough famous for Tokyo Great Buddha at Jorenji Temple and fireworks festivals.",
-  "highlights": ["Explore Itabashi City", "Local Culture & Cuisine"],
+  "description": "A relaxed residential ward featuring the historic Nakasendo highway heritage, Akatsuka Botanical Garden, and spacious green parks.",
+  "highlights": [
+    "Historic Nakasendo Trail",
+    "Akatsuka Botanical Garden",
+    "Peaceful Green Parks"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -104,17 +108,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Itabashi City",
+  "nameJa": "板橋区",
   "content": {
     "en": {
       "name": "Itabashi City",
-      "description": "Residential borough famous for Tokyo Great Buddha at Jorenji Temple and fireworks festivals.",
-      "highlights": ["Explore Itabashi City", "Local Culture & Cuisine"]
+      "description": "A relaxed residential ward featuring the historic Nakasendo highway heritage, Akatsuka Botanical Garden, and spacious green parks.",
+      "highlights": [
+        "Historic Nakasendo Trail",
+        "Akatsuka Botanical Garden",
+        "Peaceful Green Parks"
+      ]
     },
     "ja": {
-      "name": "Itabashi City",
-      "description": "Itabashi CityはTokyoの主要な観光スポットです。",
-      "highlights": ["Explore Itabashi City", "Local Culture & Cuisine"]
+      "name": "板橋区",
+      "description": "旧中山道の宿場町としての歴史を持ち、赤塚植物園や板橋温泉、緑豊かな公園が点在する穏やかな下町住宅エリアです。",
+      "highlights": ["板橋区の名所", "庭園散策", "公園s散策"]
     }
   },
   "ratingMetadata": {

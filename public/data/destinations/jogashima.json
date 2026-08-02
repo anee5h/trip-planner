@@ -52,11 +52,11 @@
     "winter": 4
   },
   "highlights": [
-    "Explore top-rated coast locations",
-    "Enjoy regional specialties and local culture",
-    "Perfect for a active day out"
+    "Uma-no-Se Arch Rock Formation",
+    "Jogashima Lighthouse Views",
+    "Misaki Fresh Tuna Cuisine"
   ],
-  "description": "Discover Miura Peninsula & Jogashima, a prominent destination in Kanagawa. With its rich mix of ocean, scenic, hiking, it's a highly recommended spot for a 8-hour getaway.",
+  "description": "A scenic island at the southern tip of the Miura Peninsula, famous for dramatic sea-eroded rock formations and fresh tuna dining.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
     "transport": 2400,
@@ -103,24 +103,24 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Miura Peninsula & Jogashima",
+  "nameJa": "城ヶ島と三浦半島",
   "content": {
     "en": {
       "name": "Miura Peninsula & Jogashima",
-      "description": "Discover Miura Peninsula & Jogashima, a prominent destination in Kanagawa. With its rich mix of ocean, scenic, hiking, it's a highly recommended spot for a 8-hour getaway.",
+      "description": "A scenic island at the southern tip of the Miura Peninsula, famous for dramatic sea-eroded rock formations and fresh tuna dining.",
       "highlights": [
-        "Explore top-rated coast locations",
-        "Enjoy regional specialties and local culture",
-        "Perfect for a active day out"
+        "Uma-no-Se Arch Rock Formation",
+        "Jogashima Lighthouse Views",
+        "Misaki Fresh Tuna Cuisine"
       ]
     },
     "ja": {
-      "name": "Miura Peninsula & Jogashima",
-      "description": "Miura Peninsula & JogashimaはKanagawaの主要な観光スポットです。",
+      "name": "城ヶ島と三浦半島",
+      "description": "三浦半島の南端に位置する豊かな自然島。馬の背洞門などの奇岩断崖景観、城ヶ島灯台、三崎港の新鮮なマグロ料理を楽しめます。",
       "highlights": [
-        "Explore top-rated coast locations",
-        "Enjoy regional specialties and local culture",
-        "Perfect for a active day out"
+        "馬の背洞門の奇岩景観",
+        "城ヶ島灯台と海景色",
+        "三崎港の直営マグロ料理"
       ]
     }
   },

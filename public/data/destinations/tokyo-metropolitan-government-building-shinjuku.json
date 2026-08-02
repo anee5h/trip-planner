@@ -60,12 +60,11 @@
     "train": 10
   },
   "highlights": [
-    "45F Free Observatory Decks (202m)",
-    "360-Degree Tokyo & Mt. Fuji Panorama",
-    "Yellow Memory Piano (South Deck)",
-    "Toyo Ito Architecture"
+    "Free 45F Observation Deck",
+    "Kenzo Tange Architecture",
+    "Mount Fuji & Tokyo Skyline Views"
   ],
-  "description": "Perched 202 meters above Shinjuku on the 45th floors of Kenzo Tange iconic twin-tower skyscraper, offering free 360-degree views of Mt. Fuji and Tokyo lights.",
+  "description": "A famous free twin-tower observation deck on the 45th floor of Kenzo Tange's skyscraper, offering views of Mount Fuji.",
   "budgetBreakdown": {
     "transport": 364,
     "tickets": 0,
@@ -113,26 +112,24 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Tokyo Metropolitan Government Building Observatories",
+  "nameJa": "東京都庁展望室",
   "content": {
     "en": {
       "name": "Tokyo Metropolitan Government Building Observatories",
-      "description": "Perched 202 meters above Shinjuku on the 45th floors of Kenzo Tange iconic twin-tower skyscraper, offering free 360-degree views of Mt. Fuji and Tokyo lights.",
+      "description": "A famous free twin-tower observation deck on the 45th floor of Kenzo Tange's skyscraper, offering views of Mount Fuji.",
       "highlights": [
-        "45F Free Observatory Decks (202m)",
-        "360-Degree Tokyo & Mt. Fuji Panorama",
-        "Yellow Memory Piano (South Deck)",
-        "Toyo Ito Architecture"
+        "Free 45F Observation Deck",
+        "Kenzo Tange Architecture",
+        "Mount Fuji & Tokyo Skyline Views"
       ]
     },
     "ja": {
-      "name": "Tokyo Metropolitan Government Building Observatories",
-      "description": "Tokyo Metropolitan Government Building ObservatoriesはTokyoの主要な観光スポットです。",
+      "name": "東京都庁展望室",
+      "description": "丹下健三氏設計の東京都庁舎45階（高さ202m）にある無料の展望室。都心の眺望や天候が良い日には富士山を望めます。",
       "highlights": [
-        "45F Free Observatory Decks (202m)",
-        "360-Degree Tokyo & Mt. Fuji Panorama",
-        "Yellow Memory Piano (South Deck)",
-        "Toyo Ito Architecture"
+        "45階の無料展望室（高さ202m）",
+        "丹下健三設計の庁舎建築",
+        "富士山と都心パノラマ景観"
       ]
     }
   },

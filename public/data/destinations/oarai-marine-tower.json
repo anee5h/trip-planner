@@ -55,12 +55,11 @@
     "car": 75
   },
   "highlights": [
-    "60m Triangular Glass Tower",
-    "360-Degree Pacific Ocean Horizon",
-    "Panzer Cafe (Girls und Panzer)",
-    "Oarai Seafood Market (nearby)"
+    "60m Glass Triangular Tower",
+    "360-Degree Pacific Ocean Views",
+    "Oarai Port Panorama"
   ],
-  "description": "Standing 60 meters tall on the Ibaraki coastline, this distinctive triangular glass observation tower overlooks Oarai Port and the vast Pacific Ocean.",
+  "description": "A 60-meter glass triangular tower overlooking the Pacific Ocean and Oarai Port, featuring a 360-degree observation deck.",
   "budgetBreakdown": {
     "transport": 1333,
     "tickets": 378,
@@ -114,26 +113,24 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Oarai Marine Tower",
+  "nameJa": "大洗マリンタワー",
   "content": {
     "en": {
       "name": "Oarai Marine Tower",
-      "description": "Standing 60 meters tall on the Ibaraki coastline, this distinctive triangular glass observation tower overlooks Oarai Port and the vast Pacific Ocean.",
+      "description": "A 60-meter glass triangular tower overlooking the Pacific Ocean and Oarai Port, featuring a 360-degree observation deck.",
       "highlights": [
-        "60m Triangular Glass Tower",
-        "360-Degree Pacific Ocean Horizon",
-        "Panzer Cafe (Girls und Panzer)",
-        "Oarai Seafood Market (nearby)"
+        "60m Glass Triangular Tower",
+        "360-Degree Pacific Ocean Views",
+        "Oarai Port Panorama"
       ]
     },
     "ja": {
-      "name": "Oarai Marine Tower",
-      "description": "Oarai Marine TowerはIbarakiの主要な観光スポットです。",
+      "name": "大洗マリンタワー",
+      "description": "大洗港にそびえる高さ60mの正三角形ガラス張りタワー。大洗の街並みと太平洋の大パノラマを360度見渡せます。",
       "highlights": [
-        "60m Triangular Glass Tower",
-        "360-Degree Pacific Ocean Horizon",
-        "Panzer Cafe (Girls und Panzer)",
-        "Oarai Seafood Market (nearby)"
+        "高さ60mのガラス張りタワー",
+        "太平洋360度大パノラマ",
+        "大洗港と街並みの景観"
       ]
     }
   },

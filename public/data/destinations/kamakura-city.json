@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/5e/TsurugaokaHachiman-M8867.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/5/5e/TsurugaokaHachiman-M8867.jpg",
-  "description": "Ancient samurai capital nestled between hills and sea, famous for the Great Buddha (Daibutsu) and hydrangeas.",
-  "highlights": ["Explore Kamakura City", "Local Culture & Cuisine"],
+  "description": "A historic samurai capital nestled between forested hills and Sagami Bay, famous for the Kotoku-in Great Buddha and temple trails.",
+  "highlights": [
+    "Great Buddha of Kamakura",
+    "Tsurugaoka Hachimangu Shrine",
+    "Hasedera Temple & Hydrangeas"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -123,17 +127,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Kamakura City",
+  "nameJa": "鎌倉",
   "content": {
     "en": {
       "name": "Kamakura City",
-      "description": "Ancient samurai capital nestled between hills and sea, famous for the Great Buddha (Daibutsu) and hydrangeas.",
-      "highlights": ["Explore Kamakura City", "Local Culture & Cuisine"]
+      "description": "A historic samurai capital nestled between forested hills and Sagami Bay, famous for the Kotoku-in Great Buddha and temple trails.",
+      "highlights": [
+        "Great Buddha of Kamakura",
+        "Tsurugaoka Hachimangu Shrine",
+        "Hasedera Temple & Hydrangeas"
+      ]
     },
     "ja": {
-      "name": "Kamakura City",
-      "description": "Kamakura CityはKanagawaの主要な観光スポットです。",
-      "highlights": ["Explore Kamakura City", "Local Culture & Cuisine"]
+      "name": "鎌倉",
+      "description": "源頼朝が幕府を開いた古都。高徳院の大仏、長谷寺、鶴岡八幡宮などの名刹と、湘南の海やハイキングコースを楽しめます。",
+      "highlights": ["of散策", "神社散策", "寺 &散策"]
     }
   },
   "ratingMetadata": {

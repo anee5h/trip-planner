@@ -103,7 +103,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Ueno (Taito)",
+  "nameJa": "上野",
   "content": {
     "en": {
       "name": "Ueno (Taito)",
@@ -111,9 +111,9 @@
       "highlights": ["Tokyo National Museum", "Ueno Zoo", "Ameyoko Street"]
     },
     "ja": {
-      "name": "Ueno (Taito)",
-      "description": "Ueno (Taito)はTokyoの主要な観光スポットです。",
-      "highlights": ["Tokyo National Museum", "Ueno Zoo", "Ameyoko Street"]
+      "name": "上野",
+      "description": "Uenoは東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "highlights": ["美術館散策", "上野の名所", "上野の名所"]
     }
   },
   "ratingMetadata": {

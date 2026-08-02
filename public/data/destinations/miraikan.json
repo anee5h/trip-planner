@@ -6,13 +6,21 @@
   "content": {
     "en": {
       "name": "Miraikan",
-      "description": "Miraikan is a visitor destination in Koto City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
-      "highlights": ["Museum"]
+      "description": "A cutting-edge science and technology museum in Odaiba featuring interactive robotics, space exploration, and Geo-Cosmos Earth display.",
+      "highlights": [
+        "Geo-Cosmos Globe",
+        "Robotics & AI Demonstrations",
+        "Interactive Science Exhibits"
+      ]
     },
     "ja": {
       "name": "日本科学未来館",
-      "description": "日本科学未来館はKoto Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["博物館"]
+      "description": "お台場にある国立の科学館。最先端のロボット技術、宇宙探査、地球環境を映し出す巨大な「Geo-Cosmos」などを体験学習できます。",
+      "highlights": [
+        "Geo-Cosmos（シンボル展示）",
+        "ロボット・AIの実演展示",
+        "体験型科学プログラム"
+      ]
     }
   },
   "prefecture": "Tokyo",
@@ -39,8 +47,12 @@
     "lat": 35.61916667,
     "lng": 139.77666667
   },
-  "description": "Miraikan is a visitor destination in Koto City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
-  "highlights": ["Museum"],
+  "description": "A cutting-edge science and technology museum in Odaiba featuring interactive robotics, space exploration, and Geo-Cosmos Earth display.",
+  "highlights": [
+    "Geo-Cosmos Globe",
+    "Robotics & AI Demonstrations",
+    "Interactive Science Exhibits"
+  ],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,

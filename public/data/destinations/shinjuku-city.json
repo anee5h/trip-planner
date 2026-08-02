@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "Special Ward"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/1280px-Skyscrapers_of_Shinjuku_2009_January.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/1280px-Skyscrapers_of_Shinjuku_2009_January.jpg",
-  "description": "Bustling skyscraper ward, home to Tokyo Metropolitan Government Building, Shinjuku Gyoen National Garden, and Omoide Yokocho.",
-  "highlights": ["Explore Shinjuku City", "Local Culture & Cuisine"],
+  "description": "Tokyo's major skyscraper and commercial center, featuring Shinjuku Gyoen National Garden, Tokyo Metropolitan Government Building views, and nightlife.",
+  "highlights": [
+    "Shinjuku Gyoen National Garden",
+    "Tokyo Metropolitan Government Views",
+    "Golden Gai & Omoide Yokocho"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -106,17 +110,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Shinjuku City",
+  "nameJa": "新宿区",
   "content": {
     "en": {
       "name": "Shinjuku City",
-      "description": "Bustling skyscraper ward, home to Tokyo Metropolitan Government Building, Shinjuku Gyoen National Garden, and Omoide Yokocho.",
-      "highlights": ["Explore Shinjuku City", "Local Culture & Cuisine"]
+      "description": "Tokyo's major skyscraper and commercial center, featuring Shinjuku Gyoen National Garden, Tokyo Metropolitan Government Building views, and nightlife.",
+      "highlights": [
+        "Shinjuku Gyoen National Garden",
+        "Tokyo Metropolitan Government Views",
+        "Golden Gai & Omoide Yokocho"
+      ]
     },
     "ja": {
-      "name": "Shinjuku City",
-      "description": "Shinjuku CityはTokyoの主要な観光スポットです。",
-      "highlights": ["Explore Shinjuku City", "Local Culture & Cuisine"]
+      "name": "新宿区",
+      "description": "世界最大の乗降客数を誇る新宿駅を中心に、東京都庁展望室、静寂な新宿御苑、歌舞伎町やゴールデン街などの多彩な顔を持つ大繁華街です。",
+      "highlights": ["庭園散策", "新宿区の名所", "&散策"]
     }
   },
   "ratingMetadata": {

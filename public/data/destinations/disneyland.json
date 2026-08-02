@@ -103,7 +103,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Tokyo Disneyland",
+  "nameJa": "東京ディズニーランド",
   "content": {
     "en": {
       "name": "Tokyo Disneyland",
@@ -111,9 +111,13 @@
       "highlights": ["Cinderella Castle", "Space Mountain", "Electrical Parade"]
     },
     "ja": {
-      "name": "Tokyo Disneyland",
-      "description": "Tokyo DisneylandはChibaの主要な観光スポットです。",
-      "highlights": ["Cinderella Castle", "Space Mountain", "Electrical Parade"]
+      "name": "東京ディズニーランド",
+      "description": "Tokyo Disneylandは千葉県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "highlights": [
+        "城散策",
+        "東京ディズニーランドの名所",
+        "東京ディズニーランドの名所"
+      ]
     }
   },
   "ratingMetadata": {

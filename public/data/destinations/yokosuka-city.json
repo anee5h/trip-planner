@@ -99,7 +99,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Yokosuka City",
+  "nameJa": "Yokosuka市",
   "content": {
     "en": {
       "name": "Yokosuka City",
@@ -107,9 +107,9 @@
       "highlights": ["Explore Yokosuka City", "Local Culture & Cuisine"]
     },
     "ja": {
-      "name": "Yokosuka City",
-      "description": "Yokosuka CityはKanagawaの主要な観光スポットです。",
-      "highlights": ["Explore Yokosuka City", "Local Culture & Cuisine"]
+      "name": "Yokosuka市",
+      "description": "Yokosuka市は神奈川県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "highlights": ["市散策", "&散策"]
     }
   },
   "ratingMetadata": {

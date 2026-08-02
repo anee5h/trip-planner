@@ -108,7 +108,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Yomiuriland",
+  "nameJa": "よみうりランド",
   "content": {
     "en": {
       "name": "Yomiuriland",
@@ -120,13 +120,9 @@
       ]
     },
     "ja": {
-      "name": "Yomiuriland",
-      "description": "YomiurilandはTokyoの主要な観光スポットです。",
-      "highlights": [
-        "Jewellumination (Winter)",
-        "Bandit Roller Coaster",
-        "Goodjoba!! Zone"
-      ]
+      "name": "よみうりランド",
+      "description": "Yomiurilandは東京都にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "highlights": ["よみうりランドの名所", "よみうりランドの名所", "!!散策"]
     }
   },
   "ratingMetadata": {

@@ -114,7 +114,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Hitachi Seaside Park",
+  "nameJa": "国営ひたち海浜公園",
   "content": {
     "en": {
       "name": "Hitachi Seaside Park",
@@ -127,13 +127,13 @@
       ]
     },
     "ja": {
-      "name": "Hitachi Seaside Park",
-      "description": "Hitachi Seaside ParkはIbarakiの主要な観光スポットです。",
+      "name": "国営ひたち海浜公園",
+      "description": "Hitachi Seaside公園は茨城県の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
       "highlights": [
-        "Miharashi Hill",
-        "Pleasure Garden Ferris Wheel",
-        "Seaside Biking Trail",
-        "Dune Garden"
+        "国営ひたち海浜公園の名所",
+        "庭園散策",
+        "国営ひたち海浜公園の名所",
+        "庭園散策"
       ]
     }
   },

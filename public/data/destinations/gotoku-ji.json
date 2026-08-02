@@ -1,18 +1,26 @@
 {
   "id": "gotoku-ji",
   "name": "Gotoku-ji",
-  "nameJa": "世田谷区",
+  "nameJa": "豪徳寺",
   "aliases": ["Setagaya", "世田谷区"],
   "content": {
     "en": {
       "name": "Gotoku-ji",
-      "description": "Gotoku-ji is a visitor destination in Setagaya City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
-      "highlights": ["History"]
+      "description": "A serene temple in Setagaya famous as the origin site of Maneki-neko (beckoning cats), featuring thousands of ceramic cat statues.",
+      "highlights": [
+        "Thousands of Maneki-Neko Statues",
+        "Peaceful Temple Grounds",
+        "Autumn Foliage Views"
+      ]
     },
     "ja": {
-      "name": "世田谷区",
-      "description": "世田谷区はSetagaya Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["歴史"]
+      "name": "豪徳寺",
+      "description": "招き猫の発祥地として知られる世田谷区の曹洞宗寺院。境内の奉納所には数千体の真っ白な招き猫が並び、紅葉の名所でもあります。",
+      "highlights": [
+        "奉納された数千体の招き猫",
+        "静寂に包まれた寺院境内",
+        "美しい紅葉の名所"
+      ]
     }
   },
   "prefecture": "Tokyo",
@@ -39,8 +47,12 @@
     "lat": 35.64655555555556,
     "lng": 139.6532222222222
   },
-  "description": "Gotoku-ji is a visitor destination in Setagaya City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
-  "highlights": ["History"],
+  "description": "A serene temple in Setagaya famous as the origin site of Maneki-neko (beckoning cats), featuring thousands of ceramic cat statues.",
+  "highlights": [
+    "Thousands of Maneki-Neko Statues",
+    "Peaceful Temple Grounds",
+    "Autumn Foliage Views"
+  ],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,

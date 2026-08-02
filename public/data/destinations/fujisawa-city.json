@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/22/Fujisawa_montage.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/2/22/Fujisawa_montage.jpg",
-  "description": "Coastal getaway gateway to Enoshima Island, surf beaches, and scenic Enoden coastal railway.",
-  "highlights": ["Explore Fujisawa City", "Local Culture & Cuisine"],
+  "description": "A Shonan coastal hub serving as the mainland gateway to Enoshima Island, featuring Enoden coastal trains and surfing beaches.",
+  "highlights": [
+    "Enoshima Island Access",
+    "Enoden Coastal Train Line",
+    "Katase West Beach"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -110,17 +114,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Fujisawa City",
+  "nameJa": "藤沢",
   "content": {
     "en": {
       "name": "Fujisawa City",
-      "description": "Coastal getaway gateway to Enoshima Island, surf beaches, and scenic Enoden coastal railway.",
-      "highlights": ["Explore Fujisawa City", "Local Culture & Cuisine"]
+      "description": "A Shonan coastal hub serving as the mainland gateway to Enoshima Island, featuring Enoden coastal trains and surfing beaches.",
+      "highlights": [
+        "Enoshima Island Access",
+        "Enoden Coastal Train Line",
+        "Katase West Beach"
+      ]
     },
     "ja": {
-      "name": "Fujisawa City",
-      "description": "Fujisawa CityはKanagawaの主要な観光スポットです。",
-      "highlights": ["Explore Fujisawa City", "Local Culture & Cuisine"]
+      "name": "藤沢",
+      "description": "江の島への玄関口となる湘南エリアの中心都市。江ノ電沿線の海景色、湘南海岸のビーチ、片瀬江ノ島エリア観光の拠点です。",
+      "highlights": ["藤沢の名所", "藤沢の名所", "藤沢の名所"]
     }
   },
   "ratingMetadata": {

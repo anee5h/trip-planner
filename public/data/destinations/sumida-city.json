@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "Special Ward"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg/1280px-Tokyo_Skytree_2014_%E2%85%A2.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg/1280px-Tokyo_Skytree_2014_%E2%85%A2.jpg",
-  "description": "Riverside district anchored by Tokyo Skytree, Edo-Tokyo Museum, and historic sumo arenas in Ryogoku.",
-  "highlights": ["Explore Sumida City", "Local Culture & Cuisine"],
+  "description": "A riverfront historic ward dominated by the 634-meter Tokyo Skytree, Ryogoku Kokugikan Sumo Arena, and Edo-Tokyo cultural roots.",
+  "highlights": [
+    "Tokyo Skytree Observatory & Solamachi",
+    "Ryogoku Kokugikan Sumo Arena",
+    "Sumida River Walks"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -105,17 +109,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Sumida City",
+  "nameJa": "墨田区",
   "content": {
     "en": {
       "name": "Sumida City",
-      "description": "Riverside district anchored by Tokyo Skytree, Edo-Tokyo Museum, and historic sumo arenas in Ryogoku.",
-      "highlights": ["Explore Sumida City", "Local Culture & Cuisine"]
+      "description": "A riverfront historic ward dominated by the 634-meter Tokyo Skytree, Ryogoku Kokugikan Sumo Arena, and Edo-Tokyo cultural roots.",
+      "highlights": [
+        "Tokyo Skytree Observatory & Solamachi",
+        "Ryogoku Kokugikan Sumo Arena",
+        "Sumida River Walks"
+      ]
     },
     "ja": {
-      "name": "Sumida City",
-      "description": "Sumida CityはTokyoの主要な観光スポットです。",
-      "highlights": ["Explore Sumida City", "Local Culture & Cuisine"]
+      "name": "墨田区",
+      "description": "高さ634mの東京スカイツリー、大相撲の聖地・両国国技館、隅田川花火大会など、江戸の伝統と現代のランドマークが共存します。",
+      "highlights": ["&散策", "墨田区の名所", "墨田区の名所"]
     }
   },
   "ratingMetadata": {

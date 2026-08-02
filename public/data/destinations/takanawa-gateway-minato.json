@@ -57,12 +57,11 @@
     "train": 15
   },
   "highlights": [
-    "Kengo Kuma Origami Roof Structure",
-    "TOUCH TO GO Automated Convenience Store",
-    "TAKANAWA GATEWAY CITY Development",
-    "Sengakuji Temple (nearby)"
+    "Kengo Kuma Wooden Architecture",
+    "AI Robots & Self-Checkout Store",
+    "TAKANAWA GATEWAY CITY Area"
   ],
-  "description": "Designed by world-renowned architect Kengo Kuma, Takanawa Gateway is the newest station on Tokyos iconic Yamanote Line, featuring a dramatic paper-origami glass roof, AI-powered unmanned stores, and futuristic urban planning.",
+  "description": "A modern futuristic station complex designed by Kengo Kuma in Minato ward, featuring wooden architecture and AI robotics.",
   "budgetBreakdown": {
     "transport": 510,
     "tickets": 0,
@@ -113,26 +112,24 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Takanawa Gateway",
+  "nameJa": "高輪ゲートウェイ",
   "content": {
     "en": {
       "name": "Takanawa Gateway",
-      "description": "Designed by world-renowned architect Kengo Kuma, Takanawa Gateway is the newest station on Tokyos iconic Yamanote Line, featuring a dramatic paper-origami glass roof, AI-powered unmanned stores, and futuristic urban planning.",
+      "description": "A modern futuristic station complex designed by Kengo Kuma in Minato ward, featuring wooden architecture and AI robotics.",
       "highlights": [
-        "Kengo Kuma Origami Roof Structure",
-        "TOUCH TO GO Automated Convenience Store",
-        "TAKANAWA GATEWAY CITY Development",
-        "Sengakuji Temple (nearby)"
+        "Kengo Kuma Wooden Architecture",
+        "AI Robots & Self-Checkout Store",
+        "TAKANAWA GATEWAY CITY Area"
       ]
     },
     "ja": {
-      "name": "Takanawa Gateway",
-      "description": "Takanawa GatewayはTokyoの主要な観光スポットです。",
+      "name": "高輪ゲートウェイ",
+      "description": "隈研吾氏がデザインを手掛けたJR山手線の新駅。木材を多用した大屋根建築と最新のAIロボット、周辺の再開発街並みが特徴です。",
       "highlights": [
-        "Kengo Kuma Origami Roof Structure",
-        "TOUCH TO GO Automated Convenience Store",
-        "TAKANAWA GATEWAY CITY Development",
-        "Sengakuji Temple (nearby)"
+        "隈研吾デザインの大屋根建築",
+        "最新AIロボットと無人店舗",
+        "TAKANAWA GATEWAY CITY"
       ]
     }
   },

@@ -6,13 +6,17 @@
   "content": {
     "en": {
       "name": "Kabukicho",
-      "description": "Kabukicho is a visitor destination in Shinjuku City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
-      "highlights": ["Culture"]
+      "description": "Asia's largest entertainment district in Shinjuku, famous for vibrant neon lights, restaurants, theaters, and nightlife.",
+      "highlights": [
+        "Iconic Neon Streets",
+        "Godzilla Head Landmark",
+        "Dining & Entertainment Complexes"
+      ]
     },
     "ja": {
       "name": "歌舞伎町",
-      "description": "歌舞伎町はShinjuku Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["文化"]
+      "description": "新宿駅東口に広がる日本有数の歓楽街。巨大なネオン街、映画館、飲食店、トールギスやゴジラヘッドなどのランドマークが集まります。",
+      "highlights": ["歌舞伎町の名所", "歌舞伎町の名所", "&散策"]
     }
   },
   "prefecture": "Tokyo",
@@ -39,8 +43,12 @@
     "lat": 35.69544722222222,
     "lng": 139.70256388888887
   },
-  "description": "Kabukicho is a visitor destination in Shinjuku City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
-  "highlights": ["Culture"],
+  "description": "Asia's largest entertainment district in Shinjuku, famous for vibrant neon lights, restaurants, theaters, and nightlife.",
+  "highlights": [
+    "Iconic Neon Streets",
+    "Godzilla Head Landmark",
+    "Dining & Entertainment Complexes"
+  ],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,

@@ -103,7 +103,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "DisneySea",
+  "nameJa": "東京ディズニーシー",
   "content": {
     "en": {
       "name": "DisneySea",
@@ -111,9 +111,9 @@
       "highlights": ["DisneySea Transit Steamer", "Soaring"]
     },
     "ja": {
-      "name": "DisneySea",
-      "description": "DisneySeaはChibaの主要な観光スポットです。",
-      "highlights": ["DisneySea Transit Steamer", "Soaring"]
+      "name": "東京ディズニーシー",
+      "description": "DisneySeaは千葉県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "highlights": ["東京ディズニーシーの名所", "東京ディズニーシーの名所"]
     }
   },
   "ratingMetadata": {

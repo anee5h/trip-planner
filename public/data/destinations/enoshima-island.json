@@ -106,7 +106,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Enoshima",
+  "nameJa": "江の島",
   "content": {
     "en": {
       "name": "Enoshima",
@@ -114,9 +114,9 @@
       "highlights": ["Enoshima Shrine", "Iwaya Caves", "Enoshima Sea Candle"]
     },
     "ja": {
-      "name": "Enoshima",
-      "description": "EnoshimaはKanagawaの主要な観光スポットです。",
-      "highlights": ["Enoshima Shrine", "Iwaya Caves", "Enoshima Sea Candle"]
+      "name": "江の島",
+      "description": "Enoshimaは神奈川県の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "highlights": ["神社散策", "江の島の名所", "江の島の名所"]
     }
   },
   "ratingMetadata": {

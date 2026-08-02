@@ -6,13 +6,17 @@
   "content": {
     "en": {
       "name": "Ueno Park",
-      "description": "Ueno Park is a visitor destination in Taito City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
-      "highlights": ["Nature"]
+      "description": "A spacious public park featuring Ueno Zoo pandas, Shinobazu Pond lotus blossoms, Tokyo National Museum, and spring cherry blossoms.",
+      "highlights": [
+        "Ueno Zoo & Giant Pandas",
+        "Shinobazu Pond Lotus Views",
+        "Tokyo National Museum & Art Galleries"
+      ]
     },
     "ja": {
       "name": "上野恩賜公園",
-      "description": "上野恩賜公園はTaito Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["自然"]
+      "description": "日本初の公立公園。上野動物園、不忍池の蓮、東京国立博物館、国立西洋美術館、春の約800本の桜並木が多くの訪客を迎えます。",
+      "highlights": ["&散策", "上野恩賜公園の名所", "美術館 &散策"]
     }
   },
   "prefecture": "Tokyo",
@@ -39,8 +43,12 @@
     "lat": 35.712222,
     "lng": 139.771111
   },
-  "description": "Ueno Park is a visitor destination in Taito City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
-  "highlights": ["Nature"],
+  "description": "A spacious public park featuring Ueno Zoo pandas, Shinobazu Pond lotus blossoms, Tokyo National Museum, and spring cherry blossoms.",
+  "highlights": [
+    "Ueno Zoo & Giant Pandas",
+    "Shinobazu Pond Lotus Views",
+    "Tokyo National Museum & Art Galleries"
+  ],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,

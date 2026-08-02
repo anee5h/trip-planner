@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "Special Ward"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg",
-  "description": "Historic mercantile district housing luxury Ginza shopping avenues, Tsukiji outer seafood markets, and Nihonbashi zero-mile marker.",
-  "highlights": ["Explore Chuo City", "Local Culture & Cuisine"],
+  "description": "Tokyo's premier commercial hub, encompassing upscale Ginza shopping avenues, historic Nihonbashi, and Tsukiji outer market.",
+  "highlights": [
+    "Ginza Shopping District",
+    "Nihonbashi Historic Bridge",
+    "Tsukiji Outer Market"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -107,17 +111,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Chuo City",
+  "nameJa": "中央区",
   "content": {
     "en": {
       "name": "Chuo City",
-      "description": "Historic mercantile district housing luxury Ginza shopping avenues, Tsukiji outer seafood markets, and Nihonbashi zero-mile marker.",
-      "highlights": ["Explore Chuo City", "Local Culture & Cuisine"]
+      "description": "Tokyo's premier commercial hub, encompassing upscale Ginza shopping avenues, historic Nihonbashi, and Tsukiji outer market.",
+      "highlights": [
+        "Ginza Shopping District",
+        "Nihonbashi Historic Bridge",
+        "Tsukiji Outer Market"
+      ]
     },
     "ja": {
-      "name": "Chuo City",
-      "description": "Chuo CityはTokyoの主要な観光スポットです。",
-      "highlights": ["Explore Chuo City", "Local Culture & Cuisine"]
+      "name": "中央区",
+      "description": "高級ブランドが立ち並ぶ銀座、日本の道路の起点である日本橋、食文化の発信地である築地場外市場を擁する伝統と革新の街です。",
+      "highlights": ["銀座ショッピング街", "日本橋と歴史的建築", "築地場外市場"]
     }
   },
   "ratingMetadata": {

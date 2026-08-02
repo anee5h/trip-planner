@@ -51,8 +51,12 @@
   "transportOptions": {
     "train": 45
   },
-  "highlights": ["Great Hall", "Diagon Alley"],
-  "description": "Harry Potter Studio is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
+  "highlights": [
+    "Great Hall Set",
+    "Diagon Alley & Hogwarts Express",
+    "Interactive Magic Experiences"
+  ],
+  "description": "An immersive entertainment attraction in Nerima showcasing authentic film sets, props, and costumes from the Harry Potter films.",
   "budgetBreakdown": {
     "transport": 1048,
     "tickets": 13622,
@@ -97,17 +101,25 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Harry Potter Studio",
+  "nameJa": "ワーナー ブラザース スタジオツアー東京 - ハリー・ポッター",
   "content": {
     "en": {
       "name": "Harry Potter Studio",
-      "description": "Harry Potter Studio is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
-      "highlights": ["Great Hall", "Diagon Alley"]
+      "description": "An immersive entertainment attraction in Nerima showcasing authentic film sets, props, and costumes from the Harry Potter films.",
+      "highlights": [
+        "Great Hall Set",
+        "Diagon Alley & Hogwarts Express",
+        "Interactive Magic Experiences"
+      ]
     },
     "ja": {
-      "name": "Harry Potter Studio",
-      "description": "Harry Potter StudioはTokyoの主要な観光スポットです。",
-      "highlights": ["Great Hall", "Diagon Alley"]
+      "name": "ワーナー ブラザース スタジオツアー東京 - ハリー・ポッター",
+      "description": "練馬区のとしまえん跡地に誕生した体験型エンターテインメント施設。『ハリー・ポッター』映画の本格的なセットや小道具を体感できます。",
+      "highlights": [
+        "大広間セット",
+        "ダイアゴン横丁とホグワーツ特急",
+        "体験型アクティビティ"
+      ]
     }
   },
   "ratingMetadata": {

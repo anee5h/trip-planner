@@ -54,12 +54,11 @@
     "train": 45
   },
   "highlights": [
-    "Original 1848 Honmaru Goten Palace",
-    "Karo-no-ma (Council Room)",
-    "Tatami Grand Entrance",
-    "Little Edo Warehouse District (nearby)"
+    "Only Surviving Main Palace in East Japan",
+    "Edo Samurai Architecture",
+    "Karo-no-Ma Council Chambers"
   ],
-  "description": "Built in 1848, this rare structure is the only surviving original samurai lord's Honmaru Goten palace in eastern Japan, featuring tatami council chambers and garden verandas.",
+  "description": "The only surviving Honmaru Goten (main palace building) in eastern Japan, showcasing Edo period samurai architecture.",
   "budgetBreakdown": {
     "transport": 770,
     "tickets": 110,
@@ -116,26 +115,24 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Kawagoe Castle Honmaru Goten",
+  "nameJa": "川越城本丸御殿",
   "content": {
     "en": {
       "name": "Kawagoe Castle Honmaru Goten",
-      "description": "Built in 1848, this rare structure is the only surviving original samurai lord's Honmaru Goten palace in eastern Japan, featuring tatami council chambers and garden verandas.",
+      "description": "The only surviving Honmaru Goten (main palace building) in eastern Japan, showcasing Edo period samurai architecture.",
       "highlights": [
-        "Original 1848 Honmaru Goten Palace",
-        "Karo-no-ma (Council Room)",
-        "Tatami Grand Entrance",
-        "Little Edo Warehouse District (nearby)"
+        "Only Surviving Main Palace in East Japan",
+        "Edo Samurai Architecture",
+        "Karo-no-Ma Council Chambers"
       ]
     },
     "ja": {
-      "name": "Kawagoe Castle Honmaru Goten",
-      "description": "Kawagoe Castle Honmaru GotenはSaitamaの主要な観光スポットです。",
+      "name": "川越城本丸御殿",
+      "description": "東日本で唯一現存する川越城の本丸御殿。1848年建築の家老詰所や大広間が遺され、江戸時代の城郭建築を間近で見学できます。",
       "highlights": [
-        "Original 1848 Honmaru Goten Palace",
-        "Karo-no-ma (Council Room)",
-        "Tatami Grand Entrance",
-        "Little Edo Warehouse District (nearby)"
+        "東日本唯一の現存本丸御殿",
+        "江戸時代の武家建築遺構",
+        "家老詰所と大広間"
       ]
     }
   },

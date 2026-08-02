@@ -113,7 +113,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Tokyo Tower",
+  "nameJa": "東京タワー",
   "content": {
     "en": {
       "name": "Tokyo Tower",
@@ -126,13 +126,13 @@
       ]
     },
     "ja": {
-      "name": "Tokyo Tower",
-      "description": "Tokyo TowerはTokyoの主要な観光スポットです。",
+      "name": "東京タワー",
+      "description": "Tokyo Towerは東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
       "highlights": [
-        "Main Deck (150m)",
-        "Top Deck Tour (250m)",
-        "RED° TOKYO TOWER e-sports park",
-        "Landmark Light Night Illumination"
+        "(150m)散策",
+        "(250m)散策",
+        "°   e-公園散策",
+        "東京タワーの名所"
       ]
     }
   },

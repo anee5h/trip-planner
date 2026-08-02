@@ -122,12 +122,8 @@
     },
     "ja": {
       "name": "日野",
-      "description": "日野はTokyoの主要な観光スポットです。",
-      "highlights": [
-        "Tama Zoological Park",
-        "Tama Hills",
-        "Shinsengumi history"
-      ]
+      "description": "日野は東京都にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "highlights": ["公園散策", "日野の名所", "日野の名所"]
     }
   },
   "ratingMetadata": {

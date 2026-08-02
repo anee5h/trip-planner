@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "Special Ward"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg/1280px-Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg/1280px-Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg",
-  "description": "Commercial hub of Ikebukuro, featuring Sunshine City skyscraper, Otome Road, and Pokemon Center Mega Tokyo.",
-  "highlights": ["Explore Toshima City", "Local Culture & Cuisine"],
+  "description": "A major commercial sub-center centered on Ikebukuro Station, Sunshine City, anime shopping avenues, and Toshima Metropolitan Theatre.",
+  "highlights": [
+    "Ikebukuro Commercial District",
+    "Sunshine City Complex",
+    "Tokyo Metropolitan Theatre"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -112,17 +116,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Toshima City",
+  "nameJa": "豊島区",
   "content": {
     "en": {
       "name": "Toshima City",
-      "description": "Commercial hub of Ikebukuro, featuring Sunshine City skyscraper, Otome Road, and Pokemon Center Mega Tokyo.",
-      "highlights": ["Explore Toshima City", "Local Culture & Cuisine"]
+      "description": "A major commercial sub-center centered on Ikebukuro Station, Sunshine City, anime shopping avenues, and Toshima Metropolitan Theatre.",
+      "highlights": [
+        "Ikebukuro Commercial District",
+        "Sunshine City Complex",
+        "Tokyo Metropolitan Theatre"
+      ]
     },
     "ja": {
-      "name": "Toshima City",
-      "description": "Toshima CityはTokyoの主要な観光スポットです。",
-      "highlights": ["Explore Toshima City", "Local Culture & Cuisine"]
+      "name": "豊島区",
+      "description": "池袋駅を中心にサンシャインシティ、乙女ロード、東京芸術劇場などが立ち並び、商業と文化・アニメカルチャーが融合するエリアです。",
+      "highlights": ["豊島区の名所", "市散策", "豊島区の名所"]
     }
   },
   "ratingMetadata": {

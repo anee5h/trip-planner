@@ -58,11 +58,11 @@
     "train": 50
   },
   "highlights": [
-    "Infinite Crystal Universe",
+    "Walk Barefoot Through Water Art",
     "Floating Flower Garden",
-    "Water Installations"
+    "Infinite Mirror Rooms"
   ],
-  "description": "teamLab Planets is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
+  "description": "An immersive water-filled digital art museum in Toyosu where visitors walk barefoot through water pools and flower gardens.",
   "budgetBreakdown": {
     "transport": 1068,
     "tickets": 8121,
@@ -107,24 +107,24 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "teamLab Planets",
+  "nameJa": "チームラボプラネッツ（豊洲）",
   "content": {
     "en": {
       "name": "teamLab Planets",
-      "description": "teamLab Planets is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
+      "description": "An immersive water-filled digital art museum in Toyosu where visitors walk barefoot through water pools and flower gardens.",
       "highlights": [
-        "Infinite Crystal Universe",
+        "Walk Barefoot Through Water Art",
         "Floating Flower Garden",
-        "Water Installations"
+        "Infinite Mirror Rooms"
       ]
     },
     "ja": {
-      "name": "teamLab Planets",
-      "description": "teamLab PlanetsはTokyoの主要な観光スポットです。",
+      "name": "チームラボプラネッツ（豊洲）",
+      "description": "豊洲にある「水に入るミュージアム」。裸足になって巨大なデジタルアート作品の水に入り、体全体で作品と一体化する没入体験ができます。",
       "highlights": [
-        "Infinite Crystal Universe",
-        "Floating Flower Garden",
-        "Water Installations"
+        "裸足で水に入るデジタルアート",
+        "浮遊する花々の庭園",
+        "無限の鏡空間"
       ]
     }
   },

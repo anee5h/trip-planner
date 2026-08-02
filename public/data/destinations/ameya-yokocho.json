@@ -1,18 +1,26 @@
 {
   "id": "ameya-yokocho",
   "name": "Ameya-Yokocho",
-  "nameJa": "アメヤ横丁",
+  "nameJa": "アメ横",
   "aliases": ["Ameya-Yokochō", "アメヤ横丁"],
   "content": {
     "en": {
       "name": "Ameya-Yokocho",
-      "description": "Ameya-Yokocho is a visitor destination in Taito City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
-      "highlights": ["Shopping", "Food"]
+      "description": "A bustling open-air market street under the train tracks between Ueno and Okachimachi, famous for fresh seafood, clothing, and street food.",
+      "highlights": [
+        "Bustling Market Street",
+        "Fresh Seafood & Snacks",
+        "Under-Track Shopping"
+      ]
     },
     "ja": {
-      "name": "アメヤ横丁",
-      "description": "アメヤ横丁はTaito Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["ショッピング", "グルメ"]
+      "name": "アメ横",
+      "description": "上野駅から御徒町駅の高架下に広がる活気あふれる商店街。新鮮な海産物、衣料品、多国籍なストリートフードが所狭しと並びます。",
+      "highlights": [
+        "活気ある市場通り",
+        "新鮮な海鮮と屋台グルメ",
+        "高架下の商店街"
+      ]
     }
   },
   "prefecture": "Tokyo",
@@ -39,8 +47,12 @@
     "lat": 35.7100592,
     "lng": 139.7745428
   },
-  "description": "Ameya-Yokocho is a visitor destination in Taito City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
-  "highlights": ["Shopping", "Food"],
+  "description": "A bustling open-air market street under the train tracks between Ueno and Okachimachi, famous for fresh seafood, clothing, and street food.",
+  "highlights": [
+    "Bustling Market Street",
+    "Fresh Seafood & Snacks",
+    "Under-Track Shopping"
+  ],
   "budgetMin": 1500,
   "budgetRecommended": 3200,
   "budgetMax": 7000,

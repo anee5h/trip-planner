@@ -108,7 +108,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Choshi",
+  "nameJa": "銚子",
   "content": {
     "en": {
       "name": "Choshi",
@@ -120,13 +120,9 @@
       ]
     },
     "ja": {
-      "name": "Choshi",
-      "description": "ChoshiはChibaの主要な観光スポットです。",
-      "highlights": [
-        "Inubosaki Lighthouse",
-        "Choshi Electric Railway",
-        "Byobugaura Cliffs"
-      ]
+      "name": "銚子",
+      "description": "Choshiは千葉県の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "highlights": ["犬吠埼灯台", "銚子電鉄", "屏風ヶ浦の断崖絶壁"]
     }
   },
   "ratingMetadata": {

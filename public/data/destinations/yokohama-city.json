@@ -52,8 +52,12 @@
     "train": 30,
     "shinkansen": 20
   },
-  "highlights": ["Chinatown", "Red Brick Warehouse", "Cup Noodle Museum"],
-  "description": "Yokohama is a scenic destination in the Kanagawa region of Japan, offering rich history and cultural attractions.",
+  "highlights": [
+    "Minato Mirai Waterfront",
+    "Yokohama Chinatown",
+    "Yamashita Seaside Park"
+  ],
+  "description": "Kanagawa's vibrant port capital, combining Minato Mirai waterfront skyscrapers, historic Yokohama Chinatown, and Yamashita Park.",
   "budgetBreakdown": {
     "transport": 3273,
     "tickets": 0,
@@ -132,17 +136,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Yokohama City",
+  "nameJa": "横浜",
   "content": {
     "en": {
       "name": "Yokohama City",
-      "description": "Yokohama is a scenic destination in the Kanagawa region of Japan, offering rich history and cultural attractions.",
-      "highlights": ["Chinatown", "Red Brick Warehouse", "Cup Noodle Museum"]
+      "description": "Kanagawa's vibrant port capital, combining Minato Mirai waterfront skyscrapers, historic Yokohama Chinatown, and Yamashita Park.",
+      "highlights": [
+        "Minato Mirai Waterfront",
+        "Yokohama Chinatown",
+        "Yamashita Seaside Park"
+      ]
     },
     "ja": {
-      "name": "Yokohama City",
-      "description": "Yokohama CityはKanagawaの主要な観光スポットです。",
-      "highlights": ["Chinatown", "Red Brick Warehouse", "Cup Noodle Museum"]
+      "name": "横浜",
+      "description": "開港の歴史を持つ日本を代表する港湾都市。みなとみらいのモダンな景観、横浜中華街、山下公園など多彩な魅力が詰まっています。",
+      "highlights": ["横浜の名所", "横浜の名所", "公園散策"]
     }
   },
   "ratingMetadata": {

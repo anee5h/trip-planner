@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "Special Ward"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Tokyo-International-Airport_Satellite.jpg/1280px-Tokyo-International-Airport_Satellite.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Tokyo-International-Airport_Satellite.jpg/1280px-Tokyo-International-Airport_Satellite.jpg",
-  "description": "Gateway ward encompassing Tokyo International Haneda Airport, Ikegami Honmonji Temple, and coastal parks.",
-  "highlights": ["Explore Ota City", "Local Culture & Cuisine"],
+  "description": "Tokyo's southernmost ward housing Haneda Airport, Ikegami Honmonji temple, and coastal parks along Tokyo Bay.",
+  "highlights": [
+    "Haneda Airport Complex",
+    "Ikegami Honmonji Temple",
+    "Tama River Gateway"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -104,17 +108,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Ota City",
+  "nameJa": "大田区",
   "content": {
     "en": {
       "name": "Ota City",
-      "description": "Gateway ward encompassing Tokyo International Haneda Airport, Ikegami Honmonji Temple, and coastal parks.",
-      "highlights": ["Explore Ota City", "Local Culture & Cuisine"]
+      "description": "Tokyo's southernmost ward housing Haneda Airport, Ikegami Honmonji temple, and coastal parks along Tokyo Bay.",
+      "highlights": [
+        "Haneda Airport Complex",
+        "Ikegami Honmonji Temple",
+        "Tama River Gateway"
+      ]
     },
     "ja": {
-      "name": "Ota City",
-      "description": "Ota CityはTokyoの主要な観光スポットです。",
-      "highlights": ["Explore Ota City", "Local Culture & Cuisine"]
+      "name": "大田区",
+      "description": "羽田空港を擁する東京の空の玄関口。池上本門寺の歴史ある寺院群や大森の湧水、多摩川河川敷の景観が楽しめます。",
+      "highlights": ["大田区の名所", "寺散策", "大田区の名所"]
     }
   },
   "ratingMetadata": {

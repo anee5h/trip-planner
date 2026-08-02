@@ -109,7 +109,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Shima Onsen",
+  "nameJa": "四万温泉",
   "content": {
     "en": {
       "name": "Shima Onsen",
@@ -122,13 +122,13 @@
       ]
     },
     "ja": {
-      "name": "Shima Onsen",
-      "description": "Shima OnsenはGunmaの主要な観光スポットです。",
+      "name": "四万温泉",
+      "description": "Shima Onsenは群馬県の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
       "highlights": [
-        "Sekizenkan Ryokan (Spirited Away Inspiration)",
-        "Lake Okushima (Shima Blue)",
-        "Shima River Trail",
-        "Monomitayu Bathhouse"
+        "四万温泉の名所",
+        "四万温泉の名所",
+        "四万温泉の名所",
+        "四万温泉の名所"
       ]
     }
   },

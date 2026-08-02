@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Matsudo_montage.jpg/1280px-Matsudo_montage.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Matsudo_montage.jpg/1280px-Matsudo_montage.jpg",
-  "description": "Suburban hub featuring Tojo-tei Edo-period villa gardens and Yagiri no Watashi ferry.",
-  "highlights": ["Explore Matsudo City", "Local Culture & Cuisine"],
+  "description": "A historic Chiba city along the Edo River, known for Tojo-tei Edo-period residence, Yagiri ferry, and local ramen culture.",
+  "highlights": [
+    "Tojo-tei Historic Residence",
+    "Yagiri Edo River Ferry",
+    "Edo River Parklands"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -104,17 +108,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Matsudo City",
+  "nameJa": "松戸",
   "content": {
     "en": {
       "name": "Matsudo City",
-      "description": "Suburban hub featuring Tojo-tei Edo-period villa gardens and Yagiri no Watashi ferry.",
-      "highlights": ["Explore Matsudo City", "Local Culture & Cuisine"]
+      "description": "A historic Chiba city along the Edo River, known for Tojo-tei Edo-period residence, Yagiri ferry, and local ramen culture.",
+      "highlights": [
+        "Tojo-tei Historic Residence",
+        "Yagiri Edo River Ferry",
+        "Edo River Parklands"
+      ]
     },
     "ja": {
-      "name": "Matsudo City",
-      "description": "Matsudo CityはChibaの主要な観光スポットです。",
-      "highlights": ["Explore Matsudo City", "Local Culture & Cuisine"]
+      "name": "松戸",
+      "description": "江戸川沿いに広がる歴史と自然の街。徳川昭武の邸宅「戸定邸」や「矢切の渡し」、人気のラーメン店が集まります。",
+      "highlights": ["-散策", "松戸の名所", "公園散策"]
     }
   },
   "ratingMetadata": {

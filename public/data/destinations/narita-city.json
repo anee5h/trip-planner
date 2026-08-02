@@ -105,7 +105,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Narita City",
+  "nameJa": "Narita市",
   "content": {
     "en": {
       "name": "Narita City",
@@ -113,9 +113,9 @@
       "highlights": ["Explore Narita City", "Local Culture & Cuisine"]
     },
     "ja": {
-      "name": "Narita City",
-      "description": "Narita CityはChibaの主要な観光スポットです。",
-      "highlights": ["Explore Narita City", "Local Culture & Cuisine"]
+      "name": "Narita市",
+      "description": "Narita市は千葉県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "highlights": ["市散策", "&散策"]
     }
   },
   "ratingMetadata": {

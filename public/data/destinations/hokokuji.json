@@ -1,7 +1,7 @@
 {
   "id": "hokokuji",
   "name": "Hokokuji",
-  "nameJa": "報国寺 (鎌倉市)",
+  "nameJa": "報国寺",
   "aliases": ["Hōkoku-ji", "報国寺 (鎌倉市)"],
   "content": {
     "en": {
@@ -10,9 +10,9 @@
       "highlights": ["History"]
     },
     "ja": {
-      "name": "報国寺 (鎌倉市)",
+      "name": "報国寺",
       "description": "報国寺 (鎌倉市)はKamakura Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["歴史"]
+      "highlights": ["報国寺の名所"]
     }
   },
   "prefecture": "Kanagawa",

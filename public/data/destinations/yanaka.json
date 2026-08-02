@@ -1,18 +1,22 @@
 {
   "id": "yanaka",
   "name": "Yanaka",
-  "nameJa": "谷中 (台東区)",
+  "nameJa": "谷中",
   "aliases": ["Yanaka, Tokyo", "谷中 (台東区)"],
   "content": {
     "en": {
       "name": "Yanaka",
-      "description": "Yanaka is a visitor destination in Taito City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
-      "highlights": ["Culture"]
+      "description": "A peaceful retro neighborhood in Taito ward known for Yanaka Ginza shopping street, cat sculptures, quiet temples, and wooden architecture.",
+      "highlights": [
+        "Yanaka Ginza Retro Shopping Street",
+        "Cat Culture & Local Handicrafts",
+        "Historic Wooden Architecture"
+      ]
     },
     "ja": {
-      "name": "谷中 (台東区)",
-      "description": "谷中 (台東区)はTaito Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["文化"]
+      "name": "谷中",
+      "description": "戦災を免れたレトロな街並みが残るエリア。谷中銀座商店街の食べ歩きや猫のレリーフ、静かな寺院散策を楽しめます。",
+      "highlights": ["谷中の名所", "&散策", "谷中の名所"]
     }
   },
   "prefecture": "Tokyo",
@@ -38,8 +42,12 @@
     "lat": 35.72378888888889,
     "lng": 139.76842222222223
   },
-  "description": "Yanaka is a visitor destination in Taito City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
-  "highlights": ["Culture"],
+  "description": "A peaceful retro neighborhood in Taito ward known for Yanaka Ginza shopping street, cat sculptures, quiet temples, and wooden architecture.",
+  "highlights": [
+    "Yanaka Ginza Retro Shopping Street",
+    "Cat Culture & Local Handicrafts",
+    "Historic Wooden Architecture"
+  ],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,

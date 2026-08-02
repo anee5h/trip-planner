@@ -55,12 +55,11 @@
     "car": 65
   },
   "highlights": [
-    "Restored 2020 Otemon Gate",
-    "Kodokan Clan School (1841)",
-    "Shinto-yagura Turret",
-    "Plum Blossom Gardens"
+    "Kodokan Historic Han School",
+    "Restored Otemon Gate",
+    "Mito Tokugawa Clan History"
   ],
-  "description": "The seat of the Mito Tokugawa family, featuring the restored wooden Otemon Gate, dry moat earthworks, and the 1841 Kodokan—Japan's largest Mito clan samurai school.",
+  "description": "The historical center of Mito featuring the restored Otemon gate, Kodokan clan school (Japan's largest), and moat trails.",
   "budgetBreakdown": {
     "transport": 1705,
     "tickets": 455,
@@ -114,26 +113,24 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Mito Castle Ruins & Kodokan",
+  "nameJa": "水戸城跡と弘道館",
   "content": {
     "en": {
       "name": "Mito Castle Ruins & Kodokan",
-      "description": "The seat of the Mito Tokugawa family, featuring the restored wooden Otemon Gate, dry moat earthworks, and the 1841 Kodokan—Japan's largest Mito clan samurai school.",
+      "description": "The historical center of Mito featuring the restored Otemon gate, Kodokan clan school (Japan's largest), and moat trails.",
       "highlights": [
-        "Restored 2020 Otemon Gate",
-        "Kodokan Clan School (1841)",
-        "Shinto-yagura Turret",
-        "Plum Blossom Gardens"
+        "Kodokan Historic Han School",
+        "Restored Otemon Gate",
+        "Mito Tokugawa Clan History"
       ]
     },
     "ja": {
-      "name": "Mito Castle Ruins & Kodokan",
-      "description": "Mito Castle Ruins & KodokanはIbarakiの主要な観光スポットです。",
+      "name": "水戸城跡と弘道館",
+      "description": "水戸徳川家の居城跡。日本最大の藩校「弘道館」や復元された二の丸大手門があり、梅の季節や歴史散策に最適です。",
       "highlights": [
-        "Restored 2020 Otemon Gate",
-        "Kodokan Clan School (1841)",
-        "Shinto-yagura Turret",
-        "Plum Blossom Gardens"
+        "日本最大の藩校「弘道館」",
+        "復元された二の丸大手門",
+        "水戸徳川家の城郭遺構"
       ]
     }
   },

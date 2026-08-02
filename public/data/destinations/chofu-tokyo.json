@@ -116,7 +116,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Chofu",
+  "nameJa": "調布市",
   "content": {
     "en": {
       "name": "Chofu",
@@ -128,13 +128,9 @@
       ]
     },
     "ja": {
-      "name": "Chofu",
-      "description": "ChofuはTokyoの主要な観光スポットです。",
-      "highlights": [
-        "Jindaiji Temple",
-        "Jindai Botanical Gardens",
-        "Kitaro Chaya Soba"
-      ]
+      "name": "調布市",
+      "description": "Chofuは東京都の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "highlights": ["寺散策", "庭園s散策", "鬼太郎茶屋の蕎麦"]
     }
   },
   "ratingMetadata": {

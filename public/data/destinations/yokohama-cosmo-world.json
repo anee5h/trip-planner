@@ -116,8 +116,12 @@
     },
     "ja": {
       "name": "よこはまコスモワールド",
-      "description": "よこはまコスモワールドはKanagawaの主要な観光スポットです。",
-      "highlights": ["Amusement Park", "Family", "Waterfront"]
+      "description": "よこはまコスモワールドは神奈川県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "highlights": [
+        "公園散策",
+        "よこはまコスモワールドの名所",
+        "よこはまコスモワールドの名所"
+      ]
     }
   },
   "ratingMetadata": {

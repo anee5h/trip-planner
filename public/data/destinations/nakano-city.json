@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "Special Ward"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Tetsugakudo_Park%28Philosophy_Hall_Park%29_-_%E5%93%B2%E5%AD%A6%E5%A0%82%E5%85%AC%E5%9C%92_-_panoramio_%281%29.jpg/1280px-Tetsugakudo_Park%28Philosophy_Hall_Park%29_-_%E5%93%B2%E5%AD%A6%E5%A0%82%E5%85%AC%E5%9C%92_-_panoramio_%281%29.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Tetsugakudo_Park%28Philosophy_Hall_Park%29_-_%E5%93%B2%E5%AD%A6%E5%A0%82%E5%85%AC%E5%9C%92_-_panoramio_%281%29.jpg/1280px-Tetsugakudo_Park%28Philosophy_Hall_Park%29_-_%E5%93%B2%E5%AD%A6%E5%A0%82%E5%85%AC%E5%9C%92_-_panoramio_%281%29.jpg",
-  "description": "Subcultural haven famous for Nakano Broadway subculture shopping complex and vibrant ramen arcades.",
-  "highlights": ["Explore Nakano City", "Local Culture & Cuisine"],
+  "description": "A bustling sub-center famous for Nakano Broadway's retro pop-culture shops, ramen spots, and Nakano Sun Mall covered Arcade.",
+  "highlights": [
+    "Nakano Broadway Hobby Mall",
+    "Sun Mall Shopping Arcade",
+    "Ramen & Local Dining"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -104,17 +108,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Nakano City",
+  "nameJa": "中野区",
   "content": {
     "en": {
       "name": "Nakano City",
-      "description": "Subcultural haven famous for Nakano Broadway subculture shopping complex and vibrant ramen arcades.",
-      "highlights": ["Explore Nakano City", "Local Culture & Cuisine"]
+      "description": "A bustling sub-center famous for Nakano Broadway's retro pop-culture shops, ramen spots, and Nakano Sun Mall covered Arcade.",
+      "highlights": [
+        "Nakano Broadway Hobby Mall",
+        "Sun Mall Shopping Arcade",
+        "Ramen & Local Dining"
+      ]
     },
     "ja": {
-      "name": "Nakano City",
-      "description": "Nakano CityはTokyoの主要な観光スポットです。",
-      "highlights": ["Explore Nakano City", "Local Culture & Cuisine"]
+      "name": "中野区",
+      "description": "サブカルチャーの聖地「中野ブロードウェイ」や活気ある「サンモール商店街」、多彩なラーメン店が揃うサブカルと食の街です。",
+      "highlights": ["中野区の名所", "中野区の名所", "&散策"]
     }
   },
   "ratingMetadata": {

@@ -6,13 +6,21 @@
   "content": {
     "en": {
       "name": "Sunshine Aquarium",
-      "description": "Sunshine Aquarium is a visitor destination in Toshima City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
-      "highlights": ["Aquarium"]
+      "description": "A famous rooftop aquarium in Ikebukuro's Sunshine City complex, featuring the open-sky 'Penguins in the Sky' pool.",
+      "highlights": [
+        "Penguins in the Sky Pool",
+        "Jellyfish Way Display",
+        "Rooftop Marine Oasis"
+      ]
     },
     "ja": {
       "name": "サンシャイン水族館",
-      "description": "サンシャイン水族館はToshima Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["水族館"]
+      "description": "サンシャインシティの屋上にある「天空のオアシス」をコンセプトにした水族館。頭上の水槽をペンギンが飛ぶように泳ぐ展示が人気です。",
+      "highlights": [
+        "in散策",
+        "サンシャイン水族館の名所",
+        "サンシャイン水族館の名所"
+      ]
     }
   },
   "prefecture": "Tokyo",
@@ -39,8 +47,12 @@
     "lat": 35.728583,
     "lng": 139.71975
   },
-  "description": "Sunshine Aquarium is a visitor destination in Toshima City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
-  "highlights": ["Aquarium"],
+  "description": "A famous rooftop aquarium in Ikebukuro's Sunshine City complex, featuring the open-sky 'Penguins in the Sky' pool.",
+  "highlights": [
+    "Penguins in the Sky Pool",
+    "Jellyfish Way Display",
+    "Rooftop Marine Oasis"
+  ],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
   "budgetMax": 8500,

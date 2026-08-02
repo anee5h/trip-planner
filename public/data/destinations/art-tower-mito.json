@@ -57,10 +57,9 @@
   "highlights": [
     "100m Titanium Helix Tower",
     "Arata Isozaki Architecture",
-    "Contemporary Art Gallery Mito",
-    "Concert Hall & Theater"
+    "Contemporary Art Galleries"
   ],
-  "description": "Designed by Pritzker Prize laureate Arata Isozaki to commemorate Mito's 100th municipal anniversary, this 100-meter helix tower is composed of 57 titanium tetrahedrons spiraling skyward.",
+  "description": "A striking modern cultural complex in Mito designed by Arata Isozaki, featuring a 100m titanium helix tower, concert hall, and gallery.",
   "budgetBreakdown": {
     "transport": 1725,
     "tickets": 230,
@@ -114,27 +113,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Art Tower Mito",
+  "nameJa": "水戸芸術館",
   "content": {
     "en": {
       "name": "Art Tower Mito",
-      "description": "Designed by Pritzker Prize laureate Arata Isozaki to commemorate Mito's 100th municipal anniversary, this 100-meter helix tower is composed of 57 titanium tetrahedrons spiraling skyward.",
+      "description": "A striking modern cultural complex in Mito designed by Arata Isozaki, featuring a 100m titanium helix tower, concert hall, and gallery.",
       "highlights": [
         "100m Titanium Helix Tower",
         "Arata Isozaki Architecture",
-        "Contemporary Art Gallery Mito",
-        "Concert Hall & Theater"
+        "Contemporary Art Galleries"
       ]
     },
     "ja": {
-      "name": "Art Tower Mito",
-      "description": "Art Tower MitoはIbarakiの主要な観光スポットです。",
-      "highlights": [
-        "100m Titanium Helix Tower",
-        "Arata Isozaki Architecture",
-        "Contemporary Art Gallery Mito",
-        "Concert Hall & Theater"
-      ]
+      "name": "水戸芸術館",
+      "description": "建築家・磯崎新氏の設計による水戸市の現代文化施設。高さ100mの螺旋チタンタワーがシンボルで、劇場やコンサートホールを併設します。",
+      "highlights": ["100m散策", "水戸芸術館の名所", "水戸芸術館の名所"]
     }
   },
   "ratingMetadata": {

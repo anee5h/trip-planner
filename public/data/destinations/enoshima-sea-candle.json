@@ -1,7 +1,7 @@
 {
   "id": "enoshima-sea-candle",
   "name": "Enoshima Sea Candle",
-  "nameJa": "江の島灯台",
+  "nameJa": "江の島シーキャンドル",
   "aliases": ["Enoshima Sea Candle", "江の島灯台"],
   "content": {
     "en": {
@@ -10,9 +10,9 @@
       "highlights": ["Viewpoint"]
     },
     "ja": {
-      "name": "江の島灯台",
+      "name": "江の島シーキャンドル",
       "description": "江の島灯台はFujisawa Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["展望"]
+      "highlights": ["江の島シーキャンドルの名所"]
     }
   },
   "prefecture": "Kanagawa",

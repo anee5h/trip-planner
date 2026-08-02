@@ -51,8 +51,12 @@
   "transportOptions": {
     "train": 40
   },
-  "highlights": ["Electric Town", "Maid Cafes", "Radio Kaikan"],
-  "description": "Akihabara is a neighborhood in the Chiyoda ward of Tokyo, Japan, generally considered to be the area surrounding Akihabara Station. This area is part of the Sotokanda (外神田) and Kanda-Sakumachō districts of Chiyoda. There is an administrative district called Akihabara, located north of Akihabara Electric Town surrounding Akihabara Neribei Park.",
+  "highlights": [
+    "Radio Kaikan",
+    "Electric Town Shops",
+    "Anime & Gaming Culture"
+  ],
+  "description": "Japan's global capital for electronics, anime, gaming culture, maid cafes, and iconic multi-story hobby complexes.",
   "budgetBreakdown": {
     "transport": 1111,
     "tickets": 0,
@@ -103,17 +107,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Akihabara (Chiyoda)",
+  "nameJa": "秋葉原",
   "content": {
     "en": {
       "name": "Akihabara (Chiyoda)",
-      "description": "Akihabara is a neighborhood in the Chiyoda ward of Tokyo, Japan, generally considered to be the area surrounding Akihabara Station. This area is part of the Sotokanda (外神田) and Kanda-Sakumachō districts of Chiyoda. There is an administrative district called Akihabara, located north of Akihabara Electric Town surrounding Akihabara Neribei Park.",
-      "highlights": ["Electric Town", "Maid Cafes", "Radio Kaikan"]
+      "description": "Japan's global capital for electronics, anime, gaming culture, maid cafes, and iconic multi-story hobby complexes.",
+      "highlights": [
+        "Radio Kaikan",
+        "Electric Town Shops",
+        "Anime & Gaming Culture"
+      ]
     },
     "ja": {
-      "name": "Akihabara (Chiyoda)",
-      "description": "Akihabara (Chiyoda)はTokyoの主要な観光スポットです。",
-      "highlights": ["Electric Town", "Maid Cafes", "Radio Kaikan"]
+      "name": "秋葉原",
+      "description": "世界的な電気街であり、アニメ・ゲーム・フィギュアなどのポップカルチャー文化の聖地。ラジオ会館や大型家電店が立ち並びます。",
+      "highlights": ["ラジオ会館", "電気街ショッピング", "アニメ・ゲーム文化"]
     }
   },
   "ratingMetadata": {

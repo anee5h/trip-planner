@@ -51,11 +51,11 @@
     "winter": 4
   },
   "highlights": [
-    "Explore top-rated lake locations",
-    "Enjoy regional specialties and local culture",
-    "Perfect for a active day out"
+    "Boating & Water Sports",
+    "Pleasure Forest Amusement Park",
+    "Illumillion Light Display"
   ],
-  "description": "Discover Lake Sagami, a prominent destination in Kanagawa. With its rich mix of illumination, outdoors, it's a highly recommended spot for a 8-hour getaway.",
+  "description": "A picturesque artificial lake resort in Kanagawa offering boat rentals, Pleasure Forest amusement park, and mountain views.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
     "transport": 4000,
@@ -108,24 +108,24 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Lake Sagami",
+  "nameJa": "相模湖",
   "content": {
     "en": {
       "name": "Lake Sagami",
-      "description": "Discover Lake Sagami, a prominent destination in Kanagawa. With its rich mix of illumination, outdoors, it's a highly recommended spot for a 8-hour getaway.",
+      "description": "A picturesque artificial lake resort in Kanagawa offering boat rentals, Pleasure Forest amusement park, and mountain views.",
       "highlights": [
-        "Explore top-rated lake locations",
-        "Enjoy regional specialties and local culture",
-        "Perfect for a active day out"
+        "Boating & Water Sports",
+        "Pleasure Forest Amusement Park",
+        "Illumillion Light Display"
       ]
     },
     "ja": {
-      "name": "Lake Sagami",
-      "description": "Lake SagamiはKanagawaの主要な観光スポットです。",
+      "name": "相模湖",
+      "description": "相模川を留めて作られた神奈川県の湖リゾート。ボート遊びやさがみ湖リゾート プレジャーフォレストの遊具が人気です。",
       "highlights": [
-        "Explore top-rated lake locations",
-        "Enjoy regional specialties and local culture",
-        "Perfect for a active day out"
+        "ボート遊びと湖畔散策",
+        "プレジャーフォレスト遊園地",
+        "さがみ湖イルミリオン"
       ]
     }
   },

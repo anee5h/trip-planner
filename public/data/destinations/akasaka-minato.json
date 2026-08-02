@@ -51,8 +51,8 @@
   "transportOptions": {
     "train": 45
   },
-  "highlights": ["Hie Shrine", "Tokyo Midtown (nearby)", "TBS Studio area"],
-  "description": "An upscale commercial and residential district with excellent dining, high-end hotels, and Hie Shrine.",
+  "highlights": ["Hie Shrine", "Tokyo Midtown", "Akasaka Sacas"],
+  "description": "A sophisticated Minato district featuring Hie Shrine, luxury dining, Tokyo Midtown, and broadcasting headquarters.",
   "budgetBreakdown": {
     "transport": 1094,
     "tickets": 1751,
@@ -97,17 +97,17 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Akasaka (Minato)",
+  "nameJa": "赤坂",
   "content": {
     "en": {
       "name": "Akasaka (Minato)",
-      "description": "An upscale commercial and residential district with excellent dining, high-end hotels, and Hie Shrine.",
-      "highlights": ["Hie Shrine", "Tokyo Midtown (nearby)", "TBS Studio area"]
+      "description": "A sophisticated Minato district featuring Hie Shrine, luxury dining, Tokyo Midtown, and broadcasting headquarters.",
+      "highlights": ["Hie Shrine", "Tokyo Midtown", "Akasaka Sacas"]
     },
     "ja": {
-      "name": "Akasaka (Minato)",
-      "description": "Akasaka (Minato)はTokyoの主要な観光スポットです。",
-      "highlights": ["Hie Shrine", "Tokyo Midtown (nearby)", "TBS Studio area"]
+      "name": "赤坂",
+      "description": "日吉大社ゆかりの日枝神社、東京ミッドタウン、テレビ局、洗練された料亭やレストランが集まる港区の歴史と現代が交差する街です。",
+      "highlights": ["日枝神社", "東京ミッドタウン", "赤坂サカス"]
     }
   },
   "ratingMetadata": {

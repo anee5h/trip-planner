@@ -1,7 +1,7 @@
 {
   "id": "hasedera",
   "name": "Hasedera",
-  "nameJa": "長谷寺 (鎌倉市)",
+  "nameJa": "長谷寺",
   "aliases": ["Hase-dera (Kamakura)", "長谷寺 (鎌倉市)"],
   "content": {
     "en": {
@@ -10,9 +10,9 @@
       "highlights": ["History"]
     },
     "ja": {
-      "name": "長谷寺 (鎌倉市)",
+      "name": "長谷寺",
       "description": "長谷寺 (鎌倉市)はKamakura Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["歴史"]
+      "highlights": ["長谷寺の名所"]
     }
   },
   "prefecture": "Kanagawa",

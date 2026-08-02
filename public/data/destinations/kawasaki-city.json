@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kawasaki_Daishi_Main_Hall.jpg/1280px-Kawasaki_Daishi_Main_Hall.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kawasaki_Daishi_Main_Hall.jpg/1280px-Kawasaki_Daishi_Main_Hall.jpg",
-  "description": "Industrial and cultural city between Tokyo and Yokohama, home to Kawasaki Daishi Temple and Fujiko F Fujio Museum.",
-  "highlights": ["Explore Kawasaki City", "Local Culture & Cuisine"],
+  "description": "A major city between Tokyo and Yokohama, known for Kawasaki Daishi temple, Lazona shopping, and Fujiko F. Fujio Museum.",
+  "highlights": [
+    "Kawasaki Daishi Temple",
+    "Lazona Kawasaki Plaza Mall",
+    "Fujiko F. Fujio Museum"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -114,17 +118,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Kawasaki City",
+  "nameJa": "川崎",
   "content": {
     "en": {
       "name": "Kawasaki City",
-      "description": "Industrial and cultural city between Tokyo and Yokohama, home to Kawasaki Daishi Temple and Fujiko F Fujio Museum.",
-      "highlights": ["Explore Kawasaki City", "Local Culture & Cuisine"]
+      "description": "A major city between Tokyo and Yokohama, known for Kawasaki Daishi temple, Lazona shopping, and Fujiko F. Fujio Museum.",
+      "highlights": [
+        "Kawasaki Daishi Temple",
+        "Lazona Kawasaki Plaza Mall",
+        "Fujiko F. Fujio Museum"
+      ]
     },
     "ja": {
-      "name": "Kawasaki City",
-      "description": "Kawasaki CityはKanagawaの主要な観光スポットです。",
-      "highlights": ["Explore Kawasaki City", "Local Culture & Cuisine"]
+      "name": "川崎",
+      "description": "東京と横浜の間に位置する大都市。厄除けで有名な川崎大師、ラゾーナ川崎プラザ、藤子・F・不二雄ミュージアムがあります。",
+      "highlights": ["寺散策", "川崎の名所", "F. 美術館散策"]
     }
   },
   "ratingMetadata": {

@@ -108,7 +108,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Ushiku Daibutsu",
+  "nameJa": "牛久大仏",
   "content": {
     "en": {
       "name": "Ushiku Daibutsu",
@@ -120,13 +120,9 @@
       ]
     },
     "ja": {
-      "name": "Ushiku Daibutsu",
-      "description": "Ushiku DaibutsuはIbarakiの主要な観光スポットです。",
-      "highlights": [
-        "Explore top-rated shrine locations",
-        "Enjoy regional specialties and local culture",
-        "Perfect for a active day out"
-      ]
+      "name": "牛久大仏",
+      "description": "Ushiku Daibutsuは茨城県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "highlights": ["-神社散策", "牛久大仏の名所", "a散策"]
     }
   },
   "ratingMetadata": {

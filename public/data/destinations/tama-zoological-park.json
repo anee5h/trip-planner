@@ -53,12 +53,11 @@
     "train": 35
   },
   "highlights": [
-    "Lion Bus Safari",
-    "Orangutan Skywalk",
-    "Insectarium Glasshouse",
-    "Cheetah Run"
+    "50-Hectare Hillside Enclosures",
+    "Famous Lion Bus Tour",
+    "Koala House & Butterfly Pavilion"
   ],
-  "description": "Tama Zoological Park near Tachikawa is a massive 125-acre natural park zoo featuring wide open enclosures, the famous Lion Bus safari, and high-wire orangutan skywalks.",
+  "description": "A vast 50-hectare hillside zoo in Hino, Tokyo, featuring free-roaming African animals, Koala House, and Lion Bus tours.",
   "budgetBreakdown": {
     "transport": 1372,
     "tickets": 1176,
@@ -105,26 +104,24 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Tama Zoological Park",
+  "nameJa": "多摩動物公園",
   "content": {
     "en": {
       "name": "Tama Zoological Park",
-      "description": "Tama Zoological Park near Tachikawa is a massive 125-acre natural park zoo featuring wide open enclosures, the famous Lion Bus safari, and high-wire orangutan skywalks.",
+      "description": "A vast 50-hectare hillside zoo in Hino, Tokyo, featuring free-roaming African animals, Koala House, and Lion Bus tours.",
       "highlights": [
-        "Lion Bus Safari",
-        "Orangutan Skywalk",
-        "Insectarium Glasshouse",
-        "Cheetah Run"
+        "50-Hectare Hillside Enclosures",
+        "Famous Lion Bus Tour",
+        "Koala House & Butterfly Pavilion"
       ]
     },
     "ja": {
-      "name": "Tama Zoological Park",
-      "description": "Tama Zoological ParkはTokyoの主要な観光スポットです。",
+      "name": "多摩動物公園",
+      "description": "日野市の豊かな多摩丘陵に広がる50ヘクタールの広い動物園。ライオンバスやコアラ館、アジア・アフリカゾーンの自然展示が人気です。",
       "highlights": [
-        "Lion Bus Safari",
-        "Orangutan Skywalk",
-        "Insectarium Glasshouse",
-        "Cheetah Run"
+        "50ヘクタールの丘陵動物園",
+        "人気のライオンバス",
+        "コアラ館と昆虫園"
       ]
     }
   },

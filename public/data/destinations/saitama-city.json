@@ -50,11 +50,11 @@
     "winter": 4
   },
   "highlights": [
-    "Explore top-rated city locations",
-    "Enjoy regional specialties and local culture",
-    "Perfect for a active day out"
+    "Omiya Railway Museum",
+    "Omiya Bonsai Village",
+    "Musashi Ichinomiya Hikawa Shrine"
   ],
-  "description": "Saitama is the capital and largest city of Saitama Prefecture, Japan. Its area incorporates the former cities of Urawa, Ōmiya, Yono and Iwatsuki. It is a city designated by government ordinance. As of 1 February 2021, the city had an estimated population of 1,324,854, and a population density of 6,093 people per km2. Its total area is 217.43 square kilometres (83.95 sq mi).",
+  "description": "Saitama's capital city combining Omiya Railway Museum, Omiya Bonsai Village, Musashi Ichinomiya Hikawa Shrine, and Super Arena.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
     "transport": 2800,
@@ -126,25 +126,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Saitama City",
+  "nameJa": "さいたま市",
   "content": {
     "en": {
       "name": "Saitama City",
-      "description": "Saitama is the capital and largest city of Saitama Prefecture, Japan. Its area incorporates the former cities of Urawa, Ōmiya, Yono and Iwatsuki. It is a city designated by government ordinance. As of 1 February 2021, the city had an estimated population of 1,324,854, and a population density of 6,093 people per km2. Its total area is 217.43 square kilometres (83.95 sq mi).",
+      "description": "Saitama's capital city combining Omiya Railway Museum, Omiya Bonsai Village, Musashi Ichinomiya Hikawa Shrine, and Super Arena.",
       "highlights": [
-        "Explore top-rated city locations",
-        "Enjoy regional specialties and local culture",
-        "Perfect for a active day out"
+        "Omiya Railway Museum",
+        "Omiya Bonsai Village",
+        "Musashi Ichinomiya Hikawa Shrine"
       ]
     },
     "ja": {
-      "name": "Saitama City",
-      "description": "Saitama CityはSaitamaの主要な観光スポットです。",
-      "highlights": [
-        "Explore top-rated city locations",
-        "Enjoy regional specialties and local culture",
-        "Perfect for a active day out"
-      ]
+      "name": "さいたま市",
+      "description": "大宮・浦和を中心とする埼玉の県都。世界的な鉄道博物館、大宮盆栽村、武蔵一宮氷川神社、さいたまスーパーアリーナを擁します。",
+      "highlights": ["美術館散策", "さいたま市の名所", "神社散策"]
     }
   },
   "ratingMetadata": {

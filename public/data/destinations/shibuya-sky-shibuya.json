@@ -59,12 +59,11 @@
     "train": 5
   },
   "highlights": [
-    "Sky Edge Glass Corner",
-    "Cloud Hammocks Rooftop Lawn",
-    "Geo Compass 360 Horizon",
-    "Paradise Lounge Bar"
+    "229m Open-Air Sky Stage",
+    "360 Panoramic Tokyo Views",
+    "Shibuya Scramble Crossing Overlook"
   ],
-  "description": "Perched 229 meters directly above Shibuya Crossing atop Shibuya Scramble Square, featuring an open-air rooftop glass-edge deck with 360-degree views of Tokyo Tower and Mt. Fuji.",
+  "description": "A breathtaking 229-meter rooftop observation deck at Shibuya Scramble Square offering 360-degree views of Tokyo and Mount Fuji.",
   "budgetBreakdown": {
     "transport": 236,
     "tickets": 2946,
@@ -117,26 +116,24 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Shibuya Sky (Rooftop Observatory)",
+  "nameJa": "SHIBUYA SKY",
   "content": {
     "en": {
       "name": "Shibuya Sky (Rooftop Observatory)",
-      "description": "Perched 229 meters directly above Shibuya Crossing atop Shibuya Scramble Square, featuring an open-air rooftop glass-edge deck with 360-degree views of Tokyo Tower and Mt. Fuji.",
+      "description": "A breathtaking 229-meter rooftop observation deck at Shibuya Scramble Square offering 360-degree views of Tokyo and Mount Fuji.",
       "highlights": [
-        "Sky Edge Glass Corner",
-        "Cloud Hammocks Rooftop Lawn",
-        "Geo Compass 360 Horizon",
-        "Paradise Lounge Bar"
+        "229m Open-Air Sky Stage",
+        "360 Panoramic Tokyo Views",
+        "Shibuya Scramble Crossing Overlook"
       ]
     },
     "ja": {
-      "name": "Shibuya Sky (Rooftop Observatory)",
-      "description": "Shibuya Sky (Rooftop Observatory)はTokyoの主要な観光スポットです。",
+      "name": "SHIBUYA SKY",
+      "description": "渋谷スクランブルスクエアの屋上にある高さ229mの展望施設。スクランブル交差点や東京タワー、富士山を360度見渡せます。",
       "highlights": [
-        "Sky Edge Glass Corner",
-        "Cloud Hammocks Rooftop Lawn",
-        "Geo Compass 360 Horizon",
-        "Paradise Lounge Bar"
+        "高さ229mの屋上展望空間",
+        "360度東京パノラマ絶景",
+        "真下のスクランブル交差点"
       ]
     }
   },

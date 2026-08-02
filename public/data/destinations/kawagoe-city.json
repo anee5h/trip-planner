@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/7a/TokiNoKane_Kawagoe_2013Feb.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/TokiNoKane_Kawagoe_2013Feb.JPG",
-  "description": "Nostalgic 'Little Edo' castle town featuring Kurazukuri clay warehouse streets, Bell of Time, and Candy Alley.",
-  "highlights": ["Explore Kawagoe City", "Local Culture & Cuisine"],
+  "description": "Saitama's 'Little Edo' castle town, famed for Kurazukuri clay warehouse streets, Toki no Kane bell tower, and Kashiya Yokocho.",
+  "highlights": [
+    "Kurazukuri Warehouse District",
+    "Toki no Kane Bell Tower",
+    "Kashiya Yokocho Penny Candy Lane"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -116,17 +120,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Kawagoe City",
+  "nameJa": "川越",
   "content": {
     "en": {
       "name": "Kawagoe City",
-      "description": "Nostalgic 'Little Edo' castle town featuring Kurazukuri clay warehouse streets, Bell of Time, and Candy Alley.",
-      "highlights": ["Explore Kawagoe City", "Local Culture & Cuisine"]
+      "description": "Saitama's 'Little Edo' castle town, famed for Kurazukuri clay warehouse streets, Toki no Kane bell tower, and Kashiya Yokocho.",
+      "highlights": [
+        "Kurazukuri Warehouse District",
+        "Toki no Kane Bell Tower",
+        "Kashiya Yokocho Penny Candy Lane"
+      ]
     },
     "ja": {
-      "name": "Kawagoe City",
-      "description": "Kawagoe CityはSaitamaの主要な観光スポットです。",
-      "highlights": ["Explore Kawagoe City", "Local Culture & Cuisine"]
+      "name": "川越",
+      "description": "「小江戸」の愛称で親しまれる城下町。蔵造りの町並み、時の鐘、菓子屋横丁など、江戸時代の面影をそのまま残す人気観光地です。",
+      "highlights": ["川越の名所", "no散策", "川越の名所"]
     }
   },
   "ratingMetadata": {

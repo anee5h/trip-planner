@@ -6,13 +6,21 @@
   "content": {
     "en": {
       "name": "Ginza Itoya",
-      "description": "Ginza Itoya is a distinct visitor stop within Chuo City, selected to support a varied local itinerary.",
-      "highlights": ["Stationery", "Design", "Shopping"]
+      "description": "A flagship 12-story stationery department store in Ginza offering premium pens, paper, design goods, and creative workshops.",
+      "highlights": [
+        "12 Floors of Fine Stationery",
+        "Custom Notebook & Pen Bar",
+        "Design & Lifestyle Goods"
+      ]
     },
     "ja": {
       "name": "銀座 伊東屋",
-      "description": "銀座 伊東屋はChuo City内の観光スポットです。訪問前に最新の営業情報をご確認ください。",
-      "highlights": ["Stationery", "Design", "Shopping"]
+      "description": "創業100年を超える銀座の老舗文房具専門店。全12階のフロアに高品質なステーショナリーやオリジナルの紙製品が揃います。",
+      "highlights": [
+        "全12階の文房具専門店",
+        "カスタムノート＆万年筆コーナー",
+        "デザイン＆ライフスタイル雑貨"
+      ]
     }
   },
   "prefecture": "Tokyo",
@@ -37,8 +45,12 @@
     "lat": 35.6721,
     "lng": 139.7672
   },
-  "description": "Ginza Itoya is a distinct visitor stop within Chuo City, selected to support a varied local itinerary.",
-  "highlights": ["Stationery", "Design", "Shopping"],
+  "description": "A flagship 12-story stationery department store in Ginza offering premium pens, paper, design goods, and creative workshops.",
+  "highlights": [
+    "12 Floors of Fine Stationery",
+    "Custom Notebook & Pen Bar",
+    "Design & Lifestyle Goods"
+  ],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,

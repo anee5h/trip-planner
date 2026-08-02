@@ -123,7 +123,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Roppongi Hills Observation Deck (Tokyo City View)",
+  "nameJa": "Roppongi Hills Observation Deck",
   "content": {
     "en": {
       "name": "Roppongi Hills Observation Deck (Tokyo City View)",
@@ -136,14 +136,9 @@
       ]
     },
     "ja": {
-      "name": "Roppongi Hills Observation Deck (Tokyo City View)",
-      "description": "Roppongi Hills Observation Deck (Tokyo City View)はTokyoの主要な観光スポットです。",
-      "highlights": [
-        "52F Glass Indoor Observation Deck",
-        "Open-Air Sky Deck (270m)",
-        "Front-Row Tokyo Tower Night View",
-        "Mori Art Museum Access"
-      ]
+      "name": "Roppongi Hills Observation Deck",
+      "description": "Roppongi Hills Observation Deckは東京都にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "highlights": ["52F散策", "-   (270m)散策", "-散策", "美術館散策"]
     }
   },
   "ratingMetadata": {

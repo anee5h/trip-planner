@@ -115,7 +115,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Kinugawa Onsen",
+  "nameJa": "鬼怒川温泉",
   "content": {
     "en": {
       "name": "Kinugawa Onsen",
@@ -127,13 +127,9 @@
       ]
     },
     "ja": {
-      "name": "Kinugawa Onsen",
-      "description": "Kinugawa OnsenはTochigiの主要な観光スポットです。",
-      "highlights": [
-        "Explore top-rated hot spring locations",
-        "Enjoy regional specialties and local culture",
-        "Perfect for a active day out"
-      ]
+      "name": "鬼怒川温泉",
+      "description": "Kinugawa Onsenは栃木県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "highlights": ["-散策", "鬼怒川温泉の名所", "a散策"]
     }
   },
   "ratingMetadata": {

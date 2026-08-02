@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "Special Ward"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Gate_City_Osaki.jpg/1280px-Gate_City_Osaki.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Gate_City_Osaki.jpg/1280px-Gate_City_Osaki.jpg",
-  "description": "Transportation gate connecting Shinkansen railways, Maxell Aqua Park, and historic Tokaido highway post towns.",
-  "highlights": ["Explore Shinagawa City", "Local Culture & Cuisine"],
+  "description": "A major coastal transport hub blending Shinagawa Station bullet trains, Tennozu Isle art boardwalks, and historic Tokaido post town roots.",
+  "highlights": [
+    "Tennozu Isle Waterfront Boardwalk",
+    "Historic Tokaido Shinagawa-juku",
+    "Maxell Aqua Park Shinagawa"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -104,17 +108,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Shinagawa City",
+  "nameJa": "品川区",
   "content": {
     "en": {
       "name": "Shinagawa City",
-      "description": "Transportation gate connecting Shinkansen railways, Maxell Aqua Park, and historic Tokaido highway post towns.",
-      "highlights": ["Explore Shinagawa City", "Local Culture & Cuisine"]
+      "description": "A major coastal transport hub blending Shinagawa Station bullet trains, Tennozu Isle art boardwalks, and historic Tokaido post town roots.",
+      "highlights": [
+        "Tennozu Isle Waterfront Boardwalk",
+        "Historic Tokaido Shinagawa-juku",
+        "Maxell Aqua Park Shinagawa"
+      ]
     },
     "ja": {
-      "name": "Shinagawa City",
-      "description": "Shinagawa CityはTokyoの主要な観光スポットです。",
-      "highlights": ["Explore Shinagawa City", "Local Culture & Cuisine"]
+      "name": "品川区",
+      "description": "新幹線が発着する品川駅、天王洲アイルのアート水辺エリア、旧東海道の品川宿の歴史が融合する利便性と風情ある港町エリアです。",
+      "highlights": ["品川区の名所", "-散策", "公園散策"]
     }
   },
   "ratingMetadata": {

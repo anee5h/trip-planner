@@ -1,18 +1,22 @@
 {
   "id": "omoide-yokocho",
   "name": "Omoide Yokocho",
-  "nameJa": "新宿西口商店街",
+  "nameJa": "思い出横丁",
   "aliases": ["History of Tokyo", "新宿西口商店街"],
   "content": {
     "en": {
       "name": "Omoide Yokocho",
-      "description": "Omoide Yokocho is a visitor destination in Shinjuku City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
-      "highlights": ["Shopping", "Food"]
+      "description": "A narrow nostalgic alleyway right by Shinjuku Station packed with small yakitori stalls and izakaya bars.",
+      "highlights": [
+        "Retro Showa Alleyway",
+        "Fresh Grilled Yakitori Stalls",
+        "Authentic Shinjuku Atmosphere"
+      ]
     },
     "ja": {
-      "name": "新宿西口商店街",
-      "description": "新宿西口商店街はShinjuku Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["ショッピング", "グルメ"]
+      "name": "思い出横丁",
+      "description": "新宿駅西口に位置する昭和レトロな横丁。香ばしい煙が立ち込める焼き鳥店やもつ焼き店、小居酒屋が所狭しと並びます。",
+      "highlights": ["思い出横丁の名所", "思い出横丁の名所", "思い出横丁の名所"]
     }
   },
   "prefecture": "Tokyo",
@@ -39,8 +43,12 @@
     "lat": 35.69307,
     "lng": 139.6995
   },
-  "description": "Omoide Yokocho is a visitor destination in Shinjuku City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
-  "highlights": ["Shopping", "Food"],
+  "description": "A narrow nostalgic alleyway right by Shinjuku Station packed with small yakitori stalls and izakaya bars.",
+  "highlights": [
+    "Retro Showa Alleyway",
+    "Fresh Grilled Yakitori Stalls",
+    "Authentic Shinjuku Atmosphere"
+  ],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,

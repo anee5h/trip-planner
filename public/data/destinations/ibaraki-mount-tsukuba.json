@@ -109,7 +109,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Mount Tsukuba",
+  "nameJa": "筑波山",
   "content": {
     "en": {
       "name": "Mount Tsukuba",
@@ -122,14 +122,9 @@
       ]
     },
     "ja": {
-      "name": "Mount Tsukuba",
-      "description": "Mount TsukubaはIbarakiの主要な観光スポットです。",
-      "highlights": [
-        "Tsukuba Shrine",
-        "Mount Tsukuba Ropeway & Cable Car",
-        "Nantaimasan Peak Trail",
-        "Benten Rock Path"
-      ]
+      "name": "筑波山",
+      "description": "Mount Tsukubaは茨城県の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "highlights": ["神社散策", "&散策", "筑波山の名所", "筑波山の名所"]
     }
   },
   "ratingMetadata": {

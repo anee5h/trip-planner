@@ -51,8 +51,12 @@
   "transportOptions": {
     "train": 50
   },
-  "highlights": ["Senso-ji Temple", "Kaminarimon Gate", "Sumida River Cruise"],
-  "description": "Asakusa is a district in Taitō, Tokyo, Japan. It is known for Sensō-ji, a Buddhist temple dedicated to the bodhisattva Kannon. There are several other temples in Asakusa, as well as various festivals, such as Sanja Matsuri.",
+  "highlights": [
+    "Senso-ji Temple & Kaminarimon",
+    "Nakamise Shopping Street",
+    "Sumida River Cruises"
+  ],
+  "description": "Tokyo's historic cultural heart, centered on Senso-ji Temple, Nakamise shopping street, and traditional rickshaw tours.",
   "budgetBreakdown": {
     "transport": 1105,
     "tickets": 1768,
@@ -103,25 +107,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Asakusa (Taito)",
+  "nameJa": "浅草",
   "content": {
     "en": {
       "name": "Asakusa (Taito)",
-      "description": "Asakusa is a district in Taitō, Tokyo, Japan. It is known for Sensō-ji, a Buddhist temple dedicated to the bodhisattva Kannon. There are several other temples in Asakusa, as well as various festivals, such as Sanja Matsuri.",
+      "description": "Tokyo's historic cultural heart, centered on Senso-ji Temple, Nakamise shopping street, and traditional rickshaw tours.",
       "highlights": [
-        "Senso-ji Temple",
-        "Kaminarimon Gate",
-        "Sumida River Cruise"
+        "Senso-ji Temple & Kaminarimon",
+        "Nakamise Shopping Street",
+        "Sumida River Cruises"
       ]
     },
     "ja": {
-      "name": "Asakusa (Taito)",
-      "description": "Asakusa (Taito)はTokyoの主要な観光スポットです。",
-      "highlights": [
-        "Senso-ji Temple",
-        "Kaminarimon Gate",
-        "Sumida River Cruise"
-      ]
+      "name": "浅草",
+      "description": "都内最古の寺院・浅草寺と雷門、伝統工芸品や和菓子が並ぶ仲見世商店街を中心に、江戸の歴史文化を体感できる観光地です。",
+      "highlights": ["浅草寺と雷門", "仲見世商店街", "隅田川水上バス"]
     }
   },
   "ratingMetadata": {

@@ -10,11 +10,10 @@
   "categories": ["Onsen Town", "Mountain Resort", "Mount Fuji View", "Nature"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hakone_Town_Hall.JPG/1920px-Hakone_Town_Hall.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hakone_Town_Hall.JPG/1920px-Hakone_Town_Hall.JPG",
-  "description": "Famous hot spring resort town nestled in the Fuji-Hakone-Izu National Park, celebrated for volcanic sulfur valleys, Lake Ashi pirate ships, and art museums.",
+  "description": "Japan's premier mountain hot spring resort town, famous for Lake Ashi pirate ships, Owakudani volcanic crater, and Fuji views.",
   "highlights": [
-    "Owakudani",
-    "Lake Ashi",
-    "Hakone Shrine Torii",
+    "Lake Ashi Sightseeing Cruise",
+    "Owakudani Volcanic Valley",
     "Hakone Open-Air Museum"
   ],
   "totalTripHours": 8,
@@ -117,27 +116,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Hakone Town",
+  "nameJa": "箱根",
   "content": {
     "en": {
       "name": "Hakone Town",
-      "description": "Famous hot spring resort town nestled in the Fuji-Hakone-Izu National Park, celebrated for volcanic sulfur valleys, Lake Ashi pirate ships, and art museums.",
+      "description": "Japan's premier mountain hot spring resort town, famous for Lake Ashi pirate ships, Owakudani volcanic crater, and Fuji views.",
       "highlights": [
-        "Owakudani",
-        "Lake Ashi",
-        "Hakone Shrine Torii",
+        "Lake Ashi Sightseeing Cruise",
+        "Owakudani Volcanic Valley",
         "Hakone Open-Air Museum"
       ]
     },
     "ja": {
-      "name": "Hakone Town",
-      "description": "Hakone TownはKanagawaの主要な観光スポットです。",
-      "highlights": [
-        "Owakudani",
-        "Lake Ashi",
-        "Hakone Shrine Torii",
-        "Hakone Open-Air Museum"
-      ]
+      "name": "箱根",
+      "description": "富士山を望む日本有数の温泉リゾート地。芦ノ湖の海賊船、大涌谷の火山景観、箱根彫刻の森美術館など見どころが満載です。",
+      "highlights": ["箱根の名所", "箱根の名所", "-美術館散策"]
     }
   },
   "ratingMetadata": {

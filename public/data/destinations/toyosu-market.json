@@ -6,13 +6,17 @@
   "content": {
     "en": {
       "name": "Toyosu Market",
-      "description": "Toyosu Market is a visitor destination in Koto City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
-      "highlights": ["Food", "Market"]
+      "description": "Tokyo's modern wholesale seafood and produce market, featuring tuna auction viewing galleries, famous sushi restaurants, and Senkyakubanrai bathhouse.",
+      "highlights": [
+        "Early Morning Tuna Auction Viewing",
+        "Fresh Market Sushi Dining",
+        "Senkyakubanrai Spa & Dining District"
+      ]
     },
     "ja": {
       "name": "豊洲市場",
-      "description": "豊洲市場はKoto Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["グルメ", "市場"]
+      "description": "築地から移転した世界最大級の卸売市場。マグロ卸売場見学ギャラリー、新鮮な海鮮丼・寿司店、温浴施設「千客万来」が揃います。",
+      "highlights": ["豊洲市場の名所", "市場散策", "&散策"]
     }
   },
   "prefecture": "Tokyo",
@@ -39,8 +43,12 @@
     "lat": 35.64416666666666,
     "lng": 139.7836111111111
   },
-  "description": "Toyosu Market is a visitor destination in Koto City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
-  "highlights": ["Food", "Market"],
+  "description": "Tokyo's modern wholesale seafood and produce market, featuring tuna auction viewing galleries, famous sushi restaurants, and Senkyakubanrai bathhouse.",
+  "highlights": [
+    "Early Morning Tuna Auction Viewing",
+    "Fresh Market Sushi Dining",
+    "Senkyakubanrai Spa & Dining District"
+  ],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,

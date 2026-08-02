@@ -6,13 +6,21 @@
   "content": {
     "en": {
       "name": "Takao 599 Museum",
-      "description": "Takao 599 Museum is a distinct visitor stop within Hachioji City, selected to support a varied local itinerary.",
-      "highlights": ["Museum", "Nature", "Indoor"]
+      "description": "A stylish modern nature museum at the foot of Mount Takao showcasing preserved flora, fauna, and mountain history.",
+      "highlights": [
+        "Acrylic Resin Flora & Fauna Display",
+        "Modern Architecture & Cafe",
+        "Mount Takao Nature Gateway"
+      ]
     },
     "ja": {
       "name": "TAKAO 599 MUSEUM",
-      "description": "TAKAO 599 MUSEUMはHachioji City内の観光スポットです。訪問前に最新の営業情報をご確認ください。",
-      "highlights": ["Museum", "Nature", "Indoor"]
+      "description": "高尾山の麓に位置するスタイリッシュな自然ミュージアム。アクリル樹脂に封入された植物標本やカフェ、芝生広場が魅力です。",
+      "highlights": [
+        "アクリル樹脂の美表標本展示",
+        "洗練された建築とカフェ",
+        "高尾山麓の自然発信拠点"
+      ]
     }
   },
   "prefecture": "Tokyo",
@@ -43,8 +51,12 @@
     "lat": 35.6321,
     "lng": 139.2691
   },
-  "description": "Takao 599 Museum is a distinct visitor stop within Hachioji City, selected to support a varied local itinerary.",
-  "highlights": ["Museum", "Nature", "Indoor"],
+  "description": "A stylish modern nature museum at the foot of Mount Takao showcasing preserved flora, fauna, and mountain history.",
+  "highlights": [
+    "Acrylic Resin Flora & Fauna Display",
+    "Modern Architecture & Cafe",
+    "Mount Takao Nature Gateway"
+  ],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,

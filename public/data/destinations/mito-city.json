@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/1280px-Kairaku-en%2C_Ibaraki_24.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/1280px-Kairaku-en%2C_Ibaraki_24.jpg",
-  "description": "Historic Mito feudal clan capital featuring Kairakuen Garden (Three Great Gardens of Japan) and plum blossoms.",
-  "highlights": ["Explore Mito City", "Local Culture & Cuisine"],
+  "description": "Ibaraki's historic capital famous for Kairakuen Garden (one of Japan's Three Great Gardens), Mito Castle ruins, and plum blossom festival.",
+  "highlights": [
+    "Kairakuen Garden & Plum Blossoms",
+    "Mito Castle Ruins",
+    "Art Tower Mito"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -103,17 +107,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Mito City",
+  "nameJa": "水戸",
   "content": {
     "en": {
       "name": "Mito City",
-      "description": "Historic Mito feudal clan capital featuring Kairakuen Garden (Three Great Gardens of Japan) and plum blossoms.",
-      "highlights": ["Explore Mito City", "Local Culture & Cuisine"]
+      "description": "Ibaraki's historic capital famous for Kairakuen Garden (one of Japan's Three Great Gardens), Mito Castle ruins, and plum blossom festival.",
+      "highlights": [
+        "Kairakuen Garden & Plum Blossoms",
+        "Mito Castle Ruins",
+        "Art Tower Mito"
+      ]
     },
     "ja": {
-      "name": "Mito City",
-      "description": "Mito CityはIbarakiの主要な観光スポットです。",
-      "highlights": ["Explore Mito City", "Local Culture & Cuisine"]
+      "name": "水戸",
+      "description": "日本三名園の一つ「偕楽園」を擁する水戸徳川家ゆかりの城下町。春の梅まつりや水戸城跡周辺の歴史散策を楽しめます。",
+      "highlights": ["庭園 &散策", "城散策", "水戸の名所"]
     }
   },
   "ratingMetadata": {

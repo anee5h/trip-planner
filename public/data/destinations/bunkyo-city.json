@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "Special Ward"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Akamon%2C_University_of_Tokyo_2019.jpg/1280px-Akamon%2C_University_of_Tokyo_2019.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Akamon%2C_University_of_Tokyo_2019.jpg/1280px-Akamon%2C_University_of_Tokyo_2019.jpg",
-  "description": "Tokyo's academic and garden borough featuring Tokyo Dome City, Rikugien Garden, and Koishikawa Korakuen.",
-  "highlights": ["Explore Bunkyo City", "Local Culture & Cuisine"],
+  "description": "Tokyo's historic academic and cultural ward, home to Tokyo University, Koishikawa Korakuen garden, and Tokyo Dome City.",
+  "highlights": [
+    "Koishikawa Korakuen Garden",
+    "Rikugien Garden",
+    "Tokyo Dome City"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -104,17 +108,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Bunkyo City",
+  "nameJa": "文京区",
   "content": {
     "en": {
       "name": "Bunkyo City",
-      "description": "Tokyo's academic and garden borough featuring Tokyo Dome City, Rikugien Garden, and Koishikawa Korakuen.",
-      "highlights": ["Explore Bunkyo City", "Local Culture & Cuisine"]
+      "description": "Tokyo's historic academic and cultural ward, home to Tokyo University, Koishikawa Korakuen garden, and Tokyo Dome City.",
+      "highlights": [
+        "Koishikawa Korakuen Garden",
+        "Rikugien Garden",
+        "Tokyo Dome City"
+      ]
     },
     "ja": {
-      "name": "Bunkyo City",
-      "description": "Bunkyo CityはTokyoの主要な観光スポットです。",
-      "highlights": ["Explore Bunkyo City", "Local Culture & Cuisine"]
+      "name": "文京区",
+      "description": "東京大学や文豪ゆかりの史跡が点在する文教地区。小石川後楽園や六義園などの名庭園と東京ドームシティが共存します。",
+      "highlights": ["小石川後楽園", "六義園", "東京ドームシティ"]
     }
   },
   "ratingMetadata": {

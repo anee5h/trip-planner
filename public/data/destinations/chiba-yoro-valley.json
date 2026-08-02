@@ -103,7 +103,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Yoro Valley",
+  "nameJa": "養老渓谷",
   "content": {
     "en": {
       "name": "Yoro Valley",
@@ -116,14 +116,9 @@
       ]
     },
     "ja": {
-      "name": "Yoro Valley",
-      "description": "Yoro ValleyはChibaの主要な観光スポットです。",
-      "highlights": [
-        "Awamata Falls",
-        "Yoro River Trail",
-        "Kannon Bridge",
-        "Yoro Gorge Onsen"
-      ]
+      "name": "養老渓谷",
+      "description": "Yoro Valleyは千葉県の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "highlights": ["粟又の滝", "養老川遊歩道", "観音橋", "養老渓谷温泉"]
     }
   },
   "ratingMetadata": {

@@ -100,7 +100,7 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Odawara City",
+  "nameJa": "Odawara市",
   "content": {
     "en": {
       "name": "Odawara City",
@@ -108,9 +108,9 @@
       "highlights": ["Explore Odawara City", "Local Culture & Cuisine"]
     },
     "ja": {
-      "name": "Odawara City",
-      "description": "Odawara CityはKanagawaの主要な観光スポットです。",
-      "highlights": ["Explore Odawara City", "Local Culture & Cuisine"]
+      "name": "Odawara市",
+      "description": "Odawara市は神奈川県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "highlights": ["市散策", "&散策"]
     }
   },
   "ratingMetadata": {

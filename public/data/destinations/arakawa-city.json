@@ -9,8 +9,12 @@
   "categories": ["Travel Hub", "Special Ward"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Entsuji_%28Arakawa%29_08.jpg/1280px-Entsuji_%28Arakawa%29_08.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Entsuji_%28Arakawa%29_08.jpg/1280px-Entsuji_%28Arakawa%29_08.jpg",
-  "description": "Nostalgic shitamachi district serviced by the retro Tokyo Sakura Tram (Arakawa Line).",
-  "highlights": ["Explore Arakawa City", "Local Culture & Cuisine"],
+  "description": "A charming historic ward home to the retro Toden Arakawa tram line, Nippori textile district, and scenic Parks along the Sumida River.",
+  "highlights": [
+    "Toden Arakawa Tram Line",
+    "Nippori Fabric Street",
+    "Sumida Riverfront"
+  ],
   "totalTripHours": 6,
   "budgetMin": 3500,
   "budgetRecommended": 14250,
@@ -104,17 +108,21 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
-  "nameJa": "Arakawa City",
+  "nameJa": "荒川区",
   "content": {
     "en": {
       "name": "Arakawa City",
-      "description": "Nostalgic shitamachi district serviced by the retro Tokyo Sakura Tram (Arakawa Line).",
-      "highlights": ["Explore Arakawa City", "Local Culture & Cuisine"]
+      "description": "A charming historic ward home to the retro Toden Arakawa tram line, Nippori textile district, and scenic Parks along the Sumida River.",
+      "highlights": [
+        "Toden Arakawa Tram Line",
+        "Nippori Fabric Street",
+        "Sumida Riverfront"
+      ]
     },
     "ja": {
-      "name": "Arakawa City",
-      "description": "Arakawa CityはTokyoの主要な観光スポットです。",
-      "highlights": ["Explore Arakawa City", "Local Culture & Cuisine"]
+      "name": "荒川区",
+      "description": "都電荒川線（東京さくらトラム）が走り、日暮里繊維街や隅田川沿いの公園など、懐かしいレトロな風情が残る東京下町の街です。",
+      "highlights": ["都電荒川線", "日暮里繊維街", "隅田川テラス"]
     }
   },
   "ratingMetadata": {

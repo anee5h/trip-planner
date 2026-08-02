@@ -116,8 +116,12 @@
     },
     "ja": {
       "name": "横浜赤レンガ倉庫",
-      "description": "横浜赤レンガ倉庫はKanagawaの主要な観光スポットです。",
-      "highlights": ["Architecture", "Shopping", "Waterfront"]
+      "description": "横浜赤レンガ倉庫は神奈川県を代表するショッピングと散策のスポットです。多種多様なショップやグルメが集まり、地元の活気と魅力溢れる時間を楽しめます。",
+      "highlights": [
+        "横浜赤レンガ倉庫の名所",
+        "横浜赤レンガ倉庫の名所",
+        "横浜赤レンガ倉庫の名所"
+      ]
     }
   },
   "ratingMetadata": {
