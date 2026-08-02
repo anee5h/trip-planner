@@ -33,9 +33,6 @@ const Profile = lazy(() => import("./features/profile/Profile"));
 const Settings = lazy(() => import("./features/settings/Settings"));
 const Help = lazy(() => import("./features/help/Help"));
 const QaDashboard = lazy(() => import("./features/qa/QaDashboard"));
-const EditorialDashboard = lazy(
-  () => import("./features/editorial/EditorialDashboard"),
-);
 const Compare = lazy(() => import("./features/compare/Compare"));
 
 function PageLoader() {
@@ -107,7 +104,7 @@ function App() {
                           <Route path="/qa" element={<QaDashboard />} />
                           <Route
                             path="/editorial"
-                            element={<EditorialDashboard />}
+                            element={<Navigate to="/qa" replace />}
                           />
                           <Route path="/terms" element={<Terms />} />
                           <Route path="/privacy" element={<Privacy />} />

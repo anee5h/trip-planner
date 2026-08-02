@@ -31,7 +31,9 @@ import {
   Send,
   Radio,
   Zap,
+  FileCheck,
 } from "lucide-react";
+import EditorialDashboard from "../editorial/EditorialDashboard";
 import { computeQualityMetrics } from "@/shared/services/analytics/RecommendationQualityAnalytics";
 import { telemetryPipeline } from "@/shared/services/analytics/RecommendationTelemetryPipeline";
 import { experimentFramework } from "@/shared/services/recommendation/ExperimentFramework";
@@ -452,9 +454,9 @@ export default function QaDashboard() {
         </div>
       </div>
 
-      {/* 7-Tab Navigation Bar */}
+      {/* 8-Tab Navigation Bar */}
       <Tabs defaultValue="health" className="w-full space-y-6">
-        <TabsList className="grid grid-cols-2 md:grid-cols-7 w-full bg-slate-100 dark:bg-slate-900/80 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-800">
+        <TabsList className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 w-full bg-slate-100 dark:bg-slate-900/80 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-800">
           <TabsTrigger
             value="health"
             className="rounded-xl font-bold text-xs flex items-center gap-1.5 py-2.5"
@@ -468,6 +470,13 @@ export default function QaDashboard() {
           >
             <BarChart2 className="w-4 h-4 text-sky-500" />
             Recommendation Quality
+          </TabsTrigger>
+          <TabsTrigger
+            value="editorial"
+            className="rounded-xl font-bold text-xs flex items-center gap-1.5 py-2.5"
+          >
+            <FileCheck className="w-4 h-4 text-emerald-500" />
+            Editorial Quality
           </TabsTrigger>
           <TabsTrigger
             value="websites"
@@ -1352,6 +1361,11 @@ export default function QaDashboard() {
               })}
             </div>
           </div>
+        </TabsContent>
+
+        {/* TAB 7: EDITORIAL QUALITY AUDIT */}
+        <TabsContent value="editorial" className="space-y-6">
+          <EditorialDashboard />
         </TabsContent>
       </Tabs>
     </div>
