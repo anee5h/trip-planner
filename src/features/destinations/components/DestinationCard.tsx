@@ -468,7 +468,7 @@ export default function DestinationCard({
           <Button
             variant="default"
             size="sm"
-            className="min-h-11 bg-emerald-600 px-5 font-semibold text-white shadow-sm hover:bg-emerald-700 md:px-8"
+            className="min-h-11 bg-emerald-600 px-5 font-semibold text-white shadow-sm hover:bg-emerald-700"
           >
             {cardCopy.explore}
           </Button>
