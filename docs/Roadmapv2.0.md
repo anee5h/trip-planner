@@ -225,11 +225,11 @@ release: prepare v2.0.0-alpha.2
 
 ## PR 11 — Editorial quality dashboard
 
-- [ ] Show lifecycle, published, reviewed, and assisted counts
-- [ ] Show stale records, low-confidence ratings, missing sources, provenance, and Japanese coverage
-- [ ] Identify high-risk hubs
-- [ ] Export deterministic review queues
-- [ ] Keep reports non-destructive
+- [x] Show lifecycle, published, reviewed, and assisted counts
+- [x] Show stale records, low-confidence ratings, missing sources, provenance, and Japanese coverage
+- [x] Identify high-risk hubs
+- [x] Export deterministic review queues
+- [x] Keep reports non-destructive
 
 ## PR 12A — Tokyo and Kanto review
 
@@ -370,19 +370,20 @@ release: prepare v2.0.0-alpha.2
 
 - [x] Stage 1 roadmap PRs: 8
 - [x] Stage 2 roadmap PRs: 6
+- [x] Stage 3 roadmap PRs: 1 (PR 11 Editorial Quality Dashboard)
 - [x] Additional production CSS fix: 1
 
 ## Remaining planned roadmap PRs
 
 - [ ] Stage 1 polish: 1
-- [ ] Stage 3: 6 including three regional data PRs and release PR
+- [ ] Stage 3: 5 including three regional data PRs, tooling, and release PR
 - [ ] Stage 4: 5 including release PR
 - [ ] Stage 5: 3 including final release PR
 
 ## Totals
 
-- [x] Completed roadmap PRs: 14
-- [ ] Remaining planned roadmap PRs: 15
+- [x] Completed roadmap PRs: 15
+- [ ] Remaining planned roadmap PRs: 14
 - [ ] Expected final roadmap PR total: 29
 
 ---
@@ -434,5 +435,6 @@ For every stage release:
 
 # Current Next Actions
 
-- [ ] Merge `fix: replace duplicate like action with bucket list control`
-- [ ] Begin `feat: add trip duration classification`
+- [x] Stage 2 Release `v2.0.0-alpha.2` complete
+- [x] Stage 3 PR 11 Editorial Quality Dashboard complete
+- [ ] Begin Stage 3 PR 12A Tokyo and Kanto editorial review

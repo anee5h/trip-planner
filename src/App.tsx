@@ -102,6 +102,10 @@ function App() {
                           <Route path="/settings" element={<Settings />} />
                           <Route path="/help" element={<Help />} />
                           <Route path="/qa" element={<QaDashboard />} />
+                          <Route
+                            path="/editorial"
+                            element={<Navigate to="/qa" replace />}
+                          />
                           <Route path="/terms" element={<Terms />} />
                           <Route path="/privacy" element={<Privacy />} />
                           <Route path="/cookies" element={<Cookies />} />
