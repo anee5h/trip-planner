@@ -2,6 +2,18 @@
 
 All notable changes to TabiMap are documented in this file.
 
+## [v2.0.0-alpha.2] - 2026-08-02
+
+### 🚀 Roadmap v2.0 — Stage 2 Complete (Travel Decision Planning)
+
+#### Features & Improvements
+
+- **Trip Duration Classification** (`PR #25` / Stage 2 PR 6): Added short outing, half-day, full-day, and weekend classifications with total travel and visit duration estimates, localized reason codes, and filter integration.
+- **Nearby Destination Combinations** (`PR #26` / Stage 2 PR 7): Implemented compatible nearby place recommendation engine considering distance, travel time, weather compatibility, and combined trip budget.
+- **Suggested Day Plans** (`PR #27` / Stage 2 PR 8): Added morning/afternoon/evening itinerary generator complete with transit segments, buffer times, meal breaks, and interactive reordering controls.
+- **Combined Trip Cost Modelling** (`PR #28` / Stage 2 PR 9): Implemented comprehensive cost estimation combining transport, attraction tickets, food, café, and parking into per-person and party total ranges.
+- **Hub-Based Planning** (`PR #30` / Stage 2 PR 10): Introduced hub-first travel planning, destination grouping by city/region hub, single travel-to-hub cost calculation, and hub budget summaries.
+
 ---
 
 ## [v2.0.0-alpha.1] - 2026-07-30
