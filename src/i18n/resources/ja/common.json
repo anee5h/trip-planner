@@ -23,7 +23,7 @@
     "feedback": "フィードバック"
   },
   "footer": {
-    "tagline": "日本の旅を計画・比較できるガイド"
+    "tagline": "日本の旅を、もっと楽しく、もっとスマートに。"
   },
   "brand": {
     "tagline": "めぐると、見つかる。"
@@ -169,6 +169,10 @@
       "explanation": "グループ全体の合計予算"
     }
   },
+  "origin": {
+    "from": "出発地",
+    "edit": "編集"
+  },
   "home": {
     "headline": "次はどこへ行きますか？",
     "subtitle": "時間、予算、旅のスタイルに合わせた日帰り旅の提案です。",
@@ -176,8 +180,25 @@
     "planner": "旅のプランナー",
     "plannerHint": "30秒でぴったりの旅先を提案",
     "moreDates": "他の日付",
-    "chooseForecastDay": "予報日を選ぶ",
+    "chooseForecastDay": "日付を選ぶ",
     "closeForecastDayPicker": "予報日の選択を閉じる",
+    "dateTabs": {
+      "today": "今日",
+      "tomorrow": "明日",
+      "this_weekend": "今週末",
+      "sunday": "日曜日"
+    },
+    "weatherConditions": {
+      "clear": "晴れ",
+      "sunny": "晴れ",
+      "cloudy": "くもり",
+      "foggy": "霧",
+      "rainy": "雨",
+      "snowy": "雪",
+      "rainshowers": "にわか雨",
+      "snowshowers": "にわか雪",
+      "stormy": "雷雨"
+    },
     "vibe": "気分",
     "duration": "時間",
     "party": "人数",
@@ -199,7 +220,7 @@
       "food": "グルメ",
       "nature": "自然・アウトドア",
       "history": "歴史・文化",
-      "sea": "海辺",
+      "sea": "ビーチ・島",
       "cool": "涼しい場所",
       "themepark": "テーマパーク",
       "photography": "写真"

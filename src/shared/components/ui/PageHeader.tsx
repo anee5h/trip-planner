@@ -12,10 +12,12 @@ export interface PageHeaderProps {
   subtitle?: string;
   statusBadge?: React.ReactNode;
   description?: string;
+  descriptionClassName?: string;
   actions?: React.ReactNode;
   tabs?: React.ReactNode;
   breadcrumbs?: BreadcrumbItem[];
   compact?: boolean;
+  stackActionsOnMobile?: boolean;
 }
 
 export function PageHeader({
@@ -23,10 +25,12 @@ export function PageHeader({
   subtitle,
   statusBadge,
   description,
+  descriptionClassName,
   actions,
   tabs,
   breadcrumbs,
   compact = false,
+  stackActionsOnMobile = false,
 }: PageHeaderProps) {
   return (
     <header className={`space-y-base ${compact ? "pb-base" : "pb-xl"}`}>
@@ -55,7 +59,9 @@ export function PageHeader({
         </nav>
       )}
 
-      <div className="flex items-start justify-between gap-base">
+      <div
+        className={`flex items-start justify-between gap-base ${stackActionsOnMobile ? "max-[399px]:flex-col" : ""}`}
+      >
         <div className="space-y-xs">
           {subtitle && (
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
@@ -67,7 +73,11 @@ export function PageHeader({
             {statusBadge}
           </div>
           {description && (
-            <p className={designTokens.typography.secondary}>{description}</p>
+            <p
+              className={`${designTokens.typography.secondary} ${descriptionClassName ?? ""}`}
+            >
+              {description}
+            </p>
           )}
         </div>
         {actions && (

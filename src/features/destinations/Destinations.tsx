@@ -15,6 +15,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
+import { getPaginationItems } from "./pagination";
 import { getAdjustedBudget } from "@/shared/utils/utils";
 import StationInput from "@/shared/components/StationInput";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
@@ -647,11 +648,17 @@ export default function Destinations() {
     setCurrentPage(defaults.currentPage);
   };
 
+  const totalPages = Math.ceil(
+    filteredAndSortedDestinations.length / ITEMS_PER_PAGE,
+  );
+
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl">
       <PageHeader
         title="Destinations"
         description="Find the perfect adventure across Japan. Filter by region, prefecture, collections, budget, and vibe."
+        descriptionClassName="hidden sm:block"
+        stackActionsOnMobile
         actions={
           <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-lg">
             <button
@@ -793,43 +800,39 @@ export default function Destinations() {
                 <ChevronLeft className="w-5 h-5" />
               </button>
 
-              <div className="flex gap-1 flex-wrap justify-center">
-                {Array.from({
-                  length: Math.ceil(
-                    filteredAndSortedDestinations.length / ITEMS_PER_PAGE,
-                  ),
-                }).map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrentPage(i + 1)}
-                    className={`w-10 h-10 rounded-lg font-semibold transition-colors ${
-                      currentPage === i + 1
-                        ? "bg-emerald-600 text-white"
-                        : "border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800"
-                    }`}
-                  >
-                    {i + 1}
-                  </button>
-                ))}
+              <div className="flex items-center justify-center gap-1">
+                {getPaginationItems(currentPage, totalPages).map(
+                  (item, index) =>
+                    item === "ellipsis" ? (
+                      <span
+                        key={`ellipsis-${index}`}
+                        className="flex size-10 items-center justify-center text-slate-500"
+                        aria-hidden="true"
+                      >
+                        …
+                      </span>
+                    ) : (
+                      <button
+                        key={item}
+                        onClick={() => setCurrentPage(item)}
+                        aria-current={currentPage === item ? "page" : undefined}
+                        className={`size-10 rounded-lg font-semibold transition-colors ${
+                          currentPage === item
+                            ? "bg-emerald-600 text-white"
+                            : "border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800"
+                        }`}
+                      >
+                        {item}
+                      </button>
+                    ),
+                )}
               </div>
 
               <button
                 onClick={() =>
-                  setCurrentPage((p) =>
-                    Math.min(
-                      Math.ceil(
-                        filteredAndSortedDestinations.length / ITEMS_PER_PAGE,
-                      ),
-                      p + 1,
-                    ),
-                  )
+                  setCurrentPage((p) => Math.min(totalPages, p + 1))
                 }
-                disabled={
-                  currentPage ===
-                  Math.ceil(
-                    filteredAndSortedDestinations.length / ITEMS_PER_PAGE,
-                  )
-                }
+                disabled={currentPage === totalPages}
                 className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 disabled:opacity-50 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 transition-colors"
               >
                 <ChevronRight className="w-5 h-5" />

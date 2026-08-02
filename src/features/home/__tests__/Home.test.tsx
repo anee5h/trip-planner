@@ -12,7 +12,11 @@ import Home from "../Home";
 vi.mock("@/features/home/hooks/useWeatherContext", () => ({
   useWeatherContext: () => ({
     weatherContext: {
-      tabs: [{ id: "today", label: "Today", isCustom: false }],
+      tabs: [
+        { id: "today", label: "Today", isCustom: false },
+        { id: "tomorrow", label: "Tomorrow", isCustom: false },
+        { id: "this_weekend", label: "This Weekend", isCustom: false },
+      ],
       forecastMap: {},
       minDate: "2026-08-01",
       maxDate: "2026-08-10",
@@ -43,6 +47,7 @@ vi.mock("@/shared/hooks/useTripStore", () => ({
     toggleFavorite: vi.fn(),
     homeStationCoords: { lat: 35.6812, lng: 139.7671 },
     homeStation: "Tokyo Station",
+    canMutateProfile: true,
     isComparing: () => false,
     toggleCompare: vi.fn(),
     compareList: [],
@@ -68,7 +73,13 @@ vi.mock("@/shared/context/AuthModalContext", () => ({
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
-    t: (key: string) => key,
+    t: (key: string) =>
+      ({
+        "home.dateTabs.today": "Today",
+        "home.dateTabs.tomorrow": "Tomorrow",
+        "home.dateTabs.this_weekend": "This Weekend",
+        "home.weatherConditions.sunny": "Sunny",
+      })[key] ?? key,
     i18n: { language: "en" },
   }),
   initReactI18next: {
@@ -111,6 +122,23 @@ describe("Home Integration Tests", () => {
     expect(container.textContent).toContain("home.planner");
     expect(container.textContent).toContain("home.find");
     expect(container.textContent).toContain("home.topMatches");
+    expect(container.textContent).toContain("origin.from");
+    const today = Array.from(container.querySelectorAll("button")).find(
+      (button) => button.textContent?.startsWith("Today"),
+    );
+    expect(today?.textContent).toContain("28°");
+    expect(today?.textContent).toContain("Sunny 28°");
+
+    const subtitle = Array.from(container.querySelectorAll("p")).find(
+      (node) => node.textContent === "home.subtitle",
+    );
+    expect(subtitle?.className).toContain("hidden");
+    expect(subtitle?.className).toContain("sm:block");
+
+    const weekend = Array.from(container.querySelectorAll("button")).find(
+      (node) => node.textContent === "This Weekend",
+    );
+    expect(weekend).toBeUndefined();
   });
 
   it("transitions button state: Find matches -> View matches -> Update matches", () => {
@@ -155,6 +183,22 @@ describe("Home Integration Tests", () => {
         b.textContent?.includes("home.update"),
     );
     expect(primaryBtn?.textContent).toContain("home.update");
+  });
+
+  it("edits the origin in a modal", () => {
+    const container = renderHome();
+    const edit = Array.from(container.querySelectorAll("button")).find(
+      (button) => button.textContent === "origin.edit",
+    );
+
+    act(() => edit?.click());
+    expect(container.querySelector('[role="dialog"]')).not.toBeNull();
+
+    const cancel = Array.from(container.querySelectorAll("button")).find(
+      (button) => button.textContent === "Cancel",
+    );
+    act(() => cancel?.click());
+    expect(container.querySelector('[role="dialog"]')).toBeNull();
   });
 
   it("Surprise Me opens modal without applying draft planner state to top matches", () => {

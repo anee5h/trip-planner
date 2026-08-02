@@ -1,6 +1,7 @@
 import { MapPin } from "lucide-react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useState, useEffect, useMemo } from "react";
+import { OriginLocationDisplay } from "@/shared/components/OriginLocationDisplay";
 
 const PREFECTURES = [
   "Hokkaido",
@@ -85,6 +86,15 @@ export default function StationInput({ embedded = false }: StationInputProps) {
       setIsEditing(true);
     }
   }, [embedded]);
+
+  useEffect(() => {
+    if (embedded || !isEditing) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsEditing(false);
+    };
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [embedded, isEditing]);
 
   useEffect(() => {
     fetch("/data/stations-by-prefecture.json")
@@ -197,122 +207,138 @@ export default function StationInput({ embedded = false }: StationInputProps) {
 
   if (!isEditing && homeStation && !embedded) {
     return (
-      <div className="flex items-center gap-3 bg-white/70 dark:bg-slate-900/70 p-3 rounded-xl w-fit border border-slate-200 dark:border-slate-700 backdrop-blur-md shadow-sm">
-        <MapPin className="w-5 h-5 text-emerald-500 shrink-0" />
-        <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 shrink-0">
-          Base Location:{" "}
-          <span className="text-emerald-600 dark:text-emerald-400 ml-1">
-            {homeStation}
-          </span>
-        </span>
-        <button
-          onClick={() => setIsEditing(true)}
-          disabled={!canMutateProfile}
-          className="bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium text-xs px-3 py-1 rounded-md transition-colors shadow-sm ml-2"
-        >
-          Edit
-        </button>
-      </div>
+      <OriginLocationDisplay
+        origin={homeStation}
+        onEdit={() => setIsEditing(true)}
+        editDisabled={!canMutateProfile}
+      />
     );
   }
 
   return (
-    <div
-      className={`flex flex-col gap-3 p-3.5 rounded-2xl border border-slate-200/80 dark:border-slate-800 ${embedded ? "bg-slate-50/50 dark:bg-slate-900/40 w-full" : "bg-white/70 dark:bg-slate-900/70 w-full max-w-full sm:w-fit backdrop-blur-md shadow-sm"}`}
-    >
-      <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3">
-        <div className="flex items-center gap-2 shrink-0">
-          <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-500 shrink-0" />
-          <span className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300">
-            Select Base Station:
-          </span>
-        </div>
-        <div className="flex bg-slate-200 dark:bg-slate-800 rounded-lg p-0.5 border border-slate-300 dark:border-slate-700 w-full sm:w-auto">
-          <button
-            type="button"
-            onClick={() => setMode("station")}
-            className={`flex-1 sm:flex-initial px-3 py-1 text-xs font-medium rounded-md transition-colors text-center ${mode === "station" ? "bg-white dark:bg-slate-950 text-emerald-600 shadow-sm" : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"}`}
-          >
-            Station
-          </button>
-          <button
-            type="button"
-            onClick={() => setMode("zip")}
-            className={`flex-1 sm:flex-initial px-3 py-1 text-xs font-medium rounded-md transition-colors text-center ${mode === "zip" ? "bg-white dark:bg-slate-950 text-emerald-600 shadow-sm" : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"}`}
-          >
-            ZIP / Postal
-          </button>
-        </div>
-      </div>
-
-      {mode === "station" ? (
-        <div className="flex flex-col sm:flex-row gap-2 items-stretch sm:items-center">
-          <select
-            value={selectedPref}
-            onChange={handlePrefChange}
-            className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-2.5 py-2 text-sm font-semibold focus:outline-none focus:border-emerald-500 w-full sm:w-36"
-          >
-            {PREFECTURES.map((p) => (
-              <option key={p} value={p}>
-                {p}
-              </option>
-            ))}
-          </select>
-
-          <select
-            value={selectedStation}
-            onChange={handleStationChange}
-            className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-2.5 py-2 text-sm font-semibold focus:outline-none focus:border-emerald-500 w-full sm:w-64"
-            disabled={stations.length === 0}
-          >
-            <option value="">-- Select Station --</option>
-            {stations.map((st) => (
-              <option key={st.name} value={st.name}>
-                {st.name}
-              </option>
-            ))}
-          </select>
-        </div>
-      ) : (
-        <div className="flex flex-col gap-1">
-          <input
-            type="text"
-            placeholder="e.g. 100-0001"
-            value={zipCode}
-            onChange={handleZipChange}
-            onKeyDown={(e) => e.key === "Enter" && handleSet()}
-            className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-sm font-semibold focus:outline-none focus:border-emerald-500 w-full sm:w-64"
-          />
-          {zipError && <span className="text-xs text-red-500">{zipError}</span>}
-        </div>
-      )}
-      <div className="flex gap-2">
+    <>
+      {!embedded && (
         <button
           type="button"
-          onClick={handleSet}
-          disabled={
-            !canMutateProfile ||
-            (mode === "station" && !selectedStation) ||
-            (mode === "zip" && !zipCode) ||
-            isFetchingZip
+          aria-label="Close location editor"
+          className="fixed inset-0 z-40 bg-slate-950/60 backdrop-blur-sm"
+          onClick={() => setIsEditing(false)}
+        />
+      )}
+      <div
+        className={
+          embedded
+            ? "flex w-full flex-col gap-3 rounded-2xl border border-slate-200/80 bg-slate-50/50 p-3.5 dark:border-slate-800 dark:bg-slate-900/40"
+            : "fixed inset-0 z-50 flex items-end justify-center p-0 pointer-events-none sm:items-center sm:p-4"
+        }
+      >
+        <div
+          role={!embedded ? "dialog" : undefined}
+          aria-modal={!embedded ? "true" : undefined}
+          aria-label={!embedded ? "Change origin location" : undefined}
+          className={
+            embedded
+              ? "contents"
+              : "pointer-events-auto flex w-full max-w-lg flex-col gap-3 rounded-t-2xl border border-slate-200 bg-white p-4 shadow-2xl dark:border-slate-800 dark:bg-slate-950 sm:rounded-2xl"
           }
-          className="bg-emerald-500 hover:bg-emerald-600 text-white font-medium text-xs px-4 py-2 rounded-lg transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed flex-1 flex items-center justify-center gap-2"
         >
-          {isFetchingZip && (
-            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+          <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3">
+            <div className="flex items-center gap-2 shrink-0">
+              <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-500 shrink-0" />
+              <span className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300">
+                Select Base Station:
+              </span>
+            </div>
+            <div className="flex bg-slate-200 dark:bg-slate-800 rounded-lg p-0.5 border border-slate-300 dark:border-slate-700 w-full sm:w-auto">
+              <button
+                type="button"
+                onClick={() => setMode("station")}
+                className={`flex-1 sm:flex-initial px-3 py-1 text-xs font-medium rounded-md transition-colors text-center ${mode === "station" ? "bg-white dark:bg-slate-950 text-emerald-600 shadow-sm" : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"}`}
+              >
+                Station
+              </button>
+              <button
+                type="button"
+                onClick={() => setMode("zip")}
+                className={`flex-1 sm:flex-initial px-3 py-1 text-xs font-medium rounded-md transition-colors text-center ${mode === "zip" ? "bg-white dark:bg-slate-950 text-emerald-600 shadow-sm" : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"}`}
+              >
+                ZIP / Postal
+              </button>
+            </div>
+          </div>
+
+          {mode === "station" ? (
+            <div className="flex flex-col sm:flex-row gap-2 items-stretch sm:items-center">
+              <select
+                value={selectedPref}
+                onChange={handlePrefChange}
+                className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-2.5 py-2 text-sm font-semibold focus:outline-none focus:border-emerald-500 w-full sm:w-36"
+              >
+                {PREFECTURES.map((p) => (
+                  <option key={p} value={p}>
+                    {p}
+                  </option>
+                ))}
+              </select>
+
+              <select
+                value={selectedStation}
+                onChange={handleStationChange}
+                className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-2.5 py-2 text-sm font-semibold focus:outline-none focus:border-emerald-500 w-full sm:w-64"
+                disabled={stations.length === 0}
+              >
+                <option value="">-- Select Station --</option>
+                {stations.map((st) => (
+                  <option key={st.name} value={st.name}>
+                    {st.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          ) : (
+            <div className="flex flex-col gap-1">
+              <input
+                type="text"
+                placeholder="e.g. 100-0001"
+                value={zipCode}
+                onChange={handleZipChange}
+                onKeyDown={(e) => e.key === "Enter" && handleSet()}
+                className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-sm font-semibold focus:outline-none focus:border-emerald-500 w-full sm:w-64"
+              />
+              {zipError && (
+                <span className="text-xs text-red-500">{zipError}</span>
+              )}
+            </div>
           )}
-          {isFetchingZip ? "Locating..." : "Set Location"}
-        </button>
-        {homeStation && !embedded && (
-          <button
-            type="button"
-            onClick={() => setIsEditing(false)}
-            className="bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium text-xs px-4 py-2 rounded-lg transition-colors shadow-sm"
-          >
-            Cancel
-          </button>
-        )}
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={handleSet}
+              disabled={
+                !canMutateProfile ||
+                (mode === "station" && !selectedStation) ||
+                (mode === "zip" && !zipCode) ||
+                isFetchingZip
+              }
+              className="bg-emerald-500 hover:bg-emerald-600 text-white font-medium text-xs px-4 py-2 rounded-lg transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed flex-1 flex items-center justify-center gap-2"
+            >
+              {isFetchingZip && (
+                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              )}
+              {isFetchingZip ? "Locating..." : "Set Location"}
+            </button>
+            {homeStation && !embedded && (
+              <button
+                type="button"
+                onClick={() => setIsEditing(false)}
+                className="bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium text-xs px-4 py-2 rounded-lg transition-colors shadow-sm"
+              >
+                Cancel
+              </button>
+            )}
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
