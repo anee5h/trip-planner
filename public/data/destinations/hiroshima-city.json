@@ -73,7 +73,15 @@
     }
   ],
   "relationships": {
-    "featuredDestinationIds": ["miyajima-itsukushima"],
+    "featuredDestinationIds": [
+      "hiroshima-peace-memorial",
+      "hiroshima-castle",
+      "shukkeien",
+      "hiroshima-museum-art",
+      "mitaki-dera",
+      "orizuru-tower",
+      "okonomimura"
+    ],
     "nearbyDestinationIds": [
       "onomichi-city",
       "hatsukaichi-city",

@@ -1,0 +1,141 @@
+{
+  "id": "ryogoku-kokugikan-sumo-museum",
+  "name": "Ryogoku Kokugikan and Sumo Museum",
+  "nameJa": "両国国技館・相撲博物館",
+  "aliases": [],
+  "content": {
+    "en": {
+      "name": "Ryogoku Kokugikan and Sumo Museum",
+      "description": "Ryogoku Kokugikan and Sumo Museum is a distinct visitor stop within Sumida City, selected to support a varied local itinerary.",
+      "highlights": ["Museum", "Culture", "Sports"]
+    },
+    "ja": {
+      "name": "両国国技館・相撲博物館",
+      "description": "両国国技館・相撲博物館はSumida City内の観光スポットです。訪問前に最新の営業情報をご確認ください。",
+      "highlights": ["Museum", "Culture", "Sports"]
+    }
+  },
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "sumida-city"
+  },
+  "officialWebsiteRequirement": "recommended",
+  "categories": ["Museum", "Culture", "Sports"],
+  "tags": [
+    "Museum",
+    "Culture",
+    "Sports",
+    "Sumida City",
+    "destination-hub-expansion"
+  ],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Ryogoku_kokugikan_2005_sep.jpg/1920px-Ryogoku_kokugikan_2005_sep.jpg",
+  "coordinates": {
+    "lat": 35.6969,
+    "lng": 139.7933
+  },
+  "description": "Ryogoku Kokugikan and Sumo Museum is a distinct visitor stop within Sumida City, selected to support a varied local itinerary.",
+  "highlights": ["Museum", "Culture", "Sports"],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1400,
+    "tickets": 0,
+    "food": 1400,
+    "cafe": 1200
+  },
+  "transportOptions": {
+    "train": 205
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 2,
+    "rainFriendly": 2,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 7.5,
+    "couple": 7.6,
+    "summer": 7.7,
+    "winter": 7.8,
+    "rain": 7.9,
+    "food": 8,
+    "photography": 8.1,
+    "relaxation": 8.2,
+    "value": 8.3,
+    "uniqueness": 8.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9.4,
+    "summer": 7.7,
+    "autumn": 9.4,
+    "winter": 9.3
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "Usually not required; check current visitor guidance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "schemaVersion": 2,
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-02",
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://visit-sumida.jp/en/",
+        "title": "Sumida City official visitor guide",
+        "accessedAt": "2026-08-02"
+      }
+    ],
+    "checkedAt": "2026-08-02",
+    "freshness": "current",
+    "changeSummary": "Destination hub expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-02",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added itinerary-ready hub POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "officialWebsite": "https://visit-sumida.jp/en/",
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Ryogoku_kokugikan_2005_sep.jpg/1920px-Ryogoku_kokugikan_2005_sep.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Wikimedia Commons contributor",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ryogoku_kokugikan_2005_sep.jpg"
+  }
+}

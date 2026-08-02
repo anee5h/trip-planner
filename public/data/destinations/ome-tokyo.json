@@ -63,7 +63,15 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {},
+  "relationships": {
+    "featuredDestinationIds": [
+      "tokyo-mt-mitake",
+      "musashi-mitake-shrine",
+      "gyokudo-art-museum",
+      "ome-railway-park",
+      "ome-retro-town"
+    ]
+  },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Mitake_Shrine.jpg/1280px-Mitake_Shrine.jpg",
   "budgetBreakdown": {
     "transport": 3000,
@@ -77,13 +85,13 @@
     "walkingIntensity": 3
   },
   "walkingIntensity": "low",
-  "role": "standalone",
-  "placeType": "destination",
+  "role": "hub",
+  "placeType": "hub",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
     "min": 7,
     "max": 9
   },
-  "officialWebsite": "https://www.omekanko.gr.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "kind": "city"
 }

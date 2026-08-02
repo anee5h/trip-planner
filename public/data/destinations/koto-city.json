@@ -67,7 +67,15 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["teamlab-planets", "toyosu-market", "miraikan"],
+    "featuredDestinationIds": [
+      "joypolis",
+      "miraikan",
+      "teamlab-planets",
+      "toyosu-market",
+      "kiyosumi-gardens",
+      "museum-contemporary-art-tokyo",
+      "fukagawa-edo-museum"
+    ],
     "nearbyDestinationIds": [
       "shibuya-city",
       "shinjuku-city",

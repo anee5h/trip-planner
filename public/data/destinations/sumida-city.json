@@ -67,7 +67,13 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["tokyo-skytree-sumida"],
+    "featuredDestinationIds": [
+      "tokyo-skytree-sumida",
+      "sumida-hokusai-museum",
+      "ryogoku-kokugikan-sumo-museum",
+      "mukojima-hyakkaen",
+      "sumida-river-walk"
+    ],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },
   "budgetBreakdown": {

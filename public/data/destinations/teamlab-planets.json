@@ -4,7 +4,7 @@
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Art", "Theme Park", "Indoor"],
-  "heroImage": "https://images.unsplash.com/photo-1593073862407-a3ce22748763?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVhbWxhYiUyMHBsYW5ldHMlMjB0b2t5b3xlbnwwfHwwfHx8MA%3D%3D",
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Photos_at_teamlab_planets_tokyo.jpg?width=1600",
   "totalTripHours": 4,
   "budgetMin": 11600,
   "budgetRecommended": 15600,
@@ -47,7 +47,13 @@
     "rainFriendly": 10,
     "walkingIntensity": 3
   },
-  "image": "https://images.unsplash.com/photo-1593073862407-a3ce22748763?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVhbWxhYiUyMHBsYW5ldHMlMjB0b2t5b3xlbnwwfHwwfHx8MA%3D%3D",
+  "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Photos_at_teamlab_planets_tokyo.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Sasa0403",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Photos_at_teamlab_planets_tokyo.jpg"
+  },
   "transportOptions": {
     "train": 50
   },
@@ -83,6 +89,6 @@
     "min": 3,
     "max": 5
   },
-  "officialWebsite": "https://planets.teamlab.art/tokyo/jp/",
+  "officialWebsite": "https://planets.teamlab.art/tokyo/en/",
   "businessHours": "09:00 - 22:00 (Last admission 21:00)"
 }

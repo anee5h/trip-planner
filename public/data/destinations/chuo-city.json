@@ -67,7 +67,15 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["ginza-urban"],
+    "featuredDestinationIds": [
+      "ginza-urban",
+      "tsukiji-outer-market",
+      "hamarikyu-gardens",
+      "nihonbashi",
+      "kabukiza",
+      "seiko-museum-ginza",
+      "ginza-itoya"
+    ],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },
   "budgetBreakdown": {

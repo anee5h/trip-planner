@@ -77,17 +77,24 @@
   "relationships": {
     "featuredDestinationIds": [
       "abeno-harukas-300-osaka",
-      "osaka-castle",
-      "tsutenkaku",
-      "osaka-museum-of-housing-and-living",
-      "tennoji-park",
-      "universal-studios-japan",
       "dotonbori",
       "kuromon-market",
-      "umeda-sky-building",
-      "shinsekai",
+      "osaka-aquarium-kaiyukan",
+      "osaka-castle",
+      "osaka-castle-park",
+      "osaka-museum-of-housing-and-living",
       "osaka-station-city",
-      "shinsaibashi"
+      "shinsaibashi",
+      "shinsekai",
+      "tempozan-ferris-wheel",
+      "tennoji-park",
+      "the-national-museum-of-art-osaka",
+      "tsutenkaku",
+      "umeda-sky-building",
+      "universal-studios-japan",
+      "shitennoji",
+      "nakanoshima-museum-art-osaka",
+      "osaka-central-public-hall"
     ],
     "nearbyDestinationIds": ["kyoto-city", "uji-city", "miyazu-city"],
     "relatedDestinationIds": ["fukuoka-city"]
