@@ -77,16 +77,10 @@ interface TripStoreContextType {
   ) => void;
 
   destinationRatings: Record<string, "up" | "down">;
-  setDestinationRatings: (
-    val:
-      | Record<string, "up" | "down">
-      | ((
-          prev: Record<string, "up" | "down">,
-        ) => Record<string, "up" | "down">),
-  ) => void;
   setDestinationRating: (id: string, rating: "up" | "down" | null) => void;
   getDestinationRating: (id: string) => "up" | "down" | null;
 
+  canMutateProfile: boolean;
   profileSyncStatus: ProfileSyncStatus;
   tripSyncStatus: TripSyncStatus;
   retryProfileHydration: () => void;
@@ -116,7 +110,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     "trip-planner-compare",
     [],
   );
-  const [homeStation, setHomeStation] = useState<string>("Tokyo Station");
+  const [homeStation, setHomeStationState] = useState<string>("Tokyo Station");
   const [homeStationCoords, setHomeStationCoords] = useState<{
     lat: number;
     lng: number;
@@ -125,21 +119,9 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
   const [lastSyncedDate, setLastSyncedDate] = useState<string | null>(null);
 
   const [trips, setTrips] = useState<Trip[]>([]);
-  const [destinationRatings, setDestinationRatings] = useState<
+  const [destinationRatings, setDestinationRatingsState] = useState<
     Record<string, "up" | "down">
   >({});
-
-  const setDestinationRating = (id: string, rating: "up" | "down" | null) => {
-    setDestinationRatings((prev) => {
-      const next = { ...prev };
-      if (rating === null) {
-        delete next[id];
-      } else {
-        next[id] = rating;
-      }
-      return next;
-    });
-  };
 
   const getDestinationRating = (id: string): "up" | "down" | null =>
     destinationRatings[id] ?? null;
@@ -165,13 +147,35 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     compareList,
     setCompareList,
     homeStation,
-    setHomeStation,
+    setHomeStation: setHomeStationState,
     setHomeStationCoords,
     trips,
     setTrips,
     destinationRatings,
-    setDestinationRatings,
+    setDestinationRatings: setDestinationRatingsState,
   });
+
+  const canMutateProfile =
+    !user || profileSyncStatus === "ready" || profileSyncStatus === "saving";
+
+  const setHomeStation = (station: string) => {
+    if (!canMutateProfile) return;
+    setHomeStationState(station);
+  };
+
+  const setDestinationRating = (id: string, rating: "up" | "down" | null) => {
+    if (!canMutateProfile) return;
+
+    setDestinationRatingsState((prev) => {
+      const next = { ...prev };
+      if (rating === null) {
+        delete next[id];
+      } else {
+        next[id] = rating;
+      }
+      return next;
+    });
+  };
 
   // Retrospective self-healing migration: Ensure existing visited child records cascade to parent hubs & visitedPrefectures
   useEffect(() => {
@@ -281,6 +285,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
   }, [visited, visitedDates]);
 
   const toggleFavorite = (id: string) => {
+    if (!canMutateProfile) return;
     setFavorites((prev) =>
       prev.includes(id) ? prev.filter((fId) => fId !== id) : [...prev, id],
     );
@@ -289,6 +294,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
   const isFavorite = (id: string) => favorites.includes(id);
 
   const clearAllVisits = (id: string) => {
+    if (!canMutateProfile) return;
     const remainingVisitedIds = visited.filter((vId) => vId !== id);
     setVisited(remainingVisitedIds);
 
@@ -316,6 +322,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
   };
 
   const toggleVisited = (id: string, date?: string) => {
+    if (!canMutateProfile) return;
     if (visited.includes(id)) {
       clearAllVisits(id);
     } else {
@@ -348,6 +355,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
   };
 
   const addVisitedDate = (id: string, date: string) => {
+    if (!canMutateProfile) return;
     const dateToAdd = date || new Date().toISOString().split("T")[0];
 
     // Ensure destination is in visited list
@@ -409,6 +417,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
   };
 
   const removeVisitedDate = (id: string, dateStr: string) => {
+    if (!canMutateProfile) return;
     const existing = getVisitedDates(id);
     const nextDates = existing.filter((d) => d !== dateStr);
 
@@ -565,9 +574,9 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
         updateTripStop,
         reorderTripStops,
         destinationRatings,
-        setDestinationRatings,
         setDestinationRating,
         getDestinationRating,
+        canMutateProfile,
         profileSyncStatus,
         tripSyncStatus,
         retryProfileHydration,

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AlertTriangle, Loader2 } from "lucide-react";
 import type { PassportTab } from "./types";
 import { PassportNav } from "./components/PassportNav";
 import { PassportOverview } from "./components/PassportOverview";
@@ -9,11 +10,21 @@ import { PassportBadges } from "./components/PassportBadges";
 import { PassportStatistics } from "./components/PassportStatistics";
 
 import { PageHeader } from "@/shared/components/ui/PageHeader";
+import { Button } from "@/shared/components/ui/button";
+import { useAuth } from "@/shared/hooks/useAuth";
+import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useTranslation } from "react-i18next";
 
 export default function Passport() {
   const { t } = useTranslation();
+  const { user, loading: authLoading } = useAuth();
+  const { profileSyncStatus, retryProfileHydration } = useTripStore();
   const [activeTab, setActiveTab] = useState<PassportTab>("overview");
+  const isPassportLoading =
+    authLoading ||
+    (Boolean(user) &&
+      (profileSyncStatus === "idle" || profileSyncStatus === "loading"));
+  const hasHydrationError = Boolean(user) && profileSyncStatus === "error";
 
   return (
     <div className="container mx-auto max-w-7xl space-y-5 px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
@@ -23,20 +34,47 @@ export default function Passport() {
         description={t("ui.travelSummary")}
       />
 
-      {/* Taller Sticky Sub-Nav */}
-      <PassportNav activeTab={activeTab} onSelectTab={setActiveTab} />
+      {isPassportLoading ? (
+        <div
+          className="flex min-h-64 flex-col items-center justify-center gap-3 text-center"
+          role="status"
+          aria-live="polite"
+        >
+          <Loader2 className="size-6 animate-spin text-emerald-600" />
+          <p className="font-semibold text-slate-700 dark:text-slate-200">
+            {t("ui.passportLoading")}
+          </p>
+          <p className="text-sm text-slate-500 dark:text-slate-400">
+            {t("ui.passportLoadingHint")}
+          </p>
+        </div>
+      ) : hasHydrationError ? (
+        <div
+          className="flex min-h-64 flex-col items-center justify-center gap-3 text-center"
+          role="alert"
+        >
+          <AlertTriangle className="size-6 text-amber-500" />
+          <p className="font-semibold text-slate-700 dark:text-slate-200">
+            {t("ui.passportLoadError")}
+          </p>
+          <Button onClick={retryProfileHydration}>{t("ui.retry")}</Button>
+        </div>
+      ) : (
+        <>
+          <PassportNav activeTab={activeTab} onSelectTab={setActiveTab} />
 
-      {/* Active Section Content */}
-      <main className="pt-4">
-        {activeTab === "overview" && (
-          <PassportOverview onSelectTab={setActiveTab} />
-        )}
-        {activeTab === "japan-map" && <PassportJapanMap />}
-        {activeTab === "timeline" && <PassportTimeline />}
-        {activeTab === "achievements" && <PassportAchievements />}
-        {activeTab === "badges" && <PassportBadges />}
-        {activeTab === "statistics" && <PassportStatistics />}
-      </main>
+          <main className="pt-4">
+            {activeTab === "overview" && (
+              <PassportOverview onSelectTab={setActiveTab} />
+            )}
+            {activeTab === "japan-map" && <PassportJapanMap />}
+            {activeTab === "timeline" && <PassportTimeline />}
+            {activeTab === "achievements" && <PassportAchievements />}
+            {activeTab === "badges" && <PassportBadges />}
+            {activeTab === "statistics" && <PassportStatistics />}
+          </main>
+        </>
+      )}
     </div>
   );
 }
