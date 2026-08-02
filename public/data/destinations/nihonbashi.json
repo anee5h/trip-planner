@@ -32,7 +32,7 @@
     "Chuo City",
     "destination-hub-expansion"
   ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Tokyo_American_Club_in_Nihonbashi_8.jpg/1920px-Tokyo_American_Club_in_Nihonbashi_8.jpg",
   "coordinates": {
     "lat": 35.6838,
     "lng": 139.7744
@@ -130,5 +130,12 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Tokyo_American_Club_in_Nihonbashi_8.jpg/1920px-Tokyo_American_Club_in_Nihonbashi_8.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Syced",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokyo_American_Club_in_Nihonbashi_8.jpg"
+  }
 }

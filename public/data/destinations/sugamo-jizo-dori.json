@@ -32,7 +32,7 @@
     "Toshima City",
     "destination-hub-expansion"
   ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg/1280px-Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg",
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sugamo_Jizodori_Sh%C5%8Dtengai.jpg?width=1600",
   "coordinates": {
     "lat": 35.7355,
     "lng": 139.7364
@@ -130,5 +130,12 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.gotokyo.org/en/destinations/western-tokyo/ikebukuro/index.html",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sugamo_Jizodori_Sh%C5%8Dtengai.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Charlie fong",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sugamo_Jizodori_Sh%C5%8Dtengai.jpg"
+  }
 }

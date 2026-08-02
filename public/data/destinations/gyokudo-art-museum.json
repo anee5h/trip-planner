@@ -26,7 +26,7 @@
   "officialWebsiteRequirement": "recommended",
   "categories": ["Museum", "Art", "Nature"],
   "tags": ["Museum", "Art", "Nature", "Ome", "destination-hub-expansion"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Mitake_Shrine.jpg/1280px-Mitake_Shrine.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Gyokudo_Art_Museum.jpg/1920px-Gyokudo_Art_Museum.jpg",
   "coordinates": {
     "lat": 35.8036,
     "lng": 139.1829
@@ -124,5 +124,12 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.omekanko.gr.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Gyokudo_Art_Museum.jpg/1920px-Gyokudo_Art_Museum.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "Wiiii",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gyokudo_Art_Museum.jpg"
+  }
 }

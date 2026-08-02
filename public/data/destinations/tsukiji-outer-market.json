@@ -32,7 +32,7 @@
     "Chuo City",
     "destination-hub-expansion"
   ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Tsukiji_Outer_Market_-02.jpg/1920px-Tsukiji_Outer_Market_-02.jpg",
   "coordinates": {
     "lat": 35.6655,
     "lng": 139.7707
@@ -130,5 +130,12 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Tsukiji_Outer_Market_-02.jpg/1920px-Tsukiji_Outer_Market_-02.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Aimaimyi",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tsukiji_Outer_Market_-02.jpg"
+  }
 }

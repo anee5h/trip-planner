@@ -32,7 +32,7 @@
     "Koto City",
     "destination-hub-expansion"
   ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Tomioka_Hachiman-gu_201708.jpg/1280px-Tomioka_Hachiman-gu_201708.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Kiyosumi-4.JPG/1920px-Kiyosumi-4.JPG",
   "coordinates": {
     "lat": 35.6817,
     "lng": 139.7974
@@ -130,5 +130,12 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.gotokyo.org/en/destinations/eastern-tokyo/kiyosumi-shirakawa/index.html",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Kiyosumi-4.JPG/1920px-Kiyosumi-4.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Irina Gelbukh",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kiyosumi-4.JPG"
+  }
 }

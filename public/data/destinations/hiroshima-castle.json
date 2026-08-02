@@ -32,7 +32,7 @@
     "Hiroshima City",
     "destination-hub-expansion"
   ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg/1280px-Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Ninomaru%2C_Hiroshima_Castle%2C_West_view_20190417_1.jpg/1920px-Ninomaru%2C_Hiroshima_Castle%2C_West_view_20190417_1.jpg",
   "coordinates": {
     "lat": 34.4028,
     "lng": 132.4592
@@ -129,6 +129,13 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "officialWebsite": "https://dive-hiroshima.com/en/",
-  "businessHours": "Open access"
+  "officialWebsite": "https://www.rijo-castle.jp/rijo/",
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Ninomaru%2C_Hiroshima_Castle%2C_West_view_20190417_1.jpg/1920px-Ninomaru%2C_Hiroshima_Castle%2C_West_view_20190417_1.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "DXR",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ninomaru,_Hiroshima_Castle,_West_view_20190417_1.jpg"
+  }
 }

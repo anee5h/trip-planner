@@ -32,7 +32,7 @@
     "Hiroshima City",
     "destination-hub-expansion"
   ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg/1280px-Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/14/Hiroshima_Shukkei-en_Pond.jpg",
   "coordinates": {
     "lat": 34.3993,
     "lng": 132.4665
@@ -129,6 +129,13 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "officialWebsite": "https://dive-hiroshima.com/en/",
-  "businessHours": "Open access"
+  "officialWebsite": "https://shukkeien.jp/en/",
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/1/14/Hiroshima_Shukkei-en_Pond.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "No machine-readable author provided. Fg2 assumed (based on copyright claims).",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hiroshima_Shukkei-en_Pond.jpg"
+  }
 }

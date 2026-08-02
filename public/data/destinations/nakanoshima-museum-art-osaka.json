@@ -32,7 +32,7 @@
     "Osaka City",
     "destination-hub-expansion"
   ],
-  "heroImage": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Around_the_Campidoglio_by_Fujishima_Takeji_%28Osaka_City_Museum_of_Modern_Art%291.jpg",
   "coordinates": {
     "lat": 34.6914,
     "lng": 135.4899
@@ -129,6 +129,13 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "officialWebsite": "https://osaka-info.jp/en/",
-  "businessHours": "Open access"
+  "officialWebsite": "https://nakka-art.jp/en/",
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Around_the_Campidoglio_by_Fujishima_Takeji_%28Osaka_City_Museum_of_Modern_Art%291.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Fujishima Takeji",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Around_the_Campidoglio_by_Fujishima_Takeji_(Osaka_City_Museum_of_Modern_Art)1.jpg"
+  }
 }

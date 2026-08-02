@@ -52363,7 +52363,7 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://planets.teamlab.art/tokyo/jp/",
+    "officialWebsite": "https://planets.teamlab.art/tokyo/en/",
     "businessHours": "09:00 - 22:00 (Last admission 21:00)"
   },
   {
@@ -61650,7 +61650,7 @@
       "Shibuya City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg/1920px-Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg",
     "coordinates": {
       "lat": 35.6595,
       "lng": 139.7005
@@ -61748,7 +61748,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg/1920px-Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "attribution": "Benh LIEU SONG (Flickr)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg"
+    }
   },
   {
     "id": "meiji-jingu",
@@ -61784,7 +61791,7 @@
       "Shibuya City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200",
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meiji_Jingu_Shrine_Tokyo_Japan.jpg?width=1600",
     "coordinates": {
       "lat": 35.6764,
       "lng": 139.6993
@@ -61882,7 +61889,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meiji_Jingu_Shrine_Tokyo_Japan.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "MediaByPanda",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Meiji_Jingu_Shrine_Tokyo_Japan.jpg"
+    }
   },
   {
     "id": "yoyogi-park",
@@ -61918,7 +61932,7 @@
       "Shibuya City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Fountain_Yoyogipark.JPG/1920px-Fountain_Yoyogipark.JPG",
     "coordinates": {
       "lat": 35.6717,
       "lng": 139.6949
@@ -62016,7 +62030,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Fountain_Yoyogipark.JPG/1920px-Fountain_Yoyogipark.JPG",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Shinjiro",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fountain_Yoyogipark.JPG"
+    }
   },
   {
     "id": "harajuku-takeshita-street",
@@ -62052,7 +62073,7 @@
       "Shibuya City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Takeshita_Street_in_December_2018.jpg/1920px-Takeshita_Street_in_December_2018.jpg",
     "coordinates": {
       "lat": 35.6716,
       "lng": 139.7047
@@ -62150,7 +62171,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Takeshita_Street_in_December_2018.jpg/1920px-Takeshita_Street_in_December_2018.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Intforce",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Takeshita_Street_in_December_2018.jpg"
+    }
   },
   {
     "id": "tsukiji-outer-market",
@@ -62186,7 +62214,7 @@
       "Chuo City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Tsukiji_Outer_Market_-02.jpg/1920px-Tsukiji_Outer_Market_-02.jpg",
     "coordinates": {
       "lat": 35.6655,
       "lng": 139.7707
@@ -62284,7 +62312,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Tsukiji_Outer_Market_-02.jpg/1920px-Tsukiji_Outer_Market_-02.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Aimaimyi",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tsukiji_Outer_Market_-02.jpg"
+    }
   },
   {
     "id": "hamarikyu-gardens",
@@ -62320,7 +62355,7 @@
       "Chuo City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Traditional_style_toilet_at_Hamarikyu_Gardens_in_Tokyo%2C_Japan_%2814063687677%29.jpg/1920px-Traditional_style_toilet_at_Hamarikyu_Gardens_in_Tokyo%2C_Japan_%2814063687677%29.jpg",
     "coordinates": {
       "lat": 35.6597,
       "lng": 139.7635
@@ -62418,7 +62453,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Traditional_style_toilet_at_Hamarikyu_Gardens_in_Tokyo%2C_Japan_%2814063687677%29.jpg/1920px-Traditional_style_toilet_at_Hamarikyu_Gardens_in_Tokyo%2C_Japan_%2814063687677%29.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "Steven-L-Johnson from Philadelphia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Traditional_style_toilet_at_Hamarikyu_Gardens_in_Tokyo,_Japan_(14063687677).jpg"
+    }
   },
   {
     "id": "nihonbashi",
@@ -62454,7 +62496,7 @@
       "Chuo City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Tokyo_American_Club_in_Nihonbashi_8.jpg/1920px-Tokyo_American_Club_in_Nihonbashi_8.jpg",
     "coordinates": {
       "lat": 35.6838,
       "lng": 139.7744
@@ -62552,7 +62594,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Tokyo_American_Club_in_Nihonbashi_8.jpg/1920px-Tokyo_American_Club_in_Nihonbashi_8.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "Syced",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokyo_American_Club_in_Nihonbashi_8.jpg"
+    }
   },
   {
     "id": "kabukiza",
@@ -62588,7 +62637,7 @@
       "Chuo City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg",
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ginza_Kabukiza_2013_0428.jpg?width=1600",
     "coordinates": {
       "lat": 35.6695,
       "lng": 139.7678
@@ -62686,7 +62735,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ginza_Kabukiza_2013_0428.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "Tak1701d",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ginza_Kabukiza_2013_0428.jpg"
+    }
   },
   {
     "id": "seiko-museum-ginza",
@@ -62722,7 +62778,7 @@
       "Chuo City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg",
+    "heroImage": "https://museum.seiko.co.jp/common/img/ogp.jpg",
     "coordinates": {
       "lat": 35.6712,
       "lng": 139.7645
@@ -62819,8 +62875,15 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
-    "businessHours": "Open access"
+    "officialWebsite": "https://museum.seiko.co.jp/en/",
+    "businessHours": "Open access",
+    "image": "https://museum.seiko.co.jp/common/img/ogp.jpg",
+    "imageMetadata": {
+      "source": "Official venue website",
+      "license": "Official website image; all rights reserved",
+      "attribution": "Seiko Museum Ginza",
+      "sourceUrl": "https://museum.seiko.co.jp/en/"
+    }
   },
   {
     "id": "ginza-itoya",
@@ -62856,7 +62919,7 @@
       "Chuo City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Stationer_by_KuniakiIGARASHI_in_Ginza%2C_Tokyo.jpg",
     "coordinates": {
       "lat": 35.6721,
       "lng": 139.7672
@@ -62953,8 +63016,15 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
-    "businessHours": "Open access"
+    "officialWebsite": "https://www.ito-ya.co.jp/",
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Stationer_by_KuniakiIGARASHI_in_Ginza%2C_Tokyo.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "attribution": "KuniakiIGARASHI",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stationer_by_KuniakiIGARASHI_in_Ginza,_Tokyo.jpg"
+    }
   },
   {
     "id": "kiyosumi-gardens",
@@ -62990,7 +63060,7 @@
       "Koto City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Tomioka_Hachiman-gu_201708.jpg/1280px-Tomioka_Hachiman-gu_201708.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Kiyosumi-4.JPG/1920px-Kiyosumi-4.JPG",
     "coordinates": {
       "lat": 35.6817,
       "lng": 139.7974
@@ -63088,7 +63158,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.gotokyo.org/en/destinations/eastern-tokyo/kiyosumi-shirakawa/index.html",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Kiyosumi-4.JPG/1920px-Kiyosumi-4.JPG",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Irina Gelbukh",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kiyosumi-4.JPG"
+    }
   },
   {
     "id": "museum-contemporary-art-tokyo",
@@ -63124,7 +63201,7 @@
       "Koto City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Tomioka_Hachiman-gu_201708.jpg/1280px-Tomioka_Hachiman-gu_201708.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Museum_of_Contemporary_Art_Tokyo_20071004.jpg/1920px-Museum_of_Contemporary_Art_Tokyo_20071004.jpg",
     "coordinates": {
       "lat": 35.6797,
       "lng": 139.8082
@@ -63222,7 +63299,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.gotokyo.org/en/destinations/eastern-tokyo/kiyosumi-shirakawa/index.html",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Museum_of_Contemporary_Art_Tokyo_20071004.jpg/1920px-Museum_of_Contemporary_Art_Tokyo_20071004.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "Uploader; Vantey",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Museum_of_Contemporary_Art_Tokyo_20071004.jpg"
+    }
   },
   {
     "id": "fukagawa-edo-museum",
@@ -63258,7 +63342,7 @@
       "Koto City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Tomioka_Hachiman-gu_201708.jpg/1280px-Tomioka_Hachiman-gu_201708.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Fukagawa_Edo_Museum_on_the_30th_of_october_2010_-_01.jpg/1920px-Fukagawa_Edo_Museum_on_the_30th_of_october_2010_-_01.jpg",
     "coordinates": {
       "lat": 35.6814,
       "lng": 139.8002
@@ -63356,7 +63440,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.gotokyo.org/en/destinations/eastern-tokyo/kiyosumi-shirakawa/index.html",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Fukagawa_Edo_Museum_on_the_30th_of_october_2010_-_01.jpg/1920px-Fukagawa_Edo_Museum_on_the_30th_of_october_2010_-_01.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Lionel Allorge",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fukagawa_Edo_Museum_on_the_30th_of_october_2010_-_01.jpg"
+    }
   },
   {
     "id": "sumida-hokusai-museum",
@@ -63392,7 +63483,7 @@
       "Sumida City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg/1280px-Tokyo_Skytree_2014_%E2%85%A2.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Hokusai-museum.jpg/1920px-Hokusai-museum.jpg",
     "coordinates": {
       "lat": 35.6962,
       "lng": 139.8005
@@ -63490,7 +63581,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://visit-sumida.jp/en/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Hokusai-museum.jpg/1920px-Hokusai-museum.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "D-s-yama",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hokusai-museum.jpg"
+    }
   },
   {
     "id": "ryogoku-kokugikan-sumo-museum",
@@ -63526,7 +63624,7 @@
       "Sumida City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg/1280px-Tokyo_Skytree_2014_%E2%85%A2.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Ryogoku_kokugikan_2005_sep.jpg/1920px-Ryogoku_kokugikan_2005_sep.jpg",
     "coordinates": {
       "lat": 35.6969,
       "lng": 139.7933
@@ -63624,7 +63722,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://visit-sumida.jp/en/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Ryogoku_kokugikan_2005_sep.jpg/1920px-Ryogoku_kokugikan_2005_sep.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Wikimedia Commons contributor",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ryogoku_kokugikan_2005_sep.jpg"
+    }
   },
   {
     "id": "mukojima-hyakkaen",
@@ -63660,7 +63765,7 @@
       "Sumida City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg/1280px-Tokyo_Skytree_2014_%E2%85%A2.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/In_Mukojima-Hyakkaen_Garden.jpg/1920px-In_Mukojima-Hyakkaen_Garden.jpg",
     "coordinates": {
       "lat": 35.7248,
       "lng": 139.8155
@@ -63758,7 +63863,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://visit-sumida.jp/en/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/In_Mukojima-Hyakkaen_Garden.jpg/1920px-In_Mukojima-Hyakkaen_Garden.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "attribution": "takaaki nishioka",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:In_Mukojima-Hyakkaen_Garden.jpg"
+    }
   },
   {
     "id": "sumida-river-walk",
@@ -63794,7 +63906,7 @@
       "Sumida City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg/1280px-Tokyo_Skytree_2014_%E2%85%A2.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/49/Sumida-gawa_hanami_%28Flower-viewing_on_the_Sumida_River%29_%28BM_2008%2C3037.20315%29.jpg",
     "coordinates": {
       "lat": 35.712,
       "lng": 139.8015
@@ -63892,7 +64004,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://visit-sumida.jp/en/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/49/Sumida-gawa_hanami_%28Flower-viewing_on_the_Sumida_River%29_%28BM_2008%2C3037.20315%29.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "\nPrint artist:   Utagawa Kuniyoshi (歌川国芳)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sumida-gawa_hanami_(Flower-viewing_on_the_Sumida_River)_(BM_2008,3037.20315).jpg"
+    }
   },
   {
     "id": "tokiwaso-manga-museum",
@@ -63928,7 +64047,7 @@
       "Toshima City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg/1280px-Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Tokiwaso-Manga-Museum.jpg/1920px-Tokiwaso-Manga-Museum.jpg",
     "coordinates": {
       "lat": 35.7261,
       "lng": 139.6947
@@ -64025,8 +64144,15 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.gotokyo.org/en/destinations/western-tokyo/ikebukuro/index.html",
-    "businessHours": "Open access"
+    "officialWebsite": "https://tokiwasomm.jp/en/",
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Tokiwaso-Manga-Museum.jpg/1920px-Tokiwaso-Manga-Museum.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Tokyo-Good",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokiwaso-Manga-Museum.jpg"
+    }
   },
   {
     "id": "zoshigaya-kishimojindo",
@@ -64062,7 +64188,7 @@
       "Toshima City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg/1280px-Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Zoshigaya_Kishimojindo.jpg/1920px-Zoshigaya_Kishimojindo.jpg",
     "coordinates": {
       "lat": 35.7205,
       "lng": 139.7141
@@ -64160,7 +64286,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.gotokyo.org/en/destinations/western-tokyo/ikebukuro/index.html",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Zoshigaya_Kishimojindo.jpg/1920px-Zoshigaya_Kishimojindo.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Suikotei",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zoshigaya_Kishimojindo.jpg"
+    }
   },
   {
     "id": "sugamo-jizo-dori",
@@ -64196,7 +64329,7 @@
       "Toshima City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg/1280px-Sunshine_60_1_Ikebukuro_Tokyo_21_May_2004.jpg",
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sugamo_Jizodori_Sh%C5%8Dtengai.jpg?width=1600",
     "coordinates": {
       "lat": 35.7355,
       "lng": 139.7364
@@ -64294,7 +64427,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.gotokyo.org/en/destinations/western-tokyo/ikebukuro/index.html",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sugamo_Jizodori_Sh%C5%8Dtengai.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Charlie fong",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sugamo_Jizodori_Sh%C5%8Dtengai.jpg"
+    }
   },
   {
     "id": "yakushi-ike-park",
@@ -64330,7 +64470,7 @@
       "Machida",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Machida_city.jpg/1280px-Machida_city.jpg",
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Yakushi-ike_Park.jpg?width=1600",
     "coordinates": {
       "lat": 35.5917,
       "lng": 139.4467
@@ -64428,7 +64568,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://machida-guide.or.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Yakushi-ike_Park.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0 / GFDL",
+      "attribution": "machiro",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yakushi-ike_Park.jpg"
+    }
   },
   {
     "id": "machida-graphic-arts-museum",
@@ -64458,7 +64605,7 @@
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum", "Art", "Indoor"],
     "tags": ["Museum", "Art", "Indoor", "Machida", "destination-hub-expansion"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Machida_city.jpg/1280px-Machida_city.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Machida_City_Museum_of_Graphic_Arts.jpg",
     "coordinates": {
       "lat": 35.5484,
       "lng": 139.4522
@@ -64555,8 +64702,15 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://machida-guide.or.jp/",
-    "businessHours": "Open access"
+    "officialWebsite": "https://hanga-museum.jp/",
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Machida_City_Museum_of_Graphic_Arts.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "U-Kane",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Machida_City_Museum_of_Graphic_Arts.jpg"
+    }
   },
   {
     "id": "serigaya-park",
@@ -64592,7 +64746,7 @@
       "Machida",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Machida_city.jpg/1280px-Machida_city.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/4_Chome_Haramachida%2C_Machida-shi%2C_T%C5%8Dky%C5%8D-to_194-0013%2C_Japan_-_panoramio_%282%29.jpg/1920px-4_Chome_Haramachida%2C_Machida-shi%2C_T%C5%8Dky%C5%8D-to_194-0013%2C_Japan_-_panoramio_%282%29.jpg",
     "coordinates": {
       "lat": 35.5478,
       "lng": 139.4527
@@ -64690,7 +64844,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://machida-guide.or.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/4_Chome_Haramachida%2C_Machida-shi%2C_T%C5%8Dky%C5%8D-to_194-0013%2C_Japan_-_panoramio_%282%29.jpg/1920px-4_Chome_Haramachida%2C_Machida-shi%2C_T%C5%8Dky%C5%8D-to_194-0013%2C_Japan_-_panoramio_%282%29.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "運転太郎",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:4_Chome_Haramachida,_Machida-shi,_T%C5%8Dky%C5%8D-to_194-0013,_Japan_-_panoramio_(2).jpg"
+    }
   },
   {
     "id": "buaiso",
@@ -64726,7 +64887,7 @@
       "Machida",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Machida_city.jpg/1280px-Machida_city.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/6a/BuaisoGate.JPG",
     "coordinates": {
       "lat": 35.5767,
       "lng": 139.4819
@@ -64824,7 +64985,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://machida-guide.or.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6a/BuaisoGate.JPG",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Tsurukko",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:BuaisoGate.JPG"
+    }
   },
   {
     "id": "nozuta-park",
@@ -64860,7 +65028,7 @@
       "Machida",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Machida_city.jpg/1280px-Machida_city.jpg",
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/NozutaPark.jpg?width=1600",
     "coordinates": {
       "lat": 35.5977,
       "lng": 139.4388
@@ -64958,7 +65126,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://machida-guide.or.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/NozutaPark.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "See source page",
+      "attribution": "Wikimedia Commons contributor",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:NozutaPark.jpg"
+    }
   },
   {
     "id": "mount-takao",
@@ -64994,12 +65169,12 @@
       "Hachioji City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Takao-san-Top_10.11.13_saturday.JPG/1280px-Takao-san-Top_10.11.13_saturday.JPG",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Takao-san_hike_during_winter.jpg/1920px-Takao-san_hike_during_winter.jpg",
     "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Hachiōji Castle via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Hachi%C5%8Dji%20Castle"
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "Syced",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Takao-san_hike_during_winter.jpg"
     },
     "coordinates": {
       "lat": 35.6252,
@@ -65098,7 +65273,8 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.hkc.or.jp/eng/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Takao-san_hike_during_winter.jpg/1920px-Takao-san_hike_during_winter.jpg"
   },
   {
     "id": "takaosan-yakuoin",
@@ -65134,12 +65310,12 @@
       "Hachioji City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Takao-san-Top_10.11.13_saturday.JPG/1280px-Takao-san-Top_10.11.13_saturday.JPG",
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tokaosan-Yakuouin.jpg?width=1600",
     "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Hachiōji Castle via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Hachi%C5%8Dji%20Castle"
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "Stanislaus",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokaosan-Yakuouin.jpg"
     },
     "coordinates": {
       "lat": 35.6255,
@@ -65238,7 +65414,8 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.hkc.or.jp/eng/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tokaosan-Yakuouin.jpg?width=1600"
   },
   {
     "id": "takao-599-museum",
@@ -65274,12 +65451,12 @@
       "Hachioji City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Takao-san-Top_10.11.13_saturday.JPG/1280px-Takao-san-Top_10.11.13_saturday.JPG",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Takao_599_Museum.jpg/1920px-Takao_599_Museum.jpg",
     "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Hachiōji Castle via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Hachi%C5%8Dji%20Castle"
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "Syced",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Takao_599_Museum.jpg"
     },
     "coordinates": {
       "lat": 35.6321,
@@ -65378,7 +65555,8 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.hkc.or.jp/eng/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Takao_599_Museum.jpg/1920px-Takao_599_Museum.jpg"
   },
   {
     "id": "tama-forest-science-garden",
@@ -65414,12 +65592,12 @@
       "Hachioji City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Takao-san-Top_10.11.13_saturday.JPG/1280px-Takao-san-Top_10.11.13_saturday.JPG",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/TAMA_FOREST_SCIENCE_GARDEN.JPG/1920px-TAMA_FOREST_SCIENCE_GARDEN.JPG",
     "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Hachiōji Castle via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Hachi%C5%8Dji%20Castle"
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Arashiyama",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:TAMA_FOREST_SCIENCE_GARDEN.JPG"
     },
     "coordinates": {
       "lat": 35.6453,
@@ -65518,7 +65696,8 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.hkc.or.jp/eng/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/TAMA_FOREST_SCIENCE_GARDEN.JPG/1920px-TAMA_FOREST_SCIENCE_GARDEN.JPG"
   },
   {
     "id": "takahata-fudoson",
@@ -65554,7 +65733,7 @@
       "Hino City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/%E9%AB%98%E5%B9%A1%E4%B8%8D%E5%8B%95%E5%B0%8A%E3%83%BB%E5%85%A5%E5%8F%A3_-_panoramio.jpg/1920px-%E9%AB%98%E5%B9%A1%E4%B8%8D%E5%8B%95%E5%B0%8A%E3%83%BB%E5%85%A5%E5%8F%A3_-_panoramio.jpg",
     "coordinates": {
       "lat": 35.6622,
       "lng": 139.4132
@@ -65652,7 +65831,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.city.hino.lg.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/%E9%AB%98%E5%B9%A1%E4%B8%8D%E5%8B%95%E5%B0%8A%E3%83%BB%E5%85%A5%E5%8F%A3_-_panoramio.jpg/1920px-%E9%AB%98%E5%B9%A1%E4%B8%8D%E5%8B%95%E5%B0%8A%E3%83%BB%E5%85%A5%E5%8F%A3_-_panoramio.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "KΛNΛTΛ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E9%AB%98%E5%B9%A1%E4%B8%8D%E5%8B%95%E5%B0%8A%E3%83%BB%E5%85%A5%E5%8F%A3_-_panoramio.jpg"
+    }
   },
   {
     "id": "hijikata-toshizo-museum",
@@ -65688,7 +65874,7 @@
       "Hino City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Battle_of_Hakodate_Nishiki-e_by_Nagashima_Mosai.png/1920px-Battle_of_Hakodate_Nishiki-e_by_Nagashima_Mosai.png",
     "coordinates": {
       "lat": 35.6704,
       "lng": 139.4242
@@ -65786,7 +65972,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.city.hino.lg.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Battle_of_Hakodate_Nishiki-e_by_Nagashima_Mosai.png/1920px-Battle_of_Hakodate_Nishiki-e_by_Nagashima_Mosai.png",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "Utagawa Yoshitora (signed as Nagashima Mosai)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Battle_of_Hakodate_Nishiki-e_by_Nagashima_Mosai.png"
+    }
   },
   {
     "id": "keio-rail-land",
@@ -65822,7 +66015,7 @@
       "Hino City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Keio-rail-land_Trains_20130814.jpg/1920px-Keio-rail-land_Trains_20130814.jpg",
     "coordinates": {
       "lat": 35.6496,
       "lng": 139.404
@@ -65920,7 +66113,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.city.hino.lg.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Keio-rail-land_Trains_20130814.jpg/1920px-Keio-rail-land_Trains_20130814.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Rsa",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Keio-rail-land_Trains_20130814.jpg"
+    }
   },
   {
     "id": "keio-mogusaen",
@@ -65956,7 +66156,7 @@
       "Hino City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/77/Mogusaen_st.jpg",
     "coordinates": {
       "lat": 35.6572,
       "lng": 139.4311
@@ -66054,7 +66254,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.city.hino.lg.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/77/Mogusaen_st.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Chabata_k(Japan)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mogusaen_st.jpg"
+    }
   },
   {
     "id": "jindaiji",
@@ -66090,12 +66297,12 @@
       "Chofu",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/17/Cyofushiyakusyo.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Jindai-ji_in_Chofu%2C_Tokyo_002.jpg/1920px-Jindai-ji_in_Chofu%2C_Tokyo_002.jpg",
     "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Chofu via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Chofu"
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "掬茶",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jindai-ji_in_Chofu,_Tokyo_002.jpg"
     },
     "coordinates": {
       "lat": 35.6676,
@@ -66194,7 +66401,8 @@
       "confidence": "low"
     },
     "officialWebsite": "https://csa.gr.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Jindai-ji_in_Chofu%2C_Tokyo_002.jpg/1920px-Jindai-ji_in_Chofu%2C_Tokyo_002.jpg"
   },
   {
     "id": "jindai-botanical-gardens",
@@ -66230,12 +66438,12 @@
       "Chofu",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/17/Cyofushiyakusyo.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Jindai_Botanical_Garden-8.jpg/1920px-Jindai_Botanical_Garden-8.jpg",
     "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Chofu via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Chofu"
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Hyo-tan",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jindai_Botanical_Garden-8.jpg"
     },
     "coordinates": {
       "lat": 35.6714,
@@ -66333,8 +66541,9 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://csa.gr.jp/",
-    "businessHours": "Open access"
+    "officialWebsite": "https://www.tokyo-park.or.jp/park/jindai/",
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Jindai_Botanical_Garden-8.jpg/1920px-Jindai_Botanical_Garden-8.jpg"
   },
   {
     "id": "kitaro-chaya",
@@ -66364,12 +66573,12 @@
     "officialWebsiteRequirement": "recommended",
     "categories": ["Culture", "Manga", "Food"],
     "tags": ["Culture", "Manga", "Food", "Chofu", "destination-hub-expansion"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/17/Cyofushiyakusyo.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/%E6%B7%B1%E5%A4%A7%E5%AF%BA_-_panoramio_%28116%29.jpg/1920px-%E6%B7%B1%E5%A4%A7%E5%AF%BA_-_panoramio_%28116%29.jpg",
     "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Chofu via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Chofu"
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "珈琲牛乳",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E6%B7%B1%E5%A4%A7%E5%AF%BA_-_panoramio_(116).jpg"
     },
     "coordinates": {
       "lat": 35.6671,
@@ -66468,7 +66677,8 @@
       "confidence": "low"
     },
     "officialWebsite": "https://csa.gr.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/%E6%B7%B1%E5%A4%A7%E5%AF%BA_-_panoramio_%28116%29.jpg/1920px-%E6%B7%B1%E5%A4%A7%E5%AF%BA_-_panoramio_%28116%29.jpg"
   },
   {
     "id": "fudaten-shrine",
@@ -66504,12 +66714,12 @@
       "Chofu",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/17/Cyofushiyakusyo.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/74/Fudaten-Shrine-01.jpg",
     "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Chofu via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Chofu"
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Rs1421",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fudaten-Shrine-01.jpg"
     },
     "coordinates": {
       "lat": 35.655,
@@ -66608,7 +66818,8 @@
       "confidence": "low"
     },
     "officialWebsite": "https://csa.gr.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/74/Fudaten-Shrine-01.jpg"
   },
   {
     "id": "chofu-historic-jindaiji-district",
@@ -66646,10 +66857,10 @@
     ],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/17/Cyofushiyakusyo.jpg",
     "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Chofu via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Chofu"
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA / Public domain status as marked on source",
+      "attribution": "Wikimedia Commons contributor",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyofushiyakusyo.jpg"
     },
     "coordinates": {
       "lat": 35.668,
@@ -66748,7 +66959,8 @@
       "confidence": "low"
     },
     "officialWebsite": "https://csa.gr.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/17/Cyofushiyakusyo.jpg"
   },
   {
     "id": "musashi-mitake-shrine",
@@ -66784,7 +66996,7 @@
       "Ome",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Mitake_Shrine.jpg/1280px-Mitake_Shrine.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Musashi-Mitake-Zuishinmon.JPG",
     "coordinates": {
       "lat": 35.7829,
       "lng": 139.149
@@ -66882,7 +67094,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.omekanko.gr.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Musashi-Mitake-Zuishinmon.JPG",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "NY066",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Musashi-Mitake-Zuishinmon.JPG"
+    }
   },
   {
     "id": "gyokudo-art-museum",
@@ -66912,7 +67131,7 @@
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum", "Art", "Nature"],
     "tags": ["Museum", "Art", "Nature", "Ome", "destination-hub-expansion"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Mitake_Shrine.jpg/1280px-Mitake_Shrine.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Gyokudo_Art_Museum.jpg/1920px-Gyokudo_Art_Museum.jpg",
     "coordinates": {
       "lat": 35.8036,
       "lng": 139.1829
@@ -67010,7 +67229,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.omekanko.gr.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Gyokudo_Art_Museum.jpg/1920px-Gyokudo_Art_Museum.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Wiiii",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gyokudo_Art_Museum.jpg"
+    }
   },
   {
     "id": "ome-railway-park",
@@ -67040,7 +67266,7 @@
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum", "Railway", "Family"],
     "tags": ["Museum", "Railway", "Family", "Ome", "destination-hub-expansion"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Mitake_Shrine.jpg/1280px-Mitake_Shrine.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Cat_Nora_on_Ome_Railway_Park_20071104.jpg/1920px-Cat_Nora_on_Ome_Railway_Park_20071104.jpg",
     "coordinates": {
       "lat": 35.7932,
       "lng": 139.2618
@@ -67138,7 +67364,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.omekanko.gr.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Cat_Nora_on_Ome_Railway_Park_20071104.jpg/1920px-Cat_Nora_on_Ome_Railway_Park_20071104.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "ja:User:散歩",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cat_Nora_on_Ome_Railway_Park_20071104.jpg"
+    }
   },
   {
     "id": "ome-retro-town",
@@ -67174,7 +67407,7 @@
       "Ome",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Mitake_Shrine.jpg/1280px-Mitake_Shrine.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Victoria_Daily_Times_%281914-03-31%29_%28IA_victoriadailytimes19140331%29.pdf/page1-1920px-Victoria_Daily_Times_%281914-03-31%29_%28IA_victoriadailytimes19140331%29.pdf.jpg",
     "coordinates": {
       "lat": 35.7906,
       "lng": 139.2582
@@ -67272,7 +67505,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.omekanko.gr.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Victoria_Daily_Times_%281914-03-31%29_%28IA_victoriadailytimes19140331%29.pdf/page1-1920px-Victoria_Daily_Times_%281914-03-31%29_%28IA_victoriadailytimes19140331%29.pdf.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "Wikimedia Commons contributor",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Victoria_Daily_Times_(1914-03-31)_(IA_victoriadailytimes19140331).pdf"
+    }
   },
   {
     "id": "showa-kinen-park",
@@ -67308,12 +67548,12 @@
       "Tachikawa City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg/1280px-Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Japanese_Garden_%40_Showa_Kinen_Park_%40_Tachikawa_%2810605877954%29.jpg/1920px-Japanese_Garden_%40_Showa_Kinen_Park_%40_Tachikawa_%2810605877954%29.jpg",
     "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Tachikawa via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Tachikawa"
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "Guilhem Vellut from Annecy, France",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Japanese_Garden_@_Showa_Kinen_Park_@_Tachikawa_(10605877954).jpg"
     },
     "coordinates": {
       "lat": 35.7156,
@@ -67411,8 +67651,9 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.tbt.gr.jp/",
-    "businessHours": "Open access"
+    "officialWebsite": "https://www.showakinen-koen.jp/",
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Japanese_Garden_%40_Showa_Kinen_Park_%40_Tachikawa_%2810605877954%29.jpg/1920px-Japanese_Garden_%40_Showa_Kinen_Park_%40_Tachikawa_%2810605877954%29.jpg"
   },
   {
     "id": "polar-science-museum",
@@ -67448,12 +67689,12 @@
       "Tachikawa City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg/1280px-Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/KD_604_Snow_car.JPG/1920px-KD_604_Snow_car.JPG",
     "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Tachikawa via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Tachikawa"
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Toshinori baba",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:KD_604_Snow_car.JPG"
     },
     "coordinates": {
       "lat": 35.7114,
@@ -67552,7 +67793,8 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.tbt.gr.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/KD_604_Snow_car.JPG/1920px-KD_604_Snow_car.JPG"
   },
   {
     "id": "play-museum-tachikawa",
@@ -67588,12 +67830,12 @@
       "Tachikawa City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg/1280px-Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Playing_children%2C_one_with_a_bow%2C_Japan._%2810796811585%29.jpg",
     "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Tachikawa via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Tachikawa"
+      "source": "Wikimedia Commons",
+      "license": "No restrictions",
+      "attribution": "National Museum of Denmark from Denmark",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Playing_children,_one_with_a_bow,_Japan._(10796811585).jpg"
     },
     "coordinates": {
       "lat": 35.7049,
@@ -67692,7 +67934,8 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.tbt.gr.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Playing_children%2C_one_with_a_bow%2C_Japan._%2810796811585%29.jpg"
   },
   {
     "id": "tachikawa-manga-park",
@@ -67728,12 +67971,12 @@
       "Tachikawa City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg/1280px-Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg",
+    "heroImage": "https://mangapark.jp/img/page/about/img01.jpg",
     "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Tachikawa via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Tachikawa"
+      "source": "Official venue website",
+      "license": "Official website image; all rights reserved",
+      "attribution": "Tachikawa Manga Park",
+      "sourceUrl": "https://mangapark.jp/about/"
     },
     "coordinates": {
       "lat": 35.6965,
@@ -67831,8 +68074,9 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.tbt.gr.jp/",
-    "businessHours": "Open access"
+    "officialWebsite": "https://mangapark.jp/",
+    "businessHours": "Open access",
+    "image": "https://mangapark.jp/img/page/about/img01.jpg"
   },
   {
     "id": "suwa-shrine-tachikawa",
@@ -67868,12 +68112,12 @@
       "Tachikawa City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg/1280px-Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/ab/The_Suwa_Shrine.jpg",
     "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Tachikawa via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Tachikawa"
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "長崎の手彩色絵葉書",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Suwa_Shrine.jpg"
     },
     "coordinates": {
       "lat": 35.6958,
@@ -67972,7 +68216,8 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.tbt.gr.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/ab/The_Suwa_Shrine.jpg"
   },
   {
     "id": "shitennoji",
@@ -68008,7 +68253,7 @@
       "Osaka City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Shitennoji_%283%29.JPG/1920px-Shitennoji_%283%29.JPG",
     "coordinates": {
       "lat": 34.6546,
       "lng": 135.5165
@@ -68106,7 +68351,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://osaka-info.jp/en/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Shitennoji_%283%29.JPG/1920px-Shitennoji_%283%29.JPG",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "MASA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shitennoji_(3).JPG"
+    }
   },
   {
     "id": "nakanoshima-museum-art-osaka",
@@ -68142,7 +68394,7 @@
       "Osaka City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Around_the_Campidoglio_by_Fujishima_Takeji_%28Osaka_City_Museum_of_Modern_Art%291.jpg",
     "coordinates": {
       "lat": 34.6914,
       "lng": 135.4899
@@ -68239,8 +68491,15 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://osaka-info.jp/en/",
-    "businessHours": "Open access"
+    "officialWebsite": "https://nakka-art.jp/en/",
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Around_the_Campidoglio_by_Fujishima_Takeji_%28Osaka_City_Museum_of_Modern_Art%291.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "Fujishima Takeji",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Around_the_Campidoglio_by_Fujishima_Takeji_(Osaka_City_Museum_of_Modern_Art)1.jpg"
+    }
   },
   {
     "id": "osaka-central-public-hall",
@@ -68276,7 +68535,7 @@
       "Osaka City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Osaka_City_Central_Public_Hall_20160221.JPG/1920px-Osaka_City_Central_Public_Hall_20160221.JPG",
     "coordinates": {
       "lat": 34.6934,
       "lng": 135.505
@@ -68373,8 +68632,15 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://osaka-info.jp/en/",
-    "businessHours": "Open access"
+    "officialWebsite": "https://osaka-chuokokaido.jp/english/",
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Osaka_City_Central_Public_Hall_20160221.JPG/1920px-Osaka_City_Central_Public_Hall_20160221.JPG",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "KishujiRapid",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osaka_City_Central_Public_Hall_20160221.JPG"
+    }
   },
   {
     "id": "hiroshima-castle",
@@ -68410,7 +68676,7 @@
       "Hiroshima City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg/1280px-Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Ninomaru%2C_Hiroshima_Castle%2C_West_view_20190417_1.jpg/1920px-Ninomaru%2C_Hiroshima_Castle%2C_West_view_20190417_1.jpg",
     "coordinates": {
       "lat": 34.4028,
       "lng": 132.4592
@@ -68507,8 +68773,15 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://dive-hiroshima.com/en/",
-    "businessHours": "Open access"
+    "officialWebsite": "https://www.rijo-castle.jp/rijo/",
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Ninomaru%2C_Hiroshima_Castle%2C_West_view_20190417_1.jpg/1920px-Ninomaru%2C_Hiroshima_Castle%2C_West_view_20190417_1.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "DXR",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ninomaru,_Hiroshima_Castle,_West_view_20190417_1.jpg"
+    }
   },
   {
     "id": "shukkeien",
@@ -68544,7 +68817,7 @@
       "Hiroshima City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg/1280px-Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/14/Hiroshima_Shukkei-en_Pond.jpg",
     "coordinates": {
       "lat": 34.3993,
       "lng": 132.4665
@@ -68641,8 +68914,15 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://dive-hiroshima.com/en/",
-    "businessHours": "Open access"
+    "officialWebsite": "https://shukkeien.jp/en/",
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/14/Hiroshima_Shukkei-en_Pond.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "No machine-readable author provided. Fg2 assumed (based on copyright claims).",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hiroshima_Shukkei-en_Pond.jpg"
+    }
   },
   {
     "id": "hiroshima-museum-art",
@@ -68678,7 +68958,7 @@
       "Hiroshima City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg/1280px-Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Hiroshima_Museum_of_Art.jpg/1920px-Hiroshima_Museum_of_Art.jpg",
     "coordinates": {
       "lat": 34.4008,
       "lng": 132.4585
@@ -68775,8 +69055,15 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://dive-hiroshima.com/en/",
-    "businessHours": "Open access"
+    "officialWebsite": "https://www.hiroshima-museum.jp/en/",
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Hiroshima_Museum_of_Art.jpg/1920px-Hiroshima_Museum_of_Art.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Taisyo at Japanese Wikipedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hiroshima_Museum_of_Art.jpg"
+    }
   },
   {
     "id": "mitaki-dera",
@@ -68812,7 +69099,7 @@
       "Hiroshima City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg/1280px-Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Mitaki_dera_-_panoramio.jpg/1920px-Mitaki_dera_-_panoramio.jpg",
     "coordinates": {
       "lat": 34.4206,
       "lng": 132.4383
@@ -68910,7 +69197,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://dive-hiroshima.com/en/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Mitaki_dera_-_panoramio.jpg/1920px-Mitaki_dera_-_panoramio.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Max Nossin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mitaki_dera_-_panoramio.jpg"
+    }
   },
   {
     "id": "orizuru-tower",
@@ -68946,7 +69240,7 @@
       "Hiroshima City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg/1280px-Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/HIROSHIMA_ORIZURU_TOWER_2016-1006-1.jpg/1920px-HIROSHIMA_ORIZURU_TOWER_2016-1006-1.jpg",
     "coordinates": {
       "lat": 34.3955,
       "lng": 132.4535
@@ -69044,7 +69338,14 @@
       "confidence": "low"
     },
     "officialWebsite": "https://dive-hiroshima.com/en/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/HIROSHIMA_ORIZURU_TOWER_2016-1006-1.jpg/1920px-HIROSHIMA_ORIZURU_TOWER_2016-1006-1.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Taisyo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:HIROSHIMA_ORIZURU_TOWER_2016-1006-1.jpg"
+    }
   },
   {
     "id": "okonomimura",
@@ -69080,7 +69381,7 @@
       "Hiroshima City",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg/1280px-Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Okonomi-mura_logo.png",
     "coordinates": {
       "lat": 34.3914,
       "lng": 132.4614
@@ -69178,6 +69479,13 @@
       "confidence": "low"
     },
     "officialWebsite": "https://dive-hiroshima.com/en/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Okonomi-mura_logo.png",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "Okonomi-mura. Uploaded by Nihonjoe",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Okonomi-mura_logo.png"
+    }
   }
 ]

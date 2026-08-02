@@ -26,7 +26,7 @@
   "officialWebsiteRequirement": "recommended",
   "categories": ["Nature", "Park", "Family"],
   "tags": ["Nature", "Park", "Family", "Machida", "destination-hub-expansion"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Machida_city.jpg/1280px-Machida_city.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/4_Chome_Haramachida%2C_Machida-shi%2C_T%C5%8Dky%C5%8D-to_194-0013%2C_Japan_-_panoramio_%282%29.jpg/1920px-4_Chome_Haramachida%2C_Machida-shi%2C_T%C5%8Dky%C5%8D-to_194-0013%2C_Japan_-_panoramio_%282%29.jpg",
   "coordinates": {
     "lat": 35.5478,
     "lng": 139.4527
@@ -124,5 +124,12 @@
     "confidence": "low"
   },
   "officialWebsite": "https://machida-guide.or.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/4_Chome_Haramachida%2C_Machida-shi%2C_T%C5%8Dky%C5%8D-to_194-0013%2C_Japan_-_panoramio_%282%29.jpg/1920px-4_Chome_Haramachida%2C_Machida-shi%2C_T%C5%8Dky%C5%8D-to_194-0013%2C_Japan_-_panoramio_%282%29.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "運転太郎",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:4_Chome_Haramachida,_Machida-shi,_T%C5%8Dky%C5%8D-to_194-0013,_Japan_-_panoramio_(2).jpg"
+  }
 }

@@ -32,7 +32,7 @@
     "Chuo City",
     "destination-hub-expansion"
   ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg",
+  "heroImage": "https://museum.seiko.co.jp/common/img/ogp.jpg",
   "coordinates": {
     "lat": 35.6712,
     "lng": 139.7645
@@ -129,6 +129,13 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "officialWebsite": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
-  "businessHours": "Open access"
+  "officialWebsite": "https://museum.seiko.co.jp/en/",
+  "businessHours": "Open access",
+  "image": "https://museum.seiko.co.jp/common/img/ogp.jpg",
+  "imageMetadata": {
+    "source": "Official venue website",
+    "license": "Official website image; all rights reserved",
+    "attribution": "Seiko Museum Ginza",
+    "sourceUrl": "https://museum.seiko.co.jp/en/"
+  }
 }

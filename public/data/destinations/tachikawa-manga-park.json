@@ -32,12 +32,12 @@
     "Tachikawa City",
     "destination-hub-expansion"
   ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg/1280px-Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg",
+  "heroImage": "https://mangapark.jp/img/page/about/img01.jpg",
   "imageMetadata": {
-    "source": "Wikimedia Commons / Wikipedia",
-    "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Tachikawa via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Tachikawa"
+    "source": "Official venue website",
+    "license": "Official website image; all rights reserved",
+    "attribution": "Tachikawa Manga Park",
+    "sourceUrl": "https://mangapark.jp/about/"
   },
   "coordinates": {
     "lat": 35.6965,
@@ -135,6 +135,7 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "officialWebsite": "https://www.tbt.gr.jp/",
-  "businessHours": "Open access"
+  "officialWebsite": "https://mangapark.jp/",
+  "businessHours": "Open access",
+  "image": "https://mangapark.jp/img/page/about/img01.jpg"
 }

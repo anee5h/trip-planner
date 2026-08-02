@@ -32,7 +32,7 @@
     "Sumida City",
     "destination-hub-expansion"
   ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg/1280px-Tokyo_Skytree_2014_%E2%85%A2.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Ryogoku_kokugikan_2005_sep.jpg/1920px-Ryogoku_kokugikan_2005_sep.jpg",
   "coordinates": {
     "lat": 35.6969,
     "lng": 139.7933
@@ -130,5 +130,12 @@
     "confidence": "low"
   },
   "officialWebsite": "https://visit-sumida.jp/en/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Ryogoku_kokugikan_2005_sep.jpg/1920px-Ryogoku_kokugikan_2005_sep.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Wikimedia Commons contributor",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ryogoku_kokugikan_2005_sep.jpg"
+  }
 }

@@ -26,7 +26,7 @@
   "officialWebsiteRequirement": "recommended",
   "categories": ["History", "Culture", "Nature"],
   "tags": ["History", "Culture", "Nature", "Ome", "destination-hub-expansion"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Mitake_Shrine.jpg/1280px-Mitake_Shrine.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Musashi-Mitake-Zuishinmon.JPG",
   "coordinates": {
     "lat": 35.7829,
     "lng": 139.149
@@ -124,5 +124,12 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.omekanko.gr.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Musashi-Mitake-Zuishinmon.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "NY066",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Musashi-Mitake-Zuishinmon.JPG"
+  }
 }

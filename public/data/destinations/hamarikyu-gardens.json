@@ -32,7 +32,7 @@
     "Chuo City",
     "destination-hub-expansion"
   ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Traditional_style_toilet_at_Hamarikyu_Gardens_in_Tokyo%2C_Japan_%2814063687677%29.jpg/1920px-Traditional_style_toilet_at_Hamarikyu_Gardens_in_Tokyo%2C_Japan_%2814063687677%29.jpg",
   "coordinates": {
     "lat": 35.6597,
     "lng": 139.7635
@@ -130,5 +130,12 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Traditional_style_toilet_at_Hamarikyu_Gardens_in_Tokyo%2C_Japan_%2814063687677%29.jpg/1920px-Traditional_style_toilet_at_Hamarikyu_Gardens_in_Tokyo%2C_Japan_%2814063687677%29.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "attribution": "Steven-L-Johnson from Philadelphia",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Traditional_style_toilet_at_Hamarikyu_Gardens_in_Tokyo,_Japan_(14063687677).jpg"
+  }
 }

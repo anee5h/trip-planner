@@ -32,7 +32,7 @@
     "Chuo City",
     "destination-hub-expansion"
   ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg",
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ginza_Kabukiza_2013_0428.jpg?width=1600",
   "coordinates": {
     "lat": 35.6695,
     "lng": 139.7678
@@ -130,5 +130,12 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ginza_Kabukiza_2013_0428.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Tak1701d",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ginza_Kabukiza_2013_0428.jpg"
+  }
 }

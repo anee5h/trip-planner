@@ -32,12 +32,12 @@
     "Tachikawa City",
     "destination-hub-expansion"
   ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg/1280px-Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/ab/The_Suwa_Shrine.jpg",
   "imageMetadata": {
-    "source": "Wikimedia Commons / Wikipedia",
-    "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Tachikawa via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Tachikawa"
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "長崎の手彩色絵葉書",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Suwa_Shrine.jpg"
   },
   "coordinates": {
     "lat": 35.6958,
@@ -136,5 +136,6 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.tbt.gr.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/a/ab/The_Suwa_Shrine.jpg"
 }

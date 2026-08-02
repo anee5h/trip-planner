@@ -32,7 +32,7 @@
     "Hiroshima City",
     "destination-hub-expansion"
   ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg/1280px-Atomic_Bomb_Dome_and_Motoyaso_River%2C_Hiroshima%2C_Northwest_view_20190417_1.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Mitaki_dera_-_panoramio.jpg/1920px-Mitaki_dera_-_panoramio.jpg",
   "coordinates": {
     "lat": 34.4206,
     "lng": 132.4383
@@ -130,5 +130,12 @@
     "confidence": "low"
   },
   "officialWebsite": "https://dive-hiroshima.com/en/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Mitaki_dera_-_panoramio.jpg/1920px-Mitaki_dera_-_panoramio.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "Max Nossin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mitaki_dera_-_panoramio.jpg"
+  }
 }

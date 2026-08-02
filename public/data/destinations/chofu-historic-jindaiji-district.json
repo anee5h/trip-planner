@@ -28,10 +28,10 @@
   "tags": ["History", "Walking", "Food", "Chofu", "destination-hub-expansion"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/17/Cyofushiyakusyo.jpg",
   "imageMetadata": {
-    "source": "Wikimedia Commons / Wikipedia",
-    "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Chofu via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Chofu"
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA / Public domain status as marked on source",
+    "attribution": "Wikimedia Commons contributor",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyofushiyakusyo.jpg"
   },
   "coordinates": {
     "lat": 35.668,
@@ -130,5 +130,6 @@
     "confidence": "low"
   },
   "officialWebsite": "https://csa.gr.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/1/17/Cyofushiyakusyo.jpg"
 }

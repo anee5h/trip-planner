@@ -26,7 +26,7 @@
   "officialWebsiteRequirement": "recommended",
   "categories": ["Nature", "Park", "Sports"],
   "tags": ["Nature", "Park", "Sports", "Machida", "destination-hub-expansion"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Machida_city.jpg/1280px-Machida_city.jpg",
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/NozutaPark.jpg?width=1600",
   "coordinates": {
     "lat": 35.5977,
     "lng": 139.4388
@@ -124,5 +124,12 @@
     "confidence": "low"
   },
   "officialWebsite": "https://machida-guide.or.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/NozutaPark.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "See source page",
+    "attribution": "Wikimedia Commons contributor",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:NozutaPark.jpg"
+  }
 }

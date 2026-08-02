@@ -32,7 +32,7 @@
     "Shibuya City",
     "destination-hub-expansion"
   ],
-  "heroImage": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Fountain_Yoyogipark.JPG/1920px-Fountain_Yoyogipark.JPG",
   "coordinates": {
     "lat": 35.6717,
     "lng": 139.6949
@@ -130,5 +130,12 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Fountain_Yoyogipark.JPG/1920px-Fountain_Yoyogipark.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "Shinjiro",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fountain_Yoyogipark.JPG"
+  }
 }

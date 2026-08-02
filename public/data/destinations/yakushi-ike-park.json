@@ -26,7 +26,7 @@
   "officialWebsiteRequirement": "recommended",
   "categories": ["Nature", "Park", "Culture"],
   "tags": ["Nature", "Park", "Culture", "Machida", "destination-hub-expansion"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Machida_city.jpg/1280px-Machida_city.jpg",
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Yakushi-ike_Park.jpg?width=1600",
   "coordinates": {
     "lat": 35.5917,
     "lng": 139.4467
@@ -124,5 +124,12 @@
     "confidence": "low"
   },
   "officialWebsite": "https://machida-guide.or.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Yakushi-ike_Park.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0 / GFDL",
+    "attribution": "machiro",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yakushi-ike_Park.jpg"
+  }
 }

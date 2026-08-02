@@ -32,12 +32,12 @@
     "Tachikawa City",
     "destination-hub-expansion"
   ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg/1280px-Tama_Intercity_Monorail_viewed_from_Green_Springs.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Japanese_Garden_%40_Showa_Kinen_Park_%40_Tachikawa_%2810605877954%29.jpg/1920px-Japanese_Garden_%40_Showa_Kinen_Park_%40_Tachikawa_%2810605877954%29.jpg",
   "imageMetadata": {
-    "source": "Wikimedia Commons / Wikipedia",
-    "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Tachikawa via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Tachikawa"
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "attribution": "Guilhem Vellut from Annecy, France",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Japanese_Garden_@_Showa_Kinen_Park_@_Tachikawa_(10605877954).jpg"
   },
   "coordinates": {
     "lat": 35.7156,
@@ -135,6 +135,7 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "officialWebsite": "https://www.tbt.gr.jp/",
-  "businessHours": "Open access"
+  "officialWebsite": "https://www.showakinen-koen.jp/",
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Japanese_Garden_%40_Showa_Kinen_Park_%40_Tachikawa_%2810605877954%29.jpg/1920px-Japanese_Garden_%40_Showa_Kinen_Park_%40_Tachikawa_%2810605877954%29.jpg"
 }

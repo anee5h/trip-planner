@@ -32,12 +32,12 @@
     "Chofu",
     "destination-hub-expansion"
   ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/17/Cyofushiyakusyo.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Jindai_Botanical_Garden-8.jpg/1920px-Jindai_Botanical_Garden-8.jpg",
   "imageMetadata": {
-    "source": "Wikimedia Commons / Wikipedia",
-    "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Chofu via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Chofu"
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Hyo-tan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jindai_Botanical_Garden-8.jpg"
   },
   "coordinates": {
     "lat": 35.6714,
@@ -135,6 +135,7 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "officialWebsite": "https://csa.gr.jp/",
-  "businessHours": "Open access"
+  "officialWebsite": "https://www.tokyo-park.or.jp/park/jindai/",
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Jindai_Botanical_Garden-8.jpg/1920px-Jindai_Botanical_Garden-8.jpg"
 }

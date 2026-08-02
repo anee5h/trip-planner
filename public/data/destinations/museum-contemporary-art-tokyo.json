@@ -26,7 +26,7 @@
   "officialWebsiteRequirement": "recommended",
   "categories": ["Museum", "Art", "Indoor"],
   "tags": ["Museum", "Art", "Indoor", "Koto City", "destination-hub-expansion"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Tomioka_Hachiman-gu_201708.jpg/1280px-Tomioka_Hachiman-gu_201708.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Museum_of_Contemporary_Art_Tokyo_20071004.jpg/1920px-Museum_of_Contemporary_Art_Tokyo_20071004.jpg",
   "coordinates": {
     "lat": 35.6797,
     "lng": 139.8082
@@ -124,5 +124,12 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.gotokyo.org/en/destinations/eastern-tokyo/kiyosumi-shirakawa/index.html",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Museum_of_Contemporary_Art_Tokyo_20071004.jpg/1920px-Museum_of_Contemporary_Art_Tokyo_20071004.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Uploader; Vantey",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Museum_of_Contemporary_Art_Tokyo_20071004.jpg"
+  }
 }

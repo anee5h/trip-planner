@@ -32,7 +32,7 @@
     "Osaka City",
     "destination-hub-expansion"
   ],
-  "heroImage": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Shitennoji_%283%29.JPG/1920px-Shitennoji_%283%29.JPG",
   "coordinates": {
     "lat": 34.6546,
     "lng": 135.5165
@@ -130,5 +130,12 @@
     "confidence": "low"
   },
   "officialWebsite": "https://osaka-info.jp/en/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Shitennoji_%283%29.JPG/1920px-Shitennoji_%283%29.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "MASA",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shitennoji_(3).JPG"
+  }
 }

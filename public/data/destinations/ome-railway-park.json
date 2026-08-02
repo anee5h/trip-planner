@@ -26,7 +26,7 @@
   "officialWebsiteRequirement": "recommended",
   "categories": ["Museum", "Railway", "Family"],
   "tags": ["Museum", "Railway", "Family", "Ome", "destination-hub-expansion"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Mitake_Shrine.jpg/1280px-Mitake_Shrine.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Cat_Nora_on_Ome_Railway_Park_20071104.jpg/1920px-Cat_Nora_on_Ome_Railway_Park_20071104.jpg",
   "coordinates": {
     "lat": 35.7932,
     "lng": 139.2618
@@ -124,5 +124,12 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.omekanko.gr.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Cat_Nora_on_Ome_Railway_Park_20071104.jpg/1920px-Cat_Nora_on_Ome_Railway_Park_20071104.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "ja:User:散歩",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cat_Nora_on_Ome_Railway_Park_20071104.jpg"
+  }
 }

@@ -32,12 +32,12 @@
     "Hachioji City",
     "destination-hub-expansion"
   ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Takao-san-Top_10.11.13_saturday.JPG/1280px-Takao-san-Top_10.11.13_saturday.JPG",
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tokaosan-Yakuouin.jpg?width=1600",
   "imageMetadata": {
-    "source": "Wikimedia Commons / Wikipedia",
-    "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Hachiōji Castle via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Hachi%C5%8Dji%20Castle"
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Stanislaus",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokaosan-Yakuouin.jpg"
   },
   "coordinates": {
     "lat": 35.6255,
@@ -136,5 +136,6 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.hkc.or.jp/eng/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tokaosan-Yakuouin.jpg?width=1600"
 }

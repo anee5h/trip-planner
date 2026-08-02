@@ -32,7 +32,7 @@
     "Sumida City",
     "destination-hub-expansion"
   ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg/1280px-Tokyo_Skytree_2014_%E2%85%A2.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/49/Sumida-gawa_hanami_%28Flower-viewing_on_the_Sumida_River%29_%28BM_2008%2C3037.20315%29.jpg",
   "coordinates": {
     "lat": 35.712,
     "lng": 139.8015
@@ -130,5 +130,12 @@
     "confidence": "low"
   },
   "officialWebsite": "https://visit-sumida.jp/en/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/4/49/Sumida-gawa_hanami_%28Flower-viewing_on_the_Sumida_River%29_%28BM_2008%2C3037.20315%29.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "\nPrint artist:   Utagawa Kuniyoshi (歌川国芳)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sumida-gawa_hanami_(Flower-viewing_on_the_Sumida_River)_(BM_2008,3037.20315).jpg"
+  }
 }
