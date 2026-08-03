@@ -72,11 +72,11 @@
     "min": 0.8,
     "max": 1.8
   },
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mimuroto-ji_02.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Mimurotoji_entry.jpg/1920px-Mimurotoji_entry.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 3.0",
-    "attribution": "663highland",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mimuroto-ji_02.jpg"
+    "license": "CC BY-SA 4.0",
+    "attribution": "Daniel M. Dobkin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mimurotoji_entry.jpg"
   }
 }
