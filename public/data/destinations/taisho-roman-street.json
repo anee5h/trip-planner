@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Taisho Roman Street",
-      "description": "Taisho Roman Street is a visitor destination in Kawagoe City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+      "description": "Taisho Roman Street is a visitor destination in Kawagoe City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
       "highlights": ["Shopping", "Food"],
       "notes": "A top recommended attraction in Saitama, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
@@ -47,15 +47,15 @@
     "lat": 35.91986111,
     "lng": 139.48355556
   },
-  "description": "Taisho Roman Street is a visitor destination in Kawagoe City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+  "description": "Taisho Roman Street is a visitor destination in Kawagoe City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
   "highlights": ["Shopping", "Food"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
-    "transport": 1400,
+    "transport": 1300,
     "tickets": 0,
-    "food": 1400,
+    "food": 2300,
     "cafe": 400
   },
   "transportOptions": {

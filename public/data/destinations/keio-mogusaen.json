@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Keio Mogusaen",
-      "description": "Keio Mogusaen is a distinct visitor stop within Hino City, selected to support a varied local itinerary.",
+      "description": "Keio Mogusaen is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
       "highlights": ["Nature", "Garden", "Views"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "京王百草園",
-      "description": "京王百草園は東京都の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "description": "京王百草園はTokyoを代表する注目の観光スポットで、地域の歴史や文化、豊かな景観を楽しめます。四季折々のイベントや周辺散策もあわせて満喫できます。",
       "highlights": [
         "京王百草園の名所",
         "京王百草園の名所",
@@ -49,7 +49,7 @@
     "lat": 35.6572,
     "lng": 139.4311
   },
-  "description": "Keio Mogusaen is a distinct visitor stop within Hino City, selected to support a varied local itinerary.",
+  "description": "Keio Mogusaen is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
   "highlights": ["Nature", "Garden", "Views"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

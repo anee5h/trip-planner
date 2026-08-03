@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Ome Retro Town",
-      "description": "Ome Retro Town is a distinct visitor stop within Ome, selected to support a varied local itinerary.",
+      "description": "Ome Retro Town is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
       "highlights": ["Culture", "Walking", "History"],
       "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "青梅レトロタウン",
-      "description": "青梅レトロタウンは東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "description": "青梅レトロタウンはTokyoを代表する注目の観光スポットで、地域の歴史や文化、豊かな景観を楽しめます。四季折々のイベントや周辺散策もあわせて満喫できます。",
       "highlights": [
         "青梅レトロタウンの名所",
         "青梅レトロタウンの名所",
@@ -43,7 +43,7 @@
     "lat": 35.7906,
     "lng": 139.2582
   },
-  "description": "Ome Retro Town is a distinct visitor stop within Ome, selected to support a varied local itinerary.",
+  "description": "Ome Retro Town is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
   "highlights": ["Culture", "Walking", "History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

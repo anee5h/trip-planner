@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Inamuragasaki",
-      "description": "Inamuragasaki is a visitor destination in Kamakura City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+      "description": "Inamuragasaki is a visitor destination in Kamakura City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
       "highlights": ["Nature"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -46,15 +46,15 @@
     "lat": 35.30166667,
     "lng": 139.52555556
   },
-  "description": "Inamuragasaki is a visitor destination in Kamakura City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+  "description": "Inamuragasaki is a visitor destination in Kamakura City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
-    "transport": 1400,
+    "transport": 1300,
     "tickets": 0,
-    "food": 1400,
+    "food": 2300,
     "cafe": 400
   },
   "transportOptions": {

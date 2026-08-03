@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Fudaten Shrine",
-      "description": "Fudaten Shrine is a distinct visitor stop within Chofu, selected to support a varied local itinerary.",
+      "description": "Fudaten Shrine is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
       "highlights": ["History", "Culture", "Shrine"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "布多天神社",
-      "description": "布多天神社は東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "description": "布多天神社はTokyoを代表する注目の観光スポットで、地域の歴史や文化、豊かな景観を楽しめます。四季折々のイベントや周辺散策もあわせて満喫できます。",
       "highlights": [
         "布多天神社の名所",
         "布多天神社の名所",
@@ -55,7 +55,7 @@
     "lat": 35.655,
     "lng": 139.5438
   },
-  "description": "Fudaten Shrine is a distinct visitor stop within Chofu, selected to support a varied local itinerary.",
+  "description": "Fudaten Shrine is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
   "highlights": ["History", "Culture", "Shrine"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

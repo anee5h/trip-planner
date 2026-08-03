@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Saitama Stadium 2002",
-      "description": "Saitama Stadium 2002 is a visitor destination in Saitama City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+      "description": "Saitama Stadium 2002 is a visitor destination in Saitama City.  Visitors can experience the area's character and main sights.",
       "highlights": ["Culture", "Shopping"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -47,7 +47,7 @@
     "lat": 35.903142,
     "lng": 139.717492
   },
-  "description": "Saitama Stadium 2002 is a visitor destination in Saitama City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+  "description": "Saitama Stadium 2002 is a visitor destination in Saitama City.  Visitors can experience the area's character and main sights.",
   "highlights": ["Culture", "Shopping"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

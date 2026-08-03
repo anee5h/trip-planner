@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Naritasan Park",
-      "description": "Naritasan Park is a visitor destination in Narita City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+      "description": "Naritasan Park is a visitor destination in Narita City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
       "highlights": ["Nature"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -46,7 +46,7 @@
     "lat": 35.7866845,
     "lng": 140.3210126
   },
-  "description": "Naritasan Park is a visitor destination in Narita City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+  "description": "Naritasan Park is a visitor destination in Narita City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

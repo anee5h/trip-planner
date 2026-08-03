@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Kitaro Chaya",
-      "description": "Kitaro Chaya is a distinct visitor stop within Chofu, selected to support a varied local itinerary.",
+      "description": "Kitaro Chaya is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
       "highlights": ["Culture", "Manga", "Food"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "鬼太郎茶屋",
-      "description": "鬼太郎茶屋は東京都にあるアートと文化の発信地です。充実した展示空間とユニークなコレクションを通じて新たな発見とインスピレーションを提供します。",
+      "description": "鬼太郎茶屋はTokyoを代表する注目の観光スポットで、地域の歴史や文化、豊かな景観を楽しめます。四季折々のイベントや周辺散策もあわせて満喫できます。",
       "highlights": [
         "鬼太郎茶屋の名所",
         "鬼太郎茶屋の名所",
@@ -49,7 +49,7 @@
     "lat": 35.6671,
     "lng": 139.5495
   },
-  "description": "Kitaro Chaya is a distinct visitor stop within Chofu, selected to support a varied local itinerary.",
+  "description": "Kitaro Chaya is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
   "highlights": ["Culture", "Manga", "Food"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Shibuya Crossing and Hachiko",
-      "description": "Shibuya Crossing and Hachiko is a distinct visitor stop within Shibuya City, selected to support a varied local itinerary.",
+      "description": "The world's busiest pedestrian intersection and iconic meeting landmark anchored by the beloved loyalty statue of Hachiko. Thousands cross simultaneously surrounded by towering digital neon displays.",
       "highlights": ["Culture", "Landmark", "Photography"],
       "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "渋谷スクランブル交差点と忠犬ハチ公像",
-      "description": "渋谷スクランブル交差点と忠犬ハチ公像は東京都にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "description": "世界最大級の交通量を誇るスクランブル交差点と、忠犬ハチ公像で知られる東京のシンボル的ランドマークです。巨大ビジョンに囲まれた圧倒的な都市景観を楽しめます。",
       "highlights": [
         "渋谷スクランブル交差点と忠犬ハチ公像の名所",
         "渋谷スクランブル交差点と忠犬ハチ公像の名所",
@@ -49,7 +49,7 @@
     "lat": 35.6595,
     "lng": 139.7005
   },
-  "description": "Shibuya Crossing and Hachiko is a distinct visitor stop within Shibuya City, selected to support a varied local itinerary.",
+  "description": "The world's busiest pedestrian intersection and iconic meeting landmark anchored by the beloved loyalty statue of Hachiko. Thousands cross simultaneously surrounded by towering digital neon displays.",
   "highlights": ["Culture", "Landmark", "Photography"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

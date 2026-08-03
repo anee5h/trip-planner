@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Kurazukuri Warehouse District",
-      "description": "Kurazukuri Warehouse District is a visitor destination in Kawagoe City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+      "description": "Kurazukuri Warehouse District is a visitor destination in Kawagoe City.  Visitors can experience the area's character and main sights.",
       "highlights": ["Culture"],
       "notes": "A top recommended attraction in Saitama, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
@@ -44,18 +44,18 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kurazukuri_Street_in_Little_Edo.jpg"
   },
   "coordinates": {
-    "lat": 35.92513888888889,
-    "lng": 139.48577777777777
+    "lat": 35.9254,
+    "lng": 139.4858
   },
-  "description": "Kurazukuri Warehouse District is a visitor destination in Kawagoe City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+  "description": "Kurazukuri Warehouse District is a visitor destination in Kawagoe City.  Visitors can experience the area's character and main sights.",
   "highlights": ["Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
-    "transport": 1400,
+    "transport": 1300,
     "tickets": 0,
-    "food": 1400,
+    "food": 2300,
     "cafe": 400
   },
   "transportOptions": {

@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Zoshigaya Kishimojindo",
-      "description": "Zoshigaya Kishimojindo is a distinct visitor stop within Toshima City, selected to support a varied local itinerary.",
+      "description": "Zoshigaya Kishimojindo is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
       "highlights": ["History", "Culture", "Temple"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "雑司ヶ谷鬼子母神堂",
-      "description": "雑司ヶ谷鬼子母神堂は東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "description": "雑司ヶ谷鬼子母神堂はTokyoを代表する注目の観光スポットで、地域の歴史や文化、豊かな景観を楽しめます。四季折々のイベントや周辺散策もあわせて満喫できます。",
       "highlights": [
         "雑司ヶ谷鬼子母神堂の名所",
         "雑司ヶ谷鬼子母神堂の名所",
@@ -49,7 +49,7 @@
     "lat": 35.7205,
     "lng": 139.7141
   },
-  "description": "Zoshigaya Kishimojindo is a distinct visitor stop within Toshima City, selected to support a varied local itinerary.",
+  "description": "Zoshigaya Kishimojindo is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
   "highlights": ["History", "Culture", "Temple"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

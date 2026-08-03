@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Sugamo Jizo-dori",
-      "description": "Sugamo Jizo-dori is a distinct visitor stop within Toshima City, selected to support a varied local itinerary.",
+      "description": "Sugamo Jizo-dori is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
       "highlights": ["Culture", "Shopping", "Food"],
       "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
       "reservation": "No advance reservation required; tickets available on arrival.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "巣鴨地蔵通り商店街",
-      "description": "巣鴨地蔵通り商店街は東京都を代表するショッピングと散策のスポットです。多種多様なショップやグルメが集まり、地元の活気と魅力溢れる時間を楽しめます。",
+      "description": "巣鴨地蔵通り商店街はTokyoを代表する注目の観光スポットで、地域の歴史や文化、豊かな景観を楽しめます。四季折々のイベントや周辺散策もあわせて満喫できます。",
       "highlights": [
         "巣鴨地蔵通り商店街の名所",
         "巣鴨地蔵通り商店街の名所",
@@ -49,7 +49,7 @@
     "lat": 35.7355,
     "lng": 139.7364
   },
-  "description": "Sugamo Jizo-dori is a distinct visitor stop within Toshima City, selected to support a varied local itinerary.",
+  "description": "Sugamo Jizo-dori is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
   "highlights": ["Culture", "Shopping", "Food"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

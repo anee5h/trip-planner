@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Gyokudo Art Museum",
-      "description": "Gyokudo Art Museum is a distinct visitor stop within Ome, selected to support a varied local itinerary.",
+      "description": "Gyokudo Art Museum is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
       "highlights": ["Museum", "Art", "Nature"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "玉堂美術館",
-      "description": "玉堂美術館は東京都の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "description": "玉堂美術館はTokyoを代表する注目の観光スポットで、地域の歴史や文化、豊かな景観を楽しめます。四季折々のイベントや周辺散策もあわせて満喫できます。",
       "highlights": [
         "玉堂美術館の名所",
         "玉堂美術館の名所",
@@ -43,7 +43,7 @@
     "lat": 35.8036,
     "lng": 139.1829
   },
-  "description": "Gyokudo Art Museum is a distinct visitor stop within Ome, selected to support a varied local itinerary.",
+  "description": "Gyokudo Art Museum is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
   "highlights": ["Museum", "Art", "Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

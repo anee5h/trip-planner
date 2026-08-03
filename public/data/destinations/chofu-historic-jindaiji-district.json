@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Jindaiji Historic District",
-      "description": "Jindaiji Historic District is a distinct visitor stop within Chofu, selected to support a varied local itinerary.",
+      "description": "Jindaiji Historic District is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
       "highlights": ["History", "Walking", "Food"],
       "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "深大寺門前",
-      "description": "深大寺門前は東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "description": "深大寺門前はTokyoを代表する注目の観光スポットで、地域の歴史や文化、豊かな景観を楽しめます。四季折々のイベントや周辺散策もあわせて満喫できます。",
       "highlights": [
         "深大寺門前の名所",
         "深大寺門前の名所",
@@ -49,7 +49,7 @@
     "lat": 35.668,
     "lng": 139.5502
   },
-  "description": "Jindaiji Historic District is a distinct visitor stop within Chofu, selected to support a varied local itinerary.",
+  "description": "Jindaiji Historic District is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
   "highlights": ["History", "Walking", "Food"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

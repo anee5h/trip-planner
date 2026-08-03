@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Tokiwaso Manga Museum",
-      "description": "Tokiwaso Manga Museum is a distinct visitor stop within Toshima City, selected to support a varied local itinerary.",
+      "description": "Tokiwaso Manga Museum is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
       "highlights": ["Museum", "Manga", "Culture"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "豊島区立トキワ荘マンガミュージアム",
-      "description": "豊島区立トキワ荘マンガミュージアムは東京都にあるアートと文化の発信地です。充実した展示空間とユニークなコレクションを通じて新たな発見とインスピレーションを提供します。",
+      "description": "豊島区立トキワ荘マンガミュージアムはTokyoを代表する注目の観光スポットで、地域の歴史や文化、豊かな景観を楽しめます。四季折々のイベントや周辺散策もあわせて満喫できます。",
       "highlights": [
         "豊島区立トキワ荘マンガミュージアムの名所",
         "豊島区立トキワ荘マンガミュージアムの名所",
@@ -49,7 +49,7 @@
     "lat": 35.7261,
     "lng": 139.6947
   },
-  "description": "Tokiwaso Manga Museum is a distinct visitor stop within Toshima City, selected to support a varied local itinerary.",
+  "description": "Tokiwaso Manga Museum is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
   "highlights": ["Museum", "Manga", "Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

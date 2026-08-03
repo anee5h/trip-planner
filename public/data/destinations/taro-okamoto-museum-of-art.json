@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Taro Okamoto Museum of Art",
-      "description": "Taro Okamoto Museum of Art is a visitor destination in Kawasaki City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+      "description": "Taro Okamoto Museum of Art is a visitor destination in Kawasaki City.  Visitors can explore focused exhibits and learn about the venue's subject.",
       "highlights": ["Museum"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -47,7 +47,7 @@
     "lat": 35.6076,
     "lng": 139.557
   },
-  "description": "Taro Okamoto Museum of Art is a visitor destination in Kawasaki City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+  "description": "Taro Okamoto Museum of Art is a visitor destination in Kawasaki City.  Visitors can explore focused exhibits and learn about the venue's subject.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,

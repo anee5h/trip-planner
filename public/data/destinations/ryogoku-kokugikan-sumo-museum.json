@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Ryogoku Kokugikan and Sumo Museum",
-      "description": "Ryogoku Kokugikan and Sumo Museum is a distinct visitor stop within Sumida City, selected to support a varied local itinerary.",
+      "description": "Ryogoku Kokugikan and Sumo Museum is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
       "highlights": ["Museum", "Culture", "Sports"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "両国国技館・相撲博物館",
-      "description": "両国国技館・相撲博物館は東京都にあるアートと文化の発信地です。充実した展示空間とユニークなコレクションを通じて新たな発見とインスピレーションを提供します。",
+      "description": "両国国技館・相撲博物館はTokyoを代表する注目の観光スポットで、地域の歴史や文化、豊かな景観を楽しめます。四季折々のイベントや周辺散策もあわせて満喫できます。",
       "highlights": [
         "両国国技館・相撲博物館の名所",
         "両国国技館・相撲博物館の名所",
@@ -49,7 +49,7 @@
     "lat": 35.6969,
     "lng": 139.7933
   },
-  "description": "Ryogoku Kokugikan and Sumo Museum is a distinct visitor stop within Sumida City, selected to support a varied local itinerary.",
+  "description": "Ryogoku Kokugikan and Sumo Museum is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
   "highlights": ["Museum", "Culture", "Sports"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

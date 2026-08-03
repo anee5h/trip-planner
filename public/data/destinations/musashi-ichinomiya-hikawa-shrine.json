@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Musashi Ichinomiya Hikawa Shrine",
-      "description": "Musashi Ichinomiya Hikawa Shrine is a visitor destination in Saitama City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "description": "The head shrine of over 200 Hikawa shrines in the Kanto region, boasting a 2,000-year history and a grand 2km tree-lined approach path. It is surrounded by lush Omiya Park ponds and ancient sacred groves.",
       "highlights": ["History"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "武蔵一宮氷川神社",
-      "description": "氷川神社はSaitama Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "武蔵国一宮として2,000年以上の歴史を誇り、関東一円に約200社ある氷川神社の総本社です。日本一長い約2kmのケヤキ並木の参道と静謐な神域が広がっています。",
       "highlights": ["武蔵一宮氷川神社の名所"],
       "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -47,15 +47,15 @@
     "lat": 35.917037,
     "lng": 139.629461
   },
-  "description": "Musashi Ichinomiya Hikawa Shrine is a visitor destination in Saitama City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "description": "The head shrine of over 200 Hikawa shrines in the Kanto region, boasting a 2,000-year history and a grand 2km tree-lined approach path. It is surrounded by lush Omiya Park ponds and ancient sacred groves.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
-    "transport": 1400,
+    "transport": 1300,
     "tickets": 0,
-    "food": 1400,
+    "food": 2300,
     "cafe": 400
   },
   "transportOptions": {

@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Saitama Shintoshin",
-      "description": "Saitama Shintoshin is a visitor destination in Saitama City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+      "description": "Saitama Shintoshin is a visitor destination in Saitama City.  Visitors can experience the area's character and main sights.",
       "highlights": ["Culture", "Shopping"],
       "notes": "A top recommended attraction in Saitama, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
@@ -47,15 +47,15 @@
     "lat": 35.86138888888889,
     "lng": 139.64555555555555
   },
-  "description": "Saitama Shintoshin is a visitor destination in Saitama City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+  "description": "Saitama Shintoshin is a visitor destination in Saitama City.  Visitors can experience the area's character and main sights.",
   "highlights": ["Culture", "Shopping"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
-    "transport": 1400,
+    "transport": 1300,
     "tickets": 0,
-    "food": 1400,
+    "food": 2300,
     "cafe": 400
   },
   "transportOptions": {

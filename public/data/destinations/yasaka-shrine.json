@@ -35,8 +35,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yasaka-dori_early_morning_with_street_lanterns_and_the_Tower_of_Yasaka_(Hokan-ji_Temple),_Kyoto,_Japan.jpg"
   },
   "coordinates": {
-    "lat": 34.99855,
-    "lng": 135.77925
+    "lat": 35.0037,
+    "lng": 135.7785
   },
   "description": "Yasaka Shrine is a visitor destination in Kyoto City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
   "highlights": ["History"],
@@ -44,9 +44,9 @@
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
-    "transport": 1400,
+    "transport": 1300,
     "tickets": 0,
-    "food": 1400,
+    "food": 2300,
     "cafe": 400
   },
   "transportOptions": {

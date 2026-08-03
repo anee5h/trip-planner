@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Fukagawa Edo Museum",
-      "description": "Fukagawa Edo Museum is a distinct visitor stop within Koto City, selected to support a varied local itinerary.",
+      "description": "An immersive life-sized recreation of a Fukagawa neighborhood during the late Edo period, complete with merchant houses, fire towers, and sound effects mimicking changing daylight. Visitors can step directly inside historic rooms and workshops.",
       "highlights": ["Museum", "History", "Culture"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "深川江戸資料館",
-      "description": "深川江戸資料館は東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "description": "江戸時代末期の深川の街並みを実物大で忠実に再現した体感型体感博物館です。火の見櫓や船宿、長屋の内部まで自由に立ち入り、当時の町人の暮らしを体感できます。",
       "highlights": [
         "深川江戸資料館の名所",
         "深川江戸資料館の名所",
@@ -49,7 +49,7 @@
     "lat": 35.6814,
     "lng": 139.8002
   },
-  "description": "Fukagawa Edo Museum is a distinct visitor stop within Koto City, selected to support a varied local itinerary.",
+  "description": "An immersive life-sized recreation of a Fukagawa neighborhood during the late Edo period, complete with merchant houses, fire towers, and sound effects mimicking changing daylight. Visitors can step directly inside historic rooms and workshops.",
   "highlights": ["Museum", "History", "Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

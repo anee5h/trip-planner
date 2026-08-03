@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Jindaiji Temple",
-      "description": "Jindaiji Temple is a distinct visitor stop within Chofu, selected to support a varied local itinerary.",
+      "description": "Jindaiji Temple is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
       "highlights": ["History", "Culture", "Temple"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "深大寺",
-      "description": "深大寺は東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "description": "深大寺はTokyoを代表する注目の観光スポットで、地域の歴史や文化、豊かな景観を楽しめます。四季折々のイベントや周辺散策もあわせて満喫できます。",
       "highlights": ["深大寺の名所", "深大寺の名所", "深大寺の名所"],
       "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -51,7 +51,7 @@
     "lat": 35.6676,
     "lng": 139.5504
   },
-  "description": "Jindaiji Temple is a distinct visitor stop within Chofu, selected to support a varied local itinerary.",
+  "description": "Jindaiji Temple is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
   "highlights": ["History", "Culture", "Temple"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

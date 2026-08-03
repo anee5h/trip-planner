@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Seiko Museum Ginza",
-      "description": "Seiko Museum Ginza is a distinct visitor stop within Chuo City, selected to support a varied local itinerary.",
+      "description": "An elegant specialized museum showcasing the evolution of Japanese horology and precision timekeeping from traditional sundials to atomic clocks. Visitors can explore interactive exhibits detailing Seiko's historic watchmaking innovations.",
       "highlights": ["Museum", "Horology", "Design"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "セイコーミュージアム 銀座",
-      "description": "セイコーミュージアム 銀座は東京都にあるアートと文化の発信地です。充実した展示空間とユニークなコレクションを通じて新たな発見とインスピレーションを提供します。",
+      "description": "日本の時計産業の発展と精密和時計の歴史を総合的に展示するセイコーの専門博物館です。日時計から最新のアトミッククロックまで、時と時計の進化を体感できます。",
       "highlights": [
         "セイコーミュージアム 銀座の名所",
         "セイコーミュージアム 銀座の名所",
@@ -49,7 +49,7 @@
     "lat": 35.6712,
     "lng": 139.7645
   },
-  "description": "Seiko Museum Ginza is a distinct visitor stop within Chuo City, selected to support a varied local itinerary.",
+  "description": "An elegant specialized museum showcasing the evolution of Japanese horology and precision timekeeping from traditional sundials to atomic clocks. Visitors can explore interactive exhibits detailing Seiko's historic watchmaking innovations.",
   "highlights": ["Museum", "Horology", "Design"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Lazona Kawasaki Plaza",
-      "description": "Lazona Kawasaki Plaza is a visitor destination in Kawasaki City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+      "description": "Lazona Kawasaki Plaza is a visitor destination in Kawasaki City.  Visitors can experience the area's character and main sights.",
       "highlights": ["Culture", "Shopping"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -47,15 +47,15 @@
     "lat": 35.53333333,
     "lng": 139.69583333
   },
-  "description": "Lazona Kawasaki Plaza is a visitor destination in Kawasaki City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+  "description": "Lazona Kawasaki Plaza is a visitor destination in Kawasaki City.  Visitors can experience the area's character and main sights.",
   "highlights": ["Culture", "Shopping"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
-    "transport": 1400,
+    "transport": 1300,
     "tickets": 0,
-    "food": 1400,
+    "food": 2300,
     "cafe": 400
   },
   "transportOptions": {

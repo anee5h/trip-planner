@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Buaiso",
-      "description": "Buaiso is a distinct visitor stop within Machida, selected to support a varied local itinerary.",
+      "description": "Buaiso is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
       "highlights": ["Museum", "History", "Culture"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "武相荘",
-      "description": "武相荘は東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "description": "武相荘はTokyoを代表する注目の観光スポットで、地域の歴史や文化、豊かな景観を楽しめます。四季折々のイベントや周辺散策もあわせて満喫できます。",
       "highlights": ["武相荘の名所", "武相荘の名所", "武相荘の名所"],
       "notes": "武相荘は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -45,7 +45,7 @@
     "lat": 35.5767,
     "lng": 139.4819
   },
-  "description": "Buaiso is a distinct visitor stop within Machida, selected to support a varied local itinerary.",
+  "description": "Buaiso is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
   "highlights": ["Museum", "History", "Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

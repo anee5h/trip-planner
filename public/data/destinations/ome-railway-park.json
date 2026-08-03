@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Ome Railway Park",
-      "description": "Ome Railway Park is a distinct visitor stop within Ome, selected to support a varied local itinerary.",
+      "description": "Ome Railway Park is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
       "highlights": ["Museum", "Railway", "Family"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "青梅鉄道公園",
-      "description": "青梅鉄道公園は東京都にあるアートと文化の発信地です。充実した展示空間とユニークなコレクションを通じて新たな発見とインスピレーションを提供します。",
+      "description": "青梅鉄道公園はTokyoを代表する注目の観光スポットで、地域の歴史や文化、豊かな景観を楽しめます。四季折々のイベントや周辺散策もあわせて満喫できます。",
       "highlights": [
         "青梅鉄道公園の名所",
         "青梅鉄道公園の名所",
@@ -43,7 +43,7 @@
     "lat": 35.7932,
     "lng": 139.2618
   },
-  "description": "Ome Railway Park is a distinct visitor stop within Ome, selected to support a varied local itinerary.",
+  "description": "Ome Railway Park is a premier attraction in Tokyo, offering authentic local culture and unique architectural views. Visitors can explore historic surroundings and enjoy seasonal events throughout the year.",
   "highlights": ["Museum", "Railway", "Family"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
