@@ -111,7 +111,7 @@ export default function Settings() {
         setPartySize(user.user_metadata.preferences.partySize || 2);
       }
     }
-  }, [user]);
+  }, [user, locale]);
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();

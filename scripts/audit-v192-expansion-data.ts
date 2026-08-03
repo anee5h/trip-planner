@@ -176,14 +176,14 @@ const report: AuditReport = {
 };
 
 // Apply CLI filters for output (not for the stored report)
-let displayRecords = auditRecords;
+let _displayRecords = auditRecords;
 if (filterHub) {
-  displayRecords = displayRecords.filter(
+  _displayRecords = _displayRecords.filter(
     (r) => r.hubId === filterHub || r.destinationId === filterHub,
   );
 }
 if (filterSeverity) {
-  displayRecords = displayRecords.filter((r) =>
+  _displayRecords = _displayRecords.filter((r) =>
     r.findings.some((f) => f.severity === filterSeverity),
   );
 }
