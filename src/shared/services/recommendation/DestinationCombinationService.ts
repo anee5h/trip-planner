@@ -46,10 +46,15 @@ export function findNearbyCombinations(
   context?: Partial<RecommendationContext>,
   maxCount: number = 5,
   catchmentScope: "nearby" | "wider" = "nearby",
+  catalogue?: Destination[],
 ): DestinationCombo[] {
   if (!primary) return [];
 
-  const all = getDestinationList() as Destination[];
+  const all = (
+    catalogue && catalogue.length
+      ? catalogue
+      : (getDestinationList() as Destination[])
+  ) as Destination[];
   const primaryParentId = primary.relationships?.parentDestinationId;
   const isPrimaryHub = primary.role === "hub" || primary.kind === "city";
 
