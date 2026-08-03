@@ -16,6 +16,7 @@ describe("PlaceCatalog", () => {
     const places = getCanonicalPlaces();
     expect(places).toHaveLength(613);
     expect(places.every((place) => place.placeType)).toBe(true);
+    expect(places.every((place) => Array.isArray(place.tags))).toBe(true);
   });
 
   it("keeps official website links destination-only", () => {
