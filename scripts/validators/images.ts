@@ -25,7 +25,6 @@ const MAX_RESPONSE_BYTES = 20 * 1024 * 1024;
 const MAX_REDIRECTS = 3;
 
 export function isPrivateOrReservedAddress(address: string): boolean {
-  // IPv4 literal
   const v4 = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/.exec(address);
   if (v4) {
     const [a, b, c] = v4.slice(1, 4).map((n) => Number(n));
@@ -56,6 +55,24 @@ export function isPrivateOrReservedAddress(address: string): boolean {
     return true;
   }
   return false;
+}
+
+export type ImageFailureType = "policy" | "hard" | "transient";
+
+export function classifyImageFailure(
+  failureType: ImageFailureType | undefined,
+  status?: number,
+): { severity: Severity; code: string } {
+  const effective =
+    failureType ||
+    (status === 404 || status === 410 || status === 500 ? "hard" : "transient");
+  if (effective === "transient") {
+    return { severity: "warning", code: "IMAGE_FETCH_WARNING" };
+  }
+  if (effective === "policy") {
+    return { severity: "error", code: "IMAGE_POLICY_VIOLATION" };
+  }
+  return { severity: "error", code: "BROKEN_IMAGE_URL" };
 }
 
 export const imagesValidator: ValidatorModule = {
@@ -170,28 +187,40 @@ export const imagesValidator: ValidatorModule = {
     };
 
     // Helper to test HTTPS GET with retry on 429/timeout, a redirect limit,
-    // content-type validation, and a response-size cap.
+    // content-type validation, and a response-size cap. failureType is
+    // "policy" or "hard" for merge-blocking errors and "transient" for
+    // retryable/remote failures.
     const checkUrl = (
       urlStr: string,
       isRetry = false,
       redirectsLeft = MAX_REDIRECTS,
-    ): Promise<{ ok: boolean; status?: number; error?: string }> => {
+    ): Promise<{
+      ok: boolean;
+      status?: number;
+      error?: string;
+      failureType?: "policy" | "hard" | "transient";
+    }> => {
       return new Promise((resolve) => {
         let parsed: URL;
         try {
           parsed = new URL(urlStr);
         } catch (e: any) {
-          resolve({ ok: false, error: e.message });
+          resolve({ ok: false, error: e.message, failureType: "policy" });
           return;
         }
         if (parsed.protocol !== "https:") {
-          resolve({ ok: false, error: "URL must use HTTPS" });
+          resolve({
+            ok: false,
+            error: "URL must use HTTPS",
+            failureType: "policy",
+          });
           return;
         }
         if (!ALLOWED_IMAGE_HOSTS.has(parsed.hostname)) {
           resolve({
             ok: false,
             error: `host '${parsed.hostname}' is not on the allowed image host list`,
+            failureType: "policy",
           });
           return;
         }
@@ -218,19 +247,31 @@ export const imagesValidator: ValidatorModule = {
             ) {
               res.resume();
               if (redirectsLeft <= 0) {
-                resolve({ ok: false, error: "too many redirects" });
+                resolve({
+                  ok: false,
+                  error: "too many redirects",
+                  failureType: "policy",
+                });
                 return;
               }
               let nextUrl: string;
               try {
                 nextUrl = new URL(res.headers.location, urlStr).toString();
               } catch {
-                resolve({ ok: false, error: "invalid redirect location" });
+                resolve({
+                  ok: false,
+                  error: "invalid redirect location",
+                  failureType: "policy",
+                });
                 return;
               }
               preflight(nextUrl).then((preflightError) => {
                 if (preflightError) {
-                  resolve({ ok: false, error: preflightError });
+                  resolve({
+                    ok: false,
+                    error: preflightError,
+                    failureType: "policy",
+                  });
                   return;
                 }
                 checkUrl(nextUrl, isRetry, redirectsLeft - 1).then(resolve);
@@ -241,7 +282,7 @@ export const imagesValidator: ValidatorModule = {
             if (
               res.statusCode &&
               res.statusCode >= 200 &&
-              res.statusCode < 400
+              res.statusCode < 300
             ) {
               const contentType = res.headers["content-type"] || "";
               const normalizedMime = contentType
@@ -262,6 +303,7 @@ export const imagesValidator: ValidatorModule = {
                   resolve({
                     ok: false,
                     error: `response exceeds ${MAX_RESPONSE_BYTES} byte cap`,
+                    failureType: "policy",
                   });
                 } else if (
                   allowedImageMimeTypes.length > 0 &&
@@ -270,14 +312,35 @@ export const imagesValidator: ValidatorModule = {
                   resolve({
                     ok: false,
                     error: `Content-Type '${normalizedMime}' is not an allowed image MIME type`,
+                    failureType: "policy",
                   });
                 } else {
                   resolve({ ok: true, status: res.statusCode });
                 }
               });
               res.on("error", (err) =>
-                resolve({ ok: false, error: err.message }),
+                resolve({
+                  ok: false,
+                  error: err.message,
+                  failureType: "transient",
+                }),
               );
+              return;
+            }
+
+            if (
+              res.statusCode &&
+              res.statusCode >= 300 &&
+              res.statusCode < 400
+            ) {
+              // 3xx without a Location header (or after the redirect limit) is a
+              // hard policy failure, not a success.
+              res.resume();
+              resolve({
+                ok: false,
+                error: `redirect without a valid location (HTTP ${res.statusCode})`,
+                failureType: "policy",
+              });
               return;
             }
 
@@ -291,19 +354,28 @@ export const imagesValidator: ValidatorModule = {
                 resolve(retryRes);
               }, 1000);
             } else {
+              const transient =
+                res.statusCode === 429 || res.statusCode === 503;
               resolve({
                 ok: false,
                 status: res.statusCode,
                 error: `HTTP ${res.statusCode}`,
+                failureType: transient ? "transient" : "hard",
               });
             }
           },
         );
 
-        req.on("error", (err) => resolve({ ok: false, error: err.message }));
+        req.on("error", (err) =>
+          resolve({ ok: false, error: err.message, failureType: "transient" }),
+        );
         req.on("timeout", () => {
           req.destroy();
-          resolve({ ok: false, error: `Timeout after ${httpTimeoutMs}ms` });
+          resolve({
+            ok: false,
+            error: `Timeout after ${httpTimeoutMs}ms`,
+            failureType: "transient",
+          });
         });
       });
     };
@@ -317,15 +389,17 @@ export const imagesValidator: ValidatorModule = {
         chunk.map(async ([urlStr, refs]) => {
           const preflightError = await preflight(urlStr);
           const res = preflightError
-            ? { ok: false, error: preflightError }
+            ? {
+                ok: false,
+                error: preflightError,
+                failureType: "policy" as const,
+              }
             : await checkUrl(urlStr);
           if (!res.ok) {
-            const isHardFailure =
-              res.status === 404 || res.status === 410 || res.status === 500;
-            const severity: Severity = isHardFailure ? "error" : "warning";
-            const code = isHardFailure
-              ? "BROKEN_IMAGE_URL"
-              : "IMAGE_FETCH_WARNING";
+            const { severity, code } = classifyImageFailure(
+              res.failureType,
+              res.status,
+            );
 
             for (const ref of refs) {
               issues.push({
