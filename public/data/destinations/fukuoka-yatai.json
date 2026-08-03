@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Fukuoka Yatai",
-      "description": "Fukuoka Yatai is a visitor destination in Fukuoka City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+      "description": "Fukuoka Yatai is a visitor destination in Fukuoka City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
       "highlights": ["Food", "Market"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 33.590514,
     "lng": 130.408067
   },
-  "description": "Fukuoka Yatai is a visitor destination in Fukuoka City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+  "description": "Fukuoka Yatai is a visitor destination in Fukuoka City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
   "highlights": ["Food", "Market"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

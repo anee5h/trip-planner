@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Shonan Kaigan Park",
-      "description": "Shonan Kaigan Park is a visitor destination in Fujisawa City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+      "description": "Shonan Kaigan Park is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
       "highlights": ["Nature"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -47,7 +47,7 @@
     "lat": 35.31611111,
     "lng": 139.47083333
   },
-  "description": "Shonan Kaigan Park is a visitor destination in Fujisawa City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+  "description": "Shonan Kaigan Park is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

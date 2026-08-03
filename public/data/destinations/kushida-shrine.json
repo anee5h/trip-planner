@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Kushida Shrine",
-      "description": "Kushida Shrine is a visitor destination in Fukuoka City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "description": "Kushida Shrine is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
       "highlights": ["History"]
     },
     "ja": {
@@ -38,7 +38,7 @@
     "lat": 33.593111111111114,
     "lng": 130.41069444444443
   },
-  "description": "Kushida Shrine is a visitor destination in Fukuoka City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "description": "Kushida Shrine is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

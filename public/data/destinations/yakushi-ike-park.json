@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Yakushi-Ike Park Shikisai no Mori",
-      "description": "Yakushi-Ike Park Shikisai no Mori is a distinct visitor stop within Machida, selected to support a varied local itinerary.",
+      "description": "Selected as one of Japan's Top 100 Historic Parks, featuring a scenic central pond, historic thatched farmhouses, and seasonal plum and iris gardens. It offers quiet walking trails and a craft brewery café in Machida.",
       "highlights": ["Nature", "Park", "Culture"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "薬師池公園 四季彩の杜",
-      "description": "薬師池公園 四季彩の杜は東京都の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "description": "日本の歴史公園100選に選ばれた町田市の公園で、大きな池を中心に茅葺きの旧永井家住宅や梅林、菖蒲田が広がります。四季の花々と直売所カフェが親しまれています。",
       "highlights": [
         "薬師池公園 四季彩の杜の名所",
         "薬師池公園 四季彩の杜の名所",
@@ -43,7 +43,7 @@
     "lat": 35.5917,
     "lng": 139.4467
   },
-  "description": "Yakushi-Ike Park Shikisai no Mori is a distinct visitor stop within Machida, selected to support a varied local itinerary.",
+  "description": "Selected as one of Japan's Top 100 Historic Parks, featuring a scenic central pond, historic thatched farmhouses, and seasonal plum and iris gardens. It offers quiet walking trails and a craft brewery café in Machida.",
   "highlights": ["Nature", "Park", "Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

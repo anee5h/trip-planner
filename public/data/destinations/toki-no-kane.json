@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Toki no Kane",
-      "description": "Toki no Kane is a visitor destination in Kawagoe City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+      "description": "Toki no Kane is a visitor destination in Kawagoe City.  Visitors can experience the area's character and main sights.",
       "highlights": ["Viewpoint"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -46,7 +46,7 @@
     "lat": 35.923488888889,
     "lng": 139.48331388889
   },
-  "description": "Toki no Kane is a visitor destination in Kawagoe City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+  "description": "Toki no Kane is a visitor destination in Kawagoe City.  Visitors can experience the area's character and main sights.",
   "highlights": ["Viewpoint"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

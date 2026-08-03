@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Sumida River Walk",
-      "description": "Sumida River Walk is a distinct visitor stop within Sumida City, selected to support a varied local itinerary.",
+      "description": "A scenic pedestrian walkway attached to the Tobu railway bridge, connecting Asakusa directly to Tokyo Skytree Town over the river. It offers fantastic waterfront photo opportunities and glass floor viewing panels.",
       "highlights": ["Waterfront", "Walking", "Views"],
       "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "すみだリバーウォーク",
-      "description": "すみだリバーウォークは東京都にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "description": "浅草と東京スカイツリータウンを繋ぐ東武鉄橋沿いの遊歩道です。隅田川の潮風を感じながら歩くことができ、ガラス床窓からの川面の眺めや写真撮影が人気です。",
       "highlights": [
         "すみだリバーウォークの名所",
         "すみだリバーウォークの名所",
@@ -49,7 +49,7 @@
     "lat": 35.712,
     "lng": 139.8015
   },
-  "description": "Sumida River Walk is a distinct visitor stop within Sumida City, selected to support a varied local itinerary.",
+  "description": "A scenic pedestrian walkway attached to the Tobu railway bridge, connecting Asakusa directly to Tokyo Skytree Town over the river. It offers fantastic waterfront photo opportunities and glass floor viewing panels.",
   "highlights": ["Waterfront", "Walking", "Views"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

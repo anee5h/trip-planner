@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Polar Science Museum",
-      "description": "Polar Science Museum is a distinct visitor stop within Tachikawa City, selected to support a varied local itinerary.",
+      "description": "An engaging free museum operated by the National Institute of Polar Research, exhibiting real Antarctic ice samples, snowmobiles, and stuffed emperor penguins. Visitors can touch genuine meteorites and experience simulated auroras.",
       "highlights": ["Museum", "Science", "Family"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "南極・北極科学館",
-      "description": "南極・北極科学館は東京都にあるアートと文化の発信地です。充実した展示空間とユニークなコレクションを通じて新たな発見とインスピレーションを提供します。",
+      "description": "国立極地研究所が運営する極地科学の無料展示館で、南極の氷の実物や雪上車、ペンギンの剥製が展示されています。本物の隕石に触れたり、オーロラドームでの映像体験が楽しめます。",
       "highlights": [
         "南極・北極科学館の名所",
         "南極・北極科学館の名所",
@@ -55,7 +55,7 @@
     "lat": 35.7114,
     "lng": 139.4094
   },
-  "description": "Polar Science Museum is a distinct visitor stop within Tachikawa City, selected to support a varied local itinerary.",
+  "description": "An engaging free museum operated by the National Institute of Polar Research, exhibiting real Antarctic ice samples, snowmobiles, and stuffed emperor penguins. Visitors can touch genuine meteorites and experience simulated auroras.",
   "highlights": ["Museum", "Science", "Family"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

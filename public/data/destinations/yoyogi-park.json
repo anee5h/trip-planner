@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Yoyogi Park",
-      "description": "Yoyogi Park is a distinct visitor stop within Shibuya City, selected to support a varied local itinerary.",
+      "description": "A vast, lively urban park adjacent to Harajuku, popular for weekend picnicking, street performances, and seasonal cherry blossom viewing. It features expansive lawns, wooded walking trails, and peaceful fountains.",
       "highlights": ["Nature", "Park", "Relaxation"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "代々木公園",
-      "description": "代々木公園は東京都の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "description": "原宿に隣接する広大な都立公園で、ピクニックやストリートパフォーマンス、お花見の名所として親しまれています。緑豊かな木々や広場、美しい池が広がる市民の憩いの場です。",
       "highlights": [
         "代々木公園の名所",
         "代々木公園の名所",
@@ -49,7 +49,7 @@
     "lat": 35.6717,
     "lng": 139.6949
   },
-  "description": "Yoyogi Park is a distinct visitor stop within Shibuya City, selected to support a varied local itinerary.",
+  "description": "A vast, lively urban park adjacent to Harajuku, popular for weekend picnicking, street performances, and seasonal cherry blossom viewing. It features expansive lawns, wooded walking trails, and peaceful fountains.",
   "highlights": ["Nature", "Park", "Relaxation"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

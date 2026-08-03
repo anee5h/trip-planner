@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Kobe Port Tower",
-      "description": "Kobe Port Tower is a visitor destination in Kobe City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+      "description": "Kobe Port Tower is a visitor destination in Kobe City.  Visitors can experience the area's character and main sights.",
       "highlights": ["Viewpoint"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 34.6825,
     "lng": 135.18666666667
   },
-  "description": "Kobe Port Tower is a visitor destination in Kobe City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+  "description": "Kobe Port Tower is a visitor destination in Kobe City.  Visitors can experience the area's character and main sights.",
   "highlights": ["Viewpoint"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

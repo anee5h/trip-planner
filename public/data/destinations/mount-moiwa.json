@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Mount Moiwa",
-      "description": "Mount Moiwa is a visitor destination in Sapporo City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+      "description": "Mount Moiwa is a visitor destination in Sapporo City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
       "highlights": ["Nature"]
     },
     "ja": {
@@ -38,7 +38,7 @@
     "lat": 43.0225,
     "lng": 141.32222222222222
   },
-  "description": "Mount Moiwa is a visitor destination in Sapporo City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+  "description": "Mount Moiwa is a visitor destination in Sapporo City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
   "highlights": ["Nature"],
   "budgetMin": 4000,
   "budgetRecommended": 6500,

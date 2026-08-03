@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Maruyama Park",
-      "description": "Maruyama Park is a visitor destination in Sapporo City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+      "description": "Maruyama Park is a visitor destination in Sapporo City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
       "highlights": ["Nature"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 43.0542,
     "lng": 141.3175
   },
-  "description": "Maruyama Park is a visitor destination in Sapporo City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+  "description": "Maruyama Park is a visitor destination in Sapporo City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

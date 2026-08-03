@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Ome Retro Town",
-      "description": "Ome Retro Town is a distinct visitor stop within Ome, selected to support a varied local itinerary.",
+      "description": "A charming historic town center lined with hand-painted classic movie billboards, retro Showa signs, and historic wooden shopfronts. It offers a nostalgic journey into mid-20th century Japanese cinema culture.",
       "highlights": ["Culture", "Walking", "History"],
       "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "青梅レトロタウン",
-      "description": "青梅レトロタウンは東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "description": "手描きの名画映画看板や昭和の懐かしいホーロー看板が街中に溢れるレトロな商店街です。昭和の映画文化とノスタルジックな町並みを散策しながら楽しめます。",
       "highlights": [
         "青梅レトロタウンの名所",
         "青梅レトロタウンの名所",
@@ -43,7 +43,7 @@
     "lat": 35.7906,
     "lng": 139.2582
   },
-  "description": "Ome Retro Town is a distinct visitor stop within Ome, selected to support a varied local itinerary.",
+  "description": "A charming historic town center lined with hand-painted classic movie billboards, retro Showa signs, and historic wooden shopfronts. It offers a nostalgic journey into mid-20th century Japanese cinema culture.",
   "highlights": ["Culture", "Walking", "History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

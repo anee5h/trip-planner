@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Aoba Castle Museum",
-      "description": "Aoba Castle Museum is a visitor destination in Sendai City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+      "description": "Aoba Castle Museum is a visitor destination in Sendai City.  Visitors can explore focused exhibits and learn about the venue's subject.",
       "highlights": ["Museum"]
     },
     "ja": {
@@ -38,7 +38,7 @@
     "lat": 38.25211,
     "lng": 140.855945
   },
-  "description": "Aoba Castle Museum is a visitor destination in Sendai City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+  "description": "Aoba Castle Museum is a visitor destination in Sendai City.  Visitors can explore focused exhibits and learn about the venue's subject.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,

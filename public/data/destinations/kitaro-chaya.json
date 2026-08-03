@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Kitaro Chaya",
-      "description": "Kitaro Chaya is a distinct visitor stop within Chofu, selected to support a varied local itinerary.",
+      "description": "A charming retro cafe and shop celebrating manga artist Shigeru Mizuki's GeGeGe no Kitaro, located in front of Jindaiji Temple. Visitors can enjoy monster-themed sweets and photo spots with life-sized Yokai figures.",
       "highlights": ["Culture", "Manga", "Food"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "鬼太郎茶屋",
-      "description": "鬼太郎茶屋は東京都にあるアートと文化の発信地です。充実した展示空間とユニークなコレクションを通じて新たな発見とインスピレーションを提供します。",
+      "description": "深大寺門前に位置する水木しげる氏の「ゲゲゲの鬼太郎」をテーマにした妖怪カフェ＆ショップです。妖怪モチーフのオリジナル甘味や、屋根の上の巨大下駄など写真スポットが満載です。",
       "highlights": [
         "鬼太郎茶屋の名所",
         "鬼太郎茶屋の名所",
@@ -49,7 +49,7 @@
     "lat": 35.6671,
     "lng": 139.5495
   },
-  "description": "Kitaro Chaya is a distinct visitor stop within Chofu, selected to support a varied local itinerary.",
+  "description": "A charming retro cafe and shop celebrating manga artist Shigeru Mizuki's GeGeGe no Kitaro, located in front of Jindaiji Temple. Visitors can enjoy monster-themed sweets and photo spots with life-sized Yokai figures.",
   "highlights": ["Culture", "Manga", "Food"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

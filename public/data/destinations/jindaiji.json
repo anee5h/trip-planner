@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Jindaiji Temple",
-      "description": "Jindaiji Temple is a distinct visitor stop within Chofu, selected to support a varied local itinerary.",
+      "description": "Tokyo's second oldest Buddhist temple after Senso-ji, surrounded by natural spring ponds and famous Jindaiji Soba noodle shops. Its serene grounds house a National Treasure bronze Shakyamuni Buddha dating to the 7th century.",
       "highlights": ["History", "Culture", "Temple"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "深大寺",
-      "description": "深大寺は東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "description": "浅草寺に次ぐ都内屈指の古刹で、湧水に恵まれた境内と名物の「深大寺そば」で知られています。国宝に指定された釈迦如来像が安置され、豊かな緑と歴史を感じられます。",
       "highlights": ["深大寺の名所", "深大寺の名所", "深大寺の名所"],
       "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -51,7 +51,7 @@
     "lat": 35.6676,
     "lng": 139.5504
   },
-  "description": "Jindaiji Temple is a distinct visitor stop within Chofu, selected to support a varied local itinerary.",
+  "description": "Tokyo's second oldest Buddhist temple after Senso-ji, surrounded by natural spring ponds and famous Jindaiji Soba noodle shops. Its serene grounds house a National Treasure bronze Shakyamuni Buddha dating to the 7th century.",
   "highlights": ["History", "Culture", "Temple"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

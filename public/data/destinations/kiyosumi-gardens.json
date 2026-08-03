@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Kiyosumi Gardens",
-      "description": "Kiyosumi Gardens is a distinct visitor stop within Koto City, selected to support a varied local itinerary.",
+      "description": "A tranquil Japanese stroll garden renowned for its expansive pond, stepping stones, and rare landscape rocks collected from across Japan. Built by Mitsubishi founder Iwasaki Yataro, it is an oasis of calm in eastern Tokyo.",
       "highlights": ["Nature", "Garden", "Relaxation"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "清澄庭園",
-      "description": "清澄庭園は東京都の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "description": "日本全国から集められた名石と大泉水が美しい静寂な回遊式林泉庭園です。三菱創業者・岩崎弥太郎によって造園され、四季折々の野鳥や水鏡に映る景色を堪能できます。",
       "highlights": ["清澄庭園の名所", "清澄庭園の名所", "清澄庭園の名所"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -45,7 +45,7 @@
     "lat": 35.6817,
     "lng": 139.7974
   },
-  "description": "Kiyosumi Gardens is a distinct visitor stop within Koto City, selected to support a varied local itinerary.",
+  "description": "A tranquil Japanese stroll garden renowned for its expansive pond, stepping stones, and rare landscape rocks collected from across Japan. Built by Mitsubishi founder Iwasaki Yataro, it is an oasis of calm in eastern Tokyo.",
   "highlights": ["Nature", "Garden", "Relaxation"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

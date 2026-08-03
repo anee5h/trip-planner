@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Katori Jingu",
-      "description": "Katori Jingu is a visitor destination in the surrounding area. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "description": "Katori Jingu is a visitor destination in the surrounding area.  Visitors can experience historic architecture and local culture.",
       "highlights": ["History"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
@@ -44,7 +44,7 @@
     "lat": 35.886206,
     "lng": 140.528518
   },
-  "description": "Katori Jingu is a visitor destination in the surrounding area. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "description": "Katori Jingu is a visitor destination in the surrounding area.  Visitors can experience historic architecture and local culture.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

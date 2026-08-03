@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Tachikawa Manga Park",
-      "description": "Tachikawa Manga Park is a distinct visitor stop within Tachikawa City, selected to support a varied local itinerary.",
+      "description": "A cozy public reading lounge holding over 40,000 manga volumes, where visitors can relax on tatami mats and wooden cubbies for a small day-pass fee. It is a beloved haven for comic fans of all ages.",
       "highlights": ["Manga", "Culture", "Indoor"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "立川まんがぱーく",
-      "description": "立川まんがぱーくは東京都にあるアートと文化の発信地です。充実した展示空間とユニークなコレクションを通じて新たな発見とインスピレーションを提供します。",
+      "description": "4万冊以上のコミックが揃う畳敷きのマンガ読書施設で、入館料のみで一日中くつろぎながら読書を楽しめます。押し入れのような小上がりスペースで自分だけの読書時間を過ごせます。",
       "highlights": [
         "立川まんがぱーくの名所",
         "立川まんがぱーくの名所",
@@ -55,7 +55,7 @@
     "lat": 35.6965,
     "lng": 139.4197
   },
-  "description": "Tachikawa Manga Park is a distinct visitor stop within Tachikawa City, selected to support a varied local itinerary.",
+  "description": "A cozy public reading lounge holding over 40,000 manga volumes, where visitors can relax on tatami mats and wooden cubbies for a small day-pass fee. It is a beloved haven for comic fans of all ages.",
   "highlights": ["Manga", "Culture", "Indoor"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

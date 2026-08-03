@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Enoshima Shrine",
-      "description": "Enoshima Shrine is a visitor destination in Fujisawa City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "description": "Enoshima Shrine is a visitor destination in Fujisawa City.  Visitors can experience historic architecture and local culture.",
       "highlights": ["History"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
@@ -46,7 +46,7 @@
     "lat": 35.30036111111111,
     "lng": 139.4796111111111
   },
-  "description": "Enoshima Shrine is a visitor destination in Fujisawa City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "description": "Enoshima Shrine is a visitor destination in Fujisawa City.  Visitors can experience historic architecture and local culture.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

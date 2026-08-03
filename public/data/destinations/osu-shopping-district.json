@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Osu Shopping District",
-      "description": "Osu Shopping District is a visitor destination in Nagoya City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+      "description": "Osu Shopping District is a visitor destination in Nagoya City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
       "highlights": ["Shopping", "Food"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 35.18333333,
     "lng": 136.9
   },
-  "description": "Osu Shopping District is a visitor destination in Nagoya City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+  "description": "Osu Shopping District is a visitor destination in Nagoya City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
   "highlights": ["Shopping", "Food"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

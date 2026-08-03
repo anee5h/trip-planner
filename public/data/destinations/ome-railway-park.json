@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Ome Railway Park",
-      "description": "Ome Railway Park is a distinct visitor stop within Ome, selected to support a varied local itinerary.",
+      "description": "An open-air railway museum established in 1962, exhibiting ten historic steam locomotives and early Shinkansen cars. Visitors can climb inside retired train cabs and watch a detailed model train layout.",
       "highlights": ["Museum", "Railway", "Family"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "青梅鉄道公園",
-      "description": "青梅鉄道公園は東京都にあるアートと文化の発信地です。充実した展示空間とユニークなコレクションを通じて新たな発見とインスピレーションを提供します。",
+      "description": "1962年に開園した鉄道公園で、貴重なSL蒸気機関車や初代0系新幹線など10両の実物車両が屋外展示されています。運転席への乗車や大スケールの鉄道模型パノラマを楽しめます。",
       "highlights": [
         "青梅鉄道公園の名所",
         "青梅鉄道公園の名所",
@@ -43,7 +43,7 @@
     "lat": 35.7932,
     "lng": 139.2618
   },
-  "description": "Ome Railway Park is a distinct visitor stop within Ome, selected to support a varied local itinerary.",
+  "description": "An open-air railway museum established in 1962, exhibiting ten historic steam locomotives and early Shinkansen cars. Visitors can climb inside retired train cabs and watch a detailed model train layout.",
   "highlights": ["Museum", "Railway", "Family"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

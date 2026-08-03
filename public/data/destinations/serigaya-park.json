@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Serigaya Park",
-      "description": "Serigaya Park is a distinct visitor stop within Machida, selected to support a varied local itinerary.",
+      "description": "A lush valley park in Machida featuring natural springs, woodland walking trails, and a unique kinetic sculpture fountain. It is a popular spot for family picnics, cherry blossom viewing, and outdoor play.",
       "highlights": ["Nature", "Park", "Family"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "芹ヶ谷公園",
-      "description": "芹ヶ谷公園は東京都の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "description": "湧水と豊かな雑木林の谷戸を活かした自然豊かな公園で、動く彫刻噴水や大型スライダーが人気です。春の桜や秋の紅葉など、四季折々の散策を楽しめます。",
       "highlights": [
         "芹ヶ谷公園の名所",
         "芹ヶ谷公園の名所",
@@ -43,7 +43,7 @@
     "lat": 35.5478,
     "lng": 139.4527
   },
-  "description": "Serigaya Park is a distinct visitor stop within Machida, selected to support a varied local itinerary.",
+  "description": "A lush valley park in Machida featuring natural springs, woodland walking trails, and a unique kinetic sculpture fountain. It is a popular spot for family picnics, cherry blossom viewing, and outdoor play.",
   "highlights": ["Nature", "Park", "Family"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Ohori Park",
-      "description": "Ohori Park is a visitor destination in Fukuoka City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+      "description": "Ohori Park is a visitor destination in Fukuoka City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
       "highlights": ["Nature"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 33.58586111,
     "lng": 130.37625
   },
-  "description": "Ohori Park is a visitor destination in Fukuoka City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+  "description": "Ohori Park is a visitor destination in Fukuoka City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

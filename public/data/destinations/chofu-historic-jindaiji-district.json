@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Jindaiji Historic District",
-      "description": "Jindaiji Historic District is a distinct visitor stop within Chofu, selected to support a varied local itinerary.",
+      "description": "A picturesque historic enclave surrounding Jindaiji Temple, lined with traditional watermill soba restaurants, souvenir shops, and natural spring streams. It retains the peaceful rural atmosphere of old Musashino.",
       "highlights": ["History", "Walking", "Food"],
       "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "深大寺門前",
-      "description": "深大寺門前は東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "description": "深大寺を中心に水車や手打ちそば処、お土産屋が立ち並ぶ風情ある門前町エリアです。豊富な湧水と武蔵野の面影を残す緑豊かな環境で、散策と美食を満喫できます。",
       "highlights": [
         "深大寺門前の名所",
         "深大寺門前の名所",
@@ -49,7 +49,7 @@
     "lat": 35.668,
     "lng": 139.5502
   },
-  "description": "Jindaiji Historic District is a distinct visitor stop within Chofu, selected to support a varied local itinerary.",
+  "description": "A picturesque historic enclave surrounding Jindaiji Temple, lined with traditional watermill soba restaurants, souvenir shops, and natural spring streams. It retains the peaceful rural atmosphere of old Musashino.",
   "highlights": ["History", "Walking", "Food"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Harajuku and Takeshita Street",
-      "description": "Harajuku and Takeshita Street is a distinct visitor stop within Shibuya City, selected to support a varied local itinerary.",
+      "description": "The global epicenter of youth fashion and modern pop culture, lined with colorful boutiques, crepe stands, and unique vintage shops. It offers a vibrant sensory experience drawing visitors from around the world.",
       "highlights": ["Culture", "Shopping", "Food"],
       "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
       "reservation": "No advance reservation required; tickets available on arrival.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "原宿・竹下通り",
-      "description": "原宿・竹下通りは東京都を代表するショッピングと散策のスポットです。多種多様なショップやグルメが集まり、地元の活気と魅力溢れる時間を楽しめます。",
+      "description": "日本のポップカルチャーと原宿ファッションの発信地であり、カラフルな衣料品店やクレープショップが立ち並びます。世界中から若者や観光客が集まる賑やかな商店街です。",
       "highlights": [
         "原宿・竹下通りの名所",
         "原宿・竹下通りの名所",
@@ -49,7 +49,7 @@
     "lat": 35.6716,
     "lng": 139.7047
   },
-  "description": "Harajuku and Takeshita Street is a distinct visitor stop within Shibuya City, selected to support a varied local itinerary.",
+  "description": "The global epicenter of youth fashion and modern pop culture, lined with colorful boutiques, crepe stands, and unique vintage shops. It offers a vibrant sensory experience drawing visitors from around the world.",
   "highlights": ["Culture", "Shopping", "Food"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

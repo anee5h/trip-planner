@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Takaosan Yakuoin",
-      "description": "Takaosan Yakuoin is a distinct visitor stop within Hachioji City, selected to support a varied local itinerary.",
+      "description": "A sacred Shinto-Buddhist mountain temple established in 744, famous for its colorful Tengu guardian statues protecting the holy peaks. Visitors can sample traditional Shojin Ryori vegetarian cuisine and receive mountain blessings.",
       "highlights": ["History", "Culture", "Nature"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "高尾山薬王院",
-      "description": "高尾山薬王院は東京都の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "description": "744年に開山された高尾山の修験道の霊山で、神通力を持つ天狗の巨像が護りについています。精進料理の賞味や火渡り修行など、歴史ある山岳信仰を体感できます。",
       "highlights": [
         "高尾山薬王院の名所",
         "高尾山薬王院の名所",
@@ -55,7 +55,7 @@
     "lat": 35.6255,
     "lng": 139.2508
   },
-  "description": "Takaosan Yakuoin is a distinct visitor stop within Hachioji City, selected to support a varied local itinerary.",
+  "description": "A sacred Shinto-Buddhist mountain temple established in 744, famous for its colorful Tengu guardian statues protecting the holy peaks. Visitors can sample traditional Shojin Ryori vegetarian cuisine and receive mountain blessings.",
   "highlights": ["History", "Culture", "Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

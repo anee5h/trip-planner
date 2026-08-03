@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Takahata Fudoson",
-      "description": "Takahata Fudoson is a distinct visitor stop within Hino City, selected to support a varied local itinerary.",
+      "description": "One of the Kanto region's three great Fudo temples, renowned for its 5-story pagoda, ancient statue of Hijikata Toshizo, and spectacular summer hydrangea festival. Nestled against wooded hills, it is a key historic Shinsengumi site.",
       "highlights": ["History", "Culture", "Temple"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "高幡不動尊",
-      "description": "高幡不動尊は東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "description": "関東三大不動の一つに数えられる古刹で、五重塔や新選組・土方歳三の像で知られます。初夏には約7,500株のあじさいが咲き誇り、豊かな歴史と自然が調和しています。",
       "highlights": [
         "高幡不動尊の名所",
         "高幡不動尊の名所",
@@ -49,7 +49,7 @@
     "lat": 35.6622,
     "lng": 139.4132
   },
-  "description": "Takahata Fudoson is a distinct visitor stop within Hino City, selected to support a varied local itinerary.",
+  "description": "One of the Kanto region's three great Fudo temples, renowned for its 5-story pagoda, ancient statue of Hijikata Toshizo, and spectacular summer hydrangea festival. Nestled against wooded hills, it is a key historic Shinsengumi site.",
   "highlights": ["History", "Culture", "Temple"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

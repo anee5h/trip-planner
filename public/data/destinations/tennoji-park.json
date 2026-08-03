@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Tennoji Park",
-      "description": "Tennoji Park is a visitor destination in Osaka City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "description": "Tennoji Park is a visitor destination in Osaka City.  Visitors can experience historic architecture and local culture.",
       "highlights": ["History"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 34.65,
     "lng": 135.51
   },
-  "description": "Tennoji Park is a visitor destination in Osaka City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "description": "Tennoji Park is a visitor destination in Osaka City.  Visitors can experience historic architecture and local culture.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

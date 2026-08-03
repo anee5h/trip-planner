@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Nakasu",
-      "description": "Nakasu is a visitor destination in Fukuoka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+      "description": "Nakasu is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
       "highlights": ["Culture"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 33.592194444444445,
     "lng": 130.40675
   },
-  "description": "Nakasu is a visitor destination in Fukuoka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+  "description": "Nakasu is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
   "highlights": ["Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

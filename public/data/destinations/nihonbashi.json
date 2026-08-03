@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Nihonbashi",
-      "description": "Nihonbashi is a distinct visitor stop within Chuo City, selected to support a varied local itinerary.",
+      "description": "Tokyo's historic commercial zero-mile marker and financial district, famous for centuries-old department stores and traditional artisan shops. The iconic stone bridge has served as Japan's road network origin since 1603.",
       "highlights": ["History", "Culture", "Shopping"],
       "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
       "reservation": "No advance reservation required; tickets available on arrival.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "日本橋",
-      "description": "日本橋は東京都を代表するショッピングと散策のスポットです。多種多様なショップやグルメが集まり、地元の活気と魅力溢れる時間を楽しめます。",
+      "description": "五街道の起点として日本の道路網の中心を担ってきた歴史と伝統の商業街です。老舗の和菓子店や百貨店、重厚な石造りの日本橋が独特の風情を醸し出しています。",
       "highlights": ["日本橋の名所", "日本橋の名所", "日本橋の名所"],
       "notes": "日本橋は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -45,7 +45,7 @@
     "lat": 35.6838,
     "lng": 139.7744
   },
-  "description": "Nihonbashi is a distinct visitor stop within Chuo City, selected to support a varied local itinerary.",
+  "description": "Tokyo's historic commercial zero-mile marker and financial district, famous for centuries-old department stores and traditional artisan shops. The iconic stone bridge has served as Japan's road network origin since 1603.",
   "highlights": ["History", "Culture", "Shopping"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

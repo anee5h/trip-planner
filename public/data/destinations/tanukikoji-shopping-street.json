@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Tanukikoji Shopping Street",
-      "description": "Tanukikoji Shopping Street is a visitor destination in Sapporo City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "description": "Tanukikoji Shopping Street is a visitor destination in Sapporo City.  Visitors can experience historic architecture and local culture.",
       "highlights": ["History"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 43.058333,
     "lng": 141.35463
   },
-  "description": "Tanukikoji Shopping Street is a visitor destination in Sapporo City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "description": "Tanukikoji Shopping Street is a visitor destination in Sapporo City.  Visitors can experience historic architecture and local culture.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

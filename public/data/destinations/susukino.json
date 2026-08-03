@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Susukino",
-      "description": "Susukino is a visitor destination in Sapporo City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+      "description": "Susukino is a visitor destination in Sapporo City.  Visitors can experience the area's character and main sights.",
       "highlights": ["Culture"]
     },
     "ja": {
@@ -38,7 +38,7 @@
     "lat": 43.054904,
     "lng": 141.353383
   },
-  "description": "Susukino is a visitor destination in Sapporo City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+  "description": "Susukino is a visitor destination in Sapporo City.  Visitors can experience the area's character and main sights.",
   "highlights": ["Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Suwa Shrine",
-      "description": "Suwa Shrine is a distinct visitor stop within Tachikawa City, selected to support a varied local itinerary.",
+      "description": "An ancient Shinto shrine founded in 811 AD, serving as Tachikawa's central spiritual guardian nestled within peaceful sacred woods. It hosts energetic summer festivals, sumo ring events, and traditional flea markets.",
       "highlights": ["History", "Culture", "Shrine"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "諏訪神社",
-      "description": "諏訪神社は東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "description": "811年に創祀された立川の総鎮守で、緑豊かな社叢に包まれた荘厳な神社です。夏の例大祭や奉納相撲、骨董市など、地域の人々に長年愛されている歴史あるスポットです。",
       "highlights": ["諏訪神社の名所", "諏訪神社の名所", "諏訪神社の名所"],
       "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -51,7 +51,7 @@
     "lat": 35.6958,
     "lng": 139.4085
   },
-  "description": "Suwa Shrine is a distinct visitor stop within Tachikawa City, selected to support a varied local itinerary.",
+  "description": "An ancient Shinto shrine founded in 811 AD, serving as Tachikawa's central spiritual guardian nestled within peaceful sacred woods. It hosts energetic summer festivals, sumo ring events, and traditional flea markets.",
   "highlights": ["History", "Culture", "Shrine"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
