@@ -41,6 +41,7 @@ export function toCanonicalPlace(destination: Destination): CanonicalPlace {
   const isReviewed = Boolean(pilot);
   return {
     ...destination,
+    tags: destination.tags || [],
     placeType:
       destination.placeType ||
       (destination.role === "hub" ? "hub" : "destination"),
