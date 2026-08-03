@@ -261,7 +261,12 @@ export default function Profile() {
                   </p>
                   <div className="flex gap-2">
                     <button
-                      onClick={() => clearProfileData?.()}
+                      onClick={async () => {
+                        const result = await clearProfileData?.();
+                        if (result && !result.success) {
+                          setDeleteConfirm(false);
+                        }
+                      }}
                       className="px-3 py-1.5 rounded-lg bg-red-600 text-white font-bold text-xs"
                     >
                       Confirm Clear

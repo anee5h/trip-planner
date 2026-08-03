@@ -8,7 +8,6 @@ import type {
   AuthError,
 } from "@supabase/supabase-js";
 import { supabase } from "@/lib/supabase";
-import { toast } from "sonner";
 
 export interface UserPreferencesPayload {
   partySize?: number;
@@ -48,7 +47,7 @@ interface AuthContextType {
   ) => Promise<{ data: unknown; error: AuthError | null }>;
   signOut: () => Promise<{ error: AuthError | null }> | undefined;
   updateUserProfile: (data: UserProfileUpdateData) => Promise<UserResponse>;
-  clearProfileData: () => Promise<void>;
+  clearProfileData: () => Promise<{ success: boolean; error?: string }>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -117,20 +116,59 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return result;
   };
 
-  const clearProfileData = async () => {
-    if (user && supabase) {
-      const { error } = await supabase
-        .from("user_data")
-        .delete()
-        .eq("id", user.id);
+  // App-owned fields stored in Supabase Auth user_metadata by
+  // updateUserProfile. Provider-managed identity fields (email, name from
+  // OAuth) are left untouched.
+  const PROFILE_METADATA_FIELDS: (keyof UserProfileUpdateData)[] = [
+    "username",
+    "full_name",
+    "home_city",
+    "default_locale",
+    "dob",
+    "units",
+    "emailNotifications",
+    "preferences",
+  ];
 
-      if (error) {
-        console.error("Failed to clear user profile data", error);
-        toast.error("Failed to clear profile data. Please try again.");
-        return;
-      }
+  const clearProfileData = async (): Promise<{
+    success: boolean;
+    error?: string;
+  }> => {
+    if (!user || !supabase) {
+      return { success: false, error: "Not signed in" };
     }
+
+    // 1. Clear the app-owned Auth metadata so the fields do not reappear on
+    //    the next login.
+    const metadata: Record<string, null> = {};
+    for (const field of PROFILE_METADATA_FIELDS) {
+      metadata[field] = null;
+    }
+    const metaResult = await supabase.auth.updateUser({ data: metadata });
+    if (metaResult.error) {
+      console.error("Failed to clear profile metadata", metaResult.error);
+      return {
+        success: false,
+        error: "Failed to clear profile metadata. Please try again.",
+      };
+    }
+    if (metaResult.data.user) setUser(metaResult.data.user);
+
+    // 2. Delete the application-owned user_data row.
+    const { error } = await supabase
+      .from("user_data")
+      .delete()
+      .eq("id", user.id);
+    if (error) {
+      console.error("Failed to clear user profile data", error);
+      return {
+        success: false,
+        error: "Failed to clear profile data. Please try again.",
+      };
+    }
+
     await signOut();
+    return { success: true };
   };
 
   return (

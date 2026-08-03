@@ -228,7 +228,12 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
                     type="button"
                     onClick={async () => {
                       setLoading(true);
-                      await clearProfileData();
+                      const result = await clearProfileData();
+                      setLoading(false);
+                      if (!result.success) {
+                        setDeleteConfirm(false);
+                        return;
+                      }
                       onClose();
                     }}
                     className="flex-1 h-8 text-xs bg-red-600 hover:bg-red-700 text-white border-0"
