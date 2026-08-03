@@ -50,6 +50,10 @@ interface DayPlanWidgetProps {
   /** When false, the plan-creation entry point is hidden because the
    *  destination has too few nearby candidate stops to build an itinerary. */
   eligible?: boolean;
+  /** Plan type selected when the planner first opens. */
+  defaultPlanType?: DayPlanType;
+  /** When true, full-day plans are hidden because there are not enough stops. */
+  fullDayDisabled?: boolean;
 }
 
 export function DayPlanWidget({
@@ -61,13 +65,17 @@ export function DayPlanWidget({
   onSaveToItinerary,
   onPlanGenerated,
   eligible = true,
+  defaultPlanType,
+  fullDayDisabled = false,
 }: DayPlanWidgetProps) {
   const isHubOrCity = isHubPrimary(destination);
 
   const [hasGenerated, setHasGenerated] = useState(false);
   const [showConfig, setShowConfig] = useState(false);
 
-  const [planType, setPlanType] = useState<DayPlanType>("full_day");
+  const [planType, setPlanType] = useState<DayPlanType>(
+    defaultPlanType || "full_day",
+  );
   const [startTime, setStartTime] = useState("09:00");
   const [availableMinutes, setAvailableMinutes] = useState<number>(540);
   const [durationPreset, setDurationPreset] = useState("540");
@@ -530,7 +538,7 @@ export function DayPlanWidget({
                   onChange={(e) => setPlanType(e.target.value as DayPlanType)}
                   className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-3 py-2.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500 min-h-[44px]"
                 >
-                  <option value="full_day">
+                  <option value="full_day" disabled={fullDayDisabled}>
                     {locale === "ja"
                       ? "1日コース (3〜4スポット)"
                       : "Full Day (3–4 stops)"}

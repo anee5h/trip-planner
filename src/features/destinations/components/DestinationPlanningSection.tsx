@@ -28,10 +28,16 @@ export function DestinationPlanningSection({
 
   useEffect(() => setActivePartySize(partySize), [partySize]);
 
-  const eligibility = useMemo(
-    () => getPlanEligibility(destination, { planType: "full_day" }),
+  const { halfDay, fullDay } = useMemo(
+    () => ({
+      halfDay: getPlanEligibility(destination, { planType: "half_day" }),
+      fullDay: getPlanEligibility(destination, { planType: "full_day" }),
+    }),
     [destination],
   );
+
+  const eligible = halfDay.eligible || fullDay.eligible;
+  const fullDayDisabled = !fullDay.eligible;
 
   const setGeneratedPlan = (plan: DayPlan | null) => {
     setGeneratedPlanState(plan);
@@ -62,7 +68,9 @@ export function DestinationPlanningSection({
         partySize={activePartySize}
         onPartySizeChange={setActivePartySize}
         generatedCostRange={costBreakdown?.totalRange}
-        eligible={eligibility.eligible}
+        eligible={eligible}
+        defaultPlanType={fullDayDisabled ? "half_day" : "full_day"}
+        fullDayDisabled={fullDayDisabled}
         onSaveToItinerary={() =>
           onSaveToItinerary(
             generatedPlan

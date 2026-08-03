@@ -33,6 +33,7 @@ export interface PlanEligibilityOptions {
   planType?: DayPlanType;
   catchmentScope?: CatchmentScope;
   context?: Partial<RecommendationContext>;
+  catalogue?: Destination[];
 }
 
 export interface PlanEligibility {
@@ -44,25 +45,41 @@ export interface PlanEligibility {
   reason?: "insufficient_real_pois";
 }
 
+export interface UsablePlanCandidates {
+  required: PlannedCandidate[];
+  optional: PlannedCandidate[];
+}
+
 /**
- * Shared eligibility check used both by the UI (to hide the plan button when a
- * destination cannot support an itinerary) and by generateDayPlan. It counts
- * usable nearby candidate stops with the same candidate/catchment logic as the
- * generator, so the button and the generator can never disagree.
+ * Shared candidate construction used by both getPlanEligibility and
+ * generateDayPlan so the UI gate and the generator consume the exact same
+ * candidate set. The anchor (the primary itself when it is a real POI) is
+ * returned as a required candidate; every other candidate is optional.
  */
-export function getPlanEligibility(
+export function buildUsablePlanCandidates(
   primary: Destination,
-  options?: PlanEligibilityOptions,
-): PlanEligibility {
+  options?: {
+    catchmentScope?: CatchmentScope;
+    context?: Partial<RecommendationContext>;
+    pace?: DayPlanPace;
+    catalogue?: Destination[];
+  },
+): UsablePlanCandidates {
   const isHub = isHubPrimary(primary);
-  const planType: DayPlanType = options?.planType || "full_day";
   const catchmentScope: CatchmentScope = options?.catchmentScope || "nearby";
-  const context = options?.context;
+  const paceMultiplier =
+    (options?.pace || "balanced") === "relaxed"
+      ? 1.25
+      : (options?.pace || "balanced") === "packed"
+        ? 0.8
+        : 1.0;
+
   const combos = findNearbyCombinations(
     primary,
-    context,
+    options?.context,
     catchmentScope === "wider" ? 8 : 6,
     catchmentScope,
+    options?.catalogue,
   );
 
   const candidates = new Map<string, Destination>();
@@ -79,35 +96,82 @@ export function getPlanEligibility(
     }
   });
 
-  // Mirror generateDayPlan's feasibility math exactly: the anchor (the primary
-  // itself when it is a real POI) counts toward the required threshold, while a
-  // district-kind anchor does not count as a real stop.
-  let usableOptional = 0;
-  for (const dest of candidates.values()) {
-    if (isHub && dest.id === primary.id) continue;
+  const plannedCandidates: PlannedCandidate[] = Array.from(
+    candidates.values(),
+  ).map((dest) => {
+    const dur = getEffectiveVisitDuration(dest);
+    const minMins = Math.round(dur.minMins * paceMultiplier);
+    const prefMins = Math.round(dur.prefMins * paceMultiplier);
+    const maxMins = Math.round(dur.maxMins * paceMultiplier);
+    const isAnchor = !isHub && dest.id === primary.id;
+
     const transitEst = estimateLocalTransitMinutes(
       primary,
       dest,
       catchmentScope,
     );
-    if (transitEst.usable) {
-      usableOptional++;
-    }
-  }
-  const anchorIsRealStop =
-    !isHub &&
-    primary.role !== "hub" &&
-    primary.kind !== "city" &&
-    primary.kind !== "district";
-  const requiredCount = anchorIsRealStop ? 1 : 0;
+    const transitMins = transitEst.usable ? transitEst.durationMinutes : 999;
+    const ratingVal = dest.ratings?.overall ?? 4.5;
+    const baseScore = ratingVal * 20;
+    const routeScore = transitEst.usable ? baseScore - transitMins * 0.8 : -999;
+
+    return {
+      destination: dest,
+      recommendationScore: baseScore,
+      routeScore,
+      minVisitMins: minMins,
+      preferredVisitMins: prefMins,
+      maxVisitMins: maxMins,
+      durationSource: dur.source,
+      required: isAnchor,
+    };
+  });
+
+  const usable = plannedCandidates.filter(
+    (c) => c.required || c.routeScore > -999,
+  );
+
+  return {
+    required: usable.filter(
+      (c) =>
+        c.required &&
+        c.destination.role !== "hub" &&
+        c.destination.kind !== "city" &&
+        c.destination.kind !== "district",
+    ),
+    optional: usable
+      .filter((c) => !c.required)
+      .sort((a, b) => b.routeScore - a.routeScore),
+  };
+}
+
+/**
+ * Shared eligibility check used both by the UI (to hide the plan button when a
+ * destination cannot support an itinerary) and by generateDayPlan. It counts
+ * usable nearby candidate stops with the same candidate/catchment logic as the
+ * generator, so the button and the generator can never disagree.
+ */
+export function getPlanEligibility(
+  primary: Destination,
+  options?: PlanEligibilityOptions,
+): PlanEligibility {
+  const isHub = isHubPrimary(primary);
+  const planType: DayPlanType = options?.planType || "full_day";
+  const catchmentScope: CatchmentScope = options?.catchmentScope || "nearby";
+  const { required, optional } = buildUsablePlanCandidates(primary, {
+    catchmentScope,
+    context: options?.context,
+    catalogue: options?.catalogue,
+  });
+
+  const realStopCount = required.length + optional.length;
   const threshold = planType === "half_day" ? 2 : 3;
-  const optionalStopsNeeded = Math.max(0, threshold - requiredCount);
-  const eligible = usableOptional >= optionalStopsNeeded;
+  const eligible = realStopCount >= threshold;
 
   return {
     eligible,
     planType,
-    candidateCount: usableOptional + requiredCount,
+    candidateCount: realStopCount,
     threshold,
     isHub,
     ...(eligible ? {} : { reason: "insufficient_real_pois" as const }),
@@ -364,79 +428,14 @@ export function generateDayPlan(
     options?.availableMinutes ?? legacyEndWindow,
   );
 
-  const paceMultiplier =
-    pace === "relaxed" ? 1.25 : pace === "packed" ? 0.8 : 1.0;
-
-  const maxComboCount = catchmentScope === "wider" ? 8 : 6;
-  const combos = findNearbyCombinations(
-    primary,
-    options?.context,
-    maxComboCount,
-    catchmentScope,
-  );
-
-  const candidatesMap = new Map<string, Destination>();
-  if (!isPrimaryHub) {
-    candidatesMap.set(primary.id, primary);
-  }
-  combos.forEach((c) => {
-    if (
-      c.secondary &&
-      c.secondary.role !== "hub" &&
-      c.secondary.kind !== "city"
-    ) {
-      candidatesMap.set(c.secondary.id, c.secondary);
-    }
-  });
-
-  const plannedCandidates: PlannedCandidate[] = Array.from(
-    candidatesMap.values(),
-  ).map((dest) => {
-    const dur = getEffectiveVisitDuration(dest);
-    const minMins = Math.round(dur.minMins * paceMultiplier);
-    const prefMins = Math.round(dur.prefMins * paceMultiplier);
-    const maxMins = Math.round(dur.maxMins * paceMultiplier);
-    const isAnchor = !isPrimaryHub && dest.id === primary.id;
-
-    const transitEst = estimateLocalTransitMinutes(
-      primary,
-      dest,
+  const { required: requiredCandidates, optional: optionalCandidates } =
+    buildUsablePlanCandidates(primary, {
       catchmentScope,
-    );
-    const transitMins = transitEst.usable ? transitEst.durationMinutes : 999;
-    const ratingVal = dest.ratings?.overall ?? 4.5;
-    const baseScore = ratingVal * 20;
-    const routeScore = transitEst.usable ? baseScore - transitMins * 0.8 : -999;
-
-    return {
-      destination: dest,
-      recommendationScore: baseScore,
-      routeScore,
-      minVisitMins: minMins,
-      preferredVisitMins: prefMins,
-      maxVisitMins: maxMins,
-      durationSource: dur.source,
-      required: isAnchor,
-    };
-  });
-
-  const usableCandidates = plannedCandidates.filter(
-    (c) => c.required || c.routeScore > -999,
-  );
+      context: options?.context,
+      pace,
+    });
 
   const realStopThreshold = planType === "half_day" ? 2 : 3;
-
-  const requiredCandidates = usableCandidates.filter(
-    (c) =>
-      c.required &&
-      c.destination.role !== "hub" &&
-      c.destination.kind !== "city" &&
-      c.destination.kind !== "district",
-  );
-  const optionalCandidates = usableCandidates
-    .filter((c) => !c.required)
-    .sort((a, b) => b.routeScore - a.routeScore);
-
   const optionalStopsNeeded = Math.max(
     0,
     realStopThreshold - requiredCandidates.length,
@@ -459,7 +458,8 @@ export function generateDayPlan(
     isOverfilled: false,
     isUnfeasible: true,
     canFallbackToHalfDay:
-      planType === "full_day" && usableCandidates.length >= 2,
+      planType === "full_day" &&
+      requiredCandidates.length + optionalCandidates.length >= 2,
     failureReason,
     unfeasibleErrorMessage: {
       en:
