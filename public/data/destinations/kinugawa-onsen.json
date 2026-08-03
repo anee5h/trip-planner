@@ -84,7 +84,9 @@
       "confirmed": true
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "nikko-city"
+  },
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "No advance reservation required; tickets available on arrival.",

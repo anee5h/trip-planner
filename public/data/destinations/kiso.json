@@ -78,7 +78,9 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "matsumoto-city"
+  },
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "None required",

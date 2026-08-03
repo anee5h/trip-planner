@@ -87,7 +87,9 @@
       "confirmed": true
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "gifu-city"
+  },
   "walkingIntensity": "low",
   "role": "standalone",
   "placeType": "destination",

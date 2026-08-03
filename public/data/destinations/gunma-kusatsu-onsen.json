@@ -89,7 +89,9 @@
       "confirmed": true
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "kusatsu-town"
+  },
   "walkingIntensity": "low",
   "role": "standalone",
   "placeType": "destination",

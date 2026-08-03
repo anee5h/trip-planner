@@ -4220,7 +4220,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kisarazu-city"
+    },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "walkingIntensity": "medium",
@@ -5219,7 +5221,9 @@
         "sortOrder": 6
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kisarazu-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -6230,7 +6234,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "chiba-city"
+    },
     "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000",
     "walkingIntensity": "low",
     "role": "standalone",
@@ -10085,7 +10091,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "fujikawaguchiko-town"
+    },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "reservation": "None required",
@@ -12526,7 +12534,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "chofu-tokyo"
+    },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "walkingIntensity": "medium",
@@ -12885,7 +12895,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "gifu-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -12987,7 +12999,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "gifu-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -14173,7 +14187,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kusatsu-town"
+    },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ikaho_Onsen_03.jpg/250px-Ikaho_Onsen_03.jpg",
     "walkingIntensity": "low",
     "role": "standalone",
@@ -14329,7 +14345,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kusatsu-town"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -14482,7 +14500,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kusatsu-town"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -18586,7 +18606,9 @@
         "sortOrder": 5
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "mito-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -18744,7 +18766,9 @@
         "sortOrder": 2
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "mito-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -18897,7 +18921,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "tsukuba-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -20873,7 +20899,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "izumo-city"
+    },
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -21253,7 +21281,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "ito-city"
+    },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "reservation": "None required",
@@ -21815,7 +21845,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "yokosuka-city"
+    },
     "image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Miura_Peninsula_Kanagawa_Japan_SRTM.jpg",
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
@@ -22927,7 +22959,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "hamamatsu-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -24741,7 +24775,9 @@
     "kind": "shrine",
     "role": "standalone",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "katori-city"
+    },
     "officialWebsite": "http://www.katori-jingu.or.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
@@ -26980,7 +27016,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "nikko-city"
+    },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "reservation": "No advance reservation required; tickets available on arrival.",
@@ -27426,7 +27464,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "matsumoto-city"
+    },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "reservation": "None required",
@@ -32408,7 +32448,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "hamamatsu-city"
+    },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lake_Hamana_Aerial_photograph.2006.jpg/1280px-Lake_Hamana_Aerial_photograph.2006.jpg",
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
@@ -32504,7 +32546,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "sagamihara-city"
+    },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "reservation": "Open access; no entrance reservation required.",
@@ -36751,7 +36795,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kisarazu-city"
+    },
     "image": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1000",
     "budgetBreakdown": {
       "transport": 3000,
@@ -36987,7 +37033,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": []
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "shimonoseki-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/9/9b/%E5%85%83%E4%B9%83%E9%9A%85%E7%A8%B2%E6%88%90%E7%A5%9E%E7%A4%BE_Motonosumi-Inari-jinja_20090504.jpg",
     "walkingIntensity": "low",
@@ -38561,7 +38608,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "nagano-city"
+    },
     "image": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1000",
     "walkingIntensity": "low",
     "role": "standalone",
@@ -38761,7 +38810,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "matsumoto-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -38863,7 +38914,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "matsumoto-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -38959,7 +39012,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "matsumoto-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -39061,7 +39116,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "matsumoto-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -44378,7 +44435,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "mito-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -45782,7 +45841,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "takayama-city"
+    },
     "image": "https://upload.wikimedia.org/wikipedia/commons/0/05/YariKamikohchiTagged.jpg",
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
@@ -48757,7 +48818,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": ["tsuruga-castle-fukushima"]
+      "nearbyDestinationIds": ["tsuruga-castle-fukushima"],
+      "parentDestinationId": "aizuwakamatsu-city"
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -48957,7 +49019,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "minakami-town"
+    },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "reservation": "Open access; no entrance reservation required.",
@@ -50130,7 +50194,9 @@
         "sortOrder": 7
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "niigata-city"
+    },
     "nameJa": "佐渡島（さどしま）の金山",
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
@@ -50545,7 +50611,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "chichibu-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -51373,7 +51441,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "narita-city"
+    },
     "walkingIntensity": "medium",
     "role": "standalone",
     "placeType": "destination",
@@ -58814,7 +58884,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "matsumoto-city"
+    },
     "walkingIntensity": "medium",
     "role": "standalone",
     "placeType": "destination",
@@ -59140,7 +59212,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kofu-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -62226,7 +62300,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "hachioji-tokyo"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -62884,7 +62960,9 @@
         "sortOrder": 5
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "ome-tokyo"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -63515,7 +63593,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kusatsu-town"
+    },
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -65181,7 +65261,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": []
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "shimonoseki-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Tsunoshima_Bridge_panorama_%2832275932414%29.jpg/1920px-Tsunoshima_Bridge_panorama_%2832275932414%29.jpg",
     "walkingIntensity": "low",
@@ -65496,7 +65577,9 @@
     "kind": "tower",
     "role": "standalone",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    },
     "officialWebsite": "https://www.tsutenkaku.co.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Viewpoint"],
@@ -65715,7 +65798,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "nagano-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -66842,7 +66927,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "tsukuba-city"
+    },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "reservation": "No advance reservation required; tickets available on arrival.",
@@ -69785,7 +69872,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "chofu-tokyo"
+    },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "walkingIntensity": "medium",
@@ -70388,7 +70477,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": ["sendai-city", "mount-zao-yamagata"]
+      "nearbyDestinationIds": ["sendai-city", "mount-zao-yamagata"],
+      "parentDestinationId": "sendai-city"
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -70832,7 +70922,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "yokosuka-city"
+    },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/%E5%A4%AA%E9%99%BD%E3%81%AE%E5%A1%94%E3%81%A8%E9%80%97%E5%AD%90%E6%B5%B7%E5%B2%B8.jpg/1280px-%E5%A4%AA%E9%99%BD%E3%81%AE%E5%A1%94%E3%81%A8%E9%80%97%E5%AD%90%E6%B5%B7%E5%B2%B8.jpg",
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",

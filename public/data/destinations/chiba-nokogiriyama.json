@@ -87,7 +87,9 @@
       "sortOrder": 6
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "kisarazu-city"
+  },
   "walkingIntensity": "low",
   "role": "standalone",
   "placeType": "destination",

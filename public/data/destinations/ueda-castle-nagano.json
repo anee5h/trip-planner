@@ -92,7 +92,9 @@
       "confirmed": true
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "nagano-city"
+  },
   "walkingIntensity": "low",
   "role": "standalone",
   "placeType": "destination",

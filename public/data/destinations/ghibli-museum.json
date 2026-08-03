@@ -74,7 +74,9 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "chofu-tokyo"
+  },
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "walkingIntensity": "medium",

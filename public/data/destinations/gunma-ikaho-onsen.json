@@ -82,7 +82,9 @@
       "confirmed": true
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "kusatsu-town"
+  },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ikaho_Onsen_03.jpg/250px-Ikaho_Onsen_03.jpg",
   "walkingIntensity": "low",
   "role": "standalone",

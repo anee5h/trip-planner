@@ -71,7 +71,9 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "hamamatsu-city"
+  },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lake_Hamana_Aerial_photograph.2006.jpg/1280px-Lake_Hamana_Aerial_photograph.2006.jpg",
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",

@@ -28,7 +28,9 @@
   "kind": "shrine",
   "role": "standalone",
   "placeType": "destination",
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "katori-city"
+  },
   "officialWebsite": "http://www.katori-jingu.or.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],

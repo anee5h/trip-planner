@@ -78,7 +78,9 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "minakami-town"
+  },
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "Open access; no entrance reservation required.",

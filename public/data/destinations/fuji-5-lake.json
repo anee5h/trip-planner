@@ -78,7 +78,9 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "fujikawaguchiko-town"
+  },
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "None required",
