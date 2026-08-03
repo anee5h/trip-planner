@@ -218,9 +218,11 @@ release: prepare v2.0.0-alpha.2
 
 ## Status
 
-- [ ] **Not started**
-- [ ] Complete editorial dashboard and tooling
-- [ ] Complete regional review PRs
+- [x] **In progress**
+- [x] PR 11 Editorial Quality Dashboard — complete
+- [x] PR 12A Kanto review — complete
+- [x] PR 12B Kansai review — complete
+- [ ] Complete remaining regional review PRs (12C)
 - [ ] Release as `v2.0.0-beta.1`
 
 ## PR 11 — Editorial quality dashboard
@@ -373,7 +375,7 @@ release: prepare v2.0.0-alpha.2
 
 - [x] Stage 1 roadmap PRs: 8
 - [x] Stage 2 roadmap PRs: 6
-- [x] Stage 3 roadmap PRs: 1 (PR 11 Editorial Quality Dashboard)
+- [x] Stage 3 roadmap PRs: 3 (PR 11 Editorial Quality Dashboard, PR 12A Kanto, PR 12B Kansai)
 - [x] Additional production CSS fix: 1
 
 ## Remaining planned roadmap PRs
@@ -385,7 +387,7 @@ release: prepare v2.0.0-alpha.2
 
 ## Totals
 
-- [x] Completed roadmap PRs: 15
+- [x] Completed roadmap PRs: 17
 - [ ] Remaining planned roadmap PRs: 14
 - [ ] Expected final roadmap PR total: 29
 
@@ -440,4 +442,6 @@ For every stage release:
 
 - [x] Stage 2 Release `v2.0.0-alpha.2` complete
 - [x] Stage 3 PR 11 Editorial Quality Dashboard complete
-- [ ] Begin Stage 3 PR 12A Tokyo and Kanto editorial review
+- [x] Stage 3 PR 12A Tokyo and Kanto editorial review complete
+- [x] Stage 3 PR 12B Kansai editorial review, expansion, and Japanese publication complete
+- [ ] Begin Stage 3 PR 12C regional city review
