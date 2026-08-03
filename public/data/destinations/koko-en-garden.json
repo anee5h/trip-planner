@@ -72,11 +72,11 @@
     "min": 0.5,
     "max": 1.5
   },
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kokoen_Garden,_Himeji.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Raised_garden_beds_in_the_Garden_of_Seedlings%2C_K%C5%8Dko-en%2C_Himeji%2C_2016.jpg/1920px-Raised_garden_beds_in_the_Garden_of_Seedlings%2C_K%C5%8Dko-en%2C_Himeji%2C_2016.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "Jnzl's Public Domain Photos",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kokoen_Garden,_Himeji.jpg"
+    "license": "CC0",
+    "attribution": "DimiTalen",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Raised_garden_beds_in_the_Garden_of_Seedlings,_K%C5%8Dko-en,_Himeji,_2016.jpg"
   }
 }

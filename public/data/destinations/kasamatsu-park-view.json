@@ -72,11 +72,11 @@
     "min": 0.5,
     "max": 1.5
   },
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Amanohashidate_view_from_Kasamatsu_Park.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Amanohashidate_view_from_Kasamatsu_Park01s3s4410.jpg/1920px-Amanohashidate_view_from_Kasamatsu_Park01s3s4410.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 3.0",
-    "attribution": "Corpse Reviver",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amanohashidate_view_from_Kasamatsu_Park.jpg"
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amanohashidate_view_from_Kasamatsu_Park01s3s4410.jpg"
   }
 }

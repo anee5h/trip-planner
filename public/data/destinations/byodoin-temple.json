@@ -68,11 +68,11 @@
     "min": 1,
     "max": 2
   },
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Byodo-in_ho-o-do.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Kyoto-Byodoin_Phoenix_Hall-xl.jpg/1920px-Kyoto-Byodoin_Phoenix_Hall-xl.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 3.0",
-    "attribution": "Fg2",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Byodo-in_ho-o-do.jpg"
+    "license": "CC BY 4.0",
+    "attribution": "ganden",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kyoto-Byodoin_Phoenix_Hall-xl.jpg"
   }
 }
