@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { Destination } from "@/shared/types/destination";
 import { DayPlanWidget } from "./DayPlanWidget";
 import { TripCostBreakdownWidget } from "./TripCostBreakdownWidget";
 import type { DayPlan } from "@/shared/services/recommendation/DayPlanGeneratorService";
+import { getPlanEligibility } from "@/shared/services/recommendation/DayPlanGeneratorService";
 import { calculateGeneratedPlanCost } from "@/shared/services/budget/GeneratedPlanCostService";
 
 interface DestinationPlanningSectionProps {
@@ -26,6 +27,11 @@ export function DestinationPlanningSection({
   const [activePartySize, setActivePartySize] = useState(partySize);
 
   useEffect(() => setActivePartySize(partySize), [partySize]);
+
+  const eligibility = useMemo(
+    () => getPlanEligibility(destination, { planType: "full_day" }),
+    [destination],
+  );
 
   const setGeneratedPlan = (plan: DayPlan | null) => {
     setGeneratedPlanState(plan);
@@ -56,6 +62,7 @@ export function DestinationPlanningSection({
         partySize={activePartySize}
         onPartySizeChange={setActivePartySize}
         generatedCostRange={costBreakdown?.totalRange}
+        eligible={eligibility.eligible}
         onSaveToItinerary={() =>
           onSaveToItinerary(
             generatedPlan
