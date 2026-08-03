@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Kobe Animal Kingdom",
-      "description": "Kobe Animal Kingdom is a visitor destination in Kobe City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+      "description": "Kobe Animal Kingdom is a visitor destination in Kobe City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
       "highlights": ["Nature"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 34.65416667,
     "lng": 135.22305556
   },
-  "description": "Kobe Animal Kingdom is a visitor destination in Kobe City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+  "description": "Kobe Animal Kingdom is a visitor destination in Kobe City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
   "highlights": ["Nature"],
   "budgetMin": 5000,
   "budgetRecommended": 7500,

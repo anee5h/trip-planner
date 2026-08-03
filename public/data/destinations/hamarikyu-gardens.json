@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Hamarikyu Gardens",
-      "description": "Hamarikyu Gardens is a distinct visitor stop within Chuo City, selected to support a varied local itinerary.",
+      "description": "A magnificent Edo-period landscape garden featuring seawater ponds regulated by Tokyo Bay tides and a traditional teahouse on the water. It offers a striking contrast of historic pine trees against modern skyscraper backdrops.",
       "highlights": ["Nature", "Garden", "History"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "浜離宮恩賜庭園",
-      "description": "浜離宮恩賜庭園は東京都の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "description": "東京湾の潮の満ち引きによって水位が変わる「潮入の池」を持つ江戸時代の代表的な大名庭園です。水上の茶屋での抹茶体験や、高層ビル群と歴史的庭園の対比を楽しめます。",
       "highlights": [
         "浜離宮恩賜庭園の名所",
         "浜離宮恩賜庭園の名所",
@@ -49,7 +49,7 @@
     "lat": 35.6597,
     "lng": 139.7635
   },
-  "description": "Hamarikyu Gardens is a distinct visitor stop within Chuo City, selected to support a varied local itinerary.",
+  "description": "A magnificent Edo-period landscape garden featuring seawater ponds regulated by Tokyo Bay tides and a traditional teahouse on the water. It offers a striking contrast of historic pine trees against modern skyscraper backdrops.",
   "highlights": ["Nature", "Garden", "History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Sapporo Clock Tower",
-      "description": "Sapporo Clock Tower is a visitor destination in Sapporo City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+      "description": "Sapporo Clock Tower is a visitor destination in Sapporo City.  Visitors can experience the area's character and main sights.",
       "highlights": ["Viewpoint"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 43.062602,
     "lng": 141.353681
   },
-  "description": "Sapporo Clock Tower is a visitor destination in Sapporo City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+  "description": "Sapporo Clock Tower is a visitor destination in Sapporo City.  Visitors can experience the area's character and main sights.",
   "highlights": ["Viewpoint"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

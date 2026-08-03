@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Komachi Street",
-      "description": "Komachi Street is a visitor destination in Kamakura City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+      "description": "Komachi Street is a visitor destination in Kamakura City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
       "highlights": ["Shopping", "Food"],
       "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
@@ -47,7 +47,7 @@
     "lat": 35.32153,
     "lng": 139.55232
   },
-  "description": "Komachi Street is a visitor destination in Kamakura City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+  "description": "Komachi Street is a visitor destination in Kamakura City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
   "highlights": ["Shopping", "Food"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

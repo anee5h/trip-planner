@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Zoshigaya Kishimojindo",
-      "description": "Zoshigaya Kishimojindo is a distinct visitor stop within Toshima City, selected to support a varied local itinerary.",
+      "description": "A historic Buddhist temple enshrined amidst 700-year-old Ginkgo trees, venerating the deity of safe childbirth and child-rearing. It features Japan's oldest active candy shop, Kamiya, operating on the grounds since 1781.",
       "highlights": ["History", "Culture", "Temple"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "雑司ヶ谷鬼子母神堂",
-      "description": "雑司ヶ谷鬼子母神堂は東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "description": "安産・育児の神様として親しまれる歴史ある堂宇で、樹齢約700年の大イチョウが境内を護ります。1781年創業の日本最古の駄菓子屋「上川口屋」も営業しています。",
       "highlights": [
         "雑司ヶ谷鬼子母神堂の名所",
         "雑司ヶ谷鬼子母神堂の名所",
@@ -49,7 +49,7 @@
     "lat": 35.7205,
     "lng": 139.7141
   },
-  "description": "Zoshigaya Kishimojindo is a distinct visitor stop within Toshima City, selected to support a varied local itinerary.",
+  "description": "A historic Buddhist temple enshrined amidst 700-year-old Ginkgo trees, venerating the deity of safe childbirth and child-rearing. It features Japan's oldest active candy shop, Kamiya, operating on the grounds since 1781.",
   "highlights": ["History", "Culture", "Temple"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

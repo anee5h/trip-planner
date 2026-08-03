@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Museum of Contemporary Art Tokyo",
-      "description": "Museum of Contemporary Art Tokyo is a distinct visitor stop within Koto City, selected to support a varied local itinerary.",
+      "description": "Tokyo's leading venue for cutting-edge modern art, housing over 5,500 works by influential postwar and international artists in Koto City. Its spacious architectural galleries host major temporary exhibitions and design retrospectives.",
       "highlights": ["Museum", "Art", "Indoor"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "東京都現代美術館",
-      "description": "東京都現代美術館は東京都にあるアートと文化の発信地です。充実した展示空間とユニークなコレクションを通じて新たな発見とインスピレーションを提供します。",
+      "description": "戦後美術から現代アートまで5,500点以上の作品を収蔵する東京都現代美術館です。木場公園に隣接する開放的な空間で、先進的な企画展やデザイン展を楽しめます。",
       "highlights": [
         "東京都現代美術館の名所",
         "東京都現代美術館の名所",
@@ -43,7 +43,7 @@
     "lat": 35.6797,
     "lng": 139.8082
   },
-  "description": "Museum of Contemporary Art Tokyo is a distinct visitor stop within Koto City, selected to support a varied local itinerary.",
+  "description": "Tokyo's leading venue for cutting-edge modern art, housing over 5,500 works by influential postwar and international artists in Koto City. Its spacious architectural galleries host major temporary exhibitions and design retrospectives.",
   "highlights": ["Museum", "Art", "Indoor"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

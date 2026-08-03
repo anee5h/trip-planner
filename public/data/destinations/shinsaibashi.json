@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Shinsaibashi",
-      "description": "Shinsaibashi is a visitor destination in Osaka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+      "description": "Shinsaibashi is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
       "highlights": ["Culture"]
     },
     "ja": {
@@ -38,7 +38,7 @@
     "lat": 34.6725,
     "lng": 135.5
   },
-  "description": "Shinsaibashi is a visitor destination in Osaka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+  "description": "Shinsaibashi is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
   "highlights": ["Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Kabukiza Theatre",
-      "description": "Kabukiza Theatre is a distinct visitor stop within Chuo City, selected to support a varied local itinerary.",
+      "description": "Japan's premier traditional Kabuki venue, presenting grand theatrical performances in a magnificent historic building in Ginza. Single-act tickets are available for visitors wanting a short cultural experience.",
       "highlights": ["Culture", "Theatre", "History"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "歌舞伎座",
-      "description": "歌舞伎座は東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "description": "銀座に位置する歌舞伎の殿堂であり、伝統的な劇場美と荘厳な舞台公演を鑑賞できます。一幕見席チケットも用意されており、気軽に伝統芸能に触れることができます。",
       "highlights": ["歌舞伎座の名所", "歌舞伎座の名所", "歌舞伎座の名所"],
       "notes": "歌舞伎座は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -45,7 +45,7 @@
     "lat": 35.6695,
     "lng": 139.7678
   },
-  "description": "Kabukiza Theatre is a distinct visitor stop within Chuo City, selected to support a varied local itinerary.",
+  "description": "Japan's premier traditional Kabuki venue, presenting grand theatrical performances in a magnificent historic building in Ginza. Single-act tickets are available for visitors wanting a short cultural experience.",
   "highlights": ["Culture", "Theatre", "History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

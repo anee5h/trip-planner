@@ -9,7 +9,7 @@
   "content": {
     "en": {
       "name": "Toyota Commemorative Museum of Industry and Technology",
-      "description": "Toyota Commemorative Museum of Industry and Technology is a visitor destination in Nagoya City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+      "description": "Toyota Commemorative Museum of Industry and Technology is a visitor destination in Nagoya City.  Visitors can explore focused exhibits and learn about the venue's subject.",
       "highlights": ["Museum"]
     },
     "ja": {
@@ -42,7 +42,7 @@
     "lat": 35.1832,
     "lng": 136.876
   },
-  "description": "Toyota Commemorative Museum of Industry and Technology is a visitor destination in Nagoya City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+  "description": "Toyota Commemorative Museum of Industry and Technology is a visitor destination in Nagoya City.  Visitors can explore focused exhibits and learn about the venue's subject.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,

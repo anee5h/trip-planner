@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Osu Kannon",
-      "description": "Osu Kannon is a visitor destination in Nagoya City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "description": "Osu Kannon is a visitor destination in Nagoya City.  Visitors can experience historic architecture and local culture.",
       "highlights": ["History"]
     },
     "ja": {
@@ -38,7 +38,7 @@
     "lat": 35.27130555555556,
     "lng": 136.6771388888889
   },
-  "description": "Osu Kannon is a visitor destination in Nagoya City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "description": "Osu Kannon is a visitor destination in Nagoya City.  Visitors can experience historic architecture and local culture.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

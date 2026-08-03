@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "The National Museum of Art, Osaka",
-      "description": "The National Museum of Art, Osaka is a visitor destination in Osaka City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+      "description": "The National Museum of Art, Osaka is a visitor destination in Osaka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
       "highlights": ["Museum"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 34.691786,
     "lng": 135.492024
   },
-  "description": "The National Museum of Art, Osaka is a visitor destination in Osaka City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+  "description": "The National Museum of Art, Osaka is a visitor destination in Osaka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,

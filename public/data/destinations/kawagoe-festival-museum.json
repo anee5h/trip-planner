@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Kawagoe Festival Museum",
-      "description": "Kawagoe Festival Museum is a visitor destination in Kawagoe City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+      "description": "Kawagoe Festival Museum is a visitor destination in Kawagoe City.  Visitors can explore focused exhibits and learn about the venue's subject.",
       "highlights": ["Museum"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -47,7 +47,7 @@
     "lat": 35.924306,
     "lng": 139.482361
   },
-  "description": "Kawagoe Festival Museum is a visitor destination in Kawagoe City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+  "description": "Kawagoe Festival Museum is a visitor destination in Kawagoe City.  Visitors can explore focused exhibits and learn about the venue's subject.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,

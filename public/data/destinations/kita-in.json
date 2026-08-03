@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Kita-in",
-      "description": "Kita-in is a visitor destination in Kawagoe City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "description": "Kita-in is a visitor destination in Kawagoe City.  Visitors can experience historic architecture and local culture.",
       "highlights": ["History"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -47,7 +47,7 @@
     "lat": 35.917525,
     "lng": 139.48906667
   },
-  "description": "Kita-in is a visitor destination in Kawagoe City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "description": "Kita-in is a visitor destination in Kawagoe City.  Visitors can experience historic architecture and local culture.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

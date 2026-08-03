@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Keio Mogusaen",
-      "description": "Keio Mogusaen is a distinct visitor stop within Hino City, selected to support a varied local itinerary.",
+      "description": "A historic Edo-period hillside garden famous for 300-year-old plum trees, autumn maples, and panoramic views of Hino City. Its quiet bamboo groves and teahouse were frequented by famous Japanese poets including Bokusui Wakayama.",
       "highlights": ["Nature", "Garden", "Views"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "京王百草園",
-      "description": "京王百草園は東京都の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "description": "江戸時代から続く多摩丘陵の伝統ある庭園で、樹齢数百年の白梅や秋の紅葉が見事です。若山牧水などの文人に愛された茅葺きの松連庵と高台からの眺望が魅力です。",
       "highlights": [
         "京王百草園の名所",
         "京王百草園の名所",
@@ -49,7 +49,7 @@
     "lat": 35.6572,
     "lng": 139.4311
   },
-  "description": "Keio Mogusaen is a distinct visitor stop within Hino City, selected to support a varied local itinerary.",
+  "description": "A historic Edo-period hillside garden famous for 300-year-old plum trees, autumn maples, and panoramic views of Hino City. Its quiet bamboo groves and teahouse were frequented by famous Japanese poets including Bokusui Wakayama.",
   "highlights": ["Nature", "Garden", "Views"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

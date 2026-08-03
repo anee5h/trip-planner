@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Showa Kinen Park",
-      "description": "Showa Kinen Park is a distinct visitor stop within Tachikawa City, selected to support a varied local itinerary.",
+      "description": "A massive 180-hectare national park featuring vibrant ginkgo tree avenues, vast cosmos fields, boating lakes, and a traditional Japanese garden. It is Tachikawa's premier green space for outdoor recreation and seasonal flower festivals.",
       "highlights": ["Nature", "Park", "Seasonal"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "国営昭和記念公園",
-      "description": "国営昭和記念公園は東京都の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "description": "立川市に広がる180ヘクタールの国営公園で、黄金色のイチョウ並木やコスモスの大花畑、ボート池が人気です。四季の花まつりや日本庭園など、一日中楽しめる都内有数の公園です。",
       "highlights": [
         "国営昭和記念公園の名所",
         "国営昭和記念公園の名所",
@@ -55,7 +55,7 @@
     "lat": 35.7156,
     "lng": 139.3946
   },
-  "description": "Showa Kinen Park is a distinct visitor stop within Tachikawa City, selected to support a varied local itinerary.",
+  "description": "A massive 180-hectare national park featuring vibrant ginkgo tree avenues, vast cosmos fields, boating lakes, and a traditional Japanese garden. It is Tachikawa's premier green space for outdoor recreation and seasonal flower festivals.",
   "highlights": ["Nature", "Park", "Seasonal"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

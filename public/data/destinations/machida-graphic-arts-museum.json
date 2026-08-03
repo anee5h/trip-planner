@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Machida City Museum of Graphic Arts",
-      "description": "Machida City Museum of Graphic Arts is a distinct visitor stop within Machida, selected to support a varied local itinerary.",
+      "description": "One of the world's rare museums dedicated exclusively to printmaking, featuring over 30,000 Western and Japanese prints from the 8th century to modern times. Set beside Serigaya Park's forest trails.",
       "highlights": ["Museum", "Art", "Indoor"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "町田市立国際版画美術館",
-      "description": "町田市立国際版画美術館は東京都にあるアートと文化の発信地です。充実した展示空間とユニークなコレクションを通じて新たな発見とインスピレーションを提供します。",
+      "description": "版画を専門に扱う世界でも珍しい市立美術館で、8世紀の印刷物から現代の西洋・日本版画まで3万点以上を収蔵しています。芹ヶ谷公園の豊かな緑に囲まれています。",
       "highlights": [
         "町田市立国際版画美術館の名所",
         "町田市立国際版画美術館の名所",
@@ -43,7 +43,7 @@
     "lat": 35.5484,
     "lng": 139.4522
   },
-  "description": "Machida City Museum of Graphic Arts is a distinct visitor stop within Machida, selected to support a varied local itinerary.",
+  "description": "One of the world's rare museums dedicated exclusively to printmaking, featuring over 30,000 Western and Japanese prints from the 8th century to modern times. Set beside Serigaya Park's forest trails.",
   "highlights": ["Museum", "Art", "Indoor"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

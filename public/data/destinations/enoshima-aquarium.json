@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Enoshima Aquarium",
-      "description": "Enoshima Aquarium is a visitor destination in Fujisawa City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+      "description": "Enoshima Aquarium is a visitor destination in Fujisawa City.  Visitors can explore focused exhibits and learn about the venue's subject.",
       "highlights": ["Aquarium"],
       "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
@@ -47,7 +47,7 @@
     "lat": 35.309667,
     "lng": 139.479889
   },
-  "description": "Enoshima Aquarium is a visitor destination in Fujisawa City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+  "description": "Enoshima Aquarium is a visitor destination in Fujisawa City.  Visitors can explore focused exhibits and learn about the venue's subject.",
   "highlights": ["Aquarium"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,

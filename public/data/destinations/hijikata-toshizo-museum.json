@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Hijikata Toshizo Museum",
-      "description": "Hijikata Toshizo Museum is a distinct visitor stop within Hino City, selected to support a varied local itinerary.",
+      "description": "A private museum built on the ancestral home site of Shinsengumi commander Hijikata Toshizo in Hino. It displays his personal Izumi no Kami Kanesada sword, armor, and handwritten letters to fans and history enthusiasts.",
       "highlights": ["Museum", "History", "Culture"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "土方歳三資料館",
-      "description": "土方歳三資料館は東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "description": "新選組副長・土方歳三の生家跡に建つ資料館で、愛刀「和泉守兼定」や鎖帷子、直筆の手紙が展示されています。土方家の末裔によって運営されるファン必見の聖地です。",
       "highlights": [
         "土方歳三資料館の名所",
         "土方歳三資料館の名所",
@@ -49,7 +49,7 @@
     "lat": 35.6704,
     "lng": 139.4242
   },
-  "description": "Hijikata Toshizo Museum is a distinct visitor stop within Hino City, selected to support a varied local itinerary.",
+  "description": "A private museum built on the ancestral home site of Shinsengumi commander Hijikata Toshizo in Hino. It displays his personal Izumi no Kami Kanesada sword, armor, and handwritten letters to fans and history enthusiasts.",
   "highlights": ["Museum", "History", "Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

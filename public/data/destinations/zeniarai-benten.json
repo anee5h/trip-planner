@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Zeniarai Benten",
-      "description": "Zeniarai Benten is a visitor destination in Kamakura City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "description": "Zeniarai Benten is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
       "highlights": ["History"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -46,7 +46,7 @@
     "lat": 35.3258,
     "lng": 139.542
   },
-  "description": "Zeniarai Benten is a visitor destination in Kamakura City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "description": "Zeniarai Benten is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

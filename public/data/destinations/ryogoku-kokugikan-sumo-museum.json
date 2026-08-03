@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Ryogoku Kokugikan and Sumo Museum",
-      "description": "Ryogoku Kokugikan and Sumo Museum is a distinct visitor stop within Sumida City, selected to support a varied local itinerary.",
+      "description": "Japan's sacred arena for professional Sumo wrestling, hosting three annual official grand tournaments in January, May, and September. The on-site Sumo Museum exhibits historic woodblock prints, ceremonial aprons, and champions' records.",
       "highlights": ["Museum", "Culture", "Sports"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "両国国技館・相撲博物館",
-      "description": "両国国技館・相撲博物館は東京都にあるアートと文化の発信地です。充実した展示空間とユニークなコレクションを通じて新たな発見とインスピレーションを提供します。",
+      "description": "大相撲の本場所が年3回開催される相撲の聖地・両国国技館です。併設の相撲博物館では、歴代横綱の化粧まわしや浮世絵などの貴重な相撲資料が公開されています。",
       "highlights": [
         "両国国技館・相撲博物館の名所",
         "両国国技館・相撲博物館の名所",
@@ -49,7 +49,7 @@
     "lat": 35.6969,
     "lng": 139.7933
   },
-  "description": "Ryogoku Kokugikan and Sumo Museum is a distinct visitor stop within Sumida City, selected to support a varied local itinerary.",
+  "description": "Japan's sacred arena for professional Sumo wrestling, hosting three annual official grand tournaments in January, May, and September. The on-site Sumo Museum exhibits historic woodblock prints, ceremonial aprons, and champions' records.",
   "highlights": ["Museum", "Culture", "Sports"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

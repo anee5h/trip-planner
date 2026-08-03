@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Nozuta Park",
-      "description": "Nozuta Park is a distinct visitor stop within Machida, selected to support a varied local itinerary.",
+      "description": "A massive hilltop sports and nature park in Machida, featuring Machida Zelvia's soccer stadium, rose gardens, and hiking trails. It combines active athletics facilities with tranquil satoyama countryside scenery.",
       "highlights": ["Nature", "Park", "Sports"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "野津田公園",
-      "description": "野津田公園は東京都の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "description": "町田ゼルビアのホームスタジアムを擁する広大な総合公園で、ばら広場や尾根沿いのハイキングコースが整備されています。スポーツ観戦と自然散策を同時に楽しめます。",
       "highlights": [
         "野津田公園の名所",
         "野津田公園の名所",
@@ -43,7 +43,7 @@
     "lat": 35.5977,
     "lng": 139.4388
   },
-  "description": "Nozuta Park is a distinct visitor stop within Machida, selected to support a varied local itinerary.",
+  "description": "A massive hilltop sports and nature park in Machida, featuring Machida Zelvia's soccer stadium, rose gardens, and hiking trails. It combines active athletics facilities with tranquil satoyama countryside scenery.",
   "highlights": ["Nature", "Park", "Sports"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

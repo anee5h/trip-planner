@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Kasori Shell Mounds",
-      "description": "Kasori Shell Mounds is a visitor destination in Chiba City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "description": "Kasori Shell Mounds is a visitor destination in Chiba City.  Visitors can experience historic architecture and local culture.",
       "highlights": ["History", "Museum"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -47,7 +47,7 @@
     "lat": 35.623333333333,
     "lng": 140.16472222222
   },
-  "description": "Kasori Shell Mounds is a visitor destination in Chiba City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "description": "Kasori Shell Mounds is a visitor destination in Chiba City.  Visitors can experience historic architecture and local culture.",
   "highlights": ["History", "Museum"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "The Sumida Hokusai Museum",
-      "description": "The Sumida Hokusai Museum is a distinct visitor stop within Sumida City, selected to support a varied local itinerary.",
+      "description": "Kazuyo Sejima's angular aluminum museum dedicated to ukiyo-e master Katsushika Hokusai in his birthplace of Sumida. It displays high-resolution digital interactive exhibits and rare prints of the famous Thirty-Six Views of Mount Fuji.",
       "highlights": ["Museum", "Art", "Culture"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "すみだ北斎美術館",
-      "description": "すみだ北斎美術館は東京都にあるアートと文化の発信地です。充実した展示空間とユニークなコレクションを通じて新たな発見とインスピレーションを提供します。",
+      "description": "葛飾北斎の生誕地・墨田区に建つ、妹島和世氏設計の近代的な浮世絵美術館です。冨嶽三十六景などの名作や高精細デジタル展示で北斎の生涯と作品を紐解きます。",
       "highlights": [
         "すみだ北斎美術館の名所",
         "すみだ北斎美術館の名所",
@@ -49,7 +49,7 @@
     "lat": 35.6962,
     "lng": 139.8005
   },
-  "description": "The Sumida Hokusai Museum is a distinct visitor stop within Sumida City, selected to support a varied local itinerary.",
+  "description": "Kazuyo Sejima's angular aluminum museum dedicated to ukiyo-e master Katsushika Hokusai in his birthplace of Sumida. It displays high-resolution digital interactive exhibits and rare prints of the famous Thirty-Six Views of Mount Fuji.",
   "highlights": ["Museum", "Art", "Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

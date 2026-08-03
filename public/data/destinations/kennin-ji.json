@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Kennin-ji",
-      "description": "Kennin-ji is a visitor destination in Kyoto City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "description": "Kennin-ji is a visitor destination in Kyoto City.  Visitors can experience historic architecture and local culture.",
       "highlights": ["History"]
     },
     "ja": {
@@ -38,7 +38,7 @@
     "lat": 34.99855,
     "lng": 135.77924167
   },
-  "description": "Kennin-ji is a visitor destination in Kyoto City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "description": "Kennin-ji is a visitor destination in Kyoto City.  Visitors can experience historic architecture and local culture.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Former Hokkaido Government Office",
-      "description": "Former Hokkaido Government Office is a visitor destination in Sapporo City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "description": "Former Hokkaido Government Office is a visitor destination in Sapporo City.  Visitors can experience historic architecture and local culture.",
       "highlights": ["History", "Museum"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 43.063944444444445,
     "lng": 141.348
   },
-  "description": "Former Hokkaido Government Office is a visitor destination in Sapporo City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "description": "Former Hokkaido Government Office is a visitor destination in Sapporo City.  Visitors can experience historic architecture and local culture.",
   "highlights": ["History", "Museum"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Gyokudo Art Museum",
-      "description": "Gyokudo Art Museum is a distinct visitor stop within Ome, selected to support a varied local itinerary.",
+      "description": "A serene museum nestled along the clear waters of the Tama River in Mitake, showcasing the delicate Nihonga paintings of Gyokudo Kawai. It features a refined dry landscape garden overlooking the river gorge.",
       "highlights": ["Museum", "Art", "Nature"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "玉堂美術館",
-      "description": "玉堂美術館は東京都の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "description": "多摩川の清流沿いに建つ日本画の巨匠・川合玉堂の記念美術館です。四季折々の自然を描いた名作群と、多摩川の渓谷美を望む見事な枯山水庭園が訪れる人を魅了します。",
       "highlights": [
         "玉堂美術館の名所",
         "玉堂美術館の名所",
@@ -43,7 +43,7 @@
     "lat": 35.8036,
     "lng": 139.1829
   },
-  "description": "Gyokudo Art Museum is a distinct visitor stop within Ome, selected to support a varied local itinerary.",
+  "description": "A serene museum nestled along the clear waters of the Tama River in Mitake, showcasing the delicate Nihonga paintings of Gyokudo Kawai. It features a refined dry landscape garden overlooking the river gorge.",
   "highlights": ["Museum", "Art", "Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

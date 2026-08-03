@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Mukojima Hyakkaen",
-      "description": "Mukojima Hyakkaen is a distinct visitor stop within Sumida City, selected to support a varied local itinerary.",
+      "description": "The only surviving Edo-period flower garden built by merchant literati, famous for its romantic 30-meter bush clover tunnel in autumn. It preserves classical poetic flowers and natural flora praised in Japanese literature.",
       "highlights": ["Nature", "Garden", "History"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "向島百花園",
-      "description": "向島百花園は東京都の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "description": "江戸時代に町人文化によって開園した唯一現存する花園で、秋の「ハギのトンネル」が有名です。万葉集などの古典文学に詠まれた野草や草花が四季折々に咲き誇ります。",
       "highlights": [
         "向島百花園の名所",
         "向島百花園の名所",
@@ -49,7 +49,7 @@
     "lat": 35.7248,
     "lng": 139.8155
   },
-  "description": "Mukojima Hyakkaen is a distinct visitor stop within Sumida City, selected to support a varied local itinerary.",
+  "description": "The only surviving Edo-period flower garden built by merchant literati, famous for its romantic 30-meter bush clover tunnel in autumn. It preserves classical poetic flowers and natural flora praised in Japanese literature.",
   "highlights": ["Nature", "Garden", "History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

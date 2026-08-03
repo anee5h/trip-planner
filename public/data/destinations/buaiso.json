@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Buaiso",
-      "description": "Buaiso is a distinct visitor stop within Machida, selected to support a varied local itinerary.",
+      "description": "The historic former residence of diplomat Jiro Shirasu and essayist Masako Shirasu, preserved as a museum and traditional restaurant. Visitors can admire their refined antique collection and tranquil thatched garden.",
       "highlights": ["Museum", "History", "Culture"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "武相荘",
-      "description": "武相荘は東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "description": "白洲次郎・正子夫妻が過ごした茅葺きの旧邸宅で、武相荘として記念館兼レストランが公開されています。夫妻愛用の骨董や着物、風情溢れる庭園が魅力です。",
       "highlights": ["武相荘の名所", "武相荘の名所", "武相荘の名所"],
       "notes": "武相荘は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -45,7 +45,7 @@
     "lat": 35.5767,
     "lng": 139.4819
   },
-  "description": "Buaiso is a distinct visitor stop within Machida, selected to support a varied local itinerary.",
+  "description": "The historic former residence of diplomat Jiro Shirasu and essayist Masako Shirasu, preserved as a museum and traditional restaurant. Visitors can admire their refined antique collection and tranquil thatched garden.",
   "highlights": ["Museum", "History", "Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

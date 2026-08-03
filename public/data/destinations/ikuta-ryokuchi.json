@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Ikuta Ryokuchi",
-      "description": "Ikuta Ryokuchi is a visitor destination in Kawasaki City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+      "description": "Ikuta Ryokuchi is a visitor destination in Kawasaki City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
       "highlights": ["Nature"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -47,7 +47,7 @@
     "lat": 35.609444,
     "lng": 139.558056
   },
-  "description": "Ikuta Ryokuchi is a visitor destination in Kawasaki City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+  "description": "Ikuta Ryokuchi is a visitor destination in Kawasaki City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

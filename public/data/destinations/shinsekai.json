@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Shinsekai",
-      "description": "Shinsekai is a visitor destination in Osaka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+      "description": "Shinsekai is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
       "highlights": ["Culture"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 34.652222222222,
     "lng": 135.50611111111
   },
-  "description": "Shinsekai is a visitor destination in Osaka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+  "description": "Shinsekai is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
   "highlights": ["Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

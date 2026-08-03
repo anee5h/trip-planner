@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Enoshima Sea Candle",
-      "description": "Enoshima Sea Candle is a visitor destination in Fujisawa City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+      "description": "Enoshima Sea Candle is a visitor destination in Fujisawa City.  Visitors can experience the area's character and main sights.",
       "highlights": ["Viewpoint"],
       "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
@@ -47,7 +47,7 @@
     "lat": 35.299722,
     "lng": 139.478333
   },
-  "description": "Enoshima Sea Candle is a visitor destination in Fujisawa City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+  "description": "Enoshima Sea Candle is a visitor destination in Fujisawa City.  Visitors can experience the area's character and main sights.",
   "highlights": ["Viewpoint"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

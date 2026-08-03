@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Tama Forest Science Garden",
-      "description": "Tama Forest Science Garden is a distinct visitor stop within Hachioji City, selected to support a varied local itinerary.",
+      "description": "A pristine botanical research forest featuring over 1,500 cherry trees representing 250 species across Japan. Its quiet woodland trails offer rare botanical views and birdwatching throughout the seasons.",
       "highlights": ["Nature", "Science", "Walking"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "多摩森林科学園",
-      "description": "多摩森林科学園は東京都の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
+      "description": "日本全国から集められた約250種類・1,500本のサクラを保存・研究する森林総合研究所の庭園です。豊かな自然林の散策路で、四季の貴重な植物と野鳥観察を楽しめます。",
       "highlights": [
         "多摩森林科学園の名所",
         "多摩森林科学園の名所",
@@ -55,7 +55,7 @@
     "lat": 35.6453,
     "lng": 139.2786
   },
-  "description": "Tama Forest Science Garden is a distinct visitor stop within Hachioji City, selected to support a varied local itinerary.",
+  "description": "A pristine botanical research forest featuring over 1,500 cherry trees representing 250 species across Japan. Its quiet woodland trails offer rare botanical views and birdwatching throughout the seasons.",
   "highlights": ["Nature", "Science", "Walking"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Fudaten Shrine",
-      "description": "Fudaten Shrine is a distinct visitor stop within Chofu, selected to support a varied local itinerary.",
+      "description": "An ancient shrine in Chofu dating back over 1,900 years, dedicated to the deity of medicine and business prosperity. Tucked behind sacred cedar trees, it was featured as Kitaro's home in GeGeGe no Kitaro.",
       "highlights": ["History", "Culture", "Shrine"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "布多天神社",
-      "description": "布多天神社は東京都の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "description": "調布市に鎮座する1900年以上の歴史を持つ古社で、医薬・商売繁盛の神様を祀ります。静かな杉木立の参道が広がり、マンガ「ゲゲゲの鬼太郎」で鬼太郎が住む森のモデルとしても有名です。",
       "highlights": [
         "布多天神社の名所",
         "布多天神社の名所",
@@ -55,7 +55,7 @@
     "lat": 35.655,
     "lng": 139.5438
   },
-  "description": "Fudaten Shrine is a distinct visitor stop within Chofu, selected to support a varied local itinerary.",
+  "description": "An ancient shrine in Chofu dating back over 1,900 years, dedicated to the deity of medicine and business prosperity. Tucked behind sacred cedar trees, it was featured as Kitaro's home in GeGeGe no Kitaro.",
   "highlights": ["History", "Culture", "Shrine"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
