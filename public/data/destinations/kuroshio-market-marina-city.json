@@ -1,0 +1,61 @@
+{
+  "id": "kuroshio-market-marina-city",
+  "name": "Kuroshio Market Wakayama Marina City",
+  "nameJa": "黒潮市場・和歌山マリーナシティ",
+  "prefecture": "Wakayama",
+  "region": "Kansai",
+  "hubId": "wakayama-city",
+  "nearHubs": ["wakayama-city"],
+  "role": "destination",
+  "kind": "market",
+  "category": "Food",
+  "categories": ["Food", "Shopping", "Culture"],
+  "description": "A lively oceanfront seafood market featuring daily live tuna cutting shows, fresh seafood BBQ terraces, and Wakayama specialty souvenir shopping.",
+  "notes": "Tuna cutting demonstrations occur 3 times daily.",
+  "notesJa": "【見どころ】毎日開催される大迫力のマグロ解体ショーと、海沿いテラスでの新鮮海鮮バーベキューが名物です。",
+  "reservation": "BBQ tables available on site",
+  "reservationJa": "【予約】海鮮BBQは当日現地利用可能です。",
+  "parking": "Paid parking in Marina City",
+  "parkingJa": "【駐車場】マリーナシティ有料駐車場あり。",
+  "openingHours": "10:00 - 17:00",
+  "openingHoursJa": "10:00 - 17:00",
+  "coordinates": {
+    "lat": 34.1553,
+    "lng": 135.1814
+  },
+  "officialWebsite": "https://www.kuroshioichiba.co.jp/",
+  "rating": 4.6,
+  "editorial": {
+    "rating": 4.6,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "Lively oceanfront seafood market featuring daily live tuna cutting shows and BBQ terraces.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "relationships": {
+    "parentDestinationId": "wakayama-city"
+  },
+  "content": {
+    "en": {
+      "name": "Kuroshio Market Wakayama Marina City",
+      "description": "A lively oceanfront seafood market featuring daily live tuna cutting shows, fresh seafood BBQ terraces, and Wakayama specialty souvenir shopping.",
+      "highlights": [
+        "Daily Live Tuna Cutting Show",
+        "Oceanfront Seafood Barbecue Terrace",
+        "Wakayama Ramen & Local Souvenirs"
+      ]
+    },
+    "ja": {
+      "name": "黒潮市場・和歌山マリーナシティ",
+      "description": "昭和30年代の商店街を再現した活気溢れる鮮魚市場です。職人が目前で一本の巨大マグロを捌く解体ショーや、市場内で買った海鮮を炭火で味わう海沿いテラスBBQが大人気です。",
+      "highlights": [
+        "生マグロ解体ショー",
+        "浜焼き海鮮バーベキュー",
+        "和歌山ラーメン＆紀州梅干し"
+      ]
+    }
+  }
+}

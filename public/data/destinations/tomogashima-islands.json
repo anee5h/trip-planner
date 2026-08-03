@@ -1,0 +1,61 @@
+{
+  "id": "tomogashima-islands",
+  "name": "Tomogashima Islands (Laputa Island)",
+  "nameJa": "友ヶ島（ラピュタの島）",
+  "prefecture": "Wakayama",
+  "region": "Kansai",
+  "hubId": "wakayama-city",
+  "nearHubs": ["wakayama-city"],
+  "role": "destination",
+  "kind": "island",
+  "category": "Nature",
+  "categories": ["Nature", "History", "Islands"],
+  "description": "An uninhabited island cluster in the Kii Strait featuring red-brick Meiji military fortress ruins overgrown with ivy, famous as the real-world 'Laputa Island'.",
+  "notes": "Ferry operates from Kada Port; check weather and ferry schedules.",
+  "notesJa": "【見どころ】明治時代の赤レンガ砲台跡が赤ツタに覆われ、ジブリ映画「天空の城ラピュタ」の世界観が広がる無人島です。",
+  "reservation": "Ferry ticket purchased at Kada Port",
+  "reservationJa": "【予約】加太港発の友ヶ島汽船で渡航可能（定員制）。",
+  "parking": "Paid parking at Kada Port",
+  "parkingJa": "【駐車場】加太港に有料駐車場あり。",
+  "openingHours": "09:00 - 16:30 (Ferry season)",
+  "openingHoursJa": "09:00 - 16:30（友ヶ島汽船ダイヤに準ずる）",
+  "coordinates": {
+    "lat": 34.2831,
+    "lng": 135.0042
+  },
+  "officialWebsite": "https://www.city.wakayama.wakayama.jp/kankou/tomogashima/",
+  "rating": 4.8,
+  "editorial": {
+    "rating": 4.8,
+    "recommendedDurationMinutes": 180,
+    "editorialSummary": "Uninhabited island cluster with ivy-covered Meiji brick fortress ruins famous as Laputa Island.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "relationships": {
+    "parentDestinationId": "wakayama-city"
+  },
+  "content": {
+    "en": {
+      "name": "Tomogashima Islands (Laputa Island)",
+      "description": "An uninhabited island cluster in the Kii Strait featuring red-brick Meiji military fortress ruins overgrown with ivy, famous as the real-world 'Laputa Island'.",
+      "highlights": [
+        "3rd Battery Red Brick Fortress Ruins",
+        "Okinoshima Lighthouse",
+        "Subterranean Ammunition Tunnels"
+      ]
+    },
+    "ja": {
+      "name": "友ヶ島（ラピュタの島）",
+      "description": "紀淡海峡に浮かぶ地ノ島・神島・沖ノ島・虎島の4島群の総称です。明治時代に旧日本軍が築いた第3砲台跡などの赤レンガ要塞施設が原生林と一体化し、アニメ映画さながらの神秘的空間が広がります。",
+      "highlights": [
+        "第3砲台跡の赤レンガ要塞",
+        "友ヶ島灯台",
+        "弾薬庫跡の地下探検"
+      ]
+    }
+  }
+}

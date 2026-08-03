@@ -80692,5 +80692,538 @@
       "parentDestinationId": "shirahama-town"
     },
     "hubId": "shirahama-town"
+  },
+  {
+    "id": "toshodai-ji-temple",
+    "name": "Toshodai-ji Temple",
+    "nameJa": "唐招提寺",
+    "prefecture": "Nara",
+    "region": "Kansai",
+    "hubId": "nara-city",
+    "nearHubs": ["nara-city"],
+    "role": "destination",
+    "kind": "temple",
+    "category": "Culture",
+    "categories": ["Culture", "History", "UNESCO"],
+    "description": "UNESCO World Heritage temple founded in 759 AD by Chinese monk Ganjin, featuring the magnificent 8th-century Golden Hall and serene moss gardens.",
+    "notes": "Houses the dry-lacquer seated statue of Ganjin (National Treasure).",
+    "notesJa": "【見どころ】鑑真和上が759年に建立した唐風建築の傑作で、国宝の金堂や静寂に包まれた苔庭が広がる世界遺産です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Paid parking available nearby",
+    "parkingJa": "【駐車場】近隣有料駐車場あり。",
+    "openingHours": "08:30 - 17:00 (Last entry 16:30)",
+    "openingHoursJa": "08:30 - 17:00 (最終受付 16:30)",
+    "coordinates": {
+      "lat": 34.6775,
+      "lng": 135.7844
+    },
+    "officialWebsite": "https://www.toshodaiji.jp/",
+    "rating": 4.8,
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 75,
+      "editorialSummary": "UNESCO World Heritage temple founded in 759 AD by Chinese monk Ganjin with moss gardens.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "relationships": {
+      "parentDestinationId": "nara-city"
+    },
+    "content": {
+      "en": {
+        "name": "Toshodai-ji Temple",
+        "description": "UNESCO World Heritage temple founded in 759 AD by Chinese monk Ganjin, featuring the magnificent 8th-century Golden Hall and serene moss gardens.",
+        "highlights": [
+          "National Treasure Golden Hall",
+          "Seated Statue of Monk Ganjin",
+          "Lush Moss Gardens"
+        ]
+      },
+      "ja": {
+        "name": "唐招提寺",
+        "description": "鑑真和上が苦難の末に渡日し、律宗の根本道場として建立した世界遺産です。奈良時代の面影を色濃く残す天平建築の最高峰・金堂や千手観音立像が見所です。",
+        "highlights": ["国宝・金堂", "鑑真和上坐像", "天平の苔庭"]
+      }
+    }
+  },
+  {
+    "id": "yakushi-ji-temple",
+    "name": "Yakushi-ji Temple",
+    "nameJa": "薬師寺",
+    "prefecture": "Nara",
+    "region": "Kansai",
+    "hubId": "nara-city",
+    "nearHubs": ["nara-city"],
+    "role": "destination",
+    "kind": "temple",
+    "category": "Culture",
+    "categories": ["Culture", "History", "UNESCO"],
+    "description": "UNESCO World Heritage temple famous for its twin East and West Pagodas and Fenollosa's 'frozen music' East Pagoda dating back to 730 AD.",
+    "notes": "Houses the masterwork Yakushi Nyorai Trinity bronze statues.",
+    "notesJa": "【見どころ】「凍れる音楽」と称賛された国宝・東塔と、色鮮やかな白鳳文化の大伽藍が美しい世界遺産です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Paid parking available",
+    "parkingJa": "【駐車場】有料駐車場あり。",
+    "openingHours": "08:30 - 17:00 (Last entry 16:30)",
+    "openingHoursJa": "08:30 - 17:00 (最終受付 16:30)",
+    "coordinates": {
+      "lat": 34.6683,
+      "lng": 135.7842
+    },
+    "officialWebsite": "https://www.yakushiji.or.jp/",
+    "rating": 4.8,
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "UNESCO World Heritage temple with twin pagodas and 730 AD East Pagoda.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "relationships": {
+      "parentDestinationId": "nara-city"
+    },
+    "content": {
+      "en": {
+        "name": "Yakushi-ji Temple",
+        "description": "UNESCO World Heritage temple famous for its twin East and West Pagodas and Fenollosa's 'frozen music' East Pagoda dating back to 730 AD.",
+        "highlights": [
+          "National Treasure East Pagoda",
+          "Yakushi Nyorai Trinity Statues",
+          "Daitang Xiyuji Wall Paintings"
+        ]
+      },
+      "ja": {
+        "name": "薬師寺",
+        "description": "天武天皇が妃（後の持統天皇）の病気平癒を祈願して建立した白鳳文化の代表的寺院です。創建当時の姿を留める唯一の建造物・東塔と、金堂に鎮座する国宝・薬師三尊像が世界を魅了します。",
+        "highlights": ["国宝・東塔", "薬師三尊像", "玄奘三蔵院伽藍"]
+      }
+    }
+  },
+  {
+    "id": "naramachi-historic-district",
+    "name": "Naramachi Historic Lattice District",
+    "nameJa": "ならまち（奈良町）",
+    "prefecture": "Nara",
+    "region": "Kansai",
+    "hubId": "nara-city",
+    "nearHubs": ["nara-city"],
+    "role": "destination",
+    "kind": "historic_town",
+    "category": "Culture",
+    "categories": ["Culture", "History", "Shopping"],
+    "description": "A charming historic neighborhood filled with Edo-period wooden lattice townhouses, traditional craft shops, and red monkey charm decorations.",
+    "notes": "Naramachi Koshi-no-Ie offers free visits inside a classic lattice townhouse.",
+    "notesJa": "【見どころ】江戸時代の切妻造り町家が軒を連ねる風情豊かな街並みで、町家カフェやクラフトショップ散策を楽しめます。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Paid public parking in Naramachi",
+    "parkingJa": "【駐車場】奈良町周辺有料駐車場あり。",
+    "openingHours": "24 hours (Shops 10:00 - 18:00)",
+    "openingHoursJa": "散策自由（店舗 10:00 - 18:00）",
+    "coordinates": {
+      "lat": 34.6781,
+      "lng": 135.8308
+    },
+    "officialWebsite": "https://www.naramachi-info.jp/",
+    "rating": 4.7,
+    "editorial": {
+      "rating": 4.7,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Charming historic neighborhood filled with Edo-period wooden lattice townhouses.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "relationships": {
+      "parentDestinationId": "nara-city"
+    },
+    "content": {
+      "en": {
+        "name": "Naramachi Historic Lattice District",
+        "description": "A charming historic neighborhood filled with Edo-period wooden lattice townhouses, traditional craft shops, and red monkey charm decorations.",
+        "highlights": [
+          "Koshi-no-Ie Townhouse Museum",
+          "Red Migawari-zaru Charms",
+          "Machiya Craft Cafes"
+        ]
+      },
+      "ja": {
+        "name": "ならまち（奈良町）",
+        "description": "元興寺の旧境内を中心に広がる歴史的街並みです。狭い路地に格子戸の町家が並び、厄除けの「身代わり猿」が軒先に吊るされた風情ある空間で、古民家カフェや地酒・伝統工芸巡りが満喫できます。",
+        "highlights": ["ならまち格子の家", "身代わり猿", "町家カフェ・地酒処"]
+      }
+    }
+  },
+  {
+    "id": "shirahige-shrine-lake-biwa",
+    "name": "Shirahige Shrine Floating Torii",
+    "nameJa": "白髭神社・湖中大鳥居",
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "hubId": "otsu-city",
+    "nearHubs": ["otsu-city"],
+    "role": "destination",
+    "kind": "shrine",
+    "category": "Culture",
+    "categories": ["Culture", "Nature", "Views"],
+    "description": "Omi's oldest shrine featuring a striking vermilion Torii gate standing directly in the waters of Lake Biwa, known as 'the Itsukushima of Omi'.",
+    "notes": "Sunset views over Lake Biwa from the observation deck are world-famous.",
+    "notesJa": "【見どころ】琵琶湖の沖合に浮かぶ朱塗りの大鳥居が「近江の厳島」と称される近江最古の神社です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Free parking available",
+    "parkingJa": "【駐車場】無料駐車場あり。",
+    "openingHours": "24 hours",
+    "openingHoursJa": "24時間参拝自由",
+    "coordinates": {
+      "lat": 35.2756,
+      "lng": 136.0028
+    },
+    "officialWebsite": "http://shirahigejinja.com/",
+    "rating": 4.8,
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 60,
+      "editorialSummary": "Omi's oldest shrine with a striking vermilion Torii gate standing in Lake Biwa.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "relationships": {
+      "parentDestinationId": "otsu-city"
+    },
+    "content": {
+      "en": {
+        "name": "Shirahige Shrine Floating Torii",
+        "description": "Omi's oldest shrine featuring a striking vermilion Torii gate standing directly in the waters of Lake Biwa, known as 'the Itsukushima of Omi'.",
+        "highlights": [
+          "Floating Lake Biwa Torii",
+          "Sunset Viewing Platform",
+          "Longevity Shrine History"
+        ]
+      },
+      "ja": {
+        "name": "白髭神社・湖中大鳥居",
+        "description": "垂仁天皇25年に創建された延命長寿の神様を祀る古社です。湖の中に立ち並ぶ美しい鳥居と、対岸の沖島を背に広がる琵琶湖の絶景がSNSやフォトグラファーに絶大な人気を誇ります。",
+        "highlights": ["湖中大鳥居", "琵琶湖の夕日景観", "延命長寿の神徳"]
+      }
+    }
+  },
+  {
+    "id": "omi-hachiman-canal",
+    "name": "Omi-Hachiman Merchant Canal",
+    "nameJa": "近江八幡・八幡堀",
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "hubId": "otsu-city",
+    "nearHubs": ["otsu-city"],
+    "role": "destination",
+    "kind": "historic_town",
+    "category": "Culture",
+    "categories": ["Culture", "History", "Nature"],
+    "description": "A romantic Edo-period merchant canal lined with white-walled storehouses, stone moats, and traditional hand-rowed Suigo boat tours.",
+    "notes": "Suigo boat tours offer scenic cruises through lakeside reed beds.",
+    "notesJa": "【見どころ】白壁の土蔵や石垣が残る八幡堀と、水郷めぐりのどんこ船遊覧が情趣溢れる城下町です。",
+    "reservation": "Boat tours available on site or online",
+    "reservationJa": "【予約】水郷めぐり船は当日受付可能です。",
+    "parking": "Paid parking in Omihachiman",
+    "parkingJa": "【駐車場】八幡堀周辺有料駐車場あり。",
+    "openingHours": "09:00 - 17:00",
+    "openingHoursJa": "09:00 - 17:00（舟巡り 09:00 - 16:30）",
+    "coordinates": {
+      "lat": 35.1389,
+      "lng": 136.0903
+    },
+    "officialWebsite": "https://www.omi8.com/",
+    "rating": 4.7,
+    "editorial": {
+      "rating": 4.7,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Romantic Edo merchant canal lined with white storehouses and Suigo boat tours.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "relationships": {
+      "parentDestinationId": "otsu-city"
+    },
+    "content": {
+      "en": {
+        "name": "Omi-Hachiman Merchant Canal",
+        "description": "A romantic Edo-period merchant canal lined with white-walled storehouses, stone moats, and traditional hand-rowed Suigo boat tours.",
+        "highlights": [
+          "Hachiman-bori Canal Walk",
+          "Suigo Hand-Rowed Boat Cruise",
+          "Shinmachidori Merchant Street"
+        ]
+      },
+      "ja": {
+        "name": "近江八幡・八幡堀",
+        "description": "豊臣秀次が築いた城下町の堀で、近江商人の発祥地として栄えた水運の要衝です。四季折々の花が咲く八幡堀沿いの散策や、手漕ぎ船でヨシ原をめぐる「水郷めぐり」が旅情をそそります。",
+        "highlights": [
+          "八幡堀の川端散策",
+          "近江八幡の水郷めぐり",
+          "新町通りの豪商町家"
+        ]
+      }
+    }
+  },
+  {
+    "id": "hiei-zan-driveway-observatory",
+    "name": "Mount Hiei Driveway & Yumemi Observatory",
+    "nameJa": "比叡山ドライブウェイ・夢見が丘",
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "hubId": "otsu-city",
+    "nearHubs": ["otsu-city"],
+    "role": "destination",
+    "kind": "viewpoint",
+    "category": "Nature",
+    "categories": ["Nature", "Views", "Night View"],
+    "description": "A scenic toll road winding up Mt. Hiei, featuring Yumemi-ga-oka Observatory with sweeping day and night panoramas over Lake Biwa and Otsu Harbor.",
+    "notes": "Includes a mountain coaster and BBQ terrace at Yumemi-ga-oka.",
+    "notesJa": "【見どころ】琵琶湖と大津市街の180度絶景夜景が広がる、ドライブと展望テラスが人気のドライブコースです。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Free parking at Yumemi-ga-oka",
+    "parkingJa": "【駐車場】夢見が丘に無料大駐車場あり。",
+    "openingHours": "07:00 - 23:00",
+    "openingHoursJa": "07:00 - 23:00",
+    "coordinates": {
+      "lat": 35.0381,
+      "lng": 135.8458
+    },
+    "officialWebsite": "https://www.hieizan-way.com/",
+    "rating": 4.7,
+    "editorial": {
+      "rating": 4.7,
+      "recommendedDurationMinutes": 60,
+      "editorialSummary": "Scenic toll road winding up Mt. Hiei with sweeping day and night panoramas over Lake Biwa.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "relationships": {
+      "parentDestinationId": "otsu-city"
+    },
+    "content": {
+      "en": {
+        "name": "Mount Hiei Driveway & Yumemi Observatory",
+        "description": "A scenic toll road winding up Mt. Hiei, featuring Yumemi-ga-oka Observatory with sweeping day and night panoramas over Lake Biwa and Otsu Harbor.",
+        "highlights": [
+          "Yumemi-ga-oka Lake Biwa View",
+          "Lake Biwa Night View",
+          "Ropeway & Mountain Coaster"
+        ]
+      },
+      "ja": {
+        "name": "比叡山ドライブウェイ・夢見が丘",
+        "description": "大津市田の谷峠から比叡山頂を結ぶ観光道路です。途中の「夢見が丘展望台」からは琵琶湖大橋から近江大橋まで一望でき、日中の湖の青さと夜の煌めく街明かりの両方を楽しめます。",
+        "highlights": [
+          "夢見が丘パノラマ展望台",
+          "琵琶湖夜景スポット",
+          "サイクルコースター"
+        ]
+      }
+    }
+  },
+  {
+    "id": "kimii-dera-temple",
+    "name": "Kimii-dera Temple",
+    "nameJa": "紀三井寺",
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "hubId": "wakayama-city",
+    "nearHubs": ["wakayama-city"],
+    "role": "destination",
+    "kind": "temple",
+    "category": "Culture",
+    "categories": ["Culture", "History", "Views"],
+    "description": "Famous for 231 stone steps leading up Mt. Nagomi, 500 early-blooming cherry trees, and a 12-meter golden wooden Guanyin statue overlooking Wakanoura Bay.",
+    "notes": "Climb the 'Musubi-zaka' steps for good match-making fortune.",
+    "notesJa": "【見どころ】231段の結縁坂と、早咲き桜の名所、全高12mの金色大観音像が鎮座する名刹です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Paid parking available at temple entrance",
+    "parkingJa": "【駐車場】門前に有料駐車場あり。",
+    "openingHours": "08:00 - 17:00",
+    "openingHoursJa": "08:00 - 17:00",
+    "coordinates": {
+      "lat": 34.1842,
+      "lng": 135.1914
+    },
+    "officialWebsite": "https://www.kimiidera.com/",
+    "rating": 4.7,
+    "editorial": {
+      "rating": 4.7,
+      "recommendedDurationMinutes": 75,
+      "editorialSummary": "Famous for 231 stone steps, 500 early-blooming cherry trees, and 12m golden Guanyin statue.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "relationships": {
+      "parentDestinationId": "wakayama-city"
+    },
+    "content": {
+      "en": {
+        "name": "Kimii-dera Temple",
+        "description": "Famous for 231 stone steps leading up Mt. Nagomi, 500 early-blooming cherry trees, and a 12-meter golden wooden Guanyin statue overlooking Wakanoura Bay.",
+        "highlights": [
+          "231 Musubi-zaka Stone Steps",
+          "12m Giant Golden Wooden Guanyin",
+          "Wakanoura Bay Panoramic View"
+        ]
+      },
+      "ja": {
+        "name": "紀三井寺",
+        "description": "宝亀元（770）年に開基された西国三十三所第二番札所の古刹です。境内に沸く三井水や関西一早く開花する早咲き桜、231段の石段を上りきった本堂からの和歌の浦の眺望が素晴らしいです。",
+        "highlights": [
+          "231段の結縁坂",
+          "日本最大の木造立像・大観音",
+          "早咲き桜と和歌の浦の眺望"
+        ]
+      }
+    }
+  },
+  {
+    "id": "kuroshio-market-marina-city",
+    "name": "Kuroshio Market Wakayama Marina City",
+    "nameJa": "黒潮市場・和歌山マリーナシティ",
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "hubId": "wakayama-city",
+    "nearHubs": ["wakayama-city"],
+    "role": "destination",
+    "kind": "market",
+    "category": "Food",
+    "categories": ["Food", "Shopping", "Culture"],
+    "description": "A lively oceanfront seafood market featuring daily live tuna cutting shows, fresh seafood BBQ terraces, and Wakayama specialty souvenir shopping.",
+    "notes": "Tuna cutting demonstrations occur 3 times daily.",
+    "notesJa": "【見どころ】毎日開催される大迫力のマグロ解体ショーと、海沿いテラスでの新鮮海鮮バーベキューが名物です。",
+    "reservation": "BBQ tables available on site",
+    "reservationJa": "【予約】海鮮BBQは当日現地利用可能です。",
+    "parking": "Paid parking in Marina City",
+    "parkingJa": "【駐車場】マリーナシティ有料駐車場あり。",
+    "openingHours": "10:00 - 17:00",
+    "openingHoursJa": "10:00 - 17:00",
+    "coordinates": {
+      "lat": 34.1553,
+      "lng": 135.1814
+    },
+    "officialWebsite": "https://www.kuroshioichiba.co.jp/",
+    "rating": 4.6,
+    "editorial": {
+      "rating": 4.6,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Lively oceanfront seafood market featuring daily live tuna cutting shows and BBQ terraces.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "relationships": {
+      "parentDestinationId": "wakayama-city"
+    },
+    "content": {
+      "en": {
+        "name": "Kuroshio Market Wakayama Marina City",
+        "description": "A lively oceanfront seafood market featuring daily live tuna cutting shows, fresh seafood BBQ terraces, and Wakayama specialty souvenir shopping.",
+        "highlights": [
+          "Daily Live Tuna Cutting Show",
+          "Oceanfront Seafood Barbecue Terrace",
+          "Wakayama Ramen & Local Souvenirs"
+        ]
+      },
+      "ja": {
+        "name": "黒潮市場・和歌山マリーナシティ",
+        "description": "昭和30年代の商店街を再現した活気溢れる鮮魚市場です。職人が目前で一本の巨大マグロを捌く解体ショーや、市場内で買った海鮮を炭火で味わう海沿いテラスBBQが大人気です。",
+        "highlights": [
+          "生マグロ解体ショー",
+          "浜焼き海鮮バーベキュー",
+          "和歌山ラーメン＆紀州梅干し"
+        ]
+      }
+    }
+  },
+  {
+    "id": "tomogashima-islands",
+    "name": "Tomogashima Islands (Laputa Island)",
+    "nameJa": "友ヶ島（ラピュタの島）",
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "hubId": "wakayama-city",
+    "nearHubs": ["wakayama-city"],
+    "role": "destination",
+    "kind": "island",
+    "category": "Nature",
+    "categories": ["Nature", "History", "Islands"],
+    "description": "An uninhabited island cluster in the Kii Strait featuring red-brick Meiji military fortress ruins overgrown with ivy, famous as the real-world 'Laputa Island'.",
+    "notes": "Ferry operates from Kada Port; check weather and ferry schedules.",
+    "notesJa": "【見どころ】明治時代の赤レンガ砲台跡が赤ツタに覆われ、ジブリ映画「天空の城ラピュタ」の世界観が広がる無人島です。",
+    "reservation": "Ferry ticket purchased at Kada Port",
+    "reservationJa": "【予約】加太港発の友ヶ島汽船で渡航可能（定員制）。",
+    "parking": "Paid parking at Kada Port",
+    "parkingJa": "【駐車場】加太港に有料駐車場あり。",
+    "openingHours": "09:00 - 16:30 (Ferry season)",
+    "openingHoursJa": "09:00 - 16:30（友ヶ島汽船ダイヤに準ずる）",
+    "coordinates": {
+      "lat": 34.2831,
+      "lng": 135.0042
+    },
+    "officialWebsite": "https://www.city.wakayama.wakayama.jp/kankou/tomogashima/",
+    "rating": 4.8,
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 180,
+      "editorialSummary": "Uninhabited island cluster with ivy-covered Meiji brick fortress ruins famous as Laputa Island.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "relationships": {
+      "parentDestinationId": "wakayama-city"
+    },
+    "content": {
+      "en": {
+        "name": "Tomogashima Islands (Laputa Island)",
+        "description": "An uninhabited island cluster in the Kii Strait featuring red-brick Meiji military fortress ruins overgrown with ivy, famous as the real-world 'Laputa Island'.",
+        "highlights": [
+          "3rd Battery Red Brick Fortress Ruins",
+          "Okinoshima Lighthouse",
+          "Subterranean Ammunition Tunnels"
+        ]
+      },
+      "ja": {
+        "name": "友ヶ島（ラピュタの島）",
+        "description": "紀淡海峡に浮かぶ地ノ島・神島・沖ノ島・虎島の4島群の総称です。明治時代に旧日本軍が築いた第3砲台跡などの赤レンガ要塞施設が原生林と一体化し、アニメ映画さながらの神秘的空間が広がります。",
+        "highlights": [
+          "第3砲台跡の赤レンガ要塞",
+          "友ヶ島灯台",
+          "弾薬庫跡の地下探検"
+        ]
+      }
+    }
   }
 ]

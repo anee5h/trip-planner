@@ -1,0 +1,61 @@
+{
+  "id": "omi-hachiman-canal",
+  "name": "Omi-Hachiman Merchant Canal",
+  "nameJa": "近江八幡・八幡堀",
+  "prefecture": "Shiga",
+  "region": "Kansai",
+  "hubId": "otsu-city",
+  "nearHubs": ["otsu-city"],
+  "role": "destination",
+  "kind": "historic_town",
+  "category": "Culture",
+  "categories": ["Culture", "History", "Nature"],
+  "description": "A romantic Edo-period merchant canal lined with white-walled storehouses, stone moats, and traditional hand-rowed Suigo boat tours.",
+  "notes": "Suigo boat tours offer scenic cruises through lakeside reed beds.",
+  "notesJa": "【見どころ】白壁の土蔵や石垣が残る八幡堀と、水郷めぐりのどんこ船遊覧が情趣溢れる城下町です。",
+  "reservation": "Boat tours available on site or online",
+  "reservationJa": "【予約】水郷めぐり船は当日受付可能です。",
+  "parking": "Paid parking in Omihachiman",
+  "parkingJa": "【駐車場】八幡堀周辺有料駐車場あり。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00（舟巡り 09:00 - 16:30）",
+  "coordinates": {
+    "lat": 35.1389,
+    "lng": 136.0903
+  },
+  "officialWebsite": "https://www.omi8.com/",
+  "rating": 4.7,
+  "editorial": {
+    "rating": 4.7,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "Romantic Edo merchant canal lined with white storehouses and Suigo boat tours.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "relationships": {
+    "parentDestinationId": "otsu-city"
+  },
+  "content": {
+    "en": {
+      "name": "Omi-Hachiman Merchant Canal",
+      "description": "A romantic Edo-period merchant canal lined with white-walled storehouses, stone moats, and traditional hand-rowed Suigo boat tours.",
+      "highlights": [
+        "Hachiman-bori Canal Walk",
+        "Suigo Hand-Rowed Boat Cruise",
+        "Shinmachidori Merchant Street"
+      ]
+    },
+    "ja": {
+      "name": "近江八幡・八幡堀",
+      "description": "豊臣秀次が築いた城下町の堀で、近江商人の発祥地として栄えた水運の要衝です。四季折々の花が咲く八幡堀沿いの散策や、手漕ぎ船でヨシ原をめぐる「水郷めぐり」が旅情をそそります。",
+      "highlights": [
+        "八幡堀の川端散策",
+        "近江八幡の水郷めぐり",
+        "新町通りの豪商町家"
+      ]
+    }
+  }
+}

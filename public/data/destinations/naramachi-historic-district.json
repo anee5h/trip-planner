@@ -1,0 +1,57 @@
+{
+  "id": "naramachi-historic-district",
+  "name": "Naramachi Historic Lattice District",
+  "nameJa": "ならまち（奈良町）",
+  "prefecture": "Nara",
+  "region": "Kansai",
+  "hubId": "nara-city",
+  "nearHubs": ["nara-city"],
+  "role": "destination",
+  "kind": "historic_town",
+  "category": "Culture",
+  "categories": ["Culture", "History", "Shopping"],
+  "description": "A charming historic neighborhood filled with Edo-period wooden lattice townhouses, traditional craft shops, and red monkey charm decorations.",
+  "notes": "Naramachi Koshi-no-Ie offers free visits inside a classic lattice townhouse.",
+  "notesJa": "【見どころ】江戸時代の切妻造り町家が軒を連ねる風情豊かな街並みで、町家カフェやクラフトショップ散策を楽しめます。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Paid public parking in Naramachi",
+  "parkingJa": "【駐車場】奈良町周辺有料駐車場あり。",
+  "openingHours": "24 hours (Shops 10:00 - 18:00)",
+  "openingHoursJa": "散策自由（店舗 10:00 - 18:00）",
+  "coordinates": {
+    "lat": 34.6781,
+    "lng": 135.8308
+  },
+  "officialWebsite": "https://www.naramachi-info.jp/",
+  "rating": 4.7,
+  "editorial": {
+    "rating": 4.7,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "Charming historic neighborhood filled with Edo-period wooden lattice townhouses.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "relationships": {
+    "parentDestinationId": "nara-city"
+  },
+  "content": {
+    "en": {
+      "name": "Naramachi Historic Lattice District",
+      "description": "A charming historic neighborhood filled with Edo-period wooden lattice townhouses, traditional craft shops, and red monkey charm decorations.",
+      "highlights": [
+        "Koshi-no-Ie Townhouse Museum",
+        "Red Migawari-zaru Charms",
+        "Machiya Craft Cafes"
+      ]
+    },
+    "ja": {
+      "name": "ならまち（奈良町）",
+      "description": "元興寺の旧境内を中心に広がる歴史的街並みです。狭い路地に格子戸の町家が並び、厄除けの「身代わり猿」が軒先に吊るされた風情ある空間で、古民家カフェや地酒・伝統工芸巡りが満喫できます。",
+      "highlights": ["ならまち格子の家", "身代わり猿", "町家カフェ・地酒処"]
+    }
+  }
+}
