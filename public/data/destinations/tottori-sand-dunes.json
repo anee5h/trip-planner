@@ -88,5 +88,6 @@
   },
   "officialWebsite": "https://www.tottori-guide.jp/sakyu/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "municipalityId": "tottori"
 }

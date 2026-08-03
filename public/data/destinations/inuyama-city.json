@@ -92,5 +92,6 @@
     "min": 6,
     "max": 12
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "municipalityId": "inuyama"
 }

@@ -158,6 +158,10 @@ export interface Destination {
   officialWebsiteRequirement?: OfficialWebsiteRequirement;
   name: string;
   nameJa?: string;
+  /** Canonical municipality (city/ward/town) the destination is physically
+   *  located in. A parentDestinationId is only valid when it refers to a hub
+   *  with the same municipalityId. */
+  municipalityId?: string;
   /** Canonical v2 place classification; role remains for legacy callers. */
   placeType?: PlaceType;
   content?: {

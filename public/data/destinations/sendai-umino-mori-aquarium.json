@@ -165,5 +165,6 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "09:00 - 17:30 (Last admission 17:00)"
+  "businessHours": "09:00 - 17:30 (Last admission 17:00)",
+  "municipalityId": "sendai"
 }

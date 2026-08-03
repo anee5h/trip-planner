@@ -54,7 +54,6 @@ const PARENT_BY_DESTINATION_ID: Record<string, string> = {
   "choshi-chiba": "choshi-city",
   "churaumi-aquarium-motobu": "motobu-town",
   "cup-noodles-museum-yokohama": "yokohama-city",
-  "cupnoodles-museum-osaka-ikeda": "sakai-city",
   "dakigaeri-valley-akita": "akita-city",
   "danjo-garan-koyasan": "koya-town",
   "dewa-sanzan-yamagata": "yamagata-city",
@@ -195,7 +194,6 @@ const PARENT_BY_DESTINATION_ID: Record<string, string> = {
   "kyoto-national-museum": "kyoto-city",
   "kyoto-railway-museum": "kyoto-city",
   "lake-biwa-shiga": "otsu-city",
-  "lake-tazawa-akita": "akita-city",
   "lake-towada-aomori": "aomori-city",
   "lazona-kawasaki-plaza": "kawasaki-city",
   "machida-graphic-arts-museum": "machida-tokyo",
@@ -210,7 +208,6 @@ const PARENT_BY_DESTINATION_ID: Record<string, string> = {
   "meiji-jingu": "shibuya-city",
   "meoto-iwa-wedded-rocks": "ise-city",
   "meriken-park": "kobe-city",
-  "miho-museum-koka": "hikone-city",
   "mimuroto-ji-temple": "uji-city",
   "minato-mirai-yokohama": "yokohama-city",
   "mirai-tower-nagoya": "nagoya-city",
@@ -269,7 +266,6 @@ const PARENT_BY_DESTINATION_ID: Record<string, string> = {
   "odaiba-minato": "koto-city",
   "odori-park": "sapporo-city",
   "ohori-park": "fukuoka-city",
-  "oirase-gorge-aomori": "aomori-city",
   "okage-yokocho-oharai-machi": "ise-city",
   "okama-crater-yamagata": "yamagata-city",
   "okinoshima-munakata-fukuoka": "fukuoka-city",
@@ -358,7 +354,7 @@ const PARENT_BY_DESTINATION_ID: Record<string, string> = {
   "takao-599-museum": "hachioji-tokyo",
   "takaosan-yakuoin": "hachioji-tokyo",
   "takato-castle-nagano": "matsumoto-city",
-  "takeda-castle-ruins-hyogo": "himeji-city",
+  "takeda-castle-ruins-hyogo": "asago-city",
   "takeda-castle-yamanashi": "kofu-city",
   "tama-forest-science-garden": "hachioji-tokyo",
   "tama-zoological-park": "hino-city",
@@ -450,6 +446,10 @@ const GATEWAY_BY_DESTINATION_ID: Record<string, string> = {
   "shiretoko-national-park-hokkaido": "abashiri-city",
   "uwajima-castle": "matsuyama-city",
   "yakushima-town": "kagoshima-city",
+  "cupnoodles-museum-osaka-ikeda": "sakai-city",
+  "lake-tazawa-akita": "akita-city",
+  "miho-museum-koka": "hikone-city",
+  "oirase-gorge-aomori": "aomori-city",
 };
 
 export const UNPARENTED_DESTINATION_IDS = [
@@ -474,6 +474,18 @@ export const UNPARENTED_DESTINATION_IDS = [
 
 const REGION_OVERRIDES: Record<string, string> = {
   "shuri-castle-okinawa": "Okinawa",
+};
+
+// Hubs whose id does not end in a clean -city/-town/-village/-ward suffix.
+const HUB_MUNICIPALITY_OVERRIDES: Record<string, string> = {
+  "chofu-tokyo": "chofu",
+  "hachioji-tokyo": "hachioji",
+  "machida-tokyo": "machida",
+  "odaiba-minato": "koto",
+  "ome-tokyo": "ome",
+  "tachikawa-tokyo": "tachikawa",
+  "tokyo-station-chiyoda": "chiyoda",
+  "ueno-taito": "taito",
 };
 
 const indexPath = path.join(
@@ -525,6 +537,67 @@ for (const [destinationId, hubId] of gatewayFor) {
     failures.push(
       `gateway hub '${hubId}' (of '${destinationId}') is not a hub`,
     );
+  } else if (hub.prefecture !== destination.prefecture) {
+    failures.push(
+      `gateway hub '${hubId}' is in ${hub.prefecture} but '${destinationId}' is in ${destination.prefecture}`,
+    );
+  }
+}
+
+// 1b. Exhaustive, disjoint classification: every non-hub destination must be
+//     classified exactly once as contained, gateway, or standalone/unparented.
+const parentIds = new Set(parentFor.keys());
+const gatewayIds = new Set(gatewayFor.keys());
+const unparentedIds = new Set(UNPARENTED_DESTINATION_IDS);
+
+for (const destination of destinations) {
+  if (destination.role === "hub" || destination.role === "poi") continue;
+  const inParent = parentIds.has(destination.id);
+  const inGateway = gatewayIds.has(destination.id);
+  const inUnparented = unparentedIds.has(destination.id);
+  const classificationCount =
+    Number(inParent) + Number(inGateway) + Number(inUnparented);
+
+  if (classificationCount > 1) {
+    failures.push(
+      `destination '${destination.id}' is assigned to more than one classification set (parent=${inParent}, gateway=${inGateway}, unparented=${inUnparented})`,
+    );
+  } else if (
+    classificationCount === 0 &&
+    destination.relationships?.parentDestinationId
+  ) {
+    failures.push(
+      `destination '${destination.id}' has parentDestinationId but is not in the containment map (stale mapping)`,
+    );
+  } else if (
+    classificationCount === 0 &&
+    destination.relationships?.gatewayHubId
+  ) {
+    failures.push(
+      `destination '${destination.id}' has gatewayHubId but is not in the gateway map (stale mapping)`,
+    );
+  }
+}
+
+// 1c. Every map entry must be non-empty in the opposite set (parent and
+//     gateway are mutually exclusive).
+for (const destinationId of parentIds) {
+  if (gatewayIds.has(destinationId)) {
+    failures.push(
+      `destination '${destinationId}' appears in both the containment and gateway maps`,
+    );
+  }
+  if (unparentedIds.has(destinationId)) {
+    failures.push(
+      `destination '${destinationId}' appears in both the containment map and the unparented list`,
+    );
+  }
+}
+for (const destinationId of gatewayIds) {
+  if (unparentedIds.has(destinationId)) {
+    failures.push(
+      `destination '${destinationId}' appears in both the gateway map and the unparented list`,
+    );
   }
 }
 
@@ -534,6 +607,17 @@ if (failures.length > 0) {
     console.error(`  - ${failure}`);
   }
   process.exit(1);
+}
+
+// 1d. Strip the legacy top-level hubId field. It duplicates
+//     relationships.parentDestinationId, is not part of the Destination type,
+//     and is not read by application code.
+let strippedHubIds = 0;
+for (const destination of destinations) {
+  if ("hubId" in destination) {
+    delete (destination as Record<string, unknown>).hubId;
+    strippedHubIds++;
+  }
 }
 
 // 2. Reconcile: apply only records that differ so untouched records keep their
@@ -584,7 +668,35 @@ for (const [destinationId, region] of Object.entries(REGION_OVERRIDES)) {
   }
 }
 
+// 4. Assign municipalityId: hubs derive it from their id; contained
+//    destinations inherit the parent hub's municipality. Two passes so a
+//    destination that appears before its parent hub in the array still inherits.
+let municipalityAssigned = 0;
+for (const destination of destinations) {
+  if (destination.role !== "hub") continue;
+  const derived =
+    HUB_MUNICIPALITY_OVERRIDES[destination.id] ||
+    destination.id.replace(/-(city|town|village|ward)$/, "");
+  if (destination.municipalityId !== derived) {
+    destination.municipalityId = derived;
+    municipalityAssigned++;
+  }
+}
+for (const destination of destinations) {
+  if (destination.role === "hub") continue;
+  const parentId = destination.relationships?.parentDestinationId;
+  if (!parentId) continue;
+  const parent = byId.get(parentId);
+  if (
+    parent?.municipalityId &&
+    destination.municipalityId !== parent.municipalityId
+  ) {
+    destination.municipalityId = parent.municipalityId;
+    municipalityAssigned++;
+  }
+}
+
 fs.writeFileSync(indexPath, `${JSON.stringify(destinations, null, 2)}\n`);
 console.log(
-  `Relationships reconciled: ${applied} of ${managedIds.size} managed destinations updated (${parentFor.size} containment, ${gatewayFor.size} gateway).`,
+  `Relationships reconciled: ${applied} of ${managedIds.size} managed destinations updated (${parentFor.size} containment, ${gatewayFor.size} gateway), ${strippedHubIds} legacy hubId fields stripped, ${municipalityAssigned} municipalityId assignments.`,
 );

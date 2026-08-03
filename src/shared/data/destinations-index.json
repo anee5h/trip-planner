@@ -83,7 +83,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "abashiri"
   },
   {
     "id": "abeno-harukas-300-osaka",
@@ -213,7 +214,6 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "osaka-city",
     "ratingsSchemaVersion": 2,
     "nameJa": "あべのハルカス300（展望台）",
     "content": {
@@ -231,7 +231,8 @@
           "夜景大パノラマ"
         ]
       }
-    }
+    },
+    "municipalityId": "osaka"
   },
   {
     "id": "abukuma-cave-fukushima",
@@ -469,7 +470,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "adachi"
   },
   {
     "id": "aizuwakamatsu-city",
@@ -559,7 +561,8 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "aizuwakamatsu"
   },
   {
     "id": "akasaka-minato",
@@ -690,7 +693,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "minato"
   },
   {
     "id": "akihabara-chiyoda",
@@ -839,7 +843,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "10:00 - 20:00",
-    "openingHoursJa": "10:00 - 20:00（店舗により異なる）"
+    "openingHoursJa": "10:00 - 20:00（店舗により異なる）",
+    "municipalityId": "chiyoda"
   },
   {
     "id": "akita-city",
@@ -930,7 +935,8 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "akita"
   },
   {
     "id": "akiu-onsen-miyagi",
@@ -1022,7 +1028,8 @@
     },
     "officialWebsite": "https://www.akiuonsensyokoukai.com/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "sendai"
   },
   {
     "id": "akiyoshido-cave-yamaguchi",
@@ -1112,7 +1119,8 @@
     },
     "officialWebsite": "https://akiyoshi-dai.com/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "mine"
   },
   {
     "id": "amami-iriomote-natural-site",
@@ -1347,7 +1355,6 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "role": "destination",
-    "hubId": "miyazu-city",
     "content": {
       "en": {
         "name": "Amanohashidate (Bridge to Heaven)",
@@ -1363,7 +1370,8 @@
           "天橋立海水浴場・サイクリング"
         ]
       }
-    }
+    },
+    "municipalityId": "miyazu"
   },
   {
     "id": "ameya-yokocho",
@@ -1557,7 +1565,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "10:00 - 20:00",
-    "openingHoursJa": "10:00 - 20:00（店舗により異なる）"
+    "openingHoursJa": "10:00 - 20:00（店舗により異なる）",
+    "municipalityId": "taito"
   },
   {
     "id": "aoba-castle-museum",
@@ -1726,7 +1735,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "municipalityId": "sendai"
   },
   {
     "id": "aomori-city",
@@ -1821,7 +1831,8 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "aomori"
   },
   {
     "id": "arakawa-city",
@@ -1967,7 +1978,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "arakawa"
   },
   {
     "id": "arakurayama-sengen-park-yamanashi",
@@ -2060,7 +2072,8 @@
     },
     "officialWebsite": "https://www.fujiyoshida.net/spot/11",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "fujiyoshida"
   },
   {
     "id": "arima-onsen",
@@ -2196,7 +2209,6 @@
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["kobe-city"],
     "role": "destination",
-    "hubId": "kobe-city",
     "content": {
       "en": {
         "name": "Arima Onsen",
@@ -2212,7 +2224,8 @@
           "湯本坂のレトロな温泉街散策"
         ]
       }
-    }
+    },
+    "municipalityId": "kobe"
   },
   {
     "id": "art-tower-mito",
@@ -2363,7 +2376,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "mito"
   },
   {
     "id": "asago-city",
@@ -2487,7 +2501,8 @@
           "立雲峡からの雲海展望"
         ]
       }
-    }
+    },
+    "municipalityId": "asago"
   },
   {
     "id": "asahikawa-city",
@@ -2573,7 +2588,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "asahikawa"
   },
   {
     "id": "asakusa-taito",
@@ -2718,7 +2734,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "taito"
   },
   {
     "id": "ashigara",
@@ -3003,7 +3020,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "ashikaga"
   },
   {
     "id": "ashikaga-flower-park-tochigi",
@@ -3147,7 +3165,8 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "ashikaga"
   },
   {
     "id": "aso-city",
@@ -3237,7 +3256,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "aso"
   },
   {
     "id": "asuka-fujiwara-nara",
@@ -3360,7 +3380,6 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["nara-city"],
-    "hubId": "nara-city",
     "content": {
       "en": {
         "name": "Ancient Capitals of Asuka and Fujiwara",
@@ -3376,7 +3395,8 @@
           "藤原宮跡の四季の花々"
         ]
       }
-    }
+    },
+    "municipalityId": "nara"
   },
   {
     "id": "atami-city",
@@ -3467,7 +3487,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "atami"
   },
   {
     "id": "atsuta-shrine-nagoya",
@@ -3571,7 +3592,8 @@
     "placeType": "destination",
     "areaId": "atsuta",
     "officialWebsite": "https://www.atsutajingu.or.jp/",
-    "businessHours": "Open 24 hours (Treasure hall 09:00 - 16:30)"
+    "businessHours": "Open 24 hours (Treasure hall 09:00 - 16:30)",
+    "municipalityId": "nagoya"
   },
   {
     "id": "beppu-city",
@@ -3661,7 +3683,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "beppu"
   },
   {
     "id": "beppu-hells-oita",
@@ -3754,7 +3777,8 @@
     },
     "officialWebsite": "https://www.umi-jigoku.co.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "beppu"
   },
   {
     "id": "biei-town",
@@ -3840,7 +3864,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "biei"
   },
   {
     "id": "bitchu-matsuyama-castle",
@@ -3957,7 +3982,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.city.takahashi.lg.jp/site/bitchu-matsuyama-castle/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "municipalityId": "takahashi"
   },
   {
     "id": "boso-no-mura",
@@ -4285,7 +4311,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "kisarazu"
   },
   {
     "id": "bunkyo-city",
@@ -4431,7 +4458,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "bunkyo"
   },
   {
     "id": "canal-city-hakata",
@@ -4599,7 +4627,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "municipalityId": "fukuoka"
   },
   {
     "id": "chiba-city",
@@ -4764,7 +4793,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "chiba"
   },
   {
     "id": "chiba-city-folk-museum",
@@ -4947,7 +4977,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "chiba"
   },
   {
     "id": "chiba-city-museum-of-art",
@@ -5130,7 +5161,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "chiba"
   },
   {
     "id": "chiba-nokogiriyama",
@@ -5471,7 +5503,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "chiba"
   },
   {
     "id": "chiba-port-park",
@@ -5654,7 +5687,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "chiba"
   },
   {
     "id": "chiba-port-tower",
@@ -5815,7 +5849,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "chiba"
   },
   {
     "id": "chiba-sawara",
@@ -5970,7 +6005,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "katori"
   },
   {
     "id": "chiba-shrine",
@@ -6153,7 +6189,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）"
+    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "municipalityId": "chiba"
   },
   {
     "id": "chiba-yoro-valley",
@@ -6478,7 +6515,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "chiba"
   },
   {
     "id": "chichibu-city",
@@ -6627,7 +6665,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "chichibu"
   },
   {
     "id": "chigasaki-city",
@@ -6777,7 +6816,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "chigasaki"
   },
   {
     "id": "chiyoda-city",
@@ -6925,7 +6965,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "chiyoda"
   },
   {
     "id": "chofu-tokyo",
@@ -7079,7 +7120,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "chofu"
   },
   {
     "id": "choshi-chiba",
@@ -7225,7 +7267,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "choshi"
   },
   {
     "id": "choshi-city",
@@ -7365,7 +7408,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "choshi"
   },
   {
     "id": "chuo-city",
@@ -7518,7 +7562,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "chuo"
   },
   {
     "id": "cup-noodles-museum-yokohama",
@@ -7663,7 +7708,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "yokohama"
   },
   {
     "id": "dakigaeri-valley-akita",
@@ -7768,7 +7814,8 @@
     },
     "officialWebsite": "https://www.city.senboku.akita.jp/sightseeing/spot/05_dakigaeri.html",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "akita"
   },
   {
     "id": "dazaifu-city",
@@ -7858,7 +7905,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "dazaifu"
   },
   {
     "id": "dewa-sanzan-yamagata",
@@ -7953,7 +8001,8 @@
     },
     "officialWebsite": "http://www.dewasanzan.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "yamagata"
   },
   {
     "id": "disneyland",
@@ -8098,7 +8147,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "urayasu"
   },
   {
     "id": "disneysea",
@@ -8235,7 +8285,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "urayasu"
   },
   {
     "id": "dogo-onsen-ehime",
@@ -8325,7 +8376,8 @@
     },
     "officialWebsite": "https://dogo.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "matsuyama"
   },
   {
     "id": "dotonbori",
@@ -8471,7 +8523,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "osaka-city"
+    "municipalityId": "osaka"
   },
   {
     "id": "edo-castle-tokyo",
@@ -8630,7 +8682,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "chiyoda"
   },
   {
     "id": "edogawa-city",
@@ -8780,7 +8833,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "edogawa"
   },
   {
     "id": "engakuji",
@@ -8962,7 +9016,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）"
+    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "municipalityId": "kamakura"
   },
   {
     "id": "enoshima-aquarium",
@@ -9144,7 +9199,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "fujisawa"
   },
   {
     "id": "enoshima-island",
@@ -9284,7 +9340,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "fujisawa"
   },
   {
     "id": "enoshima-iwaya-caves",
@@ -9474,7 +9531,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "fujisawa"
   },
   {
     "id": "enoshima-sea-candle",
@@ -9656,7 +9714,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "fujisawa"
   },
   {
     "id": "enoshima-shrine",
@@ -9838,7 +9897,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）"
+    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "municipalityId": "fujisawa"
   },
   {
     "id": "former-hokkaido-government-office",
@@ -10005,7 +10065,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "municipalityId": "sapporo"
   },
   {
     "id": "fuji-5-lake",
@@ -10196,7 +10257,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "fujikawaguchiko"
   },
   {
     "id": "fujiko-f-fujio-museum",
@@ -10378,7 +10440,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "kawasaki"
   },
   {
     "id": "fujinomiya-city",
@@ -10468,7 +10531,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "fujinomiya"
   },
   {
     "id": "fujisawa-city",
@@ -10620,7 +10684,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "fujisawa"
   },
   {
     "id": "fujiyoshida-city",
@@ -10715,7 +10780,8 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "fujiyoshida"
   },
   {
     "id": "fukui",
@@ -10973,7 +11039,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "municipalityId": "fukuoka"
   },
   {
     "id": "fukuoka-castle-ruins",
@@ -11141,7 +11208,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "municipalityId": "fukuoka"
   },
   {
     "id": "fukuoka-city",
@@ -11250,7 +11318,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "fukuoka"
   },
   {
     "id": "fukuoka-tower",
@@ -11418,7 +11487,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 22:00 (Last admission 21:30)"
+    "businessHours": "09:30 - 22:00 (Last admission 21:30)",
+    "municipalityId": "fukuoka"
   },
   {
     "id": "fukuoka-yatai",
@@ -11586,7 +11656,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "municipalityId": "fukuoka"
   },
   {
     "id": "fukushima-city",
@@ -11677,7 +11748,8 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "fukushima"
   },
   {
     "id": "funabashi-city",
@@ -11827,7 +11899,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "funabashi"
   },
   {
     "id": "furano-city",
@@ -11918,7 +11991,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "furano"
   },
   {
     "id": "fushimi-inari-taisha",
@@ -12064,7 +12138,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kyoto-city"
+    "municipalityId": "kyoto"
   },
   {
     "id": "gala-yuzawa",
@@ -12342,7 +12416,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "gero"
   },
   {
     "id": "gero-onsen",
@@ -12446,7 +12521,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.gero-spa.or.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "gero"
   },
   {
     "id": "ghibli-museum",
@@ -12701,7 +12777,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.city.gifu.lg.jp/kanko/gifucastle/",
-    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)",
+    "municipalityId": "gifu"
   },
   {
     "id": "gifu-city",
@@ -12796,7 +12873,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "gifu"
   },
   {
     "id": "gifu-gujo-hachiman",
@@ -13153,7 +13231,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kyoto-city"
+    "municipalityId": "kyoto"
   },
   {
     "id": "ginza-urban",
@@ -13300,7 +13378,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "10:00 - 20:00",
-    "openingHoursJa": "10:00 - 20:00（店舗により異なる）"
+    "openingHoursJa": "10:00 - 20:00（店舗により異なる）",
+    "municipalityId": "chuo"
   },
   {
     "id": "ginzan-onsen-yamagata",
@@ -13586,7 +13665,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "shinjuku"
   },
   {
     "id": "goshikinuma-ponds-fukushima",
@@ -13691,7 +13771,8 @@
     },
     "officialWebsite": "https://www.urabandai-inf.com/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "aizuwakamatsu"
   },
   {
     "id": "gotemba-city",
@@ -13786,7 +13867,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "gotemba"
   },
   {
     "id": "gotoku-ji",
@@ -13980,7 +14062,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）"
+    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "municipalityId": "setagaya"
   },
   {
     "id": "gunkanjima-hashima-nagasaki",
@@ -14089,7 +14172,8 @@
       "max": 7
     },
     "officialWebsite": "https://www.gunkanjima-tour.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "municipalityId": "nagasaki"
   },
   {
     "id": "gunma-ikaho-onsen",
@@ -14240,7 +14324,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "kusatsu"
   },
   {
     "id": "gunma-kusatsu-onsen",
@@ -14555,7 +14640,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "kusatsu"
   },
   {
     "id": "hachinohe-city",
@@ -14646,7 +14732,8 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "hachinohe"
   },
   {
     "id": "hachioji-castle-tokyo",
@@ -14790,7 +14877,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "hachioji"
   },
   {
     "id": "hachioji-tokyo",
@@ -14947,7 +15035,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "hachioji"
   },
   {
     "id": "hakata-machiya-folk-museum",
@@ -15115,7 +15204,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "municipalityId": "fukuoka"
   },
   {
     "id": "hakkeijima",
@@ -15259,7 +15349,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "yokohama"
   },
   {
     "id": "hakodate-city",
@@ -15346,7 +15437,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "hakodate"
   },
   {
     "id": "hakodate-night-view",
@@ -15465,7 +15557,8 @@
       "max": 5
     },
     "officialWebsite": "https://334.co.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "hakodate"
   },
   {
     "id": "hakone-town",
@@ -15624,7 +15717,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "hakone"
   },
   {
     "id": "hakuba-village",
@@ -15719,7 +15813,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "hakuba"
   },
   {
     "id": "hamamatsu-city",
@@ -15820,7 +15915,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "hamamatsu"
   },
   {
     "id": "harry-potter-studio",
@@ -15963,7 +16059,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "nerima"
   },
   {
     "id": "hasedera",
@@ -16145,7 +16242,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）"
+    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "municipalityId": "kamakura"
   },
   {
     "id": "hatsukaichi-city",
@@ -16235,7 +16333,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "hatsukaichi"
   },
   {
     "id": "heian-jingu",
@@ -16380,7 +16479,7 @@
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["kyoto-city"],
-    "hubId": "kyoto-city"
+    "municipalityId": "kyoto"
   },
   {
     "id": "higashiyama-sky-tower-nagoya",
@@ -16486,7 +16585,8 @@
       "max": 4
     },
     "officialWebsite": "https://www.higashiyama.city.nagoya.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "nagoya"
   },
   {
     "id": "hikone-castle-shiga",
@@ -16624,7 +16724,7 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "role": "destination",
-    "hubId": "hikone-city"
+    "municipalityId": "hikone"
   },
   {
     "id": "hikone-city",
@@ -16741,7 +16841,8 @@
           "夢京橋キャッスルロード"
         ]
       }
-    }
+    },
+    "municipalityId": "hikone"
   },
   {
     "id": "himeji-castle",
@@ -16880,7 +16981,6 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "role": "destination",
-    "hubId": "himeji-city",
     "content": {
       "en": {
         "name": "Himeji Castle (White Heron Castle)",
@@ -16896,7 +16996,8 @@
           "扇の勾配・油壁などの城郭建築"
         ]
       }
-    }
+    },
+    "municipalityId": "himeji"
   },
   {
     "id": "himeji-city",
@@ -17013,7 +17114,8 @@
           "日本庭園・好古園"
         ]
       }
-    }
+    },
+    "municipalityId": "himeji"
   },
   {
     "id": "hino-city",
@@ -17160,7 +17262,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "hino"
   },
   {
     "id": "hiraizumi-chusonji-iwate",
@@ -17371,7 +17474,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.hirosakijo.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "municipalityId": "hirosaki"
   },
   {
     "id": "hirosaki-city",
@@ -17461,7 +17565,8 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "hirosaki"
   },
   {
     "id": "hiroshima-city",
@@ -17565,7 +17670,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "hiroshima"
   },
   {
     "id": "hiroshima-peace-memorial",
@@ -17670,7 +17776,8 @@
       "max": 7
     },
     "officialWebsite": "https://pcf.city.hiroshima.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "municipalityId": "hiroshima"
   },
   {
     "id": "hokkaido-jingu",
@@ -17837,7 +17944,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
+    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
+    "municipalityId": "sapporo"
   },
   {
     "id": "hokkaido-museum-of-modern-art",
@@ -18004,7 +18112,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "municipalityId": "sapporo"
   },
   {
     "id": "hokokuji",
@@ -18186,7 +18295,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）"
+    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "municipalityId": "kamakura"
   },
   {
     "id": "honmaru-palace",
@@ -18354,7 +18464,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "municipalityId": "nagoya"
   },
   {
     "id": "horyuji-temple-nara",
@@ -18496,7 +18607,7 @@
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["ikaruga-town"],
     "role": "destination",
-    "hubId": "ikaruga-town"
+    "municipalityId": "ikaruga"
   },
   {
     "id": "ibaraki-fukuroda-falls",
@@ -19082,7 +19193,8 @@
           "中宮寺の半跏思惟像"
         ]
       }
-    }
+    },
+    "municipalityId": "ikaruga"
   },
   {
     "id": "ikebukuro-toshima",
@@ -19227,7 +19339,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "10:00 - 20:00",
-    "openingHoursJa": "10:00 - 20:00（店舗により異なる）"
+    "openingHoursJa": "10:00 - 20:00（店舗により異なる）",
+    "municipalityId": "toshima"
   },
   {
     "id": "ikuta-ryokuchi",
@@ -19409,7 +19522,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "kawasaki"
   },
   {
     "id": "imperial-palace-chiyoda",
@@ -19552,7 +19666,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "chiyoda"
   },
   {
     "id": "inage-seaside-park",
@@ -19735,7 +19850,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "chiba"
   },
   {
     "id": "inamuragasaki",
@@ -19925,7 +20041,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "kamakura"
   },
   {
     "id": "inuyama-castle-aichi",
@@ -20016,7 +20133,8 @@
       "max": 4
     },
     "officialWebsite": "https://inuyama-castle.jp/",
-    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)",
+    "municipalityId": "inuyama"
   },
   {
     "id": "inuyama-city",
@@ -20116,7 +20234,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "inuyama"
   },
   {
     "id": "ise-city",
@@ -20236,7 +20355,8 @@
           "二見興玉神社の夫婦岩"
         ]
       }
-    }
+    },
+    "municipalityId": "ise"
   },
   {
     "id": "ise-grand-shrine",
@@ -20362,7 +20482,6 @@
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["ise-city"],
     "role": "destination",
-    "hubId": "ise-city",
     "content": {
       "en": {
         "name": "Ise Grand Shrine (Ise Jingu)",
@@ -20378,7 +20497,8 @@
           "式年遷宮の伝統と神杉林"
         ]
       }
-    }
+    },
+    "municipalityId": "ise"
   },
   {
     "id": "ishigaki-city",
@@ -20522,7 +20642,8 @@
         "parkingInfo": "港周辺および市街地に有料駐車場多数。",
         "openingHours": "終日アクセス可能。"
       }
-    }
+    },
+    "municipalityId": "ishigaki"
   },
   {
     "id": "itabashi-city",
@@ -20668,7 +20789,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "itabashi"
   },
   {
     "id": "ito-city",
@@ -20758,7 +20880,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "ito"
   },
   {
     "id": "iwakuni-city",
@@ -20849,7 +20972,8 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "iwakuni"
   },
   {
     "id": "iwami-ginzan-shimane",
@@ -21136,7 +21260,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "saitama"
   },
   {
     "id": "iya-valley-tokushima",
@@ -21416,7 +21541,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "izumo"
   },
   {
     "id": "izumo-taisha",
@@ -21523,7 +21649,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.izumo-kankou.gr.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "municipalityId": "izumo"
   },
   {
     "id": "jochi-ji",
@@ -21705,7 +21832,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）"
+    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "municipalityId": "kamakura"
   },
   {
     "id": "jodogahama-beach-iwate",
@@ -22088,7 +22216,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "koto"
   },
   {
     "id": "jozenji-dori",
@@ -22257,7 +22386,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "08:30 - 17:00 (Last admission 16:30)"
+    "businessHours": "08:30 - 17:00 (Last admission 16:30)",
+    "municipalityId": "sendai"
   },
   {
     "id": "kabukicho",
@@ -22447,7 +22577,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "shinjuku"
   },
   {
     "id": "kagoshima-city",
@@ -22537,7 +22668,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "kagoshima"
   },
   {
     "id": "kagurazaka",
@@ -22735,7 +22867,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "shinjuku"
   },
   {
     "id": "kairakuen-mito",
@@ -22890,7 +23023,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "mito"
   },
   {
     "id": "kakegawa-castle-shizuoka",
@@ -23089,7 +23223,8 @@
     },
     "officialWebsite": "https://www.city.senboku.akita.jp/sightseeing/spot/01_kakunodate.html",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "semboku"
   },
   {
     "id": "kamakura-city",
@@ -23254,7 +23389,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "kamakura"
   },
   {
     "id": "kamakurakokomae-station",
@@ -23436,7 +23572,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "kamakura"
   },
   {
     "id": "kanayama-shrine",
@@ -23626,7 +23763,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）"
+    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "municipalityId": "kawasaki"
   },
   {
     "id": "kanazawa",
@@ -23978,7 +24116,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "yokohama"
   },
   {
     "id": "karuizawa-town",
@@ -24073,7 +24212,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "karuizawa"
   },
   {
     "id": "kashiya-yokocho",
@@ -24263,7 +24403,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "kawagoe"
   },
   {
     "id": "kasori-shell-mounds",
@@ -24446,7 +24587,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "chiba"
   },
   {
     "id": "katase-higashihama-beach",
@@ -24628,7 +24770,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "fujisawa"
   },
   {
     "id": "katori-city",
@@ -24768,7 +24911,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "katori"
   },
   {
     "id": "katori-jingu",
@@ -25092,7 +25236,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "katsushika"
   },
   {
     "id": "kawagoe-castle-saitama",
@@ -25249,7 +25394,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "kawagoe"
   },
   {
     "id": "kawagoe-city",
@@ -25407,7 +25553,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "kawagoe"
   },
   {
     "id": "kawagoe-festival-museum",
@@ -25589,7 +25736,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "kawagoe"
   },
   {
     "id": "kawagoe-hikawa-shrine",
@@ -25771,7 +25919,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）"
+    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "municipalityId": "kawagoe"
   },
   {
     "id": "kawaguchi-city",
@@ -25921,7 +26070,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "kawaguchi"
   },
   {
     "id": "kawasaki-city",
@@ -26077,7 +26227,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "kawasaki"
   },
   {
     "id": "kawasaki-daishi",
@@ -26259,7 +26410,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "kawasaki"
   },
   {
     "id": "kegon-falls-nikko",
@@ -26419,7 +26571,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "nikko"
   },
   {
     "id": "kennin-ji",
@@ -26564,7 +26717,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kyoto-city"
+    "municipalityId": "kyoto"
   },
   {
     "id": "kinkaku-ji",
@@ -26719,7 +26872,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kyoto-city"
+    "municipalityId": "kyoto"
   },
   {
     "id": "kinosaki-onsen",
@@ -26841,7 +26994,6 @@
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["toyooka-city"],
     "role": "destination",
-    "hubId": "toyooka-city",
     "content": {
       "en": {
         "name": "Kinosaki Onsen",
@@ -26857,7 +27009,8 @@
           "浴衣姿での温泉街散策"
         ]
       }
-    }
+    },
+    "municipalityId": "toyooka"
   },
   {
     "id": "kintai-bridge-yamaguchi",
@@ -26950,7 +27103,8 @@
     },
     "officialWebsite": "https://kintaikyo.iwakuni-city.net/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "iwakuni"
   },
   {
     "id": "kinugawa-onsen",
@@ -27105,7 +27259,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "nikko"
   },
   {
     "id": "kirin-beer-yokohama-factory",
@@ -27254,7 +27409,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "yokohama"
   },
   {
     "id": "kisarazu-city",
@@ -27404,7 +27560,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "kisarazu"
   },
   {
     "id": "kiso",
@@ -27646,7 +27803,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "kita"
   },
   {
     "id": "kita-in",
@@ -27828,7 +27986,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "kawagoe"
   },
   {
     "id": "kitakyushu-city",
@@ -27919,7 +28078,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "kitakyushu"
   },
   {
     "id": "kitano-ijinkan",
@@ -28069,7 +28229,7 @@
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["kobe-city"],
-    "hubId": "kobe-city"
+    "municipalityId": "kobe"
   },
   {
     "id": "kiyotsu-gorge-niigata",
@@ -28312,7 +28472,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kobe-city"
+    "municipalityId": "kobe"
   },
   {
     "id": "kobe-city",
@@ -28448,7 +28608,8 @@
           "南京町の中華街美食"
         ]
       }
-    }
+    },
+    "municipalityId": "kobe"
   },
   {
     "id": "kobe-harborland",
@@ -28598,7 +28759,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kobe-city"
+    "municipalityId": "kobe"
   },
   {
     "id": "kobe-maritime-museum",
@@ -28742,7 +28903,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kobe-city"
+    "municipalityId": "kobe"
   },
   {
     "id": "kobe-maya-night-view",
@@ -28872,7 +29033,6 @@
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["kobe-city"],
     "role": "destination",
-    "hubId": "kobe-city",
     "content": {
       "en": {
         "name": "Mount Maya Kikuseidai (Kobe)",
@@ -28888,7 +29048,8 @@
           "天の川をイメージしたマヤカツ遊歩道"
         ]
       }
-    }
+    },
+    "municipalityId": "kobe"
   },
   {
     "id": "kobe-port-tower",
@@ -29038,7 +29199,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kobe-city"
+    "municipalityId": "kobe"
   },
   {
     "id": "kochi-castle",
@@ -29144,7 +29305,8 @@
       "max": 5
     },
     "officialWebsite": "https://kochipark.jp/kochijo/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "municipalityId": "kochi"
   },
   {
     "id": "kochi-city",
@@ -29234,7 +29396,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "kochi"
   },
   {
     "id": "kofu-city",
@@ -29328,7 +29491,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "kofu"
   },
   {
     "id": "komachi-street",
@@ -29510,7 +29674,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "kamakura"
   },
   {
     "id": "korakuen-okayama",
@@ -29605,7 +29770,8 @@
       "max": 5
     },
     "officialWebsite": "https://okayama-korakuen.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "municipalityId": "okayama"
   },
   {
     "id": "koriyama-city",
@@ -29696,7 +29862,8 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "koriyama"
   },
   {
     "id": "koto-city",
@@ -29850,7 +30017,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "koto"
   },
   {
     "id": "kotoku-in-great-buddha",
@@ -30032,7 +30200,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "kamakura"
   },
   {
     "id": "kouri-island-okinawa",
@@ -30187,7 +30356,8 @@
         "parkingInfo": "古宇利ビーチ無料駐車場あり（ティーヌ浜周辺は有料100円〜300円）。",
         "openingHours": "終日開放（タワー営業10:00〜17:00）。"
       }
-    }
+    },
+    "municipalityId": "nago"
   },
   {
     "id": "koya-town",
@@ -30309,7 +30479,8 @@
           "宿坊体験と精進料理"
         ]
       }
-    }
+    },
+    "municipalityId": "koya"
   },
   {
     "id": "kumamoto-castle",
@@ -30415,7 +30586,8 @@
       "max": 5
     },
     "officialWebsite": "https://kumamoto-guide.jp/kumamoto-castle/",
-    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)",
+    "municipalityId": "kumamoto"
   },
   {
     "id": "kumamoto-city",
@@ -30510,7 +30682,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "kumamoto"
   },
   {
     "id": "kumano-kodo-koya-wakayama",
@@ -30637,7 +30810,6 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["koya-town"],
-    "hubId": "koya-town",
     "content": {
       "en": {
         "name": "Sacred Sites and Pilgrimage Routes in the Kii Mountain Range",
@@ -30653,7 +30825,8 @@
           "高野山町石道"
         ]
       }
-    }
+    },
+    "municipalityId": "koya"
   },
   {
     "id": "kurashiki-city",
@@ -30743,7 +30916,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "kurashiki"
   },
   {
     "id": "kurazukuri-warehouse-district",
@@ -30925,7 +31099,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "kawagoe"
   },
   {
     "id": "kurobe-gorge",
@@ -31171,7 +31346,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "osaka-city"
+    "municipalityId": "osaka"
   },
   {
     "id": "kusatsu-town",
@@ -31321,7 +31496,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "kusatsu"
   },
   {
     "id": "kushida-shrine",
@@ -31497,7 +31673,8 @@
       "confidence": "low"
     },
     "officialWebsite": "https://yokanavi.com/spot/26906/",
-    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
+    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
+    "municipalityId": "fukuoka"
   },
   {
     "id": "kushiro-city",
@@ -31583,7 +31760,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "kushiro"
   },
   {
     "id": "kyoto-city",
@@ -31727,7 +31905,8 @@
           "祇園の花街と町家景観"
         ]
       }
-    }
+    },
+    "municipalityId": "kyoto"
   },
   {
     "id": "kyoto-historic",
@@ -31850,7 +32029,6 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["kyoto-city"],
-    "hubId": "kyoto-city",
     "content": {
       "en": {
         "name": "Historic Kyoto (Kiyomizu-dera & Kinkaku-ji)",
@@ -31866,7 +32044,8 @@
           "二条城二の丸御殿"
         ]
       }
-    }
+    },
+    "municipalityId": "kyoto"
   },
   {
     "id": "kyoto-imperial-palace",
@@ -32011,7 +32190,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kyoto-city"
+    "municipalityId": "kyoto"
   },
   {
     "id": "kyoto-international-manga-museum",
@@ -32159,7 +32338,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kyoto-city"
+    "municipalityId": "kyoto"
   },
   {
     "id": "kyoto-national-museum",
@@ -32304,7 +32483,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kyoto-city"
+    "municipalityId": "kyoto"
   },
   {
     "id": "kyoto-railway-museum",
@@ -32449,7 +32628,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kyoto-city"
+    "municipalityId": "kyoto"
   },
   {
     "id": "lake-hamanako",
@@ -32775,7 +32954,7 @@
         "nyuto-onsen-akita",
         "kakunodate-samurai-district-akita"
       ],
-      "parentDestinationId": "akita-city"
+      "gatewayHubId": "akita-city"
     },
     "budgetBreakdown": null,
     "recommendedVisitHours": {
@@ -32878,7 +33057,8 @@
     },
     "officialWebsite": "https://www.towada.kanko.or.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "aomori"
   },
   {
     "id": "lazona-kawasaki-plaza",
@@ -33060,7 +33240,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "kawasaki"
   },
   {
     "id": "machida-tokyo",
@@ -33210,7 +33391,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "10:00 - 20:00",
-    "openingHoursJa": "10:00 - 20:00（店舗により異なる）"
+    "openingHoursJa": "10:00 - 20:00（店舗により異なる）",
+    "municipalityId": "machida"
   },
   {
     "id": "maizuru-park",
@@ -33378,7 +33560,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "fukuoka"
   },
   {
     "id": "makuhari-seaside-park",
@@ -33561,7 +33744,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "chiba"
   },
   {
     "id": "marugame-castle",
@@ -33661,7 +33845,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.marugame-castle.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "municipalityId": "marugame"
   },
   {
     "id": "marugame-city",
@@ -33751,7 +33936,8 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "marugame"
   },
   {
     "id": "maruoka-castle-fukui",
@@ -34029,7 +34215,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "sapporo"
   },
   {
     "id": "matsudo-city",
@@ -34175,7 +34362,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "matsudo"
   },
   {
     "id": "matsue-castle",
@@ -34290,7 +34478,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.matsue-castle.jp/",
-    "businessHours": "08:30 - 18:30 (Oct-Mar: 08:30 - 17:00)"
+    "businessHours": "08:30 - 18:30 (Oct-Mar: 08:30 - 17:00)",
+    "municipalityId": "matsue"
   },
   {
     "id": "matsue-city",
@@ -34376,7 +34565,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "matsue"
   },
   {
     "id": "matsumoto-castle-nagano",
@@ -34467,7 +34657,8 @@
       "max": 4
     },
     "officialWebsite": "https://www.matsumoto-castle.jp/",
-    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)",
+    "municipalityId": "matsumoto"
   },
   {
     "id": "matsumoto-city",
@@ -34559,7 +34750,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "matsumoto"
   },
   {
     "id": "matsushima-bay",
@@ -34665,7 +34857,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.matsushima-kanko.org/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "sendai"
   },
   {
     "id": "matsuyama-castle-ehime",
@@ -34776,7 +34969,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.matsuyamajo.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "municipalityId": "matsuyama"
   },
   {
     "id": "matsuyama-city",
@@ -34862,7 +35056,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "matsuyama"
   },
   {
     "id": "meguro-city",
@@ -35008,7 +35203,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "meguro"
   },
   {
     "id": "meriken-park",
@@ -35152,7 +35348,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kobe-city"
+    "municipalityId": "kobe"
   },
   {
     "id": "minakami-town",
@@ -35302,7 +35498,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "minakami"
   },
   {
     "id": "minato-city",
@@ -35446,7 +35643,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "minato"
   },
   {
     "id": "minato-mirai-yokohama",
@@ -35591,7 +35789,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "10:00 - 20:00",
-    "openingHoursJa": "10:00 - 20:00（店舗により異なる）"
+    "openingHoursJa": "10:00 - 20:00（店舗により異なる）",
+    "municipalityId": "yokohama"
   },
   {
     "id": "mine-city",
@@ -35681,7 +35880,8 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "mine"
   },
   {
     "id": "mirai-tower-nagoya",
@@ -35790,7 +35990,8 @@
     "placeType": "destination",
     "areaId": "sakae",
     "officialWebsite": "https://www.nagoya-tv-tower.co.jp/",
-    "businessHours": "10:00 - 21:00 (Last admission 20:30)"
+    "businessHours": "10:00 - 21:00 (Last admission 20:30)",
+    "municipalityId": "nagoya"
   },
   {
     "id": "miraikan",
@@ -35984,7 +36185,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "koto"
   },
   {
     "id": "mito-castle-ibaraki",
@@ -36144,7 +36346,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "mito"
   },
   {
     "id": "mito-city",
@@ -36289,7 +36492,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "mito"
   },
   {
     "id": "miyajima-itsukushima",
@@ -36407,7 +36611,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.itsukushimajinja.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "municipalityId": "hatsukaichi"
   },
   {
     "id": "miyakojima-city",
@@ -36555,7 +36760,8 @@
         "parkingInfo": "主要ビーチおよび大橋展望スポットに無料駐車場完備。",
         "openingHours": "終日アクセス可能。"
       }
-    }
+    },
+    "municipalityId": "miyakojima"
   },
   {
     "id": "miyazaki-city",
@@ -36645,7 +36851,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "miyazaki"
   },
   {
     "id": "miyazu-city",
@@ -36762,7 +36969,8 @@
           "宮津城下町の歴史散策"
         ]
       }
-    }
+    },
+    "municipalityId": "miyazu"
   },
   {
     "id": "morioka-city",
@@ -36857,7 +37065,8 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "morioka"
   },
   {
     "id": "mother-farm-chiba",
@@ -37132,7 +37341,8 @@
         "parkingInfo": "海洋博公園内に大型無料駐車場多数あり（P1〜P9）。",
         "openingHours": "終日（海洋博公園エリアは08:00〜19:00）。"
       }
-    }
+    },
+    "municipalityId": "motobu"
   },
   {
     "id": "motonosumi-shrine-yamaguchi",
@@ -37318,7 +37528,8 @@
     },
     "officialWebsite": "https://www.aso-kankou.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "kumamoto"
   },
   {
     "id": "mount-bandai-fukushima",
@@ -37415,7 +37626,8 @@
     },
     "officialWebsite": "https://www.bandaisan.or.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "aizuwakamatsu"
   },
   {
     "id": "mount-fuji",
@@ -37632,7 +37844,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.inasayama.com/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "nagasaki"
   },
   {
     "id": "mount-moiwa",
@@ -37807,7 +38020,8 @@
       "confidence": "low"
     },
     "officialWebsite": "https://mt-moiwa.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "sapporo"
   },
   {
     "id": "mount-yoshino-nara",
@@ -37937,7 +38151,6 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["nara-city"],
-    "hubId": "nara-city",
     "content": {
       "en": {
         "name": "Mount Yoshino (Yoshinoyama)",
@@ -37949,7 +38162,8 @@
         "description": "日本一の桜の名所として知られる金峯山寺を中心とした修験道の聖地。春には約3万本のシロヤマザクラが下千本から奥千本へと山を染め上げ、世界遺産にも登録されています。",
         "highlights": ["一目千本の桜景観", "金峯山寺蔵王堂", "修験道の聖地巡礼"]
       }
-    }
+    },
+    "municipalityId": "nara"
   },
   {
     "id": "mount-zao-yamagata",
@@ -38054,7 +38268,8 @@
     },
     "officialWebsite": "https://www.zao-spa.or.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "yamagata"
   },
   {
     "id": "mozufuruichi-kofun-osaka",
@@ -38193,7 +38408,7 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["sakai-city"],
-    "hubId": "sakai-city"
+    "municipalityId": "sakai"
   },
   {
     "id": "musashi-ichinomiya-hikawa-shrine",
@@ -38375,7 +38590,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）"
+    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "municipalityId": "saitama"
   },
   {
     "id": "museum-of-aeronautical-sciences",
@@ -38557,7 +38773,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "narita"
   },
   {
     "id": "nachi-falls-wakayama",
@@ -38688,7 +38905,6 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["shirahama-town"],
-    "hubId": "shirahama-town",
     "content": {
       "en": {
         "name": "Nachi Falls & Pagoda",
@@ -38704,7 +38920,8 @@
           "熊野那智大社参道"
         ]
       }
-    }
+    },
+    "municipalityId": "shirahama"
   },
   {
     "id": "nagano-bessho-onsen",
@@ -38897,7 +39114,8 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "nagano"
   },
   {
     "id": "nagano-kamikochi",
@@ -38995,7 +39213,8 @@
       "max": 13
     },
     "officialWebsite": "https://www.kamikochi.or.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "matsumoto"
   },
   {
     "id": "nagano-narai-juku",
@@ -39099,7 +39318,8 @@
       "max": 10
     },
     "officialWebsite": "https://www.naraijuku.org/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "municipalityId": "matsumoto"
   },
   {
     "id": "nagano-suwa",
@@ -39197,7 +39417,8 @@
       "max": 10
     },
     "officialWebsite": "https://www.suwakanko.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "matsumoto"
   },
   {
     "id": "nagano-tsumago-juku",
@@ -39391,7 +39612,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "nagasaki"
   },
   {
     "id": "nago-city",
@@ -39530,7 +39752,8 @@
         "parkingInfo": "各観光施設およびリゾートホテルに無料駐車場完備。",
         "openingHours": "終日アクセス可能（主要施設は09:00〜18:00）。"
       }
-    }
+    },
+    "municipalityId": "nago"
   },
   {
     "id": "nagoya-castle-aichi",
@@ -39618,7 +39841,8 @@
     "placeType": "destination",
     "areaId": "central-nagoya",
     "officialWebsite": "https://www.nagoyacastle.jp/",
-    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)",
+    "municipalityId": "nagoya"
   },
   {
     "id": "nagoya-city",
@@ -39734,7 +39958,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "nagoya"
   },
   {
     "id": "nagoya-city-art-museum",
@@ -39902,7 +40127,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "municipalityId": "nagoya"
   },
   {
     "id": "nagoya-city-science-museum",
@@ -40070,7 +40296,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "municipalityId": "nagoya"
   },
   {
     "id": "nagoya-port-tower",
@@ -40176,7 +40403,8 @@
       "max": 4
     },
     "officialWebsite": "https://nagoya-port-building.jp/",
-    "businessHours": "10:00 - 21:00 (Last admission 20:30)"
+    "businessHours": "10:00 - 21:00 (Last admission 20:30)",
+    "municipalityId": "nagoya"
   },
   {
     "id": "naha-city",
@@ -40315,7 +40543,8 @@
         "parkingInfo": "国際通り周辺および駅近くにコインパーキング多数あり。",
         "openingHours": "終日散策可能（店舗営業時間は主に10:00〜21:00）。"
       }
-    }
+    },
+    "municipalityId": "naha"
   },
   {
     "id": "nakano-city",
@@ -40461,7 +40690,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "nakano"
   },
   {
     "id": "nakasu",
@@ -40629,7 +40859,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "fukuoka"
   },
   {
     "id": "nankinmachi-chinatown",
@@ -40778,7 +41009,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kobe-city"
+    "municipalityId": "kobe"
   },
   {
     "id": "nanzen-ji",
@@ -40923,7 +41154,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kyoto-city"
+    "municipalityId": "kyoto"
   },
   {
     "id": "naoshima-art-island-kagawa",
@@ -41139,7 +41370,8 @@
           "興福寺五重塔"
         ]
       }
-    }
+    },
+    "municipalityId": "nara"
   },
   {
     "id": "nara-historic",
@@ -41261,7 +41493,6 @@
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["nara-city"],
     "role": "destination",
-    "hubId": "nara-city",
     "content": {
       "en": {
         "name": "Historic Monuments of Ancient Nara",
@@ -41273,7 +41504,8 @@
         "description": "東大寺、興福寺、春日大社、元興寺、薬師寺、唐招提寺、平城宮跡、春日山原始林の8資産からなる世界文化遺産。天平文化の重厚な建築と国宝彫刻が美しく保存されています。",
         "highlights": ["東大寺大仏殿", "薬師寺の東西二塔", "春日大社の朱塗社殿"]
       }
-    }
+    },
+    "municipalityId": "nara"
   },
   {
     "id": "nara-park-todaiji",
@@ -41408,7 +41640,6 @@
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["nara-city"],
     "role": "destination",
-    "hubId": "nara-city",
     "content": {
       "en": {
         "name": "Historic Nara (Todai-ji Great Buddha)",
@@ -41424,7 +41655,8 @@
           "二月堂からの奈良盆地一望"
         ]
       }
-    }
+    },
+    "municipalityId": "nara"
   },
   {
     "id": "narita-airport-observation-decks",
@@ -41606,7 +41838,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "narita"
   },
   {
     "id": "narita-city",
@@ -41757,7 +41990,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "narita"
   },
   {
     "id": "naritasan-park",
@@ -41947,7 +42181,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "narita"
   },
   {
     "id": "naruto-city",
@@ -42038,7 +42273,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "naruto"
   },
   {
     "id": "national-museum-of-nature-and-science",
@@ -42220,7 +42456,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "taito"
   },
   {
     "id": "national-museum-western-art-tokyo",
@@ -42379,7 +42616,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "taito"
   },
   {
     "id": "nebuta-museum-wa-rasse-aomori",
@@ -42471,7 +42709,8 @@
     },
     "officialWebsite": "https://www.nebuta.jp/warasse/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "aomori"
   },
   {
     "id": "nerima-city",
@@ -42617,7 +42856,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "nerima"
   },
   {
     "id": "nihon-minka-en",
@@ -42799,7 +43039,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "kawasaki"
   },
   {
     "id": "niigata-city",
@@ -42898,7 +43139,8 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "niigata"
   },
   {
     "id": "nijo-castle-kyoto",
@@ -43035,7 +43277,6 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["kyoto-city"],
-    "hubId": "kyoto-city",
     "content": {
       "en": {
         "name": "Nijo Castle (Kyoto)",
@@ -43051,7 +43292,8 @@
           "特別名勝・二の丸庭園"
         ]
       }
-    }
+    },
+    "municipalityId": "kyoto"
   },
   {
     "id": "nijo-market",
@@ -43218,7 +43460,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "sapporo"
   },
   {
     "id": "nikko-city",
@@ -43363,7 +43606,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "nikko"
   },
   {
     "id": "nikko-toshogu-shrine-tochigi",
@@ -43513,7 +43757,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）"
+    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "municipalityId": "nikko"
   },
   {
     "id": "ninna-ji",
@@ -43667,7 +43912,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kyoto-city"
+    "municipalityId": "kyoto"
   },
   {
     "id": "niseko-town",
@@ -43753,7 +43998,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "niseko"
   },
   {
     "id": "nishiki-market",
@@ -43898,7 +44144,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kyoto-city"
+    "municipalityId": "kyoto"
   },
   {
     "id": "noto",
@@ -44090,7 +44336,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "numazu"
   },
   {
     "id": "nunobiki-falls",
@@ -44234,7 +44481,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kobe-city"
+    "municipalityId": "kobe"
   },
   {
     "id": "nunobiki-herb-gardens",
@@ -44378,7 +44625,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kobe-city"
+    "municipalityId": "kobe"
   },
   {
     "id": "nunobiki-ropeway",
@@ -44522,7 +44769,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kobe-city"
+    "municipalityId": "kobe"
   },
   {
     "id": "nyuto-onsen-akita",
@@ -44619,7 +44866,8 @@
     },
     "officialWebsite": "https://www.nyuto-onsenkyo.gr.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "semboku"
   },
   {
     "id": "oarai-marine-tower",
@@ -44929,7 +45177,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "koto"
   },
   {
     "id": "odawara-city",
@@ -45075,7 +45324,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "odawara"
   },
   {
     "id": "odori-park",
@@ -45242,7 +45492,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "sapporo"
   },
   {
     "id": "ogasawara-islands-tokyo",
@@ -45565,7 +45816,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "fukuoka"
   },
   {
     "id": "oirase-gorge-aomori",
@@ -45646,7 +45898,7 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [],
-      "parentDestinationId": "aomori-city"
+      "gatewayHubId": "aomori-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Oirase-keiryu.jpg/1920px-Oirase-keiryu.jpg",
     "walkingIntensity": "low",
@@ -45754,7 +46006,8 @@
     },
     "officialWebsite": "https://zao-kochan.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "yamagata"
   },
   {
     "id": "okayama-city",
@@ -45850,7 +46103,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "okayama"
   },
   {
     "id": "okazaki-city",
@@ -45936,7 +46190,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "okazaki"
   },
   {
     "id": "okinoshima-munakata-fukuoka",
@@ -46043,7 +46298,8 @@
       "max": 7
     },
     "officialWebsite": "https://www.okinoshima-heritage.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "municipalityId": "fukuoka"
   },
   {
     "id": "okuhida",
@@ -46281,7 +46537,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "ome"
   },
   {
     "id": "omiya-bonsai-art-museum",
@@ -46463,7 +46720,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "saitama"
   },
   {
     "id": "omiya-bonsai-village",
@@ -46645,7 +46903,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "saitama"
   },
   {
     "id": "omiya-park",
@@ -46827,7 +47086,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "saitama"
   },
   {
     "id": "omiya-railway",
@@ -46973,7 +47233,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "saitama"
   },
   {
     "id": "omoide-yokocho",
@@ -47167,7 +47428,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "shinjuku"
   },
   {
     "id": "onomichi-city",
@@ -47253,7 +47515,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "onomichi"
   },
   {
     "id": "osaka-aquarium-kaiyukan",
@@ -47398,7 +47661,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "osaka-city"
+    "municipalityId": "osaka"
   },
   {
     "id": "osaka-castle",
@@ -47527,7 +47790,6 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "osaka-city",
     "content": {
       "en": {
         "name": "Osaka Castle (Osaka-jo)",
@@ -47543,7 +47805,8 @@
           "四季を彩る大阪城公園"
         ]
       }
-    }
+    },
+    "municipalityId": "osaka"
   },
   {
     "id": "osaka-castle-park",
@@ -47697,7 +47960,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "osaka-city"
+    "municipalityId": "osaka"
   },
   {
     "id": "osaka-city",
@@ -47848,7 +48111,8 @@
           "あべのハルカス＆梅田スカイビル"
         ]
       }
-    }
+    },
+    "municipalityId": "osaka"
   },
   {
     "id": "osaka-museum-of-housing-and-living",
@@ -47993,7 +48257,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "osaka-city"
+    "municipalityId": "osaka"
   },
   {
     "id": "osaka-station-city",
@@ -48138,7 +48402,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "osaka-city"
+    "municipalityId": "osaka"
   },
   {
     "id": "osaki-hachimangu",
@@ -48307,7 +48571,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
+    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
+    "municipalityId": "sendai"
   },
   {
     "id": "osu-kannon",
@@ -48483,7 +48748,8 @@
       "confidence": "low"
     },
     "officialWebsite": "https://osu-kannon.jp/",
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "municipalityId": "nagoya"
   },
   {
     "id": "osu-shopping-district",
@@ -48651,7 +48917,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "nagoya"
   },
   {
     "id": "ota-city",
@@ -48797,7 +49064,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "ota"
   },
   {
     "id": "otaru-city",
@@ -48887,7 +49155,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "otaru"
   },
   {
     "id": "otsu-city",
@@ -49004,7 +49273,8 @@
           "浮御堂（満月寺）"
         ]
       }
-    }
+    },
+    "municipalityId": "otsu"
   },
   {
     "id": "ouchi-juku-fukushima",
@@ -49211,7 +49481,8 @@
       "max": 7
     },
     "officialWebsite": "https://nagasaki-oura-church.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "municipalityId": "nagasaki"
   },
   {
     "id": "oze-national-park",
@@ -49507,7 +49778,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kyoto-city"
+    "municipalityId": "kyoto"
   },
   {
     "id": "rakuten-mobile-park-miyagi",
@@ -49684,7 +49955,8 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.rakuteneagles.jp/stadium/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "sendai"
   },
   {
     "id": "renkeiji",
@@ -49866,7 +50138,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）"
+    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "municipalityId": "kawagoe"
   },
   {
     "id": "roppongi-hills-tokyo-city-view",
@@ -50030,7 +50303,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "minato"
   },
   {
     "id": "ryoan-ji",
@@ -50184,7 +50458,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kyoto-city"
+    "municipalityId": "kyoto"
   },
   {
     "id": "ryugado-cave-kochi",
@@ -50276,7 +50550,8 @@
     },
     "officialWebsite": "https://ryugadou.or.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "kochi"
   },
   {
     "id": "ryusendo-cave-iwate",
@@ -50370,7 +50645,8 @@
     },
     "officialWebsite": "https://www.iwate-ryusendo.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "morioka"
   },
   {
     "id": "sado-island",
@@ -50631,7 +50907,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "sagamihara"
   },
   {
     "id": "saitama-city",
@@ -50795,7 +51072,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "saitama"
   },
   {
     "id": "saitama-nagatoro",
@@ -51125,7 +51403,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "saitama"
   },
   {
     "id": "saitama-stadium-2002",
@@ -51307,7 +51586,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "saitama"
   },
   {
     "id": "saitama-super-arena",
@@ -51492,7 +51772,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "saitama"
   },
   {
     "id": "sakai-city",
@@ -51614,7 +51895,8 @@
           "伝統工芸・堺刃物"
         ]
       }
-    }
+    },
+    "municipalityId": "sakai"
   },
   {
     "id": "sakura-castle-chiba",
@@ -51869,7 +52151,8 @@
     },
     "officialWebsite": "https://www.sakurajima.gr.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "kagoshima"
   },
   {
     "id": "samuel-cocking-garden",
@@ -52051,7 +52334,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "fujisawa"
   },
   {
     "id": "sanjusangen-do",
@@ -52196,7 +52480,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kyoto-city"
+    "municipalityId": "kyoto"
   },
   {
     "id": "sannai-maruyama-jomon-aomori",
@@ -52301,7 +52585,8 @@
       "max": 7
     },
     "officialWebsite": "https://sannaimaruyama.pref.aomori.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "municipalityId": "aomori"
   },
   {
     "id": "sapporo-beer-museum",
@@ -52468,7 +52753,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "11:00 - 18:00 (Closed Mondays)"
+    "businessHours": "11:00 - 18:00 (Closed Mondays)",
+    "municipalityId": "sapporo"
   },
   {
     "id": "sapporo-city",
@@ -52572,7 +52858,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "sapporo"
   },
   {
     "id": "sapporo-clock-tower",
@@ -52739,7 +53026,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "sapporo"
   },
   {
     "id": "sapporo-tv-tower",
@@ -52906,7 +53194,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:00 - 22:00 (Last admission 21:50)"
+    "businessHours": "09:00 - 22:00 (Last admission 21:50)",
+    "municipalityId": "sapporo"
   },
   {
     "id": "sasuke-inari-shrine",
@@ -53088,7 +53377,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）"
+    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "municipalityId": "kamakura"
   },
   {
     "id": "scmaglev-and-railway-park",
@@ -53256,7 +53546,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "nagoya"
   },
   {
     "id": "semboku-city",
@@ -53346,7 +53637,8 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "semboku"
   },
   {
     "id": "sendai-asaichi-morning-market",
@@ -53523,7 +53815,8 @@
       "confidence": "low"
     },
     "officialWebsite": "https://sendaiasaichi.com/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "sendai"
   },
   {
     "id": "sendai-castle-ruins-miyagi",
@@ -53622,7 +53915,8 @@
     "areaId": "aoba",
     "officialWebsite": "https://www.sendai-c.ed.jp/~museum/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "sendai"
   },
   {
     "id": "sendai-city",
@@ -53736,7 +54030,8 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "sendai"
   },
   {
     "id": "sendai-city-museum",
@@ -53905,7 +54200,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "municipalityId": "sendai"
   },
   {
     "id": "sendai-mediatheque",
@@ -54074,7 +54370,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "municipalityId": "sendai"
   },
   {
     "id": "sendai-umino-mori-aquarium",
@@ -54243,7 +54540,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:00 - 17:30 (Last admission 17:00)"
+    "businessHours": "09:00 - 17:30 (Last admission 17:00)",
+    "municipalityId": "sendai"
   },
   {
     "id": "setagaya-city",
@@ -54389,7 +54687,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "setagaya"
   },
   {
     "id": "shibuya-city",
@@ -54538,7 +54837,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "10:00 - 20:00",
-    "openingHoursJa": "10:00 - 20:00（店舗により異なる）"
+    "openingHoursJa": "10:00 - 20:00（店舗により異なる）",
+    "municipalityId": "shibuya"
   },
   {
     "id": "shibuya-sky-shibuya",
@@ -54696,7 +54996,8 @@
     "reservationJa": "日時指定のオンライン事前チケットが必要です。夕方の枠は早期完売します。",
     "parkingJa": "渋谷スクランブルスクエアおよび周辺商業施設の有料駐車場をご利用いただけます。",
     "openingHours": "10:00 - 22:30 (Last admission 21:20)",
-    "openingHoursJa": "10:00 - 22:30（最終入場 21:20）"
+    "openingHoursJa": "10:00 - 22:30（最終入場 21:20）",
+    "municipalityId": "shibuya"
   },
   {
     "id": "shimonoseki-city",
@@ -54786,7 +55087,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "shimonoseki"
   },
   {
     "id": "shin-yokohama-ramen-museum",
@@ -54931,7 +55233,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "yokohama"
   },
   {
     "id": "shinagawa-city",
@@ -55077,7 +55380,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "shinagawa"
   },
   {
     "id": "shingashi-river",
@@ -55267,7 +55571,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "kawagoe"
   },
   {
     "id": "shinjuku-city",
@@ -55415,7 +55720,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "shinjuku"
   },
   {
     "id": "shinjuku-gyo-en",
@@ -55605,7 +55911,8 @@
     "reservationJa": "春の特別開園（桜シーズン）の混雑期は事前予約が推奨されます。",
     "parkingJa": "新宿門横に有料駐車場が完備されています。",
     "openingHours": "09:00 - 17:30 (Closed Mondays)",
-    "openingHoursJa": "09:00 - 17:30（月曜休園）"
+    "openingHoursJa": "09:00 - 17:30（月曜休園）",
+    "municipalityId": "shinjuku"
   },
   {
     "id": "shinsaibashi",
@@ -55750,7 +56057,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "osaka-city"
+    "municipalityId": "osaka"
   },
   {
     "id": "shinsekai",
@@ -55895,7 +56202,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "osaka-city"
+    "municipalityId": "osaka"
   },
   {
     "id": "shinsho-ji",
@@ -56077,7 +56384,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）"
+    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "municipalityId": "narita"
   },
   {
     "id": "shirahama-town",
@@ -56194,7 +56502,8 @@
           "千畳敷・三段壁の断崖美"
         ]
       }
-    }
+    },
+    "municipalityId": "shirahama"
   },
   {
     "id": "shirakami-sanchi-aomori",
@@ -56297,7 +56606,8 @@
       "max": 7
     },
     "officialWebsite": "https://www.pref.aomori.lg.jp/soshiki/kankyo/kankyo/shirakami.html",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "municipalityId": "hirosaki"
   },
   {
     "id": "shirakawa-village",
@@ -56396,7 +56706,8 @@
       "min": 5,
       "max": 11
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "shirakawa"
   },
   {
     "id": "shiretoko-national-park-hokkaido",
@@ -56600,7 +56911,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "shizuoka"
   },
   {
     "id": "shonan-kaigan-park",
@@ -56782,7 +57094,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "fujisawa"
   },
   {
     "id": "shuri-castle-okinawa",
@@ -56937,7 +57250,8 @@
         "parkingInfo": "首里城公園地下駐車場あり（小型車1回320円）。",
         "openingHours": "08:30〜18:00（有料区域最終入園17:30）。"
       }
-    }
+    },
+    "municipalityId": "naha"
   },
   {
     "id": "soji-ji-yokohama",
@@ -57078,7 +57392,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "yokohama"
   },
   {
     "id": "suginami-city",
@@ -57224,7 +57539,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "suginami"
   },
   {
     "id": "sumida-city",
@@ -57371,7 +57687,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "sumida"
   },
   {
     "id": "sunshine-60-observatory-ikebukuro",
@@ -57530,7 +57847,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "toshima"
   },
   {
     "id": "sunshine-aquarium",
@@ -57724,7 +58042,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "toshima"
   },
   {
     "id": "sunshine-city",
@@ -57918,7 +58237,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "toshima"
   },
   {
     "id": "susukino",
@@ -58093,7 +58413,8 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.susukino-ta.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "sapporo"
   },
   {
     "id": "tachikawa-tokyo",
@@ -58246,7 +58567,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "tachikawa"
   },
   {
     "id": "taisho-roman-street",
@@ -58428,7 +58750,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "kawagoe"
   },
   {
     "id": "taito-city",
@@ -58578,7 +58901,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "taito"
   },
   {
     "id": "takachiho-town",
@@ -58673,7 +58997,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "takachiho"
   },
   {
     "id": "takahashi-city",
@@ -58763,7 +59088,8 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "takahashi"
   },
   {
     "id": "takamatsu-city",
@@ -58849,7 +59175,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "takamatsu"
   },
   {
     "id": "takanawa-gateway-minato",
@@ -59003,7 +59330,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "minato"
   },
   {
     "id": "takaoka",
@@ -59212,7 +59540,8 @@
       "max": 5
     },
     "officialWebsite": "https://inadani-see.net/en/takato-castle-site-park/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "matsumoto"
   },
   {
     "id": "takayama-city",
@@ -59309,7 +59638,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "takayama"
   },
   {
     "id": "takeda-castle-ruins-hyogo",
@@ -59387,7 +59717,7 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [],
-      "parentDestinationId": "himeji-city"
+      "parentDestinationId": "asago-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/2/26/%E7%AB%B9%E7%94%B0%E5%9F%8E.JPG",
     "walkingIntensity": "low",
@@ -59415,7 +59745,6 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "role": "destination",
-    "hubId": "asago-city",
     "ratingsSchemaVersion": 2,
     "content": {
       "en": {
@@ -59432,7 +59761,8 @@
           "立雲峡からの対岸展望"
         ]
       }
-    }
+    },
+    "municipalityId": "asago"
   },
   {
     "id": "takeda-castle-yamanashi",
@@ -59540,7 +59870,8 @@
       "max": 4
     },
     "officialWebsite": "https://kofu-kanko.jp/",
-    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
+    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
+    "municipalityId": "kofu"
   },
   {
     "id": "tama-zoological-park",
@@ -59686,7 +60017,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "hino"
   },
   {
     "id": "tanukikoji-shopping-street",
@@ -59853,7 +60185,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "08:30 - 17:00 (Last admission 16:30)"
+    "businessHours": "08:30 - 17:00 (Last admission 16:30)",
+    "municipalityId": "sapporo"
   },
   {
     "id": "taro-okamoto-museum-of-art",
@@ -60035,7 +60368,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "kawasaki"
   },
   {
     "id": "teamlab-borderless-azabudai",
@@ -60180,7 +60514,8 @@
     "reservationJa": "日時指定のオンライン事前予約が必要です。",
     "parkingJa": "麻布台ヒルズ内の有料駐車場をご利用いただけます。",
     "openingHours": "10:00 - 21:00 (Last admission 20:00)",
-    "openingHoursJa": "10:00 - 21:00（最終入場 20:00）"
+    "openingHoursJa": "10:00 - 21:00（最終入場 20:00）",
+    "municipalityId": "minato"
   },
   {
     "id": "teamlab-planets",
@@ -60329,7 +60664,8 @@
     "reservationJa": "日時指定のオンライン事前チケットが必須です。当日券の販売は限られます。",
     "parkingJa": "専用駐車場なし。新豊洲駅周辺の有料駐車場をご利用ください。",
     "openingHours": "09:00 - 22:00 (Last admission 21:00)",
-    "openingHoursJa": "09:00 - 22:00（最終入場 21:00）"
+    "openingHoursJa": "09:00 - 22:00（最終入場 21:00）",
+    "municipalityId": "koto"
   },
   {
     "id": "tempozan-ferris-wheel",
@@ -60474,7 +60810,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "osaka-city"
+    "municipalityId": "osaka"
   },
   {
     "id": "tenjin",
@@ -60650,7 +60986,8 @@
       "confidence": "low"
     },
     "officialWebsite": "https://yokanavi.com/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "fukuoka"
   },
   {
     "id": "tennoji-park",
@@ -60795,7 +61132,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "osaka-city"
+    "municipalityId": "osaka"
   },
   {
     "id": "teshima-island-kagawa",
@@ -60891,7 +61228,8 @@
     },
     "officialWebsite": "https://teshima-navi.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "takamatsu"
   },
   {
     "id": "the-museum-of-modern-art-saitama",
@@ -61073,7 +61411,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "saitama"
   },
   {
     "id": "the-national-museum-of-art-osaka",
@@ -61218,7 +61557,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "osaka-city"
+    "municipalityId": "osaka"
   },
   {
     "id": "tochoji",
@@ -61386,7 +61725,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "08:30 - 17:00 (Last admission 16:30)"
+    "businessHours": "08:30 - 17:00 (Last admission 16:30)",
+    "municipalityId": "fukuoka"
   },
   {
     "id": "todoroki-ryokuchi",
@@ -61568,7 +61908,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "kawasaki"
   },
   {
     "id": "tojinbo-cliffs-fukui",
@@ -61773,7 +62114,8 @@
       "max": 4
     },
     "officialWebsite": "https://www.tokimesse.com/",
-    "businessHours": "08:00 - 22:00 (Fridays until 17:00)"
+    "businessHours": "08:00 - 22:00 (Fridays until 17:00)",
+    "municipalityId": "niigata"
   },
   {
     "id": "toki-no-kane",
@@ -61963,7 +62305,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "kawagoe"
   },
   {
     "id": "tokorozawa-city",
@@ -62108,7 +62451,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "tokorozawa"
   },
   {
     "id": "tokugawa-art-museum",
@@ -62276,7 +62620,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "municipalityId": "nagoya"
   },
   {
     "id": "tokugawa-garden",
@@ -62444,7 +62789,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "nagoya"
   },
   {
     "id": "tokushima-city",
@@ -62530,7 +62876,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "tokushima"
   },
   {
     "id": "tokyo-hinohara",
@@ -62685,7 +63032,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "hachioji"
   },
   {
     "id": "tokyo-metropolitan-government-building-shinjuku",
@@ -62839,7 +63187,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "shinjuku"
   },
   {
     "id": "tokyo-mt-mitake",
@@ -62991,7 +63340,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "ome"
   },
   {
     "id": "tokyo-national-museum",
@@ -63185,7 +63535,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "taito"
   },
   {
     "id": "tokyo-okutama",
@@ -63345,7 +63696,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "ome"
   },
   {
     "id": "tokyo-skytree-sumida",
@@ -63513,7 +63865,8 @@
     "reservationJa": "チケットカウンターの混雑を避けるため、オンラインでの日時指定事前予約がおすすめです。",
     "parkingJa": "東京ソラマチの大型地下有料駐車場をご利用いただけます。",
     "openingHours": "08:00 - 22:00 (Last admission 21:00)",
-    "openingHoursJa": "08:00 - 22:00（最終入場 21:00）"
+    "openingHoursJa": "08:00 - 22:00（最終入場 21:00）",
+    "municipalityId": "sumida"
   },
   {
     "id": "tokyo-station-chiyoda",
@@ -63669,7 +64022,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "10:00 - 20:00",
-    "openingHoursJa": "10:00 - 20:00（店舗により異なる）"
+    "openingHoursJa": "10:00 - 20:00（店舗により異なる）",
+    "municipalityId": "chiyoda"
   },
   {
     "id": "tokyo-tower-minato",
@@ -63826,7 +64180,8 @@
     "reservationJa": "トップデッキツアーは事前予約推奨。メインデッキは当日券購入も可能です。",
     "parkingJa": "東京タワー敷地内の有料地下駐車場をご利用いただけます。",
     "openingHours": "09:00 - 22:30 (Last admission 22:00)",
-    "openingHoursJa": "09:00 - 22:30（最終入場 22:00）"
+    "openingHoursJa": "09:00 - 22:30（最終入場 22:00）",
+    "municipalityId": "minato"
   },
   {
     "id": "tomioka-silk-mill-gunma",
@@ -64167,7 +64522,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "kawasaki"
   },
   {
     "id": "toshima-city",
@@ -64321,7 +64677,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "toshima"
   },
   {
     "id": "tottori-city",
@@ -64411,7 +64768,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "tottori"
   },
   {
     "id": "tottori-sand-dunes",
@@ -64503,7 +64861,8 @@
     },
     "officialWebsite": "https://www.tottori-guide.jp/sakyu/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "tottori"
   },
   {
     "id": "toyama-alpine",
@@ -64720,7 +65079,8 @@
           "玄武洞公園の六角形柱状節理"
         ]
       }
-    }
+    },
+    "municipalityId": "toyooka"
   },
   {
     "id": "toyosu-market",
@@ -64910,7 +65270,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "10:00 - 20:00",
-    "openingHoursJa": "10:00 - 20:00（店舗により異なる）"
+    "openingHoursJa": "10:00 - 20:00（店舗により異なる）",
+    "municipalityId": "koto"
   },
   {
     "id": "toyota-city",
@@ -64996,7 +65357,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "toyota"
   },
   {
     "id": "toyota-commemorative-museum-of-industry-and-technology",
@@ -65167,7 +65529,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "municipalityId": "nagoya"
   },
   {
     "id": "tsujido-seaside-park",
@@ -65349,7 +65712,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "fujisawa"
   },
   {
     "id": "tsukuba-city",
@@ -65494,7 +65858,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "tsukuba"
   },
   {
     "id": "tsunoshima-bridge-yamaguchi",
@@ -65590,7 +65955,8 @@
     },
     "officialWebsite": "https://www.yamaguchi-city.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "shimonoseki"
   },
   {
     "id": "tsuruga-castle-fukushima",
@@ -65685,7 +66051,8 @@
     },
     "officialWebsite": "https://www.tsurugajo.com/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "aizuwakamatsu"
   },
   {
     "id": "tsurugaoka-hachimangu",
@@ -65867,7 +66234,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）"
+    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "municipalityId": "kamakura"
   },
   {
     "id": "tsutenkaku",
@@ -66016,7 +66384,8 @@
     "notesJa": "【見どころ】通天閣は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "municipalityId": "osaka"
   },
   {
     "id": "ueda-castle-nagano",
@@ -66124,7 +66493,8 @@
       "max": 4
     },
     "officialWebsite": "https://www.uedajo.myu-shop.jp/",
-    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)",
+    "municipalityId": "nagano"
   },
   {
     "id": "ueno-park",
@@ -66314,7 +66684,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "taito"
   },
   {
     "id": "ueno-taito",
@@ -66451,7 +66822,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "taito"
   },
   {
     "id": "ueno-zoo",
@@ -66597,7 +66969,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "taito"
   },
   {
     "id": "uji-city",
@@ -66714,7 +67087,8 @@
           "宇治川と宇治橋の散策"
         ]
       }
-    }
+    },
+    "municipalityId": "uji"
   },
   {
     "id": "umeda-sky-building",
@@ -66869,7 +67243,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "osaka-city"
+    "municipalityId": "osaka"
   },
   {
     "id": "universal-studios-japan",
@@ -67015,7 +67389,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "osaka-city"
+    "municipalityId": "osaka"
   },
   {
     "id": "urayasu-city",
@@ -67160,7 +67534,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "urayasu"
   },
   {
     "id": "ushiku-daibutsu",
@@ -67308,7 +67683,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "tsukuba"
   },
   {
     "id": "utsunomiya-city",
@@ -67454,7 +67830,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "utsunomiya"
   },
   {
     "id": "utsunomiya-oya",
@@ -67603,7 +67980,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "utsunomiya"
   },
   {
     "id": "uwajima-castle",
@@ -67823,7 +68201,8 @@
           "和歌山ラーメンと黒潮市場"
         ]
       }
-    }
+    },
+    "municipalityId": "wakayama"
   },
   {
     "id": "yakushima-town",
@@ -67924,7 +68303,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "yakushima"
   },
   {
     "id": "yamadera-yamagata",
@@ -68018,7 +68398,8 @@
     },
     "officialWebsite": "https://www.yamaderakankou.com/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "yamagata"
   },
   {
     "id": "yamagata-city",
@@ -68109,7 +68490,8 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "yamagata"
   },
   {
     "id": "yamanashi-fujiyoshida",
@@ -68207,7 +68589,8 @@
       "max": 11
     },
     "officialWebsite": "https://fujiyoshida.net/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "fujiyoshida"
   },
   {
     "id": "yamanashi-nishizawa-valley",
@@ -68299,7 +68682,8 @@
       "max": 10
     },
     "officialWebsite": "https://www.city.yamanashi.yamanashi.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "kofu"
   },
   {
     "id": "yamanashi-shosenkyo-gorge",
@@ -68396,7 +68780,8 @@
       "max": 9
     },
     "officialWebsite": "https://www.shosenkyo-kankoukyoukai.com/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "municipalityId": "kofu"
   },
   {
     "id": "yamashita-park-yokohama",
@@ -68537,7 +68922,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "yokohama"
   },
   {
     "id": "yanaka",
@@ -68735,7 +69121,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "taito"
   },
   {
     "id": "yasaka-shrine",
@@ -68880,7 +69267,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kyoto-city"
+    "municipalityId": "kyoto"
   },
   {
     "id": "yokohama-chinatown",
@@ -69025,7 +69412,8 @@
     "reservationJa": "散策や食べ歩きは予約不要。週末のコース料理レストランは予約推奨です。",
     "parkingJa": "山下公園地下駐車場や Chinatown パーキングをご利用ください。",
     "openingHours": "10:00 - 22:00 (Varies by shop)",
-    "openingHoursJa": "10:00 - 22:00（店舗により異なる）"
+    "openingHoursJa": "10:00 - 22:00（店舗により異なる）",
+    "municipalityId": "yokohama"
   },
   {
     "id": "yokohama-city",
@@ -69199,7 +69587,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "10:00 - 20:00",
-    "openingHoursJa": "10:00 - 20:00（店舗により異なる）"
+    "openingHoursJa": "10:00 - 20:00（店舗により異なる）",
+    "municipalityId": "yokohama"
   },
   {
     "id": "yokohama-cosmo-world",
@@ -69344,7 +69733,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "yokohama"
   },
   {
     "id": "yokohama-landmark-tower-sky-garden",
@@ -69511,7 +69901,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "yokohama"
   },
   {
     "id": "yokohama-marine-tower",
@@ -69665,7 +70056,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "yokohama"
   },
   {
     "id": "yokohama-red-brick-warehouse",
@@ -69810,7 +70202,8 @@
     "reservationJa": "施設への入場・ショップ巡りは事前予約不要です。",
     "parkingJa": "赤レンガパーク隣接の有料駐車場をご利用いただけます。",
     "openingHours": "11:00 - 20:00 (Restaurants until 22:00)",
-    "openingHoursJa": "11:00 - 20:00（カフェ・レストランは22:00まで）"
+    "openingHoursJa": "11:00 - 20:00（カフェ・レストランは22:00まで）",
+    "municipalityId": "yokohama"
   },
   {
     "id": "yokohama-zoorasia",
@@ -69956,7 +70349,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "yokohama"
   },
   {
     "id": "yokosuka-city",
@@ -70105,7 +70499,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "yokosuka"
   },
   {
     "id": "yomiuriland",
@@ -70345,7 +70740,8 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "yufu"
   },
   {
     "id": "yugyo-ji",
@@ -70527,7 +70923,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）"
+    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "municipalityId": "fujisawa"
   },
   {
     "id": "yuigahama-beach",
@@ -70709,7 +71106,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "kamakura"
   },
   {
     "id": "zao-fox-village-miyagi",
@@ -70803,7 +71201,8 @@
     },
     "officialWebsite": "http://zao-fox-village.com/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "sendai"
   },
   {
     "id": "zeniarai-benten",
@@ -70993,7 +71392,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "kamakura"
   },
   {
     "id": "zuihoden",
@@ -71162,7 +71562,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "municipalityId": "sendai"
   },
   {
     "id": "zushi",
@@ -71466,7 +71867,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "shibuya"
   },
   {
     "id": "meiji-jingu",
@@ -71622,7 +72024,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "shibuya"
   },
   {
     "id": "yoyogi-park",
@@ -71782,7 +72185,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "shibuya"
   },
   {
     "id": "harajuku-takeshita-street",
@@ -71942,7 +72346,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "10:00 - 20:00",
-    "openingHoursJa": "10:00 - 20:00（店舗により異なる）"
+    "openingHoursJa": "10:00 - 20:00（店舗により異なる）",
+    "municipalityId": "shibuya"
   },
   {
     "id": "tsukiji-outer-market",
@@ -72102,7 +72507,8 @@
     "reservationJa": "場外市場の散策・食べ歩きは予約不要。一部の有名寿司店は予約可能です。",
     "parkingJa": "築地川第一駐車場など近隣の有料駐車場をご利用ください。",
     "openingHours": "05:00 - 14:00 (Varies by shop; closed Sundays/Wednesdays)",
-    "openingHoursJa": "05:00 - 14:00（店舗により異なる、日曜・水曜休業多し）"
+    "openingHoursJa": "05:00 - 14:00（店舗により異なる、日曜・水曜休業多し）",
+    "municipalityId": "chuo"
   },
   {
     "id": "hamarikyu-gardens",
@@ -72262,7 +72668,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "chuo"
   },
   {
     "id": "nihonbashi",
@@ -72418,7 +72825,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "10:00 - 20:00",
-    "openingHoursJa": "10:00 - 20:00（店舗により異なる）"
+    "openingHoursJa": "10:00 - 20:00（店舗により異なる）",
+    "municipalityId": "chuo"
   },
   {
     "id": "kabukiza",
@@ -72574,7 +72982,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "chuo"
   },
   {
     "id": "seiko-museum-ginza",
@@ -72734,7 +73143,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "chuo"
   },
   {
     "id": "ginza-itoya",
@@ -72902,7 +73312,8 @@
     "reservationJa": "店舗への入店・見学に事前予約は不要です。",
     "parkingJa": "専用駐車場なし。銀座中央通り周辺の有料駐車場をご利用ください。",
     "openingHours": "10:00 - 19:00 (Sundays/Holidays 10:00 - 19:00)",
-    "openingHoursJa": "10:00 - 19:00（日・祝 10:00 - 19:00）"
+    "openingHoursJa": "10:00 - 19:00（日・祝 10:00 - 19:00）",
+    "municipalityId": "chuo"
   },
   {
     "id": "kiyosumi-gardens",
@@ -73058,7 +73469,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "koto"
   },
   {
     "id": "museum-contemporary-art-tokyo",
@@ -73218,7 +73630,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "koto"
   },
   {
     "id": "fukagawa-edo-museum",
@@ -73378,7 +73791,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "koto"
   },
   {
     "id": "sumida-hokusai-museum",
@@ -73538,7 +73952,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "sumida"
   },
   {
     "id": "ryogoku-kokugikan-sumo-museum",
@@ -73698,7 +74113,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "sumida"
   },
   {
     "id": "mukojima-hyakkaen",
@@ -73858,7 +74274,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "sumida"
   },
   {
     "id": "sumida-river-walk",
@@ -74018,7 +74435,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "sumida"
   },
   {
     "id": "tokiwaso-manga-museum",
@@ -74178,7 +74596,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "toshima"
   },
   {
     "id": "zoshigaya-kishimojindo",
@@ -74338,7 +74757,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）"
+    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "municipalityId": "toshima"
   },
   {
     "id": "sugamo-jizo-dori",
@@ -74498,7 +74918,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "10:00 - 20:00",
-    "openingHoursJa": "10:00 - 20:00（店舗により異なる）"
+    "openingHoursJa": "10:00 - 20:00（店舗により異なる）",
+    "municipalityId": "toshima"
   },
   {
     "id": "yakushi-ike-park",
@@ -74658,7 +75079,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "machida"
   },
   {
     "id": "machida-graphic-arts-museum",
@@ -74812,7 +75234,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "machida"
   },
   {
     "id": "serigaya-park",
@@ -74972,7 +75395,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "machida"
   },
   {
     "id": "buaiso",
@@ -75128,7 +75552,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "machida"
   },
   {
     "id": "nozuta-park",
@@ -75288,7 +75713,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "machida"
   },
   {
     "id": "mount-takao",
@@ -75444,7 +75870,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "hachioji"
   },
   {
     "id": "takaosan-yakuoin",
@@ -75604,7 +76031,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "hachioji"
   },
   {
     "id": "takao-599-museum",
@@ -75772,7 +76200,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "hachioji"
   },
   {
     "id": "tama-forest-science-garden",
@@ -75932,7 +76361,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "hachioji"
   },
   {
     "id": "takahata-fudoson",
@@ -76092,7 +76522,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）"
+    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "municipalityId": "hachioji"
   },
   {
     "id": "hijikata-toshizo-museum",
@@ -76252,7 +76683,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "hino"
   },
   {
     "id": "keio-rail-land",
@@ -76412,7 +76844,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "hino"
   },
   {
     "id": "keio-mogusaen",
@@ -76572,7 +77005,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "hino"
   },
   {
     "id": "jindaiji",
@@ -76728,7 +77162,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）"
+    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "municipalityId": "chofu"
   },
   {
     "id": "jindai-botanical-gardens",
@@ -76888,7 +77323,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "chofu"
   },
   {
     "id": "kitaro-chaya",
@@ -77042,7 +77478,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "chofu"
   },
   {
     "id": "fudaten-shrine",
@@ -77202,7 +77639,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）"
+    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "municipalityId": "chofu"
   },
   {
     "id": "chofu-historic-jindaiji-district",
@@ -77362,7 +77800,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "chofu"
   },
   {
     "id": "musashi-mitake-shrine",
@@ -77522,7 +77961,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "ome"
   },
   {
     "id": "gyokudo-art-museum",
@@ -77676,7 +78116,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "ome"
   },
   {
     "id": "ome-railway-park",
@@ -77830,7 +78271,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "ome"
   },
   {
     "id": "ome-retro-town",
@@ -77990,7 +78432,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "ome"
   },
   {
     "id": "showa-kinen-park",
@@ -78150,7 +78593,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "municipalityId": "tachikawa"
   },
   {
     "id": "polar-science-museum",
@@ -78310,7 +78754,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "tachikawa"
   },
   {
     "id": "play-museum-tachikawa",
@@ -78478,7 +78923,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "tachikawa"
   },
   {
     "id": "tachikawa-manga-park",
@@ -78638,7 +79084,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）"
+    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
+    "municipalityId": "tachikawa"
   },
   {
     "id": "suwa-shrine-tachikawa",
@@ -78794,7 +79241,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）"
+    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "municipalityId": "tachikawa"
   },
   {
     "id": "shitennoji",
@@ -78936,7 +79384,7 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "osaka-city"
+    "municipalityId": "osaka"
   },
   {
     "id": "nakanoshima-museum-art-osaka",
@@ -79078,7 +79526,7 @@
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["osaka-city"],
-    "hubId": "osaka-city"
+    "municipalityId": "osaka"
   },
   {
     "id": "osaka-central-public-hall",
@@ -79220,7 +79668,7 @@
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["osaka-city"],
-    "hubId": "osaka-city"
+    "municipalityId": "osaka"
   },
   {
     "id": "hiroshima-castle",
@@ -79361,7 +79809,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "DXR",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ninomaru,_Hiroshima_Castle,_West_view_20190417_1.jpg"
-    }
+    },
+    "municipalityId": "hiroshima"
   },
   {
     "id": "shukkeien",
@@ -79502,7 +79951,8 @@
       "license": "Public domain",
       "attribution": "No machine-readable author provided. Fg2 assumed (based on copyright claims).",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hiroshima_Shukkei-en_Pond.jpg"
-    }
+    },
+    "municipalityId": "hiroshima"
   },
   {
     "id": "hiroshima-museum-art",
@@ -79643,7 +80093,8 @@
       "license": "CC BY 3.0",
       "attribution": "Taisyo at Japanese Wikipedia",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hiroshima_Museum_of_Art.jpg"
-    }
+    },
+    "municipalityId": "hiroshima"
   },
   {
     "id": "mitaki-dera",
@@ -79784,7 +80235,8 @@
       "license": "CC BY 3.0",
       "attribution": "Max Nossin",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mitaki_dera_-_panoramio.jpg"
-    }
+    },
+    "municipalityId": "hiroshima"
   },
   {
     "id": "orizuru-tower",
@@ -79925,7 +80377,8 @@
       "license": "CC BY 3.0",
       "attribution": "Taisyo",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:HIROSHIMA_ORIZURU_TOWER_2016-1006-1.jpg"
-    }
+    },
+    "municipalityId": "hiroshima"
   },
   {
     "id": "okonomimura",
@@ -80066,7 +80519,8 @@
       "license": "Public domain",
       "attribution": "Okonomi-mura. Uploaded by Nihonjoe",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Okonomi-mura_logo.png"
-    }
+    },
+    "municipalityId": "hiroshima"
   },
   {
     "id": "cupnoodles-museum-osaka-ikeda",
@@ -80125,9 +80579,8 @@
       }
     },
     "relationships": {
-      "parentDestinationId": "sakai-city"
+      "gatewayHubId": "sakai-city"
     },
-    "hubId": "sakai-city",
     "status": "published",
     "ratings": {
       "overall": 8.9,
@@ -80209,7 +80662,6 @@
     "relationships": {
       "parentDestinationId": "uji-city"
     },
-    "hubId": "uji-city",
     "status": "published",
     "ratings": {
       "overall": 9.1,
@@ -80234,7 +80686,8 @@
       "license": "CC BY 4.0",
       "attribution": "ganden",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kyoto-Byodoin_Phoenix_Hall-xl.jpg"
-    }
+    },
+    "municipalityId": "uji"
   },
   {
     "id": "uji-tea-culture-center",
@@ -80291,7 +80744,6 @@
     "relationships": {
       "parentDestinationId": "uji-city"
     },
-    "hubId": "uji-city",
     "status": "published",
     "ratings": {
       "overall": 8.7,
@@ -80316,7 +80768,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Ctny",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tea_plantation_in_Kyoto.jpg"
-    }
+    },
+    "municipalityId": "uji"
   },
   {
     "id": "mimuroto-ji-temple",
@@ -80373,7 +80826,6 @@
     "relationships": {
       "parentDestinationId": "uji-city"
     },
-    "hubId": "uji-city",
     "status": "published",
     "ratings": {
       "overall": 8.9,
@@ -80398,7 +80850,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Daniel M. Dobkin",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mimurotoji_entry.jpg"
-    }
+    },
+    "municipalityId": "uji"
   },
   {
     "id": "ine-funaya-boathouses",
@@ -80455,7 +80908,6 @@
     "relationships": {
       "parentDestinationId": "miyazu-city"
     },
-    "hubId": "miyazu-city",
     "status": "published",
     "ratings": {
       "overall": 9.1,
@@ -80480,7 +80932,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Asturio Cantabrio",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Michinoeki_Funayanosato_Ine_2017-04_ac_(1).jpg"
-    }
+    },
+    "municipalityId": "miyazu"
   },
   {
     "id": "kasamatsu-park-view",
@@ -80537,7 +80990,6 @@
     "relationships": {
       "parentDestinationId": "miyazu-city"
     },
-    "hubId": "miyazu-city",
     "status": "published",
     "ratings": {
       "overall": 8.9,
@@ -80562,7 +81014,8 @@
       "license": "CC BY 2.5",
       "attribution": "663highland",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amanohashidate_view_from_Kasamatsu_Park01s3s4410.jpg"
-    }
+    },
+    "municipalityId": "miyazu"
   },
   {
     "id": "koko-en-garden",
@@ -80619,7 +81072,6 @@
     "relationships": {
       "parentDestinationId": "himeji-city"
     },
-    "hubId": "himeji-city",
     "status": "published",
     "ratings": {
       "overall": 8.9,
@@ -80644,7 +81096,8 @@
       "license": "CC0",
       "attribution": "DimiTalen",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Raised_garden_beds_in_the_Garden_of_Seedlings,_K%C5%8Dko-en,_Himeji,_2016.jpg"
-    }
+    },
+    "municipalityId": "himeji"
   },
   {
     "id": "engyo-ji-mount-shosha",
@@ -80705,7 +81158,6 @@
     "relationships": {
       "parentDestinationId": "himeji-city"
     },
-    "hubId": "himeji-city",
     "status": "published",
     "ratings": {
       "overall": 9.1,
@@ -80730,7 +81182,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Engyoji05s4592.jpg"
-    }
+    },
+    "municipalityId": "himeji"
   },
   {
     "id": "izushi-castle-town",
@@ -80791,7 +81244,6 @@
     "relationships": {
       "parentDestinationId": "toyooka-city"
     },
-    "hubId": "toyooka-city",
     "status": "published",
     "ratings": {
       "overall": 8.7,
@@ -80816,7 +81268,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "663highland",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:241230_Izushi_Soba_Toyooka_Hyogo_pref_Japan01s3.jpg"
-    }
+    },
+    "municipalityId": "toyooka"
   },
   {
     "id": "genbudo-cave-park",
@@ -80873,7 +81326,6 @@
     "relationships": {
       "parentDestinationId": "toyooka-city"
     },
-    "hubId": "toyooka-city",
     "status": "published",
     "ratings": {
       "overall": 8.7,
@@ -80898,7 +81350,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Genbudo_Park_in_Toyooka_Hyogo.JPG"
-    }
+    },
+    "municipalityId": "toyooka"
   },
   {
     "id": "ritsuunkyo-viewpoint",
@@ -80959,7 +81412,6 @@
     "relationships": {
       "parentDestinationId": "asago-city"
     },
-    "hubId": "asago-city",
     "status": "published",
     "ratings": {
       "overall": 9.1,
@@ -80984,7 +81436,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Genbudo_Park_in_Toyooka_Hyogo.JPG"
-    }
+    },
+    "municipalityId": "asago"
   },
   {
     "id": "ikuno-silver-mine",
@@ -81045,7 +81498,6 @@
     "relationships": {
       "parentDestinationId": "asago-city"
     },
-    "hubId": "asago-city",
     "status": "published",
     "ratings": {
       "overall": 8.5,
@@ -81070,7 +81522,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Silver_Mining_Road_in_Hyogo01n4272.jpg"
-    }
+    },
+    "municipalityId": "asago"
   },
   {
     "id": "hokki-ji-pagoda",
@@ -81127,7 +81580,6 @@
     "relationships": {
       "parentDestinationId": "ikaruga-town"
     },
-    "hubId": "ikaruga-town",
     "status": "published",
     "ratings": {
       "overall": 8.7,
@@ -81152,7 +81604,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hokkiji_Three-storied_Pagoda.jpg"
-    }
+    },
+    "municipalityId": "ikaruga"
   },
   {
     "id": "chogosonshi-ji-temple",
@@ -81213,7 +81666,6 @@
     "relationships": {
       "parentDestinationId": "ikaruga-town"
     },
-    "hubId": "ikaruga-town",
     "status": "published",
     "ratings": {
       "overall": 8.9,
@@ -81238,7 +81690,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Shigi_from_the_air.jpg"
-    }
+    },
+    "municipalityId": "ikaruga"
   },
   {
     "id": "enryaku-ji-mount-hiei",
@@ -81299,7 +81752,6 @@
     "relationships": {
       "parentDestinationId": "otsu-city"
     },
-    "hubId": "otsu-city",
     "status": "published",
     "ratings": {
       "overall": 9.1,
@@ -81324,7 +81776,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Enryakuji_Konpon_Chudo1.jpg"
-    }
+    },
+    "municipalityId": "otsu"
   },
   {
     "id": "ukimido-mangetsu-ji",
@@ -81381,7 +81834,6 @@
     "relationships": {
       "parentDestinationId": "otsu-city"
     },
-    "hubId": "otsu-city",
     "status": "published",
     "ratings": {
       "overall": 8.7,
@@ -81406,7 +81858,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ukimido_in_Katata.jpg"
-    }
+    },
+    "municipalityId": "otsu"
   },
   {
     "id": "genkyuen-garden",
@@ -81467,7 +81920,6 @@
     "relationships": {
       "parentDestinationId": "hikone-city"
     },
-    "hubId": "hikone-city",
     "status": "published",
     "ratings": {
       "overall": 8.9,
@@ -81492,7 +81944,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Genkyu-en_Garden_in_Hikone.JPG"
-    }
+    },
+    "municipalityId": "hikone"
   },
   {
     "id": "miho-museum-koka",
@@ -81551,9 +82004,8 @@
       }
     },
     "relationships": {
-      "parentDestinationId": "hikone-city"
+      "gatewayHubId": "hikone-city"
     },
-    "hubId": "hikone-city",
     "status": "published",
     "ratings": {
       "overall": 9.3,
@@ -81635,7 +82087,6 @@
     "relationships": {
       "parentDestinationId": "ise-city"
     },
-    "hubId": "ise-city",
     "status": "published",
     "ratings": {
       "overall": 9.1,
@@ -81660,7 +82111,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Okage-Yokocho-2012.jpg"
-    }
+    },
+    "municipalityId": "ise"
   },
   {
     "id": "kishi-station-tama-cat",
@@ -81721,7 +82173,6 @@
     "relationships": {
       "parentDestinationId": "wakayama-city"
     },
-    "hubId": "wakayama-city",
     "status": "published",
     "ratings": {
       "overall": 8.9,
@@ -81746,7 +82197,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:KishiStation.jpg"
-    }
+    },
+    "municipalityId": "wakayama"
   },
   {
     "id": "okunoin-cemetery-koyasan",
@@ -81807,7 +82259,6 @@
     "relationships": {
       "parentDestinationId": "koya-town"
     },
-    "hubId": "koya-town",
     "status": "published",
     "ratings": {
       "overall": 9.3,
@@ -81832,7 +82283,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koyasan_Okunoin_Rosoku01.jpg"
-    }
+    },
+    "municipalityId": "koya"
   },
   {
     "id": "senjojiki-sandanbeki-cliffs",
@@ -81893,7 +82345,6 @@
     "relationships": {
       "parentDestinationId": "shirahama-town"
     },
-    "hubId": "shirahama-town",
     "status": "published",
     "ratings": {
       "overall": 8.9,
@@ -81918,7 +82369,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senjojiki_Shirahama_Wakayama01n4272.jpg"
-    }
+    },
+    "municipalityId": "shirahama"
   },
   {
     "id": "sakai-city-museum",
@@ -81979,7 +82431,6 @@
     "relationships": {
       "parentDestinationId": "sakai-city"
     },
-    "hubId": "sakai-city",
     "status": "published",
     "ratings": {
       "overall": 8.7,
@@ -82004,7 +82455,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sakai_Daisenryo.jpg"
-    }
+    },
+    "municipalityId": "sakai"
   },
   {
     "id": "lake-biwa-shiga",
@@ -82065,7 +82517,6 @@
     "relationships": {
       "parentDestinationId": "otsu-city"
     },
-    "hubId": "otsu-city",
     "status": "published",
     "ratings": {
       "overall": 8.9,
@@ -82090,7 +82541,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Biwa_Lake_Kusatsu_Shiga01s5s4592.jpg"
-    }
+    },
+    "municipalityId": "otsu"
   },
   {
     "id": "meoto-iwa-wedded-rocks",
@@ -82151,7 +82603,6 @@
     "relationships": {
       "parentDestinationId": "ise-city"
     },
-    "hubId": "ise-city",
     "status": "published",
     "ratings": {
       "overall": 8.9,
@@ -82176,7 +82627,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Futamigaura_meotoiwa01.jpg"
-    }
+    },
+    "municipalityId": "ise"
   },
   {
     "id": "wakayama-castle",
@@ -82237,7 +82689,6 @@
     "relationships": {
       "parentDestinationId": "wakayama-city"
     },
-    "hubId": "wakayama-city",
     "status": "published",
     "ratings": {
       "overall": 8.9,
@@ -82262,7 +82713,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wakayama_Castle_Nishinomaru_Garden04bs3200.jpg"
-    }
+    },
+    "municipalityId": "wakayama"
   },
   {
     "id": "kataonami-beach-wakanoura",
@@ -82323,7 +82775,6 @@
     "relationships": {
       "parentDestinationId": "wakayama-city"
     },
-    "hubId": "wakayama-city",
     "status": "published",
     "ratings": {
       "overall": 8.7,
@@ -82348,7 +82799,8 @@
       "license": "CC0",
       "attribution": "Saigen Jiro",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wakanoura_viewed_from_Mount_Takozushi.jpg"
-    }
+    },
+    "municipalityId": "wakayama"
   },
   {
     "id": "danjo-garan-koyasan",
@@ -82405,7 +82857,6 @@
     "relationships": {
       "parentDestinationId": "koya-town"
     },
-    "hubId": "koya-town",
     "status": "published",
     "ratings": {
       "overall": 9.1,
@@ -82430,7 +82881,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koyasan_Danjogaran.jpg"
-    }
+    },
+    "municipalityId": "koya"
   },
   {
     "id": "shirahama-beach-adventure-world",
@@ -82487,7 +82939,6 @@
     "relationships": {
       "parentDestinationId": "shirahama-town"
     },
-    "hubId": "shirahama-town",
     "status": "published",
     "ratings": {
       "overall": 9.1,
@@ -82512,7 +82963,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shirahama_beach01.jpg"
-    }
+    },
+    "municipalityId": "shirahama"
   },
   {
     "id": "toshodai-ji-temple",
@@ -82520,7 +82972,6 @@
     "nameJa": "唐招提寺",
     "prefecture": "Nara",
     "region": "Kansai",
-    "hubId": "nara-city",
     "nearHubs": ["nara-city"],
     "role": "destination",
     "kind": "temple",
@@ -82594,7 +83045,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toshodaiji_Nara_Nara_pref00bs5s2850.jpg"
-    }
+    },
+    "municipalityId": "nara"
   },
   {
     "id": "yakushi-ji-temple",
@@ -82602,7 +83054,6 @@
     "nameJa": "薬師寺",
     "prefecture": "Nara",
     "region": "Kansai",
-    "hubId": "nara-city",
     "nearHubs": ["nara-city"],
     "role": "destination",
     "kind": "temple",
@@ -82676,7 +83127,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yakushiji_Nara_Japan01s3s4592.jpg"
-    }
+    },
+    "municipalityId": "nara"
   },
   {
     "id": "naramachi-historic-district",
@@ -82684,7 +83136,6 @@
     "nameJa": "ならまち（奈良町）",
     "prefecture": "Nara",
     "region": "Kansai",
-    "hubId": "nara-city",
     "nearHubs": ["nara-city"],
     "role": "destination",
     "kind": "historic_town",
@@ -82758,7 +83209,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naramachi03s3200.jpg"
-    }
+    },
+    "municipalityId": "nara"
   },
   {
     "id": "shirahige-shrine-lake-biwa",
@@ -82766,7 +83218,6 @@
     "nameJa": "白髭神社・湖中大鳥居",
     "prefecture": "Shiga",
     "region": "Kansai",
-    "hubId": "otsu-city",
     "nearHubs": ["otsu-city"],
     "role": "destination",
     "kind": "shrine",
@@ -82840,7 +83291,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shirahige_jinja.jpg"
-    }
+    },
+    "municipalityId": "otsu"
   },
   {
     "id": "omi-hachiman-canal",
@@ -82848,7 +83300,6 @@
     "nameJa": "近江八幡・八幡堀",
     "prefecture": "Shiga",
     "region": "Kansai",
-    "hubId": "otsu-city",
     "nearHubs": ["otsu-city"],
     "role": "destination",
     "kind": "historic_town",
@@ -82926,7 +83377,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Omihachiman_canal_006.jpg"
-    }
+    },
+    "municipalityId": "otsu"
   },
   {
     "id": "hiei-zan-driveway-observatory",
@@ -82934,7 +83386,6 @@
     "nameJa": "比叡山ドライブウェイ・夢見が丘",
     "prefecture": "Shiga",
     "region": "Kansai",
-    "hubId": "otsu-city",
     "nearHubs": ["otsu-city"],
     "role": "destination",
     "kind": "viewpoint",
@@ -83012,7 +83463,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt._Hiei-zan_from_Shiga-machi_2014.jpg"
-    }
+    },
+    "municipalityId": "otsu"
   },
   {
     "id": "kimii-dera-temple",
@@ -83020,7 +83472,6 @@
     "nameJa": "紀三井寺",
     "prefecture": "Wakayama",
     "region": "Kansai",
-    "hubId": "wakayama-city",
     "nearHubs": ["wakayama-city"],
     "role": "destination",
     "kind": "temple",
@@ -83098,7 +83549,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kimiidera_wP1010133.jpg"
-    }
+    },
+    "municipalityId": "wakayama"
   },
   {
     "id": "kuroshio-market-marina-city",
@@ -83106,7 +83558,6 @@
     "nameJa": "黒潮市場・和歌山マリーナシティ",
     "prefecture": "Wakayama",
     "region": "Kansai",
-    "hubId": "wakayama-city",
     "nearHubs": ["wakayama-city"],
     "role": "destination",
     "kind": "market",
@@ -83184,7 +83635,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kuroshio_Ichibano_Tuna_Show.jpg"
-    }
+    },
+    "municipalityId": "wakayama"
   },
   {
     "id": "tomogashima-islands",
@@ -83192,7 +83644,6 @@
     "nameJa": "友ヶ島（ラピュタの島）",
     "prefecture": "Wakayama",
     "region": "Kansai",
-    "hubId": "wakayama-city",
     "nearHubs": ["wakayama-city"],
     "role": "destination",
     "kind": "island",
@@ -83270,7 +83721,8 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tomogashima_Island_Wakayama.jpg"
-    }
+    },
+    "municipalityId": "wakayama"
   },
   {
     "id": "kokusai-dori-naha",
@@ -83367,7 +83819,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "municipalityId": "naha"
   },
   {
     "id": "naminoue-shrine-naha",
@@ -83464,7 +83917,8 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
-    }
+    },
+    "municipalityId": "naha"
   },
   {
     "id": "fukushuen-garden-naha",
@@ -83561,7 +84015,8 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
-    }
+    },
+    "municipalityId": "naha"
   },
   {
     "id": "nago-pineapple-park",
@@ -83658,7 +84113,8 @@
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 2.5
-    }
+    },
+    "municipalityId": "nago"
   },
   {
     "id": "busena-marine-park-nago",
@@ -83755,7 +84211,8 @@
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 2.5
-    }
+    },
+    "municipalityId": "nago"
   },
   {
     "id": "churaumi-aquarium-motobu",
@@ -83852,7 +84309,8 @@
     "recommendedVisitHours": {
       "min": 2.5,
       "max": 4.5
-    }
+    },
+    "municipalityId": "motobu"
   },
   {
     "id": "bise-fukugi-tree-road-motobu",
@@ -83949,7 +84407,8 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
-    }
+    },
+    "municipalityId": "motobu"
   },
   {
     "id": "nakijin-castle-ruins-motobu",
@@ -84051,7 +84510,8 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 2.5
-    }
+    },
+    "municipalityId": "motobu"
   },
   {
     "id": "kabira-bay-ishigaki",
@@ -84147,7 +84607,8 @@
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3
-    }
+    },
+    "municipalityId": "ishigaki"
   },
   {
     "id": "tamatorizaki-viewpoint-ishigaki",
@@ -84242,7 +84703,8 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 1.5
-    }
+    },
+    "municipalityId": "ishigaki"
   },
   {
     "id": "yonehara-beach-coral-ishigaki",
@@ -84337,7 +84799,8 @@
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3
-    }
+    },
+    "municipalityId": "ishigaki"
   },
   {
     "id": "yonaha-maehama-beach-miyako",
@@ -84434,7 +84897,8 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 4
-    }
+    },
+    "municipalityId": "miyakojima"
   },
   {
     "id": "irabu-bridge-irabujima-miyako",
@@ -84531,7 +84995,8 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
-    }
+    },
+    "municipalityId": "miyakojima"
   },
   {
     "id": "higashi-hennazaki-cape-miyako",
@@ -84628,6 +85093,7 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
-    }
+    },
+    "municipalityId": "miyakojima"
   }
 ]

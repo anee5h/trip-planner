@@ -154,5 +154,6 @@
   "reservationJa": "日時指定のオンライン事前チケットが必要です。夕方の枠は早期完売します。",
   "parkingJa": "渋谷スクランブルスクエアおよび周辺商業施設の有料駐車場をご利用いただけます。",
   "openingHours": "10:00 - 22:30 (Last admission 21:20)",
-  "openingHoursJa": "10:00 - 22:30（最終入場 21:20）"
+  "openingHoursJa": "10:00 - 22:30（最終入場 21:20）",
+  "municipalityId": "shibuya"
 }

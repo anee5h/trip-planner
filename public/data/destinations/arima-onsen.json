@@ -128,7 +128,6 @@
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["kobe-city"],
   "role": "destination",
-  "hubId": "kobe-city",
   "content": {
     "en": {
       "name": "Arima Onsen",
@@ -144,5 +143,6 @@
         "湯本坂のレトロな温泉街散策"
       ]
     }
-  }
+  },
+  "municipalityId": "kobe"
 }

@@ -135,7 +135,6 @@
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "role": "destination",
-  "hubId": "himeji-city",
   "content": {
     "en": {
       "name": "Himeji Castle (White Heron Castle)",
@@ -151,5 +150,6 @@
         "扇の勾配・油壁などの城郭建築"
       ]
     }
-  }
+  },
+  "municipalityId": "himeji"
 }

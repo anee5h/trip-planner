@@ -118,7 +118,6 @@
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["nara-city"],
   "role": "destination",
-  "hubId": "nara-city",
   "content": {
     "en": {
       "name": "Historic Monuments of Ancient Nara",
@@ -130,5 +129,6 @@
       "description": "東大寺、興福寺、春日大社、元興寺、薬師寺、唐招提寺、平城宮跡、春日山原始林の8資産からなる世界文化遺産。天平文化の重厚な建築と国宝彫刻が美しく保存されています。",
       "highlights": ["東大寺大仏殿", "薬師寺の東西二塔", "春日大社の朱塗社殿"]
     }
-  }
+  },
+  "municipalityId": "nara"
 }

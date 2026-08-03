@@ -138,5 +138,5 @@
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["ikaruga-town"],
   "role": "destination",
-  "hubId": "ikaruga-town"
+  "municipalityId": "ikaruga"
 }

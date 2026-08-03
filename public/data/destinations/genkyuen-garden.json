@@ -57,7 +57,6 @@
   "relationships": {
     "parentDestinationId": "hikone-city"
   },
-  "hubId": "hikone-city",
   "status": "published",
   "ratings": {
     "overall": 8.9,
@@ -82,5 +81,6 @@
     "license": "CC BY-SA 4.0",
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Genkyu-en_Garden_in_Hikone.JPG"
-  }
+  },
+  "municipalityId": "hikone"
 }

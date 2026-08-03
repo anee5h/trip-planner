@@ -131,7 +131,6 @@
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["nara-city"],
   "role": "destination",
-  "hubId": "nara-city",
   "content": {
     "en": {
       "name": "Historic Nara (Todai-ji Great Buddha)",
@@ -147,5 +146,6 @@
         "二月堂からの奈良盆地一望"
       ]
     }
-  }
+  },
+  "municipalityId": "nara"
 }

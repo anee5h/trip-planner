@@ -53,7 +53,6 @@
   "relationships": {
     "parentDestinationId": "shirahama-town"
   },
-  "hubId": "shirahama-town",
   "status": "published",
   "ratings": {
     "overall": 9.1,
@@ -78,5 +77,6 @@
     "license": "CC BY-SA 4.0",
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shirahama_beach01.jpg"
-  }
+  },
+  "municipalityId": "shirahama"
 }

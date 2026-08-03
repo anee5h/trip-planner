@@ -53,7 +53,6 @@
   "relationships": {
     "parentDestinationId": "himeji-city"
   },
-  "hubId": "himeji-city",
   "status": "published",
   "ratings": {
     "overall": 8.9,
@@ -78,5 +77,6 @@
     "license": "CC0",
     "attribution": "DimiTalen",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Raised_garden_beds_in_the_Garden_of_Seedlings,_K%C5%8Dko-en,_Himeji,_2016.jpg"
-  }
+  },
+  "municipalityId": "himeji"
 }

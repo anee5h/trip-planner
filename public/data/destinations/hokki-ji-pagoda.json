@@ -53,7 +53,6 @@
   "relationships": {
     "parentDestinationId": "ikaruga-town"
   },
-  "hubId": "ikaruga-town",
   "status": "published",
   "ratings": {
     "overall": 8.7,
@@ -78,5 +77,6 @@
     "license": "CC BY-SA 4.0",
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hokkiji_Three-storied_Pagoda.jpg"
-  }
+  },
+  "municipalityId": "ikaruga"
 }

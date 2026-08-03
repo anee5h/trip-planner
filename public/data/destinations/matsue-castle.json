@@ -111,5 +111,6 @@
     "max": 5
   },
   "officialWebsite": "https://www.matsue-castle.jp/",
-  "businessHours": "08:30 - 18:30 (Oct-Mar: 08:30 - 17:00)"
+  "businessHours": "08:30 - 18:30 (Oct-Mar: 08:30 - 17:00)",
+  "municipalityId": "matsue"
 }

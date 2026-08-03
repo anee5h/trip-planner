@@ -53,7 +53,6 @@
   "relationships": {
     "parentDestinationId": "uji-city"
   },
-  "hubId": "uji-city",
   "status": "published",
   "ratings": {
     "overall": 8.7,
@@ -78,5 +77,6 @@
     "license": "CC BY-SA 4.0",
     "attribution": "Ctny",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tea_plantation_in_Kyoto.jpg"
-  }
+  },
+  "municipalityId": "uji"
 }
