@@ -38,20 +38,14 @@
     "freshness": "current",
     "checkedAt": "2026-08-03",
     "reviewedAt": "2026-08-03",
-    "changes": [
-      {
-        "date": "2026-08-03",
-        "by": "Meguruto Editorial Reviewer",
-        "summary": "Reviewed and published Okinawa regional POI"
-      }
-    ],
     "sources": [
       {
-        "name": "Naha Kokusai-dori Association",
+        "title": "Naha Kokusai-dori Association",
         "url": "https://naha-kokusaidori.okinawa/",
         "type": "official"
       }
-    ]
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
   },
   "content": {
     "en": {
@@ -81,9 +75,7 @@
   },
   "coordinates": {
     "lat": 26.2152,
-    "lng": 127.6851,
-    "latitude": 26.2152,
-    "longitude": 127.6851
+    "lng": 127.6851
   },
   "ratings": {
     "overall": 9,

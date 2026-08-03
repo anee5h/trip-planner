@@ -38,20 +38,14 @@
     "freshness": "current",
     "checkedAt": "2026-08-03",
     "reviewedAt": "2026-08-03",
-    "changes": [
-      {
-        "date": "2026-08-03",
-        "by": "Meguruto Editorial Reviewer",
-        "summary": "Reviewed and published Okinawa regional POI"
-      }
-    ],
     "sources": [
       {
-        "name": "Miyakojima Tourism (Higashi-Hennazaki)",
+        "title": "Miyakojima Tourism (Higashi-Hennazaki)",
         "url": "https://miyako-guide.net/spot/spot-318/",
         "type": "official"
       }
-    ]
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
   },
   "content": {
     "en": {
@@ -81,9 +75,7 @@
   },
   "coordinates": {
     "lat": 24.7262,
-    "lng": 125.4678,
-    "latitude": 24.7262,
-    "longitude": 125.4678
+    "lng": 125.4678
   },
   "ratings": {
     "overall": 9,

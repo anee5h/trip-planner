@@ -38,20 +38,14 @@
     "freshness": "current",
     "checkedAt": "2026-08-03",
     "reviewedAt": "2026-08-03",
-    "changes": [
-      {
-        "date": "2026-08-03",
-        "by": "Meguruto Editorial Reviewer",
-        "summary": "Reviewed and published Okinawa regional POI"
-      }
-    ],
     "sources": [
       {
-        "name": "Ishigaki Tourism (Kabira Bay)",
+        "title": "Ishigaki Tourism (Kabira Bay)",
         "url": "https://yaeyama.or.jp/spot/kabirabay/",
         "type": "official"
       }
-    ]
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
   },
   "content": {
     "en": {
@@ -80,9 +74,7 @@
   },
   "coordinates": {
     "lat": 24.4533,
-    "lng": 124.1425,
-    "latitude": 24.4533,
-    "longitude": 124.1425
+    "lng": 124.1425
   },
   "ratings": {
     "overall": 9.8,

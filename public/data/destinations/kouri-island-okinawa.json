@@ -7,9 +7,7 @@
   "description": "An enchanting island in northern Okinawa reached by a 2-kilometer sea bridge, famous for crystal emerald waters and Heart Rock beach.",
   "coordinates": {
     "lat": 26.6966,
-    "lng": 128.0245,
-    "latitude": 26.6966,
-    "longitude": 128.0245
+    "lng": 128.0245
   },
   "nearestStation": "Naha Airport",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Nago_Okinawa_Kouri-Bridge-01.jpg",
@@ -119,20 +117,14 @@
     "freshness": "current",
     "checkedAt": "2026-08-03",
     "reviewedAt": "2026-08-03",
-    "changes": [
-      {
-        "date": "2026-08-03",
-        "by": "Meguruto Editorial Reviewer",
-        "summary": "Reviewed and published Okinawa regional POI"
-      }
-    ],
     "sources": [
       {
-        "name": "Nakijin Tourism Association (Kouri Island)",
+        "title": "Nakijin Tourism Association (Kouri Island)",
         "url": "https://nakijin-kankou.jp/",
         "type": "official"
       }
-    ]
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
   },
   "content": {
     "en": {

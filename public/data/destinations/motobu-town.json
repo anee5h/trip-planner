@@ -48,9 +48,7 @@
   "tags": ["Hub", "Okinawa", "Aquarium", "Nature", "Castle"],
   "coordinates": {
     "lat": 26.6575,
-    "lng": 127.8906,
-    "latitude": 26.6575,
-    "longitude": 127.8906
+    "lng": 127.8906
   },
   "comfort": {
     "heatTolerance": 8,
@@ -103,20 +101,14 @@
     "freshness": "current",
     "checkedAt": "2026-08-03",
     "reviewedAt": "2026-08-03",
-    "changes": [
-      {
-        "date": "2026-08-03",
-        "by": "Meguruto Editorial Reviewer",
-        "summary": "Reviewed and published Okinawa regional POI"
-      }
-    ],
     "sources": [
       {
-        "name": "Motobu Town Tourism Association",
+        "title": "Motobu Town Tourism Association",
         "url": "https://www.motobu-kaigan.com/",
         "type": "official"
       }
-    ]
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
   },
   "content": {
     "en": {

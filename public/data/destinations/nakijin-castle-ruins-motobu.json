@@ -38,25 +38,19 @@
     "freshness": "current",
     "checkedAt": "2026-08-03",
     "reviewedAt": "2026-08-03",
-    "changes": [
-      {
-        "date": "2026-08-03",
-        "by": "Meguruto Editorial Reviewer",
-        "summary": "Reviewed and published Okinawa regional POI"
-      }
-    ],
     "sources": [
       {
-        "name": "Nakijin Castle Ruins Official Site",
+        "title": "Nakijin Castle Ruins Official Site",
         "url": "https://nakijinjoseki.jp/",
         "type": "official"
       },
       {
-        "name": "UNESCO World Heritage Centre",
+        "title": "UNESCO World Heritage Centre",
         "url": "https://whc.unesco.org/en/list/972/",
         "type": "encyclopedia"
       }
-    ]
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
   },
   "content": {
     "en": {
@@ -86,9 +80,7 @@
   },
   "coordinates": {
     "lat": 26.6914,
-    "lng": 127.9287,
-    "latitude": 26.6914,
-    "longitude": 127.9287
+    "lng": 127.9287
   },
   "ratings": {
     "overall": 9,

@@ -38,20 +38,14 @@
     "freshness": "current",
     "checkedAt": "2026-08-03",
     "reviewedAt": "2026-08-03",
-    "changes": [
-      {
-        "date": "2026-08-03",
-        "by": "Meguruto Editorial Reviewer",
-        "summary": "Reviewed and published Okinawa regional POI"
-      }
-    ],
     "sources": [
       {
-        "name": "Motobu Town Tourism Association (Bise)",
+        "title": "Motobu Town Tourism Association (Bise)",
         "url": "https://www.motobu-kaigan.com/",
         "type": "official"
       }
-    ]
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
   },
   "content": {
     "en": {
@@ -81,9 +75,7 @@
   },
   "coordinates": {
     "lat": 26.7042,
-    "lng": 127.88,
-    "latitude": 26.7042,
-    "longitude": 127.88
+    "lng": 127.88
   },
   "ratings": {
     "overall": 9,

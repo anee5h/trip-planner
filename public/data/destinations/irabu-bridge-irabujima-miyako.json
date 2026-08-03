@@ -38,20 +38,14 @@
     "freshness": "current",
     "checkedAt": "2026-08-03",
     "reviewedAt": "2026-08-03",
-    "changes": [
-      {
-        "date": "2026-08-03",
-        "by": "Meguruto Editorial Reviewer",
-        "summary": "Reviewed and published Okinawa regional POI"
-      }
-    ],
     "sources": [
       {
-        "name": "Miyakojima Tourism (Irabu Bridge)",
+        "title": "Miyakojima Tourism (Irabu Bridge)",
         "url": "https://miyako-guide.net/spot/spot-317/",
         "type": "official"
       }
-    ]
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
   },
   "content": {
     "en": {
@@ -81,9 +75,7 @@
   },
   "coordinates": {
     "lat": 24.819,
-    "lng": 125.244,
-    "latitude": 24.819,
-    "longitude": 125.244
+    "lng": 125.244
   },
   "ratings": {
     "overall": 9.5,

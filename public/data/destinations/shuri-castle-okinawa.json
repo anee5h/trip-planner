@@ -56,9 +56,7 @@
   "notes": "Official UNESCO World Heritage Site.",
   "coordinates": {
     "lat": 26.217,
-    "lng": 127.7195,
-    "latitude": 26.217,
-    "longitude": 127.7195
+    "lng": 127.7195
   },
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Naha_Shuri_Castle16s5s3200.jpg/960px-Naha_Shuri_Castle16s5s3200.jpg",
@@ -114,25 +112,19 @@
     "freshness": "current",
     "checkedAt": "2026-08-03",
     "reviewedAt": "2026-08-03",
-    "changes": [
-      {
-        "date": "2026-08-03",
-        "by": "Meguruto Editorial Reviewer",
-        "summary": "Reviewed and published Okinawa regional POI"
-      }
-    ],
     "sources": [
       {
-        "name": "Shurijo Castle Park Official Site",
+        "title": "Shurijo Castle Park Official Site",
         "url": "https://oki-park.jp/shurijo/",
         "type": "official"
       },
       {
-        "name": "UNESCO World Heritage Centre",
+        "title": "UNESCO World Heritage Centre",
         "url": "https://whc.unesco.org/en/list/972/",
         "type": "encyclopedia"
       }
-    ]
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
   },
   "content": {
     "en": {

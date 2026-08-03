@@ -48,9 +48,7 @@
   "tags": ["Hub", "Okinawa", "Islands", "Beach", "Nature"],
   "coordinates": {
     "lat": 24.3448,
-    "lng": 124.1572,
-    "latitude": 24.3448,
-    "longitude": 124.1572
+    "lng": 124.1572
   },
   "comfort": {
     "heatTolerance": 8,
@@ -108,20 +106,14 @@
     "freshness": "current",
     "checkedAt": "2026-08-03",
     "reviewedAt": "2026-08-03",
-    "changes": [
-      {
-        "date": "2026-08-03",
-        "by": "Meguruto Editorial Reviewer",
-        "summary": "Reviewed and published Okinawa regional POI"
-      }
-    ],
     "sources": [
       {
-        "name": "Ishigaki City Tourism Association",
+        "title": "Ishigaki City Tourism Association",
         "url": "https://yaeyama.or.jp/",
         "type": "official"
       }
-    ]
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
   },
   "content": {
     "en": {

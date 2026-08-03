@@ -48,9 +48,7 @@
   "tags": ["Hub", "Okinawa", "Nature", "Beaches", "Resort"],
   "coordinates": {
     "lat": 26.5915,
-    "lng": 127.9774,
-    "latitude": 26.5915,
-    "longitude": 127.9774
+    "lng": 127.9774
   },
   "comfort": {
     "heatTolerance": 8,
@@ -103,20 +101,14 @@
     "freshness": "current",
     "checkedAt": "2026-08-03",
     "reviewedAt": "2026-08-03",
-    "changes": [
-      {
-        "date": "2026-08-03",
-        "by": "Meguruto Editorial Reviewer",
-        "summary": "Reviewed and published Okinawa regional POI"
-      }
-    ],
     "sources": [
       {
-        "name": "Nago City Tourism Association",
+        "title": "Nago City Tourism Association",
         "url": "https://nagomun.or.jp/",
         "type": "official"
       }
-    ]
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
   },
   "content": {
     "en": {

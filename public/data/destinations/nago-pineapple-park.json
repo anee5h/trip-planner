@@ -38,20 +38,14 @@
     "freshness": "current",
     "checkedAt": "2026-08-03",
     "reviewedAt": "2026-08-03",
-    "changes": [
-      {
-        "date": "2026-08-03",
-        "by": "Meguruto Editorial Reviewer",
-        "summary": "Reviewed and published Okinawa regional POI"
-      }
-    ],
     "sources": [
       {
-        "name": "Nago Pineapple Park Official Site",
+        "title": "Nago Pineapple Park Official Site",
         "url": "https://www.nagopine.com/",
         "type": "official"
       }
-    ]
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
   },
   "content": {
     "en": {
@@ -81,9 +75,7 @@
   },
   "coordinates": {
     "lat": 26.6162,
-    "lng": 127.9678,
-    "latitude": 26.6162,
-    "longitude": 127.9678
+    "lng": 127.9678
   },
   "ratings": {
     "overall": 9,

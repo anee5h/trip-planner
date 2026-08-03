@@ -20424,9 +20424,7 @@
     "tags": ["Hub", "Okinawa", "Islands", "Beach", "Nature"],
     "coordinates": {
       "lat": 24.3448,
-      "lng": 124.1572,
-      "latitude": 24.3448,
-      "longitude": 124.1572
+      "lng": 124.1572
     },
     "comfort": {
       "heatTolerance": 8,
@@ -20484,20 +20482,14 @@
       "freshness": "current",
       "checkedAt": "2026-08-03",
       "reviewedAt": "2026-08-03",
-      "changes": [
-        {
-          "date": "2026-08-03",
-          "by": "Meguruto Editorial Reviewer",
-          "summary": "Reviewed and published Okinawa regional POI"
-        }
-      ],
       "sources": [
         {
-          "name": "Ishigaki City Tourism Association",
+          "title": "Ishigaki City Tourism Association",
           "url": "https://yaeyama.or.jp/",
           "type": "official"
         }
-      ]
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
     },
     "content": {
       "en": {
@@ -30044,9 +30036,7 @@
     "description": "An enchanting island in northern Okinawa reached by a 2-kilometer sea bridge, famous for crystal emerald waters and Heart Rock beach.",
     "coordinates": {
       "lat": 26.6966,
-      "lng": 128.0245,
-      "latitude": 26.6966,
-      "longitude": 128.0245
+      "lng": 128.0245
     },
     "nearestStation": "Naha Airport",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Nago_Okinawa_Kouri-Bridge-01.jpg",
@@ -30156,20 +30146,14 @@
       "freshness": "current",
       "checkedAt": "2026-08-03",
       "reviewedAt": "2026-08-03",
-      "changes": [
-        {
-          "date": "2026-08-03",
-          "by": "Meguruto Editorial Reviewer",
-          "summary": "Reviewed and published Okinawa regional POI"
-        }
-      ],
       "sources": [
         {
-          "name": "Nakijin Tourism Association (Kouri Island)",
+          "title": "Nakijin Tourism Association (Kouri Island)",
           "url": "https://nakijin-kankou.jp/",
           "type": "official"
         }
-      ]
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
     },
     "content": {
       "en": {
@@ -36468,9 +36452,7 @@
     "tags": ["Hub", "Okinawa", "Beach", "Ocean", "Bridge"],
     "coordinates": {
       "lat": 24.8055,
-      "lng": 125.2811,
-      "latitude": 24.8055,
-      "longitude": 125.2811
+      "lng": 125.2811
     },
     "comfort": {
       "heatTolerance": 8,
@@ -36532,20 +36514,14 @@
       "freshness": "current",
       "checkedAt": "2026-08-03",
       "reviewedAt": "2026-08-03",
-      "changes": [
-        {
-          "date": "2026-08-03",
-          "by": "Meguruto Editorial Reviewer",
-          "summary": "Reviewed and published Okinawa regional POI"
-        }
-      ],
       "sources": [
         {
-          "name": "Miyakojima Tourism Association",
+          "title": "Miyakojima Tourism Association",
           "url": "https://miyako-guide.net/",
           "type": "official"
         }
-      ]
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
     },
     "content": {
       "en": {
@@ -37062,9 +37038,7 @@
     "tags": ["Hub", "Okinawa", "Aquarium", "Nature", "Castle"],
     "coordinates": {
       "lat": 26.6575,
-      "lng": 127.8906,
-      "latitude": 26.6575,
-      "longitude": 127.8906
+      "lng": 127.8906
     },
     "comfort": {
       "heatTolerance": 8,
@@ -37117,20 +37091,14 @@
       "freshness": "current",
       "checkedAt": "2026-08-03",
       "reviewedAt": "2026-08-03",
-      "changes": [
-        {
-          "date": "2026-08-03",
-          "by": "Meguruto Editorial Reviewer",
-          "summary": "Reviewed and published Okinawa regional POI"
-        }
-      ],
       "sources": [
         {
-          "name": "Motobu Town Tourism Association",
+          "title": "Motobu Town Tourism Association",
           "url": "https://www.motobu-kaigan.com/",
           "type": "official"
         }
-      ]
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
     },
     "content": {
       "en": {
@@ -39460,9 +39428,7 @@
     "tags": ["Hub", "Okinawa", "Nature", "Beaches", "Resort"],
     "coordinates": {
       "lat": 26.5915,
-      "lng": 127.9774,
-      "latitude": 26.5915,
-      "longitude": 127.9774
+      "lng": 127.9774
     },
     "comfort": {
       "heatTolerance": 8,
@@ -39515,20 +39481,14 @@
       "freshness": "current",
       "checkedAt": "2026-08-03",
       "reviewedAt": "2026-08-03",
-      "changes": [
-        {
-          "date": "2026-08-03",
-          "by": "Meguruto Editorial Reviewer",
-          "summary": "Reviewed and published Okinawa regional POI"
-        }
-      ],
       "sources": [
         {
-          "name": "Nago City Tourism Association",
+          "title": "Nago City Tourism Association",
           "url": "https://nagomun.or.jp/",
           "type": "official"
         }
-      ]
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
     },
     "content": {
       "en": {
@@ -40253,9 +40213,7 @@
     "tags": ["Hub", "Okinawa", "History", "Food", "Shopping"],
     "coordinates": {
       "lat": 26.2124,
-      "lng": 127.6809,
-      "latitude": 26.2124,
-      "longitude": 127.6809
+      "lng": 127.6809
     },
     "comfort": {
       "heatTolerance": 8,
@@ -40308,20 +40266,14 @@
       "freshness": "current",
       "checkedAt": "2026-08-03",
       "reviewedAt": "2026-08-03",
-      "changes": [
-        {
-          "date": "2026-08-03",
-          "by": "Meguruto Editorial Reviewer",
-          "summary": "Reviewed and published Okinawa regional POI"
-        }
-      ],
       "sources": [
         {
-          "name": "Naha City Official Tourism Portal",
+          "title": "Naha City Official Tourism Portal",
           "url": "https://www.naha-navi.or.jp/",
           "type": "official"
         }
-      ]
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
     },
     "content": {
       "en": {
@@ -56875,9 +56827,7 @@
     "notes": "Official UNESCO World Heritage Site.",
     "coordinates": {
       "lat": 26.217,
-      "lng": 127.7195,
-      "latitude": 26.217,
-      "longitude": 127.7195
+      "lng": 127.7195
     },
     "schemaVersion": 2,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Naha_Shuri_Castle16s5s3200.jpg/960px-Naha_Shuri_Castle16s5s3200.jpg",
@@ -56933,25 +56883,19 @@
       "freshness": "current",
       "checkedAt": "2026-08-03",
       "reviewedAt": "2026-08-03",
-      "changes": [
-        {
-          "date": "2026-08-03",
-          "by": "Meguruto Editorial Reviewer",
-          "summary": "Reviewed and published Okinawa regional POI"
-        }
-      ],
       "sources": [
         {
-          "name": "Shurijo Castle Park Official Site",
+          "title": "Shurijo Castle Park Official Site",
           "url": "https://oki-park.jp/shurijo/",
           "type": "official"
         },
         {
-          "name": "UNESCO World Heritage Centre",
+          "title": "UNESCO World Heritage Centre",
           "url": "https://whc.unesco.org/en/list/972/",
           "type": "encyclopedia"
         }
-      ]
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
     },
     "content": {
       "en": {
@@ -83335,20 +83279,14 @@
       "freshness": "current",
       "checkedAt": "2026-08-03",
       "reviewedAt": "2026-08-03",
-      "changes": [
-        {
-          "date": "2026-08-03",
-          "by": "Meguruto Editorial Reviewer",
-          "summary": "Reviewed and published Okinawa regional POI"
-        }
-      ],
       "sources": [
         {
-          "name": "Naha Kokusai-dori Association",
+          "title": "Naha Kokusai-dori Association",
           "url": "https://naha-kokusaidori.okinawa/",
           "type": "official"
         }
-      ]
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
     },
     "content": {
       "en": {
@@ -83378,9 +83316,7 @@
     },
     "coordinates": {
       "lat": 26.2152,
-      "lng": 127.6851,
-      "latitude": 26.2152,
-      "longitude": 127.6851
+      "lng": 127.6851
     },
     "ratings": {
       "overall": 9,
@@ -83440,20 +83376,14 @@
       "freshness": "current",
       "checkedAt": "2026-08-03",
       "reviewedAt": "2026-08-03",
-      "changes": [
-        {
-          "date": "2026-08-03",
-          "by": "Meguruto Editorial Reviewer",
-          "summary": "Reviewed and published Okinawa regional POI"
-        }
-      ],
       "sources": [
         {
-          "name": "Naminoue Shrine Official Site",
+          "title": "Naminoue Shrine Official Site",
           "url": "http://naminouegu.jp/",
           "type": "official"
         }
-      ]
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
     },
     "content": {
       "en": {
@@ -83483,9 +83413,7 @@
     },
     "coordinates": {
       "lat": 26.2206,
-      "lng": 127.6711,
-      "latitude": 26.2206,
-      "longitude": 127.6711
+      "lng": 127.6711
     },
     "ratings": {
       "overall": 9,
@@ -83545,20 +83473,14 @@
       "freshness": "current",
       "checkedAt": "2026-08-03",
       "reviewedAt": "2026-08-03",
-      "changes": [
-        {
-          "date": "2026-08-03",
-          "by": "Meguruto Editorial Reviewer",
-          "summary": "Reviewed and published Okinawa regional POI"
-        }
-      ],
       "sources": [
         {
-          "name": "Fukushuen Garden Official Site",
+          "title": "Fukushuen Garden Official Site",
           "url": "https://www.fukushuen.jp/",
           "type": "official"
         }
-      ]
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
     },
     "content": {
       "en": {
@@ -83588,9 +83510,7 @@
     },
     "coordinates": {
       "lat": 26.2173,
-      "lng": 127.6763,
-      "latitude": 26.2173,
-      "longitude": 127.6763
+      "lng": 127.6763
     },
     "ratings": {
       "overall": 9,
@@ -83650,20 +83570,14 @@
       "freshness": "current",
       "checkedAt": "2026-08-03",
       "reviewedAt": "2026-08-03",
-      "changes": [
-        {
-          "date": "2026-08-03",
-          "by": "Meguruto Editorial Reviewer",
-          "summary": "Reviewed and published Okinawa regional POI"
-        }
-      ],
       "sources": [
         {
-          "name": "Nago Pineapple Park Official Site",
+          "title": "Nago Pineapple Park Official Site",
           "url": "https://www.nagopine.com/",
           "type": "official"
         }
-      ]
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
     },
     "content": {
       "en": {
@@ -83693,9 +83607,7 @@
     },
     "coordinates": {
       "lat": 26.6162,
-      "lng": 127.9678,
-      "latitude": 26.6162,
-      "longitude": 127.9678
+      "lng": 127.9678
     },
     "ratings": {
       "overall": 9,
@@ -83755,20 +83667,14 @@
       "freshness": "current",
       "checkedAt": "2026-08-03",
       "reviewedAt": "2026-08-03",
-      "changes": [
-        {
-          "date": "2026-08-03",
-          "by": "Meguruto Editorial Reviewer",
-          "summary": "Reviewed and published Okinawa regional POI"
-        }
-      ],
       "sources": [
         {
-          "name": "Busena Marine Park Official Site",
+          "title": "Busena Marine Park Official Site",
           "url": "https://www.busena-marinepark.com/",
           "type": "official"
         }
-      ]
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
     },
     "content": {
       "en": {
@@ -83798,9 +83704,7 @@
     },
     "coordinates": {
       "lat": 26.5273,
-      "lng": 127.9288,
-      "latitude": 26.5273,
-      "longitude": 127.9288
+      "lng": 127.9288
     },
     "ratings": {
       "overall": 9,
@@ -83860,20 +83764,14 @@
       "freshness": "current",
       "checkedAt": "2026-08-03",
       "reviewedAt": "2026-08-03",
-      "changes": [
-        {
-          "date": "2026-08-03",
-          "by": "Meguruto Editorial Reviewer",
-          "summary": "Reviewed and published Okinawa regional POI"
-        }
-      ],
       "sources": [
         {
-          "name": "Okinawa Churaumi Aquarium Official Site",
+          "title": "Okinawa Churaumi Aquarium Official Site",
           "url": "https://churaumi.okinawa/",
           "type": "official"
         }
-      ]
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
     },
     "content": {
       "en": {
@@ -83903,9 +83801,7 @@
     },
     "coordinates": {
       "lat": 26.6944,
-      "lng": 127.8779,
-      "latitude": 26.6944,
-      "longitude": 127.8779
+      "lng": 127.8779
     },
     "ratings": {
       "overall": 9.8,
@@ -83965,20 +83861,14 @@
       "freshness": "current",
       "checkedAt": "2026-08-03",
       "reviewedAt": "2026-08-03",
-      "changes": [
-        {
-          "date": "2026-08-03",
-          "by": "Meguruto Editorial Reviewer",
-          "summary": "Reviewed and published Okinawa regional POI"
-        }
-      ],
       "sources": [
         {
-          "name": "Motobu Town Tourism Association (Bise)",
+          "title": "Motobu Town Tourism Association (Bise)",
           "url": "https://www.motobu-kaigan.com/",
           "type": "official"
         }
-      ]
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
     },
     "content": {
       "en": {
@@ -84008,9 +83898,7 @@
     },
     "coordinates": {
       "lat": 26.7042,
-      "lng": 127.88,
-      "latitude": 26.7042,
-      "longitude": 127.88
+      "lng": 127.88
     },
     "ratings": {
       "overall": 9,
@@ -84070,25 +83958,19 @@
       "freshness": "current",
       "checkedAt": "2026-08-03",
       "reviewedAt": "2026-08-03",
-      "changes": [
-        {
-          "date": "2026-08-03",
-          "by": "Meguruto Editorial Reviewer",
-          "summary": "Reviewed and published Okinawa regional POI"
-        }
-      ],
       "sources": [
         {
-          "name": "Nakijin Castle Ruins Official Site",
+          "title": "Nakijin Castle Ruins Official Site",
           "url": "https://nakijinjoseki.jp/",
           "type": "official"
         },
         {
-          "name": "UNESCO World Heritage Centre",
+          "title": "UNESCO World Heritage Centre",
           "url": "https://whc.unesco.org/en/list/972/",
           "type": "encyclopedia"
         }
-      ]
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
     },
     "content": {
       "en": {
@@ -84118,9 +84000,7 @@
     },
     "coordinates": {
       "lat": 26.6914,
-      "lng": 127.9287,
-      "latitude": 26.6914,
-      "longitude": 127.9287
+      "lng": 127.9287
     },
     "ratings": {
       "overall": 9,
@@ -84180,20 +84060,14 @@
       "freshness": "current",
       "checkedAt": "2026-08-03",
       "reviewedAt": "2026-08-03",
-      "changes": [
-        {
-          "date": "2026-08-03",
-          "by": "Meguruto Editorial Reviewer",
-          "summary": "Reviewed and published Okinawa regional POI"
-        }
-      ],
       "sources": [
         {
-          "name": "Ishigaki Tourism (Kabira Bay)",
+          "title": "Ishigaki Tourism (Kabira Bay)",
           "url": "https://yaeyama.or.jp/spot/kabirabay/",
           "type": "official"
         }
-      ]
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
     },
     "content": {
       "en": {
@@ -84222,9 +84096,7 @@
     },
     "coordinates": {
       "lat": 24.4533,
-      "lng": 124.1425,
-      "latitude": 24.4533,
-      "longitude": 124.1425
+      "lng": 124.1425
     },
     "ratings": {
       "overall": 9.8,
@@ -84284,20 +84156,14 @@
       "freshness": "current",
       "checkedAt": "2026-08-03",
       "reviewedAt": "2026-08-03",
-      "changes": [
-        {
-          "date": "2026-08-03",
-          "by": "Meguruto Editorial Reviewer",
-          "summary": "Reviewed and published Okinawa regional POI"
-        }
-      ],
       "sources": [
         {
-          "name": "Ishigaki Tourism (Tamatorizaki)",
+          "title": "Ishigaki Tourism (Tamatorizaki)",
           "url": "https://yaeyama.or.jp/spot/tamatorizaki/",
           "type": "official"
         }
-      ]
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
     },
     "content": {
       "en": {
@@ -84325,9 +84191,7 @@
     },
     "coordinates": {
       "lat": 24.4988,
-      "lng": 124.2882,
-      "latitude": 24.4988,
-      "longitude": 124.2882
+      "lng": 124.2882
     },
     "ratings": {
       "overall": 9,
@@ -84387,20 +84251,14 @@
       "freshness": "current",
       "checkedAt": "2026-08-03",
       "reviewedAt": "2026-08-03",
-      "changes": [
-        {
-          "date": "2026-08-03",
-          "by": "Meguruto Editorial Reviewer",
-          "summary": "Reviewed and published Okinawa regional POI"
-        }
-      ],
       "sources": [
         {
-          "name": "Ishigaki Tourism (Yonehara Beach)",
+          "title": "Ishigaki Tourism (Yonehara Beach)",
           "url": "https://yaeyama.or.jp/spot/yoneharabeach/",
           "type": "official"
         }
-      ]
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
     },
     "content": {
       "en": {
@@ -84428,9 +84286,7 @@
     },
     "coordinates": {
       "lat": 24.4578,
-      "lng": 124.1825,
-      "latitude": 24.4578,
-      "longitude": 124.1825
+      "lng": 124.1825
     },
     "ratings": {
       "overall": 9,
@@ -84490,20 +84346,14 @@
       "freshness": "current",
       "checkedAt": "2026-08-03",
       "reviewedAt": "2026-08-03",
-      "changes": [
-        {
-          "date": "2026-08-03",
-          "by": "Meguruto Editorial Reviewer",
-          "summary": "Reviewed and published Okinawa regional POI"
-        }
-      ],
       "sources": [
         {
-          "name": "Miyakojima Tourism (Yonaha Maehama)",
+          "title": "Miyakojima Tourism (Yonaha Maehama)",
           "url": "https://miyako-guide.net/spot/spot-315/",
           "type": "official"
         }
-      ]
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
     },
     "content": {
       "en": {
@@ -84533,9 +84383,7 @@
     },
     "coordinates": {
       "lat": 24.735,
-      "lng": 125.2635,
-      "latitude": 24.735,
-      "longitude": 125.2635
+      "lng": 125.2635
     },
     "ratings": {
       "overall": 9.9,
@@ -84595,20 +84443,14 @@
       "freshness": "current",
       "checkedAt": "2026-08-03",
       "reviewedAt": "2026-08-03",
-      "changes": [
-        {
-          "date": "2026-08-03",
-          "by": "Meguruto Editorial Reviewer",
-          "summary": "Reviewed and published Okinawa regional POI"
-        }
-      ],
       "sources": [
         {
-          "name": "Miyakojima Tourism (Irabu Bridge)",
+          "title": "Miyakojima Tourism (Irabu Bridge)",
           "url": "https://miyako-guide.net/spot/spot-317/",
           "type": "official"
         }
-      ]
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
     },
     "content": {
       "en": {
@@ -84638,9 +84480,7 @@
     },
     "coordinates": {
       "lat": 24.819,
-      "lng": 125.244,
-      "latitude": 24.819,
-      "longitude": 125.244
+      "lng": 125.244
     },
     "ratings": {
       "overall": 9.5,
@@ -84700,20 +84540,14 @@
       "freshness": "current",
       "checkedAt": "2026-08-03",
       "reviewedAt": "2026-08-03",
-      "changes": [
-        {
-          "date": "2026-08-03",
-          "by": "Meguruto Editorial Reviewer",
-          "summary": "Reviewed and published Okinawa regional POI"
-        }
-      ],
       "sources": [
         {
-          "name": "Miyakojima Tourism (Higashi-Hennazaki)",
+          "title": "Miyakojima Tourism (Higashi-Hennazaki)",
           "url": "https://miyako-guide.net/spot/spot-318/",
           "type": "official"
         }
-      ]
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
     },
     "content": {
       "en": {
@@ -84743,9 +84577,7 @@
     },
     "coordinates": {
       "lat": 24.7262,
-      "lng": 125.4678,
-      "latitude": 24.7262,
-      "longitude": 125.4678
+      "lng": 125.4678
     },
     "ratings": {
       "overall": 9,

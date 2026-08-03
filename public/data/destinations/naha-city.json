@@ -48,9 +48,7 @@
   "tags": ["Hub", "Okinawa", "History", "Food", "Shopping"],
   "coordinates": {
     "lat": 26.2124,
-    "lng": 127.6809,
-    "latitude": 26.2124,
-    "longitude": 127.6809
+    "lng": 127.6809
   },
   "comfort": {
     "heatTolerance": 8,
@@ -103,20 +101,14 @@
     "freshness": "current",
     "checkedAt": "2026-08-03",
     "reviewedAt": "2026-08-03",
-    "changes": [
-      {
-        "date": "2026-08-03",
-        "by": "Meguruto Editorial Reviewer",
-        "summary": "Reviewed and published Okinawa regional POI"
-      }
-    ],
     "sources": [
       {
-        "name": "Naha City Official Tourism Portal",
+        "title": "Naha City Official Tourism Portal",
         "url": "https://www.naha-navi.or.jp/",
         "type": "official"
       }
-    ]
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
   },
   "content": {
     "en": {

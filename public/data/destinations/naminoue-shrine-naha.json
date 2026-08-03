@@ -38,20 +38,14 @@
     "freshness": "current",
     "checkedAt": "2026-08-03",
     "reviewedAt": "2026-08-03",
-    "changes": [
-      {
-        "date": "2026-08-03",
-        "by": "Meguruto Editorial Reviewer",
-        "summary": "Reviewed and published Okinawa regional POI"
-      }
-    ],
     "sources": [
       {
-        "name": "Naminoue Shrine Official Site",
+        "title": "Naminoue Shrine Official Site",
         "url": "http://naminouegu.jp/",
         "type": "official"
       }
-    ]
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
   },
   "content": {
     "en": {
@@ -81,9 +75,7 @@
   },
   "coordinates": {
     "lat": 26.2206,
-    "lng": 127.6711,
-    "latitude": 26.2206,
-    "longitude": 127.6711
+    "lng": 127.6711
   },
   "ratings": {
     "overall": 9,

@@ -38,20 +38,14 @@
     "freshness": "current",
     "checkedAt": "2026-08-03",
     "reviewedAt": "2026-08-03",
-    "changes": [
-      {
-        "date": "2026-08-03",
-        "by": "Meguruto Editorial Reviewer",
-        "summary": "Reviewed and published Okinawa regional POI"
-      }
-    ],
     "sources": [
       {
-        "name": "Ishigaki Tourism (Yonehara Beach)",
+        "title": "Ishigaki Tourism (Yonehara Beach)",
         "url": "https://yaeyama.or.jp/spot/yoneharabeach/",
         "type": "official"
       }
-    ]
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
   },
   "content": {
     "en": {
@@ -79,9 +73,7 @@
   },
   "coordinates": {
     "lat": 24.4578,
-    "lng": 124.1825,
-    "latitude": 24.4578,
-    "longitude": 124.1825
+    "lng": 124.1825
   },
   "ratings": {
     "overall": 9,

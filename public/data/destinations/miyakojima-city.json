@@ -48,9 +48,7 @@
   "tags": ["Hub", "Okinawa", "Beach", "Ocean", "Bridge"],
   "coordinates": {
     "lat": 24.8055,
-    "lng": 125.2811,
-    "latitude": 24.8055,
-    "longitude": 125.2811
+    "lng": 125.2811
   },
   "comfort": {
     "heatTolerance": 8,
@@ -112,20 +110,14 @@
     "freshness": "current",
     "checkedAt": "2026-08-03",
     "reviewedAt": "2026-08-03",
-    "changes": [
-      {
-        "date": "2026-08-03",
-        "by": "Meguruto Editorial Reviewer",
-        "summary": "Reviewed and published Okinawa regional POI"
-      }
-    ],
     "sources": [
       {
-        "name": "Miyakojima Tourism Association",
+        "title": "Miyakojima Tourism Association",
         "url": "https://miyako-guide.net/",
         "type": "official"
       }
-    ]
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
   },
   "content": {
     "en": {
