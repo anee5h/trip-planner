@@ -20,7 +20,7 @@ type ProfileTab = "overview" | "account" | "security" | "connected" | "summary";
 
 export default function Profile() {
   const { t } = useTranslation();
-  const { user, deleteAccount } = useAuth();
+  const { user, clearProfileData } = useAuth();
   const { visited, visitedPrefectures, trips } = useTripStore();
   const [activeTab, setActiveTab] = useState<ProfileTab>("overview");
   const [showcaseBadges] = useLocalStorage<string[]>(
@@ -251,20 +251,20 @@ export default function Profile() {
                   onClick={() => setDeleteConfirm(true)}
                   className="px-4 py-2 rounded-xl bg-red-50 dark:bg-red-950/60 text-red-600 dark:text-red-400 text-xs font-bold border border-red-200 dark:border-red-800 hover:bg-red-100 transition-colors"
                 >
-                  Delete Account
+                  Clear Profile Data
                 </button>
               ) : (
                 <div className="p-4 rounded-2xl bg-red-50 dark:bg-red-950/80 border border-red-200 dark:border-red-800 space-y-3">
                   <p className="text-xs font-bold text-red-800 dark:text-red-200">
-                    Are you sure you want to delete your account? This action
-                    cannot be undone.
+                    This clears your saved profile data and signs you out. Your
+                    account and authentication remain active.
                   </p>
                   <div className="flex gap-2">
                     <button
-                      onClick={() => deleteAccount?.()}
+                      onClick={() => clearProfileData?.()}
                       className="px-3 py-1.5 rounded-lg bg-red-600 text-white font-bold text-xs"
                     >
-                      Confirm Delete
+                      Confirm Clear
                     </button>
                     <button
                       onClick={() => setDeleteConfirm(false)}

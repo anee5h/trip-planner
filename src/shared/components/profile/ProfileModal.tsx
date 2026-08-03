@@ -17,7 +17,7 @@ interface ProfileModalProps {
 }
 
 export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
-  const { user, updateUserProfile, deleteAccount } = useAuth();
+  const { user, updateUserProfile, clearProfileData } = useAuth();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [deleteConfirm, setDeleteConfirm] = useState(false);
@@ -207,12 +207,13 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
                 className="w-full flex items-center justify-center gap-2 py-2 text-sm font-semibold text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-colors"
               >
                 <Trash2 className="w-4 h-4" />
-                Delete Profile
+                Clear Profile Data
               </button>
             ) : (
               <div className="space-y-3 p-3 bg-red-50 dark:bg-red-500/10 rounded-xl border border-red-100 dark:border-red-500/20">
                 <p className="text-xs text-red-600 dark:text-red-400 font-medium text-center">
-                  Are you sure? This cannot be undone.
+                  This clears your saved profile data and signs you out. Your
+                  account and authentication remain active.
                 </p>
                 <div className="flex gap-2">
                   <Button
@@ -227,12 +228,12 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
                     type="button"
                     onClick={async () => {
                       setLoading(true);
-                      await deleteAccount();
+                      await clearProfileData();
                       onClose();
                     }}
                     className="flex-1 h-8 text-xs bg-red-600 hover:bg-red-700 text-white border-0"
                   >
-                    Yes, Delete
+                    Yes, Clear
                   </Button>
                 </div>
               </div>
