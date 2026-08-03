@@ -48,7 +48,7 @@ interface AuthContextType {
   ) => Promise<{ data: unknown; error: AuthError | null }>;
   signOut: () => Promise<{ error: AuthError | null }> | undefined;
   updateUserProfile: (data: UserProfileUpdateData) => Promise<UserResponse>;
-  deleteAccount: () => Promise<void>;
+  clearProfileData: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -117,7 +117,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return result;
   };
 
-  const deleteAccount = async () => {
+  const clearProfileData = async () => {
     if (user && supabase) {
       const { error } = await supabase
         .from("user_data")
@@ -125,8 +125,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         .eq("id", user.id);
 
       if (error) {
-        console.error("Failed to delete user account data", error);
-        toast.error("Failed to delete account data. Please try again.");
+        console.error("Failed to clear user profile data", error);
+        toast.error("Failed to clear profile data. Please try again.");
         return;
       }
     }
@@ -146,7 +146,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         resetPasswordForEmail,
         signOut,
         updateUserProfile,
-        deleteAccount,
+        clearProfileData,
       }}
     >
       {children}
