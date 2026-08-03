@@ -103,5 +103,21 @@
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "role": "destination",
   "hubId": "asago-city",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "content": {
+    "en": {
+      "name": "Takeda Castle Ruins",
+      "description": "Famous as Japan's 'Castle in the Sky', these breathtaking 15th-century mountain ruins float above a sea of morning autumn fog.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "竹田城跡",
+      "description": "標高353.7mの古城山山頂に築かれた安土桃山時代の城跡。「天空の城」や「日本のマチュピチュ」と称され、秋から冬の早朝には一面の雲海に包まれる幻想的な姿が現れます。",
+      "highlights": [
+        "雲海に浮かぶ天空の城",
+        "完存する石垣遺構",
+        "立雲峡からの対岸展望"
+      ]
+    }
+  }
 }

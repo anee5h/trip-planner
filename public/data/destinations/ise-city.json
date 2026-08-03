@@ -1,7 +1,7 @@
 {
   "id": "ise-city",
   "name": "Ise City",
-  "nameJa": "伊勢",
+  "nameJa": "伊勢市",
   "prefecture": "Mie",
   "region": "Kansai",
   "coordinates": {
@@ -100,5 +100,21 @@
   "notesJa": "【見どころ】伊勢は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "content": {
+    "en": {
+      "name": "Ise City",
+      "description": "A shrine city in Mie Prefecture and the location of Ise Jingu, Japan's most important Shinto shrine complex.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "伊勢市",
+      "description": "日本人の心のふるさと「伊勢神宮（皇大神宮・豊受大神宮）」の門前町。おはらい町やおかげ横丁の賑わい、伊勢うどんや赤福餅などの名物グルメで賑わいます。",
+      "highlights": [
+        "伊勢神宮（内宮・外宮）",
+        "おはらい町・おかげ横丁",
+        "二見興玉神社の夫婦岩"
+      ]
+    }
+  }
 }

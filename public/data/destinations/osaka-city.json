@@ -125,5 +125,22 @@
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "nameJa": "大阪市",
+  "content": {
+    "en": {
+      "name": "Osaka City",
+      "description": "Kansai's vibrant commercial metropolis, famous for neon-lit Dotonbori canals, Osaka Castle, street food culture, and warm hospitality.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "大阪市",
+      "description": "西日本最大の経済・文化の中心地。「天下の台所」として栄えた食い倒れの街で、道頓堀や新世界、梅田の超高層ビル街、USJ、海遊館などエネルギッシュな魅力が溢れます。",
+      "highlights": [
+        "道頓堀のグリコサインと食い倒れ",
+        "大阪城と天守閣",
+        "あべのハルカス＆梅田スカイビル"
+      ]
+    }
+  }
 }

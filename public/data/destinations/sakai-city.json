@@ -101,5 +101,22 @@
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "nameJa": "堺市",
+  "content": {
+    "en": {
+      "name": "Sakai City",
+      "description": "Ancient port city famous for Mozu Kofun Burial Mounds (UNESCO) and traditional Japanese kitchen knives.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "堺市",
+      "description": "世界最大級の墳墓「仁徳天皇陵古墳（大仙古墳）」を擁する百舌鳥古墳群の街。中世に海外貿易港として栄え、千利休の茶の湯文化や包丁・刃物産業の伝統を誇ります。",
+      "highlights": [
+        "世界遺産・百舌鳥古墳群（仁徳天皇陵）",
+        "さかい利晶の杜（茶の湯体験）",
+        "伝統工芸・堺刃物"
+      ]
+    }
+  }
 }

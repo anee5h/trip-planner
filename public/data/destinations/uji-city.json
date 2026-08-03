@@ -96,5 +96,22 @@
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "nameJa": "宇治市",
+  "content": {
+    "en": {
+      "name": "Uji City",
+      "description": "Historic green tea capital south of Kyoto, featuring UNESCO World Heritage Byodoin Temple (10-yen coin temple).",
+      "highlights": []
+    },
+    "ja": {
+      "name": "宇治市",
+      "description": "「宇治茶」の郷として知られ、源氏物語「宇治十帖」の舞台となった歴史文化都市。10円玉に描かれた平等院鳳凰堂や日本最古の神社建築・宇治上神社を有します。",
+      "highlights": [
+        "世界遺産・平等院鳳凰堂",
+        "宇治茶と本格茶道体験",
+        "宇治川と宇治橋の散策"
+      ]
+    }
+  }
 }

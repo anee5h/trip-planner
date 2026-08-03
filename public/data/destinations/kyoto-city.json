@@ -123,5 +123,22 @@
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "nameJa": "京都市",
+  "content": {
+    "en": {
+      "name": "Kyoto City",
+      "description": "Japan's ancient imperial capital, renowned for thousands of classical Buddhist temples, Shinto shrines, traditional wooden machiya, and zen gardens.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "京都市",
+      "description": "千年以上の歴史を誇る日本の古都。清水寺や金閣寺、伏見稲荷大社などの世界遺産・神社仏閣をはじめ、祇園の街並みや伝統工芸、京料理が世界中の旅行者を惹きつけます。",
+      "highlights": [
+        "古都京都の世界遺産群",
+        "伏見稲荷大社・千本鳥居",
+        "祇園の花街と町家景観"
+      ]
+    }
+  }
 }

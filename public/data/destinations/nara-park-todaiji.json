@@ -1,7 +1,7 @@
 {
   "id": "nara-park-todaiji",
   "name": "Historic Nara (Todai-ji Great Buddha)",
-  "nameJa": "古都奈良の文化財",
+  "nameJa": "奈良公園・東大寺",
   "prefecture": "Nara",
   "region": "Kansai",
   "coordinates": {
@@ -131,5 +131,21 @@
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["nara-city"],
   "role": "destination",
-  "hubId": "nara-city"
+  "hubId": "nara-city",
+  "content": {
+    "en": {
+      "name": "Historic Nara (Todai-ji Great Buddha)",
+      "description": "Nara Park houses the world's largest wooden building (Todai-ji Daibutsuden), sheltering the 15-meter bronze Great Buddha alongside over 1,200 friendly freely roaming sika deer.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "奈良公園・東大寺",
+      "description": "約1,300頭の野生の鹿が自由に暮らす自然豊かな公園と、世界最大の木造建築「大仏殿」に鎮座する高さ約15mの盧舎那仏（奈良の大仏）を擁する世界遺産です。",
+      "highlights": [
+        "東大寺・奈良の大仏",
+        "奈良公園の鹿せんべい体験",
+        "二月堂からの奈良盆地一望"
+      ]
+    }
+  }
 }

@@ -85,7 +85,7 @@ describe("PlaceCatalog", () => {
     const allPlaces = getCanonicalPlaces();
     const reviewMode = import.meta.env.VITE_EDITORIAL_REVIEW_MODE === "true";
     expect(getAvailablePlaces("en")).toHaveLength(613);
-    expect(getAvailablePlaces("ja")).toHaveLength(reviewMode ? 613 : 403);
+    expect(getAvailablePlaces("ja")).toHaveLength(reviewMode ? 613 : 414);
     expect(
       allPlaces.every((place) => isPlaceAvailableInLocale(place, "en")),
     ).toBe(true);

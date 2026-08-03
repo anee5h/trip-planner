@@ -96,5 +96,22 @@
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "nameJa": "彦根市",
+  "content": {
+    "en": {
+      "name": "Hikone City",
+      "description": "Castle town on Lake Biwa featuring original National Treasure Hikone Castle and Genkyuen Garden.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "彦根市",
+      "description": "国宝・彦根城を中心に栄えた城下町。琵琶湖東岸に位置し、旧彦根藩井伊家ゆかりの歴史遺産や、名勝玄宮園、琵琶湖の湖畔景観が魅力の歴史観光都市です。",
+      "highlights": [
+        "国宝・彦根城天守",
+        "大名庭園・玄宮園",
+        "夢京橋キャッスルロード"
+      ]
+    }
+  }
 }

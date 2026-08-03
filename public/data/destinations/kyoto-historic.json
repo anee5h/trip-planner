@@ -119,5 +119,21 @@
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["kyoto-city"],
-  "hubId": "kyoto-city"
+  "hubId": "kyoto-city",
+  "content": {
+    "en": {
+      "name": "Historic Kyoto (Kiyomizu-dera & Kinkaku-ji)",
+      "description": "Kyoto, Japan's imperial capital for over a millennium, encompasses 17 UNESCO World Heritage monuments including the wooden balcony of Kiyomizu-dera and the shimmering Golden Pavilion.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "古都京都の文化財",
+      "description": "京都市・宇治市・大津市に点在する17の社寺・城郭からなる世界文化遺産群。清水寺、金閣寺、二条城、延暦寺など、日本の伝統建築と庭園文化の至高の傑作が集結しています。",
+      "highlights": [
+        "清水寺の舞台",
+        "金閣寺（鹿苑寺）の金箔建築",
+        "二条城二の丸御殿"
+      ]
+    }
+  }
 }

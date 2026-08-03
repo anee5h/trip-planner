@@ -96,5 +96,22 @@
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "nameJa": "大津市",
+  "content": {
+    "en": {
+      "name": "Otsu City",
+      "description": "Port city on southern tip of Lake Biwa, featuring Ishiyamadera Temple and Enryaku-ji Temple on Mt. Hiei.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "大津市",
+      "description": "滋賀県の県庁所在地で、日本最大の湖・琵琶湖の南岸に位置する古都。世界遺産の比叡山延暦寺や石山寺、近江大橋、びわ湖花噴水など歴史と水辺の美しさが調和します。",
+      "highlights": [
+        "世界遺産・比叡山延暦寺",
+        "琵琶湖ミシガンクルーズ",
+        "浮御堂（満月寺）"
+      ]
+    }
+  }
 }

@@ -1,7 +1,7 @@
 {
   "id": "himeji-castle",
   "name": "Himeji Castle (White Heron Castle)",
-  "nameJa": "姫路城",
+  "nameJa": "姫路城（白鷺城）",
   "prefecture": "Hyogo",
   "region": "Kansai",
   "coordinates": {
@@ -135,5 +135,21 @@
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "role": "destination",
-  "hubId": "himeji-city"
+  "hubId": "himeji-city",
+  "content": {
+    "en": {
+      "name": "Himeji Castle (White Heron Castle)",
+      "description": "Himeji Castle is Japan's premier surviving feudal castle complex and a UNESCO World Heritage site, famous for its brilliant white plaster walls resembling a taking-off heron.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "姫路城（白鷺城）",
+      "description": "白漆喰総塗籠造の白壁が扇の空に映える「白鷺城」の別名を持つ日本初のユネスコ世界文化遺産。創建当時の大天守や渡櫓が現存する日本最高の木造城郭建築です。",
+      "highlights": [
+        "国宝・世界遺産の大天守",
+        "千姫ゆかりの西の丸長局",
+        "扇の勾配・油壁などの城郭建築"
+      ]
+    }
+  }
 }

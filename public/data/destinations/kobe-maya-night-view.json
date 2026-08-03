@@ -126,5 +126,21 @@
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["kobe-city"],
   "role": "destination",
-  "hubId": "kobe-city"
+  "hubId": "kobe-city",
+  "content": {
+    "en": {
+      "name": "Mount Maya Kikuseidai (Kobe)",
+      "description": "Known as the Ten Million Dollar Night View, Kikuseidai observatory on Mount Maya captures a breathtaking sparkling panorama spanning Kobe, Osaka Bay, and Kansai.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "摩耶山 掬星台",
+      "description": "長崎・札幌と並び「日本新三大夜景」に選出される摩耶山頂の展望台。手で星を掬（すく）えるような輝きから名付けられ、神戸から大阪湾、関西空港まで広がる「1,000万ドルの夜景」が絶景です。",
+      "highlights": [
+        "1,000万ドルの夜景パノラマ",
+        "摩耶ロープウェー星の駅",
+        "天の川をイメージしたマヤカツ遊歩道"
+      ]
+    }
+  }
 }

@@ -122,5 +122,21 @@
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-  "hubId": "osaka-city"
+  "hubId": "osaka-city",
+  "content": {
+    "en": {
+      "name": "Osaka Castle (Osaka-jo)",
+      "description": "Osaka Castle is an iconic 16th-century fortress constructed by Toyotomi Hideyoshi, featuring golden roof ornaments, massive stone ramparts, and a lush park surrounded by moats.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "大阪城",
+      "description": "豊臣秀吉によって築城され、徳川幕府によって再建された大阪のシンボル。巨大な金明水井戸屋形や巨大石垣、展望台と歴史博物館を備えた復元天守閣が見所です。",
+      "highlights": [
+        "大阪城天守閣と8階展望台",
+        "大手門と巨石・蛸石",
+        "四季を彩る大阪城公園"
+      ]
+    }
+  }
 }

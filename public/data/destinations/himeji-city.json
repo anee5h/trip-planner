@@ -96,5 +96,18 @@
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "nameJa": "姫路市",
+  "content": {
+    "en": {
+      "name": "Himeji City",
+      "description": "Historic castle city home to UNESCO World Heritage Himeji 'White Heron' Castle and Koko-en Garden.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "姫路市",
+      "description": "世界遺産姫路城を誇る兵庫県播磨地方の中心都市。書寫山圓教寺や好古園、名物「姫路おでん」など、豊かな歴史文化とグルメが満喫できます。",
+      "highlights": ["世界文化遺産・姫路城", "書寫山圓教寺", "日本庭園・好古園"]
+    }
+  }
 }

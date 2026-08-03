@@ -88,7 +88,7 @@
     "food": 3000,
     "cafe": 1500
   },
-  "nameJa": "飛鳥・藤原の宮都とその関連資産群",
+  "nameJa": "飛鳥・藤原の宮都",
   "comfort": {
     "heatTolerance": 7,
     "rainFriendly": 7,
@@ -119,5 +119,21 @@
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["nara-city"],
-  "hubId": "nara-city"
+  "hubId": "nara-city",
+  "content": {
+    "en": {
+      "name": "Ancient Capitals of Asuka and Fujiwara",
+      "description": "Ancient Capitals of Asuka and Fujiwara is a UNESCO World Heritage Site in Nara, designated for its outstanding universal cultural or natural value.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "飛鳥・藤原の宮都",
+      "description": "日本の国家形成の舞台となった飛鳥時代の史跡群。石舞台古墳や高松塚古墳、藤原宮跡など、古代日本のロマンを伝える巨大石造物や史跡が田園風景の中に点在します。",
+      "highlights": [
+        "巨大石室の石舞台古墳",
+        "極彩色壁画の高松塚古墳",
+        "藤原宮跡の四季の花々"
+      ]
+    }
+  }
 }
