@@ -6,11 +6,7 @@ import type {
 } from "../../types/destination";
 
 function isEditorialReviewMode() {
-  return Boolean(
-    import.meta.env?.VITE_EDITORIAL_REVIEW_MODE === "true" ||
-    (typeof window !== "undefined" &&
-      window.location.hostname.endsWith(".pages.dev")),
-  );
+  return Boolean(import.meta.env?.VITE_EDITORIAL_REVIEW_MODE === "true");
 }
 
 export type CanonicalPlace = Destination &
