@@ -78,7 +78,8 @@
   "status": "beta",
   "relationships": {
     "featuredDestinationIds": [],
-    "nearbyDestinationIds": ["mount-zao-yamagata"]
+    "nearbyDestinationIds": ["mount-zao-yamagata"],
+    "parentDestinationId": "yamagata-city"
   },
   "budgetBreakdown": null,
   "role": "standalone",

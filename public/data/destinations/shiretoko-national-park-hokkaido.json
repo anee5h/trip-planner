@@ -79,7 +79,9 @@
       "sortOrder": 6
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "abashiri-city"
+  },
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,

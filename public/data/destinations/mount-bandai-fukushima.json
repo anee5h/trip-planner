@@ -81,7 +81,8 @@
     "nearbyDestinationIds": [
       "goshikinuma-ponds-fukushima",
       "tsuruga-castle-fukushima"
-    ]
+    ],
+    "parentDestinationId": "aizuwakamatsu-city"
   },
   "budgetBreakdown": null,
   "role": "standalone",

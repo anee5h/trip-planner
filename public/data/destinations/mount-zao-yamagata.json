@@ -89,7 +89,8 @@
       "okama-crater-yamagata",
       "ginzan-onsen-yamagata",
       "zao-fox-village-miyagi"
-    ]
+    ],
+    "parentDestinationId": "yamagata-city"
   },
   "budgetBreakdown": null,
   "role": "standalone",

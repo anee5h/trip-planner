@@ -86,7 +86,11 @@
   "status": "beta",
   "relationships": {
     "featuredDestinationIds": [],
-    "nearbyDestinationIds": ["mount-bandai-fukushima", "abukuma-cave-fukushima"]
+    "nearbyDestinationIds": [
+      "mount-bandai-fukushima",
+      "abukuma-cave-fukushima"
+    ],
+    "parentDestinationId": "aizuwakamatsu-city"
   },
   "budgetBreakdown": null,
   "role": "standalone",

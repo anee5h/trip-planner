@@ -73,7 +73,8 @@
   "status": "beta",
   "relationships": {
     "featuredDestinationIds": [],
-    "nearbyDestinationIds": []
+    "nearbyDestinationIds": [],
+    "parentDestinationId": "yamagata-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/%E9%8A%80%E5%B1%B1%E6%B8%A9%E6%B3%89_Ginzan_Onsen_%287809473788%29.jpg/1920px-%E9%8A%80%E5%B1%B1%E6%B8%A9%E6%B3%89_Ginzan_Onsen_%287809473788%29.jpg",
   "walkingIntensity": "low",

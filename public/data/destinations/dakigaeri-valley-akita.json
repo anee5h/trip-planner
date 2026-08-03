@@ -81,7 +81,8 @@
     "nearbyDestinationIds": [
       "kakunodate-samurai-district-akita",
       "lake-tazawa-akita"
-    ]
+    ],
+    "parentDestinationId": "akita-city"
   },
   "budgetBreakdown": null,
   "role": "standalone",

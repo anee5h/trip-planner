@@ -76,7 +76,8 @@
   "status": "beta",
   "relationships": {
     "featuredDestinationIds": [],
-    "nearbyDestinationIds": []
+    "nearbyDestinationIds": [],
+    "parentDestinationId": "aomori-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Oirase-keiryu.jpg/1920px-Oirase-keiryu.jpg",
   "walkingIntensity": "low",

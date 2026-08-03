@@ -77,7 +77,8 @@
   "status": "beta",
   "relationships": {
     "featuredDestinationIds": [],
-    "nearbyDestinationIds": []
+    "nearbyDestinationIds": [],
+    "parentDestinationId": "takamatsu-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Teshima_Art_Museum_exterior_view_201310.jpg/1920px-Teshima_Art_Museum_exterior_view_201310.jpg",
   "walkingIntensity": "low",

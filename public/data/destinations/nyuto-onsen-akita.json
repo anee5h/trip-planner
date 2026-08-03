@@ -81,7 +81,8 @@
     "nearbyDestinationIds": [
       "lake-tazawa-akita",
       "kakunodate-samurai-district-akita"
-    ]
+    ],
+    "parentDestinationId": "semboku-city"
   },
   "budgetBreakdown": null,
   "role": "standalone",
