@@ -5,10 +5,19 @@ on:
     branches: [main, dev]
   pull_request:
     branches: [main, dev]
+  schedule:
+    - cron: "0 19 * * *" # nightly 19:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   validate:
+    name: Fast Validation
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -31,7 +40,31 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Run Data Quality Framework
+      - name: Check Translation Resource Parity
+        run: npm run check:translation-parity
+
+      - name: Generate Editorial Freshness Report
+        run: npm run report:editorial-freshness
+
+  validate-full:
+    name: Full Remote Validation
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Full Data Quality Framework
         run: npm run validate-all
 
       - name: Check Translation Resource Parity
@@ -39,3 +72,10 @@ jobs:
 
       - name: Generate Editorial Freshness Report
         run: npm run report:editorial-freshness
+
+      - name: Upload Validation Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-reports
+          path: reports/
