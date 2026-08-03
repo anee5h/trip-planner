@@ -76,11 +76,11 @@
     "min": 1,
     "max": 2
   },
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Lake_Biwa_from_Biwako_Valley_2012.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Biwa_Lake_Kusatsu_Shiga01s5s4592.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 3.0",
-    "attribution": "Corpse Reviver",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Biwa_from_Biwako_Valley_2012.jpg"
+    "license": "CC BY-SA 4.0",
+    "attribution": "Wikimedia Commons contributors",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Biwa_Lake_Kusatsu_Shiga01s5s4592.jpg"
   }
 }

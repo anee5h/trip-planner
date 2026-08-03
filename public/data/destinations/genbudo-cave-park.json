@@ -72,11 +72,11 @@
     "min": 0.5,
     "max": 1.5
   },
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Genbudo_cave_01.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/10/Genbudo_Park_in_Toyooka_Hyogo.JPG",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 3.0",
-    "attribution": "Sakaori",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Genbudo_cave_01.jpg"
+    "license": "CC BY-SA 4.0",
+    "attribution": "Wikimedia Commons contributors",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Genbudo_Park_in_Toyooka_Hyogo.JPG"
   }
 }

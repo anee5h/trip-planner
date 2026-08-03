@@ -76,11 +76,11 @@
     "min": 0.5,
     "max": 1.5
   },
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Genkyu-en_Garden_Hikone.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Genkyu-en_Garden_in_Hikone.JPG",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
-    "attribution": "Wikimedia Commons",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hikone_Genkyu-en-01.jpg"
+    "attribution": "Wikimedia Commons contributors",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Genkyu-en_Garden_in_Hikone.JPG"
   }
 }

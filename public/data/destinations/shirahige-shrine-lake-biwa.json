@@ -72,11 +72,11 @@
     "min": 0.5,
     "max": 1.5
   },
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shirahige-jinja_torii.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Shirahige_jinja.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 3.0",
-    "attribution": "Sakaori",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shirahige-jinja_torii.jpg"
+    "license": "CC BY-SA 4.0",
+    "attribution": "Wikimedia Commons contributors",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shirahige_jinja.jpg"
   }
 }

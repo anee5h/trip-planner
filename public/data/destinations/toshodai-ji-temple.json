@@ -72,11 +72,11 @@
     "min": 0.8,
     "max": 1.8
   },
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toshodai-ji_Kondo.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Toshodaiji_Nara_Nara_pref00bs5s2850.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 3.0",
-    "attribution": "663highland",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toshodai-ji_Kondo.jpg"
+    "license": "CC BY-SA 4.0",
+    "attribution": "Wikimedia Commons contributors",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toshodaiji_Nara_Nara_pref00bs5s2850.jpg"
   }
 }

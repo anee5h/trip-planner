@@ -72,11 +72,11 @@
     "min": 1,
     "max": 2
   },
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Yakushiji_Toto_1.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/32/Yakushiji_Nara_Japan01s3s4592.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 3.0",
-    "attribution": "663highland",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yakushiji_Toto_1.jpg"
+    "license": "CC BY-SA 4.0",
+    "attribution": "Wikimedia Commons contributors",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yakushiji_Nara_Japan01s3s4592.jpg"
   }
 }

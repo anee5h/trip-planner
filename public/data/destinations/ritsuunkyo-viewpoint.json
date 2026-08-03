@@ -76,11 +76,11 @@
     "min": 1,
     "max": 2
   },
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ritsuunkyo_gorge_Hyogo.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/10/Genbudo_Park_in_Toyooka_Hyogo.JPG",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
-    "attribution": "Wikimedia Commons",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sannen-iwa_Bridge,_Ritsuunkyo.jpg"
+    "attribution": "Wikimedia Commons contributors",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Genbudo_Park_in_Toyooka_Hyogo.JPG"
   }
 }

@@ -72,11 +72,11 @@
     "min": 1,
     "max": 2
   },
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shirahama_Shirara-hama_Beach.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Shirahama_beach01.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 3.0",
-    "attribution": "663highland",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shirahama_Shirara-hama_Beach.jpg"
+    "license": "CC BY-SA 4.0",
+    "attribution": "Wikimedia Commons contributors",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shirahama_beach01.jpg"
   }
 }
