@@ -1,0 +1,71 @@
+{
+  "id": "byodoin-temple",
+  "name": "Byodoin Temple",
+  "nameJa": "平等院",
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "nearHubs": ["uji-city", "kyoto-city"],
+  "role": "destination",
+  "kind": "temple",
+  "category": "Culture",
+  "categories": ["Culture", "History", "UNESCO"],
+  "description": "UNESCO World Heritage temple featuring the iconic Phoenix Hall reflected in a serene pond. Built in 1053, its architectural grace is depicted on Japan's 10-yen coin.",
+  "notes": "Phoenix Hall interior tours require separate timed tickets.",
+  "notesJa": "【見どころ】10円玉に描かれた鳳凰堂と阿字池の水鏡が息を呑む美しさです。",
+  "reservation": "Phoenix Hall interior ticket required on site",
+  "reservationJa": "【予約】鳳凰堂内部拝観は当日先着順の定員制となります。",
+  "parking": "Paid public parking nearby",
+  "parkingJa": "【駐車場】近隣にコインパーキングあり。",
+  "openingHours": "08:30 - 17:30 (Last entry 17:15)",
+  "openingHoursJa": "08:30 - 17:30 (最終受付 17:15)",
+  "coordinates": {
+    "lat": 34.8893,
+    "lng": 135.8077
+  },
+  "officialWebsite": "https://www.byodoin.or.jp/en/",
+  "rating": 4.8,
+  "editorial": {
+    "rating": 4.8,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "UNESCO World Heritage temple featuring the iconic Phoenix Hall.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Byodoin Temple",
+      "description": "UNESCO World Heritage temple featuring the iconic Phoenix Hall reflected in a serene pond. Built in 1053, its architectural grace is depicted on Japan's 10-yen coin.",
+      "highlights": ["Phoenix Hall", "Hoshokan Museum", "Ajike Pond Reflection"]
+    },
+    "ja": {
+      "name": "平等院",
+      "description": "1053年に極楽浄土をイメージして建立されたユネスコ世界遺産寺院です。10円硬貨に描かれた鳳凰堂と阿字池に映る水鏡の美しさが世界中の観光客を魅了します。",
+      "highlights": ["鳳凰堂", "鳳翔館ミュージアム", "阿字池の景観"]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "uji-city"
+  },
+  "hubId": "uji-city",
+  "status": "published",
+  "ratings": {
+    "overall": 9.1,
+    "couple": 9.1,
+    "summer": 9.1,
+    "winter": 9.1,
+    "rain": 8.6,
+    "food": 9.1,
+    "photography": 9.3,
+    "relaxation": 9.1,
+    "value": 9.1,
+    "uniqueness": 9.1
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  }
+}

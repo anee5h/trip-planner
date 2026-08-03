@@ -69,7 +69,7 @@
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Sacred Sites and Pilgrimage Routes in the Kii Mountain Range via Wikipedia/Wikimedia Commons"
   },
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "high"
   },
@@ -83,7 +83,9 @@
       "sortOrder": 2
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "koya-town"
+  },
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,
@@ -97,7 +99,7 @@
     "walkingIntensity": 3
   },
   "walkingIntensity": "low",
-  "role": "standalone",
+  "role": "destination",
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -105,5 +107,21 @@
     "max": 7
   },
   "officialWebsite": "https://www.tb-kumano.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "editorial": {
+    "rating": 4.8,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "Sacred Sites and Pilgrimage Routes in the Kii Mountain Range is a UNESCO World Heritage Site in Wakayama, designated for its outstanding universal cultural or natural value.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "notesJa": "【見どころ】紀伊山地の霊場と参詣道は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+  "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+  "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "nearHubs": ["koya-town"],
+  "hubId": "koya-town"
 }

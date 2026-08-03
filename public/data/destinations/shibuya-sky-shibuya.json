@@ -74,7 +74,7 @@
   "parking": "Paid parking garages available at Shibuya Scramble Square and nearby complexes.",
   "notes": "Book sunset timeslots 2-4 weeks in advance for breathtaking Golden Hour photos over Shibuya Crossing.",
   "schemaVersion": 2,
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "high"
   },

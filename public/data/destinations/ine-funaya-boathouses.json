@@ -1,0 +1,75 @@
+{
+  "id": "ine-funaya-boathouses",
+  "name": "Ine Funaya Boathouses",
+  "nameJa": "伊根の舟屋",
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "nearHubs": ["miyazu-city"],
+  "role": "destination",
+  "kind": "historic_town",
+  "category": "Culture",
+  "categories": ["Culture", "History", "Nature"],
+  "description": "A unique coastal village featuring 230 traditional wooden boathouses built directly over Ine Bay's water level. Often called 'the Venice of Japan', visitors can take sea taxi boat tours.",
+  "notes": "Sea taxi boat tours operate daily from Ine port.",
+  "notesJa": "【見どころ】海に直接浮かんでいるように見える230軒の伝統的舟屋群です。",
+  "reservation": "Sea taxi tours available on site",
+  "reservationJa": "【予約】海上タクシー遊覧は現地随時受け付けです。",
+  "parking": "Paid public parking in Ine Town",
+  "parkingJa": "【駐車場】伊根町内に有料駐車場あり。",
+  "openingHours": "24 hours (Tours 09:00 - 17:00)",
+  "openingHoursJa": "散策自由（遊覧船 09:00 - 17:00）",
+  "coordinates": {
+    "lat": 35.6741,
+    "lng": 135.2891
+  },
+  "officialWebsite": "https://www.ine-kankou.jp/en/",
+  "rating": 4.8,
+  "editorial": {
+    "rating": 4.8,
+    "recommendedDurationMinutes": 120,
+    "editorialSummary": "Unique coastal village with 230 traditional wooden boathouses over Ine Bay.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Ine Funaya Boathouses",
+      "description": "A unique coastal village featuring 230 traditional wooden boathouses built directly over Ine Bay's water level. Often called 'the Venice of Japan', visitors can take sea taxi boat tours.",
+      "highlights": [
+        "Funaya Water Architecture",
+        "Ine Bay Sea Taxi",
+        "Mukai Sake Brewery"
+      ]
+    },
+    "ja": {
+      "name": "伊根の舟屋",
+      "description": "伊根湾の波静かな海辺に約230軒の舟屋が連続して建ち並ぶ、日本で最も海に近いノスタルジックな集落です。海上タクシーでの周遊や、舟屋見学・地酒蔵元巡りが人気です。",
+      "highlights": ["舟屋群の町並み", "伊根湾海上タクシー", "向井酒造の地酒"]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "miyazu-city"
+  },
+  "hubId": "miyazu-city",
+  "status": "published",
+  "ratings": {
+    "overall": 9.1,
+    "couple": 9.1,
+    "summer": 9.1,
+    "winter": 9.1,
+    "rain": 8.6,
+    "food": 9.1,
+    "photography": 9.3,
+    "relaxation": 9.1,
+    "value": 9.1,
+    "uniqueness": 9.1
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 2.5
+  }
+}

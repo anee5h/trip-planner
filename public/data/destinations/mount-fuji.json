@@ -82,6 +82,10 @@
       "collectionId": "unesco-japan",
       "sortOrder": 7,
       "confirmed": true
+    },
+    {
+      "collectionId": "national-parks-japan",
+      "confirmed": true
     }
   ],
   "relationships": {},

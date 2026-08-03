@@ -110,7 +110,7 @@
   "parking": "Temple visitor parking available on site.",
   "notes": "Early morning visits provide a serene experience before tour groups arrive.",
   "schemaVersion": 2,
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "medium"
   },

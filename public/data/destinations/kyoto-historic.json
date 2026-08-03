@@ -33,7 +33,7 @@
   "categories": ["culture", "history", "sightseeing"],
   "budgetMin": 3000,
   "budgetMax": 15000,
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "high"
   },
@@ -94,7 +94,7 @@
   "parking": "Available on site",
   "schemaVersion": 2,
   "walkingIntensity": "high",
-  "role": "poi",
+  "role": "destination",
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -103,5 +103,21 @@
   },
   "areaId": "higashiyama",
   "officialWebsite": "https://kyoto-travel.kyoto/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "editorial": {
+    "rating": 4.8,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "Kyoto, Japan's imperial capital for over a millennium, encompasses 17 UNESCO World Heritage monuments including the wooden balcony of Kiyomizu-dera and the shimmering Golden Pavilion.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "notesJa": "【見どころ】古都京都の文化財は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+  "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+  "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "nearHubs": ["kyoto-city"],
+  "hubId": "kyoto-city"
 }

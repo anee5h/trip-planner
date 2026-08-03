@@ -1,0 +1,75 @@
+{
+  "id": "mimuroto-ji-temple",
+  "name": "Mimuroto-ji Hydrangea Temple",
+  "nameJa": "三室戸寺",
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "nearHubs": ["uji-city"],
+  "role": "destination",
+  "kind": "temple",
+  "category": "Nature",
+  "categories": ["Nature", "Culture", "Seasons"],
+  "description": "Renowned as Kansai's 'Hydrangea Temple', boasting 20,000 colorful hydrangea bushes and lotus ponds set against wooded hills. In June, special evening illuminations showcase spectacular floral views.",
+  "notes": "Peak hydrangea season is June to July.",
+  "notesJa": "【見どころ】初夏に約20,000株のアジサイが咲き誇る「あじさい寺」として有名です。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Paid seasonal parking",
+  "parkingJa": "【駐車場】あじさい園開園期は有料駐車場あり。",
+  "openingHours": "08:30 - 16:30 (Last entry 16:00)",
+  "openingHoursJa": "08:30 - 16:30 (最終受付 16:00)",
+  "coordinates": {
+    "lat": 34.8986,
+    "lng": 135.8194
+  },
+  "officialWebsite": "https://www.mimurotoji.com/",
+  "rating": 4.7,
+  "editorial": {
+    "rating": 4.7,
+    "recommendedDurationMinutes": 75,
+    "editorialSummary": "Renowned as Kansai's Hydrangea Temple with 20,000 blooming flowers.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Mimuroto-ji Hydrangea Temple",
+      "description": "Renowned as Kansai's 'Hydrangea Temple', boasting 20,000 colorful hydrangea bushes and lotus ponds set against wooded hills. In June, special evening illuminations showcase spectacular floral views.",
+      "highlights": [
+        "20,000 Hydrangea Garden",
+        "Lotus Pond",
+        "Heart-Shaped Hydrangea Spot"
+      ]
+    },
+    "ja": {
+      "name": "三室戸寺",
+      "description": "5,000坪の庭園に約50種20,000株のあじさいが咲き乱れる関西有数の「あじさい寺」です。ハート型のあじさい探しや、ハス池・ツツジ園など四季折々の花を楽しめます。",
+      "highlights": ["2万株のあじさい園", "ハス酒体験", "ハートあじさい"]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "uji-city"
+  },
+  "hubId": "uji-city",
+  "status": "published",
+  "ratings": {
+    "overall": 8.9,
+    "couple": 8.9,
+    "summer": 8.9,
+    "winter": 8.9,
+    "rain": 8.4,
+    "food": 8.9,
+    "photography": 9.1,
+    "relaxation": 8.9,
+    "value": 8.9,
+    "uniqueness": 8.9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 0.8,
+    "max": 1.8
+  }
+}

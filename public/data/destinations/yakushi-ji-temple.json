@@ -1,0 +1,75 @@
+{
+  "id": "yakushi-ji-temple",
+  "name": "Yakushi-ji Temple",
+  "nameJa": "薬師寺",
+  "prefecture": "Nara",
+  "region": "Kansai",
+  "hubId": "nara-city",
+  "nearHubs": ["nara-city"],
+  "role": "destination",
+  "kind": "temple",
+  "category": "Culture",
+  "categories": ["Culture", "History", "UNESCO"],
+  "description": "UNESCO World Heritage temple famous for its twin East and West Pagodas and Fenollosa's 'frozen music' East Pagoda dating back to 730 AD.",
+  "notes": "Houses the masterwork Yakushi Nyorai Trinity bronze statues.",
+  "notesJa": "【見どころ】「凍れる音楽」と称賛された国宝・東塔と、色鮮やかな白鳳文化の大伽藍が美しい世界遺産です。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Paid parking available",
+  "parkingJa": "【駐車場】有料駐車場あり。",
+  "openingHours": "08:30 - 17:00 (Last entry 16:30)",
+  "openingHoursJa": "08:30 - 17:00 (最終受付 16:30)",
+  "coordinates": {
+    "lat": 34.6683,
+    "lng": 135.7842
+  },
+  "officialWebsite": "https://www.yakushiji.or.jp/",
+  "rating": 4.8,
+  "editorial": {
+    "rating": 4.8,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "UNESCO World Heritage temple with twin pagodas and 730 AD East Pagoda.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "relationships": {
+    "parentDestinationId": "nara-city"
+  },
+  "content": {
+    "en": {
+      "name": "Yakushi-ji Temple",
+      "description": "UNESCO World Heritage temple famous for its twin East and West Pagodas and Fenollosa's 'frozen music' East Pagoda dating back to 730 AD.",
+      "highlights": [
+        "National Treasure East Pagoda",
+        "Yakushi Nyorai Trinity Statues",
+        "Daitang Xiyuji Wall Paintings"
+      ]
+    },
+    "ja": {
+      "name": "薬師寺",
+      "description": "天武天皇が妃（後の持統天皇）の病気平癒を祈願して建立した白鳳文化の代表的寺院です。創建当時の姿を留める唯一の建造物・東塔と、金堂に鎮座する国宝・薬師三尊像が世界を魅了します。",
+      "highlights": ["国宝・東塔", "薬師三尊像", "玄奘三蔵院伽藍"]
+    }
+  },
+  "status": "published",
+  "ratings": {
+    "overall": 9.1,
+    "couple": 9.1,
+    "summer": 9.1,
+    "winter": 9.1,
+    "rain": 8.6,
+    "food": 9.1,
+    "photography": 9.3,
+    "relaxation": 9.1,
+    "value": 9.1,
+    "uniqueness": 9.1
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  }
+}

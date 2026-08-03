@@ -1,0 +1,75 @@
+{
+  "id": "uji-tea-culture-center",
+  "name": "Uji Tea Culture Center & Ujigami Shrine",
+  "nameJa": "宇治茶文化館・宇治上神社",
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "nearHubs": ["uji-city", "kyoto-city"],
+  "role": "destination",
+  "kind": "shrine",
+  "category": "Culture",
+  "categories": ["Culture", "History", "UNESCO"],
+  "description": "Japan's oldest original shrine main hall nestled in historic Uji, surrounded by traditional matcha tea houses. Visitors can try authentic matcha grinding and ceremonial green tea tasting.",
+  "notes": "Famous for high-grade Uji Matcha tea tastings.",
+  "notesJa": "【見どころ】日本最古の神社本殿を持つ世界遺産・宇治上神社と宇治茶体験が魅力です。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】参拝・茶屋利用は事前予約不要です。",
+  "parking": "Paid parking available",
+  "parkingJa": "【駐車場】近隣有料駐車場あり。",
+  "openingHours": "09:00 - 16:30",
+  "openingHoursJa": "09:00 - 16:30",
+  "coordinates": {
+    "lat": 34.8913,
+    "lng": 135.8108
+  },
+  "officialWebsite": "https://www.ujietor.jp/",
+  "rating": 4.6,
+  "editorial": {
+    "rating": 4.6,
+    "recommendedDurationMinutes": 60,
+    "editorialSummary": "Japan's oldest original shrine main hall with traditional matcha tea houses.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Uji Tea Culture Center & Ujigami Shrine",
+      "description": "Japan's oldest original shrine main hall nestled in historic Uji, surrounded by traditional matcha tea houses. Visitors can try authentic matcha grinding and ceremonial green tea tasting.",
+      "highlights": [
+        "National Treasure Main Hall",
+        "Uji Matcha Grinding Experience",
+        "Uji River Bridge Walk"
+      ]
+    },
+    "ja": {
+      "name": "宇治茶文化館・宇治上神社",
+      "description": "日本最古の神社本殿を擁する宇治上神社と、老舗宇治茶舗が並ぶ門前エリアです。挽きたての抹茶体験や伝統的なお茶会を風情溢れる宇治川のせせらぎと共に楽しめます。",
+      "highlights": ["国宝本殿", "本格抹茶石臼挽き体験", "宇治川の景観"]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "uji-city"
+  },
+  "hubId": "uji-city",
+  "status": "published",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.7,
+    "summer": 8.7,
+    "winter": 8.7,
+    "rain": 8.2,
+    "food": 8.7,
+    "photography": 8.9,
+    "relaxation": 8.7,
+    "value": 8.7,
+    "uniqueness": 8.7
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  }
+}

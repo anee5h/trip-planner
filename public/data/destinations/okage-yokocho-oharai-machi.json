@@ -1,0 +1,75 @@
+{
+  "id": "okage-yokocho-oharai-machi",
+  "name": "Okage Yokocho & Oharai-machi",
+  "nameJa": "おかげ横丁・おはらい町",
+  "prefecture": "Mie",
+  "region": "Kansai",
+  "nearHubs": ["ise-city"],
+  "role": "destination",
+  "kind": "historic_town",
+  "category": "Culture",
+  "categories": ["Culture", "History", "Food"],
+  "description": "A bustling 800-meter historic merchant street leading directly to Ise Jingu Naiku, lined with preserved Edo-period wooden shopfronts, Akafuku rice cake houses, and Ise udon stalls.",
+  "notes": "Famous for Akafuku mochi and Ise Udon noodles.",
+  "notesJa": "【見どころ】伊勢神宮内宮の門前町で、江戸・明治の木造町家と名物赤福・伊勢うどんを楽しめます。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Paid public parking in Ise",
+  "parkingJa": "【駐車場】市営有料駐車場あり。",
+  "openingHours": "09:30 - 17:00",
+  "openingHoursJa": "09:30 - 17:00",
+  "coordinates": {
+    "lat": 34.4608,
+    "lng": 136.7247
+  },
+  "officialWebsite": "https://okageyokocho.jp/",
+  "rating": 4.8,
+  "editorial": {
+    "rating": 4.8,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "Bustling Edo-style historic street leading to Ise Shrine with Akafuku sweets.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Okage Yokocho & Oharai-machi",
+      "description": "A bustling 800-meter historic merchant street leading directly to Ise Jingu Naiku, lined with preserved Edo-period wooden shopfronts, Akafuku rice cake houses, and Ise udon stalls.",
+      "highlights": [
+        "Akafuku Main Store",
+        "Edo Period Architecture",
+        "Ise Udon Noodle Shops"
+      ]
+    },
+    "ja": {
+      "name": "おかげ横丁・おはらい町",
+      "description": "伊勢神宮内宮の鳥居前から続く約800mの石畳の参道街です。江戸から明治期の伊勢路の建造物を移築・再現したおかげ横丁では、名物「赤福餅」や極太もちもちの「伊勢うどん」を堪能できます。",
+      "highlights": ["赤福本店", "おかげ横丁の町並み", "名物・伊勢うどん"]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "ise-city"
+  },
+  "hubId": "ise-city",
+  "status": "published",
+  "ratings": {
+    "overall": 9.1,
+    "couple": 9.1,
+    "summer": 9.1,
+    "winter": 9.1,
+    "rain": 8.6,
+    "food": 9.1,
+    "photography": 9.3,
+    "relaxation": 9.1,
+    "value": 9.1,
+    "uniqueness": 9.1
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  }
+}

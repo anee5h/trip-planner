@@ -1,0 +1,79 @@
+{
+  "id": "sakai-city-museum",
+  "name": "Sakai City Museum & Daisen Kofun View",
+  "nameJa": "堺市博物館・大仙陵古墳",
+  "prefecture": "Osaka",
+  "region": "Kansai",
+  "nearHubs": ["sakai-city", "osaka-city"],
+  "role": "destination",
+  "kind": "museum",
+  "category": "Museum",
+  "categories": ["Museum", "History", "UNESCO"],
+  "description": "Located within Daisen Park facing Emperor Nintoku's tomb, featuring VR exhibits of ancient keyhole kofun mounds, samurai swords, and Sen no Rikyu tea culture history.",
+  "notes": "VR Kofun tour available at the museum theater.",
+  "notesJa": "【見どころ】仁徳天皇陵古墳（大仙陵古墳）に隣接し、巨大古墳のVR体験や千利休の茶の湯文化を学べます。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Paid parking in Daisen Park",
+  "parkingJa": "【駐車場】大仙公園駐車場あり。",
+  "openingHours": "09:30 - 17:00 (Last entry 16:30)",
+  "openingHoursJa": "09:30 - 17:00 (最終入館 16:30)",
+  "coordinates": {
+    "lat": 34.5622,
+    "lng": 135.4853
+  },
+  "officialWebsite": "https://www.city.sakai.lg.jp/kanko/hakubutsukan/",
+  "rating": 4.6,
+  "editorial": {
+    "rating": 4.6,
+    "recommendedDurationMinutes": 75,
+    "editorialSummary": "Museum facing Nintoku Kofun featuring VR ancient mound tours and tea history.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Sakai City Museum & Daisen Kofun View",
+      "description": "Located within Daisen Park facing Emperor Nintoku's tomb, featuring VR exhibits of ancient keyhole kofun mounds, samurai swords, and Sen no Rikyu tea culture history.",
+      "highlights": [
+        "VR Kofun Experience",
+        "Sen no Rikyu Tea Culture",
+        "Daisen Park Japanese Garden"
+      ]
+    },
+    "ja": {
+      "name": "堺市博物館・大仙陵古墳",
+      "description": "世界遺産・百舌鳥古墳群の中心に位置する博物館です。仁徳天皇陵古墳のVR空中散歩体験や、堺が生んだ茶の湯の大成者・千利休ゆかりの展示・茶室などを鑑賞できます。",
+      "highlights": [
+        "百舌鳥古墳群VR体験",
+        "千利休と茶の湯展示",
+        "大仙公園日本庭園"
+      ]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "sakai-city"
+  },
+  "hubId": "sakai-city",
+  "status": "published",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.7,
+    "summer": 8.7,
+    "winter": 8.7,
+    "rain": 8.2,
+    "food": 8.7,
+    "photography": 8.9,
+    "relaxation": 8.7,
+    "value": 8.7,
+    "uniqueness": 8.7
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 0.8,
+    "max": 1.8
+  }
+}

@@ -45,6 +45,10 @@
     {
       "collectionId": "art-islands-japan",
       "sortOrder": 4
+    },
+    {
+      "collectionId": "great-night-views",
+      "confirmed": true
     }
   ],
   "transportOptions": {

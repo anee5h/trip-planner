@@ -1,0 +1,79 @@
+{
+  "id": "kataonami-beach-wakanoura",
+  "name": "Kataonami Beach & Wakanoura Bay",
+  "nameJa": "片男波海水浴場・和歌の浦",
+  "prefecture": "Wakayama",
+  "region": "Kansai",
+  "nearHubs": ["wakayama-city"],
+  "role": "destination",
+  "kind": "beach",
+  "category": "Nature",
+  "categories": ["Nature", "Beach", "Views"],
+  "description": "Selected as one of Japan's Top 100 Beaches, boasting a 1.2km crescent of white sand in historic Wakanoura Bay praised by Manyoshu poets.",
+  "notes": "Spacious beach park with summer swimming facilities.",
+  "notesJa": "【見どころ】万葉集に詠まれた景勝地・和歌の浦に伸びる1,200mの白砂青松の美しい海水浴場です。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Paid beach parking",
+  "parkingJa": "【駐車場】片男波公園有料駐車場あり。",
+  "openingHours": "24 hours (Swimming 08:00 - 17:00)",
+  "openingHoursJa": "散策自由（海水浴監視 08:00 - 17:00）",
+  "coordinates": {
+    "lat": 34.1814,
+    "lng": 135.1764
+  },
+  "officialWebsite": "https://www.wakayamakanko.com/spot/detail.php?id=38",
+  "rating": 4.6,
+  "editorial": {
+    "rating": 4.6,
+    "recommendedDurationMinutes": 75,
+    "editorialSummary": "Crescent white sand beach in historic Wakanoura Bay praised in Manyoshu poetry.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Kataonami Beach & Wakanoura Bay",
+      "description": "Selected as one of Japan's Top 100 Beaches, boasting a 1.2km crescent of white sand in historic Wakanoura Bay praised by Manyoshu poets.",
+      "highlights": [
+        "1.2km White Sand Crescent Beach",
+        "Wakanoura Manyoshu Coastal Trail",
+        "Kataonami Park Playground"
+      ]
+    },
+    "ja": {
+      "name": "片男波海水浴場・和歌の浦",
+      "description": "快水浴場百選特選に選ばれた透明度抜群のビーチです。和歌の浦の万葉の歴史を感じる萬葉館や広大な片男波公園が隣接し、ファミリーからカップルまでリゾート気分を満喫できます。",
+      "highlights": [
+        "快水浴場百選の白砂青松",
+        "万葉の路と紀州富士",
+        "片男波公園庭園"
+      ]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "wakayama-city"
+  },
+  "hubId": "wakayama-city",
+  "status": "published",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.7,
+    "summer": 8.7,
+    "winter": 8.7,
+    "rain": 8.2,
+    "food": 8.7,
+    "photography": 8.9,
+    "relaxation": 8.7,
+    "value": 8.7,
+    "uniqueness": 8.7
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 0.8,
+    "max": 1.8
+  }
+}

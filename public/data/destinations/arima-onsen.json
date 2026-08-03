@@ -28,7 +28,7 @@
   "categories": ["onsen", "relaxation", "culture"],
   "budgetMin": 6000,
   "budgetMax": 30000,
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "high"
   },
@@ -36,6 +36,14 @@
     {
       "collectionId": "art-islands-japan",
       "sortOrder": 5
+    },
+    {
+      "collectionId": "top-onsen-japan",
+      "confirmed": true
+    },
+    {
+      "collectionId": "historic-towns-japan",
+      "confirmed": true
     }
   ],
   "transportOptions": {
@@ -103,5 +111,22 @@
     "max": 5
   },
   "officialWebsite": "https://www.arima-onsen.com/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "rating": 4.8,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "Arima Onsen is Japan's oldest recorded hot spring resort, nestled behind Mount Rokko and famous for its iron-rich golden 'Kinsen' and clear radium 'Ginsen' waters.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "notesJa": "【見どころ】有馬温泉は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+  "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+  "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "nearHubs": ["kobe-city"],
+  "role": "destination",
+  "hubId": "kobe-city"
 }

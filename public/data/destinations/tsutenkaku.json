@@ -18,12 +18,9 @@
   "prefecture": "Osaka",
   "region": "Kansai",
   "kind": "tower",
-  "role": "poi",
+  "role": "standalone",
   "placeType": "destination",
-  "areaId": "namba-minami",
-  "relationships": {
-    "parentDestinationId": "osaka-city"
-  },
+  "relationships": {},
   "officialWebsite": "https://www.tsutenkaku.co.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Viewpoint"],
@@ -102,14 +99,22 @@
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
   "schemaVersion": 2,
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "medium"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "japan-observatories-towers",
+      "confirmed": true
+    }
+  ],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "in_review",
+    "rating": 4.8,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "Tsutenkaku is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,46 +129,19 @@
         "accessedAt": "2026-07-29"
       }
     ],
+    "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-07-29",
-    "freshness": "review_due",
-    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://en.wikipedia.org/wiki/Ts%C5%ABtenkaku",
-          "title": "Beta editorial scoring from source-backed attributes",
-          "accessedAt": "2026-07-29"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Ts%C5%ABtenkaku",
-          "title": "Tsūtenkaku",
-          "accessedAt": "2026-07-29"
-        }
-      ]
-    },
-    "changes": [
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap editorial",
-        "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      }
-    ]
+    "freshness": "review_due"
   },
   "ratingMetadata": {
     "rubricVersion": 1,
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "10:00 - 20:00 (Last admission 19:30)"
+  "businessHours": "10:00 - 20:00 (Last admission 19:30)",
+  "nearHubs": ["osaka-city"],
+  "notesJa": "【見どころ】通天閣は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+  "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+  "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
 }

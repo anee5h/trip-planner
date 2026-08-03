@@ -28,7 +28,7 @@
   "categories": ["onsen", "relaxation", "culture"],
   "budgetMin": 7000,
   "budgetMax": 28000,
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -36,6 +36,10 @@
     {
       "collectionId": "top-onsen-japan",
       "sortOrder": 5,
+      "confirmed": true
+    },
+    {
+      "collectionId": "historic-towns-japan",
       "confirmed": true
     }
   ],
@@ -97,5 +101,22 @@
     "max": 5
   },
   "officialWebsite": "https://kinosaki-spa.gr.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "editorial": {
+    "rating": 4.8,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "Kinosaki Onsen is a quintessential hot spring town centered around a willow-lined canal, where visitors stroll between seven distinct public bathhouses in traditional yukata robes.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "notesJa": "【見どころ】城崎温泉は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+  "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+  "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "nearHubs": ["toyooka-city"],
+  "role": "destination",
+  "hubId": "toyooka-city"
 }

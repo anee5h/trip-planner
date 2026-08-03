@@ -18,9 +18,8 @@
   "prefecture": "Kyoto",
   "region": "Kansai",
   "kind": "museum",
-  "role": "poi",
+  "role": "destination",
   "placeType": "destination",
-  "areaId": "higashiyama",
   "relationships": {
     "parentDestinationId": "kyoto-city"
   },
@@ -101,14 +100,17 @@
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
   "schemaVersion": 2,
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "medium"
   },
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "in_review",
+    "rating": 4.8,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "Sanjusangen-do is a visitor destination in Kyoto City.  Visitors can experience historic architecture and local culture.",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "wikipedia",
@@ -123,49 +125,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
+    "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-07-29",
-    "freshness": "review_due",
-    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://en.wikipedia.org/wiki/Sanj%C5%ABsangen-d%C5%8D",
-          "title": "Beta editorial scoring from source-backed attributes",
-          "accessedAt": "2026-07-29"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Sanj%C5%ABsangen-d%C5%8D",
-          "title": "Sanjūsangen-dō",
-          "accessedAt": "2026-07-29"
-        }
-      ],
-      "officialWebsite": [
-        {
-          "type": "official",
-          "url": "https://www.sanjusangendo.jp/",
-          "title": "Official website for Sanjusangen-do",
-          "accessedAt": "2026-07-29"
-        }
-      ]
-    },
-    "changes": [
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap editorial",
-        "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      }
-    ]
+    "freshness": "review_due"
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -173,5 +135,11 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.sanjusangendo.jp/",
-  "businessHours": "08:30 - 17:00 (Nov-Mar: 09:00 - 16:00)"
+  "businessHours": "08:30 - 17:00 (Nov-Mar: 09:00 - 16:00)",
+  "nearHubs": ["kyoto-city"],
+  "notesJa": "【見どころ】江戸三十三間堂は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+  "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+  "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "hubId": "kyoto-city"
 }

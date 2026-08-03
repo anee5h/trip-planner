@@ -1,0 +1,75 @@
+{
+  "id": "shirahige-shrine-lake-biwa",
+  "name": "Shirahige Shrine Floating Torii",
+  "nameJa": "白髭神社・湖中大鳥居",
+  "prefecture": "Shiga",
+  "region": "Kansai",
+  "hubId": "otsu-city",
+  "nearHubs": ["otsu-city"],
+  "role": "destination",
+  "kind": "shrine",
+  "category": "Culture",
+  "categories": ["Culture", "Nature", "Views"],
+  "description": "Omi's oldest shrine featuring a striking vermilion Torii gate standing directly in the waters of Lake Biwa, known as 'the Itsukushima of Omi'.",
+  "notes": "Sunset views over Lake Biwa from the observation deck are world-famous.",
+  "notesJa": "【見どころ】琵琶湖の沖合に浮かぶ朱塗りの大鳥居が「近江の厳島」と称される近江最古の神社です。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Free parking available",
+  "parkingJa": "【駐車場】無料駐車場あり。",
+  "openingHours": "24 hours",
+  "openingHoursJa": "24時間参拝自由",
+  "coordinates": {
+    "lat": 35.2756,
+    "lng": 136.0028
+  },
+  "officialWebsite": "http://shirahigejinja.com/",
+  "rating": 4.8,
+  "editorial": {
+    "rating": 4.8,
+    "recommendedDurationMinutes": 60,
+    "editorialSummary": "Omi's oldest shrine with a striking vermilion Torii gate standing in Lake Biwa.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "relationships": {
+    "parentDestinationId": "otsu-city"
+  },
+  "content": {
+    "en": {
+      "name": "Shirahige Shrine Floating Torii",
+      "description": "Omi's oldest shrine featuring a striking vermilion Torii gate standing directly in the waters of Lake Biwa, known as 'the Itsukushima of Omi'.",
+      "highlights": [
+        "Floating Lake Biwa Torii",
+        "Sunset Viewing Platform",
+        "Longevity Shrine History"
+      ]
+    },
+    "ja": {
+      "name": "白髭神社・湖中大鳥居",
+      "description": "垂仁天皇25年に創建された延命長寿の神様を祀る古社です。湖の中に立ち並ぶ美しい鳥居と、対岸の沖島を背に広がる琵琶湖の絶景がSNSやフォトグラファーに絶大な人気を誇ります。",
+      "highlights": ["湖中大鳥居", "琵琶湖の夕日景観", "延命長寿の神徳"]
+    }
+  },
+  "status": "published",
+  "ratings": {
+    "overall": 9.1,
+    "couple": 9.1,
+    "summer": 9.1,
+    "winter": 9.1,
+    "rain": 8.6,
+    "food": 9.1,
+    "photography": 9.3,
+    "relaxation": 9.1,
+    "value": 9.1,
+    "uniqueness": 9.1
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "id": "hiei-zan-driveway-observatory",
+  "name": "Mount Hiei Driveway & Yumemi Observatory",
+  "nameJa": "比叡山ドライブウェイ・夢見が丘",
+  "prefecture": "Shiga",
+  "region": "Kansai",
+  "hubId": "otsu-city",
+  "nearHubs": ["otsu-city"],
+  "role": "destination",
+  "kind": "viewpoint",
+  "category": "Nature",
+  "categories": ["Nature", "Views", "Night View"],
+  "description": "A scenic toll road winding up Mt. Hiei, featuring Yumemi-ga-oka Observatory with sweeping day and night panoramas over Lake Biwa and Otsu Harbor.",
+  "notes": "Includes a mountain coaster and BBQ terrace at Yumemi-ga-oka.",
+  "notesJa": "【見どころ】琵琶湖と大津市街の180度絶景夜景が広がる、ドライブと展望テラスが人気のドライブコースです。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Free parking at Yumemi-ga-oka",
+  "parkingJa": "【駐車場】夢見が丘に無料大駐車場あり。",
+  "openingHours": "07:00 - 23:00",
+  "openingHoursJa": "07:00 - 23:00",
+  "coordinates": {
+    "lat": 35.0381,
+    "lng": 135.8458
+  },
+  "officialWebsite": "https://www.hieizan-way.com/",
+  "rating": 4.7,
+  "editorial": {
+    "rating": 4.7,
+    "recommendedDurationMinutes": 60,
+    "editorialSummary": "Scenic toll road winding up Mt. Hiei with sweeping day and night panoramas over Lake Biwa.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "relationships": {
+    "parentDestinationId": "otsu-city"
+  },
+  "content": {
+    "en": {
+      "name": "Mount Hiei Driveway & Yumemi Observatory",
+      "description": "A scenic toll road winding up Mt. Hiei, featuring Yumemi-ga-oka Observatory with sweeping day and night panoramas over Lake Biwa and Otsu Harbor.",
+      "highlights": [
+        "Yumemi-ga-oka Lake Biwa View",
+        "Lake Biwa Night View",
+        "Ropeway & Mountain Coaster"
+      ]
+    },
+    "ja": {
+      "name": "比叡山ドライブウェイ・夢見が丘",
+      "description": "大津市田の谷峠から比叡山頂を結ぶ観光道路です。途中の「夢見が丘展望台」からは琵琶湖大橋から近江大橋まで一望でき、日中の湖の青さと夜の煌めく街明かりの両方を楽しめます。",
+      "highlights": [
+        "夢見が丘パノラマ展望台",
+        "琵琶湖夜景スポット",
+        "サイクルコースター"
+      ]
+    }
+  },
+  "status": "published",
+  "ratings": {
+    "overall": 8.9,
+    "couple": 8.9,
+    "summer": 8.9,
+    "winter": 8.9,
+    "rain": 8.4,
+    "food": 8.9,
+    "photography": 9.1,
+    "relaxation": 8.9,
+    "value": 8.9,
+    "uniqueness": 8.9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "id": "senjojiki-sandanbeki-cliffs",
+  "name": "Senjojiki & Sandanbeki Rock Cliffs",
+  "nameJa": "千畳敷・三段壁洞窟",
+  "prefecture": "Wakayama",
+  "region": "Kansai",
+  "nearHubs": ["shirahama-town"],
+  "role": "destination",
+  "kind": "cliff",
+  "category": "Nature",
+  "categories": ["Nature", "Geology", "Views"],
+  "description": "Spectacular coastal rock formations in Shirahama featuring a multi-tiered sandstone plateau and 50-meter ocean cliff cave used by historic Kumano Navy pirates.",
+  "notes": "Elevator access down inside Sandanbeki Cave available.",
+  "notesJa": "【見どころ】広大な岩盤の千畳敷と、熊野水軍の隠し洞窟がある50mの断崖絶壁です。",
+  "reservation": "No reservation needed for cave",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Free parking available",
+  "parkingJa": "【駐車場】無料駐車場あり。",
+  "openingHours": "08:00 - 17:00 (Cave 08:00 - 17:00)",
+  "openingHoursJa": "散策自由（三段壁洞窟 08:00 - 17:00）",
+  "coordinates": {
+    "lat": 33.6669,
+    "lng": 135.3347
+  },
+  "officialWebsite": "https://sandanbeki.com/",
+  "rating": 4.7,
+  "editorial": {
+    "rating": 4.7,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "Spectacular multi-tiered sandstone plateau and 50m ocean cavern pirate cliffs.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Senjojiki & Sandanbeki Rock Cliffs",
+      "description": "Spectacular coastal rock formations in Shirahama featuring a multi-tiered sandstone plateau and 50-meter ocean cliff cave used by historic Kumano Navy pirates.",
+      "highlights": [
+        "Senjojiki Sandstone Plateau",
+        "Sandanbeki Pirate Cave Elevator",
+        "Pacific Ocean Wave Breakers"
+      ]
+    },
+    "ja": {
+      "name": "千畳敷・三段壁洞窟",
+      "description": "太平洋の荒波が削り出した白浜の二大名勝です。畳を千枚敷ける広さの「千畳敷」と、高さ50mの断崖地下鉄エレベーターで降りる「三段壁洞窟（熊野水軍の隠し洞窟）」が圧巻です。",
+      "highlights": [
+        "千畳敷の岩盤大パノラマ",
+        "三段壁洞窟（エレベーター内部探検）",
+        "熊野水軍の番所跡"
+      ]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "shirahama-town"
+  },
+  "hubId": "shirahama-town",
+  "status": "published",
+  "ratings": {
+    "overall": 8.9,
+    "couple": 8.9,
+    "summer": 8.9,
+    "winter": 8.9,
+    "rain": 8.4,
+    "food": 8.9,
+    "photography": 9.1,
+    "relaxation": 8.9,
+    "value": 8.9,
+    "uniqueness": 8.9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "id": "chogosonshi-ji-temple",
+  "name": "Chogosonshi-ji Tiger Temple",
+  "nameJa": "朝護孫子寺",
+  "prefecture": "Nara",
+  "region": "Kansai",
+  "nearHubs": ["ikaruga-town"],
+  "role": "destination",
+  "kind": "temple",
+  "category": "Culture",
+  "categories": ["Culture", "History", "Views"],
+  "description": "A dramatic mountain temple on Mt. Shigi famous for giant paper-mache tiger statues and evening paper lantern paths. Dedicated to Bishamonten for good fortune and victory.",
+  "notes": "World's largest paper-mache tiger 'World's Best Tiger' at entrance.",
+  "notesJa": "【見どころ】信貴山に立ち世界一大きな「張り子の虎」と灯籠参道が名物の開運寺院です。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Paid parking available",
+  "parkingJa": "【駐車場】有料駐車場あり。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00",
+  "coordinates": {
+    "lat": 34.6078,
+    "lng": 135.6739
+  },
+  "officialWebsite": "https://www.sigisan.or.jp/",
+  "rating": 4.7,
+  "editorial": {
+    "rating": 4.7,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "Dramatic mountain temple on Mt. Shigi famous for giant paper-mache tiger statues.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Chogosonshi-ji Tiger Temple",
+      "description": "A dramatic mountain temple on Mt. Shigi famous for giant paper-mache tiger statues and evening paper lantern paths. Dedicated to Bishamonten for good fortune and victory.",
+      "highlights": [
+        "Giant Papier-Mache Tiger",
+        "Kukai Main Hall Stage",
+        "Lantern Night Trail"
+      ]
+    },
+    "ja": {
+      "name": "朝護孫子寺",
+      "description": "信貴山に広がる毘沙門天王の総本山で、寅の年・寅の日・寅の刻に毘沙門天が現れた故事から「寅の寺」として信仰を集めます。境内の「大張り子の虎」や本堂舞台からの眺望が見所です。",
+      "highlights": [
+        "世界一の大張り子の虎",
+        "本堂舞台からの眺望",
+        "千手院戒壇めぐり"
+      ]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "ikaruga-town"
+  },
+  "hubId": "ikaruga-town",
+  "status": "published",
+  "ratings": {
+    "overall": 8.9,
+    "couple": 8.9,
+    "summer": 8.9,
+    "winter": 8.9,
+    "rain": 8.4,
+    "food": 8.9,
+    "photography": 9.1,
+    "relaxation": 8.9,
+    "value": 8.9,
+    "uniqueness": 8.9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "id": "shirahama-beach-adventure-world",
+  "name": "Shirahama White Beach & Coastal Resort",
+  "nameJa": "白良浜・白浜温泉リゾート",
+  "prefecture": "Wakayama",
+  "region": "Kansai",
+  "nearHubs": ["shirahama-town"],
+  "role": "destination",
+  "kind": "beach",
+  "category": "Nature",
+  "categories": ["Nature", "Beach", "Onsen"],
+  "description": "A famous 600m curve of pure white quartz sand imported from Australia, backed by palm trees and natural seaside hot spring baths.",
+  "notes": "Sister beach to Waikiki Beach, Hawaii.",
+  "notesJa": "【見どころ】サラサラの真っ白な砂浜とエメラルドグリーンの海が広がる関西屈指のリゾートビーチです。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Paid beach parking",
+  "parkingJa": "【駐車場】白良浜有料駐車場あり。",
+  "openingHours": "24 hours",
+  "openingHoursJa": "24時間参歩自由",
+  "coordinates": {
+    "lat": 33.6822,
+    "lng": 135.3439
+  },
+  "officialWebsite": "https://www.shirahama-ryokan.jp/",
+  "rating": 4.8,
+  "editorial": {
+    "rating": 4.8,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "Famous 600m curve of pure white quartz sand and seaside hot spring resort.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Shirahama White Beach & Coastal Resort",
+      "description": "A famous 600m curve of pure white quartz sand imported from Australia, backed by palm trees and natural seaside hot spring baths.",
+      "highlights": [
+        "600m Quartz Sand Beach",
+        "Shizuka-no-yu Seaside Onsen",
+        "Engetsu-to Island Sunset"
+      ]
+    },
+    "ja": {
+      "name": "白良浜・白浜温泉リゾート",
+      "description": "90%の珪酸を含む真っ白でサラサラの砂が特徴の関西を代表するリゾートビーチです。夏の花火大会や、近隣の円月島に沈む美しい夕日、歴史ある白浜温泉の外湯巡りが楽しめます。",
+      "highlights": ["白砂青松の白良浜", "円月島の夕日", "白浜温泉外湯めぐり"]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "shirahama-town"
+  },
+  "hubId": "shirahama-town",
+  "status": "published",
+  "ratings": {
+    "overall": 9.1,
+    "couple": 9.1,
+    "summer": 9.1,
+    "winter": 9.1,
+    "rain": 8.6,
+    "food": 9.1,
+    "photography": 9.3,
+    "relaxation": 9.1,
+    "value": 9.1,
+    "uniqueness": 9.1
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "id": "ritsuunkyo-viewpoint",
+  "name": "Ritsuunkyo Sea of Clouds Viewpoint",
+  "nameJa": "立雲峡",
+  "prefecture": "Hyogo",
+  "region": "Kansai",
+  "nearHubs": ["asago-city"],
+  "role": "destination",
+  "kind": "viewpoint",
+  "category": "Nature",
+  "categories": ["Nature", "Views", "Seasons"],
+  "description": "The premier vantage point situated directly across the valley from Takeda Castle, offering breathtaking early-morning views of the 'Castle in the Sky' floating above a sea of clouds.",
+  "notes": "Best sea of clouds occurs autumn mornings between 06:00 and 08:00.",
+  "notesJa": "【見どころ】雲海に浮かぶ竹田城跡を正面から望む「天空の城」絶景展望台です。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Paid parking at trailhead",
+  "parkingJa": "【駐車場】登山口に有料駐車場あり。",
+  "openingHours": "24 hours",
+  "openingHoursJa": "24時間開放（早朝登山がおすすめ）",
+  "coordinates": {
+    "lat": 35.3042,
+    "lng": 134.8361
+  },
+  "officialWebsite": "https://www.asago-kanko.com/",
+  "rating": 4.8,
+  "editorial": {
+    "rating": 4.8,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "Premier vantage point facing Takeda Castle above early-morning clouds.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Ritsuunkyo Sea of Clouds Viewpoint",
+      "description": "The premier vantage point situated directly across the valley from Takeda Castle, offering breathtaking early-morning views of the 'Castle in the Sky' floating above a sea of clouds.",
+      "highlights": [
+        "Takeda Castle Sea of Clouds View",
+        "Ritsuunkyo Observatory Trail",
+        "Autumn Cherry Blossom Foliage"
+      ]
+    },
+    "ja": {
+      "name": "立雲峡",
+      "description": "朝来山の中腹に位置し、竹田城跡を円山川を挟んで真向かいに望む展望スポットです。秋から冬の早朝、雲海に包まれて浮かび上がる竹田城の神秘的な姿を撮影できます。",
+      "highlights": [
+        "竹田城跡雲海展望",
+        "展望台ハイキングコース",
+        "但馬の桜名所"
+      ]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "asago-city"
+  },
+  "hubId": "asago-city",
+  "status": "published",
+  "ratings": {
+    "overall": 9.1,
+    "couple": 9.1,
+    "summer": 9.1,
+    "winter": 9.1,
+    "rain": 8.6,
+    "food": 9.1,
+    "photography": 9.3,
+    "relaxation": 9.1,
+    "value": 9.1,
+    "uniqueness": 9.1
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "id": "kasamatsu-park-view",
+  "name": "Kasamatsu Park Lookout",
+  "nameJa": "傘松公園",
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "nearHubs": ["miyazu-city"],
+  "role": "destination",
+  "kind": "viewpoint",
+  "category": "Nature",
+  "categories": ["Nature", "Views", "Seasons"],
+  "description": "The birthplace of 'Matanoki' (upside-down viewing), offering famous panoramic views of Amanohashidate sandbar spanning Miyazu Bay. Accessible via funicular railway and chairlift.",
+  "notes": "Funicular and chairlift ride included in ticket.",
+  "notesJa": "【見どころ】股のぞきで天橋立が天に架かる龍のように見える絶景展望台です。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Paid parking at cable car station",
+  "parkingJa": "【駐車場】ケーブルカー乗り場近くに有料駐車場あり。",
+  "openingHours": "08:00 - 17:30",
+  "openingHoursJa": "08:00 - 17:30",
+  "coordinates": {
+    "lat": 35.5802,
+    "lng": 135.1958
+  },
+  "officialWebsite": "https://www.amanohashidate.jp/lang/en/",
+  "rating": 4.7,
+  "editorial": {
+    "rating": 4.7,
+    "recommendedDurationMinutes": 60,
+    "editorialSummary": "Birthplace of upside-down viewing with panoramic views of Amanohashidate.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Kasamatsu Park Lookout",
+      "description": "The birthplace of 'Matanoki' (upside-down viewing), offering famous panoramic views of Amanohashidate sandbar spanning Miyazu Bay. Accessible via funicular railway and chairlift.",
+      "highlights": [
+        "Matanoki Upside-Down View",
+        "Amanohashidate Cable Car",
+        "Kasamatsu Sky Deck"
+      ]
+    },
+    "ja": {
+      "name": "傘松公園",
+      "description": "天橋立を北側から一望できる絶景台で、「股のぞき」発祥の地として知られます。股のぞき台から見ると、天橋立が昇り龍（昇龍観）のように天へ駆け上がる姿を鑑賞できます。",
+      "highlights": ["股のぞき台", "ケーブルカー・リフト", "スカイデッキ"]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "miyazu-city"
+  },
+  "hubId": "miyazu-city",
+  "status": "published",
+  "ratings": {
+    "overall": 8.9,
+    "couple": 8.9,
+    "summer": 8.9,
+    "winter": 8.9,
+    "rain": 8.4,
+    "food": 8.9,
+    "photography": 9.1,
+    "relaxation": 8.9,
+    "value": 8.9,
+    "uniqueness": 8.9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  }
+}

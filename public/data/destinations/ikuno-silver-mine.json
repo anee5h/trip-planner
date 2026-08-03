@@ -1,0 +1,79 @@
+{
+  "id": "ikuno-silver-mine",
+  "name": "Ikuno Historic Silver Mine",
+  "nameJa": "生野銀山",
+  "prefecture": "Hyogo",
+  "region": "Kansai",
+  "nearHubs": ["asago-city"],
+  "role": "destination",
+  "kind": "museum",
+  "category": "History",
+  "categories": ["History", "Culture", "Museum"],
+  "description": "A major historic silver mine operating from 807 AD through the modern era, featuring 1km of cool underground mining tunnels with life-sized animatronic miner displays.",
+  "notes": "Underground tunnel temperature stays at 13°C year-round.",
+  "notesJa": "【見どころ】室町時代から昭和まで採掘された大銀山で、年間通して13℃の坑道見学が楽しめます。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Free parking available",
+  "parkingJa": "【駐車場】無料駐車場あり。",
+  "openingHours": "09:10 - 16:50 (Last entry 16:10)",
+  "openingHoursJa": "09:10 - 16:50 (最終受付 16:10)",
+  "coordinates": {
+    "lat": 35.1639,
+    "lng": 134.8344
+  },
+  "officialWebsite": "https://www.ikuno-ginzan.co.jp/",
+  "rating": 4.5,
+  "editorial": {
+    "rating": 4.5,
+    "recommendedDurationMinutes": 75,
+    "editorialSummary": "Historic silver mine with 1km cool underground tunnels and mining exhibits.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Ikuno Historic Silver Mine",
+      "description": "A major historic silver mine operating from 807 AD through the modern era, featuring 1km of cool underground mining tunnels with life-sized animatronic miner displays.",
+      "highlights": [
+        "Kanagaki Underground Tunnel",
+        "GINZAN BOYZ Miner Manikins",
+        "Ikuno Mining Museum"
+      ]
+    },
+    "ja": {
+      "name": "生野銀山",
+      "description": "織田信長や豊臣秀吉、徳川家康も直轄地とした日本を代表する大銀山です。総延長350kmに及ぶ坑道のうち1kmが公開され、当時の採掘作業をリアルに再現した展示が見所です。",
+      "highlights": [
+        "金生坑道探検",
+        "スーパーアイドル「GINZAN BOYZ」",
+        "鉱山資料館"
+      ]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "asago-city"
+  },
+  "hubId": "asago-city",
+  "status": "published",
+  "ratings": {
+    "overall": 8.5,
+    "couple": 8.5,
+    "summer": 8.5,
+    "winter": 8.5,
+    "rain": 8,
+    "food": 8.5,
+    "photography": 8.7,
+    "relaxation": 8.5,
+    "value": 8.5,
+    "uniqueness": 8.5
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 0.8,
+    "max": 1.8
+  }
+}

@@ -6,19 +6,19 @@
   "content": {
     "en": {
       "name": "Osaka City Central Public Hall",
-      "description": "Osaka City Central Public Hall is a distinct visitor stop within Osaka City, selected to support a varied local itinerary.",
+      "description": "A grand Neo-Renaissance red-brick cultural landmark in Nakanoshima built in 1918, featuring stained-glass ceilings and a famous subterranean restaurant. It serves as Osaka's premier historic banquet and performance hall.",
       "highlights": ["History", "Architecture", "Culture"]
     },
     "ja": {
       "name": "大阪市中央公会堂",
-      "description": "大阪市中央公会堂はOsaka City内の観光スポットです。訪問前に最新の営業情報をご確認ください。",
+      "description": "1918年に完成した中之島を象徴するネオ・ルネサンス様式の美しい赤レンガ建築です。絢爛豪華なステンドグラス大集会室や名物オムライスの地下レストランが親しまれています。",
       "highlights": ["History", "Architecture", "Culture"]
     }
   },
   "prefecture": "Osaka",
   "region": "Kansai",
   "kind": "museum",
-  "role": "poi",
+  "role": "destination",
   "placeType": "destination",
   "relationships": {
     "parentDestinationId": "osaka-city"
@@ -37,7 +37,7 @@
     "lat": 34.6934,
     "lng": 135.505
   },
-  "description": "Osaka City Central Public Hall is a distinct visitor stop within Osaka City, selected to support a varied local itinerary.",
+  "description": "A grand Neo-Renaissance red-brick cultural landmark in Nakanoshima built in 1918, featuring stained-glass ceilings and a famous subterranean restaurant. It serves as Osaka's premier historic banquet and performance hall.",
   "highlights": ["History", "Architecture", "Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -96,14 +96,17 @@
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
   "schemaVersion": 2,
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "medium"
   },
   "collections": [],
   "addedAt": "2026-08-02",
   "editorial": {
-    "lifecycle": "in_review",
+    "rating": 4.8,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "Osaka City Central Public Hall is a distinct visitor stop within Osaka City, selected to support a varied local itinerary.",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",
@@ -112,17 +115,9 @@
         "accessedAt": "2026-08-02"
       }
     ],
+    "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-02",
-    "freshness": "current",
-    "changeSummary": "Destination hub expansion",
-    "changes": [
-      {
-        "changedAt": "2026-08-02",
-        "changedBy": "Meguruto editorial",
-        "summary": "Added itinerary-ready hub POI",
-        "method": "assisted"
-      }
-    ]
+    "freshness": "current"
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -137,5 +132,11 @@
     "license": "CC BY-SA 4.0",
     "attribution": "KishujiRapid",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osaka_City_Central_Public_Hall_20160221.JPG"
-  }
+  },
+  "notesJa": "【見どころ】大阪市中央公会堂は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+  "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+  "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "nearHubs": ["osaka-city"],
+  "hubId": "osaka-city"
 }

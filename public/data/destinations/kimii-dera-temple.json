@@ -1,0 +1,79 @@
+{
+  "id": "kimii-dera-temple",
+  "name": "Kimii-dera Temple",
+  "nameJa": "紀三井寺",
+  "prefecture": "Wakayama",
+  "region": "Kansai",
+  "hubId": "wakayama-city",
+  "nearHubs": ["wakayama-city"],
+  "role": "destination",
+  "kind": "temple",
+  "category": "Culture",
+  "categories": ["Culture", "History", "Views"],
+  "description": "Famous for 231 stone steps leading up Mt. Nagomi, 500 early-blooming cherry trees, and a 12-meter golden wooden Guanyin statue overlooking Wakanoura Bay.",
+  "notes": "Climb the 'Musubi-zaka' steps for good match-making fortune.",
+  "notesJa": "【見どころ】231段の結縁坂と、早咲き桜の名所、全高12mの金色大観音像が鎮座する名刹です。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Paid parking available at temple entrance",
+  "parkingJa": "【駐車場】門前に有料駐車場あり。",
+  "openingHours": "08:00 - 17:00",
+  "openingHoursJa": "08:00 - 17:00",
+  "coordinates": {
+    "lat": 34.1842,
+    "lng": 135.1914
+  },
+  "officialWebsite": "https://www.kimiidera.com/",
+  "rating": 4.7,
+  "editorial": {
+    "rating": 4.7,
+    "recommendedDurationMinutes": 75,
+    "editorialSummary": "Famous for 231 stone steps, 500 early-blooming cherry trees, and 12m golden Guanyin statue.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "relationships": {
+    "parentDestinationId": "wakayama-city"
+  },
+  "content": {
+    "en": {
+      "name": "Kimii-dera Temple",
+      "description": "Famous for 231 stone steps leading up Mt. Nagomi, 500 early-blooming cherry trees, and a 12-meter golden wooden Guanyin statue overlooking Wakanoura Bay.",
+      "highlights": [
+        "231 Musubi-zaka Stone Steps",
+        "12m Giant Golden Wooden Guanyin",
+        "Wakanoura Bay Panoramic View"
+      ]
+    },
+    "ja": {
+      "name": "紀三井寺",
+      "description": "宝亀元（770）年に開基された西国三十三所第二番札所の古刹です。境内に沸く三井水や関西一早く開花する早咲き桜、231段の石段を上りきった本堂からの和歌の浦の眺望が素晴らしいです。",
+      "highlights": [
+        "231段の結縁坂",
+        "日本最大の木造立像・大観音",
+        "早咲き桜と和歌の浦の眺望"
+      ]
+    }
+  },
+  "status": "published",
+  "ratings": {
+    "overall": 8.9,
+    "couple": 8.9,
+    "summer": 8.9,
+    "winter": 8.9,
+    "rain": 8.4,
+    "food": 8.9,
+    "photography": 9.1,
+    "relaxation": 8.9,
+    "value": 8.9,
+    "uniqueness": 8.9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 0.8,
+    "max": 1.8
+  }
+}

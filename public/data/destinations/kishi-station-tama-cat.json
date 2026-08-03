@@ -1,0 +1,79 @@
+{
+  "id": "kishi-station-tama-cat",
+  "name": "Kishi Station Tama Cat Conductor",
+  "nameJa": "貴志駅・たま駅長",
+  "prefecture": "Wakayama",
+  "region": "Kansai",
+  "nearHubs": ["wakayama-city"],
+  "role": "destination",
+  "kind": "station",
+  "category": "Culture",
+  "categories": ["Culture", "Family", "Train"],
+  "description": "The famous countryside train station on the Wakayama Electric Railway, world-renowned for its feline Stationmasters (Tama II Nitama and Yontama) working inside a cat-shaped station building.",
+  "notes": "Check cat stationmaster duty schedules online before visiting.",
+  "notesJa": "【見どころ】猫の顔の形をした駅舎と、三毛猫の「ニタマ駅長」が働く名物駅です。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です（いちご電車やたま電車の乗車券が便利です）。",
+  "parking": "No station parking; take Kishigawa Line train",
+  "parkingJa": "【駐車場】駅前駐車場無しため、和歌山駅から貴志川線電車利用を推奨。",
+  "openingHours": "10:00 - 16:00 (Cat duty hours)",
+  "openingHoursJa": "10:00 - 16:00 (駅長勤務時間・水木休み)",
+  "coordinates": {
+    "lat": 34.2094,
+    "lng": 135.3175
+  },
+  "officialWebsite": "https://www.wakayama-dentetsu.co.jp/",
+  "rating": 4.7,
+  "editorial": {
+    "rating": 4.7,
+    "recommendedDurationMinutes": 60,
+    "editorialSummary": "Famous railway station home to feline Stationmaster Nitama and cat station building.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Kishi Station Tama Cat Conductor",
+      "description": "The famous countryside train station on the Wakayama Electric Railway, world-renowned for its feline Stationmasters (Tama II Nitama and Yontama) working inside a cat-shaped station building.",
+      "highlights": [
+        "Tama II Nitama Cat Stationmaster",
+        "Cat-Shaped Station Building",
+        "Tama Densha Theme Train"
+      ]
+    },
+    "ja": {
+      "name": "貴志駅・たま駅長",
+      "description": "和歌山電鐵貴志川線の終着駅で、三毛猫が駅長を務めるユニークな人気スポットです。檜皮葺きの猫型駅舎にはたまカフェやたま神社が併設され、可愛らしい「たま電車」で訪れることができます。",
+      "highlights": [
+        "ニタマ駅長",
+        "たまカフェ＆たま神社",
+        "たま電車・いちご電車"
+      ]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "wakayama-city"
+  },
+  "hubId": "wakayama-city",
+  "status": "published",
+  "ratings": {
+    "overall": 8.9,
+    "couple": 8.9,
+    "summer": 8.9,
+    "winter": 8.9,
+    "rain": 8.4,
+    "food": 8.9,
+    "photography": 9.1,
+    "relaxation": 8.9,
+    "value": 8.9,
+    "uniqueness": 8.9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  }
+}
