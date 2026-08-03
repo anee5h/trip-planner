@@ -1,0 +1,97 @@
+{
+  "id": "higashi-hennazaki-cape-miyako",
+  "name": "Cape Higashi-Hennazaki",
+  "nameJa": "東平安名崎",
+  "region": "Okinawa",
+  "prefecture": "Okinawa",
+  "kind": "cape",
+  "role": "standalone",
+  "status": "published",
+  "rating": 4.7,
+  "ratingCount": 1350,
+  "tags": ["Cape", "Lighthouse", "Ocean", "Okinawa"],
+  "relationships": {
+    "parentDestinationId": "miyakojima-city"
+  },
+  "location": {
+    "latitude": 24.7262,
+    "longitude": 125.4678,
+    "address": "Bora, Gusukube, Miyakojima, Okinawa 906-0101"
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/41/Miyako_higashi_hennazaki.JPG",
+  "imageMetadata": {
+    "attribution": "Metatron via Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_higashi_hennazaki.JPG"
+  },
+  "budgetMin": 300,
+  "budgetRecommended": 500,
+  "budgetMax": 1000,
+  "budgetBreakdown": {
+    "transport": 0,
+    "tickets": 300,
+    "food": 0,
+    "cafe": 0
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-03",
+    "reviewedAt": "2026-08-03",
+    "sources": [
+      {
+        "title": "Miyakojima Tourism (Higashi-Hennazaki)",
+        "url": "https://miyako-guide.net/spot/spot-318/",
+        "type": "official"
+      }
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
+  },
+  "content": {
+    "en": {
+      "name": "Cape Higashi-Hennazaki",
+      "description": "A narrow 2km long coral peninsula jutting into the ocean at Miyako Island's easternmost tip, crowned by a white climbable lighthouse with dramatic wave-crashing sea cliff views.",
+      "highlights": [
+        "Climb the 97 steps of the white lighthouse for 360-degree ocean views",
+        "Walk the 2km cape peninsula surrounded by wild Okinawan lilies and coral boulders",
+        "Watch the sunrise over the Pacific Ocean from the easternmost point"
+      ],
+      "reservationInfo": "Cape free access; lighthouse entry ¥300 paid at door.",
+      "parkingInfo": "Free public parking lot with cafe and restrooms.",
+      "openingHours": "Cape open 24/7; lighthouse 09:00 - 16:30."
+    },
+    "ja": {
+      "name": "東平安名崎",
+      "description": "宮古島の最東端に位置する長さ約2kmの細長いサンゴ礁の岬。白亜の登れる灯台が立ち、太平洋と東シナ海を分かつ荒波と崖のダイナミックな景観が広がる。",
+      "highlights": [
+        "97段の階段を登る白亜の灯台からの360度大海原パノラマ",
+        "津波石が点在する約2kmの岬遊歩道と春に咲くテンニンソウ・テッポウユリ",
+        "宮古島一番の初日の出・サンライズ絶景スポット"
+      ],
+      "reservationInfo": "岬散策自由。灯台の参観料300円は現地でお支払い。",
+      "parkingInfo": "無料駐車場あり（売店・トイレ併設）。",
+      "openingHours": "終日開放（灯台参観09:00〜16:30）。"
+    }
+  },
+  "coordinates": {
+    "lat": 24.7262,
+    "lng": 125.4678
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 8.5,
+    "summer": 9.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 8.5,
+    "photography": 9.5,
+    "relaxation": 8.5,
+    "value": 8.5,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  }
+}

@@ -28,7 +28,6 @@
   "kind": "shrine",
   "role": "standalone",
   "placeType": "destination",
-  "relationships": {},
   "officialWebsite": "http://www.katori-jingu.or.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],

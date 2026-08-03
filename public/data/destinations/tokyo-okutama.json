@@ -87,7 +87,9 @@
       "sortOrder": 5
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "ome-tokyo"
+  },
   "walkingIntensity": "low",
   "role": "standalone",
   "placeType": "destination",

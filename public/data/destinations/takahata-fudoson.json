@@ -33,7 +33,7 @@
   "role": "poi",
   "placeType": "destination",
   "relationships": {
-    "parentDestinationId": "hino-city"
+    "parentDestinationId": "hachioji-tokyo"
   },
   "officialWebsiteRequirement": "recommended",
   "categories": ["History", "Culture", "Temple"],

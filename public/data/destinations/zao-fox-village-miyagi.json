@@ -78,7 +78,8 @@
   "status": "beta",
   "relationships": {
     "featuredDestinationIds": [],
-    "nearbyDestinationIds": ["sendai-city", "mount-zao-yamagata"]
+    "nearbyDestinationIds": ["sendai-city", "mount-zao-yamagata"],
+    "parentDestinationId": "sendai-city"
   },
   "budgetBreakdown": null,
   "role": "standalone",

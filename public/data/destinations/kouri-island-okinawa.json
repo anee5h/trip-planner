@@ -6,13 +6,13 @@
   "category": "Islands & Beaches",
   "description": "An enchanting island in northern Okinawa reached by a 2-kilometer sea bridge, famous for crystal emerald waters and Heart Rock beach.",
   "coordinates": {
-    "lat": 26.6967,
+    "lat": 26.6966,
     "lng": 128.0245
   },
   "nearestStation": "Naha Airport",
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Heart-shaped_rocks_at_Kouri_Island_202006.jpg/1920px-Heart-shaped_rocks_at_Kouri_Island_202006.jpg",
-  "tags": ["island", "beach", "okinawa", "bridge", "coastal"],
-  "rating": 4.7,
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Nago_Okinawa_Kouri-Bridge-01.jpg",
+  "tags": ["Island", "Beach", "Drive", "Okinawa"],
+  "rating": 4.6,
   "bestSeasons": ["Spring", "Summer"],
   "travelEstimate": {
     "minutesFromBase": 300,
@@ -30,23 +30,23 @@
   ],
   "region": "Okinawa",
   "categories": ["Islands & Beaches"],
-  "budgetMin": 1500,
-  "budgetMax": 6000,
-  "budgetRecommended": 3750,
+  "budgetMin": 300,
+  "budgetMax": 2000,
+  "budgetRecommended": 1000,
   "transportOptions": {
     "train": 180
   },
   "ratings": {
     "overall": 9,
-    "couple": 9,
-    "summer": 8.8,
-    "winter": 8.8,
-    "rain": 8.5,
-    "food": 9,
-    "photography": 9.2,
-    "relaxation": 8.8,
-    "value": 9,
-    "uniqueness": 9.2
+    "couple": 9.5,
+    "summer": 9.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 8.5,
+    "photography": 9.5,
+    "relaxation": 8.5,
+    "value": 8.5,
+    "uniqueness": 9
   },
   "highlights": [
     "Explore Kouri Island & Heart Rock",
@@ -77,23 +77,79 @@
   "reservation": "None required",
   "parking": "Available on site",
   "notes": "Kouri Island & Heart Rock located in Okinawa Prefecture.",
-  "status": "beta",
+  "status": "published",
   "relationships": {
-    "featuredDestinationIds": [],
-    "nearbyDestinationIds": [],
-    "parentDestinationId": "naha-city"
+    "parentDestinationId": "nago-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Heart-shaped_rocks_at_Kouri_Island_202006.jpg/1920px-Heart-shaped_rocks_at_Kouri_Island_202006.jpg",
   "walkingIntensity": "low",
   "walkingSunMin": 1800,
   "walkingShadeMin": 1200,
-  "role": "standalone",
+  "role": "destination",
   "placeType": "destination",
   "recommendedVisitHours": {
-    "min": 3,
-    "max": 5
+    "min": 1.5,
+    "max": 3
   },
   "officialWebsite": "https://www.nakijin-kankou.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "kind": "island",
+  "ratingCount": 1780,
+  "location": {
+    "latitude": 26.6966,
+    "longitude": 128.0245,
+    "address": "Kouri, Nakijin Village, Kunigami District, Okinawa 905-0406"
+  },
+  "imageMetadata": {
+    "attribution": "CEphoto, Uwe Aranas via Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANago_Okinawa_Kouri-Bridge-01.jpg"
+  },
+  "budgetBreakdown": {
+    "transport": 300,
+    "tickets": 0,
+    "food": 0,
+    "cafe": 0
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-03",
+    "reviewedAt": "2026-08-03",
+    "sources": [
+      {
+        "title": "Nakijin Tourism Association (Kouri Island)",
+        "url": "https://nakijin-kankou.jp/",
+        "type": "official"
+      }
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
+  },
+  "content": {
+    "en": {
+      "name": "Kouri Island & Heart Rock",
+      "description": "A small circular island connected to Okinawa main island by a 2km scenic sea bridge, famous for crystal clear ocean views and Tiinu Beach's Heart Rock formation.",
+      "highlights": [
+        "Drive the exhilarating 2,020m Kouri Bridge over turquoise ocean",
+        "Visit Heart Rock at Tiinu Beach featured in popular travel media",
+        "Ascend Kouri Ocean Tower for panoramic 360-degree island views"
+      ],
+      "reservationInfo": "Bridge and beaches free access; Kouri Ocean Tower ticket at entrance.",
+      "parkingInfo": "Paid parking available at Tiinu Beach (¥100-¥300); free parking at Kouri Beach.",
+      "openingHours": "Open 24/7; Kouri Ocean Tower 10:00 - 17:00."
+    },
+    "ja": {
+      "name": "古宇利島・ハートロック",
+      "description": "全長2,020mの古宇利大橋で渡る「恋の島」。透き通るブルーの海とティーヌ浜のハート型岩（ハートロック）で有名な人気ドライブスポット。",
+      "highlights": [
+        "絶景海中道路・古宇利大橋のドライブ体験",
+        "ティーヌ浜で見る波の侵食が生んだハートロック",
+        "古宇利オーシャンタワーの展望フロアから臨む360度大パノラマ"
+      ],
+      "reservationInfo": "島およびビーチ散策自由。オーシャンタワーは現地チケット制。",
+      "parkingInfo": "古宇利ビーチ無料駐車場あり（ティーヌ浜周辺は有料100円〜300円）。",
+      "openingHours": "終日開放（タワー営業10:00〜17:00）。"
+    }
+  }
 }

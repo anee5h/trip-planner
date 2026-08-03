@@ -74,7 +74,7 @@
   "relationships": {
     "featuredDestinationIds": [],
     "nearbyDestinationIds": [],
-    "parentDestinationId": "asago-city"
+    "parentDestinationId": "himeji-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/2/26/%E7%AB%B9%E7%94%B0%E5%9F%8E.JPG",
   "walkingIntensity": "low",

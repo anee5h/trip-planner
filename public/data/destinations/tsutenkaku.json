@@ -20,7 +20,9 @@
   "kind": "tower",
   "role": "standalone",
   "placeType": "destination",
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "osaka-city"
+  },
   "officialWebsite": "https://www.tsutenkaku.co.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Viewpoint"],

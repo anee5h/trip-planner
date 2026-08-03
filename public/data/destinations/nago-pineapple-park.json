@@ -1,0 +1,97 @@
+{
+  "id": "nago-pineapple-park",
+  "name": "Nago Pineapple Park",
+  "nameJa": "名護パイナップルパーク",
+  "region": "Okinawa",
+  "prefecture": "Okinawa",
+  "kind": "amusement_park",
+  "role": "standalone",
+  "status": "published",
+  "rating": 4.3,
+  "ratingCount": 1350,
+  "tags": ["Park", "Fruit", "Family", "Food", "Okinawa"],
+  "relationships": {
+    "parentDestinationId": "nago-city"
+  },
+  "location": {
+    "latitude": 26.6162,
+    "longitude": 127.9678,
+    "address": "1195 Biimata, Nago, Okinawa 905-0005"
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Pineapple_Winery_%40_Nago_Pineapple_Park%2C_Okinawa_no.3.jpg",
+  "imageMetadata": {
+    "attribution": "Bernie Ongewe via Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APineapple_Winery_%40_Nago_Pineapple_Park%2C_Okinawa_no.3.jpg"
+  },
+  "budgetMin": 1200,
+  "budgetRecommended": 1600,
+  "budgetMax": 2500,
+  "budgetBreakdown": {
+    "transport": 0,
+    "tickets": 1200,
+    "food": 0,
+    "cafe": 0
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-03",
+    "reviewedAt": "2026-08-03",
+    "sources": [
+      {
+        "title": "Nago Pineapple Park Official Site",
+        "url": "https://www.nagopine.com/",
+        "type": "official"
+      }
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
+  },
+  "content": {
+    "en": {
+      "name": "Nago Pineapple Park",
+      "description": "A colorful pineapple theme park featuring automatic cart rides through subtropical botanical gardens, pineapple wine tasting, and fresh pineapple desserts.",
+      "highlights": [
+        "Ride pineapple-shaped automated carts through lush tropical gardens",
+        "Sample fresh Okinawan pineapple, cakes, and pineapple wine at the winery",
+        "Explore the Dinosaur Adventure zone with roaring animatronic dinos"
+      ],
+      "reservationInfo": "Tickets available at counter or online discounted vouchers.",
+      "parkingInfo": "Large free parking lot for cars and buses.",
+      "openingHours": "10:00 - 18:00 (Last entry 17:30)."
+    },
+    "ja": {
+      "name": "名護パイナップルパーク",
+      "description": "パイナップル号（自動乗用カート）で亜熱帯の植物園を巡るテーマパーク。できたてパイナップルスイーツやワイナリーでの試飲が充実。",
+      "highlights": [
+        "パイナップル号に乗って楽しむ亜熱帯植物とパイナップル畑の周遊",
+        "日本初のパイナップルワイナリーでの試飲と直営ショップ限定お菓子",
+        "実物大恐竜が出現する「アナザーワールド恐竜探検」ゾーン"
+      ],
+      "reservationInfo": "当日窓口またはWEB前売りチケット購入可能。",
+      "parkingInfo": "無料大型駐車場完備。",
+      "openingHours": "10:00〜18:00（最終入園17:30）。"
+    }
+  },
+  "coordinates": {
+    "lat": 26.6162,
+    "lng": 127.9678
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 8.5,
+    "summer": 9.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 8.5,
+    "photography": 9,
+    "relaxation": 8,
+    "value": 8.5,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 2.5
+  }
+}

@@ -88,7 +88,9 @@
       "confirmed": true
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "matsumoto-city"
+  },
   "walkingIntensity": "low",
   "role": "standalone",
   "placeType": "destination",

@@ -4220,7 +4220,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kisarazu-city"
+    },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "walkingIntensity": "medium",
@@ -14173,7 +14175,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kusatsu-town"
+    },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ikaho_Onsen_03.jpg/250px-Ikaho_Onsen_03.jpg",
     "walkingIntensity": "low",
     "role": "standalone",
@@ -14482,7 +14486,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kusatsu-town"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -20383,7 +20389,7 @@
     "prefecture": "Okinawa",
     "region": "Okinawa",
     "categories": ["Travel Hub", "City Hub"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Ishigaki_montage.JPG/1280px-Ishigaki_montage.JPG",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Kabira_Bay_Ishigaki_Island40bs3s4592.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Ishigaki_montage.JPG/1280px-Ishigaki_montage.JPG",
     "description": "Yaeyama archipelago tropical island hub, famous for Kabira Bay turquoise waters, coral reefs, and stargazing.",
     "highlights": ["Explore Ishigaki City", "Local Culture & Cuisine"],
@@ -20396,16 +20402,16 @@
     "walkingShadeMin": 2500,
     "indoorPercent": 50,
     "ratings": {
-      "overall": 9.5,
-      "couple": 9.3,
-      "summer": 9,
-      "winter": 9.1,
-      "rain": 9.2,
-      "food": 9.6,
-      "photography": 9.5,
-      "relaxation": 9.2,
-      "value": 9.4,
-      "uniqueness": 9.4
+      "overall": 9,
+      "couple": 8.5,
+      "summer": 9.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 8.5,
+      "photography": 9,
+      "relaxation": 8.5,
+      "value": 8.5,
+      "uniqueness": 9
     },
     "crowd": {
       "weekday": 5,
@@ -20421,7 +20427,7 @@
     "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     "bestSeason": "All Year",
     "weatherDependence": "low",
-    "tags": ["Ishigaki City", "Okinawa Travel", "Regional Hub"],
+    "tags": ["Hub", "Okinawa", "Islands", "Beach", "Nature"],
     "coordinates": {
       "lat": 24.3448,
       "lng": 124.1572
@@ -20437,7 +20443,7 @@
     "reservation": "None required",
     "parking": "Public parking available",
     "notes": "Ishigaki City travel hub in Okinawa Prefecture.",
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -20459,11 +20465,64 @@
     },
     "walkingIntensity": "low",
     "recommendedVisitHours": {
-      "min": 6,
-      "max": 12
+      "min": 4,
+      "max": 24
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "nameJa": "石垣市",
+    "rating": 4.7,
+    "ratingCount": 1680,
+    "location": {
+      "latitude": 24.3448,
+      "longitude": 124.1572,
+      "address": "Ishigaki, Okinawa Prefecture, Japan"
+    },
+    "imageMetadata": {
+      "attribution": "663highland via Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKabira_Bay_Ishigaki_Island40bs3s4592.jpg"
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-03",
+      "reviewedAt": "2026-08-03",
+      "sources": [
+        {
+          "title": "Ishigaki City Tourism Association",
+          "url": "https://yaeyama.or.jp/",
+          "type": "official"
+        }
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
+    },
+    "content": {
+      "en": {
+        "name": "Ishigaki City",
+        "description": "The main hub city of the Yaeyama Island group, world-famous for Kabira Bay's emerald waters, manta ray scuba diving spots, and ferry links to Taketomi and Iriomote.",
+        "highlights": [
+          "Ride glass-bottom boats in picturesque Kabira Bay",
+          "Hop on island ferries from Euglena Ishigaki Port terminal",
+          "Taste authentic Ishigaki Wagyu beef and Yaeyama Soba noodles"
+        ],
+        "reservationInfo": "City hub access free; ferry rides recommended booking ahead in high season.",
+        "parkingInfo": "Paid coin parking available around port and city center.",
+        "openingHours": "24/7 city access."
+      },
+      "ja": {
+        "name": "石垣市",
+        "description": "八重山諸島の玄関口。ミシュラン三ツ星の川平湾や石垣牛、竹富島・西表島への離島フェリーターミナルが集積するアイランドリゾートシティ。",
+        "highlights": [
+          "エメラルドグリーンのグラスボート絶景・川平湾",
+          "ユーグレナ石垣港離島ターミナルからの八重山離島巡り",
+          "極上の石垣牛炭火焼肉と八重山そばグルメ"
+        ],
+        "reservationInfo": "市街アクセス自由。離島フェリーは繁忙期事前予約推奨。",
+        "parkingInfo": "港周辺および市街地に有料駐車場多数。",
+        "openingHours": "終日アクセス可能。"
+      }
+    }
   },
   {
     "id": "itabashi-city",
@@ -24741,7 +24800,6 @@
     "kind": "shrine",
     "role": "standalone",
     "placeType": "destination",
-    "relationships": {},
     "officialWebsite": "http://www.katori-jingu.or.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
@@ -26980,7 +27038,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "nikko-city"
+    },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "reservation": "No advance reservation required; tickets available on arrival.",
@@ -29982,13 +30042,13 @@
     "category": "Islands & Beaches",
     "description": "An enchanting island in northern Okinawa reached by a 2-kilometer sea bridge, famous for crystal emerald waters and Heart Rock beach.",
     "coordinates": {
-      "lat": 26.6967,
+      "lat": 26.6966,
       "lng": 128.0245
     },
     "nearestStation": "Naha Airport",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Heart-shaped_rocks_at_Kouri_Island_202006.jpg/1920px-Heart-shaped_rocks_at_Kouri_Island_202006.jpg",
-    "tags": ["island", "beach", "okinawa", "bridge", "coastal"],
-    "rating": 4.7,
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Nago_Okinawa_Kouri-Bridge-01.jpg",
+    "tags": ["Island", "Beach", "Drive", "Okinawa"],
+    "rating": 4.6,
     "bestSeasons": ["Spring", "Summer"],
     "travelEstimate": {
       "minutesFromBase": 300,
@@ -30006,23 +30066,23 @@
     ],
     "region": "Okinawa",
     "categories": ["Islands & Beaches"],
-    "budgetMin": 1500,
-    "budgetMax": 6000,
-    "budgetRecommended": 3750,
+    "budgetMin": 300,
+    "budgetMax": 2000,
+    "budgetRecommended": 1000,
     "transportOptions": {
       "train": 180
     },
     "ratings": {
       "overall": 9,
-      "couple": 9,
-      "summer": 8.8,
-      "winter": 8.8,
-      "rain": 8.5,
-      "food": 9,
-      "photography": 9.2,
-      "relaxation": 8.8,
-      "value": 9,
-      "uniqueness": 9.2
+      "couple": 9.5,
+      "summer": 9.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 8.5,
+      "photography": 9.5,
+      "relaxation": 8.5,
+      "value": 8.5,
+      "uniqueness": 9
     },
     "highlights": [
       "Explore Kouri Island & Heart Rock",
@@ -30053,25 +30113,81 @@
     "reservation": "None required",
     "parking": "Available on site",
     "notes": "Kouri Island & Heart Rock located in Okinawa Prefecture.",
-    "status": "beta",
+    "status": "published",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": [],
-      "parentDestinationId": "naha-city"
+      "parentDestinationId": "nago-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Heart-shaped_rocks_at_Kouri_Island_202006.jpg/1920px-Heart-shaped_rocks_at_Kouri_Island_202006.jpg",
     "walkingIntensity": "low",
     "walkingSunMin": 1800,
     "walkingShadeMin": 1200,
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
     "recommendedVisitHours": {
-      "min": 3,
-      "max": 5
+      "min": 1.5,
+      "max": 3
     },
     "officialWebsite": "https://www.nakijin-kankou.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "kind": "island",
+    "ratingCount": 1780,
+    "location": {
+      "latitude": 26.6966,
+      "longitude": 128.0245,
+      "address": "Kouri, Nakijin Village, Kunigami District, Okinawa 905-0406"
+    },
+    "imageMetadata": {
+      "attribution": "CEphoto, Uwe Aranas via Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANago_Okinawa_Kouri-Bridge-01.jpg"
+    },
+    "budgetBreakdown": {
+      "transport": 300,
+      "tickets": 0,
+      "food": 0,
+      "cafe": 0
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-03",
+      "reviewedAt": "2026-08-03",
+      "sources": [
+        {
+          "title": "Nakijin Tourism Association (Kouri Island)",
+          "url": "https://nakijin-kankou.jp/",
+          "type": "official"
+        }
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
+    },
+    "content": {
+      "en": {
+        "name": "Kouri Island & Heart Rock",
+        "description": "A small circular island connected to Okinawa main island by a 2km scenic sea bridge, famous for crystal clear ocean views and Tiinu Beach's Heart Rock formation.",
+        "highlights": [
+          "Drive the exhilarating 2,020m Kouri Bridge over turquoise ocean",
+          "Visit Heart Rock at Tiinu Beach featured in popular travel media",
+          "Ascend Kouri Ocean Tower for panoramic 360-degree island views"
+        ],
+        "reservationInfo": "Bridge and beaches free access; Kouri Ocean Tower ticket at entrance.",
+        "parkingInfo": "Paid parking available at Tiinu Beach (¥100-¥300); free parking at Kouri Beach.",
+        "openingHours": "Open 24/7; Kouri Ocean Tower 10:00 - 17:00."
+      },
+      "ja": {
+        "name": "古宇利島・ハートロック",
+        "description": "全長2,020mの古宇利大橋で渡る「恋の島」。透き通るブルーの海とティーヌ浜のハート型岩（ハートロック）で有名な人気ドライブスポット。",
+        "highlights": [
+          "絶景海中道路・古宇利大橋のドライブ体験",
+          "ティーヌ浜で見る波の侵食が生んだハートロック",
+          "古宇利オーシャンタワーの展望フロアから臨む360度大パノラマ"
+        ],
+        "reservationInfo": "島およびビーチ散策自由。オーシャンタワーは現地チケット制。",
+        "parkingInfo": "古宇利ビーチ無料駐車場あり（ティーヌ浜周辺は有料100円〜300円）。",
+        "openingHours": "終日開放（タワー営業10:00〜17:00）。"
+      }
+    }
   },
   {
     "id": "koya-town",
@@ -32659,7 +32775,7 @@
         "nyuto-onsen-akita",
         "kakunodate-samurai-district-akita"
       ],
-      "parentDestinationId": "semboku-city"
+      "parentDestinationId": "akita-city"
     },
     "budgetBreakdown": null,
     "recommendedVisitHours": {
@@ -36302,7 +36418,7 @@
     "prefecture": "Okinawa",
     "region": "Okinawa",
     "categories": ["Travel Hub", "City Hub"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Miyako_maipama_1.jpg/1280px-Miyako_maipama_1.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/02/Miyako_maipama_1.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Miyako_maipama_1.jpg/1280px-Miyako_maipama_1.jpg",
     "description": "Island paradise famous for 'Miyako Blue' crystal waters, Yonaha Maehama Beach, and spectacular sea bridges.",
     "highlights": ["Explore Miyakojima City", "Local Culture & Cuisine"],
@@ -36315,16 +36431,16 @@
     "walkingShadeMin": 2500,
     "indoorPercent": 50,
     "ratings": {
-      "overall": 9.5,
-      "couple": 9.3,
-      "summer": 9,
-      "winter": 9.1,
-      "rain": 9.2,
-      "food": 9.6,
-      "photography": 9.5,
-      "relaxation": 9.2,
-      "value": 9.4,
-      "uniqueness": 9.4
+      "overall": 9,
+      "couple": 8.5,
+      "summer": 9.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 8.5,
+      "photography": 9,
+      "relaxation": 8.5,
+      "value": 8.5,
+      "uniqueness": 9
     },
     "crowd": {
       "weekday": 5,
@@ -36340,7 +36456,7 @@
     "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     "bestSeason": "All Year",
     "weatherDependence": "low",
-    "tags": ["Miyakojima City", "Okinawa Travel", "Regional Hub"],
+    "tags": ["Hub", "Okinawa", "Beach", "Ocean", "Bridge"],
     "coordinates": {
       "lat": 24.8055,
       "lng": 125.2811
@@ -36356,7 +36472,7 @@
     "reservation": "None required",
     "parking": "Public parking available",
     "notes": "Miyakojima City travel hub in Okinawa Prefecture.",
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -36382,11 +36498,64 @@
     },
     "walkingIntensity": "low",
     "recommendedVisitHours": {
-      "min": 6,
-      "max": 12
+      "min": 4,
+      "max": 24
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "nameJa": "宮古島市",
+    "rating": 4.8,
+    "ratingCount": 1950,
+    "location": {
+      "latitude": 24.8055,
+      "longitude": 125.2811,
+      "address": "Miyakojima, Okinawa Prefecture, Japan"
+    },
+    "imageMetadata": {
+      "attribution": "Paipateroma via Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_maipama_1.jpg"
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-03",
+      "reviewedAt": "2026-08-03",
+      "sources": [
+        {
+          "title": "Miyakojima Tourism Association",
+          "url": "https://miyako-guide.net/",
+          "type": "official"
+        }
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
+    },
+    "content": {
+      "en": {
+        "name": "Miyakojima City",
+        "description": "The paradise island city renowned for 'Miyako Blue' sea clarity, long ocean bridges to satellite islands, white powdery sand beaches, and sea turtle snorkeling.",
+        "highlights": [
+          "Relax at 7km long Yonaha Maehama Beach, rated among Asia's best",
+          "Drive the magnificent 3,540m Irabu Bridge over open ocean waters",
+          "Snorkel with wild sea turtles at Shigira and Imgya marine parks"
+        ],
+        "reservationInfo": "City hub access free.",
+        "parkingInfo": "Free parking at almost all beaches and bridge view plazas.",
+        "openingHours": "24/7 island access."
+      },
+      "ja": {
+        "name": "宮古島市",
+        "description": "「宮古ブルー」と称される世界屈指の透明度を誇る海と白砂ビーチの島。無料の長大橋で伊良部島・来間島・池間島とつながる至高のリゾートアイランド。",
+        "highlights": [
+          "東洋一と称えられる7kmのパウダースノー白砂・与那覇前浜ビーチ",
+          "通行無料としては日本一の長さ（3,540m）を誇る伊良部大橋ドライブ",
+          "ウミガメと泳げる透明度抜群のシュノーケリング体験"
+        ],
+        "reservationInfo": "島内アクセス自由。",
+        "parkingInfo": "主要ビーチおよび大橋展望スポットに無料駐車場完備。",
+        "openingHours": "終日アクセス可能。"
+      }
+    }
   },
   {
     "id": "miyazaki-city",
@@ -36835,7 +37004,7 @@
     "prefecture": "Okinawa",
     "region": "Okinawa",
     "categories": ["Travel Hub", "City Hub"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Ocean_Expo_Park.JPG",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/47/Okinawa_Aquarium.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Ocean_Expo_Park.JPG",
     "description": "Oceanic resort town home to Okinawa Churaumi Aquarium, Emerald Beach, and Bise Fukugi Tree Avenue.",
     "highlights": ["Explore Motobu Town", "Local Culture & Cuisine"],
@@ -36848,16 +37017,16 @@
     "walkingShadeMin": 2500,
     "indoorPercent": 50,
     "ratings": {
-      "overall": 9.5,
-      "couple": 9.3,
-      "summer": 9,
-      "winter": 9.1,
-      "rain": 9.2,
-      "food": 9.6,
-      "photography": 9.5,
-      "relaxation": 9.2,
-      "value": 9.4,
-      "uniqueness": 9.4
+      "overall": 9,
+      "couple": 8.5,
+      "summer": 9.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 8.5,
+      "photography": 9,
+      "relaxation": 8.5,
+      "value": 8.5,
+      "uniqueness": 9
     },
     "crowd": {
       "weekday": 5,
@@ -36873,10 +37042,10 @@
     "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     "bestSeason": "All Year",
     "weatherDependence": "low",
-    "tags": ["Motobu Town", "Okinawa Travel", "Regional Hub"],
+    "tags": ["Hub", "Okinawa", "Aquarium", "Nature", "Castle"],
     "coordinates": {
-      "lat": 26.66,
-      "lng": 127.8895
+      "lat": 26.6575,
+      "lng": 127.8906
     },
     "comfort": {
       "heatTolerance": 8,
@@ -36889,7 +37058,7 @@
     "reservation": "None required",
     "parking": "Public parking available",
     "notes": "Motobu Town travel hub in Okinawa Prefecture.",
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -36906,11 +37075,64 @@
     },
     "walkingIntensity": "low",
     "recommendedVisitHours": {
-      "min": 6,
-      "max": 12
+      "min": 4,
+      "max": 24
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "nameJa": "本部町",
+    "rating": 4.7,
+    "ratingCount": 1650,
+    "location": {
+      "latitude": 26.6575,
+      "longitude": 127.8906,
+      "address": "Motobu, Kunigami District, Okinawa Prefecture, Japan"
+    },
+    "imageMetadata": {
+      "attribution": "Jordy Meow via Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOkinawa_Aquarium.jpg"
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-03",
+      "reviewedAt": "2026-08-03",
+      "sources": [
+        {
+          "title": "Motobu Town Tourism Association",
+          "url": "https://www.motobu-kaigan.com/",
+          "type": "official"
+        }
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
+    },
+    "content": {
+      "en": {
+        "name": "Motobu Town",
+        "description": "The coastal town on Motobu Peninsula home to World Heritage Nakijin Castle, Bise Fukugi Tree Village, and iconic Okinawa Churaumi Aquarium.",
+        "highlights": [
+          "Marvel at whale sharks in Churaumi Aquarium Kuroshio Tank",
+          "Walk peaceful emerald tunnels in Bise Fukugi Tree Village",
+          "Explore majestic stone ramparts at Nakijin Castle ruins"
+        ],
+        "reservationInfo": "Town access free; individual attractions require admission tickets.",
+        "parkingInfo": "Ocean Expo Park provides extensive free multi-story parking lots (P1 - P9).",
+        "openingHours": "24/7 town access; Ocean Expo Park generally 08:00 - 19:00."
+      },
+      "ja": {
+        "name": "本部町",
+        "description": "本部半島西部に位置し、世界的アクアリウム「沖縄美ら海水族館」や世界遺産・今帰仁城跡、備瀬のフクギ並木を有する観光の要衝。",
+        "highlights": [
+          "世界最大級の水槽で泳ぐジンベエザメとマンタを体感",
+          "備瀬のフクギ並木で木漏れ日と沖縄の原風景をのんびり散策",
+          "今帰仁城跡の屈曲する美しき城壁と東シナ海の絶景"
+        ],
+        "reservationInfo": "町内アクセス自由。各施設は現地またはオンラインでチケット購入。",
+        "parkingInfo": "海洋博公園内に大型無料駐車場多数あり（P1〜P9）。",
+        "openingHours": "終日（海洋博公園エリアは08:00〜19:00）。"
+      }
+    }
   },
   {
     "id": "motonosumi-shrine-yamaguchi",
@@ -38761,7 +38983,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "matsumoto-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -38863,7 +39087,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "matsumoto-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -38959,7 +39185,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "matsumoto-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -39061,7 +39289,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "matsumoto-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -39172,7 +39402,7 @@
     "prefecture": "Okinawa",
     "region": "Okinawa",
     "categories": ["Travel Hub", "City Hub"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg/1280px-Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/74/Busena_Resort18bs3200.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg/1280px-Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg",
     "description": "Northern main island city featuring Busena Marine Park, Orion Happy Park brewery, and cherry blossom festivals.",
     "highlights": ["Explore Nago City", "Local Culture & Cuisine"],
@@ -39185,16 +39415,16 @@
     "walkingShadeMin": 2500,
     "indoorPercent": 50,
     "ratings": {
-      "overall": 9.5,
-      "couple": 9.3,
-      "summer": 9,
-      "winter": 9.1,
-      "rain": 9.2,
-      "food": 9.6,
-      "photography": 9.5,
-      "relaxation": 9.2,
-      "value": 9.4,
-      "uniqueness": 9.4
+      "overall": 9,
+      "couple": 8.5,
+      "summer": 9.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 8.5,
+      "photography": 9,
+      "relaxation": 8.5,
+      "value": 8.5,
+      "uniqueness": 9
     },
     "crowd": {
       "weekday": 5,
@@ -39210,9 +39440,9 @@
     "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     "bestSeason": "All Year",
     "weatherDependence": "low",
-    "tags": ["Nago City", "Okinawa Travel", "Regional Hub"],
+    "tags": ["Hub", "Okinawa", "Nature", "Beaches", "Resort"],
     "coordinates": {
-      "lat": 26.5916,
+      "lat": 26.5915,
       "lng": 127.9774
     },
     "comfort": {
@@ -39226,7 +39456,7 @@
     "reservation": "None required",
     "parking": "Public parking available",
     "notes": "Nago City travel hub in Okinawa Prefecture.",
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -39243,11 +39473,64 @@
     },
     "walkingIntensity": "low",
     "recommendedVisitHours": {
-      "min": 6,
-      "max": 12
+      "min": 4,
+      "max": 24
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "nameJa": "名護市",
+    "rating": 4.5,
+    "ratingCount": 1120,
+    "location": {
+      "latitude": 26.5915,
+      "longitude": 127.9774,
+      "address": "Nago, Okinawa Prefecture, Japan"
+    },
+    "imageMetadata": {
+      "attribution": "663highland via Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABusena_Resort18bs3200.jpg"
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-03",
+      "reviewedAt": "2026-08-03",
+      "sources": [
+        {
+          "title": "Nago City Tourism Association",
+          "url": "https://nagomun.or.jp/",
+          "type": "official"
+        }
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
+    },
+    "content": {
+      "en": {
+        "name": "Nago City",
+        "description": "Northern Okinawa's hub city surrounded by lush Yanbaru sub-tropical forests, scenic coastlines, pineapple plantations, and luxury beach resorts.",
+        "highlights": [
+          "Drive across emerald waters to Kouri Island and Heart Rock",
+          "Explore underwater life at Busena Marine Park Observatory",
+          "Tour Nago Pineapple Park and taste tropical wines"
+        ],
+        "reservationInfo": "No hub-level reservation required.",
+        "parkingInfo": "Free parking widely available at resorts and attractions.",
+        "openingHours": "24/7 city access; attractions operate 09:00 - 18:00."
+      },
+      "ja": {
+        "name": "名護市",
+        "description": "沖縄本島北部の中心都市。やんばるの豊かな自然に囲まれ、リゾートビーチや古宇利島へのドライブ拠点として人気の観光都市。",
+        "highlights": [
+          "エメラルドグリーンの海を渡る古宇利大橋と古宇利島ドライブ",
+          "ブセナ海中公園の海中展望塔で濡れずにサンゴ礁観察",
+          "名護パイナップルパークでパイナップル試食とカート周遊"
+        ],
+        "reservationInfo": "市街アクセスは予約不要。",
+        "parkingInfo": "各観光施設およびリゾートホテルに無料駐車場完備。",
+        "openingHours": "終日アクセス可能（主要施設は09:00〜18:00）。"
+      }
+    }
   },
   {
     "id": "nagoya-castle-aichi",
@@ -39904,7 +40187,7 @@
     "prefecture": "Okinawa",
     "region": "Okinawa",
     "categories": ["Travel Hub", "City Hub"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/67/Naha_montage.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Naha_Shuri_Castle02s5s3200.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/6/67/Naha_montage.jpg",
     "description": "Okinawa's capital and subtropical gateway, featuring Kokusai-dori shopping boulevard and historic Shuri Castle.",
     "highlights": ["Explore Naha City", "Local Culture & Cuisine"],
@@ -39917,16 +40200,16 @@
     "walkingShadeMin": 2500,
     "indoorPercent": 50,
     "ratings": {
-      "overall": 9.5,
-      "couple": 9.3,
-      "summer": 9,
-      "winter": 9.1,
-      "rain": 9.2,
-      "food": 9.6,
-      "photography": 9.5,
-      "relaxation": 9.2,
-      "value": 9.4,
-      "uniqueness": 9.4
+      "overall": 9,
+      "couple": 8.5,
+      "summer": 9.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 8.5,
+      "photography": 9,
+      "relaxation": 8.5,
+      "value": 8.5,
+      "uniqueness": 9
     },
     "crowd": {
       "weekday": 5,
@@ -39942,7 +40225,7 @@
     "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     "bestSeason": "All Year",
     "weatherDependence": "low",
-    "tags": ["Naha City", "Okinawa Travel", "Regional Hub"],
+    "tags": ["Hub", "Okinawa", "History", "Food", "Shopping"],
     "coordinates": {
       "lat": 26.2124,
       "lng": 127.6809
@@ -39958,7 +40241,7 @@
     "reservation": "None required",
     "parking": "Public parking available",
     "notes": "Naha City travel hub in Okinawa Prefecture.",
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -39975,11 +40258,64 @@
     },
     "walkingIntensity": "low",
     "recommendedVisitHours": {
-      "min": 6,
-      "max": 12
+      "min": 4,
+      "max": 24
     },
     "businessHours": "Open access",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "nameJa": "那覇市",
+    "rating": 4.6,
+    "ratingCount": 1420,
+    "location": {
+      "latitude": 26.2124,
+      "longitude": 127.6809,
+      "address": "Naha, Okinawa Prefecture, Japan"
+    },
+    "imageMetadata": {
+      "attribution": "663highland via Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANaha_Shuri_Castle02s5s3200.jpg"
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-03",
+      "reviewedAt": "2026-08-03",
+      "sources": [
+        {
+          "title": "Naha City Official Tourism Portal",
+          "url": "https://www.naha-navi.or.jp/",
+          "type": "official"
+        }
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
+    },
+    "content": {
+      "en": {
+        "name": "Naha City",
+        "description": "The energetic capital of Okinawa Prefecture, blending Ryukyu royal heritage, vibrant shopping streets, and coastal gateway access to southern islands.",
+        "highlights": [
+          "Explore historic Shuri Castle & Ryukyu Kingdom heritage",
+          "Walk Kokusai-dori street food and boutique shops",
+          "Sample fresh seafood at Makishi Public Market"
+        ],
+        "reservationInfo": "No advance reservation required for city exploration.",
+        "parkingInfo": "Paid multi-story parking structures available near Kokusai-dori and Monorail stations.",
+        "openingHours": "24/7 city access; individual shops generally 10:00 - 21:00."
+      },
+      "ja": {
+        "name": "那覇市",
+        "description": "琉球王国の歴史が息づく首里城や賑やかな国際通りを擁する、沖縄県の政治・経済・観光の中心都市。",
+        "highlights": [
+          "世界遺産・首里城跡と琉球王国の歴史探訪",
+          "国際通りと第一牧志公設市場のグルメ散策",
+          "ゆいレールで快適な市内移動と波上宮参拝"
+        ],
+        "reservationInfo": "市内散策の事前予約は不要です。",
+        "parkingInfo": "国際通り周辺および駅近くにコインパーキング多数あり。",
+        "openingHours": "終日散策可能（店舗営業時間は主に10:00〜21:00）。"
+      }
+    }
   },
   {
     "id": "nakano-city",
@@ -56450,20 +56786,20 @@
   },
   {
     "id": "shuri-castle-okinawa",
-    "name": "Gusuku Sites and Related Properties of the Kingdom of Ryukyu",
+    "name": "Shuri Castle & Ryukyu Gusuku Sites",
     "prefecture": "Okinawa",
     "region": "Okinawa",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Naha_Shuri_Castle16s5s3200.jpg/960px-Naha_Shuri_Castle16s5s3200.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Naha_Shuri_Castle02s5s3200.jpg",
     "description": "Gusuku Sites and Related Properties of the Kingdom of Ryukyu is a UNESCO World Heritage Site in Okinawa, designated for its outstanding universal cultural or natural value.",
     "highlights": [
       "UNESCO Heritage Monument",
       "Historic Landmark",
       "Cultural Preservation Area"
     ],
-    "budgetMin": 4000,
-    "budgetMax": 15000,
-    "budgetRecommended": 9500,
+    "budgetMin": 400,
+    "budgetMax": 1000,
+    "budgetRecommended": 600,
     "transportOptions": {
       "train": 45,
       "bus": 50,
@@ -56476,15 +56812,15 @@
     "indoorPercent": 35,
     "ratings": {
       "overall": 9.2,
-      "couple": 9,
-      "summer": 8.8,
-      "winter": 8.6,
-      "rain": 8.2,
-      "food": 8.7,
-      "photography": 9.4,
-      "relaxation": 9,
-      "value": 9.2,
-      "uniqueness": 9.5
+      "couple": 8.5,
+      "summer": 9.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 8.5,
+      "photography": 9.5,
+      "relaxation": 8.5,
+      "value": 8.5,
+      "uniqueness": 9
     },
     "crowd": {
       "weekday": 3,
@@ -56500,11 +56836,7 @@
     "bestMonths": [3, 4, 5, 10, 11],
     "bestSeason": "Autumn",
     "weatherDependence": "moderate",
-    "tags": [
-      "UNESCO World Heritage",
-      "Gusuku Sites and Related Properties of the Kingdom of Ryukyu",
-      "Okinawa"
-    ],
+    "tags": ["UNESCO", "Castle", "History", "Architecture", "Okinawa"],
     "reservation": "Not required",
     "parking": "Available nearby",
     "notes": "Official UNESCO World Heritage Site.",
@@ -56515,11 +56847,11 @@
     "schemaVersion": 2,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Naha_Shuri_Castle16s5s3200.jpg/960px-Naha_Shuri_Castle16s5s3200.jpg",
     "imageMetadata": {
-      "source": "Wikimedia Commons",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Gusuku Sites and Related Properties of the Kingdom of Ryukyu via Wikipedia/Wikimedia Commons"
+      "attribution": "663highland via Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANaha_Shuri_Castle02s5s3200.jpg"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -56533,12 +56865,12 @@
       "parentDestinationId": "naha-city"
     },
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 2000,
-      "food": 3000,
-      "cafe": 1500
+      "transport": 200,
+      "tickets": 400,
+      "food": 0,
+      "cafe": 0
     },
-    "nameJa": "琉球王国のグスク及び関連遺産群",
+    "nameJa": "首里城と琉球王国のグスク",
     "comfort": {
       "heatTolerance": 7,
       "rainFriendly": 7,
@@ -56547,11 +56879,65 @@
     "walkingIntensity": "low",
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
-      "min": 5,
-      "max": 7
+      "min": 1.5,
+      "max": 3
     },
     "officialWebsite": "https://oki-park.jp/shurijo/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "kind": "castle",
+    "role": "destination",
+    "rating": 4.7,
+    "ratingCount": 2150,
+    "location": {
+      "latitude": 26.217,
+      "longitude": 127.7195,
+      "address": "1-2 Shurijo-mae, Naha, Okinawa 903-0815"
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-03",
+      "reviewedAt": "2026-08-03",
+      "sources": [
+        {
+          "title": "Shurijo Castle Park Official Site",
+          "url": "https://oki-park.jp/shurijo/",
+          "type": "official"
+        },
+        {
+          "title": "UNESCO World Heritage Centre",
+          "url": "https://whc.unesco.org/en/list/972/",
+          "type": "encyclopedia"
+        }
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
+    },
+    "content": {
+      "en": {
+        "name": "Shuri Castle & Ryukyu Gusuku Sites",
+        "description": "The historic palace complex of the Ryukyu Kingdom, featuring the iconic Shureimon Gate, stone fortification walls, and ongoing historic main hall reconstruction work.",
+        "highlights": [
+          "Pass through iconic Shureimon Gate and Kankaimon Gate",
+          "Observe active traditional restoration of Seiden main hall",
+          "Panoramic views over Naha City from Una forecourt and fortress walls"
+        ],
+        "reservationInfo": "Tickets available at gate or online in advance.",
+        "parkingInfo": "Paid underground parking on site (¥320/hour).",
+        "openingHours": "08:30 - 18:00 daily (Paid area admission until 17:30)."
+      },
+      "ja": {
+        "name": "首里城と琉球王国のグスク",
+        "description": "かつて琉球王国の政治・外交・文化の中心であった王宮。守礼門や石垣の美しさ、正殿復元作業の公開が注目の世界遺産。",
+        "highlights": [
+          "礼節を重んじる琉球文化の象徴「守礼門」と「歓会門」",
+          "令和の正殿復元作業現場の特別見学",
+          "城郭高台から見渡す那覇市街の絶景パノラマ"
+        ],
+        "reservationInfo": "有料区域チケットは現地窓口または事前オンラインで購入可能。",
+        "parkingInfo": "首里城公園地下駐車場あり（小型車1回320円）。",
+        "openingHours": "08:30〜18:00（有料区域最終入園17:30）。"
+      }
+    }
   },
   {
     "id": "soji-ji-yokohama",
@@ -58814,7 +59200,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "matsumoto-city"
+    },
     "walkingIntensity": "medium",
     "role": "standalone",
     "placeType": "destination",
@@ -58999,7 +59387,7 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [],
-      "parentDestinationId": "asago-city"
+      "parentDestinationId": "himeji-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/2/26/%E7%AB%B9%E7%94%B0%E5%9F%8E.JPG",
     "walkingIntensity": "low",
@@ -59140,7 +59528,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kofu-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -62226,7 +62616,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "hachioji-tokyo"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -62884,7 +63276,9 @@
         "sortOrder": 5
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "ome-tokyo"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -65181,7 +65575,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": []
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "shimonoseki-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Tsunoshima_Bridge_panorama_%2832275932414%29.jpg/1920px-Tsunoshima_Bridge_panorama_%2832275932414%29.jpg",
     "walkingIntensity": "low",
@@ -65496,7 +65891,9 @@
     "kind": "tower",
     "role": "standalone",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    },
     "officialWebsite": "https://www.tsutenkaku.co.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Viewpoint"],
@@ -65715,7 +66112,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "nagano-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -66842,7 +67241,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "tsukuba-city"
+    },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "reservation": "No advance reservation required; tickets available on arrival.",
@@ -67506,7 +67907,8 @@
         "fukuoka-city",
         "kitakyushu-city",
         "dazaifu-city"
-      ]
+      ],
+      "parentDestinationId": "kagoshima-city"
     },
     "budgetBreakdown": {
       "transport": 3563,
@@ -67884,7 +68286,7 @@
     },
     "collections": [],
     "relationships": {
-      "parentDestinationId": "fujiyoshida-city"
+      "parentDestinationId": "kofu-city"
     },
     "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000",
     "walkingIntensity": "low",
@@ -67981,7 +68383,7 @@
       }
     ],
     "relationships": {
-      "parentDestinationId": "fujiyoshida-city"
+      "parentDestinationId": "kofu-city"
     },
     "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000",
     "walkingIntensity": "low",
@@ -70388,7 +70790,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": ["sendai-city", "mount-zao-yamagata"]
+      "nearbyDestinationIds": ["sendai-city", "mount-zao-yamagata"],
+      "parentDestinationId": "sendai-city"
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -75565,7 +75968,7 @@
     "role": "poi",
     "placeType": "destination",
     "relationships": {
-      "parentDestinationId": "hino-city"
+      "parentDestinationId": "hachioji-tokyo"
     },
     "officialWebsiteRequirement": "recommended",
     "categories": ["History", "Culture", "Temple"],
@@ -82866,6 +83269,1364 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tomogashima_Island_Wakayama.jpg"
+    }
+  },
+  {
+    "id": "kokusai-dori-naha",
+    "name": "Kokusai-dori & Makishi Public Market",
+    "nameJa": "国際通り・第一牧志公設市場",
+    "region": "Okinawa",
+    "prefecture": "Okinawa",
+    "kind": "district",
+    "role": "destination",
+    "status": "published",
+    "rating": 4.5,
+    "ratingCount": 1840,
+    "tags": ["Shopping", "Food", "Street", "Okinawa"],
+    "relationships": {
+      "parentDestinationId": "naha-city"
+    },
+    "location": {
+      "latitude": 26.2152,
+      "longitude": 127.6851,
+      "address": "Kokusai-dori, Naha, Okinawa 900-0013"
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/89/Kokusai-dori08s3s4440.jpg",
+    "imageMetadata": {
+      "attribution": "663highland via Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKokusai-dori08s3s4440.jpg"
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 2500,
+    "budgetMax": 4000,
+    "budgetBreakdown": {
+      "transport": 200,
+      "tickets": 0,
+      "food": 1300,
+      "cafe": 0
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-03",
+      "reviewedAt": "2026-08-03",
+      "sources": [
+        {
+          "title": "Naha Kokusai-dori Association",
+          "url": "https://naha-kokusaidori.okinawa/",
+          "type": "official"
+        }
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
+    },
+    "content": {
+      "en": {
+        "name": "Kokusai-dori & Makishi Public Market",
+        "description": "Naha's famous 'Miracle Mile' vibrant avenue lined with Okinawan souvenir shops, awamori distilleries, steak houses, and fresh tropical seafood dining upstairs at Makishi Market.",
+        "highlights": [
+          "Buy Okinawan souvenirs, Chatan salt, and purple yam sweets",
+          "Select fresh local fish at Makishi Market and have it cooked upstairs",
+          "Enjoy live Okinawan sanshin music performance at local izakayas"
+        ],
+        "reservationInfo": "No reservation needed for street walk; market restaurants may have wait times at noon.",
+        "parkingInfo": "Paid coin parking lots behind main street.",
+        "openingHours": "Shops 10:00 - 22:00; Makishi Market 08:00 - 21:00."
+      },
+      "ja": {
+        "name": "国際通り・第一牧志公設市場",
+        "description": "「奇跡の1マイル」と称される那覇最大の繁華街。お土産屋やステーキハウス、鮮魚が並ぶ公設市場の2階食堂で沖縄グルメを満喫。",
+        "highlights": [
+          "沖縄銘菓ちんすこうや紫芋スイーツ、泡盛のショッピング",
+          "第一牧志公設市場で買った鮮魚を2階食堂で調理してもらう「持ち上げ」体験",
+          "夜は三線ライブ居酒屋で賑やかな民謡とオリオンビール"
+        ],
+        "reservationInfo": "通り散策は自由。人気食堂はランチ帯に混雑あり。",
+        "parkingInfo": "周辺裏通りにコインパーキング多数。",
+        "openingHours": "店舗10:00〜22:00、市場08:00〜21:00（店舗による）。"
+      }
+    },
+    "coordinates": {
+      "lat": 26.2152,
+      "lng": 127.6851
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 8.5,
+      "summer": 9.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 9.5,
+      "photography": 9,
+      "relaxation": 8.5,
+      "value": 8.5,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    }
+  },
+  {
+    "id": "naminoue-shrine-naha",
+    "name": "Naminoue Shrine & Beach",
+    "nameJa": "波上宮・波の上ビーチ",
+    "region": "Okinawa",
+    "prefecture": "Okinawa",
+    "kind": "shrine",
+    "role": "standalone",
+    "status": "published",
+    "rating": 4.4,
+    "ratingCount": 960,
+    "tags": ["Shrine", "Beach", "Coast", "Okinawa"],
+    "relationships": {
+      "parentDestinationId": "naha-city"
+    },
+    "location": {
+      "latitude": 26.2206,
+      "longitude": 127.6711,
+      "address": "1-25-11 Wakasa, Naha, Okinawa 900-0031"
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Naha_Naminoue_Beach_%26_Naminoue-gu_33.jpg",
+    "imageMetadata": {
+      "attribution": "Zairon via Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANaha_Naminoue_Beach_%26_Naminoue-gu_33.jpg"
+    },
+    "budgetMin": 0,
+    "budgetRecommended": 500,
+    "budgetMax": 1000,
+    "budgetBreakdown": {
+      "transport": 0,
+      "tickets": 0,
+      "food": 0,
+      "cafe": 0
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-03",
+      "reviewedAt": "2026-08-03",
+      "sources": [
+        {
+          "title": "Naminoue Shrine Official Site",
+          "url": "http://naminouegu.jp/",
+          "type": "official"
+        }
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
+    },
+    "content": {
+      "en": {
+        "name": "Naminoue Shrine & Beach",
+        "description": "The primary Shinto shrine of Okinawa perched dramatic on a coral cliff overlooking Naha's city beach and emerald ocean waters.",
+        "highlights": [
+          "Visit the red-tiled Ryukyu-style Shinto shrine on the coral cliff",
+          "Relax at Naha City's only public swimming beach below the cliff",
+          "Collect unique Okinawan bingata-patterned omamori lucky charms"
+        ],
+        "reservationInfo": "Free open access.",
+        "parkingInfo": "Small dedicated parking lot available; paid public lots nearby.",
+        "openingHours": "Shrine grounds open 24/7; shrine office 09:00 - 17:00."
+      },
+      "ja": {
+        "name": "波上宮・波の上ビーチ",
+        "description": "サンゴ礁の断崖上に立つ「一の宮」格の神社。赤瓦の社殿と青い海、足元に広がる那覇唯一の市民ビーチが魅力の景勝地。",
+        "highlights": [
+          "断崖絶壁に鎮座する朱塗りの波上宮参拝と御朱印受領",
+          "紅型（びんがた）模様の鮮やかなお守り授与",
+          "社殿下の波の上ビーチで海水浴や海風散策"
+        ],
+        "reservationInfo": "参拝自由・無料。",
+        "parkingInfo": "境内駐車場および周辺有料駐車場あり。",
+        "openingHours": "境内自由（社務所09:00〜17:00）。"
+      }
+    },
+    "coordinates": {
+      "lat": 26.2206,
+      "lng": 127.6711
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 8.5,
+      "summer": 9.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 8.5,
+      "photography": 9,
+      "relaxation": 8.5,
+      "value": 8.5,
+      "uniqueness": 8.5
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    }
+  },
+  {
+    "id": "fukushuen-garden-naha",
+    "name": "Fukushuen Garden",
+    "nameJa": "福州園",
+    "region": "Okinawa",
+    "prefecture": "Okinawa",
+    "kind": "garden",
+    "role": "standalone",
+    "status": "published",
+    "rating": 4.3,
+    "ratingCount": 510,
+    "tags": ["Garden", "Architecture", "Culture", "Okinawa"],
+    "relationships": {
+      "parentDestinationId": "naha-city"
+    },
+    "location": {
+      "latitude": 26.2173,
+      "longitude": 127.6763,
+      "address": "2-29-1 Kume, Naha, Okinawa 900-0033"
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Fukushuen_Naha_Okinawa01s3.jpg",
+    "imageMetadata": {
+      "attribution": "663highland via Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFukushuen_Naha_Okinawa01s3.jpg"
+    },
+    "budgetMin": 300,
+    "budgetRecommended": 500,
+    "budgetMax": 1000,
+    "budgetBreakdown": {
+      "transport": 0,
+      "tickets": 300,
+      "food": 0,
+      "cafe": 0
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-03",
+      "reviewedAt": "2026-08-03",
+      "sources": [
+        {
+          "title": "Fukushuen Garden Official Site",
+          "url": "https://www.fukushuen.jp/",
+          "type": "official"
+        }
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
+    },
+    "content": {
+      "en": {
+        "name": "Fukushuen Garden",
+        "description": "A serene traditional Chinese landscape garden constructed in Naha's Kumemura district using granite and wood imported from Fuzhou, China.",
+        "highlights": [
+          "Stroll across stone arch bridges and fish-filled ponds",
+          "Admire Chinese wooden pavilions, pagodas, and artificial waterfall",
+          "Experience quiet tea house refreshments inside the garden"
+        ],
+        "reservationInfo": "Tickets purchased at entrance.",
+        "parkingInfo": "Paid parking available at adjacent Matsuyama Park lot.",
+        "openingHours": "09:00 - 18:00 (Closed Wednesdays)."
+      },
+      "ja": {
+        "name": "福州園",
+        "description": "那覇市と中国・福州市の友好都市締結10周年を記念して作られた本格的中国庭園。滝や石橋、木造楼閣が美しい静かな癒やしスポット。",
+        "highlights": [
+          "福州市の建築様式を取り入れた美しい木造楼閣と石橋",
+          "築山から流れ落ちる滝と鯉が泳ぐ池の庭園回遊",
+          "クメムラ（久米村）の歴史に触れられる伝統空間"
+        ],
+        "reservationInfo": "現地窓口でチケット購入。",
+        "parkingInfo": "近隣の松山公園駐車場等を利用。",
+        "openingHours": "09:00〜18:00（水曜定休）。"
+      }
+    },
+    "coordinates": {
+      "lat": 26.2173,
+      "lng": 127.6763
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 8.5,
+      "summer": 9.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 8.5,
+      "photography": 9,
+      "relaxation": 9,
+      "value": 8.5,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    }
+  },
+  {
+    "id": "nago-pineapple-park",
+    "name": "Nago Pineapple Park",
+    "nameJa": "名護パイナップルパーク",
+    "region": "Okinawa",
+    "prefecture": "Okinawa",
+    "kind": "amusement_park",
+    "role": "standalone",
+    "status": "published",
+    "rating": 4.3,
+    "ratingCount": 1350,
+    "tags": ["Park", "Fruit", "Family", "Food", "Okinawa"],
+    "relationships": {
+      "parentDestinationId": "nago-city"
+    },
+    "location": {
+      "latitude": 26.6162,
+      "longitude": 127.9678,
+      "address": "1195 Biimata, Nago, Okinawa 905-0005"
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Pineapple_Winery_%40_Nago_Pineapple_Park%2C_Okinawa_no.3.jpg",
+    "imageMetadata": {
+      "attribution": "Bernie Ongewe via Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APineapple_Winery_%40_Nago_Pineapple_Park%2C_Okinawa_no.3.jpg"
+    },
+    "budgetMin": 1200,
+    "budgetRecommended": 1600,
+    "budgetMax": 2500,
+    "budgetBreakdown": {
+      "transport": 0,
+      "tickets": 1200,
+      "food": 0,
+      "cafe": 0
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-03",
+      "reviewedAt": "2026-08-03",
+      "sources": [
+        {
+          "title": "Nago Pineapple Park Official Site",
+          "url": "https://www.nagopine.com/",
+          "type": "official"
+        }
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
+    },
+    "content": {
+      "en": {
+        "name": "Nago Pineapple Park",
+        "description": "A colorful pineapple theme park featuring automatic cart rides through subtropical botanical gardens, pineapple wine tasting, and fresh pineapple desserts.",
+        "highlights": [
+          "Ride pineapple-shaped automated carts through lush tropical gardens",
+          "Sample fresh Okinawan pineapple, cakes, and pineapple wine at the winery",
+          "Explore the Dinosaur Adventure zone with roaring animatronic dinos"
+        ],
+        "reservationInfo": "Tickets available at counter or online discounted vouchers.",
+        "parkingInfo": "Large free parking lot for cars and buses.",
+        "openingHours": "10:00 - 18:00 (Last entry 17:30)."
+      },
+      "ja": {
+        "name": "名護パイナップルパーク",
+        "description": "パイナップル号（自動乗用カート）で亜熱帯の植物園を巡るテーマパーク。できたてパイナップルスイーツやワイナリーでの試飲が充実。",
+        "highlights": [
+          "パイナップル号に乗って楽しむ亜熱帯植物とパイナップル畑の周遊",
+          "日本初のパイナップルワイナリーでの試飲と直営ショップ限定お菓子",
+          "実物大恐竜が出現する「アナザーワールド恐竜探検」ゾーン"
+        ],
+        "reservationInfo": "当日窓口またはWEB前売りチケット購入可能。",
+        "parkingInfo": "無料大型駐車場完備。",
+        "openingHours": "10:00〜18:00（最終入園17:30）。"
+      }
+    },
+    "coordinates": {
+      "lat": 26.6162,
+      "lng": 127.9678
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 8.5,
+      "summer": 9.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 8.5,
+      "photography": 9,
+      "relaxation": 8,
+      "value": 8.5,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 2.5
+    }
+  },
+  {
+    "id": "busena-marine-park-nago",
+    "name": "Busena Marine Park & Underwater Observatory",
+    "nameJa": "ブセナ海中公園・海中展望塔",
+    "region": "Okinawa",
+    "prefecture": "Okinawa",
+    "kind": "park",
+    "role": "standalone",
+    "status": "published",
+    "rating": 4.5,
+    "ratingCount": 1410,
+    "tags": ["Marine", "Observatory", "Ocean", "Okinawa"],
+    "relationships": {
+      "parentDestinationId": "nago-city"
+    },
+    "location": {
+      "latitude": 26.5273,
+      "longitude": 127.9288,
+      "address": "1744-1 Kise, Nago, Okinawa 905-0026"
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/74/Busena_Resort18bs3200.jpg",
+    "imageMetadata": {
+      "attribution": "663highland via Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABusena_Resort18bs3200.jpg"
+    },
+    "budgetMin": 1050,
+    "budgetRecommended": 2100,
+    "budgetMax": 3000,
+    "budgetBreakdown": {
+      "transport": 0,
+      "tickets": 1050,
+      "food": 0,
+      "cafe": 0
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-03",
+      "reviewedAt": "2026-08-03",
+      "sources": [
+        {
+          "title": "Busena Marine Park Official Site",
+          "url": "https://www.busena-marinepark.com/",
+          "type": "official"
+        }
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
+    },
+    "content": {
+      "en": {
+        "name": "Busena Marine Park & Underwater Observatory",
+        "description": "Okinawa's premier marine facility on Busena Cape, offering a 360-degree underwater observation tower and whale-shaped glass-bottom boat tours over coral reefs.",
+        "highlights": [
+          "Descend into underwater tower 4 meters below sea level to watch wild tropical fish",
+          "Ride glass-bottom boats to observe vibrant coral reef ecosystems",
+          "Stroll along Cape Busena's white sandy beach and resort promenade"
+        ],
+        "reservationInfo": "Tickets purchased at park reception.",
+        "parkingInfo": "Park visitor parking available inside Busena Resort grounds.",
+        "openingHours": "09:00 - 17:30 (April to October until 18:00)."
+      },
+      "ja": {
+        "name": "ブセナ海中公園・海中展望塔",
+        "description": "部瀬名岬に立つ海中展望塔。衣服を着たまま水深4mの海中に入り、360度の丸窓から野生の熱帯魚やサンゴ礁を間近に観察可能。",
+        "highlights": [
+          "服を着たまま海中世界を楽しめる360度パノラマの海中展望塔",
+          "クジラ型のグラス底ボートで巡るサンゴ礁とカラフルな魚群観察",
+          "部瀬名岬のラグジュアリーなリゾートビーチ景観"
+        ],
+        "reservationInfo": "公園発券窓口にて当日券購入。",
+        "parkingInfo": "敷地内（ザ・ブセナテラス隣接）専用駐車場あり。",
+        "openingHours": "09:00〜17:30（4月〜10月は18:00まで）。"
+      }
+    },
+    "coordinates": {
+      "lat": 26.5273,
+      "lng": 127.9288
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 8.5,
+      "summer": 9.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 8.5,
+      "photography": 9,
+      "relaxation": 9,
+      "value": 8.5,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 2.5
+    }
+  },
+  {
+    "id": "churaumi-aquarium-motobu",
+    "name": "Okinawa Churaumi Aquarium",
+    "nameJa": "沖縄美ら海水族館",
+    "region": "Okinawa",
+    "prefecture": "Okinawa",
+    "kind": "aquarium",
+    "role": "destination",
+    "status": "published",
+    "rating": 4.8,
+    "ratingCount": 3890,
+    "tags": ["Aquarium", "Marine", "Family", "Okinawa"],
+    "relationships": {
+      "parentDestinationId": "motobu-town"
+    },
+    "location": {
+      "latitude": 26.6944,
+      "longitude": 127.8779,
+      "address": "424 Ishikawa, Motobu-cho, Kunigami-gun, Okinawa 905-0206"
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/47/Okinawa_Aquarium.jpg",
+    "imageMetadata": {
+      "attribution": "Jordy Meow via Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOkinawa_Aquarium.jpg"
+    },
+    "budgetMin": 2180,
+    "budgetRecommended": 3000,
+    "budgetMax": 5000,
+    "budgetBreakdown": {
+      "transport": 0,
+      "tickets": 2180,
+      "food": 0,
+      "cafe": 0
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-03",
+      "reviewedAt": "2026-08-03",
+      "sources": [
+        {
+          "title": "Okinawa Churaumi Aquarium Official Site",
+          "url": "https://churaumi.okinawa/",
+          "type": "official"
+        }
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
+    },
+    "content": {
+      "en": {
+        "name": "Okinawa Churaumi Aquarium",
+        "description": "One of the world's largest aquariums located inside Ocean Expo Park, world-renowned for its colossal 7,500m³ 'Kuroshio Sea' tank holding multiple whale sharks and reef manta rays.",
+        "highlights": [
+          "Gaze at giant whale sharks and manta rays swimming in Kuroshio Main Tank",
+          "Watch free outdoor dolphin shows at Okichan Theater ocean stage",
+          "Touch sea stars and sea cucumbers at the coral reef touch pool"
+        ],
+        "reservationInfo": "Tickets available online or convenience stores with discount, and at park entrance.",
+        "parkingInfo": "Free P7 multi-story parking lot closest to aquarium entrance.",
+        "openingHours": "08:30 - 18:30 (Peak season until 20:00)."
+      },
+      "ja": {
+        "name": "沖縄美ら海水族館",
+        "description": "海洋博公園内にある世界トップクラスの水族館。巨大水槽「黒潮の海」で複数のジンベエザメやナンヨウマンタが泳ぐ神秘的な景観が世界的に有名。",
+        "highlights": [
+          "高さ8.2m・幅22.5mのアクリルパネル越しに見るジンベエザメの給餌体験",
+          "東シナ海を背景に繰り広げられる「オキちゃん劇場」のイルカショー（観覧無料）",
+          "サンゴ礁の浅瀬を再現したタッチプールと深海生物ゾーン"
+        ],
+        "reservationInfo": "現地窓口、WEBチケット、道の駅許田等で前売り券購入可能。",
+        "parkingInfo": "水族館に最も近いP7立体駐車場（無料）が便利。",
+        "openingHours": "08:30〜18:30（繁忙期は20:00まで開館）。"
+      }
+    },
+    "coordinates": {
+      "lat": 26.6944,
+      "lng": 127.8779
+    },
+    "ratings": {
+      "overall": 9.8,
+      "couple": 8.5,
+      "summer": 9.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 8.5,
+      "photography": 9.5,
+      "relaxation": 8.5,
+      "value": 8.5,
+      "uniqueness": 9.8
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 2.5,
+      "max": 4.5
+    }
+  },
+  {
+    "id": "bise-fukugi-tree-road-motobu",
+    "name": "Bise Fukugi Tree-Lined Village",
+    "nameJa": "備瀬のフクギ並木",
+    "region": "Okinawa",
+    "prefecture": "Okinawa",
+    "kind": "nature",
+    "role": "standalone",
+    "status": "published",
+    "rating": 4.5,
+    "ratingCount": 1120,
+    "tags": ["Nature", "Village", "Walk", "Okinawa"],
+    "relationships": {
+      "parentDestinationId": "motobu-town"
+    },
+    "location": {
+      "latitude": 26.7042,
+      "longitude": 127.88,
+      "address": "Bise, Motobu-cho, Kunigami-gun, Okinawa 905-0207"
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/62/Bise_Fukugi_Tree_Road_01.JPG",
+    "imageMetadata": {
+      "attribution": "Abasaa via Wikimedia Commons",
+      "license": "Public domain",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABise_Fukugi_Tree_Road_01.JPG"
+    },
+    "budgetMin": 0,
+    "budgetRecommended": 500,
+    "budgetMax": 1500,
+    "budgetBreakdown": {
+      "transport": 0,
+      "tickets": 0,
+      "food": 0,
+      "cafe": 0
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-03",
+      "reviewedAt": "2026-08-03",
+      "sources": [
+        {
+          "title": "Motobu Town Tourism Association (Bise)",
+          "url": "https://www.motobu-kaigan.com/",
+          "type": "official"
+        }
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
+    },
+    "content": {
+      "en": {
+        "name": "Bise Fukugi Tree-Lined Village",
+        "description": "A quiet coastal village surrounded by thousands of ancient Garcinia (Fukugi) windbreak trees forming green vaulted tunnels that filter sunlight down to sandy footpaths.",
+        "highlights": [
+          "Walk or rent a bicycle along 1km of shaded emerald tree tunnels",
+          "Ride a traditional water-buffalo cart guided by local villagers",
+          "Reach Bise-zaki point at the end of the path for coral snorkeling"
+        ],
+        "reservationInfo": "Walking path free; water buffalo cart rides booked on site.",
+        "parkingInfo": "Paid parking lot at Bise-zaki entrance (¥500/day).",
+        "openingHours": "Open 24/7; daytime walking recommended (08:00 - 18:00)."
+      },
+      "ja": {
+        "name": "備瀬のフクギ並木",
+        "description": "台風から家々を守るため植えられた数千本のフクギが並ぶ古き良き沖縄の集落。緑のトンネルに木漏れ日が差し込む幻想的な散策路。",
+        "highlights": [
+          "約1kmにわたり続く緑豊かなフクギのトンネル散歩・レンタサイクル",
+          "三線の音色を聞きながら巡る伝統の水牛車観光",
+          "並木道を抜けた備瀬崎海岸でのイノー（浅瀬）観察とシュノーケリング"
+        ],
+        "reservationInfo": "散策自由。水牛車体験は現地受付。",
+        "parkingInfo": "備瀬崎入口付近に有料駐車場あり（500円/日）。",
+        "openingHours": "終日散策可能（日中の見学08:00〜18:00推奨）。"
+      }
+    },
+    "coordinates": {
+      "lat": 26.7042,
+      "lng": 127.88
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 8.5,
+      "summer": 9.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 8.5,
+      "photography": 9,
+      "relaxation": 9.5,
+      "value": 8.5,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    }
+  },
+  {
+    "id": "nakijin-castle-ruins-motobu",
+    "name": "Nakijin Castle Ruins",
+    "nameJa": "今帰仁城跡",
+    "region": "Okinawa",
+    "prefecture": "Okinawa",
+    "kind": "castle",
+    "role": "standalone",
+    "status": "published",
+    "rating": 4.6,
+    "ratingCount": 1240,
+    "tags": ["UNESCO", "Castle", "History", "Ruins", "Okinawa"],
+    "relationships": {
+      "parentDestinationId": "motobu-town"
+    },
+    "location": {
+      "latitude": 26.6914,
+      "longitude": 127.9287,
+      "address": "510 Imadomari, Nakijin-son, Kunigami-gun, Okinawa 905-0428"
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Nakijin_Okinawa_Japan_Nakikjin-Castle-11.jpg",
+    "imageMetadata": {
+      "attribution": "CEphoto, Uwe Aranas via Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANakijin_Okinawa_Japan_Nakikjin-Castle-11.jpg"
+    },
+    "budgetMin": 600,
+    "budgetRecommended": 900,
+    "budgetMax": 1500,
+    "budgetBreakdown": {
+      "transport": 0,
+      "tickets": 600,
+      "food": 0,
+      "cafe": 0
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-03",
+      "reviewedAt": "2026-08-03",
+      "sources": [
+        {
+          "title": "Nakijin Castle Ruins Official Site",
+          "url": "https://nakijinjoseki.jp/",
+          "type": "official"
+        },
+        {
+          "title": "UNESCO World Heritage Centre",
+          "url": "https://whc.unesco.org/en/list/972/",
+          "type": "encyclopedia"
+        }
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
+    },
+    "content": {
+      "en": {
+        "name": "Nakijin Castle Ruins",
+        "description": "A 14th-century World Heritage fortress of the Hokuzan Kingdom featuring undulating Ryukyu limestone walls snake-like along mountain ridges with sweeping East China Sea ocean views.",
+        "highlights": [
+          "Walk along massive 1.5km curving limestone walls resembling the Great Wall",
+          "Take in breathtaking panoramic views of the East China Sea horizon",
+          "See early Ryukyu cherry blossoms flowering along the stone steps in January-February"
+        ],
+        "reservationInfo": "Tickets purchased at ticket office at entrance.",
+        "parkingInfo": "Free visitor parking available on site.",
+        "openingHours": "08:00 - 18:00 (May to August until 19:00)."
+      },
+      "ja": {
+        "name": "今帰仁城跡",
+        "description": "14世紀の北山王の居城跡。龍の背のようにうねる琉球石灰岩の堅牢な城壁と、高台から望むエメラルドグリーンの東シナ海が美しい世界遺産。",
+        "highlights": [
+          "城壁の曲線美が際立つ全長1.5kmの石垣と平郎門（正門）",
+          "主郭跡から見渡す断崖絶壁と東シナ海の水平線",
+          "毎年1月下旬〜2月上旬に咲き誇る日本一早いカンヒザクラ（寒緋桜）の名所"
+        ],
+        "reservationInfo": "現地チケット売場にて購入（歴史文化センター共通券）。",
+        "parkingInfo": "無料駐車場あり。",
+        "openingHours": "08:00〜18:00（5月〜8月は19:00まで）。"
+      }
+    },
+    "coordinates": {
+      "lat": 26.6914,
+      "lng": 127.9287
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 8.5,
+      "summer": 9.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 8.5,
+      "photography": 9.5,
+      "relaxation": 8.5,
+      "value": 8.5,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2.5
+    }
+  },
+  {
+    "id": "kabira-bay-ishigaki",
+    "name": "Kabira Bay",
+    "nameJa": "川平湾",
+    "region": "Okinawa",
+    "prefecture": "Okinawa",
+    "kind": "nature",
+    "role": "destination",
+    "status": "published",
+    "rating": 4.8,
+    "ratingCount": 2450,
+    "tags": ["Bay", "Ocean", "Glass-Bottom", "Okinawa"],
+    "relationships": {
+      "parentDestinationId": "ishigaki-city"
+    },
+    "location": {
+      "latitude": 24.4533,
+      "longitude": 124.1425,
+      "address": "Kabira, Ishigaki, Okinawa 907-0453"
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Kabira_Bay_Ishigaki_Island40bs3s4592.jpg",
+    "imageMetadata": {
+      "attribution": "663highland via Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKabira_Bay_Ishigaki_Island40bs3s4592.jpg"
+    },
+    "budgetMin": 1200,
+    "budgetRecommended": 1800,
+    "budgetMax": 3000,
+    "budgetBreakdown": {
+      "transport": 0,
+      "tickets": 1200,
+      "food": 0,
+      "cafe": 0
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-03",
+      "reviewedAt": "2026-08-03",
+      "sources": [
+        {
+          "title": "Ishigaki Tourism (Kabira Bay)",
+          "url": "https://yaeyama.or.jp/spot/kabirabay/",
+          "type": "official"
+        }
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
+    },
+    "content": {
+      "en": {
+        "name": "Kabira Bay",
+        "description": "Awarded 3 stars by Michelin Green Guide Japan, Kabira Bay features breathtaking multi-hued turquoise waters, black pearl cultivation reefs, and white sand shores.",
+        "highlights": [
+          "Take a glass-bottom boat tour to view giant clams, sea turtles, and corals",
+          "Walk up to Kabira Park viewpoint for sweeping bay panoramas",
+          "Observe black pearl culture displays at local shore boutiques"
+        ],
+        "reservationInfo": "Glass-bottom boat tickets available on arrival at beach huts.",
+        "parkingInfo": "Municipal paid parking lot near Kabira Park entrance (¥300).",
+        "openingHours": "Bay view open 24/7; glass-bottom boats 09:00 - 17:00."
+      },
+      "ja": {
+        "name": "川平湾",
+        "description": "ミシュラン・グリーンガイド・ジャポンで最高ランク三ツ星を獲得した石垣島一の景勝地。時間や潮の満ち引きで七色に変化する海と黒真珠の養殖で有名。",
+        "highlights": [
+          "グラスボートで覗く熱帯魚や巨大シャコガイ、サンゴ礁の海中世界",
+          "川平公園の展望台から望む小島が浮かぶ絵画のような絶景"
+        ],
+        "reservationInfo": "グラスボート乗船券は現地各社で随時購入可能（予約なしでも乗船可）。",
+        "parkingInfo": "川平公園有料駐車場あり（300円）。",
+        "openingHours": "景観見学は自由。グラスボート運航09:00〜17:00。"
+      }
+    },
+    "coordinates": {
+      "lat": 24.4533,
+      "lng": 124.1425
+    },
+    "ratings": {
+      "overall": 9.8,
+      "couple": 8.5,
+      "summer": 9.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 8.5,
+      "photography": 9.8,
+      "relaxation": 8.5,
+      "value": 8.5,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3
+    }
+  },
+  {
+    "id": "tamatorizaki-viewpoint-ishigaki",
+    "name": "Tamatorizaki Observatory",
+    "nameJa": "玉取崎展望台",
+    "region": "Okinawa",
+    "prefecture": "Okinawa",
+    "kind": "viewpoint",
+    "role": "standalone",
+    "status": "published",
+    "rating": 4.6,
+    "ratingCount": 890,
+    "tags": ["Viewpoint", "Ocean", "Panorama", "Okinawa"],
+    "relationships": {
+      "parentDestinationId": "ishigaki-city"
+    },
+    "location": {
+      "latitude": 24.4988,
+      "longitude": 124.2882,
+      "address": "Ibaruma, Ishigaki, Okinawa 907-0332"
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/94/Cape_Tamatori%2C_Ishigaki.jpg",
+    "imageMetadata": {
+      "attribution": "Kzaral via Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACape_Tamatori%2C_Ishigaki.jpg"
+    },
+    "budgetMin": 0,
+    "budgetRecommended": 300,
+    "budgetMax": 1000,
+    "budgetBreakdown": {
+      "transport": 0,
+      "tickets": 0,
+      "food": 0,
+      "cafe": 0
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-03",
+      "reviewedAt": "2026-08-03",
+      "sources": [
+        {
+          "title": "Ishigaki Tourism (Tamatorizaki)",
+          "url": "https://yaeyama.or.jp/spot/tamatorizaki/",
+          "type": "official"
+        }
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
+    },
+    "content": {
+      "en": {
+        "name": "Tamatorizaki Observatory",
+        "description": "A scenic hill observatory on northeastern Ishigaki Island lined with vibrant red hibiscus flowers, offering panoramic views of Ibaruma Bay and the Hirakubo Peninsula.",
+        "highlights": [
+          "Walk the gentle hibiscus-lined stone path to the hilltop gazebo",
+          "Take in 180-degree views of coral reef ocean gradients and green peninsulas"
+        ],
+        "reservationInfo": "Free open access.",
+        "parkingInfo": "Free public parking lot with clean restroom facilities.",
+        "openingHours": "Open 24/7; best visited during daylight hours."
+      },
+      "ja": {
+        "name": "玉取崎展望台",
+        "description": "石垣島北東部に位置する人気絶景ポイント。ハイビスカスが咲き誇る遊歩道を登ると、伊原間湾と平久保半島の美しい海と緑のグラデーションが一望できる。",
+        "highlights": [
+          "一年中ハイビスカスが彩る石畳の展望遊歩道散策",
+          "太平洋と東シナ海を包み込むエメラルドグリーンのパノラマビュー"
+        ],
+        "reservationInfo": "入場自由・無料。",
+        "parkingInfo": "無料駐車場完備（公衆トイレ併設）。",
+        "openingHours": "終日開放（日中・夕刻の景観がおすすめ）。"
+      }
+    },
+    "coordinates": {
+      "lat": 24.4988,
+      "lng": 124.2882
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 8.5,
+      "summer": 9.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 8.5,
+      "photography": 9.5,
+      "relaxation": 9,
+      "value": 8.5,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 1.5
+    }
+  },
+  {
+    "id": "yonehara-beach-coral-ishigaki",
+    "name": "Yonehara Beach & Coral Reef",
+    "nameJa": "米原ビーチ",
+    "region": "Okinawa",
+    "prefecture": "Okinawa",
+    "kind": "beach",
+    "role": "standalone",
+    "status": "published",
+    "rating": 4.5,
+    "ratingCount": 780,
+    "tags": ["Beach", "Snorkeling", "Coral", "Okinawa"],
+    "relationships": {
+      "parentDestinationId": "ishigaki-city"
+    },
+    "location": {
+      "latitude": 24.4578,
+      "longitude": 124.1825,
+      "address": "Fukai, Ishigaki, Okinawa 907-0451"
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Yonehara_Beach_23.jpg",
+    "imageMetadata": {
+      "attribution": "Syced via Wikimedia Commons",
+      "license": "CC0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AYonehara_Beach_23.jpg"
+    },
+    "budgetMin": 500,
+    "budgetRecommended": 1000,
+    "budgetMax": 2500,
+    "budgetBreakdown": {
+      "transport": 0,
+      "tickets": 0,
+      "food": 0,
+      "cafe": 0
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-03",
+      "reviewedAt": "2026-08-03",
+      "sources": [
+        {
+          "title": "Ishigaki Tourism (Yonehara Beach)",
+          "url": "https://yaeyama.or.jp/spot/yoneharabeach/",
+          "type": "official"
+        }
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
+    },
+    "content": {
+      "en": {
+        "name": "Yonehara Beach & Coral Reef",
+        "description": "A wild natural white-sand beach on northern Ishigaki where shallow coral reefs grow right up near the shore, making it a favorite spot for beachgoers and marine life watching.",
+        "highlights": [
+          "Snorkel directly off the white sand beach to view shallow colorful corals and clownfish",
+          "Relax under green coastal trees along the tranquil shoreline"
+        ],
+        "reservationInfo": "Free beach access.",
+        "parkingInfo": "Paid parking lot adjacent to beach showers (¥500/day).",
+        "openingHours": "Open 24/7; swim only during daylight hours."
+      },
+      "ja": {
+        "name": "米原ビーチ",
+        "description": "石垣島北部にある白砂の天然ビーチ。浅瀬のすぐ近くまでリアルなサンゴ礁とカラフルな熱帯魚が広がる、シュノーケリングの名所。",
+        "highlights": [
+          "ビーチから数メートル泳ぐだけで会えるクマノミと枝サンゴの群生",
+          "木陰が広がる静かな白砂海岸でのんびり海風リラックス"
+        ],
+        "reservationInfo": "ビーチ利用無料。",
+        "parkingInfo": "シャワー施設併設の有料駐車場あり（500円/日）。",
+        "openingHours": "終日開放（日中・満潮時のシュノーケリング推奨）。"
+      }
+    },
+    "coordinates": {
+      "lat": 24.4578,
+      "lng": 124.1825
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 8.5,
+      "summer": 9.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 8.5,
+      "photography": 9,
+      "relaxation": 9,
+      "value": 8.5,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3
+    }
+  },
+  {
+    "id": "yonaha-maehama-beach-miyako",
+    "name": "Yonaha Maehama Beach",
+    "nameJa": "与那覇前浜ビーチ",
+    "region": "Okinawa",
+    "prefecture": "Okinawa",
+    "kind": "beach",
+    "role": "destination",
+    "status": "published",
+    "rating": 4.9,
+    "ratingCount": 2890,
+    "tags": ["Beach", "Ocean", "Powder-Sand", "Okinawa"],
+    "relationships": {
+      "parentDestinationId": "miyakojima-city"
+    },
+    "location": {
+      "latitude": 24.735,
+      "longitude": 125.2635,
+      "address": "Yonaha, Shimoji, Miyakojima, Okinawa 906-0305"
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/02/Miyako_maipama_1.jpg",
+    "imageMetadata": {
+      "attribution": "Paipateroma via Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_maipama_1.jpg"
+    },
+    "budgetMin": 0,
+    "budgetRecommended": 1000,
+    "budgetMax": 3000,
+    "budgetBreakdown": {
+      "transport": 0,
+      "tickets": 0,
+      "food": 0,
+      "cafe": 0
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-03",
+      "reviewedAt": "2026-08-03",
+      "sources": [
+        {
+          "title": "Miyakojima Tourism (Yonaha Maehama)",
+          "url": "https://miyako-guide.net/spot/spot-315/",
+          "type": "official"
+        }
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
+    },
+    "content": {
+      "en": {
+        "name": "Yonaha Maehama Beach",
+        "description": "Consistently voted Japan's top beach, featuring 7 continuous kilometers of soft white powder sand facing Kurima Island across translucent Miyako Blue water.",
+        "highlights": [
+          "Walk barefoot along 7km of pure white coral powder sand",
+          "Try marine jet-skiing, banana boat rides, and stand-up paddleboarding",
+          "Watch stunning sunsets painting the sky over Kurima Bridge"
+        ],
+        "reservationInfo": "Free beach entrance; water sports gear rented on beach.",
+        "parkingInfo": "Free public parking lot with showers and restrooms.",
+        "openingHours": "Open 24/7; lifeguard service during swimming season (April-October)."
+      },
+      "ja": {
+        "name": "与那覇前浜ビーチ",
+        "description": "トリップアドバイザー等で「東洋一の美しさ」と絶賛される宮古島を代表するビーチ。きめ細やかな白砂が7kmにわたって続き、対岸に来間島を望む。",
+        "highlights": [
+          "裸足で歩いても心地よい7kmの東洋一の白砂パウダービーチ",
+          "マリンアクティビティ（ジェットスキー・SUP・バナナボート）体験",
+          "来間大橋に沈むオレンジ色の極上サンセット鑑賞"
+        ],
+        "reservationInfo": "入場自由・無料。マリン用品レンタルは現地対応。",
+        "parkingInfo": "無料駐車場あり（シャワー・トイレ完備）。",
+        "openingHours": "終日開放（監視員配置期間: 4月〜10月）。"
+      }
+    },
+    "coordinates": {
+      "lat": 24.735,
+      "lng": 125.2635
+    },
+    "ratings": {
+      "overall": 9.9,
+      "couple": 8.5,
+      "summer": 9.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 8.5,
+      "photography": 9.8,
+      "relaxation": 9.8,
+      "value": 8.5,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    }
+  },
+  {
+    "id": "irabu-bridge-irabujima-miyako",
+    "name": "Irabu Bridge & Sea Drive",
+    "nameJa": "伊良部大橋",
+    "region": "Okinawa",
+    "prefecture": "Okinawa",
+    "kind": "bridge",
+    "role": "standalone",
+    "status": "published",
+    "rating": 4.8,
+    "ratingCount": 2120,
+    "tags": ["Bridge", "Drive", "Ocean", "Okinawa"],
+    "relationships": {
+      "parentDestinationId": "miyakojima-city"
+    },
+    "location": {
+      "latitude": 24.819,
+      "longitude": 125.244,
+      "address": "Kugai, Hirara, Miyakojima, Okinawa 906-0015"
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Miyako_irabu_ohashi_2014_1.jpg",
+    "imageMetadata": {
+      "attribution": "Paipateroma via Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_irabu_ohashi_2014_1.jpg"
+    },
+    "budgetMin": 0,
+    "budgetRecommended": 500,
+    "budgetMax": 1500,
+    "budgetBreakdown": {
+      "transport": 0,
+      "tickets": 0,
+      "food": 0,
+      "cafe": 0
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-03",
+      "reviewedAt": "2026-08-03",
+      "sources": [
+        {
+          "title": "Miyakojima Tourism (Irabu Bridge)",
+          "url": "https://miyako-guide.net/spot/spot-317/",
+          "type": "official"
+        }
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
+    },
+    "content": {
+      "en": {
+        "name": "Irabu Bridge & Sea Drive",
+        "description": "Japan's longest toll-free bridge spanning 3,540 meters over emerald clear ocean, connecting Miyako Island to Irabu Island with exhilarating ocean drive vistas.",
+        "highlights": [
+          "Drive the curving 3,540m ocean highway hovering right over turquoise sea",
+          "Stop at observation parking bays on both ends for photos of the bridge arch",
+          "Continue driving on Irabu Island to Shimojishima Airport 17END runway beach"
+        ],
+        "reservationInfo": "Free public bridge access 24/7.",
+        "parkingInfo": "Free viewing plaza parking lots located on both Miyako and Irabu bridgeheads.",
+        "openingHours": "Open 24/7."
+      },
+      "ja": {
+        "name": "伊良部大橋",
+        "description": "宮古島と伊良部島を結ぶ全長3,540mの橋。通行無料の橋としては日本最長であり、エメラルドグリーンの海の上を滑るように走る爽快ドライブコース。",
+        "highlights": [
+          "海の上を駆け抜ける3.5kmの絶景ドライブ体験",
+          "橋の全貌を捉える両岸（宮古島側・伊良部島側）の絶景展望スポット",
+          "橋を渡って下地島空港17ENDの幻のビーチ散策へステップアップ"
+        ],
+        "reservationInfo": "通行自由・無料。",
+        "parkingInfo": "両端の橋詰に無料展望駐車場あり。",
+        "openingHours": "終日通行可能。"
+      }
+    },
+    "coordinates": {
+      "lat": 24.819,
+      "lng": 125.244
+    },
+    "ratings": {
+      "overall": 9.5,
+      "couple": 8.5,
+      "summer": 9.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 8.5,
+      "photography": 9.8,
+      "relaxation": 8.5,
+      "value": 8.5,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    }
+  },
+  {
+    "id": "higashi-hennazaki-cape-miyako",
+    "name": "Cape Higashi-Hennazaki",
+    "nameJa": "東平安名崎",
+    "region": "Okinawa",
+    "prefecture": "Okinawa",
+    "kind": "cape",
+    "role": "standalone",
+    "status": "published",
+    "rating": 4.7,
+    "ratingCount": 1350,
+    "tags": ["Cape", "Lighthouse", "Ocean", "Okinawa"],
+    "relationships": {
+      "parentDestinationId": "miyakojima-city"
+    },
+    "location": {
+      "latitude": 24.7262,
+      "longitude": 125.4678,
+      "address": "Bora, Gusukube, Miyakojima, Okinawa 906-0101"
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/41/Miyako_higashi_hennazaki.JPG",
+    "imageMetadata": {
+      "attribution": "Metatron via Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_higashi_hennazaki.JPG"
+    },
+    "budgetMin": 300,
+    "budgetRecommended": 500,
+    "budgetMax": 1000,
+    "budgetBreakdown": {
+      "transport": 0,
+      "tickets": 300,
+      "food": 0,
+      "cafe": 0
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-03",
+      "reviewedAt": "2026-08-03",
+      "sources": [
+        {
+          "title": "Miyakojima Tourism (Higashi-Hennazaki)",
+          "url": "https://miyako-guide.net/spot/spot-318/",
+          "type": "official"
+        }
+      ],
+      "reviewedBy": "Okinawa Regional Editorial Batch"
+    },
+    "content": {
+      "en": {
+        "name": "Cape Higashi-Hennazaki",
+        "description": "A narrow 2km long coral peninsula jutting into the ocean at Miyako Island's easternmost tip, crowned by a white climbable lighthouse with dramatic wave-crashing sea cliff views.",
+        "highlights": [
+          "Climb the 97 steps of the white lighthouse for 360-degree ocean views",
+          "Walk the 2km cape peninsula surrounded by wild Okinawan lilies and coral boulders",
+          "Watch the sunrise over the Pacific Ocean from the easternmost point"
+        ],
+        "reservationInfo": "Cape free access; lighthouse entry ¥300 paid at door.",
+        "parkingInfo": "Free public parking lot with cafe and restrooms.",
+        "openingHours": "Cape open 24/7; lighthouse 09:00 - 16:30."
+      },
+      "ja": {
+        "name": "東平安名崎",
+        "description": "宮古島の最東端に位置する長さ約2kmの細長いサンゴ礁の岬。白亜の登れる灯台が立ち、太平洋と東シナ海を分かつ荒波と崖のダイナミックな景観が広がる。",
+        "highlights": [
+          "97段の階段を登る白亜の灯台からの360度大海原パノラマ",
+          "津波石が点在する約2kmの岬遊歩道と春に咲くテンニンソウ・テッポウユリ",
+          "宮古島一番の初日の出・サンライズ絶景スポット"
+        ],
+        "reservationInfo": "岬散策自由。灯台の参観料300円は現地でお支払い。",
+        "parkingInfo": "無料駐車場あり（売店・トイレ併設）。",
+        "openingHours": "終日開放（灯台参観09:00〜16:30）。"
+      }
+    },
+    "coordinates": {
+      "lat": 24.7262,
+      "lng": 125.4678
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 8.5,
+      "summer": 9.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 8.5,
+      "photography": 9.5,
+      "relaxation": 8.5,
+      "value": 8.5,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
     }
   }
 ]

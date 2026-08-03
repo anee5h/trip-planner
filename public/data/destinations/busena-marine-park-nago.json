@@ -1,0 +1,97 @@
+{
+  "id": "busena-marine-park-nago",
+  "name": "Busena Marine Park & Underwater Observatory",
+  "nameJa": "ブセナ海中公園・海中展望塔",
+  "region": "Okinawa",
+  "prefecture": "Okinawa",
+  "kind": "park",
+  "role": "standalone",
+  "status": "published",
+  "rating": 4.5,
+  "ratingCount": 1410,
+  "tags": ["Marine", "Observatory", "Ocean", "Okinawa"],
+  "relationships": {
+    "parentDestinationId": "nago-city"
+  },
+  "location": {
+    "latitude": 26.5273,
+    "longitude": 127.9288,
+    "address": "1744-1 Kise, Nago, Okinawa 905-0026"
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/74/Busena_Resort18bs3200.jpg",
+  "imageMetadata": {
+    "attribution": "663highland via Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABusena_Resort18bs3200.jpg"
+  },
+  "budgetMin": 1050,
+  "budgetRecommended": 2100,
+  "budgetMax": 3000,
+  "budgetBreakdown": {
+    "transport": 0,
+    "tickets": 1050,
+    "food": 0,
+    "cafe": 0
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-03",
+    "reviewedAt": "2026-08-03",
+    "sources": [
+      {
+        "title": "Busena Marine Park Official Site",
+        "url": "https://www.busena-marinepark.com/",
+        "type": "official"
+      }
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
+  },
+  "content": {
+    "en": {
+      "name": "Busena Marine Park & Underwater Observatory",
+      "description": "Okinawa's premier marine facility on Busena Cape, offering a 360-degree underwater observation tower and whale-shaped glass-bottom boat tours over coral reefs.",
+      "highlights": [
+        "Descend into underwater tower 4 meters below sea level to watch wild tropical fish",
+        "Ride glass-bottom boats to observe vibrant coral reef ecosystems",
+        "Stroll along Cape Busena's white sandy beach and resort promenade"
+      ],
+      "reservationInfo": "Tickets purchased at park reception.",
+      "parkingInfo": "Park visitor parking available inside Busena Resort grounds.",
+      "openingHours": "09:00 - 17:30 (April to October until 18:00)."
+    },
+    "ja": {
+      "name": "ブセナ海中公園・海中展望塔",
+      "description": "部瀬名岬に立つ海中展望塔。衣服を着たまま水深4mの海中に入り、360度の丸窓から野生の熱帯魚やサンゴ礁を間近に観察可能。",
+      "highlights": [
+        "服を着たまま海中世界を楽しめる360度パノラマの海中展望塔",
+        "クジラ型のグラス底ボートで巡るサンゴ礁とカラフルな魚群観察",
+        "部瀬名岬のラグジュアリーなリゾートビーチ景観"
+      ],
+      "reservationInfo": "公園発券窓口にて当日券購入。",
+      "parkingInfo": "敷地内（ザ・ブセナテラス隣接）専用駐車場あり。",
+      "openingHours": "09:00〜17:30（4月〜10月は18:00まで）。"
+    }
+  },
+  "coordinates": {
+    "lat": 26.5273,
+    "lng": 127.9288
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 8.5,
+    "summer": 9.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 8.5,
+    "photography": 9,
+    "relaxation": 9,
+    "value": 8.5,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 2.5
+  }
+}

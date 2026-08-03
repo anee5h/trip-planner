@@ -7,7 +7,7 @@
   "prefecture": "Okinawa",
   "region": "Okinawa",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg/1280px-Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/74/Busena_Resort18bs3200.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg/1280px-Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg",
   "description": "Northern main island city featuring Busena Marine Park, Orion Happy Park brewery, and cherry blossom festivals.",
   "highlights": ["Explore Nago City", "Local Culture & Cuisine"],
@@ -20,16 +20,16 @@
   "walkingShadeMin": 2500,
   "indoorPercent": 50,
   "ratings": {
-    "overall": 9.5,
-    "couple": 9.3,
-    "summer": 9,
-    "winter": 9.1,
-    "rain": 9.2,
-    "food": 9.6,
-    "photography": 9.5,
-    "relaxation": 9.2,
-    "value": 9.4,
-    "uniqueness": 9.4
+    "overall": 9,
+    "couple": 8.5,
+    "summer": 9.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 8.5,
+    "photography": 9,
+    "relaxation": 8.5,
+    "value": 8.5,
+    "uniqueness": 9
   },
   "crowd": {
     "weekday": 5,
@@ -45,9 +45,9 @@
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "bestSeason": "All Year",
   "weatherDependence": "low",
-  "tags": ["Nago City", "Okinawa Travel", "Regional Hub"],
+  "tags": ["Hub", "Okinawa", "Nature", "Beaches", "Resort"],
   "coordinates": {
-    "lat": 26.5916,
+    "lat": 26.5915,
     "lng": 127.9774
   },
   "comfort": {
@@ -61,7 +61,7 @@
   "reservation": "None required",
   "parking": "Public parking available",
   "notes": "Nago City travel hub in Okinawa Prefecture.",
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -78,9 +78,62 @@
   },
   "walkingIntensity": "low",
   "recommendedVisitHours": {
-    "min": 6,
-    "max": 12
+    "min": 4,
+    "max": 24
   },
   "businessHours": "Open access",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "nameJa": "名護市",
+  "rating": 4.5,
+  "ratingCount": 1120,
+  "location": {
+    "latitude": 26.5915,
+    "longitude": 127.9774,
+    "address": "Nago, Okinawa Prefecture, Japan"
+  },
+  "imageMetadata": {
+    "attribution": "663highland via Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABusena_Resort18bs3200.jpg"
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-03",
+    "reviewedAt": "2026-08-03",
+    "sources": [
+      {
+        "title": "Nago City Tourism Association",
+        "url": "https://nagomun.or.jp/",
+        "type": "official"
+      }
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
+  },
+  "content": {
+    "en": {
+      "name": "Nago City",
+      "description": "Northern Okinawa's hub city surrounded by lush Yanbaru sub-tropical forests, scenic coastlines, pineapple plantations, and luxury beach resorts.",
+      "highlights": [
+        "Drive across emerald waters to Kouri Island and Heart Rock",
+        "Explore underwater life at Busena Marine Park Observatory",
+        "Tour Nago Pineapple Park and taste tropical wines"
+      ],
+      "reservationInfo": "No hub-level reservation required.",
+      "parkingInfo": "Free parking widely available at resorts and attractions.",
+      "openingHours": "24/7 city access; attractions operate 09:00 - 18:00."
+    },
+    "ja": {
+      "name": "名護市",
+      "description": "沖縄本島北部の中心都市。やんばるの豊かな自然に囲まれ、リゾートビーチや古宇利島へのドライブ拠点として人気の観光都市。",
+      "highlights": [
+        "エメラルドグリーンの海を渡る古宇利大橋と古宇利島ドライブ",
+        "ブセナ海中公園の海中展望塔で濡れずにサンゴ礁観察",
+        "名護パイナップルパークでパイナップル試食とカート周遊"
+      ],
+      "reservationInfo": "市街アクセスは予約不要。",
+      "parkingInfo": "各観光施設およびリゾートホテルに無料駐車場完備。",
+      "openingHours": "終日アクセス可能（主要施設は09:00〜18:00）。"
+    }
+  }
 }
