@@ -1,0 +1,105 @@
+{
+  "id": "yonaha-maehama-beach-miyako",
+  "name": "Yonaha Maehama Beach",
+  "nameJa": "与那覇前浜ビーチ",
+  "region": "Okinawa",
+  "prefecture": "Okinawa",
+  "kind": "beach",
+  "role": "destination",
+  "status": "published",
+  "rating": 4.9,
+  "ratingCount": 2890,
+  "tags": ["Beach", "Ocean", "Powder-Sand", "Okinawa"],
+  "relationships": {
+    "parentDestinationId": "miyakojima-city"
+  },
+  "location": {
+    "latitude": 24.735,
+    "longitude": 125.2635,
+    "address": "Yonaha, Shimoji, Miyakojima, Okinawa 906-0305"
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/02/Miyako_maipama_1.jpg",
+  "imageMetadata": {
+    "attribution": "Paipateroma via Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_maipama_1.jpg"
+  },
+  "budgetMin": 0,
+  "budgetRecommended": 1000,
+  "budgetMax": 3000,
+  "budgetBreakdown": {
+    "transport": 0,
+    "tickets": 0,
+    "food": 0,
+    "cafe": 0
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-03",
+    "reviewedAt": "2026-08-03",
+    "changes": [
+      {
+        "date": "2026-08-03",
+        "by": "Meguruto Editorial Reviewer",
+        "summary": "Reviewed and published Okinawa regional POI"
+      }
+    ],
+    "sources": [
+      {
+        "name": "Miyakojima Tourism (Yonaha Maehama)",
+        "url": "https://miyako-guide.net/spot/spot-315/",
+        "type": "official"
+      }
+    ]
+  },
+  "content": {
+    "en": {
+      "name": "Yonaha Maehama Beach",
+      "description": "Consistently voted Japan's top beach, featuring 7 continuous kilometers of soft white powder sand facing Kurima Island across translucent Miyako Blue water.",
+      "highlights": [
+        "Walk barefoot along 7km of pure white coral powder sand",
+        "Try marine jet-skiing, banana boat rides, and stand-up paddleboarding",
+        "Watch stunning sunsets painting the sky over Kurima Bridge"
+      ],
+      "reservationInfo": "Free beach entrance; water sports gear rented on beach.",
+      "parkingInfo": "Free public parking lot with showers and restrooms.",
+      "openingHours": "Open 24/7; lifeguard service during swimming season (April-October)."
+    },
+    "ja": {
+      "name": "与那覇前浜ビーチ",
+      "description": "トリップアドバイザー等で「東洋一の美しさ」と絶賛される宮古島を代表するビーチ。きめ細やかな白砂が7kmにわたって続き、対岸に来間島を望む。",
+      "highlights": [
+        "裸足で歩いても心地よい7kmの東洋一の白砂パウダービーチ",
+        "マリンアクティビティ（ジェットスキー・SUP・バナナボート）体験",
+        "来間大橋に沈むオレンジ色の極上サンセット鑑賞"
+      ],
+      "reservationInfo": "入場自由・無料。マリン用品レンタルは現地対応。",
+      "parkingInfo": "無料駐車場あり（シャワー・トイレ完備）。",
+      "openingHours": "終日開放（監視員配置期間: 4月〜10月）。"
+    }
+  },
+  "coordinates": {
+    "lat": 24.735,
+    "lng": 125.2635,
+    "latitude": 24.735,
+    "longitude": 125.2635
+  },
+  "ratings": {
+    "overall": 9.9,
+    "couple": 8.5,
+    "summer": 9.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 8.5,
+    "photography": 9.8,
+    "relaxation": 9.8,
+    "value": 8.5,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  }
+}

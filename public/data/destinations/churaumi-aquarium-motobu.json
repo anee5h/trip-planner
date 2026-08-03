@@ -1,0 +1,105 @@
+{
+  "id": "churaumi-aquarium-motobu",
+  "name": "Okinawa Churaumi Aquarium",
+  "nameJa": "沖縄美ら海水族館",
+  "region": "Okinawa",
+  "prefecture": "Okinawa",
+  "kind": "aquarium",
+  "role": "destination",
+  "status": "published",
+  "rating": 4.8,
+  "ratingCount": 3890,
+  "tags": ["Aquarium", "Marine", "Family", "Okinawa"],
+  "relationships": {
+    "parentDestinationId": "motobu-town"
+  },
+  "location": {
+    "latitude": 26.6944,
+    "longitude": 127.8779,
+    "address": "424 Ishikawa, Motobu-cho, Kunigami-gun, Okinawa 905-0206"
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/47/Okinawa_Aquarium.jpg",
+  "imageMetadata": {
+    "attribution": "Jordy Meow via Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOkinawa_Aquarium.jpg"
+  },
+  "budgetMin": 2180,
+  "budgetRecommended": 3000,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 0,
+    "tickets": 2180,
+    "food": 0,
+    "cafe": 0
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-03",
+    "reviewedAt": "2026-08-03",
+    "changes": [
+      {
+        "date": "2026-08-03",
+        "by": "Meguruto Editorial Reviewer",
+        "summary": "Reviewed and published Okinawa regional POI"
+      }
+    ],
+    "sources": [
+      {
+        "name": "Okinawa Churaumi Aquarium Official Site",
+        "url": "https://churaumi.okinawa/",
+        "type": "official"
+      }
+    ]
+  },
+  "content": {
+    "en": {
+      "name": "Okinawa Churaumi Aquarium",
+      "description": "One of the world's largest aquariums located inside Ocean Expo Park, world-renowned for its colossal 7,500m³ 'Kuroshio Sea' tank holding multiple whale sharks and reef manta rays.",
+      "highlights": [
+        "Gaze at giant whale sharks and manta rays swimming in Kuroshio Main Tank",
+        "Watch free outdoor dolphin shows at Okichan Theater ocean stage",
+        "Touch sea stars and sea cucumbers at the coral reef touch pool"
+      ],
+      "reservationInfo": "Tickets available online or convenience stores with discount, and at park entrance.",
+      "parkingInfo": "Free P7 multi-story parking lot closest to aquarium entrance.",
+      "openingHours": "08:30 - 18:30 (Peak season until 20:00)."
+    },
+    "ja": {
+      "name": "沖縄美ら海水族館",
+      "description": "海洋博公園内にある世界トップクラスの水族館。巨大水槽「黒潮の海」で複数のジンベエザメやナンヨウマンタが泳ぐ神秘的な景観が世界的に有名。",
+      "highlights": [
+        "高さ8.2m・幅22.5mのアクリルパネル越しに見るジンベエザメの給餌体験",
+        "東シナ海を背景に繰り広げられる「オキちゃん劇場」のイルカショー（観覧無料）",
+        "サンゴ礁の浅瀬を再現したタッチプールと深海生物ゾーン"
+      ],
+      "reservationInfo": "現地窓口、WEBチケット、道の駅許田等で前売り券購入可能。",
+      "parkingInfo": "水族館に最も近いP7立体駐車場（無料）が便利。",
+      "openingHours": "08:30〜18:30（繁忙期は20:00まで開館）。"
+    }
+  },
+  "coordinates": {
+    "lat": 26.6944,
+    "lng": 127.8779,
+    "latitude": 26.6944,
+    "longitude": 127.8779
+  },
+  "ratings": {
+    "overall": 9.8,
+    "couple": 8.5,
+    "summer": 9.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 8.5,
+    "photography": 9.5,
+    "relaxation": 8.5,
+    "value": 8.5,
+    "uniqueness": 9.8
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 2.5,
+    "max": 4.5
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "id": "bise-fukugi-tree-road-motobu",
+  "name": "Bise Fukugi Tree-Lined Village",
+  "nameJa": "備瀬のフクギ並木",
+  "region": "Okinawa",
+  "prefecture": "Okinawa",
+  "kind": "nature",
+  "role": "standalone",
+  "status": "published",
+  "rating": 4.5,
+  "ratingCount": 1120,
+  "tags": ["Nature", "Village", "Walk", "Okinawa"],
+  "relationships": {
+    "parentDestinationId": "motobu-town"
+  },
+  "location": {
+    "latitude": 26.7042,
+    "longitude": 127.88,
+    "address": "Bise, Motobu-cho, Kunigami-gun, Okinawa 905-0207"
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/62/Bise_Fukugi_Tree_Road_01.JPG",
+  "imageMetadata": {
+    "attribution": "Abasaa via Wikimedia Commons",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABise_Fukugi_Tree_Road_01.JPG"
+  },
+  "budgetMin": 0,
+  "budgetRecommended": 500,
+  "budgetMax": 1500,
+  "budgetBreakdown": {
+    "transport": 0,
+    "tickets": 0,
+    "food": 0,
+    "cafe": 0
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-03",
+    "reviewedAt": "2026-08-03",
+    "changes": [
+      {
+        "date": "2026-08-03",
+        "by": "Meguruto Editorial Reviewer",
+        "summary": "Reviewed and published Okinawa regional POI"
+      }
+    ],
+    "sources": [
+      {
+        "name": "Motobu Town Tourism Association (Bise)",
+        "url": "https://www.motobu-kaigan.com/",
+        "type": "official"
+      }
+    ]
+  },
+  "content": {
+    "en": {
+      "name": "Bise Fukugi Tree-Lined Village",
+      "description": "A quiet coastal village surrounded by thousands of ancient Garcinia (Fukugi) windbreak trees forming green vaulted tunnels that filter sunlight down to sandy footpaths.",
+      "highlights": [
+        "Walk or rent a bicycle along 1km of shaded emerald tree tunnels",
+        "Ride a traditional water-buffalo cart guided by local villagers",
+        "Reach Bise-zaki point at the end of the path for coral snorkeling"
+      ],
+      "reservationInfo": "Walking path free; water buffalo cart rides booked on site.",
+      "parkingInfo": "Paid parking lot at Bise-zaki entrance (¥500/day).",
+      "openingHours": "Open 24/7; daytime walking recommended (08:00 - 18:00)."
+    },
+    "ja": {
+      "name": "備瀬のフクギ並木",
+      "description": "台風から家々を守るため植えられた数千本のフクギが並ぶ古き良き沖縄の集落。緑のトンネルに木漏れ日が差し込む幻想的な散策路。",
+      "highlights": [
+        "約1kmにわたり続く緑豊かなフクギのトンネル散歩・レンタサイクル",
+        "三線の音色を聞きながら巡る伝統の水牛車観光",
+        "並木道を抜けた備瀬崎海岸でのイノー（浅瀬）観察とシュノーケリング"
+      ],
+      "reservationInfo": "散策自由。水牛車体験は現地受付。",
+      "parkingInfo": "備瀬崎入口付近に有料駐車場あり（500円/日）。",
+      "openingHours": "終日散策可能（日中の見学08:00〜18:00推奨）。"
+    }
+  },
+  "coordinates": {
+    "lat": 26.7042,
+    "lng": 127.88,
+    "latitude": 26.7042,
+    "longitude": 127.88
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 8.5,
+    "summer": 9.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 8.5,
+    "photography": 9,
+    "relaxation": 9.5,
+    "value": 8.5,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  }
+}

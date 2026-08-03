@@ -1,0 +1,105 @@
+{
+  "id": "fukushuen-garden-naha",
+  "name": "Fukushuen Garden",
+  "nameJa": "福州園",
+  "region": "Okinawa",
+  "prefecture": "Okinawa",
+  "kind": "garden",
+  "role": "standalone",
+  "status": "published",
+  "rating": 4.3,
+  "ratingCount": 510,
+  "tags": ["Garden", "Architecture", "Culture", "Okinawa"],
+  "relationships": {
+    "parentDestinationId": "naha-city"
+  },
+  "location": {
+    "latitude": 26.2173,
+    "longitude": 127.6763,
+    "address": "2-29-1 Kume, Naha, Okinawa 900-0033"
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Fukushuen_Naha_Okinawa01s3.jpg",
+  "imageMetadata": {
+    "attribution": "663highland via Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFukushuen_Naha_Okinawa01s3.jpg"
+  },
+  "budgetMin": 300,
+  "budgetRecommended": 500,
+  "budgetMax": 1000,
+  "budgetBreakdown": {
+    "transport": 0,
+    "tickets": 300,
+    "food": 0,
+    "cafe": 0
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-03",
+    "reviewedAt": "2026-08-03",
+    "changes": [
+      {
+        "date": "2026-08-03",
+        "by": "Meguruto Editorial Reviewer",
+        "summary": "Reviewed and published Okinawa regional POI"
+      }
+    ],
+    "sources": [
+      {
+        "name": "Fukushuen Garden Official Site",
+        "url": "https://www.fukushuen.jp/",
+        "type": "official"
+      }
+    ]
+  },
+  "content": {
+    "en": {
+      "name": "Fukushuen Garden",
+      "description": "A serene traditional Chinese landscape garden constructed in Naha's Kumemura district using granite and wood imported from Fuzhou, China.",
+      "highlights": [
+        "Stroll across stone arch bridges and fish-filled ponds",
+        "Admire Chinese wooden pavilions, pagodas, and artificial waterfall",
+        "Experience quiet tea house refreshments inside the garden"
+      ],
+      "reservationInfo": "Tickets purchased at entrance.",
+      "parkingInfo": "Paid parking available at adjacent Matsuyama Park lot.",
+      "openingHours": "09:00 - 18:00 (Closed Wednesdays)."
+    },
+    "ja": {
+      "name": "福州園",
+      "description": "那覇市と中国・福州市の友好都市締結10周年を記念して作られた本格的中国庭園。滝や石橋、木造楼閣が美しい静かな癒やしスポット。",
+      "highlights": [
+        "福州市の建築様式を取り入れた美しい木造楼閣と石橋",
+        "築山から流れ落ちる滝と鯉が泳ぐ池の庭園回遊",
+        "クメムラ（久米村）の歴史に触れられる伝統空間"
+      ],
+      "reservationInfo": "現地窓口でチケット購入。",
+      "parkingInfo": "近隣の松山公園駐車場等を利用。",
+      "openingHours": "09:00〜18:00（水曜定休）。"
+    }
+  },
+  "coordinates": {
+    "lat": 26.2173,
+    "lng": 127.6763,
+    "latitude": 26.2173,
+    "longitude": 127.6763
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 8.5,
+    "summer": 9.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 8.5,
+    "photography": 9,
+    "relaxation": 9,
+    "value": 8.5,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  }
+}

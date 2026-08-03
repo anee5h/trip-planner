@@ -7,7 +7,7 @@
   "prefecture": "Okinawa",
   "region": "Okinawa",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/67/Naha_montage.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Naha_Shuri_Castle02s5s3200.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/6/67/Naha_montage.jpg",
   "description": "Okinawa's capital and subtropical gateway, featuring Kokusai-dori shopping boulevard and historic Shuri Castle.",
   "highlights": ["Explore Naha City", "Local Culture & Cuisine"],
@@ -20,16 +20,16 @@
   "walkingShadeMin": 2500,
   "indoorPercent": 50,
   "ratings": {
-    "overall": 9.5,
-    "couple": 9.3,
-    "summer": 9,
-    "winter": 9.1,
-    "rain": 9.2,
-    "food": 9.6,
-    "photography": 9.5,
-    "relaxation": 9.2,
-    "value": 9.4,
-    "uniqueness": 9.4
+    "overall": 9,
+    "couple": 8.5,
+    "summer": 9.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 8.5,
+    "photography": 9,
+    "relaxation": 8.5,
+    "value": 8.5,
+    "uniqueness": 9
   },
   "crowd": {
     "weekday": 5,
@@ -45,10 +45,12 @@
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "bestSeason": "All Year",
   "weatherDependence": "low",
-  "tags": ["Naha City", "Okinawa Travel", "Regional Hub"],
+  "tags": ["Hub", "Okinawa", "History", "Food", "Shopping"],
   "coordinates": {
     "lat": 26.2124,
-    "lng": 127.6809
+    "lng": 127.6809,
+    "latitude": 26.2124,
+    "longitude": 127.6809
   },
   "comfort": {
     "heatTolerance": 8,
@@ -61,7 +63,7 @@
   "reservation": "None required",
   "parking": "Public parking available",
   "notes": "Naha City travel hub in Okinawa Prefecture.",
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -78,9 +80,68 @@
   },
   "walkingIntensity": "low",
   "recommendedVisitHours": {
-    "min": 6,
-    "max": 12
+    "min": 4,
+    "max": 24
   },
   "businessHours": "Open access",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "nameJa": "那覇市",
+  "rating": 4.6,
+  "ratingCount": 1420,
+  "location": {
+    "latitude": 26.2124,
+    "longitude": 127.6809,
+    "address": "Naha, Okinawa Prefecture, Japan"
+  },
+  "imageMetadata": {
+    "attribution": "663highland via Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANaha_Shuri_Castle02s5s3200.jpg"
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-03",
+    "reviewedAt": "2026-08-03",
+    "changes": [
+      {
+        "date": "2026-08-03",
+        "by": "Meguruto Editorial Reviewer",
+        "summary": "Reviewed and published Okinawa regional POI"
+      }
+    ],
+    "sources": [
+      {
+        "name": "Naha City Official Tourism Portal",
+        "url": "https://www.naha-navi.or.jp/",
+        "type": "official"
+      }
+    ]
+  },
+  "content": {
+    "en": {
+      "name": "Naha City",
+      "description": "The energetic capital of Okinawa Prefecture, blending Ryukyu royal heritage, vibrant shopping streets, and coastal gateway access to southern islands.",
+      "highlights": [
+        "Explore historic Shuri Castle & Ryukyu Kingdom heritage",
+        "Walk Kokusai-dori street food and boutique shops",
+        "Sample fresh seafood at Makishi Public Market"
+      ],
+      "reservationInfo": "No advance reservation required for city exploration.",
+      "parkingInfo": "Paid multi-story parking structures available near Kokusai-dori and Monorail stations.",
+      "openingHours": "24/7 city access; individual shops generally 10:00 - 21:00."
+    },
+    "ja": {
+      "name": "那覇市",
+      "description": "琉球王国の歴史が息づく首里城や賑やかな国際通りを擁する、沖縄県の政治・経済・観光の中心都市。",
+      "highlights": [
+        "世界遺産・首里城跡と琉球王国の歴史探訪",
+        "国際通りと第一牧志公設市場のグルメ散策",
+        "ゆいレールで快適な市内移動と波上宮参拝"
+      ],
+      "reservationInfo": "市内散策の事前予約は不要です。",
+      "parkingInfo": "国際通り周辺および駅近くにコインパーキング多数あり。",
+      "openingHours": "終日散策可能（店舗営業時間は主に10:00〜21:00）。"
+    }
+  }
 }

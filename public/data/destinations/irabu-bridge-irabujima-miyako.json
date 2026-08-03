@@ -1,0 +1,105 @@
+{
+  "id": "irabu-bridge-irabujima-miyako",
+  "name": "Irabu Bridge & Sea Drive",
+  "nameJa": "伊良部大橋",
+  "region": "Okinawa",
+  "prefecture": "Okinawa",
+  "kind": "bridge",
+  "role": "standalone",
+  "status": "published",
+  "rating": 4.8,
+  "ratingCount": 2120,
+  "tags": ["Bridge", "Drive", "Ocean", "Okinawa"],
+  "relationships": {
+    "parentDestinationId": "miyakojima-city"
+  },
+  "location": {
+    "latitude": 24.819,
+    "longitude": 125.244,
+    "address": "Kugai, Hirara, Miyakojima, Okinawa 906-0015"
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Miyako_irabu_ohashi_2014_1.jpg",
+  "imageMetadata": {
+    "attribution": "Paipateroma via Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_irabu_ohashi_2014_1.jpg"
+  },
+  "budgetMin": 0,
+  "budgetRecommended": 500,
+  "budgetMax": 1500,
+  "budgetBreakdown": {
+    "transport": 0,
+    "tickets": 0,
+    "food": 0,
+    "cafe": 0
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-03",
+    "reviewedAt": "2026-08-03",
+    "changes": [
+      {
+        "date": "2026-08-03",
+        "by": "Meguruto Editorial Reviewer",
+        "summary": "Reviewed and published Okinawa regional POI"
+      }
+    ],
+    "sources": [
+      {
+        "name": "Miyakojima Tourism (Irabu Bridge)",
+        "url": "https://miyako-guide.net/spot/spot-317/",
+        "type": "official"
+      }
+    ]
+  },
+  "content": {
+    "en": {
+      "name": "Irabu Bridge & Sea Drive",
+      "description": "Japan's longest toll-free bridge spanning 3,540 meters over emerald clear ocean, connecting Miyako Island to Irabu Island with exhilarating ocean drive vistas.",
+      "highlights": [
+        "Drive the curving 3,540m ocean highway hovering right over turquoise sea",
+        "Stop at observation parking bays on both ends for photos of the bridge arch",
+        "Continue driving on Irabu Island to Shimojishima Airport 17END runway beach"
+      ],
+      "reservationInfo": "Free public bridge access 24/7.",
+      "parkingInfo": "Free viewing plaza parking lots located on both Miyako and Irabu bridgeheads.",
+      "openingHours": "Open 24/7."
+    },
+    "ja": {
+      "name": "伊良部大橋",
+      "description": "宮古島と伊良部島を結ぶ全長3,540mの橋。通行無料の橋としては日本最長であり、エメラルドグリーンの海の上を滑るように走る爽快ドライブコース。",
+      "highlights": [
+        "海の上を駆け抜ける3.5kmの絶景ドライブ体験",
+        "橋の全貌を捉える両岸（宮古島側・伊良部島側）の絶景展望スポット",
+        "橋を渡って下地島空港17ENDの幻のビーチ散策へステップアップ"
+      ],
+      "reservationInfo": "通行自由・無料。",
+      "parkingInfo": "両端の橋詰に無料展望駐車場あり。",
+      "openingHours": "終日通行可能。"
+    }
+  },
+  "coordinates": {
+    "lat": 24.819,
+    "lng": 125.244,
+    "latitude": 24.819,
+    "longitude": 125.244
+  },
+  "ratings": {
+    "overall": 9.5,
+    "couple": 8.5,
+    "summer": 9.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 8.5,
+    "photography": 9.8,
+    "relaxation": 8.5,
+    "value": 8.5,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  }
+}

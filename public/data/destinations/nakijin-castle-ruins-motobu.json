@@ -1,0 +1,110 @@
+{
+  "id": "nakijin-castle-ruins-motobu",
+  "name": "Nakijin Castle Ruins",
+  "nameJa": "今帰仁城跡",
+  "region": "Okinawa",
+  "prefecture": "Okinawa",
+  "kind": "castle",
+  "role": "standalone",
+  "status": "published",
+  "rating": 4.6,
+  "ratingCount": 1240,
+  "tags": ["UNESCO", "Castle", "History", "Ruins", "Okinawa"],
+  "relationships": {
+    "parentDestinationId": "motobu-town"
+  },
+  "location": {
+    "latitude": 26.6914,
+    "longitude": 127.9287,
+    "address": "510 Imadomari, Nakijin-son, Kunigami-gun, Okinawa 905-0428"
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Nakijin_Okinawa_Japan_Nakikjin-Castle-11.jpg",
+  "imageMetadata": {
+    "attribution": "CEphoto, Uwe Aranas via Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANakijin_Okinawa_Japan_Nakikjin-Castle-11.jpg"
+  },
+  "budgetMin": 600,
+  "budgetRecommended": 900,
+  "budgetMax": 1500,
+  "budgetBreakdown": {
+    "transport": 0,
+    "tickets": 600,
+    "food": 0,
+    "cafe": 0
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-03",
+    "reviewedAt": "2026-08-03",
+    "changes": [
+      {
+        "date": "2026-08-03",
+        "by": "Meguruto Editorial Reviewer",
+        "summary": "Reviewed and published Okinawa regional POI"
+      }
+    ],
+    "sources": [
+      {
+        "name": "Nakijin Castle Ruins Official Site",
+        "url": "https://nakijinjoseki.jp/",
+        "type": "official"
+      },
+      {
+        "name": "UNESCO World Heritage Centre",
+        "url": "https://whc.unesco.org/en/list/972/",
+        "type": "encyclopedia"
+      }
+    ]
+  },
+  "content": {
+    "en": {
+      "name": "Nakijin Castle Ruins",
+      "description": "A 14th-century World Heritage fortress of the Hokuzan Kingdom featuring undulating Ryukyu limestone walls snake-like along mountain ridges with sweeping East China Sea ocean views.",
+      "highlights": [
+        "Walk along massive 1.5km curving limestone walls resembling the Great Wall",
+        "Take in breathtaking panoramic views of the East China Sea horizon",
+        "See early Ryukyu cherry blossoms flowering along the stone steps in January-February"
+      ],
+      "reservationInfo": "Tickets purchased at ticket office at entrance.",
+      "parkingInfo": "Free visitor parking available on site.",
+      "openingHours": "08:00 - 18:00 (May to August until 19:00)."
+    },
+    "ja": {
+      "name": "今帰仁城跡",
+      "description": "14世紀の北山王の居城跡。龍の背のようにうねる琉球石灰岩の堅牢な城壁と、高台から望むエメラルドグリーンの東シナ海が美しい世界遺産。",
+      "highlights": [
+        "城壁の曲線美が際立つ全長1.5kmの石垣と平郎門（正門）",
+        "主郭跡から見渡す断崖絶壁と東シナ海の水平線",
+        "毎年1月下旬〜2月上旬に咲き誇る日本一早いカンヒザクラ（寒緋桜）の名所"
+      ],
+      "reservationInfo": "現地チケット売場にて購入（歴史文化センター共通券）。",
+      "parkingInfo": "無料駐車場あり。",
+      "openingHours": "08:00〜18:00（5月〜8月は19:00まで）。"
+    }
+  },
+  "coordinates": {
+    "lat": 26.6914,
+    "lng": 127.9287,
+    "latitude": 26.6914,
+    "longitude": 127.9287
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 8.5,
+    "summer": 9.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 8.5,
+    "photography": 9.5,
+    "relaxation": 8.5,
+    "value": 8.5,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2.5
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "id": "kokusai-dori-naha",
+  "name": "Kokusai-dori & Makishi Public Market",
+  "nameJa": "国際通り・第一牧志公設市場",
+  "region": "Okinawa",
+  "prefecture": "Okinawa",
+  "kind": "district",
+  "role": "destination",
+  "status": "published",
+  "rating": 4.5,
+  "ratingCount": 1840,
+  "tags": ["Shopping", "Food", "Street", "Okinawa"],
+  "relationships": {
+    "parentDestinationId": "naha-city"
+  },
+  "location": {
+    "latitude": 26.2152,
+    "longitude": 127.6851,
+    "address": "Kokusai-dori, Naha, Okinawa 900-0013"
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/89/Kokusai-dori08s3s4440.jpg",
+  "imageMetadata": {
+    "attribution": "663highland via Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKokusai-dori08s3s4440.jpg"
+  },
+  "budgetMin": 1500,
+  "budgetRecommended": 2500,
+  "budgetMax": 4000,
+  "budgetBreakdown": {
+    "transport": 200,
+    "tickets": 0,
+    "food": 1300,
+    "cafe": 0
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-03",
+    "reviewedAt": "2026-08-03",
+    "changes": [
+      {
+        "date": "2026-08-03",
+        "by": "Meguruto Editorial Reviewer",
+        "summary": "Reviewed and published Okinawa regional POI"
+      }
+    ],
+    "sources": [
+      {
+        "name": "Naha Kokusai-dori Association",
+        "url": "https://naha-kokusaidori.okinawa/",
+        "type": "official"
+      }
+    ]
+  },
+  "content": {
+    "en": {
+      "name": "Kokusai-dori & Makishi Public Market",
+      "description": "Naha's famous 'Miracle Mile' vibrant avenue lined with Okinawan souvenir shops, awamori distilleries, steak houses, and fresh tropical seafood dining upstairs at Makishi Market.",
+      "highlights": [
+        "Buy Okinawan souvenirs, Chatan salt, and purple yam sweets",
+        "Select fresh local fish at Makishi Market and have it cooked upstairs",
+        "Enjoy live Okinawan sanshin music performance at local izakayas"
+      ],
+      "reservationInfo": "No reservation needed for street walk; market restaurants may have wait times at noon.",
+      "parkingInfo": "Paid coin parking lots behind main street.",
+      "openingHours": "Shops 10:00 - 22:00; Makishi Market 08:00 - 21:00."
+    },
+    "ja": {
+      "name": "国際通り・第一牧志公設市場",
+      "description": "「奇跡の1マイル」と称される那覇最大の繁華街。お土産屋やステーキハウス、鮮魚が並ぶ公設市場の2階食堂で沖縄グルメを満喫。",
+      "highlights": [
+        "沖縄銘菓ちんすこうや紫芋スイーツ、泡盛のショッピング",
+        "第一牧志公設市場で買った鮮魚を2階食堂で調理してもらう「持ち上げ」体験",
+        "夜は三線ライブ居酒屋で賑やかな民謡とオリオンビール"
+      ],
+      "reservationInfo": "通り散策は自由。人気食堂はランチ帯に混雑あり。",
+      "parkingInfo": "周辺裏通りにコインパーキング多数。",
+      "openingHours": "店舗10:00〜22:00、市場08:00〜21:00（店舗による）。"
+    }
+  },
+  "coordinates": {
+    "lat": 26.2152,
+    "lng": 127.6851,
+    "latitude": 26.2152,
+    "longitude": 127.6851
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 8.5,
+    "summer": 9.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 9.5,
+    "photography": 9,
+    "relaxation": 8.5,
+    "value": 8.5,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  }
+}

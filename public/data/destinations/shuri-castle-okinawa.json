@@ -1,19 +1,19 @@
 {
   "id": "shuri-castle-okinawa",
-  "name": "Gusuku Sites and Related Properties of the Kingdom of Ryukyu",
+  "name": "Shuri Castle & Ryukyu Gusuku Sites",
   "prefecture": "Okinawa",
   "region": "Okinawa",
   "categories": ["World Heritage", "Culture", "Sightseeing"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Naha_Shuri_Castle16s5s3200.jpg/960px-Naha_Shuri_Castle16s5s3200.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Naha_Shuri_Castle02s5s3200.jpg",
   "description": "Gusuku Sites and Related Properties of the Kingdom of Ryukyu is a UNESCO World Heritage Site in Okinawa, designated for its outstanding universal cultural or natural value.",
   "highlights": [
     "UNESCO Heritage Monument",
     "Historic Landmark",
     "Cultural Preservation Area"
   ],
-  "budgetMin": 4000,
-  "budgetMax": 15000,
-  "budgetRecommended": 9500,
+  "budgetMin": 400,
+  "budgetMax": 1000,
+  "budgetRecommended": 600,
   "transportOptions": {
     "train": 45,
     "bus": 50,
@@ -26,15 +26,15 @@
   "indoorPercent": 35,
   "ratings": {
     "overall": 9.2,
-    "couple": 9,
-    "summer": 8.8,
-    "winter": 8.6,
-    "rain": 8.2,
-    "food": 8.7,
-    "photography": 9.4,
-    "relaxation": 9,
-    "value": 9.2,
-    "uniqueness": 9.5
+    "couple": 8.5,
+    "summer": 9.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 8.5,
+    "photography": 9.5,
+    "relaxation": 8.5,
+    "value": 8.5,
+    "uniqueness": 9
   },
   "crowd": {
     "weekday": 3,
@@ -50,26 +50,24 @@
   "bestMonths": [3, 4, 5, 10, 11],
   "bestSeason": "Autumn",
   "weatherDependence": "moderate",
-  "tags": [
-    "UNESCO World Heritage",
-    "Gusuku Sites and Related Properties of the Kingdom of Ryukyu",
-    "Okinawa"
-  ],
+  "tags": ["UNESCO", "Castle", "History", "Architecture", "Okinawa"],
   "reservation": "Not required",
   "parking": "Available nearby",
   "notes": "Official UNESCO World Heritage Site.",
   "coordinates": {
     "lat": 26.217,
-    "lng": 127.7195
+    "lng": 127.7195,
+    "latitude": 26.217,
+    "longitude": 127.7195
   },
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Naha_Shuri_Castle16s5s3200.jpg/960px-Naha_Shuri_Castle16s5s3200.jpg",
   "imageMetadata": {
-    "source": "Wikimedia Commons",
-    "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Gusuku Sites and Related Properties of the Kingdom of Ryukyu via Wikipedia/Wikimedia Commons"
+    "attribution": "663highland via Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANaha_Shuri_Castle02s5s3200.jpg"
   },
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "high"
   },
@@ -83,12 +81,12 @@
     "parentDestinationId": "naha-city"
   },
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 3000,
-    "cafe": 1500
+    "transport": 200,
+    "tickets": 400,
+    "food": 0,
+    "cafe": 0
   },
-  "nameJa": "琉球王国のグスク及び関連遺産群",
+  "nameJa": "首里城と琉球王国のグスク",
   "comfort": {
     "heatTolerance": 7,
     "rainFriendly": 7,
@@ -97,9 +95,69 @@
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 5,
-    "max": 7
+    "min": 1.5,
+    "max": 3
   },
   "officialWebsite": "https://oki-park.jp/shurijo/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "kind": "castle",
+  "role": "destination",
+  "rating": 4.7,
+  "ratingCount": 2150,
+  "location": {
+    "latitude": 26.217,
+    "longitude": 127.7195,
+    "address": "1-2 Shurijo-mae, Naha, Okinawa 903-0815"
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-03",
+    "reviewedAt": "2026-08-03",
+    "changes": [
+      {
+        "date": "2026-08-03",
+        "by": "Meguruto Editorial Reviewer",
+        "summary": "Reviewed and published Okinawa regional POI"
+      }
+    ],
+    "sources": [
+      {
+        "name": "Shurijo Castle Park Official Site",
+        "url": "https://oki-park.jp/shurijo/",
+        "type": "official"
+      },
+      {
+        "name": "UNESCO World Heritage Centre",
+        "url": "https://whc.unesco.org/en/list/972/",
+        "type": "encyclopedia"
+      }
+    ]
+  },
+  "content": {
+    "en": {
+      "name": "Shuri Castle & Ryukyu Gusuku Sites",
+      "description": "The historic palace complex of the Ryukyu Kingdom, featuring the iconic Shureimon Gate, stone fortification walls, and ongoing historic main hall reconstruction work.",
+      "highlights": [
+        "Pass through iconic Shureimon Gate and Kankaimon Gate",
+        "Observe active traditional restoration of Seiden main hall",
+        "Panoramic views over Naha City from Una forecourt and fortress walls"
+      ],
+      "reservationInfo": "Tickets available at gate or online in advance.",
+      "parkingInfo": "Paid underground parking on site (¥320/hour).",
+      "openingHours": "08:30 - 18:00 daily (Paid area admission until 17:30)."
+    },
+    "ja": {
+      "name": "首里城と琉球王国のグスク",
+      "description": "かつて琉球王国の政治・外交・文化の中心であった王宮。守礼門や石垣の美しさ、正殿復元作業の公開が注目の世界遺産。",
+      "highlights": [
+        "礼節を重んじる琉球文化の象徴「守礼門」と「歓会門」",
+        "令和の正殿復元作業現場の特別見学",
+        "城郭高台から見渡す那覇市街の絶景パノラマ"
+      ],
+      "reservationInfo": "有料区域チケットは現地窓口または事前オンラインで購入可能。",
+      "parkingInfo": "首里城公園地下駐車場あり（小型車1回320円）。",
+      "openingHours": "08:30〜18:00（有料区域最終入園17:30）。"
+    }
+  }
 }

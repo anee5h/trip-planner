@@ -7,7 +7,7 @@
   "prefecture": "Okinawa",
   "region": "Okinawa",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Ocean_Expo_Park.JPG",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/47/Okinawa_Aquarium.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Ocean_Expo_Park.JPG",
   "description": "Oceanic resort town home to Okinawa Churaumi Aquarium, Emerald Beach, and Bise Fukugi Tree Avenue.",
   "highlights": ["Explore Motobu Town", "Local Culture & Cuisine"],
@@ -20,16 +20,16 @@
   "walkingShadeMin": 2500,
   "indoorPercent": 50,
   "ratings": {
-    "overall": 9.5,
-    "couple": 9.3,
-    "summer": 9,
-    "winter": 9.1,
-    "rain": 9.2,
-    "food": 9.6,
-    "photography": 9.5,
-    "relaxation": 9.2,
-    "value": 9.4,
-    "uniqueness": 9.4
+    "overall": 9,
+    "couple": 8.5,
+    "summer": 9.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 8.5,
+    "photography": 9,
+    "relaxation": 8.5,
+    "value": 8.5,
+    "uniqueness": 9
   },
   "crowd": {
     "weekday": 5,
@@ -45,10 +45,12 @@
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "bestSeason": "All Year",
   "weatherDependence": "low",
-  "tags": ["Motobu Town", "Okinawa Travel", "Regional Hub"],
+  "tags": ["Hub", "Okinawa", "Aquarium", "Nature", "Castle"],
   "coordinates": {
-    "lat": 26.66,
-    "lng": 127.8895
+    "lat": 26.6575,
+    "lng": 127.8906,
+    "latitude": 26.6575,
+    "longitude": 127.8906
   },
   "comfort": {
     "heatTolerance": 8,
@@ -61,7 +63,7 @@
   "reservation": "None required",
   "parking": "Public parking available",
   "notes": "Motobu Town travel hub in Okinawa Prefecture.",
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -78,9 +80,68 @@
   },
   "walkingIntensity": "low",
   "recommendedVisitHours": {
-    "min": 6,
-    "max": 12
+    "min": 4,
+    "max": 24
   },
   "businessHours": "Open access",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "nameJa": "本部町",
+  "rating": 4.7,
+  "ratingCount": 1650,
+  "location": {
+    "latitude": 26.6575,
+    "longitude": 127.8906,
+    "address": "Motobu, Kunigami District, Okinawa Prefecture, Japan"
+  },
+  "imageMetadata": {
+    "attribution": "Jordy Meow via Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOkinawa_Aquarium.jpg"
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-03",
+    "reviewedAt": "2026-08-03",
+    "changes": [
+      {
+        "date": "2026-08-03",
+        "by": "Meguruto Editorial Reviewer",
+        "summary": "Reviewed and published Okinawa regional POI"
+      }
+    ],
+    "sources": [
+      {
+        "name": "Motobu Town Tourism Association",
+        "url": "https://www.motobu-kaigan.com/",
+        "type": "official"
+      }
+    ]
+  },
+  "content": {
+    "en": {
+      "name": "Motobu Town",
+      "description": "The coastal town on Motobu Peninsula home to World Heritage Nakijin Castle, Bise Fukugi Tree Village, and iconic Okinawa Churaumi Aquarium.",
+      "highlights": [
+        "Marvel at whale sharks in Churaumi Aquarium Kuroshio Tank",
+        "Walk peaceful emerald tunnels in Bise Fukugi Tree Village",
+        "Explore majestic stone ramparts at Nakijin Castle ruins"
+      ],
+      "reservationInfo": "Town access free; individual attractions require admission tickets.",
+      "parkingInfo": "Ocean Expo Park provides extensive free multi-story parking lots (P1 - P9).",
+      "openingHours": "24/7 town access; Ocean Expo Park generally 08:00 - 19:00."
+    },
+    "ja": {
+      "name": "本部町",
+      "description": "本部半島西部に位置し、世界的アクアリウム「沖縄美ら海水族館」や世界遺産・今帰仁城跡、備瀬のフクギ並木を有する観光の要衝。",
+      "highlights": [
+        "世界最大級の水槽で泳ぐジンベエザメとマンタを体感",
+        "備瀬のフクギ並木で木漏れ日と沖縄の原風景をのんびり散策",
+        "今帰仁城跡の屈曲する美しき城壁と東シナ海の絶景"
+      ],
+      "reservationInfo": "町内アクセス自由。各施設は現地またはオンラインでチケット購入。",
+      "parkingInfo": "海洋博公園内に大型無料駐車場多数あり（P1〜P9）。",
+      "openingHours": "終日（海洋博公園エリアは08:00〜19:00）。"
+    }
+  }
 }
