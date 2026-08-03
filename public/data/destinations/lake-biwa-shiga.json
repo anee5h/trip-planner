@@ -1,0 +1,61 @@
+{
+  "id": "lake-biwa-shiga",
+  "name": "Lake Biwa Scenic Cruise & Coast",
+  "nameJa": "琵琶湖クルーズ・湖畔",
+  "prefecture": "Shiga",
+  "region": "Kansai",
+  "nearHubs": ["otsu-city"],
+  "role": "destination",
+  "kind": "lake",
+  "category": "Nature",
+  "categories": ["Nature", "Views", "Waterfalls"],
+  "description": "Japan's largest freshwater lake offering scenic paddle-wheel steamboat cruises on the Michigan, watersports, and tranquil lakeside walking promenades.",
+  "notes": "Michigan cruise departs daily from Otsu Port.",
+  "notesJa": "【見どころ】日本最大の湖で、外輪船ミシガン号での陽気な湖上クルーズや白砂青松の湖畔散策が楽しめます。",
+  "reservation": "Cruise ticket available online or on site",
+  "reservationJa": "【予約】ミシガンクルーズ券は当日大津港で購入可能。",
+  "parking": "Paid parking at Otsu Port",
+  "parkingJa": "【駐車場】大津港有料駐車場あり。",
+  "openingHours": "09:00 - 17:00 (Cruise times vary)",
+  "openingHoursJa": "09:00 - 17:00（ミシガン運行時間に準ずる）",
+  "coordinates": {
+    "lat": 35.0117,
+    "lng": 135.8683
+  },
+  "officialWebsite": "https://www.biwakokisen.co.jp/",
+  "rating": 4.7,
+  "editorial": {
+    "rating": 4.7,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "Japan's largest freshwater lake with Michigan paddle-wheel steamboat cruises.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Lake Biwa Scenic Cruise & Coast",
+      "description": "Japan's largest freshwater lake offering scenic paddle-wheel steamboat cruises on the Michigan, watersports, and tranquil lakeside walking promenades.",
+      "highlights": [
+        "Michigan Paddle-Wheel Cruise",
+        "Otsu Port Promenade",
+        "Biwako Flower Fountain"
+      ]
+    },
+    "ja": {
+      "name": "琵琶湖クルーズ・湖畔",
+      "description": "近江八景の舞台であり日本最大の面積を誇る淡水湖です。アメリカ風外輪船「ミシガン」での音楽付きクルーズや、世界最大級のびわこ花噴水の夜間ライトアップを楽しめます。",
+      "highlights": [
+        "外輪船ミシガンクルーズ",
+        "大津港プロムナード",
+        "びわこ花噴水"
+      ]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "otsu-city"
+  },
+  "hubId": "otsu-city"
+}

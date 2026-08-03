@@ -18,12 +18,9 @@
   "prefecture": "Hyogo",
   "region": "Kansai",
   "kind": "garden",
-  "role": "poi",
+  "role": "standalone",
   "placeType": "destination",
-  "areaId": "sannomiya",
-  "relationships": {
-    "parentDestinationId": "kobe-city"
-  },
+  "relationships": {},
   "officialWebsite": "https://www.kobeherb.com/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Nature"],
@@ -136,7 +133,6 @@
     "confidence": "low"
   },
   "businessHours": "Open access",
-  "hubId": "kobe-city",
   "nearHubs": ["kobe-city"],
   "notesJa": "【見どころ】布引ハーブ園は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",

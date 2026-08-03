@@ -1,0 +1,61 @@
+{
+  "id": "meoto-iwa-wedded-rocks",
+  "name": "Meoto Iwa Wedded Rocks",
+  "nameJa": "夫婦岩",
+  "prefecture": "Mie",
+  "region": "Kansai",
+  "nearHubs": ["ise-city"],
+  "role": "destination",
+  "kind": "rock_formation",
+  "category": "Nature",
+  "categories": ["Nature", "Culture", "Views"],
+  "description": "Two sacred sea rocks joined in matrimony by a heavy straw rope (Shimenawa) off Futami Okitama Shrine. Celebrated for sunrises between the rocks and frog talismans.",
+  "notes": "Best sunrises occur from May to July.",
+  "notesJa": "【見どころ】大注連縄で結ばれた二つの聖なる岩で、縁結びと夫婦円満の象徴として親しまれます。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Free parking at Futami Okitama Shrine",
+  "parkingJa": "【駐車場】二見興玉神社無料駐車場あり。",
+  "openingHours": "24 hours",
+  "openingHoursJa": "24時間参歩自由",
+  "coordinates": {
+    "lat": 34.5086,
+    "lng": 136.7886
+  },
+  "officialWebsite": "https://www.isekanko.jp/spot/1283/",
+  "rating": 4.7,
+  "editorial": {
+    "rating": 4.7,
+    "recommendedDurationMinutes": 45,
+    "editorialSummary": "Sacred sea rocks bound by heavy straw rope representing marriage and worship.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Meoto Iwa Wedded Rocks",
+      "description": "Two sacred sea rocks joined in matrimony by a heavy straw rope (Shimenawa) off Futami Okitama Shrine. Celebrated for sunrises between the rocks and frog talismans.",
+      "highlights": [
+        "Sacred Straw Rope Shimenawa",
+        "Futami Okitama Shrine Frog Statues",
+        "Sunrise Over Ocean Rocks"
+      ]
+    },
+    "ja": {
+      "name": "夫婦岩",
+      "description": "二見興玉神社の沖合に並び立つ男岩と女岩で、神聖な大注連縄で硬く結ばれています。5月〜7月には夫婦岩の間から昇る美しい日の出を、冬には満月を観賞できます。",
+      "highlights": [
+        "大注連縄張替え神事",
+        "二見興玉神社のカエル守り",
+        "夫婦岩の日の出"
+      ]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "ise-city"
+  },
+  "hubId": "ise-city"
+}

@@ -18,12 +18,9 @@
   "prefecture": "Osaka",
   "region": "Kansai",
   "kind": "museum",
-  "role": "poi",
+  "role": "standalone",
   "placeType": "destination",
-  "areaId": "namba-minami",
-  "relationships": {
-    "parentDestinationId": "osaka-city"
-  },
+  "relationships": {},
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
   "tags": ["Culture", "Osaka City", "v1.9.2"],
@@ -137,7 +134,6 @@
   },
   "officialWebsite": "https://www.shinsaibashi.or.jp/",
   "businessHours": "09:30 - 17:00 (Closed Mondays)",
-  "hubId": "osaka-city",
   "nearHubs": ["osaka-city"],
   "notesJa": "【見どころ】心斎橋は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",

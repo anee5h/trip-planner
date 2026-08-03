@@ -1,0 +1,57 @@
+{
+  "id": "okunoin-cemetery-koyasan",
+  "name": "Okunoin Sacred Forest Cemetery",
+  "nameJa": "高野山 奥之院",
+  "prefecture": "Wakayama",
+  "region": "Kansai",
+  "nearHubs": ["koya-town"],
+  "role": "destination",
+  "kind": "cemetery",
+  "category": "Culture",
+  "categories": ["Culture", "History", "UNESCO"],
+  "description": "Japan's most sacred forest cemetery, featuring over 200,000 mossy stone stupas lining a 2km path through ancient cedar trees leading to Kobo Daishi's mausoleum.",
+  "notes": "Torodo Hall of 10,000 Lanterns glows continuously day and night.",
+  "notesJa": "【見どころ】樹齢数百年の杉木立に20万基超の墓石が立ち並ぶ弘法大師御廟の聖地です。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です（ナイトツアー有）。",
+  "parking": "Free parking at Okunoin entrance",
+  "parkingJa": "【駐車場】奥之院前に無料駐車場あり。",
+  "openingHours": "24 hours (Mausoleum 06:00 - 17:30)",
+  "openingHoursJa": "参道24時間（御廟燈籠堂 06:00 - 17:30）",
+  "coordinates": {
+    "lat": 34.2231,
+    "lng": 135.5986
+  },
+  "officialWebsite": "https://www.koyasan.or.jp/en/",
+  "rating": 4.9,
+  "editorial": {
+    "rating": 4.9,
+    "recommendedDurationMinutes": 120,
+    "editorialSummary": "Sacred forest cemetery with 200,000 mossy stone stupas surrounding Kobo Daishi mausoleum.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Okunoin Sacred Forest Cemetery",
+      "description": "Japan's most sacred forest cemetery, featuring over 200,000 mossy stone stupas lining a 2km path through ancient cedar trees leading to Kobo Daishi's mausoleum.",
+      "highlights": [
+        "Kobo Daishi Mausoleum",
+        "Torodo Hall of Lanterns",
+        "200,000 Mossy Stupas"
+      ]
+    },
+    "ja": {
+      "name": "高野山 奥之院",
+      "description": "弘法大師空海が入定（永眠）されている真言密教最大の聖地です。一の橋から御廟までの約2kmの参道には、織田信長や豊臣秀吉ら歴史的武将の墓碑や数百年を超す杉木立が神秘的な空気を醸し出します。",
+      "highlights": ["弘法大師御廟", "燈籠堂の1万個の灯籠", "武将たちの墓所群"]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "koya-town"
+  },
+  "hubId": "koya-town"
+}

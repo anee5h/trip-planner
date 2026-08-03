@@ -1,0 +1,57 @@
+{
+  "id": "ukimido-mangetsu-ji",
+  "name": "Ukimido Mangetsu-ji Floating Temple",
+  "nameJa": "浮御堂（満月寺）",
+  "prefecture": "Shiga",
+  "region": "Kansai",
+  "nearHubs": ["otsu-city"],
+  "role": "destination",
+  "kind": "temple",
+  "category": "Culture",
+  "categories": ["Culture", "Nature", "Views"],
+  "description": "Famous as 'Katata no Miko' from the Eight Views of Omi, featuring a serene wooden Buddhist hall extending over Lake Biwa on stone pillars.",
+  "notes": "Houses 1,000 Amida Buddha statues inside the lake pavilion.",
+  "notesJa": "【見どころ】近江八景「堅田の落雁」で名高い琵琶湖上に浮かぶ美しい御堂です。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Free parking available",
+  "parkingJa": "【駐車場】無料駐車場あり。",
+  "openingHours": "08:00 - 17:00",
+  "openingHoursJa": "08:00 - 17:00",
+  "coordinates": {
+    "lat": 35.1097,
+    "lng": 135.9189
+  },
+  "officialWebsite": "https://www.biwako-visitors.jp/spot/detail/109/",
+  "rating": 4.6,
+  "editorial": {
+    "rating": 4.6,
+    "recommendedDurationMinutes": 45,
+    "editorialSummary": "Serene wooden Buddhist hall built on stone pillars over the waters of Lake Biwa.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Ukimido Mangetsu-ji Floating Temple",
+      "description": "Famous as 'Katata no Miko' from the Eight Views of Omi, featuring a serene wooden Buddhist hall extending over Lake Biwa on stone pillars.",
+      "highlights": [
+        "Lake Biwa Floating Pavilion",
+        "Thousand Amida Buddhas",
+        "Eight Views of Omi Spot"
+      ]
+    },
+    "ja": {
+      "name": "浮御堂（満月寺）",
+      "description": "平安時代に湖上安全と衆生済度を祈願して建立された臨済宗の古刹です。琵琶湖の湖中に伸びる石橋の先に佇む木造のお堂と、湖面に映る景観が近江八景の絶景として知られます。",
+      "highlights": ["湖上の浮御堂", "千体阿弥陀仏", "近江八景・堅田の落雁"]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "otsu-city"
+  },
+  "hubId": "otsu-city"
+}

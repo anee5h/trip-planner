@@ -1,0 +1,61 @@
+{
+  "id": "wakayama-castle",
+  "name": "Wakayama Castle",
+  "nameJa": "和歌山城",
+  "prefecture": "Wakayama",
+  "region": "Kansai",
+  "nearHubs": ["wakayama-city"],
+  "role": "destination",
+  "kind": "castle",
+  "category": "Castle",
+  "categories": ["Castle", "History", "Nature"],
+  "description": "A hilltop fortress built in 1585 by Toyotomi Hideyoshi, featuring a restored white main keep, Momijidani Garden, and Ninja guides assisting visitors.",
+  "notes": "Ninjutsu trained guides provide free assistance around castle grounds.",
+  "notesJa": "【見どころ】虎伏山に立つ紀州徳川家の居城で、紅葉渓庭園と忍者の無料案内が名物です。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Paid parking on castle grounds",
+  "parkingJa": "【駐車場】城内有料駐車場あり。",
+  "openingHours": "09:00 - 17:30 (Last entry 17:00)",
+  "openingHoursJa": "09:00 - 17:30 (最終入城 17:00)",
+  "coordinates": {
+    "lat": 34.2275,
+    "lng": 135.1714
+  },
+  "officialWebsite": "http://wakayamajo.jp/",
+  "rating": 4.7,
+  "editorial": {
+    "rating": 4.7,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "Hilltop fortress of the Kishu Tokugawa clan with white keep and Momijidani Garden.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Wakayama Castle",
+      "description": "A hilltop fortress built in 1585 by Toyotomi Hideyoshi, featuring a restored white main keep, Momijidani Garden, and Ninja guides assisting visitors.",
+      "highlights": [
+        "White Castle Keep Panoramic View",
+        "Momijidani Garden & Ohashiro Bridge",
+        "Omotenashi Ninja Guides"
+      ]
+    },
+    "ja": {
+      "name": "和歌山城",
+      "description": "豊臣秀吉の命により藤堂高虎が築城し、徳川御三家の一つ紀州徳川家の居城として栄えた城郭です。天守閣からの360度パノラマや、斜めに架かる御橋廊下、おもてなし忍者の案内が人気です。",
+      "highlights": [
+        "360度パノラマ天守閣",
+        "江戸時代の斜め廊下「御桥廊下」",
+        "おもてなし忍者"
+      ]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "wakayama-city"
+  },
+  "hubId": "wakayama-city"
+}

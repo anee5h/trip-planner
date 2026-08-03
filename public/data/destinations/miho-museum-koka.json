@@ -1,0 +1,61 @@
+{
+  "id": "miho-museum-koka",
+  "name": "Miho Museum Koka",
+  "nameJa": "MIHO MUSEUM",
+  "prefecture": "Shiga",
+  "region": "Kansai",
+  "nearHubs": ["hikone-city"],
+  "role": "destination",
+  "kind": "museum",
+  "category": "Art",
+  "categories": ["Art", "Architecture", "Nature"],
+  "description": "I.M. Pei's modernist architectural masterpiece hidden in Shiga's wooded mountains, accessed via a dramatic silver tunnel and suspension bridge. Houses ancient Egyptian, Persian, and Asian art.",
+  "notes": "Closed Mondays and winter off-season (Dec-Mar).",
+  "notesJa": "【見どころ】I.M.ペイ設計の山中に埋め込まれた幻想的な建築と古代美術コレクションです。",
+  "reservation": "Timed advance ticket recommended online",
+  "reservationJa": "【予約】開館シーズン中はオンライン事前予約券を推薦します。",
+  "parking": "Free parking available",
+  "parkingJa": "【駐車場】無料駐車場あり。",
+  "openingHours": "10:00 - 17:00 (Last entry 16:00)",
+  "openingHoursJa": "10:00 - 17:00 (最終入館 16:00)",
+  "coordinates": {
+    "lat": 34.9147,
+    "lng": 136.0225
+  },
+  "officialWebsite": "https://www.miho.web.id/en/",
+  "rating": 4.9,
+  "editorial": {
+    "rating": 4.9,
+    "recommendedDurationMinutes": 120,
+    "editorialSummary": "I.M. Pei's subterranean mountain museum reached through a silver tunnel.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Miho Museum Koka",
+      "description": "I.M. Pei's modernist architectural masterpiece hidden in Shiga's wooded mountains, accessed via a dramatic silver tunnel and suspension bridge. Houses ancient Egyptian, Persian, and Asian art.",
+      "highlights": [
+        "I.M. Pei Silver Tunnel Entrance",
+        "Ancient Egyptian Standing Buddha Collection",
+        "Subterranean Mountain Architecture"
+      ]
+    },
+    "ja": {
+      "name": "MIHO MUSEUM",
+      "description": "ルーヴルのガラスのピラミッドで知られるI.M.ペイ氏が桃源郷をイメージして設計した山中の美術館です。しだれ桜のトンネルと吊り橋を渡ると、80%が地下に埋設された美しい空間が広がります。",
+      "highlights": [
+        "アプローチトンネルと吊り橋",
+        "古代エジプト・ペルシャ美術",
+        "桃源郷のガラス建築"
+      ]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "hikone-city"
+  },
+  "hubId": "hikone-city"
+}

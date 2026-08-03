@@ -1,0 +1,57 @@
+{
+  "id": "hokki-ji-pagoda",
+  "name": "Hokki-ji Three-Story Pagoda",
+  "nameJa": "法起寺",
+  "prefecture": "Nara",
+  "region": "Kansai",
+  "nearHubs": ["ikaruga-town"],
+  "role": "destination",
+  "kind": "temple",
+  "category": "Culture",
+  "categories": ["Culture", "History", "UNESCO"],
+  "description": "UNESCO World Heritage site housing Japan's oldest surviving three-story wooden pagoda, completed in 706 AD. Set amidst idyllic countryside cosmos flower fields.",
+  "notes": "Beautiful autumn cosmos fields surround the pagoda in October.",
+  "notesJa": "【見どころ】706年完成の日本最古の三重塔を擁する世界遺産寺院です。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Free parking available",
+  "parkingJa": "【駐車場】無料駐車場あり。",
+  "openingHours": "08:30 - 17:00 (Last entry 16:30)",
+  "openingHoursJa": "08:30 - 17:00 (最終受付 16:30)",
+  "coordinates": {
+    "lat": 34.6228,
+    "lng": 135.7461
+  },
+  "officialWebsite": "https://www.horyuji.or.jp/hokkiji/",
+  "rating": 4.6,
+  "editorial": {
+    "rating": 4.6,
+    "recommendedDurationMinutes": 45,
+    "editorialSummary": "UNESCO World Heritage site housing Japan's oldest surviving wooden 3-story pagoda.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Hokki-ji Three-Story Pagoda",
+      "description": "UNESCO World Heritage site housing Japan's oldest surviving three-story wooden pagoda, completed in 706 AD. Set amidst idyllic countryside cosmos flower fields.",
+      "highlights": [
+        "National Treasure Three-Story Pagoda",
+        "Autumn Cosmos Fields",
+        "Prince Shotoku Legacy"
+      ]
+    },
+    "ja": {
+      "name": "法起寺",
+      "description": "聖徳太子の遺言により建立された法隆寺の支院で、現存日本最古の三重塔（国宝）が建ちます。秋には寺を囲むコスモス畑が咲き誇り、斑鳩の長閑な田園風景を彩ります。",
+      "highlights": ["国宝三重塔", "斑鳩のコスモス畑", "聖徳太子ゆかりの寺"]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "ikaruga-town"
+  },
+  "hubId": "ikaruga-town"
+}

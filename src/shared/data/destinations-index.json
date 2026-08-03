@@ -88,7 +88,7 @@
     "id": "abeno-harukas-300-osaka",
     "name": "Abeno Harukas 300 (Osaka Skyline)",
     "kind": "viewpoint",
-    "role": "poi",
+    "role": "destination",
     "importance": "major",
     "relationships": {
       "parentDestinationId": "osaka-city"
@@ -195,10 +195,8 @@
       "max": 4
     },
     "placeType": "destination",
-    "areaId": "tennoji-abeno",
     "officialWebsite": "https://www.abenoharukas-300.jp/observatory/",
     "businessHours": "09:00 - 22:00 (Last admission 21:30)",
-    "hubId": "osaka-city",
     "nearHubs": ["osaka-city"],
     "editorial": {
       "rating": 4.8,
@@ -213,7 +211,8 @@
     "notesJa": "【見どころ】Abeno Harukas 300 (Osaka Skyline)は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "osaka-city"
   },
   {
     "id": "abukuma-cave-fukushima",
@@ -1307,7 +1306,6 @@
     },
     "officialWebsite": "https://www.amanohashidate.jp/",
     "businessHours": "Open access",
-    "hubId": "miyazu-city",
     "nearHubs": ["miyazu-city"],
     "editorial": {
       "rating": 4.8,
@@ -1322,7 +1320,9 @@
     "notesJa": "【見どころ】天橋立は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "role": "destination",
+    "hubId": "miyazu-city"
   },
   {
     "id": "ameya-yokocho",
@@ -2152,8 +2152,9 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kobe-city",
-    "nearHubs": ["kobe-city"]
+    "nearHubs": ["kobe-city"],
+    "role": "destination",
+    "hubId": "kobe-city"
   },
   {
     "id": "art-tower-mito",
@@ -3258,7 +3259,7 @@
       "walkingIntensity": 3
     },
     "walkingIntensity": "low",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -3281,8 +3282,8 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "nara-city",
-    "nearHubs": ["nara-city"]
+    "nearHubs": ["nara-city"],
+    "hubId": "nara-city"
   },
   {
     "id": "atami-city",
@@ -8240,7 +8241,7 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "destination",
     "placeType": "destination",
     "areaId": "namba-minami",
     "relationships": {
@@ -8359,12 +8360,12 @@
       "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
-    "hubId": "osaka-city",
     "nearHubs": ["osaka-city"],
     "notesJa": "【見どころ】道頓堀は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "osaka-city"
   },
   {
     "id": "edo-castle-tokyo",
@@ -11831,7 +11832,7 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "destination",
     "placeType": "destination",
     "areaId": "fushimi",
     "relationships": {
@@ -11950,12 +11951,12 @@
       "confidence": "low"
     },
     "businessHours": "Open 24 hours (Shrine offices 08:30 - 16:30)",
-    "hubId": "kyoto-city",
     "nearHubs": ["kyoto-city"],
     "notesJa": "【見どころ】伏見稲荷大社は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kyoto-city"
   },
   {
     "id": "gala-yuzawa",
@@ -12910,12 +12911,9 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "temple",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "higashiyama",
-    "relationships": {
-      "parentDestinationId": "kyoto-city"
-    },
+    "relationships": {},
     "officialWebsite": "https://www.shokoku-ji.jp/ginkakuji/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
@@ -13038,7 +13036,6 @@
       "confidence": "low"
     },
     "businessHours": "08:30 - 17:00 (Dec-Feb: 09:00 - 16:30)",
-    "hubId": "kyoto-city",
     "nearHubs": ["kyoto-city"],
     "notesJa": "【見どころ】慈照寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -16137,12 +16134,9 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "shrine",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "higashiyama",
-    "relationships": {
-      "parentDestinationId": "kyoto-city"
-    },
+    "relationships": {},
     "officialWebsite": "http://www.heianjingu.or.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
@@ -16260,7 +16254,6 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kyoto-city",
     "nearHubs": ["kyoto-city"]
   },
   {
@@ -16489,7 +16482,6 @@
     },
     "officialWebsite": "https://hikonecastle.com/",
     "businessHours": "09:00 - 17:00 (Last admission 16:30)",
-    "hubId": "hikone-city",
     "nearHubs": ["hikone-city"],
     "editorial": {
       "rating": 4.8,
@@ -16504,7 +16496,9 @@
     "notesJa": "【見どころ】Hikone Castle (National Treasure)は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "role": "destination",
+    "hubId": "hikone-city"
   },
   {
     "id": "hikone-city",
@@ -16726,7 +16720,6 @@
     },
     "officialWebsite": "https://www.himejicastle.jp/en/",
     "businessHours": "09:00 - 17:00 (Last admission 16:00)",
-    "hubId": "himeji-city",
     "nearHubs": ["himeji-city"],
     "editorial": {
       "rating": 4.8,
@@ -16741,7 +16734,9 @@
     "notesJa": "【見どころ】姫路城は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "role": "destination",
+    "hubId": "himeji-city"
   },
   {
     "id": "himeji-city",
@@ -18318,8 +18313,9 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "ikaruga-town",
-    "nearHubs": ["ikaruga-town"]
+    "nearHubs": ["ikaruga-town"],
+    "role": "destination",
+    "hubId": "ikaruga-town"
   },
   {
     "id": "ibaraki-fukuroda-falls",
@@ -20149,8 +20145,9 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "ise-city",
-    "nearHubs": ["ise-city"]
+    "nearHubs": ["ise-city"],
+    "role": "destination",
+    "hubId": "ise-city"
   },
   {
     "id": "ishigaki-city",
@@ -26152,12 +26149,9 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "temple",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "higashiyama",
-    "relationships": {
-      "parentDestinationId": "kyoto-city"
-    },
+    "relationships": {},
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
     "tags": ["History", "Kyoto City", "v1.9.2"],
@@ -26271,7 +26265,6 @@
     },
     "officialWebsite": "https://www.kenninji.jp/",
     "businessHours": "08:30 - 17:00 (Last admission 16:30)",
-    "hubId": "kyoto-city",
     "nearHubs": ["kyoto-city"],
     "notesJa": "【見どころ】法観寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -26298,7 +26291,7 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "temple",
-    "role": "poi",
+    "role": "destination",
     "placeType": "destination",
     "areaId": "northern-kyoto",
     "relationships": {
@@ -26426,12 +26419,12 @@
       "confidence": "low"
     },
     "businessHours": "09:00 - 17:00 (Daily)",
-    "hubId": "kyoto-city",
     "nearHubs": ["kyoto-city"],
     "notesJa": "【見どころ】鹿苑寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kyoto-city"
   },
   {
     "id": "kinosaki-onsen",
@@ -26551,8 +26544,9 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "toyooka-city",
-    "nearHubs": ["toyooka-city"]
+    "nearHubs": ["toyooka-city"],
+    "role": "destination",
+    "hubId": "toyooka-city"
   },
   {
     "id": "kintai-bridge-yamaguchi",
@@ -27632,7 +27626,7 @@
     "prefecture": "Hyogo",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "destination",
     "placeType": "destination",
     "areaId": "kitano",
     "relationships": {
@@ -27759,8 +27753,8 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kobe-city",
-    "nearHubs": ["kobe-city"]
+    "nearHubs": ["kobe-city"],
+    "hubId": "kobe-city"
   },
   {
     "id": "kiyotsu-gorge-niigata",
@@ -27879,7 +27873,7 @@
     "prefecture": "Hyogo",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "destination",
     "placeType": "destination",
     "areaId": "port-island",
     "relationships": {
@@ -27997,12 +27991,12 @@
       "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
-    "hubId": "kobe-city",
     "nearHubs": ["kobe-city"],
     "notesJa": "【見どころ】神戸どうぶつ王国は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kobe-city"
   },
   {
     "id": "kobe-city",
@@ -28142,7 +28136,7 @@
     "prefecture": "Hyogo",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "destination",
     "placeType": "destination",
     "areaId": "kobe-waterfront",
     "relationships": {
@@ -28265,12 +28259,12 @@
       "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
-    "hubId": "kobe-city",
     "nearHubs": ["kobe-city"],
     "notesJa": "【見どころ】神戸ハーバーランドは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kobe-city"
   },
   {
     "id": "kobe-maritime-museum",
@@ -28292,12 +28286,9 @@
     "prefecture": "Hyogo",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "kobe-waterfront",
-    "relationships": {
-      "parentDestinationId": "kobe-city"
-    },
+    "relationships": {},
     "officialWebsite": "http://www.kobe-maritime-museum.com/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
@@ -28410,7 +28401,6 @@
       "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
-    "hubId": "kobe-city",
     "nearHubs": ["kobe-city"],
     "notesJa": "【見どころ】神戸海洋博物館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -28498,8 +28488,7 @@
         "takamatsu-city",
         "matsuyama-city",
         "tokushima-city"
-      ],
-      "parentDestinationId": "kobe-city"
+      ]
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg/3840px-View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg",
     "budgetBreakdown": {
@@ -28543,8 +28532,8 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kobe-city",
-    "nearHubs": ["kobe-city"]
+    "nearHubs": ["kobe-city"],
+    "role": "standalone"
   },
   {
     "id": "kobe-port-tower",
@@ -28566,7 +28555,7 @@
     "prefecture": "Hyogo",
     "region": "Kansai",
     "kind": "tower",
-    "role": "poi",
+    "role": "destination",
     "placeType": "destination",
     "areaId": "kobe-waterfront",
     "relationships": {
@@ -28689,12 +28678,12 @@
       "confidence": "low"
     },
     "businessHours": "Open access",
-    "hubId": "kobe-city",
     "nearHubs": ["kobe-city"],
     "notesJa": "【見どころ】神戸ポートタワーは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kobe-city"
   },
   {
     "id": "kochi-castle",
@@ -30175,7 +30164,9 @@
         "sortOrder": 2
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "koya-town"
+    },
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -30189,7 +30180,7 @@
       "walkingIntensity": 3
     },
     "walkingIntensity": "low",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -30212,8 +30203,8 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "koya-town",
-    "nearHubs": ["koya-town"]
+    "nearHubs": ["koya-town"],
+    "hubId": "koya-town"
   },
   {
     "id": "kurashiki-city",
@@ -30607,12 +30598,9 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "market",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "namba-minami",
-    "relationships": {
-      "parentDestinationId": "osaka-city"
-    },
+    "relationships": {},
     "officialWebsite": "https://kuromon.com/en/",
     "officialWebsiteRequirement": "none",
     "categories": ["Food"],
@@ -30726,7 +30714,6 @@
       "confidence": "low"
     },
     "businessHours": "Open access",
-    "hubId": "osaka-city",
     "nearHubs": ["osaka-city"],
     "notesJa": "【見どころ】黒門市場は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -31366,7 +31353,7 @@
     "parking": "Available on site",
     "schemaVersion": 2,
     "walkingIntensity": "high",
-    "role": "poi",
+    "role": "destination",
     "placeType": "destination",
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -31390,8 +31377,8 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kyoto-city",
-    "nearHubs": ["kyoto-city"]
+    "nearHubs": ["kyoto-city"],
+    "hubId": "kyoto-city"
   },
   {
     "id": "kyoto-imperial-palace",
@@ -31413,12 +31400,9 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "central-kyoto",
-    "relationships": {
-      "parentDestinationId": "kyoto-city"
-    },
+    "relationships": {},
     "officialWebsite": "https://sankan.kunaicho.go.jp/guide/kyoto.html",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
@@ -31532,7 +31516,6 @@
       "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
-    "hubId": "kyoto-city",
     "nearHubs": ["kyoto-city"],
     "notesJa": "【見どころ】京都御所は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -31562,12 +31545,9 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "central-kyoto",
-    "relationships": {
-      "parentDestinationId": "kyoto-city"
-    },
+    "relationships": {},
     "officialWebsite": "http://www.kyotomm.com/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
@@ -31681,7 +31661,6 @@
       "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
-    "hubId": "kyoto-city",
     "nearHubs": ["kyoto-city"],
     "notesJa": "【見どころ】京都国際マンガミュージアムは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -31708,12 +31687,9 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "central-kyoto",
-    "relationships": {
-      "parentDestinationId": "kyoto-city"
-    },
+    "relationships": {},
     "officialWebsite": "http://www.kyohaku.go.jp/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
@@ -31827,7 +31803,6 @@
       "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
-    "hubId": "kyoto-city",
     "nearHubs": ["kyoto-city"],
     "notesJa": "【見どころ】京都国立博物館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -31854,12 +31829,9 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "central-kyoto",
-    "relationships": {
-      "parentDestinationId": "kyoto-city"
-    },
+    "relationships": {},
     "officialWebsite": "https://www.kyotorailwaymuseum.jp/en/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
@@ -31973,7 +31945,6 @@
       "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
-    "hubId": "kyoto-city",
     "nearHubs": ["kyoto-city"],
     "notesJa": "【見どころ】京都鉄道博物館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -34554,12 +34525,9 @@
     "prefecture": "Hyogo",
     "region": "Kansai",
     "kind": "park",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "kobe-waterfront",
-    "relationships": {
-      "parentDestinationId": "kobe-city"
-    },
+    "relationships": {},
     "officialWebsiteRequirement": "none",
     "categories": ["Nature"],
     "tags": ["Nature", "Kobe City", "v1.9.2"],
@@ -34672,7 +34640,6 @@
     },
     "officialWebsite": "https://www.harborland.co.jp/",
     "businessHours": "Open access",
-    "hubId": "kobe-city",
     "nearHubs": ["kobe-city"],
     "notesJa": "【見どころ】メリケンパークは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -37306,7 +37273,7 @@
     "reservation": "None required",
     "parking": "Available on site",
     "walkingIntensity": "medium",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -37329,8 +37296,8 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "nara-city",
-    "nearHubs": ["nara-city"]
+    "nearHubs": ["nara-city"],
+    "hubId": "nara-city"
   },
   {
     "id": "mount-zao-yamagata",
@@ -37532,7 +37499,7 @@
       "walkingIntensity": 3
     },
     "walkingIntensity": "low",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -37571,8 +37538,8 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "sakai-city",
-    "nearHubs": ["sakai-city"]
+    "nearHubs": ["sakai-city"],
+    "hubId": "sakai-city"
   },
   {
     "id": "musashi-ichinomiya-hikawa-shrine",
@@ -38021,7 +37988,9 @@
     "indoorPercent": 20,
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "shirahama-town"
+    },
     "image": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1000",
     "budgetBreakdown": {
       "transport": 2786,
@@ -38041,7 +38010,7 @@
     "parking": "Available on site",
     "schemaVersion": 2,
     "walkingIntensity": "low",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -38064,8 +38033,8 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "shirahama-town",
-    "nearHubs": ["shirahama-town"]
+    "nearHubs": ["shirahama-town"],
+    "hubId": "shirahama-town"
   },
   {
     "id": "nagano-bessho-onsen",
@@ -39895,12 +39864,9 @@
     "prefecture": "Hyogo",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "sannomiya",
-    "relationships": {
-      "parentDestinationId": "kobe-city"
-    },
+    "relationships": {},
     "officialWebsite": "https://www.nankinmachi.or.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Food"],
@@ -40018,7 +39984,6 @@
       "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
-    "hubId": "kobe-city",
     "nearHubs": ["kobe-city"],
     "notesJa": "【見どころ】南京町 (神戸市)は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -40045,12 +40010,9 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "temple",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "higashiyama",
-    "relationships": {
-      "parentDestinationId": "kyoto-city"
-    },
+    "relationships": {},
     "officialWebsite": "http://www.nanzen.net/keidai_nanzenin.html",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
@@ -40164,7 +40126,6 @@
       "confidence": "low"
     },
     "businessHours": "08:30 - 17:00 (Last admission 16:30)",
-    "hubId": "kyoto-city",
     "nearHubs": ["kyoto-city"],
     "notesJa": "【見どころ】南禅院は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -40485,8 +40446,9 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "nara-city",
-    "nearHubs": ["nara-city"]
+    "nearHubs": ["nara-city"],
+    "role": "destination",
+    "hubId": "nara-city"
   },
   {
     "id": "nara-park-todaiji",
@@ -40619,8 +40581,9 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "nara-city",
-    "nearHubs": ["nara-city"]
+    "nearHubs": ["nara-city"],
+    "role": "destination",
+    "hubId": "nara-city"
   },
   {
     "id": "narita-airport-observation-decks",
@@ -42209,7 +42172,7 @@
       "min": 3,
       "max": 5
     },
-    "role": "poi",
+    "role": "destination",
     "placeType": "destination",
     "areaId": "central-kyoto",
     "officialWebsite": "https://nijo-jocastle.city.kyoto.lg.jp/",
@@ -42228,8 +42191,8 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "kyoto-city",
-    "nearHubs": ["kyoto-city"]
+    "nearHubs": ["kyoto-city"],
+    "hubId": "kyoto-city"
   },
   {
     "id": "nijo-market",
@@ -42713,12 +42676,9 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "temple",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "northern-kyoto",
-    "relationships": {
-      "parentDestinationId": "kyoto-city"
-    },
+    "relationships": {},
     "officialWebsite": "http://www.ninnaji.or.jp",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
@@ -42841,7 +42801,6 @@
       "confidence": "low"
     },
     "businessHours": "08:30 - 17:00 (Last admission 16:30)",
-    "hubId": "kyoto-city",
     "nearHubs": ["kyoto-city"],
     "notesJa": "【見どころ】仁和寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -42953,12 +42912,9 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "market",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "central-kyoto",
-    "relationships": {
-      "parentDestinationId": "kyoto-city"
-    },
+    "relationships": {},
     "officialWebsite": "http://www.kyoto-nishiki.or.jp/",
     "officialWebsiteRequirement": "none",
     "categories": ["Food"],
@@ -43072,7 +43028,6 @@
       "confidence": "low"
     },
     "businessHours": "Open access",
-    "hubId": "kyoto-city",
     "nearHubs": ["kyoto-city"],
     "notesJa": "【見どころ】錦市場は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -43291,12 +43246,9 @@
     "prefecture": "Hyogo",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "sannomiya",
-    "relationships": {
-      "parentDestinationId": "kobe-city"
-    },
+    "relationships": {},
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature"],
     "tags": ["Nature", "Kobe City", "v1.9.2"],
@@ -43409,7 +43361,6 @@
     },
     "officialWebsite": "https://www.kobe-kankou.jp/",
     "businessHours": "Open access",
-    "hubId": "kobe-city",
     "nearHubs": ["kobe-city"],
     "notesJa": "【見どころ】布引の滝 (兵庫県)は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -43436,12 +43387,9 @@
     "prefecture": "Hyogo",
     "region": "Kansai",
     "kind": "garden",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "sannomiya",
-    "relationships": {
-      "parentDestinationId": "kobe-city"
-    },
+    "relationships": {},
     "officialWebsite": "https://www.kobeherb.com/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature"],
@@ -43554,7 +43502,6 @@
       "confidence": "low"
     },
     "businessHours": "Open access",
-    "hubId": "kobe-city",
     "nearHubs": ["kobe-city"],
     "notesJa": "【見どころ】布引ハーブ園は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -43581,12 +43528,9 @@
     "prefecture": "Hyogo",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "sannomiya",
-    "relationships": {
-      "parentDestinationId": "kobe-city"
-    },
+    "relationships": {},
     "officialWebsite": "https://www.kobeherb.com/view/ropeway/",
     "officialWebsiteRequirement": "required",
     "categories": ["Viewpoint"],
@@ -43699,7 +43643,6 @@
       "confidence": "low"
     },
     "businessHours": "Open access",
-    "hubId": "kobe-city",
     "nearHubs": ["kobe-city"],
     "notesJa": "【見どころ】神戸布引ロープウェイは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -46447,12 +46390,9 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "aquarium",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "bay-area",
-    "relationships": {
-      "parentDestinationId": "osaka-city"
-    },
+    "relationships": {},
     "officialWebsite": "https://www.kaiyukan.com/language/eng/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
@@ -46566,7 +46506,6 @@
       "confidence": "low"
     },
     "businessHours": "10:00 - 20:00 (Last admission 19:00)",
-    "hubId": "osaka-city",
     "nearHubs": ["osaka-city"],
     "notesJa": "【見どころ】海遊館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -46680,12 +46619,11 @@
       "min": 3,
       "max": 5
     },
-    "role": "poi",
+    "role": "destination",
     "placeType": "destination",
     "areaId": "osaka-castle",
     "officialWebsite": "https://www.osakacastle.net/",
     "businessHours": "09:00 - 17:00 (Last admission 16:30)",
-    "hubId": "osaka-city",
     "nearHubs": ["osaka-city"],
     "editorial": {
       "rating": 4.8,
@@ -46700,7 +46638,8 @@
     "notesJa": "【見どころ】大阪城は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "osaka-city"
   },
   {
     "id": "osaka-castle-park",
@@ -46722,12 +46661,9 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "park",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "osaka-castle",
-    "relationships": {
-      "parentDestinationId": "osaka-city"
-    },
+    "relationships": {},
     "officialWebsite": "https://www.osakacastlepark.jp/?lang=en",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature", "History"],
@@ -46850,7 +46786,6 @@
       "confidence": "low"
     },
     "businessHours": "Open access",
-    "hubId": "osaka-city",
     "nearHubs": ["osaka-city"],
     "notesJa": "【見どころ】大阪城公園は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -47010,12 +46945,9 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "umeda-kita",
-    "relationships": {
-      "parentDestinationId": "osaka-city"
-    },
+    "relationships": {},
     "officialWebsite": "http://konjyakukan.com/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
@@ -47129,7 +47061,6 @@
       "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
-    "hubId": "osaka-city",
     "nearHubs": ["osaka-city"],
     "notesJa": "【見どころ】大阪くらしの今昔館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -47156,12 +47087,9 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "umeda-kita",
-    "relationships": {
-      "parentDestinationId": "osaka-city"
-    },
+    "relationships": {},
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
     "tags": ["Culture", "Osaka City", "v1.9.2"],
@@ -47275,7 +47203,6 @@
       "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
-    "hubId": "osaka-city",
     "nearHubs": ["osaka-city"],
     "notesJa": "【見どころ】大阪ステーションシティは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -48504,12 +48431,9 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "higashiyama",
-    "relationships": {
-      "parentDestinationId": "kyoto-city"
-    },
+    "relationships": {},
     "officialWebsite": "https://tetsugakunomichi.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
@@ -48623,7 +48547,6 @@
       "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
-    "hubId": "kyoto-city",
     "nearHubs": ["kyoto-city"],
     "notesJa": "【見どころ】哲学の道は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -49173,12 +49096,9 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "temple",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "northern-kyoto",
-    "relationships": {
-      "parentDestinationId": "kyoto-city"
-    },
+    "relationships": {},
     "officialWebsite": "https://www.city.kyoto.lg.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
@@ -49301,7 +49221,6 @@
       "confidence": "low"
     },
     "businessHours": "08:00 - 17:00 (Dec-Feb: 08:30 - 16:30)",
-    "hubId": "kyoto-city",
     "nearHubs": ["kyoto-city"],
     "notesJa": "【見どころ】京都市は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -51171,12 +51090,9 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "higashiyama",
-    "relationships": {
-      "parentDestinationId": "kyoto-city"
-    },
+    "relationships": {},
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
     "tags": ["Culture", "Kyoto City", "v1.9.2"],
@@ -51290,7 +51206,6 @@
     },
     "officialWebsite": "https://www.sanjusangendo.jp/",
     "businessHours": "08:30 - 17:00 (Nov-Mar: 09:00 - 16:00)",
-    "hubId": "kyoto-city",
     "nearHubs": ["kyoto-city"],
     "notesJa": "【見どころ】江戸三十三間堂は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -54723,12 +54638,9 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "namba-minami",
-    "relationships": {
-      "parentDestinationId": "osaka-city"
-    },
+    "relationships": {},
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
     "tags": ["Culture", "Osaka City", "v1.9.2"],
@@ -54842,7 +54754,6 @@
     },
     "officialWebsite": "https://www.shinsaibashi.or.jp/",
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
-    "hubId": "osaka-city",
     "nearHubs": ["osaka-city"],
     "notesJa": "【見どころ】心斎橋は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -54869,12 +54780,9 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "namba-minami",
-    "relationships": {
-      "parentDestinationId": "osaka-city"
-    },
+    "relationships": {},
     "officialWebsite": "https://shinsekai.osaka/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
@@ -54988,7 +54896,6 @@
       "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
-    "hubId": "osaka-city",
     "nearHubs": ["osaka-city"],
     "notesJa": "【見どころ】新世界 (大阪)は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -58421,7 +58328,6 @@
     },
     "officialWebsite": "https://www.city.asago.hyogo.jp/site/takeda-castle/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "hubId": "asago-city",
     "nearHubs": ["asago-city"],
     "editorial": {
       "rating": 4.8,
@@ -58436,7 +58342,9 @@
     "notesJa": "【見どころ】竹田城跡は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "role": "destination",
+    "hubId": "asago-city"
   },
   {
     "id": "takeda-castle-yamanashi",
@@ -59353,12 +59261,9 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "viewpoint",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "bay-area",
-    "relationships": {
-      "parentDestinationId": "osaka-city"
-    },
+    "relationships": {},
     "officialWebsite": "http://www.senyo.co.jp/tempozan/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Viewpoint"],
@@ -59472,7 +59377,6 @@
       "confidence": "low"
     },
     "businessHours": "Open access",
-    "hubId": "osaka-city",
     "nearHubs": ["osaka-city"],
     "notesJa": "【見どころ】天保山大観覧車は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -59675,12 +59579,9 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "temple",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "tennoji-abeno",
-    "relationships": {
-      "parentDestinationId": "osaka-city"
-    },
+    "relationships": {},
     "officialWebsite": "https://www.city.osaka.lg.jp/contents/wdu170/tennojizoo/top.html",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature", "History"],
@@ -59794,7 +59695,6 @@
       "confidence": "low"
     },
     "businessHours": "Open access",
-    "hubId": "osaka-city",
     "nearHubs": ["osaka-city"],
     "notesJa": "【見どころ】天王寺公園は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -60097,12 +59997,9 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "nakanoshima",
-    "relationships": {
-      "parentDestinationId": "osaka-city"
-    },
+    "relationships": {},
     "officialWebsite": "http://www.nmao.go.jp",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
@@ -60216,7 +60113,6 @@
       "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
-    "hubId": "osaka-city",
     "nearHubs": ["osaka-city"],
     "notesJa": "【見どころ】国立国際美術館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -64864,12 +64760,9 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "tower",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "namba-minami",
-    "relationships": {
-      "parentDestinationId": "osaka-city"
-    },
+    "relationships": {},
     "officialWebsite": "https://www.tsutenkaku.co.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Viewpoint"],
@@ -64988,7 +64881,6 @@
       "confidence": "low"
     },
     "businessHours": "10:00 - 20:00 (Last admission 19:30)",
-    "hubId": "osaka-city",
     "nearHubs": ["osaka-city"],
     "notesJa": "【見どころ】通天閣は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -65693,7 +65585,7 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "destination",
     "placeType": "destination",
     "areaId": "umeda-kita",
     "relationships": {
@@ -65821,12 +65713,12 @@
       "confidence": "low"
     },
     "businessHours": "09:30 - 22:30 (Last admission 22:00)",
-    "hubId": "osaka-city",
     "nearHubs": ["osaka-city"],
     "notesJa": "【見どころ】梅田スカイビルは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "osaka-city"
   },
   {
     "id": "universal-studios-japan",
@@ -65848,7 +65740,7 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "theme_park",
-    "role": "poi",
+    "role": "destination",
     "placeType": "destination",
     "areaId": "bay-area",
     "relationships": {
@@ -65967,12 +65859,12 @@
       "confidence": "low"
     },
     "businessHours": "08:30 - 21:30 (Varies seasonally)",
-    "hubId": "osaka-city",
     "nearHubs": ["osaka-city"],
     "notesJa": "【見どころ】ユニバーサル・スタジオ・ジャパンは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "osaka-city"
   },
   {
     "id": "urayasu-city",
@@ -67683,12 +67575,9 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "shrine",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "areaId": "higashiyama",
-    "relationships": {
-      "parentDestinationId": "kyoto-city"
-    },
+    "relationships": {},
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
     "tags": ["History", "Kyoto City", "v1.9.2"],
@@ -67802,7 +67691,6 @@
     },
     "officialWebsite": "https://www.yasaka-jinja.or.jp/",
     "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
-    "hubId": "kyoto-city",
     "nearHubs": ["kyoto-city"],
     "notesJa": "【見どころ】法観寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -77740,11 +77628,9 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "temple",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "relationships": {
-      "parentDestinationId": "osaka-city"
-    },
+    "relationships": {},
     "officialWebsiteRequirement": "recommended",
     "categories": ["History", "Culture", "Temple"],
     "tags": [
@@ -77855,7 +77741,6 @@
       "attribution": "MASA",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shitennoji_(3).JPG"
     },
-    "hubId": "osaka-city",
     "nearHubs": ["osaka-city"],
     "notesJa": "【見どころ】四天王寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -77882,11 +77767,9 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "relationships": {
-      "parentDestinationId": "osaka-city"
-    },
+    "relationships": {},
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum", "Art", "Indoor"],
     "tags": [
@@ -78001,7 +77884,6 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "osaka-city",
     "nearHubs": ["osaka-city"]
   },
   {
@@ -78024,11 +77906,9 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "museum",
-    "role": "poi",
+    "role": "standalone",
     "placeType": "destination",
-    "relationships": {
-      "parentDestinationId": "osaka-city"
-    },
+    "relationships": {},
     "officialWebsiteRequirement": "recommended",
     "categories": ["History", "Architecture", "Culture"],
     "tags": [
@@ -78143,7 +78023,6 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "osaka-city",
     "nearHubs": ["osaka-city"]
   },
   {
@@ -78991,5 +78870,1726 @@
       "attribution": "Okonomi-mura. Uploaded by Nihonjoe",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Okonomi-mura_logo.png"
     }
+  },
+  {
+    "id": "cupnoodles-museum-osaka-ikeda",
+    "name": "CupNoodles Museum Osaka Ikeda",
+    "nameJa": "カップヌードルミュージアム 大阪池田",
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "nearHubs": ["sakai-city", "osaka-city"],
+    "role": "destination",
+    "kind": "museum",
+    "category": "Museum",
+    "categories": ["Museum", "Culture", "Family"],
+    "description": "The birthplace of instant ramen featuring interactive workshops where visitors create custom cup noodles. Exhibits showcase Momofuku Ando's historic invention shed and global noodle packages.",
+    "notes": "Advance workshop reservations recommended. Closed Tuesdays.",
+    "notesJa": "【見どころ】マイカップヌードル手作り体験が人気の体験型ミュージアムです。",
+    "reservation": "Workshop reservation recommended",
+    "reservationJa": "【予約】カップヌードル作成体験は事前または当日整理券が必要です。",
+    "parking": "Paid parking available",
+    "parkingJa": "【駐車場】有料駐車場あり。",
+    "openingHours": "09:30 - 16:30 (Last entry 15:30)",
+    "openingHoursJa": "09:30 - 16:30 (最終入館 15:30)",
+    "coordinates": {
+      "lat": 34.8184,
+      "lng": 135.4262
+    },
+    "officialWebsite": "https://www.cupnoodles-museum.jp/en/osaka_ikeda/",
+    "rating": 4.7,
+    "editorial": {
+      "rating": 4.7,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Birthplace of instant ramen with custom cup noodle workshops.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "CupNoodles Museum Osaka Ikeda",
+        "description": "The birthplace of instant ramen featuring interactive workshops where visitors create custom cup noodles. Exhibits showcase Momofuku Ando's historic invention shed and global noodle packages.",
+        "highlights": [
+          "Custom Cup Noodle Workshop",
+          "Momofuku Ando Research Shed",
+          "Instant Ramen Tunnel"
+        ]
+      },
+      "ja": {
+        "name": "カップヌードルミュージアム 大阪池田",
+        "description": "インスタントラーメン発祥の地に建つ体験型ミュージアムで、自分だけのスープと具材を選べるマイカップヌードル作りが人気です。安藤百福の研究小屋復元展示も楽しめます。",
+        "highlights": [
+          "マイカップヌードルファクトリー",
+          "安藤百福の研究小屋",
+          "インスタントラーメンラインナップ"
+        ]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "sakai-city"
+    },
+    "hubId": "sakai-city"
+  },
+  {
+    "id": "byodoin-temple",
+    "name": "Byodoin Temple",
+    "nameJa": "平等院",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "nearHubs": ["uji-city", "kyoto-city"],
+    "role": "destination",
+    "kind": "temple",
+    "category": "Culture",
+    "categories": ["Culture", "History", "UNESCO"],
+    "description": "UNESCO World Heritage temple featuring the iconic Phoenix Hall reflected in a serene pond. Built in 1053, its architectural grace is depicted on Japan's 10-yen coin.",
+    "notes": "Phoenix Hall interior tours require separate timed tickets.",
+    "notesJa": "【見どころ】10円玉に描かれた鳳凰堂と阿字池の水鏡が息を呑む美しさです。",
+    "reservation": "Phoenix Hall interior ticket required on site",
+    "reservationJa": "【予約】鳳凰堂内部拝観は当日先着順の定員制となります。",
+    "parking": "Paid public parking nearby",
+    "parkingJa": "【駐車場】近隣にコインパーキングあり。",
+    "openingHours": "08:30 - 17:30 (Last entry 17:15)",
+    "openingHoursJa": "08:30 - 17:30 (最終受付 17:15)",
+    "coordinates": {
+      "lat": 34.8893,
+      "lng": 135.8077
+    },
+    "officialWebsite": "https://www.byodoin.or.jp/en/",
+    "rating": 4.8,
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "UNESCO World Heritage temple featuring the iconic Phoenix Hall.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Byodoin Temple",
+        "description": "UNESCO World Heritage temple featuring the iconic Phoenix Hall reflected in a serene pond. Built in 1053, its architectural grace is depicted on Japan's 10-yen coin.",
+        "highlights": [
+          "Phoenix Hall",
+          "Hoshokan Museum",
+          "Ajike Pond Reflection"
+        ]
+      },
+      "ja": {
+        "name": "平等院",
+        "description": "1053年に極楽浄土をイメージして建立されたユネスコ世界遺産寺院です。10円硬貨に描かれた鳳凰堂と阿字池に映る水鏡の美しさが世界中の観光客を魅了します。",
+        "highlights": ["鳳凰堂", "鳳翔館ミュージアム", "阿字池の景観"]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "uji-city"
+    },
+    "hubId": "uji-city"
+  },
+  {
+    "id": "uji-tea-culture-center",
+    "name": "Uji Tea Culture Center & Ujigami Shrine",
+    "nameJa": "宇治茶文化館・宇治上神社",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "nearHubs": ["uji-city", "kyoto-city"],
+    "role": "destination",
+    "kind": "shrine",
+    "category": "Culture",
+    "categories": ["Culture", "History", "UNESCO"],
+    "description": "Japan's oldest original shrine main hall nestled in historic Uji, surrounded by traditional matcha tea houses. Visitors can try authentic matcha grinding and ceremonial green tea tasting.",
+    "notes": "Famous for high-grade Uji Matcha tea tastings.",
+    "notesJa": "【見どころ】日本最古の神社本殿を持つ世界遺産・宇治上神社と宇治茶体験が魅力です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】参拝・茶屋利用は事前予約不要です。",
+    "parking": "Paid parking available",
+    "parkingJa": "【駐車場】近隣有料駐車場あり。",
+    "openingHours": "09:00 - 16:30",
+    "openingHoursJa": "09:00 - 16:30",
+    "coordinates": {
+      "lat": 34.8913,
+      "lng": 135.8108
+    },
+    "officialWebsite": "https://www.ujietor.jp/",
+    "rating": 4.6,
+    "editorial": {
+      "rating": 4.6,
+      "recommendedDurationMinutes": 60,
+      "editorialSummary": "Japan's oldest original shrine main hall with traditional matcha tea houses.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Uji Tea Culture Center & Ujigami Shrine",
+        "description": "Japan's oldest original shrine main hall nestled in historic Uji, surrounded by traditional matcha tea houses. Visitors can try authentic matcha grinding and ceremonial green tea tasting.",
+        "highlights": [
+          "National Treasure Main Hall",
+          "Uji Matcha Grinding Experience",
+          "Uji River Bridge Walk"
+        ]
+      },
+      "ja": {
+        "name": "宇治茶文化館・宇治上神社",
+        "description": "日本最古の神社本殿を擁する宇治上神社と、老舗宇治茶舗が並ぶ門前エリアです。挽きたての抹茶体験や伝統的なお茶会を風情溢れる宇治川のせせらぎと共に楽しめます。",
+        "highlights": ["国宝本殿", "本格抹茶石臼挽き体験", "宇治川の景観"]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "uji-city"
+    },
+    "hubId": "uji-city"
+  },
+  {
+    "id": "mimuroto-ji-temple",
+    "name": "Mimuroto-ji Hydrangea Temple",
+    "nameJa": "三室戸寺",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "nearHubs": ["uji-city"],
+    "role": "destination",
+    "kind": "temple",
+    "category": "Nature",
+    "categories": ["Nature", "Culture", "Seasons"],
+    "description": "Renowned as Kansai's 'Hydrangea Temple', boasting 20,000 colorful hydrangea bushes and lotus ponds set against wooded hills. In June, special evening illuminations showcase spectacular floral views.",
+    "notes": "Peak hydrangea season is June to July.",
+    "notesJa": "【見どころ】初夏に約20,000株のアジサイが咲き誇る「あじさい寺」として有名です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Paid seasonal parking",
+    "parkingJa": "【駐車場】あじさい園開園期は有料駐車場あり。",
+    "openingHours": "08:30 - 16:30 (Last entry 16:00)",
+    "openingHoursJa": "08:30 - 16:30 (最終受付 16:00)",
+    "coordinates": {
+      "lat": 34.8986,
+      "lng": 135.8194
+    },
+    "officialWebsite": "https://www.mimurotoji.com/",
+    "rating": 4.7,
+    "editorial": {
+      "rating": 4.7,
+      "recommendedDurationMinutes": 75,
+      "editorialSummary": "Renowned as Kansai's Hydrangea Temple with 20,000 blooming flowers.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Mimuroto-ji Hydrangea Temple",
+        "description": "Renowned as Kansai's 'Hydrangea Temple', boasting 20,000 colorful hydrangea bushes and lotus ponds set against wooded hills. In June, special evening illuminations showcase spectacular floral views.",
+        "highlights": [
+          "20,000 Hydrangea Garden",
+          "Lotus Pond",
+          "Heart-Shaped Hydrangea Spot"
+        ]
+      },
+      "ja": {
+        "name": "三室戸寺",
+        "description": "5,000坪の庭園に約50種20,000株のあじさいが咲き乱れる関西有数の「あじさい寺」です。ハート型のあじさい探しや、ハス池・ツツジ園など四季折々の花を楽しめます。",
+        "highlights": ["2万株のあじさい園", "ハス酒体験", "ハートあじさい"]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "uji-city"
+    },
+    "hubId": "uji-city"
+  },
+  {
+    "id": "ine-funaya-boathouses",
+    "name": "Ine Funaya Boathouses",
+    "nameJa": "伊根の舟屋",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "nearHubs": ["miyazu-city"],
+    "role": "destination",
+    "kind": "historic_town",
+    "category": "Culture",
+    "categories": ["Culture", "History", "Nature"],
+    "description": "A unique coastal village featuring 230 traditional wooden boathouses built directly over Ine Bay's water level. Often called 'the Venice of Japan', visitors can take sea taxi boat tours.",
+    "notes": "Sea taxi boat tours operate daily from Ine port.",
+    "notesJa": "【見どころ】海に直接浮かんでいるように見える230軒の伝統的舟屋群です。",
+    "reservation": "Sea taxi tours available on site",
+    "reservationJa": "【予約】海上タクシー遊覧は現地随時受け付けです。",
+    "parking": "Paid public parking in Ine Town",
+    "parkingJa": "【駐車場】伊根町内に有料駐車場あり。",
+    "openingHours": "24 hours (Tours 09:00 - 17:00)",
+    "openingHoursJa": "散策自由（遊覧船 09:00 - 17:00）",
+    "coordinates": {
+      "lat": 35.6741,
+      "lng": 135.2891
+    },
+    "officialWebsite": "https://www.ine-kankou.jp/en/",
+    "rating": 4.8,
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 120,
+      "editorialSummary": "Unique coastal village with 230 traditional wooden boathouses over Ine Bay.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Ine Funaya Boathouses",
+        "description": "A unique coastal village featuring 230 traditional wooden boathouses built directly over Ine Bay's water level. Often called 'the Venice of Japan', visitors can take sea taxi boat tours.",
+        "highlights": [
+          "Funaya Water Architecture",
+          "Ine Bay Sea Taxi",
+          "Mukai Sake Brewery"
+        ]
+      },
+      "ja": {
+        "name": "伊根の舟屋",
+        "description": "伊根湾の波静かな海辺に約230軒の舟屋が連続して建ち並ぶ、日本で最も海に近いノスタルジックな集落です。海上タクシーでの周遊や、舟屋見学・地酒蔵元巡りが人気です。",
+        "highlights": ["舟屋群の町並み", "伊根湾海上タクシー", "向井酒造の地酒"]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "miyazu-city"
+    },
+    "hubId": "miyazu-city"
+  },
+  {
+    "id": "kasamatsu-park-view",
+    "name": "Kasamatsu Park Lookout",
+    "nameJa": "傘松公園",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "nearHubs": ["miyazu-city"],
+    "role": "destination",
+    "kind": "viewpoint",
+    "category": "Nature",
+    "categories": ["Nature", "Views", "Seasons"],
+    "description": "The birthplace of 'Matanoki' (upside-down viewing), offering famous panoramic views of Amanohashidate sandbar spanning Miyazu Bay. Accessible via funicular railway and chairlift.",
+    "notes": "Funicular and chairlift ride included in ticket.",
+    "notesJa": "【見どころ】股のぞきで天橋立が天に架かる龍のように見える絶景展望台です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Paid parking at cable car station",
+    "parkingJa": "【駐車場】ケーブルカー乗り場近くに有料駐車場あり。",
+    "openingHours": "08:00 - 17:30",
+    "openingHoursJa": "08:00 - 17:30",
+    "coordinates": {
+      "lat": 35.5802,
+      "lng": 135.1958
+    },
+    "officialWebsite": "https://www.amanohashidate.jp/lang/en/",
+    "rating": 4.7,
+    "editorial": {
+      "rating": 4.7,
+      "recommendedDurationMinutes": 60,
+      "editorialSummary": "Birthplace of upside-down viewing with panoramic views of Amanohashidate.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Kasamatsu Park Lookout",
+        "description": "The birthplace of 'Matanoki' (upside-down viewing), offering famous panoramic views of Amanohashidate sandbar spanning Miyazu Bay. Accessible via funicular railway and chairlift.",
+        "highlights": [
+          "Matanoki Upside-Down View",
+          "Amanohashidate Cable Car",
+          "Kasamatsu Sky Deck"
+        ]
+      },
+      "ja": {
+        "name": "傘松公園",
+        "description": "天橋立を北側から一望できる絶景台で、「股のぞき」発祥の地として知られます。股のぞき台から見ると、天橋立が昇り龍（昇龍観）のように天へ駆け上がる姿を鑑賞できます。",
+        "highlights": ["股のぞき台", "ケーブルカー・リフト", "スカイデッキ"]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "miyazu-city"
+    },
+    "hubId": "miyazu-city"
+  },
+  {
+    "id": "koko-en-garden",
+    "name": "Koko-en Garden",
+    "nameJa": "好古園",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "nearHubs": ["himeji-city"],
+    "role": "destination",
+    "kind": "garden",
+    "category": "Nature",
+    "categories": ["Nature", "Culture", "History"],
+    "description": "Nine distinct Edo-style Japanese gardens constructed on the historic site of Lord Himeji's samurai residences. Features waterfalls, koi ponds, and a green tea ceremony pavilion.",
+    "notes": "Discounted combined tickets available with Himeji Castle.",
+    "notesJa": "【見どころ】姫路城を借景とする9つの江戸風情あふれる日本庭園です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です（姫路城共通券がお得です）。",
+    "parking": "Paid public parking nearby",
+    "parkingJa": "【駐車場】姫路城周辺有料駐車場あり。",
+    "openingHours": "09:00 - 17:00 (Last entry 16:30)",
+    "openingHoursJa": "09:00 - 17:00 (最終入園 16:30)",
+    "coordinates": {
+      "lat": 34.8364,
+      "lng": 134.6892
+    },
+    "officialWebsite": "https://www.himeji-machishin.jp/kokoen/",
+    "rating": 4.7,
+    "editorial": {
+      "rating": 4.7,
+      "recommendedDurationMinutes": 60,
+      "editorialSummary": "Nine distinct Edo-style Japanese gardens built on samurai residence sites.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Koko-en Garden",
+        "description": "Nine distinct Edo-style Japanese gardens constructed on the historic site of Lord Himeji's samurai residences. Features waterfalls, koi ponds, and a green tea ceremony pavilion.",
+        "highlights": [
+          "Garden of the Lord's Residence",
+          "Souju-an Teahouse",
+          "Waterfall & Koi Ponds"
+        ]
+      },
+      "ja": {
+        "name": "好古園",
+        "description": "姫路城西御屋敷跡の発掘調査成果を活かして造営された3.5ヘクタールの本格的日本庭園群です。瀧の庭や茶の庭、夏木の庭など、江戸の風情漂う9つの異なる庭園を散策できます。",
+        "highlights": ["御屋敷の庭", "茶室「双樹庵」", "瀧と錦鯉の池"]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "himeji-city"
+    },
+    "hubId": "himeji-city"
+  },
+  {
+    "id": "engyo-ji-mount-shosha",
+    "name": "Engyo-ji Temple Mount Shosha",
+    "nameJa": "書寫山圓教寺",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "nearHubs": ["himeji-city"],
+    "role": "destination",
+    "kind": "temple",
+    "category": "Culture",
+    "categories": ["Culture", "History", "Nature"],
+    "description": "A monumental 1,000-year-old Tendai Buddhist temple complex atop Mt. Shosha, famous as a filming location for 'The Last Samurai'. Reached via Mt. Shosha Ropeway.",
+    "notes": "Mt. Shosha Ropeway operates every 15 minutes.",
+    "notesJa": "【見どころ】映画「ラストサムライ」ロケ地となった格式高い千年の古刹です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Paid parking at ropeway station",
+    "parkingJa": "【駐車場】ロープウェイ山麓駅に有料駐車場あり。",
+    "openingHours": "08:30 - 17:00",
+    "openingHoursJa": "08:30 - 17:00",
+    "coordinates": {
+      "lat": 34.8889,
+      "lng": 134.6569
+    },
+    "officialWebsite": "http://www.shosha.or.jp/",
+    "rating": 4.8,
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 120,
+      "editorialSummary": "1,000-year-old Tendai temple complex atop Mt. Shosha filmed in The Last Samurai.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Engyo-ji Temple Mount Shosha",
+        "description": "A monumental 1,000-year-old Tendai Buddhist temple complex atop Mt. Shosha, famous as a filming location for 'The Last Samurai'. Reached via Mt. Shosha Ropeway.",
+        "highlights": [
+          "Manikoden Wooden Pavilion",
+          "Mitsudaido Halls",
+          "Mount Shosha Ropeway"
+        ]
+      },
+      "ja": {
+        "name": "書寫山圓教寺",
+        "description": "966年に性空上人によって開山された西国三十三所第27番札所の大古刹です。崖造りの摩尼殿や重厚な三ツ堂が豊かな自然林の中に佇み、「西の比叡山」と称されます。",
+        "highlights": [
+          "摩尼殿（舞台造り）",
+          "大講堂・食堂（三ツ堂）",
+          "書写山ロープウェイ"
+        ]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "himeji-city"
+    },
+    "hubId": "himeji-city"
+  },
+  {
+    "id": "izushi-castle-town",
+    "name": "Izushi Historic Castle Town",
+    "nameJa": "出石城下町",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "nearHubs": ["toyooka-city"],
+    "role": "destination",
+    "kind": "historic_town",
+    "category": "Culture",
+    "categories": ["Culture", "History", "Food"],
+    "description": "Known as 'Little Kyoto of Tajima', featuring preserved samurai residences, Japan's oldest clock tower Shinkorou, and famous Izushi Sara Soba served on small porcelain plates.",
+    "notes": "Try the Sara Soba Meguri passport for 3 restaurants.",
+    "notesJa": "【見どころ】小京都の風情漂う城下町と、名物「出石皿そば」の食べ歩きが人気です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Paid public parking in Izushi",
+    "parkingJa": "【駐車場】出石町内に有料駐車場あり。",
+    "openingHours": "09:00 - 17:00",
+    "openingHoursJa": "09:00 - 17:00",
+    "coordinates": {
+      "lat": 35.4647,
+      "lng": 134.8744
+    },
+    "officialWebsite": "https://www.daytrip-kansai.gtia.jp/",
+    "rating": 4.6,
+    "editorial": {
+      "rating": 4.6,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Preserved samurai castle town famous for Shinkorou clock tower and Sara Soba.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Izushi Historic Castle Town",
+        "description": "Known as 'Little Kyoto of Tajima', featuring preserved samurai residences, Japan's oldest clock tower Shinkorou, and famous Izushi Sara Soba served on small porcelain plates.",
+        "highlights": [
+          "Shinkorou Clock Tower",
+          "Izushi Sara Soba",
+          "Izushi Castle Ruins"
+        ]
+      },
+      "ja": {
+        "name": "出石城下町",
+        "description": "但馬の小京都と称される風情ある城下町で、明治創業の辰鼓楼（時計台）や出石城跡、家老屋敷が残ります。小皿に盛られた出石皿そばを何皿も味わうグルメ散策が名物です。",
+        "highlights": [
+          "日本最古の時計台「辰鼓楼」",
+          "名物・出石皿そば",
+          "出石城跡・有子山"
+        ]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "toyooka-city"
+    },
+    "hubId": "toyooka-city"
+  },
+  {
+    "id": "genbudo-cave-park",
+    "name": "Genbudo Basalt Cave Park",
+    "nameJa": "玄武洞公園",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "nearHubs": ["toyooka-city"],
+    "role": "destination",
+    "kind": "park",
+    "category": "Nature",
+    "categories": ["Nature", "Geology", "Park"],
+    "description": "A San'in Kaigan UNESCO Global Geopark site showcasing dramatic 1.6-million-year-old hexagonal basalt column formations created by cooling volcanic lava.",
+    "notes": "Genbudo Museum features giant mineral crystals and fossils.",
+    "notesJa": "【見どころ】160万年前の火山活動が造り出した六角形の玄武岩柱状節理の奇岩です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Free parking available",
+    "parkingJa": "【駐車場】無料駐車場あり。",
+    "openingHours": "09:00 - 17:00 (Last entry 16:30)",
+    "openingHoursJa": "09:00 - 17:00 (最終入園 16:30)",
+    "coordinates": {
+      "lat": 35.6178,
+      "lng": 134.8058
+    },
+    "officialWebsite": "https://genbudo-park.jp/",
+    "rating": 4.6,
+    "editorial": {
+      "rating": 4.6,
+      "recommendedDurationMinutes": 60,
+      "editorialSummary": "UNESCO Geopark site with 1.6-million-year-old hexagonal basalt column caves.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Genbudo Basalt Cave Park",
+        "description": "A San'in Kaigan UNESCO Global Geopark site showcasing dramatic 1.6-million-year-old hexagonal basalt column formations created by cooling volcanic lava.",
+        "highlights": [
+          "Hexagonal Basalt Column Caves",
+          "Genbudo Museum",
+          "Maruyama River View"
+        ]
+      },
+      "ja": {
+        "name": "玄武洞公園",
+        "description": "山陰海岸ユネスコ世界ジオパークに指定された天然記念物で、マグマが冷却してできた規則正しい柱状節理が壁画のように広がります。四神の名を冠した玄武・青龍・白虎・朱雀洞が見所です。",
+        "highlights": ["柱状節理の奇岩群", "玄武洞ミュージアム", "円山川の風景"]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "toyooka-city"
+    },
+    "hubId": "toyooka-city"
+  },
+  {
+    "id": "ritsuunkyo-viewpoint",
+    "name": "Ritsuunkyo Sea of Clouds Viewpoint",
+    "nameJa": "立雲峡",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "nearHubs": ["asago-city"],
+    "role": "destination",
+    "kind": "viewpoint",
+    "category": "Nature",
+    "categories": ["Nature", "Views", "Seasons"],
+    "description": "The premier vantage point situated directly across the valley from Takeda Castle, offering breathtaking early-morning views of the 'Castle in the Sky' floating above a sea of clouds.",
+    "notes": "Best sea of clouds occurs autumn mornings between 06:00 and 08:00.",
+    "notesJa": "【見どころ】雲海に浮かぶ竹田城跡を正面から望む「天空の城」絶景展望台です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Paid parking at trailhead",
+    "parkingJa": "【駐車場】登山口に有料駐車場あり。",
+    "openingHours": "24 hours",
+    "openingHoursJa": "24時間開放（早朝登山がおすすめ）",
+    "coordinates": {
+      "lat": 35.3042,
+      "lng": 134.8361
+    },
+    "officialWebsite": "https://www.asago-kanko.com/",
+    "rating": 4.8,
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Premier vantage point facing Takeda Castle above early-morning clouds.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Ritsuunkyo Sea of Clouds Viewpoint",
+        "description": "The premier vantage point situated directly across the valley from Takeda Castle, offering breathtaking early-morning views of the 'Castle in the Sky' floating above a sea of clouds.",
+        "highlights": [
+          "Takeda Castle Sea of Clouds View",
+          "Ritsuunkyo Observatory Trail",
+          "Autumn Cherry Blossom Foliage"
+        ]
+      },
+      "ja": {
+        "name": "立雲峡",
+        "description": "朝来山の中腹に位置し、竹田城跡を円山川を挟んで真向かいに望む展望スポットです。秋から冬の早朝、雲海に包まれて浮かび上がる竹田城の神秘的な姿を撮影できます。",
+        "highlights": [
+          "竹田城跡雲海展望",
+          "展望台ハイキングコース",
+          "但馬の桜名所"
+        ]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "asago-city"
+    },
+    "hubId": "asago-city"
+  },
+  {
+    "id": "ikuno-silver-mine",
+    "name": "Ikuno Historic Silver Mine",
+    "nameJa": "生野銀山",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "nearHubs": ["asago-city"],
+    "role": "destination",
+    "kind": "museum",
+    "category": "History",
+    "categories": ["History", "Culture", "Museum"],
+    "description": "A major historic silver mine operating from 807 AD through the modern era, featuring 1km of cool underground mining tunnels with life-sized animatronic miner displays.",
+    "notes": "Underground tunnel temperature stays at 13°C year-round.",
+    "notesJa": "【見どころ】室町時代から昭和まで採掘された大銀山で、年間通して13℃の坑道見学が楽しめます。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Free parking available",
+    "parkingJa": "【駐車場】無料駐車場あり。",
+    "openingHours": "09:10 - 16:50 (Last entry 16:10)",
+    "openingHoursJa": "09:10 - 16:50 (最終受付 16:10)",
+    "coordinates": {
+      "lat": 35.1639,
+      "lng": 134.8344
+    },
+    "officialWebsite": "https://www.ikuno-ginzan.co.jp/",
+    "rating": 4.5,
+    "editorial": {
+      "rating": 4.5,
+      "recommendedDurationMinutes": 75,
+      "editorialSummary": "Historic silver mine with 1km cool underground tunnels and mining exhibits.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Ikuno Historic Silver Mine",
+        "description": "A major historic silver mine operating from 807 AD through the modern era, featuring 1km of cool underground mining tunnels with life-sized animatronic miner displays.",
+        "highlights": [
+          "Kanagaki Underground Tunnel",
+          "GINZAN BOYZ Miner Manikins",
+          "Ikuno Mining Museum"
+        ]
+      },
+      "ja": {
+        "name": "生野銀山",
+        "description": "織田信長や豊臣秀吉、徳川家康も直轄地とした日本を代表する大銀山です。総延長350kmに及ぶ坑道のうち1kmが公開され、当時の採掘作業をリアルに再現した展示が見所です。",
+        "highlights": [
+          "金生坑道探検",
+          "スーパーアイドル「GINZAN BOYZ」",
+          "鉱山資料館"
+        ]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "asago-city"
+    },
+    "hubId": "asago-city"
+  },
+  {
+    "id": "hokki-ji-pagoda",
+    "name": "Hokki-ji Three-Story Pagoda",
+    "nameJa": "法起寺",
+    "prefecture": "Nara",
+    "region": "Kansai",
+    "nearHubs": ["ikaruga-town"],
+    "role": "destination",
+    "kind": "temple",
+    "category": "Culture",
+    "categories": ["Culture", "History", "UNESCO"],
+    "description": "UNESCO World Heritage site housing Japan's oldest surviving three-story wooden pagoda, completed in 706 AD. Set amidst idyllic countryside cosmos flower fields.",
+    "notes": "Beautiful autumn cosmos fields surround the pagoda in October.",
+    "notesJa": "【見どころ】706年完成の日本最古の三重塔を擁する世界遺産寺院です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Free parking available",
+    "parkingJa": "【駐車場】無料駐車場あり。",
+    "openingHours": "08:30 - 17:00 (Last entry 16:30)",
+    "openingHoursJa": "08:30 - 17:00 (最終受付 16:30)",
+    "coordinates": {
+      "lat": 34.6228,
+      "lng": 135.7461
+    },
+    "officialWebsite": "https://www.horyuji.or.jp/hokkiji/",
+    "rating": 4.6,
+    "editorial": {
+      "rating": 4.6,
+      "recommendedDurationMinutes": 45,
+      "editorialSummary": "UNESCO World Heritage site housing Japan's oldest surviving wooden 3-story pagoda.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Hokki-ji Three-Story Pagoda",
+        "description": "UNESCO World Heritage site housing Japan's oldest surviving three-story wooden pagoda, completed in 706 AD. Set amidst idyllic countryside cosmos flower fields.",
+        "highlights": [
+          "National Treasure Three-Story Pagoda",
+          "Autumn Cosmos Fields",
+          "Prince Shotoku Legacy"
+        ]
+      },
+      "ja": {
+        "name": "法起寺",
+        "description": "聖徳太子の遺言により建立された法隆寺の支院で、現存日本最古の三重塔（国宝）が建ちます。秋には寺を囲むコスモス畑が咲き誇り、斑鳩の長閑な田園風景を彩ります。",
+        "highlights": ["国宝三重塔", "斑鳩のコスモス畑", "聖徳太子ゆかりの寺"]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "ikaruga-town"
+    },
+    "hubId": "ikaruga-town"
+  },
+  {
+    "id": "chogosonshi-ji-temple",
+    "name": "Chogosonshi-ji Tiger Temple",
+    "nameJa": "朝護孫子寺",
+    "prefecture": "Nara",
+    "region": "Kansai",
+    "nearHubs": ["ikaruga-town"],
+    "role": "destination",
+    "kind": "temple",
+    "category": "Culture",
+    "categories": ["Culture", "History", "Views"],
+    "description": "A dramatic mountain temple on Mt. Shigi famous for giant paper-mache tiger statues and evening paper lantern paths. Dedicated to Bishamonten for good fortune and victory.",
+    "notes": "World's largest paper-mache tiger 'World's Best Tiger' at entrance.",
+    "notesJa": "【見どころ】信貴山に立ち世界一大きな「張り子の虎」と灯籠参道が名物の開運寺院です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Paid parking available",
+    "parkingJa": "【駐車場】有料駐車場あり。",
+    "openingHours": "09:00 - 17:00",
+    "openingHoursJa": "09:00 - 17:00",
+    "coordinates": {
+      "lat": 34.6078,
+      "lng": 135.6739
+    },
+    "officialWebsite": "https://www.sigisan.or.jp/",
+    "rating": 4.7,
+    "editorial": {
+      "rating": 4.7,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Dramatic mountain temple on Mt. Shigi famous for giant paper-mache tiger statues.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Chogosonshi-ji Tiger Temple",
+        "description": "A dramatic mountain temple on Mt. Shigi famous for giant paper-mache tiger statues and evening paper lantern paths. Dedicated to Bishamonten for good fortune and victory.",
+        "highlights": [
+          "Giant Papier-Mache Tiger",
+          "Kukai Main Hall Stage",
+          "Lantern Night Trail"
+        ]
+      },
+      "ja": {
+        "name": "朝護孫子寺",
+        "description": "信貴山に広がる毘沙門天王の総本山で、寅の年・寅の日・寅の刻に毘沙門天が現れた故事から「寅の寺」として信仰を集めます。境内の「大張り子の虎」や本堂舞台からの眺望が見所です。",
+        "highlights": [
+          "世界一の大張り子の虎",
+          "本堂舞台からの眺望",
+          "千手院戒壇めぐり"
+        ]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "ikaruga-town"
+    },
+    "hubId": "ikaruga-town"
+  },
+  {
+    "id": "enryaku-ji-mount-hiei",
+    "name": "Enryaku-ji Mount Hiei Monastery",
+    "nameJa": "比叡山延暦寺",
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "nearHubs": ["otsu-city", "kyoto-city"],
+    "role": "destination",
+    "kind": "temple",
+    "category": "Culture",
+    "categories": ["Culture", "History", "UNESCO"],
+    "description": "UNESCO World Heritage monastery complex sprawling across Mt. Hiei overlooking Lake Biwa and Kyoto. Founded in 788 by Saicho, it is the mother temple of Japanese Tendai Buddhism.",
+    "notes": "The Eternal Inextinguishable Buddhist Lantern burns in Konpon Chudo.",
+    "notesJa": "【見どころ】比叡山山上に広がる天台宗の総本山で、1200年間燃え続ける「不滅の法灯」が見所です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Paid parking on Mt. Hiei Driveway",
+    "parkingJa": "【駐車場】比叡山ドライブウェイ内に有料駐車場あり。",
+    "openingHours": "08:30 - 16:30",
+    "openingHoursJa": "08:30 - 16:30",
+    "coordinates": {
+      "lat": 35.0706,
+      "lng": 135.8411
+    },
+    "officialWebsite": "https://www.hieizan.or.jp/en/",
+    "rating": 4.8,
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 150,
+      "editorialSummary": "UNESCO World Heritage monastery atop Mt. Hiei overlooking Lake Biwa.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Enryaku-ji Mount Hiei Monastery",
+        "description": "UNESCO World Heritage monastery complex sprawling across Mt. Hiei overlooking Lake Biwa and Kyoto. Founded in 788 by Saicho, it is the mother temple of Japanese Tendai Buddhism.",
+        "highlights": [
+          "Konpon Chudo Main Hall",
+          "Inextinguishable Buddhist Light",
+          "Mount Hiei Sakamoto Cable Car"
+        ]
+      },
+      "ja": {
+        "name": "比叡山延暦寺",
+        "description": "伝教大師最澄によって開かれた天台宗の総本山で、比叡山全域を境内とする日本仏教の母山です。東塔・西塔・横川の3エリアに国宝・重要文化財の堂宇が点在します。",
+        "highlights": [
+          "国宝・根本中堂",
+          "不滅の法灯",
+          "坂本ケーブルからの琵琶湖眺望"
+        ]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "otsu-city"
+    },
+    "hubId": "otsu-city"
+  },
+  {
+    "id": "ukimido-mangetsu-ji",
+    "name": "Ukimido Mangetsu-ji Floating Temple",
+    "nameJa": "浮御堂（満月寺）",
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "nearHubs": ["otsu-city"],
+    "role": "destination",
+    "kind": "temple",
+    "category": "Culture",
+    "categories": ["Culture", "Nature", "Views"],
+    "description": "Famous as 'Katata no Miko' from the Eight Views of Omi, featuring a serene wooden Buddhist hall extending over Lake Biwa on stone pillars.",
+    "notes": "Houses 1,000 Amida Buddha statues inside the lake pavilion.",
+    "notesJa": "【見どころ】近江八景「堅田の落雁」で名高い琵琶湖上に浮かぶ美しい御堂です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Free parking available",
+    "parkingJa": "【駐車場】無料駐車場あり。",
+    "openingHours": "08:00 - 17:00",
+    "openingHoursJa": "08:00 - 17:00",
+    "coordinates": {
+      "lat": 35.1097,
+      "lng": 135.9189
+    },
+    "officialWebsite": "https://www.biwako-visitors.jp/spot/detail/109/",
+    "rating": 4.6,
+    "editorial": {
+      "rating": 4.6,
+      "recommendedDurationMinutes": 45,
+      "editorialSummary": "Serene wooden Buddhist hall built on stone pillars over the waters of Lake Biwa.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Ukimido Mangetsu-ji Floating Temple",
+        "description": "Famous as 'Katata no Miko' from the Eight Views of Omi, featuring a serene wooden Buddhist hall extending over Lake Biwa on stone pillars.",
+        "highlights": [
+          "Lake Biwa Floating Pavilion",
+          "Thousand Amida Buddhas",
+          "Eight Views of Omi Spot"
+        ]
+      },
+      "ja": {
+        "name": "浮御堂（満月寺）",
+        "description": "平安時代に湖上安全と衆生済度を祈願して建立された臨済宗の古刹です。琵琶湖の湖中に伸びる石橋の先に佇む木造のお堂と、湖面に映る景観が近江八景の絶景として知られます。",
+        "highlights": ["湖上の浮御堂", "千体阿弥陀仏", "近江八景・堅田の落雁"]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "otsu-city"
+    },
+    "hubId": "otsu-city"
+  },
+  {
+    "id": "genkyuen-garden",
+    "name": "Genkyuen Feudal Garden",
+    "nameJa": "玄宮園",
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "nearHubs": ["hikone-city"],
+    "role": "destination",
+    "kind": "garden",
+    "category": "Nature",
+    "categories": ["Nature", "Culture", "History"],
+    "description": "A breathtaking Edo-period Japanese stroll garden built in 1677 by Lord Hikone, designed to mirror the Four Seasons with Hikone Castle tower reflected in its central pond.",
+    "notes": "Located directly adjacent to Hikone Castle moat.",
+    "notesJa": "【見どころ】琵琶湖や近江八景を模して造られた彦根藩主・井伊家の美しき大名庭園です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です（彦根城共通券あり）。",
+    "parking": "Paid parking at Hikone Castle",
+    "parkingJa": "【駐車場】彦根城駐車場利用可。",
+    "openingHours": "08:30 - 17:00",
+    "openingHoursJa": "08:30 - 17:00",
+    "coordinates": {
+      "lat": 35.2778,
+      "lng": 136.2536
+    },
+    "officialWebsite": "https://hikonecastle.com/",
+    "rating": 4.7,
+    "editorial": {
+      "rating": 4.7,
+      "recommendedDurationMinutes": 60,
+      "editorialSummary": "Edo-period Japanese stroll garden reflecting Hikone Castle tower in its central pond.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Genkyuen Feudal Garden",
+        "description": "A breathtaking Edo-period Japanese stroll garden built in 1677 by Lord Hikone, designed to mirror the Four Seasons with Hikone Castle tower reflected in its central pond.",
+        "highlights": [
+          "Hikone Castle Reflection Pond",
+          "Rinchokaku Teahouse",
+          "Feudal Stroll Garden"
+        ]
+      },
+      "ja": {
+        "name": "玄宮園",
+        "description": "彦根城の北側に広がる4代藩主井伊直興によって造営された池泉回遊式の大名庭園です。鳳翔台での呈茶や、池越しに見上げる国宝・彦根城天守閣の壮大な景観を楽しめます。",
+        "highlights": [
+          "天守閣を望む水鏡",
+          "鳳翔台のお抹茶体験",
+          "近江八景模写庭園"
+        ]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "hikone-city"
+    },
+    "hubId": "hikone-city"
+  },
+  {
+    "id": "miho-museum-koka",
+    "name": "Miho Museum Koka",
+    "nameJa": "MIHO MUSEUM",
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "nearHubs": ["hikone-city"],
+    "role": "destination",
+    "kind": "museum",
+    "category": "Art",
+    "categories": ["Art", "Architecture", "Nature"],
+    "description": "I.M. Pei's modernist architectural masterpiece hidden in Shiga's wooded mountains, accessed via a dramatic silver tunnel and suspension bridge. Houses ancient Egyptian, Persian, and Asian art.",
+    "notes": "Closed Mondays and winter off-season (Dec-Mar).",
+    "notesJa": "【見どころ】I.M.ペイ設計の山中に埋め込まれた幻想的な建築と古代美術コレクションです。",
+    "reservation": "Timed advance ticket recommended online",
+    "reservationJa": "【予約】開館シーズン中はオンライン事前予約券を推薦します。",
+    "parking": "Free parking available",
+    "parkingJa": "【駐車場】無料駐車場あり。",
+    "openingHours": "10:00 - 17:00 (Last entry 16:00)",
+    "openingHoursJa": "10:00 - 17:00 (最終入館 16:00)",
+    "coordinates": {
+      "lat": 34.9147,
+      "lng": 136.0225
+    },
+    "officialWebsite": "https://www.miho.web.id/en/",
+    "rating": 4.9,
+    "editorial": {
+      "rating": 4.9,
+      "recommendedDurationMinutes": 120,
+      "editorialSummary": "I.M. Pei's subterranean mountain museum reached through a silver tunnel.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Miho Museum Koka",
+        "description": "I.M. Pei's modernist architectural masterpiece hidden in Shiga's wooded mountains, accessed via a dramatic silver tunnel and suspension bridge. Houses ancient Egyptian, Persian, and Asian art.",
+        "highlights": [
+          "I.M. Pei Silver Tunnel Entrance",
+          "Ancient Egyptian Standing Buddha Collection",
+          "Subterranean Mountain Architecture"
+        ]
+      },
+      "ja": {
+        "name": "MIHO MUSEUM",
+        "description": "ルーヴルのガラスのピラミッドで知られるI.M.ペイ氏が桃源郷をイメージして設計した山中の美術館です。しだれ桜のトンネルと吊り橋を渡ると、80%が地下に埋設された美しい空間が広がります。",
+        "highlights": [
+          "アプローチトンネルと吊り橋",
+          "古代エジプト・ペルシャ美術",
+          "桃源郷のガラス建築"
+        ]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "hikone-city"
+    },
+    "hubId": "hikone-city"
+  },
+  {
+    "id": "okage-yokocho-oharai-machi",
+    "name": "Okage Yokocho & Oharai-machi",
+    "nameJa": "おかげ横丁・おはらい町",
+    "prefecture": "Mie",
+    "region": "Kansai",
+    "nearHubs": ["ise-city"],
+    "role": "destination",
+    "kind": "historic_town",
+    "category": "Culture",
+    "categories": ["Culture", "History", "Food"],
+    "description": "A bustling 800-meter historic merchant street leading directly to Ise Jingu Naiku, lined with preserved Edo-period wooden shopfronts, Akafuku rice cake houses, and Ise udon stalls.",
+    "notes": "Famous for Akafuku mochi and Ise Udon noodles.",
+    "notesJa": "【見どころ】伊勢神宮内宮の門前町で、江戸・明治の木造町家と名物赤福・伊勢うどんを楽しめます。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Paid public parking in Ise",
+    "parkingJa": "【駐車場】市営有料駐車場あり。",
+    "openingHours": "09:30 - 17:00",
+    "openingHoursJa": "09:30 - 17:00",
+    "coordinates": {
+      "lat": 34.4608,
+      "lng": 136.7247
+    },
+    "officialWebsite": "https://okageyokocho.jp/",
+    "rating": 4.8,
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Bustling Edo-style historic street leading to Ise Shrine with Akafuku sweets.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Okage Yokocho & Oharai-machi",
+        "description": "A bustling 800-meter historic merchant street leading directly to Ise Jingu Naiku, lined with preserved Edo-period wooden shopfronts, Akafuku rice cake houses, and Ise udon stalls.",
+        "highlights": [
+          "Akafuku Main Store",
+          "Edo Period Architecture",
+          "Ise Udon Noodle Shops"
+        ]
+      },
+      "ja": {
+        "name": "おかげ横丁・おはらい町",
+        "description": "伊勢神宮内宮の鳥居前から続く約800mの石畳の参道街です。江戸から明治期の伊勢路の建造物を移築・再現したおかげ横丁では、名物「赤福餅」や極太もちもちの「伊勢うどん」を堪能できます。",
+        "highlights": ["赤福本店", "おかげ横丁の町並み", "名物・伊勢うどん"]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "ise-city"
+    },
+    "hubId": "ise-city"
+  },
+  {
+    "id": "kishi-station-tama-cat",
+    "name": "Kishi Station Tama Cat Conductor",
+    "nameJa": "貴志駅・たま駅長",
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "nearHubs": ["wakayama-city"],
+    "role": "destination",
+    "kind": "station",
+    "category": "Culture",
+    "categories": ["Culture", "Family", "Train"],
+    "description": "The famous countryside train station on the Wakayama Electric Railway, world-renowned for its feline Stationmasters (Tama II Nitama and Yontama) working inside a cat-shaped station building.",
+    "notes": "Check cat stationmaster duty schedules online before visiting.",
+    "notesJa": "【見どころ】猫の顔の形をした駅舎と、三毛猫の「ニタマ駅長」が働く名物駅です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です（いちご電車やたま電車の乗車券が便利です）。",
+    "parking": "No station parking; take Kishigawa Line train",
+    "parkingJa": "【駐車場】駅前駐車場無しため、和歌山駅から貴志川線電車利用を推奨。",
+    "openingHours": "10:00 - 16:00 (Cat duty hours)",
+    "openingHoursJa": "10:00 - 16:00 (駅長勤務時間・水木休み)",
+    "coordinates": {
+      "lat": 34.2094,
+      "lng": 135.3175
+    },
+    "officialWebsite": "https://www.wakayama-dentetsu.co.jp/",
+    "rating": 4.7,
+    "editorial": {
+      "rating": 4.7,
+      "recommendedDurationMinutes": 60,
+      "editorialSummary": "Famous railway station home to feline Stationmaster Nitama and cat station building.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Kishi Station Tama Cat Conductor",
+        "description": "The famous countryside train station on the Wakayama Electric Railway, world-renowned for its feline Stationmasters (Tama II Nitama and Yontama) working inside a cat-shaped station building.",
+        "highlights": [
+          "Tama II Nitama Cat Stationmaster",
+          "Cat-Shaped Station Building",
+          "Tama Densha Theme Train"
+        ]
+      },
+      "ja": {
+        "name": "貴志駅・たま駅長",
+        "description": "和歌山電鐵貴志川線の終着駅で、三毛猫が駅長を務めるユニークな人気スポットです。檜皮葺きの猫型駅舎にはたまカフェやたま神社が併設され、可愛らしい「たま電車」で訪れることができます。",
+        "highlights": [
+          "ニタマ駅長",
+          "たまカフェ＆たま神社",
+          "たま電車・いちご電車"
+        ]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "wakayama-city"
+    },
+    "hubId": "wakayama-city"
+  },
+  {
+    "id": "okunoin-cemetery-koyasan",
+    "name": "Okunoin Sacred Forest Cemetery",
+    "nameJa": "高野山 奥之院",
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "nearHubs": ["koya-town"],
+    "role": "destination",
+    "kind": "cemetery",
+    "category": "Culture",
+    "categories": ["Culture", "History", "UNESCO"],
+    "description": "Japan's most sacred forest cemetery, featuring over 200,000 mossy stone stupas lining a 2km path through ancient cedar trees leading to Kobo Daishi's mausoleum.",
+    "notes": "Torodo Hall of 10,000 Lanterns glows continuously day and night.",
+    "notesJa": "【見どころ】樹齢数百年の杉木立に20万基超の墓石が立ち並ぶ弘法大師御廟の聖地です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です（ナイトツアー有）。",
+    "parking": "Free parking at Okunoin entrance",
+    "parkingJa": "【駐車場】奥之院前に無料駐車場あり。",
+    "openingHours": "24 hours (Mausoleum 06:00 - 17:30)",
+    "openingHoursJa": "参道24時間（御廟燈籠堂 06:00 - 17:30）",
+    "coordinates": {
+      "lat": 34.2231,
+      "lng": 135.5986
+    },
+    "officialWebsite": "https://www.koyasan.or.jp/en/",
+    "rating": 4.9,
+    "editorial": {
+      "rating": 4.9,
+      "recommendedDurationMinutes": 120,
+      "editorialSummary": "Sacred forest cemetery with 200,000 mossy stone stupas surrounding Kobo Daishi mausoleum.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Okunoin Sacred Forest Cemetery",
+        "description": "Japan's most sacred forest cemetery, featuring over 200,000 mossy stone stupas lining a 2km path through ancient cedar trees leading to Kobo Daishi's mausoleum.",
+        "highlights": [
+          "Kobo Daishi Mausoleum",
+          "Torodo Hall of Lanterns",
+          "200,000 Mossy Stupas"
+        ]
+      },
+      "ja": {
+        "name": "高野山 奥之院",
+        "description": "弘法大師空海が入定（永眠）されている真言密教最大の聖地です。一の橋から御廟までの約2kmの参道には、織田信長や豊臣秀吉ら歴史的武将の墓碑や数百年を超す杉木立が神秘的な空気を醸し出します。",
+        "highlights": [
+          "弘法大師御廟",
+          "燈籠堂の1万個の灯籠",
+          "武将たちの墓所群"
+        ]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "koya-town"
+    },
+    "hubId": "koya-town"
+  },
+  {
+    "id": "senjojiki-sandanbeki-cliffs",
+    "name": "Senjojiki & Sandanbeki Rock Cliffs",
+    "nameJa": "千畳敷・三段壁洞窟",
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "nearHubs": ["shirahama-town"],
+    "role": "destination",
+    "kind": "cliff",
+    "category": "Nature",
+    "categories": ["Nature", "Geology", "Views"],
+    "description": "Spectacular coastal rock formations in Shirahama featuring a multi-tiered sandstone plateau and 50-meter ocean cliff cave used by historic Kumano Navy pirates.",
+    "notes": "Elevator access down inside Sandanbeki Cave available.",
+    "notesJa": "【見どころ】広大な岩盤の千畳敷と、熊野水軍の隠し洞窟がある50mの断崖絶壁です。",
+    "reservation": "No reservation needed for cave",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Free parking available",
+    "parkingJa": "【駐車場】無料駐車場あり。",
+    "openingHours": "08:00 - 17:00 (Cave 08:00 - 17:00)",
+    "openingHoursJa": "散策自由（三段壁洞窟 08:00 - 17:00）",
+    "coordinates": {
+      "lat": 33.6669,
+      "lng": 135.3347
+    },
+    "officialWebsite": "https://sandanbeki.com/",
+    "rating": 4.7,
+    "editorial": {
+      "rating": 4.7,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Spectacular multi-tiered sandstone plateau and 50m ocean cavern pirate cliffs.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Senjojiki & Sandanbeki Rock Cliffs",
+        "description": "Spectacular coastal rock formations in Shirahama featuring a multi-tiered sandstone plateau and 50-meter ocean cliff cave used by historic Kumano Navy pirates.",
+        "highlights": [
+          "Senjojiki Sandstone Plateau",
+          "Sandanbeki Pirate Cave Elevator",
+          "Pacific Ocean Wave Breakers"
+        ]
+      },
+      "ja": {
+        "name": "千畳敷・三段壁洞窟",
+        "description": "太平洋の荒波が削り出した白浜の二大名勝です。畳を千枚敷ける広さの「千畳敷」と、高さ50mの断崖地下鉄エレベーターで降りる「三段壁洞窟（熊野水軍の隠し洞窟）」が圧巻です。",
+        "highlights": [
+          "千畳敷の岩盤大パノラマ",
+          "三段壁洞窟（エレベーター内部探検）",
+          "熊野水軍の番所跡"
+        ]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "shirahama-town"
+    },
+    "hubId": "shirahama-town"
+  },
+  {
+    "id": "sakai-city-museum",
+    "name": "Sakai City Museum & Daisen Kofun View",
+    "nameJa": "堺市博物館・大仙陵古墳",
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "nearHubs": ["sakai-city", "osaka-city"],
+    "role": "destination",
+    "kind": "museum",
+    "category": "Museum",
+    "categories": ["Museum", "History", "UNESCO"],
+    "description": "Located within Daisen Park facing Emperor Nintoku's tomb, featuring VR exhibits of ancient keyhole kofun mounds, samurai swords, and Sen no Rikyu tea culture history.",
+    "notes": "VR Kofun tour available at the museum theater.",
+    "notesJa": "【見どころ】仁徳天皇陵古墳（大仙陵古墳）に隣接し、巨大古墳のVR体験や千利休の茶の湯文化を学べます。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Paid parking in Daisen Park",
+    "parkingJa": "【駐車場】大仙公園駐車場あり。",
+    "openingHours": "09:30 - 17:00 (Last entry 16:30)",
+    "openingHoursJa": "09:30 - 17:00 (最終入館 16:30)",
+    "coordinates": {
+      "lat": 34.5622,
+      "lng": 135.4853
+    },
+    "officialWebsite": "https://www.city.sakai.lg.jp/kanko/hakubutsukan/",
+    "rating": 4.6,
+    "editorial": {
+      "rating": 4.6,
+      "recommendedDurationMinutes": 75,
+      "editorialSummary": "Museum facing Nintoku Kofun featuring VR ancient mound tours and tea history.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Sakai City Museum & Daisen Kofun View",
+        "description": "Located within Daisen Park facing Emperor Nintoku's tomb, featuring VR exhibits of ancient keyhole kofun mounds, samurai swords, and Sen no Rikyu tea culture history.",
+        "highlights": [
+          "VR Kofun Experience",
+          "Sen no Rikyu Tea Culture",
+          "Daisen Park Japanese Garden"
+        ]
+      },
+      "ja": {
+        "name": "堺市博物館・大仙陵古墳",
+        "description": "世界遺産・百舌鳥古墳群の中心に位置する博物館です。仁徳天皇陵古墳のVR空中散歩体験や、堺が生んだ茶の湯の大成者・千利休ゆかりの展示・茶室などを鑑賞できます。",
+        "highlights": [
+          "百舌鳥古墳群VR体験",
+          "千利休と茶の湯展示",
+          "大仙公園日本庭園"
+        ]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "sakai-city"
+    },
+    "hubId": "sakai-city"
+  },
+  {
+    "id": "lake-biwa-shiga",
+    "name": "Lake Biwa Scenic Cruise & Coast",
+    "nameJa": "琵琶湖クルーズ・湖畔",
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "nearHubs": ["otsu-city"],
+    "role": "destination",
+    "kind": "lake",
+    "category": "Nature",
+    "categories": ["Nature", "Views", "Waterfalls"],
+    "description": "Japan's largest freshwater lake offering scenic paddle-wheel steamboat cruises on the Michigan, watersports, and tranquil lakeside walking promenades.",
+    "notes": "Michigan cruise departs daily from Otsu Port.",
+    "notesJa": "【見どころ】日本最大の湖で、外輪船ミシガン号での陽気な湖上クルーズや白砂青松の湖畔散策が楽しめます。",
+    "reservation": "Cruise ticket available online or on site",
+    "reservationJa": "【予約】ミシガンクルーズ券は当日大津港で購入可能。",
+    "parking": "Paid parking at Otsu Port",
+    "parkingJa": "【駐車場】大津港有料駐車場あり。",
+    "openingHours": "09:00 - 17:00 (Cruise times vary)",
+    "openingHoursJa": "09:00 - 17:00（ミシガン運行時間に準ずる）",
+    "coordinates": {
+      "lat": 35.0117,
+      "lng": 135.8683
+    },
+    "officialWebsite": "https://www.biwakokisen.co.jp/",
+    "rating": 4.7,
+    "editorial": {
+      "rating": 4.7,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Japan's largest freshwater lake with Michigan paddle-wheel steamboat cruises.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Lake Biwa Scenic Cruise & Coast",
+        "description": "Japan's largest freshwater lake offering scenic paddle-wheel steamboat cruises on the Michigan, watersports, and tranquil lakeside walking promenades.",
+        "highlights": [
+          "Michigan Paddle-Wheel Cruise",
+          "Otsu Port Promenade",
+          "Biwako Flower Fountain"
+        ]
+      },
+      "ja": {
+        "name": "琵琶湖クルーズ・湖畔",
+        "description": "近江八景の舞台であり日本最大の面積を誇る淡水湖です。アメリカ風外輪船「ミシガン」での音楽付きクルーズや、世界最大級のびわこ花噴水の夜間ライトアップを楽しめます。",
+        "highlights": [
+          "外輪船ミシガンクルーズ",
+          "大津港プロムナード",
+          "びわこ花噴水"
+        ]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "otsu-city"
+    },
+    "hubId": "otsu-city"
+  },
+  {
+    "id": "meoto-iwa-wedded-rocks",
+    "name": "Meoto Iwa Wedded Rocks",
+    "nameJa": "夫婦岩",
+    "prefecture": "Mie",
+    "region": "Kansai",
+    "nearHubs": ["ise-city"],
+    "role": "destination",
+    "kind": "rock_formation",
+    "category": "Nature",
+    "categories": ["Nature", "Culture", "Views"],
+    "description": "Two sacred sea rocks joined in matrimony by a heavy straw rope (Shimenawa) off Futami Okitama Shrine. Celebrated for sunrises between the rocks and frog talismans.",
+    "notes": "Best sunrises occur from May to July.",
+    "notesJa": "【見どころ】大注連縄で結ばれた二つの聖なる岩で、縁結びと夫婦円満の象徴として親しまれます。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Free parking at Futami Okitama Shrine",
+    "parkingJa": "【駐車場】二見興玉神社無料駐車場あり。",
+    "openingHours": "24 hours",
+    "openingHoursJa": "24時間参歩自由",
+    "coordinates": {
+      "lat": 34.5086,
+      "lng": 136.7886
+    },
+    "officialWebsite": "https://www.isekanko.jp/spot/1283/",
+    "rating": 4.7,
+    "editorial": {
+      "rating": 4.7,
+      "recommendedDurationMinutes": 45,
+      "editorialSummary": "Sacred sea rocks bound by heavy straw rope representing marriage and worship.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Meoto Iwa Wedded Rocks",
+        "description": "Two sacred sea rocks joined in matrimony by a heavy straw rope (Shimenawa) off Futami Okitama Shrine. Celebrated for sunrises between the rocks and frog talismans.",
+        "highlights": [
+          "Sacred Straw Rope Shimenawa",
+          "Futami Okitama Shrine Frog Statues",
+          "Sunrise Over Ocean Rocks"
+        ]
+      },
+      "ja": {
+        "name": "夫婦岩",
+        "description": "二見興玉神社の沖合に並び立つ男岩と女岩で、神聖な大注連縄で硬く結ばれています。5月〜7月には夫婦岩の間から昇る美しい日の出を、冬には満月を観賞できます。",
+        "highlights": [
+          "大注連縄張替え神事",
+          "二見興玉神社のカエル守り",
+          "夫婦岩の日の出"
+        ]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "ise-city"
+    },
+    "hubId": "ise-city"
+  },
+  {
+    "id": "wakayama-castle",
+    "name": "Wakayama Castle",
+    "nameJa": "和歌山城",
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "nearHubs": ["wakayama-city"],
+    "role": "destination",
+    "kind": "castle",
+    "category": "Castle",
+    "categories": ["Castle", "History", "Nature"],
+    "description": "A hilltop fortress built in 1585 by Toyotomi Hideyoshi, featuring a restored white main keep, Momijidani Garden, and Ninja guides assisting visitors.",
+    "notes": "Ninjutsu trained guides provide free assistance around castle grounds.",
+    "notesJa": "【見どころ】虎伏山に立つ紀州徳川家の居城で、紅葉渓庭園と忍者の無料案内が名物です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Paid parking on castle grounds",
+    "parkingJa": "【駐車場】城内有料駐車場あり。",
+    "openingHours": "09:00 - 17:30 (Last entry 17:00)",
+    "openingHoursJa": "09:00 - 17:30 (最終入城 17:00)",
+    "coordinates": {
+      "lat": 34.2275,
+      "lng": 135.1714
+    },
+    "officialWebsite": "http://wakayamajo.jp/",
+    "rating": 4.7,
+    "editorial": {
+      "rating": 4.7,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Hilltop fortress of the Kishu Tokugawa clan with white keep and Momijidani Garden.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Wakayama Castle",
+        "description": "A hilltop fortress built in 1585 by Toyotomi Hideyoshi, featuring a restored white main keep, Momijidani Garden, and Ninja guides assisting visitors.",
+        "highlights": [
+          "White Castle Keep Panoramic View",
+          "Momijidani Garden & Ohashiro Bridge",
+          "Omotenashi Ninja Guides"
+        ]
+      },
+      "ja": {
+        "name": "和歌山城",
+        "description": "豊臣秀吉の命により藤堂高虎が築城し、徳川御三家の一つ紀州徳川家の居城として栄えた城郭です。天守閣からの360度パノラマや、斜めに架かる御橋廊下、おもてなし忍者の案内が人気です。",
+        "highlights": [
+          "360度パノラマ天守閣",
+          "江戸時代の斜め廊下「御桥廊下」",
+          "おもてなし忍者"
+        ]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "wakayama-city"
+    },
+    "hubId": "wakayama-city"
+  },
+  {
+    "id": "kataonami-beach-wakanoura",
+    "name": "Kataonami Beach & Wakanoura Bay",
+    "nameJa": "片男波海水浴場・和歌の浦",
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "nearHubs": ["wakayama-city"],
+    "role": "destination",
+    "kind": "beach",
+    "category": "Nature",
+    "categories": ["Nature", "Beach", "Views"],
+    "description": "Selected as one of Japan's Top 100 Beaches, boasting a 1.2km crescent of white sand in historic Wakanoura Bay praised by Manyoshu poets.",
+    "notes": "Spacious beach park with summer swimming facilities.",
+    "notesJa": "【見どころ】万葉集に詠まれた景勝地・和歌の浦に伸びる1,200mの白砂青松の美しい海水浴場です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Paid beach parking",
+    "parkingJa": "【駐車場】片男波公園有料駐車場あり。",
+    "openingHours": "24 hours (Swimming 08:00 - 17:00)",
+    "openingHoursJa": "散策自由（海水浴監視 08:00 - 17:00）",
+    "coordinates": {
+      "lat": 34.1814,
+      "lng": 135.1764
+    },
+    "officialWebsite": "https://www.wakayamakanko.com/spot/detail.php?id=38",
+    "rating": 4.6,
+    "editorial": {
+      "rating": 4.6,
+      "recommendedDurationMinutes": 75,
+      "editorialSummary": "Crescent white sand beach in historic Wakanoura Bay praised in Manyoshu poetry.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Kataonami Beach & Wakanoura Bay",
+        "description": "Selected as one of Japan's Top 100 Beaches, boasting a 1.2km crescent of white sand in historic Wakanoura Bay praised by Manyoshu poets.",
+        "highlights": [
+          "1.2km White Sand Crescent Beach",
+          "Wakanoura Manyoshu Coastal Trail",
+          "Kataonami Park Playground"
+        ]
+      },
+      "ja": {
+        "name": "片男波海水浴場・和歌の浦",
+        "description": "快水浴場百選特選に選ばれた透明度抜群のビーチです。和歌の浦の万葉の歴史を感じる萬葉館や広大な片男波公園が隣接し、ファミリーからカップルまでリゾート気分を満喫できます。",
+        "highlights": [
+          "快水浴場百選の白砂青松",
+          "万葉の路と紀州富士",
+          "片男波公園庭園"
+        ]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "wakayama-city"
+    },
+    "hubId": "wakayama-city"
+  },
+  {
+    "id": "danjo-garan-koyasan",
+    "name": "Danjo Garan Sacred Temple Complex",
+    "nameJa": "高野山 壇上伽藍",
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "nearHubs": ["koya-town"],
+    "role": "destination",
+    "kind": "temple",
+    "category": "Culture",
+    "categories": ["Culture", "History", "UNESCO"],
+    "description": "The central temple complex of Koyasan founded by Kobo Daishi, dominated by the majestic 48.5m vermilion Konpon Daito Great Pagoda.",
+    "notes": "Konpon Daito houses large three-dimensional Mandala statues.",
+    "notesJa": "【見どころ】弘法大師が開創した高野山の中心道場で、鮮やかな朱塗りの「根本大塔」が目印です。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Paid public parking in Koyasan",
+    "parkingJa": "【駐車場】高野山内無料・有料駐車場あり。",
+    "openingHours": "08:30 - 17:00",
+    "openingHoursJa": "08:30 - 17:00",
+    "coordinates": {
+      "lat": 34.2136,
+      "lng": 135.5802
+    },
+    "officialWebsite": "https://www.koyasan.or.jp/en/",
+    "rating": 4.8,
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 75,
+      "editorialSummary": "Central temple complex of Koyasan with 48.5m vermilion Konpon Daito Great Pagoda.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Danjo Garan Sacred Temple Complex",
+        "description": "The central temple complex of Koyasan founded by Kobo Daishi, dominated by the majestic 48.5m vermilion Konpon Daito Great Pagoda.",
+        "highlights": [
+          "Konpon Daito Great Pagoda",
+          "Kondo Main Hall",
+          "Sankosho Pine Tree"
+        ]
+      },
+      "ja": {
+        "name": "高野山 壇上伽藍",
+        "description": "高野山真言密教の根本道場として奥之院と並ぶ二大聖地です。高さ48.5mの根本大塔内部には立体曼荼羅が表現され、金堂や不動堂（国宝）など歴史的堂宇が集結します。",
+        "highlights": ["根本大塔（立体曼荼羅）", "国宝・不動堂", "三鈷の松"]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "koya-town"
+    },
+    "hubId": "koya-town"
+  },
+  {
+    "id": "shirahama-beach-adventure-world",
+    "name": "Shirahama White Beach & Coastal Resort",
+    "nameJa": "白良浜・白浜温泉リゾート",
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "nearHubs": ["shirahama-town"],
+    "role": "destination",
+    "kind": "beach",
+    "category": "Nature",
+    "categories": ["Nature", "Beach", "Onsen"],
+    "description": "A famous 600m curve of pure white quartz sand imported from Australia, backed by palm trees and natural seaside hot spring baths.",
+    "notes": "Sister beach to Waikiki Beach, Hawaii.",
+    "notesJa": "【見どころ】サラサラの真っ白な砂浜とエメラルドグリーンの海が広がる関西屈指のリゾートビーチです。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Paid beach parking",
+    "parkingJa": "【駐車場】白良浜有料駐車場あり。",
+    "openingHours": "24 hours",
+    "openingHoursJa": "24時間参歩自由",
+    "coordinates": {
+      "lat": 33.6822,
+      "lng": 135.3439
+    },
+    "officialWebsite": "https://www.shirahama-ryokan.jp/",
+    "rating": 4.8,
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Famous 600m curve of pure white quartz sand and seaside hot spring resort.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Shirahama White Beach & Coastal Resort",
+        "description": "A famous 600m curve of pure white quartz sand imported from Australia, backed by palm trees and natural seaside hot spring baths.",
+        "highlights": [
+          "600m Quartz Sand Beach",
+          "Shizuka-no-yu Seaside Onsen",
+          "Engetsu-to Island Sunset"
+        ]
+      },
+      "ja": {
+        "name": "白良浜・白浜温泉リゾート",
+        "description": "90%の珪酸を含む真っ白でサラサラの砂が特徴の関西を代表するリゾートビーチです。夏の花火大会や、近隣の円月島に沈む美しい夕日、歴史ある白浜温泉の外湯巡りが楽しめます。",
+        "highlights": ["白砂青松の白良浜", "円月島の夕日", "白浜温泉外湯めぐり"]
+      }
+    },
+    "relationships": {
+      "parentDestinationId": "shirahama-town"
+    },
+    "hubId": "shirahama-town"
   }
 ]

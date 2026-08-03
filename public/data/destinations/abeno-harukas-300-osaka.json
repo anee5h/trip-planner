@@ -2,7 +2,7 @@
   "id": "abeno-harukas-300-osaka",
   "name": "Abeno Harukas 300 (Osaka Skyline)",
   "kind": "viewpoint",
-  "role": "poi",
+  "role": "destination",
   "importance": "major",
   "relationships": {
     "parentDestinationId": "osaka-city"
@@ -109,10 +109,8 @@
     "max": 4
   },
   "placeType": "destination",
-  "areaId": "tennoji-abeno",
   "officialWebsite": "https://www.abenoharukas-300.jp/observatory/",
   "businessHours": "09:00 - 22:00 (Last admission 21:30)",
-  "hubId": "osaka-city",
   "nearHubs": ["osaka-city"],
   "editorial": {
     "rating": 4.8,
@@ -127,5 +125,6 @@
   "notesJa": "【見どころ】Abeno Harukas 300 (Osaka Skyline)は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "hubId": "osaka-city"
 }

@@ -1,0 +1,61 @@
+{
+  "id": "enryaku-ji-mount-hiei",
+  "name": "Enryaku-ji Mount Hiei Monastery",
+  "nameJa": "比叡山延暦寺",
+  "prefecture": "Shiga",
+  "region": "Kansai",
+  "nearHubs": ["otsu-city", "kyoto-city"],
+  "role": "destination",
+  "kind": "temple",
+  "category": "Culture",
+  "categories": ["Culture", "History", "UNESCO"],
+  "description": "UNESCO World Heritage monastery complex sprawling across Mt. Hiei overlooking Lake Biwa and Kyoto. Founded in 788 by Saicho, it is the mother temple of Japanese Tendai Buddhism.",
+  "notes": "The Eternal Inextinguishable Buddhist Lantern burns in Konpon Chudo.",
+  "notesJa": "【見どころ】比叡山山上に広がる天台宗の総本山で、1200年間燃え続ける「不滅の法灯」が見所です。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Paid parking on Mt. Hiei Driveway",
+  "parkingJa": "【駐車場】比叡山ドライブウェイ内に有料駐車場あり。",
+  "openingHours": "08:30 - 16:30",
+  "openingHoursJa": "08:30 - 16:30",
+  "coordinates": {
+    "lat": 35.0706,
+    "lng": 135.8411
+  },
+  "officialWebsite": "https://www.hieizan.or.jp/en/",
+  "rating": 4.8,
+  "editorial": {
+    "rating": 4.8,
+    "recommendedDurationMinutes": 150,
+    "editorialSummary": "UNESCO World Heritage monastery atop Mt. Hiei overlooking Lake Biwa.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Enryaku-ji Mount Hiei Monastery",
+      "description": "UNESCO World Heritage monastery complex sprawling across Mt. Hiei overlooking Lake Biwa and Kyoto. Founded in 788 by Saicho, it is the mother temple of Japanese Tendai Buddhism.",
+      "highlights": [
+        "Konpon Chudo Main Hall",
+        "Inextinguishable Buddhist Light",
+        "Mount Hiei Sakamoto Cable Car"
+      ]
+    },
+    "ja": {
+      "name": "比叡山延暦寺",
+      "description": "伝教大師最澄によって開かれた天台宗の総本山で、比叡山全域を境内とする日本仏教の母山です。東塔・西塔・横川の3エリアに国宝・重要文化財の堂宇が点在します。",
+      "highlights": [
+        "国宝・根本中堂",
+        "不滅の法灯",
+        "坂本ケーブルからの琵琶湖眺望"
+      ]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "otsu-city"
+  },
+  "hubId": "otsu-city"
+}

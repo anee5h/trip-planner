@@ -1,0 +1,61 @@
+{
+  "id": "izushi-castle-town",
+  "name": "Izushi Historic Castle Town",
+  "nameJa": "出石城下町",
+  "prefecture": "Hyogo",
+  "region": "Kansai",
+  "nearHubs": ["toyooka-city"],
+  "role": "destination",
+  "kind": "historic_town",
+  "category": "Culture",
+  "categories": ["Culture", "History", "Food"],
+  "description": "Known as 'Little Kyoto of Tajima', featuring preserved samurai residences, Japan's oldest clock tower Shinkorou, and famous Izushi Sara Soba served on small porcelain plates.",
+  "notes": "Try the Sara Soba Meguri passport for 3 restaurants.",
+  "notesJa": "【見どころ】小京都の風情漂う城下町と、名物「出石皿そば」の食べ歩きが人気です。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Paid public parking in Izushi",
+  "parkingJa": "【駐車場】出石町内に有料駐車場あり。",
+  "openingHours": "09:00 - 17:00",
+  "openingHoursJa": "09:00 - 17:00",
+  "coordinates": {
+    "lat": 35.4647,
+    "lng": 134.8744
+  },
+  "officialWebsite": "https://www.daytrip-kansai.gtia.jp/",
+  "rating": 4.6,
+  "editorial": {
+    "rating": 4.6,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "Preserved samurai castle town famous for Shinkorou clock tower and Sara Soba.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Izushi Historic Castle Town",
+      "description": "Known as 'Little Kyoto of Tajima', featuring preserved samurai residences, Japan's oldest clock tower Shinkorou, and famous Izushi Sara Soba served on small porcelain plates.",
+      "highlights": [
+        "Shinkorou Clock Tower",
+        "Izushi Sara Soba",
+        "Izushi Castle Ruins"
+      ]
+    },
+    "ja": {
+      "name": "出石城下町",
+      "description": "但馬の小京都と称される風情ある城下町で、明治創業の辰鼓楼（時計台）や出石城跡、家老屋敷が残ります。小皿に盛られた出石皿そばを何皿も味わうグルメ散策が名物です。",
+      "highlights": [
+        "日本最古の時計台「辰鼓楼」",
+        "名物・出石皿そば",
+        "出石城跡・有子山"
+      ]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "toyooka-city"
+  },
+  "hubId": "toyooka-city"
+}

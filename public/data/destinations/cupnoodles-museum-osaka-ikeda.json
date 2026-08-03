@@ -1,0 +1,61 @@
+{
+  "id": "cupnoodles-museum-osaka-ikeda",
+  "name": "CupNoodles Museum Osaka Ikeda",
+  "nameJa": "カップヌードルミュージアム 大阪池田",
+  "prefecture": "Osaka",
+  "region": "Kansai",
+  "nearHubs": ["sakai-city", "osaka-city"],
+  "role": "destination",
+  "kind": "museum",
+  "category": "Museum",
+  "categories": ["Museum", "Culture", "Family"],
+  "description": "The birthplace of instant ramen featuring interactive workshops where visitors create custom cup noodles. Exhibits showcase Momofuku Ando's historic invention shed and global noodle packages.",
+  "notes": "Advance workshop reservations recommended. Closed Tuesdays.",
+  "notesJa": "【見どころ】マイカップヌードル手作り体験が人気の体験型ミュージアムです。",
+  "reservation": "Workshop reservation recommended",
+  "reservationJa": "【予約】カップヌードル作成体験は事前または当日整理券が必要です。",
+  "parking": "Paid parking available",
+  "parkingJa": "【駐車場】有料駐車場あり。",
+  "openingHours": "09:30 - 16:30 (Last entry 15:30)",
+  "openingHoursJa": "09:30 - 16:30 (最終入館 15:30)",
+  "coordinates": {
+    "lat": 34.8184,
+    "lng": 135.4262
+  },
+  "officialWebsite": "https://www.cupnoodles-museum.jp/en/osaka_ikeda/",
+  "rating": 4.7,
+  "editorial": {
+    "rating": 4.7,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "Birthplace of instant ramen with custom cup noodle workshops.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "CupNoodles Museum Osaka Ikeda",
+      "description": "The birthplace of instant ramen featuring interactive workshops where visitors create custom cup noodles. Exhibits showcase Momofuku Ando's historic invention shed and global noodle packages.",
+      "highlights": [
+        "Custom Cup Noodle Workshop",
+        "Momofuku Ando Research Shed",
+        "Instant Ramen Tunnel"
+      ]
+    },
+    "ja": {
+      "name": "カップヌードルミュージアム 大阪池田",
+      "description": "インスタントラーメン発祥の地に建つ体験型ミュージアムで、自分だけのスープと具材を選べるマイカップヌードル作りが人気です。安藤百福の研究小屋復元展示も楽しめます。",
+      "highlights": [
+        "マイカップヌードルファクトリー",
+        "安藤百福の研究小屋",
+        "インスタントラーメンラインナップ"
+      ]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "sakai-city"
+  },
+  "hubId": "sakai-city"
+}

@@ -18,11 +18,9 @@
   "prefecture": "Osaka",
   "region": "Kansai",
   "kind": "temple",
-  "role": "poi",
+  "role": "standalone",
   "placeType": "destination",
-  "relationships": {
-    "parentDestinationId": "osaka-city"
-  },
+  "relationships": {},
   "officialWebsiteRequirement": "recommended",
   "categories": ["History", "Culture", "Temple"],
   "tags": [
@@ -133,7 +131,6 @@
     "attribution": "MASA",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shitennoji_(3).JPG"
   },
-  "hubId": "osaka-city",
   "nearHubs": ["osaka-city"],
   "notesJa": "【見どころ】四天王寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",

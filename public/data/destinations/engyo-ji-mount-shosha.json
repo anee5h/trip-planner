@@ -1,0 +1,61 @@
+{
+  "id": "engyo-ji-mount-shosha",
+  "name": "Engyo-ji Temple Mount Shosha",
+  "nameJa": "書寫山圓教寺",
+  "prefecture": "Hyogo",
+  "region": "Kansai",
+  "nearHubs": ["himeji-city"],
+  "role": "destination",
+  "kind": "temple",
+  "category": "Culture",
+  "categories": ["Culture", "History", "Nature"],
+  "description": "A monumental 1,000-year-old Tendai Buddhist temple complex atop Mt. Shosha, famous as a filming location for 'The Last Samurai'. Reached via Mt. Shosha Ropeway.",
+  "notes": "Mt. Shosha Ropeway operates every 15 minutes.",
+  "notesJa": "【見どころ】映画「ラストサムライ」ロケ地となった格式高い千年の古刹です。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Paid parking at ropeway station",
+  "parkingJa": "【駐車場】ロープウェイ山麓駅に有料駐車場あり。",
+  "openingHours": "08:30 - 17:00",
+  "openingHoursJa": "08:30 - 17:00",
+  "coordinates": {
+    "lat": 34.8889,
+    "lng": 134.6569
+  },
+  "officialWebsite": "http://www.shosha.or.jp/",
+  "rating": 4.8,
+  "editorial": {
+    "rating": 4.8,
+    "recommendedDurationMinutes": 120,
+    "editorialSummary": "1,000-year-old Tendai temple complex atop Mt. Shosha filmed in The Last Samurai.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Engyo-ji Temple Mount Shosha",
+      "description": "A monumental 1,000-year-old Tendai Buddhist temple complex atop Mt. Shosha, famous as a filming location for 'The Last Samurai'. Reached via Mt. Shosha Ropeway.",
+      "highlights": [
+        "Manikoden Wooden Pavilion",
+        "Mitsudaido Halls",
+        "Mount Shosha Ropeway"
+      ]
+    },
+    "ja": {
+      "name": "書寫山圓教寺",
+      "description": "966年に性空上人によって開山された西国三十三所第27番札所の大古刹です。崖造りの摩尼殿や重厚な三ツ堂が豊かな自然林の中に佇み、「西の比叡山」と称されます。",
+      "highlights": [
+        "摩尼殿（舞台造り）",
+        "大講堂・食堂（三ツ堂）",
+        "書写山ロープウェイ"
+      ]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "himeji-city"
+  },
+  "hubId": "himeji-city"
+}

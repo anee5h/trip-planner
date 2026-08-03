@@ -1,0 +1,57 @@
+{
+  "id": "genbudo-cave-park",
+  "name": "Genbudo Basalt Cave Park",
+  "nameJa": "玄武洞公園",
+  "prefecture": "Hyogo",
+  "region": "Kansai",
+  "nearHubs": ["toyooka-city"],
+  "role": "destination",
+  "kind": "park",
+  "category": "Nature",
+  "categories": ["Nature", "Geology", "Park"],
+  "description": "A San'in Kaigan UNESCO Global Geopark site showcasing dramatic 1.6-million-year-old hexagonal basalt column formations created by cooling volcanic lava.",
+  "notes": "Genbudo Museum features giant mineral crystals and fossils.",
+  "notesJa": "【見どころ】160万年前の火山活動が造り出した六角形の玄武岩柱状節理の奇岩です。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Free parking available",
+  "parkingJa": "【駐車場】無料駐車場あり。",
+  "openingHours": "09:00 - 17:00 (Last entry 16:30)",
+  "openingHoursJa": "09:00 - 17:00 (最終入園 16:30)",
+  "coordinates": {
+    "lat": 35.6178,
+    "lng": 134.8058
+  },
+  "officialWebsite": "https://genbudo-park.jp/",
+  "rating": 4.6,
+  "editorial": {
+    "rating": 4.6,
+    "recommendedDurationMinutes": 60,
+    "editorialSummary": "UNESCO Geopark site with 1.6-million-year-old hexagonal basalt column caves.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Genbudo Basalt Cave Park",
+      "description": "A San'in Kaigan UNESCO Global Geopark site showcasing dramatic 1.6-million-year-old hexagonal basalt column formations created by cooling volcanic lava.",
+      "highlights": [
+        "Hexagonal Basalt Column Caves",
+        "Genbudo Museum",
+        "Maruyama River View"
+      ]
+    },
+    "ja": {
+      "name": "玄武洞公園",
+      "description": "山陰海岸ユネスコ世界ジオパークに指定された天然記念物で、マグマが冷却してできた規則正しい柱状節理が壁画のように広がります。四神の名を冠した玄武・青龍・白虎・朱雀洞が見所です。",
+      "highlights": ["柱状節理の奇岩群", "玄武洞ミュージアム", "円山川の風景"]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "toyooka-city"
+  },
+  "hubId": "toyooka-city"
+}

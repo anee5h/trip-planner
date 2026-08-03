@@ -18,12 +18,9 @@
   "prefecture": "Osaka",
   "region": "Kansai",
   "kind": "aquarium",
-  "role": "poi",
+  "role": "standalone",
   "placeType": "destination",
-  "areaId": "bay-area",
-  "relationships": {
-    "parentDestinationId": "osaka-city"
-  },
+  "relationships": {},
   "officialWebsite": "https://www.kaiyukan.com/language/eng/",
   "officialWebsiteRequirement": "recommended",
   "categories": ["Museum"],
@@ -137,7 +134,6 @@
     "confidence": "low"
   },
   "businessHours": "10:00 - 20:00 (Last admission 19:00)",
-  "hubId": "osaka-city",
   "nearHubs": ["osaka-city"],
   "notesJa": "【見どころ】海遊館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",

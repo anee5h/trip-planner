@@ -1,0 +1,57 @@
+{
+  "id": "koko-en-garden",
+  "name": "Koko-en Garden",
+  "nameJa": "好古園",
+  "prefecture": "Hyogo",
+  "region": "Kansai",
+  "nearHubs": ["himeji-city"],
+  "role": "destination",
+  "kind": "garden",
+  "category": "Nature",
+  "categories": ["Nature", "Culture", "History"],
+  "description": "Nine distinct Edo-style Japanese gardens constructed on the historic site of Lord Himeji's samurai residences. Features waterfalls, koi ponds, and a green tea ceremony pavilion.",
+  "notes": "Discounted combined tickets available with Himeji Castle.",
+  "notesJa": "【見どころ】姫路城を借景とする9つの江戸風情あふれる日本庭園です。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です（姫路城共通券がお得です）。",
+  "parking": "Paid public parking nearby",
+  "parkingJa": "【駐車場】姫路城周辺有料駐車場あり。",
+  "openingHours": "09:00 - 17:00 (Last entry 16:30)",
+  "openingHoursJa": "09:00 - 17:00 (最終入園 16:30)",
+  "coordinates": {
+    "lat": 34.8364,
+    "lng": 134.6892
+  },
+  "officialWebsite": "https://www.himeji-machishin.jp/kokoen/",
+  "rating": 4.7,
+  "editorial": {
+    "rating": 4.7,
+    "recommendedDurationMinutes": 60,
+    "editorialSummary": "Nine distinct Edo-style Japanese gardens built on samurai residence sites.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Koko-en Garden",
+      "description": "Nine distinct Edo-style Japanese gardens constructed on the historic site of Lord Himeji's samurai residences. Features waterfalls, koi ponds, and a green tea ceremony pavilion.",
+      "highlights": [
+        "Garden of the Lord's Residence",
+        "Souju-an Teahouse",
+        "Waterfall & Koi Ponds"
+      ]
+    },
+    "ja": {
+      "name": "好古園",
+      "description": "姫路城西御屋敷跡の発掘調査成果を活かして造営された3.5ヘクタールの本格的日本庭園群です。瀧の庭や茶の庭、夏木の庭など、江戸の風情漂う9つの異なる庭園を散策できます。",
+      "highlights": ["御屋敷の庭", "茶室「双樹庵」", "瀧と錦鯉の池"]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "himeji-city"
+  },
+  "hubId": "himeji-city"
+}

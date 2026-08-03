@@ -18,12 +18,9 @@
   "prefecture": "Hyogo",
   "region": "Kansai",
   "kind": "museum",
-  "role": "poi",
+  "role": "standalone",
   "placeType": "destination",
-  "areaId": "sannomiya",
-  "relationships": {
-    "parentDestinationId": "kobe-city"
-  },
+  "relationships": {},
   "officialWebsiteRequirement": "optional",
   "categories": ["Nature"],
   "tags": ["Nature", "Kobe City", "v1.9.2"],
@@ -136,7 +133,6 @@
   },
   "officialWebsite": "https://www.kobe-kankou.jp/",
   "businessHours": "Open access",
-  "hubId": "kobe-city",
   "nearHubs": ["kobe-city"],
   "notesJa": "【見どころ】布引の滝 (兵庫県)は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",

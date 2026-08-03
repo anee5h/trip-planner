@@ -18,12 +18,9 @@
   "prefecture": "Kyoto",
   "region": "Kansai",
   "kind": "museum",
-  "role": "poi",
+  "role": "standalone",
   "placeType": "destination",
-  "areaId": "central-kyoto",
-  "relationships": {
-    "parentDestinationId": "kyoto-city"
-  },
+  "relationships": {},
   "officialWebsite": "https://sankan.kunaicho.go.jp/guide/kyoto.html",
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
@@ -137,7 +134,6 @@
     "confidence": "low"
   },
   "businessHours": "09:30 - 17:00 (Closed Mondays)",
-  "hubId": "kyoto-city",
   "nearHubs": ["kyoto-city"],
   "notesJa": "【見どころ】京都御所は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",

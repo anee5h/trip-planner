@@ -81,7 +81,9 @@
   "indoorPercent": 20,
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "shirahama-town"
+  },
   "image": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1000",
   "budgetBreakdown": {
     "transport": 2786,
@@ -101,7 +103,7 @@
   "parking": "Available on site",
   "schemaVersion": 2,
   "walkingIntensity": "low",
-  "role": "standalone",
+  "role": "destination",
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -124,6 +126,6 @@
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-  "hubId": "shirahama-town",
-  "nearHubs": ["shirahama-town"]
+  "nearHubs": ["shirahama-town"],
+  "hubId": "shirahama-town"
 }

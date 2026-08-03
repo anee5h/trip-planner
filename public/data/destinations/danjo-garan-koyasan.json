@@ -1,0 +1,57 @@
+{
+  "id": "danjo-garan-koyasan",
+  "name": "Danjo Garan Sacred Temple Complex",
+  "nameJa": "高野山 壇上伽藍",
+  "prefecture": "Wakayama",
+  "region": "Kansai",
+  "nearHubs": ["koya-town"],
+  "role": "destination",
+  "kind": "temple",
+  "category": "Culture",
+  "categories": ["Culture", "History", "UNESCO"],
+  "description": "The central temple complex of Koyasan founded by Kobo Daishi, dominated by the majestic 48.5m vermilion Konpon Daito Great Pagoda.",
+  "notes": "Konpon Daito houses large three-dimensional Mandala statues.",
+  "notesJa": "【見どころ】弘法大師が開創した高野山の中心道場で、鮮やかな朱塗りの「根本大塔」が目印です。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Paid public parking in Koyasan",
+  "parkingJa": "【駐車場】高野山内無料・有料駐車場あり。",
+  "openingHours": "08:30 - 17:00",
+  "openingHoursJa": "08:30 - 17:00",
+  "coordinates": {
+    "lat": 34.2136,
+    "lng": 135.5802
+  },
+  "officialWebsite": "https://www.koyasan.or.jp/en/",
+  "rating": 4.8,
+  "editorial": {
+    "rating": 4.8,
+    "recommendedDurationMinutes": 75,
+    "editorialSummary": "Central temple complex of Koyasan with 48.5m vermilion Konpon Daito Great Pagoda.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Danjo Garan Sacred Temple Complex",
+      "description": "The central temple complex of Koyasan founded by Kobo Daishi, dominated by the majestic 48.5m vermilion Konpon Daito Great Pagoda.",
+      "highlights": [
+        "Konpon Daito Great Pagoda",
+        "Kondo Main Hall",
+        "Sankosho Pine Tree"
+      ]
+    },
+    "ja": {
+      "name": "高野山 壇上伽藍",
+      "description": "高野山真言密教の根本道場として奥之院と並ぶ二大聖地です。高さ48.5mの根本大塔内部には立体曼荼羅が表現され、金堂や不動堂（国宝）など歴史的堂宇が集結します。",
+      "highlights": ["根本大塔（立体曼荼羅）", "国宝・不動堂", "三鈷の松"]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "koya-town"
+  },
+  "hubId": "koya-town"
+}

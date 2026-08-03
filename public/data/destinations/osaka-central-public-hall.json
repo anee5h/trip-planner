@@ -18,11 +18,9 @@
   "prefecture": "Osaka",
   "region": "Kansai",
   "kind": "museum",
-  "role": "poi",
+  "role": "standalone",
   "placeType": "destination",
-  "relationships": {
-    "parentDestinationId": "osaka-city"
-  },
+  "relationships": {},
   "officialWebsiteRequirement": "recommended",
   "categories": ["History", "Architecture", "Culture"],
   "tags": [
@@ -137,6 +135,5 @@
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-  "hubId": "osaka-city",
   "nearHubs": ["osaka-city"]
 }
