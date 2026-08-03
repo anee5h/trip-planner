@@ -433,6 +433,7 @@ export function generateDayPlan(
       catchmentScope,
       context: options?.context,
       pace,
+      catalogue,
     });
 
   const realStopThreshold = planType === "half_day" ? 2 : 3;
@@ -485,6 +486,7 @@ export function generateDayPlan(
     planType,
     catchmentScope,
     context: options?.context,
+    catalogue,
   });
   if (!eligibility.eligible) {
     return buildUnfeasiblePlan("insufficient_real_pois");
