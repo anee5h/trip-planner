@@ -36,7 +36,20 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true
+    },
+    {
+      "collectionId": "pilgrimage-routes-japan",
+      "confirmed": true
+    },
+    {
+      "collectionId": "waterfalls-gorges-japan",
+      "confirmed": true
+    }
+  ],
   "transportOptions": {
     "train": 270,
     "bus": 310,

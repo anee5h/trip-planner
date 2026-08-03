@@ -41,6 +41,10 @@
       "collectionId": "three-cherry-blossom-spots",
       "sortOrder": 3,
       "confirmed": true
+    },
+    {
+      "collectionId": "flower-parks-japan",
+      "confirmed": true
     }
   ],
   "transportOptions": {

@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Shitennoji",
-      "description": "Shitennoji is a distinct visitor stop within Osaka City, selected to support a varied local itinerary.",
+      "description": "Japan's oldest officially administered Buddhist temple, founded in 593 AD by Prince Shotoku in Osaka. Its symmetrical garan layout features a magnificent five-story pagoda and sacred turtle pond.",
       "highlights": ["History", "Culture", "Temple"]
     },
     "ja": {
       "name": "四天王寺",
-      "description": "四天王寺はOsaka City内の観光スポットです。訪問前に最新の営業情報をご確認ください。",
+      "description": "聖徳太子によって593年に建立された日本最古の官寺であり、飛鳥時代の伽藍配置を現代に伝えます。見事な五重塔や静謐な亀の池が広がる大阪を代表する古刹です。",
       "highlights": ["History", "Culture", "Temple"]
     }
   },
@@ -37,7 +37,7 @@
     "lat": 34.6546,
     "lng": 135.5165
   },
-  "description": "Shitennoji is a distinct visitor stop within Osaka City, selected to support a varied local itinerary.",
+  "description": "Japan's oldest officially administered Buddhist temple, founded in 593 AD by Prince Shotoku in Osaka. Its symmetrical garan layout features a magnificent five-story pagoda and sacred turtle pond.",
   "highlights": ["History", "Culture", "Temple"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

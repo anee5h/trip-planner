@@ -37,7 +37,20 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true
+    },
+    {
+      "collectionId": "japan-top-castles",
+      "confirmed": true
+    },
+    {
+      "collectionId": "national-treasures",
+      "confirmed": true
+    }
+  ],
   "transportOptions": {
     "train": 140,
     "bus": 160,

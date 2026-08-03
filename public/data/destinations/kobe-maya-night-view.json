@@ -36,7 +36,12 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "great-night-views",
+      "confirmed": true
+    }
+  ],
   "transportOptions": {
     "train": 210,
     "bus": 240,

@@ -37,7 +37,20 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true
+    },
+    {
+      "collectionId": "three-great-buddhas",
+      "confirmed": true
+    },
+    {
+      "collectionId": "national-treasures",
+      "confirmed": true
+    }
+  ],
   "transportOptions": {
     "train": 170,
     "bus": 200,

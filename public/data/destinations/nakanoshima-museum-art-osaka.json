@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Nakanoshima Museum of Art, Osaka",
-      "description": "Nakanoshima Museum of Art, Osaka is a distinct visitor stop within Osaka City, selected to support a varied local itinerary.",
+      "description": "A striking black cube architectural landmark in Osaka's Nakanoshima district, housing over 6,000 modern and contemporary artworks. It features works by Modigliani, Gutai artists, and design retrospectives.",
       "highlights": ["Museum", "Art", "Indoor"]
     },
     "ja": {
       "name": "大阪中之島美術館",
-      "description": "大阪中之島美術館はOsaka City内の観光スポットです。訪問前に最新の営業情報をご確認ください。",
+      "description": "黒い漆黒のキューブ型デザインが印象的な大阪・中之島の最新美術館で、モディリアーニや具体美術のコレクション6,000点超を収蔵しています。最先端のアートとデザイン展を楽しめます。",
       "highlights": ["Museum", "Art", "Indoor"]
     }
   },
@@ -37,7 +37,7 @@
     "lat": 34.6914,
     "lng": 135.4899
   },
-  "description": "Nakanoshima Museum of Art, Osaka is a distinct visitor stop within Osaka City, selected to support a varied local itinerary.",
+  "description": "A striking black cube architectural landmark in Osaka's Nakanoshima district, housing over 6,000 modern and contemporary artworks. It features works by Modigliani, Gutai artists, and design retrospectives.",
   "highlights": ["Museum", "Art", "Indoor"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -106,7 +106,16 @@
   "travelEstimate": {
     "confidence": "medium"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true
+    },
+    {
+      "collectionId": "national-treasures",
+      "confirmed": true
+    }
+  ],
   "addedAt": "2026-07-29",
   "editorial": {
     "rating": 4.8,

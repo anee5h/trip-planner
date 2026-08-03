@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Osaka City Central Public Hall",
-      "description": "Osaka City Central Public Hall is a distinct visitor stop within Osaka City, selected to support a varied local itinerary.",
+      "description": "A grand Neo-Renaissance red-brick cultural landmark in Nakanoshima built in 1918, featuring stained-glass ceilings and a famous subterranean restaurant. It serves as Osaka's premier historic banquet and performance hall.",
       "highlights": ["History", "Architecture", "Culture"]
     },
     "ja": {
       "name": "大阪市中央公会堂",
-      "description": "大阪市中央公会堂はOsaka City内の観光スポットです。訪問前に最新の営業情報をご確認ください。",
+      "description": "1918年に完成した中之島を象徴するネオ・ルネサンス様式の美しい赤レンガ建築です。絢爛豪華なステンドグラス大集会室や名物オムライスの地下レストランが親しまれています。",
       "highlights": ["History", "Architecture", "Culture"]
     }
   },
@@ -37,7 +37,7 @@
     "lat": 34.6934,
     "lng": 135.505
   },
-  "description": "Osaka City Central Public Hall is a distinct visitor stop within Osaka City, selected to support a varied local itinerary.",
+  "description": "A grand Neo-Renaissance red-brick cultural landmark in Nakanoshima built in 1918, featuring stained-glass ceilings and a famous subterranean restaurant. It serves as Osaka's premier historic banquet and performance hall.",
   "highlights": ["History", "Architecture", "Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -36,6 +36,10 @@
     {
       "collectionId": "three-great-views",
       "sortOrder": 2
+    },
+    {
+      "collectionId": "coastal-drives-japan",
+      "confirmed": true
     }
   ],
   "transportOptions": {

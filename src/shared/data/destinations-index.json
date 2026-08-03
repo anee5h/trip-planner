@@ -1239,6 +1239,10 @@
       {
         "collectionId": "three-great-views",
         "sortOrder": 2
+      },
+      {
+        "collectionId": "coastal-drives-japan",
+        "confirmed": true
       }
     ],
     "transportOptions": {
@@ -2058,6 +2062,14 @@
       {
         "collectionId": "art-islands-japan",
         "sortOrder": 5
+      },
+      {
+        "collectionId": "top-onsen-japan",
+        "confirmed": true
+      },
+      {
+        "collectionId": "historic-towns-japan",
+        "confirmed": true
       }
     ],
     "transportOptions": {
@@ -12986,7 +12998,16 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true
+      },
+      {
+        "collectionId": "national-treasures",
+        "confirmed": true
+      }
+    ],
     "addedAt": "2026-07-29",
     "editorial": {
       "rating": 4.8,
@@ -15255,6 +15276,10 @@
       {
         "collectionId": "art-islands-japan",
         "sortOrder": 4
+      },
+      {
+        "collectionId": "great-night-views",
+        "confirmed": true
       }
     ],
     "transportOptions": {
@@ -16447,6 +16472,10 @@
         "collectionId": "national-treasures",
         "sortOrder": 3,
         "confirmed": true
+      },
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true
       }
     ],
     "relationships": {
@@ -16616,6 +16645,18 @@
       {
         "collectionId": "original-12-castles",
         "sortOrder": 1
+      },
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true
+      },
+      {
+        "collectionId": "japan-top-castles",
+        "confirmed": true
+      },
+      {
+        "collectionId": "national-treasures",
+        "confirmed": true
       }
     ],
     "transportOptions": {
@@ -18217,6 +18258,10 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
+        "confirmed": true
+      },
+      {
+        "collectionId": "national-treasures",
         "confirmed": true
       }
     ],
@@ -26341,7 +26386,16 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true
+      },
+      {
+        "collectionId": "national-treasures",
+        "confirmed": true
+      }
+    ],
     "addedAt": "2026-07-29",
     "editorial": {
       "rating": 4.8,
@@ -26417,6 +26471,10 @@
       {
         "collectionId": "top-onsen-japan",
         "sortOrder": 5,
+        "confirmed": true
+      },
+      {
+        "collectionId": "historic-towns-japan",
         "confirmed": true
       }
     ],
@@ -27661,7 +27719,12 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "historic-towns-japan",
+        "confirmed": true
+      }
+    ],
     "addedAt": "2026-07-29",
     "editorial": {
       "rating": 4.8,
@@ -28166,7 +28229,12 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "great-night-views",
+        "confirmed": true
+      }
+    ],
     "addedAt": "2026-07-29",
     "editorial": {
       "rating": 4.8,
@@ -28387,7 +28455,12 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "great-night-views",
+        "confirmed": true
+      }
+    ],
     "transportOptions": {
       "train": 210,
       "bus": 240,
@@ -28580,7 +28653,12 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "japan-observatories-towers",
+        "confirmed": true
+      }
+    ],
     "addedAt": "2026-07-29",
     "editorial": {
       "rating": 4.8,
@@ -33665,6 +33743,14 @@
       {
         "collectionId": "original-12-castles",
         "sortOrder": 1
+      },
+      {
+        "collectionId": "japan-top-castles",
+        "confirmed": true
+      },
+      {
+        "collectionId": "national-treasures",
+        "confirmed": true
       }
     ],
     "transportOptions": {
@@ -36808,6 +36894,10 @@
         "collectionId": "unesco-japan",
         "sortOrder": 7,
         "confirmed": true
+      },
+      {
+        "collectionId": "national-parks-japan",
+        "confirmed": true
       }
     ],
     "relationships": {},
@@ -37154,6 +37244,10 @@
       {
         "collectionId": "three-cherry-blossom-spots",
         "sortOrder": 3,
+        "confirmed": true
+      },
+      {
+        "collectionId": "flower-parks-japan",
         "confirmed": true
       }
     ],
@@ -37882,7 +37976,20 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true
+      },
+      {
+        "collectionId": "pilgrimage-routes-japan",
+        "confirmed": true
+      },
+      {
+        "collectionId": "waterfalls-gorges-japan",
+        "confirmed": true
+      }
+    ],
     "transportOptions": {
       "train": 270,
       "bus": 310,
@@ -39875,7 +39982,12 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "historic-towns-japan",
+        "confirmed": true
+      }
+    ],
     "addedAt": "2026-07-29",
     "editorial": {
       "rating": 4.8,
@@ -40415,7 +40527,20 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true
+      },
+      {
+        "collectionId": "three-great-buddhas",
+        "confirmed": true
+      },
+      {
+        "collectionId": "national-treasures",
+        "confirmed": true
+      }
+    ],
     "transportOptions": {
       "train": 170,
       "bus": 200,
@@ -42008,7 +42133,20 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true
+      },
+      {
+        "collectionId": "japan-top-castles",
+        "confirmed": true
+      },
+      {
+        "collectionId": "national-treasures",
+        "confirmed": true
+      }
+    ],
     "transportOptions": {
       "train": 140,
       "bus": 160,
@@ -42663,7 +42801,16 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true
+      },
+      {
+        "collectionId": "national-treasures",
+        "confirmed": true
+      }
+    ],
     "addedAt": "2026-07-29",
     "editorial": {
       "rating": 4.8,
@@ -46464,6 +46611,10 @@
       {
         "collectionId": "core-cities-japan",
         "confirmed": true
+      },
+      {
+        "collectionId": "japan-top-castles",
+        "confirmed": true
       }
     ],
     "transportOptions": {
@@ -46659,7 +46810,16 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "japan-top-castles",
+        "confirmed": true
+      },
+      {
+        "collectionId": "three-cherry-blossom-spots",
+        "confirmed": true
+      }
+    ],
     "addedAt": "2026-07-29",
     "editorial": {
       "rating": 4.8,
@@ -49101,7 +49261,16 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true
+      },
+      {
+        "collectionId": "national-treasures",
+        "confirmed": true
+      }
+    ],
     "addedAt": "2026-07-29",
     "editorial": {
       "rating": 4.8,
@@ -64783,7 +64952,12 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "japan-observatories-towers",
+        "confirmed": true
+      }
+    ],
     "addedAt": "2026-07-29",
     "editorial": {
       "rating": 4.8,
@@ -65607,7 +65781,16 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "great-night-views",
+        "confirmed": true
+      },
+      {
+        "collectionId": "japan-observatories-towers",
+        "confirmed": true
+      }
+    ],
     "addedAt": "2026-07-29",
     "editorial": {
       "rating": 4.8,
@@ -77545,12 +77728,12 @@
     "content": {
       "en": {
         "name": "Shitennoji",
-        "description": "Shitennoji is a distinct visitor stop within Osaka City, selected to support a varied local itinerary.",
+        "description": "Japan's oldest officially administered Buddhist temple, founded in 593 AD by Prince Shotoku in Osaka. Its symmetrical garan layout features a magnificent five-story pagoda and sacred turtle pond.",
         "highlights": ["History", "Culture", "Temple"]
       },
       "ja": {
         "name": "四天王寺",
-        "description": "四天王寺はOsaka City内の観光スポットです。訪問前に最新の営業情報をご確認ください。",
+        "description": "聖徳太子によって593年に建立された日本最古の官寺であり、飛鳥時代の伽藍配置を現代に伝えます。見事な五重塔や静謐な亀の池が広がる大阪を代表する古刹です。",
         "highlights": ["History", "Culture", "Temple"]
       }
     },
@@ -77576,7 +77759,7 @@
       "lat": 34.6546,
       "lng": 135.5165
     },
-    "description": "Shitennoji is a distinct visitor stop within Osaka City, selected to support a varied local itinerary.",
+    "description": "Japan's oldest officially administered Buddhist temple, founded in 593 AD by Prince Shotoku in Osaka. Its symmetrical garan layout features a magnificent five-story pagoda and sacred turtle pond.",
     "highlights": ["History", "Culture", "Temple"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -77687,12 +77870,12 @@
     "content": {
       "en": {
         "name": "Nakanoshima Museum of Art, Osaka",
-        "description": "Nakanoshima Museum of Art, Osaka is a distinct visitor stop within Osaka City, selected to support a varied local itinerary.",
+        "description": "A striking black cube architectural landmark in Osaka's Nakanoshima district, housing over 6,000 modern and contemporary artworks. It features works by Modigliani, Gutai artists, and design retrospectives.",
         "highlights": ["Museum", "Art", "Indoor"]
       },
       "ja": {
         "name": "大阪中之島美術館",
-        "description": "大阪中之島美術館はOsaka City内の観光スポットです。訪問前に最新の営業情報をご確認ください。",
+        "description": "黒い漆黒のキューブ型デザインが印象的な大阪・中之島の最新美術館で、モディリアーニや具体美術のコレクション6,000点超を収蔵しています。最先端のアートとデザイン展を楽しめます。",
         "highlights": ["Museum", "Art", "Indoor"]
       }
     },
@@ -77718,7 +77901,7 @@
       "lat": 34.6914,
       "lng": 135.4899
     },
-    "description": "Nakanoshima Museum of Art, Osaka is a distinct visitor stop within Osaka City, selected to support a varied local itinerary.",
+    "description": "A striking black cube architectural landmark in Osaka's Nakanoshima district, housing over 6,000 modern and contemporary artworks. It features works by Modigliani, Gutai artists, and design retrospectives.",
     "highlights": ["Museum", "Art", "Indoor"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -77829,12 +78012,12 @@
     "content": {
       "en": {
         "name": "Osaka City Central Public Hall",
-        "description": "Osaka City Central Public Hall is a distinct visitor stop within Osaka City, selected to support a varied local itinerary.",
+        "description": "A grand Neo-Renaissance red-brick cultural landmark in Nakanoshima built in 1918, featuring stained-glass ceilings and a famous subterranean restaurant. It serves as Osaka's premier historic banquet and performance hall.",
         "highlights": ["History", "Architecture", "Culture"]
       },
       "ja": {
         "name": "大阪市中央公会堂",
-        "description": "大阪市中央公会堂はOsaka City内の観光スポットです。訪問前に最新の営業情報をご確認ください。",
+        "description": "1918年に完成した中之島を象徴するネオ・ルネサンス様式の美しい赤レンガ建築です。絢爛豪華なステンドグラス大集会室や名物オムライスの地下レストランが親しまれています。",
         "highlights": ["History", "Architecture", "Culture"]
       }
     },
@@ -77860,7 +78043,7 @@
       "lat": 34.6934,
       "lng": 135.505
     },
-    "description": "Osaka City Central Public Hall is a distinct visitor stop within Osaka City, selected to support a varied local itinerary.",
+    "description": "A grand Neo-Renaissance red-brick cultural landmark in Nakanoshima built in 1918, featuring stained-glass ceilings and a famous subterranean restaurant. It serves as Osaka's premier historic banquet and performance hall.",
     "highlights": ["History", "Architecture", "Culture"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,

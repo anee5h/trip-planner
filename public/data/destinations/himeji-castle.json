@@ -38,6 +38,18 @@
     {
       "collectionId": "original-12-castles",
       "sortOrder": 1
+    },
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true
+    },
+    {
+      "collectionId": "japan-top-castles",
+      "confirmed": true
+    },
+    {
+      "collectionId": "national-treasures",
+      "confirmed": true
     }
   ],
   "transportOptions": {

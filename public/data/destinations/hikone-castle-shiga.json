@@ -101,6 +101,10 @@
       "collectionId": "national-treasures",
       "sortOrder": 3,
       "confirmed": true
+    },
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true
     }
   ],
   "relationships": {

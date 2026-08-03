@@ -105,7 +105,12 @@
   "travelEstimate": {
     "confidence": "medium"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "historic-towns-japan",
+      "confirmed": true
+    }
+  ],
   "addedAt": "2026-07-29",
   "editorial": {
     "rating": 4.8,

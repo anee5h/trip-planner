@@ -77,6 +77,10 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true
+    },
+    {
+      "collectionId": "national-treasures",
+      "confirmed": true
     }
   ],
   "relationships": {

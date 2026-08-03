@@ -36,6 +36,14 @@
     {
       "collectionId": "art-islands-japan",
       "sortOrder": 5
+    },
+    {
+      "collectionId": "top-onsen-japan",
+      "confirmed": true
+    },
+    {
+      "collectionId": "historic-towns-japan",
+      "confirmed": true
     }
   ],
   "transportOptions": {
