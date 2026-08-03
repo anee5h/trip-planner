@@ -4,7 +4,6 @@
   "nameJa": "近江八幡・八幡堀",
   "prefecture": "Shiga",
   "region": "Kansai",
-  "hubId": "otsu-city",
   "nearHubs": ["otsu-city"],
   "role": "destination",
   "kind": "historic_town",
@@ -82,5 +81,6 @@
     "license": "CC BY-SA 4.0",
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Omihachiman_canal_006.jpg"
-  }
+  },
+  "municipalityId": "otsu"
 }

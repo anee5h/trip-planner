@@ -165,5 +165,6 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
+  "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
+  "municipalityId": "sendai"
 }

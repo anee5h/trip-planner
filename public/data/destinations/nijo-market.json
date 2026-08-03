@@ -163,5 +163,6 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "municipalityId": "sapporo"
 }

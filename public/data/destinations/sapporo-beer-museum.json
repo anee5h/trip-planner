@@ -163,5 +163,6 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "11:00 - 18:00 (Closed Mondays)"
+  "businessHours": "11:00 - 18:00 (Closed Mondays)",
+  "municipalityId": "sapporo"
 }

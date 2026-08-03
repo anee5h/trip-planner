@@ -4,7 +4,6 @@
   "nameJa": "黒潮市場・和歌山マリーナシティ",
   "prefecture": "Wakayama",
   "region": "Kansai",
-  "hubId": "wakayama-city",
   "nearHubs": ["wakayama-city"],
   "role": "destination",
   "kind": "market",
@@ -82,5 +81,6 @@
     "license": "CC BY-SA 4.0",
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kuroshio_Ichibano_Tuna_Show.jpg"
-  }
+  },
+  "municipalityId": "wakayama"
 }

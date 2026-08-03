@@ -133,7 +133,6 @@
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["kyoto-city"],
-  "hubId": "kyoto-city",
   "content": {
     "en": {
       "name": "Nijo Castle (Kyoto)",
@@ -149,5 +148,6 @@
         "特別名勝・二の丸庭園"
       ]
     }
-  }
+  },
+  "municipalityId": "kyoto"
 }

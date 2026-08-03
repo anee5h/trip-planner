@@ -74,7 +74,7 @@
   "relationships": {
     "featuredDestinationIds": [],
     "nearbyDestinationIds": [],
-    "parentDestinationId": "himeji-city"
+    "parentDestinationId": "asago-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/2/26/%E7%AB%B9%E7%94%B0%E5%9F%8E.JPG",
   "walkingIntensity": "low",
@@ -102,7 +102,6 @@
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "role": "destination",
-  "hubId": "asago-city",
   "ratingsSchemaVersion": 2,
   "content": {
     "en": {
@@ -119,5 +118,6 @@
         "立雲峡からの対岸展望"
       ]
     }
-  }
+  },
+  "municipalityId": "asago"
 }

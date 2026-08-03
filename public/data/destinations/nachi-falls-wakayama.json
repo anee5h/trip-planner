@@ -127,7 +127,6 @@
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["shirahama-town"],
-  "hubId": "shirahama-town",
   "content": {
     "en": {
       "name": "Nachi Falls & Pagoda",
@@ -143,5 +142,6 @@
         "熊野那智大社参道"
       ]
     }
-  }
+  },
+  "municipalityId": "shirahama"
 }

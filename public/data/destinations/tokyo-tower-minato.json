@@ -153,5 +153,6 @@
   "reservationJa": "トップデッキツアーは事前予約推奨。メインデッキは当日券購入も可能です。",
   "parkingJa": "東京タワー敷地内の有料地下駐車場をご利用いただけます。",
   "openingHours": "09:00 - 22:30 (Last admission 22:00)",
-  "openingHoursJa": "09:00 - 22:30（最終入場 22:00）"
+  "openingHoursJa": "09:00 - 22:30（最終入場 22:00）",
+  "municipalityId": "minato"
 }

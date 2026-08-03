@@ -49,7 +49,6 @@
   "relationships": {
     "parentDestinationId": "uji-city"
   },
-  "hubId": "uji-city",
   "status": "published",
   "ratings": {
     "overall": 9.1,
@@ -74,5 +73,6 @@
     "license": "CC BY 4.0",
     "attribution": "ganden",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kyoto-Byodoin_Phoenix_Hall-xl.jpg"
-  }
+  },
+  "municipalityId": "uji"
 }

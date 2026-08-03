@@ -57,7 +57,6 @@
   "relationships": {
     "parentDestinationId": "wakayama-city"
   },
-  "hubId": "wakayama-city",
   "status": "published",
   "ratings": {
     "overall": 8.7,
@@ -82,5 +81,6 @@
     "license": "CC0",
     "attribution": "Saigen Jiro",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wakanoura_viewed_from_Mount_Takozushi.jpg"
-  }
+  },
+  "municipalityId": "wakayama"
 }

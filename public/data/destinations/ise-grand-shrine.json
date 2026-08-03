@@ -118,7 +118,6 @@
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["ise-city"],
   "role": "destination",
-  "hubId": "ise-city",
   "content": {
     "en": {
       "name": "Ise Grand Shrine (Ise Jingu)",
@@ -134,5 +133,6 @@
         "式年遷宮の伝統と神杉林"
       ]
     }
-  }
+  },
+  "municipalityId": "ise"
 }

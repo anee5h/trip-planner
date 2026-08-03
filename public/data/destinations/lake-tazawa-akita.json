@@ -82,7 +82,7 @@
       "nyuto-onsen-akita",
       "kakunodate-samurai-district-akita"
     ],
-    "parentDestinationId": "akita-city"
+    "gatewayHubId": "akita-city"
   },
   "budgetBreakdown": null,
   "recommendedVisitHours": {

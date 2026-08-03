@@ -65,12 +65,23 @@ export const relationshipsValidator: ValidatorModule = {
       if (
         dest.role !== "hub" &&
         dest.role !== "standalone" &&
-        !rels?.parentDestinationId
+        !rels?.parentDestinationId &&
+        !rels?.gatewayHubId
       ) {
         issues.push({
           severity: "error",
           code: "ORPHAN_DESTINATION",
-          message: `Destination '${dest.id}' has no verified hub parent or standalone classification.`,
+          message: `Destination '${dest.id}' has no verified hub parent, gateway hub, or standalone classification.`,
+          targetId: dest.id,
+        });
+      }
+      // Legacy top-level hubId is deprecated: it duplicates
+      // relationships.parentDestinationId and is not read by application code.
+      if ("hubId" in dest) {
+        issues.push({
+          severity: "error",
+          code: "LEGACY_HUB_ID_PRESENT",
+          message: `Destination '${dest.id}' still has a legacy top-level hubId field; remove it (the canonical parent is relationships.parentDestinationId).`,
           targetId: dest.id,
         });
       }
@@ -121,7 +132,29 @@ export const relationshipsValidator: ValidatorModule = {
               targetId: dest.id,
             });
           }
+          if (
+            dest.municipalityId &&
+            parent.municipalityId &&
+            dest.municipalityId !== parent.municipalityId
+          ) {
+            issues.push({
+              severity: "error",
+              code: "CROSS_MUNICIPALITY_PARENT_ID",
+              message: `Destination '${dest.id}' is in municipality '${dest.municipalityId}' but parent '${parent.id}' is in municipality '${parent.municipalityId}'; use gatewayHubId instead.`,
+              targetId: dest.id,
+            });
+          }
         }
+      }
+
+      // 1a. Parent and gateway are mutually exclusive.
+      if (rels.parentDestinationId && rels.gatewayHubId) {
+        issues.push({
+          severity: "error",
+          code: "PARENT_AND_GATEWAY_BOTH_SET",
+          message: `Destination '${dest.id}' has both parentDestinationId and gatewayHubId; a destination is either contained or gateway-accessed, not both.`,
+          targetId: dest.id,
+        });
       }
 
       // 1b. Gateway Hub Check (regional access, not containment)

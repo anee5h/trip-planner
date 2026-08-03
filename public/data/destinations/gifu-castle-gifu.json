@@ -102,5 +102,6 @@
     "max": 5
   },
   "officialWebsite": "https://www.city.gifu.lg.jp/kanko/gifucastle/",
-  "businessHours": "09:00 - 17:00 (Last admission 16:30)"
+  "businessHours": "09:00 - 17:00 (Last admission 16:30)",
+  "municipalityId": "gifu"
 }

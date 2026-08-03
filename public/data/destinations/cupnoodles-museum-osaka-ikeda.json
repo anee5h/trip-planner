@@ -55,9 +55,8 @@
     }
   },
   "relationships": {
-    "parentDestinationId": "sakai-city"
+    "gatewayHubId": "sakai-city"
   },
-  "hubId": "sakai-city",
   "status": "published",
   "ratings": {
     "overall": 8.9,

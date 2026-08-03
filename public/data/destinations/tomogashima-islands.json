@@ -4,7 +4,6 @@
   "nameJa": "友ヶ島（ラピュタの島）",
   "prefecture": "Wakayama",
   "region": "Kansai",
-  "hubId": "wakayama-city",
   "nearHubs": ["wakayama-city"],
   "role": "destination",
   "kind": "island",
@@ -82,5 +81,6 @@
     "license": "CC BY-SA 4.0",
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tomogashima_Island_Wakayama.jpg"
-  }
+  },
+  "municipalityId": "wakayama"
 }

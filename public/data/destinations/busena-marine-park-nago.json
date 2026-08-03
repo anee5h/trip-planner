@@ -93,5 +93,6 @@
   "recommendedVisitHours": {
     "min": 1.5,
     "max": 2.5
-  }
+  },
+  "municipalityId": "nago"
 }

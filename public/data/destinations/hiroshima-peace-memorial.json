@@ -101,5 +101,6 @@
     "max": 7
   },
   "officialWebsite": "https://pcf.city.hiroshima.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "municipalityId": "hiroshima"
 }

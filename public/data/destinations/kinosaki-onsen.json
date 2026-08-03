@@ -118,7 +118,6 @@
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["toyooka-city"],
   "role": "destination",
-  "hubId": "toyooka-city",
   "content": {
     "en": {
       "name": "Kinosaki Onsen",
@@ -134,5 +133,6 @@
         "浴衣姿での温泉街散策"
       ]
     }
-  }
+  },
+  "municipalityId": "toyooka"
 }

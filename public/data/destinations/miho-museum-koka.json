@@ -55,9 +55,8 @@
     }
   },
   "relationships": {
-    "parentDestinationId": "hikone-city"
+    "gatewayHubId": "hikone-city"
   },
-  "hubId": "hikone-city",
   "status": "published",
   "ratings": {
     "overall": 9.3,

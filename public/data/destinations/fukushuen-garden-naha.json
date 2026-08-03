@@ -93,5 +93,6 @@
   "recommendedVisitHours": {
     "min": 1,
     "max": 2
-  }
+  },
+  "municipalityId": "naha"
 }

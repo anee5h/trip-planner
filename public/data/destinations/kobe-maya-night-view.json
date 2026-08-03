@@ -126,7 +126,6 @@
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["kobe-city"],
   "role": "destination",
-  "hubId": "kobe-city",
   "content": {
     "en": {
       "name": "Mount Maya Kikuseidai (Kobe)",
@@ -142,5 +141,6 @@
         "天の川をイメージしたマヤカツ遊歩道"
       ]
     }
-  }
+  },
+  "municipalityId": "kobe"
 }

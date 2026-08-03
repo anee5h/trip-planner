@@ -98,5 +98,6 @@
   "recommendedVisitHours": {
     "min": 1,
     "max": 2.5
-  }
+  },
+  "municipalityId": "motobu"
 }

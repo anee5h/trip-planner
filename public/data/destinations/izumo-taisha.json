@@ -103,5 +103,6 @@
     "max": 5
   },
   "officialWebsite": "https://www.izumo-kankou.gr.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "municipalityId": "izumo"
 }

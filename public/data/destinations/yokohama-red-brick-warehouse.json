@@ -141,5 +141,6 @@
   "reservationJa": "施設への入場・ショップ巡りは事前予約不要です。",
   "parkingJa": "赤レンガパーク隣接の有料駐車場をご利用いただけます。",
   "openingHours": "11:00 - 20:00 (Restaurants until 22:00)",
-  "openingHoursJa": "11:00 - 20:00（カフェ・レストランは22:00まで）"
+  "openingHoursJa": "11:00 - 20:00（カフェ・レストランは22:00まで）",
+  "municipalityId": "yokohama"
 }

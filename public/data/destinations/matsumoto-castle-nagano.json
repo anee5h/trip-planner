@@ -87,5 +87,6 @@
     "max": 4
   },
   "officialWebsite": "https://www.matsumoto-castle.jp/",
-  "businessHours": "09:00 - 17:00 (Last admission 16:30)"
+  "businessHours": "09:00 - 17:00 (Last admission 16:30)",
+  "municipalityId": "matsumoto"
 }
