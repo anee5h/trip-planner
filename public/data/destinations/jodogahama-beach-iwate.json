@@ -78,7 +78,8 @@
   "status": "beta",
   "relationships": {
     "featuredDestinationIds": [],
-    "nearbyDestinationIds": ["ryusendo-cave-iwate"]
+    "nearbyDestinationIds": ["ryusendo-cave-iwate"],
+    "parentDestinationId": "morioka-city"
   },
   "budgetBreakdown": null,
   "role": "standalone",

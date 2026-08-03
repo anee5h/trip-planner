@@ -83,7 +83,9 @@
       "sortOrder": 10
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "kagoshima-city"
+  },
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,

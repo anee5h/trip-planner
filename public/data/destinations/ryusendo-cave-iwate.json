@@ -78,7 +78,8 @@
   "status": "beta",
   "relationships": {
     "featuredDestinationIds": [],
-    "nearbyDestinationIds": ["jodogahama-beach-iwate"]
+    "nearbyDestinationIds": ["jodogahama-beach-iwate"],
+    "parentDestinationId": "morioka-city"
   },
   "budgetBreakdown": null,
   "role": "standalone",

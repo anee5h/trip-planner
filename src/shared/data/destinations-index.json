@@ -308,7 +308,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": []
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "aizuwakamatsu-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/1/14/Flowstones_and_Mushroom_Rocks_inside_Abukuma-do_Cave.JPG",
     "walkingIntensity": "low",
@@ -1198,7 +1199,9 @@
         "sortOrder": 10
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kagoshima-city"
+    },
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -5895,7 +5898,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "katori-city"
+    },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Inou-tadataka-house%2Ckatori-city%2Cjapan.JPG/330px-Inou-tadataka-house%2Ckatori-city%2Cjapan.JPG",
     "walkingIntensity": "low",
     "ratingsSchemaVersion": 2,
@@ -7749,7 +7754,8 @@
       "nearbyDestinationIds": [
         "kakunodate-samurai-district-akita",
         "lake-tazawa-akita"
-      ]
+      ],
+      "parentDestinationId": "akita-city"
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -7930,7 +7936,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": []
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "yamagata-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Torii_in_the_mist_v1.JPG/1920px-Torii_in_the_mist_v1.JPG",
     "walkingIntensity": "low",
@@ -12226,7 +12233,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": ["hiraizumi-chusonji-iwate"]
+      "nearbyDestinationIds": ["hiraizumi-chusonji-iwate"],
+      "parentDestinationId": "morioka-city"
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -13367,7 +13375,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": []
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "yamagata-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/%E9%8A%80%E5%B1%B1%E6%B8%A9%E6%B3%89_Ginzan_Onsen_%287809473788%29.jpg/1920px-%E9%8A%80%E5%B1%B1%E6%B8%A9%E6%B3%89_Ginzan_Onsen_%287809473788%29.jpg",
     "walkingIntensity": "low",
@@ -13668,7 +13677,8 @@
       "nearbyDestinationIds": [
         "mount-bandai-fukushima",
         "abukuma-cave-fukushima"
-      ]
+      ],
+      "parentDestinationId": "aizuwakamatsu-city"
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -17231,7 +17241,9 @@
         "sortOrder": 4
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "morioka-city"
+    },
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -21145,7 +21157,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": []
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "tokushima-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/ja/thumb/4/42/Tokushima_Miyoshi_Okuiya_Double_Kazurabashi_5.JPG/1920px-Tokushima_Miyoshi_Okuiya_Double_Kazurabashi_5.JPG",
     "walkingIntensity": "low",
@@ -21425,7 +21438,8 @@
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": ["ryusendo-cave-iwate"]
+      "nearbyDestinationIds": ["ryusendo-cave-iwate"],
+      "parentDestinationId": "izumo-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Izumo-taisha14bs4592.jpg/3840px-Izumo-taisha14bs4592.jpg",
     "budgetBreakdown": null,
@@ -21714,7 +21728,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": ["ryusendo-cave-iwate"]
+      "nearbyDestinationIds": ["ryusendo-cave-iwate"],
+      "parentDestinationId": "morioka-city"
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -30041,7 +30056,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": []
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "naha-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Heart-shaped_rocks_at_Kouri_Island_202006.jpg/1920px-Heart-shaped_rocks_at_Kouri_Island_202006.jpg",
     "walkingIntensity": "low",
@@ -32734,7 +32750,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": ["oirase-gorge-aomori"]
+      "nearbyDestinationIds": ["oirase-gorge-aomori"],
+      "parentDestinationId": "aomori-city"
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -37064,7 +37081,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": []
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "kumamoto-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/20140516%E9%98%BF%E8%98%87%E5%B1%B1%E5%BA%83%E5%9F%9F.jpg/1920px-20140516%E9%98%BF%E8%98%87%E5%B1%B1%E5%BA%83%E5%9F%9F.jpg",
     "walkingIntensity": "low",
@@ -37163,7 +37181,8 @@
       "nearbyDestinationIds": [
         "goshikinuma-ponds-fukushima",
         "tsuruga-castle-fukushima"
-      ]
+      ],
+      "parentDestinationId": "aizuwakamatsu-city"
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -37801,7 +37820,8 @@
         "okama-crater-yamagata",
         "ginzan-onsen-yamagata",
         "zao-fox-village-miyagi"
-      ]
+      ],
+      "parentDestinationId": "yamagata-city"
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -40651,7 +40671,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": []
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "takamatsu-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/3/39/%E5%AE%AE%E3%83%8E%E6%B5%A6%E6%B8%AF_-_panoramio_-_kajikawa_%281%29.jpg",
     "walkingIntensity": "low",
@@ -44250,7 +44271,8 @@
       "nearbyDestinationIds": [
         "lake-tazawa-akita",
         "kakunodate-samurai-district-akita"
-      ]
+      ],
+      "parentDestinationId": "semboku-city"
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -45287,7 +45309,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": []
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "aomori-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Oirase-keiryu.jpg/1920px-Oirase-keiryu.jpg",
     "walkingIntensity": "low",
@@ -45383,7 +45406,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": ["mount-zao-yamagata"]
+      "nearbyDestinationIds": ["mount-zao-yamagata"],
+      "parentDestinationId": "yamagata-city"
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -45659,7 +45683,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "fukuoka-city"
+    },
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -48825,7 +48851,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "nagasaki-city"
+    },
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -49897,7 +49925,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": []
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "kochi-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Kami_Kochi_Ryugado_East_Entrance_1.jpg/1920px-Kami_Kochi_Ryugado_East_Entrance_1.jpg",
     "walkingIntensity": "low",
@@ -49993,7 +50022,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": ["jodogahama-beach-iwate"]
+      "nearbyDestinationIds": ["jodogahama-beach-iwate"],
+      "parentDestinationId": "morioka-city"
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -51488,7 +51518,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": []
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "kagoshima-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Sakurajima55.jpg/1920px-Sakurajima55.jpg",
     "walkingIntensity": "low",
@@ -55906,7 +55937,9 @@
         "confirmed": true
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "hirosaki-city"
+    },
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -56110,7 +56143,9 @@
         "sortOrder": 6
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "abashiri-city"
+    },
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -56417,7 +56452,7 @@
     "id": "shuri-castle-okinawa",
     "name": "Gusuku Sites and Related Properties of the Kingdom of Ryukyu",
     "prefecture": "Okinawa",
-    "region": "Kyushu",
+    "region": "Okinawa",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Naha_Shuri_Castle16s5s3200.jpg/960px-Naha_Shuri_Castle16s5s3200.jpg",
     "description": "Gusuku Sites and Related Properties of the Kingdom of Ryukyu is a UNESCO World Heritage Site in Okinawa, designated for its outstanding universal cultural or natural value.",
@@ -60451,7 +60486,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": []
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "takamatsu-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Teshima_Art_Museum_exterior_view_201310.jpg/1920px-Teshima_Art_Museum_exterior_view_201310.jpg",
     "walkingIntensity": "low",
@@ -64058,7 +64094,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": []
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "tottori-city"
     },
     "image": "https://images.unsplash.com/photo-1693188074158-00e5edb3d0ac?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "walkingIntensity": "low",
@@ -67566,7 +67603,8 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": ["ginzan-onsen-yamagata", "mount-zao-yamagata"]
+      "nearbyDestinationIds": ["ginzan-onsen-yamagata", "mount-zao-yamagata"],
+      "parentDestinationId": "yamagata-city"
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -67754,7 +67792,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "fujiyoshida-city"
+    },
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -67843,7 +67883,9 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "fujiyoshida-city"
+    },
     "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000",
     "walkingIntensity": "low",
     "role": "standalone",
@@ -67938,7 +67980,9 @@
         "sortOrder": 8
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "fujiyoshida-city"
+    },
     "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000",
     "walkingIntensity": "low",
     "role": "standalone",

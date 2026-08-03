@@ -80,7 +80,9 @@
       "sortOrder": 8
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "fujiyoshida-city"
+  },
   "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000",
   "walkingIntensity": "low",
   "role": "standalone",
