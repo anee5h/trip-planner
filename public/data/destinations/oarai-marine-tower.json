@@ -86,9 +86,7 @@
       "confirmed": true
     }
   ],
-  "relationships": {
-    "parentDestinationId": "mito-city"
-  },
+  "relationships": {},
   "walkingIntensity": "low",
   "role": "standalone",
   "placeType": "destination",

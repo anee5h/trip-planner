@@ -71,9 +71,7 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {
-    "parentDestinationId": "takayama-city"
-  },
+  "relationships": {},
   "image": "https://upload.wikimedia.org/wikipedia/commons/0/05/YariKamikohchiTagged.jpg",
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",

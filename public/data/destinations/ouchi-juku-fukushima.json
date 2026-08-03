@@ -85,8 +85,7 @@
   "status": "beta",
   "relationships": {
     "featuredDestinationIds": [],
-    "nearbyDestinationIds": ["tsuruga-castle-fukushima"],
-    "parentDestinationId": "aizuwakamatsu-city"
+    "nearbyDestinationIds": ["tsuruga-castle-fukushima"]
   },
   "budgetBreakdown": null,
   "role": "standalone",

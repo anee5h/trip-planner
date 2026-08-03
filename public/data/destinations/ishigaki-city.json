@@ -7,7 +7,7 @@
   "prefecture": "Okinawa",
   "region": "Okinawa",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Ishigaki_montage.JPG/1280px-Ishigaki_montage.JPG",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Kabira_Bay_Ishigaki_Island40bs3s4592.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Ishigaki_montage.JPG/1280px-Ishigaki_montage.JPG",
   "description": "Yaeyama archipelago tropical island hub, famous for Kabira Bay turquoise waters, coral reefs, and stargazing.",
   "highlights": ["Explore Ishigaki City", "Local Culture & Cuisine"],
@@ -20,16 +20,16 @@
   "walkingShadeMin": 2500,
   "indoorPercent": 50,
   "ratings": {
-    "overall": 9.5,
-    "couple": 9.3,
-    "summer": 9,
-    "winter": 9.1,
-    "rain": 9.2,
-    "food": 9.6,
-    "photography": 9.5,
-    "relaxation": 9.2,
-    "value": 9.4,
-    "uniqueness": 9.4
+    "overall": 9,
+    "couple": 8.5,
+    "summer": 9.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 8.5,
+    "photography": 9,
+    "relaxation": 8.5,
+    "value": 8.5,
+    "uniqueness": 9
   },
   "crowd": {
     "weekday": 5,
@@ -45,7 +45,7 @@
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "bestSeason": "All Year",
   "weatherDependence": "low",
-  "tags": ["Ishigaki City", "Okinawa Travel", "Regional Hub"],
+  "tags": ["Hub", "Okinawa", "Islands", "Beach", "Nature"],
   "coordinates": {
     "lat": 24.3448,
     "lng": 124.1572
@@ -61,7 +61,7 @@
   "reservation": "None required",
   "parking": "Public parking available",
   "notes": "Ishigaki City travel hub in Okinawa Prefecture.",
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -83,9 +83,62 @@
   },
   "walkingIntensity": "low",
   "recommendedVisitHours": {
-    "min": 6,
-    "max": 12
+    "min": 4,
+    "max": 24
   },
   "businessHours": "Open access",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "nameJa": "石垣市",
+  "rating": 4.7,
+  "ratingCount": 1680,
+  "location": {
+    "latitude": 24.3448,
+    "longitude": 124.1572,
+    "address": "Ishigaki, Okinawa Prefecture, Japan"
+  },
+  "imageMetadata": {
+    "attribution": "663highland via Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKabira_Bay_Ishigaki_Island40bs3s4592.jpg"
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-03",
+    "reviewedAt": "2026-08-03",
+    "sources": [
+      {
+        "title": "Ishigaki City Tourism Association",
+        "url": "https://yaeyama.or.jp/",
+        "type": "official"
+      }
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
+  },
+  "content": {
+    "en": {
+      "name": "Ishigaki City",
+      "description": "The main hub city of the Yaeyama Island group, world-famous for Kabira Bay's emerald waters, manta ray scuba diving spots, and ferry links to Taketomi and Iriomote.",
+      "highlights": [
+        "Ride glass-bottom boats in picturesque Kabira Bay",
+        "Hop on island ferries from Euglena Ishigaki Port terminal",
+        "Taste authentic Ishigaki Wagyu beef and Yaeyama Soba noodles"
+      ],
+      "reservationInfo": "City hub access free; ferry rides recommended booking ahead in high season.",
+      "parkingInfo": "Paid coin parking available around port and city center.",
+      "openingHours": "24/7 city access."
+    },
+    "ja": {
+      "name": "石垣市",
+      "description": "八重山諸島の玄関口。ミシュラン三ツ星の川平湾や石垣牛、竹富島・西表島への離島フェリーターミナルが集積するアイランドリゾートシティ。",
+      "highlights": [
+        "エメラルドグリーンのグラスボート絶景・川平湾",
+        "ユーグレナ石垣港離島ターミナルからの八重山離島巡り",
+        "極上の石垣牛炭火焼肉と八重山そばグルメ"
+      ],
+      "reservationInfo": "市街アクセス自由。離島フェリーは繁忙期事前予約推奨。",
+      "parkingInfo": "港周辺および市街地に有料駐車場多数。",
+      "openingHours": "終日アクセス可能。"
+    }
+  }
 }

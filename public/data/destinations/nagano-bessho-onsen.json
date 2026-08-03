@@ -75,9 +75,7 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {
-    "parentDestinationId": "nagano-city"
-  },
+  "relationships": {},
   "image": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1000",
   "walkingIntensity": "low",
   "role": "standalone",

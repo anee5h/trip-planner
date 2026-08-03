@@ -1,0 +1,95 @@
+{
+  "id": "tamatorizaki-viewpoint-ishigaki",
+  "name": "Tamatorizaki Observatory",
+  "nameJa": "玉取崎展望台",
+  "region": "Okinawa",
+  "prefecture": "Okinawa",
+  "kind": "viewpoint",
+  "role": "standalone",
+  "status": "published",
+  "rating": 4.6,
+  "ratingCount": 890,
+  "tags": ["Viewpoint", "Ocean", "Panorama", "Okinawa"],
+  "relationships": {
+    "parentDestinationId": "ishigaki-city"
+  },
+  "location": {
+    "latitude": 24.4988,
+    "longitude": 124.2882,
+    "address": "Ibaruma, Ishigaki, Okinawa 907-0332"
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/94/Cape_Tamatori%2C_Ishigaki.jpg",
+  "imageMetadata": {
+    "attribution": "Kzaral via Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACape_Tamatori%2C_Ishigaki.jpg"
+  },
+  "budgetMin": 0,
+  "budgetRecommended": 300,
+  "budgetMax": 1000,
+  "budgetBreakdown": {
+    "transport": 0,
+    "tickets": 0,
+    "food": 0,
+    "cafe": 0
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-03",
+    "reviewedAt": "2026-08-03",
+    "sources": [
+      {
+        "title": "Ishigaki Tourism (Tamatorizaki)",
+        "url": "https://yaeyama.or.jp/spot/tamatorizaki/",
+        "type": "official"
+      }
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
+  },
+  "content": {
+    "en": {
+      "name": "Tamatorizaki Observatory",
+      "description": "A scenic hill observatory on northeastern Ishigaki Island lined with vibrant red hibiscus flowers, offering panoramic views of Ibaruma Bay and the Hirakubo Peninsula.",
+      "highlights": [
+        "Walk the gentle hibiscus-lined stone path to the hilltop gazebo",
+        "Take in 180-degree views of coral reef ocean gradients and green peninsulas"
+      ],
+      "reservationInfo": "Free open access.",
+      "parkingInfo": "Free public parking lot with clean restroom facilities.",
+      "openingHours": "Open 24/7; best visited during daylight hours."
+    },
+    "ja": {
+      "name": "玉取崎展望台",
+      "description": "石垣島北東部に位置する人気絶景ポイント。ハイビスカスが咲き誇る遊歩道を登ると、伊原間湾と平久保半島の美しい海と緑のグラデーションが一望できる。",
+      "highlights": [
+        "一年中ハイビスカスが彩る石畳の展望遊歩道散策",
+        "太平洋と東シナ海を包み込むエメラルドグリーンのパノラマビュー"
+      ],
+      "reservationInfo": "入場自由・無料。",
+      "parkingInfo": "無料駐車場完備（公衆トイレ併設）。",
+      "openingHours": "終日開放（日中・夕刻の景観がおすすめ）。"
+    }
+  },
+  "coordinates": {
+    "lat": 24.4988,
+    "lng": 124.2882
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 8.5,
+    "summer": 9.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 8.5,
+    "photography": 9.5,
+    "relaxation": 9,
+    "value": 8.5,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 1.5
+  }
+}

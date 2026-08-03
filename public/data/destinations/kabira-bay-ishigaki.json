@@ -1,0 +1,96 @@
+{
+  "id": "kabira-bay-ishigaki",
+  "name": "Kabira Bay",
+  "nameJa": "川平湾",
+  "region": "Okinawa",
+  "prefecture": "Okinawa",
+  "kind": "nature",
+  "role": "destination",
+  "status": "published",
+  "rating": 4.8,
+  "ratingCount": 2450,
+  "tags": ["Bay", "Ocean", "Glass-Bottom", "Okinawa"],
+  "relationships": {
+    "parentDestinationId": "ishigaki-city"
+  },
+  "location": {
+    "latitude": 24.4533,
+    "longitude": 124.1425,
+    "address": "Kabira, Ishigaki, Okinawa 907-0453"
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Kabira_Bay_Ishigaki_Island40bs3s4592.jpg",
+  "imageMetadata": {
+    "attribution": "663highland via Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKabira_Bay_Ishigaki_Island40bs3s4592.jpg"
+  },
+  "budgetMin": 1200,
+  "budgetRecommended": 1800,
+  "budgetMax": 3000,
+  "budgetBreakdown": {
+    "transport": 0,
+    "tickets": 1200,
+    "food": 0,
+    "cafe": 0
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-03",
+    "reviewedAt": "2026-08-03",
+    "sources": [
+      {
+        "title": "Ishigaki Tourism (Kabira Bay)",
+        "url": "https://yaeyama.or.jp/spot/kabirabay/",
+        "type": "official"
+      }
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
+  },
+  "content": {
+    "en": {
+      "name": "Kabira Bay",
+      "description": "Awarded 3 stars by Michelin Green Guide Japan, Kabira Bay features breathtaking multi-hued turquoise waters, black pearl cultivation reefs, and white sand shores.",
+      "highlights": [
+        "Take a glass-bottom boat tour to view giant clams, sea turtles, and corals",
+        "Walk up to Kabira Park viewpoint for sweeping bay panoramas",
+        "Observe black pearl culture displays at local shore boutiques"
+      ],
+      "reservationInfo": "Glass-bottom boat tickets available on arrival at beach huts.",
+      "parkingInfo": "Municipal paid parking lot near Kabira Park entrance (¥300).",
+      "openingHours": "Bay view open 24/7; glass-bottom boats 09:00 - 17:00."
+    },
+    "ja": {
+      "name": "川平湾",
+      "description": "ミシュラン・グリーンガイド・ジャポンで最高ランク三ツ星を獲得した石垣島一の景勝地。時間や潮の満ち引きで七色に変化する海と黒真珠の養殖で有名。",
+      "highlights": [
+        "グラスボートで覗く熱帯魚や巨大シャコガイ、サンゴ礁の海中世界",
+        "川平公園の展望台から望む小島が浮かぶ絵画のような絶景"
+      ],
+      "reservationInfo": "グラスボート乗船券は現地各社で随時購入可能（予約なしでも乗船可）。",
+      "parkingInfo": "川平公園有料駐車場あり（300円）。",
+      "openingHours": "景観見学は自由。グラスボート運航09:00〜17:00。"
+    }
+  },
+  "coordinates": {
+    "lat": 24.4533,
+    "lng": 124.1425
+  },
+  "ratings": {
+    "overall": 9.8,
+    "couple": 8.5,
+    "summer": 9.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 8.5,
+    "photography": 9.8,
+    "relaxation": 8.5,
+    "value": 8.5,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3
+  }
+}

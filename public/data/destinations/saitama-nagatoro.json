@@ -82,9 +82,7 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {
-    "parentDestinationId": "chichibu-city"
-  },
+  "relationships": {},
   "walkingIntensity": "low",
   "role": "standalone",
   "placeType": "destination",

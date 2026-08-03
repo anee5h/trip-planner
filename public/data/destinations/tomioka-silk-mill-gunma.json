@@ -79,6 +79,7 @@
       "confirmed": true
     }
   ],
+  "relationships": {},
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,

@@ -59,9 +59,7 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {
-    "parentDestinationId": "kisarazu-city"
-  },
+  "relationships": {},
   "image": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1000",
   "budgetBreakdown": {
     "transport": 3000,

@@ -7,7 +7,7 @@
   "prefecture": "Okinawa",
   "region": "Okinawa",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Miyako_maipama_1.jpg/1280px-Miyako_maipama_1.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/02/Miyako_maipama_1.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Miyako_maipama_1.jpg/1280px-Miyako_maipama_1.jpg",
   "description": "Island paradise famous for 'Miyako Blue' crystal waters, Yonaha Maehama Beach, and spectacular sea bridges.",
   "highlights": ["Explore Miyakojima City", "Local Culture & Cuisine"],
@@ -20,16 +20,16 @@
   "walkingShadeMin": 2500,
   "indoorPercent": 50,
   "ratings": {
-    "overall": 9.5,
-    "couple": 9.3,
-    "summer": 9,
-    "winter": 9.1,
-    "rain": 9.2,
-    "food": 9.6,
-    "photography": 9.5,
-    "relaxation": 9.2,
-    "value": 9.4,
-    "uniqueness": 9.4
+    "overall": 9,
+    "couple": 8.5,
+    "summer": 9.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 8.5,
+    "photography": 9,
+    "relaxation": 8.5,
+    "value": 8.5,
+    "uniqueness": 9
   },
   "crowd": {
     "weekday": 5,
@@ -45,7 +45,7 @@
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "bestSeason": "All Year",
   "weatherDependence": "low",
-  "tags": ["Miyakojima City", "Okinawa Travel", "Regional Hub"],
+  "tags": ["Hub", "Okinawa", "Beach", "Ocean", "Bridge"],
   "coordinates": {
     "lat": 24.8055,
     "lng": 125.2811
@@ -61,7 +61,7 @@
   "reservation": "None required",
   "parking": "Public parking available",
   "notes": "Miyakojima City travel hub in Okinawa Prefecture.",
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -87,9 +87,62 @@
   },
   "walkingIntensity": "low",
   "recommendedVisitHours": {
-    "min": 6,
-    "max": 12
+    "min": 4,
+    "max": 24
   },
   "businessHours": "Open access",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "nameJa": "宮古島市",
+  "rating": 4.8,
+  "ratingCount": 1950,
+  "location": {
+    "latitude": 24.8055,
+    "longitude": 125.2811,
+    "address": "Miyakojima, Okinawa Prefecture, Japan"
+  },
+  "imageMetadata": {
+    "attribution": "Paipateroma via Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_maipama_1.jpg"
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-03",
+    "reviewedAt": "2026-08-03",
+    "sources": [
+      {
+        "title": "Miyakojima Tourism Association",
+        "url": "https://miyako-guide.net/",
+        "type": "official"
+      }
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
+  },
+  "content": {
+    "en": {
+      "name": "Miyakojima City",
+      "description": "The paradise island city renowned for 'Miyako Blue' sea clarity, long ocean bridges to satellite islands, white powdery sand beaches, and sea turtle snorkeling.",
+      "highlights": [
+        "Relax at 7km long Yonaha Maehama Beach, rated among Asia's best",
+        "Drive the magnificent 3,540m Irabu Bridge over open ocean waters",
+        "Snorkel with wild sea turtles at Shigira and Imgya marine parks"
+      ],
+      "reservationInfo": "City hub access free.",
+      "parkingInfo": "Free parking at almost all beaches and bridge view plazas.",
+      "openingHours": "24/7 island access."
+    },
+    "ja": {
+      "name": "宮古島市",
+      "description": "「宮古ブルー」と称される世界屈指の透明度を誇る海と白砂ビーチの島。無料の長大橋で伊良部島・来間島・池間島とつながる至高のリゾートアイランド。",
+      "highlights": [
+        "東洋一と称えられる7kmのパウダースノー白砂・与那覇前浜ビーチ",
+        "通行無料としては日本一の長さ（3,540m）を誇る伊良部大橋ドライブ",
+        "ウミガメと泳げる透明度抜群のシュノーケリング体験"
+      ],
+      "reservationInfo": "島内アクセス自由。",
+      "parkingInfo": "主要ビーチおよび大橋展望スポットに無料駐車場完備。",
+      "openingHours": "終日アクセス可能。"
+    }
+  }
 }

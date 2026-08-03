@@ -1,0 +1,95 @@
+{
+  "id": "yonehara-beach-coral-ishigaki",
+  "name": "Yonehara Beach & Coral Reef",
+  "nameJa": "米原ビーチ",
+  "region": "Okinawa",
+  "prefecture": "Okinawa",
+  "kind": "beach",
+  "role": "standalone",
+  "status": "published",
+  "rating": 4.5,
+  "ratingCount": 780,
+  "tags": ["Beach", "Snorkeling", "Coral", "Okinawa"],
+  "relationships": {
+    "parentDestinationId": "ishigaki-city"
+  },
+  "location": {
+    "latitude": 24.4578,
+    "longitude": 124.1825,
+    "address": "Fukai, Ishigaki, Okinawa 907-0451"
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Yonehara_Beach_23.jpg",
+  "imageMetadata": {
+    "attribution": "Syced via Wikimedia Commons",
+    "license": "CC0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AYonehara_Beach_23.jpg"
+  },
+  "budgetMin": 500,
+  "budgetRecommended": 1000,
+  "budgetMax": 2500,
+  "budgetBreakdown": {
+    "transport": 0,
+    "tickets": 0,
+    "food": 0,
+    "cafe": 0
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-03",
+    "reviewedAt": "2026-08-03",
+    "sources": [
+      {
+        "title": "Ishigaki Tourism (Yonehara Beach)",
+        "url": "https://yaeyama.or.jp/spot/yoneharabeach/",
+        "type": "official"
+      }
+    ],
+    "reviewedBy": "Okinawa Regional Editorial Batch"
+  },
+  "content": {
+    "en": {
+      "name": "Yonehara Beach & Coral Reef",
+      "description": "A wild natural white-sand beach on northern Ishigaki where shallow coral reefs grow right up near the shore, making it a favorite spot for beachgoers and marine life watching.",
+      "highlights": [
+        "Snorkel directly off the white sand beach to view shallow colorful corals and clownfish",
+        "Relax under green coastal trees along the tranquil shoreline"
+      ],
+      "reservationInfo": "Free beach access.",
+      "parkingInfo": "Paid parking lot adjacent to beach showers (¥500/day).",
+      "openingHours": "Open 24/7; swim only during daylight hours."
+    },
+    "ja": {
+      "name": "米原ビーチ",
+      "description": "石垣島北部にある白砂の天然ビーチ。浅瀬のすぐ近くまでリアルなサンゴ礁とカラフルな熱帯魚が広がる、シュノーケリングの名所。",
+      "highlights": [
+        "ビーチから数メートル泳ぐだけで会えるクマノミと枝サンゴの群生",
+        "木陰が広がる静かな白砂海岸でのんびり海風リラックス"
+      ],
+      "reservationInfo": "ビーチ利用無料。",
+      "parkingInfo": "シャワー施設併設の有料駐車場あり（500円/日）。",
+      "openingHours": "終日開放（日中・満潮時のシュノーケリング推奨）。"
+    }
+  },
+  "coordinates": {
+    "lat": 24.4578,
+    "lng": 124.1825
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 8.5,
+    "summer": 9.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 8.5,
+    "photography": 9,
+    "relaxation": 9,
+    "value": 8.5,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3
+  }
+}

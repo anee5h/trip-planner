@@ -92,9 +92,7 @@
       "confirmed": true
     }
   ],
-  "relationships": {
-    "parentDestinationId": "hamamatsu-city"
-  },
+  "relationships": {},
   "walkingIntensity": "low",
   "role": "standalone",
   "placeType": "destination",

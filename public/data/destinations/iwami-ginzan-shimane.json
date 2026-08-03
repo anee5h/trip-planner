@@ -79,9 +79,7 @@
       "confirmed": true
     }
   ],
-  "relationships": {
-    "parentDestinationId": "izumo-city"
-  },
+  "relationships": {},
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,

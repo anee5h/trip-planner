@@ -91,9 +91,7 @@
       "confirmed": true
     }
   ],
-  "relationships": {
-    "parentDestinationId": "narita-city"
-  },
+  "relationships": {},
   "walkingIntensity": "medium",
   "role": "standalone",
   "placeType": "destination",
