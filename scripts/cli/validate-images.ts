@@ -43,18 +43,22 @@ async function main() {
       );
       return;
     }
-    if (scope.indexChanged) {
+    if (ids.size > 0) {
       console.log(
-        `[info] validate-images: --changed requested but src/shared/data/destinations-index.json also changed; validating full catalogue.`,
+        `[info] validate-images: ${ids.size} destination(s) in scope.`,
       );
     } else {
       console.log(
-        `[info] validate-images: ${ids.size} destination(s) in scope.`,
+        `[info] validate-images: --changed requested but no destination files changed; validating full catalogue.`,
       );
     }
   }
 
-  if (mode === "changed" && usedScope && !usedScope.indexChanged) {
+  if (
+    mode === "changed" &&
+    usedScope &&
+    usedScope.changedDestinationIds.size > 0
+  ) {
     const ids = usedScope.changedDestinationIds;
     context.catalog = {
       ...context.catalog,
