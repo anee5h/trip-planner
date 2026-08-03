@@ -117,7 +117,7 @@
   "parking": "Paid public parking available near Shinjuku Gate.",
   "notes": "Enjoy three distinct garden styles (French, English, Japanese) with spectacular spring cherry blossoms.",
   "schemaVersion": 2,
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "medium"
   },

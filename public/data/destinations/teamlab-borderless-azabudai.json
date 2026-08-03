@@ -67,7 +67,7 @@
   "parking": "Paid parking structure available at Azabudai Hills.",
   "notes": "Explore the maze of light and digital projection art freely without fixed map routes.",
   "schemaVersion": 2,
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "high"
   },

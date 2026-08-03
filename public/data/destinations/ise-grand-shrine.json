@@ -28,7 +28,7 @@
   "categories": ["culture", "history", "religion"],
   "budgetMin": 3000,
   "budgetMax": 12000,
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },

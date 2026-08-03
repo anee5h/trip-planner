@@ -53,5 +53,23 @@
       "description": "天武天皇が妃（後の持統天皇）の病気平癒を祈願して建立した白鳳文化の代表的寺院です。創建当時の姿を留める唯一の建造物・東塔と、金堂に鎮座する国宝・薬師三尊像が世界を魅了します。",
       "highlights": ["国宝・東塔", "薬師三尊像", "玄奘三蔵院伽藍"]
     }
+  },
+  "status": "published",
+  "ratings": {
+    "overall": 9.1,
+    "couple": 9.1,
+    "summer": 9.1,
+    "winter": 9.1,
+    "rain": 8.6,
+    "food": 9.1,
+    "photography": 9.3,
+    "relaxation": 9.1,
+    "value": 9.1,
+    "uniqueness": 9.1
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
   }
 }

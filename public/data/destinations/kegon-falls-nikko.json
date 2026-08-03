@@ -32,7 +32,7 @@
   "categories": ["nature", "sightseeing"],
   "budgetMin": 2000,
   "budgetMax": 6000,
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "high"
   },

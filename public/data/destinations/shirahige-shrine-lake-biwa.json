@@ -53,5 +53,23 @@
       "description": "垂仁天皇25年に創建された延命長寿の神様を祀る古社です。湖の中に立ち並ぶ美しい鳥居と、対岸の沖島を背に広がる琵琶湖の絶景がSNSやフォトグラファーに絶大な人気を誇ります。",
       "highlights": ["湖中大鳥居", "琵琶湖の夕日景観", "延命長寿の神徳"]
     }
+  },
+  "status": "published",
+  "ratings": {
+    "overall": 9.1,
+    "couple": 9.1,
+    "summer": 9.1,
+    "winter": 9.1,
+    "rain": 8.6,
+    "food": 9.1,
+    "photography": 9.3,
+    "relaxation": 9.1,
+    "value": 9.1,
+    "uniqueness": 9.1
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
   }
 }

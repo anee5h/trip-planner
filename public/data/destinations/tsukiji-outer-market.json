@@ -108,7 +108,7 @@
   "parking": "Paid underground parking structure at Tsukiji Market site.",
   "notes": "Arrive around 8 AM to savor fresh sea urchin, tamagoyaki, and sushi from historic food stalls.",
   "schemaVersion": 2,
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "medium"
   },

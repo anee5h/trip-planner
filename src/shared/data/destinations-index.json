@@ -82,7 +82,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "abeno-harukas-300-osaka",
@@ -174,7 +175,7 @@
       "attribution": "Lead photograph of Abeno Harukas via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Abeno%20Harukas"
     },
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -212,7 +213,8 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "osaka-city"
+    "hubId": "osaka-city",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "abukuma-cave-fukushima",
@@ -302,7 +304,8 @@
       "max": 5
     },
     "officialWebsite": "https://abukumado.com/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "adachi-city",
@@ -371,7 +374,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -605,7 +608,7 @@
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -746,7 +749,7 @@
       "attribution": "Lead photograph of Akihabara via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Akihabara"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -1000,7 +1003,8 @@
       "max": 7
     },
     "officialWebsite": "https://www.akiuonsensyokoukai.com/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "akiyoshido-cave-yamaguchi",
@@ -1089,7 +1093,8 @@
       "max": 5
     },
     "officialWebsite": "https://akiyoshi-dai.com/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "amami-iriomote-natural-site",
@@ -1230,7 +1235,7 @@
     "categories": ["nature", "sightseeing", "romance"],
     "budgetMin": 3000,
     "budgetMax": 12000,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -1446,7 +1451,7 @@
     "parking": "Commercial district paid parking garages available nearby.",
     "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -1849,7 +1854,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -2018,7 +2023,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.fujiyoshida.net/spot/11",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "arima-onsen",
@@ -2054,7 +2060,7 @@
     "categories": ["onsen", "relaxation", "culture"],
     "budgetMin": 6000,
     "budgetMax": 30000,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -2234,7 +2240,7 @@
       "attribution": "Lead photograph of Art Tower Mito via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Art%20Tower%20Mito"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -2389,7 +2395,7 @@
     "relationships": {
       "featuredDestinationIds": []
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -2498,7 +2504,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "asakusa-taito",
@@ -2575,7 +2582,7 @@
       "attribution": "Lead photograph of Asakusa via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Asakusa"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -2713,7 +2720,7 @@
     },
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -2868,7 +2875,7 @@
     "relationships": {
       "featuredDestinationIds": []
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -3006,7 +3013,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tochigi, offering excellent photo opportunities and local cultural experiences.",
-    "status": "beta",
+    "status": "published",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [],
@@ -3071,7 +3078,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "aso-city",
@@ -3160,7 +3168,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "asuka-fujiwara-nara",
@@ -3233,7 +3242,7 @@
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Ancient Capitals of Asuka and Fujiwara via Wikipedia/Wikimedia Commons"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -3567,7 +3576,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "beppu-hells-oita",
@@ -3659,7 +3669,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.umi-jigoku.co.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "biei-town",
@@ -3744,7 +3755,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "bitchu-matsuyama-castle",
@@ -3970,7 +3982,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -4119,7 +4131,7 @@
       "attribution": "Lead photograph of Boso Peninsula via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Boso%20Peninsula"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -4256,7 +4268,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -4577,7 +4589,7 @@
       "attribution": "Lead photograph of Chiba City via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Chiba%20City"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -4779,7 +4791,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -4962,7 +4974,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -5113,7 +5125,7 @@
       "attribution": "Lead photograph of Mount Nokogiri (Chiba) via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Mount%20Nokogiri%20(Chiba)"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -5303,7 +5315,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -5486,7 +5498,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -5637,7 +5649,7 @@
       "attribution": "Lead photograph of Chiba Port Tower via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Chiba%20Port%20Tower"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -5791,7 +5803,7 @@
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -5983,7 +5995,7 @@
     "parking": "Temple visitor parking available on site.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -6127,7 +6139,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -6308,7 +6320,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -6447,7 +6459,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Saitama, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -6596,7 +6608,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -6746,7 +6758,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -6894,7 +6906,7 @@
       "attribution": "Lead photograph of Chofu via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Chofu"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -7048,7 +7060,7 @@
       "attribution": "Lead photograph of Choshi via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Choshi"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -7205,7 +7217,7 @@
     "relationships": {
       "featuredDestinationIds": []
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -7334,7 +7346,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -7493,7 +7505,7 @@
       "attribution": "Lead photograph of Yokohama Marine Tower via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Marine%20Tower"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -7666,7 +7678,8 @@
       "max": 4
     },
     "officialWebsite": "https://www.city.senboku.akita.jp/sightseeing/spot/05_dakigaeri.html",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "dazaifu-city",
@@ -7755,7 +7768,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "dewa-sanzan-yamagata",
@@ -7848,7 +7862,8 @@
       "max": 5
     },
     "officialWebsite": "http://www.dewasanzan.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "disneyland",
@@ -7921,7 +7936,7 @@
       "attribution": "Lead photograph of Tokyo Disneyland via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Tokyo%20Disneyland"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -8066,7 +8081,7 @@
       "attribution": "Lead photograph of Tokyo DisneySea via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Tokyo%20DisneySea"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -8219,7 +8234,8 @@
       "max": 5
     },
     "officialWebsite": "https://dogo.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "dotonbori",
@@ -8325,7 +8341,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -8449,7 +8465,7 @@
       "attribution": "Lead photograph of Edo Castle via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Edo%20Castle"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -8593,7 +8609,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -8786,7 +8802,7 @@
     "parking": "Temple visitor parking available on site.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -8968,7 +8984,7 @@
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -9111,7 +9127,7 @@
       "attribution": "Lead photograph of Enoshima via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Enoshima"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -9289,7 +9305,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -9480,7 +9496,7 @@
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -9661,7 +9677,7 @@
     "parking": "Temple visitor parking available on site.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -10202,7 +10218,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -10431,7 +10447,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -11143,7 +11159,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "fukuoka-tower",
@@ -11639,7 +11656,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -11810,7 +11827,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "fushimi-inari-taisha",
@@ -11916,7 +11934,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -12137,7 +12155,8 @@
       "max": 4
     },
     "officialWebsite": "https://www.geibikei.co.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "gero-city",
@@ -12413,7 +12432,7 @@
       "attribution": "Lead photograph of Ghibli Museum via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Ghibli%20Museum"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -12994,7 +13013,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -13121,7 +13140,7 @@
       "attribution": "Lead photograph of Ginza via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Ginza"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -13280,7 +13299,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.ginzanonsen.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "golden-gai",
@@ -13404,7 +13424,7 @@
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -13577,7 +13597,8 @@
       "max": 4
     },
     "officialWebsite": "https://www.urabandai-inf.com/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "gotemba-city",
@@ -13796,7 +13817,7 @@
     "parking": "Temple visitor parking available on site.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -14050,7 +14071,7 @@
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Gunma, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -14206,7 +14227,7 @@
       "attribution": "Lead photograph of Kusatsu Onsen via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Kusatsu%20Onsen"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -14365,7 +14386,7 @@
       "attribution": "Lead photograph of Shima Onsen via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Shima%20Onsen"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -14580,7 +14601,7 @@
     "bestSeason": "Autumn",
     "weatherDependence": "high",
     "tags": ["Hachioji Castle", "Japan's Top Castles", "Tokyo History"],
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -14742,7 +14763,7 @@
       "attribution": "Lead photograph of Hachiōji Castle via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Hachi%C5%8Dji%20Castle"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -15066,7 +15087,7 @@
     },
     "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -15227,7 +15248,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "hakodate-night-view",
@@ -15422,7 +15444,7 @@
     "reservation": "Open access; no entrance reservation required.",
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -15772,7 +15794,7 @@
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -15956,7 +15978,7 @@
     "parking": "Temple visitor parking available on site.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -16115,7 +16137,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "heian-jingu",
@@ -16220,7 +16243,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -16454,7 +16477,7 @@
       "attribution": "Lead photograph of Hikone Castle via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Hikone%20Castle"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -16569,7 +16592,7 @@
     "reservation": "None required",
     "parking": "Public parking available",
     "notes": "Hikone City travel hub in Shiga Prefecture.",
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -16603,7 +16626,8 @@
     "notesJa": "【見どころ】Hikone Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "himeji-castle",
@@ -16637,7 +16661,7 @@
       "value": 9.4,
       "uniqueness": 9.6
     },
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -16807,7 +16831,7 @@
     "reservation": "None required",
     "parking": "Public parking available",
     "notes": "Himeji City travel hub in Hyogo Prefecture.",
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -16841,7 +16865,8 @@
     "notesJa": "【見どころ】Himeji Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "hino-city",
@@ -16928,7 +16953,7 @@
         "keio-mogusaen"
       ]
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -17390,7 +17415,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "hiroshima-peace-memorial",
@@ -17941,7 +17967,7 @@
     "parking": "Temple visitor parking available on site.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -18252,7 +18278,7 @@
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Buddhist Monuments in the Horyu-ji Area via Wikipedia/Wikimedia Commons"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -18402,7 +18428,7 @@
       "attribution": "Lead photograph of Fukuroda Falls via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Fukuroda%20Falls"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -18565,7 +18591,7 @@
       "attribution": "Lead photograph of Hitachi Seaside Park via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Hitachi%20Seaside%20Park"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -18723,7 +18749,7 @@
       "attribution": "Lead photograph of Mount Tsukuba via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Mount%20Tsukuba"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -18855,7 +18881,7 @@
     "reservation": "None required",
     "parking": "Public parking available",
     "notes": "Ikaruga Town travel hub in Nara Prefecture.",
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -18889,7 +18915,8 @@
     "notesJa": "【見どころ】Ikaruga Townは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ikebukuro-toshima",
@@ -18966,7 +18993,7 @@
       "attribution": "Lead photograph of Ikebukuro via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Ikebukuro"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -19146,7 +19173,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -19287,7 +19314,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -19472,7 +19499,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -19653,7 +19680,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -20003,7 +20030,7 @@
     "relationships": {
       "featuredDestinationIds": []
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -20063,7 +20090,7 @@
     "categories": ["culture", "history", "religion"],
     "budgetMin": 3000,
     "budgetMax": 12000,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -20243,7 +20270,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "itabashi-city",
@@ -20312,7 +20340,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -20787,7 +20815,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -20950,7 +20978,8 @@
       "max": 5
     },
     "officialWebsite": "https://miyoshi-tourism.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "izu",
@@ -21134,7 +21163,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "izumo-taisha",
@@ -21352,7 +21382,7 @@
     "parking": "Temple visitor parking available on site.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -21514,7 +21544,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.city.miyako.iwate.jp/kanko/jodogahama.html",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "jogashima",
@@ -21584,7 +21615,7 @@
     },
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -21731,7 +21762,7 @@
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -22092,7 +22123,7 @@
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -22251,7 +22282,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kagurazaka",
@@ -22370,7 +22402,7 @@
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -22478,7 +22510,7 @@
       "value": 9.4,
       "uniqueness": 9.6
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -22802,7 +22834,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.city.senboku.akita.jp/sightseeing/spot/01_kakunodate.html",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kamakura-city",
@@ -22871,7 +22904,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -23079,7 +23112,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -23260,7 +23293,7 @@
     "parking": "Temple visitor parking available on site.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -23625,7 +23658,7 @@
       "attribution": "Lead photograph of Yokohama Marine Tower via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Marine%20Tower"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -23897,7 +23930,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -24089,7 +24122,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -24271,7 +24304,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -24421,7 +24454,7 @@
     "relationships": {
       "featuredDestinationIds": []
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -24590,7 +24623,7 @@
     "parking": "Temple visitor parking available on site.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -24729,7 +24762,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -24885,7 +24918,7 @@
       "attribution": "Lead photograph of Kawagoe Castle via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Kawagoe%20Castle"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -25032,7 +25065,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Saitama, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -25233,7 +25266,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -25415,7 +25448,7 @@
     "parking": "Temple visitor parking available on site.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -25554,7 +25587,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Saitama, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -25704,7 +25737,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -25903,7 +25936,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -26009,7 +26042,7 @@
     "categories": ["nature", "sightseeing"],
     "budgetMin": 2000,
     "budgetMax": 6000,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -26237,7 +26270,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -26384,7 +26417,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -26465,7 +26498,7 @@
     "categories": ["onsen", "relaxation", "culture"],
     "budgetMin": 7000,
     "budgetMax": 28000,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -26647,7 +26680,8 @@
       "max": 5
     },
     "officialWebsite": "https://kintaikyo.iwakuni-city.net/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kinugawa-onsen",
@@ -26724,7 +26758,7 @@
       "attribution": "Lead photograph of Kinugawa Onsen via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Kinugawa%20Onsen"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -26876,7 +26910,7 @@
       "attribution": "Kirin Beer Yokohama Factory — Kamemaru2000",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kirin_beer_yokohama_factory_kanagawa_2009.JPG"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -27018,7 +27052,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -27264,7 +27298,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -27453,7 +27487,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -27613,7 +27647,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kitano-ijinkan",
@@ -27718,7 +27753,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -27860,7 +27895,8 @@
       "max": 5
     },
     "officialWebsite": "https://nakasato-kiyotsu.com/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kobe-animal-kingdom",
@@ -27965,7 +28001,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -28071,7 +28107,7 @@
     "reservation": "None required",
     "parking": "Public parking available",
     "notes": "Kobe City travel hub in Hyogo Prefecture.",
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -28123,7 +28159,8 @@
     "notesJa": "【見どころ】Kobe Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kobe-harborland",
@@ -28228,7 +28265,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -28377,7 +28414,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -28453,7 +28490,7 @@
     "categories": ["sightseeing", "nature", "romance"],
     "budgetMin": 3000,
     "budgetMax": 9000,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -28652,7 +28689,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -28892,7 +28929,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kofu-city",
@@ -29098,7 +29136,7 @@
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -29423,7 +29461,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -29620,7 +29658,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -29787,7 +29825,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.nakijin-kankou.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "koya-town",
@@ -29852,7 +29891,7 @@
     "reservation": "None required",
     "parking": "Public parking available",
     "notes": "Koya Town travel hub in Wakayama Prefecture.",
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -29891,7 +29930,8 @@
     "notesJa": "【見どころ】Koya Townは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kumamoto-castle",
@@ -30091,7 +30131,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kumano-kodo-koya-wakayama",
@@ -30164,7 +30205,7 @@
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Sacred Sites and Pilgrimage Routes in the Kii Mountain Range via Wikipedia/Wikimedia Commons"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -30307,7 +30348,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kurazukuri-warehouse-district",
@@ -30419,7 +30461,7 @@
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Saitama, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -30695,7 +30737,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -30804,7 +30846,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Gunma, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -31146,7 +31188,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kyoto-city",
@@ -31219,7 +31262,7 @@
     "reservation": "None required",
     "parking": "Limited city center parking",
     "notes": "Imperial cultural capital of Japan.",
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -31272,7 +31315,8 @@
     "notesJa": "【見どころ】Kyoto Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "kyoto-historic",
@@ -31309,7 +31353,7 @@
     "categories": ["culture", "history", "sightseeing"],
     "budgetMin": 3000,
     "budgetMax": 15000,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -31500,7 +31544,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -31648,7 +31692,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -31793,7 +31837,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -31938,7 +31982,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -32144,7 +32188,7 @@
       "attribution": "Lead photograph of Lake Sagami via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Lake%20Sagami"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -32312,7 +32356,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.tazawako.org/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "lake-towada-aomori",
@@ -32404,7 +32449,8 @@
       "max": 6
     },
     "officialWebsite": "https://www.towada.kanko.or.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "lazona-kawasaki-plaza",
@@ -32516,7 +32562,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -32649,7 +32695,7 @@
       "lng": 139.4386999
     },
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -33017,7 +33063,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -33624,7 +33670,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -33901,7 +33947,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "matsumoto-castle-nagano",
@@ -34386,7 +34433,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "meguro-city",
@@ -34455,7 +34503,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -34635,7 +34683,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -34745,7 +34793,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Gunma, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -34895,7 +34943,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -35045,7 +35093,7 @@
       "attribution": "Lead photograph of Yokohama Marine Tower via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Marine%20Tower"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -35438,7 +35486,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -35593,7 +35641,7 @@
       "attribution": "Lead photograph of Mito Castle via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Mito%20Castle"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -35737,7 +35785,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Ibaraki, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -36025,7 +36073,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "miyazaki-city",
@@ -36114,7 +36163,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "miyazu-city",
@@ -36179,7 +36229,7 @@
     "reservation": "None required",
     "parking": "Public parking available",
     "notes": "Miyazu City travel hub in Kyoto Prefecture.",
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -36213,7 +36263,8 @@
     "notesJa": "【見どころ】Miyazu Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "morioka-city",
@@ -36366,7 +36417,7 @@
       "lng": 139.9340832
     },
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -36529,7 +36580,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "motonosumi-shrine-yamaguchi",
@@ -36619,7 +36671,8 @@
       "max": 5
     },
     "officialWebsite": "https://nanavi.jp/sightseeing/motonosumijinja/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "mount-aso-kumamoto",
@@ -36712,7 +36765,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.aso-kankou.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "mount-bandai-fukushima",
@@ -36807,7 +36861,8 @@
       "max": 7
     },
     "officialWebsite": "https://www.bandaisan.or.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "mount-fuji",
@@ -37235,7 +37290,7 @@
     "categories": ["nature", "seasons", "sightseeing"],
     "budgetMin": 3000,
     "budgetMax": 12000,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -37432,7 +37487,8 @@
       "max": 6
     },
     "officialWebsite": "https://www.zao-spa.or.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "mozufuruichi-kofun-osaka",
@@ -37505,7 +37561,7 @@
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan via Wikipedia/Wikimedia Commons"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -37683,7 +37739,7 @@
     "parking": "Temple visitor parking available on site.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -37865,7 +37921,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -37971,7 +38027,7 @@
     "categories": ["nature", "culture", "sightseeing"],
     "budgetMin": 3000,
     "budgetMax": 10000,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -38744,7 +38800,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nago-city",
@@ -38829,7 +38886,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nagoya-castle-aichi",
@@ -39560,7 +39618,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nakano-city",
@@ -39629,7 +39688,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -39978,7 +40037,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -40128,7 +40187,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -40265,7 +40324,8 @@
       "max": 5
     },
     "officialWebsite": "https://naoshima.net/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nara-city",
@@ -40330,7 +40390,7 @@
     "reservation": "None required",
     "parking": "Public parking available",
     "notes": "Nara City travel hub in Nara Prefecture.",
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -40364,7 +40424,8 @@
     "notesJa": "【見どころ】Nara Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nara-historic",
@@ -40437,7 +40498,7 @@
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Historic Monuments of Ancient Nara via Wikipedia/Wikimedia Commons"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -40523,7 +40584,7 @@
     "categories": ["culture", "history", "sightseeing"],
     "budgetMin": 2000,
     "budgetMax": 8000,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -40733,7 +40794,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -40872,7 +40933,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -41065,7 +41126,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -41234,7 +41295,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "national-museum-of-nature-and-science",
@@ -41346,7 +41408,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -41489,7 +41551,7 @@
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of The Architectural Work of Le Corbusier (NMWA Tokyo) via Wikipedia/Wikimedia Commons"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -41666,7 +41728,8 @@
       "max": 3
     },
     "officialWebsite": "https://www.nebuta.jp/warasse/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nerima-city",
@@ -41735,7 +41798,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -41924,7 +41987,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -42130,7 +42193,7 @@
     "categories": ["history", "culture", "sightseeing"],
     "budgetMin": 3000,
     "budgetMax": 10000,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -42467,7 +42530,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tochigi, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -42604,7 +42667,7 @@
       "Tokugawa Ieyasu",
       "National Treasure"
     ],
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -42797,7 +42860,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -42931,7 +42994,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "nishiki-market",
@@ -43036,7 +43100,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -43371,7 +43435,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -43516,7 +43580,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -43660,7 +43724,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -43795,7 +43859,8 @@
       "max": 9
     },
     "officialWebsite": "https://www.nyuto-onsenkyo.gr.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "oarai-marine-tower",
@@ -43880,7 +43945,7 @@
       "attribution": "Lead photograph of Oarai, Ibaraki via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Oarai%2C%20Ibaraki"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -44036,7 +44101,7 @@
       "attribution": "Lead photograph of Odaiba via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Odaiba"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -44175,7 +44240,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -44487,7 +44552,7 @@
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Ogasawara Islands via Wikipedia/Wikimedia Commons"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -44834,7 +44899,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.towada.kanko.or.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "okama-crater-yamagata",
@@ -44926,7 +44992,8 @@
       "max": 3
     },
     "officialWebsite": "https://zao-kochan.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "okayama-city",
@@ -45021,7 +45088,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "okazaki-city",
@@ -45364,7 +45432,7 @@
       "lng": 139.2753553
     },
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -45562,7 +45630,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -45744,7 +45812,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -45926,7 +45994,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -46067,7 +46135,7 @@
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Saitama, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -46266,7 +46334,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -46421,7 +46489,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "osaka-aquarium-kaiyukan",
@@ -46526,7 +46595,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -46598,7 +46667,7 @@
     "categories": ["history", "culture", "sightseeing"],
     "budgetMin": 3000,
     "budgetMax": 10000,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -46800,7 +46869,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -46922,7 +46991,7 @@
     "reservation": "None required",
     "parking": "Paid parking garages",
     "notes": "Food capital of Japan (Kuidaore culture).",
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -46982,7 +47051,8 @@
     "notesJa": "【見どころ】Osaka Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "osaka-museum-of-housing-and-living",
@@ -47087,7 +47157,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -47231,7 +47301,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -47854,7 +47924,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -48020,7 +48090,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "otsu-city",
@@ -48085,7 +48156,7 @@
     "reservation": "None required",
     "parking": "Public parking available",
     "notes": "Otsu City travel hub in Shiga Prefecture.",
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -48119,7 +48190,8 @@
     "notesJa": "【見どころ】Otsu Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ouchi-juku-fukushima",
@@ -48218,7 +48290,8 @@
       "max": 4
     },
     "officialWebsite": "https://ouchi-juku.com/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "oura-church-nagasaki",
@@ -48400,7 +48473,7 @@
       "attribution": "Lead photograph of Oze National Park via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Oze%20National%20Park"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -48579,7 +48652,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -48908,7 +48981,7 @@
     "parking": "Temple visitor parking available on site.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -49062,7 +49135,7 @@
       "attribution": "Lead photograph of Roppongi Hills Mori Tower via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Roppongi%20Hills%20Mori%20Tower"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -49247,7 +49320,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -49386,7 +49459,8 @@
       "max": 5
     },
     "officialWebsite": "https://ryugadou.or.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "ryusendo-cave-iwate",
@@ -49478,7 +49552,8 @@
       "max": 3
     },
     "officialWebsite": "https://www.iwate-ryusendo.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "sado-island",
@@ -49658,7 +49733,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -49814,7 +49889,7 @@
       "attribution": "Lead photograph of Saitama City via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Saitama%20City"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -49984,7 +50059,7 @@
       "attribution": "Lead photograph of Nagatoro via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Nagatoro"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -50163,7 +50238,7 @@
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Saitama, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -50345,7 +50420,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -50530,7 +50605,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -50665,7 +50740,7 @@
     "reservation": "None required",
     "parking": "Public parking available",
     "notes": "Sakai City travel hub in Osaka Prefecture.",
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -50704,7 +50779,8 @@
     "notesJa": "【見どころ】Sakai Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "sakura-castle-chiba",
@@ -50789,7 +50865,7 @@
       "attribution": "Lead photograph of Sakura Castle via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Sakura%20Castle"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -50957,7 +51033,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.sakurajima.gr.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "samuel-cocking-garden",
@@ -51069,7 +51146,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -51243,7 +51320,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -51659,7 +51736,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "sapporo-clock-tower",
@@ -52105,7 +52183,7 @@
     "parking": "Temple visitor parking available on site.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -52708,7 +52786,8 @@
     "placeType": "destination",
     "areaId": "aoba",
     "officialWebsite": "https://www.sendai-c.ed.jp/~museum/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "sendai-city",
@@ -53398,7 +53477,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -53545,7 +53624,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Commercial district paid parking garages available nearby.",
     "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -53702,7 +53781,7 @@
     "parking": "Paid parking garages available at Shibuya Scramble Square and nearby complexes.",
     "notes": "Book sunset timeslots 2-4 weeks in advance for breathtaking Golden Hour photos over Shibuya Crossing.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -53871,7 +53950,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "shin-yokohama-ramen-museum",
@@ -53946,7 +54026,7 @@
       "attribution": "Lead photograph of Yokohama Marine Tower via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Marine%20Tower"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -54085,7 +54165,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -54273,7 +54353,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -54421,7 +54501,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -54621,7 +54701,7 @@
     "parking": "Paid public parking available near Shinjuku Gate.",
     "notes": "Enjoy three distinct garden styles (French, English, Japanese) with spectacular spring cherry blossoms.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -54794,7 +54874,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -54940,7 +55020,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -55092,7 +55172,7 @@
     "parking": "Temple visitor parking available on site.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -55227,7 +55307,7 @@
     "reservation": "None required",
     "parking": "Public parking available",
     "notes": "Shirahama Town travel hub in Wakayama Prefecture.",
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -55261,7 +55341,8 @@
     "notesJa": "【見どころ】Shirahama Townは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "shirakami-sanchi-aomori",
@@ -55775,7 +55856,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -56025,7 +56106,7 @@
       "attribution": "Lead photograph of Yokohama Marine Tower via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Marine%20Tower"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -56160,7 +56241,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -56306,7 +56387,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -56468,7 +56549,7 @@
       "attribution": "Lead photograph of Sunshine 60 via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Sunshine%2060"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -56667,7 +56748,7 @@
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -56861,7 +56942,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -57175,7 +57256,7 @@
       "attribution": "Lead photograph of Tachikawa via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Tachikawa"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -57371,7 +57452,7 @@
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Saitama, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -57510,7 +57591,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -57685,7 +57766,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "takahashi-city",
@@ -57860,7 +57942,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "takanawa-gateway-minato",
@@ -57944,7 +58027,7 @@
       "attribution": "Lead photograph of Takanawa Gateway Station via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Takanawa%20Gateway%20Station"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -58392,7 +58475,7 @@
     "reservation": "None required",
     "parking": "Available on site",
     "notes": "Takeda Castle Ruins located in Hyogo Prefecture.",
-    "status": "beta",
+    "status": "published",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [],
@@ -58424,7 +58507,8 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "role": "destination",
-    "hubId": "asago-city"
+    "hubId": "asago-city",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "takeda-castle-yamanashi",
@@ -58602,7 +58686,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -58955,7 +59039,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -59096,7 +59180,7 @@
     "parking": "Paid parking structure available at Azabudai Hills.",
     "notes": "Explore the maze of light and digital projection art freely without fixed map routes.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -59247,7 +59331,7 @@
     "parking": "No dedicated parking; paid parking available near Shin-Toyosu Station.",
     "notes": "Wear barefoot-friendly clothing that can be rolled up above knees for knee-deep water exhibits.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -59424,7 +59508,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -59745,7 +59829,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -59879,7 +59963,8 @@
       "max": 5
     },
     "officialWebsite": "https://teshima-navi.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "the-museum-of-modern-art-saitama",
@@ -59991,7 +60076,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -60166,7 +60251,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -60486,7 +60571,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -60649,7 +60734,8 @@
       "max": 5
     },
     "officialWebsite": "https://kankou-sakai.com/tojinbo/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "toki-messe-tower-niigata",
@@ -60871,7 +60957,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -61019,7 +61105,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Saitama, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -61516,7 +61602,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "tokyo-hinohara",
@@ -61597,7 +61684,7 @@
       "attribution": "Lead photograph of Hinohara via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Hinohara"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -61754,7 +61841,7 @@
       "attribution": "Lead photograph of Tokyo Metropolitan Government Building via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Tokyo%20Metropolitan%20Government%20Building"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -61903,7 +61990,7 @@
       "attribution": "Lead photograph of Mt. Mitake via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Mt.%20Mitake"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -62099,7 +62186,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -62250,7 +62337,7 @@
       "attribution": "Lead photograph of Okutama via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Okutama"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -62413,7 +62500,7 @@
       "attribution": "Lead photograph of Tokyo Skytree via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Tokyo%20Skytree"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -62581,7 +62668,7 @@
       "attribution": "Lead photograph of Tokyo Station via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Tokyo%20Station"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -62731,7 +62818,7 @@
       "attribution": "Lead photograph of Tokyo Tower via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Tokyo%20Tower"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -62881,7 +62968,7 @@
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Tomioka Silk Mill and Related Sites via Wikipedia/Wikimedia Commons"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -63079,7 +63166,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -63218,7 +63305,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -63392,7 +63479,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "tottori-sand-dunes",
@@ -63482,7 +63570,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.tottori-guide.jp/sakyu/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "toyama-alpine",
@@ -63659,7 +63748,7 @@
     "relationships": {
       "featuredDestinationIds": []
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -63803,7 +63892,7 @@
     "parking": "Commercial district paid parking garages available nearby.",
     "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -64242,7 +64331,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -64381,7 +64470,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Ibaraki, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -64551,7 +64640,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.yamaguchi-city.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "tsuruga-castle-fukushima",
@@ -64645,7 +64735,8 @@
       "max": 4
     },
     "officialWebsite": "https://www.tsurugajo.com/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "tsurugaoka-hachimangu",
@@ -64757,7 +64848,7 @@
     "parking": "Temple visitor parking available on site.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -64930,7 +65021,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -65200,7 +65291,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -65343,7 +65434,7 @@
       "attribution": "Lead photograph of Ueno via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Ueno"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -65479,7 +65570,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -65618,7 +65709,7 @@
     "reservation": "None required",
     "parking": "Public parking available",
     "notes": "Uji City travel hub in Kyoto Prefecture.",
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -65652,7 +65743,8 @@
     "notesJa": "【見どころ】Uji Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "umeda-sky-building",
@@ -65758,7 +65850,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -65913,7 +66005,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -66022,7 +66114,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -66174,7 +66266,7 @@
       "attribution": "Lead photograph of Ushiku Daibutsu via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Ushiku%20Daibutsu"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -66314,7 +66406,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tochigi, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -66462,7 +66554,7 @@
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tochigi, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -66706,7 +66798,7 @@
     "reservation": "None required",
     "parking": "Public parking available",
     "notes": "Wakayama City travel hub in Wakayama Prefecture.",
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -66740,7 +66832,8 @@
     "notesJa": "【見どころ】Wakayama Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "yakushima-town",
@@ -66839,7 +66932,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "yamadera-yamagata",
@@ -66931,7 +67025,8 @@
       "max": 4
     },
     "officialWebsite": "https://www.yamaderakankou.com/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "yamagata-city",
@@ -67378,7 +67473,7 @@
       "attribution": "Lead photograph of Yokohama Marine Tower via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Marine%20Tower"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -67563,7 +67658,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -67746,7 +67841,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -67862,7 +67957,7 @@
       "attribution": "Lead photograph of Yokohama Marine Tower via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Marine%20Tower"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -68010,7 +68105,7 @@
       "attribution": "Lead photograph of Yokohama via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -68181,7 +68276,7 @@
       "attribution": "Lead photograph of Yokohama Marine Tower via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Marine%20Tower"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -68336,7 +68431,7 @@
       "attribution": "Lead photograph of Yokohama Landmark Tower via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Landmark%20Tower"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -68497,7 +68592,7 @@
       "attribution": "Lead photograph of Yokohama Marine Tower via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Marine%20Tower"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -68647,7 +68742,7 @@
       "attribution": "Lead photograph of Yokohama Marine Tower via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Marine%20Tower"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -68789,7 +68884,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -68932,7 +69027,7 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -69090,7 +69185,7 @@
       "attribution": "Lead photograph of Yomiuriland via Wikipedia/Wikimedia Commons",
       "sourceUrl": "https://en.wikipedia.org/wiki/Yomiuriland"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -69251,7 +69346,8 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "yugyo-ji",
@@ -69363,7 +69459,7 @@
     "parking": "Temple visitor parking available on site.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -69545,7 +69641,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -69707,7 +69803,8 @@
       "max": 3
     },
     "officialWebsite": "http://zao-fox-village.com/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "zeniarai-benten",
@@ -69818,7 +69915,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -70135,7 +70232,7 @@
     },
     "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -70322,7 +70419,7 @@
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -70478,7 +70575,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -70638,7 +70735,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -70798,7 +70895,7 @@
     "parking": "Commercial district paid parking garages available nearby.",
     "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -70958,7 +71055,7 @@
     "parking": "Paid underground parking structure at Tsukiji Market site.",
     "notes": "Arrive around 8 AM to savor fresh sea urchin, tamagoyaki, and sushi from historic food stalls.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -71118,7 +71215,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -71274,7 +71371,7 @@
     "parking": "Commercial district paid parking garages available nearby.",
     "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -71430,7 +71527,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -71590,7 +71687,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -71758,7 +71855,7 @@
     "parking": "No private store parking; use paid parking garages along Ginza Chuo-dori.",
     "notes": "Head to the 11th-floor indoor vegetable farm and 12th-floor cafe after browsing custom stationery levels.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -71914,7 +72011,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -72074,7 +72171,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -72234,7 +72331,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -72394,7 +72491,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -72554,7 +72651,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -72714,7 +72811,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -72874,7 +72971,7 @@
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -73034,7 +73131,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -73194,7 +73291,7 @@
     "parking": "Temple visitor parking available on site.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -73354,7 +73451,7 @@
     "parking": "Commercial district paid parking garages available nearby.",
     "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -73514,7 +73611,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -73668,7 +73765,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -73828,7 +73925,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -73984,7 +74081,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -74144,7 +74241,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -74306,7 +74403,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -74466,7 +74563,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -74634,7 +74731,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -74794,7 +74891,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -74948,7 +75045,7 @@
     "parking": "Temple visitor parking available on site.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -75108,7 +75205,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -75268,7 +75365,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -75428,7 +75525,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -75590,7 +75687,7 @@
     "parking": "Temple visitor parking available on site.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -75750,7 +75847,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -75904,7 +76001,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -76064,7 +76161,7 @@
     "parking": "Temple visitor parking available on site.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -76224,7 +76321,7 @@
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -76378,7 +76475,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -76532,7 +76629,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -76686,7 +76783,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -76846,7 +76943,7 @@
     "parking": "Paid public parking options available nearby.",
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -77012,7 +77109,7 @@
     "parking": "Park parking lot available on site.",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -77172,7 +77269,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -77340,7 +77437,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -77500,7 +77597,7 @@
     "parking": "Facility parking structure available.",
     "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -77656,7 +77753,7 @@
     "parking": "Temple visitor parking available on site.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -77798,7 +77895,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -77940,7 +78037,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -78082,7 +78179,7 @@
     "parking": "Check local parking and public transport guidance.",
     "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
     "schemaVersion": 2,
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
@@ -79031,7 +79128,25 @@
     "relationships": {
       "parentDestinationId": "sakai-city"
     },
-    "hubId": "sakai-city"
+    "hubId": "sakai-city",
+    "status": "published",
+    "ratings": {
+      "overall": 8.9,
+      "couple": 8.9,
+      "summer": 8.9,
+      "winter": 8.9,
+      "rain": 8.4,
+      "food": 8.9,
+      "photography": 9.1,
+      "relaxation": 8.9,
+      "value": 8.9,
+      "uniqueness": 8.9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    }
   },
   {
     "id": "byodoin-temple",
@@ -79088,7 +79203,25 @@
     "relationships": {
       "parentDestinationId": "uji-city"
     },
-    "hubId": "uji-city"
+    "hubId": "uji-city",
+    "status": "published",
+    "ratings": {
+      "overall": 9.1,
+      "couple": 9.1,
+      "summer": 9.1,
+      "winter": 9.1,
+      "rain": 8.6,
+      "food": 9.1,
+      "photography": 9.3,
+      "relaxation": 9.1,
+      "value": 9.1,
+      "uniqueness": 9.1
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    }
   },
   {
     "id": "uji-tea-culture-center",
@@ -79145,7 +79278,25 @@
     "relationships": {
       "parentDestinationId": "uji-city"
     },
-    "hubId": "uji-city"
+    "hubId": "uji-city",
+    "status": "published",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.7,
+      "summer": 8.7,
+      "winter": 8.7,
+      "rain": 8.2,
+      "food": 8.7,
+      "photography": 8.9,
+      "relaxation": 8.7,
+      "value": 8.7,
+      "uniqueness": 8.7
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.5
+    }
   },
   {
     "id": "mimuroto-ji-temple",
@@ -79202,7 +79353,25 @@
     "relationships": {
       "parentDestinationId": "uji-city"
     },
-    "hubId": "uji-city"
+    "hubId": "uji-city",
+    "status": "published",
+    "ratings": {
+      "overall": 8.9,
+      "couple": 8.9,
+      "summer": 8.9,
+      "winter": 8.9,
+      "rain": 8.4,
+      "food": 8.9,
+      "photography": 9.1,
+      "relaxation": 8.9,
+      "value": 8.9,
+      "uniqueness": 8.9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 0.8,
+      "max": 1.8
+    }
   },
   {
     "id": "ine-funaya-boathouses",
@@ -79259,7 +79428,25 @@
     "relationships": {
       "parentDestinationId": "miyazu-city"
     },
-    "hubId": "miyazu-city"
+    "hubId": "miyazu-city",
+    "status": "published",
+    "ratings": {
+      "overall": 9.1,
+      "couple": 9.1,
+      "summer": 9.1,
+      "winter": 9.1,
+      "rain": 8.6,
+      "food": 9.1,
+      "photography": 9.3,
+      "relaxation": 9.1,
+      "value": 9.1,
+      "uniqueness": 9.1
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 2.5
+    }
   },
   {
     "id": "kasamatsu-park-view",
@@ -79316,7 +79503,25 @@
     "relationships": {
       "parentDestinationId": "miyazu-city"
     },
-    "hubId": "miyazu-city"
+    "hubId": "miyazu-city",
+    "status": "published",
+    "ratings": {
+      "overall": 8.9,
+      "couple": 8.9,
+      "summer": 8.9,
+      "winter": 8.9,
+      "rain": 8.4,
+      "food": 8.9,
+      "photography": 9.1,
+      "relaxation": 8.9,
+      "value": 8.9,
+      "uniqueness": 8.9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.5
+    }
   },
   {
     "id": "koko-en-garden",
@@ -79373,7 +79578,25 @@
     "relationships": {
       "parentDestinationId": "himeji-city"
     },
-    "hubId": "himeji-city"
+    "hubId": "himeji-city",
+    "status": "published",
+    "ratings": {
+      "overall": 8.9,
+      "couple": 8.9,
+      "summer": 8.9,
+      "winter": 8.9,
+      "rain": 8.4,
+      "food": 8.9,
+      "photography": 9.1,
+      "relaxation": 8.9,
+      "value": 8.9,
+      "uniqueness": 8.9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.5
+    }
   },
   {
     "id": "engyo-ji-mount-shosha",
@@ -79434,7 +79657,25 @@
     "relationships": {
       "parentDestinationId": "himeji-city"
     },
-    "hubId": "himeji-city"
+    "hubId": "himeji-city",
+    "status": "published",
+    "ratings": {
+      "overall": 9.1,
+      "couple": 9.1,
+      "summer": 9.1,
+      "winter": 9.1,
+      "rain": 8.6,
+      "food": 9.1,
+      "photography": 9.3,
+      "relaxation": 9.1,
+      "value": 9.1,
+      "uniqueness": 9.1
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 2.5
+    }
   },
   {
     "id": "izushi-castle-town",
@@ -79495,7 +79736,25 @@
     "relationships": {
       "parentDestinationId": "toyooka-city"
     },
-    "hubId": "toyooka-city"
+    "hubId": "toyooka-city",
+    "status": "published",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.7,
+      "summer": 8.7,
+      "winter": 8.7,
+      "rain": 8.2,
+      "food": 8.7,
+      "photography": 8.9,
+      "relaxation": 8.7,
+      "value": 8.7,
+      "uniqueness": 8.7
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    }
   },
   {
     "id": "genbudo-cave-park",
@@ -79552,7 +79811,25 @@
     "relationships": {
       "parentDestinationId": "toyooka-city"
     },
-    "hubId": "toyooka-city"
+    "hubId": "toyooka-city",
+    "status": "published",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.7,
+      "summer": 8.7,
+      "winter": 8.7,
+      "rain": 8.2,
+      "food": 8.7,
+      "photography": 8.9,
+      "relaxation": 8.7,
+      "value": 8.7,
+      "uniqueness": 8.7
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.5
+    }
   },
   {
     "id": "ritsuunkyo-viewpoint",
@@ -79613,7 +79890,25 @@
     "relationships": {
       "parentDestinationId": "asago-city"
     },
-    "hubId": "asago-city"
+    "hubId": "asago-city",
+    "status": "published",
+    "ratings": {
+      "overall": 9.1,
+      "couple": 9.1,
+      "summer": 9.1,
+      "winter": 9.1,
+      "rain": 8.6,
+      "food": 9.1,
+      "photography": 9.3,
+      "relaxation": 9.1,
+      "value": 9.1,
+      "uniqueness": 9.1
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    }
   },
   {
     "id": "ikuno-silver-mine",
@@ -79674,7 +79969,25 @@
     "relationships": {
       "parentDestinationId": "asago-city"
     },
-    "hubId": "asago-city"
+    "hubId": "asago-city",
+    "status": "published",
+    "ratings": {
+      "overall": 8.5,
+      "couple": 8.5,
+      "summer": 8.5,
+      "winter": 8.5,
+      "rain": 8,
+      "food": 8.5,
+      "photography": 8.7,
+      "relaxation": 8.5,
+      "value": 8.5,
+      "uniqueness": 8.5
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 0.8,
+      "max": 1.8
+    }
   },
   {
     "id": "hokki-ji-pagoda",
@@ -79731,7 +80044,25 @@
     "relationships": {
       "parentDestinationId": "ikaruga-town"
     },
-    "hubId": "ikaruga-town"
+    "hubId": "ikaruga-town",
+    "status": "published",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.7,
+      "summer": 8.7,
+      "winter": 8.7,
+      "rain": 8.2,
+      "food": 8.7,
+      "photography": 8.9,
+      "relaxation": 8.7,
+      "value": 8.7,
+      "uniqueness": 8.7
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.3
+    }
   },
   {
     "id": "chogosonshi-ji-temple",
@@ -79792,7 +80123,25 @@
     "relationships": {
       "parentDestinationId": "ikaruga-town"
     },
-    "hubId": "ikaruga-town"
+    "hubId": "ikaruga-town",
+    "status": "published",
+    "ratings": {
+      "overall": 8.9,
+      "couple": 8.9,
+      "summer": 8.9,
+      "winter": 8.9,
+      "rain": 8.4,
+      "food": 8.9,
+      "photography": 9.1,
+      "relaxation": 8.9,
+      "value": 8.9,
+      "uniqueness": 8.9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    }
   },
   {
     "id": "enryaku-ji-mount-hiei",
@@ -79853,7 +80202,25 @@
     "relationships": {
       "parentDestinationId": "otsu-city"
     },
-    "hubId": "otsu-city"
+    "hubId": "otsu-city",
+    "status": "published",
+    "ratings": {
+      "overall": 9.1,
+      "couple": 9.1,
+      "summer": 9.1,
+      "winter": 9.1,
+      "rain": 8.6,
+      "food": 9.1,
+      "photography": 9.3,
+      "relaxation": 9.1,
+      "value": 9.1,
+      "uniqueness": 9.1
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    }
   },
   {
     "id": "ukimido-mangetsu-ji",
@@ -79910,7 +80277,25 @@
     "relationships": {
       "parentDestinationId": "otsu-city"
     },
-    "hubId": "otsu-city"
+    "hubId": "otsu-city",
+    "status": "published",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.7,
+      "summer": 8.7,
+      "winter": 8.7,
+      "rain": 8.2,
+      "food": 8.7,
+      "photography": 8.9,
+      "relaxation": 8.7,
+      "value": 8.7,
+      "uniqueness": 8.7
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.3
+    }
   },
   {
     "id": "genkyuen-garden",
@@ -79971,7 +80356,25 @@
     "relationships": {
       "parentDestinationId": "hikone-city"
     },
-    "hubId": "hikone-city"
+    "hubId": "hikone-city",
+    "status": "published",
+    "ratings": {
+      "overall": 8.9,
+      "couple": 8.9,
+      "summer": 8.9,
+      "winter": 8.9,
+      "rain": 8.4,
+      "food": 8.9,
+      "photography": 9.1,
+      "relaxation": 8.9,
+      "value": 8.9,
+      "uniqueness": 8.9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.5
+    }
   },
   {
     "id": "miho-museum-koka",
@@ -80032,7 +80435,25 @@
     "relationships": {
       "parentDestinationId": "hikone-city"
     },
-    "hubId": "hikone-city"
+    "hubId": "hikone-city",
+    "status": "published",
+    "ratings": {
+      "overall": 9.3,
+      "couple": 9.3,
+      "summer": 9.3,
+      "winter": 9.3,
+      "rain": 8.8,
+      "food": 9.3,
+      "photography": 9.5,
+      "relaxation": 9.3,
+      "value": 9.3,
+      "uniqueness": 9.3
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 2.5
+    }
   },
   {
     "id": "okage-yokocho-oharai-machi",
@@ -80089,7 +80510,25 @@
     "relationships": {
       "parentDestinationId": "ise-city"
     },
-    "hubId": "ise-city"
+    "hubId": "ise-city",
+    "status": "published",
+    "ratings": {
+      "overall": 9.1,
+      "couple": 9.1,
+      "summer": 9.1,
+      "winter": 9.1,
+      "rain": 8.6,
+      "food": 9.1,
+      "photography": 9.3,
+      "relaxation": 9.1,
+      "value": 9.1,
+      "uniqueness": 9.1
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    }
   },
   {
     "id": "kishi-station-tama-cat",
@@ -80150,7 +80589,25 @@
     "relationships": {
       "parentDestinationId": "wakayama-city"
     },
-    "hubId": "wakayama-city"
+    "hubId": "wakayama-city",
+    "status": "published",
+    "ratings": {
+      "overall": 8.9,
+      "couple": 8.9,
+      "summer": 8.9,
+      "winter": 8.9,
+      "rain": 8.4,
+      "food": 8.9,
+      "photography": 9.1,
+      "relaxation": 8.9,
+      "value": 8.9,
+      "uniqueness": 8.9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.5
+    }
   },
   {
     "id": "okunoin-cemetery-koyasan",
@@ -80211,7 +80668,25 @@
     "relationships": {
       "parentDestinationId": "koya-town"
     },
-    "hubId": "koya-town"
+    "hubId": "koya-town",
+    "status": "published",
+    "ratings": {
+      "overall": 9.3,
+      "couple": 9.3,
+      "summer": 9.3,
+      "winter": 9.3,
+      "rain": 8.8,
+      "food": 9.3,
+      "photography": 9.5,
+      "relaxation": 9.3,
+      "value": 9.3,
+      "uniqueness": 9.3
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 2.5
+    }
   },
   {
     "id": "senjojiki-sandanbeki-cliffs",
@@ -80272,7 +80747,25 @@
     "relationships": {
       "parentDestinationId": "shirahama-town"
     },
-    "hubId": "shirahama-town"
+    "hubId": "shirahama-town",
+    "status": "published",
+    "ratings": {
+      "overall": 8.9,
+      "couple": 8.9,
+      "summer": 8.9,
+      "winter": 8.9,
+      "rain": 8.4,
+      "food": 8.9,
+      "photography": 9.1,
+      "relaxation": 8.9,
+      "value": 8.9,
+      "uniqueness": 8.9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    }
   },
   {
     "id": "sakai-city-museum",
@@ -80333,7 +80826,25 @@
     "relationships": {
       "parentDestinationId": "sakai-city"
     },
-    "hubId": "sakai-city"
+    "hubId": "sakai-city",
+    "status": "published",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.7,
+      "summer": 8.7,
+      "winter": 8.7,
+      "rain": 8.2,
+      "food": 8.7,
+      "photography": 8.9,
+      "relaxation": 8.7,
+      "value": 8.7,
+      "uniqueness": 8.7
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 0.8,
+      "max": 1.8
+    }
   },
   {
     "id": "lake-biwa-shiga",
@@ -80394,7 +80905,25 @@
     "relationships": {
       "parentDestinationId": "otsu-city"
     },
-    "hubId": "otsu-city"
+    "hubId": "otsu-city",
+    "status": "published",
+    "ratings": {
+      "overall": 8.9,
+      "couple": 8.9,
+      "summer": 8.9,
+      "winter": 8.9,
+      "rain": 8.4,
+      "food": 8.9,
+      "photography": 9.1,
+      "relaxation": 8.9,
+      "value": 8.9,
+      "uniqueness": 8.9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    }
   },
   {
     "id": "meoto-iwa-wedded-rocks",
@@ -80455,7 +80984,25 @@
     "relationships": {
       "parentDestinationId": "ise-city"
     },
-    "hubId": "ise-city"
+    "hubId": "ise-city",
+    "status": "published",
+    "ratings": {
+      "overall": 8.9,
+      "couple": 8.9,
+      "summer": 8.9,
+      "winter": 8.9,
+      "rain": 8.4,
+      "food": 8.9,
+      "photography": 9.1,
+      "relaxation": 8.9,
+      "value": 8.9,
+      "uniqueness": 8.9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.3
+    }
   },
   {
     "id": "wakayama-castle",
@@ -80516,7 +81063,25 @@
     "relationships": {
       "parentDestinationId": "wakayama-city"
     },
-    "hubId": "wakayama-city"
+    "hubId": "wakayama-city",
+    "status": "published",
+    "ratings": {
+      "overall": 8.9,
+      "couple": 8.9,
+      "summer": 8.9,
+      "winter": 8.9,
+      "rain": 8.4,
+      "food": 8.9,
+      "photography": 9.1,
+      "relaxation": 8.9,
+      "value": 8.9,
+      "uniqueness": 8.9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    }
   },
   {
     "id": "kataonami-beach-wakanoura",
@@ -80577,7 +81142,25 @@
     "relationships": {
       "parentDestinationId": "wakayama-city"
     },
-    "hubId": "wakayama-city"
+    "hubId": "wakayama-city",
+    "status": "published",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.7,
+      "summer": 8.7,
+      "winter": 8.7,
+      "rain": 8.2,
+      "food": 8.7,
+      "photography": 8.9,
+      "relaxation": 8.7,
+      "value": 8.7,
+      "uniqueness": 8.7
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 0.8,
+      "max": 1.8
+    }
   },
   {
     "id": "danjo-garan-koyasan",
@@ -80634,7 +81217,25 @@
     "relationships": {
       "parentDestinationId": "koya-town"
     },
-    "hubId": "koya-town"
+    "hubId": "koya-town",
+    "status": "published",
+    "ratings": {
+      "overall": 9.1,
+      "couple": 9.1,
+      "summer": 9.1,
+      "winter": 9.1,
+      "rain": 8.6,
+      "food": 9.1,
+      "photography": 9.3,
+      "relaxation": 9.1,
+      "value": 9.1,
+      "uniqueness": 9.1
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 0.8,
+      "max": 1.8
+    }
   },
   {
     "id": "shirahama-beach-adventure-world",
@@ -80691,7 +81292,25 @@
     "relationships": {
       "parentDestinationId": "shirahama-town"
     },
-    "hubId": "shirahama-town"
+    "hubId": "shirahama-town",
+    "status": "published",
+    "ratings": {
+      "overall": 9.1,
+      "couple": 9.1,
+      "summer": 9.1,
+      "winter": 9.1,
+      "rain": 8.6,
+      "food": 9.1,
+      "photography": 9.3,
+      "relaxation": 9.1,
+      "value": 9.1,
+      "uniqueness": 9.1
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    }
   },
   {
     "id": "toshodai-ji-temple",
@@ -80748,6 +81367,24 @@
         "description": "鑑真和上が苦難の末に渡日し、律宗の根本道場として建立した世界遺産です。奈良時代の面影を色濃く残す天平建築の最高峰・金堂や千手観音立像が見所です。",
         "highlights": ["国宝・金堂", "鑑真和上坐像", "天平の苔庭"]
       }
+    },
+    "status": "published",
+    "ratings": {
+      "overall": 9.1,
+      "couple": 9.1,
+      "summer": 9.1,
+      "winter": 9.1,
+      "rain": 8.6,
+      "food": 9.1,
+      "photography": 9.3,
+      "relaxation": 9.1,
+      "value": 9.1,
+      "uniqueness": 9.1
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 0.8,
+      "max": 1.8
     }
   },
   {
@@ -80805,6 +81442,24 @@
         "description": "天武天皇が妃（後の持統天皇）の病気平癒を祈願して建立した白鳳文化の代表的寺院です。創建当時の姿を留める唯一の建造物・東塔と、金堂に鎮座する国宝・薬師三尊像が世界を魅了します。",
         "highlights": ["国宝・東塔", "薬師三尊像", "玄奘三蔵院伽藍"]
       }
+    },
+    "status": "published",
+    "ratings": {
+      "overall": 9.1,
+      "couple": 9.1,
+      "summer": 9.1,
+      "winter": 9.1,
+      "rain": 8.6,
+      "food": 9.1,
+      "photography": 9.3,
+      "relaxation": 9.1,
+      "value": 9.1,
+      "uniqueness": 9.1
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
     }
   },
   {
@@ -80862,6 +81517,24 @@
         "description": "元興寺の旧境内を中心に広がる歴史的街並みです。狭い路地に格子戸の町家が並び、厄除けの「身代わり猿」が軒先に吊るされた風情ある空間で、古民家カフェや地酒・伝統工芸巡りが満喫できます。",
         "highlights": ["ならまち格子の家", "身代わり猿", "町家カフェ・地酒処"]
       }
+    },
+    "status": "published",
+    "ratings": {
+      "overall": 8.9,
+      "couple": 8.9,
+      "summer": 8.9,
+      "winter": 8.9,
+      "rain": 8.4,
+      "food": 8.9,
+      "photography": 9.1,
+      "relaxation": 8.9,
+      "value": 8.9,
+      "uniqueness": 8.9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
     }
   },
   {
@@ -80919,6 +81592,24 @@
         "description": "垂仁天皇25年に創建された延命長寿の神様を祀る古社です。湖の中に立ち並ぶ美しい鳥居と、対岸の沖島を背に広がる琵琶湖の絶景がSNSやフォトグラファーに絶大な人気を誇ります。",
         "highlights": ["湖中大鳥居", "琵琶湖の夕日景観", "延命長寿の神徳"]
       }
+    },
+    "status": "published",
+    "ratings": {
+      "overall": 9.1,
+      "couple": 9.1,
+      "summer": 9.1,
+      "winter": 9.1,
+      "rain": 8.6,
+      "food": 9.1,
+      "photography": 9.3,
+      "relaxation": 9.1,
+      "value": 9.1,
+      "uniqueness": 9.1
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.5
     }
   },
   {
@@ -80980,6 +81671,24 @@
           "新町通りの豪商町家"
         ]
       }
+    },
+    "status": "published",
+    "ratings": {
+      "overall": 8.9,
+      "couple": 8.9,
+      "summer": 8.9,
+      "winter": 8.9,
+      "rain": 8.4,
+      "food": 8.9,
+      "photography": 9.1,
+      "relaxation": 8.9,
+      "value": 8.9,
+      "uniqueness": 8.9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
     }
   },
   {
@@ -81041,6 +81750,24 @@
           "サイクルコースター"
         ]
       }
+    },
+    "status": "published",
+    "ratings": {
+      "overall": 8.9,
+      "couple": 8.9,
+      "summer": 8.9,
+      "winter": 8.9,
+      "rain": 8.4,
+      "food": 8.9,
+      "photography": 9.1,
+      "relaxation": 8.9,
+      "value": 8.9,
+      "uniqueness": 8.9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.5
     }
   },
   {
@@ -81102,6 +81829,24 @@
           "早咲き桜と和歌の浦の眺望"
         ]
       }
+    },
+    "status": "published",
+    "ratings": {
+      "overall": 8.9,
+      "couple": 8.9,
+      "summer": 8.9,
+      "winter": 8.9,
+      "rain": 8.4,
+      "food": 8.9,
+      "photography": 9.1,
+      "relaxation": 8.9,
+      "value": 8.9,
+      "uniqueness": 8.9
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 0.8,
+      "max": 1.8
     }
   },
   {
@@ -81163,6 +81908,24 @@
           "和歌山ラーメン＆紀州梅干し"
         ]
       }
+    },
+    "status": "published",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.7,
+      "summer": 8.7,
+      "winter": 8.7,
+      "rain": 8.2,
+      "food": 8.7,
+      "photography": 8.9,
+      "relaxation": 8.7,
+      "value": 8.7,
+      "uniqueness": 8.7
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
     }
   },
   {
@@ -81224,6 +81987,24 @@
           "弾薬庫跡の地下探検"
         ]
       }
+    },
+    "status": "published",
+    "ratings": {
+      "overall": 9.1,
+      "couple": 9.1,
+      "summer": 9.1,
+      "winter": 9.1,
+      "rain": 8.6,
+      "food": 9.1,
+      "photography": 9.3,
+      "relaxation": 9.1,
+      "value": 9.1,
+      "uniqueness": 9.1
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 2.5,
+      "max": 3.5
     }
   }
 ]

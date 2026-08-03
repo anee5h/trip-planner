@@ -57,5 +57,23 @@
   "relationships": {
     "parentDestinationId": "hikone-city"
   },
-  "hubId": "hikone-city"
+  "hubId": "hikone-city",
+  "status": "published",
+  "ratings": {
+    "overall": 9.3,
+    "couple": 9.3,
+    "summer": 9.3,
+    "winter": 9.3,
+    "rain": 8.8,
+    "food": 9.3,
+    "photography": 9.5,
+    "relaxation": 9.3,
+    "value": 9.3,
+    "uniqueness": 9.3
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 2.5
+  }
 }

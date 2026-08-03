@@ -70,7 +70,7 @@
   "reservation": "None required",
   "parking": "Available on site",
   "notes": "Takeda Castle Ruins located in Hyogo Prefecture.",
-  "status": "beta",
+  "status": "published",
   "relationships": {
     "featuredDestinationIds": [],
     "nearbyDestinationIds": [],
@@ -102,5 +102,6 @@
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "role": "destination",
-  "hubId": "asago-city"
+  "hubId": "asago-city",
+  "ratingsSchemaVersion": 2
 }

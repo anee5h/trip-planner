@@ -120,7 +120,7 @@
   "parking": "Facility parking structure available.",
   "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
   "schemaVersion": 2,
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "medium"
   },

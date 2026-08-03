@@ -53,5 +53,23 @@
       "description": "鑑真和上が苦難の末に渡日し、律宗の根本道場として建立した世界遺産です。奈良時代の面影を色濃く残す天平建築の最高峰・金堂や千手観音立像が見所です。",
       "highlights": ["国宝・金堂", "鑑真和上坐像", "天平の苔庭"]
     }
+  },
+  "status": "published",
+  "ratings": {
+    "overall": 9.1,
+    "couple": 9.1,
+    "summer": 9.1,
+    "winter": 9.1,
+    "rain": 8.6,
+    "food": 9.1,
+    "photography": 9.3,
+    "relaxation": 9.1,
+    "value": 9.1,
+    "uniqueness": 9.1
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 0.8,
+    "max": 1.8
   }
 }

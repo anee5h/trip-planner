@@ -28,7 +28,7 @@
   "categories": ["nature", "sightseeing", "romance"],
   "budgetMin": 3000,
   "budgetMax": 12000,
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },

@@ -53,5 +53,23 @@
       "description": "元興寺の旧境内を中心に広がる歴史的街並みです。狭い路地に格子戸の町家が並び、厄除けの「身代わり猿」が軒先に吊るされた風情ある空間で、古民家カフェや地酒・伝統工芸巡りが満喫できます。",
       "highlights": ["ならまち格子の家", "身代わり猿", "町家カフェ・地酒処"]
     }
+  },
+  "status": "published",
+  "ratings": {
+    "overall": 8.9,
+    "couple": 8.9,
+    "summer": 8.9,
+    "winter": 8.9,
+    "rain": 8.4,
+    "food": 8.9,
+    "photography": 9.1,
+    "relaxation": 8.9,
+    "value": 8.9,
+    "uniqueness": 8.9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
   }
 }

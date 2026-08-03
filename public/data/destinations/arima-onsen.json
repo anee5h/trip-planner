@@ -28,7 +28,7 @@
   "categories": ["onsen", "relaxation", "culture"],
   "budgetMin": 6000,
   "budgetMax": 30000,
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "high"
   },

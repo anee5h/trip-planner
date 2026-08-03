@@ -57,5 +57,23 @@
   "relationships": {
     "parentDestinationId": "asago-city"
   },
-  "hubId": "asago-city"
+  "hubId": "asago-city",
+  "status": "published",
+  "ratings": {
+    "overall": 8.5,
+    "couple": 8.5,
+    "summer": 8.5,
+    "winter": 8.5,
+    "rain": 8,
+    "food": 8.5,
+    "photography": 8.7,
+    "relaxation": 8.5,
+    "value": 8.5,
+    "uniqueness": 8.5
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 0.8,
+    "max": 1.8
+  }
 }

@@ -53,5 +53,23 @@
   "relationships": {
     "parentDestinationId": "ikaruga-town"
   },
-  "hubId": "ikaruga-town"
+  "hubId": "ikaruga-town",
+  "status": "published",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.7,
+    "summer": 8.7,
+    "winter": 8.7,
+    "rain": 8.2,
+    "food": 8.7,
+    "photography": 8.9,
+    "relaxation": 8.7,
+    "value": 8.7,
+    "uniqueness": 8.7
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.3
+  }
 }
