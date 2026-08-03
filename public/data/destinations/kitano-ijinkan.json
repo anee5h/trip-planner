@@ -146,5 +146,5 @@
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["kobe-city"],
-  "municipalityId": "kobe"
+  "municipalityId": "Hyogo:kobe"
 }

@@ -77,7 +77,9 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "ito-city"
+  },
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "None required",
@@ -91,5 +93,6 @@
     "max": 9
   },
   "officialWebsite": "https://kanko.city.izu.shizuoka.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "municipalityId": "Shizuoka:ito"
 }

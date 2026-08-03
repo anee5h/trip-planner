@@ -79,7 +79,9 @@
       "confirmed": true
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "izumo-city"
+  },
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,
@@ -101,5 +103,6 @@
     "max": 7
   },
   "officialWebsite": "https://www.ginzan-wm.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "municipalityId": "Shimane:izumo"
 }

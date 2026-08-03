@@ -37,11 +37,15 @@ describe("relationshipsValidator distance + gateway checks", () => {
     const hub = dest({
       id: "tokyo-city",
       role: "hub",
+      prefecture: "Tokyo",
+      municipalityId: "Tokyo:tokyo",
       coordinates: { lat: 35.68, lng: 139.76 },
     });
     const poi = dest({
       id: "poi-a",
       role: "standalone",
+      prefecture: "Tokyo",
+      municipalityId: "Tokyo:tokyo",
       coordinates: { lat: 35.7, lng: 139.76 },
       relationships: { parentDestinationId: "tokyo-city" },
     });
@@ -119,13 +123,13 @@ describe("relationshipsValidator distance + gateway checks", () => {
       id: "sakai-city",
       role: "hub",
       prefecture: "Osaka",
-      municipalityId: "sakai",
+      municipalityId: "Osaka:sakai",
     });
     const poi = dest({
       id: "cupnoodles-museum-osaka-ikeda",
       role: "destination",
       prefecture: "Osaka",
-      municipalityId: "ikeda",
+      municipalityId: "Osaka:ikeda",
       coordinates: { lat: 34.83, lng: 135.43 },
       relationships: { parentDestinationId: "sakai-city" },
     });
@@ -138,17 +142,58 @@ describe("relationshipsValidator distance + gateway checks", () => {
       id: "asago-city",
       role: "hub",
       prefecture: "Hyogo",
-      municipalityId: "asago",
+      municipalityId: "Hyogo:asago",
     });
     const poi = dest({
       id: "takeda-castle-ruins-hyogo",
       role: "destination",
       prefecture: "Hyogo",
-      municipalityId: "asago",
+      municipalityId: "Hyogo:asago",
       coordinates: { lat: 35.32, lng: 134.83 },
       relationships: { parentDestinationId: "asago-city" },
     });
     const res = await relationshipsValidator.validate(context([hub, poi]));
+    expect(res.passed).toBe(true);
+  });
+
+  it("flags a contained destination without an independently verified municipality", async () => {
+    const hub = dest({
+      id: "osaka-city",
+      role: "hub",
+      prefecture: "Osaka",
+      municipalityId: "Osaka:osaka",
+    });
+    const poi = dest({
+      id: "unverified-contained",
+      role: "destination",
+      prefecture: "Osaka",
+      coordinates: { lat: 34.7, lng: 135.5 },
+      relationships: { parentDestinationId: "osaka-city" },
+    });
+    const res = await relationshipsValidator.validate(context([hub, poi]));
+    expect(errorsFor(res.issues)).toContain("MUNICIPALITY_NOT_VERIFIED");
+  });
+
+  it("warns (not errors) on a gateway destination without a verified municipality", async () => {
+    const hub = dest({
+      id: "sakai-city",
+      role: "hub",
+      prefecture: "Osaka",
+      municipalityId: "Osaka:sakai",
+    });
+    const poi = dest({
+      id: "gateway-unverified",
+      role: "standalone",
+      prefecture: "Osaka",
+      relationships: { gatewayHubId: "sakai-city" },
+    });
+    const res = await relationshipsValidator.validate(context([hub, poi]));
+    expect(errorsFor(res.issues)).not.toContain("MUNICIPALITY_NOT_VERIFIED");
+    expect(
+      res.issues.some(
+        (i) => i.code === "MUNICIPALITY_UNVERIFIED_NON_CONTAINED",
+      ),
+    ).toBe(true);
     expect(res.passed).toBe(true);
   });
 
@@ -157,13 +202,13 @@ describe("relationshipsValidator distance + gateway checks", () => {
       id: "osaka-city",
       role: "hub",
       prefecture: "Osaka",
-      municipalityId: "osaka",
+      municipalityId: "Osaka:osaka",
     });
     const poi = dest({
       id: "both-set",
       role: "standalone",
       prefecture: "Osaka",
-      municipalityId: "osaka",
+      municipalityId: "Osaka:osaka",
       relationships: {
         parentDestinationId: "osaka-city",
         gatewayHubId: "osaka-city",

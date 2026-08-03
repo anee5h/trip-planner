@@ -93,7 +93,7 @@
     }
   ],
   "relationships": {
-    "parentDestinationId": "matsumoto-city"
+    "gatewayHubId": "matsumoto-city"
   },
   "walkingIntensity": "medium",
   "role": "standalone",
@@ -104,6 +104,5 @@
     "max": 5
   },
   "officialWebsite": "https://inadani-see.net/en/takato-castle-site-park/",
-  "businessHours": "Open access",
-  "municipalityId": "matsumoto"
+  "businessHours": "Open access"
 }

@@ -132,7 +132,14 @@ export const relationshipsValidator: ValidatorModule = {
               targetId: dest.id,
             });
           }
-          if (
+          if (!dest.municipalityId) {
+            issues.push({
+              severity: "error",
+              code: "MUNICIPALITY_NOT_VERIFIED",
+              message: `Contained destination '${dest.id}' has no municipalityId; a parentDestinationId is only valid when the destination's municipality is independently known and matches the parent hub's.`,
+              targetId: dest.id,
+            });
+          } else if (
             dest.municipalityId &&
             parent.municipalityId &&
             dest.municipalityId !== parent.municipalityId
@@ -192,6 +199,18 @@ export const relationshipsValidator: ValidatorModule = {
             });
           }
         }
+      }
+
+      // 1c. Gateway/standalone destinations should eventually carry an
+      //     independently verified municipality; missing it is a warning while
+      //     the independent municipality map is still being populated.
+      if (!rels.parentDestinationId && !dest.municipalityId) {
+        issues.push({
+          severity: "warning",
+          code: "MUNICIPALITY_UNVERIFIED_NON_CONTAINED",
+          message: `Destination '${dest.id}' has no independently verified municipalityId yet (gateway or standalone).`,
+          targetId: dest.id,
+        });
       }
 
       // 2. Featured Destinations Check
