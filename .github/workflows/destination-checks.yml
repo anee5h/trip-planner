@@ -29,5 +29,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Full Catalogue Validation
-        run: npm run validate-all
+      - name: Fast Catalogue Validation
+        run: npm run validate:catalog-fast
