@@ -47,6 +47,9 @@ interface DayPlanWidgetProps {
   generatedCostRange?: [number, number];
   onSaveToItinerary?: (plan: DayPlan) => void;
   onPlanGenerated?: (plan: DayPlan | null) => void;
+  /** When false, the plan-creation entry point is hidden because the
+   *  destination has too few nearby candidate stops to build an itinerary. */
+  eligible?: boolean;
 }
 
 export function DayPlanWidget({
@@ -57,6 +60,7 @@ export function DayPlanWidget({
   generatedCostRange,
   onSaveToItinerary,
   onPlanGenerated,
+  eligible = true,
 }: DayPlanWidgetProps) {
   const isHubOrCity = isHubPrimary(destination);
 
@@ -356,39 +360,51 @@ export function DayPlanWidget({
         {!hasGenerated && !showConfig && (
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="space-y-1.5 max-w-xl text-xs text-slate-600 dark:text-slate-300">
-              <p className="leading-relaxed">
-                {isHubOrCity
-                  ? locale === "ja"
-                    ? `${destination.nameJa || destination.name}周辺で、移動時間と滞在バランスを最適化した1日・半日コースを作成します。`
-                    : `Create a customized itinerary combining ${destination.name} with nearby highlights and dining.`
-                  : locale === "ja"
-                    ? `${destination.nameJa || destination.name}への訪問を中心に、徒歩・ローカル移動圏内の周辺スポットを組み立てます。`
-                    : `Build a personalized schedule around ${destination.name} with optimal visit durations.`}
-              </p>
-              <div className="flex items-center gap-3 pt-1 text-[11px] font-semibold text-slate-500 dark:text-slate-400">
-                <span className="flex items-center gap-1">
-                  <Clock className="w-3.5 h-3.5 text-emerald-500" />
+              {eligible ? (
+                <>
+                  <p className="leading-relaxed">
+                    {isHubOrCity
+                      ? locale === "ja"
+                        ? `${destination.nameJa || destination.name}周辺で、移動時間と滞在バランスを最適化した1日・半日コースを作成します。`
+                        : `Create a customized itinerary combining ${destination.name} with nearby highlights and dining.`
+                      : locale === "ja"
+                        ? `${destination.nameJa || destination.name}への訪問を中心に、徒歩・ローカル移動圏内の周辺スポットを組み立てます。`
+                        : `Build a personalized schedule around ${destination.name} with optimal visit durations.`}
+                  </p>
+                  <div className="flex items-center gap-3 pt-1 text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+                    <span className="flex items-center gap-1">
+                      <Clock className="w-3.5 h-3.5 text-emerald-500" />
+                      {locale === "ja"
+                        ? `推奨所要時間: 約${suitableDurationHours}〜8時間`
+                        : `Est. duration: ~${suitableDurationHours}–8 hours`}
+                    </span>
+                  </div>
+                </>
+              ) : (
+                <p className="leading-relaxed">
                   {locale === "ja"
-                    ? `推奨所要時間: 約${suitableDurationHours}〜8時間`
-                    : `Est. duration: ~${suitableDurationHours}–8 hours`}
-                </span>
-              </div>
+                    ? `このスポット周辺には、1日・半日コースを組めるだけの近隣スポットがまだ登録されていません。`
+                    : `There aren't enough nearby places registered around ${destination.name} to build an itinerary yet.`}
+                </p>
+              )}
             </div>
 
-            <Button
-              onClick={handleStartCreation}
-              aria-expanded={showConfig}
-              className="w-full sm:w-auto min-h-[44px] px-5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-sm shrink-0 flex items-center justify-center gap-2"
-            >
-              <Plus className="w-4 h-4" />
-              <span>
-                {locale === "ja"
-                  ? "プランを作成"
-                  : isHubOrCity
-                    ? "Create area plan"
-                    : "Create day plan"}
-              </span>
-            </Button>
+            {eligible && (
+              <Button
+                onClick={handleStartCreation}
+                aria-expanded={showConfig}
+                className="w-full sm:w-auto min-h-[44px] px-5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-sm shrink-0 flex items-center justify-center gap-2"
+              >
+                <Plus className="w-4 h-4" />
+                <span>
+                  {locale === "ja"
+                    ? "プランを作成"
+                    : isHubOrCity
+                      ? "Create area plan"
+                      : "Create day plan"}
+                </span>
+              </Button>
+            )}
           </div>
         )}
 

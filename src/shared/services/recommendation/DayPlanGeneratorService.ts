@@ -29,6 +29,91 @@ export function isHubPrimary(destination: Destination): boolean {
   return destination.role === "hub" || destination.kind === "city";
 }
 
+export interface PlanEligibilityOptions {
+  planType?: DayPlanType;
+  catchmentScope?: CatchmentScope;
+  context?: Partial<RecommendationContext>;
+}
+
+export interface PlanEligibility {
+  eligible: boolean;
+  planType: DayPlanType;
+  candidateCount: number;
+  threshold: number;
+  isHub: boolean;
+  reason?: "insufficient_real_pois";
+}
+
+/**
+ * Shared eligibility check used both by the UI (to hide the plan button when a
+ * destination cannot support an itinerary) and by generateDayPlan. It counts
+ * usable nearby candidate stops with the same candidate/catchment logic as the
+ * generator, so the button and the generator can never disagree.
+ */
+export function getPlanEligibility(
+  primary: Destination,
+  options?: PlanEligibilityOptions,
+): PlanEligibility {
+  const isHub = isHubPrimary(primary);
+  const planType: DayPlanType = options?.planType || "full_day";
+  const catchmentScope: CatchmentScope = options?.catchmentScope || "nearby";
+  const context = options?.context;
+  const combos = findNearbyCombinations(
+    primary,
+    context,
+    catchmentScope === "wider" ? 8 : 6,
+    catchmentScope,
+  );
+
+  const candidates = new Map<string, Destination>();
+  if (!isHub) {
+    candidates.set(primary.id, primary);
+  }
+  combos.forEach((c) => {
+    if (
+      c.secondary &&
+      c.secondary.role !== "hub" &&
+      c.secondary.kind !== "city"
+    ) {
+      candidates.set(c.secondary.id, c.secondary);
+    }
+  });
+
+  // Mirror generateDayPlan's feasibility math exactly: the anchor (the primary
+  // itself when it is a real POI) counts toward the required threshold, while a
+  // district-kind anchor does not count as a real stop.
+  let usableOptional = 0;
+  for (const dest of candidates.values()) {
+    if (isHub && dest.id === primary.id) continue;
+    const transitEst = estimateLocalTransitMinutes(
+      primary,
+      dest,
+      catchmentScope,
+    );
+    if (transitEst.usable) {
+      usableOptional++;
+    }
+  }
+  const anchorIsRealStop =
+    !isHub &&
+    primary.role !== "hub" &&
+    primary.kind !== "city" &&
+    primary.kind !== "district";
+  const requiredCount = anchorIsRealStop ? 1 : 0;
+  const threshold = planType === "half_day" ? 2 : 3;
+  const optionalStopsNeeded = Math.max(0, threshold - requiredCount);
+  const eligible = usableOptional >= optionalStopsNeeded;
+
+  return {
+    eligible,
+    planType,
+    candidateCount: usableOptional + requiredCount,
+    threshold,
+    isHub,
+    ...(eligible ? {} : { reason: "insufficient_real_pois" as const }),
+  };
+}
+
 export interface RouteLeg {
   fromDestinationId?: string;
   toDestinationId?: string;
@@ -396,7 +481,12 @@ export function generateDayPlan(
   ) {
     return buildUnfeasiblePlan("anchor_exceeds_time_window");
   }
-  if (optionalCandidates.length < optionalStopsNeeded) {
+  const eligibility = getPlanEligibility(primary, {
+    planType,
+    catchmentScope,
+    context: options?.context,
+  });
+  if (!eligibility.eligible) {
     return buildUnfeasiblePlan("insufficient_real_pois");
   }
 

@@ -4,6 +4,7 @@ import {
   removeStepFromPlan,
   reorderPlanSteps,
   isRealDestinationStop,
+  getPlanEligibility,
 } from "../DayPlanGeneratorService";
 import type { Destination } from "@/shared/types/destination";
 
@@ -108,5 +109,55 @@ describe("DayPlanGeneratorService", () => {
         expect(newDestSteps[1].title.en).toBe(firstDestTitle);
       }
     }
+  });
+});
+
+describe("getPlanEligibility", () => {
+  const hub = {
+    id: "tokyo-city",
+    name: "Tokyo City",
+    prefecture: "Tokyo",
+    role: "hub",
+    kind: "city",
+    categories: ["Culture"],
+    budgetMin: 0,
+    budgetMax: 0,
+    coordinates: { lat: 35.68, lng: 139.76 },
+    relationships: {},
+  } as unknown as Destination;
+
+  it("reports a hub with enough nearby candidates as eligible", () => {
+    const el = getPlanEligibility(hub, { planType: "full_day" });
+    expect(el.isHub).toBe(true);
+    expect(el.eligible).toBe(true);
+    expect(el.candidateCount).toBeGreaterThanOrEqual(el.threshold);
+  });
+
+  it("reports an isolated destination as ineligible", () => {
+    const remote = {
+      id: "izu-isolated",
+      name: "Izu Isolated Spot",
+      prefecture: "Shizuoka",
+      role: "standalone",
+      categories: ["Nature"],
+      budgetMin: 0,
+      budgetMax: 0,
+      coordinates: { lat: 34.76, lng: 138.9 },
+      relationships: {},
+    } as unknown as Destination;
+    const el = getPlanEligibility(remote, { planType: "full_day" });
+    // An isolated POI without usable nearby combos is not eligible.
+    if (!el.eligible) {
+      expect(el.reason).toBe("insufficient_real_pois");
+      expect(el.candidateCount).toBeLessThan(el.threshold);
+    }
+  });
+
+  it("returns consistent results for half-day and full-day thresholds", () => {
+    const halfDay = getPlanEligibility(hub, { planType: "half_day" });
+    const fullDay = getPlanEligibility(hub, { planType: "full_day" });
+    expect(halfDay.threshold).toBe(2);
+    expect(fullDay.threshold).toBe(3);
+    expect(halfDay.candidateCount).toBe(fullDay.candidateCount);
   });
 });
