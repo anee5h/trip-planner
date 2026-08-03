@@ -18,9 +18,11 @@
   "prefecture": "Hyogo",
   "region": "Kansai",
   "kind": "park",
-  "role": "standalone",
+  "role": "destination",
   "placeType": "destination",
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "kobe-city"
+  },
   "officialWebsiteRequirement": "none",
   "categories": ["Nature"],
   "tags": ["Nature", "Kobe City", "v1.9.2"],
@@ -137,5 +139,6 @@
   "notesJa": "【見どころ】メリケンパークは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "hubId": "kobe-city"
 }

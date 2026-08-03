@@ -79,7 +79,8 @@
       "takamatsu-city",
       "matsuyama-city",
       "tokushima-city"
-    ]
+    ],
+    "parentDestinationId": "kobe-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg/3840px-View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg",
   "budgetBreakdown": {
@@ -124,5 +125,6 @@
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["kobe-city"],
-  "role": "standalone"
+  "role": "destination",
+  "hubId": "kobe-city"
 }

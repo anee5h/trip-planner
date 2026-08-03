@@ -12911,9 +12911,11 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "temple",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
     "officialWebsite": "https://www.shokoku-ji.jp/ginkakuji/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
@@ -13040,7 +13042,8 @@
     "notesJa": "【見どころ】慈照寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kyoto-city"
   },
   {
     "id": "ginza-urban",
@@ -16134,9 +16137,11 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "shrine",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
     "officialWebsite": "http://www.heianjingu.or.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
@@ -16254,7 +16259,8 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "nearHubs": ["kyoto-city"]
+    "nearHubs": ["kyoto-city"],
+    "hubId": "kyoto-city"
   },
   {
     "id": "higashiyama-sky-tower-nagoya",
@@ -26149,9 +26155,11 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "temple",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
     "tags": ["History", "Kyoto City", "v1.9.2"],
@@ -26269,7 +26277,8 @@
     "notesJa": "【見どころ】法観寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kyoto-city"
   },
   {
     "id": "kinkaku-ji",
@@ -28286,9 +28295,11 @@
     "prefecture": "Hyogo",
     "region": "Kansai",
     "kind": "museum",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kobe-city"
+    },
     "officialWebsite": "http://www.kobe-maritime-museum.com/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
@@ -28405,7 +28416,8 @@
     "notesJa": "【見どころ】神戸海洋博物館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kobe-city"
   },
   {
     "id": "kobe-maya-night-view",
@@ -28488,7 +28500,8 @@
         "takamatsu-city",
         "matsuyama-city",
         "tokushima-city"
-      ]
+      ],
+      "parentDestinationId": "kobe-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg/3840px-View_of_Kikuseidai_from_Mount_Maya_Kobe.jpg",
     "budgetBreakdown": {
@@ -28533,7 +28546,8 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["kobe-city"],
-    "role": "standalone"
+    "role": "destination",
+    "hubId": "kobe-city"
   },
   {
     "id": "kobe-port-tower",
@@ -30598,9 +30612,11 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "market",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    },
     "officialWebsite": "https://kuromon.com/en/",
     "officialWebsiteRequirement": "none",
     "categories": ["Food"],
@@ -30718,7 +30734,8 @@
     "notesJa": "【見どころ】黒門市場は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "osaka-city"
   },
   {
     "id": "kusatsu-town",
@@ -31400,9 +31417,11 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "museum",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
     "officialWebsite": "https://sankan.kunaicho.go.jp/guide/kyoto.html",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
@@ -31520,7 +31539,8 @@
     "notesJa": "【見どころ】京都御所は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kyoto-city"
   },
   {
     "id": "kyoto-international-manga-museum",
@@ -31545,9 +31565,11 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "museum",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
     "officialWebsite": "http://www.kyotomm.com/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
@@ -31665,7 +31687,8 @@
     "notesJa": "【見どころ】京都国際マンガミュージアムは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kyoto-city"
   },
   {
     "id": "kyoto-national-museum",
@@ -31687,9 +31710,11 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "museum",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
     "officialWebsite": "http://www.kyohaku.go.jp/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
@@ -31807,7 +31832,8 @@
     "notesJa": "【見どころ】京都国立博物館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kyoto-city"
   },
   {
     "id": "kyoto-railway-museum",
@@ -31829,9 +31855,11 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "museum",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
     "officialWebsite": "https://www.kyotorailwaymuseum.jp/en/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
@@ -31949,7 +31977,8 @@
     "notesJa": "【見どころ】京都鉄道博物館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kyoto-city"
   },
   {
     "id": "lake-hamanako",
@@ -34525,9 +34554,11 @@
     "prefecture": "Hyogo",
     "region": "Kansai",
     "kind": "park",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kobe-city"
+    },
     "officialWebsiteRequirement": "none",
     "categories": ["Nature"],
     "tags": ["Nature", "Kobe City", "v1.9.2"],
@@ -34644,7 +34675,8 @@
     "notesJa": "【見どころ】メリケンパークは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kobe-city"
   },
   {
     "id": "minakami-town",
@@ -39864,9 +39896,11 @@
     "prefecture": "Hyogo",
     "region": "Kansai",
     "kind": "museum",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kobe-city"
+    },
     "officialWebsite": "https://www.nankinmachi.or.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Food"],
@@ -39988,7 +40022,8 @@
     "notesJa": "【見どころ】南京町 (神戸市)は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kobe-city"
   },
   {
     "id": "nanzen-ji",
@@ -40010,9 +40045,11 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "temple",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
     "officialWebsite": "http://www.nanzen.net/keidai_nanzenin.html",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
@@ -40130,7 +40167,8 @@
     "notesJa": "【見どころ】南禅院は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kyoto-city"
   },
   {
     "id": "naoshima-art-island-kagawa",
@@ -42676,9 +42714,11 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "temple",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
     "officialWebsite": "http://www.ninnaji.or.jp",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
@@ -42805,7 +42845,8 @@
     "notesJa": "【見どころ】仁和寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kyoto-city"
   },
   {
     "id": "niseko-town",
@@ -42912,9 +42953,11 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "market",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
     "officialWebsite": "http://www.kyoto-nishiki.or.jp/",
     "officialWebsiteRequirement": "none",
     "categories": ["Food"],
@@ -43032,7 +43075,8 @@
     "notesJa": "【見どころ】錦市場は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kyoto-city"
   },
   {
     "id": "noto",
@@ -43246,9 +43290,11 @@
     "prefecture": "Hyogo",
     "region": "Kansai",
     "kind": "museum",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kobe-city"
+    },
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature"],
     "tags": ["Nature", "Kobe City", "v1.9.2"],
@@ -43365,7 +43411,8 @@
     "notesJa": "【見どころ】布引の滝 (兵庫県)は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kobe-city"
   },
   {
     "id": "nunobiki-herb-gardens",
@@ -43387,9 +43434,11 @@
     "prefecture": "Hyogo",
     "region": "Kansai",
     "kind": "garden",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kobe-city"
+    },
     "officialWebsite": "https://www.kobeherb.com/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature"],
@@ -43506,7 +43555,8 @@
     "notesJa": "【見どころ】布引ハーブ園は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kobe-city"
   },
   {
     "id": "nunobiki-ropeway",
@@ -43528,9 +43578,11 @@
     "prefecture": "Hyogo",
     "region": "Kansai",
     "kind": "museum",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kobe-city"
+    },
     "officialWebsite": "https://www.kobeherb.com/view/ropeway/",
     "officialWebsiteRequirement": "required",
     "categories": ["Viewpoint"],
@@ -43647,7 +43699,8 @@
     "notesJa": "【見どころ】神戸布引ロープウェイは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kobe-city"
   },
   {
     "id": "nyuto-onsen-akita",
@@ -46390,9 +46443,11 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "aquarium",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    },
     "officialWebsite": "https://www.kaiyukan.com/language/eng/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
@@ -46510,7 +46565,8 @@
     "notesJa": "【見どころ】海遊館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "osaka-city"
   },
   {
     "id": "osaka-castle",
@@ -46661,9 +46717,11 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "park",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    },
     "officialWebsite": "https://www.osakacastlepark.jp/?lang=en",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature", "History"],
@@ -46790,7 +46848,8 @@
     "notesJa": "【見どころ】大阪城公園は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "osaka-city"
   },
   {
     "id": "osaka-city",
@@ -46945,9 +47004,11 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "museum",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    },
     "officialWebsite": "http://konjyakukan.com/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
@@ -47065,7 +47126,8 @@
     "notesJa": "【見どころ】大阪くらしの今昔館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "osaka-city"
   },
   {
     "id": "osaka-station-city",
@@ -47087,9 +47149,11 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "museum",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    },
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
     "tags": ["Culture", "Osaka City", "v1.9.2"],
@@ -47207,7 +47271,8 @@
     "notesJa": "【見どころ】大阪ステーションシティは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "osaka-city"
   },
   {
     "id": "osaki-hachimangu",
@@ -48431,9 +48496,11 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "museum",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
     "officialWebsite": "https://tetsugakunomichi.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
@@ -48551,7 +48618,8 @@
     "notesJa": "【見どころ】哲学の道は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kyoto-city"
   },
   {
     "id": "rakuten-mobile-park-miyagi",
@@ -49096,9 +49164,11 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "temple",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
     "officialWebsite": "https://www.city.kyoto.lg.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
@@ -49225,7 +49295,8 @@
     "notesJa": "【見どころ】京都市は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kyoto-city"
   },
   {
     "id": "ryugado-cave-kochi",
@@ -51090,9 +51161,11 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "museum",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
     "tags": ["Culture", "Kyoto City", "v1.9.2"],
@@ -51210,7 +51283,8 @@
     "notesJa": "【見どころ】江戸三十三間堂は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kyoto-city"
   },
   {
     "id": "sannai-maruyama-jomon-aomori",
@@ -54638,9 +54712,11 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "museum",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    },
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
     "tags": ["Culture", "Osaka City", "v1.9.2"],
@@ -54758,7 +54834,8 @@
     "notesJa": "【見どころ】心斎橋は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "osaka-city"
   },
   {
     "id": "shinsekai",
@@ -54780,9 +54857,11 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "museum",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    },
     "officialWebsite": "https://shinsekai.osaka/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
@@ -54900,7 +54979,8 @@
     "notesJa": "【見どころ】新世界 (大阪)は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "osaka-city"
   },
   {
     "id": "shinsho-ji",
@@ -59261,9 +59341,11 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "viewpoint",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    },
     "officialWebsite": "http://www.senyo.co.jp/tempozan/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Viewpoint"],
@@ -59381,7 +59463,8 @@
     "notesJa": "【見どころ】天保山大観覧車は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "osaka-city"
   },
   {
     "id": "tenjin",
@@ -59579,9 +59662,11 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "temple",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    },
     "officialWebsite": "https://www.city.osaka.lg.jp/contents/wdu170/tennojizoo/top.html",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature", "History"],
@@ -59699,7 +59784,8 @@
     "notesJa": "【見どころ】天王寺公園は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "osaka-city"
   },
   {
     "id": "teshima-island-kagawa",
@@ -59997,9 +60083,11 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "museum",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    },
     "officialWebsite": "http://www.nmao.go.jp",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
@@ -60117,7 +60205,8 @@
     "notesJa": "【見どころ】国立国際美術館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "osaka-city"
   },
   {
     "id": "tochoji",
@@ -67575,9 +67664,11 @@
     "prefecture": "Kyoto",
     "region": "Kansai",
     "kind": "shrine",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
     "tags": ["History", "Kyoto City", "v1.9.2"],
@@ -67695,7 +67786,8 @@
     "notesJa": "【見どころ】法観寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kyoto-city"
   },
   {
     "id": "yokohama-chinatown",
@@ -77628,9 +77720,11 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "temple",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    },
     "officialWebsiteRequirement": "recommended",
     "categories": ["History", "Culture", "Temple"],
     "tags": [
@@ -77745,7 +77839,8 @@
     "notesJa": "【見どころ】四天王寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "osaka-city"
   },
   {
     "id": "nakanoshima-museum-art-osaka",
@@ -77767,9 +77862,11 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "museum",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    },
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum", "Art", "Indoor"],
     "tags": [
@@ -77884,7 +77981,8 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "nearHubs": ["osaka-city"]
+    "nearHubs": ["osaka-city"],
+    "hubId": "osaka-city"
   },
   {
     "id": "osaka-central-public-hall",
@@ -77906,9 +78004,11 @@
     "prefecture": "Osaka",
     "region": "Kansai",
     "kind": "museum",
-    "role": "standalone",
+    "role": "destination",
     "placeType": "destination",
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    },
     "officialWebsiteRequirement": "recommended",
     "categories": ["History", "Architecture", "Culture"],
     "tags": [
@@ -78023,7 +78123,8 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "nearHubs": ["osaka-city"]
+    "nearHubs": ["osaka-city"],
+    "hubId": "osaka-city"
   },
   {
     "id": "hiroshima-castle",
