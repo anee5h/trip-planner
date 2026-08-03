@@ -76,7 +76,7 @@ async function runAll() {
   let gitCommit = "unknown";
   try {
     gitCommit = execSync("git rev-parse --short HEAD").toString().trim();
-  } catch (e) {
+  } catch {
     // Git not initialized or unavailable
   }
 
