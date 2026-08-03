@@ -79,9 +79,6 @@
       "confirmed": true
     }
   ],
-  "relationships": {
-    "parentDestinationId": "kusatsu-town"
-  },
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,

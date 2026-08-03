@@ -24776,7 +24776,7 @@
     "role": "standalone",
     "placeType": "destination",
     "relationships": {
-      "parentDestinationId": "katori-city"
+      "parentDestinationId": "narita-city"
     },
     "officialWebsite": "http://www.katori-jingu.or.jp/",
     "officialWebsiteRequirement": "optional",
@@ -30097,7 +30097,7 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [],
-      "parentDestinationId": "naha-city"
+      "parentDestinationId": "nago-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Heart-shaped_rocks_at_Kouri_Island_202006.jpg/1920px-Heart-shaped_rocks_at_Kouri_Island_202006.jpg",
     "walkingIntensity": "low",
@@ -32703,7 +32703,7 @@
         "nyuto-onsen-akita",
         "kakunodate-samurai-district-akita"
       ],
-      "parentDestinationId": "semboku-city"
+      "parentDestinationId": "akita-city"
     },
     "budgetBreakdown": null,
     "recommendedVisitHours": {
@@ -59071,7 +59071,7 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [],
-      "parentDestinationId": "asago-city"
+      "parentDestinationId": "himeji-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/2/26/%E7%AB%B9%E7%94%B0%E5%9F%8E.JPG",
     "walkingIntensity": "low",
@@ -63593,9 +63593,6 @@
         "confirmed": true
       }
     ],
-    "relationships": {
-      "parentDestinationId": "kusatsu-town"
-    },
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -67593,7 +67590,8 @@
         "fukuoka-city",
         "kitakyushu-city",
         "dazaifu-city"
-      ]
+      ],
+      "parentDestinationId": "kagoshima-city"
     },
     "budgetBreakdown": {
       "transport": 3563,
@@ -67971,7 +67969,7 @@
     },
     "collections": [],
     "relationships": {
-      "parentDestinationId": "fujiyoshida-city"
+      "parentDestinationId": "kofu-city"
     },
     "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000",
     "walkingIntensity": "low",
@@ -68068,7 +68066,7 @@
       }
     ],
     "relationships": {
-      "parentDestinationId": "fujiyoshida-city"
+      "parentDestinationId": "kofu-city"
     },
     "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000",
     "walkingIntensity": "low",
@@ -75657,7 +75655,7 @@
     "role": "poi",
     "placeType": "destination",
     "relationships": {
-      "parentDestinationId": "hino-city"
+      "parentDestinationId": "hachioji-tokyo"
     },
     "officialWebsiteRequirement": "recommended",
     "categories": ["History", "Culture", "Temple"],

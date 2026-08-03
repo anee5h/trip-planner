@@ -29,7 +29,7 @@
   "role": "standalone",
   "placeType": "destination",
   "relationships": {
-    "parentDestinationId": "katori-city"
+    "parentDestinationId": "narita-city"
   },
   "officialWebsite": "http://www.katori-jingu.or.jp/",
   "officialWebsiteRequirement": "optional",

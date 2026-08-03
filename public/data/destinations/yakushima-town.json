@@ -77,7 +77,8 @@
   ],
   "relationships": {
     "featuredDestinationIds": [],
-    "nearbyDestinationIds": ["fukuoka-city", "kitakyushu-city", "dazaifu-city"]
+    "nearbyDestinationIds": ["fukuoka-city", "kitakyushu-city", "dazaifu-city"],
+    "parentDestinationId": "kagoshima-city"
   },
   "budgetBreakdown": {
     "transport": 3563,
