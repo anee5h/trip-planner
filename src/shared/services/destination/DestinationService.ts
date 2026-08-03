@@ -2,6 +2,7 @@ import type { Destination } from "@/shared/types/destination";
 import {
   getCanonicalPlaces,
   getAvailablePlaces,
+  isPlaceAvailableInLocale,
   toCanonicalPlace,
 } from "@/shared/services/place/PlaceCatalog";
 
@@ -23,50 +24,66 @@ export function getDestinationList(
   });
 }
 
-export async function getDestination(id: string): Promise<Destination | null> {
-  try {
-    const response = await fetch(`/data/destinations/${id}.json`);
-    if (response.ok) {
-      const dest = toCanonicalPlace(await response.json());
-      if (dest.transportOptions?.car && !dest.transportOptions.my_car) {
+/**
+ * Loads a destination and, when a locale is supplied, gates it through
+ * isPlaceAvailableInLocale so unpublished Japanese records are not reachable
+ * via a direct /destinations/:id route. Callers that need an ungated copy
+ * (e.g. editorial review) must pass no locale and own that intent explicitly.
+ */
+export async function getDestination(
+  id: string,
+  locale?: "en" | "ja",
+): Promise<Destination | null> {
+  const load = async (): Promise<Destination | null> => {
+    try {
+      const response = await fetch(`/data/destinations/${id}.json`);
+      if (response.ok) {
+        const dest = toCanonicalPlace(await response.json());
+        if (dest.transportOptions?.car && !dest.transportOptions.my_car) {
+          return {
+            ...dest,
+            transportOptions: {
+              ...dest.transportOptions,
+              my_car: dest.transportOptions.car,
+            },
+          };
+        }
+        return dest;
+      }
+    } catch (error) {
+      // Fallback to index below
+    }
+
+    // Fallback to in-memory destinationsIndex
+    const indexMatch = getCanonicalPlaces().find((d) => d.id === id);
+    if (indexMatch) {
+      if (
+        indexMatch.transportOptions?.car &&
+        !indexMatch.transportOptions.my_car
+      ) {
         return {
-          ...dest,
+          ...indexMatch,
           transportOptions: {
-            ...dest.transportOptions,
-            my_car: dest.transportOptions.car,
+            ...indexMatch.transportOptions,
+            my_car: indexMatch.transportOptions.car,
           },
         };
       }
-      return dest;
+      return indexMatch;
     }
-  } catch (error) {
-    // Fallback to index below
-  }
 
-  // Fallback to in-memory destinationsIndex
-  const indexMatch = getCanonicalPlaces().find((d) => d.id === id);
-  if (indexMatch) {
-    if (
-      indexMatch.transportOptions?.car &&
-      !indexMatch.transportOptions.my_car
-    ) {
-      return {
-        ...indexMatch,
-        transportOptions: {
-          ...indexMatch.transportOptions,
-          my_car: indexMatch.transportOptions.car,
-        },
-      };
-    }
-    return indexMatch;
-  }
+    return null;
+  };
 
-  return null;
+  const dest = await load();
+  if (!dest) return null;
+  if (locale && !isPlaceAvailableInLocale(dest, locale)) return null;
+  return dest;
 }
 
 export async function compareDestinations(
   ids: string[],
 ): Promise<Destination[]> {
-  const results = await Promise.all(ids.map(getDestination));
+  const results = await Promise.all(ids.map((id) => getDestination(id)));
   return results.filter((d): d is Destination => d !== null);
 }

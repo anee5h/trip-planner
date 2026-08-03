@@ -284,7 +284,7 @@ export default function DestinationDetails() {
   useEffect(() => {
     if (id) {
       setDestLoading(true);
-      getDestination(id).then((destObj: Destination | null) => {
+      getDestination(id, locale).then((destObj: Destination | null) => {
         if (!destObj) {
           setDestination(null);
           setDestLoading(false);
@@ -297,7 +297,7 @@ export default function DestinationDetails() {
         setDestLoading(false);
       });
     }
-  }, [id, homeStationCoords]);
+  }, [id, homeStationCoords, locale]);
 
   const [wikiSummary, setWikiSummary] = useState<WikipediaSummary | null>(null);
   const [isWikiExpanded, setIsWikiExpanded] = useState(false);
