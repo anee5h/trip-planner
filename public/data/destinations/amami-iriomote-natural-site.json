@@ -84,7 +84,7 @@
     }
   ],
   "relationships": {
-    "parentDestinationId": "kagoshima-city"
+    "gatewayHubId": "kagoshima-city"
   },
   "budgetBreakdown": {
     "transport": 3000,

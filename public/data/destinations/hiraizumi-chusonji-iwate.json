@@ -84,7 +84,7 @@
     }
   ],
   "relationships": {
-    "parentDestinationId": "morioka-city"
+    "gatewayHubId": "morioka-city"
   },
   "budgetBreakdown": {
     "transport": 3000,

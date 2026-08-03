@@ -143,6 +143,9 @@ export interface DestinationImageMetadata {
 
 export interface DestinationRelationships {
   parentDestinationId?: string;
+  /** Regional access hub for places reachable only via a gateway (e.g. islands,
+   *  remote mountain areas) rather than contained within a municipal hub. */
+  gatewayHubId?: string;
   featuredDestinationIds?: string[];
   nearbyDestinationIds?: string[];
   relatedDestinationIds?: string[];

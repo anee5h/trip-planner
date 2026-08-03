@@ -79,7 +79,7 @@
   "relationships": {
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["hiraizumi-chusonji-iwate"],
-    "parentDestinationId": "morioka-city"
+    "gatewayHubId": "morioka-city"
   },
   "budgetBreakdown": null,
   "role": "standalone",

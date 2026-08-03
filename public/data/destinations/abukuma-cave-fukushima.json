@@ -74,7 +74,7 @@
   "relationships": {
     "featuredDestinationIds": [],
     "nearbyDestinationIds": [],
-    "parentDestinationId": "aizuwakamatsu-city"
+    "gatewayHubId": "aizuwakamatsu-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/1/14/Flowstones_and_Mushroom_Rocks_inside_Abukuma-do_Cave.JPG",
   "walkingIntensity": "low",

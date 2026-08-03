@@ -80,7 +80,7 @@
     }
   ],
   "relationships": {
-    "parentDestinationId": "abashiri-city"
+    "gatewayHubId": "abashiri-city"
   },
   "budgetBreakdown": {
     "transport": 3000,
