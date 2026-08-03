@@ -255,4 +255,28 @@ describe("getPlanEligibility", () => {
     expect(el.eligible).toBe(false);
     expect(el.reason).toBe("insufficient_real_pois");
   });
+
+  it("generateDayPlan honours an injected catalogue for candidate selection", () => {
+    // A tiny injected catalogue with exactly one nearby stop. The generator
+    // must not pull unrelated places from the live canonical catalogue when
+    // deciding feasibility.
+    const catalogue = [center, a];
+    const plan = generateDayPlan(center, { planType: "full_day", catalogue });
+    // With only 2 real stops a full-day plan is unfeasible.
+    expect(plan.isUnfeasible).toBe(true);
+    expect(plan.failureReason).toBe("insufficient_real_pois");
+
+    const halfPlan = generateDayPlan(center, {
+      planType: "half_day",
+      catalogue,
+    });
+    expect(halfPlan.isUnfeasible).toBe(false);
+    const stops = halfPlan.steps.filter(isRealDestinationStop);
+    expect(stops.length).toBeGreaterThanOrEqual(2);
+    // Every stop must come from the injected catalogue.
+    const catalogueIds = new Set(catalogue.map((d) => d.id));
+    for (const stop of stops) {
+      expect(catalogueIds.has(stop.destination?.id ?? "")).toBe(true);
+    }
+  });
 });

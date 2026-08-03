@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import type { Destination } from "@/shared/types/destination";
 import {
@@ -95,6 +95,23 @@ export function DayPlanWidget({
   }, [startTime, availableMinutes]);
 
   const [generatedPlan, setGeneratedPlan] = useState<DayPlan | null>(null);
+
+  // Reset destination-specific state when the destination or its eligibility
+  // changes. useState initializers only run once, so navigating between a
+  // full-day-capable destination and a half-day-only one would otherwise keep
+  // stale planType / duration state.
+  useEffect(() => {
+    const nextPlanType =
+      defaultPlanType ?? (fullDayDisabled ? "half_day" : "full_day");
+    const nextMinutes = nextPlanType === "half_day" ? 300 : 540;
+
+    setPlanType(nextPlanType);
+    setAvailableMinutes(nextMinutes);
+    setDurationPreset(String(nextMinutes));
+    setGeneratedPlan(null);
+    setHasGenerated(false);
+    setShowConfig(false);
+  }, [destination.id, defaultPlanType, fullDayDisabled]);
 
   const resultRef = useRef<HTMLDivElement>(null);
 
