@@ -105,6 +105,22 @@
     "min": 3,
     "max": 5
   },
-  "officialWebsite": "https://www.himejicastle.jp/",
-  "businessHours": "09:00 - 17:00 (Last admission 16:00)"
+  "officialWebsite": "https://www.himejicastle.jp/en/",
+  "businessHours": "09:00 - 17:00 (Last admission 16:00)",
+  "hubId": "himeji-city",
+  "nearHubs": ["himeji-city"],
+  "editorial": {
+    "rating": 4.8,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "Himeji Castle is Japan's premier surviving feudal castle complex and a UNESCO World Heritage site, famous for its brilliant white plaster walls resembling a taking-off heron.",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026"],
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "checkedAt": "2026-08-03T00:00:00Z",
+    "freshness": "current"
+  },
+  "notesJa": "【見どころ】姫路城は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+  "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+  "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
 }

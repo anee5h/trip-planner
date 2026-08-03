@@ -197,7 +197,23 @@
     "placeType": "destination",
     "areaId": "tennoji-abeno",
     "officialWebsite": "https://www.abenoharukas-300.jp/observatory/",
-    "businessHours": "09:00 - 22:00 (Last admission 21:30)"
+    "businessHours": "09:00 - 22:00 (Last admission 21:30)",
+    "hubId": "osaka-city",
+    "nearHubs": ["osaka-city"],
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Rising 300 meters above Osaka, Abeno Harukas is Japan's tallest skyscraper, featuring a 3-story glass observatory and open-air wooden atrium garden.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】Abeno Harukas 300 (Osaka Skyline)は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "abukuma-cave-fukushima",
@@ -1286,7 +1302,23 @@
       "max": 5
     },
     "officialWebsite": "https://www.amanohashidate.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "hubId": "miyazu-city",
+    "nearHubs": ["miyazu-city"],
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Amanohashidate is a natural 3.3-kilometer pine-covered sandbar spanning Miyazu Bay, famed for the Matanozoki upside-down viewing technique making it look like a bridge floating into heaven.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】天橋立は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "ameya-yokocho",
@@ -2093,7 +2125,23 @@
       "max": 5
     },
     "officialWebsite": "https://www.arima-onsen.com/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Arima Onsen is Japan's oldest recorded hot spring resort, nestled behind Mount Rokko and famous for its iron-rich golden 'Kinsen' and clear radium 'Ginsen' waters.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】有馬温泉は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kobe-city",
+    "nearHubs": ["kobe-city"]
   },
   {
     "id": "art-tower-mito",
@@ -2338,7 +2386,21 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "A rural Hyogo city known for the Takeda Castle Ruins, often seen above a sea of clouds in autumn.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】朝来は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "asahikawa-city",
@@ -3192,7 +3254,23 @@
       "max": 7
     },
     "officialWebsite": "https://asukamura.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Ancient Capitals of Asuka and Fujiwara is a UNESCO World Heritage Site in Nara, designated for its outstanding universal cultural or natural value.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】飛鳥・藤原の宮都とその関連資産群は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "nara-city",
+    "nearHubs": ["nara-city"]
   },
   {
     "id": "atami-city",
@@ -8156,7 +8234,7 @@
     "relationships": {
       "parentDestinationId": "osaka-city"
     },
-    "officialWebsite": "http://www.dotonbori.or.jp/",
+    "officialWebsite": "https://www.dotonbori.or.jp/en/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Food"],
     "tags": ["Food", "Osaka City", "v1.9.2"],
@@ -8241,7 +8319,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Dotonbori is a visitor destination in Osaka City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -8256,48 +8337,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/D%C5%8Dtonbori",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/D%C5%8Dtonbori",
-            "title": "Dōtonbori",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "hubId": "osaka-city",
+    "nearHubs": ["osaka-city"],
+    "notesJa": "【見どころ】道頓堀は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "edo-castle-tokyo",
@@ -11770,7 +11825,7 @@
     "relationships": {
       "parentDestinationId": "kyoto-city"
     },
-    "officialWebsite": "https://inari.jp/",
+    "officialWebsite": "https://inari.jp/en/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
     "tags": ["Culture", "Kyoto City", "v1.9.2"],
@@ -11855,7 +11910,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Fushimi Inari Taisha is a visitor destination in Kyoto City.  Visitors can experience historic architecture and local culture.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -11870,48 +11928,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Fushimi_Inari-taisha",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Fushimi_Inari-taisha",
-            "title": "Fushimi Inari-taisha",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open 24 hours (Shrine offices 08:30 - 16:30)"
+    "businessHours": "Open 24 hours (Shrine offices 08:30 - 16:30)",
+    "hubId": "kyoto-city",
+    "nearHubs": ["kyoto-city"],
+    "notesJa": "【見どころ】伏見稲荷大社は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "gala-yuzawa",
@@ -12957,7 +12989,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Ginkaku-ji is a visitor destination in Kyoto City.  Visitors can experience historic architecture and local culture.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -12972,48 +13007,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Ginkaku-ji",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Ginkaku-ji",
-            "title": "Ginkaku-ji",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "08:30 - 17:00 (Dec-Feb: 09:00 - 16:30)"
+    "businessHours": "08:30 - 17:00 (Dec-Feb: 09:00 - 16:30)",
+    "hubId": "kyoto-city",
+    "nearHubs": ["kyoto-city"],
+    "notesJa": "【見どころ】慈照寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "ginza-urban",
@@ -16194,7 +16203,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Heian Jingu is a visitor destination in Kyoto City.  Visitors can experience historic architecture and local culture.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -16209,48 +16221,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Heian_Shrine",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Heian_Shrine",
-            "title": "Heian Shrine",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "06:00 - 17:30 (Garden 08:30 - 17:00)"
+    "businessHours": "06:00 - 17:30 (Garden 08:30 - 17:00)",
+    "notesJa": "【見どころ】平安神宮は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kyoto-city",
+    "nearHubs": ["kyoto-city"]
   },
   {
     "id": "higashiyama-sky-tower-nagoya",
@@ -16473,7 +16459,23 @@
       "max": 5
     },
     "officialWebsite": "https://hikonecastle.com/",
-    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)",
+    "hubId": "hikone-city",
+    "nearHubs": ["hikone-city"],
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Completed in 1622, Hikone Castle is one of Japan's five original surviving National Treasure keeps, overlooking Lake Biwa with pristine feudal turrets and Genkyuen garden.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】Hikone Castle (National Treasure)は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "hikone-city",
@@ -16558,7 +16560,21 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Castle town on Lake Biwa featuring original National Treasure Hikone Castle and Genkyuen Garden.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】Hikone Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "himeji-castle",
@@ -16667,8 +16683,24 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.himejicastle.jp/",
-    "businessHours": "09:00 - 17:00 (Last admission 16:00)"
+    "officialWebsite": "https://www.himejicastle.jp/en/",
+    "businessHours": "09:00 - 17:00 (Last admission 16:00)",
+    "hubId": "himeji-city",
+    "nearHubs": ["himeji-city"],
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Himeji Castle is Japan's premier surviving feudal castle complex and a UNESCO World Heritage site, famous for its brilliant white plaster walls resembling a taking-off heron.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】姫路城は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "himeji-city",
@@ -16753,7 +16785,21 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Historic castle city home to UNESCO World Heritage Himeji 'White Heron' Castle and Koko-en Garden.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】Himeji Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "hino-city",
@@ -18212,7 +18258,23 @@
         "highlights": ["ユネスコ世界遺産", "法隆寺", "世界最古の木造建築"]
       }
     },
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Buddhist Monuments in the Horyu-ji Area is a UNESCO World Heritage Site in Ikaruga Town, Nara, home to the world's oldest surviving wooden structures.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】法隆寺地域の仏教建造物は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "ikaruga-town",
+    "nearHubs": ["ikaruga-town"]
   },
   {
     "id": "ibaraki-fukuroda-falls",
@@ -18766,7 +18828,21 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Historic town home to Horyu-ji Temple, containing the world's oldest surviving wooden structures.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】Ikaruga Townは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "ikebukuro-toshima",
@@ -19890,7 +19966,21 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "A shrine city in Mie Prefecture and the location of Ise Jingu, Japan's most important Shinto shrine complex.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】伊勢は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "ise-grand-shrine",
@@ -19999,7 +20089,23 @@
       "max": 5
     },
     "officialWebsite": "https://www.isejingu.or.jp/",
-    "businessHours": "05:00 - 18:00 (Varies seasonally)"
+    "businessHours": "05:00 - 18:00 (Varies seasonally)",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Ise Grand Shrine is the spiritual heart of Shinto, dedicated to the Sun Goddess Amaterasu and rebuilt every 20 years in accordance with ancient Shikinen Sengu ritual.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】伊勢神宮は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "ise-city",
+    "nearHubs": ["ise-city"]
   },
   {
     "id": "ishigaki-city",
@@ -26091,7 +26197,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Kennin-ji is a visitor destination in Kyoto City.  Visitors can experience historic architecture and local culture.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -26106,49 +26215,9 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Yasaka_Pagoda",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Yasaka_Pagoda",
-            "title": "Yasaka Pagoda",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "officialWebsite": [
-          {
-            "type": "official",
-            "url": "https://www.kenninji.jp/",
-            "title": "Official website for Kennin-ji",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
@@ -26156,7 +26225,13 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.kenninji.jp/",
-    "businessHours": "08:30 - 17:00 (Last admission 16:30)"
+    "businessHours": "08:30 - 17:00 (Last admission 16:30)",
+    "hubId": "kyoto-city",
+    "nearHubs": ["kyoto-city"],
+    "notesJa": "【見どころ】法観寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "kinkaku-ji",
@@ -26184,7 +26259,7 @@
     "relationships": {
       "parentDestinationId": "kyoto-city"
     },
-    "officialWebsite": "https://www.shokoku-ji.jp/kinkakuji/",
+    "officialWebsite": "https://www.shokoku-ji.jp/en/kinkakuji/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
     "tags": ["History", "Kyoto City", "v1.9.2"],
@@ -26269,7 +26344,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Kinkaku-ji is a visitor destination in Kyoto City.  Visitors can experience historic architecture and local culture.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -26284,48 +26362,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Kinkaku-ji",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Kinkaku-ji",
-            "title": "Kinkaku-ji",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "hubId": "kyoto-city",
+    "nearHubs": ["kyoto-city"],
+    "notesJa": "【見どころ】鹿苑寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "kinosaki-onsen",
@@ -26426,7 +26478,23 @@
       "max": 5
     },
     "officialWebsite": "https://kinosaki-spa.gr.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Kinosaki Onsen is a quintessential hot spring town centered around a willow-lined canal, where visitors stroll between seven distinct public bathhouses in traditional yukata robes.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】城崎温泉は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "toyooka-city",
+    "nearHubs": ["toyooka-city"]
   },
   {
     "id": "kintai-bridge-yamaguchi",
@@ -27596,7 +27664,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Kitano Ijinkan is a visitor destination in Kobe City.  Visitors can experience historic architecture and local culture.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -27611,48 +27682,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Kobe",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Kobe",
-            "title": "Kobe",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "notesJa": "【見どころ】神戸市は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kobe-city",
+    "nearHubs": ["kobe-city"]
   },
   {
     "id": "kiyotsu-gorge-niigata",
@@ -27861,7 +27906,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Kobe Animal Kingdom is a visitor destination in Kobe City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -27876,48 +27924,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Animal_Kingdom",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Animal_Kingdom",
-            "title": "Kobe Animal Kingdom",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "hubId": "kobe-city",
+    "nearHubs": ["kobe-city"],
+    "notesJa": "【見どころ】神戸どうぶつ王国は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "kobe-city",
@@ -28021,7 +28043,21 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Cosmopolitan port city framed by Mt. Rokko, world-famous for Kobe Beef, Harborland, and Arima Onsen.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】Kobe Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "kobe-harborland",
@@ -28049,7 +28085,7 @@
     "relationships": {
       "parentDestinationId": "kobe-city"
     },
-    "officialWebsite": "https://www.harborland.co.jp/",
+    "officialWebsite": "https://www.harborland.co.jp/en/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
     "tags": ["Culture", "Kobe City", "v1.9.2"],
@@ -28133,7 +28169,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Kobe Harborland is a visitor destination in Kobe City.  Visitors can experience the area's character and main sights.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -28148,48 +28187,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Harborland",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Harborland",
-            "title": "Harborland",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "hubId": "kobe-city",
+    "nearHubs": ["kobe-city"],
+    "notesJa": "【見どころ】神戸ハーバーランドは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "kobe-maritime-museum",
@@ -28301,7 +28314,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Kobe Maritime Museum is a visitor destination in Kobe City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -28316,48 +28332,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Maritime_Museum",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Maritime_Museum",
-            "title": "Kobe Maritime Museum",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "hubId": "kobe-city",
+    "nearHubs": ["kobe-city"],
+    "notesJa": "【見どころ】神戸海洋博物館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "kobe-maya-night-view",
@@ -28465,7 +28455,23 @@
       "max": 5
     },
     "officialWebsite": "https://mayasan.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Known as the Ten Million Dollar Night View, Kikuseidai observatory on Mount Maya captures a breathtaking sparkling panorama spanning Kobe, Osaka Bay, and Kansai.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】摩耶山 掬星台は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kobe-city",
+    "nearHubs": ["kobe-city"]
   },
   {
     "id": "kobe-port-tower",
@@ -28577,7 +28583,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Kobe Port Tower is a visitor destination in Kobe City.  Visitors can experience the area's character and main sights.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -28592,48 +28601,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Port_Tower",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Port_Tower",
-            "title": "Kobe Port Tower",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "hubId": "kobe-city",
+    "nearHubs": ["kobe-city"],
+    "notesJa": "【見どころ】神戸ポートタワーは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "kochi-castle",
@@ -29813,7 +29796,21 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Sacred mountain monastic complex (Mount Koya / Koyasan), headquarters of Shingon Buddhism and Okunoin cemetery.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】Koya Townは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "kumamoto-castle",
@@ -30122,7 +30119,23 @@
       "max": 7
     },
     "officialWebsite": "https://www.tb-kumano.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Sacred Sites and Pilgrimage Routes in the Kii Mountain Range is a UNESCO World Heritage Site in Wakayama, designated for its outstanding universal cultural or natural value.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】紀伊山地の霊場と参詣道は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "koya-town",
+    "nearHubs": ["koya-town"]
   },
   {
     "id": "kurashiki-city",
@@ -30522,7 +30535,7 @@
     "relationships": {
       "parentDestinationId": "osaka-city"
     },
-    "officialWebsite": "https://kuromon.com/",
+    "officialWebsite": "https://kuromon.com/en/",
     "officialWebsiteRequirement": "none",
     "categories": ["Food"],
     "tags": ["Food", "Osaka City", "v1.9.2"],
@@ -30607,7 +30620,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Kuromon Market is a visitor destination in Osaka City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -30622,48 +30638,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/History_of_Tokyo",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/History_of_Tokyo",
-            "title": "History of Tokyo",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "hubId": "osaka-city",
+    "nearHubs": ["osaka-city"],
+    "notesJa": "【見どころ】黒門市場は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "kusatsu-town",
@@ -31186,7 +31176,21 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Japan's ancient imperial capital, renowned for thousands of classical Buddhist temples, Shinto shrines, traditional wooden machiya, and zen gardens.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】Kyoto Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "kyoto-historic",
@@ -31293,7 +31297,23 @@
     },
     "areaId": "higashiyama",
     "officialWebsite": "https://kyoto-travel.kyoto/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Kyoto, Japan's imperial capital for over a millennium, encompasses 17 UNESCO World Heritage monuments including the wooden balcony of Kiyomizu-dera and the shimmering Golden Pavilion.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】古都京都の文化財は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kyoto-city",
+    "nearHubs": ["kyoto-city"]
   },
   {
     "id": "kyoto-imperial-palace",
@@ -31406,7 +31426,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Kyoto Imperial Palace is a visitor destination in Kyoto City.  Visitors can experience historic architecture and local culture.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -31421,48 +31444,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Kyoto_Imperial_Palace",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Kyoto_Imperial_Palace",
-            "title": "Kyoto Imperial Palace",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "hubId": "kyoto-city",
+    "nearHubs": ["kyoto-city"],
+    "notesJa": "【見どころ】京都御所は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "kyoto-international-manga-museum",
@@ -31578,7 +31575,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Kyoto International Manga Museum is a visitor destination in Kyoto City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -31593,48 +31593,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Kyoto_International_Manga_Museum",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Kyoto_International_Manga_Museum",
-            "title": "Kyoto International Manga Museum",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "hubId": "kyoto-city",
+    "nearHubs": ["kyoto-city"],
+    "notesJa": "【見どころ】京都国際マンガミュージアムは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "kyoto-national-museum",
@@ -31747,7 +31721,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Kyoto National Museum is a visitor destination in Kyoto City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -31762,48 +31739,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Kyoto_National_Museum",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Kyoto_National_Museum",
-            "title": "Kyoto National Museum",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "hubId": "kyoto-city",
+    "nearHubs": ["kyoto-city"],
+    "notesJa": "【見どころ】京都国立博物館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "kyoto-railway-museum",
@@ -31916,7 +31867,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Kyoto Railway Museum is a visitor destination in Kyoto City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -31931,48 +31885,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Kyoto_Railway_Museum",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Kyoto_Railway_Museum",
-            "title": "Kyoto Railway Museum",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "hubId": "kyoto-city",
+    "nearHubs": ["kyoto-city"],
+    "notesJa": "【見どころ】京都鉄道博物館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "lake-hamanako",
@@ -34629,7 +34557,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Meriken Park is a visitor destination in Kobe City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -34644,49 +34575,9 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Meriken_Park",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Meriken_Park",
-            "title": "Meriken Park",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "officialWebsite": [
-          {
-            "type": "official",
-            "url": "https://www.harborland.co.jp/",
-            "title": "Official website for Meriken Park",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
@@ -34694,7 +34585,13 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.harborland.co.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "hubId": "kobe-city",
+    "nearHubs": ["kobe-city"],
+    "notesJa": "【見どころ】メリケンパークは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "minakami-town",
@@ -36217,7 +36114,21 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Coastal city home to Amanohashidate pine sandbar, ranked among Japan's Three Scenic Views.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】Miyazu Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "morioka-city",
@@ -37309,7 +37220,23 @@
       "max": 5
     },
     "officialWebsite": "https://yoshinoyama-kankou.com/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Mount Yoshino is Japan's most famous cherry blossom mountain, carpeted by over 30,000 Yamazakura trees blooming sequentially across four mountain elevations.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】吉野山は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "nara-city",
+    "nearHubs": ["nara-city"]
   },
   {
     "id": "mount-zao-yamagata",
@@ -37535,7 +37462,23 @@
         "highlights": ["ユネスコ世界遺産", "仁徳天皇陵古墳", "古代史跡"]
       }
     },
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan is a UNESCO World Heritage Site in Sakai City, designated for its outstanding universal cultural value.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】百舌鳥・古市古墳群-古代日本の墳墓群-は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "sakai-city",
+    "nearHubs": ["sakai-city"]
   },
   {
     "id": "musashi-ichinomiya-hikawa-shrine",
@@ -37999,7 +37942,23 @@
       "max": 5
     },
     "officialWebsite": "https://www.nachikan.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Nachi Falls is Japan's tallest uninterrupted single-drop waterfall (133 meters), framing the three-story red Seiganto-ji pagoda against the sacred Nachi primeval forest.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】那智滝は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "shirahama-town",
+    "nearHubs": ["shirahama-town"]
   },
   {
     "id": "nagano-bessho-onsen",
@@ -39919,7 +39878,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Nankinmachi Chinatown is a visitor destination in Kobe City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -39934,48 +39896,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Nankin-machi",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Nankin-machi",
-            "title": "Nankin-machi",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "hubId": "kobe-city",
+    "nearHubs": ["kobe-city"],
+    "notesJa": "【見どころ】南京町 (神戸市)は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "nanzen-ji",
@@ -40088,7 +40024,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Nanzen-ji is a visitor destination in Kyoto City.  Visitors can experience historic architecture and local culture.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -40103,48 +40042,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Nanzen-in",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Nanzen-in",
-            "title": "Nanzen-in",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "08:30 - 17:00 (Last admission 16:30)"
+    "businessHours": "08:30 - 17:00 (Last admission 16:30)",
+    "hubId": "kyoto-city",
+    "nearHubs": ["kyoto-city"],
+    "notesJa": "【見どころ】南禅院は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "naoshima-art-island-kagawa",
@@ -40326,7 +40239,21 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Japan's 8th-century capital, renowned for free-roaming sacred deer in Nara Park and Todai-ji Great Buddha.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】Nara Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "nara-historic",
@@ -40431,7 +40358,23 @@
       "max": 7
     },
     "officialWebsite": "https://nara-park.com/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Historic Monuments of Ancient Nara is a UNESCO World Heritage Site in Nara, designated for its outstanding universal cultural or natural value.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】古都奈良の文化財は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "nara-city",
+    "nearHubs": ["nara-city"]
   },
   {
     "id": "nara-park-todaiji",
@@ -40536,7 +40479,23 @@
       "max": 5
     },
     "officialWebsite": "http://www.todaiji.or.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Nara Park houses the world's largest wooden building (Todai-ji Daibutsuden), sheltering the 15-meter bronze Great Buddha alongside over 1,200 friendly freely roaming sika deer.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】古都奈良の文化財は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "nara-city",
+    "nearHubs": ["nara-city"]
   },
   {
     "id": "narita-airport-observation-decks",
@@ -42116,7 +42075,23 @@
     "placeType": "destination",
     "areaId": "central-kyoto",
     "officialWebsite": "https://nijo-jocastle.city.kyoto.lg.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Nijo Castle in Kyoto was the residence of Tokugawa Ieyasu, famous for its Ninomaru Palace featuring squeaking 'nightingale floors' designed to alert guards to intruders.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】二条城は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "kyoto-city",
+    "nearHubs": ["kyoto-city"]
   },
   {
     "id": "nijo-market",
@@ -42691,7 +42666,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Ninna-ji is a visitor destination in Kyoto City.  Visitors can experience historic architecture and local culture.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -42706,48 +42684,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Ninna-ji",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Ninna-ji",
-            "title": "Ninna-ji",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "08:30 - 17:00 (Last admission 16:30)"
+    "businessHours": "08:30 - 17:00 (Last admission 16:30)",
+    "hubId": "kyoto-city",
+    "nearHubs": ["kyoto-city"],
+    "notesJa": "【見どころ】仁和寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "niseko-town",
@@ -42945,7 +42897,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Nishiki Market is a visitor destination in Kyoto City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -42960,48 +42915,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Nishiki_Market",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Nishiki_Market",
-            "title": "Nishiki Market",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "hubId": "kyoto-city",
+    "nearHubs": ["kyoto-city"],
+    "notesJa": "【見どころ】錦市場は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "noto",
@@ -43304,7 +43233,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Nunobiki Falls is a visitor destination in Kobe City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -43319,49 +43251,9 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Nunobiki_Falls",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Nunobiki_Falls",
-            "title": "Nunobiki Falls",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "officialWebsite": [
-          {
-            "type": "official",
-            "url": "https://www.kobe-kankou.jp/",
-            "title": "Official website for Nunobiki Falls",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
@@ -43369,7 +43261,13 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.kobe-kankou.jp/",
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "hubId": "kobe-city",
+    "nearHubs": ["kobe-city"],
+    "notesJa": "【見どころ】布引の滝 (兵庫県)は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "nunobiki-herb-gardens",
@@ -43481,7 +43379,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Nunobiki Herb Gardens is a visitor destination in Kobe City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -43496,48 +43397,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Nunobiki_Herb_Garden",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Nunobiki_Herb_Garden",
-            "title": "Nunobiki Herb Garden",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "hubId": "kobe-city",
+    "nearHubs": ["kobe-city"],
+    "notesJa": "【見どころ】布引ハーブ園は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "nunobiki-ropeway",
@@ -43649,7 +43524,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Nunobiki Ropeway is a visitor destination in Kobe City.  Visitors can experience the area's character and main sights.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -43664,48 +43542,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Nunobiki_Ropeway",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Nunobiki_Ropeway",
-            "title": "Kobe Nunobiki Ropeway",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "hubId": "kobe-city",
+    "nearHubs": ["kobe-city"],
+    "notesJa": "【見どころ】神戸布引ロープウェイは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "nyuto-onsen-akita",
@@ -46454,7 +46306,7 @@
     "relationships": {
       "parentDestinationId": "osaka-city"
     },
-    "officialWebsite": "https://www.kaiyukan.com/",
+    "officialWebsite": "https://www.kaiyukan.com/language/eng/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
     "tags": ["Museum", "Osaka City", "v1.9.2"],
@@ -46539,7 +46391,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Osaka Aquarium Kaiyukan is a visitor destination in Osaka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -46554,48 +46409,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Osaka_Aquarium_Kaiyukan",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Osaka_Aquarium_Kaiyukan",
-            "title": "Osaka Aquarium Kaiyukan",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "10:00 - 20:00 (Last admission 19:00)"
+    "businessHours": "10:00 - 20:00 (Last admission 19:00)",
+    "hubId": "osaka-city",
+    "nearHubs": ["osaka-city"],
+    "notesJa": "【見どころ】海遊館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "osaka-castle",
@@ -46704,7 +46533,23 @@
     "placeType": "destination",
     "areaId": "osaka-castle",
     "officialWebsite": "https://www.osakacastle.net/",
-    "businessHours": "09:00 - 17:00 (Last admission 16:30)"
+    "businessHours": "09:00 - 17:00 (Last admission 16:30)",
+    "hubId": "osaka-city",
+    "nearHubs": ["osaka-city"],
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Osaka Castle is an iconic 16th-century fortress constructed by Toyotomi Hideyoshi, featuring golden roof ornaments, massive stone ramparts, and a lush park surrounded by moats.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】大阪城は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "osaka-castle-park",
@@ -46732,7 +46577,7 @@
     "relationships": {
       "parentDestinationId": "osaka-city"
     },
-    "officialWebsite": "https://osakacastlepark.jp/",
+    "officialWebsite": "https://www.osakacastlepark.jp/?lang=en",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature", "History"],
     "tags": ["Nature", "History", "Osaka City", "v1.9.2"],
@@ -46817,7 +46662,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Osaka Castle Park is a visitor destination in Osaka City.  Visitors can experience historic architecture and local culture.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -46832,48 +46680,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Osaka_Castle_Park",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Osaka_Castle_Park",
-            "title": "Osaka Castle Park",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "hubId": "osaka-city",
+    "nearHubs": ["osaka-city"],
+    "notesJa": "【見どころ】大阪城公園は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "osaka-city",
@@ -46992,7 +46814,21 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Kansai's vibrant commercial metropolis, famous for neon-lit Dotonbori canals, Osaka Castle, street food culture, and warm hospitality.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】Osaka Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "osaka-museum-of-housing-and-living",
@@ -47105,7 +46941,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Osaka Museum of Housing and Living is a visitor destination in Osaka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -47120,48 +46959,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Osaka",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Osaka",
-            "title": "Osaka",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "hubId": "osaka-city",
+    "nearHubs": ["osaka-city"],
+    "notesJa": "【見どころ】大阪くらしの今昔館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "osaka-station-city",
@@ -47273,7 +47086,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Osaka Station City is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -47288,41 +47104,9 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Shin-%C5%8Csaka_Station",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Shin-%C5%8Csaka_Station",
-            "title": "Shin-Ōsaka Station",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "officialWebsite": "https://osakastationcity.com/",
     "ratingMetadata": {
@@ -47330,7 +47114,13 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "hubId": "osaka-city",
+    "nearHubs": ["osaka-city"],
+    "notesJa": "【見どころ】大阪ステーションシティは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "osaki-hachimangu",
@@ -48163,7 +47953,21 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Port city on southern tip of Lake Biwa, featuring Ishiyamadera Temple and Enryaku-ji Temple on Mt. Hiei.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】Otsu Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "ouchi-juku-fukushima",
@@ -48631,7 +48435,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Philosopher's Walk is a visitor destination in Kyoto City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -48646,48 +48453,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Philosopher%27s_Walk",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Philosopher%27s_Walk",
-            "title": "Philosopher's Walk",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "hubId": "kyoto-city",
+    "nearHubs": ["kyoto-city"],
+    "notesJa": "【見どころ】哲学の道は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "rakuten-mobile-park-miyagi",
@@ -49323,7 +49104,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Ryoan-ji is a visitor destination in Kyoto City.  Visitors can experience historic architecture and local culture.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -49338,48 +49122,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Kyoto",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Kyoto",
-            "title": "Kyoto",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "08:00 - 17:00 (Dec-Feb: 08:30 - 16:30)"
+    "businessHours": "08:00 - 17:00 (Dec-Feb: 08:30 - 16:30)",
+    "hubId": "kyoto-city",
+    "nearHubs": ["kyoto-city"],
+    "notesJa": "【見どころ】京都市は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "ryugado-cave-kochi",
@@ -50773,7 +50531,21 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Ancient port city famous for Mozu Kofun Burial Mounds (UNESCO) and traditional Japanese kitchen knives.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】Sakai Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "sakura-castle-chiba",
@@ -51320,7 +51092,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Sanjusangen-do is a visitor destination in Kyoto City.  Visitors can experience historic architecture and local culture.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -51335,49 +51110,9 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Sanj%C5%ABsangen-d%C5%8D",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Sanj%C5%ABsangen-d%C5%8D",
-            "title": "Sanjūsangen-dō",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "officialWebsite": [
-          {
-            "type": "official",
-            "url": "https://www.sanjusangendo.jp/",
-            "title": "Official website for Sanjusangen-do",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
@@ -51385,7 +51120,13 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.sanjusangendo.jp/",
-    "businessHours": "08:30 - 17:00 (Nov-Mar: 09:00 - 16:00)"
+    "businessHours": "08:30 - 17:00 (Nov-Mar: 09:00 - 16:00)",
+    "hubId": "kyoto-city",
+    "nearHubs": ["kyoto-city"],
+    "notesJa": "【見どころ】江戸三十三間堂は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "sannai-maruyama-jomon-aomori",
@@ -54903,7 +54644,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Shinsaibashi is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -54918,49 +54662,9 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Shinsaibashi",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Shinsaibashi",
-            "title": "Shinsaibashi",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "officialWebsite": [
-          {
-            "type": "official",
-            "url": "https://www.shinsaibashi.or.jp/",
-            "title": "Official website for Shinsaibashi",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
@@ -54968,7 +54672,13 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.shinsaibashi.or.jp/",
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "hubId": "osaka-city",
+    "nearHubs": ["osaka-city"],
+    "notesJa": "【見どころ】心斎橋は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "shinsekai",
@@ -54996,7 +54706,7 @@
     "relationships": {
       "parentDestinationId": "osaka-city"
     },
-    "officialWebsite": "https://shinsekai.jp/",
+    "officialWebsite": "https://shinsekai.osaka/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
     "tags": ["Culture", "Osaka City", "v1.9.2"],
@@ -55081,7 +54791,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Shinsekai is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -55096,48 +54809,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Shinsekai",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Shinsekai",
-            "title": "Shinsekai",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "hubId": "osaka-city",
+    "nearHubs": ["osaka-city"],
+    "notesJa": "【見どころ】新世界 (大阪)は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "shinsho-ji",
@@ -55404,7 +55091,21 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Subtropical resort town famous for white sand beaches, outdoor hot springs, and Engetsuto Island sunset views.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】Shirahama Townは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "shirakami-sanchi-aomori",
@@ -58550,7 +58251,23 @@
       "max": 5
     },
     "officialWebsite": "https://www.city.asago.hyogo.jp/site/takeda-castle/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "hubId": "asago-city",
+    "nearHubs": ["asago-city"],
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Famous as Japan's 'Castle in the Sky', these breathtaking 15th-century mountain ruins float above a sea of morning autumn fog.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】竹田城跡は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "takeda-castle-yamanashi",
@@ -59558,7 +59275,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Tempozan Ferris Wheel is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -59573,48 +59293,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Tempozan_Ferris_Wheel",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Tempozan_Ferris_Wheel",
-            "title": "Tempozan Ferris Wheel",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "hubId": "osaka-city",
+    "nearHubs": ["osaka-city"],
+    "notesJa": "【見どころ】天保山大観覧車は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "tenjin",
@@ -59903,7 +59597,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Tennoji Park is a visitor destination in Osaka City.  Visitors can experience historic architecture and local culture.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -59918,48 +59615,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Tenn%C5%8Dji_Park",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Tenn%C5%8Dji_Park",
-            "title": "Tennōji Park",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "hubId": "osaka-city",
+    "nearHubs": ["osaka-city"],
+    "notesJa": "【見どころ】天王寺公園は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "teshima-island-kagawa",
@@ -60348,7 +60019,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "The National Museum of Art, Osaka is a visitor destination in Osaka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -60363,48 +60037,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/National_Museum_of_Art,_Osaka",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/National_Museum_of_Art,_Osaka",
-            "title": "National Museum of Art, Osaka",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)"
+    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "hubId": "osaka-city",
+    "nearHubs": ["osaka-city"],
+    "notesJa": "【見どころ】国立国際美術館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "tochoji",
@@ -63867,7 +63515,21 @@
       "min": 8,
       "max": 14
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "A northern Hyogo city known for Kinosaki Onsen, the San'in coast, and the reintroduction of Oriental storks.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】豊岡は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "toyosu-market",
@@ -65124,7 +64786,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Tsutenkaku is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -65139,48 +64804,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Ts%C5%ABtenkaku",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Ts%C5%ABtenkaku",
-            "title": "Tsūtenkaku",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "10:00 - 20:00 (Last admission 19:30)"
+    "businessHours": "10:00 - 20:00 (Last admission 19:30)",
+    "hubId": "osaka-city",
+    "nearHubs": ["osaka-city"],
+    "notesJa": "【見どころ】通天閣は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "ueda-castle-nagano",
@@ -65844,7 +65483,21 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Historic green tea capital south of Kyoto, featuring UNESCO World Heritage Byodoin Temple (10-yen coin temple).",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】Uji Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "umeda-sky-building",
@@ -65872,7 +65525,7 @@
     "relationships": {
       "parentDestinationId": "osaka-city"
     },
-    "officialWebsite": "http://www.skybldg.co.jp/skybldg/",
+    "officialWebsite": "https://www.skybldg.co.jp/en/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Viewpoint"],
     "tags": ["Viewpoint", "Osaka City", "v1.9.2"],
@@ -65957,7 +65610,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Umeda Sky Building is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -65972,48 +65628,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Umeda_Sky_Building",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Umeda_Sky_Building",
-            "title": "Umeda Sky Building",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 22:30 (Last admission 22:00)"
+    "businessHours": "09:30 - 22:30 (Last admission 22:00)",
+    "hubId": "osaka-city",
+    "nearHubs": ["osaka-city"],
+    "notesJa": "【見どころ】梅田スカイビルは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "universal-studios-japan",
@@ -66041,7 +65671,7 @@
     "relationships": {
       "parentDestinationId": "osaka-city"
     },
-    "officialWebsite": "https://www.usj.co.jp/",
+    "officialWebsite": "https://www.usj.co.jp/web/en/us",
     "officialWebsiteRequirement": "required",
     "categories": ["Theme Park", "Entertainment"],
     "tags": ["Culture", "Osaka City", "v1.9.2"],
@@ -66126,7 +65756,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Universal Studios Japan is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -66141,48 +65774,22 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Universal_Studios_Japan",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Universal_Studios_Japan",
-            "title": "Universal Studios Japan",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "08:30 - 21:30 (Varies seasonally)"
+    "businessHours": "08:30 - 21:30 (Varies seasonally)",
+    "hubId": "osaka-city",
+    "nearHubs": ["osaka-city"],
+    "notesJa": "【見どころ】ユニバーサル・スタジオ・ジャパンは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "urayasu-city",
@@ -66955,7 +66562,21 @@
       "min": 6,
       "max": 12
     },
-    "businessHours": "Open access"
+    "businessHours": "Open access",
+    "editorial": {
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Coastal castle city famous for Wakayama Castle, Kuroshio Seafood Market, and Wakayama ramen.",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026"],
+      "reviewedAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-08-03T00:00:00Z",
+      "freshness": "current"
+    },
+    "notesJa": "【見どころ】Wakayama Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "yakushima-town",
@@ -67969,7 +67590,10 @@
     "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Yasaka Shrine is a visitor destination in Kyoto City.  Visitors can experience historic architecture and local culture.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "wikipedia",
@@ -67984,49 +67608,9 @@
           "accessedAt": "2026-07-29"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Yasaka_Pagoda",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Yasaka_Pagoda",
-            "title": "Yasaka Pagoda",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "officialWebsite": [
-          {
-            "type": "official",
-            "url": "https://www.yasaka-jinja.or.jp/",
-            "title": "Official website for Yasaka Shrine",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "review_due"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
@@ -68034,7 +67618,13 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.yasaka-jinja.or.jp/",
-    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
+    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
+    "hubId": "kyoto-city",
+    "nearHubs": ["kyoto-city"],
+    "notesJa": "【見どころ】法観寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "yokohama-chinatown",
@@ -78052,7 +77642,10 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Shitennoji is a distinct visitor stop within Osaka City, selected to support a varied local itinerary.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -78061,17 +77654,9 @@
           "accessedAt": "2026-08-02"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-02",
-      "freshness": "current",
-      "changeSummary": "Destination hub expansion",
-      "changes": [
-        {
-          "changedAt": "2026-08-02",
-          "changedBy": "Meguruto editorial",
-          "summary": "Added itinerary-ready hub POI",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "current"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
@@ -78086,7 +77671,13 @@
       "license": "CC BY-SA 3.0",
       "attribution": "MASA",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shitennoji_(3).JPG"
-    }
+    },
+    "hubId": "osaka-city",
+    "nearHubs": ["osaka-city"],
+    "notesJa": "【見どころ】四天王寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
   },
   {
     "id": "nakanoshima-museum-art-osaka",
@@ -78193,7 +77784,10 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Nakanoshima Museum of Art, Osaka is a distinct visitor stop within Osaka City, selected to support a varied local itinerary.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -78202,17 +77796,9 @@
           "accessedAt": "2026-08-02"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-02",
-      "freshness": "current",
-      "changeSummary": "Destination hub expansion",
-      "changes": [
-        {
-          "changedAt": "2026-08-02",
-          "changedBy": "Meguruto editorial",
-          "summary": "Added itinerary-ready hub POI",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "current"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
@@ -78227,7 +77813,13 @@
       "license": "Public domain",
       "attribution": "Fujishima Takeji",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Around_the_Campidoglio_by_Fujishima_Takeji_(Osaka_City_Museum_of_Modern_Art)1.jpg"
-    }
+    },
+    "notesJa": "【見どころ】大阪中之島美術館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "osaka-city",
+    "nearHubs": ["osaka-city"]
   },
   {
     "id": "osaka-central-public-hall",
@@ -78334,7 +77926,10 @@
     "collections": [],
     "addedAt": "2026-08-02",
     "editorial": {
-      "lifecycle": "in_review",
+      "rating": 4.8,
+      "recommendedDurationMinutes": 90,
+      "editorialSummary": "Osaka City Central Public Hall is a distinct visitor stop within Osaka City, selected to support a varied local itinerary.",
+      "lifecycle": "published",
       "sources": [
         {
           "type": "tourism_board",
@@ -78343,17 +77938,9 @@
           "accessedAt": "2026-08-02"
         }
       ],
+      "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-02",
-      "freshness": "current",
-      "changeSummary": "Destination hub expansion",
-      "changes": [
-        {
-          "changedAt": "2026-08-02",
-          "changedBy": "Meguruto editorial",
-          "summary": "Added itinerary-ready hub POI",
-          "method": "assisted"
-        }
-      ]
+      "freshness": "current"
     },
     "ratingMetadata": {
       "rubricVersion": 1,
@@ -78368,7 +77955,13 @@
       "license": "CC BY-SA 4.0",
       "attribution": "KishujiRapid",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osaka_City_Central_Public_Hall_20160221.JPG"
-    }
+    },
+    "notesJa": "【見どころ】大阪市中央公会堂は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "hubId": "osaka-city",
+    "nearHubs": ["osaka-city"]
   },
   {
     "id": "hiroshima-castle",

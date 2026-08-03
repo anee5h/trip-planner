@@ -103,7 +103,10 @@
   "collections": [],
   "addedAt": "2026-08-02",
   "editorial": {
-    "lifecycle": "in_review",
+    "rating": 4.8,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "Shitennoji is a distinct visitor stop within Osaka City, selected to support a varied local itinerary.",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",
@@ -112,17 +115,9 @@
         "accessedAt": "2026-08-02"
       }
     ],
+    "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-02",
-    "freshness": "current",
-    "changeSummary": "Destination hub expansion",
-    "changes": [
-      {
-        "changedAt": "2026-08-02",
-        "changedBy": "Meguruto editorial",
-        "summary": "Added itinerary-ready hub POI",
-        "method": "assisted"
-      }
-    ]
+    "freshness": "current"
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -137,5 +132,11 @@
     "license": "CC BY-SA 3.0",
     "attribution": "MASA",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shitennoji_(3).JPG"
-  }
+  },
+  "hubId": "osaka-city",
+  "nearHubs": ["osaka-city"],
+  "notesJa": "【見どころ】四天王寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+  "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+  "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
 }

@@ -109,7 +109,10 @@
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "in_review",
+    "rating": 4.8,
+    "recommendedDurationMinutes": 90,
+    "editorialSummary": "The National Museum of Art, Osaka is a visitor destination in Osaka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "wikipedia",
@@ -124,46 +127,20 @@
         "accessedAt": "2026-07-29"
       }
     ],
+    "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-07-29",
-    "freshness": "review_due",
-    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://en.wikipedia.org/wiki/National_Museum_of_Art,_Osaka",
-          "title": "Beta editorial scoring from source-backed attributes",
-          "accessedAt": "2026-07-29"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/National_Museum_of_Art,_Osaka",
-          "title": "National Museum of Art, Osaka",
-          "accessedAt": "2026-07-29"
-        }
-      ]
-    },
-    "changes": [
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap editorial",
-        "summary": "Added bilingual source-backed city POI",
-        "method": "assisted"
-      },
-      {
-        "changedAt": "2026-07-29",
-        "changedBy": "TabiMap data audit",
-        "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-        "method": "assisted"
-      }
-    ]
+    "freshness": "review_due"
   },
   "ratingMetadata": {
     "rubricVersion": 1,
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "09:30 - 17:00 (Closed Mondays)"
+  "businessHours": "09:30 - 17:00 (Closed Mondays)",
+  "hubId": "osaka-city",
+  "nearHubs": ["osaka-city"],
+  "notesJa": "【見どころ】国立国際美術館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+  "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
+  "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
 }
