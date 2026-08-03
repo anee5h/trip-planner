@@ -309,7 +309,7 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [],
-      "parentDestinationId": "aizuwakamatsu-city"
+      "gatewayHubId": "aizuwakamatsu-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/1/14/Flowstones_and_Mushroom_Rocks_inside_Abukuma-do_Cave.JPG",
     "walkingIntensity": "low",
@@ -1200,7 +1200,7 @@
       }
     ],
     "relationships": {
-      "parentDestinationId": "kagoshima-city"
+      "gatewayHubId": "kagoshima-city"
     },
     "budgetBreakdown": {
       "transport": 3000,
@@ -12236,7 +12236,7 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["hiraizumi-chusonji-iwate"],
-      "parentDestinationId": "morioka-city"
+      "gatewayHubId": "morioka-city"
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -13378,7 +13378,7 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [],
-      "parentDestinationId": "yamagata-city"
+      "gatewayHubId": "yamagata-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/%E9%8A%80%E5%B1%B1%E6%B8%A9%E6%B3%89_Ginzan_Onsen_%287809473788%29.jpg/1920px-%E9%8A%80%E5%B1%B1%E6%B8%A9%E6%B3%89_Ginzan_Onsen_%287809473788%29.jpg",
     "walkingIntensity": "low",
@@ -17248,7 +17248,7 @@
       }
     ],
     "relationships": {
-      "parentDestinationId": "morioka-city"
+      "gatewayHubId": "morioka-city"
     },
     "budgetBreakdown": {
       "transport": 3000,
@@ -21217,7 +21217,7 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [],
-      "parentDestinationId": "tokushima-city"
+      "gatewayHubId": "tokushima-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/ja/thumb/4/42/Tokushima_Miyoshi_Okuiya_Double_Kazurabashi_5.JPG/1920px-Tokushima_Miyoshi_Okuiya_Double_Kazurabashi_5.JPG",
     "walkingIntensity": "low",
@@ -21788,7 +21788,7 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["ryusendo-cave-iwate"],
-      "parentDestinationId": "morioka-city"
+      "gatewayHubId": "morioka-city"
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -39290,7 +39290,7 @@
       }
     ],
     "relationships": {
-      "parentDestinationId": "matsumoto-city"
+      "gatewayHubId": "matsumoto-city"
     },
     "walkingIntensity": "low",
     "role": "standalone",
@@ -41008,7 +41008,7 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [],
-      "parentDestinationId": "takamatsu-city"
+      "gatewayHubId": "takamatsu-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/3/39/%E5%AE%AE%E3%83%8E%E6%B5%A6%E6%B8%AF_-_panoramio_-_kajikawa_%281%29.jpg",
     "walkingIntensity": "low",
@@ -56480,7 +56480,7 @@
       }
     ],
     "relationships": {
-      "parentDestinationId": "abashiri-city"
+      "gatewayHubId": "abashiri-city"
     },
     "budgetBreakdown": {
       "transport": 3000,
@@ -67679,7 +67679,7 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["nachi-falls-wakayama", "osaka-city"],
-      "parentDestinationId": "matsuyama-city"
+      "gatewayHubId": "matsuyama-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/1280px-Uwajima_Castle_Keep_Tower_20170611.jpg",
     "budgetBreakdown": {
@@ -67705,7 +67705,8 @@
       "max": 5
     },
     "officialWebsite": "https://www.uwajima-jo.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "role": "standalone"
   },
   {
     "id": "wakayama-city",
@@ -67908,7 +67909,7 @@
         "kitakyushu-city",
         "dazaifu-city"
       ],
-      "parentDestinationId": "kagoshima-city"
+      "gatewayHubId": "kagoshima-city"
     },
     "budgetBreakdown": {
       "transport": 3563,

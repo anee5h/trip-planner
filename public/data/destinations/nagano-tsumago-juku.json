@@ -89,7 +89,7 @@
     }
   ],
   "relationships": {
-    "parentDestinationId": "matsumoto-city"
+    "gatewayHubId": "matsumoto-city"
   },
   "walkingIntensity": "low",
   "role": "standalone",
