@@ -82,7 +82,7 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
-    "parentDestinationId": "shirahama-town"
+    "gatewayHubId": "shirahama-town"
   },
   "image": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1000",
   "budgetBreakdown": {
@@ -142,6 +142,5 @@
         "熊野那智大社参道"
       ]
     }
-  },
-  "municipalityId": "shirahama"
+  }
 }

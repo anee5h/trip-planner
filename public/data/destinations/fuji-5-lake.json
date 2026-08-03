@@ -78,7 +78,9 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "fujikawaguchiko-town"
+  },
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "None required",
@@ -92,5 +94,6 @@
     "max": 9
   },
   "officialWebsite": "https://www.fujisan.ne.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "municipalityId": "Yamanashi:fujikawaguchiko"
 }

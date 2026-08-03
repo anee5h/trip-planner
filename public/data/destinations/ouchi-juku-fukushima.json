@@ -85,7 +85,8 @@
   "status": "beta",
   "relationships": {
     "featuredDestinationIds": [],
-    "nearbyDestinationIds": ["tsuruga-castle-fukushima"]
+    "nearbyDestinationIds": ["tsuruga-castle-fukushima"],
+    "parentDestinationId": "aizuwakamatsu-city"
   },
   "budgetBreakdown": null,
   "role": "standalone",
@@ -96,5 +97,6 @@
   },
   "officialWebsite": "https://ouchi-juku.com/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "municipalityId": "Fukushima:aizuwakamatsu"
 }

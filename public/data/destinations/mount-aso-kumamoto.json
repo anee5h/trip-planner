@@ -74,7 +74,7 @@
   "relationships": {
     "featuredDestinationIds": [],
     "nearbyDestinationIds": [],
-    "parentDestinationId": "kumamoto-city"
+    "parentDestinationId": "aso-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/20140516%E9%98%BF%E8%98%87%E5%B1%B1%E5%BA%83%E5%9F%9F.jpg/1920px-20140516%E9%98%BF%E8%98%87%E5%B1%B1%E5%BA%83%E5%9F%9F.jpg",
   "walkingIntensity": "low",
@@ -89,5 +89,5 @@
   "officialWebsite": "https://www.aso-kankou.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "kumamoto"
+  "municipalityId": "Kumamoto:aso"
 }

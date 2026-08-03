@@ -88,7 +88,9 @@
       "confirmed": true
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "gifu-city"
+  },
   "walkingIntensity": "low",
   "role": "standalone",
   "placeType": "destination",
@@ -98,5 +100,6 @@
     "max": 11
   },
   "officialWebsite": "https://kiso-magome.com/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "municipalityId": "Gifu:gifu"
 }

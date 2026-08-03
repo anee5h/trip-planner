@@ -92,7 +92,9 @@
       "sortOrder": 7
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "niigata-city"
+  },
   "nameJa": "佐渡島（さどしま）の金山",
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
@@ -107,5 +109,6 @@
     "max": 9
   },
   "officialWebsite": "https://www.visitsado.com/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "municipalityId": "Niigata:niigata"
 }
