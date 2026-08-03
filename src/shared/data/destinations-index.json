@@ -214,7 +214,24 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "hubId": "osaka-city",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "nameJa": "あべのハルカス300（展望台）",
+    "content": {
+      "en": {
+        "name": "Abeno Harukas 300 (Osaka Skyline)",
+        "description": "Rising 300 meters above Osaka, Abeno Harukas is Japan's tallest skyscraper, featuring a 3-story glass observatory and open-air wooden atrium garden.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "あべのハルカス300（展望台）",
+        "description": "日本有数の超高層ビル「あべのハルカス」最上階（58-60階）に位置する展望台。360度ガラス張りの回廊から大阪平野、六甲山、関西国際空港までを一望できる大パノラマが魅力です。",
+        "highlights": [
+          "360度ガラス張り展望回廊",
+          "58階天空庭園カフェ",
+          "夜景大パノラマ"
+        ]
+      }
+    }
   },
   {
     "id": "abukuma-cave-fukushima",
@@ -1327,7 +1344,23 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "role": "destination",
-    "hubId": "miyazu-city"
+    "hubId": "miyazu-city",
+    "content": {
+      "en": {
+        "name": "Amanohashidate (Bridge to Heaven)",
+        "description": "Amanohashidate is a natural 3.3-kilometer pine-covered sandbar spanning Miyazu Bay, famed for the Matanozoki upside-down viewing technique making it look like a bridge floating into heaven.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "天橋立",
+        "description": "宮津湾と阿蘇海を隔てる全長約3.6kmの砂州で、「日本三景」の一つ。約8,000本の松並木が続き、笠松公園や天橋立ビューランドからの「股のぞき」で天に架かる橋のような絶景が楽しめます。",
+        "highlights": [
+          "日本三景の松並木",
+          "笠松公園からの股のぞき",
+          "天橋立海水浴場・サイクリング"
+        ]
+      }
+    }
   },
   {
     "id": "ameya-yokocho",
@@ -2160,7 +2193,23 @@
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["kobe-city"],
     "role": "destination",
-    "hubId": "kobe-city"
+    "hubId": "kobe-city",
+    "content": {
+      "en": {
+        "name": "Arima Onsen",
+        "description": "Arima Onsen is Japan's oldest recorded hot spring resort, nestled behind Mount Rokko and famous for its iron-rich golden 'Kinsen' and clear radium 'Ginsen' waters.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "有馬温泉",
+        "description": "日本三古泉・日本三名泉の一つに数えられる歴史ある温泉街。鉄分を含み赤褐色に輝く「金泉」と、無色透明な炭酸泉「銀泉」の2種類の湯を日帰り温泉や湯めぐりで堪能できます。",
+        "highlights": [
+          "鉄分豊富な赤湯・金泉",
+          "炭酸泉・銀泉",
+          "湯本坂のレトロな温泉街散策"
+        ]
+      }
+    }
   },
   {
     "id": "art-tower-mito",
@@ -2316,7 +2365,7 @@
   {
     "id": "asago-city",
     "name": "Asago City",
-    "nameJa": "朝来",
+    "nameJa": "朝来市",
     "prefecture": "Hyogo",
     "region": "Kansai",
     "coordinates": {
@@ -2419,7 +2468,23 @@
     "notesJa": "【見どころ】朝来は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "content": {
+      "en": {
+        "name": "Asago City",
+        "description": "A rural Hyogo city known for the Takeda Castle Ruins, often seen above a sea of clouds in autumn.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "朝来市",
+        "description": "兵庫県ほぼ中央に位置し、「日本のマチュピチュ」と称される竹田城跡や、江戸時代の採掘遺構が残る生野銀山を擁する歴史と自然豊かな広域観光エリアです。",
+        "highlights": [
+          "雲海に浮かぶ竹田城跡",
+          "生野銀山坑道めぐり",
+          "立雲峡からの雲海展望"
+        ]
+      }
+    }
   },
   {
     "id": "asahikawa-city",
@@ -3261,7 +3326,7 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "飛鳥・藤原の宮都とその関連資産群",
+    "nameJa": "飛鳥・藤原の宮都",
     "comfort": {
       "heatTolerance": 7,
       "rainFriendly": 7,
@@ -3292,7 +3357,23 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["nara-city"],
-    "hubId": "nara-city"
+    "hubId": "nara-city",
+    "content": {
+      "en": {
+        "name": "Ancient Capitals of Asuka and Fujiwara",
+        "description": "Ancient Capitals of Asuka and Fujiwara is a UNESCO World Heritage Site in Nara, designated for its outstanding universal cultural or natural value.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "飛鳥・藤原の宮都",
+        "description": "日本の国家形成の舞台となった飛鳥時代の史跡群。石舞台古墳や高松塚古墳、藤原宮跡など、古代日本のロマンを伝える巨大石造物や史跡が田園風景の中に点在します。",
+        "highlights": [
+          "巨大石室の石舞台古墳",
+          "極彩色壁画の高松塚古墳",
+          "藤原宮跡の四季の花々"
+        ]
+      }
+    }
   },
   {
     "id": "atami-city",
@@ -16627,12 +16708,29 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "nameJa": "彦根市",
+    "content": {
+      "en": {
+        "name": "Hikone City",
+        "description": "Castle town on Lake Biwa featuring original National Treasure Hikone Castle and Genkyuen Garden.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "彦根市",
+        "description": "国宝・彦根城を中心に栄えた城下町。琵琶湖東岸に位置し、旧彦根藩井伊家ゆかりの歴史遺産や、名勝玄宮園、琵琶湖の湖畔景観が魅力の歴史観光都市です。",
+        "highlights": [
+          "国宝・彦根城天守",
+          "大名庭園・玄宮園",
+          "夢京橋キャッスルロード"
+        ]
+      }
+    }
   },
   {
     "id": "himeji-castle",
     "name": "Himeji Castle (White Heron Castle)",
-    "nameJa": "姫路城",
+    "nameJa": "姫路城（白鷺城）",
     "prefecture": "Hyogo",
     "region": "Kansai",
     "coordinates": {
@@ -16766,7 +16864,23 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "role": "destination",
-    "hubId": "himeji-city"
+    "hubId": "himeji-city",
+    "content": {
+      "en": {
+        "name": "Himeji Castle (White Heron Castle)",
+        "description": "Himeji Castle is Japan's premier surviving feudal castle complex and a UNESCO World Heritage site, famous for its brilliant white plaster walls resembling a taking-off heron.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "姫路城（白鷺城）",
+        "description": "白漆喰総塗籠造の白壁が扇の空に映える「白鷺城」の別名を持つ日本初のユネスコ世界文化遺産。創建当時の大天守や渡櫓が現存する日本最高の木造城郭建築です。",
+        "highlights": [
+          "国宝・世界遺産の大天守",
+          "千姫ゆかりの西の丸長局",
+          "扇の勾配・油壁などの城郭建築"
+        ]
+      }
+    }
   },
   {
     "id": "himeji-city",
@@ -16866,7 +16980,24 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "nameJa": "姫路市",
+    "content": {
+      "en": {
+        "name": "Himeji City",
+        "description": "Historic castle city home to UNESCO World Heritage Himeji 'White Heron' Castle and Koko-en Garden.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "姫路市",
+        "description": "世界遺産姫路城を誇る兵庫県播磨地方の中心都市。書寫山圓教寺や好古園、名物「姫路おでん」など、豊かな歴史文化とグルメが満喫できます。",
+        "highlights": [
+          "世界文化遺産・姫路城",
+          "書寫山圓教寺",
+          "日本庭園・好古園"
+        ]
+      }
+    }
   },
   {
     "id": "hino-city",
@@ -18916,7 +19047,24 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "nameJa": "斑鳩町",
+    "content": {
+      "en": {
+        "name": "Ikaruga Town",
+        "description": "Historic town home to Horyu-ji Temple, containing the world's oldest surviving wooden structures.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "斑鳩町",
+        "description": "聖徳太子ゆかりの地として世界最古の木造建築群・法隆寺や法起寺を擁する歴史の町。飛鳥文化の薫り高き寺院群と穏やかな奈良の田園風景が広がります。",
+        "highlights": [
+          "世界遺産・法隆寺西院伽藍",
+          "法起寺三重塔",
+          "中宮寺の半跏思惟像"
+        ]
+      }
+    }
   },
   {
     "id": "ikebukuro-toshima",
@@ -19955,7 +20103,7 @@
   {
     "id": "ise-city",
     "name": "Ise City",
-    "nameJa": "伊勢",
+    "nameJa": "伊勢市",
     "prefecture": "Mie",
     "region": "Kansai",
     "coordinates": {
@@ -20054,12 +20202,28 @@
     "notesJa": "【見どころ】伊勢は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "content": {
+      "en": {
+        "name": "Ise City",
+        "description": "A shrine city in Mie Prefecture and the location of Ise Jingu, Japan's most important Shinto shrine complex.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "伊勢市",
+        "description": "日本人の心のふるさと「伊勢神宮（皇大神宮・豊受大神宮）」の門前町。おはらい町やおかげ横丁の賑わい、伊勢うどんや赤福餅などの名物グルメで賑わいます。",
+        "highlights": [
+          "伊勢神宮（内宮・外宮）",
+          "おはらい町・おかげ横丁",
+          "二見興玉神社の夫婦岩"
+        ]
+      }
+    }
   },
   {
     "id": "ise-grand-shrine",
     "name": "Ise Grand Shrine (Ise Jingu)",
-    "nameJa": "伊勢神宮",
+    "nameJa": "伊勢神宮（内宮・外宮）",
     "prefecture": "Mie",
     "region": "Kansai",
     "coordinates": {
@@ -20180,7 +20344,23 @@
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["ise-city"],
     "role": "destination",
-    "hubId": "ise-city"
+    "hubId": "ise-city",
+    "content": {
+      "en": {
+        "name": "Ise Grand Shrine (Ise Jingu)",
+        "description": "Ise Grand Shrine is the spiritual heart of Shinto, dedicated to the Sun Goddess Amaterasu and rebuilt every 20 years in accordance with ancient Shikinen Sengu ritual.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "伊勢神宮（内宮・外宮）",
+        "description": "天照大御神を祀る皇大神宮（内宮）と豊受大御神を祀る豊受大神宮（外宮）を中心とする日本最尊の神社。宇治橋を渡り、神杉がそびえる参道を歩む清らかな参拝体験ができます。",
+        "highlights": [
+          "内宮・宇治橋と五十鈴川",
+          "神聖な五十鈴川御手洗場",
+          "式年遷宮の伝統と神杉林"
+        ]
+      }
+    }
   },
   {
     "id": "ishigaki-city",
@@ -26588,7 +26768,23 @@
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["toyooka-city"],
     "role": "destination",
-    "hubId": "toyooka-city"
+    "hubId": "toyooka-city",
+    "content": {
+      "en": {
+        "name": "Kinosaki Onsen",
+        "description": "Kinosaki Onsen is a quintessential hot spring town centered around a willow-lined canal, where visitors stroll between seven distinct public bathhouses in traditional yukata robes.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "城崎温泉",
+        "description": "1300年の歴史を誇る関西屈指の温泉街。大谷川沿いに柳並木と木造旅館が立ち並び、浴衣姿で「一の湯」「御所の湯」など7つの外湯をめぐる情緒溢れる温泉街です。",
+        "highlights": [
+          "七つの外湯めぐり",
+          "大谷川沿いの柳並木と木造建築",
+          "浴衣姿での温泉街散策"
+        ]
+      }
+    }
   },
   {
     "id": "kintai-bridge-yamaguchi",
@@ -28160,7 +28356,24 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "nameJa": "神戸市",
+    "content": {
+      "en": {
+        "name": "Kobe City",
+        "description": "Cosmopolitan port city framed by Mt. Rokko, world-famous for Kobe Beef, Harborland, and Arima Onsen.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "神戸市",
+        "description": "六甲山と瀬戸内海に挟まれた美しい港町。異人館が立ち並ぶ北野、ハーバーランドやメリケンパークの港湾景観、南京町の美食、有馬温泉など多彩な魅力が詰まっています。",
+        "highlights": [
+          "神戸港ハーバーランド夜景",
+          "北野異人館街",
+          "南京町の中華街美食"
+        ]
+      }
+    }
   },
   {
     "id": "kobe-harborland",
@@ -28584,7 +28797,23 @@
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["kobe-city"],
     "role": "destination",
-    "hubId": "kobe-city"
+    "hubId": "kobe-city",
+    "content": {
+      "en": {
+        "name": "Mount Maya Kikuseidai (Kobe)",
+        "description": "Known as the Ten Million Dollar Night View, Kikuseidai observatory on Mount Maya captures a breathtaking sparkling panorama spanning Kobe, Osaka Bay, and Kansai.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "摩耶山 掬星台",
+        "description": "長崎・札幌と並び「日本新三大夜景」に選出される摩耶山頂の展望台。手で星を掬（すく）えるような輝きから名付けられ、神戸から大阪湾、関西空港まで広がる「1,000万ドルの夜景」が絶景です。",
+        "highlights": [
+          "1,000万ドルの夜景パノラマ",
+          "摩耶ロープウェー星の駅",
+          "天の川をイメージしたマヤカツ遊歩道"
+        ]
+      }
+    }
   },
   {
     "id": "kobe-port-tower",
@@ -29931,7 +30160,24 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "nameJa": "高野町",
+    "content": {
+      "en": {
+        "name": "Koya Town",
+        "description": "Sacred mountain monastic complex (Mount Koya / Koyasan), headquarters of Shingon Buddhism and Okunoin cemetery.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "高野町",
+        "description": "弘法大師空海がひらいた真言密教の聖地・高野山を擁する山上の宗教都市。壇上伽藍や奥の院を中心に、117ヶ寺の寺院が集積し、宿坊での精進料理や宿坊体験が人気です。",
+        "highlights": [
+          "世界遺産・高野山奥の院",
+          "壇上伽藍・根本大塔",
+          "宿坊体験と精進料理"
+        ]
+      }
+    }
   },
   {
     "id": "kumamoto-castle",
@@ -30259,7 +30505,23 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["koya-town"],
-    "hubId": "koya-town"
+    "hubId": "koya-town",
+    "content": {
+      "en": {
+        "name": "Sacred Sites and Pilgrimage Routes in the Kii Mountain Range",
+        "description": "Sacred Sites and Pilgrimage Routes in the Kii Mountain Range is a UNESCO World Heritage Site in Wakayama, designated for its outstanding universal cultural or natural value.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "紀伊山地の霊場と参詣道",
+        "description": "高野山・熊野三山・吉野大峰の三つの霊場と、それらを結ぶ古道からなる世界文化遺産。千年の歴史を持つ巡礼の道で、深い森と神仏習合の信仰が息づく神秘の空間です。",
+        "highlights": [
+          "熊野古道（中辺路・小辺路）",
+          "熊野本宮大社・那智大社",
+          "高野山町石道"
+        ]
+      }
+    }
   },
   {
     "id": "kurashiki-city",
@@ -31316,7 +31578,24 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "nameJa": "京都市",
+    "content": {
+      "en": {
+        "name": "Kyoto City",
+        "description": "Japan's ancient imperial capital, renowned for thousands of classical Buddhist temples, Shinto shrines, traditional wooden machiya, and zen gardens.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "京都市",
+        "description": "千年以上の歴史を誇る日本の古都。清水寺や金閣寺、伏見稲荷大社などの世界遺産・神社仏閣をはじめ、祇園の街並みや伝統工芸、京料理が世界中の旅行者を惹きつけます。",
+        "highlights": [
+          "古都京都の世界遺産群",
+          "伏見稲荷大社・千本鳥居",
+          "祇園の花街と町家景観"
+        ]
+      }
+    }
   },
   {
     "id": "kyoto-historic",
@@ -31439,7 +31718,23 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["kyoto-city"],
-    "hubId": "kyoto-city"
+    "hubId": "kyoto-city",
+    "content": {
+      "en": {
+        "name": "Historic Kyoto (Kiyomizu-dera & Kinkaku-ji)",
+        "description": "Kyoto, Japan's imperial capital for over a millennium, encompasses 17 UNESCO World Heritage monuments including the wooden balcony of Kiyomizu-dera and the shimmering Golden Pavilion.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "古都京都の文化財",
+        "description": "京都市・宇治市・大津市に点在する17の社寺・城郭からなる世界文化遺産群。清水寺、金閣寺、二条城、延暦寺など、日本の伝統建築と庭園文化の至高の傑作が集結しています。",
+        "highlights": [
+          "清水寺の舞台",
+          "金閣寺（鹿苑寺）の金箔建築",
+          "二条城二の丸御殿"
+        ]
+      }
+    }
   },
   {
     "id": "kyoto-imperial-palace",
@@ -36264,7 +36559,24 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "nameJa": "宮津市",
+    "content": {
+      "en": {
+        "name": "Miyazu City",
+        "description": "Coastal city home to Amanohashidate pine sandbar, ranked among Japan's Three Scenic Views.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "宮津市",
+        "description": "京都府北部の丹後地方に位置し、日本三景「天橋立」を擁する海の城下町。伊根の舟屋への玄関口であり、丹後とり貝やズワイガニなどの新鮮な海の幸に恵まれます。",
+        "highlights": [
+          "日本三景・天橋立",
+          "傘松公園展望台",
+          "宮津城下町の歴史散策"
+        ]
+      }
+    }
   },
   {
     "id": "morioka-city",
@@ -37384,7 +37696,19 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["nara-city"],
-    "hubId": "nara-city"
+    "hubId": "nara-city",
+    "content": {
+      "en": {
+        "name": "Mount Yoshino (Yoshinoyama)",
+        "description": "Mount Yoshino is Japan's most famous cherry blossom mountain, carpeted by over 30,000 Yamazakura trees blooming sequentially across four mountain elevations.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "吉野山",
+        "description": "日本一の桜の名所として知られる金峯山寺を中心とした修験道の聖地。春には約3万本のシロヤマザクラが下千本から奥千本へと山を染め上げ、世界遺産にも登録されています。",
+        "highlights": ["一目千本の桜景観", "金峯山寺蔵王堂", "修験道の聖地巡礼"]
+      }
+    }
   },
   {
     "id": "mount-zao-yamagata",
@@ -38122,7 +38446,23 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["shirahama-town"],
-    "hubId": "shirahama-town"
+    "hubId": "shirahama-town",
+    "content": {
+      "en": {
+        "name": "Nachi Falls & Pagoda",
+        "description": "Nachi Falls is Japan's tallest uninterrupted single-drop waterfall (133 meters), framing the three-story red Seiganto-ji pagoda against the sacred Nachi primeval forest.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "那智滝",
+        "description": "落差133m、滝幅13mを誇る日本一の落差を持つ名瀑。熊野那智大社の飛瀧神社のご神体として古くから信仰され、三重塔越しに仰ぎ見る滝の雄姿は熊野を代表する景色です。",
+        "highlights": [
+          "落差133mの日本一の名瀑",
+          "那智山青岸渡寺の三重塔",
+          "熊野那智大社参道"
+        ]
+      }
+    }
   },
   {
     "id": "nagano-bessho-onsen",
@@ -40425,7 +40765,24 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "nameJa": "奈良市",
+    "content": {
+      "en": {
+        "name": "Nara City",
+        "description": "Japan's 8th-century capital, renowned for free-roaming sacred deer in Nara Park and Todai-ji Great Buddha.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "奈良市",
+        "description": "平城京が開かれた日本の古代の首都。東大寺の大仏や春日大社、鹿が遊ぶ奈良公園、ならまちの町家街など、1300年の歴史が穏やかな空気の中に溶け込む古都です。",
+        "highlights": [
+          "東大寺・大仏殿",
+          "春日大社と奈良公園の鹿",
+          "興福寺五重塔"
+        ]
+      }
+    }
   },
   {
     "id": "nara-historic",
@@ -40547,12 +40904,24 @@
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["nara-city"],
     "role": "destination",
-    "hubId": "nara-city"
+    "hubId": "nara-city",
+    "content": {
+      "en": {
+        "name": "Historic Monuments of Ancient Nara",
+        "description": "Historic Monuments of Ancient Nara is a UNESCO World Heritage Site in Nara, designated for its outstanding universal cultural or natural value.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "古都奈良の文化財",
+        "description": "東大寺、興福寺、春日大社、元興寺、薬師寺、唐招提寺、平城宮跡、春日山原始林の8資産からなる世界文化遺産。天平文化の重厚な建築と国宝彫刻が美しく保存されています。",
+        "highlights": ["東大寺大仏殿", "薬師寺の東西二塔", "春日大社の朱塗社殿"]
+      }
+    }
   },
   {
     "id": "nara-park-todaiji",
     "name": "Historic Nara (Todai-ji Great Buddha)",
-    "nameJa": "古都奈良の文化財",
+    "nameJa": "奈良公園・東大寺",
     "prefecture": "Nara",
     "region": "Kansai",
     "coordinates": {
@@ -40682,7 +41051,23 @@
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["nara-city"],
     "role": "destination",
-    "hubId": "nara-city"
+    "hubId": "nara-city",
+    "content": {
+      "en": {
+        "name": "Historic Nara (Todai-ji Great Buddha)",
+        "description": "Nara Park houses the world's largest wooden building (Todai-ji Daibutsuden), sheltering the 15-meter bronze Great Buddha alongside over 1,200 friendly freely roaming sika deer.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "奈良公園・東大寺",
+        "description": "約1,300頭の野生の鹿が自由に暮らす自然豊かな公園と、世界最大の木造建築「大仏殿」に鎮座する高さ約15mの盧舎那仏（奈良の大仏）を擁する世界遺産です。",
+        "highlights": [
+          "東大寺・奈良の大仏",
+          "奈良公園の鹿せんべい体験",
+          "二月堂からの奈良盆地一望"
+        ]
+      }
+    }
   },
   {
     "id": "narita-airport-observation-decks",
@@ -42293,7 +42678,23 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["kyoto-city"],
-    "hubId": "kyoto-city"
+    "hubId": "kyoto-city",
+    "content": {
+      "en": {
+        "name": "Nijo Castle (Kyoto)",
+        "description": "Nijo Castle in Kyoto was the residence of Tokugawa Ieyasu, famous for its Ninomaru Palace featuring squeaking 'nightingale floors' designed to alert guards to intruders.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "二条城",
+        "description": "徳川家康が造営し、大政奉還の舞台となった徳川幕府の興亡を見守った世界遺産。国宝・二の丸御殿の「鶯張り」の廊下や狩野派の障壁画、二の丸庭園が優美です。",
+        "highlights": [
+          "国宝・二の丸御殿",
+          "キュッキュッと鳴る鶯張りの廊下",
+          "特別名勝・二の丸庭園"
+        ]
+      }
+    }
   },
   {
     "id": "nijo-market",
@@ -46764,7 +47165,23 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "hubId": "osaka-city"
+    "hubId": "osaka-city",
+    "content": {
+      "en": {
+        "name": "Osaka Castle (Osaka-jo)",
+        "description": "Osaka Castle is an iconic 16th-century fortress constructed by Toyotomi Hideyoshi, featuring golden roof ornaments, massive stone ramparts, and a lush park surrounded by moats.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "大阪城",
+        "description": "豊臣秀吉によって築城され、徳川幕府によって再建された大阪のシンボル。巨大な金明水井戸屋形や巨大石垣、展望台と歴史博物館を備えた復元天守閣が見所です。",
+        "highlights": [
+          "大阪城天守閣と8階展望台",
+          "大手門と巨石・蛸石",
+          "四季を彩る大阪城公園"
+        ]
+      }
+    }
   },
   {
     "id": "osaka-castle-park",
@@ -47052,7 +47469,24 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "nameJa": "大阪市",
+    "content": {
+      "en": {
+        "name": "Osaka City",
+        "description": "Kansai's vibrant commercial metropolis, famous for neon-lit Dotonbori canals, Osaka Castle, street food culture, and warm hospitality.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "大阪市",
+        "description": "西日本最大の経済・文化の中心地。「天下の台所」として栄えた食い倒れの街で、道頓堀や新世界、梅田の超高層ビル街、USJ、海遊館などエネルギッシュな魅力が溢れます。",
+        "highlights": [
+          "道頓堀のグリコサインと食い倒れ",
+          "大阪城と天守閣",
+          "あべのハルカス＆梅田スカイビル"
+        ]
+      }
+    }
   },
   {
     "id": "osaka-museum-of-housing-and-living",
@@ -48191,7 +48625,24 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "nameJa": "大津市",
+    "content": {
+      "en": {
+        "name": "Otsu City",
+        "description": "Port city on southern tip of Lake Biwa, featuring Ishiyamadera Temple and Enryaku-ji Temple on Mt. Hiei.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "大津市",
+        "description": "滋賀県の県庁所在地で、日本最大の湖・琵琶湖の南岸に位置する古都。世界遺産の比叡山延暦寺や石山寺、近江大橋、びわ湖花噴水など歴史と水辺の美しさが調和します。",
+        "highlights": [
+          "世界遺産・比叡山延暦寺",
+          "琵琶湖ミシガンクルーズ",
+          "浮御堂（満月寺）"
+        ]
+      }
+    }
   },
   {
     "id": "ouchi-juku-fukushima",
@@ -50780,7 +51231,24 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "nameJa": "堺市",
+    "content": {
+      "en": {
+        "name": "Sakai City",
+        "description": "Ancient port city famous for Mozu Kofun Burial Mounds (UNESCO) and traditional Japanese kitchen knives.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "堺市",
+        "description": "世界最大級の墳墓「仁徳天皇陵古墳（大仙古墳）」を擁する百舌鳥古墳群の街。中世に海外貿易港として栄え、千利休の茶の湯文化や包丁・刃物産業の伝統を誇ります。",
+        "highlights": [
+          "世界遺産・百舌鳥古墳群（仁徳天皇陵）",
+          "さかい利晶の杜（茶の湯体験）",
+          "伝統工芸・堺刃物"
+        ]
+      }
+    }
   },
   {
     "id": "sakura-castle-chiba",
@@ -55342,7 +55810,24 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "nameJa": "白浜町",
+    "content": {
+      "en": {
+        "name": "Shirahama Town",
+        "description": "Subtropical resort town famous for white sand beaches, outdoor hot springs, and Engetsuto Island sunset views.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "白浜町",
+        "description": "和歌山県紀南地方を代表するリゾート地。真っ白なサラサラの砂が広がる白良浜、アドベンチャーワールドのパンダ、千畳敷や三段壁の奇岩景観、白浜温泉が揃います。",
+        "highlights": [
+          "白良浜の白い砂浜",
+          "アドベンチャーワールド",
+          "千畳敷・三段壁の断崖美"
+        ]
+      }
+    }
   },
   {
     "id": "shirakami-sanchi-aomori",
@@ -58508,7 +58993,23 @@
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "role": "destination",
     "hubId": "asago-city",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "content": {
+      "en": {
+        "name": "Takeda Castle Ruins",
+        "description": "Famous as Japan's 'Castle in the Sky', these breathtaking 15th-century mountain ruins float above a sea of morning autumn fog.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "竹田城跡",
+        "description": "標高353.7mの古城山山頂に築かれた安土桃山時代の城跡。「天空の城」や「日本のマチュピチュ」と称され、秋から冬の早朝には一面の雲海に包まれる幻想的な姿が現れます。",
+        "highlights": [
+          "雲海に浮かぶ天空の城",
+          "完存する石垣遺構",
+          "立雲峡からの対岸展望"
+        ]
+      }
+    }
   },
   {
     "id": "takeda-castle-yamanashi",
@@ -63672,7 +64173,7 @@
   {
     "id": "toyooka-city",
     "name": "Toyooka City",
-    "nameJa": "豊岡",
+    "nameJa": "豊岡市",
     "prefecture": "Hyogo",
     "region": "Kansai",
     "coordinates": {
@@ -63772,7 +64273,23 @@
     "notesJa": "【見どころ】豊岡は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "content": {
+      "en": {
+        "name": "Toyooka City",
+        "description": "A northern Hyogo city known for Kinosaki Onsen, the San'in coast, and the reintroduction of Oriental storks.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "豊岡市",
+        "description": "兵庫県北部の中心都市で、1300年の歴史を誇る城崎温泉や出石城下町、玄武洞公園を擁します。特別天然記念物コウノトリの野生復帰に取り組む環境先進都市でもあります。",
+        "highlights": [
+          "城崎温泉の外湯めぐり",
+          "出石城下町と出石皿そば",
+          "玄武洞公園の六角形柱状節理"
+        ]
+      }
+    }
   },
   {
     "id": "toyosu-market",
@@ -65744,7 +66261,24 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "nameJa": "宇治市",
+    "content": {
+      "en": {
+        "name": "Uji City",
+        "description": "Historic green tea capital south of Kyoto, featuring UNESCO World Heritage Byodoin Temple (10-yen coin temple).",
+        "highlights": []
+      },
+      "ja": {
+        "name": "宇治市",
+        "description": "「宇治茶」の郷として知られ、源氏物語「宇治十帖」の舞台となった歴史文化都市。10円玉に描かれた平等院鳳凰堂や日本最古の神社建築・宇治上神社を有します。",
+        "highlights": [
+          "世界遺産・平等院鳳凰堂",
+          "宇治茶と本格茶道体験",
+          "宇治川と宇治橋の散策"
+        ]
+      }
+    }
   },
   {
     "id": "umeda-sky-building",
@@ -66833,7 +67367,24 @@
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "nameJa": "和歌山市",
+    "content": {
+      "en": {
+        "name": "Wakayama City",
+        "description": "Coastal castle city famous for Wakayama Castle, Kuroshio Seafood Market, and Wakayama ramen.",
+        "highlights": []
+      },
+      "ja": {
+        "name": "和歌山市",
+        "description": "紀州徳川家五十五万石の城下町として栄えた和歌山県の玄関口。天守閣がそびえる和歌山城、和歌の浦の景観、たま駅長で有名な貴志駅、黒潮市場など見所豊富です。",
+        "highlights": [
+          "紀州徳川家の居城・和歌山城",
+          "和歌の浦と片男波海水浴場",
+          "和歌山ラーメンと黒潮市場"
+        ]
+      }
+    }
   },
   {
     "id": "yakushima-town",
@@ -79146,6 +79697,13 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cup_Noodles_Museum_Osaka_Ikeda01s3.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Lombroso",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cup_Noodles_Museum_Osaka_Ikeda01s3.jpg"
     }
   },
   {
@@ -79221,6 +79779,13 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Byodo-in_ho-o-do.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Fg2",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Byodo-in_ho-o-do.jpg"
     }
   },
   {
@@ -79296,6 +79861,13 @@
     "recommendedVisitHours": {
       "min": 0.5,
       "max": 1.5
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Uji_City_Uji_Tea_Experience.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uji_matcha_tea.jpg"
     }
   },
   {
@@ -79371,6 +79943,13 @@
     "recommendedVisitHours": {
       "min": 0.8,
       "max": 1.8
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mimuroto-ji_02.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mimuroto-ji_02.jpg"
     }
   },
   {
@@ -79446,6 +80025,13 @@
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 2.5
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ine-cho_Funaya02n4592.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ine-cho_Funaya02n4592.jpg"
     }
   },
   {
@@ -79521,6 +80107,13 @@
     "recommendedVisitHours": {
       "min": 0.5,
       "max": 1.5
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Amanohashidate_view_from_Kasamatsu_Park.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Corpse Reviver",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amanohashidate_view_from_Kasamatsu_Park.jpg"
     }
   },
   {
@@ -79596,6 +80189,13 @@
     "recommendedVisitHours": {
       "min": 0.5,
       "max": 1.5
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kokoen_Garden,_Himeji.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Jnzl's Public Domain Photos",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kokoen_Garden,_Himeji.jpg"
     }
   },
   {
@@ -79675,6 +80275,13 @@
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 2.5
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Engyoji08n3200.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Engyoji08n3200.jpg"
     }
   },
   {
@@ -79754,6 +80361,13 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Izushi-cho_01.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Izushi-cho_01.jpg"
     }
   },
   {
@@ -79829,6 +80443,13 @@
     "recommendedVisitHours": {
       "min": 0.5,
       "max": 1.5
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Genbudo_cave_01.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Sakaori",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Genbudo_cave_01.jpg"
     }
   },
   {
@@ -79908,6 +80529,13 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ritsuunkyo_gorge_Hyogo.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sannen-iwa_Bridge,_Ritsuunkyo.jpg"
     }
   },
   {
@@ -79987,6 +80615,13 @@
     "recommendedVisitHours": {
       "min": 0.8,
       "max": 1.8
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ikuno_Silver_Mine_(Ikuno_Kozan).jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Sakaori",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ikuno_Silver_Mine_(Ikuno_Kozan).jpg"
     }
   },
   {
@@ -80062,6 +80697,13 @@
     "recommendedVisitHours": {
       "min": 0.5,
       "max": 1.3
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hokkiji04n3200.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hokkiji04n3200.jpg"
     }
   },
   {
@@ -80141,6 +80783,13 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chogosonshi-ji_02.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chogosonshi-ji_02.jpg"
     }
   },
   {
@@ -80220,6 +80869,13 @@
     "recommendedVisitHours": {
       "min": 2,
       "max": 3
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Konpon_Chudo_Enryaku-ji.JPG?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Wiiii",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Konpon_Chudo_Enryaku-ji.JPG"
     }
   },
   {
@@ -80295,6 +80951,13 @@
     "recommendedVisitHours": {
       "min": 0.5,
       "max": 1.3
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ukimido,_Katata,_Otsu_01.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ukimido,_Katata,_Otsu_01.jpg"
     }
   },
   {
@@ -80374,6 +81037,13 @@
     "recommendedVisitHours": {
       "min": 0.5,
       "max": 1.5
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Genkyu-en_Garden_Hikone.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hikone_Genkyu-en-01.jpg"
     }
   },
   {
@@ -80453,6 +81123,13 @@
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 2.5
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Miho_museum_hill.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Corpse Reviver",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Miho_museum_hill.jpg"
     }
   },
   {
@@ -80528,6 +81205,13 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Oharai-Machi_01.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oharai-Machi_01.jpg"
     }
   },
   {
@@ -80607,6 +81291,13 @@
     "recommendedVisitHours": {
       "min": 0.5,
       "max": 1.5
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kishi_Station_Wakayama_Electric_Railway.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Jtw2203",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kishi_Station_Wakayama_Electric_Railway.jpg"
     }
   },
   {
@@ -80686,6 +81377,13 @@
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 2.5
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Okunoin_Koyasan.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Saigen Jiro",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Okunoin_Koyasan.jpg"
     }
   },
   {
@@ -80765,6 +81463,13 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Senjojiki_Shirahama.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senjojiki_Shirahama.jpg"
     }
   },
   {
@@ -80844,6 +81549,13 @@
     "recommendedVisitHours": {
       "min": 0.8,
       "max": 1.8
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/SakaiCityMuseum.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Chabata k",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:SakaiCityMuseum.jpg"
     }
   },
   {
@@ -80923,6 +81635,13 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Lake_Biwa_from_Biwako_Valley_2012.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Corpse Reviver",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Biwa_from_Biwako_Valley_2012.jpg"
     }
   },
   {
@@ -81002,6 +81721,13 @@
     "recommendedVisitHours": {
       "min": 0.5,
       "max": 1.3
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meoto_Iwa_rocks.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Cquest",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Meoto_Iwa_rocks.jpg"
     }
   },
   {
@@ -81081,6 +81807,13 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/WakayamaCastle.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:WakayamaCastle.jpg"
     }
   },
   {
@@ -81160,6 +81893,13 @@
     "recommendedVisitHours": {
       "min": 0.8,
       "max": 1.8
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wakanoura_Bay.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wakanoura_Bay_Wakayama.jpg"
     }
   },
   {
@@ -81235,6 +81975,13 @@
     "recommendedVisitHours": {
       "min": 0.8,
       "max": 1.8
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Danjogaran_Konpon_Daito.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danjogaran_Konpon_Daito.jpg"
     }
   },
   {
@@ -81310,6 +82057,13 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shirahama_Shirara-hama_Beach.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shirahama_Shirara-hama_Beach.jpg"
     }
   },
   {
@@ -81385,6 +82139,13 @@
     "recommendedVisitHours": {
       "min": 0.8,
       "max": 1.8
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toshodai-ji_Kondo.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toshodai-ji_Kondo.jpg"
     }
   },
   {
@@ -81460,6 +82221,13 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Yakushiji_Toto_1.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yakushiji_Toto_1.jpg"
     }
   },
   {
@@ -81535,6 +82303,13 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Naramachi_Nara.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Corpse Reviver",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naramachi_Nara.jpg"
     }
   },
   {
@@ -81610,6 +82385,13 @@
     "recommendedVisitHours": {
       "min": 0.5,
       "max": 1.5
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shirahige-jinja_torii.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Sakaori",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shirahige-jinja_torii.jpg"
     }
   },
   {
@@ -81689,6 +82471,13 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Omihachiman_canal.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Omihachiman_canal.jpg"
     }
   },
   {
@@ -81768,6 +82557,13 @@
     "recommendedVisitHours": {
       "min": 0.5,
       "max": 1.5
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mount_Hiei_from_the_driveway.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hieizan_Driveway.jpg"
     }
   },
   {
@@ -81847,6 +82643,13 @@
     "recommendedVisitHours": {
       "min": 0.8,
       "max": 1.8
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kimii-dera_Wakayama.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kimii-dera_Wakayama.jpg"
     }
   },
   {
@@ -81926,6 +82729,13 @@
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kuroshio_Market_Wakayama_Marina_City.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wakayama_Marina_City.jpg"
     }
   },
   {
@@ -82005,6 +82815,13 @@
     "recommendedVisitHours": {
       "min": 2.5,
       "max": 3.5
+    },
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tomogashima_Island.jpg?width=1600",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tomogashima_fort.jpg"
     }
   }
 ]

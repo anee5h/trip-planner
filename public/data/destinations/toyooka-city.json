@@ -1,7 +1,7 @@
 {
   "id": "toyooka-city",
   "name": "Toyooka City",
-  "nameJa": "豊岡",
+  "nameJa": "豊岡市",
   "prefecture": "Hyogo",
   "region": "Kansai",
   "coordinates": {
@@ -101,5 +101,21 @@
   "notesJa": "【見どころ】豊岡は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)"
+  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "content": {
+    "en": {
+      "name": "Toyooka City",
+      "description": "A northern Hyogo city known for Kinosaki Onsen, the San'in coast, and the reintroduction of Oriental storks.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "豊岡市",
+      "description": "兵庫県北部の中心都市で、1300年の歴史を誇る城崎温泉や出石城下町、玄武洞公園を擁します。特別天然記念物コウノトリの野生復帰に取り組む環境先進都市でもあります。",
+      "highlights": [
+        "城崎温泉の外湯めぐり",
+        "出石城下町と出石皿そば",
+        "玄武洞公園の六角形柱状節理"
+      ]
+    }
+  }
 }

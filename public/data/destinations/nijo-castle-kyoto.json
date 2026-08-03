@@ -133,5 +133,21 @@
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["kyoto-city"],
-  "hubId": "kyoto-city"
+  "hubId": "kyoto-city",
+  "content": {
+    "en": {
+      "name": "Nijo Castle (Kyoto)",
+      "description": "Nijo Castle in Kyoto was the residence of Tokugawa Ieyasu, famous for its Ninomaru Palace featuring squeaking 'nightingale floors' designed to alert guards to intruders.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "二条城",
+      "description": "徳川家康が造営し、大政奉還の舞台となった徳川幕府の興亡を見守った世界遺産。国宝・二の丸御殿の「鶯張り」の廊下や狩野派の障壁画、二の丸庭園が優美です。",
+      "highlights": [
+        "国宝・二の丸御殿",
+        "キュッキュッと鳴る鶯張りの廊下",
+        "特別名勝・二の丸庭園"
+      ]
+    }
+  }
 }

@@ -75,5 +75,12 @@
   "recommendedVisitHours": {
     "min": 1.5,
     "max": 2.5
+  },
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Miho_museum_hill.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Corpse Reviver",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Miho_museum_hill.jpg"
   }
 }

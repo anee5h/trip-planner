@@ -75,5 +75,12 @@
   "recommendedVisitHours": {
     "min": 1,
     "max": 2
+  },
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chogosonshi-ji_02.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chogosonshi-ji_02.jpg"
   }
 }

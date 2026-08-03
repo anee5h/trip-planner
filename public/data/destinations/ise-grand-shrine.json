@@ -1,7 +1,7 @@
 {
   "id": "ise-grand-shrine",
   "name": "Ise Grand Shrine (Ise Jingu)",
-  "nameJa": "伊勢神宮",
+  "nameJa": "伊勢神宮（内宮・外宮）",
   "prefecture": "Mie",
   "region": "Kansai",
   "coordinates": {
@@ -118,5 +118,21 @@
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["ise-city"],
   "role": "destination",
-  "hubId": "ise-city"
+  "hubId": "ise-city",
+  "content": {
+    "en": {
+      "name": "Ise Grand Shrine (Ise Jingu)",
+      "description": "Ise Grand Shrine is the spiritual heart of Shinto, dedicated to the Sun Goddess Amaterasu and rebuilt every 20 years in accordance with ancient Shikinen Sengu ritual.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "伊勢神宮（内宮・外宮）",
+      "description": "天照大御神を祀る皇大神宮（内宮）と豊受大御神を祀る豊受大神宮（外宮）を中心とする日本最尊の神社。宇治橋を渡り、神杉がそびえる参道を歩む清らかな参拝体験ができます。",
+      "highlights": [
+        "内宮・宇治橋と五十鈴川",
+        "神聖な五十鈴川御手洗場",
+        "式年遷宮の伝統と神杉林"
+      ]
+    }
+  }
 }

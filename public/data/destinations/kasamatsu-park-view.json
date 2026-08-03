@@ -71,5 +71,12 @@
   "recommendedVisitHours": {
     "min": 0.5,
     "max": 1.5
+  },
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Amanohashidate_view_from_Kasamatsu_Park.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Corpse Reviver",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amanohashidate_view_from_Kasamatsu_Park.jpg"
   }
 }

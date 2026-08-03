@@ -128,5 +128,21 @@
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["kobe-city"],
   "role": "destination",
-  "hubId": "kobe-city"
+  "hubId": "kobe-city",
+  "content": {
+    "en": {
+      "name": "Arima Onsen",
+      "description": "Arima Onsen is Japan's oldest recorded hot spring resort, nestled behind Mount Rokko and famous for its iron-rich golden 'Kinsen' and clear radium 'Ginsen' waters.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "有馬温泉",
+      "description": "日本三古泉・日本三名泉の一つに数えられる歴史ある温泉街。鉄分を含み赤褐色に輝く「金泉」と、無色透明な炭酸泉「銀泉」の2種類の湯を日帰り温泉や湯めぐりで堪能できます。",
+      "highlights": [
+        "鉄分豊富な赤湯・金泉",
+        "炭酸泉・銀泉",
+        "湯本坂のレトロな温泉街散策"
+      ]
+    }
+  }
 }

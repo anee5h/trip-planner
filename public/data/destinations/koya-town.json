@@ -101,5 +101,22 @@
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "nameJa": "高野町",
+  "content": {
+    "en": {
+      "name": "Koya Town",
+      "description": "Sacred mountain monastic complex (Mount Koya / Koyasan), headquarters of Shingon Buddhism and Okunoin cemetery.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "高野町",
+      "description": "弘法大師空海がひらいた真言密教の聖地・高野山を擁する山上の宗教都市。壇上伽藍や奥の院を中心に、117ヶ寺の寺院が集積し、宿坊での精進料理や宿坊体験が人気です。",
+      "highlights": [
+        "世界遺産・高野山奥の院",
+        "壇上伽藍・根本大塔",
+        "宿坊体験と精進料理"
+      ]
+    }
+  }
 }

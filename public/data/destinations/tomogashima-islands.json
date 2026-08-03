@@ -75,5 +75,12 @@
   "recommendedVisitHours": {
     "min": 2.5,
     "max": 3.5
+  },
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tomogashima_Island.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tomogashima_fort.jpg"
   }
 }

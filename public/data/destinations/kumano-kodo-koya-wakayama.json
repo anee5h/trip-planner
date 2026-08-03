@@ -123,5 +123,21 @@
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["koya-town"],
-  "hubId": "koya-town"
+  "hubId": "koya-town",
+  "content": {
+    "en": {
+      "name": "Sacred Sites and Pilgrimage Routes in the Kii Mountain Range",
+      "description": "Sacred Sites and Pilgrimage Routes in the Kii Mountain Range is a UNESCO World Heritage Site in Wakayama, designated for its outstanding universal cultural or natural value.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "紀伊山地の霊場と参詣道",
+      "description": "高野山・熊野三山・吉野大峰の三つの霊場と、それらを結ぶ古道からなる世界文化遺産。千年の歴史を持つ巡礼の道で、深い森と神仏習合の信仰が息づく神秘の空間です。",
+      "highlights": [
+        "熊野古道（中辺路・小辺路）",
+        "熊野本宮大社・那智大社",
+        "高野山町石道"
+      ]
+    }
+  }
 }

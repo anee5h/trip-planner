@@ -115,5 +115,22 @@
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "nameJa": "神戸市",
+  "content": {
+    "en": {
+      "name": "Kobe City",
+      "description": "Cosmopolitan port city framed by Mt. Rokko, world-famous for Kobe Beef, Harborland, and Arima Onsen.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "神戸市",
+      "description": "六甲山と瀬戸内海に挟まれた美しい港町。異人館が立ち並ぶ北野、ハーバーランドやメリケンパークの港湾景観、南京町の美食、有馬温泉など多彩な魅力が詰まっています。",
+      "highlights": [
+        "神戸港ハーバーランド夜景",
+        "北野異人館街",
+        "南京町の中華街美食"
+      ]
+    }
+  }
 }

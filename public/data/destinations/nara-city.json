@@ -96,5 +96,18 @@
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "nameJa": "奈良市",
+  "content": {
+    "en": {
+      "name": "Nara City",
+      "description": "Japan's 8th-century capital, renowned for free-roaming sacred deer in Nara Park and Todai-ji Great Buddha.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "奈良市",
+      "description": "平城京が開かれた日本の古代の首都。東大寺の大仏や春日大社、鹿が遊ぶ奈良公園、ならまちの町家街など、1300年の歴史が穏やかな空気の中に溶け込む古都です。",
+      "highlights": ["東大寺・大仏殿", "春日大社と奈良公園の鹿", "興福寺五重塔"]
+    }
+  }
 }

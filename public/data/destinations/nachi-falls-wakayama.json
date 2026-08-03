@@ -127,5 +127,21 @@
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["shirahama-town"],
-  "hubId": "shirahama-town"
+  "hubId": "shirahama-town",
+  "content": {
+    "en": {
+      "name": "Nachi Falls & Pagoda",
+      "description": "Nachi Falls is Japan's tallest uninterrupted single-drop waterfall (133 meters), framing the three-story red Seiganto-ji pagoda against the sacred Nachi primeval forest.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "那智滝",
+      "description": "落差133m、滝幅13mを誇る日本一の落差を持つ名瀑。熊野那智大社の飛瀧神社のご神体として古くから信仰され、三重塔越しに仰ぎ見る滝の雄姿は熊野を代表する景色です。",
+      "highlights": [
+        "落差133mの日本一の名瀑",
+        "那智山青岸渡寺の三重塔",
+        "熊野那智大社参道"
+      ]
+    }
+  }
 }

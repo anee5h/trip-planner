@@ -96,5 +96,22 @@
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "nameJa": "和歌山市",
+  "content": {
+    "en": {
+      "name": "Wakayama City",
+      "description": "Coastal castle city famous for Wakayama Castle, Kuroshio Seafood Market, and Wakayama ramen.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "和歌山市",
+      "description": "紀州徳川家五十五万石の城下町として栄えた和歌山県の玄関口。天守閣がそびえる和歌山城、和歌の浦の景観、たま駅長で有名な貴志駅、黒潮市場など見所豊富です。",
+      "highlights": [
+        "紀州徳川家の居城・和歌山城",
+        "和歌の浦と片男波海水浴場",
+        "和歌山ラーメンと黒潮市場"
+      ]
+    }
+  }
 }

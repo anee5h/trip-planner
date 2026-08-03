@@ -75,5 +75,12 @@
   "recommendedVisitHours": {
     "min": 0.8,
     "max": 1.8
+  },
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ikuno_Silver_Mine_(Ikuno_Kozan).jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Sakaori",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ikuno_Silver_Mine_(Ikuno_Kozan).jpg"
   }
 }

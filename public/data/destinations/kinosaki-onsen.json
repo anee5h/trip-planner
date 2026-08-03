@@ -118,5 +118,21 @@
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["toyooka-city"],
   "role": "destination",
-  "hubId": "toyooka-city"
+  "hubId": "toyooka-city",
+  "content": {
+    "en": {
+      "name": "Kinosaki Onsen",
+      "description": "Kinosaki Onsen is a quintessential hot spring town centered around a willow-lined canal, where visitors stroll between seven distinct public bathhouses in traditional yukata robes.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "城崎温泉",
+      "description": "1300年の歴史を誇る関西屈指の温泉街。大谷川沿いに柳並木と木造旅館が立ち並び、浴衣姿で「一の湯」「御所の湯」など7つの外湯をめぐる情緒溢れる温泉街です。",
+      "highlights": [
+        "七つの外湯めぐり",
+        "大谷川沿いの柳並木と木造建築",
+        "浴衣姿での温泉街散策"
+      ]
+    }
+  }
 }

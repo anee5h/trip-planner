@@ -120,5 +120,21 @@
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "role": "destination",
-  "hubId": "miyazu-city"
+  "hubId": "miyazu-city",
+  "content": {
+    "en": {
+      "name": "Amanohashidate (Bridge to Heaven)",
+      "description": "Amanohashidate is a natural 3.3-kilometer pine-covered sandbar spanning Miyazu Bay, famed for the Matanozoki upside-down viewing technique making it look like a bridge floating into heaven.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "天橋立",
+      "description": "宮津湾と阿蘇海を隔てる全長約3.6kmの砂州で、「日本三景」の一つ。約8,000本の松並木が続き、笠松公園や天橋立ビューランドからの「股のぞき」で天に架かる橋のような絶景が楽しめます。",
+      "highlights": [
+        "日本三景の松並木",
+        "笠松公園からの股のぞき",
+        "天橋立海水浴場・サイクリング"
+      ]
+    }
+  }
 }

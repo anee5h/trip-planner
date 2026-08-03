@@ -75,5 +75,12 @@
   "recommendedVisitHours": {
     "min": 1,
     "max": 2
+  },
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cup_Noodles_Museum_Osaka_Ikeda01s3.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Lombroso",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cup_Noodles_Museum_Osaka_Ikeda01s3.jpg"
   }
 }

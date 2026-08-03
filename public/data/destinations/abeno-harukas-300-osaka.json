@@ -127,5 +127,22 @@
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "hubId": "osaka-city",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "nameJa": "あべのハルカス300（展望台）",
+  "content": {
+    "en": {
+      "name": "Abeno Harukas 300 (Osaka Skyline)",
+      "description": "Rising 300 meters above Osaka, Abeno Harukas is Japan's tallest skyscraper, featuring a 3-story glass observatory and open-air wooden atrium garden.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "あべのハルカス300（展望台）",
+      "description": "日本有数の超高層ビル「あべのハルカス」最上階（58-60階）に位置する展望台。360度ガラス張りの回廊から大阪平野、六甲山、関西国際空港までを一望できる大パノラマが魅力です。",
+      "highlights": [
+        "360度ガラス張り展望回廊",
+        "58階天空庭園カフェ",
+        "夜景大パノラマ"
+      ]
+    }
+  }
 }

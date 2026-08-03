@@ -96,5 +96,22 @@
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "nameJa": "斑鳩町",
+  "content": {
+    "en": {
+      "name": "Ikaruga Town",
+      "description": "Historic town home to Horyu-ji Temple, containing the world's oldest surviving wooden structures.",
+      "highlights": []
+    },
+    "ja": {
+      "name": "斑鳩町",
+      "description": "聖徳太子ゆかりの地として世界最古の木造建築群・法隆寺や法起寺を擁する歴史の町。飛鳥文化の薫り高き寺院群と穏やかな奈良の田園風景が広がります。",
+      "highlights": [
+        "世界遺産・法隆寺西院伽藍",
+        "法起寺三重塔",
+        "中宮寺の半跏思惟像"
+      ]
+    }
+  }
 }
