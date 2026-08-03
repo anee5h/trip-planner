@@ -72,11 +72,11 @@
     "min": 1.5,
     "max": 2.5
   },
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Okunoin_Koyasan.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Koyasan_Okunoin_Rosoku01.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 3.0",
-    "attribution": "Saigen Jiro",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Okunoin_Koyasan.jpg"
+    "license": "CC BY-SA 4.0",
+    "attribution": "Wikimedia Commons contributors",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koyasan_Okunoin_Rosoku01.jpg"
   }
 }

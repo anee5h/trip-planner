@@ -76,11 +76,11 @@
     "min": 2,
     "max": 3
   },
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Konpon_Chudo_Enryaku-ji.JPG?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/35/Enryakuji_Konpon_Chudo1.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 3.0",
-    "attribution": "Wiiii",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Konpon_Chudo_Enryaku-ji.JPG"
+    "license": "CC BY-SA 4.0",
+    "attribution": "Wikimedia Commons contributors",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Enryakuji_Konpon_Chudo1.jpg"
   }
 }

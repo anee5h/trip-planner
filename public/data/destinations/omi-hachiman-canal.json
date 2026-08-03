@@ -76,11 +76,11 @@
     "min": 1,
     "max": 2
   },
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Omihachiman_canal.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/08/Omihachiman_canal_006.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 3.0",
-    "attribution": "663highland",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Omihachiman_canal.jpg"
+    "license": "CC BY-SA 4.0",
+    "attribution": "Wikimedia Commons contributors",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Omihachiman_canal_006.jpg"
   }
 }

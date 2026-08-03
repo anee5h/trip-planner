@@ -32,3 +32,4 @@ docs/*
 !.gitignore
 !docs/RELEASE_RULES.md
 !docs/Roadmapv2.0.md
+/docs/Roadmapv2.0.md

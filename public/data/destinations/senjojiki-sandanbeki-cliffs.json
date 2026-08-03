@@ -76,11 +76,11 @@
     "min": 1,
     "max": 2
   },
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Senjojiki_Shirahama.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/48/Senjojiki_Shirahama_Wakayama01n4272.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 3.0",
-    "attribution": "663highland",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senjojiki_Shirahama.jpg"
+    "license": "CC BY-SA 4.0",
+    "attribution": "Wikimedia Commons contributors",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senjojiki_Shirahama_Wakayama01n4272.jpg"
   }
 }

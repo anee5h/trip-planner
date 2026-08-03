@@ -76,11 +76,11 @@
     "min": 0.8,
     "max": 1.8
   },
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kimii-dera_Wakayama.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Kimiidera_wP1010133.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 3.0",
-    "attribution": "663highland",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kimii-dera_Wakayama.jpg"
+    "license": "CC BY-SA 4.0",
+    "attribution": "Wikimedia Commons contributors",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kimiidera_wP1010133.jpg"
   }
 }

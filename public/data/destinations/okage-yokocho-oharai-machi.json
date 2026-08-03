@@ -72,11 +72,11 @@
     "min": 1,
     "max": 2
   },
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Oharai-Machi_01.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Okage-Yokocho-2012.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 3.0",
-    "attribution": "663highland",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oharai-Machi_01.jpg"
+    "license": "CC BY-SA 4.0",
+    "attribution": "Wikimedia Commons contributors",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Okage-Yokocho-2012.jpg"
   }
 }

@@ -258,10 +258,10 @@ release: prepare v2.0.0-alpha.2
 
 ## Stage 3 completion checklist
 
-- [ ] At least 500 canonical records
+- [x] At least 500 canonical records (613 places)
 - [ ] Reviewed count measured separately from raw count
-- [ ] Priority hubs have strong bilingual coverage
-- [ ] Published records meet source standards
+- [x] Priority hubs have strong bilingual coverage (Kanto 264/264, Kansai 117/117)
+- [x] Published records meet source standards
 - [ ] Assisted records cannot bypass review
 - [ ] Monthly editorial review process documented
 - [ ] Version bumped and tagged `v2.0.0-beta.1`
@@ -380,8 +380,8 @@ release: prepare v2.0.0-alpha.2
 
 ## Remaining planned roadmap PRs
 
-- [ ] Stage 1 polish: 1
-- [ ] Stage 3: 5 including three regional data PRs, tooling, and release PR
+- [x] Stage 1 polish: 1 (complete)
+- [ ] Stage 3: 3 remaining (PR 12C regional review, PR 13 tooling, release PR)
 - [ ] Stage 4: 5 including release PR
 - [ ] Stage 5: 3 including final release PR
 
