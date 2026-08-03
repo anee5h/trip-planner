@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Sendai Umino-Mori Aquarium",
-      "description": "Sendai Umino-Mori Aquarium is a visitor destination in Sendai City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+      "description": "Sendai Umino-Mori Aquarium is a visitor destination in Sendai City.  Visitors can explore focused exhibits and learn about the venue's subject.",
       "highlights": ["Aquarium"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 38.27108333,
     "lng": 140.98066667
   },
-  "description": "Sendai Umino-Mori Aquarium is a visitor destination in Sendai City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+  "description": "Sendai Umino-Mori Aquarium is a visitor destination in Sendai City.  Visitors can explore focused exhibits and learn about the venue's subject.",
   "highlights": ["Aquarium"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,

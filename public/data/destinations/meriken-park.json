@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Meriken Park",
-      "description": "Meriken Park is a visitor destination in Kobe City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+      "description": "Meriken Park is a visitor destination in Kobe City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
       "highlights": ["Nature"]
     },
     "ja": {
@@ -38,7 +38,7 @@
     "lat": 34.68166667,
     "lng": 135.18833333
   },
-  "description": "Meriken Park is a visitor destination in Kobe City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+  "description": "Meriken Park is a visitor destination in Kobe City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

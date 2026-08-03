@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Canal City Hakata",
-      "description": "Canal City Hakata is a visitor destination in Fukuoka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+      "description": "Canal City Hakata is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
       "highlights": ["Culture", "Shopping"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 33.59111111,
     "lng": 130.41055556
   },
-  "description": "Canal City Hakata is a visitor destination in Fukuoka City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+  "description": "Canal City Hakata is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
   "highlights": ["Culture", "Shopping"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Kitano Ijinkan",
-      "description": "Kitano Ijinkan is a visitor destination in Kobe City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+      "description": "Kitano Ijinkan is a visitor destination in Kobe City.  Visitors can experience historic architecture and local culture.",
       "highlights": ["History", "Museum"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 34.69016666666667,
     "lng": 135.19544444444443
   },
-  "description": "Kitano Ijinkan is a visitor destination in Kobe City. Visitors can experience historic architecture and local culture. Check current hours, access, and admission information before visiting.",
+  "description": "Kitano Ijinkan is a visitor destination in Kobe City.  Visitors can experience historic architecture and local culture.",
   "highlights": ["History", "Museum"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

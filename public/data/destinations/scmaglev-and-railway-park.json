@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "SCMaglev and Railway Park",
-      "description": "SCMaglev and Railway Park is a visitor destination in Nagoya City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+      "description": "SCMaglev and Railway Park is a visitor destination in Nagoya City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
       "highlights": ["Nature"]
     },
     "ja": {
@@ -38,7 +38,7 @@
     "lat": 35.04735,
     "lng": 136.849319
   },
-  "description": "SCMaglev and Railway Park is a visitor destination in Nagoya City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+  "description": "SCMaglev and Railway Park is a visitor destination in Nagoya City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

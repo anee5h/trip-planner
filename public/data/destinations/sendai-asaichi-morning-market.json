@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Sendai Asaichi Morning Market",
-      "description": "Sendai Asaichi Morning Market is a visitor destination in Sendai City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+      "description": "Sendai Asaichi Morning Market is a visitor destination in Sendai City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
       "highlights": ["Food", "Market"]
     },
     "ja": {
@@ -38,7 +38,7 @@
     "lat": 38.26027778,
     "lng": 140.88194444
   },
-  "description": "Sendai Asaichi Morning Market is a visitor destination in Sendai City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+  "description": "Sendai Asaichi Morning Market is a visitor destination in Sendai City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
   "highlights": ["Food", "Market"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

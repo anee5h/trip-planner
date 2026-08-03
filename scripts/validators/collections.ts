@@ -25,7 +25,6 @@ export const collectionsValidator: ValidatorModule = {
 
     const issues: ValidationIssue[] = [];
     const validDestIds = new Set(destinations.map((d) => d.id));
-    const destMap = new Map(destinations.map((d) => [d.id, d]));
 
     let totalChecked = collections.length;
 
@@ -91,9 +90,6 @@ export const collectionsValidator: ValidatorModule = {
     }
 
     // 3. Audit Specific Collection Invariants: Original 12 Castles
-    const orig12Collection = collections.find(
-      (c) => c.id === "original-12-castles" || c.slug === "original-12-castles",
-    );
     const orig12Destinations = destinations.filter((d) =>
       d.collections?.some((c) => c.collectionId === "original-12-castles"),
     );

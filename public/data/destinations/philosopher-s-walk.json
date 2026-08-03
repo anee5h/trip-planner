@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Philosopher's Walk",
-      "description": "Philosopher's Walk is a visitor destination in Kyoto City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+      "description": "Philosopher's Walk is a visitor destination in Kyoto City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
       "highlights": ["Nature", "Culture"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 35.025127777778,
     "lng": 135.79616666667
   },
-  "description": "Philosopher's Walk is a visitor destination in Kyoto City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+  "description": "Philosopher's Walk is a visitor destination in Kyoto City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
   "highlights": ["Nature", "Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

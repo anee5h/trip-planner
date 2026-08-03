@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Hokkaido Museum of Modern Art",
-      "description": "Hokkaido Museum of Modern Art is a visitor destination in Sapporo City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+      "description": "Hokkaido Museum of Modern Art is a visitor destination in Sapporo City.  Visitors can explore focused exhibits and learn about the venue's subject.",
       "highlights": ["Museum"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 43.060278,
     "lng": 141.330389
   },
-  "description": "Hokkaido Museum of Modern Art is a visitor destination in Sapporo City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+  "description": "Hokkaido Museum of Modern Art is a visitor destination in Sapporo City.  Visitors can explore focused exhibits and learn about the venue's subject.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,

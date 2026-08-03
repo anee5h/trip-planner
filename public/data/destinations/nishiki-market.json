@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Nishiki Market",
-      "description": "Nishiki Market is a visitor destination in Kyoto City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+      "description": "Nishiki Market is a visitor destination in Kyoto City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
       "highlights": ["Food", "Market"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 35.00502778,
     "lng": 135.76613889
   },
-  "description": "Nishiki Market is a visitor destination in Kyoto City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+  "description": "Nishiki Market is a visitor destination in Kyoto City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
   "highlights": ["Food", "Market"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

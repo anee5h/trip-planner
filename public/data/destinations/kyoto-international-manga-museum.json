@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Kyoto International Manga Museum",
-      "description": "Kyoto International Manga Museum is a visitor destination in Kyoto City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+      "description": "Kyoto International Manga Museum is a visitor destination in Kyoto City.  Visitors can explore focused exhibits and learn about the venue's subject.",
       "highlights": ["Museum"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 35.0116867,
     "lng": 135.7591715
   },
-  "description": "Kyoto International Manga Museum is a visitor destination in Kyoto City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+  "description": "Kyoto International Manga Museum is a visitor destination in Kyoto City.  Visitors can explore focused exhibits and learn about the venue's subject.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,

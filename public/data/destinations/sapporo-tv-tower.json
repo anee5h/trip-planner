@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Sapporo TV Tower",
-      "description": "Sapporo TV Tower is a visitor destination in Sapporo City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+      "description": "Sapporo TV Tower is a visitor destination in Sapporo City.  Visitors can experience the area's character and main sights.",
       "highlights": ["Viewpoint"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 43.06111111,
     "lng": 141.35638889
   },
-  "description": "Sapporo TV Tower is a visitor destination in Sapporo City. Visitors can experience the area's character and main sights. Check current hours, access, and admission information before visiting.",
+  "description": "Sapporo TV Tower is a visitor destination in Sapporo City.  Visitors can experience the area's character and main sights.",
   "highlights": ["Viewpoint"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

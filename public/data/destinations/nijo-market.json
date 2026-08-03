@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Nijo Market",
-      "description": "Nijo Market is a visitor destination in Sapporo City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+      "description": "Nijo Market is a visitor destination in Sapporo City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
       "highlights": ["Food", "Market"]
     },
     "ja": {
@@ -38,7 +38,7 @@
     "lat": 43.058306,
     "lng": 141.358472
   },
-  "description": "Nijo Market is a visitor destination in Sapporo City. Visitors can enjoy local food, shopping, and an easy walk through the area. Check current hours, access, and admission information before visiting.",
+  "description": "Nijo Market is a visitor destination in Sapporo City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
   "highlights": ["Food", "Market"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

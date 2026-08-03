@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Odori Park",
-      "description": "Odori Park is a visitor destination in Sapporo City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+      "description": "Odori Park is a visitor destination in Sapporo City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
       "highlights": ["Nature"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 43.059722,
     "lng": 141.346389
   },
-  "description": "Odori Park is a visitor destination in Sapporo City. Visitors can enjoy the scenery and explore at a relaxed walking pace. Check current hours, access, and admission information before visiting.",
+  "description": "Odori Park is a visitor destination in Sapporo City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

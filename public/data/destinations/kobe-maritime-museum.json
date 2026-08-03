@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Kobe Maritime Museum",
-      "description": "Kobe Maritime Museum is a visitor destination in Kobe City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+      "description": "Kobe Maritime Museum is a visitor destination in Kobe City.  Visitors can explore focused exhibits and learn about the venue's subject.",
       "highlights": ["Museum"]
     },
     "ja": {
@@ -39,7 +39,7 @@
     "lat": 34.68277778,
     "lng": 135.18833333
   },
-  "description": "Kobe Maritime Museum is a visitor destination in Kobe City. Visitors can explore focused exhibits and learn about the venue's subject. Check current hours, access, and admission information before visiting.",
+  "description": "Kobe Maritime Museum is a visitor destination in Kobe City.  Visitors can explore focused exhibits and learn about the venue's subject.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
