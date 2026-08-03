@@ -1,5 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { isPrivateOrReservedAddress, ALLOWED_IMAGE_HOSTS } from "../images";
+import {
+  isPrivateOrReservedAddress,
+  ALLOWED_IMAGE_HOSTS,
+  classifyImageFailure,
+} from "../images";
 
 describe("image validator SSRF guards", () => {
   it("rejects private IPv4 ranges", () => {
@@ -39,5 +43,55 @@ describe("image validator SSRF guards", () => {
     expect(ALLOWED_IMAGE_HOSTS.has("localhost")).toBe(false);
     expect(ALLOWED_IMAGE_HOSTS.has("169.254.169.254")).toBe(false);
     expect(ALLOWED_IMAGE_HOSTS.has("example.com")).toBe(false);
+  });
+});
+
+describe("classifyImageFailure", () => {
+  it("classifies policy violations as errors", () => {
+    expect(classifyImageFailure("policy")).toEqual({
+      severity: "error",
+      code: "IMAGE_POLICY_VIOLATION",
+    });
+  });
+
+  it("classifies hard HTTP failures (404/410/500) as errors", () => {
+    expect(classifyImageFailure(undefined, 404)).toEqual({
+      severity: "error",
+      code: "BROKEN_IMAGE_URL",
+    });
+    expect(classifyImageFailure(undefined, 410)).toEqual({
+      severity: "error",
+      code: "BROKEN_IMAGE_URL",
+    });
+    expect(classifyImageFailure(undefined, 500)).toEqual({
+      severity: "error",
+      code: "BROKEN_IMAGE_URL",
+    });
+  });
+
+  it("classifies transient failures (429/503) as warnings", () => {
+    expect(classifyImageFailure(undefined, 429)).toEqual({
+      severity: "warning",
+      code: "IMAGE_FETCH_WARNING",
+    });
+    expect(classifyImageFailure(undefined, 503)).toEqual({
+      severity: "warning",
+      code: "IMAGE_FETCH_WARNING",
+    });
+    expect(classifyImageFailure("transient")).toEqual({
+      severity: "warning",
+      code: "IMAGE_FETCH_WARNING",
+    });
+  });
+
+  it("classifies other HTTP statuses as warnings", () => {
+    expect(classifyImageFailure(undefined, 403)).toEqual({
+      severity: "warning",
+      code: "IMAGE_FETCH_WARNING",
+    });
+    expect(classifyImageFailure(undefined, 200)).toEqual({
+      severity: "warning",
+      code: "IMAGE_FETCH_WARNING",
+    });
   });
 });
