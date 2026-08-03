@@ -75,5 +75,12 @@
   "recommendedVisitHours": {
     "min": 1,
     "max": 2
+  },
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ritsuunkyo_gorge_Hyogo.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sannen-iwa_Bridge,_Ritsuunkyo.jpg"
   }
 }

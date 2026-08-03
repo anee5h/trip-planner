@@ -71,5 +71,12 @@
   "recommendedVisitHours": {
     "min": 1,
     "max": 2
+  },
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Naramachi_Nara.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Corpse Reviver",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naramachi_Nara.jpg"
   }
 }

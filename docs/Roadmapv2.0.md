@@ -237,7 +237,10 @@ release: prepare v2.0.0-alpha.2
 
 ## PR 12B — Kansai review
 
-- [ ] Review descriptions, categories, transport, cost, visit duration, sources, relationships, Japanese content, and confidence
+- [x] Review descriptions, categories, transport, cost, visit duration, sources, relationships, Japanese content, and confidence
+- [x] Enforce minimum 3 destinations per hub across all 17 Kansai hubs
+- [x] Expand regional hubs (Nara, Otsu, Wakayama) with top-tier destinations
+- [x] Un-gate and publish 100% of Kansai locations in Japanese (117/117)
 
 ## PR 12C — Regional city review
 

@@ -67,5 +67,12 @@
   "recommendedVisitHours": {
     "min": 1,
     "max": 2
+  },
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Byodo-in_ho-o-do.jpg?width=1600",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Fg2",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Byodo-in_ho-o-do.jpg"
   }
 }
