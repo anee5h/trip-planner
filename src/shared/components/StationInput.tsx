@@ -58,21 +58,13 @@ interface StationInputProps {
 }
 
 export default function StationInput({ embedded = false }: StationInputProps) {
-  const {
-    homeStation,
-    setHomeStation,
-    homeStationCoords,
-    setHomeStationCoords,
-    canMutateProfile,
-  } = useTripStore();
+  const { homeStation, setOriginLocation, canMutateProfile } = useTripStore();
 
   type StationData = { name: string; lat: number; lng: number };
-  // Data for stations by prefecture
   const [stationsByPref, setStationsByPref] = useState<
     Record<string, StationData[]>
   >({});
 
-  // UI State
   const [isEditing, setIsEditing] = useState<boolean>(embedded || !homeStation);
   const [mode, setMode] = useState<"station" | "zip">("station");
   const [selectedPref, setSelectedPref] = useState<string>("Tokyo");
@@ -103,34 +95,12 @@ export default function StationInput({ embedded = false }: StationInputProps) {
       .catch((err) => console.error("Failed to load stations", err));
   }, []);
 
-  // Parse homeStation on mount or when it changes externally
   useEffect(() => {
     if (!homeStation) return;
 
-    // Check if it's a zip code (matches roughly 3-4 digits or 7 digits)
     if (/^\d{3}-?\d{4}$/.test(homeStation) || /^\d+$/.test(homeStation)) {
       setMode("zip");
       setZipCode(homeStation);
-
-      // Auto-resolve coordinates if missing (e.g. from previous app versions)
-      if (!homeStationCoords) {
-        setIsFetchingZip(true);
-        const cleanZip = homeStation.replace("-", "");
-        fetch(
-          `https://nominatim.openstreetmap.org/search?postalcode=${cleanZip}&country=japan&format=json`,
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            if (data && data.length > 0) {
-              setHomeStationCoords({
-                lat: parseFloat(data[0].lat),
-                lng: parseFloat(data[0].lon),
-              });
-            }
-          })
-          .catch(console.error)
-          .finally(() => setIsFetchingZip(false));
-      }
     } else if (homeStation.includes(", ")) {
       const parts = homeStation.split(", ");
       setMode("station");
@@ -138,18 +108,11 @@ export default function StationInput({ embedded = false }: StationInputProps) {
         setSelectedPref(parts[1]);
       }
       setSelectedStation(parts[0]);
-
-      // Auto-resolve station coordinates if missing
-      if (!homeStationCoords && stationsByPref[parts[1]]) {
-        const st = stationsByPref[parts[1]].find((s) => s.name === parts[0]);
-        if (st) setHomeStationCoords({ lat: st.lat, lng: st.lng });
-      }
     } else {
-      // Fallback
       setMode("station");
       setSelectedStation(homeStation);
     }
-  }, [homeStation, homeStationCoords, stationsByPref, setHomeStationCoords]);
+  }, [homeStation]);
 
   const handleStationChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedStation(e.target.value);
@@ -158,7 +121,7 @@ export default function StationInput({ embedded = false }: StationInputProps) {
   const handlePrefChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const p = e.target.value;
     setSelectedPref(p);
-    setSelectedStation(""); // reset station
+    setSelectedStation("");
   };
 
   const handleZipChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -168,11 +131,13 @@ export default function StationInput({ embedded = false }: StationInputProps) {
   const handleSet = async () => {
     if (!canMutateProfile) return;
     if (mode === "station" && selectedStation) {
-      setHomeStation(`${selectedStation}, ${selectedPref}`);
+      const label = `${selectedStation}, ${selectedPref}`;
       const st = stations.find((s) => s.name === selectedStation);
-      if (st) {
-        setHomeStationCoords({ lat: st.lat, lng: st.lng });
-      }
+      setOriginLocation({
+        label,
+        coordinates: st ? { lat: st.lat, lng: st.lng } : null,
+        source: "station",
+      });
       setIsEditing(false);
     } else if (mode === "zip" && zipCode) {
       setIsFetchingZip(true);
@@ -186,8 +151,11 @@ export default function StationInput({ embedded = false }: StationInputProps) {
         if (data && data.length > 0) {
           const lat = parseFloat(data[0].lat);
           const lng = parseFloat(data[0].lon);
-          setHomeStation(zipCode);
-          setHomeStationCoords({ lat, lng });
+          setOriginLocation({
+            label: zipCode,
+            coordinates: { lat, lng },
+            source: "postal_code",
+          });
           setIsEditing(false);
         } else {
           setZipError("Could not find coordinates for this zip code.");

@@ -8,6 +8,7 @@ import { generateUUID, isValidUUID } from "@/shared/utils/uuid";
 import destinationsIndex from "@/shared/data/destinations-index.json";
 import type { Destination } from "@/shared/types/destination";
 import { formatPrefectureId } from "@/shared/hooks/useTripStore";
+import type { OriginLocation } from "@/shared/hooks/useTripStore";
 
 type VisitDates = Record<string, string[] | string>;
 type DestinationRatings = Record<string, "up" | "down">;
@@ -40,15 +41,8 @@ interface UseTripSyncProps {
   compareList: string[];
   setCompareList: (val: string[] | ((prev: string[]) => string[])) => void;
   homeStation: string;
-  setHomeStation: (val: string | ((prev: string) => string)) => void;
-  setHomeStationCoords: (
-    val:
-      | { lat: number; lng: number }
-      | null
-      | ((
-          prev: { lat: number; lng: number } | null,
-        ) => { lat: number; lng: number } | null),
-  ) => void;
+  guestOrigin: OriginLocation;
+  setActiveOrigin: (origin: OriginLocation) => void;
   trips?: Trip[];
   setTrips?: (val: Trip[] | ((prev: Trip[]) => Trip[])) => void;
   destinationRatings?: DestinationRatings;
@@ -69,6 +63,8 @@ export interface UseTripSyncReturn {
   retryProfileHydration: () => void;
   retryTripHydration: () => void;
 }
+
+const DEFAULT_TOKYO_COORDS = { lat: 35.6812, lng: 139.7671 };
 
 const destinationById = new Map<string, Destination>(
   (destinationsIndex as Destination[]).map((destination) => [
@@ -169,14 +165,13 @@ function serializeProfileSnapshot(snapshot: ProfileSnapshot): string {
 
 async function resolveHomeStationCoordinates(
   station: string,
-  setHomeStationCoords: UseTripSyncProps["setHomeStationCoords"],
-): Promise<void> {
+): Promise<{ lat: number; lng: number } | null> {
   if (station.includes(", ")) {
     const [stationName, prefecture] = station.split(", ", 2);
 
     try {
       const response = await fetch("/data/stations-by-prefecture.json");
-      if (!response.ok) return;
+      if (!response.ok) return null;
 
       const stationsByPrefecture = (await response.json()) as Record<
         string,
@@ -188,7 +183,7 @@ async function resolveHomeStationCoordinates(
       );
 
       if (match) {
-        setHomeStationCoords({ lat: match.lat, lng: match.lng });
+        return { lat: match.lat, lng: match.lng };
       }
     } catch (error) {
       console.warn(
@@ -197,11 +192,11 @@ async function resolveHomeStationCoordinates(
       );
     }
 
-    return;
+    return null;
   }
 
   if (!/^\d{3}-?\d{4}$/.test(station) && !/^\d+$/.test(station)) {
-    return;
+    return null;
   }
 
   try {
@@ -210,7 +205,7 @@ async function resolveHomeStationCoordinates(
       `https://nominatim.openstreetmap.org/search?postalcode=${postalCode}&country=japan&format=json`,
     );
 
-    if (!response.ok) return;
+    if (!response.ok) return null;
 
     const results = (await response.json()) as Array<{
       lat?: string;
@@ -218,17 +213,19 @@ async function resolveHomeStationCoordinates(
     }>;
 
     const first = results[0];
-    if (!first?.lat || !first.lon) return;
+    if (!first?.lat || !first.lon) return null;
 
     const lat = Number.parseFloat(first.lat);
     const lng = Number.parseFloat(first.lon);
 
     if (Number.isFinite(lat) && Number.isFinite(lng)) {
-      setHomeStationCoords({ lat, lng });
+      return { lat, lng };
     }
   } catch (error) {
     console.warn("[Meguruto Sync] Could not geocode home postal code:", error);
   }
+
+  return null;
 }
 
 export function useTripSync({
@@ -244,8 +241,8 @@ export function useTripSync({
   setLastSyncedDate,
   setCompareList,
   homeStation,
-  setHomeStation,
-  setHomeStationCoords,
+  guestOrigin,
+  setActiveOrigin,
   trips = [],
   setTrips,
   destinationRatings,
@@ -303,6 +300,7 @@ export function useTripSync({
       setTrips?.([]);
       setDestinationRatings?.({});
       previousTripsRef.current = [];
+      setActiveOrigin(guestOrigin);
     } else if (currentUserId && currentUserId !== previousUserId) {
       hydratedUserIdRef.current = null;
       lastSyncedProfileRef.current = null;
@@ -318,6 +316,8 @@ export function useTripSync({
     setCompareList,
     setTrips,
     setDestinationRatings,
+    guestOrigin,
+    setActiveOrigin,
   ]);
 
   // Hydrate user account data exclusively from Supabase without local merging
@@ -362,9 +362,21 @@ export function useTripSync({
       }
 
       if (!data) {
-        // Create initial row for new account, carrying over guest homeStation if set
-        const initialHomeStation =
-          homeStation && homeStation.length > 0 ? homeStation : "Tokyo Station";
+        // New account: adopt guest origin if it is genuinely guest-owned,
+        // otherwise use Tokyo Station default.
+        const adoptGuestOrigin = guestOrigin.source !== "default";
+
+        const initialHomeStation = adoptGuestOrigin
+          ? guestOrigin.label
+          : "Tokyo Station";
+
+        const initialOrigin: OriginLocation = adoptGuestOrigin
+          ? guestOrigin
+          : {
+              label: "Tokyo Station",
+              coordinates: DEFAULT_TOKYO_COORDS,
+              source: "default",
+            };
 
         const defaultPayload = {
           id: userId,
@@ -405,7 +417,7 @@ export function useTripSync({
         setVisitedPrefectures([]);
         setVisitedDates?.({});
         setDestinationRatings?.({});
-        setHomeStation(initialHomeStation);
+        setActiveOrigin(initialOrigin);
         hydratedUserIdRef.current = userId;
         setProfileSyncStatus("ready");
         return;
@@ -442,20 +454,33 @@ export function useTripSync({
       setVisitedPrefectures(loadedPrefectures);
       setVisitedDates?.(loadedDates);
       setDestinationRatings?.(loadedRatings);
-      setHomeStation(loadedHomeStation);
+
+      if (loadedHomeStation !== "Tokyo Station") {
+        const coords = await resolveHomeStationCoordinates(loadedHomeStation);
+        if (isCurrentHydration()) {
+          setActiveOrigin({
+            label: loadedHomeStation,
+            coordinates: coords ?? DEFAULT_TOKYO_COORDS,
+            source: loadedHomeStation.includes(", ")
+              ? "station"
+              : "postal_code",
+          });
+        }
+      } else {
+        if (isCurrentHydration()) {
+          setActiveOrigin({
+            label: "Tokyo Station",
+            coordinates: DEFAULT_TOKYO_COORDS,
+            source: "default",
+          });
+        }
+      }
+
+      if (!isCurrentHydration()) return;
 
       const syncedDate = getDatePart(data.updated_at);
       if (syncedDate) {
         setLastSyncedDate?.(syncedDate);
-      }
-
-      if (loadedHomeStation !== "Tokyo Station") {
-        void resolveHomeStationCoordinates(
-          loadedHomeStation,
-          setHomeStationCoords,
-        );
-      } else {
-        setHomeStationCoords({ lat: 35.6812, lng: 139.7671 });
       }
 
       hydratedUserIdRef.current = userId;
@@ -477,9 +502,9 @@ export function useTripSync({
     setVisitedPrefectures,
     setVisitedDates,
     setLastSyncedDate,
-    setHomeStation,
-    setHomeStationCoords,
+    setActiveOrigin,
     setDestinationRatings,
+    guestOrigin,
   ]);
 
   // Hydrate trips exclusively from Supabase
