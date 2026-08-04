@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Nature & Outdoors", "Sightseeing"],
-  "tags": [
-    "Hiking",
-    "UNESCO",
-    "Forest",
-    "Yakushima",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Hiking", "UNESCO", "Forest", "Yakushima"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Jhomonsugi_in_Yaku_Island_Japan_001.JPG",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "high",
   "reservation": "Guided tours recommended; trail may close in heavy rain",
   "parking": "Trailhead parking at Arakawa Dam",
-  "notes": "Kyushu regional expansion — Kagoshima Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -155,5 +148,6 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

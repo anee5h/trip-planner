@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Sightseeing", "Nature & Outdoors"],
-  "tags": [
-    "Viewpoint",
-    "Caldera",
-    "Panorama",
-    "Aso",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Viewpoint", "Caldera", "Panorama", "Aso"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Daikanb%C5%8D_Lookout%2C_Yamada%2C_Aso%2C_Kumamoto_-_Jul_9%2C_2011.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Viewpoint parking available",
-  "notes": "Kyushu regional expansion — Kumamoto Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -155,5 +148,6 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

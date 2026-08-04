@@ -12,7 +12,7 @@
         "Ancient camphor forest setting",
         "Yabusame horseback archery festival (October)"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "06:00–17:30"
     },
     "ja": {
       "name": "宮崎神宮",
@@ -22,7 +22,7 @@
         "クスノキの巨木が茂る神域の森",
         "10月例大祭の流鏑馬（やぶさめ）"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "06:00～17:30"
     }
   },
   "prefecture": "Miyazaki",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["History", "Culture"],
-  "tags": [
-    "Shrine",
-    "Emperor Jimmu",
-    "Forest",
-    "Miyazaki City",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Shrine", "Emperor Jimmu", "Forest", "Miyazaki City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Miyazaki-jingu%2C_Deity_crest_on_the_door_of_Jingu_Kaikan_01.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Shrine parking available",
-  "notes": "Kyushu regional expansion — Miyazaki Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -150,10 +143,11 @@
   },
   "officialWebsite": "https://miyazakijingu.or.jp/",
   "municipalityId": "Miyazaki:miyazaki",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "06:00–17:30",
+  "openingHoursJa": "06:00～17:30",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://miyazakijingu.or.jp/"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

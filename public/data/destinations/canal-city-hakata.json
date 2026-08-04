@@ -8,13 +8,13 @@
       "name": "Canal City Hakata",
       "description": "Canal City Hakata is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
       "highlights": ["Culture", "Shopping"],
-      "openingHours": "Open 24 hours"
+      "openingHours": "10:00–21:00 (Shops), 11:00–23:00 (Restaurants)"
     },
     "ja": {
       "name": "キャナルシティ博多",
       "description": "キャナルシティ博多はFukuoka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["文化", "ショッピング"],
-      "openingHours": "24時間営業"
+      "openingHours": "10:00～21:00（ショップ）、11:00～23:00（レストラン）"
     }
   },
   "prefecture": "Fukuoka",
@@ -170,10 +170,10 @@
   },
   "businessHours": "09:30 - 17:00 (Closed Mondays)",
   "municipalityId": "Fukuoka:fukuoka",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "10:00–21:00 (Shops), 11:00–23:00 (Restaurants)",
+  "openingHoursJa": "10:00～21:00（ショップ）、11:00～23:00（レストラン）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+    "sourceUrl": "https://canalcity.co.jp/english"
   }
 }

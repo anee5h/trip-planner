@@ -129,13 +129,13 @@
         "宗像大社辺津宮・中津宮・沖津宮",
         "宗像大社神宝館の国宝展示"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "一般の立ち入り禁止"
     }
   },
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "No public access allowed",
+  "openingHoursJa": "一般の立ち入り禁止",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+    "sourceUrl": "https://www.okinoshima-heritage.jp/en/"
   }
 }

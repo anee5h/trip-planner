@@ -125,13 +125,13 @@
         "本丸御殿と昭君之間の金箔装飾",
         "城内の加藤神社と桜の名所"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "09:00～17:00（最終入館16:30）"
     }
   },
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "09:00–17:00 (last admission 16:30)",
+  "openingHoursJa": "09:00～17:00（最終入館16:30）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+    "sourceUrl": "https://castle.kumamoto-guide.jp/en/"
   }
 }

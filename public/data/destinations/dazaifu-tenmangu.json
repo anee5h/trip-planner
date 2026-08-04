@@ -12,7 +12,7 @@
         "One of Japan's top three Tenmangu shrines",
         "Prayers for academic success & exam luck"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "06:30–18:30 (varies by season)"
     },
     "ja": {
       "name": "太宰府天満宮",
@@ -22,7 +22,7 @@
         "学問の神様・菅原道真公の御神徳",
         "日本三天神の一社と合格祈願"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "06:30～18:30（季節により変動あり）"
     }
   },
   "prefecture": "Fukuoka",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["History", "Culture"],
-  "tags": [
-    "Shrine",
-    "Plum",
-    "Learning",
-    "Dazaifu",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Shrine", "Plum", "Learning", "Dazaifu"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8b/20100719_Dazaifu_Tenmangu_Shrine_3328.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Shrine parking available",
-  "notes": "Kyushu regional expansion — Fukuoka Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -150,10 +143,11 @@
   },
   "officialWebsite": "https://www.dazaifutenmangu.or.jp/",
   "municipalityId": "Fukuoka:dazaifu",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "06:30–18:30 (varies by season)",
+  "openingHoursJa": "06:30～18:30（季節により変動あり）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://www.dazaifutenmangu.or.jp/en/"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

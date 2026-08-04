@@ -12,7 +12,7 @@
         "50,000+ volume manga reading library",
         "Interactive drawing & creation stations"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "11:00–19:00"
     },
     "ja": {
       "name": "北九州市漫画ミュージアム",
@@ -22,7 +22,7 @@
         "5万冊以上の漫画ライブラリー",
         "体験型作画コーナーと企画展"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "11:00～19:00"
     }
   },
   "prefecture": "Fukuoka",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Museum & Art", "Entertainment"],
-  "tags": [
-    "Museum",
-    "Manga",
-    "Culture",
-    "Kitakyushu City",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Museum", "Manga", "Culture", "Kitakyushu City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/11/Kitakyushu_Manga_Museum_entrance.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required; special exhibitions may require advance booking",
   "parking": "ARUARU CITY building parking",
-  "notes": "Kyushu regional expansion — Fukuoka Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -150,10 +143,11 @@
   },
   "officialWebsite": "https://www.ktqmm.jp/",
   "municipalityId": "Fukuoka:kitakyushu",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "11:00–19:00",
+  "openingHoursJa": "11:00～19:00",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://www.ktqmm.jp/english"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

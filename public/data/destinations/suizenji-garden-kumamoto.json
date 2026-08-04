@@ -12,7 +12,7 @@
         "53 Stations of Tokaido landscape",
         "Traditional teahouse with garden views"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "08:30–17:00 (Mar-Oct 07:30-18:00)"
     },
     "ja": {
       "name": "水前寺成趣園",
@@ -22,7 +22,7 @@
         "東海道五十三次の縮景",
         "伝統茶屋での抹茶と庭園眺望"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "08:30～17:00（3月～10月は07:30～18:00）"
     }
   },
   "prefecture": "Kumamoto",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Gardens", "Sightseeing"],
-  "tags": [
-    "Garden",
-    "Strolling Garden",
-    "History",
-    "Kumamoto City",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Garden", "Strolling Garden", "History", "Kumamoto City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/85/Kumamoto_Suizenji-jojuen01n4272.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Garden parking available",
-  "notes": "Kyushu regional expansion — Kumamoto Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -150,10 +143,11 @@
   },
   "officialWebsite": "https://www.suizenji.or.jp/",
   "municipalityId": "Kumamoto:kumamoto",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "08:30–17:00 (Mar-Oct 07:30-18:00)",
+  "openingHoursJa": "08:30～17:00（3月～10月は07:30～18:00）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

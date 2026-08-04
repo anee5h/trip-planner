@@ -12,7 +12,7 @@
         "Moss-covered ancient cedars & boulders",
         "Variety of trails from 1h to 4h"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "08:30–16:30 (Administration building)"
     },
     "ja": {
       "name": "白谷雲水峡",
@@ -22,7 +22,7 @@
         "苔に覆われた屋久杉と巨岩の絶景",
         "1時間〜4時間の多様なトレッキングコース"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "08:30～16:30（管理棟）"
     }
   },
   "prefecture": "Kagoshima",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Nature & Outdoors", "Sightseeing"],
-  "tags": [
-    "Hiking",
-    "Forest",
-    "Photography",
-    "Yakushima",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Hiking", "Forest", "Photography", "Yakushima"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/04/Shiratani_Unsuikyo_Ravine-_Part_I_-_ShirataniUnsuikyo326.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required; trail may be slippery after rain",
   "parking": "Trailhead parking available (¥500/day)",
-  "notes": "Kyushu regional expansion — Kagoshima Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -150,10 +143,11 @@
   },
   "officialWebsite": null,
   "municipalityId": "Kagoshima:yakushima",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "08:30–16:30 (Administration building)",
+  "openingHoursJa": "08:30～16:30（管理棟）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://www.kagoshima-kankou.com/for/attractions/51079"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

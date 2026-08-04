@@ -12,7 +12,7 @@
         "Cobblestone paths & quaint boutique shops",
         "Studio Ghibli-inspired gift & craft shops"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "09:30–17:30"
     },
     "ja": {
       "name": "由布院フローラルヴィレッジ",
@@ -22,7 +22,7 @@
         "石畳の小道と小さなショップ巡り",
         "ジブリ風雑貨店とフォトジェニックな街並み"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "09:30～17:30"
     }
   },
   "prefecture": "Oita",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Shopping", "Sightseeing"],
-  "tags": [
-    "Shopping",
-    "Photography",
-    "European Style",
-    "Yufuin",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Shopping", "Photography", "European Style", "Yufuin"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Yufuin_Floral_Village.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Nearby paid parking",
-  "notes": "Kyushu regional expansion — Oita Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -150,10 +143,11 @@
   },
   "officialWebsite": "https://floral-village.com/",
   "municipalityId": "Oita:yufu",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "09:30–17:30",
+  "openingHoursJa": "09:30～17:30",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

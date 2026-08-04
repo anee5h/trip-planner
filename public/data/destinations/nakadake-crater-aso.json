@@ -12,7 +12,7 @@
         "One of the world's most accessible craters",
         "Dramatic volcanic landscape & gas plumes"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "09:00–17:00 (Crater access varies by volcanic activity)"
     },
     "ja": {
       "name": "阿蘇中岳火口",
@@ -22,7 +22,7 @@
         "世界有数のアクセス可能な活火口",
         "迫力の噴煙と火山ガスの景観"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "09:00～17:00（火口見学は火山活動により変動あり）"
     }
   },
   "prefecture": "Kumamoto",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Nature & Outdoors", "Sightseeing"],
-  "tags": [
-    "Volcano",
-    "Crater",
-    "Hiking",
-    "Aso",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Volcano", "Crater", "Hiking", "Aso"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Mt.Aso_and_caldera01.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "high",
   "reservation": "None required; check volcanic activity alerts before visiting",
   "parking": "Crater parking available",
-  "notes": "Kyushu regional expansion — Kumamoto Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -150,10 +143,11 @@
   },
   "officialWebsite": "https://www.aso.ne.jp/",
   "municipalityId": "Kumamoto:aso",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "09:00–17:00 (Crater access varies by volcanic activity)",
+  "openingHoursJa": "09:00～17:00（火口見学は火山活動により変動あり）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://www.aso-volcano.jp/eng/"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

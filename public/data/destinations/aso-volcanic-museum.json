@@ -12,7 +12,7 @@
         "3D models of Mount Aso's geology",
         "Interactive eruption history exhibits"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "09:00–17:00"
     },
     "ja": {
       "name": "阿蘇火山博物館",
@@ -22,7 +22,7 @@
         "阿蘇山の3D地質模型",
         "噴火の歴史と体験型展示"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "09:00～17:00"
     }
   },
   "prefecture": "Kumamoto",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Museum & Art", "Nature & Outdoors"],
-  "tags": [
-    "Museum",
-    "Volcano",
-    "Science",
-    "Aso",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Museum", "Volcano", "Science", "Aso"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Aso_Volcano_Museum.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Museum parking available",
-  "notes": "Kyushu regional expansion — Kumamoto Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -150,10 +143,11 @@
   },
   "officialWebsite": "https://www.asomuse.jp/",
   "municipalityId": "Kumamoto:aso",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "09:00–17:00",
+  "openingHoursJa": "09:00～17:00",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://www.asomuseum.jp/en/"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

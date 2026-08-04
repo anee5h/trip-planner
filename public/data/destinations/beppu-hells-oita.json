@@ -116,11 +116,11 @@
         "コバルトブルーの海地獄と赤い血の池地獄",
         "地獄蒸し料理と温泉卵の名物"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "08:00～17:00"
     }
   },
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "08:00–17:00",
+  "openingHoursJa": "08:00～17:00",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"

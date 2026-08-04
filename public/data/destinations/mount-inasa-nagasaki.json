@@ -132,13 +132,13 @@
         "展望台からの360度パノラマ",
         "稲佐山ロープウェイの空中散歩"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "09:00～22:00（ロープウェイ）"
     }
   },
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "09:00–22:00 (Ropeway)",
+  "openingHoursJa": "09:00～22:00（ロープウェイ）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+    "sourceUrl": "https://www.inasayama.com/english/"
   }
 }

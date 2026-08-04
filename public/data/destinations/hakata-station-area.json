@@ -12,7 +12,7 @@
         "AMU Plaza shopping complex",
         "Kyushu Shinkansen gateway"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "No fixed opening hours (district area)"
     },
     "ja": {
       "name": "博多駅・アミュプラザ博多",
@@ -22,7 +22,7 @@
         "アミュプラザ博多のショッピング",
         "九州新幹線の起点と駅弁・グルメ"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "営業時間の設定なし（地区エリア）"
     }
   },
   "prefecture": "Fukuoka",
@@ -35,13 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Shopping", "Sightseeing"],
-  "tags": [
-    "Shopping",
-    "Station",
-    "Fukuoka City",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Shopping", "Station", "Fukuoka City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/33/Hakata_Station_20180306.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -115,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Station parking available",
-  "notes": "Kyushu regional expansion — Fukuoka Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -149,10 +143,11 @@
   },
   "officialWebsite": "https://www.jrhakatacity.com/",
   "municipalityId": "Fukuoka:fukuoka",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "No fixed opening hours (district area)",
+  "openingHoursJa": "営業時間の設定なし（地区エリア）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/hakata-station-area/"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

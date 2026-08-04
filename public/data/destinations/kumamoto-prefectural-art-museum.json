@@ -12,7 +12,7 @@
         "Modern Kumamoto artist exhibitions",
         "Prime location next to Kumamoto Castle"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "09:30–17:15"
     },
     "ja": {
       "name": "熊本県立美術館",
@@ -22,7 +22,7 @@
         "熊本ゆかりの近代作家作品",
         "熊本城に隣接する好立地"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "09:30～17:15"
     }
   },
   "prefecture": "Kumamoto",
@@ -35,13 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Museum & Art", "Culture"],
-  "tags": [
-    "Museum",
-    "Art",
-    "Kumamoto City",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Museum", "Art", "Kumamoto City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Kumamoto-Prefectural_Museum_of_Art_main_1.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -115,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Museum parking available",
-  "notes": "Kyushu regional expansion — Kumamoto Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -149,10 +143,11 @@
   },
   "officialWebsite": "https://www.pref.kumamoto.jp/site/museum/",
   "municipalityId": "Kumamoto:kumamoto",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "09:30–17:15",
+  "openingHoursJa": "09:30～17:15",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://www.museum.pref.kumamoto.jp/english/"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

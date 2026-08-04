@@ -12,7 +12,7 @@
         "Panoramic views of Nagasaki Harbor",
         "Collection of Meiji-era Western residences"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "08:00–18:00"
     },
     "ja": {
       "name": "グラバー園",
@@ -22,7 +22,7 @@
         "長崎港を見下ろす丘の絶景",
         "明治期の洋館建築群"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "08:00～18:00"
     }
   },
   "prefecture": "Nagasaki",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Sightseeing", "History"],
-  "tags": [
-    "Garden",
-    "History",
-    "Western Architecture",
-    "Nagasaki City",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Garden", "History", "Western Architecture", "Nagasaki City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Nagasaki-Glover-Garden-5415.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Nearby public parking",
-  "notes": "Kyushu regional expansion — Nagasaki Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -150,10 +143,11 @@
   },
   "officialWebsite": "https://glover-garden.jp/",
   "municipalityId": "Nagasaki:nagasaki",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "08:00–18:00",
+  "openingHoursJa": "08:00～18:00",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://glover-garden.jp/"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

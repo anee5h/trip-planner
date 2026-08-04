@@ -117,7 +117,7 @@
         "奄美大島の原生林ハイキング",
         "西表島のマングローブカヌー体験"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "営業時間の設定なし（自然エリア）"
     }
   },
   "editorial": {
@@ -135,10 +135,10 @@
       }
     ]
   },
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "No fixed opening hours (natural site)",
+  "openingHoursJa": "営業時間の設定なし（自然エリア）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+    "sourceUrl": "https://www.japan.travel/en/world-heritage/amami-oshima-island-tokunoshima-island-northern-part-of-okinawa-island-and-iriomote-island/"
   }
 }

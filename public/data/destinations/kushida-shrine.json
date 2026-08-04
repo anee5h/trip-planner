@@ -8,13 +8,13 @@
       "name": "Kushida Shrine",
       "description": "Kushida Shrine is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
       "highlights": ["History"],
-      "openingHours": "Open 24 hours"
+      "openingHours": "04:00–22:00"
     },
     "ja": {
       "name": "櫛田神社 (福岡市)",
       "description": "櫛田神社 (福岡市)はFukuoka Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["歴史"],
-      "openingHours": "24時間営業"
+      "openingHours": "04:00～22:00"
     }
   },
   "prefecture": "Fukuoka",
@@ -178,10 +178,10 @@
   "officialWebsite": "https://yokanavi.com/spot/26906/",
   "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
   "municipalityId": "Fukuoka:fukuoka",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "04:00–22:00",
+  "openingHoursJa": "04:00～22:00",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+    "sourceUrl": "https://yokanavi.com/en/spot/26906/"
   }
 }

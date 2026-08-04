@@ -5,7 +5,7 @@
  * - Removed global whole-catalogue provenance mutation (Step 1.2)
  * - New POIs use real Wikipedia article URLs and Commons file-description pages
  * - Removed invented fieldSources
- * - Only touches Kyushu records (hubs + existing POIs + 37 new POIs)
+ * - Only touches Kyushu records (hubs + existing POIs + 38 new POIs)
  * - Includes assertions at the end
  *
  * Run: npx tsx scripts/pr12c-kyushu-expansion.ts
@@ -30,7 +30,8 @@ const data: DestinationRecord[] = JSON.parse(
 const originalLength = data.length;
 const originalIds = new Set(data.map((r) => r.id));
 
-const now = new Date().toISOString().split("T")[0]; // YYYY-MM-DD — always today
+const EXPANSION_DATE = "2026-08-04";
+const HOURS_VERIFIED_AT = "2026-08-05";
 
 // ==========================================================================
 // 1. Hub nameJa mapping (11 hubs)
@@ -78,9 +79,10 @@ interface OpeningHoursEntry {
 
 const kyushuOpeningHours: Record<string, OpeningHoursEntry> = {
   "amami-iriomote-natural-site": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "No fixed opening hours (natural site)",
+    ja: "営業時間の設定なし（自然エリア）",
+    sourceUrl:
+      "https://www.japan.travel/en/world-heritage/amami-oshima-island-tokunoshima-island-northern-part-of-okinawa-island-and-iriomote-island/",
   },
   "aso-city": {
     en: "No fixed opening hours (city area)",
@@ -93,14 +95,14 @@ const kyushuOpeningHours: Record<string, OpeningHoursEntry> = {
     sourceUrl: "https://www.japan.travel/en/destinations/kyushu/beppu-city/",
   },
   "beppu-hells-oita": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
+    en: "08:00–17:00",
+    ja: "08:00～17:00",
     sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
   },
   "canal-city-hakata": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "10:00–21:00 (Shops), 11:00–23:00 (Restaurants)",
+    ja: "10:00～21:00（ショップ）、11:00～23:00（レストラン）",
+    sourceUrl: "https://canalcity.co.jp/english",
   },
   "dazaifu-city": {
     en: "No fixed opening hours (city area)",
@@ -108,9 +110,9 @@ const kyushuOpeningHours: Record<string, OpeningHoursEntry> = {
     sourceUrl: "https://www.japan.travel/en/destinations/kyushu/dazaifu-city/",
   },
   "fukuoka-art-museum": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "09:30–17:30 (Jul-Oct Fri/Sat until 20:00)",
+    ja: "09:30～17:30（7～10月の金・土は20:00まで）",
+    sourceUrl: "https://www.fukuoka-art-museum.jp/en/",
   },
   "fukuoka-castle-ruins": {
     en: "Open 24 hours",
@@ -123,24 +125,24 @@ const kyushuOpeningHours: Record<string, OpeningHoursEntry> = {
     sourceUrl: "https://www.japan.travel/en/destinations/kyushu/fukuoka-city/",
   },
   "fukuoka-tower": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "09:30–22:00",
+    ja: "09:30～22:00",
+    sourceUrl: "https://www.fukuokatower.co.jp/en/",
   },
   "fukuoka-yatai": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "Typically 18:00–02:00",
+    ja: "通常 18:00～02:00",
+    sourceUrl: "https://yokanavi.com/en/yatai/",
   },
   "gunkanjima-hashima-nagasaki": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "Tour times vary (typically 09:00–16:00)",
+    ja: "ツアーにより異なる（通常 09:00～16:00）",
+    sourceUrl: "https://www.gunkanjima-concierge.com/en/",
   },
   "hakata-machiya-folk-museum": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "10:00–18:00",
+    ja: "10:00～18:00",
+    sourceUrl: "https://www.hakatamachiya.com/english/",
   },
   "kagoshima-city": {
     en: "No fixed opening hours (city area)",
@@ -155,9 +157,9 @@ const kyushuOpeningHours: Record<string, OpeningHoursEntry> = {
       "https://www.japan.travel/en/destinations/kyushu/kitakyushu-city/",
   },
   "kumamoto-castle": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "09:00–17:00 (last admission 16:30)",
+    ja: "09:00～17:00（最終入館16:30）",
+    sourceUrl: "https://castle.kumamoto-guide.jp/en/",
   },
   "kumamoto-city": {
     en: "No fixed opening hours (city area)",
@@ -165,9 +167,9 @@ const kyushuOpeningHours: Record<string, OpeningHoursEntry> = {
     sourceUrl: "https://www.japan.travel/en/destinations/kyushu/kumamoto-city/",
   },
   "kushida-shrine": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "04:00–22:00",
+    ja: "04:00～22:00",
+    sourceUrl: "https://yokanavi.com/en/spot/26906/",
   },
   "maizuru-park": {
     en: "Open 24 hours",
@@ -185,9 +187,9 @@ const kyushuOpeningHours: Record<string, OpeningHoursEntry> = {
     sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
   },
   "mount-inasa-nagasaki": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "09:00–22:00 (Ropeway)",
+    ja: "09:00～22:00（ロープウェイ）",
+    sourceUrl: "https://www.inasayama.com/english/",
   },
   "nagasaki-city": {
     en: "No fixed opening hours (city area)",
@@ -205,14 +207,14 @@ const kyushuOpeningHours: Record<string, OpeningHoursEntry> = {
     sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
   },
   "okinoshima-munakata-fukuoka": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "No public access allowed",
+    ja: "一般の立ち入り禁止",
+    sourceUrl: "https://www.okinoshima-heritage.jp/en/",
   },
   "oura-church-nagasaki": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "08:30–18:00",
+    ja: "08:30～18:00",
+    sourceUrl: "https://nagasaki-oura-church.jp/en",
   },
   "sakurajima-volcano-kagoshima": {
     en: "Open 24 hours",
@@ -231,9 +233,9 @@ const kyushuOpeningHours: Record<string, OpeningHoursEntry> = {
     sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
   },
   tochoji: {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "09:00–16:45",
+    ja: "09:00～16:45",
+    sourceUrl: "https://yokanavi.com/en/spot/26928/",
   },
   "yakushima-town": {
     en: "No fixed opening hours (town area)",
@@ -247,13 +249,14 @@ const kyushuOpeningHours: Record<string, OpeningHoursEntry> = {
     sourceUrl: "https://www.japan.travel/en/destinations/kyushu/yufu-city/",
   },
   "hakata-station-area": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "No fixed opening hours (district area)",
+    ja: "営業時間の設定なし（地区エリア）",
+    sourceUrl:
+      "https://www.japan.travel/en/destinations/kyushu/hakata-station-area/",
   },
   "fukuoka-city-museum": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
+    en: "09:30–17:30",
+    ja: "09:30～17:30",
     sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
   },
   "nagasaki-peace-park": {
@@ -262,14 +265,14 @@ const kyushuOpeningHours: Record<string, OpeningHoursEntry> = {
     sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
   },
   "glover-garden-nagasaki": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "08:00–18:00",
+    ja: "08:00～18:00",
+    sourceUrl: "https://glover-garden.jp/",
   },
   "dejima-nagasaki": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "08:00–21:00",
+    ja: "08:00～21:00",
+    sourceUrl: "https://nagasakidejima.jp/en/",
   },
   "chinatown-nagasaki": {
     en: "Open 24 hours",
@@ -282,29 +285,30 @@ const kyushuOpeningHours: Record<string, OpeningHoursEntry> = {
     sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
   },
   "suizenji-garden-kumamoto": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
+    en: "08:30–17:00 (Mar-Oct 07:30-18:00)",
+    ja: "08:30～17:00（3月～10月は07:30～18:00）",
     sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
   },
   "kumamoto-prefectural-art-museum": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "09:30–17:15",
+    ja: "09:30～17:15",
+    sourceUrl: "https://www.museum.pref.kumamoto.jp/english/",
   },
   "takegawara-onsen-beppu": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "06:30–22:30",
+    ja: "06:30～22:30",
+    sourceUrl: "https://www.city.beppu.oita.jp/sisetu/shieionsen/detail4.html",
   },
   "kannawa-onsen-district": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "No fixed opening hours (district area)",
+    ja: "営業時間の設定なし（地区エリア）",
+    sourceUrl:
+      "https://www.japan.travel/en/destinations/kyushu/kannawa-onsen-district/",
   },
   "beppu-tower": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "09:30–21:30",
+    ja: "09:30～21:30",
+    sourceUrl: "https://bepputower.co.jp/",
   },
   "kinrin-lake-yufuin": {
     en: "Open 24 hours",
@@ -312,44 +316,45 @@ const kyushuOpeningHours: Record<string, OpeningHoursEntry> = {
     sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
   },
   "yufuin-floral-village": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
+    en: "09:30–17:30",
+    ja: "09:30～17:30",
     sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
   },
   "yufuin-onsen-ryokan-district": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "No fixed opening hours (district area)",
+    ja: "営業時間の設定なし（地区エリア）",
+    sourceUrl:
+      "https://www.japan.travel/en/destinations/kyushu/yufuin-onsen-ryokan-district/",
   },
   "dazaifu-tenmangu": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "06:30–18:30 (varies by season)",
+    ja: "06:30～18:30（季節により変動あり）",
+    sourceUrl: "https://www.dazaifutenmangu.or.jp/en/",
   },
   "kyushu-national-museum": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "09:30–17:00 (Fri/Sat until 20:00)",
+    ja: "09:30～17:00（金・土は20:00まで）",
+    sourceUrl: "https://www.kyuhaku.jp/en/",
   },
   "komyozenji-temple-dazaifu": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "08:00–17:00",
+    ja: "08:00～17:00",
+    sourceUrl: "https://www.crossroadfukuoka.jp/en/spots/detail/4000000000108",
   },
   "sengan-en-garden-kagoshima": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "09:00–17:00",
+    ja: "09:00～17:00",
+    sourceUrl: "https://www.senganen.jp/en/",
   },
   "kagoshima-city-aquarium": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "09:30–18:00",
+    ja: "09:30～18:00",
+    sourceUrl: "https://ioworld.jp/english",
   },
   "nakadake-crater-aso": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "09:00–17:00 (Crater access varies by volcanic activity)",
+    ja: "09:00～17:00（火口見学は火山活動により変動あり）",
+    sourceUrl: "https://www.aso-volcano.jp/eng/",
   },
   "kusasenri-meadow-aso": {
     en: "Open 24 hours",
@@ -362,9 +367,9 @@ const kyushuOpeningHours: Record<string, OpeningHoursEntry> = {
     sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
   },
   "aso-volcanic-museum": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "09:00–17:00",
+    ja: "09:00～17:00",
+    sourceUrl: "https://www.asomuseum.jp/en/",
   },
   "aoshima-island-miyazaki": {
     en: "Open 24 hours",
@@ -377,24 +382,24 @@ const kyushuOpeningHours: Record<string, OpeningHoursEntry> = {
     sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
   },
   "miyazaki-jingu-shrine": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "06:00–17:30",
+    ja: "06:00～17:30",
+    sourceUrl: "https://miyazakijingu.or.jp/",
   },
   "takachiho-gorge": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "08:30–17:00 (Boat rentals)",
+    ja: "08:30～17:00（貸しボート）",
+    sourceUrl: "https://takachiho-kanko.info/en/",
   },
   "amanoiwato-shrine": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "08:30–17:00",
+    ja: "08:30～17:00",
+    sourceUrl: "https://amanoiwato-jinja.jp/",
   },
   "takachiho-kagura-dance": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "20:00–21:00 (Nightly performances)",
+    ja: "20:00～21:00（毎晩公演）",
+    sourceUrl: "https://takachiho-kanko.info/en/",
   },
   "jomon-sugi-yakushima": {
     en: "Open 24 hours",
@@ -402,9 +407,9 @@ const kyushuOpeningHours: Record<string, OpeningHoursEntry> = {
     sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
   },
   "shiratani-unsuikyo-ravine": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "08:30–16:30 (Administration building)",
+    ja: "08:30～16:30（管理棟）",
+    sourceUrl: "https://www.kagoshima-kankou.com/for/attractions/51079",
   },
   "yakusugi-land-yakushima": {
     en: "Open 24 hours",
@@ -412,32 +417,32 @@ const kyushuOpeningHours: Record<string, OpeningHoursEntry> = {
     sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
   },
   "mojiko-retro-district": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "No fixed opening hours (district area)",
+    ja: "営業時間の設定なし（地区エリア）",
+    sourceUrl: "https://www.gururich-kitaq.com/en/spot/mojiko-retro-area",
   },
   "kitakyushu-manga-museum": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "11:00–19:00",
+    ja: "11:00～19:00",
+    sourceUrl: "https://www.ktqmm.jp/english",
   },
   "kawachi-wisteria-garden": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "08:00–18:00 (Only open late Apr-early May and mid-Nov-early Dec)",
+    ja: "08:00～18:00（4月下旬～5月上旬、11月中旬～12月上旬のみ開園）",
+    sourceUrl: "https://kawachi-fujien.com/",
   },
   "fukuoka-paypay-dome": {
-    en: "Open 24 hours",
-    ja: "24時間営業",
-    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+    en: "Event times vary (Tours 10:00–17:00)",
+    ja: "イベントにより異なる（ツアーは10:00～17:00）",
+    sourceUrl: "https://www.softbankhawks.co.jp/global/english/",
   },
   "toto-museum-kitakyushu": {
-    en: "10:00–17:00",
-    ja: "10:00–17:00",
-    sourceUrl: "https://jp.toto.com/knowledge/visit/museum/museum_access/",
+    en: "10:00–17:00 (last admission 16:30)",
+    ja: "10:00～17:00（最終入館16:30）",
+    sourceUrl: "https://jp.toto.com/knowledge/visit/museum/",
     lastAdmission: "16:30",
     closedDays:
-      "Mondays (including public holidays), summer holidays, New Year holidays",
+      "Mondays (including public holiday Mondays), summer holidays, and year-end/New Year holidays",
   },
 };
 
@@ -499,6 +504,9 @@ const jaBackfill: Record<
       "https://en.wikipedia.org/wiki/Sacred_Island_of_Okinoshima_and_Associated_Sites_in_the_Munakata_Region",
     wikiTitle:
       "Sacred Island of Okinoshima and Associated Sites in the Munakata Region",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   "gunkanjima-hashima-nagasaki": {
     description:
@@ -510,6 +518,9 @@ const jaBackfill: Record<
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Hashima_Island",
     wikiTitle: "Hashima Island",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   "mount-inasa-nagasaki": {
     description:
@@ -521,6 +532,9 @@ const jaBackfill: Record<
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Mount_Inasa",
     wikiTitle: "Mount Inasa",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   "oura-church-nagasaki": {
     description:
@@ -532,6 +546,9 @@ const jaBackfill: Record<
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/%C5%8Cura_Church",
     wikiTitle: "Ōura Church",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   "kumamoto-castle": {
     description:
@@ -543,6 +560,9 @@ const jaBackfill: Record<
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Kumamoto_Castle",
     wikiTitle: "Kumamoto Castle",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   "beppu-hells-oita": {
     description:
@@ -554,6 +574,9 @@ const jaBackfill: Record<
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Hells_of_Beppu",
     wikiTitle: "Hells of Beppu",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   "sakurajima-volcano-kagoshima": {
     description:
@@ -565,6 +588,9 @@ const jaBackfill: Record<
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Sakurajima",
     wikiTitle: "Sakurajima",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   "mount-aso-kumamoto": {
     description:
@@ -576,6 +602,9 @@ const jaBackfill: Record<
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Mount_Aso",
     wikiTitle: "Mount Aso",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   "amami-iriomote-natural-site": {
     description:
@@ -589,6 +618,9 @@ const jaBackfill: Record<
       "https://en.wikipedia.org/wiki/Amami-%C5%8Cshima_Island,_Tokunoshima_Island,_Northern_Okinawa_Island,_and_Iriomote_Island",
     wikiTitle:
       "Amami-Ōshima Island, Tokunoshima Island, Northern Okinawa Island, and Iriomote Island",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
 };
 
@@ -599,7 +631,7 @@ const existingKyushuNonHub = data.filter(
 console.log(`Existing Kyushu non-hub records: ${existingKyushuNonHub.length}`);
 
 // ==========================================================================
-// 5. New POI definitions (37 new destinations)
+// 5. New POI definitions (38 new destinations)
 //    Each with: real Wikipedia URL, Commons file-description sourceUrl,
 //    no invented fieldSources, today's accessedAt.
 // ==========================================================================
@@ -648,6 +680,8 @@ interface NewPoiInput {
   jaHighlights: string[];
   wikiUrl: string;
   wikiTitle: string;
+  notesEn: string;
+  notesJa: string;
 }
 
 function buildPoi(poi: NewPoiInput): DestinationRecord {
@@ -685,7 +719,7 @@ function buildPoi(poi: NewPoiInput): DestinationRecord {
     relationships: { parentDestinationId: poi.hubId },
     officialWebsiteRequirement: poi.officialWebsiteRequirement ?? "optional",
     categories: poi.categories,
-    tags: [...poi.tags, "v2.0.0-beta.1", "Kyushu Expansion"],
+    tags: [...poi.tags],
     heroImage: poi.heroImage,
     imageMetadata: {
       source: "Wikimedia Commons",
@@ -729,12 +763,13 @@ function buildPoi(poi: NewPoiInput): DestinationRecord {
     weatherDependence: poi.weatherDependence,
     reservation: poi.reservation,
     parking: poi.parking,
-    notes: `Kyushu regional expansion — ${poi.prefecture} Prefecture.`,
+    notes: poi.notesEn,
+    notesJa: poi.notesJa,
     schemaVersion: 2,
     status: "published",
     travelEstimate: { confidence: "medium" },
     collections: [],
-    addedAt: now,
+    addedAt: EXPANSION_DATE,
     editorial: {
       lifecycle: "published",
       sources: [
@@ -742,31 +777,31 @@ function buildPoi(poi: NewPoiInput): DestinationRecord {
           type: "wikipedia",
           url: poi.wikiUrl,
           title: poi.wikiTitle,
-          accessedAt: now,
+          accessedAt: EXPANSION_DATE,
         },
       ],
-      checkedAt: now,
+      checkedAt: EXPANSION_DATE,
       freshness: "current",
       changeSummary: "PR 12C Kyushu Regional Expansion",
       changes: [
         {
-          changedAt: now,
+          changedAt: EXPANSION_DATE,
           changedBy: "Kyushu Regional Editorial Batch",
           summary: `Added bilingual curated POI: ${poi.name}`,
           method: "assisted",
         },
       ],
-      reviewedAt: now,
+      reviewedAt: EXPANSION_DATE,
       reviewedBy: "Kyushu Regional Editorial Batch",
     },
     officialWebsite: poi.officialWebsite,
   };
 
-  return rec as DestinationRecord;
+  return JSON.parse(JSON.stringify(rec)) as DestinationRecord;
 }
 
 // ==========================================================================
-// New POI data (37 entries)
+// New POI data (38 entries)
 // heroImage = raw Wikimedia Commons upload URL
 // commonsFilePage = Wikimedia Commons file-description page URL
 // wikiUrl = real English Wikipedia article URL
@@ -836,6 +871,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Hakata_Station",
     wikiTitle: "Hakata Station",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "fukuoka-city-museum",
@@ -900,6 +938,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Fukuoka_City_Museum",
     wikiTitle: "Fukuoka City Museum",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "fukuoka-paypay-dome",
@@ -964,6 +1005,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Fukuoka_PayPay_Dome",
     wikiTitle: "Fukuoka PayPay Dome",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
 
   // ---- NAGASAKI CITY (+5) ----
@@ -1030,6 +1074,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Nagasaki_Peace_Park",
     wikiTitle: "Nagasaki Peace Park",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "glover-garden-nagasaki",
@@ -1094,6 +1141,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Glover_Garden",
     wikiTitle: "Glover Garden",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "dejima-nagasaki",
@@ -1158,6 +1208,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Dejima",
     wikiTitle: "Dejima",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "chinatown-nagasaki",
@@ -1222,6 +1275,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Nagasaki_Shinchi_Chinatown",
     wikiTitle: "Nagasaki Shinchi Chinatown",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "meganebashi-bridge-nagasaki",
@@ -1233,7 +1289,7 @@ const newPois: NewPoiInput[] = [
     categories: ["Sightseeing", "History"],
     tags: ["Bridge", "History", "Stone Arch", "Nagasaki City"],
     heroImage:
-      "https://upload.wikimedia.org/wikipedia/commons/0/0f/Megane_Bridge_in_Nagasaki%2C_Japan%2C_20240815_1441_3704.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/6/6e/Nagasaki_Meganebashi_M5257.jpg",
     commonsFilePage:
       "https://commons.wikimedia.org/wiki/File:Megane_Bridge_in_Nagasaki,_Japan,_20240815_1441_3704.jpg",
     imageAttribution: "Jakub Hałun",
@@ -1286,6 +1342,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Meganebashi",
     wikiTitle: "Meganebashi",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
 
   // ---- KUMAMOTO CITY (+2) ----
@@ -1352,6 +1411,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Suizen-ji_J%C5%8Dju-en",
     wikiTitle: "Suizen-ji Jōju-en",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "kumamoto-prefectural-art-museum",
@@ -1416,6 +1478,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Kumamoto_Prefectural_Museum_of_Art",
     wikiTitle: "Kumamoto Prefectural Museum of Art",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
 
   // ---- BEPPU CITY (+3) ----
@@ -1482,6 +1547,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Takegawara_Onsen",
     wikiTitle: "Takegawara Onsen",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "kannawa-onsen-district",
@@ -1546,6 +1614,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Beppu_Onsen",
     wikiTitle: "Beppu Onsen",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "beppu-tower",
@@ -1610,6 +1681,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Beppu_Tower",
     wikiTitle: "Beppu Tower",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
 
   // ---- YUFU CITY (+3) ----
@@ -1665,7 +1739,7 @@ const newPois: NewPoiInput[] = [
     enHighlights: [
       "Morning mist over the warm spring-fed lake",
       "Scenic walking path around the lake",
-      "Autumn foliage & winter snow reflections",
+      "Autumn foliage & winter sEXPANSION_DATE reflections",
     ],
     jaDescription:
       "金鱗湖は由布院の中心に位置する神秘的な小湖で、湖底から湧く温泉水が冷たい朝の空気と触れて立ちのぼる朝霧が幻想的な風景を作り出します。湖名は日没時に魚の鱗が金色に輝いたという伝説に由来します。湖畔の遊歩道が整備されています。",
@@ -1676,6 +1750,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Kinrin_Lake",
     wikiTitle: "Kinrin Lake",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "yufuin-floral-village",
@@ -1740,6 +1817,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Yufuin_Onsen",
     wikiTitle: "Yufuin Onsen",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "yufuin-onsen-ryokan-district",
@@ -1804,6 +1884,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Yufuin_Onsen",
     wikiTitle: "Yufuin Onsen",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
 
   // ---- DAZAIFU CITY (+3) ----
@@ -1870,6 +1953,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Dazaifu_Tenman-g%C5%AB",
     wikiTitle: "Dazaifu Tenman-gū",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "kyushu-national-museum",
@@ -1935,6 +2021,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Kyushu_National_Museum",
     wikiTitle: "Kyushu National Museum",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "komyozenji-temple-dazaifu",
@@ -1984,7 +2073,7 @@ const newPois: NewPoiInput[] = [
     comfort: { heatTolerance: 7, rainFriendly: 7, walkingIntensity: 2 },
     officialWebsite: null,
     enDescription:
-      "Komyozenji is a serene Rinzai Zen temple founded in 1273, located just a short walk from Dazaifu Tenmangu. It is renowned for its two exquisite dry landscape gardens (karesansui): one featuring moss and maple representing the word 'light', the other using stones and sand to depict a dragon. Best visited in autumn for spectacular maple colors.",
+      "Komyozenji is a serene Rinzai Zen temple founded in 1273, located just a short walk from Dazaifu Tenmangu. It is reEXPANSION_DATEned for its two exquisite dry landscape gardens (karesansui): one featuring moss and maple representing the word 'light', the other using stones and sand to depict a dragon. Best visited in autumn for spectacular maple colors.",
     enHighlights: [
       "Two exquisite Zen karesansui gardens",
       "Moss & maple 'light' garden",
@@ -1999,6 +2088,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Dazaifu,_Fukuoka",
     wikiTitle: "Dazaifu, Fukuoka",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
 
   // ---- KAGOSHIMA CITY (+2) ----
@@ -2064,6 +2156,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Sengan-en",
     wikiTitle: "Sengan-en",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "kagoshima-city-aquarium",
@@ -2128,6 +2223,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Kagoshima_City_Aquarium",
     wikiTitle: "Kagoshima City Aquarium",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
 
   // ---- ASO CITY (+4) ----
@@ -2195,6 +2293,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Mount_Aso",
     wikiTitle: "Mount Aso",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "kusasenri-meadow-aso",
@@ -2259,6 +2360,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Mount_Aso",
     wikiTitle: "Mount Aso",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "daikanbo-viewpoint-aso",
@@ -2323,6 +2427,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Mount_Aso",
     wikiTitle: "Mount Aso",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "aso-volcanic-museum",
@@ -2387,6 +2494,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Mount_Aso",
     wikiTitle: "Mount Aso",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
 
   // ---- MIYAZAKI CITY (+3) ----
@@ -2453,6 +2563,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Aoshima,_Miyazaki",
     wikiTitle: "Aoshima, Miyazaki",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "heiwadai-park-miyazaki",
@@ -2517,6 +2630,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Heiwadai_Park",
     wikiTitle: "Heiwadai Park",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "miyazaki-jingu-shrine",
@@ -2581,6 +2697,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Miyazaki-jing%C5%AB",
     wikiTitle: "Miyazaki-jingū",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
 
   // ---- TAKACHIHO TOWN (+3) ----
@@ -2647,6 +2766,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Takachiho_Gorge",
     wikiTitle: "Takachiho Gorge",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "amanoiwato-shrine",
@@ -2711,6 +2833,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Amanoiwato-jinja",
     wikiTitle: "Amanoiwato-jinja",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "takachiho-kagura-dance",
@@ -2775,6 +2900,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Takachiho,_Miyazaki",
     wikiTitle: "Takachiho, Miyazaki",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
 
   // ---- YAKUSHIMA TOWN (+3) ----
@@ -2841,6 +2969,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/J%C5%8Dmon_Sugi",
     wikiTitle: "Jōmon Sugi",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "shiratani-unsuikyo-ravine",
@@ -2905,6 +3036,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Yakushima",
     wikiTitle: "Yakushima",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "yakusugi-land-yakushima",
@@ -2969,6 +3103,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Yakushima",
     wikiTitle: "Yakushima",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
 
   // ---- KITAKYUSHU CITY (+3) ----
@@ -3035,6 +3172,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Mojiko_Retro",
     wikiTitle: "Mojiko Retro",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "kitakyushu-manga-museum",
@@ -3100,6 +3240,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Kitakyushu_Manga_Museum",
     wikiTitle: "Kitakyushu Manga Museum",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "kawachi-wisteria-garden",
@@ -3165,6 +3308,9 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Kawachi_Wisteria_Garden",
     wikiTitle: "Kawachi Wisteria Garden",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
   {
     id: "toto-museum-kitakyushu",
@@ -3212,9 +3358,10 @@ const newPois: NewPoiInput[] = [
     walkingSunMin: 500,
     walkingShadeMin: 1500,
     comfort: { heatTolerance: 9, rainFriendly: 10, walkingIntensity: 3 },
-    officialWebsite: "https://jp.toto.com/knowledge/visit/en_museum/",
+    officialWebsite:
+      "https://jp.toto.com/kEXPANSION_DATEledge/visit/en_museum/",
     enDescription:
-      "The TOTO Museum celebrates the centennial of the renowned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene.",
+      "The TOTO Museum celebrates the centennial of the reEXPANSION_DATEned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene.",
     enHighlights: [
       "Evolution of Japanese toilets and sanitary ware",
       "Futuristic architectural design",
@@ -3229,11 +3376,14 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/TOTO_(company)",
     wikiTitle: "TOTO (company)",
+    notesEn:
+      "Make sure to check the official website for the latest updates before visiting.",
+    notesJa: "訪問前に必ず公式サイトで最新情報を確認してください。",
   },
 ];
 
 function assertInvariant(
-  condition: unknown,
+  condition: unkEXPANSION_DATEn,
   message: string,
 ): asserts condition {
   if (!condition) {
@@ -3391,9 +3541,6 @@ function applyKyushuExpansion(
     }
 
     if (changed) {
-      if (input === pass1) {
-        console.log(`Record ${record.id} changed in pass2!`);
-      }
       if (!record.editorial) record.editorial = {};
       record.editorial.lifecycle = "published";
       record.editorial.freshness = "current";
@@ -3440,7 +3587,13 @@ function applyKyushuExpansion(
 
   // Step 2: Add new POIs
   for (const poiDef of newPois) {
-    if (data.some((r) => r.id === poiDef.id)) {
+    const existingIdx = data.findIndex((r) => r.id === poiDef.id);
+    if (existingIdx !== -1) {
+      data[existingIdx] = Object.assign(
+        {},
+        data[existingIdx],
+        buildPoi(poiDef),
+      );
       continue;
     }
     const rec = buildPoi(poiDef);
@@ -3459,8 +3612,19 @@ function applyKyushuExpansion(
 
 const nonKyushuBefore = data.filter((r) => r.region !== "Kyushu");
 
-const pass1 = applyKyushuExpansion(data, now);
-const pass2 = applyKyushuExpansion(pass1, now);
+const pass1 = applyKyushuExpansion(data, EXPANSION_DATE);
+const pass2 = applyKyushuExpansion(pass1, EXPANSION_DATE);
+
+if (!deepEqual(pass1, pass2)) {
+  for (let i = 0; i < pass1.length; i++) {
+    if (!deepEqual(pass1[i], pass2[i])) {
+      console.log(`Diff at index ${i}:`, pass1[i].id);
+      fs.writeFileSync("pass1.json", JSON.stringify(pass1[i], null, 2));
+      fs.writeFileSync("pass2.json", JSON.stringify(pass2[i], null, 2));
+      break;
+    }
+  }
+}
 
 // Assertion 1: Idempotency
 assertInvariant(
@@ -3496,7 +3660,7 @@ assertInvariant(
 );
 console.log("✓ No duplicate IDs exist");
 
-// Check the 37 new POIs properties
+// Check the 38 new POIs properties
 for (const id of expectedNewIds) {
   const r = pass1.find((rec) => rec.id === id)!;
 
@@ -3596,5 +3760,154 @@ for (const r of pass1) {
 console.log("✓ No heroImage points to video or audio media");
 
 // Write
+
+// 4. HARDEN THE TRANSFORMATION SCRIPT
+const EXPECTED_NEW_POI_IDS = [
+  "hakata-station-area",
+  "fukuoka-city-museum",
+  "fukuoka-paypay-dome",
+  "nagasaki-peace-park",
+  "glover-garden-nagasaki",
+  "dejima-nagasaki",
+  "chinatown-nagasaki",
+  "meganebashi-bridge-nagasaki",
+  "suizenji-garden-kumamoto",
+  "kumamoto-prefectural-art-museum",
+  "takegawara-onsen-beppu",
+  "kannawa-onsen-district",
+  "beppu-tower",
+  "kinrin-lake-yufuin",
+  "yufuin-floral-village",
+  "yufuin-onsen-ryokan-district",
+  "dazaifu-tenmangu",
+  "kyushu-national-museum",
+  "komyozenji-temple-dazaifu",
+  "sengan-en-garden-kagoshima",
+  "kagoshima-city-aquarium",
+  "nakadake-crater-aso",
+  "kusasenri-meadow-aso",
+  "daikanbo-viewpoint-aso",
+  "aso-volcanic-museum",
+  "aoshima-island-miyazaki",
+  "heiwadai-park-miyazaki",
+  "miyazaki-jingu-shrine",
+  "takachiho-gorge",
+  "amanoiwato-shrine",
+  "takachiho-kagura-dance",
+  "jomon-sugi-yakushima",
+  "shiratani-unsuikyo-ravine",
+  "yakusugi-land-yakushima",
+  "mojiko-retro-district",
+  "kitakyushu-manga-museum",
+  "kawachi-wisteria-garden",
+  "toto-museum-kitakyushu",
+];
+
+if (EXPECTED_NEW_POI_IDS.length !== 38)
+  throw new Error(
+    "Expected exactly 38 new POI IDs, got " + EXPECTED_NEW_POI_IDS.length,
+  );
+
+const expectedSet = new Set(EXPECTED_NEW_POI_IDS);
+for (const id of EXPECTED_NEW_POI_IDS) {
+  if (!pass1.find((r) => r.id === id))
+    throw new Error("Missing new POI: " + id);
+}
+
+// Transport validation for all published Kyushu destinations
+for (const r of pass1) {
+  if (r.region === "Kyushu" && r.status === "published") {
+    if (
+      !r.transportOptions ||
+      Object.values(r.transportOptions).reduce((a, b) => a + b, 0) <= 0
+    ) {
+      throw new Error(
+        "Missing transport validation for published Kyushu destination: " +
+          r.id,
+      );
+    }
+  }
+}
+
+// Robust video/audio heroImage check (.webm, .mp4, etc. case-insensitive)
+const videoExts = [".webm", ".mp4", ".mov", ".avi", ".mkv"];
+for (const r of pass1) {
+  if (r.heroImage) {
+    const ext = r.heroImage
+      .substring(r.heroImage.lastIndexOf("."))
+      .toLowerCase();
+    if (videoExts.includes(ext))
+      throw new Error("Video hero image not allowed: " + r.heroImage);
+  }
+}
+
+// Assert all 71 Kyushu records have opening hours, non-empty EN & JA, valid HTTPS sourceUrl, no generic/Wikipedia sources, no placeholders, no attraction-style facility hours on hubs.
+const kyushuRecordsAssertion = pass1.filter((r) => r.region === "Kyushu");
+if (kyushuRecordsAssertion.length !== 71)
+  throw new Error(
+    "Expected exactly 71 Kyushu records, got " + kyushuRecordsAssertion.length,
+  );
+for (const r of kyushuRecordsAssertion) {
+  if (!r.openingHours || !r.openingHoursJa)
+    throw new Error("Missing opening hours for " + r.id);
+  if (
+    !r.openingHoursMetadata ||
+    !r.openingHoursMetadata.sourceUrl.startsWith("https://")
+  )
+    throw new Error("Invalid HTTPS sourceUrl for " + r.id);
+  if (r.openingHoursMetadata.sourceUrl.includes("wikipedia"))
+    throw new Error("Wikipedia sourceUrl not allowed for " + r.id);
+  if (
+    r.openingHours === "Open 24 hours" &&
+    (r.id === "aso-volcanic-museum" ||
+      r.id === "beppu-hells-oita" ||
+      r.id === "toto-museum-kitakyushu")
+  )
+    throw new Error("Placeholder opening hours for " + r.id);
+  if (r.role === "hub" && !r.openingHours.includes("No fixed opening hours"))
+    throw new Error("Attraction-style facility hours on hub " + r.id);
+}
+
+// Assert all 38 new POIs have bilingual useful notes, no forbidden internal terms, no internal release tags
+const forbiddenTerms = [
+  "Kyushu regional expansion",
+  "regional expansion",
+  "Kyushu Expansion",
+  "PR 12C",
+  "editorial batch",
+  "v2.0.0-beta",
+  "migration",
+  "generated",
+];
+for (const id of EXPECTED_NEW_POI_IDS) {
+  const r = pass1.find((rec) => rec.id === id);
+  if (!r) throw new Error("POI missing: " + id);
+  if (!r.notes || !r.notesJa)
+    throw new Error("Missing notes for new POI " + id);
+  const checkString = (
+    r.notes +
+    r.notesJa +
+    r.description +
+    r.jaDescription +
+    r.highlights?.join("") +
+    r.jaHighlights?.join("") +
+    JSON.stringify(r.content) +
+    r.reservation +
+    r.parking +
+    r.openingHours +
+    r.openingHoursJa +
+    r.tags?.join("")
+  ).toLowerCase();
+  for (const term of forbiddenTerms) {
+    if (checkString.includes(term.toLowerCase()))
+      throw new Error(`Forbidden term '${term}' found in POI ` + id);
+  }
+  if (
+    r.tags &&
+    (r.tags.includes("Kyushu Expansion") || r.tags.includes("v2.0.0-beta.1"))
+  )
+    throw new Error("Internal release tags found in POI " + id);
+}
+
 fs.writeFileSync(INDEX_PATH, JSON.stringify(pass1, null, 2) + "\n");
 console.log("✓ Wrote successfully validated data to", INDEX_PATH);

@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "TOTO Museum",
-      "description": "The TOTO Museum celebrates the centennial of the renowned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene.",
+      "description": "The TOTO Museum celebrates the centennial of the reEXPANSION_DATEned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene.",
       "highlights": [
         "Evolution of Japanese toilets and sanitary ware",
         "Futuristic architectural design",
         "Historical artifacts from TOTO's founding"
       ],
-      "openingHours": "10:00–17:00"
+      "openingHours": "10:00–17:00 (last admission 16:30)"
     },
     "ja": {
       "name": "TOTOミュージアム",
@@ -22,7 +22,7 @@
         "目を引く斬新な建築デザイン",
         "TOTOの歴史的な製品群"
       ],
-      "openingHours": "10:00–17:00"
+      "openingHours": "10:00～17:00（最終入館16:30）"
     }
   },
   "prefecture": "Fukuoka",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Museum & Art", "Culture"],
-  "tags": [
-    "Museum",
-    "Industrial",
-    "Architecture",
-    "Kitakyushu City",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Museum", "Industrial", "Architecture", "Kitakyushu City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Kitakyushu_%28%E5%8C%97%E4%B9%9D%E5%B7%9E%29%2C_Fukuoka_Prefecture%2C_Japan_February_2026_-_TOTO_Museum.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -54,19 +47,19 @@
     "lat": 33.8711,
     "lng": 130.8803
   },
-  "description": "The TOTO Museum celebrates the centennial of the renowned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene.",
+  "description": "The TOTO Museum celebrates the centennial of the reEXPANSION_DATEned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene.",
   "highlights": [
     "Evolution of Japanese toilets and sanitary ware",
     "Futuristic architectural design",
     "Historical artifacts from TOTO's founding"
   ],
-  "openingHours": "10:00–17:00",
-  "openingHoursJa": "10:00–17:00",
+  "openingHours": "10:00–17:00 (last admission 16:30)",
+  "openingHoursJa": "10:00～17:00（最終入館16:30）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://jp.toto.com/knowledge/visit/museum/museum_access/",
+    "sourceUrl": "https://jp.toto.com/knowledge/visit/museum/",
     "lastAdmission": "16:30",
-    "closedDays": "Mondays (including public holidays), summer holidays, New Year holidays"
+    "closedDays": "Mondays (including public holiday Mondays), summer holidays, and year-end/New Year holidays"
   },
   "budgetMin": 0,
   "budgetRecommended": 1000,
@@ -124,7 +117,7 @@
   "weatherDependence": "low",
   "reservation": "Groups or guided tours require reservation",
   "parking": "Free parking available",
-  "notes": "Kyushu regional expansion — Fukuoka Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -156,6 +149,7 @@
     "reviewedAt": "2026-08-04",
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
-  "officialWebsite": "https://jp.toto.com/knowledge/visit/en_museum/",
-  "municipalityId": "Fukuoka:kitakyushu"
+  "officialWebsite": "https://jp.toto.com/kEXPANSION_DATEledge/visit/en_museum/",
+  "municipalityId": "Fukuoka:kitakyushu",
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

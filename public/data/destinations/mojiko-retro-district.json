@@ -12,7 +12,7 @@
         "Meiji-era brick warehouses & promenade",
         "Seafood market & Kanmon Strait views"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "No fixed opening hours (district area)"
     },
     "ja": {
       "name": "門司港レトロ地区",
@@ -22,7 +22,7 @@
         "明治レトロな赤レンガ倉庫とプロムナード",
         "関門海峡の海鮮市場と絶景"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "営業時間の設定なし（地区エリア）"
     }
   },
   "prefecture": "Fukuoka",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Sightseeing", "History"],
-  "tags": [
-    "Port",
-    "Meiji",
-    "Architecture",
-    "Kitakyushu City",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Port", "Meiji", "Architecture", "Kitakyushu City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/60/Train%2C_Mojik%C5%8D_Retro_Scenic_Line_-_Jun_24%2C_2023.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "District parking available",
-  "notes": "Kyushu regional expansion — Fukuoka Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -150,10 +143,11 @@
   },
   "officialWebsite": "https://mojiko-retro.jp/",
   "municipalityId": "Fukuoka:kitakyushu",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "No fixed opening hours (district area)",
+  "openingHoursJa": "営業時間の設定なし（地区エリア）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://www.gururich-kitaq.com/en/spot/mojiko-retro-area"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

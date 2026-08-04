@@ -8,13 +8,13 @@
       "name": "Hakata Machiya Folk Museum",
       "description": "Hakata Machiya Folk Museum is a visitor destination in Fukuoka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
       "highlights": ["Museum"],
-      "openingHours": "Open 24 hours"
+      "openingHours": "10:00–18:00"
     },
     "ja": {
       "name": "「博多町家」ふるさと館",
       "description": "「博多町家」ふるさと館はFukuoka Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["博物館"],
-      "openingHours": "24時間営業"
+      "openingHours": "10:00～18:00"
     }
   },
   "prefecture": "Fukuoka",
@@ -170,10 +170,10 @@
   },
   "businessHours": "09:30 - 17:00 (Closed Mondays)",
   "municipalityId": "Fukuoka:fukuoka",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "10:00–18:00",
+  "openingHoursJa": "10:00～18:00",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+    "sourceUrl": "https://www.hakatamachiya.com/english/"
   }
 }

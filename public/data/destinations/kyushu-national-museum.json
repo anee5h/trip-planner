@@ -12,7 +12,7 @@
         "Cutting-edge cultural exchange exhibits",
         "Silk Road & Asian trade history displays"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "09:30–17:00 (Fri/Sat until 20:00)"
     },
     "ja": {
       "name": "九州国立博物館",
@@ -22,7 +22,7 @@
         "最新展示技術による文化交流展示",
         "シルクロードとアジア交易史"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "09:30～17:00（金・土は20:00まで）"
     }
   },
   "prefecture": "Fukuoka",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Museum & Art", "Culture"],
-  "tags": [
-    "Museum",
-    "National Museum",
-    "Asia",
-    "Dazaifu",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Museum", "National Museum", "Asia", "Dazaifu"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/14/Kyushu_National_Museum_20170225.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required; special exhibitions may require advance booking",
   "parking": "Museum parking available",
-  "notes": "Kyushu regional expansion — Fukuoka Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -150,10 +143,11 @@
   },
   "officialWebsite": "https://www.kyuhaku.jp/",
   "municipalityId": "Fukuoka:dazaifu",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "09:30–17:00 (Fri/Sat until 20:00)",
+  "openingHoursJa": "09:30～17:00（金・土は20:00まで）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://www.kyuhaku.jp/en/"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

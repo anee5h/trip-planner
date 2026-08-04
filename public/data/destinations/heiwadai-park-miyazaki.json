@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Sightseeing", "History"],
-  "tags": [
-    "Park",
-    "Peace Tower",
-    "Haniwa",
-    "Miyazaki City",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Park", "Peace Tower", "Haniwa", "Miyazaki City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/ec/View_of_Tower_of_Peace_in_Heiwadai_Park_4.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Park parking available",
-  "notes": "Kyushu regional expansion — Miyazaki Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -155,5 +148,6 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

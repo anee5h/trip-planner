@@ -12,7 +12,7 @@
         "Sakurajima volcano backdrop from waterfront",
         "Dolphin shows & interactive touch pools"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "09:30–18:00"
     },
     "ja": {
       "name": "いおワールドかごしま水族館",
@@ -22,7 +22,7 @@
         "桜島を背景にしたイルカショー",
         "ふれあいタッチプール体験"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "09:30～18:00"
     }
   },
   "prefecture": "Kagoshima",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Entertainment", "Family & Kids"],
-  "tags": [
-    "Aquarium",
-    "Family",
-    "Whale Shark",
-    "Kagoshima City",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Aquarium", "Family", "Whale Shark", "Kagoshima City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Kagoshima_Aquarium_20220820_01.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Aquarium parking available",
-  "notes": "Kyushu regional expansion — Kagoshima Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -150,10 +143,11 @@
   },
   "officialWebsite": "https://ioworld.jp/",
   "municipalityId": "Kagoshima:kagoshima",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "09:30–18:00",
+  "openingHoursJa": "09:30～18:00",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://ioworld.jp/english"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

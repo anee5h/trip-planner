@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Komyozenji Temple",
-      "description": "Komyozenji is a serene Rinzai Zen temple founded in 1273, located just a short walk from Dazaifu Tenmangu. It is renowned for its two exquisite dry landscape gardens (karesansui): one featuring moss and maple representing the word 'light', the other using stones and sand to depict a dragon. Best visited in autumn for spectacular maple colors.",
+      "description": "Komyozenji is a serene Rinzai Zen temple founded in 1273, located just a short walk from Dazaifu Tenmangu. It is reEXPANSION_DATEned for its two exquisite dry landscape gardens (karesansui): one featuring moss and maple representing the word 'light', the other using stones and sand to depict a dragon. Best visited in autumn for spectacular maple colors.",
       "highlights": [
         "Two exquisite Zen karesansui gardens",
         "Moss & maple 'light' garden",
         "Peaceful autumn foliage away from crowds"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "08:00–17:00"
     },
     "ja": {
       "name": "光明禅寺",
@@ -22,7 +22,7 @@
         "石と砂の龍の枯山水庭園",
         "秋の紅葉と禅の静寂"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "08:00～17:00"
     }
   },
   "prefecture": "Fukuoka",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture", "Sightseeing"],
-  "tags": [
-    "Temple",
-    "Garden",
-    "Zen",
-    "Dazaifu",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Temple", "Garden", "Zen", "Dazaifu"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Komyozenji_Temple_02.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -54,7 +47,7 @@
     "lat": 33.52,
     "lng": 130.5334
   },
-  "description": "Komyozenji is a serene Rinzai Zen temple founded in 1273, located just a short walk from Dazaifu Tenmangu. It is renowned for its two exquisite dry landscape gardens (karesansui): one featuring moss and maple representing the word 'light', the other using stones and sand to depict a dragon. Best visited in autumn for spectacular maple colors.",
+  "description": "Komyozenji is a serene Rinzai Zen temple founded in 1273, located just a short walk from Dazaifu Tenmangu. It is reEXPANSION_DATEned for its two exquisite dry landscape gardens (karesansui): one featuring moss and maple representing the word 'light', the other using stones and sand to depict a dragon. Best visited in autumn for spectacular maple colors.",
   "highlights": [
     "Two exquisite Zen karesansui gardens",
     "Moss & maple 'light' garden",
@@ -116,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Nearby coin parking",
-  "notes": "Kyushu regional expansion — Fukuoka Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -150,10 +143,11 @@
   },
   "officialWebsite": null,
   "municipalityId": "Fukuoka:dazaifu",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "08:00–17:00",
+  "openingHoursJa": "08:00～17:00",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://www.crossroadfukuoka.jp/en/spots/detail/4000000000108"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

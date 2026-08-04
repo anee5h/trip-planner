@@ -12,7 +12,7 @@
         "Shimazu clan samurai villa & gardens",
         "UNESCO World Heritage Meiji industrial site"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "09:00–17:00"
     },
     "ja": {
       "name": "仙巌園",
@@ -22,7 +22,7 @@
         "島津家別邸と薩摩の武家文化",
         "世界遺産『明治日本の産業革命遺産』構成資産"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "09:00～17:00"
     }
   },
   "prefecture": "Kagoshima",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Gardens", "History", "Sightseeing"],
-  "tags": [
-    "Garden",
-    "Satsuma",
-    "UNESCO",
-    "Kagoshima City",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Garden", "Satsuma", "UNESCO", "Kagoshima City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Sengan-en2.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Garden parking available",
-  "notes": "Kyushu regional expansion — Kagoshima Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -150,10 +143,11 @@
   },
   "officialWebsite": "https://www.senganen.jp/",
   "municipalityId": "Kagoshima:kagoshima",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "09:00–17:00",
+  "openingHoursJa": "09:00～17:00",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://www.senganen.jp/en/"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

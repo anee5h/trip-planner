@@ -1241,7 +1241,7 @@
           "奄美大島の原生林ハイキング",
           "西表島のマングローブカヌー体験"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "営業時間の設定なし（自然エリア）"
       }
     },
     "editorial": {
@@ -1259,11 +1259,11 @@
         }
       ]
     },
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "No fixed opening hours (natural site)",
+    "openingHoursJa": "営業時間の設定なし（自然エリア）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+      "sourceUrl": "https://www.japan.travel/en/world-heritage/amami-oshima-island-tokunoshima-island-northern-part-of-okinawa-island-and-iriomote-island/"
     }
   },
   {
@@ -3883,11 +3883,11 @@
           "コバルトブルーの海地獄と赤い血の池地獄",
           "地獄蒸し料理と温泉卵の名物"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "08:00～17:00"
       }
     },
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "08:00–17:00",
+    "openingHoursJa": "08:00～17:00",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
@@ -4584,13 +4584,13 @@
         "name": "Canal City Hakata",
         "description": "Canal City Hakata is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
         "highlights": ["Culture", "Shopping"],
-        "openingHours": "Open 24 hours"
+        "openingHours": "10:00–21:00 (Shops), 11:00–23:00 (Restaurants)"
       },
       "ja": {
         "name": "キャナルシティ博多",
         "description": "キャナルシティ博多はFukuoka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
         "highlights": ["文化", "ショッピング"],
-        "openingHours": "24時間営業"
+        "openingHours": "10:00～21:00（ショップ）、11:00～23:00（レストラン）"
       }
     },
     "prefecture": "Fukuoka",
@@ -4746,11 +4746,11 @@
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "municipalityId": "Fukuoka:fukuoka",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "10:00–21:00 (Shops), 11:00–23:00 (Restaurants)",
+    "openingHoursJa": "10:00～21:00（ショップ）、11:00～23:00（レストラン）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+      "sourceUrl": "https://canalcity.co.jp/english"
     }
   },
   {
@@ -11038,13 +11038,13 @@
         "name": "Fukuoka Art Museum",
         "description": "Fukuoka Art Museum is a visitor destination in Fukuoka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
         "highlights": ["Museum"],
-        "openingHours": "Open 24 hours"
+        "openingHours": "09:30–17:30 (Jul-Oct Fri/Sat until 20:00)"
       },
       "ja": {
         "name": "福岡市美術館",
         "description": "福岡市美術館はFukuoka Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
         "highlights": ["博物館"],
-        "openingHours": "24時間営業"
+        "openingHours": "09:30～17:30（7～10月の金・土は20:00まで）"
       }
     },
     "prefecture": "Fukuoka",
@@ -11200,11 +11200,11 @@
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "municipalityId": "Fukuoka:fukuoka",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "09:30–17:30 (Jul-Oct Fri/Sat until 20:00)",
+    "openingHoursJa": "09:30～17:30（7～10月の金・土は20:00まで）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+      "sourceUrl": "https://www.fukuoka-art-museum.jp/en/"
     }
   },
   {
@@ -11529,13 +11529,13 @@
         "name": "Fukuoka Tower",
         "description": "Fukuoka Tower is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
         "highlights": ["Viewpoint"],
-        "openingHours": "Open 24 hours"
+        "openingHours": "09:30–22:00"
       },
       "ja": {
         "name": "福岡タワー",
         "description": "福岡タワーはFukuoka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
         "highlights": ["展望"],
-        "openingHours": "24時間営業"
+        "openingHours": "09:30～22:00"
       }
     },
     "prefecture": "Fukuoka",
@@ -11691,11 +11691,11 @@
     },
     "businessHours": "09:30 - 22:00 (Last admission 21:30)",
     "municipalityId": "Fukuoka:fukuoka",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "09:30–22:00",
+    "openingHoursJa": "09:30～22:00",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+      "sourceUrl": "https://www.fukuokatower.co.jp/en/"
     }
   },
   {
@@ -11708,13 +11708,13 @@
         "name": "Fukuoka Yatai",
         "description": "Fukuoka Yatai is a visitor destination in Fukuoka City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
         "highlights": ["Food", "Market"],
-        "openingHours": "Open 24 hours"
+        "openingHours": "Typically 18:00–02:00"
       },
       "ja": {
         "name": "福岡の屋台",
         "description": "福岡の屋台はFukuoka Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
         "highlights": ["グルメ", "市場"],
-        "openingHours": "24時間営業"
+        "openingHours": "通常 18:00～02:00"
       }
     },
     "prefecture": "Fukuoka",
@@ -11870,11 +11870,11 @@
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "municipalityId": "Fukuoka:fukuoka",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "Typically 18:00–02:00",
+    "openingHoursJa": "通常 18:00～02:00",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+      "sourceUrl": "https://yokanavi.com/en/yatai/"
     }
   },
   {
@@ -14424,14 +14424,14 @@
           "明治日本の産業革命遺産（世界遺産）",
           "廃墟化した高層鉄筋アパート群"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "ツアーにより異なる（通常 09:00～16:00）"
       }
     },
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "Tour times vary (typically 09:00–16:00)",
+    "openingHoursJa": "ツアーにより異なる（通常 09:00～16:00）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+      "sourceUrl": "https://www.gunkanjima-concierge.com/en/"
     }
   },
   {
@@ -15310,13 +15310,13 @@
         "name": "Hakata Machiya Folk Museum",
         "description": "Hakata Machiya Folk Museum is a visitor destination in Fukuoka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
         "highlights": ["Museum"],
-        "openingHours": "Open 24 hours"
+        "openingHours": "10:00–18:00"
       },
       "ja": {
         "name": "「博多町家」ふるさと館",
         "description": "「博多町家」ふるさと館はFukuoka Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
         "highlights": ["博物館"],
-        "openingHours": "24時間営業"
+        "openingHours": "10:00～18:00"
       }
     },
     "prefecture": "Fukuoka",
@@ -15472,11 +15472,11 @@
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
     "municipalityId": "Fukuoka:fukuoka",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "10:00–18:00",
+    "openingHoursJa": "10:00～18:00",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+      "sourceUrl": "https://www.hakatamachiya.com/english/"
     }
   },
   {
@@ -30955,14 +30955,14 @@
           "本丸御殿と昭君之間の金箔装飾",
           "城内の加藤神社と桜の名所"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "09:00～17:00（最終入館16:30）"
       }
     },
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "09:00–17:00 (last admission 16:30)",
+    "openingHoursJa": "09:00～17:00（最終入館16:30）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+      "sourceUrl": "https://castle.kumamoto-guide.jp/en/"
     }
   },
   {
@@ -31908,13 +31908,13 @@
         "name": "Kushida Shrine",
         "description": "Kushida Shrine is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
         "highlights": ["History"],
-        "openingHours": "Open 24 hours"
+        "openingHours": "04:00–22:00"
       },
       "ja": {
         "name": "櫛田神社 (福岡市)",
         "description": "櫛田神社 (福岡市)はFukuoka Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
         "highlights": ["歴史"],
-        "openingHours": "24時間営業"
+        "openingHours": "04:00～22:00"
       }
     },
     "prefecture": "Fukuoka",
@@ -32078,11 +32078,11 @@
     "officialWebsite": "https://yokanavi.com/spot/26906/",
     "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
     "municipalityId": "Fukuoka:fukuoka",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "04:00–22:00",
+    "openingHoursJa": "04:00～22:00",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+      "sourceUrl": "https://yokanavi.com/en/spot/26906/"
     }
   },
   {
@@ -38356,14 +38356,14 @@
           "展望台からの360度パノラマ",
           "稲佐山ロープウェイの空中散歩"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "09:00～22:00（ロープウェイ）"
       }
     },
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "09:00–22:00 (Ropeway)",
+    "openingHoursJa": "09:00～22:00（ロープウェイ）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+      "sourceUrl": "https://www.inasayama.com/english/"
     }
   },
   {
@@ -46889,14 +46889,14 @@
           "宗像大社辺津宮・中津宮・沖津宮",
           "宗像大社神宝館の国宝展示"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "一般の立ち入り禁止"
       }
     },
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "No public access allowed",
+    "openingHoursJa": "一般の立ち入り禁止",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+      "sourceUrl": "https://www.okinoshima-heritage.jp/en/"
     }
   },
   {
@@ -50110,14 +50110,14 @@
           "潜伏キリシタン関連の世界遺産",
           "隣接する旧羅典神学校とキリシタン資料館"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "08:30～18:00"
       }
     },
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "08:30–18:00",
+    "openingHoursJa": "08:30～18:00",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+      "sourceUrl": "https://nagasaki-oura-church.jp/en"
     }
   },
   {
@@ -62282,13 +62282,13 @@
         "name": "Tochoji",
         "description": "Tochoji is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
         "highlights": ["History"],
-        "openingHours": "Open 24 hours"
+        "openingHours": "09:00–16:45"
       },
       "ja": {
         "name": "東長寺",
         "description": "東長寺はFukuoka Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
         "highlights": ["歴史"],
-        "openingHours": "24時間営業"
+        "openingHours": "09:00～16:45"
       }
     },
     "prefecture": "Fukuoka",
@@ -62444,11 +62444,11 @@
     },
     "businessHours": "08:30 - 17:00 (Last admission 16:30)",
     "municipalityId": "Fukuoka:fukuoka",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "09:00–16:45",
+    "openingHoursJa": "09:00～16:45",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+      "sourceUrl": "https://yokanavi.com/en/spot/26928/"
     }
   },
   {
@@ -86065,7 +86065,7 @@
           "AMU Plaza shopping complex",
           "Kyushu Shinkansen gateway"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "No fixed opening hours (district area)"
       },
       "ja": {
         "name": "博多駅・アミュプラザ博多",
@@ -86075,7 +86075,7 @@
           "アミュプラザ博多のショッピング",
           "九州新幹線の起点と駅弁・グルメ"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "営業時間の設定なし（地区エリア）"
       }
     },
     "prefecture": "Fukuoka",
@@ -86088,13 +86088,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Shopping", "Sightseeing"],
-    "tags": [
-      "Shopping",
-      "Station",
-      "Fukuoka City",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Shopping", "Station", "Fukuoka City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/33/Hakata_Station_20180306.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -86168,7 +86162,7 @@
     "weatherDependence": "low",
     "reservation": "None required",
     "parking": "Station parking available",
-    "notes": "Kyushu regional expansion — Fukuoka Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -86202,12 +86196,13 @@
     },
     "officialWebsite": "https://www.jrhakatacity.com/",
     "municipalityId": "Fukuoka:fukuoka",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "No fixed opening hours (district area)",
+    "openingHoursJa": "営業時間の設定なし（地区エリア）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/hakata-station-area/"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "fukuoka-city-museum",
@@ -86223,7 +86218,7 @@
           "Fukuoka history from ancient to modern",
           "Special exhibitions and cultural events"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "09:30–17:30"
       },
       "ja": {
         "name": "福岡市博物館",
@@ -86233,7 +86228,7 @@
           "福岡の歴史とアジア交流の展示",
           "企画展と市民文化イベント"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "09:30～17:30"
       }
     },
     "prefecture": "Fukuoka",
@@ -86246,13 +86241,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Museum & Art", "Culture"],
-    "tags": [
-      "Museum",
-      "History",
-      "Fukuoka City",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Museum", "History", "Fukuoka City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4e/FukuokaCity_Museum_2018.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -86326,7 +86315,7 @@
     "weatherDependence": "low",
     "reservation": "None required",
     "parking": "Museum parking available",
-    "notes": "Kyushu regional expansion — Fukuoka Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -86360,12 +86349,13 @@
     },
     "officialWebsite": "https://museum.city.fukuoka.jp/",
     "municipalityId": "Fukuoka:fukuoka",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "09:30–17:30",
+    "openingHoursJa": "09:30～17:30",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "nagasaki-peace-park",
@@ -86407,14 +86397,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["History", "Culture"],
-    "tags": [
-      "History",
-      "Peace",
-      "Memorial",
-      "Nagasaki City",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["History", "Peace", "Memorial", "Nagasaki City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f5/20190202_Nagasaki_Peace_Park_Statue_of_Peace-2.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -86488,7 +86471,7 @@
     "weatherDependence": "low",
     "reservation": "None required",
     "parking": "Museum parking available",
-    "notes": "Kyushu regional expansion — Nagasaki Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -86527,7 +86510,8 @@
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "glover-garden-nagasaki",
@@ -86543,7 +86527,7 @@
           "Panoramic views of Nagasaki Harbor",
           "Collection of Meiji-era Western residences"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "08:00–18:00"
       },
       "ja": {
         "name": "グラバー園",
@@ -86553,7 +86537,7 @@
           "長崎港を見下ろす丘の絶景",
           "明治期の洋館建築群"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "08:00～18:00"
       }
     },
     "prefecture": "Nagasaki",
@@ -86566,14 +86550,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Sightseeing", "History"],
-    "tags": [
-      "Garden",
-      "History",
-      "Western Architecture",
-      "Nagasaki City",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Garden", "History", "Western Architecture", "Nagasaki City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Nagasaki-Glover-Garden-5415.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -86647,7 +86624,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Nearby public parking",
-    "notes": "Kyushu regional expansion — Nagasaki Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -86681,12 +86658,13 @@
     },
     "officialWebsite": "https://glover-garden.jp/",
     "municipalityId": "Nagasaki:nagasaki",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "08:00–18:00",
+    "openingHoursJa": "08:00～18:00",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://glover-garden.jp/"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "dejima-nagasaki",
@@ -86702,7 +86680,7 @@
           "Japan's Edo-era window to the West",
           "Interactive exhibits on trade history"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "08:00–21:00"
       },
       "ja": {
         "name": "出島",
@@ -86712,7 +86690,7 @@
           "鎖国時代唯一の西洋交易拠点",
           "貿易史を伝える体験型展示"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "08:00～21:00"
       }
     },
     "prefecture": "Nagasaki",
@@ -86725,14 +86703,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["History", "Culture"],
-    "tags": [
-      "History",
-      "Museum",
-      "Dutch Trading",
-      "Nagasaki City",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["History", "Museum", "Dutch Trading", "Nagasaki City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1a/View_of_the_Former_Dutch_Trading_Post_on_Dejima_from_Tamae_Bridge%2C_Nagasaki%2C_20240815_1501_3720.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -86806,7 +86777,7 @@
     "weatherDependence": "low",
     "reservation": "None required",
     "parking": "Nearby coin parking",
-    "notes": "Kyushu regional expansion — Nagasaki Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -86840,12 +86811,13 @@
     },
     "officialWebsite": "https://nagasakidejima.jp/",
     "municipalityId": "Nagasaki:nagasaki",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "08:00–21:00",
+    "openingHoursJa": "08:00～21:00",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://nagasakidejima.jp/en/"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "chinatown-nagasaki",
@@ -86884,14 +86856,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Food & Dining", "Sightseeing"],
-    "tags": [
-      "Food",
-      "Chinese",
-      "Chinatown",
-      "Nagasaki City",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Food", "Chinese", "Chinatown", "Nagasaki City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Chinatown%2C_Nagasaki%2C_20240813_1739_3156.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -86965,7 +86930,7 @@
     "weatherDependence": "low",
     "reservation": "None required",
     "parking": "Nearby commercial parking",
-    "notes": "Kyushu regional expansion — Nagasaki Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -87004,7 +86969,8 @@
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "meganebashi-bridge-nagasaki",
@@ -87043,15 +87009,8 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Sightseeing", "History"],
-    "tags": [
-      "Bridge",
-      "History",
-      "Stone Arch",
-      "Nagasaki City",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Megane_Bridge_in_Nagasaki%2C_Japan%2C_20240815_1441_3704.jpg",
+    "tags": ["Bridge", "History", "Stone Arch", "Nagasaki City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Nagasaki_Meganebashi_M5257.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY 4.0",
@@ -87124,7 +87083,7 @@
     "weatherDependence": "low",
     "reservation": "None required",
     "parking": "Nearby coin parking",
-    "notes": "Kyushu regional expansion — Nagasaki Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -87163,7 +87122,8 @@
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "suizenji-garden-kumamoto",
@@ -87179,7 +87139,7 @@
           "53 Stations of Tokaido landscape",
           "Traditional teahouse with garden views"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "08:30–17:00 (Mar-Oct 07:30-18:00)"
       },
       "ja": {
         "name": "水前寺成趣園",
@@ -87189,7 +87149,7 @@
           "東海道五十三次の縮景",
           "伝統茶屋での抹茶と庭園眺望"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "08:30～17:00（3月～10月は07:30～18:00）"
       }
     },
     "prefecture": "Kumamoto",
@@ -87202,14 +87162,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Gardens", "Sightseeing"],
-    "tags": [
-      "Garden",
-      "Strolling Garden",
-      "History",
-      "Kumamoto City",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Garden", "Strolling Garden", "History", "Kumamoto City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/85/Kumamoto_Suizenji-jojuen01n4272.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -87283,7 +87236,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Garden parking available",
-    "notes": "Kyushu regional expansion — Kumamoto Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -87317,12 +87270,13 @@
     },
     "officialWebsite": "https://www.suizenji.or.jp/",
     "municipalityId": "Kumamoto:kumamoto",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "08:30–17:00 (Mar-Oct 07:30-18:00)",
+    "openingHoursJa": "08:30～17:00（3月～10月は07:30～18:00）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "kumamoto-prefectural-art-museum",
@@ -87338,7 +87292,7 @@
           "Modern Kumamoto artist exhibitions",
           "Prime location next to Kumamoto Castle"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "09:30–17:15"
       },
       "ja": {
         "name": "熊本県立美術館",
@@ -87348,7 +87302,7 @@
           "熊本ゆかりの近代作家作品",
           "熊本城に隣接する好立地"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "09:30～17:15"
       }
     },
     "prefecture": "Kumamoto",
@@ -87361,13 +87315,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Museum & Art", "Culture"],
-    "tags": [
-      "Museum",
-      "Art",
-      "Kumamoto City",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Museum", "Art", "Kumamoto City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Kumamoto-Prefectural_Museum_of_Art_main_1.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -87441,7 +87389,7 @@
     "weatherDependence": "low",
     "reservation": "None required",
     "parking": "Museum parking available",
-    "notes": "Kyushu regional expansion — Kumamoto Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -87475,12 +87423,13 @@
     },
     "officialWebsite": "https://www.pref.kumamoto.jp/site/museum/",
     "municipalityId": "Kumamoto:kumamoto",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "09:30–17:15",
+    "openingHoursJa": "09:30～17:15",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://www.museum.pref.kumamoto.jp/english/"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "takegawara-onsen-beppu",
@@ -87496,7 +87445,7 @@
           "Traditional sand bath (sunaburo)",
           "Iconic tiled façade & retro interior"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "06:30–22:30"
       },
       "ja": {
         "name": "竹瓦温泉",
@@ -87506,7 +87455,7 @@
           "名物砂湯（砂風呂）体験",
           "唐破風のタイル張りファサード"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "06:30～22:30"
       }
     },
     "prefecture": "Oita",
@@ -87519,14 +87468,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Hot Springs & Wellness", "History"],
-    "tags": [
-      "Onsen",
-      "Sentō",
-      "History",
-      "Beppu",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Onsen", "Sentō", "History", "Beppu"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/15/Beppu_Takegawara_Onsen_1.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -87600,7 +87542,7 @@
     "weatherDependence": "low",
     "reservation": "None required",
     "parking": "Nearby public parking",
-    "notes": "Kyushu regional expansion — Oita Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -87634,12 +87576,13 @@
     },
     "officialWebsite": null,
     "municipalityId": "Oita:beppu",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "06:30–22:30",
+    "openingHoursJa": "06:30～22:30",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://www.city.beppu.oita.jp/sisetu/shieionsen/detail4.html"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "kannawa-onsen-district",
@@ -87655,7 +87598,7 @@
           "Dozens of local bathhouses & foot onsens",
           "Atmospheric steam vents in every alley"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "No fixed opening hours (district area)"
       },
       "ja": {
         "name": "鉄輪温泉湯けむり街",
@@ -87665,7 +87608,7 @@
           "点在する共同浴場と足湯めぐり",
           "路地の湯けむり景観散策"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "営業時間の設定なし（地区エリア）"
       }
     },
     "prefecture": "Oita",
@@ -87678,14 +87621,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Hot Springs & Wellness", "Sightseeing"],
-    "tags": [
-      "Onsen",
-      "Steam",
-      "Hell",
-      "Beppu",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Onsen", "Steam", "Hell", "Beppu"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/cd/2020-02-24_Kannawa_Onsen_%E9%89%84%E8%BC%AA%E6%B8%A9%E6%B3%89%E5%85%A8%E6%99%AF_DSCF8631.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -87759,7 +87695,7 @@
     "weatherDependence": "low",
     "reservation": "None required",
     "parking": "Local parking available",
-    "notes": "Kyushu regional expansion — Oita Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -87793,12 +87729,13 @@
     },
     "officialWebsite": null,
     "municipalityId": "Oita:beppu",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "No fixed opening hours (district area)",
+    "openingHoursJa": "営業時間の設定なし（地区エリア）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/kannawa-onsen-district/"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "beppu-tower",
@@ -87814,7 +87751,7 @@
           "Panoramic views of Beppu Bay",
           "Night illumination & city lights view"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "09:30–21:30"
       },
       "ja": {
         "name": "別府タワー",
@@ -87824,7 +87761,7 @@
           "別府湾と市街地の360度パノラマ",
           "夜景とライトアップ"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "09:30～21:30"
       }
     },
     "prefecture": "Oita",
@@ -87837,14 +87774,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Sightseeing", "Entertainment"],
-    "tags": [
-      "Tower",
-      "Observation",
-      "City View",
-      "Beppu",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Tower", "Observation", "City View", "Beppu"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/38/Beppu_Tower_20230212.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -87918,7 +87848,7 @@
     "weatherDependence": "low",
     "reservation": "None required",
     "parking": "Nearby public parking",
-    "notes": "Kyushu regional expansion — Oita Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -87952,12 +87882,13 @@
     },
     "officialWebsite": "https://beppu-tower.com/",
     "municipalityId": "Oita:beppu",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "09:30–21:30",
+    "openingHoursJa": "09:30～21:30",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://bepputower.co.jp/"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "kinrin-lake-yufuin",
@@ -87971,7 +87902,7 @@
         "highlights": [
           "Morning mist over the warm spring-fed lake",
           "Scenic walking path around the lake",
-          "Autumn foliage & winter snow reflections"
+          "Autumn foliage & winter sEXPANSION_DATE reflections"
         ],
         "openingHours": "Open 24 hours"
       },
@@ -87996,14 +87927,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature & Outdoors", "Sightseeing"],
-    "tags": [
-      "Lake",
-      "Photography",
-      "Mist",
-      "Yufuin",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Lake", "Photography", "Mist", "Yufuin"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Lake_Kinrin_with_Morning_fog.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -88019,7 +87943,7 @@
     "highlights": [
       "Morning mist over the warm spring-fed lake",
       "Scenic walking path around the lake",
-      "Autumn foliage & winter snow reflections"
+      "Autumn foliage & winter sEXPANSION_DATE reflections"
     ],
     "budgetMin": 1000,
     "budgetRecommended": 3000,
@@ -88077,7 +88001,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Nearby paid parking",
-    "notes": "Kyushu regional expansion — Oita Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -88116,7 +88040,8 @@
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "yufuin-floral-village",
@@ -88132,7 +88057,7 @@
           "Cobblestone paths & quaint boutique shops",
           "Studio Ghibli-inspired gift & craft shops"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "09:30–17:30"
       },
       "ja": {
         "name": "由布院フローラルヴィレッジ",
@@ -88142,7 +88067,7 @@
           "石畳の小道と小さなショップ巡り",
           "ジブリ風雑貨店とフォトジェニックな街並み"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "09:30～17:30"
       }
     },
     "prefecture": "Oita",
@@ -88155,14 +88080,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Shopping", "Sightseeing"],
-    "tags": [
-      "Shopping",
-      "Photography",
-      "European Style",
-      "Yufuin",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Shopping", "Photography", "European Style", "Yufuin"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Yufuin_Floral_Village.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -88236,7 +88154,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Nearby paid parking",
-    "notes": "Kyushu regional expansion — Oita Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -88270,12 +88188,13 @@
     },
     "officialWebsite": "https://floral-village.com/",
     "municipalityId": "Oita:yufu",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "09:30–17:30",
+    "openingHoursJa": "09:30～17:30",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "yufuin-onsen-ryokan-district",
@@ -88291,7 +88210,7 @@
           "Charming ryokan & boutique inns",
           "Lake Kinrin morning mist & café street"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "No fixed opening hours (district area)"
       },
       "ja": {
         "name": "由布院温泉郷",
@@ -88301,7 +88220,7 @@
           "湯の坪街道のカフェと工芸品店巡り",
           "金鱗湖の朝霧と温泉情緒"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "営業時間の設定なし（地区エリア）"
       }
     },
     "prefecture": "Oita",
@@ -88314,14 +88233,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Hot Springs & Wellness", "Sightseeing"],
-    "tags": [
-      "Onsen",
-      "Ryokan",
-      "Yufuin",
-      "Wellness",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Onsen", "Ryokan", "Yufuin", "Wellness"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Yufuin_Onsen_-Mus%C5%8Den_02.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -88395,7 +88307,7 @@
     "weatherDependence": "low",
     "reservation": "Recommended for ryokan stays",
     "parking": "Ryokan parking available",
-    "notes": "Kyushu regional expansion — Oita Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -88429,12 +88341,13 @@
     },
     "officialWebsite": null,
     "municipalityId": "Oita:yufu",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "No fixed opening hours (district area)",
+    "openingHoursJa": "営業時間の設定なし（地区エリア）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/yufuin-onsen-ryokan-district/"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "dazaifu-tenmangu",
@@ -88450,7 +88363,7 @@
           "One of Japan's top three Tenmangu shrines",
           "Prayers for academic success & exam luck"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "06:30–18:30 (varies by season)"
       },
       "ja": {
         "name": "太宰府天満宮",
@@ -88460,7 +88373,7 @@
           "学問の神様・菅原道真公の御神徳",
           "日本三天神の一社と合格祈願"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "06:30～18:30（季節により変動あり）"
       }
     },
     "prefecture": "Fukuoka",
@@ -88473,14 +88386,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["History", "Culture"],
-    "tags": [
-      "Shrine",
-      "Plum",
-      "Learning",
-      "Dazaifu",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Shrine", "Plum", "Learning", "Dazaifu"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8b/20100719_Dazaifu_Tenmangu_Shrine_3328.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -88554,7 +88460,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Shrine parking available",
-    "notes": "Kyushu regional expansion — Fukuoka Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -88588,12 +88494,13 @@
     },
     "officialWebsite": "https://www.dazaifutenmangu.or.jp/",
     "municipalityId": "Fukuoka:dazaifu",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "06:30–18:30 (varies by season)",
+    "openingHoursJa": "06:30～18:30（季節により変動あり）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://www.dazaifutenmangu.or.jp/en/"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "kyushu-national-museum",
@@ -88609,7 +88516,7 @@
           "Cutting-edge cultural exchange exhibits",
           "Silk Road & Asian trade history displays"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "09:30–17:00 (Fri/Sat until 20:00)"
       },
       "ja": {
         "name": "九州国立博物館",
@@ -88619,7 +88526,7 @@
           "最新展示技術による文化交流展示",
           "シルクロードとアジア交易史"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "09:30～17:00（金・土は20:00まで）"
       }
     },
     "prefecture": "Fukuoka",
@@ -88632,14 +88539,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Museum & Art", "Culture"],
-    "tags": [
-      "Museum",
-      "National Museum",
-      "Asia",
-      "Dazaifu",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Museum", "National Museum", "Asia", "Dazaifu"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/14/Kyushu_National_Museum_20170225.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -88713,7 +88613,7 @@
     "weatherDependence": "low",
     "reservation": "None required; special exhibitions may require advance booking",
     "parking": "Museum parking available",
-    "notes": "Kyushu regional expansion — Fukuoka Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -88747,12 +88647,13 @@
     },
     "officialWebsite": "https://www.kyuhaku.jp/",
     "municipalityId": "Fukuoka:dazaifu",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "09:30–17:00 (Fri/Sat until 20:00)",
+    "openingHoursJa": "09:30～17:00（金・土は20:00まで）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://www.kyuhaku.jp/en/"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "komyozenji-temple-dazaifu",
@@ -88762,13 +88663,13 @@
     "content": {
       "en": {
         "name": "Komyozenji Temple",
-        "description": "Komyozenji is a serene Rinzai Zen temple founded in 1273, located just a short walk from Dazaifu Tenmangu. It is renowned for its two exquisite dry landscape gardens (karesansui): one featuring moss and maple representing the word 'light', the other using stones and sand to depict a dragon. Best visited in autumn for spectacular maple colors.",
+        "description": "Komyozenji is a serene Rinzai Zen temple founded in 1273, located just a short walk from Dazaifu Tenmangu. It is reEXPANSION_DATEned for its two exquisite dry landscape gardens (karesansui): one featuring moss and maple representing the word 'light', the other using stones and sand to depict a dragon. Best visited in autumn for spectacular maple colors.",
         "highlights": [
           "Two exquisite Zen karesansui gardens",
           "Moss & maple 'light' garden",
           "Peaceful autumn foliage away from crowds"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "08:00–17:00"
       },
       "ja": {
         "name": "光明禅寺",
@@ -88778,7 +88679,7 @@
           "石と砂の龍の枯山水庭園",
           "秋の紅葉と禅の静寂"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "08:00～17:00"
       }
     },
     "prefecture": "Fukuoka",
@@ -88791,14 +88692,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture", "Sightseeing"],
-    "tags": [
-      "Temple",
-      "Garden",
-      "Zen",
-      "Dazaifu",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Temple", "Garden", "Zen", "Dazaifu"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Komyozenji_Temple_02.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -88810,7 +88704,7 @@
       "lat": 33.52,
       "lng": 130.5334
     },
-    "description": "Komyozenji is a serene Rinzai Zen temple founded in 1273, located just a short walk from Dazaifu Tenmangu. It is renowned for its two exquisite dry landscape gardens (karesansui): one featuring moss and maple representing the word 'light', the other using stones and sand to depict a dragon. Best visited in autumn for spectacular maple colors.",
+    "description": "Komyozenji is a serene Rinzai Zen temple founded in 1273, located just a short walk from Dazaifu Tenmangu. It is reEXPANSION_DATEned for its two exquisite dry landscape gardens (karesansui): one featuring moss and maple representing the word 'light', the other using stones and sand to depict a dragon. Best visited in autumn for spectacular maple colors.",
     "highlights": [
       "Two exquisite Zen karesansui gardens",
       "Moss & maple 'light' garden",
@@ -88872,7 +88766,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Nearby coin parking",
-    "notes": "Kyushu regional expansion — Fukuoka Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -88906,12 +88800,13 @@
     },
     "officialWebsite": null,
     "municipalityId": "Fukuoka:dazaifu",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "08:00–17:00",
+    "openingHoursJa": "08:00～17:00",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://www.crossroadfukuoka.jp/en/spots/detail/4000000000108"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "sengan-en-garden-kagoshima",
@@ -88927,7 +88822,7 @@
           "Shimazu clan samurai villa & gardens",
           "UNESCO World Heritage Meiji industrial site"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "09:00–17:00"
       },
       "ja": {
         "name": "仙巌園",
@@ -88937,7 +88832,7 @@
           "島津家別邸と薩摩の武家文化",
           "世界遺産『明治日本の産業革命遺産』構成資産"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "09:00～17:00"
       }
     },
     "prefecture": "Kagoshima",
@@ -88950,14 +88845,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Gardens", "History", "Sightseeing"],
-    "tags": [
-      "Garden",
-      "Satsuma",
-      "UNESCO",
-      "Kagoshima City",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Garden", "Satsuma", "UNESCO", "Kagoshima City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Sengan-en2.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -89031,7 +88919,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Garden parking available",
-    "notes": "Kyushu regional expansion — Kagoshima Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -89065,12 +88953,13 @@
     },
     "officialWebsite": "https://www.senganen.jp/",
     "municipalityId": "Kagoshima:kagoshima",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "09:00–17:00",
+    "openingHoursJa": "09:00～17:00",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://www.senganen.jp/en/"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "kagoshima-city-aquarium",
@@ -89086,7 +88975,7 @@
           "Sakurajima volcano backdrop from waterfront",
           "Dolphin shows & interactive touch pools"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "09:30–18:00"
       },
       "ja": {
         "name": "いおワールドかごしま水族館",
@@ -89096,7 +88985,7 @@
           "桜島を背景にしたイルカショー",
           "ふれあいタッチプール体験"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "09:30～18:00"
       }
     },
     "prefecture": "Kagoshima",
@@ -89109,14 +88998,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Entertainment", "Family & Kids"],
-    "tags": [
-      "Aquarium",
-      "Family",
-      "Whale Shark",
-      "Kagoshima City",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Aquarium", "Family", "Whale Shark", "Kagoshima City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Kagoshima_Aquarium_20220820_01.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -89190,7 +89072,7 @@
     "weatherDependence": "low",
     "reservation": "None required",
     "parking": "Aquarium parking available",
-    "notes": "Kyushu regional expansion — Kagoshima Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -89224,12 +89106,13 @@
     },
     "officialWebsite": "https://ioworld.jp/",
     "municipalityId": "Kagoshima:kagoshima",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "09:30–18:00",
+    "openingHoursJa": "09:30～18:00",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://ioworld.jp/english"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "nakadake-crater-aso",
@@ -89245,7 +89128,7 @@
           "One of the world's most accessible craters",
           "Dramatic volcanic landscape & gas plumes"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "09:00–17:00 (Crater access varies by volcanic activity)"
       },
       "ja": {
         "name": "阿蘇中岳火口",
@@ -89255,7 +89138,7 @@
           "世界有数のアクセス可能な活火口",
           "迫力の噴煙と火山ガスの景観"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "09:00～17:00（火口見学は火山活動により変動あり）"
       }
     },
     "prefecture": "Kumamoto",
@@ -89268,14 +89151,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature & Outdoors", "Sightseeing"],
-    "tags": [
-      "Volcano",
-      "Crater",
-      "Hiking",
-      "Aso",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Volcano", "Crater", "Hiking", "Aso"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Mt.Aso_and_caldera01.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -89349,7 +89225,7 @@
     "weatherDependence": "high",
     "reservation": "None required; check volcanic activity alerts before visiting",
     "parking": "Crater parking available",
-    "notes": "Kyushu regional expansion — Kumamoto Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -89383,12 +89259,13 @@
     },
     "officialWebsite": "https://www.aso.ne.jp/",
     "municipalityId": "Kumamoto:aso",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "09:00–17:00 (Crater access varies by volcanic activity)",
+    "openingHoursJa": "09:00～17:00（火口見学は火山活動により変動あり）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://www.aso-volcano.jp/eng/"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "kusasenri-meadow-aso",
@@ -89427,14 +89304,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature & Outdoors", "Sightseeing"],
-    "tags": [
-      "Grassland",
-      "Horses",
-      "Caldera",
-      "Aso",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Grassland", "Horses", "Caldera", "Aso"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Kusasenrigahama_in_Aso_City_2007_0811_03.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -89508,7 +89378,7 @@
     "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Grassland parking available",
-    "notes": "Kyushu regional expansion — Kumamoto Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -89547,7 +89417,8 @@
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "daikanbo-viewpoint-aso",
@@ -89586,14 +89457,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Sightseeing", "Nature & Outdoors"],
-    "tags": [
-      "Viewpoint",
-      "Caldera",
-      "Panorama",
-      "Aso",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Viewpoint", "Caldera", "Panorama", "Aso"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Daikanb%C5%8D_Lookout%2C_Yamada%2C_Aso%2C_Kumamoto_-_Jul_9%2C_2011.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -89667,7 +89531,7 @@
     "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Viewpoint parking available",
-    "notes": "Kyushu regional expansion — Kumamoto Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -89706,7 +89570,8 @@
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "aso-volcanic-museum",
@@ -89722,7 +89587,7 @@
           "3D models of Mount Aso's geology",
           "Interactive eruption history exhibits"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "09:00–17:00"
       },
       "ja": {
         "name": "阿蘇火山博物館",
@@ -89732,7 +89597,7 @@
           "阿蘇山の3D地質模型",
           "噴火の歴史と体験型展示"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "09:00～17:00"
       }
     },
     "prefecture": "Kumamoto",
@@ -89745,14 +89610,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Museum & Art", "Nature & Outdoors"],
-    "tags": [
-      "Museum",
-      "Volcano",
-      "Science",
-      "Aso",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Museum", "Volcano", "Science", "Aso"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Aso_Volcano_Museum.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -89826,7 +89684,7 @@
     "weatherDependence": "low",
     "reservation": "None required",
     "parking": "Museum parking available",
-    "notes": "Kyushu regional expansion — Kumamoto Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -89860,12 +89718,13 @@
     },
     "officialWebsite": "https://www.asomuse.jp/",
     "municipalityId": "Kumamoto:aso",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "09:00–17:00",
+    "openingHoursJa": "09:00～17:00",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://www.asomuseum.jp/en/"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "aoshima-island-miyazaki",
@@ -89904,14 +89763,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature & Outdoors", "Sightseeing"],
-    "tags": [
-      "Island",
-      "Rock Formation",
-      "Shrine",
-      "Miyazaki City",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Island", "Rock Formation", "Shrine", "Miyazaki City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Aoshima_jinja%2C_Worship_Hall_01.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -89985,7 +89837,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Island parking available",
-    "notes": "Kyushu regional expansion — Miyazaki Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -90024,7 +89876,8 @@
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "heiwadai-park-miyazaki",
@@ -90063,14 +89916,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Sightseeing", "History"],
-    "tags": [
-      "Park",
-      "Peace Tower",
-      "Haniwa",
-      "Miyazaki City",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Park", "Peace Tower", "Haniwa", "Miyazaki City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/ec/View_of_Tower_of_Peace_in_Heiwadai_Park_4.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -90144,7 +89990,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Park parking available",
-    "notes": "Kyushu regional expansion — Miyazaki Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -90183,7 +90029,8 @@
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "miyazaki-jingu-shrine",
@@ -90199,7 +90046,7 @@
           "Ancient camphor forest setting",
           "Yabusame horseback archery festival (October)"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "06:00–17:30"
       },
       "ja": {
         "name": "宮崎神宮",
@@ -90209,7 +90056,7 @@
           "クスノキの巨木が茂る神域の森",
           "10月例大祭の流鏑馬（やぶさめ）"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "06:00～17:30"
       }
     },
     "prefecture": "Miyazaki",
@@ -90222,14 +90069,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["History", "Culture"],
-    "tags": [
-      "Shrine",
-      "Emperor Jimmu",
-      "Forest",
-      "Miyazaki City",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Shrine", "Emperor Jimmu", "Forest", "Miyazaki City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Miyazaki-jingu%2C_Deity_crest_on_the_door_of_Jingu_Kaikan_01.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -90303,7 +90143,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Shrine parking available",
-    "notes": "Kyushu regional expansion — Miyazaki Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -90337,12 +90177,13 @@
     },
     "officialWebsite": "https://miyazakijingu.or.jp/",
     "municipalityId": "Miyazaki:miyazaki",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "06:00–17:30",
+    "openingHoursJa": "06:00～17:30",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://miyazakijingu.or.jp/"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "takachiho-gorge",
@@ -90358,7 +90199,7 @@
           "80m moss-covered basalt cliffs",
           "Mythological setting of Amaterasu legend"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "08:30–17:00 (Boat rentals)"
       },
       "ja": {
         "name": "高千穂峡",
@@ -90368,7 +90209,7 @@
           "高さ80mの苔むす柱状節理の断崖",
           "天照大神・天岩戸神話ゆかりの地"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "08:30～17:00（貸しボート）"
       }
     },
     "prefecture": "Miyazaki",
@@ -90381,14 +90222,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature & Outdoors", "Sightseeing"],
-    "tags": [
-      "Gorge",
-      "Waterfall",
-      "Mythology",
-      "Takachiho",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Gorge", "Waterfall", "Mythology", "Takachiho"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Takachiho-gorge.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -90462,7 +90296,7 @@
     "weatherDependence": "moderate",
     "reservation": "Boat rental available on site first-come-first-served",
     "parking": "Gorge parking available",
-    "notes": "Kyushu regional expansion — Miyazaki Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -90496,12 +90330,13 @@
     },
     "officialWebsite": "https://takachiho-kanko.info/",
     "municipalityId": "Miyazaki:takachiho",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "08:30–17:00 (Boat rentals)",
+    "openingHoursJa": "08:30～17:00（貸しボート）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://takachiho-kanko.info/en/"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "amanoiwato-shrine",
@@ -90517,7 +90352,7 @@
           "Profound Shinto mythological site",
           "Peaceful mountain shrine & forest setting"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "08:30–17:00"
       },
       "ja": {
         "name": "天岩戸神社",
@@ -90527,7 +90362,7 @@
           "日本神話の聖地を訪ねる",
           "山中の静寂な神社と神域の森"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "08:30～17:00"
       }
     },
     "prefecture": "Miyazaki",
@@ -90540,14 +90375,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["History", "Culture"],
-    "tags": [
-      "Shrine",
-      "Mythology",
-      "Cave",
-      "Takachiho",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Shrine", "Mythology", "Cave", "Takachiho"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Amanoiwato_Shrine_%2830722535953%29.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -90621,7 +90449,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required; cave viewing requires shrine staff escort",
     "parking": "Shrine parking available",
-    "notes": "Kyushu regional expansion — Miyazaki Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -90655,12 +90483,13 @@
     },
     "officialWebsite": null,
     "municipalityId": "Miyazaki:takachiho",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "08:30–17:00",
+    "openingHoursJa": "08:30～17:00",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://amanoiwato-jinja.jp/"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "takachiho-kagura-dance",
@@ -90676,7 +90505,7 @@
           "Amaterasu mythology performed live",
           "UNESCO Intangible Cultural Heritage"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "20:00–21:00 (Nightly performances)"
       },
       "ja": {
         "name": "高千穂神楽・夜神楽",
@@ -90686,7 +90515,7 @@
           "天照大神伝説を再現する舞台",
           "ユネスコ無形文化遺産の伝統芸能"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "20:00～21:00（毎晩公演）"
       }
     },
     "prefecture": "Miyazaki",
@@ -90699,14 +90528,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture", "Entertainment"],
-    "tags": [
-      "Culture",
-      "Dance",
-      "Shinto",
-      "Takachiho",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Culture", "Dance", "Shinto", "Takachiho"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Yokagura_Sacred_Dance_%2831561847845%29.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -90780,7 +90602,7 @@
     "weatherDependence": "low",
     "reservation": "Recommended; evening performances sell out",
     "parking": "Nearby public parking",
-    "notes": "Kyushu regional expansion — Miyazaki Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -90814,12 +90636,13 @@
     },
     "officialWebsite": "https://takachiho-kanko.info/kagura/",
     "municipalityId": "Miyazaki:takachiho",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "20:00–21:00 (Nightly performances)",
+    "openingHoursJa": "20:00～21:00（毎晩公演）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://takachiho-kanko.info/en/"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "jomon-sugi-yakushima",
@@ -90858,14 +90681,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature & Outdoors", "Sightseeing"],
-    "tags": [
-      "Hiking",
-      "UNESCO",
-      "Forest",
-      "Yakushima",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Hiking", "UNESCO", "Forest", "Yakushima"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Jhomonsugi_in_Yaku_Island_Japan_001.JPG",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -90939,7 +90755,7 @@
     "weatherDependence": "high",
     "reservation": "Guided tours recommended; trail may close in heavy rain",
     "parking": "Trailhead parking at Arakawa Dam",
-    "notes": "Kyushu regional expansion — Kagoshima Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -90978,7 +90794,8 @@
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "shiratani-unsuikyo-ravine",
@@ -90994,7 +90811,7 @@
           "Moss-covered ancient cedars & boulders",
           "Variety of trails from 1h to 4h"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "08:30–16:30 (Administration building)"
       },
       "ja": {
         "name": "白谷雲水峡",
@@ -91004,7 +90821,7 @@
           "苔に覆われた屋久杉と巨岩の絶景",
           "1時間〜4時間の多様なトレッキングコース"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "08:30～16:30（管理棟）"
       }
     },
     "prefecture": "Kagoshima",
@@ -91017,14 +90834,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature & Outdoors", "Sightseeing"],
-    "tags": [
-      "Hiking",
-      "Forest",
-      "Photography",
-      "Yakushima",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Hiking", "Forest", "Photography", "Yakushima"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/04/Shiratani_Unsuikyo_Ravine-_Part_I_-_ShirataniUnsuikyo326.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -91098,7 +90908,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required; trail may be slippery after rain",
     "parking": "Trailhead parking available (¥500/day)",
-    "notes": "Kyushu regional expansion — Kagoshima Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -91132,12 +90942,13 @@
     },
     "officialWebsite": null,
     "municipalityId": "Kagoshima:yakushima",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "08:30–16:30 (Administration building)",
+    "openingHoursJa": "08:30～16:30（管理棟）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://www.kagoshima-kankou.com/for/attractions/51079"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "yakusugi-land-yakushima",
@@ -91176,14 +90987,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature & Outdoors", "Sightseeing"],
-    "tags": [
-      "Hiking",
-      "Forest",
-      "Cedar",
-      "Yakushima",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Hiking", "Forest", "Cedar", "Yakushima"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Suspension_footbridge_in_Yakusugi_Land.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -91257,7 +91061,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Trailhead parking available",
-    "notes": "Kyushu regional expansion — Kagoshima Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -91296,7 +91100,8 @@
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "mojiko-retro-district",
@@ -91312,7 +91117,7 @@
           "Meiji-era brick warehouses & promenade",
           "Seafood market & Kanmon Strait views"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "No fixed opening hours (district area)"
       },
       "ja": {
         "name": "門司港レトロ地区",
@@ -91322,7 +91127,7 @@
           "明治レトロな赤レンガ倉庫とプロムナード",
           "関門海峡の海鮮市場と絶景"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "営業時間の設定なし（地区エリア）"
       }
     },
     "prefecture": "Fukuoka",
@@ -91335,14 +91140,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Sightseeing", "History"],
-    "tags": [
-      "Port",
-      "Meiji",
-      "Architecture",
-      "Kitakyushu City",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Port", "Meiji", "Architecture", "Kitakyushu City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/60/Train%2C_Mojik%C5%8D_Retro_Scenic_Line_-_Jun_24%2C_2023.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -91416,7 +91214,7 @@
     "weatherDependence": "low",
     "reservation": "None required",
     "parking": "District parking available",
-    "notes": "Kyushu regional expansion — Fukuoka Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -91450,12 +91248,13 @@
     },
     "officialWebsite": "https://mojiko-retro.jp/",
     "municipalityId": "Fukuoka:kitakyushu",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "No fixed opening hours (district area)",
+    "openingHoursJa": "営業時間の設定なし（地区エリア）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://www.gururich-kitaq.com/en/spot/mojiko-retro-area"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "kitakyushu-manga-museum",
@@ -91471,7 +91270,7 @@
           "50,000+ volume manga reading library",
           "Interactive drawing & creation stations"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "11:00–19:00"
       },
       "ja": {
         "name": "北九州市漫画ミュージアム",
@@ -91481,7 +91280,7 @@
           "5万冊以上の漫画ライブラリー",
           "体験型作画コーナーと企画展"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "11:00～19:00"
       }
     },
     "prefecture": "Fukuoka",
@@ -91494,14 +91293,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Museum & Art", "Entertainment"],
-    "tags": [
-      "Museum",
-      "Manga",
-      "Culture",
-      "Kitakyushu City",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Museum", "Manga", "Culture", "Kitakyushu City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/11/Kitakyushu_Manga_Museum_entrance.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -91575,7 +91367,7 @@
     "weatherDependence": "low",
     "reservation": "None required; special exhibitions may require advance booking",
     "parking": "ARUARU CITY building parking",
-    "notes": "Kyushu regional expansion — Fukuoka Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -91609,12 +91401,13 @@
     },
     "officialWebsite": "https://www.ktqmm.jp/",
     "municipalityId": "Fukuoka:kitakyushu",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "11:00–19:00",
+    "openingHoursJa": "11:00～19:00",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://www.ktqmm.jp/english"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "kawachi-wisteria-garden",
@@ -91630,7 +91423,7 @@
           "Spectacular April–May bloom season",
           "Hilltop panoramic views over the garden"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "08:00–18:00 (Only open late Apr-early May and mid-Nov-early Dec)"
       },
       "ja": {
         "name": "河内藤園",
@@ -91640,7 +91433,7 @@
           "4月下旬〜5月中旬の絶景フラワーシーズン",
           "丘の上の藤棚とパノラマ展望"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "08:00～18:00（4月下旬～5月上旬、11月中旬～12月上旬のみ開園）"
       }
     },
     "prefecture": "Fukuoka",
@@ -91653,14 +91446,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Gardens", "Sightseeing"],
-    "tags": [
-      "Garden",
-      "Flowers",
-      "Photography",
-      "Kitakyushu City",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Garden", "Flowers", "Photography", "Kitakyushu City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Wisteria_Tunnel_in_Kawachi_Wisteria_Garden_20150509-2.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -91734,7 +91520,7 @@
     "weatherDependence": "moderate",
     "reservation": "Advance tickets required during peak bloom (late April–early May)",
     "parking": "Garden parking available",
-    "notes": "Kyushu regional expansion — Fukuoka Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -91768,12 +91554,13 @@
     },
     "officialWebsite": "https://kawachi-fujien.com/",
     "municipalityId": "Fukuoka:kitakyushu",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "08:00–18:00 (Only open late Apr-early May and mid-Nov-early Dec)",
+    "openingHoursJa": "08:00～18:00（4月下旬～5月上旬、11月中旬～12月上旬のみ開園）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://kawachi-fujien.com/"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "fukuoka-paypay-dome",
@@ -91792,7 +91579,7 @@
           "Oh Sadaharu Baseball Museum",
           "BOSS E-ZO entertainment complex & bay views"
         ],
-        "openingHours": "Open 24 hours"
+        "openingHours": "Event times vary (Tours 10:00–17:00)"
       },
       "ja": {
         "name": "福岡ペイペイドーム・BOSS E-ZO FUKUOKA",
@@ -91802,7 +91589,7 @@
           "王貞治ベースボールミュージアム",
           "BOSS E-ZO FUKUOKA の体験型アトラクション"
         ],
-        "openingHours": "24時間営業"
+        "openingHours": "イベントにより異なる（ツアーは10:00～17:00）"
       }
     },
     "prefecture": "Fukuoka",
@@ -91815,14 +91602,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Entertainment", "Sports"],
-    "tags": [
-      "Baseball",
-      "Sports",
-      "Entertainment",
-      "Fukuoka City",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Baseball", "Sports", "Entertainment", "Fukuoka City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/06/Mizuho_PayPay_dome_Fukuoka_2025.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -91896,7 +91676,7 @@
     "weatherDependence": "low",
     "reservation": "Required for game days",
     "parking": "Dome parking and nearby lots",
-    "notes": "Kyushu regional expansion — Fukuoka Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -91930,12 +91710,13 @@
     },
     "officialWebsite": "https://e-zo.jp/",
     "municipalityId": "Fukuoka:fukuoka",
-    "openingHours": "Open 24 hours",
-    "openingHoursJa": "24時間営業",
+    "openingHours": "Event times vary (Tours 10:00–17:00)",
+    "openingHoursJa": "イベントにより異なる（ツアーは10:00～17:00）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-    }
+      "sourceUrl": "https://www.softbankhawks.co.jp/global/english/"
+    },
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   },
   {
     "id": "toto-museum-kitakyushu",
@@ -91945,13 +91726,13 @@
     "content": {
       "en": {
         "name": "TOTO Museum",
-        "description": "The TOTO Museum celebrates the centennial of the renowned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene.",
+        "description": "The TOTO Museum celebrates the centennial of the reEXPANSION_DATEned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene.",
         "highlights": [
           "Evolution of Japanese toilets and sanitary ware",
           "Futuristic architectural design",
           "Historical artifacts from TOTO's founding"
         ],
-        "openingHours": "10:00–17:00"
+        "openingHours": "10:00–17:00 (last admission 16:30)"
       },
       "ja": {
         "name": "TOTOミュージアム",
@@ -91961,7 +91742,7 @@
           "目を引く斬新な建築デザイン",
           "TOTOの歴史的な製品群"
         ],
-        "openingHours": "10:00–17:00"
+        "openingHours": "10:00～17:00（最終入館16:30）"
       }
     },
     "prefecture": "Fukuoka",
@@ -91974,14 +91755,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Museum & Art", "Culture"],
-    "tags": [
-      "Museum",
-      "Industrial",
-      "Architecture",
-      "Kitakyushu City",
-      "v2.0.0-beta.1",
-      "Kyushu Expansion"
-    ],
+    "tags": ["Museum", "Industrial", "Architecture", "Kitakyushu City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Kitakyushu_%28%E5%8C%97%E4%B9%9D%E5%B7%9E%29%2C_Fukuoka_Prefecture%2C_Japan_February_2026_-_TOTO_Museum.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -91993,19 +91767,19 @@
       "lat": 33.8711,
       "lng": 130.8803
     },
-    "description": "The TOTO Museum celebrates the centennial of the renowned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene.",
+    "description": "The TOTO Museum celebrates the centennial of the reEXPANSION_DATEned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene.",
     "highlights": [
       "Evolution of Japanese toilets and sanitary ware",
       "Futuristic architectural design",
       "Historical artifacts from TOTO's founding"
     ],
-    "openingHours": "10:00–17:00",
-    "openingHoursJa": "10:00–17:00",
+    "openingHours": "10:00–17:00 (last admission 16:30)",
+    "openingHoursJa": "10:00～17:00（最終入館16:30）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://jp.toto.com/knowledge/visit/museum/museum_access/",
+      "sourceUrl": "https://jp.toto.com/knowledge/visit/museum/",
       "lastAdmission": "16:30",
-      "closedDays": "Mondays (including public holidays), summer holidays, New Year holidays"
+      "closedDays": "Mondays (including public holiday Mondays), summer holidays, and year-end/New Year holidays"
     },
     "budgetMin": 0,
     "budgetRecommended": 1000,
@@ -92063,7 +91837,7 @@
     "weatherDependence": "low",
     "reservation": "Groups or guided tours require reservation",
     "parking": "Free parking available",
-    "notes": "Kyushu regional expansion — Fukuoka Prefecture.",
+    "notes": "Make sure to check the official website for the latest updates before visiting.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -92095,7 +91869,8 @@
       "reviewedAt": "2026-08-04",
       "reviewedBy": "Kyushu Regional Editorial Batch"
     },
-    "officialWebsite": "https://jp.toto.com/knowledge/visit/en_museum/",
-    "municipalityId": "Fukuoka:kitakyushu"
+    "officialWebsite": "https://jp.toto.com/kEXPANSION_DATEledge/visit/en_museum/",
+    "municipalityId": "Fukuoka:kitakyushu",
+    "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
   }
 ]

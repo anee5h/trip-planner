@@ -12,7 +12,7 @@
         "Japan's Edo-era window to the West",
         "Interactive exhibits on trade history"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "08:00–21:00"
     },
     "ja": {
       "name": "出島",
@@ -22,7 +22,7 @@
         "鎖国時代唯一の西洋交易拠点",
         "貿易史を伝える体験型展示"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "08:00～21:00"
     }
   },
   "prefecture": "Nagasaki",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["History", "Culture"],
-  "tags": [
-    "History",
-    "Museum",
-    "Dutch Trading",
-    "Nagasaki City",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["History", "Museum", "Dutch Trading", "Nagasaki City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1a/View_of_the_Former_Dutch_Trading_Post_on_Dejima_from_Tamae_Bridge%2C_Nagasaki%2C_20240815_1501_3720.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Nearby coin parking",
-  "notes": "Kyushu regional expansion — Nagasaki Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -150,10 +143,11 @@
   },
   "officialWebsite": "https://nagasakidejima.jp/",
   "municipalityId": "Nagasaki:nagasaki",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "08:00–21:00",
+  "openingHoursJa": "08:00～21:00",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://nagasakidejima.jp/en/"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

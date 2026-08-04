@@ -12,7 +12,7 @@
         "Amaterasu mythology performed live",
         "UNESCO Intangible Cultural Heritage"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "20:00–21:00 (Nightly performances)"
     },
     "ja": {
       "name": "高千穂神楽・夜神楽",
@@ -22,7 +22,7 @@
         "天照大神伝説を再現する舞台",
         "ユネスコ無形文化遺産の伝統芸能"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "20:00～21:00（毎晩公演）"
     }
   },
   "prefecture": "Miyazaki",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture", "Entertainment"],
-  "tags": [
-    "Culture",
-    "Dance",
-    "Shinto",
-    "Takachiho",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Culture", "Dance", "Shinto", "Takachiho"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Yokagura_Sacred_Dance_%2831561847845%29.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "Recommended; evening performances sell out",
   "parking": "Nearby public parking",
-  "notes": "Kyushu regional expansion — Miyazaki Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -150,10 +143,11 @@
   },
   "officialWebsite": "https://takachiho-kanko.info/kagura/",
   "municipalityId": "Miyazaki:takachiho",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "20:00–21:00 (Nightly performances)",
+  "openingHoursJa": "20:00～21:00（毎晩公演）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://takachiho-kanko.info/en/"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

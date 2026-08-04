@@ -12,7 +12,7 @@
         "Spectacular April–May bloom season",
         "Hilltop panoramic views over the garden"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "08:00–18:00 (Only open late Apr-early May and mid-Nov-early Dec)"
     },
     "ja": {
       "name": "河内藤園",
@@ -22,7 +22,7 @@
         "4月下旬〜5月中旬の絶景フラワーシーズン",
         "丘の上の藤棚とパノラマ展望"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "08:00～18:00（4月下旬～5月上旬、11月中旬～12月上旬のみ開園）"
     }
   },
   "prefecture": "Fukuoka",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Gardens", "Sightseeing"],
-  "tags": [
-    "Garden",
-    "Flowers",
-    "Photography",
-    "Kitakyushu City",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Garden", "Flowers", "Photography", "Kitakyushu City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Wisteria_Tunnel_in_Kawachi_Wisteria_Garden_20150509-2.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "Advance tickets required during peak bloom (late April–early May)",
   "parking": "Garden parking available",
-  "notes": "Kyushu regional expansion — Fukuoka Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -150,10 +143,11 @@
   },
   "officialWebsite": "https://kawachi-fujien.com/",
   "municipalityId": "Fukuoka:kitakyushu",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "08:00–18:00 (Only open late Apr-early May and mid-Nov-early Dec)",
+  "openingHoursJa": "08:00～18:00（4月下旬～5月上旬、11月中旬～12月上旬のみ開園）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://kawachi-fujien.com/"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

@@ -12,7 +12,7 @@
         "Charming ryokan & boutique inns",
         "Lake Kinrin morning mist & café street"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "No fixed opening hours (district area)"
     },
     "ja": {
       "name": "由布院温泉郷",
@@ -22,7 +22,7 @@
         "湯の坪街道のカフェと工芸品店巡り",
         "金鱗湖の朝霧と温泉情緒"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "営業時間の設定なし（地区エリア）"
     }
   },
   "prefecture": "Oita",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Hot Springs & Wellness", "Sightseeing"],
-  "tags": [
-    "Onsen",
-    "Ryokan",
-    "Yufuin",
-    "Wellness",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Onsen", "Ryokan", "Yufuin", "Wellness"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Yufuin_Onsen_-Mus%C5%8Den_02.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "Recommended for ryokan stays",
   "parking": "Ryokan parking available",
-  "notes": "Kyushu regional expansion — Oita Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -150,10 +143,11 @@
   },
   "officialWebsite": null,
   "municipalityId": "Oita:yufu",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "No fixed opening hours (district area)",
+  "openingHoursJa": "営業時間の設定なし（地区エリア）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/yufuin-onsen-ryokan-district/"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

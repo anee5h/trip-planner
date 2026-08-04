@@ -15,7 +15,7 @@
         "Oh Sadaharu Baseball Museum",
         "BOSS E-ZO entertainment complex & bay views"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "Event times vary (Tours 10:00–17:00)"
     },
     "ja": {
       "name": "福岡ペイペイドーム・BOSS E-ZO FUKUOKA",
@@ -25,7 +25,7 @@
         "王貞治ベースボールミュージアム",
         "BOSS E-ZO FUKUOKA の体験型アトラクション"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "イベントにより異なる（ツアーは10:00～17:00）"
     }
   },
   "prefecture": "Fukuoka",
@@ -38,14 +38,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Entertainment", "Sports"],
-  "tags": [
-    "Baseball",
-    "Sports",
-    "Entertainment",
-    "Fukuoka City",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Baseball", "Sports", "Entertainment", "Fukuoka City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/06/Mizuho_PayPay_dome_Fukuoka_2025.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -119,7 +112,7 @@
   "weatherDependence": "low",
   "reservation": "Required for game days",
   "parking": "Dome parking and nearby lots",
-  "notes": "Kyushu regional expansion — Fukuoka Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -153,10 +146,11 @@
   },
   "officialWebsite": "https://e-zo.jp/",
   "municipalityId": "Fukuoka:fukuoka",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "Event times vary (Tours 10:00–17:00)",
+  "openingHoursJa": "イベントにより異なる（ツアーは10:00～17:00）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://www.softbankhawks.co.jp/global/english/"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

@@ -8,13 +8,13 @@
       "name": "Fukuoka Tower",
       "description": "Fukuoka Tower is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
       "highlights": ["Viewpoint"],
-      "openingHours": "Open 24 hours"
+      "openingHours": "09:30–22:00"
     },
     "ja": {
       "name": "福岡タワー",
       "description": "福岡タワーはFukuoka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
       "highlights": ["展望"],
-      "openingHours": "24時間営業"
+      "openingHours": "09:30～22:00"
     }
   },
   "prefecture": "Fukuoka",
@@ -170,10 +170,10 @@
   },
   "businessHours": "09:30 - 22:00 (Last admission 21:30)",
   "municipalityId": "Fukuoka:fukuoka",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "09:30–22:00",
+  "openingHoursJa": "09:30～22:00",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+    "sourceUrl": "https://www.fukuokatower.co.jp/en/"
   }
 }

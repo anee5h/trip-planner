@@ -12,7 +12,7 @@
         "Traditional sand bath (sunaburo)",
         "Iconic tiled façade & retro interior"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "06:30–22:30"
     },
     "ja": {
       "name": "竹瓦温泉",
@@ -22,7 +22,7 @@
         "名物砂湯（砂風呂）体験",
         "唐破風のタイル張りファサード"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "06:30～22:30"
     }
   },
   "prefecture": "Oita",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Hot Springs & Wellness", "History"],
-  "tags": [
-    "Onsen",
-    "Sentō",
-    "History",
-    "Beppu",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Onsen", "Sentō", "History", "Beppu"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/15/Beppu_Takegawara_Onsen_1.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Nearby public parking",
-  "notes": "Kyushu regional expansion — Oita Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -150,10 +143,11 @@
   },
   "officialWebsite": null,
   "municipalityId": "Oita:beppu",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "06:30–22:30",
+  "openingHoursJa": "06:30～22:30",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://www.city.beppu.oita.jp/sisetu/shieionsen/detail4.html"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

@@ -35,15 +35,8 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Sightseeing", "History"],
-  "tags": [
-    "Bridge",
-    "History",
-    "Stone Arch",
-    "Nagasaki City",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Megane_Bridge_in_Nagasaki%2C_Japan%2C_20240815_1441_3704.jpg",
+  "tags": ["Bridge", "History", "Stone Arch", "Nagasaki City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Nagasaki_Meganebashi_M5257.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY 4.0",
@@ -116,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Nearby coin parking",
-  "notes": "Kyushu regional expansion — Nagasaki Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -155,5 +148,6 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

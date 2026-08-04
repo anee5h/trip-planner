@@ -12,7 +12,7 @@
         "Dozens of local bathhouses & foot onsens",
         "Atmospheric steam vents in every alley"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "No fixed opening hours (district area)"
     },
     "ja": {
       "name": "鉄輪温泉湯けむり街",
@@ -22,7 +22,7 @@
         "点在する共同浴場と足湯めぐり",
         "路地の湯けむり景観散策"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "営業時間の設定なし（地区エリア）"
     }
   },
   "prefecture": "Oita",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Hot Springs & Wellness", "Sightseeing"],
-  "tags": [
-    "Onsen",
-    "Steam",
-    "Hell",
-    "Beppu",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Onsen", "Steam", "Hell", "Beppu"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/cd/2020-02-24_Kannawa_Onsen_%E9%89%84%E8%BC%AA%E6%B8%A9%E6%B3%89%E5%85%A8%E6%99%AF_DSCF8631.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Local parking available",
-  "notes": "Kyushu regional expansion — Oita Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -150,10 +143,11 @@
   },
   "officialWebsite": null,
   "municipalityId": "Oita:beppu",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "No fixed opening hours (district area)",
+  "openingHoursJa": "営業時間の設定なし（地区エリア）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/kannawa-onsen-district/"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

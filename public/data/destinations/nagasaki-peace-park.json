@@ -38,14 +38,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["History", "Culture"],
-  "tags": [
-    "History",
-    "Peace",
-    "Memorial",
-    "Nagasaki City",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["History", "Peace", "Memorial", "Nagasaki City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f5/20190202_Nagasaki_Peace_Park_Statue_of_Peace-2.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -119,7 +112,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Museum parking available",
-  "notes": "Kyushu regional expansion — Nagasaki Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -158,5 +151,6 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

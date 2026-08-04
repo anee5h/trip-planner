@@ -12,7 +12,7 @@
         "Fukuoka history from ancient to modern",
         "Special exhibitions and cultural events"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "09:30–17:30"
     },
     "ja": {
       "name": "福岡市博物館",
@@ -22,7 +22,7 @@
         "福岡の歴史とアジア交流の展示",
         "企画展と市民文化イベント"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "09:30～17:30"
     }
   },
   "prefecture": "Fukuoka",
@@ -35,13 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Museum & Art", "Culture"],
-  "tags": [
-    "Museum",
-    "History",
-    "Fukuoka City",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Museum", "History", "Fukuoka City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4e/FukuokaCity_Museum_2018.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -115,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Museum parking available",
-  "notes": "Kyushu regional expansion — Fukuoka Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -149,10 +143,11 @@
   },
   "officialWebsite": "https://museum.city.fukuoka.jp/",
   "municipalityId": "Fukuoka:fukuoka",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "09:30–17:30",
+  "openingHoursJa": "09:30～17:30",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

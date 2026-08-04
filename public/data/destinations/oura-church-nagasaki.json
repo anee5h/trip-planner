@@ -129,13 +129,13 @@
         "潜伏キリシタン関連の世界遺産",
         "隣接する旧羅典神学校とキリシタン資料館"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "08:30～18:00"
     }
   },
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "08:30–18:00",
+  "openingHoursJa": "08:30～18:00",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+    "sourceUrl": "https://nagasaki-oura-church.jp/en"
   }
 }

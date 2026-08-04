@@ -12,7 +12,7 @@
         "Panoramic views of Beppu Bay",
         "Night illumination & city lights view"
       ],
-      "openingHours": "Open 24 hours"
+      "openingHours": "09:30–21:30"
     },
     "ja": {
       "name": "別府タワー",
@@ -22,7 +22,7 @@
         "別府湾と市街地の360度パノラマ",
         "夜景とライトアップ"
       ],
-      "openingHours": "24時間営業"
+      "openingHours": "09:30～21:30"
     }
   },
   "prefecture": "Oita",
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Sightseeing", "Entertainment"],
-  "tags": [
-    "Tower",
-    "Observation",
-    "City View",
-    "Beppu",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Tower", "Observation", "City View", "Beppu"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/38/Beppu_Tower_20230212.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -116,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Nearby public parking",
-  "notes": "Kyushu regional expansion — Oita Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -150,10 +143,11 @@
   },
   "officialWebsite": "https://beppu-tower.com/",
   "municipalityId": "Oita:beppu",
-  "openingHours": "Open 24 hours",
-  "openingHoursJa": "24時間営業",
+  "openingHours": "09:30–21:30",
+  "openingHoursJa": "09:30～21:30",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+    "sourceUrl": "https://bepputower.co.jp/"
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }

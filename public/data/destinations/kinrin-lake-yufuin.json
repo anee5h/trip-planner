@@ -10,7 +10,7 @@
       "highlights": [
         "Morning mist over the warm spring-fed lake",
         "Scenic walking path around the lake",
-        "Autumn foliage & winter snow reflections"
+        "Autumn foliage & winter sEXPANSION_DATE reflections"
       ],
       "openingHours": "Open 24 hours"
     },
@@ -35,14 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Nature & Outdoors", "Sightseeing"],
-  "tags": [
-    "Lake",
-    "Photography",
-    "Mist",
-    "Yufuin",
-    "v2.0.0-beta.1",
-    "Kyushu Expansion"
-  ],
+  "tags": ["Lake", "Photography", "Mist", "Yufuin"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Lake_Kinrin_with_Morning_fog.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -58,7 +51,7 @@
   "highlights": [
     "Morning mist over the warm spring-fed lake",
     "Scenic walking path around the lake",
-    "Autumn foliage & winter snow reflections"
+    "Autumn foliage & winter sEXPANSION_DATE reflections"
   ],
   "budgetMin": 1000,
   "budgetRecommended": 3000,
@@ -116,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Nearby paid parking",
-  "notes": "Kyushu regional expansion — Oita Prefecture.",
+  "notes": "Make sure to check the official website for the latest updates before visiting.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -155,5 +148,6 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+  },
+  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
 }
