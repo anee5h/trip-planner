@@ -242,21 +242,16 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
                         onClose();
                         return;
                       }
-                      if (result.status === "cleared_but_signout_failed") {
-                        setClearError(result.message);
-                        return;
-                      }
-                      if (result.status === "partially_cleared") {
-                        setClearError(result.message);
-                        return;
-                      }
                       setClearError(result.message);
-                      setDeleteConfirm(false);
                     }}
                     disabled={loading}
                     className="flex-1 h-8 text-xs bg-red-600 hover:bg-red-700 text-white border-0 disabled:opacity-50"
                   >
-                    {loading ? "Clearing…" : "Yes, Clear"}
+                    {loading
+                      ? "Clearing…"
+                      : clearError
+                        ? "Retry Clear"
+                        : "Yes, Clear"}
                   </Button>
                 </div>
               </div>
