@@ -108,7 +108,17 @@
         "type": "official"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch"
+    "reviewedBy": "Okinawa Regional Editorial Batch",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Naha_Shuri_Castle02s5s3200.jpg",
+          "title": "Naha City",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "content": {
     "en": {

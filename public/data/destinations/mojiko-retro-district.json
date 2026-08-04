@@ -1,0 +1,169 @@
+{
+  "id": "mojiko-retro-district",
+  "name": "Mojiko Retro District",
+  "nameJa": "門司港レトロ地区",
+  "aliases": ["Mojiko Retro District", "門司港レトロ地区"],
+  "content": {
+    "en": {
+      "name": "Mojiko Retro District",
+      "description": "Mojiko Retro District is a beautifully preserved Meiji-era port town along the Kanmon Strait, featuring brick warehouses, the 1914 Mojiko Station (a National Important Cultural Property), and the Mojiko Retro Observation Tower. The waterfront promenade offers views of the Kanmon Bridge and fresh seafood at the local market.",
+      "highlights": [
+        "1914 Mojiko Station (Important Cultural Property)",
+        "Meiji-era brick warehouses & promenade",
+        "Seafood market & Kanmon Strait views"
+      ]
+    },
+    "ja": {
+      "name": "門司港レトロ地区",
+      "description": "門司港レトロ地区は関門海峡に面した明治時代の港湾街並みを保存した観光エリアで、1914年建築の門司港駅（重要文化財）や赤レンガ倉庫群、門司港レトロ展望室が立ち並びます。海峡プロムナードからは関門橋を望み、新鮮な海鮮も楽しめます。",
+      "highlights": [
+        "重要文化財・門司港駅（1914年築）",
+        "明治レトロな赤レンガ倉庫とプロムナード",
+        "関門海峡の海鮮市場と絶景"
+      ]
+    }
+  },
+  "prefecture": "Fukuoka",
+  "region": "Kyushu",
+  "kind": "mixed",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "kitakyushu-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Sightseeing", "History"],
+  "tags": [
+    "Port",
+    "Meiji",
+    "Architecture",
+    "Kitakyushu City",
+    "v2.0.0-beta.1",
+    "Kyushu Expansion"
+  ],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Mojiko_Retro_District_Kitakyushu_Japan.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Mojiko_Retro_District_Kitakyushu_Japan.jpg"
+  },
+  "coordinates": {
+    "lat": 33.9483,
+    "lng": 130.9625
+  },
+  "description": "Mojiko Retro District is a beautifully preserved Meiji-era port town along the Kanmon Strait, featuring brick warehouses, the 1914 Mojiko Station (a National Important Cultural Property), and the Mojiko Retro Observation Tower. The waterfront promenade offers views of the Kanmon Bridge and fresh seafood at the local market.",
+  "highlights": [
+    "1914 Mojiko Station (Important Cultural Property)",
+    "Meiji-era brick warehouses & promenade",
+    "Seafood market & Kanmon Strait views"
+  ],
+  "budgetMin": 2000,
+  "budgetRecommended": 5000,
+  "budgetMax": 10000,
+  "budgetBreakdown": {
+    "transport": 700,
+    "tickets": 0,
+    "food": 800,
+    "cafe": 200
+  },
+  "transportOptions": {
+    "train": 215,
+    "shinkansen": 315
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 5000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 2500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 30,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 8,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 9,
+    "summer": 8.5,
+    "winter": 8.3,
+    "rain": 8,
+    "food": 8.8,
+    "photography": 9.3,
+    "relaxation": 8,
+    "value": 8.8,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "District parking available",
+  "notes": "Kyushu regional expansion — Fukuoka Prefecture.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mojiko_Retro_District",
+        "title": "Mojiko Retro District",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Mojiko_Retro_District_Kitakyushu_Japan.jpg",
+          "title": "Editorial scoring from source-backed attributes",
+          "accessedAt": "2026-08-04"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Mojiko_Retro_District_Kitakyushu_Japan.jpg",
+          "title": "Mojiko Retro District",
+          "accessedAt": "2026-08-04"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Mojiko Retro District",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://mojiko-retro.jp/",
+  "municipalityId": "Fukuoka:kitakyushu"
+}

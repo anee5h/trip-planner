@@ -106,7 +106,17 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/%E6%B1%9F%E6%88%B8%E5%B7%9D%E5%8C%BA%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A%E3%83%BB%E5%B8%82%E5%B7%9D%E5%B8%82%E6%B0%91%E7%B4%8D%E6%B6%BC%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A2019.jpg/1280px-%E6%B1%9F%E6%88%B8%E5%B7%9D%E5%8C%BA%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A%E3%83%BB%E5%B8%82%E5%B7%9D%E5%B8%82%E6%B0%91%E7%B4%8D%E6%B6%BC%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A2019.jpg",
+          "title": "Edogawa City",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "nameJa": "江戸川区",
   "content": {

@@ -73,7 +73,7 @@
   "reservation": "None required",
   "parking": "Available on site",
   "notes": "Beppu Hells (Jigoku Meguri) located in Oita Prefecture.",
-  "status": "beta",
+  "status": "published",
   "relationships": {
     "featuredDestinationIds": [],
     "nearbyDestinationIds": [],
@@ -90,5 +90,42 @@
   "officialWebsite": "https://www.umi-jigoku.co.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Oita:beppu"
+  "municipalityId": "Oita:beppu",
+  "role": "poi",
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-04",
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Beppu_Hells_(Jigoku_Meguri)",
+        "title": "Beppu Hells (Jigoku Meguri)",
+        "accessedAt": "2026-08-08"
+      }
+    ],
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/180131_Umi-Jigoku.jpg/1920px-180131_Umi-Jigoku.jpg",
+          "title": "Beppu Hells (Jigoku Meguri)",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
+  },
+  "content": {
+    "ja": {
+      "name": "別府地獄めぐり",
+      "description": "別府地獄めぐりは、別府市内に点在する8つの自然温泉の噴気孔で構成される観光名所です。海地獄のコバルトブルー、血の池地獄の赤色など、それぞれが独自の色や特徴を持ち、国の名勝に指定されています。",
+      "highlights": [
+        "8つの個性的な地獄湯煙",
+        "コバルトブルーの海地獄と赤い血の池地獄",
+        "地獄蒸し料理と温泉卵の名物"
+      ]
+    }
+  }
 }

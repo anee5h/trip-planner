@@ -61,7 +61,7 @@
   "reservation": "None required",
   "parking": "Public parking available",
   "notes": "Yufu City travel hub in Oita Prefecture.",
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -83,5 +83,32 @@
   },
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Oita:yufu"
+  "municipalityId": "Oita:yufu",
+  "nameJa": "由布市",
+  "aliases": ["Yufu City", "由布市"],
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-04",
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Yufu_City",
+        "title": "Yufu City",
+        "accessedAt": "2026-08-08"
+      }
+    ],
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Yuhudake.jpg",
+          "title": "Yufu City",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
+  }
 }

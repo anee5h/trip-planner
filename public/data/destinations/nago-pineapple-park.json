@@ -45,7 +45,17 @@
         "type": "official"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch"
+    "reviewedBy": "Okinawa Regional Editorial Batch",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Pineapple_Winery_%40_Nago_Pineapple_Park%2C_Okinawa_no.3.jpg",
+          "title": "Nago Pineapple Park",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "content": {
     "en": {

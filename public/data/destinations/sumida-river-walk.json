@@ -136,7 +136,17 @@
       }
     ],
     "reviewedAt": "2026-08-02",
-    "reviewedBy": "Meguruto Editorial Reviewer"
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Sumida-gawa_hanami_%28Flower-viewing_on_the_Sumida_River%29_%28BM_2008%2C3037.20315%29.jpg",
+          "title": "Sumida River Walk",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

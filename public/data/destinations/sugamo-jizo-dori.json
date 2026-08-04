@@ -136,7 +136,17 @@
       }
     ],
     "reviewedAt": "2026-08-02",
-    "reviewedBy": "Meguruto Editorial Reviewer"
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sugamo_Jizodori_Sh%C5%8Dtengai.jpg?width=1600",
+          "title": "Sugamo Jizo-dori",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

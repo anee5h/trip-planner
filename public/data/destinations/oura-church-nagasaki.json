@@ -69,7 +69,7 @@
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Hidden Christian Sites in the Nagasaki Region via Wikipedia/Wikimedia Commons"
   },
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "high"
   },
@@ -95,7 +95,7 @@
     "walkingIntensity": 3
   },
   "walkingIntensity": "low",
-  "role": "standalone",
+  "role": "poi",
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -104,5 +104,41 @@
   },
   "officialWebsite": "https://nagasaki-oura-church.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Nagasaki:nagasaki"
+  "municipalityId": "Nagasaki:nagasaki",
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-04",
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Hidden_Christian_Sites_in_the_Nagasaki_Region",
+        "title": "Hidden Christian Sites in the Nagasaki Region",
+        "accessedAt": "2026-08-08"
+      }
+    ],
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Nh%C3%A0_th%E1%BB%9D_ch%C3%ADnh_t%C3%B2a_Oura.jpg/960px-Nh%C3%A0_th%E1%BB%9D_ch%C3%ADnh_t%C3%B2a_Oura.jpg",
+          "title": "Hidden Christian Sites in the Nagasaki Region",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
+  },
+  "content": {
+    "ja": {
+      "name": "長崎と天草地方の潜伏キリシタン関連遺産",
+      "description": "大浦天主堂は1864年に建立された日本最古の現存するキリスト教教会で、国宝に指定されています。「長崎と天草地方の潜伏キリシタン関連遺産」の構成資産として世界遺産にも登録されています。",
+      "highlights": [
+        "国宝・日本最古のゴシック教会建築",
+        "潜伏キリシタン関連の世界遺産",
+        "隣接する旧羅典神学校とキリシタン資料館"
+      ]
+    }
+  }
 }

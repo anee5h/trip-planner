@@ -32,7 +32,7 @@
   "categories": ["sightseeing", "nature", "romance"],
   "budgetMin": 3000,
   "budgetMax": 10000,
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -98,7 +98,7 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "role": "standalone",
+  "role": "poi",
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -107,5 +107,41 @@
   },
   "officialWebsite": "https://www.inasayama.com/",
   "businessHours": "Open access",
-  "municipalityId": "Nagasaki:nagasaki"
+  "municipalityId": "Nagasaki:nagasaki",
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-04",
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Inasa_(Nagasaki_Night_View)",
+        "title": "Mount Inasa (Nagasaki Night View)",
+        "accessedAt": "2026-08-08"
+      }
+    ],
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/1280px-Mt.Inasa_2010.jpg",
+          "title": "Mount Inasa (Nagasaki Night View)",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
+  },
+  "content": {
+    "ja": {
+      "name": "稲佐山",
+      "description": "稲佐山（標高333m）は長崎市街を一望できる夜景スポットで、「世界新三大夜景」の一つに認定されています。山頂まではロープウェイで約5分、到着後は360度のパノラマが楽しめます。",
+      "highlights": [
+        "世界新三大夜景の長崎夜景",
+        "展望台からの360度パノラマ",
+        "稲佐山ロープウェイの空中散歩"
+      ]
+    }
+  }
 }

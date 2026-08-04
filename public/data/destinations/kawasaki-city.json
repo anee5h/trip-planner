@@ -116,7 +116,17 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kawasaki_Daishi_Main_Hall.jpg/1280px-Kawasaki_Daishi_Main_Hall.jpg",
+          "title": "Kawasaki City",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "nameJa": "川崎",
   "content": {

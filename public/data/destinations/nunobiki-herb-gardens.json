@@ -127,7 +127,17 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "freshness": "review_due",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe%20Nunobiki%20Herb%20Garden09bs3200.jpg?width=1600",
+          "title": "Nunobiki Herb Gardens",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

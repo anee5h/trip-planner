@@ -126,7 +126,17 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "freshness": "review_due",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe%20Meriken%20Park01bs3200.jpg?width=1600",
+          "title": "Meriken Park",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

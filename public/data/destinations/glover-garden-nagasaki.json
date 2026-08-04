@@ -1,0 +1,169 @@
+{
+  "id": "glover-garden-nagasaki",
+  "name": "Glover Garden",
+  "nameJa": "グラバー園",
+  "aliases": ["Glover Garden", "グラバー園"],
+  "content": {
+    "en": {
+      "name": "Glover Garden",
+      "description": "Glover Garden is an open-air museum perched on a hillside overlooking Nagasaki Harbor, preserving several Meiji-era Western residences. The centerpiece is the former Glover House, Japan's oldest wooden Western-style building, once home to Scottish merchant Thomas Glover who helped modernize Japan.",
+      "highlights": [
+        "Former Glover House (Japan's oldest Western building)",
+        "Panoramic views of Nagasaki Harbor",
+        "Collection of Meiji-era Western residences"
+      ]
+    },
+    "ja": {
+      "name": "グラバー園",
+      "description": "グラバー園は長崎港を一望する丘に広がる野外博物館で、明治時代の洋館数棟を移築保存しています。中心となる旧グラバー住宅は日本最古の木造洋風建築で、スコットランド出身の貿易商トーマス・グラバーが日本の近代化に貢献した邸宅です。",
+      "highlights": [
+        "国指定重要文化財『旧グラバー住宅』",
+        "長崎港を見下ろす丘の絶景",
+        "明治期の洋館建築群"
+      ]
+    }
+  },
+  "prefecture": "Nagasaki",
+  "region": "Kyushu",
+  "kind": "garden",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "nagasaki-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Sightseeing", "History"],
+  "tags": [
+    "Garden",
+    "History",
+    "Western Architecture",
+    "Nagasaki City",
+    "v2.0.0-beta.1",
+    "Kyushu Expansion"
+  ],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Glover_Garden_Nagasaki_Japan.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Glover_Garden_Nagasaki_Japan.jpg"
+  },
+  "coordinates": {
+    "lat": 32.7343,
+    "lng": 129.8699
+  },
+  "description": "Glover Garden is an open-air museum perched on a hillside overlooking Nagasaki Harbor, preserving several Meiji-era Western residences. The centerpiece is the former Glover House, Japan's oldest wooden Western-style building, once home to Scottish merchant Thomas Glover who helped modernize Japan.",
+  "highlights": [
+    "Former Glover House (Japan's oldest Western building)",
+    "Panoramic views of Nagasaki Harbor",
+    "Collection of Meiji-era Western residences"
+  ],
+  "budgetMin": 2500,
+  "budgetRecommended": 5000,
+  "budgetMax": 8000,
+  "budgetBreakdown": {
+    "transport": 875,
+    "tickets": 620,
+    "food": 1000,
+    "cafe": 250
+  },
+  "transportOptions": {
+    "train": 275,
+    "shinkansen": 375
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3
+  },
+  "walkingMin": 4500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 2000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 30,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9.3,
+    "summer": 8.5,
+    "winter": 8.5,
+    "rain": 8,
+    "food": 7.5,
+    "photography": 9.2,
+    "relaxation": 8.3,
+    "value": 8.5,
+    "uniqueness": 9.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Nearby public parking",
+  "notes": "Kyushu regional expansion — Nagasaki Prefecture.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Glover_Garden",
+        "title": "Glover Garden",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Glover_Garden_Nagasaki_Japan.jpg",
+          "title": "Editorial scoring from source-backed attributes",
+          "accessedAt": "2026-08-04"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Glover_Garden_Nagasaki_Japan.jpg",
+          "title": "Glover Garden",
+          "accessedAt": "2026-08-04"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Glover Garden",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://glover-garden.jp/",
+  "municipalityId": "Nagasaki:nagasaki"
+}

@@ -1,0 +1,168 @@
+{
+  "id": "kumamoto-prefectural-art-museum",
+  "name": "Kumamoto Prefectural Art Museum",
+  "nameJa": "熊本県立美術館",
+  "aliases": ["Kumamoto Prefectural Art Museum", "熊本県立美術館"],
+  "content": {
+    "en": {
+      "name": "Kumamoto Prefectural Art Museum",
+      "description": "The Kumamoto Prefectural Art Museum houses a significant collection spanning Japanese and Western art, including works by local Kumamoto artists and pieces related to the Hosokawa samurai clan. Adjacent to Kumamoto Castle, it makes an excellent cultural pairing after exploring the castle grounds.",
+      "highlights": [
+        "Hosokawa clan samurai art collection",
+        "Modern Kumamoto artist exhibitions",
+        "Prime location next to Kumamoto Castle"
+      ]
+    },
+    "ja": {
+      "name": "熊本県立美術館",
+      "description": "熊本県立美術館は細川家ゆかりの武家美術品から近代の熊本ゆかりの作家まで幅広いコレクションを所蔵しています。熊本城に隣接し、城見学と合わせた文化散策の拠点として最適です。",
+      "highlights": [
+        "細川家伝来の武家美術コレクション",
+        "熊本ゆかりの近代作家作品",
+        "熊本城に隣接する好立地"
+      ]
+    }
+  },
+  "prefecture": "Kumamoto",
+  "region": "Kyushu",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "kumamoto-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Museum & Art", "Culture"],
+  "tags": [
+    "Museum",
+    "Art",
+    "Kumamoto City",
+    "v2.0.0-beta.1",
+    "Kyushu Expansion"
+  ],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Kumamoto_Prefectural_Museum_of_Art_2014.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Kumamoto_Prefectural_Museum_of_Art_2014.jpg"
+  },
+  "coordinates": {
+    "lat": 32.8081,
+    "lng": 130.6998
+  },
+  "description": "The Kumamoto Prefectural Art Museum houses a significant collection spanning Japanese and Western art, including works by local Kumamoto artists and pieces related to the Hosokawa samurai clan. Adjacent to Kumamoto Castle, it makes an excellent cultural pairing after exploring the castle grounds.",
+  "highlights": [
+    "Hosokawa clan samurai art collection",
+    "Modern Kumamoto artist exhibitions",
+    "Prime location next to Kumamoto Castle"
+  ],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 525,
+    "tickets": 300,
+    "food": 600,
+    "cafe": 150
+  },
+  "transportOptions": {
+    "train": 280,
+    "shinkansen": 380
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2.5
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 80,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.5,
+    "couple": 8.3,
+    "summer": 8.5,
+    "winter": 8.5,
+    "rain": 8.8,
+    "food": 7.3,
+    "photography": 7.8,
+    "relaxation": 8,
+    "value": 8.5,
+    "uniqueness": 8.3
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8,
+    "summer": 8,
+    "autumn": 8,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "Museum parking available",
+  "notes": "Kyushu regional expansion — Kumamoto Prefecture.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kumamoto_Prefectural_Art_Museum",
+        "title": "Kumamoto Prefectural Art Museum",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Kumamoto_Prefectural_Museum_of_Art_2014.jpg",
+          "title": "Editorial scoring from source-backed attributes",
+          "accessedAt": "2026-08-04"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Kumamoto_Prefectural_Museum_of_Art_2014.jpg",
+          "title": "Kumamoto Prefectural Art Museum",
+          "accessedAt": "2026-08-04"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Kumamoto Prefectural Art Museum",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://www.pref.kumamoto.jp/site/museum/",
+  "municipalityId": "Kumamoto:kumamoto"
+}

@@ -106,7 +106,17 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Akarenga_Yokohama_2012.jpg/1920px-Akarenga_Yokohama_2012.jpg",
+          "title": "Yokohama Red Brick Warehouse",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "content": {
     "en": {

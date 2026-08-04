@@ -136,7 +136,17 @@
       }
     ],
     "reviewedAt": "2026-08-02",
-    "reviewedBy": "Meguruto Editorial Reviewer"
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Ryogoku_kokugikan_2005_sep.jpg/1920px-Ryogoku_kokugikan_2005_sep.jpg",
+          "title": "Ryogoku Kokugikan and Sumo Museum",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

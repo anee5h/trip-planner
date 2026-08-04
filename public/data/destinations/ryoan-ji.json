@@ -137,7 +137,17 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "freshness": "review_due",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pedestrian%20road%20with%20pavements%2C%20paper%20umbrellas%20and%20people%20in%20yukata%2C%20Higashiyama-ku%2C%20Kyoto%2C%20Japan.jpg?width=1600",
+          "title": "Ryoan-ji",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

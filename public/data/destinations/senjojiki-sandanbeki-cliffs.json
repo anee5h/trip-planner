@@ -32,7 +32,17 @@
     "sources": ["editorial-review-2026"],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current"
+    "freshness": "current",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Senjojiki_Shirahama_Wakayama01n4272.jpg",
+          "title": "Senjojiki & Sandanbeki Rock Cliffs",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "content": {
     "en": {

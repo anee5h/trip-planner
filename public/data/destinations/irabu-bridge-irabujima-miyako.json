@@ -45,7 +45,17 @@
         "type": "official"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch"
+    "reviewedBy": "Okinawa Regional Editorial Batch",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Miyako_irabu_ohashi_2014_1.jpg",
+          "title": "Irabu Bridge & Sea Drive",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "content": {
     "en": {

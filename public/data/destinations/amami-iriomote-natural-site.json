@@ -69,7 +69,7 @@
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Amami-Oshima, Tokunoshima, Northern Okinawa & Iriomote via Wikipedia/Wikimedia Commons"
   },
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "high"
   },
@@ -107,5 +107,41 @@
     "max": 7
   },
   "officialWebsite": "https://www.env.go.jp/park/iriomote/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "content": {
+    "ja": {
+      "name": "奄美大島、徳之島、沖縄島北部及び西表島",
+      "description": "奄美大島、徳之島、沖縄島北部及び西表島は、生物多様性に富むユネスコ世界自然遺産です。固有種のアマミノクロウサギやヤンバルクイナ、イリオモテヤマネコが生息し、亜熱帯照葉樹林が豊かな生態系を育んでいます。",
+      "highlights": [
+        "世界自然遺産の生物多様性",
+        "奄美大島の原生林ハイキング",
+        "西表島のマングローブカヌー体験"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-04",
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Amami-Oshima,_Tokunoshima,_Northern_Okinawa_&_Iriomote",
+        "title": "Amami-Oshima, Tokunoshima, Northern Okinawa & Iriomote",
+        "accessedAt": "2026-08-08"
+      }
+    ],
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/9/93/View_of_Katetsu_cove_from_nearby_Manen-zaki.jpg",
+          "title": "Amami-Oshima, Tokunoshima, Northern Okinawa & Iriomote",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
+  }
 }

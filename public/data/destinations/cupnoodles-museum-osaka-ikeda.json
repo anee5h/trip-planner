@@ -32,7 +32,17 @@
     "sources": ["editorial-review-2026"],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current"
+    "freshness": "current",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/240810_Cupnoodles_Museum_Osaka_Ikeda_Ikeda_Osaka_pref_Japan01s3.jpg/1920px-240810_Cupnoodles_Museum_Osaka_Ikeda_Ikeda_Osaka_pref_Japan01s3.jpg",
+          "title": "CupNoodles Museum Osaka Ikeda",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "content": {
     "en": {

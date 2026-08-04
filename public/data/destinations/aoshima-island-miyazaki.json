@@ -1,0 +1,169 @@
+{
+  "id": "aoshima-island-miyazaki",
+  "name": "Aoshima Island & Devil's Washboard",
+  "nameJa": "青島・鬼の洗濯板",
+  "aliases": ["Aoshima Island & Devil's Washboard", "青島・鬼の洗濯板"],
+  "content": {
+    "en": {
+      "name": "Aoshima Island & Devil's Washboard",
+      "description": "Aoshima is a small subtropical island connected to the mainland by a bridge, famous for the 'Devil's Washboard' — a natural formation of parallel basalt rock ridges extending along the shore, created by ancient wave erosion. The island's center houses Aoshima Shrine, a colorful shrine surrounded by lush tropical vegetation.",
+      "highlights": [
+        "Devil's Washboard basalt rock formation",
+        "Aoshima Shrine in tropical jungle",
+        "Subtropical island accessible by footbridge"
+      ]
+    },
+    "ja": {
+      "name": "青島・鬼の洗濯板",
+      "description": "青島は橋で本土と結ばれた亜熱帯の小島で、海岸に広がる「鬼の洗濯板」と呼ばれる平行な玄武岩の隆起地形が有名です。島の中心には熱帯植物に囲まれた色鮮やかな青島神社が鎮座し、縁結びのパワースポットとして親しまれています。",
+      "highlights": [
+        "鬼の洗濯板の奇岩地形",
+        "熱帯ジャングルの中の青島神社",
+        "橋で渡る亜熱帯の小島散策"
+      ]
+    }
+  },
+  "prefecture": "Miyazaki",
+  "region": "Kyushu",
+  "kind": "nature",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "miyazaki-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Nature & Outdoors", "Sightseeing"],
+  "tags": [
+    "Island",
+    "Rock Formation",
+    "Shrine",
+    "Miyazaki City",
+    "v2.0.0-beta.1",
+    "Kyushu Expansion"
+  ],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Aoshima_Island_Miyazaki_Japan.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Aoshima_Island_Miyazaki_Japan.jpg"
+  },
+  "coordinates": {
+    "lat": 31.8044,
+    "lng": 131.4747
+  },
+  "description": "Aoshima is a small subtropical island connected to the mainland by a bridge, famous for the 'Devil's Washboard' — a natural formation of parallel basalt rock ridges extending along the shore, created by ancient wave erosion. The island's center houses Aoshima Shrine, a colorful shrine surrounded by lush tropical vegetation.",
+  "highlights": [
+    "Devil's Washboard basalt rock formation",
+    "Aoshima Shrine in tropical jungle",
+    "Subtropical island accessible by footbridge"
+  ],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 525,
+    "tickets": 0,
+    "food": 600,
+    "cafe": 150
+  },
+  "transportOptions": {
+    "train": 340,
+    "shinkansen": 450
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3
+  },
+  "walkingMin": 5000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 3000,
+  "walkingShadeMin": 2000,
+  "indoorPercent": 5,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 5,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 9,
+    "summer": 9,
+    "winter": 8,
+    "rain": 7,
+    "food": 7.5,
+    "photography": 9.5,
+    "relaxation": 8.5,
+    "value": 9,
+    "uniqueness": 9.3
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Island parking available",
+  "notes": "Kyushu regional expansion — Miyazaki Prefecture.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Aoshima_Island_&_Devil's_Washboard",
+        "title": "Aoshima Island & Devil's Washboard",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Aoshima_Island_Miyazaki_Japan.jpg",
+          "title": "Editorial scoring from source-backed attributes",
+          "accessedAt": "2026-08-04"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Aoshima_Island_Miyazaki_Japan.jpg",
+          "title": "Aoshima Island & Devil's Washboard",
+          "accessedAt": "2026-08-04"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Aoshima Island & Devil's Washboard",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": null,
+  "municipalityId": "Miyazaki:miyazaki"
+}

@@ -32,7 +32,17 @@
     "sources": ["editorial-review-2026"],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current"
+    "freshness": "current",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Kyoto-Byodoin_Phoenix_Hall-xl.jpg/1920px-Kyoto-Byodoin_Phoenix_Hall-xl.jpg",
+          "title": "Byodoin Temple",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "content": {
     "en": {

@@ -61,7 +61,7 @@
   "reservation": "None required",
   "parking": "Public parking available",
   "notes": "Kitakyushu City travel hub in Fukuoka Prefecture.",
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -88,5 +88,32 @@
   },
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Fukuoka:kitakyushu"
+  "municipalityId": "Fukuoka:kitakyushu",
+  "nameJa": "北九州市",
+  "aliases": ["Kitakyushu City", "北九州市"],
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-04",
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kitakyushu_City",
+        "title": "Kitakyushu City",
+        "accessedAt": "2026-08-08"
+      }
+    ],
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kitakyushu_Montage.jpg",
+          "title": "Kitakyushu City",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
+  }
 }

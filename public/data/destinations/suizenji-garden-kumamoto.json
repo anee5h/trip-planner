@@ -1,0 +1,169 @@
+{
+  "id": "suizenji-garden-kumamoto",
+  "name": "Suizenji Jojuen Garden",
+  "nameJa": "水前寺成趣園",
+  "aliases": ["Suizenji Jojuen Garden", "水前寺成趣園"],
+  "content": {
+    "en": {
+      "name": "Suizenji Jojuen Garden",
+      "description": "Suizenji Jojuen is a classic Edo-period strolling garden laid out in 1632 by the Hosokawa daimyo clan. The garden features a large central pond with a miniature Mt. Fuji, a recreation of the 53 stations of the Tokaido road, and a traditional teahouse overlooking the serene landscape.",
+      "highlights": [
+        "Miniature Mt. Fuji mound & pond",
+        "53 Stations of Tokaido landscape",
+        "Traditional teahouse with garden views"
+      ]
+    },
+    "ja": {
+      "name": "水前寺成趣園",
+      "description": "水前寺成趣園は1632年に細川藩によって造営された江戸時代の回遊式庭園です。広大な池を中心に築山の富士山、東海道五十三次を模した景観が広がり、池を見渡す茶屋からは熊本の美しい庭園風景を堪能できます。",
+      "highlights": [
+        "ミニチュア富士山と池泉回遊式庭園",
+        "東海道五十三次の縮景",
+        "伝統茶屋での抹茶と庭園眺望"
+      ]
+    }
+  },
+  "prefecture": "Kumamoto",
+  "region": "Kyushu",
+  "kind": "garden",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "kumamoto-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Gardens", "Sightseeing"],
+  "tags": [
+    "Garden",
+    "Strolling Garden",
+    "History",
+    "Kumamoto City",
+    "v2.0.0-beta.1",
+    "Kyushu Expansion"
+  ],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/97/Suizenji_Park_Kumamoto_Japan_12.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/Suizenji_Park_Kumamoto_Japan_12.jpg"
+  },
+  "coordinates": {
+    "lat": 32.7911,
+    "lng": 130.7347
+  },
+  "description": "Suizenji Jojuen is a classic Edo-period strolling garden laid out in 1632 by the Hosokawa daimyo clan. The garden features a large central pond with a miniature Mt. Fuji, a recreation of the 53 stations of the Tokaido road, and a traditional teahouse overlooking the serene landscape.",
+  "highlights": [
+    "Miniature Mt. Fuji mound & pond",
+    "53 Stations of Tokaido landscape",
+    "Traditional teahouse with garden views"
+  ],
+  "budgetMin": 2000,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 700,
+    "tickets": 400,
+    "food": 800,
+    "cafe": 200
+  },
+  "transportOptions": {
+    "train": 275,
+    "shinkansen": 375
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2.5
+  },
+  "walkingMin": 3500,
+  "walkingIntensity": "low",
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 2000,
+  "indoorPercent": 0,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9.2,
+    "summer": 8.5,
+    "winter": 8.5,
+    "rain": 7.5,
+    "food": 7.8,
+    "photography": 9.3,
+    "relaxation": 9,
+    "value": 8.5,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Garden parking available",
+  "notes": "Kyushu regional expansion — Kumamoto Prefecture.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Suizenji_Jojuen_Garden",
+        "title": "Suizenji Jojuen Garden",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/9/97/Suizenji_Park_Kumamoto_Japan_12.jpg",
+          "title": "Editorial scoring from source-backed attributes",
+          "accessedAt": "2026-08-04"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/9/97/Suizenji_Park_Kumamoto_Japan_12.jpg",
+          "title": "Suizenji Jojuen Garden",
+          "accessedAt": "2026-08-04"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Suizenji Jojuen Garden",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://www.suizenji.or.jp/",
+  "municipalityId": "Kumamoto:kumamoto"
+}

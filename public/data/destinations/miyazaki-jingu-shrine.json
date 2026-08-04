@@ -1,0 +1,169 @@
+{
+  "id": "miyazaki-jingu-shrine",
+  "name": "Miyazaki Jingu Shrine",
+  "nameJa": "宮崎神宮",
+  "aliases": ["Miyazaki Jingu Shrine", "宮崎神宮"],
+  "content": {
+    "en": {
+      "name": "Miyazaki Jingu Shrine",
+      "description": "Miyazaki Jingu is the most important Shinto shrine in Miyazaki, dedicated to Emperor Jimmu, Japan's legendary first emperor. Set within a vast ancient forest of camphor and oak trees, the shrine's peaceful precincts offer a serene retreat from the city. The Grand Festival in late October features a spectacular horseback archery (yabusame) performance.",
+      "highlights": [
+        "Dedicated to Japan's first Emperor Jimmu",
+        "Ancient camphor forest setting",
+        "Yabusame horseback archery festival (October)"
+      ]
+    },
+    "ja": {
+      "name": "宮崎神宮",
+      "description": "宮崎神宮は初代天皇・神武天皇を祀る宮崎県随一の神社で、クスノキやシイの巨木が生い茂る深い森の中に鎮座しています。10月下旬の例大祭では流鏑馬（やぶさめ）が奉納され、境内は静寂で神聖な空気に包まれます。",
+      "highlights": [
+        "初代天皇・神武天皇を祀る由緒",
+        "クスノキの巨木が茂る神域の森",
+        "10月例大祭の流鏑馬（やぶさめ）"
+      ]
+    }
+  },
+  "prefecture": "Miyazaki",
+  "region": "Kyushu",
+  "kind": "shrine",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "miyazaki-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History", "Culture"],
+  "tags": [
+    "Shrine",
+    "Emperor Jimmu",
+    "Forest",
+    "Miyazaki City",
+    "v2.0.0-beta.1",
+    "Kyushu Expansion"
+  ],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/30/Miyazaki_Jingu_Honden.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/3/30/Miyazaki_Jingu_Honden.jpg"
+  },
+  "coordinates": {
+    "lat": 31.9392,
+    "lng": 131.4236
+  },
+  "description": "Miyazaki Jingu is the most important Shinto shrine in Miyazaki, dedicated to Emperor Jimmu, Japan's legendary first emperor. Set within a vast ancient forest of camphor and oak trees, the shrine's peaceful precincts offer a serene retreat from the city. The Grand Festival in late October features a spectacular horseback archery (yabusame) performance.",
+  "highlights": [
+    "Dedicated to Japan's first Emperor Jimmu",
+    "Ancient camphor forest setting",
+    "Yabusame horseback archery festival (October)"
+  ],
+  "budgetMin": 1000,
+  "budgetRecommended": 3000,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 350,
+    "tickets": 0,
+    "food": 400,
+    "cafe": 100
+  },
+  "transportOptions": {
+    "train": 335,
+    "shinkansen": 445
+  },
+  "totalTripHours": 2,
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1500,
+  "indoorPercent": 5,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.5,
+    "couple": 8.3,
+    "summer": 8,
+    "winter": 8.5,
+    "rain": 7.5,
+    "food": 7,
+    "photography": 8.5,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 8.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Shrine parking available",
+  "notes": "Kyushu regional expansion — Miyazaki Prefecture.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Miyazaki_Jingu_Shrine",
+        "title": "Miyazaki Jingu Shrine",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Miyazaki_Jingu_Honden.jpg",
+          "title": "Editorial scoring from source-backed attributes",
+          "accessedAt": "2026-08-04"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Miyazaki_Jingu_Honden.jpg",
+          "title": "Miyazaki Jingu Shrine",
+          "accessedAt": "2026-08-04"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Miyazaki Jingu Shrine",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://miyazakijingu.or.jp/",
+  "municipalityId": "Miyazaki:miyazaki"
+}

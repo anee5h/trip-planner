@@ -61,7 +61,7 @@
   "reservation": "None required",
   "parking": "Public parking available",
   "notes": "Kagoshima City travel hub in Kagoshima Prefecture.",
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -83,5 +83,32 @@
   },
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Kagoshima:kagoshima"
+  "municipalityId": "Kagoshima:kagoshima",
+  "nameJa": "鹿児島市",
+  "aliases": ["Kagoshima City", "鹿児島市"],
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-04",
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kagoshima_City",
+        "title": "Kagoshima City",
+        "accessedAt": "2026-08-08"
+      }
+    ],
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Kagoshima_Montage.jpg",
+          "title": "Kagoshima City",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
+  }
 }

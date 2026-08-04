@@ -1,0 +1,169 @@
+{
+  "id": "sengan-en-garden-kagoshima",
+  "name": "Sengan-en Garden",
+  "nameJa": "仙巌園",
+  "aliases": ["Sengan-en Garden", "仙巌園"],
+  "content": {
+    "en": {
+      "name": "Sengan-en Garden",
+      "description": "Sengan-en is a magnificent Japanese garden and former villa of the Shimazu clan, the powerful samurai lords of Satsuma domain. Built in 1658, the garden famously 'borrows' Sakurajima volcano as its backdrop (shakkei), creating one of Japan's most dramatic garden vistas. It is part of the UNESCO 'Sites of Japan's Meiji Industrial Revolution'.",
+      "highlights": [
+        "Sakurajima volcano as borrowed scenery (shakkei)",
+        "Shimazu clan samurai villa & gardens",
+        "UNESCO World Heritage Meiji industrial site"
+      ]
+    },
+    "ja": {
+      "name": "仙巌園",
+      "description": "仙巌園は薩摩藩主・島津家の別邸として1658年に築かれた大名庭園で、桜島を借景とした日本屈指の雄大な庭園景観が特徴です。「明治日本の産業革命遺産」の構成資産として世界遺産にも登録され、武家文化と近代化の歴史が融合した名勝です。",
+      "highlights": [
+        "桜島を借景にした大名庭園",
+        "島津家別邸と薩摩の武家文化",
+        "世界遺産『明治日本の産業革命遺産』構成資産"
+      ]
+    }
+  },
+  "prefecture": "Kagoshima",
+  "region": "Kyushu",
+  "kind": "garden",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "kagoshima-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Gardens", "History", "Sightseeing"],
+  "tags": [
+    "Garden",
+    "Satsuma",
+    "UNESCO",
+    "Kagoshima City",
+    "v2.0.0-beta.1",
+    "Kyushu Expansion"
+  ],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/90/Sengan-en_Garden_Kagoshima_Japan.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/9/90/Sengan-en_Garden_Kagoshima_Japan.jpg"
+  },
+  "coordinates": {
+    "lat": 31.6167,
+    "lng": 130.575
+  },
+  "description": "Sengan-en is a magnificent Japanese garden and former villa of the Shimazu clan, the powerful samurai lords of Satsuma domain. Built in 1658, the garden famously 'borrows' Sakurajima volcano as its backdrop (shakkei), creating one of Japan's most dramatic garden vistas. It is part of the UNESCO 'Sites of Japan's Meiji Industrial Revolution'.",
+  "highlights": [
+    "Sakurajima volcano as borrowed scenery (shakkei)",
+    "Shimazu clan samurai villa & gardens",
+    "UNESCO World Heritage Meiji industrial site"
+  ],
+  "budgetMin": 2500,
+  "budgetRecommended": 5000,
+  "budgetMax": 8000,
+  "budgetBreakdown": {
+    "transport": 875,
+    "tickets": 1000,
+    "food": 1000,
+    "cafe": 250
+  },
+  "transportOptions": {
+    "train": 310,
+    "shinkansen": 420
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3
+  },
+  "walkingMin": 4000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 2000,
+  "walkingShadeMin": 2000,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9.3,
+    "couple": 9.5,
+    "summer": 8.8,
+    "winter": 9,
+    "rain": 8.3,
+    "food": 8.5,
+    "photography": 9.5,
+    "relaxation": 9,
+    "value": 8.5,
+    "uniqueness": 9.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Garden parking available",
+  "notes": "Kyushu regional expansion — Kagoshima Prefecture.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Sengan-en_Garden",
+        "title": "Sengan-en Garden",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Sengan-en_Garden_Kagoshima_Japan.jpg",
+          "title": "Editorial scoring from source-backed attributes",
+          "accessedAt": "2026-08-04"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Sengan-en_Garden_Kagoshima_Japan.jpg",
+          "title": "Sengan-en Garden",
+          "accessedAt": "2026-08-04"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Sengan-en Garden",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://www.senganen.jp/",
+  "municipalityId": "Kagoshima:kagoshima"
+}

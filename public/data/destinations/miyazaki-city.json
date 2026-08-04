@@ -61,7 +61,7 @@
   "reservation": "None required",
   "parking": "Public parking available",
   "notes": "Miyazaki City travel hub in Miyazaki Prefecture.",
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -83,5 +83,32 @@
   },
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Miyazaki:miyazaki"
+  "municipalityId": "Miyazaki:miyazaki",
+  "nameJa": "宮崎市",
+  "aliases": ["Miyazaki City", "宮崎市"],
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-04",
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Miyazaki_City",
+        "title": "Miyazaki City",
+        "accessedAt": "2026-08-08"
+      }
+    ],
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Miyazaki_Montage.jpg",
+          "title": "Miyazaki City",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
+  }
 }

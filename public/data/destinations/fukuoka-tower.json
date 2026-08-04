@@ -20,7 +20,6 @@
   "kind": "tower",
   "role": "poi",
   "placeType": "destination",
-  "areaId": "momochi",
   "relationships": {
     "parentDestinationId": "fukuoka-city"
   },
@@ -101,14 +100,14 @@
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
   "schemaVersion": 2,
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "medium"
   },
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "in_review",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "wikipedia",
@@ -123,8 +122,8 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due",
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
     "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
@@ -157,7 +156,9 @@
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       }
-    ]
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "ratingMetadata": {
     "rubricVersion": 1,

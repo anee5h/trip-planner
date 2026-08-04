@@ -1,0 +1,169 @@
+{
+  "id": "kagoshima-city-aquarium",
+  "name": "Kagoshima City Aquarium",
+  "nameJa": "いおワールドかごしま水族館",
+  "aliases": ["Kagoshima City Aquarium", "いおワールドかごしま水族館"],
+  "content": {
+    "en": {
+      "name": "Kagoshima City Aquarium",
+      "description": "Kagoshima City Aquarium (Io World) showcases the rich marine life of the Kuroshio Current that flows past Kagoshima. Its star attraction is the massive Kuroshio Tank featuring whale sharks, the world's largest fish. The aquarium offers dolphin shows and interactive touch pools, all with Sakurajima volcano as the backdrop.",
+      "highlights": [
+        "Whale sharks in the Kuroshio Tank",
+        "Sakurajima volcano backdrop from waterfront",
+        "Dolphin shows & interactive touch pools"
+      ]
+    },
+    "ja": {
+      "name": "いおワールドかごしま水族館",
+      "description": "いおワールドかごしま水族館は、鹿児島沖を流れる黒潮の豊かな海洋生物を紹介する水族館です。最大の見どころはジンベエザメが泳ぐ巨大な黒潮大水槽で、桜島を背景にしたイルカショーやふれあいタッチプールも楽しめます。",
+      "highlights": [
+        "ジンベエザメが泳ぐ黒潮大水槽",
+        "桜島を背景にしたイルカショー",
+        "ふれあいタッチプール体験"
+      ]
+    }
+  },
+  "prefecture": "Kagoshima",
+  "region": "Kyushu",
+  "kind": "aquarium",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "kagoshima-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Entertainment", "Family & Kids"],
+  "tags": [
+    "Aquarium",
+    "Family",
+    "Whale Shark",
+    "Kagoshima City",
+    "v2.0.0-beta.1",
+    "Kyushu Expansion"
+  ],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/44/Kagoshima_aquarium.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Sanjo",
+    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/4/44/Kagoshima_aquarium.jpg"
+  },
+  "coordinates": {
+    "lat": 31.5944,
+    "lng": 130.5625
+  },
+  "description": "Kagoshima City Aquarium (Io World) showcases the rich marine life of the Kuroshio Current that flows past Kagoshima. Its star attraction is the massive Kuroshio Tank featuring whale sharks, the world's largest fish. The aquarium offers dolphin shows and interactive touch pools, all with Sakurajima volcano as the backdrop.",
+  "highlights": [
+    "Whale sharks in the Kuroshio Tank",
+    "Sakurajima volcano backdrop from waterfront",
+    "Dolphin shows & interactive touch pools"
+  ],
+  "budgetMin": 2500,
+  "budgetRecommended": 5000,
+  "budgetMax": 8000,
+  "budgetBreakdown": {
+    "transport": 875,
+    "tickets": 1500,
+    "food": 1000,
+    "cafe": 250
+  },
+  "transportOptions": {
+    "train": 310,
+    "shinkansen": 420
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3
+  },
+  "walkingMin": 3500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 1000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 80,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 9,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.3,
+    "couple": 7.8,
+    "summer": 8.5,
+    "winter": 8,
+    "rain": 8.8,
+    "food": 7.5,
+    "photography": 8,
+    "relaxation": 7,
+    "value": 7.8,
+    "uniqueness": 8.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 8,
+    "summer": 8,
+    "autumn": 8,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "Aquarium parking available",
+  "notes": "Kyushu regional expansion — Kagoshima Prefecture.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kagoshima_City_Aquarium",
+        "title": "Kagoshima City Aquarium",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Kagoshima_aquarium.jpg",
+          "title": "Editorial scoring from source-backed attributes",
+          "accessedAt": "2026-08-04"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Kagoshima_aquarium.jpg",
+          "title": "Kagoshima City Aquarium",
+          "accessedAt": "2026-08-04"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Kagoshima City Aquarium",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://ioworld.jp/",
+  "municipalityId": "Kagoshima:kagoshima"
+}

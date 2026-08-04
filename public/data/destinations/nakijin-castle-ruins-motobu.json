@@ -50,7 +50,17 @@
         "type": "encyclopedia"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch"
+    "reviewedBy": "Okinawa Regional Editorial Batch",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Nakijin_Okinawa_Japan_Nakikjin-Castle-11.jpg",
+          "title": "Nakijin Castle Ruins",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "content": {
     "en": {

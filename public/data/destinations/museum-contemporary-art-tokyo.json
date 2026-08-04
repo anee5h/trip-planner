@@ -130,7 +130,17 @@
       }
     ],
     "reviewedAt": "2026-08-02",
-    "reviewedBy": "Meguruto Editorial Reviewer"
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Museum_of_Contemporary_Art_Tokyo_20071004.jpg/1920px-Museum_of_Contemporary_Art_Tokyo_20071004.jpg",
+          "title": "Museum of Contemporary Art Tokyo",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

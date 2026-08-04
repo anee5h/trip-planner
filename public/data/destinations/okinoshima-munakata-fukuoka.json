@@ -69,7 +69,7 @@
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Sacred Island of Okinoshima and Associated Sites in Munakata via Wikipedia/Wikimedia Commons"
   },
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "high"
   },
@@ -95,7 +95,7 @@
     "walkingIntensity": 3
   },
   "walkingIntensity": "low",
-  "role": "standalone",
+  "role": "poi",
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -104,5 +104,41 @@
   },
   "officialWebsite": "https://www.okinoshima-heritage.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Fukuoka:fukuoka"
+  "municipalityId": "Fukuoka:fukuoka",
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-04",
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Sacred_Island_of_Okinoshima_and_Associated_Sites_in_Munakata",
+        "title": "Sacred Island of Okinoshima and Associated Sites in Munakata",
+        "accessedAt": "2026-08-08"
+      }
+    ],
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/%E5%AE%97%E5%83%8F%E5%A4%A7%E7%A4%BE%E6%B2%96%E6%B4%A5%E5%AE%AE.JPG/960px-%E5%AE%97%E5%83%8F%E5%A4%A7%E7%A4%BE%E6%B2%96%E6%B4%A5%E5%AE%AE.JPG",
+          "title": "Sacred Island of Okinoshima and Associated Sites in Munakata",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
+  },
+  "content": {
+    "ja": {
+      "name": "「神宿る島」宗像・沖ノ島と関連遺産群",
+      "description": "「神宿る島」宗像・沖ノ島と関連遺産群は、福岡県宗像市沖に位置するユネスコ世界遺産です。沖ノ島は今も女人禁制の伝統が守られ、巨大な岩の祭祀遺跡と数万点の出土品が日本の古代信仰を物語ります。",
+      "highlights": [
+        "世界遺産の沖ノ島祭祀遺跡群",
+        "宗像大社辺津宮・中津宮・沖津宮",
+        "宗像大社神宝館の国宝展示"
+      ]
+    }
+  }
 }

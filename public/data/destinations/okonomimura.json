@@ -122,7 +122,17 @@
         "summary": "Added itinerary-ready hub POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Okonomi-mura_logo.png",
+          "title": "Okonomimura",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

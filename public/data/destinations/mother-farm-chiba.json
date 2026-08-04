@@ -98,7 +98,17 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1000",
+          "title": "Mother Farm (Futtsu)",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "nameJa": "マザー牧場",
   "content": {

@@ -1,0 +1,169 @@
+{
+  "id": "shiratani-unsuikyo-ravine",
+  "name": "Shiratani Unsuikyo Ravine",
+  "nameJa": "白谷雲水峡",
+  "aliases": ["Shiratani Unsuikyo Ravine", "白谷雲水峡"],
+  "content": {
+    "en": {
+      "name": "Shiratani Unsuikyo Ravine",
+      "description": "Shiratani Unsuikyo is Yakushima's most accessible and photogenic moss forest, an ethereal landscape of ancient cedar trees draped in vibrant green moss, babbling streams, and misty ravines. The shorter trails are suitable for casual hikers and offer the iconic mossy forest scenes that inspired Princess Mononoke's dreamlike world.",
+      "highlights": [
+        "Iconic moss forest of Princess Mononoke fame",
+        "Moss-covered ancient cedars & boulders",
+        "Variety of trails from 1h to 4h"
+      ]
+    },
+    "ja": {
+      "name": "白谷雲水峡",
+      "description": "白谷雲水峡は屋久島で最もアクセスしやすい苔むす森で、鮮やかな緑の苔に覆われた屋久杉の巨木と渓流が織りなす幻想的な風景が広がります。短いコースから太鼓岩までのトレッキングまで、『もののけ姫』の世界そのままの神秘的な光景を楽しめます。",
+      "highlights": [
+        "『もののけ姫』のモデルとなった苔の森",
+        "苔に覆われた屋久杉と巨岩の絶景",
+        "1時間〜4時間の多様なトレッキングコース"
+      ]
+    }
+  },
+  "prefecture": "Kagoshima",
+  "region": "Kyushu",
+  "kind": "nature",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "yakushima-town"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Nature & Outdoors", "Sightseeing"],
+  "tags": [
+    "Hiking",
+    "Forest",
+    "Photography",
+    "Yakushima",
+    "v2.0.0-beta.1",
+    "Kyushu Expansion"
+  ],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Shiratani_Unsuikyo_Yakushima_Japan.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Shiratani_Unsuikyo_Yakushima_Japan.jpg"
+  },
+  "coordinates": {
+    "lat": 30.3617,
+    "lng": 130.5536
+  },
+  "description": "Shiratani Unsuikyo is Yakushima's most accessible and photogenic moss forest, an ethereal landscape of ancient cedar trees draped in vibrant green moss, babbling streams, and misty ravines. The shorter trails are suitable for casual hikers and offer the iconic mossy forest scenes that inspired Princess Mononoke's dreamlike world.",
+  "highlights": [
+    "Iconic moss forest of Princess Mononoke fame",
+    "Moss-covered ancient cedars & boulders",
+    "Variety of trails from 1h to 4h"
+  ],
+  "budgetMin": 2000,
+  "budgetRecommended": 5000,
+  "budgetMax": 8000,
+  "budgetBreakdown": {
+    "transport": 700,
+    "tickets": 500,
+    "food": 800,
+    "cafe": 200
+  },
+  "transportOptions": {
+    "train": 400,
+    "shinkansen": 510
+  },
+  "totalTripHours": 6,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 15000,
+  "walkingIntensity": "high",
+  "walkingSunMin": 8000,
+  "walkingShadeMin": 7000,
+  "indoorPercent": 0,
+  "comfort": {
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 8
+  },
+  "ratings": {
+    "overall": 9.3,
+    "couple": 9,
+    "summer": 9,
+    "winter": 8.5,
+    "rain": 7.5,
+    "food": 7,
+    "photography": 9.8,
+    "relaxation": 9,
+    "value": 9.3,
+    "uniqueness": 9.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "None required; trail may be slippery after rain",
+  "parking": "Trailhead parking available (¥500/day)",
+  "notes": "Kyushu regional expansion — Kagoshima Prefecture.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Shiratani_Unsuikyo_Ravine",
+        "title": "Shiratani Unsuikyo Ravine",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Shiratani_Unsuikyo_Yakushima_Japan.jpg",
+          "title": "Editorial scoring from source-backed attributes",
+          "accessedAt": "2026-08-04"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Shiratani_Unsuikyo_Yakushima_Japan.jpg",
+          "title": "Shiratani Unsuikyo Ravine",
+          "accessedAt": "2026-08-04"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Shiratani Unsuikyo Ravine",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": null,
+  "municipalityId": "Kagoshima:yakushima"
+}

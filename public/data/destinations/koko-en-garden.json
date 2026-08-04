@@ -32,7 +32,17 @@
     "sources": ["editorial-review-2026"],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current"
+    "freshness": "current",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Raised_garden_beds_in_the_Garden_of_Seedlings%2C_K%C5%8Dko-en%2C_Himeji%2C_2016.jpg/1920px-Raised_garden_beds_in_the_Garden_of_Seedlings%2C_K%C5%8Dko-en%2C_Himeji%2C_2016.jpg",
+          "title": "Koko-en Garden",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "content": {
     "en": {

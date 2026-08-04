@@ -1,0 +1,169 @@
+{
+  "id": "chinatown-nagasaki",
+  "name": "Nagasaki Chinatown",
+  "nameJa": "長崎新地中華街",
+  "aliases": ["Nagasaki Chinatown", "長崎新地中華街"],
+  "content": {
+    "en": {
+      "name": "Nagasaki Chinatown",
+      "description": "Nagasaki Shinchi Chinatown is the oldest Chinatown in Japan, dating back to the 17th century when Chinese traders settled near Dejima. Today its narrow streets are lined with vibrant restaurants, street food stalls serving champon and sara-udon, and colorful gates marking each cardinal direction.",
+      "highlights": [
+        "Oldest Chinatown in Japan",
+        "Nagasaki champon & sara-udon noodles",
+        "Four colorful gates & Lunar New Year festival"
+      ]
+    },
+    "ja": {
+      "name": "長崎新地中華街",
+      "description": "長崎新地中華街は日本最古の中華街で、17世紀に中国人貿易商が出島近くに居を構えたことに始まります。細い路地にはちゃんぽんや皿うどんを供する老舗飲食店が軒を連ね、東西南北を守る四つの色鮮やかな門と春節祭が名物です。",
+      "highlights": [
+        "日本最古の歴史ある中華街",
+        "長崎名物ちゃんぽん・皿うどん",
+        "四色の門と春節ランタンフェスティバル"
+      ]
+    }
+  },
+  "prefecture": "Nagasaki",
+  "region": "Kyushu",
+  "kind": "shopping",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "nagasaki-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Food & Dining", "Sightseeing"],
+  "tags": [
+    "Food",
+    "Chinese",
+    "Chinatown",
+    "Nagasaki City",
+    "v2.0.0-beta.1",
+    "Kyushu Expansion"
+  ],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Nagasaki_Shinchi_Chinatown_2017.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Kakidai",
+    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Nagasaki_Shinchi_Chinatown_2017.jpg"
+  },
+  "coordinates": {
+    "lat": 32.7422,
+    "lng": 129.8761
+  },
+  "description": "Nagasaki Shinchi Chinatown is the oldest Chinatown in Japan, dating back to the 17th century when Chinese traders settled near Dejima. Today its narrow streets are lined with vibrant restaurants, street food stalls serving champon and sara-udon, and colorful gates marking each cardinal direction.",
+  "highlights": [
+    "Oldest Chinatown in Japan",
+    "Nagasaki champon & sara-udon noodles",
+    "Four colorful gates & Lunar New Year festival"
+  ],
+  "budgetMin": 1500,
+  "budgetRecommended": 5000,
+  "budgetMax": 10000,
+  "budgetBreakdown": {
+    "transport": 525,
+    "tickets": 0,
+    "food": 600,
+    "cafe": 150
+  },
+  "transportOptions": {
+    "train": 270,
+    "shinkansen": 370
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 1000,
+  "walkingShadeMin": 2000,
+  "indoorPercent": 60,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.3,
+    "couple": 8.5,
+    "summer": 8,
+    "winter": 8.3,
+    "rain": 8.5,
+    "food": 9.5,
+    "photography": 8.8,
+    "relaxation": 7.5,
+    "value": 8.3,
+    "uniqueness": 8.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "Nearby commercial parking",
+  "notes": "Kyushu regional expansion — Nagasaki Prefecture.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Nagasaki_Chinatown",
+        "title": "Nagasaki Chinatown",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Nagasaki_Shinchi_Chinatown_2017.jpg",
+          "title": "Editorial scoring from source-backed attributes",
+          "accessedAt": "2026-08-04"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Nagasaki_Shinchi_Chinatown_2017.jpg",
+          "title": "Nagasaki Chinatown",
+          "accessedAt": "2026-08-04"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Nagasaki Chinatown",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://nagasaki-chinatown.com/",
+  "municipalityId": "Nagasaki:nagasaki"
+}

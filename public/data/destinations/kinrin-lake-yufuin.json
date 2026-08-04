@@ -1,0 +1,169 @@
+{
+  "id": "kinrin-lake-yufuin",
+  "name": "Kinrin Lake",
+  "nameJa": "金鱗湖",
+  "aliases": ["Kinrin Lake", "金鱗湖"],
+  "content": {
+    "en": {
+      "name": "Kinrin Lake",
+      "description": "Kinrin Lake is a mystical small lake in Yufuin where morning mist rises from the warm spring-fed waters meeting the cold mountain air, creating an ethereal scene. The name means 'Golden Scales' after the shimmering fish scales said to have been seen here at sunset. A walking path encircles the lake.",
+      "highlights": [
+        "Morning mist over the warm spring-fed lake",
+        "Scenic walking path around the lake",
+        "Autumn foliage & winter snow reflections"
+      ]
+    },
+    "ja": {
+      "name": "金鱗湖",
+      "description": "金鱗湖は由布院の中心に位置する神秘的な小湖で、湖底から湧く温泉水が冷たい朝の空気と触れて立ちのぼる朝霧が幻想的な風景を作り出します。湖名は日没時に魚の鱗が金色に輝いたという伝説に由来します。湖畔の遊歩道が整備されています。",
+      "highlights": [
+        "湖面を覆う幻想的な朝霧",
+        "湖畔一周の遊歩道散策",
+        "紅葉と冬の雪景色のリフレクション"
+      ]
+    }
+  },
+  "prefecture": "Oita",
+  "region": "Kyushu",
+  "kind": "nature",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "yufu-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Nature & Outdoors", "Sightseeing"],
+  "tags": [
+    "Lake",
+    "Photography",
+    "Mist",
+    "Yufuin",
+    "v2.0.0-beta.1",
+    "Kyushu Expansion"
+  ],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Lake_Kinrin_Yufuin_Oita_Japan.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "attribution": "Reginald Pentinio",
+    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Lake_Kinrin_Yufuin_Oita_Japan.jpg"
+  },
+  "coordinates": {
+    "lat": 33.2731,
+    "lng": 131.3551
+  },
+  "description": "Kinrin Lake is a mystical small lake in Yufuin where morning mist rises from the warm spring-fed waters meeting the cold mountain air, creating an ethereal scene. The name means 'Golden Scales' after the shimmering fish scales said to have been seen here at sunset. A walking path encircles the lake.",
+  "highlights": [
+    "Morning mist over the warm spring-fed lake",
+    "Scenic walking path around the lake",
+    "Autumn foliage & winter snow reflections"
+  ],
+  "budgetMin": 1000,
+  "budgetRecommended": 3000,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 350,
+    "tickets": 0,
+    "food": 400,
+    "cafe": 100
+  },
+  "transportOptions": {
+    "train": 300,
+    "shinkansen": 410
+  },
+  "totalTripHours": 2,
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  },
+  "walkingMin": 2500,
+  "walkingIntensity": "low",
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1000,
+  "indoorPercent": 0,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 7,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9.3,
+    "summer": 8.5,
+    "winter": 9,
+    "rain": 8,
+    "food": 7.5,
+    "photography": 9.5,
+    "relaxation": 9.3,
+    "value": 9,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 9
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Nearby paid parking",
+  "notes": "Kyushu regional expansion — Oita Prefecture.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kinrin_Lake",
+        "title": "Kinrin Lake",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Lake_Kinrin_Yufuin_Oita_Japan.jpg",
+          "title": "Editorial scoring from source-backed attributes",
+          "accessedAt": "2026-08-04"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Lake_Kinrin_Yufuin_Oita_Japan.jpg",
+          "title": "Kinrin Lake",
+          "accessedAt": "2026-08-04"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Kinrin Lake",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": null,
+  "municipalityId": "Oita:yufu"
+}

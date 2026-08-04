@@ -28,7 +28,7 @@
   "categories": ["history", "culture", "sightseeing"],
   "budgetMin": 4000,
   "budgetMax": 12000,
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -99,5 +99,42 @@
   },
   "officialWebsite": "https://kumamoto-guide.jp/kumamoto-castle/",
   "businessHours": "09:00 - 17:00 (Last admission 16:30)",
-  "municipalityId": "Kumamoto:kumamoto"
+  "municipalityId": "Kumamoto:kumamoto",
+  "role": "poi",
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-04",
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kumamoto_Castle",
+        "title": "Kumamoto Castle",
+        "accessedAt": "2026-08-08"
+      }
+    ],
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/3840px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg",
+          "title": "Kumamoto Castle",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
+  },
+  "content": {
+    "ja": {
+      "name": "熊本城",
+      "description": "熊本城は加藤清正によって1607年に築城された日本三名城の一つです。「武者返し」と呼ばれる石垣が特徴で、2016年の熊本地震で大きな被害を受けましたが、復興が進み天守閣は2021年に修復完了しました。",
+      "highlights": [
+        "日本三名城の勇壮な石垣「武者返し」",
+        "本丸御殿と昭君之間の金箔装飾",
+        "城内の加藤神社と桜の名所"
+      ]
+    }
+  }
 }

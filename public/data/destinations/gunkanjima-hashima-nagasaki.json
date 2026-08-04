@@ -69,7 +69,7 @@
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Sites of Japan’s Meiji Industrial Revolution (Gunkanjima) via Wikipedia/Wikimedia Commons"
   },
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "high"
   },
@@ -106,5 +106,42 @@
   },
   "officialWebsite": "https://www.gunkanjima-tour.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Nagasaki:nagasaki"
+  "municipalityId": "Nagasaki:nagasaki",
+  "role": "poi",
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-04",
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Sites_of_Japan’s_Meiji_Industrial_Revolution_(Gunkanjima)",
+        "title": "Sites of Japan’s Meiji Industrial Revolution (Gunkanjima)",
+        "accessedAt": "2026-08-08"
+      }
+    ],
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Hashima_Nagasaki_Japan.jpg/960px-Hashima_Nagasaki_Japan.jpg",
+          "title": "Sites of Japan’s Meiji Industrial Revolution (Gunkanjima)",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
+  },
+  "content": {
+    "ja": {
+      "name": "明治日本の産業革命遺産 製鉄・製鋼、造船、石炭産業",
+      "description": "端島（軍艦島）は長崎港から約19km沖に浮かぶ廃墟の島です。明治から昭和にかけて海底炭鉱で栄え、最盛期には5,000人以上が居住し当時世界一の人口密度を誇りました。現在は上陸ツアーで見学可能な産業遺産です。",
+      "highlights": [
+        "軍艦島上陸クルーズツアー",
+        "明治日本の産業革命遺産（世界遺産）",
+        "廃墟化した高層鉄筋アパート群"
+      ]
+    }
+  }
 }

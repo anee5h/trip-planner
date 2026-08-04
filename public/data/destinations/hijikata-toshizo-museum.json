@@ -136,7 +136,17 @@
       }
     ],
     "reviewedAt": "2026-08-02",
-    "reviewedBy": "Meguruto Editorial Reviewer"
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Battle_of_Hakodate_Nishiki-e_by_Nagashima_Mosai.png/1920px-Battle_of_Hakodate_Nishiki-e_by_Nagashima_Mosai.png",
+          "title": "Hijikata Toshizo Museum",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

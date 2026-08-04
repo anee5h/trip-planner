@@ -32,7 +32,17 @@
     "sources": ["editorial-review-2026"],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current"
+    "freshness": "current",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/241230_Izushi_Soba_Toyooka_Hyogo_pref_Japan01s3.jpg/1920px-241230_Izushi_Soba_Toyooka_Hyogo_pref_Japan01s3.jpg",
+          "title": "Izushi Historic Castle Town",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "content": {
     "en": {

@@ -122,7 +122,17 @@
         "summary": "Added itinerary-ready hub POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Mitaki_dera_-_panoramio.jpg/1920px-Mitaki_dera_-_panoramio.jpg",
+          "title": "Mitaki-dera",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

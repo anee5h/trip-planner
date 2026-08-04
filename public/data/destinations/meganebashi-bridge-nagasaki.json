@@ -1,0 +1,169 @@
+{
+  "id": "meganebashi-bridge-nagasaki",
+  "name": "Meganebashi Spectacles Bridge",
+  "nameJa": "眼鏡橋",
+  "aliases": ["Meganebashi Spectacles Bridge", "眼鏡橋"],
+  "content": {
+    "en": {
+      "name": "Meganebashi Spectacles Bridge",
+      "description": "Meganebashi (Spectacles Bridge) is Japan's oldest stone arch bridge, built in 1634 over the Nakashima River. Its name comes from the reflection of its twin arches in the water, which together form the shape of spectacles. The bridge survived the 1945 atomic bombing and remains a beloved symbol of Nagasaki.",
+      "highlights": [
+        "Japan's oldest stone arch bridge (1634)",
+        "Spectacle-shaped reflection on the water",
+        "Survived 1945 atomic bombing intact"
+      ]
+    },
+    "ja": {
+      "name": "眼鏡橋",
+      "description": "眼鏡橋は1634年に中島川に架けられた日本最古の石造アーチ橋です。二連アーチが水面に映り眼鏡のように見えることから名付けられました。1945年の原爆投下にも耐えて現存し、長崎のシンボルとして親しまれています。",
+      "highlights": [
+        "日本最古の石造二連アーチ橋（1634年）",
+        "水面に映る眼鏡のような美しいフォルム",
+        "1945年原爆にも耐えた長崎の象徴"
+      ]
+    }
+  },
+  "prefecture": "Nagasaki",
+  "region": "Kyushu",
+  "kind": "monument",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "nagasaki-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Sightseeing", "History"],
+  "tags": [
+    "Bridge",
+    "History",
+    "Stone Arch",
+    "Nagasaki City",
+    "v2.0.0-beta.1",
+    "Kyushu Expansion"
+  ],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Meganebashi_Nagasaki_2012.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Meganebashi_Nagasaki_2012.jpg"
+  },
+  "coordinates": {
+    "lat": 32.7472,
+    "lng": 129.8805
+  },
+  "description": "Meganebashi (Spectacles Bridge) is Japan's oldest stone arch bridge, built in 1634 over the Nakashima River. Its name comes from the reflection of its twin arches in the water, which together form the shape of spectacles. The bridge survived the 1945 atomic bombing and remains a beloved symbol of Nagasaki.",
+  "highlights": [
+    "Japan's oldest stone arch bridge (1634)",
+    "Spectacle-shaped reflection on the water",
+    "Survived 1945 atomic bombing intact"
+  ],
+  "budgetMin": 1000,
+  "budgetRecommended": 3000,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 350,
+    "tickets": 0,
+    "food": 400,
+    "cafe": 100
+  },
+  "transportOptions": {
+    "train": 270,
+    "shinkansen": 370
+  },
+  "totalTripHours": 2,
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  },
+  "walkingMin": 2500,
+  "walkingIntensity": "low",
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1000,
+  "indoorPercent": 0,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 8.5,
+    "couple": 8.8,
+    "summer": 8,
+    "winter": 8.5,
+    "rain": 7.5,
+    "food": 7,
+    "photography": 9.3,
+    "relaxation": 7.8,
+    "value": 9,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "Nearby coin parking",
+  "notes": "Kyushu regional expansion — Nagasaki Prefecture.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Meganebashi_Spectacles_Bridge",
+        "title": "Meganebashi Spectacles Bridge",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Meganebashi_Nagasaki_2012.jpg",
+          "title": "Editorial scoring from source-backed attributes",
+          "accessedAt": "2026-08-04"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Meganebashi_Nagasaki_2012.jpg",
+          "title": "Meganebashi Spectacles Bridge",
+          "accessedAt": "2026-08-04"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Meganebashi Spectacles Bridge",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": null,
+  "municipalityId": "Nagasaki:nagasaki"
+}

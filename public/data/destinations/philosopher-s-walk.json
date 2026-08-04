@@ -128,7 +128,17 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "freshness": "review_due",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Japan%20Kyoto%20philosophers%20walk%20DSC00297.jpg?width=1600",
+          "title": "Philosopher's Walk",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

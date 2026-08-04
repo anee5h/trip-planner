@@ -117,7 +117,17 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-02",
-    "freshness": "current"
+    "freshness": "current",
+    "fieldSources": {
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Osaka_City_Central_Public_Hall_20160221.JPG/1920px-Osaka_City_Central_Public_Hall_20160221.JPG",
+          "title": "Osaka City Central Public Hall",
+          "accessedAt": "2026-08-08"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

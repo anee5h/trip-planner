@@ -1,0 +1,169 @@
+{
+  "id": "beppu-tower",
+  "name": "Beppu Tower",
+  "nameJa": "別府タワー",
+  "aliases": ["Beppu Tower", "別府タワー"],
+  "content": {
+    "en": {
+      "name": "Beppu Tower",
+      "description": "Beppu Tower is a 100-meter observation tower completed in 1957, designed in the style of the Eiffel Tower. Its observation deck offers panoramic views of Beppu Bay, the cityscape, and on clear days the mountains of Shikoku across the Seto Inland Sea.",
+      "highlights": [
+        "100m Eiffel-style observation tower",
+        "Panoramic views of Beppu Bay",
+        "Night illumination & city lights view"
+      ]
+    },
+    "ja": {
+      "name": "別府タワー",
+      "description": "別府タワーは1957年に完成した高さ100mのエッフェル塔型展望塔です。展望台からは別府湾、市街地、晴れた日には瀬戸内海越しに四国の山並みまで360度の絶景パノラマが楽しめます。",
+      "highlights": [
+        "エッフェル塔型100m展望タワー",
+        "別府湾と市街地の360度パノラマ",
+        "夜景とライトアップ"
+      ]
+    }
+  },
+  "prefecture": "Oita",
+  "region": "Kyushu",
+  "kind": "observation",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "beppu-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Sightseeing", "Entertainment"],
+  "tags": [
+    "Tower",
+    "Observation",
+    "City View",
+    "Beppu",
+    "v2.0.0-beta.1",
+    "Kyushu Expansion"
+  ],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Beppu_Tower_at_Night.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Chris 73",
+    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Beppu_Tower_at_Night.jpg"
+  },
+  "coordinates": {
+    "lat": 33.2806,
+    "lng": 131.5064
+  },
+  "description": "Beppu Tower is a 100-meter observation tower completed in 1957, designed in the style of the Eiffel Tower. Its observation deck offers panoramic views of Beppu Bay, the cityscape, and on clear days the mountains of Shikoku across the Seto Inland Sea.",
+  "highlights": [
+    "100m Eiffel-style observation tower",
+    "Panoramic views of Beppu Bay",
+    "Night illumination & city lights view"
+  ],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 525,
+    "tickets": 500,
+    "food": 600,
+    "cafe": 150
+  },
+  "transportOptions": {
+    "train": 290,
+    "shinkansen": 400
+  },
+  "totalTripHours": 2,
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  },
+  "walkingMin": 2000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 1500,
+  "indoorPercent": 80,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 9,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 7.8,
+    "couple": 8.3,
+    "summer": 8,
+    "winter": 7.8,
+    "rain": 8,
+    "food": 7.3,
+    "photography": 8.5,
+    "relaxation": 7.5,
+    "value": 7.5,
+    "uniqueness": 7.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8,
+    "summer": 8,
+    "autumn": 8,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "Nearby public parking",
+  "notes": "Kyushu regional expansion — Oita Prefecture.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Beppu_Tower",
+        "title": "Beppu Tower",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "fieldSources": {
+      "ratings": [
+        {
+          "type": "calculated",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Beppu_Tower_at_Night.jpg",
+          "title": "Editorial scoring from source-backed attributes",
+          "accessedAt": "2026-08-04"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "wikipedia",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Beppu_Tower_at_Night.jpg",
+          "title": "Beppu Tower",
+          "accessedAt": "2026-08-04"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Beppu Tower",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://beppu-tower.com/",
+  "municipalityId": "Oita:beppu"
+}
