@@ -726,7 +726,6 @@ const MUNICIPALITY_BY_DESTINATION_ID: Record<string, string> = {
   "jindai-botanical-gardens": "Tokyo:chofu",
   jindaiji: "Tokyo:chofu",
   "jochi-ji": "Kanagawa:kamakura",
-  jogashima: "Kanagawa:yokosuka",
   joypolis: "Tokyo:koto",
   "jozenji-dori": "Miyagi:sendai",
   "kabira-bay-ishigaki": "Okinawa:ishigaki",
@@ -1122,7 +1121,6 @@ const MUNICIPALITY_BY_DESTINATION_ID: Record<string, string> = {
   "yokohama-red-brick-warehouse": "Kanagawa:yokohama",
   "yokohama-zoorasia": "Kanagawa:yokohama",
   "yokosuka-city": "Kanagawa:yokosuka",
-  yomiuriland: "Tokyo:chofu",
   "yonaha-maehama-beach-miyako": "Okinawa:miyakojima",
   "yonehara-beach-coral-ishigaki": "Okinawa:ishigaki",
   "yoyogi-park": "Tokyo:shibuya",
@@ -1133,7 +1131,6 @@ const MUNICIPALITY_BY_DESTINATION_ID: Record<string, string> = {
   "zeniarai-benten": "Kanagawa:kamakura",
   "zoshigaya-kishimojindo": "Tokyo:toshima",
   zuihoden: "Miyagi:sendai",
-  zushi: "Kanagawa:yokosuka",
 };
 
 const indexPath = path.join(

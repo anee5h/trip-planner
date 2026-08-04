@@ -323,6 +323,18 @@ describe("relationshipsValidator — focused rule tests", () => {
 });
 
 describe("Geography & Municipality Relationship Integrity", () => {
+  it("keeps authoritative municipality IDs for jogashima, yomiuriland, and zushi", () => {
+    expect(
+      destinationsIndex.find((d) => d.id === "jogashima")?.municipalityId,
+    ).toBe("Kanagawa:miura");
+    expect(
+      destinationsIndex.find((d) => d.id === "yomiuriland")?.municipalityId,
+    ).toBe("Tokyo:inagi");
+    expect(
+      destinationsIndex.find((d) => d.id === "zushi")?.municipalityId,
+    ).toBe("Kanagawa:zushi");
+  });
+
   it("verifies Ghibli Museum regression fixture is standalone with correct Mitaka municipality", () => {
     const ghibli = destinationsIndex.find((d) => d.id === "ghibli-museum");
     expect(ghibli).toBeDefined();
