@@ -34,10 +34,11 @@ vi.stubGlobal("localStorage", mockLocalStorage);
 
 const state = vi.hoisted(() => ({
   profileSyncStatus: "ready",
+  user: null as { id: string } | null,
 }));
 
 vi.mock("@/shared/hooks/useAuth", () => ({
-  useAuth: () => ({ user: null }),
+  useAuth: () => ({ user: state.user }),
 }));
 
 vi.mock("@/shared/hooks/useTripSync", () => ({
@@ -76,6 +77,7 @@ const nakayamaOrigin: OriginLocation = {
 
 beforeEach(() => {
   state.profileSyncStatus = "ready";
+  state.user = null;
   localStorage.clear();
   host = document.createElement("div");
   document.body.appendChild(host);
@@ -175,15 +177,26 @@ describe("TripStore — guest origin ownership (provider level)", () => {
     expect(persisted.coordinates).toEqual({ lat: 35.5147, lng: 139.5393 });
   });
 
-  it("setHomeStation and setHomeStationCoords route through atomic origin", () => {
+  it("does not overwrite the persisted guest snapshot when an account changes origin", () => {
+    localStorage.setItem(
+      "meguruto-guest-origin",
+      JSON.stringify(nakayamaOrigin),
+    );
+    state.user = { id: "account-a" };
     render();
-    act(() => {
-      store.setHomeStation("Shin-Yokohama Station, Kanagawa");
-      store.setHomeStationCoords({ lat: 35.5076, lng: 139.6177 });
-    });
+
+    act(() =>
+      store.setOriginLocation({
+        label: "Shin-Yokohama Station, Kanagawa",
+        coordinates: { lat: 35.5076, lng: 139.6177 },
+        source: "station",
+      }),
+    );
 
     expect(store.homeStation).toBe("Shin-Yokohama Station, Kanagawa");
-    expect(store.homeStationCoords).toEqual({ lat: 35.5076, lng: 139.6177 });
+    expect(
+      JSON.parse(localStorage.getItem("meguruto-guest-origin") || "{}"),
+    ).toEqual(nakayamaOrigin);
   });
 
   it("migrates legacy separate keys to atomic origin key", () => {
@@ -232,6 +245,20 @@ describe("TripStore — guest origin ownership (provider level)", () => {
     );
     // no station key
 
+    render();
+
+    expect(store.homeStation).toBe("Tokyo Station");
+  });
+
+  it("rejects out-of-range stored coordinates", () => {
+    localStorage.setItem(
+      "meguruto-guest-origin",
+      JSON.stringify({
+        label: "Invalid Station",
+        coordinates: { lat: 91, lng: 181 },
+        source: "station",
+      }),
+    );
     render();
 
     expect(store.homeStation).toBe("Tokyo Station");

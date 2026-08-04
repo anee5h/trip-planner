@@ -33,8 +33,7 @@ export default function Settings() {
   const { user, updateUserProfile } = useAuth();
   const { theme, setTheme } = useTheme();
   const { locale, setLocale } = useLocale();
-  const { homeStation, setHomeStation, visited, visitedPrefectures, trips } =
-    useTripStore();
+  const { homeStation, visited, visitedPrefectures, trips } = useTripStore();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
@@ -118,9 +117,6 @@ export default function Settings() {
     setLoading(true);
     try {
       const locationChanged = baseLocation !== homeStation;
-      if (locationChanged) {
-        setHomeStation(baseLocation);
-      }
 
       const { error } = await updateUserProfile({
         full_name: fullName.trim(),

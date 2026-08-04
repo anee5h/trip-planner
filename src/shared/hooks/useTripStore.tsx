@@ -25,7 +25,7 @@ export function formatPrefectureId(prefectureName: string): string {
 
 export type OriginLocation = {
   label: string;
-  coordinates: { lat: number; lng: number } | null;
+  coordinates: { lat: number; lng: number };
   source: "station" | "postal_code" | "default";
 };
 
@@ -51,10 +51,7 @@ interface TripStoreContextType {
   isPrefectureVisited: (id: string) => boolean;
 
   homeStation: string;
-  setHomeStation: (station: string) => void;
-
-  homeStationCoords: { lat: number; lng: number } | null;
-  setHomeStationCoords: (coords: { lat: number; lng: number } | null) => void;
+  homeStationCoords: { lat: number; lng: number };
 
   setOriginLocation: (origin: OriginLocation) => void;
 
@@ -120,7 +117,11 @@ function isValidCoordinates(
     typeof (value as Record<string, unknown>).lat === "number" &&
     typeof (value as Record<string, unknown>).lng === "number" &&
     Number.isFinite((value as Record<string, number>).lat) &&
-    Number.isFinite((value as Record<string, number>).lng)
+    Number.isFinite((value as Record<string, number>).lng) &&
+    (value as Record<string, number>).lat >= -90 &&
+    (value as Record<string, number>).lat <= 90 &&
+    (value as Record<string, number>).lng >= -180 &&
+    (value as Record<string, number>).lng <= 180
   );
 }
 
@@ -230,9 +231,9 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
 
   const setOriginLocation = (origin: OriginLocation) => {
     activeOriginRef.current = origin;
-    setGuestOrigin(origin);
     setActiveOrigin(origin);
     if (!user) {
+      setGuestOrigin(origin);
       persistGuestOrigin(origin);
     }
   };
@@ -267,26 +268,6 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
 
   const canMutateProfile =
     !user || profileSyncStatus === "ready" || profileSyncStatus === "saving";
-
-  function setHomeStation(station: string) {
-    if (!canMutateProfile) return;
-    const current = activeOriginRef.current;
-    setOriginLocation({
-      label: station,
-      coordinates: current.coordinates,
-      source: station.includes(", ") ? "station" : "postal_code",
-    });
-  }
-
-  function setHomeStationCoords(coords: { lat: number; lng: number } | null) {
-    if (!canMutateProfile) return;
-    const current = activeOriginRef.current;
-    setOriginLocation({
-      label: current.label,
-      coordinates: coords ?? DEFAULT_TOKYO_COORDS,
-      source: current.source,
-    });
-  }
 
   const setDestinationRating = (id: string, rating: "up" | "down" | null) => {
     if (!canMutateProfile) return;
@@ -678,9 +659,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
         isComparing,
         clearCompare,
         homeStation: activeOrigin.label,
-        setHomeStation,
         homeStationCoords: activeOrigin.coordinates,
-        setHomeStationCoords,
         setOriginLocation,
         lastSyncedDate,
         setLastSyncedDate,

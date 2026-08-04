@@ -133,9 +133,10 @@ export default function StationInput({ embedded = false }: StationInputProps) {
     if (mode === "station" && selectedStation) {
       const label = `${selectedStation}, ${selectedPref}`;
       const st = stations.find((s) => s.name === selectedStation);
+      if (!st) return;
       setOriginLocation({
         label,
-        coordinates: st ? { lat: st.lat, lng: st.lng } : null,
+        coordinates: { lat: st.lat, lng: st.lng },
         source: "station",
       });
       setIsEditing(false);
@@ -151,6 +152,10 @@ export default function StationInput({ embedded = false }: StationInputProps) {
         if (data && data.length > 0) {
           const lat = parseFloat(data[0].lat);
           const lng = parseFloat(data[0].lon);
+          if (!Number.isFinite(lat) || !Number.isFinite(lng)) {
+            setZipError("Could not find coordinates for this zip code.");
+            return;
+          }
           setOriginLocation({
             label: zipCode,
             coordinates: { lat, lng },
