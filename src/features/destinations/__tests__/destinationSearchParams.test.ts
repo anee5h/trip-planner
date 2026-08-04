@@ -214,6 +214,17 @@ describe("destinationSearchParams", () => {
     expect(expectedBudget).toBe(DEFAULT_DESTINATION_EXPLORER_STATE.maxBudget);
   });
 
+  it("round-trips sort=nearest", () => {
+    const parsed = parseDestinationSearchParams(
+      new URLSearchParams("sort=nearest"),
+    );
+
+    expect(parsed.sortBy).toBe("nearest");
+    expect(serializeDestinationSearchParams(parsed).get("sort")).toBe(
+      "nearest",
+    );
+  });
+
   it("filters destination count when budgetTier is set to economy", () => {
     const economyDestinations = destinations.filter(
       (dest) => (dest.budgetMax ?? dest.budgetMin ?? Infinity) < 10000,

@@ -22,6 +22,7 @@ import TopMatchesSection from "./components/TopMatchesSection";
 import BucketListRail from "./components/BucketListRail";
 import WeatherContextRail from "./components/WeatherContextRail";
 import CollectionsRail from "./components/CollectionsRail";
+import UnexploredNearbyRail from "./components/UnexploredNearbyRail";
 import { useTranslation } from "react-i18next";
 import StationInput from "@/shared/components/StationInput";
 
@@ -349,6 +350,16 @@ export default function Home() {
         recommendations={recommendedDestinations}
         hasUserApplied={hasUserApplied}
         appliedState={resolvedApplied}
+      />
+
+      {/* Unexplored Nearby Rail — nearest unvisited destinations from home origin */}
+      <UnexploredNearbyRail
+        destinations={allDestinations}
+        homeStationCoords={homeStationCoords}
+        isVisited={isVisited}
+        partySize={resolvedApplied.partySize}
+        carMode={resolvedApplied.carMode}
+        publicModes={resolvedApplied.publicModes}
       />
 
       {/* Conditional Placement: Bucket List Rail near top ONLY if user has saved items */}
