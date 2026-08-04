@@ -171,7 +171,19 @@
   },
   "origin": {
     "from": "出発地",
-    "edit": "編集"
+    "edit": "編集",
+    "changeLocation": "出発地を変更",
+    "closeLocationEditor": "出発地の編集を閉じる",
+    "selectBaseStation": "出発駅を選択：",
+    "station": "駅",
+    "zipPostal": "郵便番号",
+    "selectStation": "-- 駅を選択 --",
+    "zipPlaceholder": "例：100-0001",
+    "zipNotFound": "郵便番号の座標が見つかりませんでした。",
+    "locationFetchFailed": "場所の取得に失敗しました。もう一度お試しください。",
+    "locating": "検索中…",
+    "setLocation": "場所を設定",
+    "cancel": "キャンセル"
   },
   "home": {
     "headline": "次はどこへ行きますか？",
