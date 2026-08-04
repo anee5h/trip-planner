@@ -82,5 +82,10 @@
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Futamigaura_meotoiwa01.jpg"
   },
-  "municipalityId": "Mie:ise"
+  "municipalityId": "Mie:ise",
+  "transportOptions": {
+    "train": 186,
+    "bus": 218,
+    "car": 248
+  }
 }

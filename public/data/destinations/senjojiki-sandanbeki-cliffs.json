@@ -82,5 +82,10 @@
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senjojiki_Shirahama_Wakayama01n4272.jpg"
   },
-  "municipalityId": "Wakayama:shirahama"
+  "municipalityId": "Wakayama:shirahama",
+  "transportOptions": {
+    "train": 265,
+    "bus": 308,
+    "car": 342
+  }
 }

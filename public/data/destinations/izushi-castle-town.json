@@ -82,5 +82,10 @@
     "attribution": "663highland",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:241230_Izushi_Soba_Toyooka_Hyogo_pref_Japan01s3.jpg"
   },
-  "municipalityId": "Hyogo:toyooka"
+  "municipalityId": "Hyogo:toyooka",
+  "transportOptions": {
+    "train": 255,
+    "bus": 295,
+    "car": 325
+  }
 }

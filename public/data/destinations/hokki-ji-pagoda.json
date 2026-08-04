@@ -78,5 +78,10 @@
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hokkiji_Three-storied_Pagoda.jpg"
   },
-  "municipalityId": "Nara:ikaruga"
+  "municipalityId": "Nara:ikaruga",
+  "transportOptions": {
+    "train": 175,
+    "bus": 205,
+    "car": 240
+  }
 }

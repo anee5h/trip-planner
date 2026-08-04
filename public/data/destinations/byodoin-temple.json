@@ -74,5 +74,10 @@
     "attribution": "ganden",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kyoto-Byodoin_Phoenix_Hall-xl.jpg"
   },
-  "municipalityId": "Kyoto:uji"
+  "municipalityId": "Kyoto:uji",
+  "transportOptions": {
+    "shinkansen": 147,
+    "train": 247,
+    "bus": 247
+  }
 }

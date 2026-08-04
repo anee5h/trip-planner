@@ -78,5 +78,10 @@
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Genbudo_Park_in_Toyooka_Hyogo.JPG"
   },
-  "municipalityId": "Hyogo:toyooka"
+  "municipalityId": "Hyogo:toyooka",
+  "transportOptions": {
+    "train": 242,
+    "bus": 282,
+    "car": 312
+  }
 }

@@ -82,5 +82,9 @@
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt._Hiei-zan_from_Shiga-machi_2014.jpg"
   },
-  "municipalityId": "Shiga:otsu"
+  "municipalityId": "Shiga:otsu",
+  "transportOptions": {
+    "train": 152,
+    "car": 165
+  }
 }

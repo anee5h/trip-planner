@@ -82,5 +82,10 @@
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Silver_Mining_Road_in_Hyogo01n4272.jpg"
   },
-  "municipalityId": "Hyogo:asago"
+  "municipalityId": "Hyogo:asago",
+  "transportOptions": {
+    "train": 196,
+    "bus": 228,
+    "car": 222
+  }
 }

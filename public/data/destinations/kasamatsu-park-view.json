@@ -78,5 +78,10 @@
     "attribution": "663highland",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amanohashidate_view_from_Kasamatsu_Park01s3s4410.jpg"
   },
-  "municipalityId": "Kyoto:miyazu"
+  "municipalityId": "Kyoto:miyazu",
+  "transportOptions": {
+    "train": 162,
+    "bus": 192,
+    "car": 212
+  }
 }

@@ -78,5 +78,9 @@
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koyasan_Okunoin_Rosoku01.jpg"
   },
-  "municipalityId": "Wakayama:koya"
+  "municipalityId": "Wakayama:koya",
+  "transportOptions": {
+    "train": 230,
+    "bus": 272
+  }
 }

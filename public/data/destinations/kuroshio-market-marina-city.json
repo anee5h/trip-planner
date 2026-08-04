@@ -82,5 +82,10 @@
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kuroshio_Ichibano_Tuna_Show.jpg"
   },
-  "municipalityId": "Wakayama:wakayama"
+  "municipalityId": "Wakayama:wakayama",
+  "transportOptions": {
+    "train": 235,
+    "bus": 272,
+    "car": 285
+  }
 }

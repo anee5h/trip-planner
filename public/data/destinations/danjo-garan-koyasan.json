@@ -78,5 +78,9 @@
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koyasan_Danjogaran.jpg"
   },
-  "municipalityId": "Wakayama:koya"
+  "municipalityId": "Wakayama:koya",
+  "transportOptions": {
+    "train": 228,
+    "bus": 270
+  }
 }

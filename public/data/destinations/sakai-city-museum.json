@@ -82,5 +82,11 @@
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sakai_Daisenryo.jpg"
   },
-  "municipalityId": "Osaka:sakai"
+  "municipalityId": "Osaka:sakai",
+  "transportOptions": {
+    "shinkansen": 168,
+    "train": 192,
+    "bus": 212,
+    "car": 235
+  }
 }

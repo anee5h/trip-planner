@@ -82,5 +82,10 @@
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Omihachiman_canal_006.jpg"
   },
-  "municipalityId": "Shiga:otsu"
+  "municipalityId": "Shiga:otsu",
+  "transportOptions": {
+    "train": 175,
+    "bus": 195,
+    "car": 205
+  }
 }

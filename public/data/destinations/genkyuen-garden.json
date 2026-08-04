@@ -82,5 +82,9 @@
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Genkyu-en_Garden_in_Hikone.JPG"
   },
-  "municipalityId": "Shiga:hikone"
+  "municipalityId": "Shiga:hikone",
+  "transportOptions": {
+    "train": 160,
+    "car": 168
+  }
 }
