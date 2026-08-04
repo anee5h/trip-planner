@@ -128,17 +128,7 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-07-29",
-    "freshness": "review_due",
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E9%BB%92%E9%96%80%E5%B8%82%E5%A0%B4%202024(1).jpg?width=1600",
-          "title": "Kuromon Market",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    "freshness": "review_due"
   },
   "ratingMetadata": {
     "rubricVersion": 1,

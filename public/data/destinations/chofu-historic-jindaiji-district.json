@@ -136,17 +136,7 @@
       }
     ],
     "reviewedAt": "2026-08-02",
-    "reviewedBy": "Meguruto Editorial Reviewer",
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Cyofushiyakusyo.jpg",
-          "title": "Jindaiji Historic District",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    "reviewedBy": "Meguruto Editorial Reviewer"
   },
   "ratingMetadata": {
     "rubricVersion": 1,

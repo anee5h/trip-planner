@@ -133,17 +133,7 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-07-29",
-    "freshness": "review_due",
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe%20Port%20Tower%20and%20Maritime%20Museum%2C%20November%202016.jpg?width=1600",
-          "title": "Kitano Ijinkan",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    "freshness": "review_due"
   },
   "ratingMetadata": {
     "rubricVersion": 1,

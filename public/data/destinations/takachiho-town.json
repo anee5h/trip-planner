@@ -102,18 +102,8 @@
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Takachiho_Town",
         "title": "Takachiho Town",
-        "accessedAt": "2026-08-08"
+        "accessedAt": "2026-08-04"
       }
-    ],
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/TakachihokyoWithManaiFalls.JPG/1280px-TakachihokyoWithManaiFalls.JPG",
-          "title": "Takachiho Town",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    ]
   }
 }

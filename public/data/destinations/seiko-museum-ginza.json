@@ -136,17 +136,7 @@
       }
     ],
     "reviewedAt": "2026-08-02",
-    "reviewedBy": "Meguruto Editorial Reviewer",
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://museum.seiko.co.jp/common/img/ogp.jpg",
-          "title": "Seiko Museum Ginza",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    "reviewedBy": "Meguruto Editorial Reviewer"
   },
   "ratingMetadata": {
     "rubricVersion": 1,

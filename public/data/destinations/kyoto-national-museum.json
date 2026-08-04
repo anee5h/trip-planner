@@ -128,17 +128,7 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-07-29",
-    "freshness": "review_due",
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/260214%20Kyoto%20National%20Museum%20Kyoto%20Japan04bs4.jpg?width=1600",
-          "title": "Kyoto National Museum",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    "freshness": "review_due"
   },
   "ratingMetadata": {
     "rubricVersion": 1,

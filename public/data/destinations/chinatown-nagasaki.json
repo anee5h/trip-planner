@@ -46,7 +46,7 @@
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
     "attribution": "Kakidai",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Nagasaki_Shinchi_Chinatown_2017.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagasaki_Shinchi_Chinatown_2017.jpg"
   },
   "coordinates": {
     "lat": 32.7422,
@@ -127,32 +127,14 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Nagasaki_Chinatown",
-        "title": "Nagasaki Chinatown",
+        "url": "https://en.wikipedia.org/wiki/Nagasaki_Shinchi_Chinatown",
+        "title": "Nagasaki Shinchi Chinatown",
         "accessedAt": "2026-08-04"
       }
     ],
     "checkedAt": "2026-08-04",
     "freshness": "current",
     "changeSummary": "PR 12C Kyushu Regional Expansion",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Nagasaki_Shinchi_Chinatown_2017.jpg",
-          "title": "Editorial scoring from source-backed attributes",
-          "accessedAt": "2026-08-04"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Nagasaki_Shinchi_Chinatown_2017.jpg",
-          "title": "Nagasaki Chinatown",
-          "accessedAt": "2026-08-04"
-        }
-      ]
-    },
     "changes": [
       {
         "changedAt": "2026-08-04",

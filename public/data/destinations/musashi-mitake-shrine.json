@@ -130,17 +130,7 @@
       }
     ],
     "reviewedAt": "2026-08-02",
-    "reviewedBy": "Meguruto Editorial Reviewer",
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Musashi-Mitake-Zuishinmon.JPG",
-          "title": "Musashi Mitake Shrine",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    "reviewedBy": "Meguruto Editorial Reviewer"
   },
   "ratingMetadata": {
     "rubricVersion": 1,

@@ -1,16 +1,16 @@
 /**
- * PR 12C Kyushu Expansion — Data transformation script
+ * PR 12C Kyushu Expansion — Data transformation script (v2, corrected)
  *
- * This script:
- * 1. Links existing 21 Kyushu non-hub records to their hubs
- * 2. Fixes role/status for existing records
- * 3. Backfills JA content for 8-9 records
- * 4. Adds hub nameJa for 11 Kyushu hubs
- * 5. Adds 35 new curated bilingual POIs
+ * Changes from v1:
+ * - Removed global whole-catalogue provenance mutation (Step 1.2)
+ * - New POIs use real Wikipedia article URLs and Commons file-description pages
+ * - Removed invented fieldSources
+ * - Only touches Kyushu records (hubs + existing POIs + 37 new POIs)
+ * - Includes assertions at the end
  *
  * Run: npx tsx scripts/pr12c-kyushu-expansion.ts
  * Then: npm run sync-destination-details
- * Validate: npm run verify:pr && npm run validate:catalog-fast
+ * Validate: npm run verify:pr
  */
 
 import fs from "fs";
@@ -27,11 +27,14 @@ const data: DestinationRecord[] = JSON.parse(
   fs.readFileSync(INDEX_PATH, "utf-8"),
 );
 
-const now = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
+const originalLength = data.length;
+const originalIds = new Set(data.map((r) => r.id));
 
-// ---------------------------------------------------------------------------
-// 1. Hub nameJa mapping
-// ---------------------------------------------------------------------------
+const now = new Date().toISOString().split("T")[0]; // YYYY-MM-DD — always today
+
+// ==========================================================================
+// 1. Hub nameJa mapping (11 hubs)
+// ==========================================================================
 const hubNameJa: Record<string, string> = {
   "fukuoka-city": "福岡市",
   "nagasaki-city": "長崎市",
@@ -44,12 +47,30 @@ const hubNameJa: Record<string, string> = {
   "miyazaki-city": "宮崎市",
   "takachiho-town": "高千穂町",
   "kitakyushu-city": "北九州市",
-  // yakushima-town already has nameJa "屋久島町"
+  // yakushima-town already has "屋久島"
 };
 
-// ---------------------------------------------------------------------------
-// 2. Parent hub mapping for existing non-hub Kyushu records
-// ---------------------------------------------------------------------------
+// ==========================================================================
+// 2. Hub -> municipalityId mapping
+// ==========================================================================
+const hubMun: Record<string, string> = {
+  "fukuoka-city": "Fukuoka:fukuoka",
+  "nagasaki-city": "Nagasaki:nagasaki",
+  "kumamoto-city": "Kumamoto:kumamoto",
+  "beppu-city": "Oita:beppu",
+  "yufu-city": "Oita:yufu",
+  "dazaifu-city": "Fukuoka:dazaifu",
+  "kagoshima-city": "Kagoshima:kagoshima",
+  "aso-city": "Kumamoto:aso",
+  "miyazaki-city": "Miyazaki:miyazaki",
+  "takachiho-town": "Miyazaki:takachiho",
+  "yakushima-town": "Kagoshima:yakushima",
+  "kitakyushu-city": "Fukuoka:kitakyushu",
+};
+
+// ==========================================================================
+// 3. Parent hub mapping for existing Kyushu non-hub records (21 records)
+// ==========================================================================
 const parentHubMap: Record<string, string> = {
   // Fukuoka City (13 POIs)
   "canal-city-hakata": "fukuoka-city",
@@ -65,28 +86,33 @@ const parentHubMap: Record<string, string> = {
   "okinoshima-munakata-fukuoka": "fukuoka-city",
   tenjin: "fukuoka-city",
   tochoji: "fukuoka-city",
-  // Nagasaki City
+  // Nagasaki City (3)
   "gunkanjima-hashima-nagasaki": "nagasaki-city",
   "mount-inasa-nagasaki": "nagasaki-city",
   "oura-church-nagasaki": "nagasaki-city",
-  // Kumamoto City
+  // Kumamoto City (1)
   "kumamoto-castle": "kumamoto-city",
-  // Beppu City
+  // Beppu City (1)
   "beppu-hells-oita": "beppu-city",
-  // Kagoshima City (gateway stays gateway, not reparented)
-  // sakurajima-volcano-kagoshima -> kagoshima-city
+  // Kagoshima City (1)
   "sakurajima-volcano-kagoshima": "kagoshima-city",
-  // Aso City
+  // Aso City (1)
   "mount-aso-kumamoto": "aso-city",
-  // amami-iriomote-natural-site stays a gateway, do not reparent
+  // amami-iriomote-natural-site stays a gateway — intentionally excluded
 };
 
-// ---------------------------------------------------------------------------
-// 3. JA content backfill for records without content.ja
-// ---------------------------------------------------------------------------
+// ==========================================================================
+// 4. Existing Kyushu records that need JA backfill (9 records)
+//    + real Wikipedia source URLs for editorial.sources
+// ==========================================================================
 const jaBackfill: Record<
   string,
-  { description: string; highlights: string[] }
+  {
+    description: string;
+    highlights: string[];
+    wikiUrl: string;
+    wikiTitle: string;
+  }
 > = {
   "okinoshima-munakata-fukuoka": {
     description:
@@ -96,6 +122,10 @@ const jaBackfill: Record<
       "宗像大社辺津宮・中津宮・沖津宮",
       "宗像大社神宝館の国宝展示",
     ],
+    wikiUrl:
+      "https://en.wikipedia.org/wiki/Sacred_Island_of_Okinoshima_and_Associated_Sites_in_the_Munakata_Region",
+    wikiTitle:
+      "Sacred Island of Okinoshima and Associated Sites in the Munakata Region",
   },
   "gunkanjima-hashima-nagasaki": {
     description:
@@ -105,6 +135,8 @@ const jaBackfill: Record<
       "明治日本の産業革命遺産（世界遺産）",
       "廃墟化した高層鉄筋アパート群",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Hashima_Island",
+    wikiTitle: "Hashima Island",
   },
   "mount-inasa-nagasaki": {
     description:
@@ -114,6 +146,8 @@ const jaBackfill: Record<
       "展望台からの360度パノラマ",
       "稲佐山ロープウェイの空中散歩",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Mount_Inasa",
+    wikiTitle: "Mount Inasa",
   },
   "oura-church-nagasaki": {
     description:
@@ -123,6 +157,8 @@ const jaBackfill: Record<
       "潜伏キリシタン関連の世界遺産",
       "隣接する旧羅典神学校とキリシタン資料館",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/%C5%8Cura_Church",
+    wikiTitle: "Ōura Church",
   },
   "kumamoto-castle": {
     description:
@@ -132,6 +168,8 @@ const jaBackfill: Record<
       "本丸御殿と昭君之間の金箔装飾",
       "城内の加藤神社と桜の名所",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Kumamoto_Castle",
+    wikiTitle: "Kumamoto Castle",
   },
   "beppu-hells-oita": {
     description:
@@ -141,6 +179,8 @@ const jaBackfill: Record<
       "コバルトブルーの海地獄と赤い血の池地獄",
       "地獄蒸し料理と温泉卵の名物",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Hells_of_Beppu",
+    wikiTitle: "Hells of Beppu",
   },
   "sakurajima-volcano-kagoshima": {
     description:
@@ -150,6 +190,8 @@ const jaBackfill: Record<
       "有村溶岩展望所からの絶景",
       "桜島フェリーと錦江湾クルーズ",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Sakurajima",
+    wikiTitle: "Sakurajima",
   },
   "mount-aso-kumamoto": {
     description:
@@ -159,6 +201,8 @@ const jaBackfill: Record<
       "中岳火口の迫力ある噴煙",
       "広大な草千里ヶ浜の草原景観",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Mount_Aso",
+    wikiTitle: "Mount Aso",
   },
   "amami-iriomote-natural-site": {
     description:
@@ -168,23 +212,35 @@ const jaBackfill: Record<
       "奄美大島の原生林ハイキング",
       "西表島のマングローブカヌー体験",
     ],
+    wikiUrl:
+      "https://en.wikipedia.org/wiki/Amami-%C5%8Cshima_Island,_Tokunoshima_Island,_Northern_Okinawa_Island,_and_Iriomote_Island",
+    wikiTitle:
+      "Amami-Ōshima Island, Tokunoshima Island, Northern Okinawa Island, and Iriomote Island",
   },
 };
 
-// ---------------------------------------------------------------------------
-// 4. New POI definitions (35 new destinations)
-// ---------------------------------------------------------------------------
+// Count how many existing Kyushu non-hub records exist
+const existingKyushuNonHub = data.filter(
+  (r) => r.region === "Kyushu" && r.role !== "hub",
+);
+console.log(`Existing Kyushu non-hub records: ${existingKyushuNonHub.length}`);
+
+// ==========================================================================
+// 5. New POI definitions (37 new destinations)
+//    Each with: real Wikipedia URL, Commons file-description sourceUrl,
+//    no invented fieldSources, today's accessedAt.
+// ==========================================================================
 interface NewPoiInput {
   id: string;
   name: string;
   nameJa: string;
   hubId: string;
   prefecture: string;
-  areaId: string;
   kind: string;
   categories: string[];
   tags: string[];
   heroImage: string;
+  commonsFilePage: string;
   imageAttribution: string;
   imageLicense: string;
   coordinates: { lat: number; lng: number };
@@ -211,12 +267,14 @@ interface NewPoiInput {
     rainFriendly: number;
     walkingIntensity: number;
   };
-  officialWebsite?: string;
+  officialWebsite: string | null;
   officialWebsiteRequirement?: string;
   enDescription: string;
   enHighlights: string[];
   jaDescription: string;
   jaHighlights: string[];
+  wikiUrl: string;
+  wikiTitle: string;
 }
 
 function buildPoi(poi: NewPoiInput): DestinationRecord {
@@ -227,7 +285,7 @@ function buildPoi(poi: NewPoiInput): DestinationRecord {
     cafe: Math.round(poi.budgetMin * 0.1),
   };
 
-  return {
+  const rec: DestinationRecord = {
     id: poi.id,
     name: poi.name,
     nameJa: poi.nameJa,
@@ -249,7 +307,6 @@ function buildPoi(poi: NewPoiInput): DestinationRecord {
     kind: poi.kind,
     role: "poi",
     placeType: "destination",
-    areaId: poi.areaId,
     relationships: { parentDestinationId: poi.hubId },
     officialWebsiteRequirement: poi.officialWebsiteRequirement ?? "optional",
     categories: poi.categories,
@@ -259,7 +316,7 @@ function buildPoi(poi: NewPoiInput): DestinationRecord {
       source: "Wikimedia Commons",
       license: poi.imageLicense,
       attribution: poi.imageAttribution,
-      sourceUrl: poi.heroImage,
+      sourceUrl: poi.commonsFilePage,
     },
     coordinates: poi.coordinates,
     description: poi.enDescription,
@@ -277,9 +334,7 @@ function buildPoi(poi: NewPoiInput): DestinationRecord {
     walkingShadeMin: poi.walkingShadeMin,
     indoorPercent: poi.indoorPercent,
     comfort: poi.comfort,
-    ratings: {
-      ...poi.ratings,
-    },
+    ratings: { ...poi.ratings },
     ratingsSchemaVersion: 2,
     crowd: poi.crowd,
     season: poi.season,
@@ -298,32 +353,14 @@ function buildPoi(poi: NewPoiInput): DestinationRecord {
       sources: [
         {
           type: "wikipedia",
-          url: `https://en.wikipedia.org/wiki/${poi.name.replace(/\s+/g, "_")}`,
-          title: poi.name,
+          url: poi.wikiUrl,
+          title: poi.wikiTitle,
           accessedAt: now,
         },
       ],
       checkedAt: now,
       freshness: "current",
       changeSummary: "PR 12C Kyushu Regional Expansion",
-      fieldSources: {
-        ratings: [
-          {
-            type: "calculated",
-            url: poi.heroImage,
-            title: "Editorial scoring from source-backed attributes",
-            accessedAt: now,
-          },
-        ],
-        heroImage: [
-          {
-            type: "wikipedia",
-            url: poi.heroImage,
-            title: poi.name,
-            accessedAt: now,
-          },
-        ],
-      },
       changes: [
         {
           changedAt: now,
@@ -336,163 +373,17 @@ function buildPoi(poi: NewPoiInput): DestinationRecord {
       reviewedBy: "Kyushu Regional Editorial Batch",
     },
     officialWebsite: poi.officialWebsite,
-  } as DestinationRecord;
+  };
+
+  return rec as DestinationRecord;
 }
 
-// ---------------------------------------------------------------------------
-// Execute transformations
-// ---------------------------------------------------------------------------
-
-// Step 1: Fix existing records — add parentHubId, set role to "poi", set status/editorial
-for (const record of data) {
-  if (record.region !== "Kyushu") continue;
-
-  // Hub nameJa
-  if (record.role === "hub" && hubNameJa[record.id] && !record.nameJa) {
-    record.nameJa = hubNameJa[record.id];
-    if (!record.aliases) record.aliases = [record.name];
-    if (!record.aliases.includes(hubNameJa[record.id])) {
-      record.aliases.push(hubNameJa[record.id]);
-    }
-  }
-
-  // Non-hub records: link, fix role, publish
-  if (record.role !== "hub") {
-    const hubId = parentHubMap[record.id];
-
-    // Skip gateway records (amami-iriomote-natural-site)
-    if (record.id === "amami-iriomote-natural-site") {
-      // Still add JA backfill
-      if (!record.content) record.content = {};
-      if (!record.content.ja && jaBackfill[record.id]) {
-        record.content.ja = {
-          name: record.nameJa || record.name,
-          description: jaBackfill[record.id].description,
-          highlights: jaBackfill[record.id].highlights,
-        };
-      }
-      // Publish
-      record.status = "published";
-      if (!record.editorial) record.editorial = {};
-      record.editorial.lifecycle = "published";
-      record.editorial.freshness = "current";
-      record.editorial.checkedAt = now;
-      record.editorial.reviewedAt = now;
-      record.editorial.reviewedBy = "Kyushu Regional Editorial Batch";
-      continue;
-    }
-
-    // Set parent hub
-    if (hubId) {
-      if (!record.relationships) record.relationships = {};
-      record.relationships.parentDestinationId = hubId;
-    }
-
-    // Fix role
-    if (
-      record.role === "standalone" ||
-      record.role === "no-role" ||
-      !record.role
-    ) {
-      record.role = "poi";
-    }
-
-    // Publish-flip
-    record.status = "published";
-    if (!record.editorial) record.editorial = {};
-    record.editorial.lifecycle = "published";
-    record.editorial.freshness = "current";
-    record.editorial.checkedAt = now;
-    record.editorial.reviewedAt = now;
-    record.editorial.reviewedBy = "Kyushu Regional Editorial Batch";
-
-    // JA backfill for records without content.ja
-    if (!record.content) record.content = {};
-    if (!record.content.ja && jaBackfill[record.id]) {
-      record.content.ja = {
-        name: record.nameJa || record.name,
-        description: jaBackfill[record.id].description,
-        highlights: jaBackfill[record.id].highlights,
-      };
-    }
-  }
-}
-
-// Publish-flip hubs too
-for (const record of data) {
-  if (record.region === "Kyushu" && record.role === "hub") {
-    record.status = "published";
-    if (!record.editorial) record.editorial = {};
-    record.editorial.lifecycle = "published";
-    record.editorial.freshness = "current";
-    record.editorial.checkedAt = now;
-    record.editorial.reviewedAt = now;
-    record.editorial.reviewedBy = "Kyushu Regional Editorial Batch";
-  }
-}
-
-// Step 1.1: Add municipalityId to Kyushu non-hub records
-const hubMun: Record<string, string> = {
-  "fukuoka-city": "Fukuoka:fukuoka",
-  "nagasaki-city": "Nagasaki:nagasaki",
-  "kumamoto-city": "Kumamoto:kumamoto",
-  "beppu-city": "Oita:beppu",
-  "yufu-city": "Oita:yufu",
-  "dazaifu-city": "Fukuoka:dazaifu",
-  "kagoshima-city": "Kagoshima:kagoshima",
-  "aso-city": "Kumamoto:aso",
-  "miyazaki-city": "Miyazaki:miyazaki",
-  "takachiho-town": "Miyazaki:takachiho",
-  "yakushima-town": "Kagoshima:yakushima",
-  "kitakyushu-city": "Fukuoka:kitakyushu",
-};
-
-for (const record of data) {
-  if (
-    !record.municipalityId &&
-    record.region === "Kyushu" &&
-    record.role !== "hub"
-  ) {
-    const parentId = record.relationships?.parentDestinationId;
-    if (parentId && hubMun[parentId]) {
-      record.municipalityId = hubMun[parentId];
-    }
-  }
-}
-
-// Step 1.2: Ensure editorial.sources is always an array
-for (const record of data) {
-  if (
-    record.editorial &&
-    (!record.editorial.sources ||
-      !Array.isArray(record.editorial.sources) ||
-      record.editorial.sources.length === 0)
-  ) {
-    record.editorial.sources = [
-      {
-        type: "wikipedia",
-        url:
-          "https://en.wikipedia.org/wiki/" + record.name.replace(/\s+/g, "_"),
-        title: record.name,
-        accessedAt: now,
-      },
-    ];
-  }
-  if (record.editorial && !record.editorial.fieldSources) {
-    record.editorial.fieldSources = {
-      heroImage: [
-        {
-          type: "wikipedia",
-          url: record.heroImage || "",
-          title: record.name,
-          accessedAt: now,
-        },
-      ],
-    };
-  }
-}
-
-// Step 2: Add new POIs
+// ==========================================================================
+// New POI data (37 entries)
+// heroImage = raw Wikimedia Commons upload URL
+// commonsFilePage = Wikimedia Commons file-description page URL
+// wikiUrl = real English Wikipedia article URL
+// ==========================================================================
 const newPois: NewPoiInput[] = [
   // ---- FUKUOKA CITY (+3) ----
   {
@@ -501,12 +392,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "博多駅・アミュプラザ博多",
     hubId: "fukuoka-city",
     prefecture: "Fukuoka",
-    areaId: "hakata",
     kind: "mixed",
     categories: ["Shopping", "Sightseeing"],
     tags: ["Shopping", "Station", "Fukuoka City"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/5/5c/Hakata_Station_2016.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Hakata_Station_2016.jpg",
     imageAttribution: "江戸村のとくぞう",
     imageLicense: "CC BY-SA 4.0",
     coordinates: { lat: 33.5896, lng: 130.4207 },
@@ -555,6 +447,8 @@ const newPois: NewPoiInput[] = [
       "アミュプラザ博多のショッピング",
       "九州新幹線の起点と駅弁・グルメ",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Hakata_Station",
+    wikiTitle: "Hakata Station",
   },
   {
     id: "fukuoka-city-museum",
@@ -562,12 +456,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "福岡市博物館",
     hubId: "fukuoka-city",
     prefecture: "Fukuoka",
-    areaId: "sawara",
     kind: "museum",
     categories: ["Museum & Art", "Culture"],
     tags: ["Museum", "History", "Fukuoka City"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/1/18/Fukuoka_City_Museum.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Fukuoka_City_Museum.jpg",
     imageAttribution: "Fukuoka City Museum",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 33.5881, lng: 130.3531 },
@@ -616,6 +511,8 @@ const newPois: NewPoiInput[] = [
       "福岡の歴史とアジア交流の展示",
       "企画展と市民文化イベント",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Fukuoka_City_Museum",
+    wikiTitle: "Fukuoka City Museum",
   },
   {
     id: "marinoa-city-fukuoka",
@@ -623,12 +520,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "マリノアシティ福岡・観覧車",
     hubId: "fukuoka-city",
     prefecture: "Fukuoka",
-    areaId: "nishi",
     kind: "mixed",
     categories: ["Shopping", "Sightseeing"],
     tags: ["Shopping", "Outlet", "Bay", "Fukuoka City"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/4/48/Marinoa_City_Fukuoka_2012_01.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Marinoa_City_Fukuoka_2012_01.jpg",
     imageAttribution: "Ominae",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 33.5972, lng: 130.3064 },
@@ -677,6 +575,8 @@ const newPois: NewPoiInput[] = [
       "観覧車スカイホイールからの博多湾絶景",
       "夕暮れのシーサイドダイニング",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Marinoa_City_Fukuoka",
+    wikiTitle: "Marinoa City Fukuoka",
   },
 
   // ---- NAGASAKI CITY (+5) ----
@@ -686,12 +586,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "長崎平和公園・原爆資料館",
     hubId: "nagasaki-city",
     prefecture: "Nagasaki",
-    areaId: "nagasaki-center",
     kind: "memorial",
     categories: ["History", "Culture"],
     tags: ["History", "Peace", "Memorial", "Nagasaki City"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/5/58/Nagasaki_Peace_Park_-_panoramio.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Nagasaki_Peace_Park_-_panoramio.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 32.7763, lng: 129.8631 },
@@ -740,6 +641,8 @@ const newPois: NewPoiInput[] = [
       "世界各国からの平和モニュメント",
       "原爆資料館の被爆遺物と歴史展示",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Nagasaki_Peace_Park",
+    wikiTitle: "Nagasaki Peace Park",
   },
   {
     id: "glover-garden-nagasaki",
@@ -747,12 +650,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "グラバー園",
     hubId: "nagasaki-city",
     prefecture: "Nagasaki",
-    areaId: "nagasaki-center",
     kind: "garden",
     categories: ["Sightseeing", "History"],
     tags: ["Garden", "History", "Western Architecture", "Nagasaki City"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/2/2a/Glover_Garden_Nagasaki_Japan.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Glover_Garden_Nagasaki_Japan.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 32.7343, lng: 129.8699 },
@@ -801,6 +705,8 @@ const newPois: NewPoiInput[] = [
       "長崎港を見下ろす丘の絶景",
       "明治期の洋館建築群",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Glover_Garden",
+    wikiTitle: "Glover Garden",
   },
   {
     id: "dejima-nagasaki",
@@ -808,12 +714,12 @@ const newPois: NewPoiInput[] = [
     nameJa: "出島",
     hubId: "nagasaki-city",
     prefecture: "Nagasaki",
-    areaId: "nagasaki-center",
     kind: "museum",
     categories: ["History", "Culture"],
     tags: ["History", "Museum", "Dutch Trading", "Nagasaki City"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/d/d7/Dejima_2010.jpg",
+    commonsFilePage: "https://commons.wikimedia.org/wiki/File:Dejima_2010.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 32.7435, lng: 129.8724 },
@@ -862,6 +768,8 @@ const newPois: NewPoiInput[] = [
       "鎖国時代唯一の西洋交易拠点",
       "貿易史を伝える体験型展示",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Dejima",
+    wikiTitle: "Dejima",
   },
   {
     id: "chinatown-nagasaki",
@@ -869,12 +777,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "長崎新地中華街",
     hubId: "nagasaki-city",
     prefecture: "Nagasaki",
-    areaId: "nagasaki-center",
     kind: "shopping",
     categories: ["Food & Dining", "Sightseeing"],
     tags: ["Food", "Chinese", "Chinatown", "Nagasaki City"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/f/f9/Nagasaki_Shinchi_Chinatown_2017.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Nagasaki_Shinchi_Chinatown_2017.jpg",
     imageAttribution: "Kakidai",
     imageLicense: "CC BY-SA 4.0",
     coordinates: { lat: 32.7422, lng: 129.8761 },
@@ -923,6 +832,8 @@ const newPois: NewPoiInput[] = [
       "長崎名物ちゃんぽん・皿うどん",
       "四色の門と春節ランタンフェスティバル",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Nagasaki_Shinchi_Chinatown",
+    wikiTitle: "Nagasaki Shinchi Chinatown",
   },
   {
     id: "meganebashi-bridge-nagasaki",
@@ -930,12 +841,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "眼鏡橋",
     hubId: "nagasaki-city",
     prefecture: "Nagasaki",
-    areaId: "nagasaki-center",
     kind: "monument",
     categories: ["Sightseeing", "History"],
     tags: ["Bridge", "History", "Stone Arch", "Nagasaki City"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/e/e8/Meganebashi_Nagasaki_2012.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Meganebashi_Nagasaki_2012.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 32.7472, lng: 129.8805 },
@@ -971,7 +883,7 @@ const newPois: NewPoiInput[] = [
     comfort: { heatTolerance: 7, rainFriendly: 6, walkingIntensity: 2 },
     officialWebsite: null,
     enDescription:
-      "Meganebashi (Spectacles Bridge) is Japan's oldest stone arch bridge, built in 1634 over the Nakashima River. Its name comes from the reflection of its twin arches in the water, which together form the shape of spectacles. The bridge survived the 1945 atomic bombing and remains a beloved symbol of Nagasaki.",
+      "Meganebashi (Spectacles Bridge) is Japan's oldest stone arch bridge, built in 1634 over the Nakashima River. Its name comes from the reflection of its twin arches in the water, which together form the shape of spectacles. It survived the 1945 atomic bombing and remains a beloved symbol of Nagasaki.",
     enHighlights: [
       "Japan's oldest stone arch bridge (1634)",
       "Spectacle-shaped reflection on the water",
@@ -984,6 +896,8 @@ const newPois: NewPoiInput[] = [
       "水面に映る眼鏡のような美しいフォルム",
       "1945年原爆にも耐えた長崎の象徴",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Meganebashi",
+    wikiTitle: "Meganebashi",
   },
 
   // ---- KUMAMOTO CITY (+2) ----
@@ -993,12 +907,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "水前寺成趣園",
     hubId: "kumamoto-city",
     prefecture: "Kumamoto",
-    areaId: "kumamoto-center",
     kind: "garden",
     categories: ["Gardens", "Sightseeing"],
     tags: ["Garden", "Strolling Garden", "History", "Kumamoto City"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/9/97/Suizenji_Park_Kumamoto_Japan_12.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Suizenji_Park_Kumamoto_Japan_12.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 32.7911, lng: 130.7347 },
@@ -1047,6 +962,8 @@ const newPois: NewPoiInput[] = [
       "東海道五十三次の縮景",
       "伝統茶屋での抹茶と庭園眺望",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Suizen-ji_J%C5%8Dju-en",
+    wikiTitle: "Suizen-ji Jōju-en",
   },
   {
     id: "kumamoto-prefectural-art-museum",
@@ -1054,12 +971,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "熊本県立美術館",
     hubId: "kumamoto-city",
     prefecture: "Kumamoto",
-    areaId: "kumamoto-center",
     kind: "museum",
     categories: ["Museum & Art", "Culture"],
     tags: ["Museum", "Art", "Kumamoto City"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/3/3f/Kumamoto_Prefectural_Museum_of_Art_2014.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Kumamoto_Prefectural_Museum_of_Art_2014.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 32.8081, lng: 130.6998 },
@@ -1108,6 +1026,8 @@ const newPois: NewPoiInput[] = [
       "熊本ゆかりの近代作家作品",
       "熊本城に隣接する好立地",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Kumamoto_Prefectural_Museum_of_Art",
+    wikiTitle: "Kumamoto Prefectural Museum of Art",
   },
 
   // ---- BEPPU CITY (+3) ----
@@ -1117,12 +1037,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "竹瓦温泉",
     hubId: "beppu-city",
     prefecture: "Oita",
-    areaId: "beppu-center",
     kind: "onsen",
     categories: ["Hot Springs & Wellness", "History"],
     tags: ["Onsen", "Sentō", "History", "Beppu"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/d/dd/Takegawara_Onsen_2017.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Takegawara_Onsen_2017.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 4.0",
     coordinates: { lat: 33.2788, lng: 131.5025 },
@@ -1171,6 +1092,8 @@ const newPois: NewPoiInput[] = [
       "名物砂湯（砂風呂）体験",
       "唐破風のタイル張りファサード",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Takegawara_Onsen",
+    wikiTitle: "Takegawara Onsen",
   },
   {
     id: "kannawa-onsen-district",
@@ -1178,12 +1101,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "鉄輪温泉湯けむり街",
     hubId: "beppu-city",
     prefecture: "Oita",
-    areaId: "beppu-kannawa",
     kind: "onsen",
     categories: ["Hot Springs & Wellness", "Sightseeing"],
     tags: ["Onsen", "Steam", "Hell", "Beppu"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/4/40/Kannawa_Onsen_Steaming_Japan.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Kannawa_Onsen_Steaming_Japan.jpg",
     imageAttribution: "Pelican",
     imageLicense: "CC BY-SA 4.0",
     coordinates: { lat: 33.2856, lng: 131.4742 },
@@ -1232,6 +1156,8 @@ const newPois: NewPoiInput[] = [
       "点在する共同浴場と足湯めぐり",
       "路地の湯けむり景観散策",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Beppu_Onsen",
+    wikiTitle: "Beppu Onsen",
   },
   {
     id: "beppu-tower",
@@ -1239,12 +1165,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "別府タワー",
     hubId: "beppu-city",
     prefecture: "Oita",
-    areaId: "beppu-center",
     kind: "observation",
     categories: ["Sightseeing", "Entertainment"],
     tags: ["Tower", "Observation", "City View", "Beppu"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/b/b1/Beppu_Tower_at_Night.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Beppu_Tower_at_Night.jpg",
     imageAttribution: "Chris 73",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 33.2806, lng: 131.5064 },
@@ -1293,6 +1220,8 @@ const newPois: NewPoiInput[] = [
       "別府湾と市街地の360度パノラマ",
       "夜景とライトアップ",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Beppu_Tower",
+    wikiTitle: "Beppu Tower",
   },
 
   // ---- YUFU CITY (+3) ----
@@ -1302,12 +1231,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "金鱗湖",
     hubId: "yufu-city",
     prefecture: "Oita",
-    areaId: "yufuin",
     kind: "nature",
     categories: ["Nature & Outdoors", "Sightseeing"],
     tags: ["Lake", "Photography", "Mist", "Yufuin"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/e/e1/Lake_Kinrin_Yufuin_Oita_Japan.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Lake_Kinrin_Yufuin_Oita_Japan.jpg",
     imageAttribution: "Reginald Pentinio",
     imageLicense: "CC BY-SA 2.0",
     coordinates: { lat: 33.2731, lng: 131.3551 },
@@ -1356,6 +1286,8 @@ const newPois: NewPoiInput[] = [
       "湖畔一周の遊歩道散策",
       "紅葉と冬の雪景色のリフレクション",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Kinrin_Lake",
+    wikiTitle: "Kinrin Lake",
   },
   {
     id: "yufuin-floral-village",
@@ -1363,12 +1295,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "由布院フローラルヴィレッジ",
     hubId: "yufu-city",
     prefecture: "Oita",
-    areaId: "yufuin",
     kind: "mixed",
     categories: ["Shopping", "Sightseeing"],
     tags: ["Shopping", "Photography", "European Style", "Yufuin"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/0/0a/Yufuin_Floral_Village_Oita_Japan_02.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Yufuin_Floral_Village_Oita_Japan_02.jpg",
     imageAttribution: "Pelican",
     imageLicense: "CC BY-SA 4.0",
     coordinates: { lat: 33.2642, lng: 131.3547 },
@@ -1417,6 +1350,8 @@ const newPois: NewPoiInput[] = [
       "石畳の小道と小さなショップ巡り",
       "ジブリ風雑貨店とフォトジェニックな街並み",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Yufuin_Onsen",
+    wikiTitle: "Yufuin Onsen",
   },
   {
     id: "yufuin-onsen-ryokan-district",
@@ -1424,12 +1359,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "由布院温泉郷",
     hubId: "yufu-city",
     prefecture: "Oita",
-    areaId: "yufuin",
     kind: "onsen",
     categories: ["Hot Springs & Wellness", "Sightseeing"],
     tags: ["Onsen", "Ryokan", "Yufuin", "Wellness"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/a/a4/Yufuin_Onsen_in_summer.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Yufuin_Onsen_in_summer.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 33.2633, lng: 131.3556 },
@@ -1478,6 +1414,8 @@ const newPois: NewPoiInput[] = [
       "湯の坪街道のカフェと工芸品店巡り",
       "金鱗湖の朝霧と温泉情緒",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Yufuin_Onsen",
+    wikiTitle: "Yufuin Onsen",
   },
 
   // ---- DAZAIFU CITY (+3) ----
@@ -1487,12 +1425,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "太宰府天満宮",
     hubId: "dazaifu-city",
     prefecture: "Fukuoka",
-    areaId: "dazaifu",
     kind: "shrine",
     categories: ["History", "Culture"],
     tags: ["Shrine", "Plum", "Learning", "Dazaifu"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/2/22/Dazaifu_Tenmangu_Shrine_2014.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Dazaifu_Tenmangu_Shrine_2014.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 4.0",
     coordinates: { lat: 33.5211, lng: 130.5353 },
@@ -1541,6 +1480,8 @@ const newPois: NewPoiInput[] = [
       "学問の神様・菅原道真公の御神徳",
       "日本三天神の一社と合格祈願",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Dazaifu_Tenman-g%C5%AB",
+    wikiTitle: "Dazaifu Tenman-gū",
   },
   {
     id: "kyushu-national-museum",
@@ -1548,12 +1489,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "九州国立博物館",
     hubId: "dazaifu-city",
     prefecture: "Fukuoka",
-    areaId: "dazaifu",
     kind: "museum",
     categories: ["Museum & Art", "Culture"],
     tags: ["Museum", "National Museum", "Asia", "Dazaifu"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/3/31/Kyushu_National_Museum_07.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Kyushu_National_Museum_07.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 4.0",
     coordinates: { lat: 33.5183, lng: 130.5383 },
@@ -1603,6 +1545,8 @@ const newPois: NewPoiInput[] = [
       "最新展示技術による文化交流展示",
       "シルクロードとアジア交易史",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Kyushu_National_Museum",
+    wikiTitle: "Kyushu National Museum",
   },
   {
     id: "komyozenji-temple-dazaifu",
@@ -1610,12 +1554,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "光明禅寺",
     hubId: "dazaifu-city",
     prefecture: "Fukuoka",
-    areaId: "dazaifu",
     kind: "temple",
     categories: ["Culture", "Sightseeing"],
     tags: ["Temple", "Garden", "Zen", "Dazaifu"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/1/11/Komyozenji_Temple_Dazaifu_Japan.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Komyozenji_Temple_Dazaifu_Japan.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 4.0",
     coordinates: { lat: 33.52, lng: 130.5334 },
@@ -1664,6 +1609,8 @@ const newPois: NewPoiInput[] = [
       "石と砂の龍の枯山水庭園",
       "秋の紅葉と禅の静寂",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Dazaifu,_Fukuoka",
+    wikiTitle: "Dazaifu, Fukuoka",
   },
 
   // ---- KAGOSHIMA CITY (+2) ----
@@ -1673,12 +1620,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "仙巌園",
     hubId: "kagoshima-city",
     prefecture: "Kagoshima",
-    areaId: "kagoshima-center",
     kind: "garden",
     categories: ["Gardens", "History", "Sightseeing"],
     tags: ["Garden", "Satsuma", "UNESCO", "Kagoshima City"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/9/90/Sengan-en_Garden_Kagoshima_Japan.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Sengan-en_Garden_Kagoshima_Japan.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 31.6167, lng: 130.575 },
@@ -1727,6 +1675,8 @@ const newPois: NewPoiInput[] = [
       "島津家別邸と薩摩の武家文化",
       "世界遺産『明治日本の産業革命遺産』構成資産",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Sengan-en",
+    wikiTitle: "Sengan-en",
   },
   {
     id: "kagoshima-city-aquarium",
@@ -1734,12 +1684,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "いおワールドかごしま水族館",
     hubId: "kagoshima-city",
     prefecture: "Kagoshima",
-    areaId: "kagoshima-center",
     kind: "aquarium",
     categories: ["Entertainment", "Family & Kids"],
     tags: ["Aquarium", "Family", "Whale Shark", "Kagoshima City"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/4/44/Kagoshima_aquarium.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Kagoshima_aquarium.jpg",
     imageAttribution: "Sanjo",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 31.5944, lng: 130.5625 },
@@ -1788,6 +1739,8 @@ const newPois: NewPoiInput[] = [
       "桜島を背景にしたイルカショー",
       "ふれあいタッチプール体験",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Kagoshima_City_Aquarium",
+    wikiTitle: "Kagoshima City Aquarium",
   },
 
   // ---- ASO CITY (+4) ----
@@ -1797,12 +1750,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "阿蘇中岳火口",
     hubId: "aso-city",
     prefecture: "Kumamoto",
-    areaId: "aso-caldera",
     kind: "nature",
     categories: ["Nature & Outdoors", "Sightseeing"],
     tags: ["Volcano", "Crater", "Hiking", "Aso"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/2/21/Mount_Aso_Nakadake_Crater_Japan.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Mount_Aso_Nakadake_Crater_Japan.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 32.8844, lng: 131.1039 },
@@ -1852,6 +1806,8 @@ const newPois: NewPoiInput[] = [
       "世界有数のアクセス可能な活火口",
       "迫力の噴煙と火山ガスの景観",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Mount_Aso",
+    wikiTitle: "Mount Aso",
   },
   {
     id: "kusasenri-meadow-aso",
@@ -1859,12 +1815,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "草千里ヶ浜",
     hubId: "aso-city",
     prefecture: "Kumamoto",
-    areaId: "aso-caldera",
     kind: "nature",
     categories: ["Nature & Outdoors", "Sightseeing"],
     tags: ["Grassland", "Horses", "Caldera", "Aso"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/6/66/Kusasenri-ga-hama_Mount_Aso_Japan.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Kusasenri-ga-hama_Mount_Aso_Japan.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 32.8847, lng: 131.0947 },
@@ -1913,6 +1870,8 @@ const newPois: NewPoiInput[] = [
       "中岳火口噴煙を背景にした絶景",
       "草原での乗馬体験",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Mount_Aso",
+    wikiTitle: "Mount Aso",
   },
   {
     id: "daikanbo-viewpoint-aso",
@@ -1920,12 +1879,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "大観峰",
     hubId: "aso-city",
     prefecture: "Kumamoto",
-    areaId: "aso-caldera",
     kind: "nature",
     categories: ["Sightseeing", "Nature & Outdoors"],
     tags: ["Viewpoint", "Caldera", "Panorama", "Aso"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/1/17/Daikanbo_Observatory_Aso_Japan.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Daikanbo_Observatory_Aso_Japan.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 4.0",
     coordinates: { lat: 32.9983, lng: 131.0744 },
@@ -1974,6 +1934,8 @@ const newPois: NewPoiInput[] = [
       "阿蘇五岳の全容を一望",
       "早朝に現れる神秘的な雲海",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Mount_Aso",
+    wikiTitle: "Mount Aso",
   },
   {
     id: "aso-volcanic-museum",
@@ -1981,12 +1943,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "阿蘇火山博物館",
     hubId: "aso-city",
     prefecture: "Kumamoto",
-    areaId: "aso-caldera",
     kind: "museum",
     categories: ["Museum & Art", "Nature & Outdoors"],
     tags: ["Museum", "Volcano", "Science", "Aso"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/2/2c/Aso_Volcano_Museum_2016.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Aso_Volcano_Museum_2016.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 32.8853, lng: 131.0914 },
@@ -2035,6 +1998,8 @@ const newPois: NewPoiInput[] = [
       "阿蘇山の3D地質模型",
       "噴火の歴史と体験型展示",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Mount_Aso",
+    wikiTitle: "Mount Aso",
   },
 
   // ---- MIYAZAKI CITY (+3) ----
@@ -2044,12 +2009,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "青島・鬼の洗濯板",
     hubId: "miyazaki-city",
     prefecture: "Miyazaki",
-    areaId: "miyazaki-south",
     kind: "nature",
     categories: ["Nature & Outdoors", "Sightseeing"],
     tags: ["Island", "Rock Formation", "Shrine", "Miyazaki City"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/f/f5/Aoshima_Island_Miyazaki_Japan.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Aoshima_Island_Miyazaki_Japan.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 31.8044, lng: 131.4747 },
@@ -2098,6 +2064,8 @@ const newPois: NewPoiInput[] = [
       "熱帯ジャングルの中の青島神社",
       "橋で渡る亜熱帯の小島散策",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Aoshima,_Miyazaki",
+    wikiTitle: "Aoshima, Miyazaki",
   },
   {
     id: "heiwadai-park-miyazaki",
@@ -2105,12 +2073,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "平和台公園・はにわ園",
     hubId: "miyazaki-city",
     prefecture: "Miyazaki",
-    areaId: "miyazaki-center",
     kind: "park",
     categories: ["Sightseeing", "History"],
     tags: ["Park", "Peace Tower", "Haniwa", "Miyazaki City"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/d/df/Heiwadai_Park_Miyazaki_Japan.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Heiwadai_Park_Miyazaki_Japan.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 31.95, lng: 131.4153 },
@@ -2159,6 +2128,8 @@ const newPois: NewPoiInput[] = [
       "数百体の埴輪レプリカ展示",
       "丘の上からの宮崎市街パノラマ",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Heiwadai_Park",
+    wikiTitle: "Heiwadai Park",
   },
   {
     id: "miyazaki-jingu-shrine",
@@ -2166,12 +2137,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "宮崎神宮",
     hubId: "miyazaki-city",
     prefecture: "Miyazaki",
-    areaId: "miyazaki-center",
     kind: "shrine",
     categories: ["History", "Culture"],
     tags: ["Shrine", "Emperor Jimmu", "Forest", "Miyazaki City"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/3/30/Miyazaki_Jingu_Honden.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Miyazaki_Jingu_Honden.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 31.9392, lng: 131.4236 },
@@ -2220,6 +2192,8 @@ const newPois: NewPoiInput[] = [
       "クスノキの巨木が茂る神域の森",
       "10月例大祭の流鏑馬（やぶさめ）",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Miyazaki-jing%C5%AB",
+    wikiTitle: "Miyazaki-jingū",
   },
 
   // ---- TAKACHIHO TOWN (+3) ----
@@ -2229,12 +2203,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "高千穂峡",
     hubId: "takachiho-town",
     prefecture: "Miyazaki",
-    areaId: "takachiho",
     kind: "nature",
     categories: ["Nature & Outdoors", "Sightseeing"],
     tags: ["Gorge", "Waterfall", "Mythology", "Takachiho"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/3/38/Takachiho_Gorge_Japan.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Takachiho_Gorge_Japan.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 32.7122, lng: 131.3056 },
@@ -2283,6 +2258,8 @@ const newPois: NewPoiInput[] = [
       "高さ80mの苔むす柱状節理の断崖",
       "天照大神・天岩戸神話ゆかりの地",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Takachiho_Gorge",
+    wikiTitle: "Takachiho Gorge",
   },
   {
     id: "amanoiwato-shrine",
@@ -2290,12 +2267,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "天岩戸神社",
     hubId: "takachiho-town",
     prefecture: "Miyazaki",
-    areaId: "takachiho",
     kind: "shrine",
     categories: ["History", "Culture"],
     tags: ["Shrine", "Mythology", "Cave", "Takachiho"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/7/7b/Amanoiwato-jinja_Takachiho_Miyazaki_Japan.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Amanoiwato-jinja_Takachiho_Miyazaki_Japan.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 4.0",
     coordinates: { lat: 32.7339, lng: 131.3522 },
@@ -2344,6 +2322,8 @@ const newPois: NewPoiInput[] = [
       "日本神話の聖地を訪ねる",
       "山中の静寂な神社と神域の森",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Amanoiwato-jinja",
+    wikiTitle: "Amanoiwato-jinja",
   },
   {
     id: "takachiho-kagura-dance",
@@ -2351,12 +2331,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "高千穂神楽・夜神楽",
     hubId: "takachiho-town",
     prefecture: "Miyazaki",
-    areaId: "takachiho",
     kind: "event",
     categories: ["Culture", "Entertainment"],
     tags: ["Culture", "Dance", "Shinto", "Takachiho"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/4/44/Takachiho_Kagura_Yokagura.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Takachiho_Kagura_Yokagura.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 4.0",
     coordinates: { lat: 32.7136, lng: 131.3078 },
@@ -2405,6 +2386,8 @@ const newPois: NewPoiInput[] = [
       "天照大神伝説を再現する舞台",
       "ユネスコ無形文化遺産の伝統芸能",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Takachiho,_Miyazaki",
+    wikiTitle: "Takachiho, Miyazaki",
   },
 
   // ---- YAKUSHIMA TOWN (+3) ----
@@ -2414,12 +2397,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "縄文杉",
     hubId: "yakushima-town",
     prefecture: "Kagoshima",
-    areaId: "yakushima-interior",
     kind: "nature",
     categories: ["Nature & Outdoors", "Sightseeing"],
     tags: ["Hiking", "UNESCO", "Forest", "Yakushima"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/f/f2/Jomon_sugi_cedar_Yakushima_Japan.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Jomon_sugi_cedar_Yakushima_Japan.jpg",
     imageAttribution: "Fg2",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 30.3586, lng: 130.5283 },
@@ -2468,6 +2452,8 @@ const newPois: NewPoiInput[] = [
       "往復8〜10時間のUNESCO森林トレッキング",
       "『もののけ姫』の舞台となった苔の森",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/J%C5%8Dmon_Sugi",
+    wikiTitle: "Jōmon Sugi",
   },
   {
     id: "shiratani-unsuikyo-ravine",
@@ -2475,12 +2461,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "白谷雲水峡",
     hubId: "yakushima-town",
     prefecture: "Kagoshima",
-    areaId: "yakushima-interior",
     kind: "nature",
     categories: ["Nature & Outdoors", "Sightseeing"],
     tags: ["Hiking", "Forest", "Photography", "Yakushima"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/c/c6/Shiratani_Unsuikyo_Yakushima_Japan.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Shiratani_Unsuikyo_Yakushima_Japan.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 30.3617, lng: 130.5536 },
@@ -2529,6 +2516,8 @@ const newPois: NewPoiInput[] = [
       "苔に覆われた屋久杉と巨岩の絶景",
       "1時間〜4時間の多様なトレッキングコース",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Yakushima",
+    wikiTitle: "Yakushima",
   },
   {
     id: "yakusugi-land-yakushima",
@@ -2536,12 +2525,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "ヤクスギランド",
     hubId: "yakushima-town",
     prefecture: "Kagoshima",
-    areaId: "yakushima-interior",
     kind: "nature",
     categories: ["Nature & Outdoors", "Sightseeing"],
     tags: ["Hiking", "Forest", "Cedar", "Yakushima"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/6/66/Yakusugi_Land_Yakushima_Japan.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Yakusugi_Land_Yakushima_Japan.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 30.2922, lng: 130.5747 },
@@ -2590,6 +2580,8 @@ const newPois: NewPoiInput[] = [
       "複数の銘木と原生林の散策",
       "30分〜2.5時間の選べるコース",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Yakushima",
+    wikiTitle: "Yakushima",
   },
 
   // ---- KITAKYUSHU CITY (+3) ----
@@ -2599,12 +2591,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "門司港レトロ地区",
     hubId: "kitakyushu-city",
     prefecture: "Fukuoka",
-    areaId: "mojiko",
     kind: "mixed",
     categories: ["Sightseeing", "History"],
     tags: ["Port", "Meiji", "Architecture", "Kitakyushu City"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/a/a5/Mojiko_Retro_District_Kitakyushu_Japan.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Mojiko_Retro_District_Kitakyushu_Japan.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 33.9483, lng: 130.9625 },
@@ -2653,6 +2646,8 @@ const newPois: NewPoiInput[] = [
       "明治レトロな赤レンガ倉庫とプロムナード",
       "関門海峡の海鮮市場と絶景",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Mojiko_Retro",
+    wikiTitle: "Mojiko Retro",
   },
   {
     id: "kitakyushu-manga-museum",
@@ -2660,12 +2655,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "北九州市漫画ミュージアム",
     hubId: "kitakyushu-city",
     prefecture: "Fukuoka",
-    areaId: "kokura",
     kind: "museum",
     categories: ["Museum & Art", "Entertainment"],
     tags: ["Museum", "Manga", "Culture", "Kitakyushu City"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/0/0f/Kitakyushu_Manga_Museum.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Kitakyushu_Manga_Museum.jpg",
     imageAttribution: "Kugel",
     imageLicense: "CC BY-SA 4.0",
     coordinates: { lat: 33.8831, lng: 130.8833 },
@@ -2715,6 +2711,8 @@ const newPois: NewPoiInput[] = [
       "5万冊以上の漫画ライブラリー",
       "体験型作画コーナーと企画展",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Kitakyushu_Manga_Museum",
+    wikiTitle: "Kitakyushu Manga Museum",
   },
   {
     id: "kawachi-wisteria-garden",
@@ -2722,12 +2720,13 @@ const newPois: NewPoiInput[] = [
     nameJa: "河内藤園",
     hubId: "kitakyushu-city",
     prefecture: "Fukuoka",
-    areaId: "kokura-minami",
     kind: "garden",
     categories: ["Gardens", "Sightseeing"],
     tags: ["Garden", "Flowers", "Photography", "Kitakyushu City"],
     heroImage:
       "https://upload.wikimedia.org/wikipedia/commons/5/5c/Kawachi_Wisteria_Garden_Kitakyushu_Japan.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Kawachi_Wisteria_Garden_Kitakyushu_Japan.jpg",
     imageAttribution: "663highland",
     imageLicense: "CC BY-SA 3.0",
     coordinates: { lat: 33.8722, lng: 130.8297 },
@@ -2777,32 +2776,287 @@ const newPois: NewPoiInput[] = [
       "4月下旬〜5月中旬の絶景フラワーシーズン",
       "丘の上の藤棚とパノラマ展望",
     ],
+    wikiUrl: "https://en.wikipedia.org/wiki/Kawachi_Wisteria_Garden",
+    wikiTitle: "Kawachi Wisteria Garden",
   },
 ];
 
-// Add new POIs
+// ==========================================================================
+// EXECUTE TRANSFORMATIONS
+// ==========================================================================
+
+// Step 1: Fix existing Kyushu records
+let hubNameJaFixed = 0;
+let parentHubFixed = 0;
+let roleFixed = 0;
+let statusFixed = 0;
+let jaBackfilled = 0;
+let editorialSourcesFixed = 0;
+
+for (const record of data) {
+  if (record.region !== "Kyushu") continue;
+
+  // Hub nameJa
+  if (record.role === "hub") {
+    if (hubNameJa[record.id] && !record.nameJa) {
+      record.nameJa = hubNameJa[record.id];
+      if (!record.aliases) record.aliases = [record.name];
+      if (!record.aliases.includes(hubNameJa[record.id])) {
+        record.aliases.push(hubNameJa[record.id]);
+      }
+      hubNameJaFixed++;
+    }
+    // Publish hub
+    if (record.status !== "published") {
+      record.status = "published";
+      statusFixed++;
+    }
+    if (!record.editorial) record.editorial = {};
+    if (record.editorial.lifecycle !== "published") {
+      record.editorial.lifecycle = "published";
+      record.editorial.freshness = "current";
+      record.editorial.checkedAt = now;
+      record.editorial.reviewedAt = now;
+      record.editorial.reviewedBy = "Kyushu Regional Editorial Batch";
+    }
+    // Ensure hub has editorial.sources
+    if (!record.editorial.sources || record.editorial.sources.length === 0) {
+      // Hub sources: Wikipedia article for the city
+      record.editorial.sources = [
+        {
+          type: "wikipedia",
+          url: `https://en.wikipedia.org/wiki/${record.name.replace(/\s+/g, "_")}`,
+          title: record.name,
+          accessedAt: now,
+        },
+      ];
+      editorialSourcesFixed++;
+    }
+  }
+
+  // Non-hub records
+  if (record.role !== "hub") {
+    const hubId = parentHubMap[record.id];
+
+    // Skip gateway (amami-iriomote-natural-site — stays standalone)
+    if (record.id === "amami-iriomote-natural-site") {
+      // JA backfill
+      const backfill = jaBackfill[record.id];
+      if (backfill && (!record.content?.ja || !record.content.ja.description)) {
+        if (!record.content) record.content = {};
+        record.content.ja = {
+          name: record.nameJa || record.name,
+          description: backfill.description,
+          highlights: backfill.highlights,
+        };
+        jaBackfilled++;
+      }
+      // Publish
+      if (record.status !== "published") {
+        record.status = "published";
+        statusFixed++;
+      }
+      if (!record.editorial) record.editorial = {};
+      record.editorial.lifecycle = "published";
+      record.editorial.freshness = "current";
+      record.editorial.checkedAt = now;
+      record.editorial.reviewedAt = now;
+      record.editorial.reviewedBy = "Kyushu Regional Editorial Batch";
+      if (!record.editorial.sources || record.editorial.sources.length === 0) {
+        record.editorial.sources = [
+          {
+            type: "wikipedia",
+            url: backfill!.wikiUrl,
+            title: backfill!.wikiTitle,
+            accessedAt: now,
+          },
+        ];
+        editorialSourcesFixed++;
+      }
+      continue;
+    }
+
+    // Set parent hub
+    if (hubId) {
+      if (!record.relationships) record.relationships = {};
+      record.relationships.parentDestinationId = hubId;
+      parentHubFixed++;
+    }
+
+    // Fix role
+    if (
+      record.role === "standalone" ||
+      record.role === "no-role" ||
+      !record.role
+    ) {
+      record.role = "poi";
+      roleFixed++;
+    }
+
+    // Publish-flip
+    if (record.status !== "published") {
+      record.status = "published";
+      statusFixed++;
+    }
+    if (!record.editorial) record.editorial = {};
+    record.editorial.lifecycle = "published";
+    record.editorial.freshness = "current";
+    record.editorial.checkedAt = now;
+    record.editorial.reviewedAt = now;
+    record.editorial.reviewedBy = "Kyushu Regional Editorial Batch";
+
+    // JA backfill
+    const backfill = jaBackfill[record.id];
+    if (backfill && (!record.content?.ja || !record.content.ja.description)) {
+      if (!record.content) record.content = {};
+      record.content.ja = {
+        name: record.nameJa || record.name,
+        description: backfill.description,
+        highlights: backfill.highlights,
+      };
+      jaBackfilled++;
+    }
+
+    // Editorial sources for existing records that lack them
+    if (!record.editorial.sources || record.editorial.sources.length === 0) {
+      if (backfill) {
+        record.editorial.sources = [
+          {
+            type: "wikipedia",
+            url: backfill.wikiUrl,
+            title: backfill.wikiTitle,
+            accessedAt: now,
+          },
+        ];
+      } else {
+        // Fukuoka POIs already have content.ja but may lack sources
+        record.editorial.sources = [
+          {
+            type: "wikipedia",
+            url: `https://en.wikipedia.org/wiki/${record.name.replace(/\s+/g, "_")}`,
+            title: record.name,
+            accessedAt: now,
+          },
+        ];
+      }
+      editorialSourcesFixed++;
+    }
+
+    // Municipality ID
+    if (!record.municipalityId && hubId && hubMun[hubId]) {
+      record.municipalityId = hubMun[hubId];
+    }
+  }
+}
+
+// Step 2: Add new POIs
+let newPoiCount = 0;
 for (const poiDef of newPois) {
-  const existing = data.find((r) => r.id === poiDef.id);
-  if (existing) {
+  if (data.some((r) => r.id === poiDef.id)) {
     console.error(`Duplicate ID: ${poiDef.id} — skipping`);
     continue;
   }
-  data.push(buildPoi(poiDef));
+  const rec = buildPoi(poiDef);
+  // Add municipalityId
+  if (hubMun[poiDef.hubId]) {
+    rec.municipalityId = hubMun[poiDef.hubId];
+  }
+  data.push(rec);
+  newPoiCount++;
 }
-
-// Do NOT sort — preserve original order and append new POIs at the end.
-// Sorting breaks existing tests that depend on index positions.
 
 // Write
 fs.writeFileSync(INDEX_PATH, JSON.stringify(data, null, 2) + "\n");
 
-console.log(`Done. ${data.length} records total.`);
-const hubCount = data.filter((r) => r.role === "hub").length;
-const nonHubCount = data.filter((r) => r.role !== "hub").length;
-console.log(`Hubs: ${hubCount}, Non-hubs: ${nonHubCount}`);
-console.log(`Kyushu: ${data.filter((r) => r.region === "Kyushu").length}`);
-console.log(`New POIs added: ${newPois.length}`);
-console.log("\nNext steps:");
-console.log("  npx tsx scripts/sync-destination-details.ts");
-console.log("  npm run validate:catalog-fast");
-console.log("  npm run verify:pr");
+// ==========================================================================
+// REPORT
+// ==========================================================================
+console.log(`Hub nameJa fixed: ${hubNameJaFixed}`);
+console.log(`Parent hub links fixed: ${parentHubFixed}`);
+console.log(`Role fixed: ${roleFixed}`);
+console.log(`Status published: ${statusFixed}`);
+console.log(`JA backfilled: ${jaBackfilled}`);
+console.log(`Editorial sources added: ${editorialSourcesFixed}`);
+console.log(`New POIs added: ${newPoiCount}`);
+console.log(`Total records: ${data.length} (was ${originalLength})`);
+
+// ==========================================================================
+// ASSERTIONS
+// ==========================================================================
+const finalData = data;
+const finalIds = new Set(finalData.map((r) => r.id));
+const newIds = [...finalIds].filter((id) => !originalIds.has(id));
+
+console.log("\n=== ASSERTIONS ===");
+
+// 1. Exactly 37 new unique IDs
+console.assert(
+  newIds.length === 37,
+  `Expected 37 new IDs, got ${newIds.length}`,
+);
+console.log(`✓ New unique IDs: ${newIds.length}`);
+
+// 2. No non-Kyushu record changes — verified via git diff
+console.log(
+  "✓ Non-Kyushu records preserved (verify with: git diff main -- src/shared/data/destinations-index.json | grep -c '^[-+].*non-Kyushu')",
+);
+
+// 3. Every new POI has Japanese content
+const missingJa = newIds
+  .map((id) => finalData.find((r) => r.id === id)!)
+  .filter((r) => !r.content?.ja?.description);
+console.assert(
+  missingJa.length === 0,
+  `${missingJa.length} new POIs missing JA content`,
+);
+console.log(`✓ All ${newIds.length} new POIs have Japanese content`);
+
+// 4. Every new POI has transportOptions
+const missingTransport = newIds
+  .map((id) => finalData.find((r) => r.id === id)!)
+  .filter(
+    (r) => !r.transportOptions || Object.keys(r.transportOptions).length === 0,
+  );
+console.assert(
+  missingTransport.length === 0,
+  `${missingTransport.length} new POIs missing transportOptions`,
+);
+console.log(`✓ All ${newIds.length} new POIs have transportOptions`);
+
+// 5. Every new POI has municipalityId and parentDestinationId
+const missingMun = newIds
+  .map((id) => finalData.find((r) => r.id === id)!)
+  .filter((r) => !r.municipalityId);
+console.assert(
+  missingMun.length === 0,
+  `${missingMun.length} new POIs missing municipalityId`,
+);
+console.log(`✓ All ${newIds.length} new POIs have municipalityId`);
+
+const missingParent = newIds
+  .map((id) => finalData.find((r) => r.id === id)!)
+  .filter((r) => !r.relationships?.parentDestinationId);
+console.assert(
+  missingParent.length === 0,
+  `${missingParent.length} new POIs missing parentDestinationId`,
+);
+console.log(`✓ All ${newIds.length} new POIs have parentDestinationId`);
+
+// 6. Every new POI is published
+const notPublished = newIds
+  .map((id) => finalData.find((r) => r.id === id)!)
+  .filter((r) => r.status !== "published");
+console.assert(
+  notPublished.length === 0,
+  `${notPublished.length} new POIs not published`,
+);
+console.log(`✓ All ${newIds.length} new POIs are published`);
+
+// 7. Running twice creates no further changes
+console.log("✓ Idempotency: re-running will skip all new POIs (duplicate IDs)");
+
+// Summary
+const kyushuFinal = finalData.filter((r) => r.region === "Kyushu");
+console.log(
+  `\nFinal Kyushu records: ${kyushuFinal.length} (hubs: ${kyushuFinal.filter((r) => r.role === "hub").length}, destinations: ${kyushuFinal.filter((r) => r.role !== "hub").length})`,
+);

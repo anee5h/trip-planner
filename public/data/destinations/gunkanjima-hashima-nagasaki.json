@@ -117,21 +117,11 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Sites_of_Japan’s_Meiji_Industrial_Revolution_(Gunkanjima)",
-        "title": "Sites of Japan’s Meiji Industrial Revolution (Gunkanjima)",
-        "accessedAt": "2026-08-08"
+        "url": "https://en.wikipedia.org/wiki/Hashima_Island",
+        "title": "Hashima Island",
+        "accessedAt": "2026-08-04"
       }
-    ],
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Hashima_Nagasaki_Japan.jpg/960px-Hashima_Nagasaki_Japan.jpg",
-          "title": "Sites of Japan’s Meiji Industrial Revolution (Gunkanjima)",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    ]
   },
   "content": {
     "ja": {

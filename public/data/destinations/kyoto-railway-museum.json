@@ -128,17 +128,7 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-07-29",
-    "freshness": "review_due",
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kyoto%20Railway%20Museum%2C%20enkei.jpg?width=1600",
-          "title": "Kyoto Railway Museum",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    "freshness": "review_due"
   },
   "ratingMetadata": {
     "rubricVersion": 1,

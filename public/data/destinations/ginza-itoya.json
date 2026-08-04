@@ -144,17 +144,7 @@
       }
     ],
     "reviewedAt": "2026-08-02",
-    "reviewedBy": "Meguruto Editorial Reviewer",
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Stationer_by_KuniakiIGARASHI_in_Ginza%2C_Tokyo.jpg",
-          "title": "Ginza Itoya",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    "reviewedBy": "Meguruto Editorial Reviewer"
   },
   "ratingMetadata": {
     "rubricVersion": 1,

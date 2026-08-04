@@ -136,17 +136,7 @@
       }
     ],
     "reviewedAt": "2026-08-02",
-    "reviewedBy": "Meguruto Editorial Reviewer",
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Mogusaen_st.jpg",
-          "title": "Keio Mogusaen",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    "reviewedBy": "Meguruto Editorial Reviewer"
   },
   "ratingMetadata": {
     "rubricVersion": 1,

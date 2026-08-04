@@ -46,7 +46,7 @@
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 3.0",
     "attribution": "663highland",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Dejima_2010.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dejima_2010.jpg"
   },
   "coordinates": {
     "lat": 32.7435,
@@ -135,24 +135,6 @@
     "checkedAt": "2026-08-04",
     "freshness": "current",
     "changeSummary": "PR 12C Kyushu Regional Expansion",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Dejima_2010.jpg",
-          "title": "Editorial scoring from source-backed attributes",
-          "accessedAt": "2026-08-04"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Dejima_2010.jpg",
-          "title": "Dejima",
-          "accessedAt": "2026-08-04"
-        }
-      ]
-    },
     "changes": [
       {
         "changedAt": "2026-08-04",

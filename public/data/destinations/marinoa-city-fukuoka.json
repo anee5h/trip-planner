@@ -49,7 +49,7 @@
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 3.0",
     "attribution": "Ominae",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/4/48/Marinoa_City_Fukuoka_2012_01.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marinoa_City_Fukuoka_2012_01.jpg"
   },
   "coordinates": {
     "lat": 33.5972,
@@ -130,32 +130,14 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Marinoa_City_Outlet_&_Ferris_Wheel",
-        "title": "Marinoa City Outlet & Ferris Wheel",
+        "url": "https://en.wikipedia.org/wiki/Marinoa_City_Fukuoka",
+        "title": "Marinoa City Fukuoka",
         "accessedAt": "2026-08-04"
       }
     ],
     "checkedAt": "2026-08-04",
     "freshness": "current",
     "changeSummary": "PR 12C Kyushu Regional Expansion",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Marinoa_City_Fukuoka_2012_01.jpg",
-          "title": "Editorial scoring from source-backed attributes",
-          "accessedAt": "2026-08-04"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Marinoa_City_Fukuoka_2012_01.jpg",
-          "title": "Marinoa City Outlet & Ferris Wheel",
-          "accessedAt": "2026-08-04"
-        }
-      ]
-    },
     "changes": [
       {
         "changedAt": "2026-08-04",

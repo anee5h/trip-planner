@@ -120,17 +120,7 @@
     "sources": ["editorial-review-2026"],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current",
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/170811_Rokko-Arima_Ropeway_Kobe_Japan00n.jpg",
-          "title": "Arima Onsen",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    "freshness": "current"
   },
   "notesJa": "【見どころ】有馬温泉は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",

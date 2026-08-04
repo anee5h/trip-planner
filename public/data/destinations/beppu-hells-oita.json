@@ -101,21 +101,11 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Beppu_Hells_(Jigoku_Meguri)",
-        "title": "Beppu Hells (Jigoku Meguri)",
-        "accessedAt": "2026-08-08"
+        "url": "https://en.wikipedia.org/wiki/Hells_of_Beppu",
+        "title": "Hells of Beppu",
+        "accessedAt": "2026-08-04"
       }
-    ],
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/180131_Umi-Jigoku.jpg/1920px-180131_Umi-Jigoku.jpg",
-          "title": "Beppu Hells (Jigoku Meguri)",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    ]
   },
   "content": {
     "ja": {

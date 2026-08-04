@@ -130,17 +130,7 @@
       }
     ],
     "reviewedAt": "2026-08-02",
-    "reviewedBy": "Meguruto Editorial Reviewer",
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Victoria_Daily_Times_%281914-03-31%29_%28IA_victoriadailytimes19140331%29.pdf/page1-1920px-Victoria_Daily_Times_%281914-03-31%29_%28IA_victoriadailytimes19140331%29.pdf.jpg",
-          "title": "Ome Retro Town",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    "reviewedBy": "Meguruto Editorial Reviewer"
   },
   "ratingMetadata": {
     "rubricVersion": 1,

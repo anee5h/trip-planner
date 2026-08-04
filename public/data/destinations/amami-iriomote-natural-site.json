@@ -128,20 +128,10 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Amami-Oshima,_Tokunoshima,_Northern_Okinawa_&_Iriomote",
-        "title": "Amami-Oshima, Tokunoshima, Northern Okinawa & Iriomote",
-        "accessedAt": "2026-08-08"
+        "url": "https://en.wikipedia.org/wiki/Amami-%C5%8Cshima_Island,_Tokunoshima_Island,_Northern_Okinawa_Island,_and_Iriomote_Island",
+        "title": "Amami-Ōshima Island, Tokunoshima Island, Northern Okinawa Island, and Iriomote Island",
+        "accessedAt": "2026-08-04"
       }
-    ],
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/9/93/View_of_Katetsu_cove_from_nearby_Manen-zaki.jpg",
-          "title": "Amami-Oshima, Tokunoshima, Northern Okinawa & Iriomote",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    ]
   }
 }

@@ -46,7 +46,7 @@
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 3.0",
     "attribution": "663highland",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Yufuin_Onsen_in_summer.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yufuin_Onsen_in_summer.jpg"
   },
   "coordinates": {
     "lat": 33.2633,
@@ -127,32 +127,14 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Yufuin_Onsen_District",
-        "title": "Yufuin Onsen District",
+        "url": "https://en.wikipedia.org/wiki/Yufuin_Onsen",
+        "title": "Yufuin Onsen",
         "accessedAt": "2026-08-04"
       }
     ],
     "checkedAt": "2026-08-04",
     "freshness": "current",
     "changeSummary": "PR 12C Kyushu Regional Expansion",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Yufuin_Onsen_in_summer.jpg",
-          "title": "Editorial scoring from source-backed attributes",
-          "accessedAt": "2026-08-04"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Yufuin_Onsen_in_summer.jpg",
-          "title": "Yufuin Onsen District",
-          "accessedAt": "2026-08-04"
-        }
-      ]
-    },
     "changes": [
       {
         "changedAt": "2026-08-04",

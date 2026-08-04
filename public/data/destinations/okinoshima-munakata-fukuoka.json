@@ -114,21 +114,11 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Sacred_Island_of_Okinoshima_and_Associated_Sites_in_Munakata",
-        "title": "Sacred Island of Okinoshima and Associated Sites in Munakata",
-        "accessedAt": "2026-08-08"
+        "url": "https://en.wikipedia.org/wiki/Sacred_Island_of_Okinoshima_and_Associated_Sites_in_the_Munakata_Region",
+        "title": "Sacred Island of Okinoshima and Associated Sites in the Munakata Region",
+        "accessedAt": "2026-08-04"
       }
-    ],
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/%E5%AE%97%E5%83%8F%E5%A4%A7%E7%A4%BE%E6%B2%96%E6%B4%A5%E5%AE%AE.JPG/960px-%E5%AE%97%E5%83%8F%E5%A4%A7%E7%A4%BE%E6%B2%96%E6%B4%A5%E5%AE%AE.JPG",
-          "title": "Sacred Island of Okinoshima and Associated Sites in Munakata",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    ]
   },
   "content": {
     "ja": {

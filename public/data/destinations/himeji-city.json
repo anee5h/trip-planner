@@ -90,17 +90,7 @@
     "sources": ["editorial-review-2026"],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current",
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/6/67/Himeji_montage2.jpg",
-          "title": "Himeji City",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    "freshness": "current"
   },
   "notesJa": "【見どころ】Himeji Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",

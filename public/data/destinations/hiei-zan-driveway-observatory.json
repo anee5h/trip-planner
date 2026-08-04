@@ -32,17 +32,7 @@
     "sources": ["editorial-review-2026"],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current",
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Mt._Hiei-zan_from_Shiga-machi_2014.jpg",
-          "title": "Mount Hiei Driveway & Yumemi Observatory",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    "freshness": "current"
   },
   "relationships": {
     "parentDestinationId": "otsu-city"

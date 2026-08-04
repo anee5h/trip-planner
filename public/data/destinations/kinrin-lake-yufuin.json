@@ -46,7 +46,7 @@
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 2.0",
     "attribution": "Reginald Pentinio",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Lake_Kinrin_Yufuin_Oita_Japan.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Kinrin_Yufuin_Oita_Japan.jpg"
   },
   "coordinates": {
     "lat": 33.2731,
@@ -135,24 +135,6 @@
     "checkedAt": "2026-08-04",
     "freshness": "current",
     "changeSummary": "PR 12C Kyushu Regional Expansion",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Lake_Kinrin_Yufuin_Oita_Japan.jpg",
-          "title": "Editorial scoring from source-backed attributes",
-          "accessedAt": "2026-08-04"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Lake_Kinrin_Yufuin_Oita_Japan.jpg",
-          "title": "Kinrin Lake",
-          "accessedAt": "2026-08-04"
-        }
-      ]
-    },
     "changes": [
       {
         "changedAt": "2026-08-04",

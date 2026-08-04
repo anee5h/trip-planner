@@ -127,17 +127,7 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-07-29",
-    "freshness": "review_due",
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/121208%20Kobe-Nunobiki%20ropeway%20Kobe%20Hyogo%20pref%20Japan05s3.jpg?width=1600",
-          "title": "Nunobiki Ropeway",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    "freshness": "review_due"
   },
   "ratingMetadata": {
     "rubricVersion": 1,

@@ -45,7 +45,7 @@
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 3.0",
     "attribution": "663highland",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Kumamoto_Prefectural_Museum_of_Art_2014.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kumamoto_Prefectural_Museum_of_Art_2014.jpg"
   },
   "coordinates": {
     "lat": 32.8081,
@@ -126,32 +126,14 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Kumamoto_Prefectural_Art_Museum",
-        "title": "Kumamoto Prefectural Art Museum",
+        "url": "https://en.wikipedia.org/wiki/Kumamoto_Prefectural_Museum_of_Art",
+        "title": "Kumamoto Prefectural Museum of Art",
         "accessedAt": "2026-08-04"
       }
     ],
     "checkedAt": "2026-08-04",
     "freshness": "current",
     "changeSummary": "PR 12C Kyushu Regional Expansion",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Kumamoto_Prefectural_Museum_of_Art_2014.jpg",
-          "title": "Editorial scoring from source-backed attributes",
-          "accessedAt": "2026-08-04"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Kumamoto_Prefectural_Museum_of_Art_2014.jpg",
-          "title": "Kumamoto Prefectural Art Museum",
-          "accessedAt": "2026-08-04"
-        }
-      ]
-    },
     "changes": [
       {
         "changedAt": "2026-08-04",

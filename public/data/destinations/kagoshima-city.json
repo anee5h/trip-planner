@@ -97,18 +97,8 @@
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Kagoshima_City",
         "title": "Kagoshima City",
-        "accessedAt": "2026-08-08"
+        "accessedAt": "2026-08-04"
       }
-    ],
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Kagoshima_Montage.jpg",
-          "title": "Kagoshima City",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    ]
   }
 }

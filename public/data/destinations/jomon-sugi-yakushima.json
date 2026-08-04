@@ -46,7 +46,7 @@
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 3.0",
     "attribution": "Fg2",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Jomon_sugi_cedar_Yakushima_Japan.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jomon_sugi_cedar_Yakushima_Japan.jpg"
   },
   "coordinates": {
     "lat": 30.3586,
@@ -127,32 +127,14 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Jomon_Sugi_Cedar",
-        "title": "Jomon Sugi Cedar",
+        "url": "https://en.wikipedia.org/wiki/J%C5%8Dmon_Sugi",
+        "title": "Jōmon Sugi",
         "accessedAt": "2026-08-04"
       }
     ],
     "checkedAt": "2026-08-04",
     "freshness": "current",
     "changeSummary": "PR 12C Kyushu Regional Expansion",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Jomon_sugi_cedar_Yakushima_Japan.jpg",
-          "title": "Editorial scoring from source-backed attributes",
-          "accessedAt": "2026-08-04"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Jomon_sugi_cedar_Yakushima_Japan.jpg",
-          "title": "Jomon Sugi Cedar",
-          "accessedAt": "2026-08-04"
-        }
-      ]
-    },
     "changes": [
       {
         "changedAt": "2026-08-04",

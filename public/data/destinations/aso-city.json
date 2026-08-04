@@ -97,18 +97,8 @@
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Aso_City",
         "title": "Aso City",
-        "accessedAt": "2026-08-08"
+        "accessedAt": "2026-08-04"
       }
-    ],
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Mt.Aso_and_caldera01.jpg/1280px-Mt.Aso_and_caldera01.jpg",
-          "title": "Aso City",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    ]
   }
 }

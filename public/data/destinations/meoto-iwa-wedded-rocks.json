@@ -32,17 +32,7 @@
     "sources": ["editorial-review-2026"],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current",
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Futamigaura_meotoiwa01.jpg",
-          "title": "Meoto Iwa Wedded Rocks",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    "freshness": "current"
   },
   "content": {
     "en": {

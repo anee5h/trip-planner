@@ -117,17 +117,7 @@
         "type": "official"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch",
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Miyako_maipama_1.jpg",
-          "title": "Miyakojima City",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    "reviewedBy": "Okinawa Regional Editorial Batch"
   },
   "content": {
     "en": {

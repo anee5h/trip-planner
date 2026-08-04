@@ -46,7 +46,7 @@
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 3.0",
     "attribution": "663highland",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/d/df/Heiwadai_Park_Miyazaki_Japan.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Heiwadai_Park_Miyazaki_Japan.jpg"
   },
   "coordinates": {
     "lat": 31.95,
@@ -127,32 +127,14 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Heiwadai_Park_&_Haniwa_Garden",
-        "title": "Heiwadai Park & Haniwa Garden",
+        "url": "https://en.wikipedia.org/wiki/Heiwadai_Park",
+        "title": "Heiwadai Park",
         "accessedAt": "2026-08-04"
       }
     ],
     "checkedAt": "2026-08-04",
     "freshness": "current",
     "changeSummary": "PR 12C Kyushu Regional Expansion",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Heiwadai_Park_Miyazaki_Japan.jpg",
-          "title": "Editorial scoring from source-backed attributes",
-          "accessedAt": "2026-08-04"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Heiwadai_Park_Miyazaki_Japan.jpg",
-          "title": "Heiwadai Park & Haniwa Garden",
-          "accessedAt": "2026-08-04"
-        }
-      ]
-    },
     "changes": [
       {
         "changedAt": "2026-08-04",

@@ -130,17 +130,7 @@
       }
     ],
     "reviewedAt": "2026-08-02",
-    "reviewedBy": "Meguruto Editorial Reviewer",
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/4_Chome_Haramachida%2C_Machida-shi%2C_T%C5%8Dky%C5%8D-to_194-0013%2C_Japan_-_panoramio_%282%29.jpg/1920px-4_Chome_Haramachida%2C_Machida-shi%2C_T%C5%8Dky%C5%8D-to_194-0013%2C_Japan_-_panoramio_%282%29.jpg",
-          "title": "Serigaya Park",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    "reviewedBy": "Meguruto Editorial Reviewer"
   },
   "ratingMetadata": {
     "rubricVersion": 1,

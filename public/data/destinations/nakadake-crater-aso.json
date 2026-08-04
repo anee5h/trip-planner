@@ -46,7 +46,7 @@
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 3.0",
     "attribution": "663highland",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/2/21/Mount_Aso_Nakadake_Crater_Japan.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Aso_Nakadake_Crater_Japan.jpg"
   },
   "coordinates": {
     "lat": 32.8844,
@@ -127,32 +127,14 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Nakadake_Crater",
-        "title": "Nakadake Crater",
+        "url": "https://en.wikipedia.org/wiki/Mount_Aso",
+        "title": "Mount Aso",
         "accessedAt": "2026-08-04"
       }
     ],
     "checkedAt": "2026-08-04",
     "freshness": "current",
     "changeSummary": "PR 12C Kyushu Regional Expansion",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Mount_Aso_Nakadake_Crater_Japan.jpg",
-          "title": "Editorial scoring from source-backed attributes",
-          "accessedAt": "2026-08-04"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Mount_Aso_Nakadake_Crater_Japan.jpg",
-          "title": "Nakadake Crater",
-          "accessedAt": "2026-08-04"
-        }
-      ]
-    },
     "changes": [
       {
         "changedAt": "2026-08-04",

@@ -116,18 +116,8 @@
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Fukuoka_City",
         "title": "Fukuoka City",
-        "accessedAt": "2026-08-08"
+        "accessedAt": "2026-08-04"
       }
-    ],
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/7/72/Fukuoka_City_-_Montage_-_01.JPG",
-          "title": "Fukuoka City",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    ]
   }
 }

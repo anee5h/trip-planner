@@ -46,7 +46,7 @@
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
     "attribution": "663highland",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Komyozenji_Temple_Dazaifu_Japan.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Komyozenji_Temple_Dazaifu_Japan.jpg"
   },
   "coordinates": {
     "lat": 33.52,
@@ -127,32 +127,14 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Komyozenji_Temple",
-        "title": "Komyozenji Temple",
+        "url": "https://en.wikipedia.org/wiki/Dazaifu,_Fukuoka",
+        "title": "Dazaifu, Fukuoka",
         "accessedAt": "2026-08-04"
       }
     ],
     "checkedAt": "2026-08-04",
     "freshness": "current",
     "changeSummary": "PR 12C Kyushu Regional Expansion",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Komyozenji_Temple_Dazaifu_Japan.jpg",
-          "title": "Editorial scoring from source-backed attributes",
-          "accessedAt": "2026-08-04"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Komyozenji_Temple_Dazaifu_Japan.jpg",
-          "title": "Komyozenji Temple",
-          "accessedAt": "2026-08-04"
-        }
-      ]
-    },
     "changes": [
       {
         "changedAt": "2026-08-04",

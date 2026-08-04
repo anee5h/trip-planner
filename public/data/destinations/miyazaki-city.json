@@ -97,18 +97,8 @@
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Miyazaki_City",
         "title": "Miyazaki City",
-        "accessedAt": "2026-08-08"
+        "accessedAt": "2026-08-04"
       }
-    ],
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Miyazaki_Montage.jpg",
-          "title": "Miyazaki City",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    ]
   }
 }

@@ -28,7 +28,6 @@
   "kind": "mixed",
   "role": "poi",
   "placeType": "destination",
-  "areaId": "hakata",
   "relationships": {
     "parentDestinationId": "fukuoka-city"
   },
@@ -46,7 +45,7 @@
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
     "attribution": "江戸村のとくぞう",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Hakata_Station_2016.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hakata_Station_2016.jpg"
   },
   "coordinates": {
     "lat": 33.5896,
@@ -127,32 +126,14 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Hakata_Station_&_AMU_Plaza",
-        "title": "Hakata Station & AMU Plaza",
+        "url": "https://en.wikipedia.org/wiki/Hakata_Station",
+        "title": "Hakata Station",
         "accessedAt": "2026-08-04"
       }
     ],
     "checkedAt": "2026-08-04",
     "freshness": "current",
     "changeSummary": "PR 12C Kyushu Regional Expansion",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Hakata_Station_2016.jpg",
-          "title": "Editorial scoring from source-backed attributes",
-          "accessedAt": "2026-08-04"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Hakata_Station_2016.jpg",
-          "title": "Hakata Station & AMU Plaza",
-          "accessedAt": "2026-08-04"
-        }
-      ]
-    },
     "changes": [
       {
         "changedAt": "2026-08-04",

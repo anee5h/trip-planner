@@ -46,7 +46,7 @@
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
     "attribution": "663highland",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/4/44/Takachiho_Kagura_Yokagura.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Takachiho_Kagura_Yokagura.jpg"
   },
   "coordinates": {
     "lat": 32.7136,
@@ -127,32 +127,14 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Takachiho_Kagura_Night_Dance",
-        "title": "Takachiho Kagura Night Dance",
+        "url": "https://en.wikipedia.org/wiki/Takachiho,_Miyazaki",
+        "title": "Takachiho, Miyazaki",
         "accessedAt": "2026-08-04"
       }
     ],
     "checkedAt": "2026-08-04",
     "freshness": "current",
     "changeSummary": "PR 12C Kyushu Regional Expansion",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Takachiho_Kagura_Yokagura.jpg",
-          "title": "Editorial scoring from source-backed attributes",
-          "accessedAt": "2026-08-04"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Takachiho_Kagura_Yokagura.jpg",
-          "title": "Takachiho Kagura Night Dance",
-          "accessedAt": "2026-08-04"
-        }
-      ]
-    },
     "changes": [
       {
         "changedAt": "2026-08-04",

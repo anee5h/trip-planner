@@ -45,7 +45,7 @@
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 3.0",
     "attribution": "Fukuoka City Museum",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/Fukuoka_City_Museum.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fukuoka_City_Museum.jpg"
   },
   "coordinates": {
     "lat": 33.5881,
@@ -134,24 +134,6 @@
     "checkedAt": "2026-08-04",
     "freshness": "current",
     "changeSummary": "PR 12C Kyushu Regional Expansion",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Fukuoka_City_Museum.jpg",
-          "title": "Editorial scoring from source-backed attributes",
-          "accessedAt": "2026-08-04"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Fukuoka_City_Museum.jpg",
-          "title": "Fukuoka City Museum",
-          "accessedAt": "2026-08-04"
-        }
-      ]
-    },
     "changes": [
       {
         "changedAt": "2026-08-04",

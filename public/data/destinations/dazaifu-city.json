@@ -97,18 +97,8 @@
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Dazaifu_City",
         "title": "Dazaifu City",
-        "accessedAt": "2026-08-08"
+        "accessedAt": "2026-08-04"
       }
-    ],
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/20100719_Dazaifu_Tenmangu_Shrine_3328.jpg/1280px-20100719_Dazaifu_Tenmangu_Shrine_3328.jpg",
-          "title": "Dazaifu City",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    ]
   }
 }

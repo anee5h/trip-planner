@@ -46,7 +46,7 @@
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
     "attribution": "663highland",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/2/22/Dazaifu_Tenmangu_Shrine_2014.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dazaifu_Tenmangu_Shrine_2014.jpg"
   },
   "coordinates": {
     "lat": 33.5211,
@@ -127,32 +127,14 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Dazaifu_Tenmangu_Shrine",
-        "title": "Dazaifu Tenmangu Shrine",
+        "url": "https://en.wikipedia.org/wiki/Dazaifu_Tenman-g%C5%AB",
+        "title": "Dazaifu Tenman-gū",
         "accessedAt": "2026-08-04"
       }
     ],
     "checkedAt": "2026-08-04",
     "freshness": "current",
     "changeSummary": "PR 12C Kyushu Regional Expansion",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Dazaifu_Tenmangu_Shrine_2014.jpg",
-          "title": "Editorial scoring from source-backed attributes",
-          "accessedAt": "2026-08-04"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Dazaifu_Tenmangu_Shrine_2014.jpg",
-          "title": "Dazaifu Tenmangu Shrine",
-          "accessedAt": "2026-08-04"
-        }
-      ]
-    },
     "changes": [
       {
         "changedAt": "2026-08-04",

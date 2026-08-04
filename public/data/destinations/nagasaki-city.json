@@ -97,18 +97,8 @@
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Nagasaki_City",
         "title": "Nagasaki City",
-        "accessedAt": "2026-08-08"
+        "accessedAt": "2026-08-04"
       }
-    ],
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Nagasaki_City_View_from_Glover_Garden%2C_Nagasaki_2014.jpg",
-          "title": "Nagasaki City",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    ]
   }
 }

@@ -46,7 +46,7 @@
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 3.0",
     "attribution": "663highland",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Aso_Volcano_Museum_2016.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aso_Volcano_Museum_2016.jpg"
   },
   "coordinates": {
     "lat": 32.8853,
@@ -127,32 +127,14 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Aso_Volcano_Museum",
-        "title": "Aso Volcano Museum",
+        "url": "https://en.wikipedia.org/wiki/Mount_Aso",
+        "title": "Mount Aso",
         "accessedAt": "2026-08-04"
       }
     ],
     "checkedAt": "2026-08-04",
     "freshness": "current",
     "changeSummary": "PR 12C Kyushu Regional Expansion",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Aso_Volcano_Museum_2016.jpg",
-          "title": "Editorial scoring from source-backed attributes",
-          "accessedAt": "2026-08-04"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Aso_Volcano_Museum_2016.jpg",
-          "title": "Aso Volcano Museum",
-          "accessedAt": "2026-08-04"
-        }
-      ]
-    },
     "changes": [
       {
         "changedAt": "2026-08-04",

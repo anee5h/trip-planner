@@ -136,17 +136,7 @@
       }
     ],
     "reviewedAt": "2026-08-02",
-    "reviewedBy": "Meguruto Editorial Reviewer",
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/%E6%B7%B1%E5%A4%A7%E5%AF%BA_-_panoramio_%28116%29.jpg/1920px-%E6%B7%B1%E5%A4%A7%E5%AF%BA_-_panoramio_%28116%29.jpg",
-          "title": "Kitaro Chaya",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    "reviewedBy": "Meguruto Editorial Reviewer"
   },
   "ratingMetadata": {
     "rubricVersion": 1,

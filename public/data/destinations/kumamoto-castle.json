@@ -112,19 +112,9 @@
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Kumamoto_Castle",
         "title": "Kumamoto Castle",
-        "accessedAt": "2026-08-08"
+        "accessedAt": "2026-08-04"
       }
-    ],
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/3840px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg",
-          "title": "Kumamoto Castle",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    ]
   },
   "content": {
     "ja": {

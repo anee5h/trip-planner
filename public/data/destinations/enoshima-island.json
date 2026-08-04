@@ -104,17 +104,7 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/8/83/EnoshimaAeralPhoto1988JP14.jpg",
-          "title": "Enoshima",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
   },
   "nameJa": "江の島",
   "content": {

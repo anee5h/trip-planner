@@ -32,17 +32,7 @@
     "sources": ["editorial-review-2026"],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current",
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Shirahama_beach01.jpg",
-          "title": "Shirahama White Beach & Coastal Resort",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    "freshness": "current"
   },
   "content": {
     "en": {

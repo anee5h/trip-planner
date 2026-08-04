@@ -99,21 +99,11 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Sakurajima_Stratovolcano",
-        "title": "Sakurajima Stratovolcano",
-        "accessedAt": "2026-08-08"
+        "url": "https://en.wikipedia.org/wiki/Sakurajima",
+        "title": "Sakurajima",
+        "accessedAt": "2026-08-04"
       }
-    ],
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Sakurajima55.jpg/1920px-Sakurajima55.jpg",
-          "title": "Sakurajima Stratovolcano",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    ]
   },
   "content": {
     "ja": {

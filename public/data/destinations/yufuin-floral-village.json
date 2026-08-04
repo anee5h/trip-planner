@@ -46,7 +46,7 @@
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
     "attribution": "Pelican",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Yufuin_Floral_Village_Oita_Japan_02.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yufuin_Floral_Village_Oita_Japan_02.jpg"
   },
   "coordinates": {
     "lat": 33.2642,
@@ -127,32 +127,14 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Yufuin_Floral_Village",
-        "title": "Yufuin Floral Village",
+        "url": "https://en.wikipedia.org/wiki/Yufuin_Onsen",
+        "title": "Yufuin Onsen",
         "accessedAt": "2026-08-04"
       }
     ],
     "checkedAt": "2026-08-04",
     "freshness": "current",
     "changeSummary": "PR 12C Kyushu Regional Expansion",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Yufuin_Floral_Village_Oita_Japan_02.jpg",
-          "title": "Editorial scoring from source-backed attributes",
-          "accessedAt": "2026-08-04"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Yufuin_Floral_Village_Oita_Japan_02.jpg",
-          "title": "Yufuin Floral Village",
-          "accessedAt": "2026-08-04"
-        }
-      ]
-    },
     "changes": [
       {
         "changedAt": "2026-08-04",

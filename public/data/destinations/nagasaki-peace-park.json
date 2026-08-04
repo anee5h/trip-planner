@@ -49,7 +49,7 @@
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 3.0",
     "attribution": "663highland",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/5/58/Nagasaki_Peace_Park_-_panoramio.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagasaki_Peace_Park_-_panoramio.jpg"
   },
   "coordinates": {
     "lat": 32.7763,
@@ -130,32 +130,14 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Nagasaki_Peace_Park_&_Atomic_Bomb_Museum",
-        "title": "Nagasaki Peace Park & Atomic Bomb Museum",
+        "url": "https://en.wikipedia.org/wiki/Nagasaki_Peace_Park",
+        "title": "Nagasaki Peace Park",
         "accessedAt": "2026-08-04"
       }
     ],
     "checkedAt": "2026-08-04",
     "freshness": "current",
     "changeSummary": "PR 12C Kyushu Regional Expansion",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Nagasaki_Peace_Park_-_panoramio.jpg",
-          "title": "Editorial scoring from source-backed attributes",
-          "accessedAt": "2026-08-04"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Nagasaki_Peace_Park_-_panoramio.jpg",
-          "title": "Nagasaki Peace Park & Atomic Bomb Museum",
-          "accessedAt": "2026-08-04"
-        }
-      ]
-    },
     "changes": [
       {
         "changedAt": "2026-08-04",

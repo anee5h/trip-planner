@@ -20,6 +20,7 @@
   "kind": "museum",
   "role": "poi",
   "placeType": "destination",
+  "areaId": "ohori-maizuru",
   "relationships": {
     "parentDestinationId": "fukuoka-city"
   },

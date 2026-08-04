@@ -122,17 +122,7 @@
         "summary": "Added itinerary-ready hub POI",
         "method": "assisted"
       }
-    ],
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Hiroshima_Museum_of_Art.jpg/1920px-Hiroshima_Museum_of_Art.jpg",
-          "title": "Hiroshima Museum of Art",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,

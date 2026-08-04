@@ -20,6 +20,7 @@
   "kind": "tower",
   "role": "poi",
   "placeType": "destination",
+  "areaId": "momochi",
   "relationships": {
     "parentDestinationId": "fukuoka-city"
   },

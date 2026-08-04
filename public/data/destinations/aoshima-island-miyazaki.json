@@ -46,7 +46,7 @@
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 3.0",
     "attribution": "663highland",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Aoshima_Island_Miyazaki_Japan.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aoshima_Island_Miyazaki_Japan.jpg"
   },
   "coordinates": {
     "lat": 31.8044,
@@ -127,32 +127,14 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Aoshima_Island_&_Devil's_Washboard",
-        "title": "Aoshima Island & Devil's Washboard",
+        "url": "https://en.wikipedia.org/wiki/Aoshima,_Miyazaki",
+        "title": "Aoshima, Miyazaki",
         "accessedAt": "2026-08-04"
       }
     ],
     "checkedAt": "2026-08-04",
     "freshness": "current",
     "changeSummary": "PR 12C Kyushu Regional Expansion",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Aoshima_Island_Miyazaki_Japan.jpg",
-          "title": "Editorial scoring from source-backed attributes",
-          "accessedAt": "2026-08-04"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Aoshima_Island_Miyazaki_Japan.jpg",
-          "title": "Aoshima Island & Devil's Washboard",
-          "accessedAt": "2026-08-04"
-        }
-      ]
-    },
     "changes": [
       {
         "changedAt": "2026-08-04",

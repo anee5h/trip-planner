@@ -46,7 +46,7 @@
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 3.0",
     "attribution": "663highland",
-    "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/3/30/Miyazaki_Jingu_Honden.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Miyazaki_Jingu_Honden.jpg"
   },
   "coordinates": {
     "lat": 31.9392,
@@ -127,32 +127,14 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Miyazaki_Jingu_Shrine",
-        "title": "Miyazaki Jingu Shrine",
+        "url": "https://en.wikipedia.org/wiki/Miyazaki-jing%C5%AB",
+        "title": "Miyazaki-jingū",
         "accessedAt": "2026-08-04"
       }
     ],
     "checkedAt": "2026-08-04",
     "freshness": "current",
     "changeSummary": "PR 12C Kyushu Regional Expansion",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Miyazaki_Jingu_Honden.jpg",
-          "title": "Editorial scoring from source-backed attributes",
-          "accessedAt": "2026-08-04"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Miyazaki_Jingu_Honden.jpg",
-          "title": "Miyazaki Jingu Shrine",
-          "accessedAt": "2026-08-04"
-        }
-      ]
-    },
     "changes": [
       {
         "changedAt": "2026-08-04",

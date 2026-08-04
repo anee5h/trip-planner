@@ -122,17 +122,7 @@
         "summary": "Added itinerary-ready hub POI",
         "method": "assisted"
       }
-    ],
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Ninomaru%2C_Hiroshima_Castle%2C_West_view_20190417_1.jpg/1920px-Ninomaru%2C_Hiroshima_Castle%2C_West_view_20190417_1.jpg",
-          "title": "Hiroshima Castle",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,

@@ -124,17 +124,7 @@
         "type": "official"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch",
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Nago_Okinawa_Kouri-Bridge-01.jpg",
-          "title": "Kouri Island & Heart Rock",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    "reviewedBy": "Okinawa Regional Editorial Batch"
   },
   "content": {
     "en": {

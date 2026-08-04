@@ -114,21 +114,11 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Hidden_Christian_Sites_in_the_Nagasaki_Region",
-        "title": "Hidden Christian Sites in the Nagasaki Region",
-        "accessedAt": "2026-08-08"
+        "url": "https://en.wikipedia.org/wiki/%C5%8Cura_Church",
+        "title": "Ōura Church",
+        "accessedAt": "2026-08-04"
       }
-    ],
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Nh%C3%A0_th%E1%BB%9D_ch%C3%ADnh_t%C3%B2a_Oura.jpg/960px-Nh%C3%A0_th%E1%BB%9D_ch%C3%ADnh_t%C3%B2a_Oura.jpg",
-          "title": "Hidden Christian Sites in the Nagasaki Region",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    ]
   },
   "content": {
     "ja": {

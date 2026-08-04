@@ -102,18 +102,8 @@
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Kitakyushu_City",
         "title": "Kitakyushu City",
-        "accessedAt": "2026-08-08"
+        "accessedAt": "2026-08-04"
       }
-    ],
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Kitakyushu_Montage.jpg",
-          "title": "Kitakyushu City",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    ]
   }
 }

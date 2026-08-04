@@ -122,17 +122,7 @@
         "summary": "Added itinerary-ready hub POI",
         "method": "assisted"
       }
-    ],
-    "fieldSources": {
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/HIROSHIMA_ORIZURU_TOWER_2016-1006-1.jpg/1920px-HIROSHIMA_ORIZURU_TOWER_2016-1006-1.jpg",
-          "title": "Orizuru Tower",
-          "accessedAt": "2026-08-08"
-        }
-      ]
-    }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,
