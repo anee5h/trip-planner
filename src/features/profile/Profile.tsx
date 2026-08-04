@@ -33,6 +33,8 @@ export default function Profile() {
   ).slice(0, 4);
 
   const [deleteConfirm, setDeleteConfirm] = useState(false);
+  const [clearLoading, setClearLoading] = useState(false);
+  const [clearError, setClearError] = useState<string | null>(null);
   const fullName = user?.user_metadata?.full_name || "";
   const username = user?.user_metadata?.username || "";
 
@@ -248,7 +250,10 @@ export default function Profile() {
               </div>
               {!deleteConfirm ? (
                 <button
-                  onClick={() => setDeleteConfirm(true)}
+                  onClick={() => {
+                    setDeleteConfirm(true);
+                    setClearError(null);
+                  }}
                   className="px-4 py-2 rounded-xl bg-red-50 dark:bg-red-950/60 text-red-600 dark:text-red-400 text-xs font-bold border border-red-200 dark:border-red-800 hover:bg-red-100 transition-colors"
                 >
                   Clear Profile Data
@@ -259,24 +264,41 @@ export default function Profile() {
                     This clears your saved profile data and signs you out. Your
                     account and authentication remain active.
                   </p>
+                  {clearError && (
+                    <p className="text-xs text-amber-600 dark:text-amber-400 font-medium">
+                      {clearError}
+                    </p>
+                  )}
                   <div className="flex gap-2">
                     <button
+                      disabled={clearLoading}
                       onClick={async () => {
+                        setClearLoading(true);
+                        setClearError(null);
                         const result = await clearProfileData?.();
+                        setClearLoading(false);
                         if (
                           result &&
-                          result.status !== "cleared_and_signed_out"
+                          result.status === "cleared_and_signed_out"
                         ) {
-                          setDeleteConfirm(false);
+                          return;
+                        }
+                        if (result) {
+                          setClearError(result.message);
                         }
                       }}
-                      className="px-3 py-1.5 rounded-lg bg-red-600 text-white font-bold text-xs"
+                      className="px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs disabled:opacity-50"
                     >
-                      Confirm Clear
+                      {clearLoading
+                        ? "Clearing…"
+                        : clearError
+                          ? "Retry Clear"
+                          : "Confirm Clear"}
                     </button>
                     <button
+                      disabled={clearLoading}
                       onClick={() => setDeleteConfirm(false)}
-                      className="px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs"
+                      className="px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs disabled:opacity-50"
                     >
                       Cancel
                     </button>

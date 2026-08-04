@@ -168,9 +168,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
     }
 
-    // 3. Sign out only when the destructive steps completed.
+    // 3. Sign out only when both destructive steps completed.
     let signOutFailed = false;
-    if (metadataCleared || userDataDeleted) {
+    if (metadataCleared && userDataDeleted) {
       const signOutResult = await signOut();
       signOutFailed = Boolean(signOutResult?.error);
     }

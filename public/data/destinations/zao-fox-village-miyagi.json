@@ -79,7 +79,7 @@
   "relationships": {
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["sendai-city", "mount-zao-yamagata"],
-    "parentDestinationId": "sendai-city"
+    "gatewayHubId": "sendai-city"
   },
   "budgetBreakdown": null,
   "role": "standalone",
@@ -91,5 +91,5 @@
   "officialWebsite": "http://zao-fox-village.com/",
   "businessHours": "09:00 - 17:00 (Daily)",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Miyagi:sendai"
+  "municipalityId": "Miyagi:shiroishi"
 }

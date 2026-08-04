@@ -60,7 +60,7 @@
   },
   "collections": [],
   "relationships": {
-    "parentDestinationId": "kisarazu-city"
+    "gatewayHubId": "kisarazu-city"
   },
   "image": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1000",
   "budgetBreakdown": {
@@ -135,5 +135,5 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "24 Hours (Open access)",
   "openingHoursJa": "散策自由（24時間開放）",
-  "municipalityId": "Chiba:kisarazu"
+  "municipalityId": "Chiba:futtsu"
 }

@@ -55,7 +55,7 @@
     }
   },
   "relationships": {
-    "parentDestinationId": "ikaruga-town"
+    "gatewayHubId": "ikaruga-town"
   },
   "status": "published",
   "ratings": {
@@ -82,5 +82,5 @@
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Shigi_from_the_air.jpg"
   },
-  "municipalityId": "Nara:ikaruga"
+  "municipalityId": "Nara:heguri"
 }

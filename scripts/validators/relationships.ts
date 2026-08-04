@@ -139,7 +139,16 @@ export const relationshipsValidator: ValidatorModule = {
               message: `Contained destination '${dest.id}' has no municipalityId; a parentDestinationId is only valid when the destination's municipality is independently known and matches the parent hub's.`,
               targetId: dest.id,
             });
-          } else if (
+          }
+          if (!parent.municipalityId) {
+            issues.push({
+              severity: "error",
+              code: "PARENT_MUNICIPALITY_NOT_VERIFIED",
+              message: `Parent hub '${parent.id}' (of contained destination '${dest.id}') has no verified municipalityId.`,
+              targetId: parent.id,
+            });
+          }
+          if (
             dest.municipalityId &&
             parent.municipalityId &&
             dest.municipalityId !== parent.municipalityId

@@ -72,7 +72,7 @@
   },
   "collections": [],
   "relationships": {
-    "parentDestinationId": "yokosuka-city"
+    "gatewayHubId": "yokosuka-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Miura_Peninsula_Kanagawa_Japan_SRTM.jpg",
   "bestSeason": "Spring & Autumn",

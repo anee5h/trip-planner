@@ -91,6 +91,11 @@ const TripStoreContext = createContext<TripStoreContextType | undefined>(
   undefined,
 );
 
+const GUEST_HOME_STATION_KEY = "meguruto-guest-home-station";
+const GUEST_HOME_STATION_COORDS_KEY = "meguruto-guest-home-station-coords";
+const DEFAULT_TOKYO_STATION = "Tokyo Station";
+const DEFAULT_TOKYO_COORDS = { lat: 35.6812, lng: 139.7671 };
+
 export function TripStoreProvider({ children }: { children: ReactNode }) {
   const { user } = useAuth();
 
@@ -110,11 +115,33 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     "trip-planner-compare",
     [],
   );
-  const [homeStation, setHomeStationState] = useState<string>("Tokyo Station");
-  const [homeStationCoords, setHomeStationCoords] = useState<{
+  const [homeStation, setHomeStationState] = useState<string>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const saved = window.localStorage.getItem(GUEST_HOME_STATION_KEY);
+        if (saved) return JSON.parse(saved);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    return DEFAULT_TOKYO_STATION;
+  });
+  const [homeStationCoords, setHomeStationCoordsState] = useState<{
     lat: number;
     lng: number;
-  } | null>({ lat: 35.6812, lng: 139.7671 }); // Tokyo Station default
+  } | null>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const saved = window.localStorage.getItem(
+          GUEST_HOME_STATION_COORDS_KEY,
+        );
+        if (saved) return JSON.parse(saved);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    return DEFAULT_TOKYO_COORDS;
+  });
 
   const [lastSyncedDate, setLastSyncedDate] = useState<string | null>(null);
 
@@ -148,7 +175,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     setCompareList,
     homeStation,
     setHomeStation: setHomeStationState,
-    setHomeStationCoords,
+    setHomeStationCoords: setHomeStationCoordsState,
     trips,
     setTrips,
     destinationRatings,
@@ -158,10 +185,48 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
   const canMutateProfile =
     !user || profileSyncStatus === "ready" || profileSyncStatus === "saving";
 
-  const setHomeStation = (station: string) => {
+  function setHomeStation(station: string) {
     if (!canMutateProfile) return;
     setHomeStationState(station);
-  };
+    if (!user && typeof window !== "undefined") {
+      try {
+        window.localStorage.setItem(
+          GUEST_HOME_STATION_KEY,
+          JSON.stringify(station),
+        );
+      } catch (e) {
+        console.error(e);
+      }
+    }
+  }
+
+  function setHomeStationCoords(
+    coords:
+      | { lat: number; lng: number }
+      | null
+      | ((
+          prev: { lat: number; lng: number } | null,
+        ) => { lat: number; lng: number } | null),
+  ) {
+    setHomeStationCoordsState((prev) => {
+      const next = typeof coords === "function" ? coords(prev) : coords;
+      if (!user && typeof window !== "undefined") {
+        try {
+          if (next) {
+            window.localStorage.setItem(
+              GUEST_HOME_STATION_COORDS_KEY,
+              JSON.stringify(next),
+            );
+          } else {
+            window.localStorage.removeItem(GUEST_HOME_STATION_COORDS_KEY);
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      }
+      return next;
+    });
+  }
 
   const setDestinationRating = (id: string, rating: "up" | "down" | null) => {
     if (!canMutateProfile) return;

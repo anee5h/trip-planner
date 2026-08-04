@@ -80,7 +80,7 @@
     }
   ],
   "relationships": {
-    "parentDestinationId": "izumo-city"
+    "gatewayHubId": "izumo-city"
   },
   "budgetBreakdown": {
     "transport": 3000,
@@ -104,5 +104,5 @@
   },
   "officialWebsite": "https://www.ginzan-wm.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Shimane:izumo"
+  "municipalityId": "Shimane:oda"
 }
