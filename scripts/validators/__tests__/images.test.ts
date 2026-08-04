@@ -3,7 +3,35 @@ import {
   isPrivateOrReservedAddress,
   ALLOWED_IMAGE_HOSTS,
   classifyImageFailure,
+  classifyDnsError,
+  followImageResponse,
+  type ImageCheckResult,
 } from "../images";
+import { EventEmitter } from "node:events";
+
+class MockStream extends EventEmitter {
+  statusCode = 200;
+  headers: { "content-type"?: string } = {};
+  destroyed = false;
+  destroy() {
+    this.destroyed = true;
+    this.emit("close");
+  }
+}
+
+function streamWith(
+  chunks: Buffer[],
+  mime = "image/jpeg",
+): { stream: MockStream; results: ImageCheckResult[] } {
+  const stream = new MockStream();
+  stream.headers = { "content-type": mime };
+  const results: ImageCheckResult[] = [];
+  followImageResponse(stream, ["image/jpeg", "image/png"], (r) =>
+    results.push(r),
+  );
+  for (const chunk of chunks) stream.emit("data", chunk);
+  return { stream, results };
+}
 
 describe("image validator SSRF guards", () => {
   it("rejects private IPv4 ranges", () => {
@@ -93,5 +121,59 @@ describe("classifyImageFailure", () => {
       severity: "warning",
       code: "IMAGE_FETCH_WARNING",
     });
+  });
+});
+
+describe("classifyDnsError", () => {
+  it("classifies temporary resolver failures as transient", () => {
+    expect(classifyDnsError("EAI_AGAIN")).toBe("transient");
+    expect(classifyDnsError("ENETUNREACH")).toBe("transient");
+    expect(classifyDnsError("ETIMEDOUT")).toBe("transient");
+  });
+
+  it("classifies definitive resolution failures as hard", () => {
+    expect(classifyDnsError("ENOTFOUND")).toBe("hard");
+    expect(classifyDnsError("EAI_NONAME")).toBe("hard");
+    expect(classifyDnsError(undefined)).toBe("hard");
+  });
+});
+
+describe("followImageResponse", () => {
+  it("resolves exactly once with a policy failure when the body exceeds the cap and the stream closes without end", () => {
+    // Emit enough data to cross the 20 MB cap, then destroy (emits close,
+    // no end event). The settle guard must produce a single policy result.
+    const big = Buffer.alloc(5 * 1024 * 1024); // 5 MB per chunk
+    const { stream, results } = streamWith([big, big, big, big, big]);
+    stream.destroy();
+    stream.emit("end"); // must be ignored (already settled)
+
+    expect(results).toHaveLength(1);
+    expect(results[0].ok).toBe(false);
+    expect(results[0].failureType).toBe("policy");
+    expect(results[0].error).toContain("byte cap");
+  });
+
+  it("resolves with ok on a small valid image", () => {
+    const stream = new MockStream();
+    stream.headers = { "content-type": "image/jpeg" };
+    const results: ImageCheckResult[] = [];
+    followImageResponse(stream, ["image/jpeg"], (r) => results.push(r));
+    stream.emit("data", Buffer.from("jpgdata"));
+    stream.emit("end");
+    expect(results).toHaveLength(1);
+    expect(results[0].ok).toBe(true);
+  });
+
+  it("rejects a non-image content type as a policy failure", () => {
+    const stream = new MockStream();
+    stream.headers = { "content-type": "text/html" };
+    const results: ImageCheckResult[] = [];
+    followImageResponse(stream, ["image/jpeg"], (r) => results.push(r));
+    stream.emit("data", Buffer.from("<html>"));
+    stream.emit("end");
+    expect(results).toHaveLength(1);
+    expect(results[0].ok).toBe(false);
+    expect(results[0].failureType).toBe("policy");
+    expect(results[0].error).toContain("Content-Type");
   });
 });
