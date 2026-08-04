@@ -77,9 +77,7 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {
-    "gatewayHubId": "tsukuba-city"
-  },
+  "relationships": {},
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "No advance reservation required; tickets available on arrival.",
