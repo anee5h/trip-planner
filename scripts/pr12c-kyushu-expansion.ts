@@ -515,68 +515,68 @@ const newPois: NewPoiInput[] = [
     wikiTitle: "Fukuoka City Museum",
   },
   {
-    id: "marinoa-city-fukuoka",
-    name: "Marinoa City Outlet & Ferris Wheel",
-    nameJa: "マリノアシティ福岡・観覧車",
+    id: "fukuoka-paypay-dome",
+    name: "Fukuoka PayPay Dome & BOSS E-ZO",
+    nameJa: "福岡ペイペイドーム・BOSS E-ZO FUKUOKA",
     hubId: "fukuoka-city",
     prefecture: "Fukuoka",
-    kind: "mixed",
-    categories: ["Shopping", "Sightseeing"],
-    tags: ["Shopping", "Outlet", "Bay", "Fukuoka City"],
+    kind: "entertainment",
+    categories: ["Entertainment", "Sports"],
+    tags: ["Baseball", "Sports", "Entertainment", "Fukuoka City"],
     heroImage:
-      "https://upload.wikimedia.org/wikipedia/commons/3/3b/The_scenery_of_Marinoa_City_Fukuoka_from_Skywheel.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/0/06/Mizuho_PayPay_dome_Fukuoka_2025.jpg",
     commonsFilePage:
-      "https://commons.wikimedia.org/wiki/File:The_scenery_of_Marinoa_City_Fukuoka_from_Skywheel.jpg",
-    imageAttribution: "新幹線 at Japanese Wikipedia",
-    imageLicense: "CC BY 3.0",
-    coordinates: { lat: 33.5972, lng: 130.3064 },
-    budgetMin: 3000,
-    budgetRecommended: 12000,
-    budgetMax: 25000,
+      "https://commons.wikimedia.org/wiki/File:Mizuho_PayPay_dome_Fukuoka_2025.jpg",
+    imageAttribution: "Keeteria",
+    imageLicense: "CC BY-SA 4.0",
+    coordinates: { lat: 33.5903, lng: 130.3701 },
+    budgetMin: 2000,
+    budgetRecommended: 7000,
+    budgetMax: 15000,
     ticketCost: 0,
-    transportOptions: { train: 225, shinkansen: 325 },
-    totalTripHours: 5,
-    recommendedVisitHours: { min: 2, max: 5 },
-    walkingMin: 5000,
-    indoorPercent: 50,
+    transportOptions: { train: 215, shinkansen: 315 },
+    totalTripHours: 4,
+    recommendedVisitHours: { min: 1.5, max: 4 },
+    walkingMin: 3000,
+    indoorPercent: 70,
     ratings: {
-      overall: 8.0,
-      couple: 8.5,
-      summer: 8.3,
-      winter: 7.5,
-      rain: 8.0,
-      food: 8.0,
-      photography: 8.5,
+      overall: 8.3,
+      couple: 8.0,
+      summer: 8.5,
+      winter: 8.2,
+      rain: 8.5,
+      food: 8.5,
+      photography: 8.0,
       relaxation: 7.5,
-      value: 7.8,
-      uniqueness: 7.2,
+      value: 8.0,
+      uniqueness: 8.2,
     },
-    crowd: { weekday: 5, weekend: 8, holiday: 8 },
-    season: { spring: 8, summer: 8, autumn: 8, winter: 7 },
+    crowd: { weekday: 5, weekend: 8, holiday: 9 },
+    season: { spring: 8, summer: 8, autumn: 8, winter: 8 },
     weatherDependence: "low",
-    reservation: "None required",
-    parking: "Large outlet parking available",
+    reservation: "Required for game days",
+    parking: "Dome parking and nearby lots",
     walkingIntensity: "medium",
-    walkingSunMin: 2500,
-    walkingShadeMin: 2500,
-    comfort: { heatTolerance: 7, rainFriendly: 8, walkingIntensity: 5 },
-    officialWebsite: "https://www.marinoacity.com/",
+    walkingSunMin: 1000,
+    walkingShadeMin: 2000,
+    comfort: { heatTolerance: 8, rainFriendly: 9, walkingIntensity: 4 },
+    officialWebsite: "https://e-zo.jp/",
     enDescription:
-      "Marinoa City Fukuoka is Kyushu's largest outlet shopping mall set along Hakata Bay, featuring over 170 brand stores, waterfront dining, and a giant Ferris wheel offering panoramic views of the bay and city skyline.",
+      "Fukuoka PayPay Dome is home to the SoftBank Hawks baseball team and one of Japan's most modern indoor stadiums. Adjacent BOSS E-ZO FUKUOKA is a multi-floor entertainment complex featuring VR attractions, the Oh Sadaharu Baseball Museum Supported by MIZUNO, live concert venues, and restaurants with panoramic bay views.",
     enHighlights: [
-      "170+ outlet brand stores",
-      "Waterfront Ferris wheel with bay views",
-      "Seaside dining and sunset views",
+      "SoftBank Hawks home games at PayPay Dome",
+      "Oh Sadaharu Baseball Museum",
+      "BOSS E-ZO entertainment complex & bay views",
     ],
     jaDescription:
-      "マリノアシティ福岡は博多湾沿いに広がる九州最大級のアウトレットモールで、170以上のブランドショップ、ウォーターフロントレストラン、巨大な観覧車「スカイホイール」からは博多湾と市街の絶景パノラマが楽しめます。",
+      "福岡ペイペイドームはソフトバンクホークスの本拠地として知られる日本最大級の全天候型スタジアムです。隣接するBOSS E-ZO FUKUOKAは王貞治ベースボールミュージアムやVRアトラクション、ライブ会場、レストランを擁する複合エンターテインメント施設で、博多湾を一望するロケーションが魅力です。",
     jaHighlights: [
-      "170以上のブランドアウトレット",
-      "観覧車スカイホイールからの博多湾絶景",
-      "夕暮れのシーサイドダイニング",
+      "ソフトバンクホークスのホームゲーム観戦",
+      "王貞治ベースボールミュージアム",
+      "BOSS E-ZO FUKUOKA の体験型アトラクション",
     ],
-    wikiUrl: "https://en.wikipedia.org/wiki/Marinoa_City_Fukuoka",
-    wikiTitle: "Marinoa City Fukuoka",
+    wikiUrl: "https://en.wikipedia.org/wiki/Fukuoka_PayPay_Dome",
+    wikiTitle: "Fukuoka PayPay Dome",
   },
 
   // ---- NAGASAKI CITY (+5) ----
@@ -1494,11 +1494,11 @@ const newPois: NewPoiInput[] = [
     categories: ["Museum & Art", "Culture"],
     tags: ["Museum", "National Museum", "Asia", "Dazaifu"],
     heroImage:
-      "https://upload.wikimedia.org/wikipedia/commons/4/4f/Kyushu-national-museum01.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/1/14/Kyushu_National_Museum_20170225.jpg",
     commonsFilePage:
-      "https://commons.wikimedia.org/wiki/File:Kyushu-national-museum01.jpg",
-    imageAttribution: "Unknown",
-    imageLicense: "CC BY-SA 3.0",
+      "https://commons.wikimedia.org/wiki/File:Kyushu_National_Museum_20170225.jpg",
+    imageAttribution: "Suicasmo",
+    imageLicense: "CC BY-SA 4.0",
     coordinates: { lat: 33.5183, lng: 130.5383 },
     budgetMin: 2000,
     budgetRecommended: 5000,
@@ -1883,11 +1883,11 @@ const newPois: NewPoiInput[] = [
     categories: ["Sightseeing", "Nature & Outdoors"],
     tags: ["Viewpoint", "Caldera", "Panorama", "Aso"],
     heroImage:
-      "https://upload.wikimedia.org/wikipedia/commons/8/88/Daikanbo_Station_20100906-1.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/6/6b/Daikanb%C5%8D_Lookout%2C_Yamada%2C_Aso%2C_Kumamoto_-_Jul_9%2C_2011.jpg",
     commonsFilePage:
-      "https://commons.wikimedia.org/wiki/File:Daikanbo_Station_20100906-1.jpg",
-    imageAttribution: "PekePON",
-    imageLicense: "CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:Daikanbō_Lookout,_Yamada,_Aso,_Kumamoto_-_Jul_9,_2011.jpg",
+    imageAttribution: "t-mizo",
+    imageLicense: "CC BY 2.0",
     coordinates: { lat: 32.9983, lng: 131.0744 },
     budgetMin: 1000,
     budgetRecommended: 3000,
@@ -2271,11 +2271,11 @@ const newPois: NewPoiInput[] = [
     categories: ["History", "Culture"],
     tags: ["Shrine", "Mythology", "Cave", "Takachiho"],
     heroImage:
-      "https://upload.wikimedia.org/wikipedia/commons/9/99/Iheya_Amano-Iwato_Shrine_202603_02.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/3/3f/Amanoiwato_Shrine_%2830722535953%29.jpg",
     commonsFilePage:
-      "https://commons.wikimedia.org/wiki/File:Iheya_Amano-Iwato_Shrine_202603_02.jpg",
-    imageAttribution: "Kugel~commonswiki",
-    imageLicense: "CC BY-SA 4.0",
+      "https://commons.wikimedia.org/wiki/File:Amanoiwato_Shrine_(30722535953).jpg",
+    imageAttribution: "David Stanley",
+    imageLicense: "CC BY 2.0",
     coordinates: { lat: 32.7339, lng: 131.3522 },
     budgetMin: 1000,
     budgetRecommended: 3000,
@@ -2814,7 +2814,9 @@ function applyKyushuExpansion(
   input: DestinationRecord[],
   runDate: string,
 ): DestinationRecord[] {
-  const data = JSON.parse(JSON.stringify(input)) as DestinationRecord[];
+  const data = (
+    JSON.parse(JSON.stringify(input)) as DestinationRecord[]
+  ).filter((r) => r.id !== "marinoa-city-fukuoka");
 
   for (const record of data) {
     if (record.region !== "Kyushu") continue;
@@ -3050,6 +3052,16 @@ assertInvariant(
   `Expected total catalogue count 664, got ${pass1.length}`,
 );
 console.log("✓ Total catalogue count is 664");
+
+// Assert no heroImage points to video or audio media
+const VIDEO_AUDIO_EXTS = /\.(webm|mp4|mov|avi|mkv|gifv|ogg|ogv)$/i;
+for (const r of pass1) {
+  assertInvariant(
+    !VIDEO_AUDIO_EXTS.test(r.heroImage ?? ""),
+    `Destination ${r.id} has a video/audio heroImage: ${r.heroImage}`,
+  );
+}
+console.log("✓ No heroImage points to video or audio media");
 
 // Write
 fs.writeFileSync(INDEX_PATH, JSON.stringify(pass1, null, 2) + "\n");
