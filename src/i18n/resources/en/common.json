@@ -171,7 +171,19 @@
   },
   "origin": {
     "from": "From",
-    "edit": "Edit"
+    "edit": "Edit",
+    "changeLocation": "Change origin location",
+    "closeLocationEditor": "Close location editor",
+    "selectBaseStation": "Select base station:",
+    "station": "Station",
+    "zipPostal": "ZIP / Postal",
+    "selectStation": "-- Select station --",
+    "zipPlaceholder": "e.g. 100-0001",
+    "zipNotFound": "Could not find coordinates for this ZIP code.",
+    "locationFetchFailed": "Failed to fetch location. Try again.",
+    "locating": "Locating...",
+    "setLocation": "Set Location",
+    "cancel": "Cancel"
   },
   "home": {
     "headline": "Where will you go next?",

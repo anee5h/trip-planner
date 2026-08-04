@@ -80,6 +80,7 @@ vi.mock("react-i18next", () => ({
         "home.dateTabs.tomorrow": "Tomorrow",
         "home.dateTabs.this_weekend": "This Weekend",
         "home.weatherConditions.sunny": "Sunny",
+        "origin.cancel": "Cancel",
       })[key] ?? key,
     i18n: { language: "en" },
   }),

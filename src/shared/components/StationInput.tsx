@@ -1,4 +1,5 @@
 import { MapPin } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useState, useEffect, useMemo } from "react";
 import { OriginLocationDisplay } from "@/shared/components/OriginLocationDisplay";
@@ -58,6 +59,7 @@ interface StationInputProps {
 }
 
 export default function StationInput({ embedded = false }: StationInputProps) {
+  const { t } = useTranslation();
   const { homeStation, setOriginLocation, canSelectOrigin } = useTripStore();
 
   type StationData = { name: string; lat: number; lng: number };
@@ -153,7 +155,7 @@ export default function StationInput({ embedded = false }: StationInputProps) {
           const lat = parseFloat(data[0].lat);
           const lng = parseFloat(data[0].lon);
           if (!Number.isFinite(lat) || !Number.isFinite(lng)) {
-            setZipError("Could not find coordinates for this zip code.");
+            setZipError(t("origin.zipNotFound"));
             return;
           }
           setOriginLocation({
@@ -163,11 +165,11 @@ export default function StationInput({ embedded = false }: StationInputProps) {
           });
           setIsEditing(false);
         } else {
-          setZipError("Could not find coordinates for this zip code.");
+          setZipError(t("origin.zipNotFound"));
         }
       } catch (err) {
         console.error("Failed to fetch zip code coordinates", err);
-        setZipError("Failed to fetch location. Try again.");
+        setZipError(t("origin.locationFetchFailed"));
       } finally {
         setIsFetchingZip(false);
       }
@@ -193,7 +195,7 @@ export default function StationInput({ embedded = false }: StationInputProps) {
       {!embedded && (
         <button
           type="button"
-          aria-label="Close location editor"
+          aria-label={t("origin.closeLocationEditor")}
           className="fixed inset-0 z-40 bg-slate-950/60 backdrop-blur-sm"
           onClick={() => setIsEditing(false)}
         />
@@ -208,7 +210,7 @@ export default function StationInput({ embedded = false }: StationInputProps) {
         <div
           role={!embedded ? "dialog" : undefined}
           aria-modal={!embedded ? "true" : undefined}
-          aria-label={!embedded ? "Change origin location" : undefined}
+          aria-label={!embedded ? t("origin.changeLocation") : undefined}
           className={
             embedded
               ? "contents"
@@ -219,7 +221,7 @@ export default function StationInput({ embedded = false }: StationInputProps) {
             <div className="flex items-center gap-2 shrink-0">
               <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-500 shrink-0" />
               <span className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300">
-                Select Base Station:
+                {t("origin.selectBaseStation")}
               </span>
             </div>
             <div className="flex bg-slate-200 dark:bg-slate-800 rounded-lg p-0.5 border border-slate-300 dark:border-slate-700 w-full sm:w-auto">
@@ -228,14 +230,14 @@ export default function StationInput({ embedded = false }: StationInputProps) {
                 onClick={() => setMode("station")}
                 className={`flex-1 sm:flex-initial px-3 py-1 text-xs font-medium rounded-md transition-colors text-center ${mode === "station" ? "bg-white dark:bg-slate-950 text-emerald-600 shadow-sm" : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"}`}
               >
-                Station
+                {t("origin.station")}
               </button>
               <button
                 type="button"
                 onClick={() => setMode("zip")}
                 className={`flex-1 sm:flex-initial px-3 py-1 text-xs font-medium rounded-md transition-colors text-center ${mode === "zip" ? "bg-white dark:bg-slate-950 text-emerald-600 shadow-sm" : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"}`}
               >
-                ZIP / Postal
+                {t("origin.zipPostal")}
               </button>
             </div>
           </div>
@@ -260,7 +262,7 @@ export default function StationInput({ embedded = false }: StationInputProps) {
                 className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-2.5 py-2 text-sm font-semibold focus:outline-none focus:border-emerald-500 w-full sm:w-64"
                 disabled={stations.length === 0}
               >
-                <option value="">-- Select Station --</option>
+                <option value="">{t("origin.selectStation")}</option>
                 {stations.map((st) => (
                   <option key={st.name} value={st.name}>
                     {st.name}
@@ -272,7 +274,7 @@ export default function StationInput({ embedded = false }: StationInputProps) {
             <div className="flex flex-col gap-1">
               <input
                 type="text"
-                placeholder="e.g. 100-0001"
+                placeholder={t("origin.zipPlaceholder")}
                 value={zipCode}
                 onChange={handleZipChange}
                 onKeyDown={(e) => e.key === "Enter" && handleSet()}
@@ -298,7 +300,7 @@ export default function StationInput({ embedded = false }: StationInputProps) {
               {isFetchingZip && (
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
               )}
-              {isFetchingZip ? "Locating..." : "Set Location"}
+              {isFetchingZip ? t("origin.locating") : t("origin.setLocation")}
             </button>
             {homeStation && !embedded && (
               <button
@@ -306,7 +308,7 @@ export default function StationInput({ embedded = false }: StationInputProps) {
                 onClick={() => setIsEditing(false)}
                 className="bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium text-xs px-4 py-2 rounded-lg transition-colors shadow-sm"
               >
-                Cancel
+                {t("origin.cancel")}
               </button>
             )}
           </div>

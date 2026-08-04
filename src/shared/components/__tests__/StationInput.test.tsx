@@ -9,6 +9,49 @@ import StationInput from "../StationInput";
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
 const setOriginLocation = vi.fn();
+const locale = vi.hoisted(() => ({ value: "en" as "en" | "ja" }));
+
+vi.mock("react-i18next", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("react-i18next")>();
+  return {
+    ...actual,
+    useTranslation: () => ({
+      t: (key: string) => {
+        const translations = {
+          en: {
+            "origin.changeLocation": "Change origin location",
+            "origin.closeLocationEditor": "Close location editor",
+            "origin.selectBaseStation": "Select base station:",
+            "origin.station": "Station",
+            "origin.zipPostal": "ZIP / Postal",
+            "origin.selectStation": "-- Select station --",
+            "origin.zipPlaceholder": "e.g. 100-0001",
+            "origin.locating": "Locating...",
+            "origin.setLocation": "Set Location",
+            "origin.cancel": "Cancel",
+          },
+          ja: {
+            "origin.changeLocation": "出発地を変更",
+            "origin.closeLocationEditor": "出発地の編集を閉じる",
+            "origin.selectBaseStation": "出発駅を選択：",
+            "origin.station": "駅",
+            "origin.zipPostal": "郵便番号",
+            "origin.selectStation": "-- 駅を選択 --",
+            "origin.zipPlaceholder": "例：100-0001",
+            "origin.locating": "検索中…",
+            "origin.setLocation": "場所を設定",
+            "origin.cancel": "キャンセル",
+          },
+        } as const;
+        return (
+          translations[locale.value][
+            key as keyof (typeof translations)["en"]
+          ] ?? key
+        );
+      },
+    }),
+  };
+});
 
 vi.mock("@/shared/hooks/useTripStore", () => ({
   useTripStore: () => ({
@@ -41,8 +84,8 @@ vi.stubGlobal(
 let root: Root;
 let host: HTMLDivElement;
 
-function render() {
-  act(() => root.render(<StationInput embedded />));
+function render(embedded = true) {
+  act(() => root.render(<StationInput embedded={embedded} />));
 }
 
 function selectElement(
@@ -75,6 +118,7 @@ function clickSetButton(container: HTMLElement) {
 
 beforeEach(() => {
   setOriginLocation.mockReset();
+  locale.value = "en";
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
@@ -86,6 +130,28 @@ afterEach(() => {
 });
 
 describe("StationInput — atomic origin selection", () => {
+  it("renders location modal copy in the active locale", () => {
+    render(false);
+
+    expect(host.textContent).toContain("Select base station:");
+    expect(host.textContent).toContain("ZIP / Postal");
+    expect(host.textContent).toContain("Set Location");
+
+    locale.value = "ja";
+    render(false);
+
+    expect(host.textContent).toContain("出発駅を選択：");
+    expect(host.textContent).toContain("郵便番号");
+    expect(host.textContent).toContain("場所を設定");
+    expect(host.textContent).not.toContain("Select base station:");
+    expect(
+      host.querySelector("[aria-label='Close location editor']"),
+    ).toBeNull();
+    expect(
+      host.querySelector("[aria-label='出発地の編集を閉じる']"),
+    ).not.toBeNull();
+  });
+
   it("selects Kanagawa and Nakayama, submits, and commits one atomic setOriginLocation", async () => {
     render();
 
