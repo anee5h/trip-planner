@@ -74,7 +74,7 @@
   "relationships": {
     "featuredDestinationIds": [],
     "nearbyDestinationIds": [],
-    "parentDestinationId": "shimonoseki-city"
+    "gatewayHubId": "shimonoseki-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/9/9b/%E5%85%83%E4%B9%83%E9%9A%85%E7%A8%B2%E6%88%90%E7%A5%9E%E7%A4%BE_Motonosumi-Inari-jinja_20090504.jpg",
   "walkingIntensity": "low",
@@ -89,5 +89,5 @@
   "officialWebsite": "https://nanavi.jp/sightseeing/motonosumijinja/",
   "businessHours": "09:00 - 17:00 (Daily)",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Yamaguchi:shimonoseki"
+  "municipalityId": "Yamaguchi:nagato"
 }

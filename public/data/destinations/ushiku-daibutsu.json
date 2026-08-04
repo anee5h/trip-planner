@@ -78,7 +78,7 @@
   },
   "collections": [],
   "relationships": {
-    "parentDestinationId": "tsukuba-city"
+    "gatewayHubId": "tsukuba-city"
   },
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
@@ -145,5 +145,5 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Ibaraki:tsukuba"
+  "municipalityId": "Ibaraki:ushiku"
 }

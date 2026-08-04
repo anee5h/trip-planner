@@ -76,7 +76,7 @@
   },
   "collections": [],
   "relationships": {
-    "parentDestinationId": "nagano-city"
+    "gatewayHubId": "nagano-city"
   },
   "image": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1000",
   "walkingIntensity": "low",
@@ -89,5 +89,5 @@
   },
   "officialWebsite": "https://www.bessho-spa.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Nagano:nagano"
+  "municipalityId": "Nagano:ueda"
 }

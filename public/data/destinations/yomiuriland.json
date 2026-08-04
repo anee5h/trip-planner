@@ -80,7 +80,7 @@
   },
   "collections": [],
   "relationships": {
-    "parentDestinationId": "chofu-tokyo"
+    "gatewayHubId": "chofu-tokyo"
   },
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",

@@ -88,7 +88,7 @@
     }
   ],
   "relationships": {
-    "parentDestinationId": "gifu-city"
+    "gatewayHubId": "gifu-city"
   },
   "walkingIntensity": "low",
   "role": "standalone",
@@ -100,5 +100,5 @@
   },
   "officialWebsite": "https://www.gujokankou.com/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Gifu:gifu"
+  "municipalityId": "Gifu:gujo"
 }

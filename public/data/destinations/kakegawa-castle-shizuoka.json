@@ -93,7 +93,7 @@
     }
   ],
   "relationships": {
-    "parentDestinationId": "hamamatsu-city"
+    "gatewayHubId": "hamamatsu-city"
   },
   "walkingIntensity": "low",
   "role": "standalone",
@@ -105,5 +105,5 @@
   },
   "officialWebsite": "https://kakegawajo.com/",
   "businessHours": "09:00 - 17:00 (Last admission 16:30)",
-  "municipalityId": "Shizuoka:hamamatsu"
+  "municipalityId": "Shizuoka:kakegawa"
 }

@@ -5254,7 +5254,7 @@
       }
     ],
     "relationships": {
-      "parentDestinationId": "kisarazu-city"
+      "gatewayHubId": "kisarazu-city"
     },
     "walkingIntensity": "low",
     "role": "standalone",
@@ -5323,7 +5323,7 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
     "openingHoursJa": "散策自由（24時間開放）",
-    "municipalityId": "Chiba:kisarazu"
+    "municipalityId": "Chiba:kyonan"
   },
   {
     "id": "chiba-park",
@@ -6273,7 +6273,7 @@
     },
     "collections": [],
     "relationships": {
-      "parentDestinationId": "chiba-city"
+      "gatewayHubId": "chiba-city"
     },
     "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000",
     "walkingIntensity": "low",
@@ -6338,7 +6338,7 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
     "openingHoursJa": "散策自由（24時間開放）",
-    "municipalityId": "Chiba:chiba"
+    "municipalityId": "Chiba:otaki"
   },
   {
     "id": "chiba-zoological-park",
@@ -12614,7 +12614,7 @@
     },
     "collections": [],
     "relationships": {
-      "parentDestinationId": "chofu-tokyo"
+      "gatewayHubId": "chofu-tokyo"
     },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
@@ -12683,7 +12683,7 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tokyo:chofu"
+    "municipalityId": "Tokyo:mitaka"
   },
   {
     "id": "gifu-castle-gifu",
@@ -12978,7 +12978,7 @@
       }
     ],
     "relationships": {
-      "parentDestinationId": "gifu-city"
+      "gatewayHubId": "gifu-city"
     },
     "walkingIntensity": "low",
     "role": "standalone",
@@ -12990,7 +12990,7 @@
     },
     "officialWebsite": "https://www.gujokankou.com/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "municipalityId": "Gifu:gifu"
+    "municipalityId": "Gifu:gujo"
   },
   {
     "id": "gifu-magome-juku",
@@ -13083,7 +13083,7 @@
       }
     ],
     "relationships": {
-      "parentDestinationId": "gifu-city"
+      "gatewayHubId": "gifu-city"
     },
     "walkingIntensity": "low",
     "role": "standalone",
@@ -13095,7 +13095,7 @@
     },
     "officialWebsite": "https://kiso-magome.com/",
     "businessHours": "Open access",
-    "municipalityId": "Gifu:gifu"
+    "municipalityId": "Gifu:nakatsugawa"
   },
   {
     "id": "ginkaku-ji",
@@ -18725,7 +18725,7 @@
       }
     ],
     "relationships": {
-      "parentDestinationId": "mito-city"
+      "gatewayHubId": "mito-city"
     },
     "walkingIntensity": "low",
     "role": "standalone",
@@ -18794,7 +18794,7 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
     "openingHoursJa": "散策自由（24時間開放）",
-    "municipalityId": "Ibaraki:mito"
+    "municipalityId": "Ibaraki:daigo"
   },
   {
     "id": "ibaraki-hitachi-seaside-park",
@@ -18886,7 +18886,7 @@
       }
     ],
     "relationships": {
-      "parentDestinationId": "mito-city"
+      "gatewayHubId": "mito-city"
     },
     "walkingIntensity": "low",
     "role": "standalone",
@@ -18955,7 +18955,7 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
     "openingHoursJa": "散策自由（24時間開放）",
-    "municipalityId": "Ibaraki:mito"
+    "municipalityId": "Ibaraki:hitachinaka"
   },
   {
     "id": "ibaraki-mount-tsukuba",
@@ -21087,7 +21087,7 @@
       }
     ],
     "relationships": {
-      "parentDestinationId": "izumo-city"
+      "gatewayHubId": "izumo-city"
     },
     "budgetBreakdown": {
       "transport": 3000,
@@ -21111,7 +21111,7 @@
     },
     "officialWebsite": "https://www.ginzan-wm.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "municipalityId": "Shimane:izumo"
+    "municipalityId": "Shimane:oda"
   },
   {
     "id": "iwatsuki-ningyo-museum",
@@ -22039,7 +22039,7 @@
     },
     "collections": [],
     "relationships": {
-      "parentDestinationId": "yokosuka-city"
+      "gatewayHubId": "yokosuka-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Miura_Peninsula_Kanagawa_Japan_SRTM.jpg",
     "bestSeason": "Spring & Autumn",
@@ -23160,7 +23160,7 @@
       }
     ],
     "relationships": {
-      "parentDestinationId": "hamamatsu-city"
+      "gatewayHubId": "hamamatsu-city"
     },
     "walkingIntensity": "low",
     "role": "standalone",
@@ -23172,7 +23172,7 @@
     },
     "officialWebsite": "https://kakegawajo.com/",
     "businessHours": "09:00 - 17:00 (Last admission 16:30)",
-    "municipalityId": "Shizuoka:hamamatsu"
+    "municipalityId": "Shizuoka:kakegawa"
   },
   {
     "id": "kakunodate-samurai-district-akita",
@@ -37181,7 +37181,7 @@
     },
     "collections": [],
     "relationships": {
-      "parentDestinationId": "kisarazu-city"
+      "gatewayHubId": "kisarazu-city"
     },
     "image": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1000",
     "budgetBreakdown": {
@@ -37256,7 +37256,7 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
     "openingHoursJa": "散策自由（24時間開放）",
-    "municipalityId": "Chiba:kisarazu"
+    "municipalityId": "Chiba:futtsu"
   },
   {
     "id": "motobu-town",
@@ -37474,7 +37474,7 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [],
-      "parentDestinationId": "shimonoseki-city"
+      "gatewayHubId": "shimonoseki-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/9/9b/%E5%85%83%E4%B9%83%E9%9A%85%E7%A8%B2%E6%88%90%E7%A5%9E%E7%A4%BE_Motonosumi-Inari-jinja_20090504.jpg",
     "walkingIntensity": "low",
@@ -37489,7 +37489,7 @@
     "officialWebsite": "https://nanavi.jp/sightseeing/motonosumijinja/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Yamaguchi:shimonoseki"
+    "municipalityId": "Yamaguchi:nagato"
   },
   {
     "id": "mount-aso-kumamoto",
@@ -39056,7 +39056,7 @@
     },
     "collections": [],
     "relationships": {
-      "parentDestinationId": "nagano-city"
+      "gatewayHubId": "nagano-city"
     },
     "image": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1000",
     "walkingIntensity": "low",
@@ -39069,7 +39069,7 @@
     },
     "officialWebsite": "https://www.bessho-spa.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "municipalityId": "Nagano:nagano"
+    "municipalityId": "Nagano:ueda"
   },
   {
     "id": "nagano-city",
@@ -45019,7 +45019,7 @@
       }
     ],
     "relationships": {
-      "parentDestinationId": "mito-city"
+      "gatewayHubId": "mito-city"
     },
     "walkingIntensity": "low",
     "role": "standalone",
@@ -45086,7 +45086,7 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Ibaraki:mito"
+    "municipalityId": "Ibaraki:oarai"
   },
   {
     "id": "odaiba-minato",
@@ -49426,7 +49426,7 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["tsuruga-castle-fukushima"],
-      "parentDestinationId": "aizuwakamatsu-city"
+      "gatewayHubId": "aizuwakamatsu-city"
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -49438,7 +49438,7 @@
     "officialWebsite": "https://ouchi-juku.com/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Fukushima:aizuwakamatsu"
+    "municipalityId": "Fukushima:shimogo"
   },
   {
     "id": "oura-church-nagasaki",
@@ -50810,7 +50810,7 @@
       }
     ],
     "relationships": {
-      "parentDestinationId": "niigata-city"
+      "gatewayHubId": "niigata-city"
     },
     "nameJa": "佐渡島（さどしま）の金山",
     "bestSeason": "Spring & Autumn",
@@ -50827,7 +50827,7 @@
     },
     "officialWebsite": "https://www.visitsado.com/",
     "businessHours": "Open access",
-    "municipalityId": "Niigata:niigata"
+    "municipalityId": "Niigata:sado"
   },
   {
     "id": "sagamihara-city",
@@ -52065,7 +52065,7 @@
       }
     ],
     "relationships": {
-      "parentDestinationId": "narita-city"
+      "gatewayHubId": "narita-city"
     },
     "walkingIntensity": "medium",
     "role": "standalone",
@@ -52132,7 +52132,7 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
     "openingHoursJa": "散策自由（24時間開放）",
-    "municipalityId": "Chiba:narita"
+    "municipalityId": "Chiba:sakura"
   },
   {
     "id": "sakurajima-volcano-kagoshima",
@@ -67692,7 +67692,7 @@
     },
     "collections": [],
     "relationships": {
-      "parentDestinationId": "tsukuba-city"
+      "gatewayHubId": "tsukuba-city"
     },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
@@ -67759,7 +67759,7 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Ibaraki:tsukuba"
+    "municipalityId": "Ibaraki:ushiku"
   },
   {
     "id": "utsunomiya-city",
@@ -70659,7 +70659,7 @@
     },
     "collections": [],
     "relationships": {
-      "parentDestinationId": "chofu-tokyo"
+      "gatewayHubId": "chofu-tokyo"
     },
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
@@ -71268,7 +71268,7 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["sendai-city", "mount-zao-yamagata"],
-      "parentDestinationId": "sendai-city"
+      "gatewayHubId": "sendai-city"
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -71280,7 +71280,7 @@
     "officialWebsite": "http://zao-fox-village.com/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Miyagi:sendai"
+    "municipalityId": "Miyagi:shiroishi"
   },
   {
     "id": "zeniarai-benten",
@@ -71716,7 +71716,7 @@
     },
     "collections": [],
     "relationships": {
-      "parentDestinationId": "yokosuka-city"
+      "gatewayHubId": "yokosuka-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/%E5%A4%AA%E9%99%BD%E3%81%AE%E5%A1%94%E3%81%A8%E9%80%97%E5%AD%90%E6%B5%B7%E5%B2%B8.jpg/1280px-%E5%A4%AA%E9%99%BD%E3%81%AE%E5%A1%94%E3%81%A8%E9%80%97%E5%AD%90%E6%B5%B7%E5%B2%B8.jpg",
     "bestSeason": "Spring & Autumn",
@@ -81745,7 +81745,7 @@
       }
     },
     "relationships": {
-      "parentDestinationId": "ikaruga-town"
+      "gatewayHubId": "ikaruga-town"
     },
     "status": "published",
     "ratings": {
@@ -81772,7 +81772,7 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Shigi_from_the_air.jpg"
     },
-    "municipalityId": "Nara:ikaruga"
+    "municipalityId": "Nara:heguri"
   },
   {
     "id": "enryaku-ji-mount-hiei",
