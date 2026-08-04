@@ -2335,11 +2335,11 @@ const newPois: NewPoiInput[] = [
     categories: ["Culture", "Entertainment"],
     tags: ["Culture", "Dance", "Shinto", "Takachiho"],
     heroImage:
-      "https://upload.wikimedia.org/wikipedia/commons/4/43/Takachiho-Cho_Takachiho-Kagura_20231203_DSC01449.webm",
+      "https://upload.wikimedia.org/wikipedia/commons/d/d6/Yokagura_Sacred_Dance_%2831561847845%29.jpg",
     commonsFilePage:
-      "https://commons.wikimedia.org/wiki/File:Takachiho-Cho_Takachiho-Kagura_20231203_DSC01449.webm",
-    imageAttribution: "鶉野隆央",
-    imageLicense: "CC0",
+      "https://commons.wikimedia.org/wiki/File:Yokagura_Sacred_Dance_(31561847845).jpg",
+    imageAttribution: "publichall",
+    imageLicense: "CC BY 2.0",
     coordinates: { lat: 32.7136, lng: 131.3078 },
     budgetMin: 1500,
     budgetRecommended: 4000,
