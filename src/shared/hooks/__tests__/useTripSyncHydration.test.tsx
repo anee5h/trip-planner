@@ -6,6 +6,7 @@ import { createRoot, type Root } from "react-dom/client";
 import type { User } from "@supabase/supabase-js";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { useTripSync, type UseTripSyncReturn } from "../useTripSync";
+import type { OriginLocation } from "../useTripStore";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -44,6 +45,33 @@ vi.mock("@/shared/services/trips/TripRepository", () => ({
   },
 }));
 
+const STATIONS_BY_PREFECTURE: Record<
+  string,
+  Array<{ name: string; lat: number; lng: number }>
+> = {
+  Kyoto: [{ name: "Kyoto Station", lat: 34.9875, lng: 135.7593 }],
+  Kanagawa: [{ name: "Shin-Yokohama Station", lat: 35.5076, lng: 139.6177 }],
+};
+
+vi.stubGlobal(
+  "fetch",
+  vi.fn(async (url: string) => {
+    if (typeof url === "string" && url.includes("stations-by-prefecture")) {
+      return {
+        ok: true,
+        json: async () => STATIONS_BY_PREFECTURE,
+      };
+    }
+    return { ok: false, json: async () => [] };
+  }),
+);
+
+const DEFAULT_ORIGIN: OriginLocation = {
+  label: "Tokyo Station",
+  coordinates: { lat: 35.6812, lng: 139.7671 },
+  source: "default",
+};
+
 interface HarnessValue {
   sync: UseTripSyncReturn;
   favorites: string[];
@@ -53,7 +81,6 @@ interface HarnessValue {
 let latest: HarnessValue;
 let root: Root;
 let host: HTMLDivElement;
-const setHomeStationCoords = vi.fn();
 
 function Harness({ user }: { user: User | null }) {
   const [favorites, setFavorites] = useState<string[]>([]);
@@ -63,7 +90,8 @@ function Harness({ user }: { user: User | null }) {
     Record<string, string[] | string>
   >({});
   const [compareList, setCompareList] = useState<string[]>([]);
-  const [homeStation, setHomeStation] = useState("Tokyo Station");
+  const [activeOrigin, setActiveOrigin] =
+    useState<OriginLocation>(DEFAULT_ORIGIN);
   const [destinationRatings, setDestinationRatings] = useState<
     Record<string, "up" | "down">
   >({});
@@ -80,9 +108,9 @@ function Harness({ user }: { user: User | null }) {
     setVisitedDates,
     compareList,
     setCompareList,
-    homeStation,
-    setHomeStation,
-    setHomeStationCoords,
+    homeStation: activeOrigin.label,
+    guestOrigin: DEFAULT_ORIGIN,
+    setActiveOrigin,
     destinationRatings,
     setDestinationRatings,
   });
@@ -111,7 +139,6 @@ beforeEach(() => {
   mocks.insert.mockReset().mockResolvedValue({ error: null });
   mocks.upsert.mockReset().mockResolvedValue({ error: null });
   mocks.toastError.mockReset();
-  setHomeStationCoords.mockReset();
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);

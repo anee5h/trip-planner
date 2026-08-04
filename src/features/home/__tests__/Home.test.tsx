@@ -48,6 +48,7 @@ vi.mock("@/shared/hooks/useTripStore", () => ({
     homeStationCoords: { lat: 35.6812, lng: 139.7671 },
     homeStation: "Tokyo Station",
     canMutateProfile: true,
+    canSelectOrigin: true,
     isComparing: () => false,
     toggleCompare: vi.fn(),
     compareList: [],

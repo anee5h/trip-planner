@@ -437,6 +437,9 @@ const PARENT_BY_DESTINATION_ID: Record<string, string> = {
 };
 
 const GATEWAY_BY_DESTINATION_ID: Record<string, string> = {
+  // PR #88 gateway conversions, reviewed in PR #89 audit (docs/audits/pr89-gateway-review.csv).
+  // Each entry represents a practical regional access hub for a destination that is
+  // geographically distant or cross-municipality from the hub.
   "chogosonshi-ji-temple": "ikaruga-town",
 
   "zao-fox-village-miyagi": "sendai-city",
@@ -463,8 +466,6 @@ const GATEWAY_BY_DESTINATION_ID: Record<string, string> = {
 
   "sado-island": "niigata-city",
 
-  "ushiku-daibutsu": "tsukuba-city",
-
   "chiba-nokogiriyama": "kisarazu-city",
 
   "motonosumi-shrine-yamaguchi": "shimonoseki-city",
@@ -476,10 +477,6 @@ const GATEWAY_BY_DESTINATION_ID: Record<string, string> = {
   "oarai-marine-tower": "mito-city",
 
   "sakura-castle-chiba": "narita-city",
-
-  yomiuriland: "chofu-tokyo",
-
-  "ghibli-museum": "chofu-tokyo",
 
   "abukuma-cave-fukushima": "aizuwakamatsu-city",
   "amami-iriomote-natural-site": "kagoshima-city",
@@ -508,6 +505,7 @@ export const UNPARENTED_DESTINATION_IDS = [
   "boso-no-mura",
   "fukui",
   "gala-yuzawa",
+  "ghibli-museum",
   "kanazawa",
   "kanazawa-castle-ishikawa",
   "katori-jingu",
@@ -521,6 +519,8 @@ export const UNPARENTED_DESTINATION_IDS = [
   "tojinbo-cliffs-fukui",
   "tomioka-silk-mill-gunma",
   "toyama-alpine",
+  "ushiku-daibutsu",
+  "yomiuriland",
 ] as const;
 
 const REGION_OVERRIDES: Record<string, string> = {

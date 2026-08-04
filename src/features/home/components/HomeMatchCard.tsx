@@ -13,6 +13,8 @@ import {
   formatPrefecture,
   localizePlaceLabel,
 } from "@/shared/utils/placeLabels";
+import { useTripStore } from "@/shared/hooks/useTripStore";
+import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
 
 interface HomeMatchCardProps {
   destination: Destination;
@@ -48,6 +50,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
 }) => {
   const { locale } = useLocale();
   const { t } = useTranslation();
+  const { homeStationCoords } = useTripStore();
   const localized = getLocalizedPlace(destination, locale);
   const { title, subtitle } = parseCleanTitle(localized.name);
   const areaAndCategory = [
@@ -58,12 +61,17 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
     .filter(Boolean)
     .join(" · ");
 
-  // Preferred transport calculation
+  // Preferred transport calculation — adjust destination transport options
+  // for the selected origin before picking the fastest mode.
+  const adjustedDestination = buildRecommendationCandidate(destination, {
+    homeStationCoords,
+  });
   const bestTransport = getFastestPreferredTransport(
-    destination,
+    adjustedDestination,
     carMode,
     publicModes,
     partySize,
+    homeStationCoords ?? undefined,
   );
 
   const travelTimeText = bestTransport

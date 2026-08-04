@@ -8,10 +8,8 @@ import type {
   AuthError,
 } from "@supabase/supabase-js";
 import { supabase } from "@/lib/supabase";
-import {
-  buildClearProfileResult,
-  type ClearProfileResult,
-} from "./clearProfileResult";
+import { executeClearProfile } from "./clearProfileOrchestration";
+import type { ClearProfileResult } from "./clearProfileResult";
 
 export interface UserPreferencesPayload {
   partySize?: number;
@@ -135,51 +133,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   ];
 
   const clearProfileData = async (): Promise<ClearProfileResult> => {
-    const signedIn = Boolean(user && supabase);
-    let metadataCleared = false;
-    let userDataDeleted = false;
-
-    // 1. Clear the app-owned Auth metadata so the fields do not reappear on
-    //    the next login.
-    if (signedIn && supabase && user) {
-      const metadata: Record<string, null> = {};
-      for (const field of PROFILE_METADATA_FIELDS) {
-        metadata[field] = null;
-      }
-      const metaResult = await supabase.auth.updateUser({ data: metadata });
-      if (metaResult.error) {
-        console.error("Failed to clear profile metadata", metaResult.error);
-      } else {
-        metadataCleared = true;
-        if (metaResult.data.user) setUser(metaResult.data.user);
-      }
-
-      // 2. Delete the application-owned user_data row.
-      if (metadataCleared) {
-        const { error } = await supabase
-          .from("user_data")
-          .delete()
-          .eq("id", user.id);
-        if (error) {
-          console.error("Failed to clear user profile data", error);
-        } else {
-          userDataDeleted = true;
-        }
-      }
-    }
-
-    // 3. Sign out only when both destructive steps completed.
-    let signOutFailed = false;
-    if (metadataCleared && userDataDeleted) {
-      const signOutResult = await signOut();
-      signOutFailed = Boolean(signOutResult?.error);
-    }
-
-    return buildClearProfileResult({
-      signedIn,
-      metadataCleared,
-      userDataDeleted,
-      signOutFailed,
+    return executeClearProfile({
+      user,
+      client: supabase,
+      signOut: () =>
+        signOut?.() ?? Promise.resolve({ error: null as AuthError | null }),
+      onUserUpdated: (updatedUser) => setUser(updatedUser),
+      profileMetadataFields: PROFILE_METADATA_FIELDS as readonly string[],
     });
   };
 

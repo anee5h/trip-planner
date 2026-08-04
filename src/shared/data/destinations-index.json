@@ -12613,9 +12613,7 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {
-      "gatewayHubId": "chofu-tokyo"
-    },
+    "relationships": {},
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "walkingIntensity": "medium",
@@ -67691,9 +67689,7 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {
-      "gatewayHubId": "tsukuba-city"
-    },
+    "relationships": {},
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "reservation": "No advance reservation required; tickets available on arrival.",
@@ -70658,9 +70654,7 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {
-      "gatewayHubId": "chofu-tokyo"
-    },
+    "relationships": {},
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "walkingIntensity": "medium",

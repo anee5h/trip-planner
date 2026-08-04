@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 import { useAuth } from "@/shared/hooks/useAuth";
@@ -23,6 +23,12 @@ export function formatPrefectureId(prefectureName: string): string {
   return prefectureName;
 }
 
+export type OriginLocation = {
+  label: string;
+  coordinates: { lat: number; lng: number };
+  source: "station" | "postal_code" | "default";
+};
+
 interface TripStoreContextType {
   favorites: string[];
   toggleFavorite: (id: string) => void;
@@ -45,10 +51,9 @@ interface TripStoreContextType {
   isPrefectureVisited: (id: string) => boolean;
 
   homeStation: string;
-  setHomeStation: (station: string) => void;
+  homeStationCoords: { lat: number; lng: number };
 
-  homeStationCoords: { lat: number; lng: number } | null;
-  setHomeStationCoords: (coords: { lat: number; lng: number } | null) => void;
+  setOriginLocation: (origin: OriginLocation) => void;
 
   compareList: string[];
   toggleCompare: (id: string) => void;
@@ -81,6 +86,10 @@ interface TripStoreContextType {
   getDestinationRating: (id: string) => "up" | "down" | null;
 
   canMutateProfile: boolean;
+  /** True when the user may open StationInput to correct an unresolved saved
+   * station. Distinct from canMutateProfile: other mutations remain blocked
+   * during the recoverable origin_error state. */
+  canSelectOrigin: boolean;
   profileSyncStatus: ProfileSyncStatus;
   tripSyncStatus: TripSyncStatus;
   retryProfileHydration: () => void;
@@ -91,15 +100,109 @@ const TripStoreContext = createContext<TripStoreContextType | undefined>(
   undefined,
 );
 
-const GUEST_HOME_STATION_KEY = "meguruto-guest-home-station";
-const GUEST_HOME_STATION_COORDS_KEY = "meguruto-guest-home-station-coords";
+const GUEST_ORIGIN_KEY = "meguruto-guest-origin";
+const LEGACY_GUEST_STATION_KEY = "meguruto-guest-home-station";
+const LEGACY_GUEST_COORDS_KEY = "meguruto-guest-home-station-coords";
 const DEFAULT_TOKYO_STATION = "Tokyo Station";
 const DEFAULT_TOKYO_COORDS = { lat: 35.6812, lng: 139.7671 };
+
+const DEFAULT_ORIGIN: OriginLocation = {
+  label: DEFAULT_TOKYO_STATION,
+  coordinates: DEFAULT_TOKYO_COORDS,
+  source: "default",
+};
+
+function isValidCoordinates(
+  value: unknown,
+): value is { lat: number; lng: number } {
+  return (
+    value !== null &&
+    typeof value === "object" &&
+    typeof (value as Record<string, unknown>).lat === "number" &&
+    typeof (value as Record<string, unknown>).lng === "number" &&
+    Number.isFinite((value as Record<string, number>).lat) &&
+    Number.isFinite((value as Record<string, number>).lng) &&
+    (value as Record<string, number>).lat >= -90 &&
+    (value as Record<string, number>).lat <= 90 &&
+    (value as Record<string, number>).lng >= -180 &&
+    (value as Record<string, number>).lng <= 180
+  );
+}
+
+function isValidOriginLocation(value: unknown): value is OriginLocation {
+  if (!value || typeof value !== "object") return false;
+  const o = value as Record<string, unknown>;
+  return (
+    typeof o.label === "string" &&
+    o.label.trim().length > 0 &&
+    isValidCoordinates(o.coordinates) &&
+    typeof o.source === "string" &&
+    ["station", "postal_code", "default"].includes(o.source)
+  );
+}
+
+function loadGuestOrigin(): OriginLocation {
+  if (typeof window === "undefined") return DEFAULT_ORIGIN;
+
+  try {
+    const saved = window.localStorage.getItem(GUEST_ORIGIN_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (isValidOriginLocation(parsed)) return parsed;
+    }
+  } catch {
+    // corrupt storage
+  }
+
+  const migrated = migrateLegacyOrigin();
+  if (migrated) return migrated;
+
+  return DEFAULT_ORIGIN;
+}
+
+function migrateLegacyOrigin(): OriginLocation | null {
+  if (typeof window === "undefined") return null;
+
+  try {
+    const stationRaw = window.localStorage.getItem(LEGACY_GUEST_STATION_KEY);
+    const coordsRaw = window.localStorage.getItem(LEGACY_GUEST_COORDS_KEY);
+
+    if (!stationRaw || !coordsRaw) return null;
+
+    const label = JSON.parse(stationRaw);
+    const coordinates = JSON.parse(coordsRaw);
+
+    if (typeof label !== "string" || label.length === 0) return null;
+    if (!isValidCoordinates(coordinates)) return null;
+
+    const origin: OriginLocation = {
+      label,
+      coordinates,
+      source: label.includes(", ") ? "station" : "postal_code",
+    };
+
+    window.localStorage.setItem(GUEST_ORIGIN_KEY, JSON.stringify(origin));
+    window.localStorage.removeItem(LEGACY_GUEST_STATION_KEY);
+    window.localStorage.removeItem(LEGACY_GUEST_COORDS_KEY);
+
+    return origin;
+  } catch {
+    return null;
+  }
+}
+
+function persistGuestOrigin(origin: OriginLocation) {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.setItem(GUEST_ORIGIN_KEY, JSON.stringify(origin));
+  } catch (e) {
+    console.error(e);
+  }
+}
 
 export function TripStoreProvider({ children }: { children: ReactNode }) {
   const { user } = useAuth();
 
-  // One-time startup purge of legacy localStorage account cache keys
   useEffect(() => {
     clearLegacyAccountStorage();
   }, []);
@@ -110,41 +213,18 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
   const [visitedDates, setVisitedDates] = useState<
     Record<string, string[] | string>
   >({});
-  // Note: compareList is intentionally kept local-only (stored in localStorage, not synced to cloud)
   const [compareList, setCompareList] = useLocalStorage<string[]>(
     "trip-planner-compare",
     [],
   );
-  const [homeStation, setHomeStationState] = useState<string>(() => {
-    if (typeof window !== "undefined") {
-      try {
-        const saved = window.localStorage.getItem(GUEST_HOME_STATION_KEY);
-        if (saved) return JSON.parse(saved);
-      } catch (e) {
-        console.error(e);
-      }
-    }
-    return DEFAULT_TOKYO_STATION;
-  });
-  const [homeStationCoords, setHomeStationCoordsState] = useState<{
-    lat: number;
-    lng: number;
-  } | null>(() => {
-    if (typeof window !== "undefined") {
-      try {
-        const saved = window.localStorage.getItem(
-          GUEST_HOME_STATION_COORDS_KEY,
-        );
-        if (saved) return JSON.parse(saved);
-      } catch (e) {
-        console.error(e);
-      }
-    }
-    return DEFAULT_TOKYO_COORDS;
-  });
+
+  const [guestOrigin, setGuestOrigin] =
+    useState<OriginLocation>(loadGuestOrigin);
+  const [activeOrigin, setActiveOrigin] = useState<OriginLocation>(guestOrigin);
+  const activeOriginRef = useRef(activeOrigin);
+  activeOriginRef.current = activeOrigin;
 
   const [lastSyncedDate, setLastSyncedDate] = useState<string | null>(null);
-
   const [trips, setTrips] = useState<Trip[]>([]);
   const [destinationRatings, setDestinationRatingsState] = useState<
     Record<string, "up" | "down">
@@ -153,12 +233,12 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
   const getDestinationRating = (id: string): "up" | "down" | null =>
     destinationRatings[id] ?? null;
 
-  // Modular cloud persistence & initial load hook
   const {
     profileSyncStatus,
     tripSyncStatus,
     retryProfileHydration,
     retryTripHydration,
+    persistCorrectedOrigin,
   } = useTripSync({
     user,
     favorites,
@@ -173,9 +253,9 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     setLastSyncedDate,
     compareList,
     setCompareList,
-    homeStation,
-    setHomeStation: setHomeStationState,
-    setHomeStationCoords: setHomeStationCoordsState,
+    homeStation: activeOrigin.label,
+    guestOrigin,
+    setActiveOrigin,
     trips,
     setTrips,
     destinationRatings,
@@ -185,48 +265,23 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
   const canMutateProfile =
     !user || profileSyncStatus === "ready" || profileSyncStatus === "saving";
 
-  function setHomeStation(station: string) {
-    if (!canMutateProfile) return;
-    setHomeStationState(station);
-    if (!user && typeof window !== "undefined") {
-      try {
-        window.localStorage.setItem(
-          GUEST_HOME_STATION_KEY,
-          JSON.stringify(station),
-        );
-      } catch (e) {
-        console.error(e);
-      }
-    }
-  }
+  // Station selection is separately unblocked during the recoverable
+  // origin_error state so the user can correct the unresolved station.
+  const canSelectOrigin =
+    canMutateProfile || profileSyncStatus === "origin_error";
 
-  function setHomeStationCoords(
-    coords:
-      | { lat: number; lng: number }
-      | null
-      | ((
-          prev: { lat: number; lng: number } | null,
-        ) => { lat: number; lng: number } | null),
-  ) {
-    setHomeStationCoordsState((prev) => {
-      const next = typeof coords === "function" ? coords(prev) : coords;
-      if (!user && typeof window !== "undefined") {
-        try {
-          if (next) {
-            window.localStorage.setItem(
-              GUEST_HOME_STATION_COORDS_KEY,
-              JSON.stringify(next),
-            );
-          } else {
-            window.localStorage.removeItem(GUEST_HOME_STATION_COORDS_KEY);
-          }
-        } catch (e) {
-          console.error(e);
-        }
-      }
-      return next;
-    });
-  }
+  const setOriginLocation = (origin: OriginLocation) => {
+    if (!isValidOriginLocation(origin)) return;
+    activeOriginRef.current = origin;
+    setActiveOrigin(origin);
+    if (!user) {
+      setGuestOrigin(origin);
+      persistGuestOrigin(origin);
+    } else if (profileSyncStatus === "origin_error") {
+      // Persist the corrected station to the cloud account.
+      void persistCorrectedOrigin(origin);
+    }
+  };
 
   const setDestinationRating = (id: string, rating: "up" | "down" | null) => {
     if (!canMutateProfile) return;
@@ -242,7 +297,6 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     });
   };
 
-  // Retrospective self-healing migration: Ensure existing visited child records cascade to parent hubs & visitedPrefectures
   useEffect(() => {
     if (!visited || visited.length === 0) return;
 
@@ -252,7 +306,6 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     let hasChanges = false;
 
     for (const id of visited) {
-      // Ensure target destination's prefecture is in visitedPrefectures
       const targetDest = destinationsIndex.find((d) => d.id === id);
       if (targetDest) {
         const prefId = formatPrefectureId(targetDest.prefecture);
@@ -306,7 +359,6 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
       }
     }
 
-    // Self-healing cleanup: Remove erroneous dates from parent hubs if no visited child POI has that date
     for (const hubId of updatedVisited) {
       const hubDest = destinationsIndex.find((d) => d.id === hubId);
       if (hubDest?.role !== "hub") continue;
@@ -423,7 +475,6 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     if (!canMutateProfile) return;
     const dateToAdd = date || new Date().toISOString().split("T")[0];
 
-    // Ensure destination is in visited list
     if (!visited.includes(id)) {
       setVisited((prev) => (prev.includes(id) ? prev : [...prev, id]));
 
@@ -445,7 +496,6 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
       };
     });
 
-    // Cascade visit up parent hub chain
     let currentId: string | undefined = id;
     while (currentId) {
       const dest = destinationsIndex.find((d) => d.id === currentId);
@@ -520,7 +570,6 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
 
   const clearCompare = () => setCompareList([]);
 
-  // Trip Management Actions
   const addTrip = (
     title: string,
     startDate?: string,
@@ -623,10 +672,9 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
         toggleCompare,
         isComparing,
         clearCompare,
-        homeStation,
-        setHomeStation,
-        homeStationCoords,
-        setHomeStationCoords,
+        homeStation: activeOrigin.label,
+        homeStationCoords: activeOrigin.coordinates,
+        setOriginLocation,
         lastSyncedDate,
         setLastSyncedDate,
         trips,
@@ -642,6 +690,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
         setDestinationRating,
         getDestinationRating,
         canMutateProfile,
+        canSelectOrigin,
         profileSyncStatus,
         tripSyncStatus,
         retryProfileHydration,
