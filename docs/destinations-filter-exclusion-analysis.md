@@ -129,13 +129,35 @@ single missing field.
 
 | Prefecture | Count | Hubs |
 |-----------|-------|------|
-| Wakayama | 12 | wakayama-city (6), koya-town (2), shirahama-town (2) |
+| Wakayama | **10** | wakayama-city (6), koya-town (2), shirahama-town (2) |
 | Shiga | 8 | otsu-city (6), hikone-city (2) |
-| Nara | 6 | nara-city (3), ikaruga-town (2), standalone (1) |
+| Hyogo | **6** | himeji-city (2), toyooka-city (2), asago-city (2) |
 | Kyoto | 5 | uji-city (3), miyazu-city (2) |
-| Hyogo | 5 | himeji-city (2), toyooka-city (2), asago-city (2) |
+| Nara | **5** | nara-city (3), ikaruga-town (2) |
 | Osaka | 2 | sakai-city (2) |
 | Mie | 2 | ise-city (2) |
+| **Total** | **38** | |
+
+---
+
+## Diagnostic Configuration
+
+The filtering was reproduced with this exact state:
+
+```
+carMode:     "none"
+publicModes: ["train", "shinkansen", "bus", "flight"]
+tripDuration: "any"
+budgetTier:  "standard"
+```
+
+This matches the saved-preferences state the app applies after auth loads
+(see `Destinations.tsx` lines 131–154). It does **not** include rental car.
+If the UI screenshot used to manually verify this showed five transport
+controls selected — including a rental-car toggle — that selection was not
+part of the reproduced diagnostic configuration. The root cause is identical
+in both cases: destinations without `transportOptions` are dropped as soon as
+any transport selection is active.
 
 ---
 
@@ -157,6 +179,16 @@ them, and they are silently excluded.
 The 627 unfiltered count is therefore misleading: 38 records are structurally
 incomplete and cannot be reached by any transport mode filter.
 
+### Secondary data anomaly: CupNoodles Museum gateway assignment
+
+`cupnoodles-museum-osaka-ikeda` has `gatewayHubId: "sakai-city"` in both the
+index and its detail record. The museum is located in **Ikeda**, Osaka — not
+in Sakai. This gateway assignment is likely a copy-paste error from the
+expansion run. It does not change the transport diagnosis (the record has no
+`transportOptions` regardless), but the relationship metadata should be
+corrected as part of the data repair. This is flagged here for the follow-up
+branch.
+
 ---
 
 ## Conclusion
@@ -173,7 +205,9 @@ with saved transport preferences.
 
 **Recommended follow-up:** open a `data/kansai-expansion-transport-data` branch
 to back-fill `transportOptions` for all 38 records using each destination's
-parent/gateway hub travel time as the baseline.
+parent/gateway hub travel time as the baseline. That branch should also correct
+the `gatewayHubId` for `cupnoodles-museum-osaka-ikeda` from `sakai-city` to the
+appropriate Ikeda-area hub.
 
 ---
 
