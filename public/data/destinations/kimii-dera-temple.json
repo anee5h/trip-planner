@@ -82,5 +82,10 @@
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kimiidera_wP1010133.jpg"
   },
-  "municipalityId": "Wakayama:wakayama"
+  "municipalityId": "Wakayama:wakayama",
+  "transportOptions": {
+    "train": 233,
+    "bus": 270,
+    "car": 282
+  }
 }

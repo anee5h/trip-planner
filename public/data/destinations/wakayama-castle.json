@@ -82,5 +82,10 @@
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wakayama_Castle_Nishinomaru_Garden04bs3200.jpg"
   },
-  "municipalityId": "Wakayama:wakayama"
+  "municipalityId": "Wakayama:wakayama",
+  "transportOptions": {
+    "train": 232,
+    "bus": 268,
+    "car": 280
+  }
 }

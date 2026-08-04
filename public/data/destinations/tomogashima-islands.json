@@ -82,5 +82,10 @@
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tomogashima_Island_Wakayama.jpg"
   },
-  "municipalityId": "Wakayama:wakayama"
+  "municipalityId": "Wakayama:wakayama",
+  "transportOptions": {
+    "train": 260,
+    "bus": 302,
+    "car": 295
+  }
 }

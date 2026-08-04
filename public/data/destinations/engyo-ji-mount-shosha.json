@@ -82,5 +82,10 @@
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Engyoji05s4592.jpg"
   },
-  "municipalityId": "Hyogo:himeji"
+  "municipalityId": "Hyogo:himeji",
+  "transportOptions": {
+    "shinkansen": 185,
+    "train": 215,
+    "car": 275
+  }
 }

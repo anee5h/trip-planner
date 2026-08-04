@@ -55,7 +55,7 @@
     }
   },
   "relationships": {
-    "gatewayHubId": "sakai-city"
+    "gatewayHubId": "osaka-city"
   },
   "status": "published",
   "ratings": {
@@ -81,5 +81,10 @@
     "license": "CC BY-SA 4.0",
     "attribution": "663highland",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:240810_Cupnoodles_Museum_Osaka_Ikeda_Ikeda_Osaka_pref_Japan01s3.jpg"
+  },
+  "transportOptions": {
+    "shinkansen": 175,
+    "train": 200,
+    "bus": 220
   }
 }

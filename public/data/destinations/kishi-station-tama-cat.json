@@ -82,5 +82,10 @@
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:KishiStation.jpg"
   },
-  "municipalityId": "Wakayama:wakayama"
+  "municipalityId": "Wakayama:wakayama",
+  "transportOptions": {
+    "train": 262,
+    "bus": 305,
+    "car": 292
+  }
 }

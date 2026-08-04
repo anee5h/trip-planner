@@ -82,5 +82,10 @@
     "attribution": "Saigen Jiro",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wakanoura_viewed_from_Mount_Takozushi.jpg"
   },
-  "municipalityId": "Wakayama:wakayama"
+  "municipalityId": "Wakayama:wakayama",
+  "transportOptions": {
+    "train": 242,
+    "bus": 278,
+    "car": 285
+  }
 }

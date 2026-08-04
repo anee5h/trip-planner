@@ -80654,7 +80654,7 @@
       }
     },
     "relationships": {
-      "gatewayHubId": "sakai-city"
+      "gatewayHubId": "osaka-city"
     },
     "status": "published",
     "ratings": {
@@ -80680,6 +80680,11 @@
       "license": "CC BY-SA 4.0",
       "attribution": "663highland",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:240810_Cupnoodles_Museum_Osaka_Ikeda_Ikeda_Osaka_pref_Japan01s3.jpg"
+    },
+    "transportOptions": {
+      "shinkansen": 175,
+      "train": 200,
+      "bus": 220
     }
   },
   {
@@ -80762,7 +80767,12 @@
       "attribution": "ganden",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kyoto-Byodoin_Phoenix_Hall-xl.jpg"
     },
-    "municipalityId": "Kyoto:uji"
+    "municipalityId": "Kyoto:uji",
+    "transportOptions": {
+      "shinkansen": 147,
+      "train": 247,
+      "bus": 247
+    }
   },
   {
     "id": "uji-tea-culture-center",
@@ -80844,7 +80854,12 @@
       "attribution": "Ctny",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tea_plantation_in_Kyoto.jpg"
     },
-    "municipalityId": "Kyoto:uji"
+    "municipalityId": "Kyoto:uji",
+    "transportOptions": {
+      "shinkansen": 147,
+      "train": 247,
+      "bus": 247
+    }
   },
   {
     "id": "mimuroto-ji-temple",
@@ -80926,7 +80941,12 @@
       "attribution": "Daniel M. Dobkin",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mimurotoji_entry.jpg"
     },
-    "municipalityId": "Kyoto:uji"
+    "municipalityId": "Kyoto:uji",
+    "transportOptions": {
+      "shinkansen": 152,
+      "train": 252,
+      "bus": 252
+    }
   },
   {
     "id": "ine-funaya-boathouses",
@@ -81008,7 +81028,12 @@
       "attribution": "Asturio Cantabrio",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Michinoeki_Funayanosato_Ine_2017-04_ac_(1).jpg"
     },
-    "municipalityId": "Kyoto:miyazu"
+    "municipalityId": "Kyoto:miyazu",
+    "transportOptions": {
+      "train": 195,
+      "bus": 225,
+      "car": 245
+    }
   },
   {
     "id": "kasamatsu-park-view",
@@ -81090,7 +81115,12 @@
       "attribution": "663highland",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amanohashidate_view_from_Kasamatsu_Park01s3s4410.jpg"
     },
-    "municipalityId": "Kyoto:miyazu"
+    "municipalityId": "Kyoto:miyazu",
+    "transportOptions": {
+      "train": 162,
+      "bus": 192,
+      "car": 212
+    }
   },
   {
     "id": "koko-en-garden",
@@ -81172,7 +81202,12 @@
       "attribution": "DimiTalen",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Raised_garden_beds_in_the_Garden_of_Seedlings,_K%C5%8Dko-en,_Himeji,_2016.jpg"
     },
-    "municipalityId": "Hyogo:himeji"
+    "municipalityId": "Hyogo:himeji",
+    "transportOptions": {
+      "shinkansen": 180,
+      "train": 210,
+      "car": 270
+    }
   },
   {
     "id": "engyo-ji-mount-shosha",
@@ -81258,7 +81293,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Engyoji05s4592.jpg"
     },
-    "municipalityId": "Hyogo:himeji"
+    "municipalityId": "Hyogo:himeji",
+    "transportOptions": {
+      "shinkansen": 185,
+      "train": 215,
+      "car": 275
+    }
   },
   {
     "id": "izushi-castle-town",
@@ -81344,7 +81384,12 @@
       "attribution": "663highland",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:241230_Izushi_Soba_Toyooka_Hyogo_pref_Japan01s3.jpg"
     },
-    "municipalityId": "Hyogo:toyooka"
+    "municipalityId": "Hyogo:toyooka",
+    "transportOptions": {
+      "train": 255,
+      "bus": 295,
+      "car": 325
+    }
   },
   {
     "id": "genbudo-cave-park",
@@ -81426,7 +81471,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Genbudo_Park_in_Toyooka_Hyogo.JPG"
     },
-    "municipalityId": "Hyogo:toyooka"
+    "municipalityId": "Hyogo:toyooka",
+    "transportOptions": {
+      "train": 242,
+      "bus": 282,
+      "car": 312
+    }
   },
   {
     "id": "ritsuunkyo-viewpoint",
@@ -81512,7 +81562,11 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Genbudo_Park_in_Toyooka_Hyogo.JPG"
     },
-    "municipalityId": "Hyogo:asago"
+    "municipalityId": "Hyogo:asago",
+    "transportOptions": {
+      "train": 200,
+      "car": 200
+    }
   },
   {
     "id": "ikuno-silver-mine",
@@ -81598,7 +81652,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Silver_Mining_Road_in_Hyogo01n4272.jpg"
     },
-    "municipalityId": "Hyogo:asago"
+    "municipalityId": "Hyogo:asago",
+    "transportOptions": {
+      "train": 196,
+      "bus": 228,
+      "car": 222
+    }
   },
   {
     "id": "hokki-ji-pagoda",
@@ -81680,7 +81739,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hokkiji_Three-storied_Pagoda.jpg"
     },
-    "municipalityId": "Nara:ikaruga"
+    "municipalityId": "Nara:ikaruga",
+    "transportOptions": {
+      "train": 175,
+      "bus": 205,
+      "car": 240
+    }
   },
   {
     "id": "chogosonshi-ji-temple",
@@ -81766,7 +81830,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Shigi_from_the_air.jpg"
     },
-    "municipalityId": "Nara:heguri"
+    "municipalityId": "Nara:heguri",
+    "transportOptions": {
+      "train": 170,
+      "bus": 200,
+      "car": 235
+    }
   },
   {
     "id": "enryaku-ji-mount-hiei",
@@ -81852,7 +81921,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Enryakuji_Konpon_Chudo1.jpg"
     },
-    "municipalityId": "Shiga:otsu"
+    "municipalityId": "Shiga:otsu",
+    "transportOptions": {
+      "train": 150,
+      "bus": 162,
+      "car": 170
+    }
   },
   {
     "id": "ukimido-mangetsu-ji",
@@ -81934,7 +82008,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ukimido_in_Katata.jpg"
     },
-    "municipalityId": "Shiga:otsu"
+    "municipalityId": "Shiga:otsu",
+    "transportOptions": {
+      "train": 145,
+      "bus": 160,
+      "car": 175
+    }
   },
   {
     "id": "genkyuen-garden",
@@ -82020,7 +82099,11 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Genkyu-en_Garden_in_Hikone.JPG"
     },
-    "municipalityId": "Shiga:hikone"
+    "municipalityId": "Shiga:hikone",
+    "transportOptions": {
+      "train": 160,
+      "car": 168
+    }
   },
   {
     "id": "miho-museum-koka",
@@ -82105,6 +82188,11 @@
       "license": "CC BY-SA 4.0",
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Miho-Museum.jpg"
+    },
+    "transportOptions": {
+      "train": 210,
+      "bus": 245,
+      "car": 232
     }
   },
   {
@@ -82187,7 +82275,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Okage-Yokocho-2012.jpg"
     },
-    "municipalityId": "Mie:ise"
+    "municipalityId": "Mie:ise",
+    "transportOptions": {
+      "train": 180,
+      "bus": 210,
+      "car": 240
+    }
   },
   {
     "id": "kishi-station-tama-cat",
@@ -82273,7 +82366,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:KishiStation.jpg"
     },
-    "municipalityId": "Wakayama:wakayama"
+    "municipalityId": "Wakayama:wakayama",
+    "transportOptions": {
+      "train": 262,
+      "bus": 305,
+      "car": 292
+    }
   },
   {
     "id": "okunoin-cemetery-koyasan",
@@ -82359,7 +82457,11 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koyasan_Okunoin_Rosoku01.jpg"
     },
-    "municipalityId": "Wakayama:koya"
+    "municipalityId": "Wakayama:koya",
+    "transportOptions": {
+      "train": 230,
+      "bus": 272
+    }
   },
   {
     "id": "senjojiki-sandanbeki-cliffs",
@@ -82445,7 +82547,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senjojiki_Shirahama_Wakayama01n4272.jpg"
     },
-    "municipalityId": "Wakayama:shirahama"
+    "municipalityId": "Wakayama:shirahama",
+    "transportOptions": {
+      "train": 265,
+      "bus": 308,
+      "car": 342
+    }
   },
   {
     "id": "sakai-city-museum",
@@ -82531,7 +82638,13 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sakai_Daisenryo.jpg"
     },
-    "municipalityId": "Osaka:sakai"
+    "municipalityId": "Osaka:sakai",
+    "transportOptions": {
+      "shinkansen": 168,
+      "train": 192,
+      "bus": 212,
+      "car": 235
+    }
   },
   {
     "id": "lake-biwa-shiga",
@@ -82617,7 +82730,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Biwa_Lake_Kusatsu_Shiga01s5s4592.jpg"
     },
-    "municipalityId": "Shiga:otsu"
+    "municipalityId": "Shiga:otsu",
+    "transportOptions": {
+      "train": 143,
+      "bus": 160,
+      "car": 175
+    }
   },
   {
     "id": "meoto-iwa-wedded-rocks",
@@ -82703,7 +82821,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Futamigaura_meotoiwa01.jpg"
     },
-    "municipalityId": "Mie:ise"
+    "municipalityId": "Mie:ise",
+    "transportOptions": {
+      "train": 186,
+      "bus": 218,
+      "car": 248
+    }
   },
   {
     "id": "wakayama-castle",
@@ -82789,7 +82912,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wakayama_Castle_Nishinomaru_Garden04bs3200.jpg"
     },
-    "municipalityId": "Wakayama:wakayama"
+    "municipalityId": "Wakayama:wakayama",
+    "transportOptions": {
+      "train": 232,
+      "bus": 268,
+      "car": 280
+    }
   },
   {
     "id": "kataonami-beach-wakanoura",
@@ -82875,7 +83003,12 @@
       "attribution": "Saigen Jiro",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wakanoura_viewed_from_Mount_Takozushi.jpg"
     },
-    "municipalityId": "Wakayama:wakayama"
+    "municipalityId": "Wakayama:wakayama",
+    "transportOptions": {
+      "train": 242,
+      "bus": 278,
+      "car": 285
+    }
   },
   {
     "id": "danjo-garan-koyasan",
@@ -82957,7 +83090,11 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koyasan_Danjogaran.jpg"
     },
-    "municipalityId": "Wakayama:koya"
+    "municipalityId": "Wakayama:koya",
+    "transportOptions": {
+      "train": 228,
+      "bus": 270
+    }
   },
   {
     "id": "shirahama-beach-adventure-world",
@@ -83039,7 +83176,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shirahama_beach01.jpg"
     },
-    "municipalityId": "Wakayama:shirahama"
+    "municipalityId": "Wakayama:shirahama",
+    "transportOptions": {
+      "train": 262,
+      "bus": 305,
+      "car": 338
+    }
   },
   {
     "id": "toshodai-ji-temple",
@@ -83121,7 +83263,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toshodaiji_Nara_Nara_pref00bs5s2850.jpg"
     },
-    "municipalityId": "Nara:nara"
+    "municipalityId": "Nara:nara",
+    "transportOptions": {
+      "train": 172,
+      "bus": 202,
+      "car": 242
+    }
   },
   {
     "id": "yakushi-ji-temple",
@@ -83203,7 +83350,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yakushiji_Nara_Japan01s3s4592.jpg"
     },
-    "municipalityId": "Nara:nara"
+    "municipalityId": "Nara:nara",
+    "transportOptions": {
+      "train": 172,
+      "bus": 202,
+      "car": 242
+    }
   },
   {
     "id": "naramachi-historic-district",
@@ -83285,7 +83437,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naramachi03s3200.jpg"
     },
-    "municipalityId": "Nara:nara"
+    "municipalityId": "Nara:nara",
+    "transportOptions": {
+      "train": 170,
+      "bus": 200,
+      "car": 240
+    }
   },
   {
     "id": "shirahige-shrine-lake-biwa",
@@ -83367,7 +83524,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shirahige_jinja.jpg"
     },
-    "municipalityId": "Shiga:otsu"
+    "municipalityId": "Shiga:otsu",
+    "transportOptions": {
+      "train": 160,
+      "bus": 175,
+      "car": 185
+    }
   },
   {
     "id": "omi-hachiman-canal",
@@ -83453,7 +83615,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Omihachiman_canal_006.jpg"
     },
-    "municipalityId": "Shiga:otsu"
+    "municipalityId": "Shiga:otsu",
+    "transportOptions": {
+      "train": 175,
+      "bus": 195,
+      "car": 205
+    }
   },
   {
     "id": "hiei-zan-driveway-observatory",
@@ -83539,7 +83706,11 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt._Hiei-zan_from_Shiga-machi_2014.jpg"
     },
-    "municipalityId": "Shiga:otsu"
+    "municipalityId": "Shiga:otsu",
+    "transportOptions": {
+      "train": 152,
+      "car": 165
+    }
   },
   {
     "id": "kimii-dera-temple",
@@ -83625,7 +83796,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kimiidera_wP1010133.jpg"
     },
-    "municipalityId": "Wakayama:wakayama"
+    "municipalityId": "Wakayama:wakayama",
+    "transportOptions": {
+      "train": 233,
+      "bus": 270,
+      "car": 282
+    }
   },
   {
     "id": "kuroshio-market-marina-city",
@@ -83711,7 +83887,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kuroshio_Ichibano_Tuna_Show.jpg"
     },
-    "municipalityId": "Wakayama:wakayama"
+    "municipalityId": "Wakayama:wakayama",
+    "transportOptions": {
+      "train": 235,
+      "bus": 272,
+      "car": 285
+    }
   },
   {
     "id": "tomogashima-islands",
@@ -83797,7 +83978,12 @@
       "attribution": "Wikimedia Commons contributors",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tomogashima_Island_Wakayama.jpg"
     },
-    "municipalityId": "Wakayama:wakayama"
+    "municipalityId": "Wakayama:wakayama",
+    "transportOptions": {
+      "train": 260,
+      "bus": 302,
+      "car": 295
+    }
   },
   {
     "id": "kokusai-dori-naha",

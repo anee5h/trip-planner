@@ -78,5 +78,10 @@
     "attribution": "Wikimedia Commons contributors",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shirahama_beach01.jpg"
   },
-  "municipalityId": "Wakayama:shirahama"
+  "municipalityId": "Wakayama:shirahama",
+  "transportOptions": {
+    "train": 262,
+    "bus": 305,
+    "car": 338
+  }
 }

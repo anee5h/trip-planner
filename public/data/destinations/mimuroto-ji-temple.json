@@ -78,5 +78,10 @@
     "attribution": "Daniel M. Dobkin",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mimurotoji_entry.jpg"
   },
-  "municipalityId": "Kyoto:uji"
+  "municipalityId": "Kyoto:uji",
+  "transportOptions": {
+    "shinkansen": 152,
+    "train": 252,
+    "bus": 252
+  }
 }
