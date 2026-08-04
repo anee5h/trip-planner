@@ -41,12 +41,12 @@
     "v2.0.0-beta.1",
     "Kyushu Expansion"
   ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Yufuin_Floral_Village_Oita_Japan_02.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Yufuin_Floral_Village.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "Pelican",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yufuin_Floral_Village_Oita_Japan_02.jpg"
+    "license": "CC0",
+    "attribution": "Bpcon98",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yufuin_Floral_Village.jpg"
   },
   "coordinates": {
     "lat": 33.2642,

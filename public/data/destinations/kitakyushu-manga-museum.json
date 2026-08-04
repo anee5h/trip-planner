@@ -41,12 +41,12 @@
     "v2.0.0-beta.1",
     "Kyushu Expansion"
   ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Kitakyushu_Manga_Museum.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/11/Kitakyushu_Manga_Museum_entrance.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "Kugel",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kitakyushu_Manga_Museum.jpg"
+    "license": "CC BY 4.0",
+    "attribution": "Bmazerolles",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kitakyushu_Manga_Museum_entrance.jpg"
   },
   "coordinates": {
     "lat": 33.8831,

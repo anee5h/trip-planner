@@ -41,12 +41,12 @@
     "v2.0.0-beta.1",
     "Kyushu Expansion"
   ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Beppu_Tower_at_Night.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/38/Beppu_Tower_20230212.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 3.0",
-    "attribution": "Chris 73",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beppu_Tower_at_Night.jpg"
+    "license": "CC BY-SA 4.0",
+    "attribution": "Tabitan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beppu_Tower_20230212.jpg"
   },
   "coordinates": {
     "lat": 33.2806,
