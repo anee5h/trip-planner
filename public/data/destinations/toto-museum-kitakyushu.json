@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "TOTO Museum",
-      "description": "The TOTO Museum celebrates the centennial of the reEXPANSION_DATEned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene.",
+      "description": "The TOTO Museum celebrates the centennial of the renowned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene.",
       "highlights": [
         "Evolution of Japanese toilets and sanitary ware",
         "Futuristic architectural design",
@@ -47,7 +47,7 @@
     "lat": 33.8711,
     "lng": 130.8803
   },
-  "description": "The TOTO Museum celebrates the centennial of the reEXPANSION_DATEned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene.",
+  "description": "The TOTO Museum celebrates the centennial of the renowned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene.",
   "highlights": [
     "Evolution of Japanese toilets and sanitary ware",
     "Futuristic architectural design",
@@ -61,18 +61,17 @@
     "lastAdmission": "16:30",
     "closedDays": "Mondays (including public holiday Mondays), summer holidays, and year-end/New Year holidays"
   },
-  "budgetMin": 0,
-  "budgetRecommended": 1000,
+  "budgetMin": 500,
+  "budgetRecommended": 1500,
   "budgetMax": 3000,
   "budgetBreakdown": {
-    "transport": 0,
+    "transport": 175,
     "tickets": 0,
-    "food": 0,
-    "cafe": 0
+    "food": 200,
+    "cafe": 50
   },
   "transportOptions": {
-    "train": 200,
-    "shinkansen": 0
+    "train": 200
   },
   "totalTripHours": 3,
   "recommendedVisitHours": {
@@ -115,9 +114,9 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "low",
-  "reservation": "Groups or guided tours require reservation",
+  "reservation": "Individual visitors: no reservation needed. Groups of 10+: advance reservation required. Free guided tours in Japanese (English audio guide available) — check official site for tour schedule.",
   "parking": "Free parking available",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "Free admission. Closed Mondays (or Tuesday if Monday is a public holiday), summer holidays, and year-end/New Year holidays. Last admission at 16:30. English pamphlet available at reception. The museum is a 10-minute walk from JR Space World Station.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -128,6 +127,12 @@
   "editorial": {
     "lifecycle": "published",
     "sources": [
+      {
+        "type": "official",
+        "url": "https://jp.toto.com/knowledge/visit/en_museum/",
+        "title": "TOTO Museum Official Website",
+        "accessedAt": "2026-08-04"
+      },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/TOTO_(company)",
@@ -149,7 +154,7 @@
     "reviewedAt": "2026-08-04",
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
-  "officialWebsite": "https://jp.toto.com/kEXPANSION_DATEledge/visit/en_museum/",
+  "officialWebsite": "https://jp.toto.com/knowledge/visit/en_museum/",
   "municipalityId": "Fukuoka:kitakyushu",
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "入館無料。休館日は月曜日（祝日の場合は翌平日）、夏季休暇、年末年始。最終入館は16:30。受付で英語パンフレットあり。JRスペースワールド駅から徒歩10分。写真撮影可（一部展示除く）。"
 }

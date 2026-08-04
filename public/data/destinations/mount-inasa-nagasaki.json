@@ -55,7 +55,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/1280px-Mt.Inasa_2010.jpg",
   "description": "Mount Inasa in Nagasaki is designated as one of the World's New Three Great Night Views, offering a 360° illuminated bowl view of Nagasaki harbor and surrounding hills.",
-  "notes": "The Juhyo (snow monsters) are formed when supercooled water droplets from clouds freeze instantly on fir trees, building thick ice cocoons. Best viewed Jan 15–Feb 20. Zao Onsen village at the base has excellent hot springs.",
+  "notes": "The ropeway runs until 22:00. The summit observation deck is free; the ropeway round trip is ¥1,250. On clear days you can see as far as the Goto Islands. Bring a jacket — it's windy and cooler at the top.",
   "budgetRecommended": 6500,
   "crowd": {
     "weekday": 3,
@@ -106,7 +106,6 @@
     "max": 5
   },
   "officialWebsite": "https://www.inasayama.com/",
-  "businessHours": "Open access",
   "municipalityId": "Nagasaki:nagasaki",
   "editorial": {
     "lifecycle": "published",
@@ -140,5 +139,6 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.inasayama.com/english/"
-  }
+  },
+  "notesJa": "ロープウェイは22:00まで。山頂展望台は無料、ロープウェイ往復1,250円。晴天時は五島列島まで見渡せます。山頂は風が強く冷えるため上着を持参。"
 }

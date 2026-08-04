@@ -109,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Aquarium parking available",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "Admission ¥1,500 for adults. The Kuroshio Tank is one of Japan's largest, with whale sharks and manta rays. Feeding shows run several times daily — check the schedule at entry.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -120,6 +120,12 @@
   "editorial": {
     "lifecycle": "published",
     "sources": [
+      {
+        "type": "official",
+        "url": "https://ioworld.jp/",
+        "title": "Kagoshima City Aquarium Official Website",
+        "accessedAt": "2026-08-04"
+      },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Kagoshima_City_Aquarium",
@@ -149,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://ioworld.jp/english"
   },
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "入館料1,500円。ジンベエザメやマンタが泳ぐ巨大な黒潮水槽が見どころ。給餌ショーは1日数回、入口でスケジュール確認を。"
 }

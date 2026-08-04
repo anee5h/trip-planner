@@ -109,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Museum parking available",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "Admission ¥270 for the permanent collection. A short walk from Kumamoto Castle. Focuses on local Kyushu artists and decorative arts. Renovated branch of the main Prefectural Museum.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -120,6 +120,12 @@
   "editorial": {
     "lifecycle": "published",
     "sources": [
+      {
+        "type": "official",
+        "url": "https://www.pref.kumamoto.jp/site/museum/",
+        "title": "Kumamoto Prefectural Art Museum Official Website",
+        "accessedAt": "2026-08-04"
+      },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Kumamoto_Prefectural_Museum_of_Art",
@@ -149,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.museum.pref.kumamoto.jp/english/"
   },
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "常設展270円。熊本城から徒歩圏内。九州ゆかりの作家と工芸品を中心に展示。県立美術館の分館としてリニューアルされた施設。"
 }

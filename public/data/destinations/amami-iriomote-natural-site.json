@@ -57,7 +57,7 @@
   ],
   "reservation": "Not required",
   "parking": "Available nearby",
-  "notes": "Official UNESCO World Heritage Site.",
+  "notes": "This is a UNESCO World Heritage gateway entry spanning multiple islands across Kagoshima and Okinawa prefectures. Access varies by island — Amami Oshima has regular flights, Iriomote requires a ferry from Ishigaki. Plan travel logistics carefully.",
   "coordinates": {
     "lat": 28.2711,
     "lng": 129.3364
@@ -107,7 +107,6 @@
     "max": 7
   },
   "officialWebsite": "https://www.env.go.jp/park/iriomote/",
-  "businessHours": "09:00 - 17:00 (Daily)",
   "content": {
     "ja": {
       "name": "奄美大島、徳之島、沖縄島北部及び西表島",
@@ -140,5 +139,6 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/world-heritage/amami-oshima-island-tokunoshima-island-northern-part-of-okinawa-island-and-iriomote-island/"
-  }
+  },
+  "notesJa": "鹿児島県～沖縄県にまたがる世界自然遺産の玄関口エントリーです。島ごとにアクセスが異なり、奄美大島は空路、西表島は石垣島からフェリー。旅程計画は慎重に。"
 }

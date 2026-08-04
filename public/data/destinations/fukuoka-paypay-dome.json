@@ -112,7 +112,7 @@
   "weatherDependence": "low",
   "reservation": "Required for game days",
   "parking": "Dome parking and nearby lots",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "Home of the Fukuoka SoftBank Hawks. Even on non-game days, the dome tour (¥1,500) takes you onto the field and into the bullpen. Adjacent BOSS E-ZO complex has entertainment facilities and food halls.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -123,6 +123,12 @@
   "editorial": {
     "lifecycle": "published",
     "sources": [
+      {
+        "type": "official",
+        "url": "https://e-zo.jp/",
+        "title": "Fukuoka PayPay Dome & BOSS E-ZO Official Website",
+        "accessedAt": "2026-08-04"
+      },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Fukuoka_PayPay_Dome",
@@ -152,5 +158,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.softbankhawks.co.jp/global/english/"
   },
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "福岡ソフトバンクホークスの本拠地。試合がない日でもドームツアー（1,500円）でフィールドやブルペンを見学できます。隣接のBOSS E-ZOにはアミューズメントやフードホールが充実。"
 }

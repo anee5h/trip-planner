@@ -109,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Nearby commercial parking",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "One of Japan's three great Chinatowns. Best visited during the Nagasaki Lantern Festival (late Jan–Feb). Champon and sara-udon are the local specialities — try them at a street stall.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -120,6 +120,12 @@
   "editorial": {
     "lifecycle": "published",
     "sources": [
+      {
+        "type": "official",
+        "url": "https://nagasaki-chinatown.com/",
+        "title": "Nagasaki Chinatown Official Website",
+        "accessedAt": "2026-08-04"
+      },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Nagasaki_Shinchi_Chinatown",
@@ -149,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "日本三大中華街の一つ。長崎ランタンフェスティバル（1月下旬～2月）の時期が特におすすめ。ちゃんぽん・皿うどんは長崎名物、屋台でぜひ。"
 }

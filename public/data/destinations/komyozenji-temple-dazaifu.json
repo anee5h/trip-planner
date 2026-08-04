@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Komyozenji Temple",
-      "description": "Komyozenji is a serene Rinzai Zen temple founded in 1273, located just a short walk from Dazaifu Tenmangu. It is reEXPANSION_DATEned for its two exquisite dry landscape gardens (karesansui): one featuring moss and maple representing the word 'light', the other using stones and sand to depict a dragon. Best visited in autumn for spectacular maple colors.",
+      "description": "Komyozenji is a serene Rinzai Zen temple founded in 1273, located just a short walk from Dazaifu Tenmangu. It is renowned for its two exquisite dry landscape gardens (karesansui): one featuring moss and maple representing the word 'light', the other using stones and sand to depict a dragon. Best visited in autumn for spectacular maple colors.",
       "highlights": [
         "Two exquisite Zen karesansui gardens",
         "Moss & maple 'light' garden",
@@ -47,7 +47,7 @@
     "lat": 33.52,
     "lng": 130.5334
   },
-  "description": "Komyozenji is a serene Rinzai Zen temple founded in 1273, located just a short walk from Dazaifu Tenmangu. It is reEXPANSION_DATEned for its two exquisite dry landscape gardens (karesansui): one featuring moss and maple representing the word 'light', the other using stones and sand to depict a dragon. Best visited in autumn for spectacular maple colors.",
+  "description": "Komyozenji is a serene Rinzai Zen temple founded in 1273, located just a short walk from Dazaifu Tenmangu. It is renowned for its two exquisite dry landscape gardens (karesansui): one featuring moss and maple representing the word 'light', the other using stones and sand to depict a dragon. Best visited in autumn for spectacular maple colors.",
   "highlights": [
     "Two exquisite Zen karesansui gardens",
     "Moss & maple 'light' garden",
@@ -109,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Nearby coin parking",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "Admission ¥200. A small, quiet Zen temple just steps from the busy Tenmangu approach. Renowned for its two karesansui gardens. Best in autumn (late Nov) when the maple garden is at its peak. No indoor photography.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -149,5 +149,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.crossroadfukuoka.jp/en/spots/detail/4000000000108"
   },
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "拝観料200円。天満宮参道の喧騒から徒歩すぐの静かな禅寺。二つの枯山水庭園で有名。秋（11月下旬）の紅葉が名高い。堂内撮影禁止。"
 }

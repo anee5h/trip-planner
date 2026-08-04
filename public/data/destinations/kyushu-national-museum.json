@@ -109,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required; special exhibitions may require advance booking",
   "parking": "Museum parking available",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "Admission ¥700 for the cultural exchange exhibition. A striking modern building adjacent to Dazaifu Tenmangu. The museum focuses on Japan's historical connections with Asia.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -120,6 +120,12 @@
   "editorial": {
     "lifecycle": "published",
     "sources": [
+      {
+        "type": "official",
+        "url": "https://www.kyuhaku.jp/",
+        "title": "Kyushu National Museum Official Website",
+        "accessedAt": "2026-08-04"
+      },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Kyushu_National_Museum",
@@ -149,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.kyuhaku.jp/en/"
   },
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "文化交流展700円。太宰府天満宮に隣接する印象的な現代建築。日本とアジアの文化交流史をテーマにした展示。"
 }

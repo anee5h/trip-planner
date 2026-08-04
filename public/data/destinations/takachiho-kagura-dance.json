@@ -109,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "Recommended; evening performances sell out",
   "parking": "Nearby public parking",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "Admission ¥1,000. Nightly performances 20:00–21:00 at Takachiho Shrine. No photography or video during the dance. Arrive by 19:30 for good seats. English pamphlet explains the four dance stories performed each night.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -120,6 +120,12 @@
   "editorial": {
     "lifecycle": "published",
     "sources": [
+      {
+        "type": "official",
+        "url": "https://takachiho-kanko.info/kagura/",
+        "title": "Takachiho Kagura Night Dance Official Website",
+        "accessedAt": "2026-08-04"
+      },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Takachiho,_Miyazaki",
@@ -149,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://takachiho-kanko.info/en/"
   },
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "拝観料1,000円。高千穂神社で毎夜20:00～21:00に公演。演舞中の写真・ビデオ撮影は禁止。良い席のため19:30頃の到着推奨。英語解説パンフレットあり。"
 }

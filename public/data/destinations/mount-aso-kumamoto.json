@@ -69,7 +69,7 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "notes": "Mount Aso Active Caldera located in Kumamoto Prefecture.",
+  "notes": "Crater access depends on volcanic gas levels — check conditions before departing. The Aso Volcano Museum near the ropeway station provides live updates. The surrounding caldera grasslands (Kusasenri) are always accessible.",
   "status": "published",
   "relationships": {
     "featuredDestinationIds": [],
@@ -87,7 +87,6 @@
     "max": 5
   },
   "officialWebsite": "https://www.aso-kankou.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
   "ratingsSchemaVersion": 2,
   "municipalityId": "Kumamoto:aso",
   "editorial": {
@@ -122,5 +121,6 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
-  }
+  },
+  "notesJa": "火口見学は火山ガス濃度により規制あり — 出発前に状況確認を。ロープウェイ駅近くの阿蘇火山博物館で最新情報を入手。カルデラ内の草千里は常時見学可能。"
 }

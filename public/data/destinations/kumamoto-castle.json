@@ -50,7 +50,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/3840px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg",
   "description": "Kumamoto Castle is one of Japan's most formidable castles, engineered by master builder Kato Kiyomasa with steep curved Musha-gaeshi stone walls designed to prevent ninja scaling.",
-  "notes": "Kumamoto City travel hub in Kumamoto Prefecture.",
+  "notes": "Admission ¥800 for the castle keep. The castle restoration from the 2016 earthquake is partially complete. The Honmaru Goten palace interior is fully restored. Check the official website for current accessible areas.",
   "budgetRecommended": 8000,
   "crowd": {
     "weekday": 3,
@@ -98,7 +98,6 @@
     "max": 5
   },
   "officialWebsite": "https://kumamoto-guide.jp/kumamoto-castle/",
-  "businessHours": "09:00 - 17:00 (Last admission 16:30)",
   "municipalityId": "Kumamoto:kumamoto",
   "role": "poi",
   "editorial": {
@@ -133,5 +132,6 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://castle.kumamoto-guide.jp/en/"
-  }
+  },
+  "notesJa": "天守閣入場800円。2016年熊本地震からの復旧は一部完了。本丸御殿は全面復旧済み。見学可能エリアは公式サイトで事前確認を。"
 }

@@ -109,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Nearby coin parking",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "Free public access 24/7. The stone bridge is especially photogenic in the late afternoon light when the reflection forms a full circle. Best combined with a stroll along Nakashima River.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -149,5 +149,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "無料・24時間見学可能。午後の光で川面に映る橋と影が円を描く時間帯が絶好の写真スポット。中島川沿いの散策とセットで。"
 }

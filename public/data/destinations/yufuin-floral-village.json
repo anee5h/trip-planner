@@ -109,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Nearby paid parking",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "The main street from Yufuin Station to the lake is lined with cafés and boutiques. Most ryokan offer day-use bathing (typically ¥500–1,000). Book popular ryokan well in advance.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -120,6 +120,12 @@
   "editorial": {
     "lifecycle": "published",
     "sources": [
+      {
+        "type": "official",
+        "url": "https://floral-village.com/",
+        "title": "Yufuin Floral Village Official Website",
+        "accessedAt": "2026-08-04"
+      },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Yufuin_Onsen",
@@ -149,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "由布院駅から金鱗湖までのメインストリートにはカフェや雑貨店が並ぶ。多くの旅館で日帰り入浴可（500～1,000円程度）。人気旅館は早めの予約を。"
 }

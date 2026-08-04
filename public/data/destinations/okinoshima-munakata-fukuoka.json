@@ -57,7 +57,7 @@
   ],
   "reservation": "Not required",
   "parking": "Available nearby",
-  "notes": "Official UNESCO World Heritage Site.",
+  "notes": "Okinoshima Island itself is closed to the public (no landing allowed except for shrine priests). Visitors can explore the Munakata Taisha shrine complex on the mainland and the Shinpokan museum which displays excavated treasures.",
   "coordinates": {
     "lat": 33.8042,
     "lng": 130.5147
@@ -103,7 +103,6 @@
     "max": 7
   },
   "officialWebsite": "https://www.okinoshima-heritage.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
   "municipalityId": "Fukuoka:fukuoka",
   "editorial": {
     "lifecycle": "published",
@@ -137,5 +136,6 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.okinoshima-heritage.jp/en/"
-  }
+  },
+  "notesJa": "沖ノ島自体は一般の上陸が禁止されています（神職以外立入不可）。本土の宗像大社（辺津宮）と出土品を展示する神宝館を見学できます。"
 }

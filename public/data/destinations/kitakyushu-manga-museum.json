@@ -109,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required; special exhibitions may require advance booking",
   "parking": "ARUARU CITY building parking",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "Admission ¥480. A hands-on museum where you can read thousands of manga, draw your own, and learn about manga history. Great rainy-day activity. All ages welcome.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -120,6 +120,12 @@
   "editorial": {
     "lifecycle": "published",
     "sources": [
+      {
+        "type": "official",
+        "url": "https://www.ktqmm.jp/",
+        "title": "Kitakyushu Manga Museum Official Website",
+        "accessedAt": "2026-08-04"
+      },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Kitakyushu_Manga_Museum",
@@ -149,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.ktqmm.jp/english"
   },
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "入館料480円。数千冊の漫画を読める体験型博物館。自分で漫画を描けるコーナーも。雨の日のアクティビティに最適。全年齢歓迎。"
 }

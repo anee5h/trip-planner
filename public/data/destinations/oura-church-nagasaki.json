@@ -57,7 +57,7 @@
   ],
   "reservation": "Not required",
   "parking": "Available nearby",
-  "notes": "Official UNESCO World Heritage Site.",
+  "notes": "Admission ¥1,000 (includes museum and former seminary). The church is a short uphill walk from Glover Garden. Sunday morning Mass is open to visitors but sightseeing during service is not permitted.",
   "coordinates": {
     "lat": 32.7342,
     "lng": 129.8703
@@ -103,7 +103,6 @@
     "max": 7
   },
   "officialWebsite": "https://nagasaki-oura-church.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
   "municipalityId": "Nagasaki:nagasaki",
   "editorial": {
     "lifecycle": "published",
@@ -137,5 +136,6 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://nagasaki-oura-church.jp/en"
-  }
+  },
+  "notesJa": "拝観料1,000円（旧羅典神学校・博物館含む）。グラバー園から坂を少し上がった場所。日曜朝のミサは見学可ですが、礼拝中の観光は控えてください。"
 }

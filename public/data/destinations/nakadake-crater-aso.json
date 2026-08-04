@@ -109,7 +109,7 @@
   "weatherDependence": "high",
   "reservation": "None required; check volcanic activity alerts before visiting",
   "parking": "Crater parking available",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "Crater access depends on volcanic gas levels — check the Aso Volcano Observatory website before going. The ropeway may close without warning. Bring a mask if you have respiratory sensitivity. Parking at the crater costs ¥800.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -120,6 +120,12 @@
   "editorial": {
     "lifecycle": "published",
     "sources": [
+      {
+        "type": "official",
+        "url": "https://www.aso.ne.jp/",
+        "title": "Nakadake Crater Official Website",
+        "accessedAt": "2026-08-04"
+      },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Mount_Aso",
@@ -149,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.aso-volcano.jp/eng/"
   },
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "火口見学の可否は火山ガス濃度次第 — 事前に阿蘇火山博物館ウェブサイトで確認を。ロープウェイは突然運休あり。呼吸器が弱い方はマスク持参。火口駐車場は800円。"
 }

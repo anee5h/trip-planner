@@ -109,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required; cave viewing requires shrine staff escort",
   "parking": "Shrine parking available",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "Free entry. The shrine honours the cave where the sun goddess Amaterasu hid, plunging the world into darkness. A short walk behind the main hall leads to the sacred cave viewing point across the river. Quiet and deeply atmospheric.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -149,5 +149,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://amanoiwato-jinja.jp/"
   },
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "参拝無料。天照大神が隠れた天岩戸を祀る神社。本殿裏手の小道を進むと、川の対岸に洞窟拝観所がある。静かで神秘的な雰囲気。"
 }

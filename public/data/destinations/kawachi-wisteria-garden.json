@@ -109,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "Advance tickets required during peak bloom (late April–early May)",
   "parking": "Garden parking available",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "Only open during wisteria season (late Apr–early May) and autumn colours (mid-Nov–early Dec). Advance reservation required during peak season. The twin wisteria tunnels are the most photographed spot.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -120,6 +120,12 @@
   "editorial": {
     "lifecycle": "published",
     "sources": [
+      {
+        "type": "official",
+        "url": "https://kawachi-fujien.com/",
+        "title": "Kawachi Wisteria Garden Official Website",
+        "accessedAt": "2026-08-04"
+      },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Kawachi_Wisteria_Garden",
@@ -149,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://kawachi-fujien.com/"
   },
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "藤シーズン（4月下旬～5月上旬）と紅葉期（11月中旬～12月上旬）のみ開園。ピーク時は事前予約必須。二本の藤トンネルが最も有名なフォトスポット。"
 }

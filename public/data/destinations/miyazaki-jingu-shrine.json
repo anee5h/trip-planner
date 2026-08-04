@@ -109,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Shrine parking available",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "Free grounds access. A serene forest shrine dedicated to Emperor Jimmu. Best during the Grand Festival in late October or cherry blossom season in late March. The long gravel approach is shaded by ancient cedars.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -120,6 +120,12 @@
   "editorial": {
     "lifecycle": "published",
     "sources": [
+      {
+        "type": "official",
+        "url": "https://miyazakijingu.or.jp/",
+        "title": "Miyazaki Jingu Shrine Official Website",
+        "accessedAt": "2026-08-04"
+      },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Miyazaki-jing%C5%AB",
@@ -149,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://miyazakijingu.or.jp/"
   },
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "境内無料。初代天皇・神武天皇を祀る静かな森の神社。10月下旬の大祭か3月下旬の桜シーズンが特におすすめ。長い玉砂利の参道は古木に覆われている。"
 }

@@ -109,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "Recommended for ryokan stays",
   "parking": "Ryokan parking available",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "Free entry to the shopping complex. A whimsical British-cottage-style village with petting zoos, owl forest, and artisan shops. Popular with families and couples. Can be crowded on weekends — visit on a weekday if possible.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -149,5 +149,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/yufuin-onsen-ryokan-district/"
   },
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "入場無料。英国コッツウォルズ風の可愛らしい複合施設。ふれあい動物園やフクロウの森も併設。週末は混雑するため平日推奨。"
 }

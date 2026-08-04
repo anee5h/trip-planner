@@ -109,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Shrine parking available",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "Free grounds access; treasure hall ¥500. The head shrine of Tenmangu dedicated to the god of learning. Try the local umegae-mochi (grilled sweet bean rice cake) sold fresh on the approach road.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -120,6 +120,12 @@
   "editorial": {
     "lifecycle": "published",
     "sources": [
+      {
+        "type": "official",
+        "url": "https://www.dazaifutenmangu.or.jp/",
+        "title": "Dazaifu Tenmangu Shrine Official Website",
+        "accessedAt": "2026-08-04"
+      },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Dazaifu_Tenman-g%C5%AB",
@@ -149,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.dazaifutenmangu.or.jp/en/"
   },
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "境内無料、宝物殿500円。学問の神様を祀る天満宮の総本社。参道の名物「梅ヶ枝餅」は焼き立てをぜひ。"
 }

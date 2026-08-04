@@ -10,7 +10,7 @@
       "highlights": [
         "Morning mist over the warm spring-fed lake",
         "Scenic walking path around the lake",
-        "Autumn foliage & winter sEXPANSION_DATE reflections"
+        "Autumn foliage & winter snow reflections"
       ],
       "openingHours": "Open 24 hours"
     },
@@ -51,7 +51,7 @@
   "highlights": [
     "Morning mist over the warm spring-fed lake",
     "Scenic walking path around the lake",
-    "Autumn foliage & winter sEXPANSION_DATE reflections"
+    "Autumn foliage & winter snow reflections"
   ],
   "budgetMin": 1000,
   "budgetRecommended": 3000,
@@ -109,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Nearby paid parking",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "Free public access. Arrive before sunrise to catch the magical morning mist — this is the signature view. The walk around the lake takes about 20 minutes.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -149,5 +149,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "無料で見学可能。名物の朝霧を見るには夜明け前の到着が必須。湖畔一周は徒歩約20分。"
 }

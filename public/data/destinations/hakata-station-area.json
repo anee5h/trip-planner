@@ -109,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Station parking available",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "Hakata Station is directly connected to the subway, JR lines, and Kyushu Shinkansen. The 9th-floor rooftop garden is free and offers a great city view. AMU Plaza has a dedicated ramen floor (10F) popular with locals.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -120,6 +120,12 @@
   "editorial": {
     "lifecycle": "published",
     "sources": [
+      {
+        "type": "official",
+        "url": "https://www.jrhakatacity.com/",
+        "title": "Hakata Station & AMU Plaza Official Website",
+        "accessedAt": "2026-08-04"
+      },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Hakata_Station",
@@ -149,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/hakata-station-area/"
   },
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "博多駅は地下鉄・JR・九州新幹線に直結。9階屋上庭園は無料で市内展望を楽しめます。アミュプラザ10階はラーメン好きに人気の「博多めん街道」。"
 }

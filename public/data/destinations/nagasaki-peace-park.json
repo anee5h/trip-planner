@@ -112,7 +112,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Museum parking available",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "Admission ¥200 for the Atomic Bomb Museum; Peace Park is free. Allow 2 hours minimum. The museum is emotionally intense — the nearby Hypocenter Park and Urakami Cathedral add important context.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -123,6 +123,12 @@
   "editorial": {
     "lifecycle": "published",
     "sources": [
+      {
+        "type": "official",
+        "url": "https://nagasakipeace.jp/",
+        "title": "Nagasaki Peace Park & Atomic Bomb Museum Official Website",
+        "accessedAt": "2026-08-04"
+      },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Nagasaki_Peace_Park",
@@ -152,5 +158,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "原爆資料館は200円、平和公園は無料。最低2時間は確保を。資料館は内容が重いため、爆心地公園や浦上天主堂と合わせて訪問すると理解が深まります。"
 }

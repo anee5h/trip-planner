@@ -109,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Trailhead parking available",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "Admission ¥500 donation. Easier trails than Jomon Sugi or Shiratani, suitable for families. Several courses from 30 min to 2.5 hours with well-maintained boardwalks. Still wear hiking shoes. Accessible by bus from Anbo.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -120,6 +120,12 @@
   "editorial": {
     "lifecycle": "published",
     "sources": [
+      {
+        "type": "official",
+        "url": "https://www.yakushima.or.jp/",
+        "title": "Yakusugi Land Official Website",
+        "accessedAt": "2026-08-04"
+      },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Yakushima",
@@ -149,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "協力金500円。縄文杉や白谷より易しいトレイルで家族連れに最適。30分～2.5時間の複数コースあり。木道整備あり。それでも登山靴推奨。安房からバスでアクセス可。"
 }

@@ -109,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Park parking available",
-  "notes": "Make sure to check the official website for the latest updates before visiting.",
+  "notes": "Free entry to the park. The 37-metre Peace Tower is the symbol of Miyazaki. The adjacent Haniwa Garden displays replica ancient clay figures. Pleasant stroll in spring cherry blossom season.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -149,5 +149,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "訪問前に必ず公式サイトで最新情報を確認してください。"
+  "notesJa": "入園無料。高さ37mの平和の塔が宮崎のシンボル。隣接するはにわ園には古代埴輪のレプリカ展示。春は桜の名所。"
 }
