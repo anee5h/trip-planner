@@ -175,7 +175,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     setCompareList,
     homeStation,
     setHomeStation: setHomeStationState,
-    setHomeStationCoords,
+    setHomeStationCoords: setHomeStationCoordsState,
     trips,
     setTrips,
     destinationRatings,
@@ -185,7 +185,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
   const canMutateProfile =
     !user || profileSyncStatus === "ready" || profileSyncStatus === "saving";
 
-  const setHomeStation = (station: string) => {
+  function setHomeStation(station: string) {
     if (!canMutateProfile) return;
     setHomeStationState(station);
     if (!user && typeof window !== "undefined") {
@@ -198,16 +198,16 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
         console.error(e);
       }
     }
-  };
+  }
 
-  const setHomeStationCoords = (
+  function setHomeStationCoords(
     coords:
       | { lat: number; lng: number }
       | null
       | ((
           prev: { lat: number; lng: number } | null,
         ) => { lat: number; lng: number } | null),
-  ) => {
+  ) {
     setHomeStationCoordsState((prev) => {
       const next = typeof coords === "function" ? coords(prev) : coords;
       if (!user && typeof window !== "undefined") {
@@ -226,7 +226,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
       }
       return next;
     });
-  };
+  }
 
   const setDestinationRating = (id: string, rating: "up" | "down" | null) => {
     if (!canMutateProfile) return;
