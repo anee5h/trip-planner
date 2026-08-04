@@ -248,7 +248,7 @@ describe("useTripSync — origin ownership integration", () => {
     expect(latest.activeOrigin.label).toBe("Shin-Yokohama Station, Kanagawa");
   });
 
-  it("coordinate resolution failure sets sync error and falls back to Tokyo, does not upsert", async () => {
+  it("coordinate resolution failure sets sync origin_error and falls back to Tokyo, does not upsert", async () => {
     // Cloud has a station that cannot be resolved (not in stations JSON).
     mocks.maybeSingle.mockResolvedValue({
       data: {
@@ -270,7 +270,7 @@ describe("useTripSync — origin ownership integration", () => {
       await Promise.resolve();
     });
 
-    expect(latest.sync.profileSyncStatus).toBe("error");
+    expect(latest.sync.profileSyncStatus).toBe("origin_error");
     expect(latest.activeOrigin.label).toBe("Tokyo Station");
     expect(latest.activeOrigin.source).toBe("default");
     expect(mocks.upsert).not.toHaveBeenCalled();
@@ -368,7 +368,7 @@ describe("useTripSync — origin ownership integration", () => {
       await Promise.resolve();
     });
 
-    expect(latest.sync.profileSyncStatus).toBe("error");
+    expect(latest.sync.profileSyncStatus).toBe("origin_error");
 
     await act(async () => {
       latest.sync.retryProfileHydration();
@@ -468,7 +468,79 @@ describe("useTripSync — origin ownership integration", () => {
     });
 
     // Should fall back to Tokyo safely.
-    expect(latest.sync.profileSyncStatus).toBe("error");
+    expect(latest.sync.profileSyncStatus).toBe("origin_error");
     expect(latest.activeOrigin.label).toBe("Tokyo Station");
+  });
+
+  it("origin_error: persistCorrectedOrigin upserts corrected station and returns ready", async () => {
+    // Setup: cloud has unresolvable station — triggers origin_error.
+    mocks.maybeSingle.mockResolvedValue({
+      data: {
+        favorites: [],
+        visited: [],
+        visited_prefectures: [],
+        visited_dates: {},
+        destination_ratings: {},
+        home_station: "Nonexistent Station, Nowhere",
+      },
+      error: null,
+    });
+
+    await act(async () => {
+      render(userB, TOKYO_DEFAULT);
+      await Promise.resolve();
+    });
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    expect(latest.sync.profileSyncStatus).toBe("origin_error");
+    expect(latest.activeOrigin.label).toBe("Tokyo Station");
+    // StationInput must be unblocked in this state.
+    expect(latest.sync.profileSyncStatus).toBe("origin_error");
+
+    // User selects Nakayama — persist the corrected station.
+    await act(async () => {
+      await latest.sync.persistCorrectedOrigin(NAKAYAMA);
+    });
+
+    expect(mocks.upsert).toHaveBeenCalledTimes(1);
+    expect(mocks.upsert).toHaveBeenCalledWith(
+      expect.objectContaining({ home_station: NAKAYAMA.label }),
+    );
+    expect(latest.sync.profileSyncStatus).toBe("ready");
+    expect(latest.activeOrigin.label).toBe("Nakayama Station, Kanagawa");
+  });
+
+  it("legacy label resolves with source station, not postal_code", async () => {
+    // STATIONS_BY_PREFECTURE has Nakayama Station only under Kanagawa →
+    // unique match → should resolve with source: "station".
+    mocks.maybeSingle.mockResolvedValue({
+      data: {
+        favorites: [],
+        visited: [],
+        visited_prefectures: [],
+        visited_dates: {},
+        destination_ratings: {},
+        home_station: "Nakayama Station",
+      },
+      error: null,
+    });
+
+    await act(async () => {
+      render(userB, TOKYO_DEFAULT);
+      await Promise.resolve();
+    });
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    expect(latest.sync.profileSyncStatus).toBe("ready");
+    expect(latest.activeOrigin.label).toBe("Nakayama Station");
+    expect(latest.activeOrigin.source).toBe("station");
+    expect(latest.activeOrigin.coordinates).toEqual({
+      lat: 35.5147,
+      lng: 139.5393,
+    });
   });
 });

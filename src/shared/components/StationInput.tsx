@@ -58,7 +58,7 @@ interface StationInputProps {
 }
 
 export default function StationInput({ embedded = false }: StationInputProps) {
-  const { homeStation, setOriginLocation, canMutateProfile } = useTripStore();
+  const { homeStation, setOriginLocation, canSelectOrigin } = useTripStore();
 
   type StationData = { name: string; lat: number; lng: number };
   const [stationsByPref, setStationsByPref] = useState<
@@ -129,7 +129,7 @@ export default function StationInput({ embedded = false }: StationInputProps) {
   };
 
   const handleSet = async () => {
-    if (!canMutateProfile) return;
+    if (!canSelectOrigin) return;
     if (mode === "station" && selectedStation) {
       const label = `${selectedStation}, ${selectedPref}`;
       const st = stations.find((s) => s.name === selectedStation);
@@ -183,7 +183,7 @@ export default function StationInput({ embedded = false }: StationInputProps) {
       <OriginLocationDisplay
         origin={homeStation}
         onEdit={() => setIsEditing(true)}
-        editDisabled={!canMutateProfile}
+        editDisabled={!canSelectOrigin}
       />
     );
   }
@@ -288,7 +288,7 @@ export default function StationInput({ embedded = false }: StationInputProps) {
               type="button"
               onClick={handleSet}
               disabled={
-                !canMutateProfile ||
+                !canSelectOrigin ||
                 (mode === "station" && !selectedStation) ||
                 (mode === "zip" && !zipCode) ||
                 isFetchingZip

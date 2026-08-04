@@ -14,13 +14,13 @@
 
 ### Coordinate resolution failure handling
 
-- `useTripSync` no longer pairs a loaded station label with `DEFAULT_TOKYO_COORDS` when resolution fails. On failure, sets profile sync to `error`, does not mark hydration complete, does not upsert fallback data, and sets a safe Tokyo Station origin so the UI is usable. Retry is allowed.
+- `useTripSync` no longer pairs a loaded station label with `DEFAULT_TOKYO_COORDS` when resolution fails. On failure, sets profile sync to `origin_error` (a specific, recoverable state), does not mark hydration complete, does not upsert fallback data, and sets a safe Tokyo Station origin so the UI is usable. Retry is allowed, and `StationInput` remains editable specifically during `origin_error` so the user can select a valid replacement that immediately upserts to the cloud and restores sync status to `ready`. Generic profile load errors remain blocking.
 
 - Resolved coordinate ranges are validated (lat -90..90, lng -180..180, finite).
 
 ### Legacy cloud station label resolution
 
-- Labels without a prefecture suffix (e.g. `"Nakayama Station"`) are resolved by searching all prefecture station lists for an exact unique match. Ambiguous or missing matches are rejected safely, falling back to Tokyo with sync error.
+- Labels without a prefecture suffix (e.g. `"Nakayama Station"`) are resolved by searching all prefecture station lists for an exact unique match. Ambiguous or missing matches are rejected safely, falling back to Tokyo with `origin_error`. Uniquely resolved legacy stations produce `source: "station"` (not `"postal_code"`).
 
 ### Integration tests
 
@@ -28,7 +28,12 @@
 - Late Account A hydration after switching to Account B is ignored.
 - Coordinate resolution failure never produces a mismatched label and coordinate pair.
 - Failed resolution does not trigger an upsert.
-- Retry succeeds after coordinate lookup recovers.
+- Recovery flow integration test: `origin_error` → StationInput editable → select Nakayama → upserts home_station → status becomes `ready`.
+- Legacy label resolution test verifying `source: "station"`.
+
+### HomeMatchCard component render test
+
+- React component render test in `HomeMatchCard.test.tsx`: renders `HomeMatchCard` with mocked trip store containing Yokohama coordinates, raw Seiko data (train: 14), and asserts the rendered DOM text does not contain `"14 min"` and contains the origin-adjusted formatted travel time. Replaces tautological calculation test while keeping service-level calculation tests.
 
 ### StationInput component test
 
@@ -47,7 +52,7 @@
 
 ## Final Validation
 
-- Unit tests: 400 passing (up from 346 before PR #89)
+- Unit tests: 402 passing (up from 346 before PR #89)
 - TypeScript: clean
 - Lint: clean (pre-existing warnings only)
 - Format: clean

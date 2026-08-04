@@ -53,7 +53,15 @@ interface UseTripSyncProps {
 }
 
 export type ProfileSyncStatus =
-  "idle" | "loading" | "ready" | "saving" | "error";
+  | "idle"
+  | "loading"
+  | "ready"
+  | "saving"
+  | "error"
+  /** Coordinate resolution for the saved station failed; the user may
+   * re-select their station to recover. Other profile mutations remain
+   * blocked until the corrected station is persisted successfully. */
+  | "origin_error";
 
 export type TripSyncStatus = "idle" | "loading" | "ready" | "saving" | "error";
 
@@ -62,6 +70,11 @@ export interface UseTripSyncReturn {
   tripSyncStatus: TripSyncStatus;
   retryProfileHydration: () => void;
   retryTripHydration: () => void;
+  /** Persist a user-chosen corrected station after a coordinate-resolution
+   * failure. Only callable when profileSyncStatus === "origin_error". */
+  persistCorrectedOrigin: (
+    origin: import("./useTripStore").OriginLocation,
+  ) => Promise<void>;
 }
 
 const DEFAULT_TOKYO_COORDS = { lat: 35.6812, lng: 139.7671 };
@@ -180,9 +193,18 @@ function isValidResolvedCoordinates(
   );
 }
 
+interface ResolvedStation {
+  lat: number;
+  lng: number;
+  /** Whether the label contained a prefecture suffix ("Station, Prefecture")
+   * or was resolved as a unique legacy name without a prefecture. Postal
+   * codes always produce "postal_code". */
+  source: "station" | "postal_code";
+}
+
 async function resolveHomeStationCoordinates(
   station: string,
-): Promise<{ lat: number; lng: number } | null> {
+): Promise<ResolvedStation | null> {
   if (station.includes(", ")) {
     const [stationName, prefecture] = station.split(", ", 2);
 
@@ -203,7 +225,7 @@ async function resolveHomeStationCoordinates(
         match &&
         isValidResolvedCoordinates({ lat: match.lat, lng: match.lng })
       ) {
-        return { lat: match.lat, lng: match.lng };
+        return { lat: match.lat, lng: match.lng, source: "station" };
       }
     } catch (error) {
       console.warn(
@@ -243,7 +265,7 @@ async function resolveHomeStationCoordinates(
       }
 
       if (matches.length === 1) {
-        return matches[0];
+        return { ...matches[0], source: "station" };
       }
     } catch (error) {
       console.warn(
@@ -282,7 +304,7 @@ async function resolveHomeStationCoordinates(
       Number.isFinite(lng) &&
       isValidResolvedCoordinates({ lat, lng })
     ) {
-      return { lat, lng };
+      return { lat, lng, source: "postal_code" };
     }
   } catch (error) {
     console.warn("[Meguruto Sync] Could not geocode home postal code:", error);
@@ -324,6 +346,9 @@ export function useTripSync({
   const hydratedTripsUserIdRef = useRef<string | null>(null);
   const previousUserIdRef = useRef(user?.id);
   const hydrationVersionRef = useRef(0);
+  // Non-null while profileSyncStatus === "origin_error" so that
+  // persistCorrectedOrigin knows which account to upsert.
+  const pendingOriginRepairUserIdRef = useRef<string | null>(null);
   const profileSyncTimeoutRef = useRef<
     number | ReturnType<typeof setTimeout> | null
   >(null);
@@ -524,8 +549,9 @@ export function useTripSync({
 
         if (!coords) {
           // Coordinate resolution failed: do NOT pair the station label with
-          // default Tokyo coordinates. Set sync to error so the user can retry;
-          // do not mark hydration complete, do not upsert fallback data.
+          // default Tokyo coordinates. Use "origin_error" so the user can
+          // re-select their station; do not mark hydration complete, do not
+          // upsert fallback data. Generic cloud-load errors keep "error".
           console.error(
             "[Meguruto Sync] Could not resolve coordinates for home station:",
             loadedHomeStation,
@@ -535,18 +561,21 @@ export function useTripSync({
             coordinates: DEFAULT_TOKYO_COORDS,
             source: "default",
           });
-          setProfileSyncStatus("error");
+          // Store the user id so persistCorrectedOrigin can target it.
+          pendingOriginRepairUserIdRef.current = userId;
+          setProfileSyncStatus("origin_error");
           toast.error(
-            "Could not resolve your saved home station coordinates. Please re-select your station.",
+            "Could not resolve your saved home station. Please re-select it below.",
             { id: "home-station-resolve-error" },
           );
           return;
         }
 
+        const { lat, lng, source: stationSource } = coords;
         setActiveOrigin({
           label: loadedHomeStation,
-          coordinates: coords,
-          source: loadedHomeStation.includes(", ") ? "station" : "postal_code",
+          coordinates: { lat, lng },
+          source: stationSource,
         });
       } else {
         if (isCurrentHydration()) {
@@ -815,12 +844,64 @@ export function useTripSync({
   }, [trips, user?.id, setTrips]);
 
   const retryProfileHydration = () => {
-    if (!user?.id || profileSyncStatus !== "error") return;
+    if (
+      !user?.id ||
+      (profileSyncStatus !== "error" && profileSyncStatus !== "origin_error")
+    )
+      return;
+    pendingOriginRepairUserIdRef.current = null;
     setRetryProfileTrigger((prev: number) => prev + 1);
   };
 
   const retryTripHydration = () => {
     setRetryTripTrigger((prev: number) => prev + 1);
+  };
+
+  /**
+   * Persist a corrected origin chosen by the user after a coordinate-resolution
+   * failure. Upserts only home_station; transitions status to "ready" on
+   * success so normal sync resumes. Only acts when status is "origin_error".
+   */
+  const persistCorrectedOrigin = async (
+    origin: OriginLocation,
+  ): Promise<void> => {
+    const userId = pendingOriginRepairUserIdRef.current;
+    if (
+      !userId ||
+      !supabase ||
+      profileSyncStatus !== "origin_error" ||
+      previousUserIdRef.current !== userId
+    ) {
+      return;
+    }
+
+    setProfileSyncStatus("saving");
+
+    const { error } = await supabase.from("user_data").upsert({
+      id: userId,
+      home_station: origin.label,
+      updated_at: new Date().toISOString(),
+    });
+
+    if (previousUserIdRef.current !== userId) return;
+
+    if (error) {
+      console.error(
+        "[Meguruto Sync] Failed to persist corrected origin:",
+        error,
+      );
+      setProfileSyncStatus("origin_error");
+      toast.error("Failed to save corrected station. Please try again.", {
+        id: "origin-repair-error",
+      });
+      return;
+    }
+
+    pendingOriginRepairUserIdRef.current = null;
+    hydratedUserIdRef.current = userId;
+    lastSyncedProfileRef.current = null; // force next save to recalculate
+    setActiveOrigin(origin);
+    setProfileSyncStatus("ready");
   };
 
   return {
@@ -832,5 +913,6 @@ export function useTripSync({
     tripSyncStatus,
     retryProfileHydration,
     retryTripHydration,
+    persistCorrectedOrigin,
   };
 }

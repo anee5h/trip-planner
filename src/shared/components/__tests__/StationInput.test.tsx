@@ -14,7 +14,7 @@ vi.mock("@/shared/hooks/useTripStore", () => ({
   useTripStore: () => ({
     homeStation: "",
     setOriginLocation,
-    canMutateProfile: true,
+    canSelectOrigin: true,
   }),
 }));
 

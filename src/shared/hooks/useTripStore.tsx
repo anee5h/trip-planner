@@ -86,6 +86,10 @@ interface TripStoreContextType {
   getDestinationRating: (id: string) => "up" | "down" | null;
 
   canMutateProfile: boolean;
+  /** True when the user may open StationInput to correct an unresolved saved
+   * station. Distinct from canMutateProfile: other mutations remain blocked
+   * during the recoverable origin_error state. */
+  canSelectOrigin: boolean;
   profileSyncStatus: ProfileSyncStatus;
   tripSyncStatus: TripSyncStatus;
   retryProfileHydration: () => void;
@@ -229,21 +233,12 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
   const getDestinationRating = (id: string): "up" | "down" | null =>
     destinationRatings[id] ?? null;
 
-  const setOriginLocation = (origin: OriginLocation) => {
-    if (!isValidOriginLocation(origin)) return;
-    activeOriginRef.current = origin;
-    setActiveOrigin(origin);
-    if (!user) {
-      setGuestOrigin(origin);
-      persistGuestOrigin(origin);
-    }
-  };
-
   const {
     profileSyncStatus,
     tripSyncStatus,
     retryProfileHydration,
     retryTripHydration,
+    persistCorrectedOrigin,
   } = useTripSync({
     user,
     favorites,
@@ -269,6 +264,24 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
 
   const canMutateProfile =
     !user || profileSyncStatus === "ready" || profileSyncStatus === "saving";
+
+  // Station selection is separately unblocked during the recoverable
+  // origin_error state so the user can correct the unresolved station.
+  const canSelectOrigin =
+    canMutateProfile || profileSyncStatus === "origin_error";
+
+  const setOriginLocation = (origin: OriginLocation) => {
+    if (!isValidOriginLocation(origin)) return;
+    activeOriginRef.current = origin;
+    setActiveOrigin(origin);
+    if (!user) {
+      setGuestOrigin(origin);
+      persistGuestOrigin(origin);
+    } else if (profileSyncStatus === "origin_error") {
+      // Persist the corrected station to the cloud account.
+      void persistCorrectedOrigin(origin);
+    }
+  };
 
   const setDestinationRating = (id: string, rating: "up" | "down" | null) => {
     if (!canMutateProfile) return;
@@ -677,6 +690,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
         setDestinationRating,
         getDestinationRating,
         canMutateProfile,
+        canSelectOrigin,
         profileSyncStatus,
         tripSyncStatus,
         retryProfileHydration,
