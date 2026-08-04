@@ -2781,282 +2781,276 @@ const newPois: NewPoiInput[] = [
   },
 ];
 
-// ==========================================================================
-// EXECUTE TRANSFORMATIONS
-// ==========================================================================
-
-// Step 1: Fix existing Kyushu records
-let hubNameJaFixed = 0;
-let parentHubFixed = 0;
-let roleFixed = 0;
-let statusFixed = 0;
-let jaBackfilled = 0;
-let editorialSourcesFixed = 0;
-
-for (const record of data) {
-  if (record.region !== "Kyushu") continue;
-
-  // Hub nameJa
-  if (record.role === "hub") {
-    if (hubNameJa[record.id] && !record.nameJa) {
-      record.nameJa = hubNameJa[record.id];
-      if (!record.aliases) record.aliases = [record.name];
-      if (!record.aliases.includes(hubNameJa[record.id])) {
-        record.aliases.push(hubNameJa[record.id]);
-      }
-      hubNameJaFixed++;
-    }
-    // Publish hub
-    if (record.status !== "published") {
-      record.status = "published";
-      statusFixed++;
-    }
-    if (!record.editorial) record.editorial = {};
-    if (record.editorial.lifecycle !== "published") {
-      record.editorial.lifecycle = "published";
-      record.editorial.freshness = "current";
-      record.editorial.checkedAt = now;
-      record.editorial.reviewedAt = now;
-      record.editorial.reviewedBy = "Kyushu Regional Editorial Batch";
-    }
-    // Ensure hub has editorial.sources
-    if (!record.editorial.sources || record.editorial.sources.length === 0) {
-      // Hub sources: Wikipedia article for the city
-      record.editorial.sources = [
-        {
-          type: "wikipedia",
-          url: `https://en.wikipedia.org/wiki/${record.name.replace(/\s+/g, "_")}`,
-          title: record.name,
-          accessedAt: now,
-        },
-      ];
-      editorialSourcesFixed++;
-    }
+function assertInvariant(
+  condition: unknown,
+  message: string,
+): asserts condition {
+  if (!condition) {
+    throw new Error(message);
   }
+}
 
-  // Non-hub records
-  if (record.role !== "hub") {
-    const hubId = parentHubMap[record.id];
+// Deep equal helper for idempotency and preservation checks
+function deepEqual(a: any, b: any): boolean {
+  if (a === b) return true;
+  if (
+    typeof a !== "object" ||
+    a === null ||
+    typeof b !== "object" ||
+    b === null
+  )
+    return false;
+  const keysA = Object.keys(a);
+  const keysB = Object.keys(b);
+  if (keysA.length !== keysB.length) return false;
+  for (const key of keysA) {
+    if (!keysB.includes(key)) return false;
+    if (!deepEqual(a[key], b[key])) return false;
+  }
+  return true;
+}
 
-    // Skip gateway (amami-iriomote-natural-site — stays standalone)
-    if (record.id === "amami-iriomote-natural-site") {
-      // JA backfill
-      const backfill = jaBackfill[record.id];
-      if (backfill && (!record.content?.ja || !record.content.ja.description)) {
-        if (!record.content) record.content = {};
-        record.content.ja = {
-          name: record.nameJa || record.name,
-          description: backfill.description,
-          highlights: backfill.highlights,
-        };
-        jaBackfilled++;
+function applyKyushuExpansion(
+  input: DestinationRecord[],
+  runDate: string,
+): DestinationRecord[] {
+  const data = JSON.parse(JSON.stringify(input)) as DestinationRecord[];
+
+  for (const record of data) {
+    if (record.region !== "Kyushu") continue;
+
+    let changed = false;
+
+    // Hub nameJa
+    if (record.role === "hub") {
+      if (hubNameJa[record.id] && !record.nameJa) {
+        record.nameJa = hubNameJa[record.id];
+        if (!record.aliases) record.aliases = [record.name];
+        if (!record.aliases.includes(hubNameJa[record.id])) {
+          record.aliases.push(hubNameJa[record.id]);
+        }
+        changed = true;
       }
-      // Publish
       if (record.status !== "published") {
         record.status = "published";
-        statusFixed++;
+        changed = true;
       }
+    }
+
+    // Non-hub records
+    if (record.role !== "hub") {
+      const hubId = parentHubMap[record.id];
+
+      // Gateway (amami-iriomote-natural-site — stays standalone)
+      if (record.id === "amami-iriomote-natural-site") {
+        const backfill = jaBackfill[record.id];
+        if (
+          backfill &&
+          (!record.content?.ja || !record.content.ja.description)
+        ) {
+          if (!record.content) record.content = {};
+          record.content.ja = {
+            name: record.nameJa || record.name,
+            description: backfill.description,
+            highlights: backfill.highlights,
+          };
+          changed = true;
+        }
+        if (record.status !== "published") {
+          record.status = "published";
+          changed = true;
+        }
+        if (!record.editorial) record.editorial = {};
+        if (
+          !record.editorial.sources ||
+          record.editorial.sources.length === 0
+        ) {
+          record.editorial.sources = [
+            {
+              type: "wikipedia",
+              url: backfill.wikiUrl,
+              title: backfill.wikiTitle,
+              accessedAt: runDate,
+            },
+          ];
+          changed = true;
+        }
+      } else {
+        if (hubId) {
+          if (!record.relationships) record.relationships = {};
+          if (record.relationships.parentDestinationId !== hubId) {
+            record.relationships.parentDestinationId = hubId;
+            changed = true;
+          }
+        }
+
+        if (
+          record.role === "standalone" ||
+          record.role === "no-role" ||
+          !record.role
+        ) {
+          record.role = "poi";
+          changed = true;
+        }
+
+        if (record.status !== "published") {
+          record.status = "published";
+          changed = true;
+        }
+
+        const backfill = jaBackfill[record.id];
+        if (
+          backfill &&
+          (!record.content?.ja || !record.content.ja.description)
+        ) {
+          if (!record.content) record.content = {};
+          record.content.ja = {
+            name: record.nameJa || record.name,
+            description: backfill.description,
+            highlights: backfill.highlights,
+          };
+          changed = true;
+        }
+
+        if (
+          !record.editorial?.sources ||
+          record.editorial.sources.length === 0
+        ) {
+          if (backfill) {
+            if (!record.editorial) record.editorial = {};
+            record.editorial.sources = [
+              {
+                type: "wikipedia",
+                url: backfill.wikiUrl,
+                title: backfill.wikiTitle,
+                accessedAt: runDate,
+              },
+            ];
+            changed = true;
+          }
+        }
+
+        if (!record.municipalityId && hubId && hubMun[hubId]) {
+          record.municipalityId = hubMun[hubId];
+          changed = true;
+        }
+      }
+    }
+
+    if (changed) {
       if (!record.editorial) record.editorial = {};
       record.editorial.lifecycle = "published";
       record.editorial.freshness = "current";
-      record.editorial.checkedAt = now;
-      record.editorial.reviewedAt = now;
+      record.editorial.checkedAt = runDate;
+      record.editorial.reviewedAt = runDate;
       record.editorial.reviewedBy = "Kyushu Regional Editorial Batch";
-      if (!record.editorial.sources || record.editorial.sources.length === 0) {
-        record.editorial.sources = [
-          {
-            type: "wikipedia",
-            url: backfill!.wikiUrl,
-            title: backfill!.wikiTitle,
-            accessedAt: now,
-          },
-        ];
-        editorialSourcesFixed++;
-      }
+    }
+  }
+
+  // Step 2: Add new POIs
+  for (const poiDef of newPois) {
+    if (data.some((r) => r.id === poiDef.id)) {
       continue;
     }
-
-    // Set parent hub
-    if (hubId) {
-      if (!record.relationships) record.relationships = {};
-      record.relationships.parentDestinationId = hubId;
-      parentHubFixed++;
+    const rec = buildPoi(poiDef);
+    if (hubMun[poiDef.hubId]) {
+      rec.municipalityId = hubMun[poiDef.hubId];
     }
-
-    // Fix role
-    if (
-      record.role === "standalone" ||
-      record.role === "no-role" ||
-      !record.role
-    ) {
-      record.role = "poi";
-      roleFixed++;
-    }
-
-    // Publish-flip
-    if (record.status !== "published") {
-      record.status = "published";
-      statusFixed++;
-    }
-    if (!record.editorial) record.editorial = {};
-    record.editorial.lifecycle = "published";
-    record.editorial.freshness = "current";
-    record.editorial.checkedAt = now;
-    record.editorial.reviewedAt = now;
-    record.editorial.reviewedBy = "Kyushu Regional Editorial Batch";
-
-    // JA backfill
-    const backfill = jaBackfill[record.id];
-    if (backfill && (!record.content?.ja || !record.content.ja.description)) {
-      if (!record.content) record.content = {};
-      record.content.ja = {
-        name: record.nameJa || record.name,
-        description: backfill.description,
-        highlights: backfill.highlights,
-      };
-      jaBackfilled++;
-    }
-
-    // Editorial sources for existing records that lack them
-    if (!record.editorial.sources || record.editorial.sources.length === 0) {
-      if (backfill) {
-        record.editorial.sources = [
-          {
-            type: "wikipedia",
-            url: backfill.wikiUrl,
-            title: backfill.wikiTitle,
-            accessedAt: now,
-          },
-        ];
-      } else {
-        // Fukuoka POIs already have content.ja but may lack sources
-        record.editorial.sources = [
-          {
-            type: "wikipedia",
-            url: `https://en.wikipedia.org/wiki/${record.name.replace(/\s+/g, "_")}`,
-            title: record.name,
-            accessedAt: now,
-          },
-        ];
-      }
-      editorialSourcesFixed++;
-    }
-
-    // Municipality ID
-    if (!record.municipalityId && hubId && hubMun[hubId]) {
-      record.municipalityId = hubMun[hubId];
-    }
+    data.push(rec);
   }
+
+  return data;
 }
 
-// Step 2: Add new POIs
-let newPoiCount = 0;
-for (const poiDef of newPois) {
-  if (data.some((r) => r.id === poiDef.id)) {
-    console.error(`Duplicate ID: ${poiDef.id} — skipping`);
-    continue;
-  }
-  const rec = buildPoi(poiDef);
-  // Add municipalityId
-  if (hubMun[poiDef.hubId]) {
-    rec.municipalityId = hubMun[poiDef.hubId];
-  }
-  data.push(rec);
-  newPoiCount++;
+// ==========================================================================
+// EXECUTE & ASSERT
+// ==========================================================================
+
+const nonKyushuBefore = data.filter((r) => r.region !== "Kyushu");
+
+const pass1 = applyKyushuExpansion(data, now);
+const pass2 = applyKyushuExpansion(pass1, now);
+
+// Assertion 1: Idempotency
+assertInvariant(
+  deepEqual(pass1, pass2),
+  "Idempotency failed: applying transformation twice produced different results",
+);
+console.log("✓ Real idempotency verified");
+
+// Assertion 2: Non-Kyushu preservation
+const nonKyushuAfter = pass1.filter((r) => r.region !== "Kyushu");
+assertInvariant(
+  deepEqual(nonKyushuBefore, nonKyushuAfter),
+  "Non-Kyushu records were modified during transformation",
+);
+console.log("✓ Non-Kyushu records preserved");
+
+// Assertion 3: Exactly 37 new unique IDs (using explicit list)
+const expectedNewIds = new Set(newPois.map((p) => p.id));
+const finalIds = pass1.map((r) => r.id);
+const finalIdSet = new Set(finalIds);
+
+for (const id of expectedNewIds) {
+  assertInvariant(
+    finalIdSet.has(id),
+    `Expected new POI ${id} is missing from final catalog`,
+  );
 }
+console.log("✓ Exactly 37 expected new POI IDs are present");
+
+assertInvariant(
+  finalIds.length === finalIdSet.size,
+  "Duplicate IDs exist in the final catalogue",
+);
+console.log("✓ No duplicate IDs exist");
+
+// Check the 37 new POIs properties
+for (const id of expectedNewIds) {
+  const r = pass1.find((rec) => rec.id === id)!;
+
+  assertInvariant(
+    !!r.content?.ja?.description && !!r.content?.ja?.highlights?.length,
+    `POI ${id} missing Japanese description or highlights`,
+  );
+
+  assertInvariant(
+    !!r.transportOptions && Object.keys(r.transportOptions).length > 0,
+    `POI ${id} missing transportOptions`,
+  );
+
+  assertInvariant(!!r.municipalityId, `POI ${id} missing municipalityId`);
+
+  assertInvariant(
+    !!r.relationships?.parentDestinationId,
+    `POI ${id} missing parentDestinationId`,
+  );
+
+  assertInvariant(r.status === "published", `POI ${id} is not published`);
+}
+console.log(
+  "✓ All 37 POIs have expected Japanese content, transportOptions, municipalityId, parentDestinationId, and published status",
+);
+
+// Check that every expected parent hub exists
+for (const id of expectedNewIds) {
+  const r = pass1.find((rec) => rec.id === id)!;
+  const parentId = r.relationships?.parentDestinationId;
+  const parent = pass1.find((rec) => rec.id === parentId);
+  assertInvariant(
+    !!parent && parent.role === "hub",
+    `Parent hub ${parentId} for POI ${id} does not exist or is not a hub`,
+  );
+}
+console.log("✓ Every expected parent hub exists");
+
+// Total catalogue count is 664
+assertInvariant(
+  pass1.length === 664,
+  `Expected total catalogue count 664, got ${pass1.length}`,
+);
+console.log("✓ Total catalogue count is 664");
 
 // Write
-fs.writeFileSync(INDEX_PATH, JSON.stringify(data, null, 2) + "\n");
-
-// ==========================================================================
-// REPORT
-// ==========================================================================
-console.log(`Hub nameJa fixed: ${hubNameJaFixed}`);
-console.log(`Parent hub links fixed: ${parentHubFixed}`);
-console.log(`Role fixed: ${roleFixed}`);
-console.log(`Status published: ${statusFixed}`);
-console.log(`JA backfilled: ${jaBackfilled}`);
-console.log(`Editorial sources added: ${editorialSourcesFixed}`);
-console.log(`New POIs added: ${newPoiCount}`);
-console.log(`Total records: ${data.length} (was ${originalLength})`);
-
-// ==========================================================================
-// ASSERTIONS
-// ==========================================================================
-const finalData = data;
-const finalIds = new Set(finalData.map((r) => r.id));
-const newIds = [...finalIds].filter((id) => !originalIds.has(id));
-
-console.log("\n=== ASSERTIONS ===");
-
-// 1. Exactly 37 new unique IDs
-console.assert(
-  newIds.length === 37,
-  `Expected 37 new IDs, got ${newIds.length}`,
-);
-console.log(`✓ New unique IDs: ${newIds.length}`);
-
-// 2. No non-Kyushu record changes — verified via git diff
-console.log(
-  "✓ Non-Kyushu records preserved (verify with: git diff main -- src/shared/data/destinations-index.json | grep -c '^[-+].*non-Kyushu')",
-);
-
-// 3. Every new POI has Japanese content
-const missingJa = newIds
-  .map((id) => finalData.find((r) => r.id === id)!)
-  .filter((r) => !r.content?.ja?.description);
-console.assert(
-  missingJa.length === 0,
-  `${missingJa.length} new POIs missing JA content`,
-);
-console.log(`✓ All ${newIds.length} new POIs have Japanese content`);
-
-// 4. Every new POI has transportOptions
-const missingTransport = newIds
-  .map((id) => finalData.find((r) => r.id === id)!)
-  .filter(
-    (r) => !r.transportOptions || Object.keys(r.transportOptions).length === 0,
-  );
-console.assert(
-  missingTransport.length === 0,
-  `${missingTransport.length} new POIs missing transportOptions`,
-);
-console.log(`✓ All ${newIds.length} new POIs have transportOptions`);
-
-// 5. Every new POI has municipalityId and parentDestinationId
-const missingMun = newIds
-  .map((id) => finalData.find((r) => r.id === id)!)
-  .filter((r) => !r.municipalityId);
-console.assert(
-  missingMun.length === 0,
-  `${missingMun.length} new POIs missing municipalityId`,
-);
-console.log(`✓ All ${newIds.length} new POIs have municipalityId`);
-
-const missingParent = newIds
-  .map((id) => finalData.find((r) => r.id === id)!)
-  .filter((r) => !r.relationships?.parentDestinationId);
-console.assert(
-  missingParent.length === 0,
-  `${missingParent.length} new POIs missing parentDestinationId`,
-);
-console.log(`✓ All ${newIds.length} new POIs have parentDestinationId`);
-
-// 6. Every new POI is published
-const notPublished = newIds
-  .map((id) => finalData.find((r) => r.id === id)!)
-  .filter((r) => r.status !== "published");
-console.assert(
-  notPublished.length === 0,
-  `${notPublished.length} new POIs not published`,
-);
-console.log(`✓ All ${newIds.length} new POIs are published`);
-
-// 7. Running twice creates no further changes
-console.log("✓ Idempotency: re-running will skip all new POIs (duplicate IDs)");
-
-// Summary
-const kyushuFinal = finalData.filter((r) => r.region === "Kyushu");
-console.log(
-  `\nFinal Kyushu records: ${kyushuFinal.length} (hubs: ${kyushuFinal.filter((r) => r.role === "hub").length}, destinations: ${kyushuFinal.filter((r) => r.role !== "hub").length})`,
-);
+fs.writeFileSync(INDEX_PATH, JSON.stringify(pass1, null, 2) + "\n");
+console.log("✓ Wrote successfully validated data to", INDEX_PATH);
