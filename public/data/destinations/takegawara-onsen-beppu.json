@@ -11,7 +11,8 @@
         "Historic 1879 Meiji-era bathhouse",
         "Traditional sand bath (sunaburo)",
         "Iconic tiled façade & retro interior"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "竹瓦温泉",
@@ -20,7 +21,8 @@
         "1879年創業の明治レトロ浴場",
         "名物砂湯（砂風呂）体験",
         "唐破風のタイル張りファサード"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Oita",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": null,
-  "municipalityId": "Oita:beppu"
+  "municipalityId": "Oita:beppu",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

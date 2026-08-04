@@ -11,7 +11,8 @@
         "100m Eiffel-style observation tower",
         "Panoramic views of Beppu Bay",
         "Night illumination & city lights view"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "別府タワー",
@@ -20,7 +21,8 @@
         "エッフェル塔型100m展望タワー",
         "別府湾と市街地の360度パノラマ",
         "夜景とライトアップ"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Oita",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://beppu-tower.com/",
-  "municipalityId": "Oita:beppu"
+  "municipalityId": "Oita:beppu",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

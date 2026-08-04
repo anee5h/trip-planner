@@ -11,7 +11,8 @@
         "Reconstructed Dutch trading post buildings",
         "Japan's Edo-era window to the West",
         "Interactive exhibits on trade history"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "出島",
@@ -20,7 +21,8 @@
         "復元されたオランダ商館建造物群",
         "鎖国時代唯一の西洋交易拠点",
         "貿易史を伝える体験型展示"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Nagasaki",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://nagasakidejima.jp/",
-  "municipalityId": "Nagasaki:nagasaki"
+  "municipalityId": "Nagasaki:nagasaki",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

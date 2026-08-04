@@ -11,7 +11,8 @@
         "Japan's oldest stone arch bridge (1634)",
         "Spectacle-shaped reflection on the water",
         "Survived 1945 atomic bombing intact"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "眼鏡橋",
@@ -20,7 +21,8 @@
         "日本最古の石造二連アーチ橋（1634年）",
         "水面に映る眼鏡のような美しいフォルム",
         "1945年原爆にも耐えた長崎の象徴"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Nagasaki",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": null,
-  "municipalityId": "Nagasaki:nagasaki"
+  "municipalityId": "Nagasaki:nagasaki",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

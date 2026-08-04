@@ -11,7 +11,8 @@
         "Sakurajima volcano as borrowed scenery (shakkei)",
         "Shimazu clan samurai villa & gardens",
         "UNESCO World Heritage Meiji industrial site"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "仙巌園",
@@ -20,7 +21,8 @@
         "桜島を借景にした大名庭園",
         "島津家別邸と薩摩の武家文化",
         "世界遺産『明治日本の産業革命遺産』構成資産"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Kagoshima",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://www.senganen.jp/",
-  "municipalityId": "Kagoshima:kagoshima"
+  "municipalityId": "Kagoshima:kagoshima",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

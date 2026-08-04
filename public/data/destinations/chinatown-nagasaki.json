@@ -11,7 +11,8 @@
         "Oldest Chinatown in Japan",
         "Nagasaki champon & sara-udon noodles",
         "Four colorful gates & Lunar New Year festival"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "長崎新地中華街",
@@ -20,7 +21,8 @@
         "日本最古の歴史ある中華街",
         "長崎名物ちゃんぽん・皿うどん",
         "四色の門と春節ランタンフェスティバル"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Nagasaki",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://nagasaki-chinatown.com/",
-  "municipalityId": "Nagasaki:nagasaki"
+  "municipalityId": "Nagasaki:nagasaki",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

@@ -11,7 +11,8 @@
         "360° caldera panorama at 936m",
         "Five peaks of Mount Aso in one view",
         "Spectacular sunrise sea of clouds"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "大観峰",
@@ -20,7 +21,8 @@
         "936mの絶景360度カルデラパノラマ",
         "阿蘇五岳の全容を一望",
         "早朝に現れる神秘的な雲海"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Kumamoto",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": null,
-  "municipalityId": "Kumamoto:aso"
+  "municipalityId": "Kumamoto:aso",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

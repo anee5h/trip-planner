@@ -11,7 +11,8 @@
         "Manai Waterfall & emerald gorge rowboats",
         "80m moss-covered basalt cliffs",
         "Mythological setting of Amaterasu legend"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "高千穂峡",
@@ -20,7 +21,8 @@
         "真名井の滝とエメラルド渓谷のボート",
         "高さ80mの苔むす柱状節理の断崖",
         "天照大神・天岩戸神話ゆかりの地"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Miyazaki",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://takachiho-kanko.info/",
-  "municipalityId": "Miyazaki:takachiho"
+  "municipalityId": "Miyazaki:takachiho",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

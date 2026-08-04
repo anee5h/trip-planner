@@ -105,5 +105,11 @@
         "accessedAt": "2026-08-04"
       }
     ]
+  },
+  "openingHours": "No fixed opening hours (town area)",
+  "openingHoursJa": "営業時間の設定なし（町内エリア）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/takachiho-town/"
   }
 }

@@ -100,5 +100,11 @@
         "accessedAt": "2026-08-04"
       }
     ]
+  },
+  "openingHours": "No fixed opening hours (city area)",
+  "openingHoursJa": "営業時間の設定なし（市内エリア）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/dazaifu-city/"
   }
 }

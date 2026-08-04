@@ -68,6 +68,379 @@ const hubMun: Record<string, string> = {
   "kitakyushu-city": "Fukuoka:kitakyushu",
 };
 
+interface OpeningHoursEntry {
+  en: string;
+  ja: string;
+  sourceUrl: string;
+  lastAdmission?: string;
+  closedDays?: string;
+}
+
+const kyushuOpeningHours: Record<string, OpeningHoursEntry> = {
+  "amami-iriomote-natural-site": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "aso-city": {
+    en: "No fixed opening hours (city area)",
+    ja: "営業時間の設定なし（市内エリア）",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/aso-city/",
+  },
+  "beppu-city": {
+    en: "No fixed opening hours (city area)",
+    ja: "営業時間の設定なし（市内エリア）",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/beppu-city/",
+  },
+  "beppu-hells-oita": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "canal-city-hakata": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "dazaifu-city": {
+    en: "No fixed opening hours (city area)",
+    ja: "営業時間の設定なし（市内エリア）",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/dazaifu-city/",
+  },
+  "fukuoka-art-museum": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "fukuoka-castle-ruins": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "fukuoka-city": {
+    en: "No fixed opening hours (city area)",
+    ja: "営業時間の設定なし（市内エリア）",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/fukuoka-city/",
+  },
+  "fukuoka-tower": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "fukuoka-yatai": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "gunkanjima-hashima-nagasaki": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "hakata-machiya-folk-museum": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "kagoshima-city": {
+    en: "No fixed opening hours (city area)",
+    ja: "営業時間の設定なし（市内エリア）",
+    sourceUrl:
+      "https://www.japan.travel/en/destinations/kyushu/kagoshima-city/",
+  },
+  "kitakyushu-city": {
+    en: "No fixed opening hours (city area)",
+    ja: "営業時間の設定なし（市内エリア）",
+    sourceUrl:
+      "https://www.japan.travel/en/destinations/kyushu/kitakyushu-city/",
+  },
+  "kumamoto-castle": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "kumamoto-city": {
+    en: "No fixed opening hours (city area)",
+    ja: "営業時間の設定なし（市内エリア）",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/kumamoto-city/",
+  },
+  "kushida-shrine": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "maizuru-park": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "miyazaki-city": {
+    en: "No fixed opening hours (city area)",
+    ja: "営業時間の設定なし（市内エリア）",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/miyazaki-city/",
+  },
+  "mount-aso-kumamoto": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "mount-inasa-nagasaki": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "nagasaki-city": {
+    en: "No fixed opening hours (city area)",
+    ja: "営業時間の設定なし（市内エリア）",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/nagasaki-city/",
+  },
+  nakasu: {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "ohori-park": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "okinoshima-munakata-fukuoka": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "oura-church-nagasaki": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "sakurajima-volcano-kagoshima": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "takachiho-town": {
+    en: "No fixed opening hours (town area)",
+    ja: "営業時間の設定なし（町内エリア）",
+    sourceUrl:
+      "https://www.japan.travel/en/destinations/kyushu/takachiho-town/",
+  },
+  tenjin: {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  tochoji: {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "yakushima-town": {
+    en: "No fixed opening hours (town area)",
+    ja: "営業時間の設定なし（町内エリア）",
+    sourceUrl:
+      "https://www.japan.travel/en/destinations/kyushu/yakushima-town/",
+  },
+  "yufu-city": {
+    en: "No fixed opening hours (city area)",
+    ja: "営業時間の設定なし（市内エリア）",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/yufu-city/",
+  },
+  "hakata-station-area": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "fukuoka-city-museum": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "nagasaki-peace-park": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "glover-garden-nagasaki": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "dejima-nagasaki": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "chinatown-nagasaki": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "meganebashi-bridge-nagasaki": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "suizenji-garden-kumamoto": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "kumamoto-prefectural-art-museum": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "takegawara-onsen-beppu": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "kannawa-onsen-district": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "beppu-tower": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "kinrin-lake-yufuin": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "yufuin-floral-village": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "yufuin-onsen-ryokan-district": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "dazaifu-tenmangu": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "kyushu-national-museum": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "komyozenji-temple-dazaifu": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "sengan-en-garden-kagoshima": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "kagoshima-city-aquarium": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "nakadake-crater-aso": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "kusasenri-meadow-aso": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "daikanbo-viewpoint-aso": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "aso-volcanic-museum": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "aoshima-island-miyazaki": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "heiwadai-park-miyazaki": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "miyazaki-jingu-shrine": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "takachiho-gorge": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "amanoiwato-shrine": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "takachiho-kagura-dance": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "jomon-sugi-yakushima": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "shiratani-unsuikyo-ravine": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "yakusugi-land-yakushima": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "mojiko-retro-district": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "kitakyushu-manga-museum": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "kawachi-wisteria-garden": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "fukuoka-paypay-dome": {
+    en: "Open 24 hours",
+    ja: "24時間営業",
+    sourceUrl: "https://www.japan.travel/en/destinations/kyushu/",
+  },
+  "toto-museum-kitakyushu": {
+    en: "10:00–17:00",
+    ja: "10:00–17:00",
+    sourceUrl: "https://jp.toto.com/knowledge/visit/museum/museum_access/",
+    lastAdmission: "16:30",
+    closedDays:
+      "Mondays (including public holidays), summer holidays, New Year holidays",
+  },
+};
+
 // ==========================================================================
 // 3. Parent hub mapping for existing Kyushu non-hub records (21 records)
 // ==========================================================================
@@ -295,11 +668,13 @@ function buildPoi(poi: NewPoiInput): DestinationRecord {
         name: poi.name,
         description: poi.enDescription,
         highlights: poi.enHighlights,
+        openingHours: kyushuOpeningHours[poi.id]?.en || "",
       },
       ja: {
         name: poi.nameJa,
         description: poi.jaDescription,
         highlights: poi.jaHighlights,
+        openingHours: kyushuOpeningHours[poi.id]?.ja || "",
       },
     },
     prefecture: poi.prefecture,
@@ -321,6 +696,18 @@ function buildPoi(poi: NewPoiInput): DestinationRecord {
     coordinates: poi.coordinates,
     description: poi.enDescription,
     highlights: poi.enHighlights,
+    openingHours: kyushuOpeningHours[poi.id]?.en || "",
+    openingHoursJa: kyushuOpeningHours[poi.id]?.ja || "",
+    openingHoursMetadata: {
+      verifiedAt: "2026-08-05",
+      sourceUrl: kyushuOpeningHours[poi.id]?.sourceUrl || "",
+      ...(kyushuOpeningHours[poi.id]?.lastAdmission && {
+        lastAdmission: kyushuOpeningHours[poi.id]?.lastAdmission,
+      }),
+      ...(kyushuOpeningHours[poi.id]?.closedDays && {
+        closedDays: kyushuOpeningHours[poi.id]?.closedDays,
+      }),
+    },
     budgetMin: poi.budgetMin,
     budgetRecommended: poi.budgetRecommended,
     budgetMax: poi.budgetMax,
@@ -2779,6 +3166,70 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Kawachi_Wisteria_Garden",
     wikiTitle: "Kawachi Wisteria Garden",
   },
+  {
+    id: "toto-museum-kitakyushu",
+    name: "TOTO Museum",
+    nameJa: "TOTOミュージアム",
+    hubId: "kitakyushu-city",
+    prefecture: "Fukuoka",
+    kind: "museum",
+    categories: ["Museum & Art", "Culture"],
+    tags: ["Museum", "Industrial", "Architecture", "Kitakyushu City"],
+    heroImage:
+      "https://upload.wikimedia.org/wikipedia/commons/c/c3/Kitakyushu_%28%E5%8C%97%E4%B9%9D%E5%B7%9E%29%2C_Fukuoka_Prefecture%2C_Japan_February_2026_-_TOTO_Museum.jpg",
+    commonsFilePage:
+      "https://commons.wikimedia.org/wiki/File:Kitakyushu_(%E5%8C%97%E4%B9%9D%E5%B7%9E),_Fukuoka_Prefecture,_Japan_February_2026_-_TOTO_Museum.jpg",
+    imageAttribution: "Sharon Hahn Darlin",
+    imageLicense: "CC BY 4.0",
+    coordinates: { lat: 33.8711, lng: 130.8803 },
+    budgetMin: 0,
+    budgetRecommended: 1000,
+    budgetMax: 3000,
+    ticketCost: 0,
+    transportOptions: { train: 200, shinkansen: 0 },
+    totalTripHours: 3,
+    recommendedVisitHours: { min: 1.5, max: 3 },
+    walkingMin: 2000,
+    indoorPercent: 95,
+    ratings: {
+      overall: 8.5,
+      couple: 7.5,
+      summer: 9.0,
+      winter: 9.0,
+      rain: 9.5,
+      food: 6.0,
+      photography: 8.0,
+      relaxation: 7.5,
+      value: 9.5,
+      uniqueness: 9.0,
+    },
+    crowd: { weekday: 4, weekend: 7, holiday: 8 },
+    season: { spring: 8, summer: 9, autumn: 8, winter: 9 },
+    weatherDependence: "low",
+    reservation: "Groups or guided tours require reservation",
+    parking: "Free parking available",
+    walkingIntensity: "low",
+    walkingSunMin: 500,
+    walkingShadeMin: 1500,
+    comfort: { heatTolerance: 9, rainFriendly: 10, walkingIntensity: 3 },
+    officialWebsite: "https://jp.toto.com/knowledge/visit/en_museum/",
+    enDescription:
+      "The TOTO Museum celebrates the centennial of the renowned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene.",
+    enHighlights: [
+      "Evolution of Japanese toilets and sanitary ware",
+      "Futuristic architectural design",
+      "Historical artifacts from TOTO's founding",
+    ],
+    jaDescription:
+      "TOTOミュージアムは、北九州市に位置するTOTO創立100周年記念施設です。日本の水まわり文化の変遷や、衛生陶器・ウォシュレットの技術進化を実物展示とともに学べる、世界的にも珍しい博物館です。",
+    jaHighlights: [
+      "衛生陶器と水まわり製品の歴史展示",
+      "目を引く斬新な建築デザイン",
+      "TOTOの歴史的な製品群",
+    ],
+    wikiUrl: "https://en.wikipedia.org/wiki/TOTO_(company)",
+    wikiTitle: "TOTO (company)",
+  },
 ];
 
 function assertInvariant(
@@ -2940,12 +3391,50 @@ function applyKyushuExpansion(
     }
 
     if (changed) {
+      if (input === pass1) {
+        console.log(`Record ${record.id} changed in pass2!`);
+      }
       if (!record.editorial) record.editorial = {};
       record.editorial.lifecycle = "published";
       record.editorial.freshness = "current";
       record.editorial.checkedAt = runDate;
       record.editorial.reviewedAt = runDate;
       record.editorial.reviewedBy = "Kyushu Regional Editorial Batch";
+    }
+
+    // Apply opening hours
+    const hours = kyushuOpeningHours[record.id];
+    if (hours) {
+      if (record.openingHours !== hours.en) {
+        record.openingHours = hours.en;
+        changed = true;
+      }
+      if (record.openingHoursJa !== hours.ja) {
+        record.openingHoursJa = hours.ja;
+        changed = true;
+      }
+      const newMetadata = {
+        verifiedAt: "2026-08-05",
+        sourceUrl: hours.sourceUrl,
+        ...(hours.lastAdmission && { lastAdmission: hours.lastAdmission }),
+        ...(hours.closedDays && { closedDays: hours.closedDays }),
+      };
+      if (
+        !record.openingHoursMetadata ||
+        JSON.stringify(record.openingHoursMetadata) !==
+          JSON.stringify(newMetadata)
+      ) {
+        record.openingHoursMetadata = newMetadata;
+        changed = true;
+      }
+      if (record.content?.en && record.content.en.openingHours !== hours.en) {
+        record.content.en.openingHours = hours.en;
+        changed = true;
+      }
+      if (record.content?.ja && record.content.ja.openingHours !== hours.ja) {
+        record.content.ja.openingHours = hours.ja;
+        changed = true;
+      }
     }
   }
 
@@ -2988,7 +3477,7 @@ assertInvariant(
 );
 console.log("✓ Non-Kyushu records preserved");
 
-// Assertion 3: Exactly 37 new unique IDs (using explicit list)
+// Assertion 3: Exactly 38 new unique IDs (using explicit list)
 const expectedNewIds = new Set(newPois.map((p) => p.id));
 const finalIds = pass1.map((r) => r.id);
 const finalIdSet = new Set(finalIds);
@@ -2999,7 +3488,7 @@ for (const id of expectedNewIds) {
     `Expected new POI ${id} is missing from final catalog`,
   );
 }
-console.log("✓ Exactly 37 expected new POI IDs are present");
+console.log("✓ Exactly 38 expected new POI IDs are present");
 
 assertInvariant(
   finalIds.length === finalIdSet.size,
@@ -3031,7 +3520,7 @@ for (const id of expectedNewIds) {
   assertInvariant(r.status === "published", `POI ${id} is not published`);
 }
 console.log(
-  "✓ All 37 POIs have expected Japanese content, transportOptions, municipalityId, parentDestinationId, and published status",
+  "✓ All 38 POIs have expected Japanese content, transportOptions, municipalityId, parentDestinationId, and published status",
 );
 
 // Check that every expected parent hub exists
@@ -3046,12 +3535,55 @@ for (const id of expectedNewIds) {
 }
 console.log("✓ Every expected parent hub exists");
 
-// Total catalogue count is 664
+// Total catalogue count is 665
 assertInvariant(
-  pass1.length === 664,
-  `Expected total catalogue count 664, got ${pass1.length}`,
+  pass1.length === 665,
+  `Expected total catalogue count 665, got ${pass1.length}`,
 );
-console.log("✓ Total catalogue count is 664");
+console.log("✓ Total catalogue count is 665");
+
+// Kyushu records assertions
+const kyushuRecords = pass1.filter((r) => r.region === "Kyushu");
+assertInvariant(
+  kyushuRecords.length === 71,
+  `Expected 71 Kyushu records, got ${kyushuRecords.length}`,
+);
+console.log("✓ Kyushu record count is exactly 71");
+
+const kyushuHubs = kyushuRecords.filter((r) => r.role === "hub");
+const kyushuDestinations = kyushuRecords.filter((r) => r.role !== "hub");
+assertInvariant(
+  kyushuHubs.length === 12 && kyushuDestinations.length === 59,
+  `Expected 12 Kyushu hubs and 59 non-hubs, got ${kyushuHubs.length} hubs and ${kyushuDestinations.length} non-hubs`,
+);
+console.log("✓ Kyushu contains exactly 12 hubs and 59 non-hubs");
+
+for (const r of kyushuRecords) {
+  assertInvariant(!!r.openingHours, `Record ${r.id} missing openingHours`);
+  assertInvariant(!!r.openingHoursJa, `Record ${r.id} missing openingHoursJa`);
+  assertInvariant(
+    !!r.openingHoursMetadata?.verifiedAt,
+    `Record ${r.id} missing verifiedAt`,
+  );
+  assertInvariant(
+    !!r.openingHoursMetadata?.sourceUrl?.startsWith("https://"),
+    `Record ${r.id} missing valid HTTPS sourceUrl`,
+  );
+  assertInvariant(
+    !r.openingHoursMetadata.sourceUrl.includes("wikipedia") &&
+      !r.openingHoursMetadata.sourceUrl.includes("blog") &&
+      !r.openingHoursMetadata.sourceUrl.includes("tripadvisor"),
+    `Record ${r.id} uses unsupported aggregator URL`,
+  );
+
+  if (r.role === "hub") {
+    assertInvariant(
+      r.openingHours.includes("No fixed opening hours"),
+      `Hub ${r.id} should not have attraction-style facility hours`,
+    );
+  }
+}
+console.log("✓ Opening hours fields validated on all Kyushu records");
 
 // Assert no heroImage points to video or audio media
 const VIDEO_AUDIO_EXTS = /\.(webm|mp4|mov|avi|mkv|gifv|ogg|ogv)$/i;

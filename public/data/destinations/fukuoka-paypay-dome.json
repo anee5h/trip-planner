@@ -14,7 +14,8 @@
         "SoftBank Hawks home games at PayPay Dome",
         "Oh Sadaharu Baseball Museum",
         "BOSS E-ZO entertainment complex & bay views"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "福岡ペイペイドーム・BOSS E-ZO FUKUOKA",
@@ -23,7 +24,8 @@
         "ソフトバンクホークスのホームゲーム観戦",
         "王貞治ベースボールミュージアム",
         "BOSS E-ZO FUKUOKA の体験型アトラクション"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Fukuoka",
@@ -150,5 +152,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://e-zo.jp/",
-  "municipalityId": "Fukuoka:fukuoka"
+  "municipalityId": "Fukuoka:fukuoka",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

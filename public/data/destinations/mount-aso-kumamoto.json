@@ -113,7 +113,14 @@
         "世界最大級のカルデラ地形",
         "中岳火口の迫力ある噴煙",
         "広大な草千里ヶ浜の草原景観"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
+  },
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   }
 }

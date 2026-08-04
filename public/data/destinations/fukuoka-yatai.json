@@ -7,12 +7,14 @@
     "en": {
       "name": "Fukuoka Yatai",
       "description": "Fukuoka Yatai is a visitor destination in Fukuoka City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
-      "highlights": ["Food", "Market"]
+      "highlights": ["Food", "Market"],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "福岡の屋台",
       "description": "福岡の屋台はFukuoka Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["グルメ", "市場"]
+      "highlights": ["グルメ", "市場"],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Fukuoka",
@@ -167,5 +169,11 @@
     "confidence": "low"
   },
   "businessHours": "09:30 - 17:00 (Closed Mondays)",
-  "municipalityId": "Fukuoka:fukuoka"
+  "municipalityId": "Fukuoka:fukuoka",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

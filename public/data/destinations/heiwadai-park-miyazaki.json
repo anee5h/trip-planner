@@ -11,7 +11,8 @@
         "37m Peace Tower monument",
         "Hundreds of replica haniwa clay figures",
         "Panoramic hilltop views of Miyazaki"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "平和台公園・はにわ園",
@@ -20,7 +21,8 @@
         "高さ37mの平和の塔",
         "数百体の埴輪レプリカ展示",
         "丘の上からの宮崎市街パノラマ"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Miyazaki",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": null,
-  "municipalityId": "Miyazaki:miyazaki"
+  "municipalityId": "Miyazaki:miyazaki",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

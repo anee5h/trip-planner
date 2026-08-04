@@ -11,7 +11,8 @@
         "National Treasure gold seal of 'King of Na'",
         "Fukuoka history from ancient to modern",
         "Special exhibitions and cultural events"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "福岡市博物館",
@@ -20,7 +21,8 @@
         "国宝『金印』（漢委奴国王印）の常設展示",
         "福岡の歴史とアジア交流の展示",
         "企画展と市民文化イベント"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Fukuoka",
@@ -146,5 +148,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://museum.city.fukuoka.jp/",
-  "municipalityId": "Fukuoka:fukuoka"
+  "municipalityId": "Fukuoka:fukuoka",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

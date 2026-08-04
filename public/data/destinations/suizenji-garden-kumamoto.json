@@ -11,7 +11,8 @@
         "Miniature Mt. Fuji mound & pond",
         "53 Stations of Tokaido landscape",
         "Traditional teahouse with garden views"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "水前寺成趣園",
@@ -20,7 +21,8 @@
         "ミニチュア富士山と池泉回遊式庭園",
         "東海道五十三次の縮景",
         "伝統茶屋での抹茶と庭園眺望"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Kumamoto",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://www.suizenji.or.jp/",
-  "municipalityId": "Kumamoto:kumamoto"
+  "municipalityId": "Kumamoto:kumamoto",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

@@ -11,7 +11,8 @@
         "6,000 plum trees blooming in early spring",
         "One of Japan's top three Tenmangu shrines",
         "Prayers for academic success & exam luck"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "太宰府天満宮",
@@ -20,7 +21,8 @@
         "約6,000本の梅と梅まつり（2〜3月）",
         "学問の神様・菅原道真公の御神徳",
         "日本三天神の一社と合格祈願"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Fukuoka",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://www.dazaifutenmangu.or.jp/",
-  "municipalityId": "Fukuoka:dazaifu"
+  "municipalityId": "Fukuoka:dazaifu",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

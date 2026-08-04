@@ -131,7 +131,14 @@
         "軍艦島上陸クルーズツアー",
         "明治日本の産業革命遺産（世界遺産）",
         "廃墟化した高層鉄筋アパート群"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
+  },
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   }
 }

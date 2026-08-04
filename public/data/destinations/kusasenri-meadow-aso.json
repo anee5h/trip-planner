@@ -11,7 +11,8 @@
         "Vast caldera grassland with grazing horses",
         "Smoking crater backdrop views",
         "Horse riding experience in the meadow"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "草千里ヶ浜",
@@ -20,7 +21,8 @@
         "広大なカルデラ草原と放牧馬",
         "中岳火口噴煙を背景にした絶景",
         "草原での乗馬体験"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Kumamoto",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": null,
-  "municipalityId": "Kumamoto:aso"
+  "municipalityId": "Kumamoto:aso",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

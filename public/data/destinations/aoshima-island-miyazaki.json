@@ -11,7 +11,8 @@
         "Devil's Washboard basalt rock formation",
         "Aoshima Shrine in tropical jungle",
         "Subtropical island accessible by footbridge"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "青島・鬼の洗濯板",
@@ -20,7 +21,8 @@
         "鬼の洗濯板の奇岩地形",
         "熱帯ジャングルの中の青島神社",
         "橋で渡る亜熱帯の小島散策"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Miyazaki",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": null,
-  "municipalityId": "Miyazaki:miyazaki"
+  "municipalityId": "Miyazaki:miyazaki",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

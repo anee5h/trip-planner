@@ -11,7 +11,8 @@
         "Iconic moss forest of Princess Mononoke fame",
         "Moss-covered ancient cedars & boulders",
         "Variety of trails from 1h to 4h"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "白谷雲水峡",
@@ -20,7 +21,8 @@
         "『もののけ姫』のモデルとなった苔の森",
         "苔に覆われた屋久杉と巨岩の絶景",
         "1時間〜4時間の多様なトレッキングコース"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Kagoshima",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": null,
-  "municipalityId": "Kagoshima:yakushima"
+  "municipalityId": "Kagoshima:yakushima",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

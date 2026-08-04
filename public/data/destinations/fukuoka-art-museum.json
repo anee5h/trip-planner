@@ -7,12 +7,14 @@
     "en": {
       "name": "Fukuoka Art Museum",
       "description": "Fukuoka Art Museum is a visitor destination in Fukuoka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
-      "highlights": ["Museum"]
+      "highlights": ["Museum"],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "福岡市美術館",
       "description": "福岡市美術館はFukuoka Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["博物館"]
+      "highlights": ["博物館"],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Fukuoka",
@@ -167,5 +169,11 @@
     "confidence": "low"
   },
   "businessHours": "09:30 - 17:00 (Closed Mondays)",
-  "municipalityId": "Fukuoka:fukuoka"
+  "municipalityId": "Fukuoka:fukuoka",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

@@ -11,7 +11,8 @@
         "Former Glover House (Japan's oldest Western building)",
         "Panoramic views of Nagasaki Harbor",
         "Collection of Meiji-era Western residences"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "グラバー園",
@@ -20,7 +21,8 @@
         "国指定重要文化財『旧グラバー住宅』",
         "長崎港を見下ろす丘の絶景",
         "明治期の洋館建築群"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Nagasaki",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://glover-garden.jp/",
-  "municipalityId": "Nagasaki:nagasaki"
+  "municipalityId": "Nagasaki:nagasaki",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

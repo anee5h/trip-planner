@@ -131,7 +131,14 @@
         "世界新三大夜景の長崎夜景",
         "展望台からの360度パノラマ",
         "稲佐山ロープウェイの空中散歩"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
+  },
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   }
 }

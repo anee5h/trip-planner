@@ -11,7 +11,8 @@
         "Morning mist over the warm spring-fed lake",
         "Scenic walking path around the lake",
         "Autumn foliage & winter snow reflections"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "金鱗湖",
@@ -20,7 +21,8 @@
         "湖面を覆う幻想的な朝霧",
         "湖畔一周の遊歩道散策",
         "紅葉と冬の雪景色のリフレクション"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Oita",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": null,
-  "municipalityId": "Oita:yufu"
+  "municipalityId": "Oita:yufu",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

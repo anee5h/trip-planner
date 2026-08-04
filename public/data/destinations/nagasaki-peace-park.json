@@ -14,7 +14,8 @@
         "Iconic Peace Statue by Seibo Kitamura",
         "International peace monuments",
         "Atomic Bomb Museum historical exhibits"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "長崎平和公園・原爆資料館",
@@ -23,7 +24,8 @@
         "北村西望作の巨大平和祈念像",
         "世界各国からの平和モニュメント",
         "原爆資料館の被爆遺物と歴史展示"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Nagasaki",
@@ -150,5 +152,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://nagasakipeace.jp/",
-  "municipalityId": "Nagasaki:nagasaki"
+  "municipalityId": "Nagasaki:nagasaki",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

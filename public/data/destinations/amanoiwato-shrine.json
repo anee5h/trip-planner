@@ -11,7 +11,8 @@
         "Sacred cave of the Amaterasu legend",
         "Profound Shinto mythological site",
         "Peaceful mountain shrine & forest setting"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "天岩戸神社",
@@ -20,7 +21,8 @@
         "天照大神伝説の天岩戸洞窟",
         "日本神話の聖地を訪ねる",
         "山中の静寂な神社と神域の森"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Miyazaki",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": null,
-  "municipalityId": "Miyazaki:takachiho"
+  "municipalityId": "Miyazaki:takachiho",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

@@ -11,7 +11,8 @@
         "Japan's only Asia-focused national museum",
         "Cutting-edge cultural exchange exhibits",
         "Silk Road & Asian trade history displays"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "九州国立博物館",
@@ -20,7 +21,8 @@
         "アジア交流をテーマにした唯一の国立博物館",
         "最新展示技術による文化交流展示",
         "シルクロードとアジア交易史"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Fukuoka",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://www.kyuhaku.jp/",
-  "municipalityId": "Fukuoka:dazaifu"
+  "municipalityId": "Fukuoka:dazaifu",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

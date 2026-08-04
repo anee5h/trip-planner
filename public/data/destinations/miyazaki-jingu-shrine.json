@@ -11,7 +11,8 @@
         "Dedicated to Japan's first Emperor Jimmu",
         "Ancient camphor forest setting",
         "Yabusame horseback archery festival (October)"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "宮崎神宮",
@@ -20,7 +21,8 @@
         "初代天皇・神武天皇を祀る由緒",
         "クスノキの巨木が茂る神域の森",
         "10月例大祭の流鏑馬（やぶさめ）"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Miyazaki",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://miyazakijingu.or.jp/",
-  "municipalityId": "Miyazaki:miyazaki"
+  "municipalityId": "Miyazaki:miyazaki",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

@@ -7,12 +7,14 @@
     "en": {
       "name": "Ohori Park",
       "description": "Ohori Park is a visitor destination in Fukuoka City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
-      "highlights": ["Nature"]
+      "highlights": ["Nature"],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "大濠公園",
       "description": "大濠公園はFukuoka Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["自然"]
+      "highlights": ["自然"],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Fukuoka",
@@ -167,5 +169,11 @@
     "confidence": "low"
   },
   "businessHours": "Open access",
-  "municipalityId": "Fukuoka:fukuoka"
+  "municipalityId": "Fukuoka:fukuoka",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

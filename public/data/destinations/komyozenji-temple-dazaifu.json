@@ -11,7 +11,8 @@
         "Two exquisite Zen karesansui gardens",
         "Moss & maple 'light' garden",
         "Peaceful autumn foliage away from crowds"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "光明禅寺",
@@ -20,7 +21,8 @@
         "苔と紅葉の枯山水「光」の庭",
         "石と砂の龍の枯山水庭園",
         "秋の紅葉と禅の静寂"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Fukuoka",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": null,
-  "municipalityId": "Fukuoka:dazaifu"
+  "municipalityId": "Fukuoka:dazaifu",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

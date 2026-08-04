@@ -11,7 +11,8 @@
         "Nightly Shinto ritual masked dance",
         "Amaterasu mythology performed live",
         "UNESCO Intangible Cultural Heritage"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "高千穂神楽・夜神楽",
@@ -20,7 +21,8 @@
         "毎夜奉納の神楽・面舞",
         "天照大神伝説を再現する舞台",
         "ユネスコ無形文化遺産の伝統芸能"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Miyazaki",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://takachiho-kanko.info/kagura/",
-  "municipalityId": "Miyazaki:takachiho"
+  "municipalityId": "Miyazaki:takachiho",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

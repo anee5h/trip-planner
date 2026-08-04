@@ -11,7 +11,8 @@
         "Rooftop garden & observation deck",
         "AMU Plaza shopping complex",
         "Kyushu Shinkansen gateway"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "博多駅・アミュプラザ博多",
@@ -20,7 +21,8 @@
         "屋上庭園つばめの杜ひろば",
         "アミュプラザ博多のショッピング",
         "九州新幹線の起点と駅弁・グルメ"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Fukuoka",
@@ -146,5 +148,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://www.jrhakatacity.com/",
-  "municipalityId": "Fukuoka:fukuoka"
+  "municipalityId": "Fukuoka:fukuoka",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

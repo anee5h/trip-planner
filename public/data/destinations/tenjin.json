@@ -7,12 +7,14 @@
     "en": {
       "name": "Tenjin",
       "description": "Tenjin is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
-      "highlights": ["Culture"]
+      "highlights": ["Culture"],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "天神 (福岡市)",
       "description": "天神 (福岡市)はFukuoka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["文化"]
+      "highlights": ["文化"],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Fukuoka",
@@ -175,5 +177,11 @@
   },
   "officialWebsite": "https://yokanavi.com/",
   "businessHours": "Open access",
-  "municipalityId": "Fukuoka:fukuoka"
+  "municipalityId": "Fukuoka:fukuoka",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

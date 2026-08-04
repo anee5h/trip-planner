@@ -11,7 +11,8 @@
         "Boardwalk trails through ancient cedar groves",
         "Several named 1,000+ year-old cedars",
         "Range of trails from 30min to 2.5h"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "ヤクスギランド",
@@ -20,7 +21,8 @@
         "樹齢千年超の屋久杉を巡る遊歩道",
         "複数の銘木と原生林の散策",
         "30分〜2.5時間の選べるコース"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Kagoshima",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://www.yakushima.or.jp/",
-  "municipalityId": "Kagoshima:yakushima"
+  "municipalityId": "Kagoshima:yakushima",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

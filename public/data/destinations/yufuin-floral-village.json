@@ -11,7 +11,8 @@
         "Storybook English village aesthetic",
         "Cobblestone paths & quaint boutique shops",
         "Studio Ghibli-inspired gift & craft shops"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "由布院フローラルヴィレッジ",
@@ -20,7 +21,8 @@
         "絵本のようなイギリス風コテージ群",
         "石畳の小道と小さなショップ巡り",
         "ジブリ風雑貨店とフォトジェニックな街並み"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Oita",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://floral-village.com/",
-  "municipalityId": "Oita:yufu"
+  "municipalityId": "Oita:yufu",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

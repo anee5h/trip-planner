@@ -113,7 +113,14 @@
         "活火山の噴煙を望む溶岩遊歩道",
         "有村溶岩展望所からの絶景",
         "桜島フェリーと錦江湾クルーズ"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
+  },
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   }
 }

@@ -11,7 +11,8 @@
         "Live crater camera feeds & volcano science",
         "3D models of Mount Aso's geology",
         "Interactive eruption history exhibits"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "阿蘇火山博物館",
@@ -20,7 +21,8 @@
         "火口ライブカメラと火山の科学展示",
         "阿蘇山の3D地質模型",
         "噴火の歴史と体験型展示"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Kumamoto",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://www.asomuse.jp/",
-  "municipalityId": "Kumamoto:aso"
+  "municipalityId": "Kumamoto:aso",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

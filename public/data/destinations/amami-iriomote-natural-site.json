@@ -116,7 +116,8 @@
         "世界自然遺産の生物多様性",
         "奄美大島の原生林ハイキング",
         "西表島のマングローブカヌー体験"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "editorial": {
@@ -133,5 +134,11 @@
         "accessedAt": "2026-08-04"
       }
     ]
+  },
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   }
 }

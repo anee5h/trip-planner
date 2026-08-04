@@ -11,7 +11,8 @@
         "~7,200-year-old ancient cedar tree",
         "Epic 8-10h hike through UNESCO forest",
         "Inspiration for Princess Mononoke landscape"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "縄文杉",
@@ -20,7 +21,8 @@
         "推定樹齢7,000年の古代屋久杉",
         "往復8〜10時間のUNESCO森林トレッキング",
         "『もののけ姫』の舞台となった苔の森"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Kagoshima",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://www.yakushima.or.jp/",
-  "municipalityId": "Kagoshima:yakushima"
+  "municipalityId": "Kagoshima:yakushima",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

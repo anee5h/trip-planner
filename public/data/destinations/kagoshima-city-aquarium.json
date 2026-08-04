@@ -11,7 +11,8 @@
         "Whale sharks in the Kuroshio Tank",
         "Sakurajima volcano backdrop from waterfront",
         "Dolphin shows & interactive touch pools"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "いおワールドかごしま水族館",
@@ -20,7 +21,8 @@
         "ジンベエザメが泳ぐ黒潮大水槽",
         "桜島を背景にしたイルカショー",
         "ふれあいタッチプール体験"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Kagoshima",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://ioworld.jp/",
-  "municipalityId": "Kagoshima:kagoshima"
+  "municipalityId": "Kagoshima:kagoshima",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

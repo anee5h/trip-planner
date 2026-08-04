@@ -11,7 +11,8 @@
         "Hosokawa clan samurai art collection",
         "Modern Kumamoto artist exhibitions",
         "Prime location next to Kumamoto Castle"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "熊本県立美術館",
@@ -20,7 +21,8 @@
         "細川家伝来の武家美術コレクション",
         "熊本ゆかりの近代作家作品",
         "熊本城に隣接する好立地"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Kumamoto",
@@ -146,5 +148,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://www.pref.kumamoto.jp/site/museum/",
-  "municipalityId": "Kumamoto:kumamoto"
+  "municipalityId": "Kumamoto:kumamoto",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

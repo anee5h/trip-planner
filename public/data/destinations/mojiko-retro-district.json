@@ -11,7 +11,8 @@
         "1914 Mojiko Station (Important Cultural Property)",
         "Meiji-era brick warehouses & promenade",
         "Seafood market & Kanmon Strait views"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "門司港レトロ地区",
@@ -20,7 +21,8 @@
         "重要文化財・門司港駅（1914年築）",
         "明治レトロな赤レンガ倉庫とプロムナード",
         "関門海峡の海鮮市場と絶景"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Fukuoka",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://mojiko-retro.jp/",
-  "municipalityId": "Fukuoka:kitakyushu"
+  "municipalityId": "Fukuoka:kitakyushu",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

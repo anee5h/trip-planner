@@ -11,7 +11,8 @@
         "Open-air rotenburo with Mount Yufu views",
         "Charming ryokan & boutique inns",
         "Lake Kinrin morning mist & café street"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "由布院温泉郷",
@@ -20,7 +21,8 @@
         "由布岳を望む露天風呂付き旅館",
         "湯の坪街道のカフェと工芸品店巡り",
         "金鱗湖の朝霧と温泉情緒"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Oita",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": null,
-  "municipalityId": "Oita:yufu"
+  "municipalityId": "Oita:yufu",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

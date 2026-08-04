@@ -11,7 +11,8 @@
         "Active volcanic crater with turquoise lake",
         "One of the world's most accessible craters",
         "Dramatic volcanic landscape & gas plumes"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "阿蘇中岳火口",
@@ -20,7 +21,8 @@
         "エメラルドグリーンの火口湖を間近に",
         "世界有数のアクセス可能な活火口",
         "迫力の噴煙と火山ガスの景観"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Kumamoto",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://www.aso.ne.jp/",
-  "municipalityId": "Kumamoto:aso"
+  "municipalityId": "Kumamoto:aso",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

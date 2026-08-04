@@ -11,7 +11,8 @@
         "Steam cooking (jigoku-mushi) experience",
         "Dozens of local bathhouses & foot onsens",
         "Atmospheric steam vents in every alley"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "鉄輪温泉湯けむり街",
@@ -20,7 +21,8 @@
         "地獄蒸し料理体験ができる共同調理場",
         "点在する共同浴場と足湯めぐり",
         "路地の湯けむり景観散策"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Oita",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": null,
-  "municipalityId": "Oita:beppu"
+  "municipalityId": "Oita:beppu",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

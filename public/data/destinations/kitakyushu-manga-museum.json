@@ -11,7 +11,8 @@
         "Leiji Matsumoto & local manga artist exhibits",
         "50,000+ volume manga reading library",
         "Interactive drawing & creation stations"
-      ]
+      ],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "北九州市漫画ミュージアム",
@@ -20,7 +21,8 @@
         "松本零士と北九州ゆかりの漫画家展示",
         "5万冊以上の漫画ライブラリー",
         "体験型作画コーナーと企画展"
-      ]
+      ],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Fukuoka",
@@ -147,5 +149,11 @@
     "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "officialWebsite": "https://www.ktqmm.jp/",
-  "municipalityId": "Fukuoka:kitakyushu"
+  "municipalityId": "Fukuoka:kitakyushu",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }
