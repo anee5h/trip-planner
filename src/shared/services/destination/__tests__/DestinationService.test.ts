@@ -1,5 +1,8 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { getDestination } from "../DestinationService";
+import {
+  getDestination,
+  getDestinationForEditorialReview,
+} from "../DestinationService";
 
 describe("getDestination locale gating", () => {
   beforeEach(() => {
@@ -41,5 +44,15 @@ describe("getDestination locale gating", () => {
     const ja = await getDestination("asakusa-taito", "ja");
     expect(ja).not.toBeNull();
     expect(ja?.id).toBe("asakusa-taito");
+  });
+
+  it("loads an unpublished Japanese record via the explicit editorial-review API", async () => {
+    // abashiri-city is EN-only; getDestination blocks it in JA but the
+    // editorial-review path must still load it.
+    const published = await getDestination("abashiri-city", "ja");
+    expect(published).toBeNull();
+    const editorial = await getDestinationForEditorialReview("abashiri-city");
+    expect(editorial).not.toBeNull();
+    expect(editorial?.id).toBe("abashiri-city");
   });
 });
