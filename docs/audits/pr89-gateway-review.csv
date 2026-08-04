@@ -1,23 +1,23 @@
 destinationId,municipalityId,gatewayHubIdBefore,result,gatewayHubIdAfter,source,reason
-chogosonshi-ji-temple,Nara:heguri,ikaruga-town,kept_verified_gateway,ikaruga-town,editorial-review,Ikaruga-town is the nearest hub for Chogosonshi-ji temple which is in Heguri (different municipality)
-zao-fox-village-miyagi,Miyagi:shiroishi,sendai-city,kept_verified_gateway,sendai-city,editorial-review,Sendai is the regional access hub for Shiroishi area attractions
-chiba-yoro-valley,Chiba:otaki,chiba-city,kept_verified_gateway,chiba-city,editorial-review,Yoro Valley in Otaki is ~60km from Chiba City; Chiba City is the regional access hub
-zushi,Kanagawa:zushi,yokosuka-city,kept_verified_gateway,yokosuka-city,editorial-review,Zushi is a separate city from Yokosuka; Yokosuka is the nearest hub
-jogashima,Kanagawa:miura,yokosuka-city,kept_verified_gateway,yokosuka-city,editorial-review,Jogashima is an island in Miura; Yokosuka is the nearest major hub with ferry access
-iwami-ginzan-shimane,Shimane:oda,izumo-city,kept_verified_gateway,izumo-city,editorial-review,Iwami Ginzan in Oda is accessed via Izumo as the regional gateway
-ibaraki-hitachi-seaside-park,Ibaraki:hitachinaka,mito-city,kept_verified_gateway,mito-city,editorial-review,Hitachinaka has no catalogue hub; Mito is the nearest hub city
-ibaraki-fukuroda-falls,Ibaraki:daigo,mito-city,kept_verified_gateway,mito-city,editorial-review,Fukuroda Falls in Daigo is ~50km from Mito; Mito is the regional hub
-gifu-magome-juku,Gifu:nakatsugawa,gifu-city,kept_verified_gateway,gifu-city,editorial-review,Magome-juku in Nakatsugawa is distant from Gifu City; Gifu City is the regional gateway
-gifu-gujo-hachiman,Gifu:gujo,gifu-city,kept_verified_gateway,gifu-city,editorial-review,Gujo Hachiman is a separate municipality; Gifu City is the regional access hub
-nagano-bessho-onsen,Nagano:ueda,nagano-city,kept_verified_gateway,nagano-city,editorial-review,Bessho Onsen is in Ueda; Nagano City is the nearest hub
-ouchi-juku-fukushima,Fukushima:shimogo,aizuwakamatsu-city,kept_verified_gateway,aizuwakamatsu-city,editorial-review,Ouchi-juku in Shimogo is accessed via Aizuwakamatsu as the regional gateway
-sado-island,Niigata:sado,niigata-city,kept_verified_gateway,niigata-city,editorial-review,Sado Island is accessed via ferry from Niigata City; Niigata City is the gateway hub
+chogosonshi-ji-temple,Nara:heguri,ikaruga-town,retained_pending_source_verification,ikaruga-town,editorial-review,Ikaruga-town is the nearest hub for Chogosonshi-ji temple which is in Heguri (different municipality)
+zao-fox-village-miyagi,Miyagi:shiroishi,sendai-city,retained_pending_source_verification,sendai-city,editorial-review,Sendai is the regional access hub for Shiroishi area attractions
+chiba-yoro-valley,Chiba:otaki,chiba-city,retained_pending_source_verification,chiba-city,editorial-review,Yoro Valley in Otaki is ~60km from Chiba City; Chiba City is the regional access hub
+zushi,Kanagawa:zushi,yokosuka-city,retained_pending_source_verification,yokosuka-city,editorial-review,Zushi is a separate city from Yokosuka; Yokosuka is the nearest hub
+jogashima,Kanagawa:miura,yokosuka-city,retained_pending_source_verification,yokosuka-city,editorial-review,Jogashima is an island in Miura; Yokosuka is the nearest major hub with ferry access
+iwami-ginzan-shimane,Shimane:oda,izumo-city,retained_pending_source_verification,izumo-city,editorial-review,Iwami Ginzan in Oda is accessed via Izumo as the regional gateway
+ibaraki-hitachi-seaside-park,Ibaraki:hitachinaka,mito-city,retained_pending_source_verification,mito-city,editorial-review,Hitachinaka has no catalogue hub; Mito is the nearest hub city
+ibaraki-fukuroda-falls,Ibaraki:daigo,mito-city,retained_pending_source_verification,mito-city,editorial-review,Fukuroda Falls in Daigo is ~50km from Mito; Mito is the regional hub
+gifu-magome-juku,Gifu:nakatsugawa,gifu-city,retained_pending_source_verification,gifu-city,editorial-review,Magome-juku in Nakatsugawa is distant from Gifu City; Gifu City is the regional gateway
+gifu-gujo-hachiman,Gifu:gujo,gifu-city,retained_pending_source_verification,gifu-city,editorial-review,Gujo Hachiman is a separate municipality; Gifu City is the regional access hub
+nagano-bessho-onsen,Nagano:ueda,nagano-city,retained_pending_source_verification,nagano-city,editorial-review,Bessho Onsen is in Ueda; Nagano City is the nearest hub
+ouchi-juku-fukushima,Fukushima:shimogo,aizuwakamatsu-city,retained_pending_source_verification,aizuwakamatsu-city,editorial-review,Ouchi-juku in Shimogo is accessed via Aizuwakamatsu as the regional gateway
+sado-island,Niigata:sado,niigata-city,retained_pending_source_verification,niigata-city,editorial-review,Sado Island is accessed via ferry from Niigata City; Niigata City is the gateway hub
 ushiku-daibutsu,Ibaraki:ushiku,tsukuba-city,removed_unsupported_gateway,,editorial-review,Tsukuba is a nearby city but not the practical access gateway for Ushiku Daibutsu; destination is standalone
-chiba-nokogiriyama,Chiba:kyonan,kisarazu-city,kept_verified_gateway,kisarazu-city,editorial-review,Nokogiriyama in Kyonan is accessed via Kisarazu as the nearest hub
-motonosumi-shrine-yamaguchi,Yamaguchi:nagato,shimonoseki-city,kept_verified_gateway,shimonoseki-city,editorial-review,Motonosumi Shrine in Nagato is accessed via Shimonoseki as the regional gateway
-kakegawa-castle-shizuoka,Shizuoka:kakegawa,hamamatsu-city,kept_verified_gateway,hamamatsu-city,editorial-review,Kakegawa Castle is in a different municipality from Hamamatsu; Hamamatsu is the nearest hub
-mother-farm-chiba,Chiba:futtsu,kisarazu-city,kept_verified_gateway,kisarazu-city,editorial-review,Mother Farm in Futtsu is accessed via Kisarazu as the nearest hub
-oarai-marine-tower,Ibaraki:oarai,mito-city,kept_verified_gateway,mito-city,editorial-review,Oarai Marine Tower in Oarai is accessed via Mito as the nearest hub
-sakura-castle-chiba,Chiba:sakura,narita-city,kept_verified_gateway,narita-city,editorial-review,Sakura Castle is in a different municipality from Narita; Narita is the nearest hub
+chiba-nokogiriyama,Chiba:kyonan,kisarazu-city,retained_pending_source_verification,kisarazu-city,editorial-review,Nokogiriyama in Kyonan is accessed via Kisarazu as the nearest hub
+motonosumi-shrine-yamaguchi,Yamaguchi:nagato,shimonoseki-city,retained_pending_source_verification,shimonoseki-city,editorial-review,Motonosumi Shrine in Nagato is accessed via Shimonoseki as the regional gateway
+kakegawa-castle-shizuoka,Shizuoka:kakegawa,hamamatsu-city,retained_pending_source_verification,hamamatsu-city,editorial-review,Kakegawa Castle is in a different municipality from Hamamatsu; Hamamatsu is the nearest hub
+mother-farm-chiba,Chiba:futtsu,kisarazu-city,retained_pending_source_verification,kisarazu-city,editorial-review,Mother Farm in Futtsu is accessed via Kisarazu as the nearest hub
+oarai-marine-tower,Ibaraki:oarai,mito-city,retained_pending_source_verification,mito-city,editorial-review,Oarai Marine Tower in Oarai is accessed via Mito as the nearest hub
+sakura-castle-chiba,Chiba:sakura,narita-city,retained_pending_source_verification,narita-city,editorial-review,Sakura Castle is in a different municipality from Narita; Narita is the nearest hub
 yomiuriland,Tokyo:inagi,chofu-tokyo,removed_unsupported_gateway,,editorial-review,Yomiuriland has direct station access (Keio Yomiuriland-mae Station); Chofu is not the practical access gateway
 ghibli-museum,Tokyo:mitaka,chofu-tokyo,removed_unsupported_gateway,,editorial-review,Ghibli Museum is in Mitaka with direct station and bus access; Chofu is not the practical access gateway

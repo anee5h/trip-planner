@@ -45,6 +45,27 @@ vi.mock("@/shared/services/trips/TripRepository", () => ({
   },
 }));
 
+const STATIONS_BY_PREFECTURE: Record<
+  string,
+  Array<{ name: string; lat: number; lng: number }>
+> = {
+  Kyoto: [{ name: "Kyoto Station", lat: 34.9875, lng: 135.7593 }],
+  Kanagawa: [{ name: "Shin-Yokohama Station", lat: 35.5076, lng: 139.6177 }],
+};
+
+vi.stubGlobal(
+  "fetch",
+  vi.fn(async (url: string) => {
+    if (typeof url === "string" && url.includes("stations-by-prefecture")) {
+      return {
+        ok: true,
+        json: async () => STATIONS_BY_PREFECTURE,
+      };
+    }
+    return { ok: false, json: async () => [] };
+  }),
+);
+
 const DEFAULT_ORIGIN: OriginLocation = {
   label: "Tokyo Station",
   coordinates: { lat: 35.6812, lng: 139.7671 },

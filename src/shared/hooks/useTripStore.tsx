@@ -130,7 +130,7 @@ function isValidOriginLocation(value: unknown): value is OriginLocation {
   const o = value as Record<string, unknown>;
   return (
     typeof o.label === "string" &&
-    o.label.length > 0 &&
+    o.label.trim().length > 0 &&
     isValidCoordinates(o.coordinates) &&
     typeof o.source === "string" &&
     ["station", "postal_code", "default"].includes(o.source)
@@ -230,6 +230,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     destinationRatings[id] ?? null;
 
   const setOriginLocation = (origin: OriginLocation) => {
+    if (!isValidOriginLocation(origin)) return;
     activeOriginRef.current = origin;
     setActiveOrigin(origin);
     if (!user) {

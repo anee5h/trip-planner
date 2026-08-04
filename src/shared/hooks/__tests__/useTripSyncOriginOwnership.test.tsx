@@ -45,6 +45,30 @@ vi.mock("@/shared/services/trips/TripRepository", () => ({
   },
 }));
 
+const STATIONS_BY_PREFECTURE: Record<
+  string,
+  Array<{ name: string; lat: number; lng: number }>
+> = {
+  Kanagawa: [
+    { name: "Shin-Yokohama Station", lat: 35.5076, lng: 139.6177 },
+    { name: "Nakayama Station", lat: 35.5147, lng: 139.5393 },
+  ],
+  Tokyo: [{ name: "Shin-Yokohama Station", lat: 35.5, lng: 139.6 }],
+};
+
+vi.stubGlobal(
+  "fetch",
+  vi.fn(async (url: string) => {
+    if (typeof url === "string" && url.includes("stations-by-prefecture")) {
+      return {
+        ok: true,
+        json: async () => STATIONS_BY_PREFECTURE,
+      };
+    }
+    return { ok: false, json: async () => [] };
+  }),
+);
+
 const NAKAYAMA: OriginLocation = {
   label: "Nakayama Station, Kanagawa",
   coordinates: { lat: 35.5147, lng: 139.5393 },
@@ -222,5 +246,229 @@ describe("useTripSync — origin ownership integration", () => {
     // activeOrigin was set from cloud, but guestOrigin (NAKAYAMA) should still be in the original harness value
     // The guest Origin didn't change
     expect(latest.activeOrigin.label).toBe("Shin-Yokohama Station, Kanagawa");
+  });
+
+  it("coordinate resolution failure sets sync error and falls back to Tokyo, does not upsert", async () => {
+    // Cloud has a station that cannot be resolved (not in stations JSON).
+    mocks.maybeSingle.mockResolvedValue({
+      data: {
+        favorites: [],
+        visited: [],
+        visited_prefectures: [],
+        visited_dates: {},
+        destination_ratings: {},
+        home_station: "Nonexistent Station, Nowhere",
+      },
+      error: null,
+    });
+
+    await act(async () => {
+      render(userB, TOKYO_DEFAULT);
+      await Promise.resolve();
+    });
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    expect(latest.sync.profileSyncStatus).toBe("error");
+    expect(latest.activeOrigin.label).toBe("Tokyo Station");
+    expect(latest.activeOrigin.source).toBe("default");
+    expect(mocks.upsert).not.toHaveBeenCalled();
+  });
+
+  it("late Account A hydration after switching to Account B is ignored", async () => {
+    const userA = { id: "user-a" } as User;
+
+    let resolveA: (value: {
+      data: Record<string, unknown>;
+      error: null;
+    }) => void;
+    const promiseA = new Promise<{
+      data: Record<string, unknown>;
+      error: null;
+    }>((resolve) => {
+      resolveA = resolve;
+    });
+
+    mocks.maybeSingle.mockReturnValueOnce(promiseA).mockResolvedValueOnce({
+      data: {
+        favorites: ["kyoto-city"],
+        visited: [],
+        visited_prefectures: [],
+        visited_dates: {},
+        destination_ratings: {},
+        home_station: "Shin-Yokohama Station, Kanagawa",
+      },
+      error: null,
+    });
+
+    await act(async () => {
+      render(userA, NAKAYAMA);
+      await Promise.resolve();
+    });
+
+    // Switch to Account B without resolving A.
+    await act(async () => {
+      render({ id: "user-b" } as User, NAKAYAMA);
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    // Now resolve A late — must be ignored.
+    await act(async () => {
+      resolveA!({
+        data: {
+          favorites: ["should-be-ignored"],
+          visited: [],
+          visited_prefectures: [],
+          visited_dates: {},
+          destination_ratings: {},
+          home_station: "Tokyo Station",
+        },
+        error: null,
+      });
+      await Promise.resolve();
+    });
+
+    expect(latest.activeOrigin.label).toBe("Shin-Yokohama Station, Kanagawa");
+  });
+
+  it("retry succeeds after coordinate lookup recovers", async () => {
+    // First attempt: resolution fails (station not in JSON).
+    mocks.maybeSingle
+      .mockResolvedValueOnce({
+        data: {
+          favorites: [],
+          visited: [],
+          visited_prefectures: [],
+          visited_dates: {},
+          destination_ratings: {},
+          home_station: "Nonexistent Station, Nowhere",
+        },
+        error: null,
+      })
+      // Retry: resolve to a known station.
+      .mockResolvedValueOnce({
+        data: {
+          favorites: [],
+          visited: [],
+          visited_prefectures: [],
+          visited_dates: {},
+          destination_ratings: {},
+          home_station: "Shin-Yokohama Station, Kanagawa",
+        },
+        error: null,
+      });
+
+    await act(async () => {
+      render(userB, TOKYO_DEFAULT);
+      await Promise.resolve();
+    });
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    expect(latest.sync.profileSyncStatus).toBe("error");
+
+    await act(async () => {
+      latest.sync.retryProfileHydration();
+      await Promise.resolve();
+    });
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    expect(latest.sync.profileSyncStatus).toBe("ready");
+    expect(latest.activeOrigin.label).toBe("Shin-Yokohama Station, Kanagawa");
+  });
+
+  it("Guest Nakayama -> Account A Shin-Yokohama -> logout restores Nakayama", async () => {
+    const userA = { id: "user-a" } as User;
+
+    // Account A hydrates with Shin-Yokohama.
+    mocks.maybeSingle.mockResolvedValue({
+      data: {
+        favorites: [],
+        visited: [],
+        visited_prefectures: [],
+        visited_dates: {},
+        destination_ratings: {},
+        home_station: "Shin-Yokohama Station, Kanagawa",
+      },
+      error: null,
+    });
+
+    await act(async () => {
+      render(userA, NAKAYAMA);
+      await Promise.resolve();
+    });
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    expect(latest.activeOrigin.label).toBe("Shin-Yokohama Station, Kanagawa");
+
+    // Logout — guestOrigin (NAKAYAMA) should be restored.
+    await act(async () => {
+      render(null, NAKAYAMA);
+      await Promise.resolve();
+    });
+
+    expect(latest.activeOrigin.label).toBe("Nakayama Station, Kanagawa");
+    expect(latest.activeOrigin.coordinates).toEqual(NAKAYAMA.coordinates);
+  });
+
+  it("legacy cloud station label without prefecture resolves uniquely", async () => {
+    mocks.maybeSingle.mockResolvedValue({
+      data: {
+        favorites: [],
+        visited: [],
+        visited_prefectures: [],
+        visited_dates: {},
+        destination_ratings: {},
+        home_station: "Nakayama Station",
+      },
+      error: null,
+    });
+
+    await act(async () => {
+      render(userB, TOKYO_DEFAULT);
+      await Promise.resolve();
+    });
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    expect(latest.activeOrigin.label).toBe("Nakayama Station");
+    expect(latest.activeOrigin.coordinates).toEqual({
+      lat: 35.5147,
+      lng: 139.5393,
+    });
+  });
+
+  it("ambiguous legacy station label is rejected safely", async () => {
+    mocks.maybeSingle.mockResolvedValue({
+      data: {
+        favorites: [],
+        visited: [],
+        visited_prefectures: [],
+        visited_dates: {},
+        destination_ratings: {},
+        home_station: "Shin-Yokohama Station",
+      },
+      error: null,
+    });
+
+    await act(async () => {
+      render(userB, TOKYO_DEFAULT);
+      await Promise.resolve();
+    });
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    // Should fall back to Tokyo safely.
+    expect(latest.sync.profileSyncStatus).toBe("error");
+    expect(latest.activeOrigin.label).toBe("Tokyo Station");
   });
 });

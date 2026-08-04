@@ -263,4 +263,86 @@ describe("TripStore — guest origin ownership (provider level)", () => {
 
     expect(store.homeStation).toBe("Tokyo Station");
   });
+
+  it("setOriginLocation rejects out-of-range coordinates without modifying state", () => {
+    render();
+    const before = store.homeStation;
+    const beforeCoords = store.homeStationCoords;
+
+    act(() =>
+      store.setOriginLocation({
+        label: "Bad Coords Station",
+        coordinates: { lat: 91, lng: 181 },
+        source: "station",
+      }),
+    );
+
+    expect(store.homeStation).toBe(before);
+    expect(store.homeStationCoords).toBe(beforeCoords);
+  });
+
+  it("setOriginLocation rejects non-finite coordinate values without modifying state", () => {
+    render();
+    const before = store.homeStation;
+
+    act(() =>
+      store.setOriginLocation({
+        label: "NaN Station",
+        coordinates: { lat: NaN, lng: 139.6 },
+        source: "station",
+      }),
+    );
+
+    expect(store.homeStation).toBe(before);
+  });
+
+  it("setOriginLocation rejects invalid source without modifying state", () => {
+    render();
+    const before = store.homeStation;
+
+    act(() =>
+      store.setOriginLocation({
+        label: "Bad Source Station",
+        coordinates: { lat: 35.6, lng: 139.6 },
+        source: "invalid" as OriginLocation["source"],
+      }),
+    );
+
+    expect(store.homeStation).toBe(before);
+  });
+
+  it("setOriginLocation rejects whitespace-only label without modifying state", () => {
+    render();
+    const before = store.homeStation;
+
+    act(() =>
+      store.setOriginLocation({
+        label: "   ",
+        coordinates: { lat: 35.6, lng: 139.6 },
+        source: "station",
+      }),
+    );
+
+    expect(store.homeStation).toBe(before);
+  });
+
+  it("setOriginLocation rejects empty label without modifying state", () => {
+    render();
+    const before = store.homeStation;
+    const beforeCoords = store.homeStationCoords;
+
+    act(() =>
+      store.setOriginLocation({
+        label: "",
+        coordinates: { lat: 35.6, lng: 139.6 },
+        source: "station",
+      }),
+    );
+
+    expect(store.homeStation).toBe(before);
+    expect(store.homeStationCoords).toBe(beforeCoords);
+
+    // Guest storage must not be modified either.
+    expect(localStorage.getItem("meguruto-guest-origin")).toBeNull();
+  });
 });

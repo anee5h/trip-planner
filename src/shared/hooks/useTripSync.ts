@@ -163,6 +163,23 @@ function serializeProfileSnapshot(snapshot: ProfileSnapshot): string {
   return JSON.stringify(snapshot);
 }
 
+function isValidResolvedCoordinates(
+  coords: unknown,
+): coords is { lat: number; lng: number } {
+  return (
+    coords !== null &&
+    typeof coords === "object" &&
+    typeof (coords as Record<string, unknown>).lat === "number" &&
+    typeof (coords as Record<string, unknown>).lng === "number" &&
+    Number.isFinite((coords as Record<string, number>).lat) &&
+    Number.isFinite((coords as Record<string, number>).lng) &&
+    (coords as Record<string, number>).lat >= -90 &&
+    (coords as Record<string, number>).lat <= 90 &&
+    (coords as Record<string, number>).lng >= -180 &&
+    (coords as Record<string, number>).lng <= 180
+  );
+}
+
 async function resolveHomeStationCoordinates(
   station: string,
 ): Promise<{ lat: number; lng: number } | null> {
@@ -182,7 +199,10 @@ async function resolveHomeStationCoordinates(
         (candidate) => candidate.name === stationName,
       );
 
-      if (match) {
+      if (
+        match &&
+        isValidResolvedCoordinates({ lat: match.lat, lng: match.lng })
+      ) {
         return { lat: match.lat, lng: match.lng };
       }
     } catch (error) {
@@ -192,6 +212,45 @@ async function resolveHomeStationCoordinates(
       );
     }
 
+    return null;
+  }
+
+  // Legacy cloud labels without a prefecture: search all prefecture lists
+  // for an exact unique match. Reject ambiguous or missing matches.
+  if (
+    station.length > 0 &&
+    !/^\d{3}-?\d{4}$/.test(station) &&
+    !/^\d+$/.test(station)
+  ) {
+    try {
+      const response = await fetch("/data/stations-by-prefecture.json");
+      if (!response.ok) return null;
+
+      const stationsByPrefecture = (await response.json()) as Record<
+        string,
+        Array<{ name: string; lat: number; lng: number }>
+      >;
+
+      const matches: Array<{ lat: number; lng: number }> = [];
+      for (const stations of Object.values(stationsByPrefecture)) {
+        const found = stations.find((s) => s.name === station);
+        if (
+          found &&
+          isValidResolvedCoordinates({ lat: found.lat, lng: found.lng })
+        ) {
+          matches.push({ lat: found.lat, lng: found.lng });
+        }
+      }
+
+      if (matches.length === 1) {
+        return matches[0];
+      }
+    } catch (error) {
+      console.warn(
+        "[Meguruto Sync] Could not resolve legacy station label:",
+        error,
+      );
+    }
     return null;
   }
 
@@ -218,7 +277,11 @@ async function resolveHomeStationCoordinates(
     const lat = Number.parseFloat(first.lat);
     const lng = Number.parseFloat(first.lon);
 
-    if (Number.isFinite(lat) && Number.isFinite(lng)) {
+    if (
+      Number.isFinite(lat) &&
+      Number.isFinite(lng) &&
+      isValidResolvedCoordinates({ lat, lng })
+    ) {
       return { lat, lng };
     }
   } catch (error) {
@@ -457,15 +520,34 @@ export function useTripSync({
 
       if (loadedHomeStation !== "Tokyo Station") {
         const coords = await resolveHomeStationCoordinates(loadedHomeStation);
-        if (isCurrentHydration()) {
+        if (!isCurrentHydration()) return;
+
+        if (!coords) {
+          // Coordinate resolution failed: do NOT pair the station label with
+          // default Tokyo coordinates. Set sync to error so the user can retry;
+          // do not mark hydration complete, do not upsert fallback data.
+          console.error(
+            "[Meguruto Sync] Could not resolve coordinates for home station:",
+            loadedHomeStation,
+          );
           setActiveOrigin({
-            label: loadedHomeStation,
-            coordinates: coords ?? DEFAULT_TOKYO_COORDS,
-            source: loadedHomeStation.includes(", ")
-              ? "station"
-              : "postal_code",
+            label: "Tokyo Station",
+            coordinates: DEFAULT_TOKYO_COORDS,
+            source: "default",
           });
+          setProfileSyncStatus("error");
+          toast.error(
+            "Could not resolve your saved home station coordinates. Please re-select your station.",
+            { id: "home-station-resolve-error" },
+          );
+          return;
         }
+
+        setActiveOrigin({
+          label: loadedHomeStation,
+          coordinates: coords,
+          source: loadedHomeStation.includes(", ") ? "station" : "postal_code",
+        });
       } else {
         if (isCurrentHydration()) {
           setActiveOrigin({
