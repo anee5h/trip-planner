@@ -41,12 +41,12 @@
     "v2.0.0-beta.1",
     "Kyushu Expansion"
   ],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/99/Iheya_Amano-Iwato_Shrine_202603_02.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Amanoiwato_Shrine_%2830722535953%29.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "Kugel~commonswiki",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iheya_Amano-Iwato_Shrine_202603_02.jpg"
+    "license": "CC BY 2.0",
+    "attribution": "David Stanley",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amanoiwato_Shrine_(30722535953).jpg"
   },
   "coordinates": {
     "lat": 32.7339,
