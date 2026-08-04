@@ -263,7 +263,10 @@ export default function Profile() {
                     <button
                       onClick={async () => {
                         const result = await clearProfileData?.();
-                        if (result && !result.success) {
+                        if (
+                          result &&
+                          result.status !== "cleared_and_signed_out"
+                        ) {
                           setDeleteConfirm(false);
                         }
                       }}
