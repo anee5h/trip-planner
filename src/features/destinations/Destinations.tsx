@@ -49,6 +49,7 @@ import {
 
 import { PageHeader } from "@/shared/components/ui/PageHeader";
 
+import { getDistance } from "@/shared/utils/distance";
 import { getWalkingIntensity } from "@/shared/utils/walking";
 import {
   DEFAULT_DESTINATION_EXPLORER_STATE,
@@ -580,6 +581,29 @@ export default function Destinations() {
             return times.length > 0 ? Math.min(...times) : 999;
           };
           return getFastestTime(a) - getFastestTime(b);
+        case "nearest": {
+          if (!homeStationCoords) {
+            return (
+              scoreForCatalog(b, catalogContext) -
+              scoreForCatalog(a, catalogContext)
+            );
+          }
+
+          const distanceFromHome = (destination: Destination) =>
+            destination.coordinates
+              ? getDistance(
+                  homeStationCoords.lat,
+                  homeStationCoords.lng,
+                  destination.coordinates.lat,
+                  destination.coordinates.lng,
+                )
+              : Number.POSITIVE_INFINITY;
+
+          return (
+            distanceFromHome(a) - distanceFromHome(b) ||
+            a.id.localeCompare(b.id)
+          );
+        }
         case "walking":
           return (a.walkingMin ?? 0) - (b.walkingMin ?? 0);
         case "couple":

@@ -48,6 +48,7 @@ import {
   Mountain,
   CircleDollarSign,
   Ticket,
+  MapPin,
 } from "lucide-react";
 
 import { getCollections } from "@/shared/data/collections";
@@ -592,6 +593,12 @@ export default function DestinationFilters({
                   {isJa ? "歩行量が少ない順" : "Least Walk"}
                 </div>
               )}
+              {sortBy === "nearest" && (
+                <div className="flex items-center whitespace-nowrap">
+                  <MapPin className="w-3.5 h-3.5 mr-1.5 text-emerald-500 shrink-0" />{" "}
+                  {isJa ? "近い順" : "Nearest"}
+                </div>
+              )}
             </SelectTrigger>
             <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
               <SelectItem
@@ -637,6 +644,15 @@ export default function DestinationFilters({
                 <div className="flex items-center whitespace-nowrap">
                   <Footprints className="w-3.5 h-3.5 mr-2 text-slate-500" />{" "}
                   {isJa ? "歩行量が少ない順" : "Least Walking"}
+                </div>
+              </SelectItem>
+              <SelectItem
+                value="nearest"
+                className="py-2 px-3 text-xs cursor-pointer"
+              >
+                <div className="flex items-center whitespace-nowrap">
+                  <MapPin className="w-3.5 h-3.5 mr-2 text-emerald-500" />{" "}
+                  {isJa ? "近い順" : "Nearest"}
                 </div>
               </SelectItem>
             </SelectContent>
