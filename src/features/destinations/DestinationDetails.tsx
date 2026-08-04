@@ -282,21 +282,27 @@ export default function DestinationDetails() {
   };
 
   useEffect(() => {
-    if (id) {
-      setDestLoading(true);
-      getDestination(id, locale).then((destObj: Destination | null) => {
-        if (!destObj) {
-          setDestination(null);
-          setDestLoading(false);
-          return;
-        }
-        setDestination(
-          buildRecommendationCandidate(destObj, { homeStationCoords }),
-        );
-        addRecentlyViewedDestination(destObj.id);
+    if (!id) return;
+    let cancelled = false;
+    setDestLoading(true);
+
+    getDestination(id, locale).then((destObj: Destination | null) => {
+      if (cancelled) return;
+      if (!destObj) {
+        setDestination(null);
         setDestLoading(false);
-      });
-    }
+        return;
+      }
+      setDestination(
+        buildRecommendationCandidate(destObj, { homeStationCoords }),
+      );
+      addRecentlyViewedDestination(destObj.id);
+      setDestLoading(false);
+    });
+
+    return () => {
+      cancelled = true;
+    };
   }, [id, homeStationCoords, locale]);
 
   const [wikiSummary, setWikiSummary] = useState<WikipediaSummary | null>(null);
