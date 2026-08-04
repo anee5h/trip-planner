@@ -362,7 +362,10 @@ export function useTripSync({
       }
 
       if (!data) {
-        // Create initial row for new account
+        // Create initial row for new account, carrying over guest homeStation if set
+        const initialHomeStation =
+          homeStation && homeStation.length > 0 ? homeStation : "Tokyo Station";
+
         const defaultPayload = {
           id: userId,
           favorites: [],
@@ -370,7 +373,7 @@ export function useTripSync({
           visited_prefectures: [],
           visited_dates: {},
           destination_ratings: {},
-          home_station: "Tokyo Station",
+          home_station: initialHomeStation,
           updated_at: new Date().toISOString(),
         };
 
@@ -395,14 +398,14 @@ export function useTripSync({
           visitedPrefectures: [],
           visitedDates: {},
           destinationRatings: {},
-          homeStation: "Tokyo Station",
+          homeStation: initialHomeStation,
         });
         setFavorites([]);
         setVisited([]);
         setVisitedPrefectures([]);
         setVisitedDates?.({});
         setDestinationRatings?.({});
-        setHomeStation("Tokyo Station");
+        setHomeStation(initialHomeStation);
         hydratedUserIdRef.current = userId;
         setProfileSyncStatus("ready");
         return;
@@ -422,9 +425,7 @@ export function useTripSync({
         data.destination_ratings,
       );
       const loadedHomeStation =
-        typeof data.home_station === "string" &&
-        data.home_station.length > 0 &&
-        data.home_station !== "Tokyo Station"
+        typeof data.home_station === "string" && data.home_station.length > 0
           ? data.home_station
           : "Tokyo Station";
 
@@ -453,6 +454,8 @@ export function useTripSync({
           loadedHomeStation,
           setHomeStationCoords,
         );
+      } else {
+        setHomeStationCoords({ lat: 35.6812, lng: 139.7671 });
       }
 
       hydratedUserIdRef.current = userId;
