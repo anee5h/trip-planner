@@ -8,6 +8,10 @@ import type {
   AuthError,
 } from "@supabase/supabase-js";
 import { supabase } from "@/lib/supabase";
+import {
+  buildClearProfileResult,
+  type ClearProfileResult,
+} from "./clearProfileResult";
 
 export interface UserPreferencesPayload {
   partySize?: number;
@@ -47,7 +51,7 @@ interface AuthContextType {
   ) => Promise<{ data: unknown; error: AuthError | null }>;
   signOut: () => Promise<{ error: AuthError | null }> | undefined;
   updateUserProfile: (data: UserProfileUpdateData) => Promise<UserResponse>;
-  clearProfileData: () => Promise<{ success: boolean; error?: string }>;
+  clearProfileData: () => Promise<ClearProfileResult>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -130,45 +134,53 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     "preferences",
   ];
 
-  const clearProfileData = async (): Promise<{
-    success: boolean;
-    error?: string;
-  }> => {
-    if (!user || !supabase) {
-      return { success: false, error: "Not signed in" };
-    }
+  const clearProfileData = async (): Promise<ClearProfileResult> => {
+    const signedIn = Boolean(user && supabase);
+    let metadataCleared = false;
+    let userDataDeleted = false;
 
     // 1. Clear the app-owned Auth metadata so the fields do not reappear on
     //    the next login.
-    const metadata: Record<string, null> = {};
-    for (const field of PROFILE_METADATA_FIELDS) {
-      metadata[field] = null;
-    }
-    const metaResult = await supabase.auth.updateUser({ data: metadata });
-    if (metaResult.error) {
-      console.error("Failed to clear profile metadata", metaResult.error);
-      return {
-        success: false,
-        error: "Failed to clear profile metadata. Please try again.",
-      };
-    }
-    if (metaResult.data.user) setUser(metaResult.data.user);
+    if (signedIn && supabase && user) {
+      const metadata: Record<string, null> = {};
+      for (const field of PROFILE_METADATA_FIELDS) {
+        metadata[field] = null;
+      }
+      const metaResult = await supabase.auth.updateUser({ data: metadata });
+      if (metaResult.error) {
+        console.error("Failed to clear profile metadata", metaResult.error);
+      } else {
+        metadataCleared = true;
+        if (metaResult.data.user) setUser(metaResult.data.user);
+      }
 
-    // 2. Delete the application-owned user_data row.
-    const { error } = await supabase
-      .from("user_data")
-      .delete()
-      .eq("id", user.id);
-    if (error) {
-      console.error("Failed to clear user profile data", error);
-      return {
-        success: false,
-        error: "Failed to clear profile data. Please try again.",
-      };
+      // 2. Delete the application-owned user_data row.
+      if (metadataCleared) {
+        const { error } = await supabase
+          .from("user_data")
+          .delete()
+          .eq("id", user.id);
+        if (error) {
+          console.error("Failed to clear user profile data", error);
+        } else {
+          userDataDeleted = true;
+        }
+      }
     }
 
-    await signOut();
-    return { success: true };
+    // 3. Sign out only when the destructive steps completed.
+    let signOutFailed = false;
+    if (metadataCleared || userDataDeleted) {
+      const signOutResult = await signOut();
+      signOutFailed = Boolean(signOutResult?.error);
+    }
+
+    return buildClearProfileResult({
+      signedIn,
+      metadataCleared,
+      userDataDeleted,
+      signOutFailed,
+    });
   };
 
   return (

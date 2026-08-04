@@ -21,6 +21,7 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [deleteConfirm, setDeleteConfirm] = useState(false);
+  const [clearError, setClearError] = useState<string | null>(null);
 
   const [username, setUsername] = useState("");
   const [homeCity, setHomeCity] = useState("");
@@ -215,11 +216,17 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
                   This clears your saved profile data and signs you out. Your
                   account and authentication remain active.
                 </p>
+                {clearError && (
+                  <p className="text-xs text-amber-600 dark:text-amber-400 font-medium text-center">
+                    {clearError}
+                  </p>
+                )}
                 <div className="flex gap-2">
                   <Button
                     type="button"
                     variant="outline"
                     onClick={() => setDeleteConfirm(false)}
+                    disabled={loading}
                     className="flex-1 h-8 text-xs border-red-200 text-red-600 hover:bg-red-100 dark:border-red-500/30 dark:hover:bg-red-500/20"
                   >
                     Cancel
@@ -228,17 +235,28 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
                     type="button"
                     onClick={async () => {
                       setLoading(true);
+                      setClearError(null);
                       const result = await clearProfileData();
                       setLoading(false);
-                      if (!result.success) {
-                        setDeleteConfirm(false);
+                      if (result.status === "cleared_and_signed_out") {
+                        onClose();
                         return;
                       }
-                      onClose();
+                      if (result.status === "cleared_but_signout_failed") {
+                        setClearError(result.message);
+                        return;
+                      }
+                      if (result.status === "partially_cleared") {
+                        setClearError(result.message);
+                        return;
+                      }
+                      setClearError(result.message);
+                      setDeleteConfirm(false);
                     }}
-                    className="flex-1 h-8 text-xs bg-red-600 hover:bg-red-700 text-white border-0"
+                    disabled={loading}
+                    className="flex-1 h-8 text-xs bg-red-600 hover:bg-red-700 text-white border-0 disabled:opacity-50"
                   >
-                    Yes, Clear
+                    {loading ? "Clearing…" : "Yes, Clear"}
                   </Button>
                 </div>
               </div>
