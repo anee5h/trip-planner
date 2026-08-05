@@ -129,10 +129,13 @@ vi.mock("@/shared/hooks/useTripStore", () => ({
 let root: Root;
 let host: HTMLDivElement;
 
-function render(path = "/destinations/naha-city") {
+function render(
+  path = "/destinations/naha-city",
+  state?: Record<string, unknown>,
+) {
   act(() => {
     root.render(
-      <MemoryRouter initialEntries={[path]}>
+      <MemoryRouter initialEntries={[{ pathname: path, state: state ?? null }]}>
         <Routes>
           <Route path="/destinations/:id" element={<DestinationDetails />} />
         </Routes>
@@ -203,7 +206,10 @@ describe("DestinationDetails transport rows", () => {
   });
 
   it("Ogasawara from Tokyo shows ferry estimate, no train/flight", async () => {
-    render("/destinations/ogasawara-islands-tokyo");
+    // August 2026 travel: the Ogasawara August fare window applies.
+    render("/destinations/ogasawara-islands-tokyo", {
+      travelDate: "2026-08-06",
+    });
     await act(async () => {
       await flush(80);
     });
@@ -231,7 +237,9 @@ describe("DestinationDetails transport rows", () => {
   });
 
   it("Ogasawara from Tokyo no longer shows on-site-only budget (ferry estimable)", async () => {
-    render("/destinations/ogasawara-islands-tokyo");
+    render("/destinations/ogasawara-islands-tokyo", {
+      travelDate: "2026-08-06",
+    });
     await act(async () => {
       await flush(80);
     });
@@ -242,13 +250,40 @@ describe("DestinationDetails transport rows", () => {
 
   it("Japanese locale no longer shows on-site-only budget when ferry estimable", async () => {
     localeState.locale = "ja";
-    render("/destinations/ogasawara-islands-tokyo");
+    render("/destinations/ogasawara-islands-tokyo", {
+      travelDate: "2026-08-06",
+    });
     await act(async () => {
       await flush(80);
     });
     const text = host.textContent ?? "";
     // Ferry is estimable: transport-excluded copy is gone.
     expect(text).not.toContain("現地予算（往復交通費を除く）");
+  });
+
+  it("Tomogashima ferry row follows the planned travel date (August)", async () => {
+    storeState.homeStationCoords = { lat: 34.2261, lng: 135.1675 };
+    storeState.homeStationTransportZoneId = "mainland-honshu";
+    // August-planned trip: estimable ferry row with time/cost.
+    render("/destinations/tomogashima-islands", { travelDate: "2026-08-06" });
+    await act(async () => {
+      await flush(80);
+    });
+    const text = host.textContent ?? "";
+    expect(text).toContain("Ferry");
+    expect(text).not.toContain("time and cost unavailable");
+  });
+
+  it("Tomogashima ferry row follows the planned travel date (January)", async () => {
+    storeState.homeStationCoords = { lat: 34.2261, lng: 135.1675 };
+    storeState.homeStationTransportZoneId = "mainland-honshu";
+    // January-planned trip: no estimable ferry; route-known fallback only.
+    render("/destinations/tomogashima-islands", { travelDate: "2026-01-20" });
+    await act(async () => {
+      await flush(80);
+    });
+    const text = host.textContent ?? "";
+    expect(text).toContain("Ferry route available — time and cost unavailable");
   });
 
   it("Kouri from Naha never displays Train and shows local-access copy", async () => {

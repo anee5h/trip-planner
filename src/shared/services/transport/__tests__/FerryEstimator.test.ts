@@ -1,6 +1,11 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
-import { getTransportCost } from "@/shared/services/budget/BudgetService";
+import { runRecommendationPipeline } from "@/shared/services/recommendation/RecommendationPipeline";
+import { estimateTripDuration } from "@/shared/services/recommendation/TripDurationService";
+import {
+  getEstimatedBudgetRange,
+  getTransportCost,
+} from "@/shared/services/budget/BudgetService";
 import {
   getFerryServices,
   getFerryTransportEstimate,
@@ -9,7 +14,8 @@ import {
 import ferryData from "../../../data/ferry-estimates.json";
 import destinationsIndex from "@/shared/data/destinations-index.json";
 import type { Destination } from "@/shared/types/destination";
-import type { FerryService } from "../types";
+import type { FerryService, FerryTemporalContext } from "../types";
+import type { RecommendationContext } from "@/shared/services/recommendation/RecommendationContext";
 
 const byId = new Map(
   (destinationsIndex as Destination[]).map((d) => [d.id, d]),
@@ -26,9 +32,38 @@ const NIIGATA = { lat: 37.9022, lng: 139.0236 };
 const TAKAMATSU = { lat: 34.3515, lng: 134.0485 };
 
 /** Reference date inside every registered operating period. */
-const SUMMER = new Date("2026-08-06T12:00:00+09:00");
+const SUMMER: FerryTemporalContext = {
+  travelDate: new Date("2026-08-06T12:00:00+09:00"),
+};
 /** Reference date outside every restricted operating period. */
-const WINTER = new Date("2026-01-15T12:00:00+09:00");
+const WINTER: FerryTemporalContext = {
+  travelDate: new Date("2026-01-15T12:00:00+09:00"),
+};
+const JANUARY_TRIP: FerryTemporalContext = {
+  travelDate: new Date("2026-01-20T12:00:00+09:00"),
+};
+const AUGUST_TRIP: FerryTemporalContext = {
+  travelDate: new Date("2026-08-20T12:00:00+09:00"),
+};
+const PUBLIC_MODES = ["train", "shinkansen", "bus", "flight", "ferry"];
+
+function pipelineContext(
+  temporal: FerryTemporalContext,
+  homeCoords: { lat: number; lng: number },
+): RecommendationContext {
+  return {
+    budget: 500000,
+    budgetTier: "luxury",
+    carMode: "none",
+    publicModes: PUBLIC_MODES,
+    partySize: 2,
+    visitedIds: [],
+    homeStationCoords: homeCoords,
+    originZoneId: "mainland-honshu",
+    tripDuration: "any",
+    ferryTemporal: temporal,
+  };
+}
 
 describe("ferry port selection", () => {
   it("Kansai → Naoshima chooses Uno despite a closer unrelated port", () => {
@@ -246,5 +281,212 @@ describe("directionality", () => {
     };
     expect(serviceMatchesDirection(oneWayService, "A", "B")).toBe(true);
     expect(serviceMatchesDirection(oneWayService, "B", "A")).toBe(false);
+  });
+});
+
+describe("planned date drives availability, never the clock", () => {
+  it("January-planned trip does not authorize Tomogashima even when executed in August", () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date("2026-08-15T12:00:00+09:00"));
+    const dest = byId.get("tomogashima-islands")!;
+    const modes = getValidModes(
+      dest,
+      "none",
+      PUBLIC_MODES,
+      WAKAYAMA,
+      undefined,
+      "mainland-honshu",
+      JANUARY_TRIP,
+    );
+    expect(modes).not.toContain("ferry");
+    expect(getFerryTransportEstimate(dest, WAKAYAMA, JANUARY_TRIP)).toBeNull();
+    expect(
+      getTransportCost(dest, "ferry", 2, WAKAYAMA, JANUARY_TRIP),
+    ).toBeNull();
+    const recommendations = runRecommendationPipeline(
+      [dest],
+      pipelineContext(JANUARY_TRIP, WAKAYAMA),
+    );
+    expect(
+      recommendations.some(
+        (r) => r.id === dest.id && r.bestTransportMode === "ferry",
+      ),
+    ).toBe(false);
+    vi.useRealTimers();
+  });
+
+  it("August-planned trip authorizes Tomogashima even when executed in January", () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date("2026-01-15T12:00:00+09:00"));
+    const dest = byId.get("tomogashima-islands")!;
+    const modes = getValidModes(
+      dest,
+      "none",
+      PUBLIC_MODES,
+      WAKAYAMA,
+      undefined,
+      "mainland-honshu",
+      AUGUST_TRIP,
+    );
+    expect(modes).toContain("ferry");
+    expect(
+      getFerryTransportEstimate(dest, WAKAYAMA, AUGUST_TRIP),
+    ).not.toBeNull();
+    expect(
+      getTransportCost(dest, "ferry", 2, WAKAYAMA, AUGUST_TRIP),
+    ).not.toBeNull();
+    const recommendations = runRecommendationPipeline(
+      [dest],
+      pipelineContext(AUGUST_TRIP, WAKAYAMA),
+    );
+    expect(
+      recommendations.find((r) => r.id === dest.id)?.bestTransportMode,
+    ).toBe("ferry");
+    vi.useRealTimers();
+  });
+
+  it("recommendation, duration, and budget share the same availability result", () => {
+    const dest = byId.get("tomogashima-islands")!;
+    // January: no ferry anywhere in the stack.
+    const janModes = getValidModes(
+      dest,
+      "none",
+      PUBLIC_MODES,
+      WAKAYAMA,
+      undefined,
+      "mainland-honshu",
+      JANUARY_TRIP,
+    );
+    expect(janModes).not.toContain("ferry");
+    expect(
+      estimateTripDuration(
+        dest,
+        { homeStationCoords: WAKAYAMA, ferryTemporal: JANUARY_TRIP },
+        janModes,
+      ),
+    ).toBeNull();
+    expect(
+      getEstimatedBudgetRange(
+        dest,
+        "ferry",
+        2,
+        "standard",
+        6,
+        WAKAYAMA,
+        JANUARY_TRIP,
+      ).transportIncluded,
+    ).toBe(false);
+    // August: ferry everywhere in the stack.
+    const augModes = getValidModes(
+      dest,
+      "none",
+      PUBLIC_MODES,
+      WAKAYAMA,
+      undefined,
+      "mainland-honshu",
+      AUGUST_TRIP,
+    );
+    expect(augModes).toContain("ferry");
+    expect(
+      estimateTripDuration(
+        dest,
+        { homeStationCoords: WAKAYAMA, ferryTemporal: AUGUST_TRIP },
+        augModes,
+      )?.mode,
+    ).toBe("ferry");
+    expect(
+      getEstimatedBudgetRange(
+        dest,
+        "ferry",
+        2,
+        "standard",
+        6,
+        WAKAYAMA,
+        AUGUST_TRIP,
+      ).transportIncluded,
+    ).toBe(true);
+  });
+
+  it("season-only context evaluates conservatively", () => {
+    const dest = byId.get("tomogashima-islands")!;
+    // Winter season is fully outside the Mar–Nov operating period.
+    expect(
+      getFerryTransportEstimate(dest, WAKAYAMA, { season: "winter" }),
+    ).toBeNull();
+    // Summer season is fully inside it.
+    expect(
+      getFerryTransportEstimate(dest, WAKAYAMA, { season: "summer" }),
+    ).not.toBeNull();
+  });
+});
+
+describe("fare validity windows", () => {
+  it("expired fare keeps the route available but the cost unavailable", () => {
+    const dest = byId.get("sado-island")!;
+    // Sado fares are published for Jul 1 – Sep 30 2026.
+    const lateTrip = { travelDate: new Date("2026-11-10T12:00:00+09:00") };
+    const estimate = getFerryTransportEstimate(dest, NIIGATA, lateTrip);
+    expect(estimate).not.toBeNull();
+    expect(estimate?.details?.serviceName).toBe("Sado Kisen Jetfoil");
+    expect(estimate?.timeRange[0]).toBeGreaterThan(60);
+    expect(estimate?.costUnavailable).toBe(true);
+    // The expired fare must not be reused by the budget.
+    expect(getTransportCost(dest, "ferry", 2, NIIGATA, lateTrip)).toBeNull();
+    expect(
+      getEstimatedBudgetRange(
+        dest,
+        "ferry",
+        2,
+        "standard",
+        6,
+        NIIGATA,
+        lateTrip,
+      ).transportIncluded,
+    ).toBe(false);
+    // Ferry stays selectable: the service is running year-round.
+    const modes = getValidModes(
+      dest,
+      "none",
+      PUBLIC_MODES,
+      NIIGATA,
+      undefined,
+      "mainland-honshu",
+      lateTrip,
+    );
+    expect(modes).toContain("ferry");
+  });
+
+  it("in-window fare is applied", () => {
+    const dest = byId.get("sado-island")!;
+    const inWindow = { travelDate: new Date("2026-08-06T12:00:00+09:00") };
+    const estimate = getFerryTransportEstimate(dest, NIIGATA, inWindow);
+    expect(estimate?.costUnavailable).toBe(false);
+    expect(
+      getTransportCost(dest, "ferry", 2, NIIGATA, inWindow),
+    ).not.toBeNull();
+  });
+
+  it("Ogasawara August fare is not reused for an out-of-window trip", () => {
+    const dest = byId.get("ogasawara-islands-tokyo")!;
+    const september = { travelDate: new Date("2026-09-15T12:00:00+09:00") };
+    const estimate = getFerryTransportEstimate(dest, TOKYO, september);
+    expect(estimate).not.toBeNull();
+    expect(estimate?.timeRange[0]).toBeGreaterThan(1440);
+    expect(estimate?.costUnavailable).toBe(true);
+  });
+
+  it("no temporal context never reads the clock: period fares stay unavailable", () => {
+    const dest = byId.get("sado-island")!;
+    // No travelDate/season — the fare window cannot be verified. The route
+    // itself (year-round) stays available; the fare does not.
+    const estimate = getFerryTransportEstimate(dest, NIIGATA);
+    expect(estimate).not.toBeNull();
+    expect(estimate?.costUnavailable).toBe(true);
+    expect(getTransportCost(dest, "ferry", 2, NIIGATA)).toBeNull();
+  });
+
+  it("seasonally restricted routes need a temporal context", () => {
+    const dest = byId.get("tomogashima-islands")!;
+    expect(getFerryTransportEstimate(dest, WAKAYAMA)).toBeNull();
   });
 });
