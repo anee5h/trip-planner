@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { calculateScore, getValidModes } from "../RecommendationScorer";
 import { estimateTripDuration } from "../TripDurationService";
+import { runRecommendationPipeline } from "../RecommendationPipeline";
 import {
   hasFerryRoute,
   resolveDestinationTransportZone,
@@ -362,13 +363,72 @@ describe("flight registry expansion (PR #102)", () => {
     const scoreResult = calculateScore(dest, highBudgetContext);
     expect(scoreResult.bestModeScore).toBeGreaterThan(0);
   });
+});
 
+describe("pipeline-level budget filtering and metadata", () => {
+  it("Fukuoka → Ishigaki is retained as affordability-unknown with transportIncluded=false", () => {
+    const dest = byId.get("ishigaki-city")!;
+    const results = runRecommendationPipeline([dest], {
+      vibe: "any",
+      budget: 5000,
+      carMode: "none",
+      publicModes: ["flight"],
+      partySize: 2,
+      visitedIds: [],
+      homeStationCoords: FUKUOKA,
+      originZoneId: "mainland-kyushu",
+    });
+
+    expect(results.length).toBe(1);
+    const candidate = results[0];
+    expect(candidate.id).toBe("ishigaki-city");
+    expect(candidate.estimatedCostTransportIncluded).toBe(false);
+    expect(candidate.pipeline.estimatedCostTransportIncluded).toBe(false);
+
+    // Verify downstream explainability creates NO full-trip budget reasons
+    const match = candidate.match;
+    expect(
+      match.reasons.some(
+        (r) => r.code === "budgetGreatValue" || r.code === "budgetWithin",
+      ),
+    ).toBe(false);
+  });
+
+  it("HND → Ishigaki with verified fare continues through hard budget filter and stores transportIncluded=true", () => {
+    const dest = byId.get("ishigaki-city")!;
+    // Budget 20,000 is below Tokyo -> Ishigaki verified cost (~106,000), so it MUST be filtered out
+    const lowResults = runRecommendationPipeline([dest], {
+      vibe: "any",
+      budget: 20000,
+      carMode: "none",
+      publicModes: ["flight"],
+      partySize: 2,
+      visitedIds: [],
+      homeStationCoords: TOKYO,
+      originZoneId: "mainland-honshu",
+    });
+    expect(lowResults.length).toBe(0);
+
+    // Budget 200,000 is above verified cost, so it IS admitted and stores transportIncluded=true
+    const highResults = runRecommendationPipeline([dest], {
+      vibe: "any",
+      budget: 200000,
+      carMode: "none",
+      publicModes: ["flight"],
+      partySize: 2,
+      visitedIds: [],
+      homeStationCoords: TOKYO,
+      originZoneId: "mainland-honshu",
+    });
+    expect(highResults.length).toBe(1);
+    expect(highResults[0].estimatedCostTransportIncluded).toBe(true);
+    expect(highResults[0].pipeline.estimatedCostTransportIncluded).toBe(true);
+  });
   it("ASJ→OKA is absent (Yoron multi-stop service is not a nonstop)", () => {
     expect(getFlightRoute("ASJ", "OKA")).toBeNull();
     expect(getFlightRoute("OKA", "ASJ")).toBeNull();
   });
 });
-
 describe("conservative failure", () => {
   it("unknown origin → Naha returns no Train, Shinkansen, Bus or Car", () => {
     const modes = getValidModes(byId.get("naha-city")!, "none", ALL_MODES, {

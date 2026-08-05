@@ -141,28 +141,38 @@ export function runRecommendationPipeline(
       context.originZoneId,
     );
     if (modes.length === 0) return false;
-    if (
-      !matchesTripDurationEstimate(
-        estimateTripDuration(destination, context, modes),
-        context.tripDuration,
-      )
-    )
+    const durationEst = estimateTripDuration(destination, context, modes);
+    if (!matchesTripDurationEstimate(durationEst, context.tripDuration))
       return false;
-    const lowestCost = Math.min(
-      ...modes.map(
-        (mode) =>
-          getEstimatedBudgetRange(
-            destination,
-            mode,
-            context.partySize,
-            context.budgetTier,
-            estimateTripDuration(destination, context, modes)
-              ?.representativeHours,
-            context.homeStationCoords || undefined,
-          ).range[1],
+
+    if (context.budgetTier === "luxury") return true;
+
+    // Call getEstimatedBudgetRange once per mode
+    const modeBudgetEstimates = modes.map((mode) =>
+      getEstimatedBudgetRange(
+        destination,
+        mode,
+        context.partySize,
+        context.budgetTier,
+        durationEst?.representativeHours,
+        context.homeStationCoords || undefined,
       ),
     );
-    return context.budgetTier === "luxury" || lowestCost <= context.budget;
+
+    // Filter by budget only using verified estimates where origin transport is included
+    const verifiedEstimates = modeBudgetEstimates.filter(
+      (b) => b.transportIncluded,
+    );
+    if (verifiedEstimates.length > 0) {
+      const lowestVerifiedCost = Math.min(
+        ...verifiedEstimates.map((b) => b.range[1]),
+      );
+      return lowestVerifiedCost <= context.budget;
+    }
+
+    // Retain as affordability-unknown under the neutral policy (do NOT filter out,
+    // and do NOT classify as affordable based on an on-site-only range)
+    return true;
   });
 
   const scored = eligible.map((candidate) => {
@@ -184,24 +194,29 @@ export function runRecommendationPipeline(
         context.originZoneId,
       ),
     );
-    const estimatedCostRange = getEstimatedBudgetRange(
+    const budgetResult = getEstimatedBudgetRange(
       candidate,
       scoreResult.bestMode || "train",
       context.partySize,
       context.budgetTier,
       durationEstimate?.representativeHours,
       context.homeStationCoords || undefined,
-    ).range;
+    );
+    const estimatedCostRange = budgetResult.range;
+    const estimatedCostTransportIncluded = budgetResult.transportIncluded;
+
     return {
       ...candidate,
       score: scoreResult.score,
       match,
       bestTransportMode: scoreResult.bestMode,
       estimatedCostRange,
+      estimatedCostTransportIncluded,
       pipeline: {
         eligible: true,
         estimatedCost: estimatedCostRange[0],
         estimatedCostRange,
+        estimatedCostTransportIncluded,
         bestTransportMode: scoreResult.bestMode,
         scoreContributions: {
           total: scoreResult.score,
