@@ -8,13 +8,13 @@
   "prefecture": "Saga",
   "region": "Kyushu",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/74/Karatsu_City_View.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/7/74/Karatsu_City_View.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/02/Karatsujo.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/0/02/Karatsujo.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
     "attribution": "そらみみ",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Karatsu_City_View.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Karatsujo.jpg"
   },
   "description": "Coastal city in Saga Prefecture known for Karatsu Castle, the vibrant Yobuko morning market, the Nanatsugama sea caves, and the Nijinomatsubara pine grove. Famous for Karatsu-yaki pottery and the annual Karatsu Kunchi festival.",
   "descriptionJa": "佐賀県の沿岸都市で、唐津城、活気あふれる呼子朝市、七ツ釜の海食洞、虹の松原で知られています。唐津焼と毎年開催される唐津くんちでも有名です。",
@@ -118,7 +118,7 @@
   "openingHoursJa": "営業時間の設定なし（市内エリア）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-06",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Karatsu,_Saga"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Karatsujo.jpg"
   },
   "content": {
     "en": {

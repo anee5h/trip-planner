@@ -8,13 +8,13 @@
   "prefecture": "Nagasaki",
   "region": "Kyushu",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Sasebo_City_view_from_Mount_Yumihari.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Sasebo_City_view_from_Mount_Yumihari.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/33/JRKyushi_Sasebo_Station_200110.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/3/33/JRKyushi_Sasebo_Station_200110.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "M K",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sasebo_City_view_from_Mount_Yumihari.jpg"
+    "license": "CC BY-SA 3.0",
+    "attribution": "Atsasebo",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:JRKyushi_Sasebo_Station_200110.jpg"
   },
   "description": "Port city in Nagasaki Prefecture and gateway to the Kujukushima islands. Home to Huis Ten Bosch theme park, Kujukushima Pearl Sea Resort, and a historic naval port. Famous for Sasebo burgers and maritime culture.",
   "descriptionJa": "長崎県の港湾都市で、九十九島への玄関口。ハウステンボス、九十九島パールシーリゾート、歴史的な軍港で知られています。佐世保バーガーと海洋文化が有名です。",
@@ -118,7 +118,7 @@
   "openingHoursJa": "営業時間の設定なし（市内エリア）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-06",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Sasebo"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:JRKyushi_Sasebo_Station_200110.jpg"
   },
   "content": {
     "en": {

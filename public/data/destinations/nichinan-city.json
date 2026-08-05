@@ -8,13 +8,13 @@
   "prefecture": "Miyazaki",
   "region": "Kyushu",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Obi_Castle_Town_Street.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Obi_Castle_Town_Street.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/74/Obi_Castle_Otemon.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/7/74/Obi_Castle_Otemon.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
     "attribution": "そらみみ",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obi_Castle_Town_Street.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obi_Castle_Otemon.jpg"
   },
   "description": "Coastal city in southern Miyazaki Prefecture known for the historic Obi Castle Town, Udo Jingu shrine perched dramatically on coastal cliffs, and the Moai statues of Sun Messe Nichinan. Rich in nature, surfing culture, and subtropical scenery.",
   "descriptionJa": "宮崎県南部の沿岸都市で、歴史的な飫肥城下町、断崖絶壁に建つ鵜戸神宮、サンメッセ日南のモアイ像で知られています。豊かな自然、サーフィン文化、亜熱帯の景観が魅力です。",
@@ -118,7 +118,7 @@
   "openingHoursJa": "営業時間の設定なし（市内エリア）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-06",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Nichinan,_Miyazaki"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obi_Castle_Otemon.jpg"
   },
   "content": {
     "en": {

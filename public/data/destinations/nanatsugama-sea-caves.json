@@ -36,12 +36,12 @@
   "officialWebsiteRequirement": "optional",
   "categories": ["Nature", "Sightseeing"],
   "tags": ["Nature", "Caves", "Coastal", "Cruise", "Karatsu City"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Nanatsugama_sea_caves.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/09/Yakataishi_no_Nanatsugama_on_the_sea_around.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "Oshimin",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nanatsugama_sea_caves.jpg"
+    "license": "CC BY 2.0",
+    "attribution": "Yukiko Yamamoto from flickr",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yakataishi_no_Nanatsugama_on_the_sea_around.jpg"
   },
   "coordinates": {
     "lat": 33.5667,

@@ -36,12 +36,12 @@
   "officialWebsiteRequirement": "optional",
   "categories": ["Historic", "Sightseeing"],
   "tags": ["Historic District", "Merchant", "Preserved Streets", "Hita City"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Mameda-machi%2C_Hita%2C_Oita_Prefecture.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/56/Mameda-machi_street_Hita_2019.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
-    "attribution": "Muyo",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mameda-machi,_Hita,_Oita_Prefecture.jpg"
+    "attribution": "そらみみ",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mameda-machi_street_Hita_2019.jpg"
   },
   "coordinates": {
     "lat": 33.3214,

@@ -39,12 +39,12 @@
   "officialWebsiteRequirement": "optional",
   "categories": ["Historic", "Museum & Art"],
   "tags": ["Castle Ruins", "Museum", "History", "Karatsu City"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Nagoya_Castle_ruins_Saga.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Nagoya_Castle_Baba_240812.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "そらみみ",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagoya_Castle_ruins_Saga.jpg"
+    "license": "CC0",
+    "attribution": "Umako",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagoya_Castle_Baba_240812.jpg"
   },
   "coordinates": {
     "lat": 33.5639,

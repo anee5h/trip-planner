@@ -39,12 +39,12 @@
   "officialWebsiteRequirement": "optional",
   "categories": ["Museum & Art", "Leisure"],
   "tags": ["Museum", "Anime", "Attack on Titan", "Hita City"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Attack_on_Titan_in_Hita_Museum.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Oyama_Dam_Attack_on_Titan_statues.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
     "attribution": "そらみみ",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Attack_on_Titan_in_Hita_Museum.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oyama_Dam_Attack_on_Titan_statues.jpg"
   },
   "coordinates": {
     "lat": 33.3219,

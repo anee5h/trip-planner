@@ -8,12 +8,12 @@
   "prefecture": "Oita",
   "region": "Kyushu",
   "categories": ["Travel Hub", "City Hub"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Mameda-machi%2C_Hita%2C_Oita_Prefecture.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Mameda-machi%2C_Hita%2C_Oita_Prefecture.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/90/Mameda-machi%2C_Hita%2C_Oita_Prefecture.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/9/90/Mameda-machi%2C_Hita%2C_Oita_Prefecture.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
-    "attribution": "Muyo",
+    "attribution": "そらみみ",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mameda-machi,_Hita,_Oita_Prefecture.jpg"
   },
   "description": "Inland city in western Oita Prefecture known for the well-preserved Mameda historic merchant district, Kangien academy, and as a filming location for Attack on Titan. Famous for Hita geta sandals and clear-water rivers. A natural basin surrounded by mountains.",
@@ -118,7 +118,7 @@
   "openingHoursJa": "営業時間の設定なし（市内エリア）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-06",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Hita,_%C5%8Cita"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mameda-machi,_Hita,_Oita_Prefecture.jpg"
   },
   "content": {
     "en": {

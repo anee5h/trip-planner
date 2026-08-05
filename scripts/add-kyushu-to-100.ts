@@ -170,7 +170,7 @@ function buildHub(input: HubInput): DestinationRecord {
     openingHoursJa: "営業時間の設定なし（市内エリア）",
     openingHoursMetadata: {
       verifiedAt: EXPANSION_DATE,
-      sourceUrl: input.wikiUrl,
+      sourceUrl: input.imageSourceUrl,
     },
     content: {
       en: {
@@ -387,11 +387,10 @@ const HUB_KARATSU: HubInput = {
   wikiUrl: "https://en.wikipedia.org/wiki/Karatsu,_Saga",
   wikiTitle: "Karatsu, Saga",
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/7/74/Karatsu_City_View.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/0/02/Karatsujo.jpg",
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
-  imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Karatsu_City_View.jpg",
+  imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Karatsujo.jpg",
   tags: ["Karatsu City", "Saga Travel", "Regional Hub"],
   transportOptions: { train: 250 },
   nearbyIds: ["fukuoka-city"],
@@ -414,11 +413,11 @@ const HUB_SASEBO: HubInput = {
   wikiUrl: "https://en.wikipedia.org/wiki/Sasebo",
   wikiTitle: "Sasebo",
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/8/8e/Sasebo_City_view_from_Mount_Yumihari.jpg",
-  imageAttribution: "M K",
-  imageLicense: "CC BY-SA 4.0",
+    "https://upload.wikimedia.org/wikipedia/commons/3/33/JRKyushi_Sasebo_Station_200110.jpg",
+  imageAttribution: "Atsasebo",
+  imageLicense: "CC BY-SA 3.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Sasebo_City_view_from_Mount_Yumihari.jpg",
+    "https://commons.wikimedia.org/wiki/File:JRKyushi_Sasebo_Station_200110.jpg",
   tags: ["Sasebo City", "Nagasaki Travel", "Regional Hub"],
   transportOptions: { train: 280 },
   nearbyIds: ["nagasaki-city", "karatsu-city", "fukuoka-city"],
@@ -441,11 +440,10 @@ const HUB_IBUSUKI: HubInput = {
   wikiUrl: "https://en.wikipedia.org/wiki/Ibusuki,_Kagoshima",
   wikiTitle: "Ibusuki, Kagoshima",
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/4/4b/Ibusuki_steaming_sand_bath.jpg",
-  imageAttribution: "John Gillespie",
-  imageLicense: "CC BY-SA 3.0",
-  imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Ibusuki_steaming_sand_bath.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/4/43/Ibusuki-STA.jpg",
+  imageAttribution: "そらみみ",
+  imageLicense: "CC BY-SA 4.0",
+  imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Ibusuki-STA.jpg",
   tags: ["Ibusuki City", "Kagoshima Travel", "Regional Hub"],
   transportOptions: { train: 310 },
   nearbyIds: ["kagoshima-city"],
@@ -468,11 +466,11 @@ const HUB_NICHINAN: HubInput = {
   wikiUrl: "https://en.wikipedia.org/wiki/Nichinan,_Miyazaki",
   wikiTitle: "Nichinan, Miyazaki",
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/2/2d/Obi_Castle_Town_Street.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/7/74/Obi_Castle_Otemon.jpg",
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Obi_Castle_Town_Street.jpg",
+    "https://commons.wikimedia.org/wiki/File:Obi_Castle_Otemon.jpg",
   tags: ["Nichinan City", "Miyazaki Travel", "Regional Hub"],
   transportOptions: { train: 220 },
   nearbyIds: ["miyazaki-city"],
@@ -495,8 +493,8 @@ const HUB_HITA: HubInput = {
   wikiUrl: "https://en.wikipedia.org/wiki/Hita,_%C5%8Cita",
   wikiTitle: "Hita, Ōita",
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/8/8f/Mameda-machi%2C_Hita%2C_Oita_Prefecture.jpg",
-  imageAttribution: "Muyo",
+    "https://upload.wikimedia.org/wikipedia/commons/9/90/Mameda-machi%2C_Hita%2C_Oita_Prefecture.jpg",
+  imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
     "https://commons.wikimedia.org/wiki/File:Mameda-machi,_Hita,_Oita_Prefecture.jpg",
@@ -538,11 +536,11 @@ const POI_KARATSU_CASTLE: PoiInput = {
     "春は城址公園の桜",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/1/1e/Karatsu_Castle_2020.jpg",
-  imageAttribution: "J o",
+    "https://upload.wikimedia.org/wikipedia/commons/4/4c/Tenshu_of_Karatsu_Castle_2.jpg",
+  imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Karatsu_Castle_2020.jpg",
+    "https://commons.wikimedia.org/wiki/File:Tenshu_of_Karatsu_Castle_2.jpg",
   openingHours: "09:00–17:00 (last admission 16:40)",
   openingHoursJa: "09:00～17:00（最終入館16:40）",
   hoursSourceUrl: "https://www.karatsu-kankou.jp/en/spots/detail/1",
@@ -612,11 +610,11 @@ const POI_YOBUKO_MARKET: PoiInput = {
     "江戸時代から続く伝統的な朝市の雰囲気",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/5/5a/Yobuko_morning_market.jpg",
-  imageAttribution: "Oshimin",
-  imageLicense: "CC BY-SA 4.0",
+    "https://upload.wikimedia.org/wikipedia/commons/1/17/Yobuko_Squid_Drying_02.jpg",
+  imageAttribution: "STA3816",
+  imageLicense: "CC BY-SA 3.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Yobuko_morning_market.jpg",
+    "https://commons.wikimedia.org/wiki/File:Yobuko_Squid_Drying_02.jpg",
   openingHours: "07:30–12:00 (daily, best from 08:00)",
   openingHoursJa: "07:30～12:00（毎日、8時頃からが賑わいます）",
   hoursSourceUrl: "https://www.karatsu-kankou.jp/en/spots/detail/8",
@@ -684,11 +682,10 @@ const POI_NIJINOMATSUBARA: PoiInput = {
     "唐津湾越しに唐津城を望む風景",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/9/9e/Niji_no_Matsubara_2018.jpg",
-  imageAttribution: "そらみみ",
-  imageLicense: "CC BY-SA 4.0",
-  imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Niji_no_Matsubara_2018.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/f/f7/Nijinomatsubara.jpg",
+  imageAttribution: "ascesis",
+  imageLicense: "CC BY-SA 3.0",
+  imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Nijinomatsubara.jpg",
   openingHours: "Open access (no fixed hours)",
   openingHoursJa: "開放（時間制限なし）",
   hoursSourceUrl: "https://www.karatsu-kankou.jp/en/spots/detail/4",
@@ -758,11 +755,11 @@ const POI_NANATSUGAMA: PoiInput = {
     "呼子港発の遊覧船で洞窟入り口まで接近",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/4/4b/Nanatsugama_sea_caves.jpg",
-  imageAttribution: "Oshimin",
-  imageLicense: "CC BY-SA 4.0",
+    "https://upload.wikimedia.org/wikipedia/commons/0/09/Yakataishi_no_Nanatsugama_on_the_sea_around.jpg",
+  imageAttribution: "Yukiko Yamamoto from flickr",
+  imageLicense: "CC BY 2.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Nanatsugama_sea_caves.jpg",
+    "https://commons.wikimedia.org/wiki/File:Yakataishi_no_Nanatsugama_on_the_sea_around.jpg",
   openingHours:
     "Cliff paths: open access (daylight hours recommended). Sightseeing cruise: 09:30–16:00 (hourly departures, weather permitting)",
   openingHoursJa:
@@ -836,11 +833,11 @@ const POI_NAGOYA_CASTLE_RUINS: PoiInput = {
     "博物館内の復元黄金の茶室",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/1/1f/Nagoya_Castle_ruins_Saga.jpg",
-  imageAttribution: "そらみみ",
-  imageLicense: "CC BY-SA 4.0",
+    "https://upload.wikimedia.org/wikipedia/commons/9/9e/Nagoya_Castle_Baba_240812.jpg",
+  imageAttribution: "Umako",
+  imageLicense: "CC0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Nagoya_Castle_ruins_Saga.jpg",
+    "https://commons.wikimedia.org/wiki/File:Nagoya_Castle_Baba_240812.jpg",
   openingHours:
     "Castle ruins: open access (daylight hours). Museum: 09:00–17:00 (last admission 16:30, closed Mondays)",
   openingHoursJa:
@@ -917,11 +914,11 @@ const POI_HUIS_TEN_BOSCH: PoiInput = {
     "季節の花園と風車の風景",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/4/42/Huis_Ten_Bosch_Nagasaki_Japan.jpg",
-  imageAttribution: "Kzaral",
-  imageLicense: "CC BY-SA 3.0",
+    "https://upload.wikimedia.org/wikipedia/commons/a/ad/Series783-R-HuisTenBosch.jpg",
+  imageAttribution: "MaedaAkihiko",
+  imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Huis_Ten_Bosch_Nagasaki_Japan.jpg",
+    "https://commons.wikimedia.org/wiki/File:Series783-R-HuisTenBosch.jpg",
   openingHours: "09:00–22:00 (varies by date and season, check official site)",
   openingHoursJa: "09:00～22:00（日付・季節により変動、公式サイトで確認）",
   hoursSourceUrl: "https://english.huistenbosch.co.jp/",
@@ -993,11 +990,11 @@ const POI_KUJUKUSHIMA: PoiInput = {
     "島が点在する湾を一望する展望台",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/2/24/Kujukushima_Islands_Nagasaki.jpg",
-  imageAttribution: "そらみみ",
+    "https://upload.wikimedia.org/wikipedia/commons/4/49/200320_Kujukushima_Pearl_Sea_Resort_Sasebo_Nagasaki_pref_Japan10s3.jpg",
+  imageAttribution: "663highland",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Kujukushima_Islands_Nagasaki.jpg",
+    "https://commons.wikimedia.org/wiki/File:200320_Kujukushima_Pearl_Sea_Resort_Sasebo_Nagasaki_pref_Japan10s3.jpg",
   openingHours:
     "Resort complex: 09:00–17:00. Cruise schedules vary by season (typically 10:00–15:00 departures)",
   openingHoursJa:
@@ -1070,11 +1067,11 @@ const POI_UMI_KIRARA: PoiInput = {
     "地元の海の生き物に触れるタッチプール",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/8/89/Kujukushima_aquarium_Umi_Kirara.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/c/ce/Port_of_Kujukushima_Pearl_Sea_Resort_2.JPG",
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Kujukushima_aquarium_Umi_Kirara.jpg",
+    "https://commons.wikimedia.org/wiki/File:Port_of_Kujukushima_Pearl_Sea_Resort_2.JPG",
   openingHours: "09:00–18:00 (Mar–Oct), 09:00–17:00 (Nov–Feb)",
   openingHoursJa: "09:00～18:00（3～10月）、09:00～17:00（11～2月）",
   hoursSourceUrl: "https://www.pearlsea.jp/en/aquarium/",
@@ -1145,11 +1142,11 @@ const POI_ISHIDAKE: PoiInput = {
     "駐車場から徒歩すぐ、無料で絶景を楽しめる",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/9/95/Ishidake_Observatory_View.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ishidake_Observatory_2020.jpg",
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Ishidake_Observatory_View.jpg",
+    "https://commons.wikimedia.org/wiki/File:Ishidake_Observatory_2020.jpg",
   openingHours: "Open access (daylight hours recommended)",
   openingHoursJa: "自由見学（日中推奨）",
   hoursSourceUrl: "https://www.pearlsea.jp/en/observatory/",
@@ -1219,11 +1216,11 @@ const POI_SASEBO_NAVAL_PORT: PoiInput = {
     "50分の現役港湾クルーズ",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/7/7a/Sasebo_Naval_Port_Cruise.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/2/2d/Sasebo-Harbor_Yumiharidake_20171201.jpg",
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Sasebo_Naval_Port_Cruise.jpg",
+    "https://commons.wikimedia.org/wiki/File:Sasebo-Harbor_Yumiharidake_20171201.jpg",
   openingHours:
     "Cruises depart daily 10:00–16:00 (approximately hourly). Closed during bad weather and certain base events.",
   openingHoursJa: "毎日10:00～16:00発（約1時間毎）。荒天時・基地行事時は運休。",
@@ -1300,11 +1297,11 @@ const POI_SUNAMUSHI: PoiInput = {
     "砂浴後は隣接の温泉でさっぱり",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/4/4b/Ibusuki_steaming_sand_bath.jpg",
-  imageAttribution: "John Gillespie",
-  imageLicense: "CC BY-SA 3.0",
+    "https://upload.wikimedia.org/wikipedia/commons/e/ed/Sunamushi_in_Ibusuki_Hotsprings_Japan_001.JPG",
+  imageAttribution: "そらみみ",
+  imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Ibusuki_steaming_sand_bath.jpg",
+    "https://commons.wikimedia.org/wiki/File:Sunamushi_in_Ibusuki_Hotsprings_Japan_001.JPG",
   openingHours: "06:00–21:00 (last admission 20:30)",
   openingHoursJa: "06:00～21:00（最終受付20:30）",
   hoursSourceUrl: "https://www.ibusuki.or.jp/en/spot/saraku/",
@@ -1376,7 +1373,7 @@ const POI_LAKE_IKEDA: PoiInput = {
     "湖畔の遊歩道と季節の花々",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/7/77/Lake_Ikeda_and_Mount_Kaimon.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/b/b5/Lake_Ikeda_and_Mount_Kaimon.jpg",
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
@@ -1450,11 +1447,11 @@ const POI_CHIRINGASHIMA: PoiInput = {
     "海上を歩くようなユニークな写真が撮れる",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/0/0f/Chiringashima_Nagasaki.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/7/76/Chiringashima_sandbar_2019.jpg",
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Chiringashima_Nagasaki.jpg",
+    "https://commons.wikimedia.org/wiki/File:Chiringashima_sandbar_2019.jpg",
   openingHours:
     "Accessible only during low tide (check local tide tables). Approximately 3–4 hours around low tide daily.",
   openingHoursJa:
@@ -1528,11 +1525,11 @@ const POI_CAPE_NAGASAKIBANA: PoiInput = {
     "東シナ海に沈む夕日の撮影",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/2/2c/Cape_Nagasakibana_Kagoshima.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/3/36/Nagasakibana_Lighthouse.jpg",
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Cape_Nagasakibana_Kagoshima.jpg",
+    "https://commons.wikimedia.org/wiki/File:Nagasakibana_Lighthouse.jpg",
   openingHours: "Open access (daylight hours recommended)",
   openingHoursJa: "自由見学（日中推奨）",
   hoursSourceUrl: "https://www.ibusuki.or.jp/en/spot/nagasakibana/",
@@ -1602,11 +1599,11 @@ const POI_MOUNT_KAIMON: PoiInput = {
     "健脚者向けに整備された登山道",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/5/59/Mount_Kaimon_Kagoshima_Japan.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/9/90/Mount_Kaimon_from_Lake_Ikeda.jpg",
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Mount_Kaimon_Kagoshima_Japan.jpg",
+    "https://commons.wikimedia.org/wiki/File:Mount_Kaimon_from_Lake_Ikeda.jpg",
   openingHours:
     "Trail accessible during daylight hours; not recommended after dark or in bad weather",
   openingHoursJa: "登山道は日中のみ通行可能。日没後・悪天候時は非推奨",
@@ -1683,11 +1680,11 @@ const POI_OBI_CASTLE_TOWN: PoiInput = {
     "飫肥杉に囲まれた歴史的な商家の町並み",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/2/2d/Obi_Castle_Town_Street.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/1/17/Obi_Castle_Town_Street_2019.jpg",
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Obi_Castle_Town_Street.jpg",
+    "https://commons.wikimedia.org/wiki/File:Obi_Castle_Town_Street_2019.jpg",
   openingHours:
     "Public streets: open access. Obi Castle Museum and samurai residences: typically 09:00–17:00 (individual facilities may vary)",
   openingHoursJa:
@@ -1762,11 +1759,11 @@ const POI_UDO_JINGU: PoiInput = {
     "太平洋を背景にした朱塗りの社殿",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/8/85/Udo-jingu_shrine_Miyazaki.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/b/b5/Udo_Jingu_Honden_2019.jpg",
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Udo-jingu_shrine_Miyazaki.jpg",
+    "https://commons.wikimedia.org/wiki/File:Udo_Jingu_Honden_2019.jpg",
   openingHours: "06:00–19:00 (Apr–Sep), 07:00–18:00 (Oct–Mar)",
   openingHoursJa: "06:00～19:00（4～9月）、07:00～18:00（10～3月）",
   hoursSourceUrl: "https://www.kankou-nichinan.jp/en/spot/udo-jingu/",
@@ -1835,11 +1832,11 @@ const POI_SUN_MESSE: PoiInput = {
     "海を背景にした緑の丘のパノラマ",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/9/9f/Sun_Messe_Nichinan_Moai.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/8/8e/Sun_Messe_Nichinan_Moai_statues_2019.jpg",
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Sun_Messe_Nichinan_Moai.jpg",
+    "https://commons.wikimedia.org/wiki/File:Sun_Messe_Nichinan_Moai_statues_2019.jpg",
   openingHours:
     "09:30–17:00 (last admission 16:30). Closed Wednesdays (except holidays)",
   openingHoursJa: "09:30～17:00（最終入園16:30）。水曜休園（祝日除く）",
@@ -1910,11 +1907,11 @@ const POI_INOHAE_VALLEY: PoiInput = {
     "混雑しない静かな穴場スポット",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/1/16/Inohae_Valley_Miyazaki.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/1/14/Inohae_Valley_waterfall_2019.jpg",
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Inohae_Valley_Miyazaki.jpg",
+    "https://commons.wikimedia.org/wiki/File:Inohae_Valley_waterfall_2019.jpg",
   openingHours:
     "Daylight access only. Trail may close after heavy rain. Not maintained as a managed park.",
   openingHoursJa:
@@ -1991,11 +1988,11 @@ const POI_MAMEDA: PoiInput = {
     "日田下駄の工房と専門店",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/8/8f/Mameda-machi%2C_Hita%2C_Oita_Prefecture.jpg",
-  imageAttribution: "Muyo",
+    "https://upload.wikimedia.org/wikipedia/commons/5/56/Mameda-machi_street_Hita_2019.jpg",
+  imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Mameda-machi,_Hita,_Oita_Prefecture.jpg",
+    "https://commons.wikimedia.org/wiki/File:Mameda-machi_street_Hita_2019.jpg",
   openingHours:
     "Public streets: open access. Individual shops and museums: typically 09:00–17:00 (most close by early evening)",
   openingHoursJa:
@@ -2070,7 +2067,7 @@ const POI_KANGIEN: PoiInput = {
     "当時の教材と建物を展示する資料館",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/1/14/Kangien_Hita_Oita.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/5/5d/Kangien_Hita_Oita.jpg",
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
@@ -2144,11 +2141,11 @@ const POI_AOT_HITA_MUSEUM: PoiInput = {
     "日田限定グッズの販売",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/3/3a/Attack_on_Titan_in_Hita_Museum.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/4/4a/Oyama_Dam_Attack_on_Titan_statues.jpg",
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Attack_on_Titan_in_Hita_Museum.jpg",
+    "https://commons.wikimedia.org/wiki/File:Oyama_Dam_Attack_on_Titan_statues.jpg",
   openingHours: "09:00–17:00 (follows roadside station hours). Open daily.",
   openingHoursJa: "09:00～17:00（道の駅の営業時間に準ずる）。年中無休。",
   hoursSourceUrl: "https://www.oidehita.com/en/spot/aot/",
@@ -2218,11 +2215,11 @@ const POI_OYAMA_DAM: PoiInput = {
     "無料で自由に見学できるアニメ聖地",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/0/0a/Oyama_Dam_Attack_on_Titan_statues.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/a/a0/Oyama_Dam_Oita_2019.jpg",
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Oyama_Dam_Attack_on_Titan_statues.jpg",
+    "https://commons.wikimedia.org/wiki/File:Oyama_Dam_Oita_2019.jpg",
   openingHours:
     "Open access (daylight hours recommended). Outdoor site — unlit after dark.",
   openingHoursJa: "自由見学（日中推奨）。屋外のため日没後は非推奨。",
@@ -2294,11 +2291,11 @@ const POI_HITA_GION_YAMAHOKO: PoiInput = {
     "300年の伝統を誇る日田祇園祭",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/4/47/Hita_Gion_Yamahoko_Museum.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/6/61/Hita_Gion_Yamahoko_Kaikan.jpg",
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Hita_Gion_Yamahoko_Museum.jpg",
+    "https://commons.wikimedia.org/wiki/File:Hita_Gion_Yamahoko_Kaikan.jpg",
   openingHours: "09:00–17:00 (last admission 16:30). Closed Tuesdays.",
   openingHoursJa: "09:00～17:00（最終入館16:30）。火曜休館。",
   hoursSourceUrl: "https://www.oidehita.com/en/spot/yamahoko/",

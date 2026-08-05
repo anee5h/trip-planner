@@ -92015,13 +92015,13 @@
     "prefecture": "Saga",
     "region": "Kyushu",
     "categories": ["Travel Hub", "City Hub"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/74/Karatsu_City_View.jpg",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/7/74/Karatsu_City_View.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/02/Karatsujo.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/02/Karatsujo.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Karatsu_City_View.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Karatsujo.jpg"
     },
     "description": "Coastal city in Saga Prefecture known for Karatsu Castle, the vibrant Yobuko morning market, the Nanatsugama sea caves, and the Nijinomatsubara pine grove. Famous for Karatsu-yaki pottery and the annual Karatsu Kunchi festival.",
     "descriptionJa": "佐賀県の沿岸都市で、唐津城、活気あふれる呼子朝市、七ツ釜の海食洞、虹の松原で知られています。唐津焼と毎年開催される唐津くんちでも有名です。",
@@ -92125,7 +92125,7 @@
     "openingHoursJa": "営業時間の設定なし（市内エリア）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-06",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Karatsu,_Saga"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Karatsujo.jpg"
     },
     "content": {
       "en": {
@@ -92180,12 +92180,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Historic", "Sightseeing"],
     "tags": ["Castle", "Historic", "Viewpoint", "Karatsu City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Karatsu_Castle_2020.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Tenshu_of_Karatsu_Castle_2.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
-      "attribution": "J o",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Karatsu_Castle_2020.jpg"
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tenshu_of_Karatsu_Castle_2.jpg"
     },
     "coordinates": {
       "lat": 33.4544,
@@ -92340,12 +92340,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Shopping", "Food"],
     "tags": ["Market", "Seafood", "Local Food", "Karatsu City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Yobuko_morning_market.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/17/Yobuko_Squid_Drying_02.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "Oshimin",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yobuko_morning_market.jpg"
+      "license": "CC BY-SA 3.0",
+      "attribution": "STA3816",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yobuko_Squid_Drying_02.jpg"
     },
     "coordinates": {
       "lat": 33.5406,
@@ -92498,12 +92498,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature", "Sightseeing"],
     "tags": ["Nature", "Forest", "Coastal", "Karatsu City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Niji_no_Matsubara_2018.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Nijinomatsubara.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Niji_no_Matsubara_2018.jpg"
+      "license": "CC BY-SA 3.0",
+      "attribution": "ascesis",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nijinomatsubara.jpg"
     },
     "coordinates": {
       "lat": 33.4458,
@@ -92657,12 +92657,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature", "Sightseeing"],
     "tags": ["Nature", "Caves", "Coastal", "Cruise", "Karatsu City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Nanatsugama_sea_caves.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/09/Yakataishi_no_Nanatsugama_on_the_sea_around.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "Oshimin",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nanatsugama_sea_caves.jpg"
+      "license": "CC BY 2.0",
+      "attribution": "Yukiko Yamamoto from flickr",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yakataishi_no_Nanatsugama_on_the_sea_around.jpg"
     },
     "coordinates": {
       "lat": 33.5667,
@@ -92813,12 +92813,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Historic", "Museum & Art"],
     "tags": ["Castle Ruins", "Museum", "History", "Karatsu City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Nagoya_Castle_ruins_Saga.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Nagoya_Castle_Baba_240812.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagoya_Castle_ruins_Saga.jpg"
+      "license": "CC0",
+      "attribution": "Umako",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagoya_Castle_Baba_240812.jpg"
     },
     "coordinates": {
       "lat": 33.5639,
@@ -92938,13 +92938,13 @@
     "prefecture": "Nagasaki",
     "region": "Kyushu",
     "categories": ["Travel Hub", "City Hub"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Sasebo_City_view_from_Mount_Yumihari.jpg",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Sasebo_City_view_from_Mount_Yumihari.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/33/JRKyushi_Sasebo_Station_200110.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/33/JRKyushi_Sasebo_Station_200110.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "M K",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sasebo_City_view_from_Mount_Yumihari.jpg"
+      "license": "CC BY-SA 3.0",
+      "attribution": "Atsasebo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:JRKyushi_Sasebo_Station_200110.jpg"
     },
     "description": "Port city in Nagasaki Prefecture and gateway to the Kujukushima islands. Home to Huis Ten Bosch theme park, Kujukushima Pearl Sea Resort, and a historic naval port. Famous for Sasebo burgers and maritime culture.",
     "descriptionJa": "長崎県の港湾都市で、九十九島への玄関口。ハウステンボス、九十九島パールシーリゾート、歴史的な軍港で知られています。佐世保バーガーと海洋文化が有名です。",
@@ -93048,7 +93048,7 @@
     "openingHoursJa": "営業時間の設定なし（市内エリア）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-06",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Sasebo"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:JRKyushi_Sasebo_Station_200110.jpg"
     },
     "content": {
       "en": {
@@ -93103,12 +93103,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Leisure", "Sightseeing"],
     "tags": ["Theme Park", "Dutch", "Illumination", "Sasebo City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/42/Huis_Ten_Bosch_Nagasaki_Japan.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Series783-R-HuisTenBosch.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 3.0",
-      "attribution": "Kzaral",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Huis_Ten_Bosch_Nagasaki_Japan.jpg"
+      "license": "CC BY-SA 4.0",
+      "attribution": "MaedaAkihiko",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Series783-R-HuisTenBosch.jpg"
     },
     "coordinates": {
       "lat": 33.0856,
@@ -93263,12 +93263,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Sightseeing", "Leisure"],
     "tags": ["Islands", "Cruise", "Aquarium", "Sasebo City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/24/Kujukushima_Islands_Nagasaki.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/49/200320_Kujukushima_Pearl_Sea_Resort_Sasebo_Nagasaki_pref_Japan10s3.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
-      "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kujukushima_Islands_Nagasaki.jpg"
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:200320_Kujukushima_Pearl_Sea_Resort_Sasebo_Nagasaki_pref_Japan10s3.jpg"
     },
     "coordinates": {
       "lat": 33.1592,
@@ -93422,12 +93422,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Aquarium", "Leisure"],
     "tags": ["Aquarium", "Marine Life", "Family", "Sasebo City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/89/Kujukushima_aquarium_Umi_Kirara.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Port_of_Kujukushima_Pearl_Sea_Resort_2.JPG",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kujukushima_aquarium_Umi_Kirara.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Port_of_Kujukushima_Pearl_Sea_Resort_2.JPG"
     },
     "coordinates": {
       "lat": 33.1608,
@@ -93581,12 +93581,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Sightseeing", "Nature"],
     "tags": ["Viewpoint", "Islands", "Photography", "Sasebo City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/95/Ishidake_Observatory_View.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ishidake_Observatory_2020.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ishidake_Observatory_View.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ishidake_Observatory_2020.jpg"
     },
     "coordinates": {
       "lat": 33.1522,
@@ -93733,12 +93733,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Sightseeing", "Leisure"],
     "tags": ["Cruise", "Naval", "Port", "Sasebo City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Sasebo_Naval_Port_Cruise.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Sasebo-Harbor_Yumiharidake_20171201.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sasebo_Naval_Port_Cruise.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sasebo-Harbor_Yumiharidake_20171201.jpg"
     },
     "coordinates": {
       "lat": 33.165,
@@ -93864,13 +93864,13 @@
     "prefecture": "Kagoshima",
     "region": "Kyushu",
     "categories": ["Travel Hub", "City Hub"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Ibusuki_steaming_sand_bath.jpg",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Ibusuki_steaming_sand_bath.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/43/Ibusuki-STA.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/43/Ibusuki-STA.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 3.0",
-      "attribution": "John Gillespie",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ibusuki_steaming_sand_bath.jpg"
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ibusuki-STA.jpg"
     },
     "description": "Southern Kyushu hot-spring resort city on the Satsuma Peninsula, famous for natural sand steam baths, Lake Ikeda, Mount Kaimon, and the tidal sandbar of Chiringashima Island. Known for subtropical flora and coastal scenery.",
     "descriptionJa": "薩摩半島に位置する南九州の温泉リゾート都市で、天然砂むし温泉、池田湖、開聞岳、知林ヶ島の砂州で知られています。亜熱帯植物と海岸景観が魅力です。",
@@ -93974,7 +93974,7 @@
     "openingHoursJa": "営業時間の設定なし（市内エリア）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-06",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Ibusuki,_Kagoshima"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ibusuki-STA.jpg"
     },
     "content": {
       "en": {
@@ -94029,12 +94029,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Onsen", "Wellness"],
     "tags": ["Onsen", "Sand Bath", "Wellness", "Ibusuki City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Ibusuki_steaming_sand_bath.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Sunamushi_in_Ibusuki_Hotsprings_Japan_001.JPG",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 3.0",
-      "attribution": "John Gillespie",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ibusuki_steaming_sand_bath.jpg"
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunamushi_in_Ibusuki_Hotsprings_Japan_001.JPG"
     },
     "coordinates": {
       "lat": 31.2358,
@@ -94189,7 +94189,7 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature", "Sightseeing"],
     "tags": ["Lake", "Nature", "Scenic", "Ibusuki City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/77/Lake_Ikeda_and_Mount_Kaimon.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Lake_Ikeda_and_Mount_Kaimon.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
@@ -94347,12 +94347,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature", "Sightseeing"],
     "tags": ["Island", "Sandbar", "Tidal", "Ibusuki City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Chiringashima_Nagasaki.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/76/Chiringashima_sandbar_2019.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chiringashima_Nagasaki.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chiringashima_sandbar_2019.jpg"
     },
     "coordinates": {
       "lat": 31.2117,
@@ -94506,12 +94506,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature", "Sightseeing"],
     "tags": ["Cape", "Coastal", "Scenic", "Ibusuki City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Cape_Nagasakibana_Kagoshima.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/36/Nagasakibana_Lighthouse.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_Nagasakibana_Kagoshima.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagasakibana_Lighthouse.jpg"
     },
     "coordinates": {
       "lat": 31.2183,
@@ -94664,12 +94664,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature", "Outdoor"],
     "tags": ["Mountain", "Hiking", "Volcano", "Ibusuki City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/59/Mount_Kaimon_Kagoshima_Japan.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/90/Mount_Kaimon_from_Lake_Ikeda.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Kaimon_Kagoshima_Japan.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Kaimon_from_Lake_Ikeda.jpg"
     },
     "coordinates": {
       "lat": 31.1806,
@@ -94795,13 +94795,13 @@
     "prefecture": "Miyazaki",
     "region": "Kyushu",
     "categories": ["Travel Hub", "City Hub"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Obi_Castle_Town_Street.jpg",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Obi_Castle_Town_Street.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/74/Obi_Castle_Otemon.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/74/Obi_Castle_Otemon.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obi_Castle_Town_Street.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obi_Castle_Otemon.jpg"
     },
     "description": "Coastal city in southern Miyazaki Prefecture known for the historic Obi Castle Town, Udo Jingu shrine perched dramatically on coastal cliffs, and the Moai statues of Sun Messe Nichinan. Rich in nature, surfing culture, and subtropical scenery.",
     "descriptionJa": "宮崎県南部の沿岸都市で、歴史的な飫肥城下町、断崖絶壁に建つ鵜戸神宮、サンメッセ日南のモアイ像で知られています。豊かな自然、サーフィン文化、亜熱帯の景観が魅力です。",
@@ -94905,7 +94905,7 @@
     "openingHoursJa": "営業時間の設定なし（市内エリア）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-06",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Nichinan,_Miyazaki"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obi_Castle_Otemon.jpg"
     },
     "content": {
       "en": {
@@ -94960,12 +94960,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Historic", "Sightseeing"],
     "tags": ["Historic District", "Samurai", "Castle Town", "Nichinan City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Obi_Castle_Town_Street.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/17/Obi_Castle_Town_Street_2019.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obi_Castle_Town_Street.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obi_Castle_Town_Street_2019.jpg"
     },
     "coordinates": {
       "lat": 31.6289,
@@ -95121,12 +95121,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Shrine", "Culture"],
     "tags": ["Shrine", "Coastal", "Mythology", "Nichinan City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/85/Udo-jingu_shrine_Miyazaki.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Udo_Jingu_Honden_2019.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Udo-jingu_shrine_Miyazaki.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Udo_Jingu_Honden_2019.jpg"
     },
     "coordinates": {
       "lat": 31.4381,
@@ -95279,12 +95279,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Leisure", "Sightseeing"],
     "tags": ["Park", "Moai", "Coastal", "Nichinan City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Sun_Messe_Nichinan_Moai.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Sun_Messe_Nichinan_Moai_statues_2019.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sun_Messe_Nichinan_Moai.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sun_Messe_Nichinan_Moai_statues_2019.jpg"
     },
     "coordinates": {
       "lat": 31.4333,
@@ -95438,12 +95438,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature", "Outdoor"],
     "tags": ["Valley", "Hiking", "Waterfalls", "Nichinan City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/16/Inohae_Valley_Miyazaki.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/14/Inohae_Valley_waterfall_2019.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Inohae_Valley_Miyazaki.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Inohae_Valley_waterfall_2019.jpg"
     },
     "coordinates": {
       "lat": 31.6806,
@@ -95569,12 +95569,12 @@
     "prefecture": "Oita",
     "region": "Kyushu",
     "categories": ["Travel Hub", "City Hub"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Mameda-machi%2C_Hita%2C_Oita_Prefecture.jpg",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Mameda-machi%2C_Hita%2C_Oita_Prefecture.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/90/Mameda-machi%2C_Hita%2C_Oita_Prefecture.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/90/Mameda-machi%2C_Hita%2C_Oita_Prefecture.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
-      "attribution": "Muyo",
+      "attribution": "そらみみ",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mameda-machi,_Hita,_Oita_Prefecture.jpg"
     },
     "description": "Inland city in western Oita Prefecture known for the well-preserved Mameda historic merchant district, Kangien academy, and as a filming location for Attack on Titan. Famous for Hita geta sandals and clear-water rivers. A natural basin surrounded by mountains.",
@@ -95679,7 +95679,7 @@
     "openingHoursJa": "営業時間の設定なし（市内エリア）",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-06",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Hita,_%C5%8Cita"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mameda-machi,_Hita,_Oita_Prefecture.jpg"
     },
     "content": {
       "en": {
@@ -95734,12 +95734,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Historic", "Sightseeing"],
     "tags": ["Historic District", "Merchant", "Preserved Streets", "Hita City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Mameda-machi%2C_Hita%2C_Oita_Prefecture.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/56/Mameda-machi_street_Hita_2019.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
-      "attribution": "Muyo",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mameda-machi,_Hita,_Oita_Prefecture.jpg"
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mameda-machi_street_Hita_2019.jpg"
     },
     "coordinates": {
       "lat": 33.3214,
@@ -95895,7 +95895,7 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Historic", "Culture"],
     "tags": ["Historic", "Education", "Museum", "Hita City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/14/Kangien_Hita_Oita.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Kangien_Hita_Oita.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
@@ -96057,12 +96057,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Museum & Art", "Leisure"],
     "tags": ["Museum", "Anime", "Attack on Titan", "Hita City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Attack_on_Titan_in_Hita_Museum.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Oyama_Dam_Attack_on_Titan_statues.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Attack_on_Titan_in_Hita_Museum.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oyama_Dam_Attack_on_Titan_statues.jpg"
     },
     "coordinates": {
       "lat": 33.3219,
@@ -96215,12 +96215,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Sightseeing", "Outdoor"],
     "tags": ["Anime", "Statues", "Outdoor", "Hita City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Oyama_Dam_Attack_on_Titan_statues.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Oyama_Dam_Oita_2019.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oyama_Dam_Attack_on_Titan_statues.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oyama_Dam_Oita_2019.jpg"
     },
     "coordinates": {
       "lat": 33.2858,
@@ -96374,12 +96374,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Museum & Art", "Culture"],
     "tags": ["Museum", "Festival", "Float", "Hita City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/47/Hita_Gion_Yamahoko_Museum.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/61/Hita_Gion_Yamahoko_Kaikan.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hita_Gion_Yamahoko_Museum.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hita_Gion_Yamahoko_Kaikan.jpg"
     },
     "coordinates": {
       "lat": 33.3231,
