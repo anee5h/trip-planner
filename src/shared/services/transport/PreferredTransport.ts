@@ -1,4 +1,5 @@
 import type { Destination } from "@/shared/types/destination";
+import type { TransportZoneId } from "@/shared/types/transportTopology";
 import { getAdjustedBudget } from "@/shared/services/budget/BudgetService";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
 import { getFlightTransportEstimate } from "./FlightTransportEstimator";
@@ -11,7 +12,9 @@ export interface PreferredTransport {
 
 /**
  * Finds the shortest door-to-door journey among the travel methods a visitor
- * has enabled. The returned budget always belongs to that same transport mode.
+ * has enabled. The returned budget always belongs to that same transport
+ * mode, and eligibility is topology/route-authorized — an unauthorized Train
+ * is never chosen as a fallback.
  */
 export function getFastestPreferredTransport(
   destination: Destination,
@@ -19,12 +22,15 @@ export function getFastestPreferredTransport(
   publicModes?: string[],
   partySize: number = 2,
   homeCoords?: { lat: number; lng: number },
+  originZoneId?: TransportZoneId,
 ): PreferredTransport | null {
   const candidates = getValidModes(
     destination,
     carMode ?? "none",
     publicModes ?? [],
     homeCoords,
+    undefined,
+    originZoneId,
   )
     .map((mode) => {
       const timeRange =
@@ -49,6 +55,7 @@ export function getFastestPreferredTransport(
           mode,
           partySize,
           homeCoords,
+          originZoneId,
         ),
       };
     })

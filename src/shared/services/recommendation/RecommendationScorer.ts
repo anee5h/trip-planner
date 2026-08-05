@@ -1,10 +1,12 @@
 import {
   getEligibleOriginModes,
+  hasFerryRoute,
   resolveDestinationTransportZone,
   resolveOriginTransportZone,
 } from "@/shared/services/transport/TransportTopologyService";
 import type { Destination } from "@/shared/types/destination";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
+import type { TransportMode } from "@/shared/services/transport/types";
 import {
   resolveRecommendationWeather,
   type RecommendationContext,
@@ -83,44 +85,67 @@ export function getValidModes(
   budgetTier?: import("@/shared/types/planner").BudgetTier,
   originZoneId?: TransportZoneId,
 ): string[] {
-  let validModes: string[] = [];
-  if (carMode === "rental" && dest.transportOptions?.car !== undefined)
-    validModes.push("car");
-  if (carMode === "my_car" && dest.transportOptions?.my_car !== undefined)
-    validModes.push("my_car");
-
-  for (const m of publicModes) {
-    if (m === "flight") {
-      const effectiveZoneId =
-        originZoneId ??
-        (homeCoords
-          ? resolveOriginTransportZone({ coordinates: homeCoords })
-          : undefined);
-      if (effectiveZoneId && effectiveZoneId !== "unknown") {
-        const destinationZoneId = resolveDestinationTransportZone(dest);
-        const topologyModes = getEligibleOriginModes({
-          originZoneId: effectiveZoneId,
-          destinationZoneId,
-          destination: dest,
-        });
-        const edgeAllowsFlight =
-          effectiveZoneId === destinationZoneId
-            ? topologyModes.localModes.includes("flight")
-            : topologyModes.crossZoneModes.includes("flight");
-        if (!edgeAllowsFlight) continue;
-      }
-      const flightEst = getFlightTransportEstimate(dest, homeCoords);
-      if (flightEst) {
-        validModes.push("flight");
-      }
-    } else if (
-      dest.transportOptions?.[m as keyof typeof dest.transportOptions] !==
-      undefined
-    ) {
-      validModes.push(m);
-    }
+  // a. Resolve origin and destination zones.
+  const effectiveOriginZoneId =
+    originZoneId ??
+    (homeCoords
+      ? resolveOriginTransportZone({ coordinates: homeCoords })
+      : undefined);
+  if (!effectiveOriginZoneId || effectiveOriginZoneId === "unknown") {
+    return [];
+  }
+  const destinationZoneId = resolveDestinationTransportZone(dest);
+  if (destinationZoneId === "unknown") {
+    return [];
   }
 
+  // b. Authorize modes from independent sources:
+  //    - rail/road/bus: explicit topology connections (edges or same-zone
+  //      local policy)
+  //    - flight: verified airport route from flight-estimates.json
+  //    - ferry: verified ferry route registry
+  const topologyModes = getEligibleOriginModes({
+    originZoneId: effectiveOriginZoneId,
+    destinationZoneId,
+    destination: dest,
+  });
+  const authorized = new Set<TransportMode>(
+    effectiveOriginZoneId === destinationZoneId
+      ? topologyModes.localModes
+      : topologyModes.crossZoneModes,
+  );
+  const flightEstimate = getFlightTransportEstimate(dest, homeCoords);
+  if (flightEstimate) authorized.add("flight");
+  if (hasFerryRoute(effectiveOriginZoneId, destinationZoneId)) {
+    authorized.add("ferry");
+  }
+
+  // c. Conservative failure: no authorized route → no modes.
+  if (authorized.size === 0) return [];
+
+  // d. Intersect with user-selected modes and destination support.
+  const supported = (mode: string): boolean => {
+    if (mode === "flight") return Boolean(flightEstimate);
+    if (mode === "ferry") return true;
+    return (
+      dest.transportOptions?.[mode as keyof typeof dest.transportOptions] !==
+      undefined
+    );
+  };
+  const selected = new Set<string>(publicModes);
+  if (carMode === "rental") selected.add("car");
+  if (carMode === "my_car") selected.add("my_car");
+
+  let validModes: string[] = [];
+  for (const mode of authorized) {
+    if (mode === "car" || mode === "my_car") {
+      if (selected.has(mode) && supported(mode)) validModes.push(mode);
+      continue;
+    }
+    if (selected.has(mode) && supported(mode)) validModes.push(mode);
+  }
+
+  // e. Budget-tier preference applied last.
   if (budgetTier) {
     const carModes = validModes.filter(
       (mode) => mode === "car" || mode === "my_car",
@@ -142,43 +167,6 @@ export function getValidModes(
             ? choose(["shinkansen", "train", "bus"], ["flight"])
             : choose(["shinkansen", "flight", "train", "bus"], []);
     validModes = [...carModes, ...preferredPublicModes];
-  }
-
-  if (
-    validModes.length === 0 &&
-    (carMode !== "none" || publicModes.length > 0)
-  ) {
-    return [];
-  }
-
-  if (validModes.length === 0) {
-    const entries = Object.entries(dest.transportOptions || {}).filter(
-      ([_, v]) => v !== undefined,
-    );
-    if (entries.length > 0) validModes = entries.map((e) => e[0]);
-    else validModes = ["train"];
-  }
-
-  const effectiveZoneId =
-    originZoneId ??
-    (homeCoords
-      ? resolveOriginTransportZone({ coordinates: homeCoords })
-      : undefined);
-  if (effectiveZoneId && effectiveZoneId !== "unknown" && dest.coordinates) {
-    const destinationZoneId = resolveDestinationTransportZone(dest);
-    const topologyModes = getEligibleOriginModes({
-      originZoneId: effectiveZoneId,
-      destinationZoneId,
-      destination: dest,
-    });
-    // For cross-zone trips only cross-zone edge modes are eligible as
-    // primary transport; same-zone uses the destination's local modes.
-    const allowed = new Set(
-      effectiveZoneId === destinationZoneId
-        ? topologyModes.localModes
-        : topologyModes.crossZoneModes,
-    );
-    validModes = validModes.filter((mode) => allowed.has(mode as never));
   }
 
   return validModes;

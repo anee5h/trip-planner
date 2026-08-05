@@ -46,7 +46,7 @@ export default function RouletteModal({
 }: RouletteModalProps) {
   const { locale } = useLocale();
   const { t } = useTranslation();
-  const { homeStationCoords } = useTripStore();
+  const { homeStationCoords, homeStationTransportZoneId } = useTripStore();
 
   const [spinning, setSpinning] = useState(false);
   const [currentDisplay, setCurrentDisplay] = useState<Destination | null>(
@@ -126,6 +126,7 @@ export default function RouletteModal({
         publicModes,
         partySize,
         homeStationCoords || undefined,
+        homeStationTransportZoneId,
       )
     : null;
   const transportLabel = bestTransport

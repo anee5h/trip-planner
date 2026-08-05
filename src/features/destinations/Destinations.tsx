@@ -557,7 +557,15 @@ export default function Destinations() {
                 homeStationCoords ?? undefined,
                 budgetTier,
                 homeStationTransportZoneId,
-              ).map((m) => getAdjustedBudget(a, m, partySize)),
+              ).map((m) =>
+                getAdjustedBudget(
+                  a,
+                  m,
+                  partySize,
+                  homeStationCoords ?? undefined,
+                  homeStationTransportZoneId,
+                ),
+              ),
             ) -
             Math.min(
               ...getValidModes(
@@ -567,7 +575,15 @@ export default function Destinations() {
                 homeStationCoords ?? undefined,
                 budgetTier,
                 homeStationTransportZoneId,
-              ).map((m) => getAdjustedBudget(b, m, partySize)),
+              ).map((m) =>
+                getAdjustedBudget(
+                  b,
+                  m,
+                  partySize,
+                  homeStationCoords ?? undefined,
+                  homeStationTransportZoneId,
+                ),
+              ),
             )
           );
         case "travelTime":

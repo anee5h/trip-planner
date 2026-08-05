@@ -118,6 +118,7 @@ export function useTripRecommendations({
     budgetTier,
     tripDuration,
     homeStationCoords,
+    homeStationTransportZoneId,
     destinationRatings,
     visitedIds,
   ]);
@@ -196,6 +197,7 @@ export function useTripRecommendations({
     carMode,
     destinationRatings,
     homeStationCoords,
+    homeStationTransportZoneId,
     partySize,
     publicModes,
     rouletteConstraints,

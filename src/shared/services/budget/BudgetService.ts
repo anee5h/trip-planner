@@ -6,6 +6,7 @@ import {
   resolveOriginTransportZone,
 } from "@/shared/services/transport/TransportTopologyService";
 import type { BudgetTier, PriceRange } from "@/shared/types/planner";
+import type { TransportZoneId } from "@/shared/types/transportTopology";
 import { MEAL_PRICE_RANGES } from "@/shared/types/planner";
 
 function formatSingleJPYValue(val: number, locale: "en" | "ja" = "en"): string {
@@ -254,16 +255,29 @@ export function getTransportCost(
 }
 
 /**
- * Returns the total estimated budget for the party size, substituting the cheapest
- * available transport if activeMode is "all" or "any".
+ * Returns the total estimated budget for the party size, substituting the
+ * cheapest authorized transport if activeMode is "all" or "any".
+ *
+ * Authorization uses the same sources as the recommendation pipeline:
+ * explicit topology edges for rail/road/bus, the flight-route registry for
+ * flight, and the ferry route registry for ferry. When no authorized mode
+ * exists the generic breakdown fallback is returned — never a Train cost.
  */
 export function getAdjustedBudget(
   dest: Destination,
   activeMode: string,
   partySize: number = 2,
   homeCoords?: { lat: number; lng: number },
+  originZoneId?: TransportZoneId,
 ): number {
-  let mode = "train";
+  let mode: string | undefined;
+
+  const effectiveOriginZoneId =
+    originZoneId ??
+    (homeCoords
+      ? resolveOriginTransportZone({ coordinates: homeCoords })
+      : undefined);
+  const destinationZoneId = resolveDestinationTransportZone(dest);
 
   if (
     activeMode !== "all" &&
@@ -271,32 +285,25 @@ export function getAdjustedBudget(
     (dest.transportOptions?.[
       activeMode as keyof typeof dest.transportOptions
     ] !== undefined ||
-      activeMode === "flight")
+      activeMode === "flight" ||
+      activeMode === "ferry")
   ) {
     mode = activeMode;
-  } else {
+  } else if (effectiveOriginZoneId && destinationZoneId !== "unknown") {
+    const topologyModes = getEligibleOriginModes({
+      originZoneId: effectiveOriginZoneId,
+      destinationZoneId,
+      destination: dest,
+    });
+    const authorized = new Set<string>(
+      effectiveOriginZoneId === destinationZoneId
+        ? topologyModes.localModes
+        : topologyModes.crossZoneModes,
+    );
     const entries = Object.entries(dest.transportOptions || {}).filter(
       ([_, v]) => v !== undefined,
     ) as [string, number][];
-    const eligible = homeCoords
-      ? getEligibleOriginModes({
-          originZoneId: resolveOriginTransportZone({
-            coordinates: homeCoords,
-          }),
-          destinationZoneId: resolveDestinationTransportZone(dest),
-          destination: dest,
-        })
-      : null;
-    const eligibleKeys = eligible
-      ? new Set([
-          ...(eligible.originZoneId === eligible.destinationZoneId
-            ? eligible.localModes
-            : eligible.crossZoneModes),
-        ])
-      : null;
-    const candidates = eligibleKeys
-      ? entries.filter(([m]) => eligibleKeys.has(m as never))
-      : entries;
+    const candidates = entries.filter(([m]) => authorized.has(m));
     if (candidates.length > 0) {
       mode = candidates.reduce((min, curr) =>
         curr[1] < min[1] ? curr : min,
@@ -304,7 +311,10 @@ export function getAdjustedBudget(
     }
   }
 
-  const transportCost = getTransportCost(dest, mode, partySize, homeCoords);
+  const transportCost =
+    mode === undefined
+      ? ((dest.budgetBreakdown?.transport || 3000) / 2) * partySize
+      : getTransportCost(dest, mode, partySize, homeCoords);
   const recBudget = dest.budgetRecommended || dest.budgetMin || 5000;
   const otherCostsCouple =
     recBudget - (dest.budgetBreakdown?.transport || 3000);

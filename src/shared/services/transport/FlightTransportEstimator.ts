@@ -19,6 +19,13 @@ const candidateCache = new Map<string, Airport[]>();
 /**
  * Finds nearest candidate departure airports based on geodesic distance.
  */
+/**
+ * Maximum distance from an origin to a candidate departure airport. Beyond
+ * this the airport is not the origin's gateway: island origins without a
+ * local airport must not gain a flight via a far-away airport fallback.
+ */
+const ORIGIN_AIRPORT_CATCHMENT_KM = 250;
+
 export function findNearestAirports(
   coords: { lat: number; lng: number },
   limit: number = TRANSPORT_CONFIG.candidateAirportLimit,
@@ -28,23 +35,20 @@ export function findNearestAirports(
     return candidateCache.get(cacheKey)!;
   }
 
-  const sorted = [...airports].sort((a, b) => {
-    const distA = getDistanceKm(
-      coords.lat,
-      coords.lng,
-      a.coordinates.lat,
-      a.coordinates.lng,
-    );
-    const distB = getDistanceKm(
-      coords.lat,
-      coords.lng,
-      b.coordinates.lat,
-      b.coordinates.lng,
-    );
-    return distA - distB;
-  });
+  const withinCatchment = airports
+    .map((airport) => ({
+      airport,
+      distanceKm: getDistanceKm(
+        coords.lat,
+        coords.lng,
+        airport.coordinates.lat,
+        airport.coordinates.lng,
+      ),
+    }))
+    .filter((candidate) => candidate.distanceKm <= ORIGIN_AIRPORT_CATCHMENT_KM)
+    .sort((a, b) => a.distanceKm - b.distanceKm);
 
-  const result = sorted.slice(0, limit);
+  const result = withinCatchment.slice(0, limit).map((c) => c.airport);
   candidateCache.set(cacheKey, result);
   return result;
 }

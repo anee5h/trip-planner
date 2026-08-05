@@ -73,6 +73,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
     publicModes,
     partySize,
     homeStationCoords ?? undefined,
+    homeStationTransportZoneId,
   );
 
   const travelTimeText = bestTransport

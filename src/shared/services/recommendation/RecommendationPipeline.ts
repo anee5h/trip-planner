@@ -1,9 +1,6 @@
 import type { Destination } from "@/shared/types/destination";
 import { getEstimatedBudgetRange } from "@/shared/services/budget/BudgetService";
-import {
-  getDistance,
-  getDynamicTransportOptions,
-} from "@/shared/utils/distance";
+import { getDistance } from "@/shared/utils/distance";
 import type { RecommendationContext } from "./RecommendationContext";
 import {
   estimateTripDuration,
@@ -113,38 +110,12 @@ export interface CandidateContext {
 
 export function buildRecommendationCandidate(
   destination: Destination,
-  context: CandidateContext,
+  _context: CandidateContext,
 ): Destination {
-  if (!context.homeStationCoords || !destination.coordinates) {
-    return destination;
-  }
-
-  const distanceKm = getDistance(
-    context.homeStationCoords.lat,
-    context.homeStationCoords.lng,
-    destination.coordinates.lat,
-    destination.coordinates.lng,
-  );
-  const dynamicOptions = getDynamicTransportOptions(
-    distanceKm,
-    Boolean(destination.transportOptions?.shinkansen),
-  );
-
-  return {
-    ...destination,
-    transportOptions: {
-      ...destination.transportOptions,
-      ...Object.fromEntries(
-        Object.entries(dynamicOptions).filter(
-          ([mode, value]) =>
-            value !== undefined &&
-            destination.transportOptions?.[
-              mode as keyof typeof destination.transportOptions
-            ] !== undefined,
-        ),
-      ),
-    },
-  };
+  // Distance never authorizes or distorts transport data: the canonical
+  // catalogue times are authoritative. The origin is carried separately in
+  // the context for eligibility checks.
+  return destination;
 }
 
 /**

@@ -17,6 +17,7 @@ import { sortCollections } from "@/shared/utils/collections";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationService";
 import {
   getEligibleOriginModes,
+  hasFerryRoute,
   resolveDestinationTransportZone,
   resolveOriginTransportZone,
 } from "@/shared/services/transport/TransportTopologyService";
@@ -195,6 +196,7 @@ const DETAIL_COPY = {
     localTrain: "Local Train",
     foodCafe: "Food & Cafe",
     parkingLabel: "Parking",
+    transportUnavailable: "Transport estimate unavailable",
   },
   ja: {
     notFound: "目的地が見つかりません",
@@ -227,6 +229,7 @@ const DETAIL_COPY = {
     localTrain: "在来線",
     foodCafe: "食事・カフェ",
     parkingLabel: "駐車場",
+    transportUnavailable: "交通手段の見積もりが利用できません",
   },
 } as const;
 
@@ -508,9 +511,9 @@ export default function DestinationDetails() {
   const eligibleModes = useMemo(() => {
     if (!destination || !homeStationCoords) return [] as string[];
     const destinationZoneId = resolveDestinationTransportZone(destination);
-    const originZoneId = resolveOriginTransportZone({
-      coordinates: homeStationCoords,
-    });
+    const originZoneId =
+      homeStationTransportZoneId ??
+      resolveOriginTransportZone({ coordinates: homeStationCoords });
     if (originZoneId === "unknown" || destinationZoneId === "unknown")
       return [] as string[];
     const result = getEligibleOriginModes({
@@ -518,10 +521,21 @@ export default function DestinationDetails() {
       destinationZoneId,
       destination,
     });
-    return originZoneId === destinationZoneId
-      ? result.localModes
-      : result.crossZoneModes;
-  }, [destination, homeStationCoords]);
+    const modes =
+      originZoneId === destinationZoneId
+        ? result.localModes
+        : result.crossZoneModes;
+    const authorized = [...modes];
+    if (flightEstimate) authorized.push("flight");
+    if (hasFerryRoute(originZoneId, destinationZoneId))
+      authorized.push("ferry");
+    return authorized;
+  }, [
+    destination,
+    homeStationCoords,
+    homeStationTransportZoneId,
+    flightEstimate,
+  ]);
 
   const activeModes = useMemo(() => {
     if (!destination) return null;
@@ -570,12 +584,15 @@ export default function DestinationDetails() {
   };
 
   const isModeVisible = (mode: string) => {
-    const allowedModes = new Set(eligibleModes);
-    if (allowedModes.size > 0 && !allowedModes.has(mode as never)) {
+    // Deny-all: an empty eligible set hides every mode.
+    if (eligibleModes.length === 0 || !eligibleModes.includes(mode as never)) {
       return false;
     }
     if (mode === "flight") {
       return Boolean(flightEstimate);
+    }
+    if (mode === "ferry") {
+      return true;
     }
     if (
       !destination?.transportOptions?.[
@@ -592,36 +609,32 @@ export default function DestinationDetails() {
 
   const availableModes = useMemo(() => {
     const modes: string[] = [];
-    if (destination?.transportOptions) {
-      const allEntries = Object.entries(destination.transportOptions).filter(
-        ([_, v]) => v !== undefined,
-      ) as [string, number][];
-      for (const [mode] of allEntries) {
+    for (const mode of eligibleModes) {
+      if (mode === "flight" || mode === "ferry") {
         if (!activeModes || activeModes.includes(mode)) {
-          if (eligibleModes.length === 0 || eligibleModes.includes(mode)) {
-            modes.push(mode);
-          }
+          modes.push(mode);
         }
+        continue;
       }
-    }
-    if (flightEstimate) {
-      if (!activeModes || activeModes.includes("flight")) {
-        if (eligibleModes.length === 0 || eligibleModes.includes("flight")) {
-          modes.push("flight");
-        }
+      if (
+        destination?.transportOptions?.[
+          mode as keyof typeof destination.transportOptions
+        ] !== undefined &&
+        (!activeModes || activeModes.includes(mode))
+      ) {
+        modes.push(mode);
       }
     }
     return modes;
-  }, [destination, activeModes, flightEstimate, eligibleModes]);
+  }, [destination, activeModes, eligibleModes]);
 
   const defaultMode = useMemo(() => {
-    if (!destination?.transportOptions || availableModes.length === 0)
-      return "train";
+    if (availableModes.length === 0) return null;
     const entries = availableModes.map(
       (mode) =>
         [
           mode,
-          destination.transportOptions[
+          destination?.transportOptions?.[
             mode as keyof typeof destination.transportOptions
           ] ?? 999,
         ] as [string, number],
@@ -1136,6 +1149,11 @@ export default function DestinationDetails() {
                         </h4>
                       </div>
                       <div className="space-y-2 flex-grow">
+                        {availableModes.length === 0 && (
+                          <div className="text-sm text-slate-400 dark:text-slate-500 py-2">
+                            {copy.transportUnavailable}
+                          </div>
+                        )}
                         {isModeVisible("train") &&
                           destination.transportOptions?.train && (
                             <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
@@ -1335,8 +1353,10 @@ export default function DestinationDetails() {
                             {budgetService
                               .getAdjustedBudget(
                                 destination,
-                                selectedTransport,
+                                selectedTransport ?? "all",
                                 partySize,
+                                homeStationCoords ?? undefined,
+                                homeStationTransportZoneId,
                               )
                               .toLocaleString()}
                           </div>
@@ -1375,79 +1395,80 @@ export default function DestinationDetails() {
                         </div>
                       )}
 
-                      {(() => {
-                        const breakdown =
-                          budgetService.getEffectiveBudgetBreakdown(
-                            destination,
-                          );
-                        return (
-                          <div className="space-y-2 mt-auto">
-                            <div className="flex justify-between text-sm border-b border-slate-100 dark:border-slate-800 pb-1.5 mt-1.5 first:mt-0">
-                              <span className="text-slate-500 flex items-center gap-1.5">
-                                {selectedTransport === "train" && (
-                                  <Train className="w-3.5 h-3.5 shrink-0" />
-                                )}
-                                {selectedTransport === "shinkansen" && (
-                                  <TrainFront className="w-3.5 h-3.5 shrink-0" />
-                                )}
-                                {selectedTransport === "car" && (
-                                  <Car className="w-3.5 h-3.5 shrink-0" />
-                                )}
-                                {selectedTransport === "my_car" && (
-                                  <Car className="w-3.5 h-3.5 shrink-0" />
-                                )}
-                                {selectedTransport === "bus" && (
-                                  <Bus className="w-3.5 h-3.5 shrink-0" />
-                                )}
-                                {selectedTransport === "flight" && (
-                                  <Plane className="w-3.5 h-3.5 shrink-0" />
-                                )}
-                                {
-                                  (
-                                    {
-                                      train: copy.localTrain,
-                                      shinkansen: "Shinkansen",
-                                      car: "Rental Car & Tolls",
-                                      my_car:
-                                        locale === "ja"
-                                          ? "マイカー (ガソリン代・高速代)"
-                                          : "Personal Car (Gas & Tolls)",
-                                      bus:
-                                        locale === "ja"
-                                          ? "高速バス"
-                                          : "Highway Bus",
-                                      flight: "Flight (Air & Access)",
-                                    } as Record<string, string>
-                                  )[selectedTransport]
-                                }
-                              </span>
-                              <span className="font-semibold text-slate-700 dark:text-slate-300">
-                                <JapaneseYen className="inline w-3 h-3" />
-                                {budgetService
-                                  .getTransportCost(
-                                    destination,
-                                    selectedTransport,
-                                    partySize,
-                                  )
-                                  .toLocaleString()}
-                              </span>
-                            </div>
+                      {selectedTransport &&
+                        (() => {
+                          const breakdown =
+                            budgetService.getEffectiveBudgetBreakdown(
+                              destination,
+                            );
+                          return (
+                            <div className="space-y-2 mt-auto">
+                              <div className="flex justify-between text-sm border-b border-slate-100 dark:border-slate-800 pb-1.5 mt-1.5 first:mt-0">
+                                <span className="text-slate-500 flex items-center gap-1.5">
+                                  {selectedTransport === "train" && (
+                                    <Train className="w-3.5 h-3.5 shrink-0" />
+                                  )}
+                                  {selectedTransport === "shinkansen" && (
+                                    <TrainFront className="w-3.5 h-3.5 shrink-0" />
+                                  )}
+                                  {selectedTransport === "car" && (
+                                    <Car className="w-3.5 h-3.5 shrink-0" />
+                                  )}
+                                  {selectedTransport === "my_car" && (
+                                    <Car className="w-3.5 h-3.5 shrink-0" />
+                                  )}
+                                  {selectedTransport === "bus" && (
+                                    <Bus className="w-3.5 h-3.5 shrink-0" />
+                                  )}
+                                  {selectedTransport === "flight" && (
+                                    <Plane className="w-3.5 h-3.5 shrink-0" />
+                                  )}
+                                  {
+                                    (
+                                      {
+                                        train: copy.localTrain,
+                                        shinkansen: "Shinkansen",
+                                        car: "Rental Car & Tolls",
+                                        my_car:
+                                          locale === "ja"
+                                            ? "マイカー (ガソリン代・高速代)"
+                                            : "Personal Car (Gas & Tolls)",
+                                        bus:
+                                          locale === "ja"
+                                            ? "高速バス"
+                                            : "Highway Bus",
+                                        flight: "Flight (Air & Access)",
+                                      } as Record<string, string>
+                                    )[selectedTransport]
+                                  }
+                                </span>
+                                <span className="font-semibold text-slate-700 dark:text-slate-300">
+                                  <JapaneseYen className="inline w-3 h-3" />
+                                  {budgetService
+                                    .getTransportCost(
+                                      destination,
+                                      selectedTransport,
+                                      partySize,
+                                    )
+                                    .toLocaleString()}
+                                </span>
+                              </div>
 
-                            <div className="flex justify-between text-sm border-b border-slate-100 dark:border-slate-800 pb-1.5 mt-1.5">
-                              <span className="text-slate-500 flex items-center gap-1.5">
-                                <Ticket className="w-3.5 h-3.5 shrink-0" />{" "}
-                                {copy.tickets}
-                              </span>
-                              <span className="font-semibold text-slate-700 dark:text-slate-300">
-                                <JapaneseYen className="inline w-3 h-3" />
-                                {Math.round(
-                                  (breakdown.tickets / 2) * partySize,
-                                ).toLocaleString()}
-                              </span>
+                              <div className="flex justify-between text-sm border-b border-slate-100 dark:border-slate-800 pb-1.5 mt-1.5">
+                                <span className="text-slate-500 flex items-center gap-1.5">
+                                  <Ticket className="w-3.5 h-3.5 shrink-0" />{" "}
+                                  {copy.tickets}
+                                </span>
+                                <span className="font-semibold text-slate-700 dark:text-slate-300">
+                                  <JapaneseYen className="inline w-3 h-3" />
+                                  {Math.round(
+                                    (breakdown.tickets / 2) * partySize,
+                                  ).toLocaleString()}
+                                </span>
+                              </div>
                             </div>
-                          </div>
-                        );
-                      })()}
+                          );
+                        })()}
                     </CardContent>
                   </Card>
 
@@ -1863,7 +1884,7 @@ export default function DestinationDetails() {
                 destination={destination}
                 locale={locale}
                 partySize={partySize}
-                selectedTransport={selectedTransport}
+                selectedTransport={selectedTransport ?? "all"}
                 onPlanGenerated={setGeneratedPlan}
                 onSaveToItinerary={(plan) => {
                   if (plan) {
