@@ -1124,7 +1124,7 @@
   },
   {
     "id": "amami-iriomote-natural-site",
-    "transportZoneId": "amami",
+    "transportZoneId": "unknown",
     "name": "Amami-Oshima, Tokunoshima, Northern Okinawa & Iriomote",
     "prefecture": "Kagoshima",
     "region": "Kyushu",

@@ -5,6 +5,7 @@ import type {
   ValidationContext,
 } from "./types";
 import {
+  getAirportZone,
   resolveDestinationTransportZone,
   topology,
   zoneById,
@@ -12,6 +13,7 @@ import {
 import type { TransportZoneId } from "../../src/shared/types/transportTopology";
 import flightRoutesData from "../../src/shared/data/flight-estimates.json";
 import airportsData from "../../src/shared/data/airports.json";
+import airportZonesData from "../../src/shared/data/airport-zones.json";
 import ferryRoutesData from "../../src/shared/data/ferry-routes.json";
 
 const VALID_RAIL_ROAD_BUS = new Set([
@@ -32,9 +34,18 @@ const airports = (
 ).airports;
 const ferryRoutes = (
   ferryRoutesData as unknown as {
-    routes: Array<{ from: string; to: string }>;
+    routes: Array<{
+      from: string;
+      to: string;
+      sourceUrl?: string;
+      checkedAt?: string;
+      passengerService?: boolean;
+    }>;
   }
 ).routes;
+const airportZones = (
+  airportZonesData as unknown as { airports: Record<string, string> }
+).airports;
 
 const airportCodes = new Set(airports.map((a) => a.code));
 const zoneIds = new Set<TransportZoneId>(topology.zones.map((z) => z.id));
@@ -157,6 +168,48 @@ export const transportTopologyValidator: ValidatorModule = {
           message: `Flight route references unknown airport '${route.to}'`,
         });
       }
+      if (
+        "sourceUrl" in route &&
+        (typeof route.sourceUrl !== "string" ||
+          !/^https?:\/\//.test(route.sourceUrl))
+      ) {
+        issues.push({
+          severity: "error",
+          code: "invalid_route_source",
+          message: `Flight route ${route.from}→${route.to} has an invalid sourceUrl`,
+        });
+      }
+      if ("checkedAt" in route && typeof route.checkedAt !== "string") {
+        issues.push({
+          severity: "error",
+          code: "invalid_route_checked_at",
+          message: `Flight route ${route.from}→${route.to} has an invalid checkedAt`,
+        });
+      }
+    }
+
+    for (const [airportCode, zone] of Object.entries(airportZones)) {
+      if (!airportCodes.has(airportCode)) {
+        issues.push({
+          severity: "error",
+          code: "unknown_airport_zone",
+          message: `Airport zone references unknown airport '${airportCode}'`,
+        });
+      }
+      if (!zoneIds.has(zone as TransportZoneId)) {
+        issues.push({
+          severity: "error",
+          code: "invalid_airport_zone",
+          message: `Airport '${airportCode}' references unknown zone '${zone}'`,
+        });
+      }
+      if (getAirportZone(airportCode) !== zone) {
+        issues.push({
+          severity: "error",
+          code: "airport_zone_mismatch",
+          message: `Airport zone file and service disagree for '${airportCode}'`,
+        });
+      }
     }
 
     for (const route of ferryRoutes) {
@@ -174,6 +227,37 @@ export const transportTopologyValidator: ValidatorModule = {
           message: `Ferry route references unknown zone '${route.to}'`,
         });
       }
+      if (route.from === route.to) {
+        issues.push({
+          severity: "error",
+          code: "self_ferry_route",
+          message: `Ferry route connects ${route.from} to itself`,
+        });
+      }
+      if (
+        typeof route.sourceUrl !== "string" ||
+        !/^https?:\/\//.test(route.sourceUrl)
+      ) {
+        issues.push({
+          severity: "error",
+          code: "missing_ferry_source",
+          message: `Ferry route ${route.from}→${route.to} requires a sourceUrl`,
+        });
+      }
+      if (typeof route.checkedAt !== "string" || !route.checkedAt) {
+        issues.push({
+          severity: "error",
+          code: "missing_ferry_checked_at",
+          message: `Ferry route ${route.from}→${route.to} requires checkedAt`,
+        });
+      }
+      if (typeof route.passengerService !== "boolean") {
+        issues.push({
+          severity: "error",
+          code: "missing_ferry_passenger_service",
+          message: `Ferry route ${route.from}→${route.to} requires passengerService`,
+        });
+      }
     }
 
     const explicitZones = new Set<string>();
@@ -189,6 +273,13 @@ export const transportTopologyValidator: ValidatorModule = {
         islandTagTokens.includes("island") ||
         islandTagTokens.includes("remote") ||
         islandTagTokens.includes("ferry");
+
+      if (dest.transportZoneId === "unknown") {
+        // Explicit non-routable declaration (e.g. a multi-island aggregate
+        // with no single routable location). Editorial authority; runtime
+        // resolution returns no modes for it.
+        continue;
+      }
 
       if (dest.transportZoneId) {
         if (!zoneIds.has(dest.transportZoneId as TransportZoneId)) {

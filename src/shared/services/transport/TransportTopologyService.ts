@@ -1,5 +1,6 @@
 import topologyData from "../../data/transport-topology.json";
 import ferryRoutesData from "../../data/ferry-routes.json";
+import airportZonesData from "../../data/airport-zones.json";
 import type { Destination } from "../../types/destination";
 import type {
   EligibleOriginModesResult,
@@ -18,6 +19,11 @@ const ferryRoutesDataTyped = ferryRoutesData as unknown as {
 const topology: TransportTopologyData = topologyDataTyped;
 const ferryRoutes: Array<{ from: string; to: string }> =
   ferryRoutesDataTyped.routes;
+const airportZonesDataTyped = airportZonesData as unknown as {
+  airports: Record<string, TransportZoneId>;
+};
+const airportZones: Record<string, TransportZoneId> =
+  airportZonesDataTyped.airports;
 
 const zoneById = new Map<TransportZoneId, TransportZone>();
 for (const z of topology.zones) zoneById.set(z.id, z);
@@ -212,6 +218,9 @@ export function resolveOriginTransportZone(params: {
 export function resolveDestinationTransportZone(
   dest: Destination,
 ): TransportZoneId {
+  // "unknown" is the explicit non-routable sentinel: an aggregate or
+  // non-transportable record declared without a routable zone.
+  if (dest.transportZoneId === "unknown") return "unknown";
   if (
     dest.transportZoneId &&
     zoneById.has(dest.transportZoneId as TransportZoneId)
@@ -266,6 +275,15 @@ export function hasFerryRoute(
   return ferryRoutes.some(
     (r) => (r.from === from && r.to === to) || (r.from === to && r.to === from),
   );
+}
+
+/**
+ * The transport zone an airport belongs to. Flight destination access is
+ * only valid when the arrival airport sits in the destination's zone; an
+ * airport in another zone would require an explicitly modelled access leg.
+ */
+export function getAirportZone(airportCode: string): TransportZoneId | null {
+  return airportZones[airportCode] ?? null;
 }
 
 /**

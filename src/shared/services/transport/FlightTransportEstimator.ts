@@ -3,6 +3,11 @@ import flightRoutesData from "../../data/flight-estimates.json";
 import { TRANSPORT_CONFIG } from "../../config/transportConfig";
 import type { Destination } from "../../types/destination";
 import { getBestEstimateBetween, getDistanceKm } from "./TransportEstimator";
+import {
+  getAirportZone,
+  resolveDestinationTransportZone,
+  resolveOriginTransportZone,
+} from "./TransportTopologyService";
 import type {
   Airport,
   FlightRoute,
@@ -122,9 +127,32 @@ export function getFlightTransportEstimate(
     return null;
   }
 
+  // Destination access must use an airport in the destination's transport
+  // zone. An airport in another zone (e.g. Takamatsu for Naoshima) would
+  // require an explicitly modelled ferry access leg; without one the flight
+  // is not a complete route.
+  const destinationZoneId = resolveDestinationTransportZone(dest);
+  const arrivalZoneId = getAirportZone(arrAirport.code);
+  if (
+    destinationZoneId === "unknown" ||
+    !arrivalZoneId ||
+    arrivalZoneId !== destinationZoneId
+  ) {
+    return null;
+  }
+
+  // Origin access must use an airport in the origin's transport zone. A
+  // departure airport in another zone (e.g. Osaka for Naoshima) would
+  // require a modelled access leg; without one the generic straight-line
+  // origin access would cross water.
+  const originZoneId = resolveOriginTransportZone({ coordinates: homeCoords });
   const candidateDepAirports = findNearestAirports(
     homeCoords,
     TRANSPORT_CONFIG.candidateAirportLimit,
+  ).filter(
+    (airport) =>
+      originZoneId !== "unknown" &&
+      getAirportZone(airport.code) === originZoneId,
   );
 
   const homeLoc: Location = { coordinates: homeCoords };
@@ -192,32 +220,16 @@ export function getFlightTransportEstimate(
     return null;
   }
 
-  // Filter out flight mode if train travel is short (< 240 min) AND destination is not air-primary/island
-  const isIslandOrFar =
-    dest.prefecture === "Okinawa" ||
-    dest.prefecture === "Hokkaido" ||
-    getDistanceKm(
-      homeCoords.lat,
-      homeCoords.lng,
-      dest.coordinates.lat,
-      dest.coordinates.lng,
-    ) > 500;
-
+  // Route existence and zone gateway already proved connectivity. Distance
+  // is used only after connectivity: to compare door-to-door times for the
+  // `recommended` flag, never to authorize or suppress the route.
   const groundEstimate = getBestEstimateBetween(homeLoc, destLoc);
-  if (
-    !isIslandOrFar &&
-    groundEstimate.timeRange[0] < TRANSPORT_CONFIG.flightThresholdMinutes
-  ) {
-    return null;
-  }
 
   return {
     mode: "flight",
     label: "Flight",
     available: true,
-    recommended:
-      isIslandOrFar ||
-      bestOption.totalTimeRange[0] < groundEstimate.timeRange[0],
+    recommended: bestOption.totalTimeRange[0] < groundEstimate.timeRange[0],
     timeRange: bestOption.totalTimeRange,
     costRange: bestOption.totalCostRange,
     source: "dataset",

@@ -203,7 +203,9 @@ export interface Destination {
   /**
    * Canonical transport zone for island destinations. Mainland destinations
    * derive their zone from prefecture metadata; island records must carry an
-   * explicit assignment instead of relying on runtime name matching.
+   * explicit assignment instead of relying on runtime name matching. The
+   * literal "unknown" declares the record non-routable (e.g. a multi-island
+   * aggregate with no single routable location).
    */
   transportZoneId?: string;
   /**

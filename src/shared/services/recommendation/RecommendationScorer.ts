@@ -1,6 +1,5 @@
 import {
   getEligibleOriginModes,
-  hasFerryRoute,
   resolveDestinationTransportZone,
   resolveOriginTransportZone,
 } from "@/shared/services/transport/TransportTopologyService";
@@ -103,7 +102,9 @@ export function getValidModes(
   //    - rail/road/bus: explicit topology connections (edges or same-zone
   //      local policy)
   //    - flight: verified airport route from flight-estimates.json
-  //    - ferry: verified ferry route registry
+  //    Ferry connectivity (ferry-routes.json) is NOT an estimable
+  //    recommendation mode until FerryTransportEstimator exists; it is
+  //    surfaced separately for display only.
   const topologyModes = getEligibleOriginModes({
     originZoneId: effectiveOriginZoneId,
     destinationZoneId,
@@ -116,9 +117,6 @@ export function getValidModes(
   );
   const flightEstimate = getFlightTransportEstimate(dest, homeCoords);
   if (flightEstimate) authorized.add("flight");
-  if (hasFerryRoute(effectiveOriginZoneId, destinationZoneId)) {
-    authorized.add("ferry");
-  }
 
   // c. Conservative failure: no authorized route → no modes.
   if (authorized.size === 0) return [];
@@ -126,7 +124,6 @@ export function getValidModes(
   // d. Intersect with user-selected modes and destination support.
   const supported = (mode: string): boolean => {
     if (mode === "flight") return Boolean(flightEstimate);
-    if (mode === "ferry") return true;
     return (
       dest.transportOptions?.[mode as keyof typeof dest.transportOptions] !==
       undefined

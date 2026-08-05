@@ -3,74 +3,110 @@
     {
       "from": "mainland-honshu",
       "to": "ogasawara",
-      "operator": "Ogasawara Kisen",
-      "ports": ["Takeshiba (Tokyo)", "Chichijima"]
+      "operator": "Ogasawara Kaiun",
+      "ports": ["Takeshiba (Tokyo)", "Chichijima"],
+      "passengerService": true,
+      "sourceUrl": "https://www.ogasawarakaiun.co.jp/english/service/",
+      "checkedAt": "2026-08-05"
     },
     {
       "from": "mainland-honshu",
       "to": "sado",
       "operator": "Sado Kisen",
-      "ports": ["Niigata", "Ryotsu / Ogi"]
+      "ports": ["Niigata", "Ryotsu / Ogi"],
+      "passengerService": true,
+      "sourceUrl": "https://www.sadokisen.co.jp/en/",
+      "checkedAt": "2026-08-05"
     },
     {
       "from": "mainland-honshu",
       "to": "hokkaido",
       "operator": "Tsugaru Kaikyo Ferry",
-      "ports": ["Aomori", "Hakodate"]
+      "ports": ["Aomori", "Hakodate"],
+      "passengerService": true,
+      "sourceUrl": "https://www.tsugarukaikyo.co.jp/global/en/",
+      "checkedAt": "2026-08-05"
     },
     {
       "from": "mainland-honshu",
       "to": "tomogashima",
-      "operator": "Tomogashima Ferry",
-      "ports": ["Wakayama", "Tomogashima"]
+      "operator": "Tomogashima Kisen",
+      "ports": ["Kada (Wakayama)", "Tomogashima"],
+      "passengerService": true,
+      "sourceUrl": "https://www.japan-guide.com/e/e4930.html",
+      "checkedAt": "2026-08-05"
     },
     {
       "from": "mainland-kyushu",
       "to": "yakushima",
-      "operator": "Yakushima Ferry",
-      "ports": ["Kagoshima", "Miyanoura"]
+      "operator": "Yakushima Ferry (Kagoshima)",
+      "ports": ["Kagoshima", "Miyanoura"],
+      "passengerService": true,
+      "sourceUrl": "https://www.town.yakushima.kagoshima.jp/kanko/English/2379.html",
+      "checkedAt": "2026-08-05"
     },
     {
       "from": "mainland-kyushu",
       "to": "amami",
       "operator": "A-Line Ferry",
-      "ports": ["Kagoshima", "Naze (Amami Oshima)"]
+      "ports": ["Kagoshima", "Naze (Amami Oshima)"],
+      "passengerService": true,
+      "sourceUrl": "https://www.aline-ferry.com/",
+      "checkedAt": "2026-08-05"
     },
     {
       "from": "mainland-kyushu",
       "to": "tsushima",
       "operator": "Kyusyu Yusen",
-      "ports": ["Hakata", "Izuhara / Hitakatsu"]
+      "ports": ["Hakata", "Izuhara / Hitakatsu"],
+      "passengerService": true,
+      "sourceUrl": "https://www.kyu-you.co.jp/en/",
+      "checkedAt": "2026-08-05"
     },
     {
       "from": "mainland-kyushu",
       "to": "okinawa-main",
       "operator": "A-Line Ferry",
-      "ports": ["Kagoshima", "Naha"]
+      "ports": ["Kagoshima", "Naha"],
+      "passengerService": true,
+      "sourceUrl": "https://www.aline-ferry.com/",
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "from": "mainland-honshu",
+      "to": "naoshima",
+      "operator": "Uno Port Ferry",
+      "ports": ["Uno (Okayama)", "Miyanoura / Honmura"],
+      "passengerService": true,
+      "sourceUrl": "https://benesse-artsite.jp/en/access/",
+      "checkedAt": "2026-08-05"
     },
     {
       "from": "mainland-shikoku",
       "to": "naoshima",
       "operator": "Shikoku Kisen / Benesse",
-      "ports": ["Takamatsu / Uno", "Miyanoura"]
+      "ports": ["Takamatsu", "Miyanoura / Honmura"],
+      "passengerService": true,
+      "sourceUrl": "https://benesse-artsite.jp/en/access/",
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "from": "mainland-honshu",
+      "to": "teshima",
+      "operator": "Uno Port Ferry",
+      "ports": ["Uno (Okayama)", "Ieura / Karato"],
+      "passengerService": true,
+      "sourceUrl": "https://benesse-artsite.jp/en/access/",
+      "checkedAt": "2026-08-05"
     },
     {
       "from": "mainland-shikoku",
       "to": "teshima",
-      "operator": "Benesse Ferry",
-      "ports": ["Uno", "Ieura / Karato"]
-    },
-    {
-      "from": "okinawa-main",
-      "to": "ishigaki",
-      "operator": "A-Line Ferry",
-      "ports": ["Naha", "Ishigaki"]
-    },
-    {
-      "from": "okinawa-main",
-      "to": "miyako",
-      "operator": "A-Line Ferry",
-      "ports": ["Naha", "Hirara (Miyako)"]
+      "operator": "Takamatsu Ferry",
+      "ports": ["Takamatsu", "Ieura / Karato"],
+      "passengerService": true,
+      "sourceUrl": "https://benesse-artsite.jp/en/access/",
+      "checkedAt": "2026-08-05"
     }
   ]
 }

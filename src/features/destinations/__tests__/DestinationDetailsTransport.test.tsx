@@ -199,13 +199,17 @@ describe("DestinationDetails transport rows", () => {
     expect(text).toContain("Transport estimate unavailable");
   });
 
-  it("Ogasawara from Tokyo (ferry route) renders no Train or flight row", async () => {
+  it("Ogasawara from Tokyo shows route-known ferry note, no flight, no selectable budget", async () => {
     render("/destinations/ogasawara-islands-tokyo");
     await act(async () => {
       await flush(80);
     });
     const text = host.textContent ?? "";
+    expect(text).toContain("Ferry route available");
     expect(text).not.toContain("Train");
     expect(text).not.toContain("Shinkansen");
+    expect(text).not.toContain("Flight");
+    // No flight cost estimate may be rendered.
+    expect(text).not.toContain("Flight (Air & Access)");
   });
 });

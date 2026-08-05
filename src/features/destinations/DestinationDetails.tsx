@@ -21,6 +21,7 @@ import {
   resolveDestinationTransportZone,
   resolveOriginTransportZone,
 } from "@/shared/services/transport/TransportTopologyService";
+import type { TransportZoneId } from "@/shared/types/transportTopology";
 import { calculateScore } from "@/shared/services/recommendation/RecommendationScorer";
 import { createRecommendationMatch } from "@/shared/services/recommendation/RecommendationExplainability";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
@@ -197,6 +198,7 @@ const DETAIL_COPY = {
     foodCafe: "Food & Cafe",
     parkingLabel: "Parking",
     transportUnavailable: "Transport estimate unavailable",
+    ferryRouteUnestimated: "Ferry route available — time and cost unavailable",
   },
   ja: {
     notFound: "目的地が見つかりません",
@@ -230,6 +232,7 @@ const DETAIL_COPY = {
     foodCafe: "食事・カフェ",
     parkingLabel: "駐車場",
     transportUnavailable: "交通手段の見積もりが利用できません",
+    ferryRouteUnestimated: "フェリー航路あり — 所要時間・料金は利用できません",
   },
 } as const;
 
@@ -508,32 +511,49 @@ export default function DestinationDetails() {
     ? nearbyHubs
     : nearbyHubs.slice(0, 3);
 
-  const eligibleModes = useMemo(() => {
-    if (!destination || !homeStationCoords) return [] as string[];
-    const destinationZoneId = resolveDestinationTransportZone(destination);
-    const originZoneId =
+  const originZoneIdForDisplay = useMemo(() => {
+    if (!homeStationCoords) return null as TransportZoneId | null;
+    return (
       homeStationTransportZoneId ??
-      resolveOriginTransportZone({ coordinates: homeStationCoords });
-    if (originZoneId === "unknown" || destinationZoneId === "unknown")
+      resolveOriginTransportZone({ coordinates: homeStationCoords })
+    );
+  }, [homeStationCoords, homeStationTransportZoneId]);
+
+  const destinationZoneIdForDisplay = useMemo(
+    () => (destination ? resolveDestinationTransportZone(destination) : null),
+    [destination],
+  );
+
+  /** Ferry connectivity is route-known but not estimable. */
+  const ferryRouteKnown = useMemo(() => {
+    if (!originZoneIdForDisplay || !destinationZoneIdForDisplay) return false;
+    return hasFerryRoute(originZoneIdForDisplay, destinationZoneIdForDisplay);
+  }, [originZoneIdForDisplay, destinationZoneIdForDisplay]);
+
+  const eligibleModes = useMemo(() => {
+    if (!destination || !originZoneIdForDisplay || !destinationZoneIdForDisplay)
+      return [] as string[];
+    if (
+      originZoneIdForDisplay === "unknown" ||
+      destinationZoneIdForDisplay === "unknown"
+    )
       return [] as string[];
     const result = getEligibleOriginModes({
-      originZoneId,
-      destinationZoneId,
+      originZoneId: originZoneIdForDisplay,
+      destinationZoneId: destinationZoneIdForDisplay,
       destination,
     });
     const modes =
-      originZoneId === destinationZoneId
+      originZoneIdForDisplay === destinationZoneIdForDisplay
         ? result.localModes
         : result.crossZoneModes;
     const authorized = [...modes];
     if (flightEstimate) authorized.push("flight");
-    if (hasFerryRoute(originZoneId, destinationZoneId))
-      authorized.push("ferry");
     return authorized;
   }, [
     destination,
-    homeStationCoords,
-    homeStationTransportZoneId,
+    originZoneIdForDisplay,
+    destinationZoneIdForDisplay,
     flightEstimate,
   ]);
 
@@ -590,9 +610,6 @@ export default function DestinationDetails() {
     }
     if (mode === "flight") {
       return Boolean(flightEstimate);
-    }
-    if (mode === "ferry") {
-      return true;
     }
     if (
       !destination?.transportOptions?.[
@@ -1151,7 +1168,9 @@ export default function DestinationDetails() {
                       <div className="space-y-2 flex-grow">
                         {availableModes.length === 0 && (
                           <div className="text-sm text-slate-400 dark:text-slate-500 py-2">
-                            {copy.transportUnavailable}
+                            {ferryRouteKnown
+                              ? copy.ferryRouteUnestimated
+                              : copy.transportUnavailable}
                           </div>
                         )}
                         {isModeVisible("train") &&
@@ -1350,15 +1369,32 @@ export default function DestinationDetails() {
                           </h4>
                           <div className="text-emerald-600 font-extrabold text-lg">
                             <JapaneseYen className="inline w-4 h-4" />
-                            {budgetService
-                              .getAdjustedBudget(
-                                destination,
-                                selectedTransport ?? "all",
-                                partySize,
-                                homeStationCoords ?? undefined,
-                                homeStationTransportZoneId,
-                              )
-                              .toLocaleString()}
+                            {availableModes.length === 0
+                              ? // No authorized mode: show the breakdown
+                                // excluding transport rather than a generic
+                                // estimated transport budget.
+                                (() => {
+                                  const breakdown =
+                                    budgetService.getEffectiveBudgetBreakdown(
+                                      destination,
+                                    );
+                                  return Math.round(
+                                    ((breakdown.tickets +
+                                      breakdown.food +
+                                      breakdown.cafe) /
+                                      2) *
+                                      partySize,
+                                  ).toLocaleString();
+                                })()
+                              : budgetService
+                                  .getAdjustedBudget(
+                                    destination,
+                                    selectedTransport ?? "all",
+                                    partySize,
+                                    homeStationCoords ?? undefined,
+                                    homeStationTransportZoneId,
+                                  )
+                                  .toLocaleString()}
                           </div>
                         </div>
                       </div>
