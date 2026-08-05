@@ -174,12 +174,14 @@ export function getTransportCost(
 
   if (mode === "flight") {
     const flightEst = getFlightTransportEstimate(dest, homeCoords);
-    if (flightEst) {
+    if (flightEst && !flightEst.costUnavailable) {
       const avgOneWayPerPerson = Math.round(
         (flightEst.costRange[0] + flightEst.costRange[1]) / 2,
       );
       return Math.floor(avgOneWayPerPerson * 2 * partySize);
     }
+    // Unverified fare: never fabricate a flight cost from the route. Fall
+    // through to the generic breakdown fallback below.
   }
 
   if (

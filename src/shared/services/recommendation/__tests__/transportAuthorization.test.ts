@@ -6,7 +6,11 @@ import {
   resolveDestinationTransportZone,
   resolveOriginTransportZone,
 } from "@/shared/services/transport/TransportTopologyService";
-import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
+import {
+  findNearestAirports,
+  getFlightRoute,
+  getFlightTransportEstimate,
+} from "@/shared/services/transport/FlightTransportEstimator";
 import {
   calculateItemizedTripCost,
   getTransportCost,
@@ -144,6 +148,137 @@ describe("flight registry authorization", () => {
     );
     expect(kawasakiModes).toEqual(tokyoModes);
     expect(kawasakiModes).toContain("flight");
+  });
+});
+
+describe("flight registry expansion (PR #102)", () => {
+  const TAKAMATSU = { lat: 34.34, lng: 134.05 };
+  const KAGOSHIMA = { lat: 31.5966, lng: 130.5571 };
+  const OSAKA = { lat: 34.6937, lng: 135.5023 };
+
+  it("Takamatsu → Naha includes Flight", () => {
+    const { selection, zone } = publicSelection(TAKAMATSU);
+    const modes = getValidModes(
+      byId.get("naha-city")!,
+      selection.carMode,
+      selection.publicModes,
+      TAKAMATSU,
+      undefined,
+      zone,
+    );
+    expect(modes).toContain("flight");
+  });
+
+  it("Fukuoka → Ishigaki includes Flight", () => {
+    const { selection, zone } = publicSelection(FUKUOKA);
+    const modes = getValidModes(
+      byId.get("ishigaki-city")!,
+      selection.carMode,
+      selection.publicModes,
+      FUKUOKA,
+      undefined,
+      zone,
+    );
+    expect(modes).toContain("flight");
+  });
+
+  it("Sapporo ↔ Naha includes Flight in both directions", () => {
+    const SAPPORO = { lat: 43.0618, lng: 141.3545 };
+    const { selection: selS } = publicSelection(SAPPORO);
+    const { selection: selN } = publicSelection(NAHA);
+    const toNaha = getValidModes(
+      byId.get("naha-city")!,
+      selS.carMode,
+      selS.publicModes,
+      SAPPORO,
+      undefined,
+      "hokkaido",
+    );
+    const toSapporo = getValidModes(
+      byId.get("sapporo-city")!,
+      selN.carMode,
+      selN.publicModes,
+      NAHA,
+      undefined,
+      "okinawa-main",
+    );
+    expect(toNaha).toContain("flight");
+    expect(toSapporo).toContain("flight");
+  });
+
+  it("Fukuoka → Tsushima includes Flight (no catalogue record; production fixture)", () => {
+    const tsushimaDest = {
+      id: "tsushima-fixture",
+      name: "Tsushima",
+      prefecture: "Nagasaki",
+      transportZoneId: "tsushima",
+      coordinates: { lat: 34.33, lng: 129.31 },
+      transportOptions: {},
+    } as Destination;
+    const { selection, zone } = publicSelection(FUKUOKA);
+    const modes = getValidModes(
+      tsushimaDest,
+      selection.carMode,
+      selection.publicModes,
+      FUKUOKA,
+      undefined,
+      zone,
+    );
+    expect(modes).toContain("flight");
+  });
+
+  it("Kagoshima, Osaka and Fukuoka → Yakushima select KUM", () => {
+    const dest = byId.get("yakushima-town")!;
+    for (const origin of [KAGOSHIMA, OSAKA, FUKUOKA]) {
+      const estimate = getFlightTransportEstimate(dest, origin);
+      expect(estimate?.details?.arrivalAirportCode).toBe("KUM");
+    }
+  });
+
+  it("Sado has SDO in the airport registry but still returns no Flight", () => {
+    const sadoAirports = findNearestAirports(
+      { lat: 38.0333, lng: 138.3833 },
+      1,
+    );
+    expect(sadoAirports[0]?.code).toBe("SDO");
+    const modes = getValidModes(
+      byId.get("sado-island")!,
+      "none",
+      ["flight"],
+      TOKYO,
+      undefined,
+      "mainland-honshu",
+    );
+    expect(modes).not.toContain("flight");
+  });
+
+  it("every added route resolves in reverse (bidirectional registry)", () => {
+    for (const [a, b] of [
+      ["TAK", "OKA"],
+      ["FUK", "ISG"],
+      ["FUK", "TSJ"],
+      ["CTS", "OKA"],
+      ["KOJ", "ASJ"],
+      ["KOJ", "KUM"],
+      ["ITM", "KUM"],
+      ["FUK", "KUM"],
+    ] as const) {
+      expect(getFlightRoute(a, b)).not.toBeNull();
+      expect(getFlightRoute(b, a)).not.toBeNull();
+    }
+  });
+
+  it("unverified fare routes never produce a fabricated flight budget", () => {
+    const dest = byId.get("ishigaki-city")!;
+    const estimate = getFlightTransportEstimate(dest, FUKUOKA);
+    expect(estimate?.costUnavailable).toBe(true);
+    const fallback = ((dest.budgetBreakdown?.transport || 3000) / 2) * 2;
+    expect(getTransportCost(dest, "flight", 2, FUKUOKA)).toBe(fallback);
+  });
+
+  it("ASJ→OKA is absent (Yoron multi-stop service is not a nonstop)", () => {
+    expect(getFlightRoute("ASJ", "OKA")).toBeNull();
+    expect(getFlightRoute("OKA", "ASJ")).toBeNull();
   });
 });
 

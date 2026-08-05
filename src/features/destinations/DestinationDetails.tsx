@@ -202,6 +202,7 @@ const DETAIL_COPY = {
     onsiteBudget: "On-site budget (transport excluded)",
     localAccessUnestimated:
       "Local access available — time and cost unavailable",
+    costUnavailable: "Cost unavailable",
   },
   ja: {
     notFound: "目的地が見つかりません",
@@ -238,6 +239,7 @@ const DETAIL_COPY = {
     ferryRouteUnestimated: "フェリー航路あり — 所要時間・料金は利用できません",
     onsiteBudget: "現地予算（往復交通費を除く）",
     localAccessUnestimated: "現地アクセスあり — 所要時間・料金は利用できません",
+    costUnavailable: "料金不明",
   },
 } as const;
 
@@ -1352,17 +1354,23 @@ export default function DestinationDetails() {
                                 {formatTransportTime(flightEstimate.timeRange)}
                               </div>
                               <div className="text-xs text-slate-400">
-                                {copy.estimated}{" "}
-                                <JapaneseYen className="inline w-3 h-3" />
-                                {(
-                                  budgetService.getTransportCost(
-                                    destination,
-                                    "flight",
-                                    partySize,
-                                    homeStationCoords ?? undefined,
-                                  ) / 1000
-                                ).toFixed(1)}
-                                k
+                                {flightEstimate.costUnavailable ? (
+                                  copy.costUnavailable
+                                ) : (
+                                  <>
+                                    {copy.estimated}{" "}
+                                    <JapaneseYen className="inline w-3 h-3" />
+                                    {(
+                                      budgetService.getTransportCost(
+                                        destination,
+                                        "flight",
+                                        partySize,
+                                        homeStationCoords ?? undefined,
+                                      ) / 1000
+                                    ).toFixed(1)}
+                                    k
+                                  </>
+                                )}
                               </div>
                             </div>
                           </div>

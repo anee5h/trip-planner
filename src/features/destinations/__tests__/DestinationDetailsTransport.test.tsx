@@ -281,6 +281,18 @@ describe("DestinationDetails transport rows", () => {
     expect(text).toContain("Local access available");
   });
 
+  it("Fukuoka → Ishigaki flight row shows Cost unavailable, not a fabricated price", async () => {
+    storeState.homeStationCoords = { lat: 33.5902, lng: 130.4017 };
+    storeState.homeStationTransportZoneId = "mainland-kyushu";
+    render("/destinations/ishigaki-city");
+    await act(async () => {
+      await flush(80);
+    });
+    const text = host.textContent ?? "";
+    expect(text).toContain("Flight");
+    expect(text).toContain("Cost unavailable");
+  });
+
   it("Aoshima from Miyazaki retains legitimate Train access", async () => {
     storeState.homeStationCoords = { lat: 31.9077, lng: 131.4202 };
     storeState.homeStationTransportZoneId = "mainland-kyushu";
