@@ -201,6 +201,12 @@ export interface Destination {
     ferry?: number;
   };
   /**
+   * Canonical transport zone for island destinations. Mainland destinations
+   * derive their zone from prefecture metadata; island records must carry an
+   * explicit assignment instead of relying on runtime name matching.
+   */
+  transportZoneId?: string;
+  /**
    * Optional: Explicit route fares for exact budget overrides.
    * - train, bus, shinkansen: One-way ticket fare per person (JPY).
    * - car, my_car: Round-trip total estimated vehicle cost per car (rental + gas + tolls, JPY).

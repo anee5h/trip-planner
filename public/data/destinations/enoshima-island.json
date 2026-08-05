@@ -1,5 +1,6 @@
 {
   "id": "enoshima-island",
+  "transportZoneId": "mainland-honshu",
   "name": "Enoshima",
   "prefecture": "Kanagawa",
   "region": "Kanto",

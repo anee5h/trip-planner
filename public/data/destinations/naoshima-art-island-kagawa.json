@@ -1,5 +1,6 @@
 {
   "id": "naoshima-art-island-kagawa",
+  "transportZoneId": "naoshima",
   "name": "Naoshima Contemporary Art Island",
   "nameJa": "直島",
   "prefecture": "Kagawa",
@@ -34,7 +35,7 @@
   "budgetMax": 6000,
   "budgetRecommended": 3750,
   "transportOptions": {
-    "ferry": 210
+    "train": 180
   },
   "ratings": {
     "overall": 9,

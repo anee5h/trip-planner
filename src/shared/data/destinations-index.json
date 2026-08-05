@@ -1124,6 +1124,7 @@
   },
   {
     "id": "amami-iriomote-natural-site",
+    "transportZoneId": "amami",
     "name": "Amami-Oshima, Tokunoshima, Northern Okinawa & Iriomote",
     "prefecture": "Kagoshima",
     "region": "Kyushu",
@@ -9352,6 +9353,7 @@
   },
   {
     "id": "enoshima-island",
+    "transportZoneId": "mainland-honshu",
     "name": "Enoshima",
     "prefecture": "Kanagawa",
     "region": "Kanto",
@@ -20773,6 +20775,7 @@
   },
   {
     "id": "ishigaki-city",
+    "transportZoneId": "ishigaki",
     "name": "Ishigaki City",
     "kind": "city",
     "role": "hub",
@@ -30535,6 +30538,7 @@
   },
   {
     "id": "kouri-island-okinawa",
+    "transportZoneId": "okinawa-main",
     "name": "Kouri Island & Heart Rock",
     "nameJa": "古宇利島・ハートロック",
     "prefecture": "Okinawa",
@@ -37027,6 +37031,7 @@
   },
   {
     "id": "miyakojima-city",
+    "transportZoneId": "miyako",
     "name": "Miyakojima City",
     "kind": "city",
     "role": "hub",
@@ -40944,6 +40949,7 @@
   },
   {
     "id": "naha-city",
+    "transportZoneId": "okinawa-main",
     "name": "Naha City",
     "kind": "city",
     "role": "hub",
@@ -41708,6 +41714,7 @@
   },
   {
     "id": "naoshima-art-island-kagawa",
+    "transportZoneId": "naoshima",
     "name": "Naoshima Contemporary Art Island",
     "nameJa": "直島",
     "prefecture": "Kagawa",
@@ -41742,7 +41749,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "ferry": 210
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -46050,6 +46057,7 @@
   },
   {
     "id": "ogasawara-islands-tokyo",
+    "transportZoneId": "ogasawara",
     "name": "Ogasawara Islands",
     "prefecture": "Tokyo",
     "region": "Kanto",
@@ -46757,6 +46765,7 @@
   },
   {
     "id": "okinoshima-munakata-fukuoka",
+    "transportZoneId": "mainland-kyushu",
     "name": "Sacred Island of Okinoshima and Associated Sites in Munakata",
     "prefecture": "Fukuoka",
     "region": "Kyushu",
@@ -51286,6 +51295,7 @@
   },
   {
     "id": "sado-island",
+    "transportZoneId": "sado",
     "name": "Sado Island",
     "region": "Chubu",
     "categories": ["Island", "History", "Nature"],
@@ -52705,6 +52715,7 @@
   },
   {
     "id": "sakurajima-volcano-kagoshima",
+    "transportZoneId": "mainland-kyushu",
     "name": "Sakurajima Stratovolcano",
     "nameJa": "桜島",
     "prefecture": "Kagoshima",
@@ -61845,6 +61856,7 @@
   },
   {
     "id": "teshima-island-kagawa",
+    "transportZoneId": "teshima",
     "name": "Teshima Art Island",
     "nameJa": "豊島",
     "prefecture": "Kagawa",
@@ -61879,7 +61891,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "ferry": 210
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -68922,6 +68934,7 @@
   },
   {
     "id": "yakushima-town",
+    "transportZoneId": "yakushima",
     "name": "Yakushima Town",
     "kind": "town",
     "role": "hub",
@@ -84583,6 +84596,7 @@
   },
   {
     "id": "tomogashima-islands",
+    "transportZoneId": "tomogashima",
     "name": "Tomogashima Islands (Laputa Island)",
     "nameJa": "友ヶ島（ラピュタの島）",
     "prefecture": "Wakayama",
@@ -85743,6 +85757,7 @@
   },
   {
     "id": "kabira-bay-ishigaki",
+    "transportZoneId": "ishigaki",
     "name": "Kabira Bay",
     "nameJa": "川平湾",
     "region": "Okinawa",
@@ -85875,6 +85890,7 @@
   },
   {
     "id": "tamatorizaki-viewpoint-ishigaki",
+    "transportZoneId": "ishigaki",
     "name": "Tamatorizaki Observatory",
     "nameJa": "玉取崎展望台",
     "region": "Okinawa",
@@ -86006,6 +86022,7 @@
   },
   {
     "id": "yonehara-beach-coral-ishigaki",
+    "transportZoneId": "ishigaki",
     "name": "Yonehara Beach & Coral Reef",
     "nameJa": "米原ビーチ",
     "region": "Okinawa",
@@ -86137,6 +86154,7 @@
   },
   {
     "id": "yonaha-maehama-beach-miyako",
+    "transportZoneId": "miyako",
     "name": "Yonaha Maehama Beach",
     "nameJa": "与那覇前浜ビーチ",
     "region": "Okinawa",
@@ -86270,6 +86288,7 @@
   },
   {
     "id": "irabu-bridge-irabujima-miyako",
+    "transportZoneId": "miyako",
     "name": "Irabu Bridge & Sea Drive",
     "nameJa": "伊良部大橋",
     "region": "Okinawa",
@@ -86403,6 +86422,7 @@
   },
   {
     "id": "higashi-hennazaki-cape-miyako",
+    "transportZoneId": "miyako",
     "name": "Cape Higashi-Hennazaki",
     "nameJa": "東平安名崎",
     "region": "Okinawa",
@@ -90307,6 +90327,7 @@
   },
   {
     "id": "aoshima-island-miyazaki",
+    "transportZoneId": "mainland-kyushu",
     "name": "Aoshima Island & Devil's Washboard",
     "nameJa": "青島・鬼の洗濯板",
     "aliases": ["Aoshima Island & Devil's Washboard", "青島・鬼の洗濯板"],
@@ -91243,6 +91264,7 @@
   },
   {
     "id": "jomon-sugi-yakushima",
+    "transportZoneId": "yakushima",
     "name": "Jomon Sugi Cedar",
     "nameJa": "縄文杉",
     "aliases": ["Jomon Sugi Cedar", "縄文杉"],
@@ -91402,6 +91424,7 @@
   },
   {
     "id": "shiratani-unsuikyo-ravine",
+    "transportZoneId": "yakushima",
     "name": "Shiratani Unsuikyo Ravine",
     "nameJa": "白谷雲水峡",
     "aliases": ["Shiratani Unsuikyo Ravine", "白谷雲水峡"],
@@ -91555,6 +91578,7 @@
   },
   {
     "id": "yakusugi-land-yakushima",
+    "transportZoneId": "yakushima",
     "name": "Yakusugi Land",
     "nameJa": "ヤクスギランド",
     "aliases": ["Yakusugi Land", "ヤクスギランド"],
@@ -94836,6 +94860,7 @@
   },
   {
     "id": "chiringashima-island",
+    "transportZoneId": "mainland-kyushu",
     "name": "Chiringashima Island",
     "nameJa": "知林ヶ島",
     "aliases": ["Chiringashima Island", "知林ヶ島"],

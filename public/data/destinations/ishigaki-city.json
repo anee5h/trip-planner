@@ -1,5 +1,6 @@
 {
   "id": "ishigaki-city",
+  "transportZoneId": "ishigaki",
   "name": "Ishigaki City",
   "kind": "city",
   "role": "hub",

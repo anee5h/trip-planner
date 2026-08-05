@@ -1,10 +1,13 @@
 import type { TransportMode } from "../services/transport/types";
 
 /**
- * Transport topology zone identifiers.
- * Mainland zones are the four main islands of Japan (honshu, kyushu, shikoku,
- * hokkaido); the rest are islands reachable only via explicit edges.
- * "unknown" is the conservative fallback for origins that cannot be resolved.
+ * Transport zone identifiers.
+ *
+ * Mainland zones (honshu/kyushu/shikoku/hokkaido) are derived from
+ * prefecture metadata. Island zones are assigned explicitly on destination
+ * records or resolved from non-overlapping island bounding boxes for
+ * origins. "unknown" is the conservative fallback: it never authorizes a
+ * mode.
  */
 export type TransportZoneId =
   | "mainland-honshu"
@@ -30,9 +33,15 @@ export interface TransportZone {
   nameJa: string;
   isIsland: boolean;
   isRemote: boolean;
+  /** Local modes available within the zone (rail/road/bus only). */
   localModes: TransportMode[];
 }
 
+/**
+ * Explicit rail/road/bus connectivity between zones. Flight connectivity is
+ * proven by the flight-route registry and ferry connectivity by the ferry
+ * route registry; they are never modelled as zone edges.
+ */
 export interface TransportEdge {
   from: TransportZoneId;
   to: TransportZoneId;
@@ -50,21 +59,4 @@ export interface EligibleOriginModesResult {
   destinationZoneId: TransportZoneId;
   crossZoneModes: TransportMode[];
   localModes: TransportMode[];
-}
-
-export interface JourneyEstimate {
-  primaryMode: TransportMode | null;
-  legs: JourneyLeg[];
-  totalTimeRange: [number, number] | null;
-  totalCostRange: [number, number] | null;
-  available: boolean;
-  unavailableReason?: string;
-}
-
-export interface JourneyLeg {
-  mode: TransportMode;
-  legType: "origin-access" | "cross-zone" | "local-access";
-  label: string;
-  timeRange?: [number, number];
-  costRange?: [number, number];
 }

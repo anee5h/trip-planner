@@ -1,5 +1,6 @@
 {
   "id": "naha-city",
+  "transportZoneId": "okinawa-main",
   "name": "Naha City",
   "kind": "city",
   "role": "hub",

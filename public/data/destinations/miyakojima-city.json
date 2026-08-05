@@ -1,5 +1,6 @@
 {
   "id": "miyakojima-city",
+  "transportZoneId": "miyako",
   "name": "Miyakojima City",
   "kind": "city",
   "role": "hub",

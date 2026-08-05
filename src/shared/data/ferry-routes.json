@@ -1,0 +1,76 @@
+{
+  "routes": [
+    {
+      "from": "mainland-honshu",
+      "to": "ogasawara",
+      "operator": "Ogasawara Kisen",
+      "ports": ["Takeshiba (Tokyo)", "Chichijima"]
+    },
+    {
+      "from": "mainland-honshu",
+      "to": "sado",
+      "operator": "Sado Kisen",
+      "ports": ["Niigata", "Ryotsu / Ogi"]
+    },
+    {
+      "from": "mainland-honshu",
+      "to": "hokkaido",
+      "operator": "Tsugaru Kaikyo Ferry",
+      "ports": ["Aomori", "Hakodate"]
+    },
+    {
+      "from": "mainland-honshu",
+      "to": "tomogashima",
+      "operator": "Tomogashima Ferry",
+      "ports": ["Wakayama", "Tomogashima"]
+    },
+    {
+      "from": "mainland-kyushu",
+      "to": "yakushima",
+      "operator": "Yakushima Ferry",
+      "ports": ["Kagoshima", "Miyanoura"]
+    },
+    {
+      "from": "mainland-kyushu",
+      "to": "amami",
+      "operator": "A-Line Ferry",
+      "ports": ["Kagoshima", "Naze (Amami Oshima)"]
+    },
+    {
+      "from": "mainland-kyushu",
+      "to": "tsushima",
+      "operator": "Kyusyu Yusen",
+      "ports": ["Hakata", "Izuhara / Hitakatsu"]
+    },
+    {
+      "from": "mainland-kyushu",
+      "to": "okinawa-main",
+      "operator": "A-Line Ferry",
+      "ports": ["Kagoshima", "Naha"]
+    },
+    {
+      "from": "mainland-shikoku",
+      "to": "naoshima",
+      "operator": "Shikoku Kisen / Benesse",
+      "ports": ["Takamatsu / Uno", "Miyanoura"]
+    },
+    {
+      "from": "mainland-shikoku",
+      "to": "teshima",
+      "operator": "Benesse Ferry",
+      "ports": ["Uno", "Ieura / Karato"]
+    },
+    {
+      "from": "okinawa-main",
+      "to": "ishigaki",
+      "operator": "A-Line Ferry",
+      "ports": ["Naha", "Ishigaki"]
+    },
+    {
+      "from": "okinawa-main",
+      "to": "miyako",
+      "operator": "A-Line Ferry",
+      "ports": ["Naha", "Hirara (Miyako)"]
+    }
+  ]
+}

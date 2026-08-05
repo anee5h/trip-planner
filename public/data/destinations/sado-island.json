@@ -1,5 +1,6 @@
 {
   "id": "sado-island",
+  "transportZoneId": "sado",
   "name": "Sado Island",
   "region": "Chubu",
   "categories": ["Island", "History", "Nature"],

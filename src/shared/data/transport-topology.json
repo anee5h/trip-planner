@@ -6,7 +6,7 @@
       "nameJa": "本州",
       "isIsland": false,
       "isRemote": false,
-      "localModes": ["train", "shinkansen", "car", "my_car", "bus", "flight"]
+      "localModes": ["train", "shinkansen", "car", "my_car", "bus"]
     },
     {
       "id": "mainland-kyushu",
@@ -14,7 +14,7 @@
       "nameJa": "九州",
       "isIsland": true,
       "isRemote": false,
-      "localModes": ["train", "shinkansen", "car", "my_car", "bus", "flight"]
+      "localModes": ["train", "shinkansen", "car", "my_car", "bus"]
     },
     {
       "id": "mainland-shikoku",
@@ -22,7 +22,7 @@
       "nameJa": "四国",
       "isIsland": true,
       "isRemote": false,
-      "localModes": ["train", "car", "my_car", "bus", "flight"]
+      "localModes": ["train", "car", "my_car", "bus"]
     },
     {
       "id": "hokkaido",
@@ -30,7 +30,7 @@
       "nameJa": "北海道",
       "isIsland": true,
       "isRemote": false,
-      "localModes": ["train", "car", "my_car", "bus", "flight"]
+      "localModes": ["train", "car", "my_car", "bus"]
     },
     {
       "id": "okinawa-main",
@@ -131,85 +131,13 @@
     {
       "from": "mainland-honshu",
       "to": "mainland-shikoku",
-      "modes": ["car", "bus", "train"],
+      "modes": ["train", "car", "bus"],
       "bidirectional": true
     },
     {
       "from": "mainland-honshu",
       "to": "hokkaido",
-      "modes": ["train", "shinkansen", "ferry"],
-      "bidirectional": true
-    },
-    {
-      "from": "mainland-honshu",
-      "to": "okinawa-main",
-      "modes": ["flight", "ferry"],
-      "bidirectional": true
-    },
-    {
-      "from": "mainland-kyushu",
-      "to": "okinawa-main",
-      "modes": ["flight", "ferry"],
-      "bidirectional": true
-    },
-    {
-      "from": "mainland-honshu",
-      "to": "ogasawara",
-      "modes": ["ferry"],
-      "bidirectional": true
-    },
-    {
-      "from": "mainland-honshu",
-      "to": "sado",
-      "modes": ["ferry"],
-      "bidirectional": true
-    },
-    {
-      "from": "okinawa-main",
-      "to": "ishigaki",
-      "modes": ["flight"],
-      "bidirectional": true
-    },
-    {
-      "from": "okinawa-main",
-      "to": "miyako",
-      "modes": ["flight"],
-      "bidirectional": true
-    },
-    {
-      "from": "mainland-kyushu",
-      "to": "yakushima",
-      "modes": ["flight", "ferry"],
-      "bidirectional": true
-    },
-    {
-      "from": "mainland-kyushu",
-      "to": "amami",
-      "modes": ["flight", "ferry"],
-      "bidirectional": true
-    },
-    {
-      "from": "mainland-kyushu",
-      "to": "tsushima",
-      "modes": ["flight", "ferry"],
-      "bidirectional": true
-    },
-    {
-      "from": "mainland-shikoku",
-      "to": "naoshima",
-      "modes": ["ferry"],
-      "bidirectional": true
-    },
-    {
-      "from": "mainland-shikoku",
-      "to": "teshima",
-      "modes": ["ferry"],
-      "bidirectional": true
-    },
-    {
-      "from": "mainland-honshu",
-      "to": "tomogashima",
-      "modes": ["ferry"],
+      "modes": ["train", "shinkansen"],
       "bidirectional": true
     }
   ]

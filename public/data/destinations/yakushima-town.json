@@ -1,5 +1,6 @@
 {
   "id": "yakushima-town",
+  "transportZoneId": "yakushima",
   "name": "Yakushima Town",
   "kind": "town",
   "role": "hub",
