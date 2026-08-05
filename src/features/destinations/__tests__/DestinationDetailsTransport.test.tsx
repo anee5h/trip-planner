@@ -281,7 +281,7 @@ describe("DestinationDetails transport rows", () => {
     expect(text).toContain("Local access available");
   });
 
-  it("Fukuoka → Ishigaki flight row shows Cost unavailable, not a fabricated price", async () => {
+  it("Fukuoka → Ishigaki rendered UI shows Flight, Cost unavailable, transport-excluded title, and no full-trip label in English", async () => {
     storeState.homeStationCoords = { lat: 33.5902, lng: 130.4017 };
     storeState.homeStationTransportZoneId = "mainland-kyushu";
     render("/destinations/ishigaki-city");
@@ -291,8 +291,27 @@ describe("DestinationDetails transport rows", () => {
     const text = host.textContent ?? "";
     expect(text).toContain("Flight");
     expect(text).toContain("Cost unavailable");
+    expect(text).toContain("On-site budget (transport excluded)");
+    expect(text).not.toContain("Couple Budget");
+    expect(text).not.toContain("Solo Budget");
+    expect(text).not.toContain("Group Budget");
   });
 
+  it("Fukuoka → Ishigaki rendered UI shows transport-excluded title and 料金不明 in Japanese", async () => {
+    storeState.homeStationCoords = { lat: 33.5902, lng: 130.4017 };
+    storeState.homeStationTransportZoneId = "mainland-kyushu";
+    localeState.locale = "ja";
+    render("/destinations/ishigaki-city");
+    await act(async () => {
+      await flush(80);
+    });
+    const text = host.textContent ?? "";
+    expect(text).toContain("飛行機");
+    expect(text).toContain("料金不明");
+    expect(text).toContain("現地予算（往復交通費を除く）");
+    expect(text).not.toContain("カップル予算");
+    expect(text).not.toContain("グループ予算");
+  });
   it("Aoshima from Miyazaki retains legitimate Train access", async () => {
     storeState.homeStationCoords = { lat: 31.9077, lng: 131.4202 };
     storeState.homeStationTransportZoneId = "mainland-kyushu";

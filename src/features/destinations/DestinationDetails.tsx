@@ -1397,40 +1397,54 @@ export default function DestinationDetails() {
                           <JapaneseYen className="w-5 h-5" />
                         </div>
                         <div>
-                          <h4 className="font-bold text-slate-900 dark:text-white leading-tight">
-                            {availableModes.length === 0
-                              ? copy.onsiteBudget
-                              : budgetLabel}
-                          </h4>
-                          <div className="text-emerald-600 font-extrabold text-lg">
-                            <JapaneseYen className="inline w-4 h-4" />
-                            {availableModes.length === 0
-                              ? // No authorized mode: show the breakdown
-                                // excluding transport rather than a generic
-                                // estimated transport budget.
-                                (() => {
-                                  const breakdown =
-                                    budgetService.getEffectiveBudgetBreakdown(
-                                      destination,
-                                    );
-                                  return Math.round(
-                                    ((breakdown.tickets +
-                                      breakdown.food +
-                                      breakdown.cafe) /
-                                      2) *
-                                      partySize,
-                                  ).toLocaleString();
-                                })()
-                              : budgetService
-                                  .getAdjustedBudget(
-                                    destination,
-                                    selectedTransport ?? "all",
-                                    partySize,
-                                    homeStationCoords ?? undefined,
-                                    homeStationTransportZoneId,
-                                  )
-                                  .toLocaleString()}
-                          </div>
+                          {(() => {
+                            const isSelectedTransportCostUnavailable =
+                              selectedTransport === null ||
+                              budgetService.getTransportCost(
+                                destination,
+                                selectedTransport,
+                                partySize,
+                                homeStationCoords ?? undefined,
+                              ) === null;
+                            const isTransportExcluded =
+                              availableModes.length === 0 ||
+                              isSelectedTransportCostUnavailable;
+                            return (
+                              <>
+                                <h4 className="font-bold text-slate-900 dark:text-white leading-tight">
+                                  {isTransportExcluded
+                                    ? copy.onsiteBudget
+                                    : budgetLabel}
+                                </h4>
+                                <div className="text-emerald-600 font-extrabold text-lg">
+                                  <JapaneseYen className="inline w-4 h-4" />
+                                  {isTransportExcluded
+                                    ? (() => {
+                                        const breakdown =
+                                          budgetService.getEffectiveBudgetBreakdown(
+                                            destination,
+                                          );
+                                        return Math.round(
+                                          ((breakdown.tickets +
+                                            breakdown.food +
+                                            breakdown.cafe) /
+                                            2) *
+                                            partySize,
+                                        ).toLocaleString();
+                                      })()
+                                    : budgetService
+                                        .getAdjustedBudget(
+                                          destination,
+                                          selectedTransport ?? "all",
+                                          partySize,
+                                          homeStationCoords ?? undefined,
+                                          homeStationTransportZoneId,
+                                        )
+                                        .toLocaleString()}
+                                </div>
+                              </>
+                            );
+                          })()}
                         </div>
                       </div>
 

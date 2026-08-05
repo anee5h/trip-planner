@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getValidModes } from "../RecommendationScorer";
+import { calculateScore, getValidModes } from "../RecommendationScorer";
 import { estimateTripDuration } from "../TripDurationService";
 import {
   hasFerryRoute,
@@ -14,6 +14,7 @@ import {
 import {
   calculateItemizedTripCost,
   getAdjustedBudget,
+  getEstimatedBudgetRange,
   getTransportCost,
 } from "@/shared/services/budget/BudgetService";
 import { calculateGeneratedPlanCost } from "@/shared/services/budget/GeneratedPlanCostService";
@@ -295,7 +296,34 @@ describe("flight registry expansion (PR #102)", () => {
     expect(adjustedBudget).toBe(expectedOnsiteBudget);
   });
 
-  it("existing routes with verified numeric fares return the correct flight cost", () => {
+  it("Fukuoka → Ishigaki is not scored as a zero-cost Flight and budget is transport-excluded", () => {
+    const dest = byId.get("ishigaki-city")!;
+    const budgetEst = getEstimatedBudgetRange(
+      dest,
+      "flight",
+      2,
+      "standard",
+      dest.totalTripHours,
+      FUKUOKA,
+    );
+    expect(budgetEst.transportIncluded).toBe(false);
+
+    // Score for unverified flight cost must not receive a BUDGET_UNDER_BONUS
+    const lowBudgetContext = {
+      vibe: "any",
+      budget: 100000,
+      carMode: "none",
+      publicModes: ["flight"],
+      partySize: 2,
+      visitedIds: [],
+      homeStationCoords: FUKUOKA,
+      originZoneId: "mainland-kyushu" as const,
+    };
+    const scoreResult = calculateScore(dest, lowBudgetContext);
+    expect(scoreResult.bestModeScore).toBe(0);
+  });
+
+  it("existing routes with verified numeric fares return the correct flight cost and receive normal budget scoring", () => {
     const dest = byId.get("ishigaki-city")!;
     // Tokyo -> Ishigaki (HND->ISG) has a verified fare in flight-estimates.json
     const estimate = getFlightTransportEstimate(dest, TOKYO);
@@ -310,6 +338,29 @@ describe("flight registry expansion (PR #102)", () => {
     );
     const expectedCost = Math.floor(avgOneWay * 2 * 2);
     expect(flightCost).toBe(expectedCost);
+
+    const budgetEst = getEstimatedBudgetRange(
+      dest,
+      "flight",
+      2,
+      "standard",
+      dest.totalTripHours,
+      TOKYO,
+    );
+    expect(budgetEst.transportIncluded).toBe(true);
+
+    const highBudgetContext = {
+      vibe: "any",
+      budget: 200000,
+      carMode: "none",
+      publicModes: ["flight"],
+      partySize: 2,
+      visitedIds: [],
+      homeStationCoords: TOKYO,
+      originZoneId: "mainland-honshu" as const,
+    };
+    const scoreResult = calculateScore(dest, highBudgetContext);
+    expect(scoreResult.bestModeScore).toBeGreaterThan(0);
   });
 
   it("ASJ→OKA is absent (Yoron multi-stop service is not a nonstop)", () => {

@@ -74,6 +74,11 @@ export function getDiningFoodRange(
   ];
 }
 
+export interface EstimatedBudgetRangeResult {
+  range: PriceRange;
+  transportIncluded: boolean;
+}
+
 export function getEstimatedBudgetRange(
   dest: Destination,
   mode: string,
@@ -81,10 +86,12 @@ export function getEstimatedBudgetRange(
   budgetTier: BudgetTier = "standard",
   totalTripHours: number = dest.totalTripHours,
   homeCoords?: { lat: number; lng: number },
-): PriceRange {
+): EstimatedBudgetRangeResult {
   const breakdown = getEffectiveBudgetBreakdown(dest);
   const scale = partySize / 2;
-  const transport = getTransportCost(dest, mode, partySize, homeCoords) ?? 0;
+  const rawTransport = getTransportCost(dest, mode, partySize, homeCoords);
+  const transportIncluded = rawTransport !== null;
+  const transport = rawTransport ?? 0;
   const food = getDiningFoodRange(budgetTier, totalTripHours, partySize);
   const transfers: Record<BudgetTier, PriceRange> = {
     economy: [0, 600],
@@ -95,10 +102,13 @@ export function getEstimatedBudgetRange(
   const transfer = transfers[budgetTier];
   const tickets = breakdown.tickets * scale;
   const cafe = breakdown.cafe * scale;
-  return [
-    Math.round((transport + tickets + food[0] + cafe + transfer[0]) * 1.05),
-    Math.round((transport + tickets + food[1] + cafe + transfer[1]) * 1.05),
-  ];
+  return {
+    range: [
+      Math.round((transport + tickets + food[0] + cafe + transfer[0]) * 1.05),
+      Math.round((transport + tickets + food[1] + cafe + transfer[1]) * 1.05),
+    ],
+    transportIncluded,
+  };
 }
 
 export const TRANSPORT_PRICING_CONFIG = {

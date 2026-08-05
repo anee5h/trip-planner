@@ -159,7 +159,7 @@ export function runRecommendationPipeline(
             estimateTripDuration(destination, context, modes)
               ?.representativeHours,
             context.homeStationCoords || undefined,
-          )[1],
+          ).range[1],
       ),
     );
     return context.budgetTier === "luxury" || lowestCost <= context.budget;
@@ -191,7 +191,7 @@ export function runRecommendationPipeline(
       context.budgetTier,
       durationEstimate?.representativeHours,
       context.homeStationCoords || undefined,
-    );
+    ).range;
     return {
       ...candidate,
       score: scoreResult.score,
