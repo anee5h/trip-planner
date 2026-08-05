@@ -99,6 +99,7 @@ import {
   Building2,
 } from "lucide-react";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
+import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
 import { useLocale } from "@/shared/context/LocaleContext";
 import {
@@ -255,6 +256,8 @@ export default function DestinationDetails() {
     partySize?: number;
     tripType?: string;
     budget?: number;
+    /** Planned travel date (ISO) forwarded from the planner. */
+    travelDate?: string;
   } | null;
 
   const { user } = useAuth();
@@ -428,6 +431,25 @@ export default function DestinationDetails() {
     );
   }, [destination, homeStationCoords]);
 
+  /**
+   * Planned travel date from the planner (via link state). Ferry availability
+   * is evaluated against this — never the system clock.
+   */
+  const ferryTemporal = useMemo(() => {
+    const travelDate = navState?.travelDate;
+    if (!travelDate) return undefined;
+    return { travelDate: new Date(`${travelDate}T12:00:00`) };
+  }, [navState]);
+
+  const ferryEstimate = useMemo(() => {
+    if (!destination) return null;
+    return getFerryTransportEstimate(
+      destination,
+      homeStationCoords || undefined,
+      ferryTemporal,
+    );
+  }, [destination, homeStationCoords, ferryTemporal]);
+
   const parentDestination = useMemo(() => {
     if (!destination) return null;
     const parent =
@@ -540,8 +562,17 @@ export default function DestinationDetails() {
   /** Ferry connectivity is route-known but not estimable. */
   const ferryRouteKnown = useMemo(() => {
     if (!originZoneIdForDisplay || !destinationZoneIdForDisplay) return false;
+    if (!destination) return false;
+    // Only show the "route known but not estimable" message when there IS
+    // connectivity but the estimator could not produce an estimate.
+    if (ferryEstimate) return false;
     return hasFerryRoute(originZoneIdForDisplay, destinationZoneIdForDisplay);
-  }, [originZoneIdForDisplay, destinationZoneIdForDisplay]);
+  }, [
+    originZoneIdForDisplay,
+    destinationZoneIdForDisplay,
+    destination,
+    ferryEstimate,
+  ]);
 
   const eligibleModes = useMemo(() => {
     if (!destination || !originZoneIdForDisplay || !destinationZoneIdForDisplay)
@@ -562,12 +593,14 @@ export default function DestinationDetails() {
         : result.crossZoneModes;
     const authorized = [...modes];
     if (flightEstimate) authorized.push("flight");
+    if (ferryEstimate) authorized.push("ferry");
     return authorized;
   }, [
     destination,
     originZoneIdForDisplay,
     destinationZoneIdForDisplay,
     flightEstimate,
+    ferryEstimate,
   ]);
 
   const activeModes = useMemo(() => {
@@ -583,6 +616,7 @@ export default function DestinationDetails() {
         homeStationCoords || undefined,
         undefined,
         homeStationTransportZoneId,
+        ferryTemporal,
       );
     }
     const userPrefs = user?.user_metadata?.preferences;
@@ -597,6 +631,7 @@ export default function DestinationDetails() {
         homeStationCoords || undefined,
         undefined,
         homeStationTransportZoneId,
+        ferryTemporal,
       );
     }
     return null;
@@ -606,6 +641,7 @@ export default function DestinationDetails() {
     user,
     homeStationCoords,
     homeStationTransportZoneId,
+    ferryTemporal,
   ]);
 
   const formatTravelTimeMinutes = (minutes: number | undefined): string => {
@@ -623,6 +659,9 @@ export default function DestinationDetails() {
     }
     if (mode === "flight") {
       return Boolean(flightEstimate);
+    }
+    if (mode === "ferry") {
+      return Boolean(ferryEstimate);
     }
     if (
       !destination?.transportOptions?.[
@@ -1333,7 +1372,7 @@ export default function DestinationDetails() {
                               </div>
                             </div>
                           )}
-                        {isModeVisible("ferry") && (
+                        {ferryEstimate && isModeVisible("ferry") && (
                           <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
                             <span className="text-slate-500 flex items-center">
                               <Ship className="w-4 h-4 mr-1.5 text-sky-500" />{" "}
@@ -1341,8 +1380,33 @@ export default function DestinationDetails() {
                             </span>
                             <div className="text-right">
                               <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                {formatTravelTimeMinutes(
-                                  destination.transportOptions?.ferry,
+                                {formatTransportTime(ferryEstimate.timeRange)}
+                              </div>
+                              <div className="text-xs text-slate-400">
+                                {ferryEstimate.costUnavailable ||
+                                budgetService.getTransportCost(
+                                  destination,
+                                  "ferry",
+                                  partySize,
+                                  homeStationCoords ?? undefined,
+                                  ferryTemporal,
+                                ) === null ? (
+                                  copy.costUnavailable
+                                ) : (
+                                  <>
+                                    {copy.estimated}{" "}
+                                    <JapaneseYen className="inline w-3 h-3" />
+                                    {(
+                                      (budgetService.getTransportCost(
+                                        destination,
+                                        "ferry",
+                                        partySize,
+                                        homeStationCoords ?? undefined,
+                                        ferryTemporal,
+                                      ) ?? 0) / 1000
+                                    ).toFixed(1)}
+                                    k
+                                  </>
                                 )}
                               </div>
                             </div>
@@ -1405,6 +1469,7 @@ export default function DestinationDetails() {
                                 selectedTransport,
                                 partySize,
                                 homeStationCoords ?? undefined,
+                                ferryTemporal,
                               ) === null;
                             const isTransportExcluded =
                               availableModes.length === 0 ||
@@ -1439,6 +1504,7 @@ export default function DestinationDetails() {
                                           partySize,
                                           homeStationCoords ?? undefined,
                                           homeStationTransportZoneId,
+                                          ferryTemporal,
                                         )
                                         .toLocaleString()}
                                 </div>
@@ -1533,6 +1599,7 @@ export default function DestinationDetails() {
                                     selectedTransport,
                                     partySize,
                                     homeStationCoords ?? undefined,
+                                    ferryTemporal,
                                   ) === null ? (
                                     copy.costUnavailable
                                   ) : (
@@ -1544,6 +1611,7 @@ export default function DestinationDetails() {
                                           selectedTransport,
                                           partySize,
                                           homeStationCoords ?? undefined,
+                                          ferryTemporal,
                                         )
                                         ?.toLocaleString()}
                                     </>
@@ -1982,6 +2050,7 @@ export default function DestinationDetails() {
                 locale={locale}
                 partySize={partySize}
                 selectedTransport={selectedTransport}
+                ferryTemporal={ferryTemporal}
                 onPlanGenerated={setGeneratedPlan}
                 onSaveToItinerary={(plan) => {
                   if (plan) {

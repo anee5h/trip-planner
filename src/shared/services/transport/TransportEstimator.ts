@@ -1,6 +1,12 @@
 import type { Destination } from "../../types/destination";
 import { getFlightTransportEstimate } from "./FlightTransportEstimator";
-import type { Location, TransportEstimate, TransportMode } from "./types";
+import { getFerryTransportEstimate } from "./FerryTransportEstimator";
+import type {
+  FerryTemporalContext,
+  Location,
+  TransportEstimate,
+  TransportMode,
+} from "./types";
 
 export function getDistanceKm(
   lat1: number,
@@ -111,6 +117,7 @@ const DEFAULT_TOKYO_STATION: Location = {
 export function getTransportEstimates(
   destination: Destination,
   homeCoords?: { lat: number; lng: number },
+  ferryTemporal?: FerryTemporalContext,
 ): TransportEstimate[] {
   if (!destination.coordinates) {
     return [];
@@ -146,6 +153,16 @@ export function getTransportEstimates(
   );
   if (flightEstimate && flightEstimate.available) {
     results.push(flightEstimate);
+  }
+
+  // 4. Ferry estimate (if applicable)
+  const ferryEstimate = getFerryTransportEstimate(
+    destination,
+    homeLocation.coordinates,
+    ferryTemporal,
+  );
+  if (ferryEstimate && ferryEstimate.available) {
+    results.push(ferryEstimate);
   }
 
   // Sort by minimum travel time

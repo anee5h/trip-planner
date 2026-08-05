@@ -480,7 +480,7 @@ describe("getValidModes topology authorization", () => {
     expect(modes).toContain("train");
   });
 
-  it("returns no estimable modes from Tokyo → Ogasawara (ferry-only, unestimated)", () => {
+  it("returns ferry from Tokyo → Ogasawara (ferry now estimable)", () => {
     const modes = getValidModes(
       ogasawaraDest,
       "none",
@@ -489,7 +489,7 @@ describe("getValidModes topology authorization", () => {
       undefined,
       "mainland-honshu",
     );
-    expect(modes).toEqual([]);
+    expect(modes).toEqual(["ferry"]);
   });
 
   it("unknown origin conservatively returns no modes", () => {

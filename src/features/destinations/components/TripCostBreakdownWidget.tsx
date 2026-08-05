@@ -27,6 +27,7 @@ import { formatPlaceName } from "@/shared/utils/placeLabels";
 import { Link, useLocation } from "react-router-dom";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
 import type { GeneratedPlanCostResult } from "@/shared/services/budget/GeneratedPlanCostService";
+import type { FerryTemporalContext } from "@/shared/services/transport/types";
 
 export interface TripCostBreakdownWidgetProps {
   destination: Destination;
@@ -34,6 +35,8 @@ export interface TripCostBreakdownWidgetProps {
   partySize?: number;
   /** null = no estimable origin route; the total must not claim origin transport. */
   activeTransportMode?: string | null;
+  /** Planned travel date for ferry availability. */
+  ferryTemporal?: FerryTemporalContext;
   defaultExpanded?: boolean;
   hasGeneratedPlan?: boolean;
   planCostBreakdown?: GeneratedPlanCostResult;
@@ -44,6 +47,7 @@ export function TripCostBreakdownWidget({
   locale,
   partySize = 2,
   activeTransportMode = null,
+  ferryTemporal,
   defaultExpanded = false,
   hasGeneratedPlan = false,
   planCostBreakdown,
@@ -76,8 +80,15 @@ export function TripCostBreakdownWidget({
     return calculateItemizedTripCost(destination, {
       activeMode: activeTransportMode,
       partySize,
+      ferryTemporal,
     });
-  }, [destination, activeTransportMode, partySize, planCostBreakdown]);
+  }, [
+    destination,
+    activeTransportMode,
+    partySize,
+    planCostBreakdown,
+    ferryTemporal,
+  ]);
 
   const displayRange = (range: [number, number]): [number, number] =>
     viewMode === "party"

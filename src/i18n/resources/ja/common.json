@@ -158,6 +158,10 @@
       "editorialReviewPending": {
         "title": "確認中",
         "description": "この目的地の評価はチームが確認中です"
+      },
+      "transportFerry": {
+        "title": "フェリー航路",
+        "description": "フェリーでアクセス可能（{{operator}}）"
       }
     }
   },

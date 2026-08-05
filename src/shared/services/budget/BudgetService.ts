@@ -1,5 +1,6 @@
 import type { Destination } from "@/shared/types/destination";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
+import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
 import {
   getEligibleOriginModes,
   resolveDestinationTransportZone,
@@ -7,6 +8,7 @@ import {
 } from "@/shared/services/transport/TransportTopologyService";
 import type { BudgetTier, PriceRange } from "@/shared/types/planner";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
+import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import { MEAL_PRICE_RANGES } from "@/shared/types/planner";
 
 function formatSingleJPYValue(val: number, locale: "en" | "ja" = "en"): string {
@@ -86,10 +88,17 @@ export function getEstimatedBudgetRange(
   budgetTier: BudgetTier = "standard",
   totalTripHours: number = dest.totalTripHours,
   homeCoords?: { lat: number; lng: number },
+  ferryTemporal?: FerryTemporalContext,
 ): EstimatedBudgetRangeResult {
   const breakdown = getEffectiveBudgetBreakdown(dest);
   const scale = partySize / 2;
-  const rawTransport = getTransportCost(dest, mode, partySize, homeCoords);
+  const rawTransport = getTransportCost(
+    dest,
+    mode,
+    partySize,
+    homeCoords,
+    ferryTemporal,
+  );
   const transportIncluded = rawTransport !== null;
   const transport = rawTransport ?? 0;
   const food = getDiningFoodRange(budgetTier, totalTripHours, partySize);
@@ -163,6 +172,7 @@ export function getTransportCost(
   mode: string,
   partySize: number = 2,
   homeCoords?: { lat: number; lng: number },
+  ferryTemporal?: FerryTemporalContext,
 ): number | null {
   // 1. Explicit Route Fare Precedence (if specified in destination JSON)
   const explicitFare =
@@ -190,6 +200,21 @@ export function getTransportCost(
         (flightEst.costRange[0] + flightEst.costRange[1]) / 2,
       );
       return Math.floor(avgOneWayPerPerson * 2 * partySize);
+    }
+    return null;
+  }
+
+  if (mode === "ferry") {
+    const ferryEst = getFerryTransportEstimate(dest, homeCoords, ferryTemporal);
+    if (ferryEst && !ferryEst.costUnavailable) {
+      const avgRoundTripPerPerson = Math.round(
+        (ferryEst.costRange[0] + ferryEst.costRange[1]) / 2,
+      );
+      // One-way fares are doubled for the return trip; round-trip fares
+      // already include it and must not be doubled again.
+      const multiplier =
+        ferryEst.details?.ferryFareBasis === "round-trip" ? 1 : 2;
+      return Math.floor(avgRoundTripPerPerson * multiplier * partySize);
     }
     return null;
   }
@@ -281,6 +306,7 @@ export function getAdjustedBudget(
   partySize: number = 2,
   homeCoords?: { lat: number; lng: number },
   originZoneId?: TransportZoneId,
+  ferryTemporal?: FerryTemporalContext,
 ): number {
   let mode: string | undefined;
 
@@ -326,7 +352,7 @@ export function getAdjustedBudget(
   const transportCost =
     mode === undefined
       ? null
-      : getTransportCost(dest, mode, partySize, homeCoords);
+      : getTransportCost(dest, mode, partySize, homeCoords, ferryTemporal);
   const recBudget = dest.budgetRecommended || dest.budgetMin || 5000;
   const otherCostsCouple =
     recBudget - (dest.budgetBreakdown?.transport || 3000);
@@ -396,6 +422,7 @@ export function calculateItemizedTripCost(
     budgetTier?: BudgetTier;
     totalTripHours?: number;
     homeCoords?: { lat: number; lng: number };
+    ferryTemporal?: FerryTemporalContext;
   } = {},
 ): ItemizedCostBreakdown {
   const partySize = options.partySize ?? 2;
@@ -411,7 +438,13 @@ export function calculateItemizedTripCost(
   const rawTransport =
     mode === null
       ? 0
-      : getTransportCost(dest, mode, partySize, options.homeCoords);
+      : getTransportCost(
+          dest,
+          mode,
+          partySize,
+          options.homeCoords,
+          options.ferryTemporal,
+        );
   const transport =
     Number.isNaN(rawTransport) || !rawTransport ? 0 : rawTransport;
   const tickets = isFreeTicket ? 0 : (breakdown.tickets || 0) * partySize;

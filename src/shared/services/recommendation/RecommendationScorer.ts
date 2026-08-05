@@ -13,6 +13,8 @@ import {
 import { getEstimatedBudgetRange } from "@/shared/services/budget/BudgetService";
 import { getFixedSeason } from "@/shared/utils/season";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
+import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
+import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import { personalizationService } from "./PersonalizationService";
 
 export const SCORING_WEIGHTS = {
@@ -31,6 +33,7 @@ export const SCORING_WEIGHTS = {
   TRANSPORT_CAR_BASE: 5,
   TRANSPORT_SHINKANSEN_FLAT: 12,
   TRANSPORT_BUS_FLAT: 10,
+  TRANSPORT_FERRY_FLAT: 8,
 
   // Trip Type (Target ~+20 for strong match, -25 for mismatch)
   TRIP_TYPE_FOOD_MULTIPLIER: 5, // e.g. (10 - 5) * 5 = +25 max
@@ -83,6 +86,7 @@ export function getValidModes(
   homeCoords?: { lat: number; lng: number },
   budgetTier?: import("@/shared/types/planner").BudgetTier,
   originZoneId?: TransportZoneId,
+  ferryTemporal?: FerryTemporalContext,
 ): string[] {
   // a. Resolve origin and destination zones.
   const effectiveOriginZoneId =
@@ -102,9 +106,7 @@ export function getValidModes(
   //    - rail/road/bus: explicit topology connections (edges or same-zone
   //      local policy)
   //    - flight: verified airport route from flight-estimates.json
-  //    Ferry connectivity (ferry-routes.json) is NOT an estimable
-  //    recommendation mode until FerryTransportEstimator exists; it is
-  //    surfaced separately for display only.
+  //    - ferry: verified passenger route from ferry-estimates.json
   const topologyModes = getEligibleOriginModes({
     originZoneId: effectiveOriginZoneId,
     destinationZoneId,
@@ -117,6 +119,12 @@ export function getValidModes(
   );
   const flightEstimate = getFlightTransportEstimate(dest, homeCoords);
   if (flightEstimate) authorized.add("flight");
+  const ferryEstimate = getFerryTransportEstimate(
+    dest,
+    homeCoords,
+    ferryTemporal,
+  );
+  if (ferryEstimate) authorized.add("ferry");
 
   // c. Conservative failure: no authorized route → no modes.
   if (authorized.size === 0) return [];
@@ -124,6 +132,7 @@ export function getValidModes(
   // d. Intersect with user-selected modes and destination support.
   const supported = (mode: string): boolean => {
     if (mode === "flight") return Boolean(flightEstimate);
+    if (mode === "ferry") return Boolean(ferryEstimate);
     return (
       dest.transportOptions?.[mode as keyof typeof dest.transportOptions] !==
       undefined
@@ -157,12 +166,12 @@ export function getValidModes(
     };
     const preferredPublicModes =
       budgetTier === "economy"
-        ? choose(["train", "bus"], ["shinkansen", "flight"])
+        ? choose(["train", "bus", "ferry"], ["shinkansen", "flight"])
         : budgetTier === "standard"
-          ? choose(["train", "bus"], ["shinkansen", "flight"])
+          ? choose(["train", "bus", "ferry"], ["shinkansen", "flight"])
           : budgetTier === "comfortable"
-            ? choose(["shinkansen", "train", "bus"], ["flight"])
-            : choose(["shinkansen", "flight", "train", "bus"], []);
+            ? choose(["shinkansen", "train", "bus", "ferry"], ["flight"])
+            : choose(["shinkansen", "flight", "train", "bus", "ferry"], []);
     validModes = [...carModes, ...preferredPublicModes];
   }
 
@@ -203,6 +212,7 @@ export function calculateScore(
     context.homeStationCoords || undefined,
     context.budgetTier,
     context.originZoneId,
+    context.ferryTemporal,
   );
 
   // Budget and Transport Logic
@@ -259,6 +269,8 @@ export function calculateScore(
       modeScore += SCORING_WEIGHTS.TRANSPORT_SHINKANSEN_FLAT;
     } else if (mode === "bus") {
       modeScore += SCORING_WEIGHTS.TRANSPORT_BUS_FLAT;
+    } else if (mode === "ferry") {
+      modeScore += SCORING_WEIGHTS.TRANSPORT_FERRY_FLAT;
     }
 
     if (

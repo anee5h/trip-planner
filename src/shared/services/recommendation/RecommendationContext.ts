@@ -3,6 +3,7 @@ import type {
   PersonalizationSettings,
 } from "./PersonalizationService";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
+import type { FerryTemporalContext } from "@/shared/services/transport/types";
 
 export type TripDuration =
   "any" | "shortOuting" | "halfDay" | "fullDay" | "weekend";
@@ -60,6 +61,8 @@ export interface RecommendationContext {
   currentWeather?: { temp: number; desc: string } | null;
   homeStationCoords?: { lat: number; lng: number } | null;
   originZoneId?: TransportZoneId;
+  /** Planned trip date/season for ferry availability; never the clock. */
+  ferryTemporal?: FerryTemporalContext;
   userRatings?: Record<string, "up" | "down">;
   tripDuration?: TripDuration;
   availableTimeHours?: number;
@@ -70,6 +73,7 @@ export interface RecommendationContext {
 export interface TripDurationContext {
   homeStationCoords?: { lat: number; lng: number } | null;
   availableTimeHours?: number;
+  ferryTemporal?: FerryTemporalContext;
 }
 
 export function resolveRecommendationWeather(context: RecommendationContext) {

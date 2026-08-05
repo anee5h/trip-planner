@@ -9,6 +9,7 @@ import {
   formatJPYRange,
   getEstimatedBudgetRange,
 } from "@/shared/services/budget/BudgetService";
+import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
 import type { PriceRange } from "@/shared/types/planner";
 
 export function createRecommendationMatch(
@@ -32,6 +33,7 @@ export function createRecommendationMatch(
     context.homeStationCoords || undefined,
     context.budgetTier,
     context.originZoneId,
+    context.ferryTemporal,
   );
 
   // 1. Budget and Transport Explainability
@@ -50,6 +52,7 @@ export function createRecommendationMatch(
         context.budgetTier,
         dest.totalTripHours,
         context.homeStationCoords || undefined,
+        context.ferryTemporal,
       );
       if (budgetEst.transportIncluded) {
         estimatedBudget = budgetEst.range;
@@ -136,6 +139,23 @@ export function createRecommendationMatch(
       title: "Shinkansen Connected",
       description: `Quick shinkansen access (${dest.transportOptions?.shinkansen}m)`,
     });
+  }
+  if (bestMode === "ferry") {
+    const ferryEst = getFerryTransportEstimate(
+      dest,
+      context.homeStationCoords || undefined,
+      context.ferryTemporal,
+    );
+    if (ferryEst) {
+      const operator = ferryEst.details?.operator ?? "passenger ferry";
+      reasons.push({
+        type: "Transport",
+        code: "transportFerry",
+        params: { operator },
+        title: "Scenic Ferry Route",
+        description: `Accessible by ferry (${operator})`,
+      });
+    }
   }
 
   // 2. Trip Type Explainability

@@ -5,7 +5,13 @@ export interface TransportSelection {
   publicModes: string[];
 }
 
-export const ALL_PUBLIC_MODES = ["train", "shinkansen", "bus", "flight"];
+export const ALL_PUBLIC_MODES = [
+  "train",
+  "shinkansen",
+  "bus",
+  "flight",
+  "ferry",
+];
 
 export function resolveTransportSelection(
   preference: TransportPreference,

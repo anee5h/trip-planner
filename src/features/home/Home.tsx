@@ -55,6 +55,34 @@ export default function Home() {
     return { type: "custom", date: customDate || activeTabId } as const;
   }, [activeTabId, customDate]);
 
+  /**
+   * Planned travel date derived from the user's forecast selection. This is
+   * the only temporal input ferry availability may use — never the clock.
+   */
+  const ferryTemporal = useMemo(() => {
+    if (forecastSelection.type === "custom" && forecastSelection.date) {
+      const [year, month, day] = forecastSelection.date.split("-").map(Number);
+      if (year && month && day) {
+        return { travelDate: new Date(year, month - 1, day, 12) };
+      }
+    }
+    if (forecastSelection.type === "today") {
+      return { travelDate: new Date() };
+    }
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    return { travelDate: tomorrow };
+  }, [forecastSelection]);
+
+  const travelDateIso = useMemo(() => {
+    const date = ferryTemporal.travelDate;
+    if (!date) return undefined;
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  }, [ferryTemporal]);
+
   const {
     vibe,
     setVibe,
@@ -110,6 +138,7 @@ export default function Home() {
       tripDuration: resolvedApplied.tripDuration,
       homeStationCoords,
       homeStationTransportZoneId,
+      ferryTemporal,
       isVisited,
       rouletteConstraints: resolvedDraft,
     });
@@ -356,6 +385,7 @@ export default function Home() {
         recommendations={recommendedDestinations}
         hasUserApplied={hasUserApplied}
         appliedState={resolvedApplied}
+        travelDate={travelDateIso}
       />
 
       {/* Unexplored Nearby Rail — nearest unvisited destinations from home origin */}
