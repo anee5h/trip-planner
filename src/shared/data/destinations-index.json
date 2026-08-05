@@ -96047,164 +96047,6 @@
     "municipalityId": "Oita:hita"
   },
   {
-    "id": "cape-toi",
-    "name": "Cape Toi",
-    "nameJa": "都井岬",
-    "aliases": ["Cape Toi", "都井岬"],
-    "content": {
-      "en": {
-        "name": "Cape Toi",
-        "description": "A scenic cape at the southern tip of Miyazaki Prefecture known for its population of semi-wild Misaki horses, which have roamed freely here for over 300 years. Features a prominent white lighthouse and stunning ocean views.",
-        "highlights": [
-          "Observe the semi-wild Misaki horses grazing freely",
-          "Panoramic views of the Pacific Ocean from the cape",
-          "Visit the historic Cape Toi Lighthouse"
-        ],
-        "openingHours": "Open 24 hours. Lighthouse open 09:00 - 16:30."
-      },
-      "ja": {
-        "name": "都井岬",
-        "description": "宮崎県最南端に位置する景勝地。約300年前から野生馬（御崎馬）が生息していることで知られています。白亜の灯台や太平洋の絶景が楽しめます。",
-        "highlights": [
-          "野生の御崎馬が草を食む姿を観察",
-          "太平洋を見渡す絶景パノラマ",
-          "歴史ある都井岬灯台の見学"
-        ],
-        "openingHours": "24時間開放。灯台は09:00〜16:30。"
-      }
-    },
-    "prefecture": "Miyazaki",
-    "region": "Kyushu",
-    "kind": "natural",
-    "role": "poi",
-    "placeType": "destination",
-    "relationships": {
-      "parentDestinationId": "nichinan-city"
-    },
-    "officialWebsiteRequirement": "optional",
-    "categories": ["Nature", "Outdoor"],
-    "tags": ["Cape", "Wild Horses", "Lighthouse", "Nichinan City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/44/Toimisaki_Lighthouse_%288727895451%29.jpg",
-    "imageMetadata": {
-      "source": "Wikimedia Commons",
-      "license": "CC BY 2.0",
-      "attribution": "hiroaki",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toimisaki_Lighthouse_(8727895451).jpg"
-    },
-    "coordinates": {
-      "lat": 31.3667,
-      "lng": 131.3333
-    },
-    "description": "A scenic cape at the southern tip of Miyazaki Prefecture known for its population of semi-wild Misaki horses, which have roamed freely here for over 300 years. Features a prominent white lighthouse and stunning ocean views.",
-    "highlights": [
-      "Observe the semi-wild Misaki horses grazing freely",
-      "Panoramic views of the Pacific Ocean from the cape",
-      "Visit the historic Cape Toi Lighthouse"
-    ],
-    "openingHours": "Open 24 hours. Lighthouse open 09:00 - 16:30.",
-    "openingHoursJa": "24時間開放。灯台は09:00〜16:30。",
-    "openingHoursMetadata": {
-      "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://kushima-city.jp/toi/"
-    },
-    "budgetMin": 500,
-    "budgetRecommended": 1000,
-    "budgetMax": 2000,
-    "budgetBreakdown": {
-      "transport": 150,
-      "tickets": 0,
-      "food": 225,
-      "cafe": 50
-    },
-    "transportOptions": {
-      "bus": 400
-    },
-    "totalTripHours": 3,
-    "recommendedVisitHours": {
-      "min": 1,
-      "max": 2
-    },
-    "walkingMin": 2000,
-    "walkingIntensity": "low",
-    "walkingSunMin": 1500,
-    "walkingShadeMin": 500,
-    "indoorPercent": 5,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 2,
-      "walkingIntensity": 3
-    },
-    "ratings": {
-      "overall": 8,
-      "couple": 8.5,
-      "summer": 8.5,
-      "winter": 7,
-      "rain": 4,
-      "food": 5,
-      "photography": 9,
-      "relaxation": 8.5,
-      "value": 9,
-      "uniqueness": 9
-    },
-    "ratingsSchemaVersion": 2,
-    "crowd": {
-      "weekday": 2,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 8,
-      "autumn": 9,
-      "winter": 7
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "weatherDependence": "high",
-    "reservation": "None required",
-    "parking": "Paid parking available at the cape entrance",
-    "notes": "A toll fee of 400 yen per car applies at the entrance gate.",
-    "notesJa": "入り口ゲートで車1台につき400円の協力金が必要です。",
-    "schemaVersion": 2,
-    "status": "published",
-    "travelEstimate": {
-      "confidence": "medium"
-    },
-    "collections": [],
-    "addedAt": "2026-08-05",
-    "editorial": {
-      "lifecycle": "published",
-      "sources": [
-        {
-          "type": "official",
-          "url": "https://kushima-city.jp/toi/",
-          "title": "Cape Toi Official Website",
-          "accessedAt": "2026-08-05"
-        },
-        {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Cape_Toi",
-          "title": "Cape Toi",
-          "accessedAt": "2026-08-05"
-        }
-      ],
-      "checkedAt": "2026-08-05",
-      "freshness": "current",
-      "changeSummary": "Kyushu-to-100 expansion",
-      "changes": [
-        {
-          "changedAt": "2026-08-05",
-          "changedBy": "Kyushu-to-100 Editorial Batch",
-          "summary": "Added bilingual curated POI: Cape Toi",
-          "method": "assisted"
-        }
-      ],
-      "reviewedAt": "2026-08-05",
-      "reviewedBy": "Kyushu-to-100 Editorial Batch"
-    },
-    "officialWebsite": "https://kushima-city.jp/toi/",
-    "municipalityId": "Miyazaki:nichinan"
-  },
-  {
     "id": "onta-pottery-village",
     "name": "Onta Pottery Village",
     "nameJa": "小鹿田焼の里",
@@ -96519,5 +96361,161 @@
     },
     "officialWebsite": "https://oidehita.com/archives/51871",
     "municipalityId": "Oita:hita"
+  },
+  {
+    "id": "horikawa-canal-nichinan",
+    "name": "Horikawa Canal",
+    "nameJa": "堀川運河",
+    "aliases": ["Horikawa Canal", "堀川運河"],
+    "content": {
+      "en": {
+        "name": "Horikawa Canal",
+        "description": "A historic canal built in the Edo period (1686) by the Obi Domain to transport timber. Today, its stone walls, traditional arched bridge (Horikawa Bridge), and nostalgic atmosphere make it a scenic spot in the Aburatsu area of Nichinan.",
+        "highlights": [
+          "Walk across the historic arched stone Horikawa Bridge",
+          "Admire the Edo-period stone walls lining the canal",
+          "Enjoy the nostalgic atmosphere of the Aburatsu district"
+        ],
+        "openingHours": "Open 24 hours."
+      },
+      "ja": {
+        "name": "堀川運河",
+        "description": "江戸時代（1686年）に飫肥藩によって木材運搬のために開削された歴史ある運河。美しい石垣やアーチ型の堀川橋など、ノスタルジックな風景が広がる日南市油津の景勝地です。",
+        "highlights": [
+          "アーチ型の石橋「堀川橋」を渡る",
+          "江戸時代から残る運河の石垣を見学",
+          "油津地区のノスタルジックな雰囲気を楽しむ"
+        ],
+        "openingHours": "24時間開放。"
+      }
+    },
+    "prefecture": "Miyazaki",
+    "region": "Kyushu",
+    "kind": "historical",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "nichinan-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Culture & History", "Leisure"],
+    "tags": ["Canal", "Historic", "Nichinan City", "Architecture"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Horikawa_canal_horikawa_bridge.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "Sanjo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Horikawa_canal_horikawa_bridge.jpg"
+    },
+    "coordinates": {
+      "lat": 31.5791,
+      "lng": 131.4018
+    },
+    "description": "A historic canal built in the Edo period (1686) by the Obi Domain to transport timber. Today, its stone walls, traditional arched bridge (Horikawa Bridge), and nostalgic atmosphere make it a scenic spot in the Aburatsu area of Nichinan.",
+    "highlights": [
+      "Walk across the historic arched stone Horikawa Bridge",
+      "Admire the Edo-period stone walls lining the canal",
+      "Enjoy the nostalgic atmosphere of the Aburatsu district"
+    ],
+    "openingHours": "Open 24 hours.",
+    "openingHoursJa": "24時間開放。",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-05",
+      "sourceUrl": "https://www.kankou-nichinan.jp/tourisms/564/"
+    },
+    "budgetMin": 500,
+    "budgetRecommended": 500,
+    "budgetMax": 1000,
+    "budgetBreakdown": {
+      "transport": 150,
+      "tickets": 0,
+      "food": 225,
+      "cafe": 50
+    },
+    "transportOptions": {
+      "walk": 10
+    },
+    "totalTripHours": 1.5,
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.5
+    },
+    "walkingMin": 1000,
+    "walkingIntensity": "low",
+    "walkingSunMin": 1000,
+    "walkingShadeMin": 0,
+    "indoorPercent": 0,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 3,
+      "walkingIntensity": 2
+    },
+    "ratings": {
+      "overall": 7.5,
+      "couple": 8,
+      "summer": 7,
+      "winter": 7,
+      "rain": 5,
+      "food": 6,
+      "photography": 8.5,
+      "relaxation": 8,
+      "value": 9,
+      "uniqueness": 7.5
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 2,
+      "weekend": 4,
+      "holiday": 5
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "weatherDependence": "medium",
+    "reservation": "None required",
+    "parking": "Public parking available nearby in Aburatsu",
+    "notes": "Located near Aburatsu Station.",
+    "notesJa": "油津駅から徒歩圏内です。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-05",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.kankou-nichinan.jp/tourisms/564/",
+          "title": "Horikawa Canal Official Website",
+          "accessedAt": "2026-08-05"
+        },
+        {
+          "type": "wikipedia",
+          "accessedAt": "2026-08-05"
+        }
+      ],
+      "checkedAt": "2026-08-05",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-05",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Horikawa Canal",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-05",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://www.kankou-nichinan.jp/tourisms/564/",
+    "municipalityId": "Miyazaki:nichinan"
   }
 ]
