@@ -93853,5 +93853,936 @@
     },
     "officialWebsite": "https://www.sasebo99.com/en/spot/556",
     "municipalityId": "Nagasaki:sasebo"
+  },
+  {
+    "id": "ibusuki-city",
+    "name": "Ibusuki City",
+    "nameJa": "指宿市",
+    "kind": "city",
+    "role": "hub",
+    "importance": "notable",
+    "prefecture": "Kagoshima",
+    "region": "Kyushu",
+    "categories": ["Travel Hub", "City Hub"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Ibusuki_steaming_sand_bath.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Ibusuki_steaming_sand_bath.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "John Gillespie",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ibusuki_steaming_sand_bath.jpg"
+    },
+    "description": "Southern Kyushu hot-spring resort city on the Satsuma Peninsula, famous for natural sand steam baths, Lake Ikeda, Mount Kaimon, and the tidal sandbar of Chiringashima Island. Known for subtropical flora and coastal scenery.",
+    "descriptionJa": "薩摩半島に位置する南九州の温泉リゾート都市で、天然砂むし温泉、池田湖、開聞岳、知林ヶ島の砂州で知られています。亜熱帯植物と海岸景観が魅力です。",
+    "highlights": ["Explore Ibusuki City", "Local Culture & Cuisine"],
+    "highlightsJa": ["指宿市を探索", "地元の文化と料理"],
+    "totalTripHours": 6,
+    "budgetMin": 3500,
+    "budgetRecommended": 14250,
+    "budgetMax": 25000,
+    "budgetBreakdown": {
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
+    },
+    "walkingMin": 4000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 2500,
+    "indoorPercent": 50,
+    "ratings": {
+      "overall": 9.5,
+      "couple": 9.3,
+      "summer": 9,
+      "winter": 9.1,
+      "rain": 9.2,
+      "food": 9.6,
+      "photography": 9.5,
+      "relaxation": 9.2,
+      "value": 9.4,
+      "uniqueness": 9.4
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 5,
+      "weekend": 8,
+      "holiday": 9
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "tags": ["Ibusuki City", "Kagoshima Travel", "Regional Hub"],
+    "coordinates": {
+      "lat": 31.2528,
+      "lng": 130.6331
+    },
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "transportOptions": {
+      "train": 310
+    },
+    "reservation": "None required",
+    "parking": "Public parking available",
+    "notes": "Ibusuki City travel hub in Kagoshima Prefecture, famous for sand steam baths.",
+    "notesJa": "鹿児島県指宿市のトラベルハブ、砂むし温泉で有名です。",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [
+      {
+        "collectionId": "core-cities-japan",
+        "confirmed": true
+      }
+    ],
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["kagoshima-city"]
+    },
+    "walkingIntensity": "low",
+    "recommendedVisitHours": {
+      "min": 6,
+      "max": 12
+    },
+    "municipalityId": "Kagoshima:ibusuki",
+    "aliases": ["Ibusuki City", "指宿市"],
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-06",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Expansion",
+      "sources": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ibusuki,_Kagoshima",
+          "title": "Ibusuki, Kagoshima",
+          "accessedAt": "2026-08-06"
+        }
+      ]
+    },
+    "openingHours": "No fixed opening hours (city area)",
+    "openingHoursJa": "営業時間の設定なし（市内エリア）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Ibusuki,_Kagoshima"
+    },
+    "content": {
+      "en": {
+        "name": "Ibusuki City",
+        "description": "Southern Kyushu hot-spring resort city on the Satsuma Peninsula, famous for natural sand steam baths, Lake Ikeda, Mount Kaimon, and the tidal sandbar of Chiringashima Island. Known for subtropical flora and coastal scenery.",
+        "highlights": ["Explore Ibusuki City", "Local Culture & Cuisine"],
+        "openingHours": "No fixed opening hours (city area)"
+      },
+      "ja": {
+        "name": "指宿市",
+        "description": "薩摩半島に位置する南九州の温泉リゾート都市で、天然砂むし温泉、池田湖、開聞岳、知林ヶ島の砂州で知られています。亜熱帯植物と海岸景観が魅力です。",
+        "highlights": ["指宿市を探索", "地元の文化と料理"],
+        "openingHours": "営業時間の設定なし（市内エリア）"
+      }
+    }
+  },
+  {
+    "id": "sunamushi-onsen-saraku",
+    "name": "Sand Bath Hall Saraku",
+    "nameJa": "砂むし会館 砂楽",
+    "aliases": ["Sand Bath Hall Saraku", "砂むし会館 砂楽"],
+    "content": {
+      "en": {
+        "name": "Sand Bath Hall Saraku",
+        "description": "Ibusuki's iconic natural sand steam bath facility on the waterfront. Visitors lie buried in naturally heated volcanic sand while wearing a yukata, a practice said to improve circulation and relieve fatigue. The facility includes a regular hot-spring bath for rinsing off after the sand bath.",
+        "highlights": [
+          "Natural volcanic sand steam bath on the beach",
+          "Yukata provided — bury yourself in healing warm sand",
+          "Rinse off in the adjacent hot-spring bath"
+        ],
+        "openingHours": "06:00–21:00 (last admission 20:30)"
+      },
+      "ja": {
+        "name": "砂むし会館 砂楽",
+        "description": "指宿温泉を代表する天然砂むし温泉施設。海岸沿いで、浴衣を着て火山の地熱で温められた砂に埋まる砂浴が体験できます。血行促進や疲労回復に効果があるとされています。砂浴後は併設の温泉で砂を洗い流せます。",
+        "highlights": [
+          "海岸での天然砂むし温泉体験",
+          "浴衣着用で砂に埋まる癒しの温浴",
+          "砂浴後は隣接の温泉でさっぱり"
+        ],
+        "openingHours": "06:00～21:00（最終受付20:30）"
+      }
+    },
+    "prefecture": "Kagoshima",
+    "region": "Kyushu",
+    "kind": "onsen",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "ibusuki-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Onsen", "Wellness"],
+    "tags": ["Onsen", "Sand Bath", "Wellness", "Ibusuki City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Ibusuki_steaming_sand_bath.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "John Gillespie",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ibusuki_steaming_sand_bath.jpg"
+    },
+    "coordinates": {
+      "lat": 31.2358,
+      "lng": 130.6433
+    },
+    "description": "Ibusuki's iconic natural sand steam bath facility on the waterfront. Visitors lie buried in naturally heated volcanic sand while wearing a yukata, a practice said to improve circulation and relieve fatigue. The facility includes a regular hot-spring bath for rinsing off after the sand bath.",
+    "highlights": [
+      "Natural volcanic sand steam bath on the beach",
+      "Yukata provided — bury yourself in healing warm sand",
+      "Rinse off in the adjacent hot-spring bath"
+    ],
+    "openingHours": "06:00–21:00 (last admission 20:30)",
+    "openingHoursJa": "06:00～21:00（最終受付20:30）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.ibusuki.or.jp/en/spot/saraku/",
+      "closedDays": "Open daily (occasional maintenance closures — check official site)"
+    },
+    "budgetMin": 2000,
+    "budgetRecommended": 4000,
+    "budgetMax": 8000,
+    "budgetBreakdown": {
+      "transport": 600,
+      "tickets": 1100,
+      "food": 900,
+      "cafe": 200
+    },
+    "transportOptions": {
+      "train": 310,
+      "bus": 200
+    },
+    "totalTripHours": 3,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 1500,
+    "walkingIntensity": "low",
+    "walkingSunMin": 500,
+    "walkingShadeMin": 1000,
+    "indoorPercent": 60,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 9,
+      "walkingIntensity": 2
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8,
+      "winter": 9.5,
+      "rain": 9,
+      "food": 6,
+      "photography": 6.5,
+      "relaxation": 9.5,
+      "value": 8.5,
+      "uniqueness": 9.5
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 9
+    },
+    "season": {
+      "spring": 9,
+      "summer": 7,
+      "autumn": 9,
+      "winter": 10
+    },
+    "bestMonths": [10, 11, 12, 1, 2, 3],
+    "weatherDependence": "low",
+    "reservation": "Walk-in accepted; advance booking recommended for groups and peak winter season",
+    "parking": "Free parking available",
+    "notes": "The sand bath is especially soothing in winter when the warm volcanic sand contrasts with the cool air.",
+    "notesJa": "冬は冷たい空気と温かい砂のコントラストが格別です。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.ibusuki.or.jp/en/spot/saraku/",
+          "title": "Sand Bath Hall Saraku Official Website",
+          "accessedAt": "2026-08-06"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ibusuki_Onsen",
+          "title": "Ibusuki Onsen",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Sand Bath Hall Saraku",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://www.ibusuki.or.jp/en/spot/saraku/",
+    "municipalityId": "Kagoshima:ibusuki"
+  },
+  {
+    "id": "lake-ikeda",
+    "name": "Lake Ikeda",
+    "nameJa": "池田湖",
+    "aliases": ["Lake Ikeda", "池田湖"],
+    "content": {
+      "en": {
+        "name": "Lake Ikeda",
+        "description": "The largest lake on Kyushu island, a caldera lake formed by volcanic activity. Known for its deep blue waters, the iconic view of Mount Kaimon reflected on the surface, and legends of giant eels. The lakeshore has walking paths, a visitor centre, and the Ikeda Lake Paradise amusement area.",
+        "highlights": [
+          "Kyushu's largest lake with Mount Kaimon backdrop",
+          "Legends of giant eels in the deep blue waters",
+          "Lakeshore walking paths and seasonal flowers"
+        ],
+        "openingHours": "Open access (lakeshore and paths). Visitor centre: 09:00–17:00"
+      },
+      "ja": {
+        "name": "池田湖",
+        "description": "九州最大のカルデラ湖で、火山活動によって形成されました。深い青の湖面に映る開聞岳の姿が象徴的で、巨大ウナギ伝説でも知られています。湖畔には遊歩道、ビジターセンター、池田湖パラダイスがあります。",
+        "highlights": [
+          "開聞岳を背景にした九州最大の湖",
+          "巨大ウナギ伝説が残る神秘の湖",
+          "湖畔の遊歩道と季節の花々"
+        ],
+        "openingHours": "湖畔・遊歩道：自由見学。ビジターセンター：09:00～17:00"
+      }
+    },
+    "prefecture": "Kagoshima",
+    "region": "Kyushu",
+    "kind": "natural",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "ibusuki-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Nature", "Sightseeing"],
+    "tags": ["Lake", "Nature", "Scenic", "Ibusuki City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/77/Lake_Ikeda_and_Mount_Kaimon.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Ikeda_and_Mount_Kaimon.jpg"
+    },
+    "coordinates": {
+      "lat": 31.2386,
+      "lng": 130.5708
+    },
+    "description": "The largest lake on Kyushu island, a caldera lake formed by volcanic activity. Known for its deep blue waters, the iconic view of Mount Kaimon reflected on the surface, and legends of giant eels. The lakeshore has walking paths, a visitor centre, and the Ikeda Lake Paradise amusement area.",
+    "highlights": [
+      "Kyushu's largest lake with Mount Kaimon backdrop",
+      "Legends of giant eels in the deep blue waters",
+      "Lakeshore walking paths and seasonal flowers"
+    ],
+    "openingHours": "Open access (lakeshore and paths). Visitor centre: 09:00–17:00",
+    "openingHoursJa": "湖畔・遊歩道：自由見学。ビジターセンター：09:00～17:00",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.ibusuki.or.jp/en/spot/lake-ikeda/"
+    },
+    "budgetMin": 1000,
+    "budgetRecommended": 3000,
+    "budgetMax": 6000,
+    "budgetBreakdown": {
+      "transport": 300,
+      "tickets": 0,
+      "food": 450,
+      "cafe": 100
+    },
+    "transportOptions": {
+      "bus": 250
+    },
+    "totalTripHours": 3,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 2500,
+    "walkingIntensity": "low",
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 500,
+    "indoorPercent": 10,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 5,
+      "walkingIntensity": 2
+    },
+    "ratings": {
+      "overall": 7.5,
+      "couple": 8.5,
+      "summer": 7.5,
+      "winter": 7.5,
+      "rain": 5.5,
+      "food": 6,
+      "photography": 8.5,
+      "relaxation": 8.5,
+      "value": 9,
+      "uniqueness": 7
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 2,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 8,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10],
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "notes": "The best photo of Mount Kaimon reflected in the lake is from the south shore in the morning.",
+    "notesJa": "湖面に映る開聞岳の撮影は南岸から午前中がおすすめです。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.ibusuki.or.jp/en/spot/lake-ikeda/",
+          "title": "Lake Ikeda Official Website",
+          "accessedAt": "2026-08-06"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Lake_Ikeda",
+          "title": "Lake Ikeda",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Lake Ikeda",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://www.ibusuki.or.jp/en/spot/lake-ikeda/",
+    "municipalityId": "Kagoshima:ibusuki"
+  },
+  {
+    "id": "chiringashima-island",
+    "name": "Chiringashima Island",
+    "nameJa": "知林ヶ島",
+    "aliases": ["Chiringashima Island", "知林ヶ島"],
+    "content": {
+      "en": {
+        "name": "Chiringashima Island",
+        "description": "An uninhabited island connected to the Ibusuki mainland by a 800-metre sandbar that emerges only at low tide. Accessible for a few hours each day when the sandbar is exposed, offering a unique walking-on-water experience. Check local tide tables before visiting; the sandbar is submerged at high tide.",
+        "highlights": [
+          "Walk the 800 m sandbar that appears only at low tide",
+          "Explore the uninhabited island's walking trails",
+          "Unique 'walking on water' photography"
+        ],
+        "openingHours": "Accessible only during low tide (check local tide tables). Approximately 3–4 hours around low tide daily."
+      },
+      "ja": {
+        "name": "知林ヶ島",
+        "description": "指宿本土と干潮時のみ現れる全長約800mの砂州で結ばれる無人島。1日に数時間だけ砂の道が現れ、海上を歩くような不思議な体験ができます。訪問前に地元の潮汐表を確認してください。満潮時は砂州が水没します。",
+        "highlights": [
+          "干潮時のみ現れる800mの砂州歩き",
+          "無人島の探検と遊歩道",
+          "海上を歩くようなユニークな写真が撮れる"
+        ],
+        "openingHours": "干潮時のみ渡島可能（現地の潮汐表を確認）。毎日干潮前後約3～4時間。"
+      }
+    },
+    "prefecture": "Kagoshima",
+    "region": "Kyushu",
+    "kind": "natural",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "ibusuki-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Nature", "Sightseeing"],
+    "tags": ["Island", "Sandbar", "Tidal", "Ibusuki City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Chiringashima_Nagasaki.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chiringashima_Nagasaki.jpg"
+    },
+    "coordinates": {
+      "lat": 31.2117,
+      "lng": 130.5933
+    },
+    "description": "An uninhabited island connected to the Ibusuki mainland by a 800-metre sandbar that emerges only at low tide. Accessible for a few hours each day when the sandbar is exposed, offering a unique walking-on-water experience. Check local tide tables before visiting; the sandbar is submerged at high tide.",
+    "highlights": [
+      "Walk the 800 m sandbar that appears only at low tide",
+      "Explore the uninhabited island's walking trails",
+      "Unique 'walking on water' photography"
+    ],
+    "openingHours": "Accessible only during low tide (check local tide tables). Approximately 3–4 hours around low tide daily.",
+    "openingHoursJa": "干潮時のみ渡島可能（現地の潮汐表を確認）。毎日干潮前後約3～4時間。",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.ibusuki.or.jp/en/spot/chiringashima/",
+      "hoursNote": "Sandbar accessible only at low tide — check Ibusuki tide tables before visiting"
+    },
+    "budgetMin": 1000,
+    "budgetRecommended": 3000,
+    "budgetMax": 5000,
+    "budgetBreakdown": {
+      "transport": 300,
+      "tickets": 0,
+      "food": 450,
+      "cafe": 100
+    },
+    "transportOptions": {
+      "bus": 200
+    },
+    "totalTripHours": 4,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "walkingMin": 4000,
+    "walkingIntensity": "medium",
+    "walkingSunMin": 3000,
+    "walkingShadeMin": 500,
+    "indoorPercent": 5,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 3,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8,
+      "couple": 8.5,
+      "summer": 8.5,
+      "winter": 7,
+      "rain": 4,
+      "food": 4,
+      "photography": 9,
+      "relaxation": 8,
+      "value": 9,
+      "uniqueness": 9.5
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 2,
+      "weekend": 5,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 9,
+      "summer": 9,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [3, 4, 5, 6, 7, 8, 9, 10],
+    "weatherDependence": "high",
+    "reservation": "None required",
+    "parking": "Free parking at the trailhead",
+    "notes": "Access depends entirely on the tide — check Ibusuki tide tables and plan your visit around low tide.",
+    "notesJa": "渡島は完全に潮汐次第。指宿の潮汐表を確認し干潮時間に合わせて計画を。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.ibusuki.or.jp/en/spot/chiringashima/",
+          "title": "Chiringashima Island Official Website",
+          "accessedAt": "2026-08-06"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ibusuki,_Kagoshima",
+          "title": "Ibusuki, Kagoshima",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Chiringashima Island",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://www.ibusuki.or.jp/en/spot/chiringashima/",
+    "municipalityId": "Kagoshima:ibusuki"
+  },
+  {
+    "id": "cape-nagasakibana",
+    "name": "Cape Nagasakibana",
+    "nameJa": "長崎鼻",
+    "aliases": ["Cape Nagasakibana", "長崎鼻"],
+    "content": {
+      "en": {
+        "name": "Cape Nagasakibana",
+        "description": "A scenic cape at the southern tip of the Satsuma Peninsula with sweeping views across to Mount Kaimon and the open ocean. The distinctive white Ryugu Shrine lighthouse marks the point. A popular spot for sunset photography and for viewing the rugged coastline of southern Kyushu.",
+        "highlights": [
+          "Panoramic views of Mount Kaimon and the ocean",
+          "Distinctive white Ryugu Shrine lighthouse",
+          "Sunset photography over the East China Sea"
+        ],
+        "openingHours": "Open access (daylight hours recommended)"
+      },
+      "ja": {
+        "name": "長崎鼻",
+        "description": "薩摩半島南端の景勝地で、開聞岳と大海原のパノラマが広がります。白亜の竜宮神社灯台がポイントの目印。夕日の撮影スポットとして人気で、南九州の荒々しい海岸線を一望できます。",
+        "highlights": [
+          "開聞岳と大海原の大パノラマ",
+          "白亜の竜宮神社灯台",
+          "東シナ海に沈む夕日の撮影"
+        ],
+        "openingHours": "自由見学（日中推奨）"
+      }
+    },
+    "prefecture": "Kagoshima",
+    "region": "Kyushu",
+    "kind": "natural",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "ibusuki-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Nature", "Sightseeing"],
+    "tags": ["Cape", "Coastal", "Scenic", "Ibusuki City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Cape_Nagasakibana_Kagoshima.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_Nagasakibana_Kagoshima.jpg"
+    },
+    "coordinates": {
+      "lat": 31.2183,
+      "lng": 130.5731
+    },
+    "description": "A scenic cape at the southern tip of the Satsuma Peninsula with sweeping views across to Mount Kaimon and the open ocean. The distinctive white Ryugu Shrine lighthouse marks the point. A popular spot for sunset photography and for viewing the rugged coastline of southern Kyushu.",
+    "highlights": [
+      "Panoramic views of Mount Kaimon and the ocean",
+      "Distinctive white Ryugu Shrine lighthouse",
+      "Sunset photography over the East China Sea"
+    ],
+    "openingHours": "Open access (daylight hours recommended)",
+    "openingHoursJa": "自由見学（日中推奨）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.ibusuki.or.jp/en/spot/nagasakibana/"
+    },
+    "budgetMin": 1000,
+    "budgetRecommended": 3000,
+    "budgetMax": 5000,
+    "budgetBreakdown": {
+      "transport": 300,
+      "tickets": 0,
+      "food": 450,
+      "cafe": 100
+    },
+    "transportOptions": {
+      "bus": 250
+    },
+    "totalTripHours": 3,
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.5
+    },
+    "walkingMin": 2000,
+    "walkingIntensity": "low",
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 200,
+    "indoorPercent": 5,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 4,
+      "walkingIntensity": 2
+    },
+    "ratings": {
+      "overall": 8,
+      "couple": 9,
+      "summer": 7.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 5,
+      "photography": 9,
+      "relaxation": 8,
+      "value": 9,
+      "uniqueness": 7.5
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 2,
+      "weekend": 5,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10],
+    "weatherDependence": "high",
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "notes": "Arrive an hour before sunset for the best light — Mount Kaimon silhouetted against the evening sky.",
+    "notesJa": "夕日1時間前の到着がベスト — 夕空に映える開聞岳のシルエットが絶景です。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.ibusuki.or.jp/en/spot/nagasakibana/",
+          "title": "Cape Nagasakibana Official Website",
+          "accessedAt": "2026-08-06"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ibusuki,_Kagoshima",
+          "title": "Ibusuki, Kagoshima",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Cape Nagasakibana",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://www.ibusuki.or.jp/en/spot/nagasakibana/",
+    "municipalityId": "Kagoshima:ibusuki"
+  },
+  {
+    "id": "mount-kaimon",
+    "name": "Mount Kaimon",
+    "nameJa": "開聞岳",
+    "aliases": ["Mount Kaimon", "開聞岳"],
+    "content": {
+      "en": {
+        "name": "Mount Kaimon",
+        "description": "An iconic 924-metre conical stratovolcano, often called the Mount Fuji of Satsuma. A popular hiking destination with a well-maintained trail to the summit offering 360° views of the Satsuma Peninsula, Lake Ikeda, and the Pacific Ocean. The round-trip hike takes approximately 4–5 hours.",
+        "highlights": [
+          "Conical 'Satsuma Fuji' silhouette visible from miles away",
+          "360° summit panorama over the Satsuma Peninsula",
+          "Well-maintained hiking trail suitable for fit beginners"
+        ],
+        "openingHours": "Trail accessible during daylight hours; not recommended after dark or in bad weather"
+      },
+      "ja": {
+        "name": "開聞岳",
+        "description": "標高924mの美しい円錐形の成層火山で、薩摩富士とも呼ばれています。整備された登山道を登れば山頂から薩摩半島、池田湖、太平洋の360度の眺望が楽しめます。往復約4～5時間の人気ハイキングコースです。",
+        "highlights": [
+          "遠くからも見える美しい円錐形「薩摩富士」",
+          "山頂からの薩摩半島360度パノラマ",
+          "健脚者向けに整備された登山道"
+        ],
+        "openingHours": "登山道は日中のみ通行可能。日没後・悪天候時は非推奨"
+      }
+    },
+    "prefecture": "Kagoshima",
+    "region": "Kyushu",
+    "kind": "natural",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "ibusuki-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Nature", "Outdoor"],
+    "tags": ["Mountain", "Hiking", "Volcano", "Ibusuki City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/59/Mount_Kaimon_Kagoshima_Japan.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Kaimon_Kagoshima_Japan.jpg"
+    },
+    "coordinates": {
+      "lat": 31.1806,
+      "lng": 130.5283
+    },
+    "description": "An iconic 924-metre conical stratovolcano, often called the Mount Fuji of Satsuma. A popular hiking destination with a well-maintained trail to the summit offering 360° views of the Satsuma Peninsula, Lake Ikeda, and the Pacific Ocean. The round-trip hike takes approximately 4–5 hours.",
+    "highlights": [
+      "Conical 'Satsuma Fuji' silhouette visible from miles away",
+      "360° summit panorama over the Satsuma Peninsula",
+      "Well-maintained hiking trail suitable for fit beginners"
+    ],
+    "openingHours": "Trail accessible during daylight hours; not recommended after dark or in bad weather",
+    "openingHoursJa": "登山道は日中のみ通行可能。日没後・悪天候時は非推奨",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.ibusuki.or.jp/en/spot/mount-kaimon/",
+      "hoursNote": "Open hiking trail, not a managed facility — weather and daylight dependent"
+    },
+    "budgetMin": 2000,
+    "budgetRecommended": 5000,
+    "budgetMax": 10000,
+    "budgetBreakdown": {
+      "transport": 600,
+      "tickets": 0,
+      "food": 900,
+      "cafe": 200
+    },
+    "transportOptions": {
+      "bus": 300
+    },
+    "totalTripHours": 7,
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 6
+    },
+    "walkingMin": 10000,
+    "walkingIntensity": "high",
+    "walkingSunMin": 6000,
+    "walkingShadeMin": 2000,
+    "indoorPercent": 0,
+    "comfort": {
+      "heatTolerance": 5,
+      "rainFriendly": 2,
+      "walkingIntensity": 5
+    },
+    "ratings": {
+      "overall": 8.5,
+      "couple": 8,
+      "summer": 7,
+      "winter": 7,
+      "rain": 3,
+      "food": 4,
+      "photography": 9,
+      "relaxation": 7,
+      "value": 9,
+      "uniqueness": 8.5
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 2,
+      "weekend": 5,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 9,
+      "summer": 6,
+      "autumn": 9,
+      "winter": 6
+    },
+    "bestMonths": [3, 4, 5, 10, 11],
+    "weatherDependence": "high",
+    "reservation": "None required; submit a hiking plan at the trailhead box for safety",
+    "parking": "Free parking at the trailhead",
+    "notes": "The hike is weather-dependent — avoid in rain or summer heat; start early to return before dark.",
+    "notesJa": "雨天・酷暑期は避け、日没前帰還のために早朝出発が必須です。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.ibusuki.or.jp/en/spot/mount-kaimon/",
+          "title": "Mount Kaimon Official Website",
+          "accessedAt": "2026-08-06"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Mount_Kaimon",
+          "title": "Mount Kaimon",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Mount Kaimon",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://www.ibusuki.or.jp/en/spot/mount-kaimon/",
+    "municipalityId": "Kagoshima:ibusuki"
   }
 ]

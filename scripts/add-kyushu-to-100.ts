@@ -448,7 +448,7 @@ const HUB_IBUSUKI: HubInput = {
     "https://commons.wikimedia.org/wiki/File:Ibusuki_steaming_sand_bath.jpg",
   tags: ["Ibusuki City", "Kagoshima Travel", "Regional Hub"],
   transportOptions: { train: 310 },
-  nearbyIds: ["kagoshima-city", "makurazaki-city"],
+  nearbyIds: ["kagoshima-city"],
   notes:
     "Ibusuki City travel hub in Kagoshima Prefecture, famous for sand steam baths.",
   notesJa: "鹿児島県指宿市のトラベルハブ、砂むし温泉で有名です。",

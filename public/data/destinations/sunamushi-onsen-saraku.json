@@ -1,0 +1,160 @@
+{
+  "id": "sunamushi-onsen-saraku",
+  "name": "Sand Bath Hall Saraku",
+  "nameJa": "砂むし会館 砂楽",
+  "aliases": ["Sand Bath Hall Saraku", "砂むし会館 砂楽"],
+  "content": {
+    "en": {
+      "name": "Sand Bath Hall Saraku",
+      "description": "Ibusuki's iconic natural sand steam bath facility on the waterfront. Visitors lie buried in naturally heated volcanic sand while wearing a yukata, a practice said to improve circulation and relieve fatigue. The facility includes a regular hot-spring bath for rinsing off after the sand bath.",
+      "highlights": [
+        "Natural volcanic sand steam bath on the beach",
+        "Yukata provided — bury yourself in healing warm sand",
+        "Rinse off in the adjacent hot-spring bath"
+      ],
+      "openingHours": "06:00–21:00 (last admission 20:30)"
+    },
+    "ja": {
+      "name": "砂むし会館 砂楽",
+      "description": "指宿温泉を代表する天然砂むし温泉施設。海岸沿いで、浴衣を着て火山の地熱で温められた砂に埋まる砂浴が体験できます。血行促進や疲労回復に効果があるとされています。砂浴後は併設の温泉で砂を洗い流せます。",
+      "highlights": [
+        "海岸での天然砂むし温泉体験",
+        "浴衣着用で砂に埋まる癒しの温浴",
+        "砂浴後は隣接の温泉でさっぱり"
+      ],
+      "openingHours": "06:00～21:00（最終受付20:30）"
+    }
+  },
+  "prefecture": "Kagoshima",
+  "region": "Kyushu",
+  "kind": "onsen",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "ibusuki-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Onsen", "Wellness"],
+  "tags": ["Onsen", "Sand Bath", "Wellness", "Ibusuki City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Ibusuki_steaming_sand_bath.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "John Gillespie",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ibusuki_steaming_sand_bath.jpg"
+  },
+  "coordinates": {
+    "lat": 31.2358,
+    "lng": 130.6433
+  },
+  "description": "Ibusuki's iconic natural sand steam bath facility on the waterfront. Visitors lie buried in naturally heated volcanic sand while wearing a yukata, a practice said to improve circulation and relieve fatigue. The facility includes a regular hot-spring bath for rinsing off after the sand bath.",
+  "highlights": [
+    "Natural volcanic sand steam bath on the beach",
+    "Yukata provided — bury yourself in healing warm sand",
+    "Rinse off in the adjacent hot-spring bath"
+  ],
+  "openingHours": "06:00–21:00 (last admission 20:30)",
+  "openingHoursJa": "06:00～21:00（最終受付20:30）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-06",
+    "sourceUrl": "https://www.ibusuki.or.jp/en/spot/saraku/",
+    "closedDays": "Open daily (occasional maintenance closures — check official site)"
+  },
+  "budgetMin": 2000,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budgetBreakdown": {
+    "transport": 600,
+    "tickets": 1100,
+    "food": 900,
+    "cafe": 200
+  },
+  "transportOptions": {
+    "train": 310,
+    "bus": 200
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 1500,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 1000,
+  "indoorPercent": 60,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 9,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8,
+    "winter": 9.5,
+    "rain": 9,
+    "food": 6,
+    "photography": 6.5,
+    "relaxation": 9.5,
+    "value": 8.5,
+    "uniqueness": 9.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 9,
+    "winter": 10
+  },
+  "bestMonths": [10, 11, 12, 1, 2, 3],
+  "weatherDependence": "low",
+  "reservation": "Walk-in accepted; advance booking recommended for groups and peak winter season",
+  "parking": "Free parking available",
+  "notes": "The sand bath is especially soothing in winter when the warm volcanic sand contrasts with the cool air.",
+  "notesJa": "冬は冷たい空気と温かい砂のコントラストが格別です。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-06",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.ibusuki.or.jp/en/spot/saraku/",
+        "title": "Sand Bath Hall Saraku Official Website",
+        "accessedAt": "2026-08-06"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Ibusuki_Onsen",
+        "title": "Ibusuki Onsen",
+        "accessedAt": "2026-08-06"
+      }
+    ],
+    "checkedAt": "2026-08-06",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-06",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Sand Bath Hall Saraku",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-06",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://www.ibusuki.or.jp/en/spot/saraku/",
+  "municipalityId": "Kagoshima:ibusuki"
+}

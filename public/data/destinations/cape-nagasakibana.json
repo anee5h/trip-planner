@@ -1,0 +1,158 @@
+{
+  "id": "cape-nagasakibana",
+  "name": "Cape Nagasakibana",
+  "nameJa": "長崎鼻",
+  "aliases": ["Cape Nagasakibana", "長崎鼻"],
+  "content": {
+    "en": {
+      "name": "Cape Nagasakibana",
+      "description": "A scenic cape at the southern tip of the Satsuma Peninsula with sweeping views across to Mount Kaimon and the open ocean. The distinctive white Ryugu Shrine lighthouse marks the point. A popular spot for sunset photography and for viewing the rugged coastline of southern Kyushu.",
+      "highlights": [
+        "Panoramic views of Mount Kaimon and the ocean",
+        "Distinctive white Ryugu Shrine lighthouse",
+        "Sunset photography over the East China Sea"
+      ],
+      "openingHours": "Open access (daylight hours recommended)"
+    },
+    "ja": {
+      "name": "長崎鼻",
+      "description": "薩摩半島南端の景勝地で、開聞岳と大海原のパノラマが広がります。白亜の竜宮神社灯台がポイントの目印。夕日の撮影スポットとして人気で、南九州の荒々しい海岸線を一望できます。",
+      "highlights": [
+        "開聞岳と大海原の大パノラマ",
+        "白亜の竜宮神社灯台",
+        "東シナ海に沈む夕日の撮影"
+      ],
+      "openingHours": "自由見学（日中推奨）"
+    }
+  },
+  "prefecture": "Kagoshima",
+  "region": "Kyushu",
+  "kind": "natural",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "ibusuki-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Nature", "Sightseeing"],
+  "tags": ["Cape", "Coastal", "Scenic", "Ibusuki City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Cape_Nagasakibana_Kagoshima.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_Nagasakibana_Kagoshima.jpg"
+  },
+  "coordinates": {
+    "lat": 31.2183,
+    "lng": 130.5731
+  },
+  "description": "A scenic cape at the southern tip of the Satsuma Peninsula with sweeping views across to Mount Kaimon and the open ocean. The distinctive white Ryugu Shrine lighthouse marks the point. A popular spot for sunset photography and for viewing the rugged coastline of southern Kyushu.",
+  "highlights": [
+    "Panoramic views of Mount Kaimon and the ocean",
+    "Distinctive white Ryugu Shrine lighthouse",
+    "Sunset photography over the East China Sea"
+  ],
+  "openingHours": "Open access (daylight hours recommended)",
+  "openingHoursJa": "自由見学（日中推奨）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-06",
+    "sourceUrl": "https://www.ibusuki.or.jp/en/spot/nagasakibana/"
+  },
+  "budgetMin": 1000,
+  "budgetRecommended": 3000,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 300,
+    "tickets": 0,
+    "food": 450,
+    "cafe": 100
+  },
+  "transportOptions": {
+    "bus": 250
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  },
+  "walkingMin": 2000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 200,
+  "indoorPercent": 5,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 4,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 8,
+    "couple": 9,
+    "summer": 7.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 5,
+    "photography": 9,
+    "relaxation": 8,
+    "value": 9,
+    "uniqueness": 7.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 5,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10],
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Free parking available",
+  "notes": "Arrive an hour before sunset for the best light — Mount Kaimon silhouetted against the evening sky.",
+  "notesJa": "夕日1時間前の到着がベスト — 夕空に映える開聞岳のシルエットが絶景です。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-06",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.ibusuki.or.jp/en/spot/nagasakibana/",
+        "title": "Cape Nagasakibana Official Website",
+        "accessedAt": "2026-08-06"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Ibusuki,_Kagoshima",
+        "title": "Ibusuki, Kagoshima",
+        "accessedAt": "2026-08-06"
+      }
+    ],
+    "checkedAt": "2026-08-06",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-06",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Cape Nagasakibana",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-06",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://www.ibusuki.or.jp/en/spot/nagasakibana/",
+  "municipalityId": "Kagoshima:ibusuki"
+}

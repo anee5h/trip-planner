@@ -1,0 +1,159 @@
+{
+  "id": "mount-kaimon",
+  "name": "Mount Kaimon",
+  "nameJa": "開聞岳",
+  "aliases": ["Mount Kaimon", "開聞岳"],
+  "content": {
+    "en": {
+      "name": "Mount Kaimon",
+      "description": "An iconic 924-metre conical stratovolcano, often called the Mount Fuji of Satsuma. A popular hiking destination with a well-maintained trail to the summit offering 360° views of the Satsuma Peninsula, Lake Ikeda, and the Pacific Ocean. The round-trip hike takes approximately 4–5 hours.",
+      "highlights": [
+        "Conical 'Satsuma Fuji' silhouette visible from miles away",
+        "360° summit panorama over the Satsuma Peninsula",
+        "Well-maintained hiking trail suitable for fit beginners"
+      ],
+      "openingHours": "Trail accessible during daylight hours; not recommended after dark or in bad weather"
+    },
+    "ja": {
+      "name": "開聞岳",
+      "description": "標高924mの美しい円錐形の成層火山で、薩摩富士とも呼ばれています。整備された登山道を登れば山頂から薩摩半島、池田湖、太平洋の360度の眺望が楽しめます。往復約4～5時間の人気ハイキングコースです。",
+      "highlights": [
+        "遠くからも見える美しい円錐形「薩摩富士」",
+        "山頂からの薩摩半島360度パノラマ",
+        "健脚者向けに整備された登山道"
+      ],
+      "openingHours": "登山道は日中のみ通行可能。日没後・悪天候時は非推奨"
+    }
+  },
+  "prefecture": "Kagoshima",
+  "region": "Kyushu",
+  "kind": "natural",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "ibusuki-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Nature", "Outdoor"],
+  "tags": ["Mountain", "Hiking", "Volcano", "Ibusuki City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/59/Mount_Kaimon_Kagoshima_Japan.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Kaimon_Kagoshima_Japan.jpg"
+  },
+  "coordinates": {
+    "lat": 31.1806,
+    "lng": 130.5283
+  },
+  "description": "An iconic 924-metre conical stratovolcano, often called the Mount Fuji of Satsuma. A popular hiking destination with a well-maintained trail to the summit offering 360° views of the Satsuma Peninsula, Lake Ikeda, and the Pacific Ocean. The round-trip hike takes approximately 4–5 hours.",
+  "highlights": [
+    "Conical 'Satsuma Fuji' silhouette visible from miles away",
+    "360° summit panorama over the Satsuma Peninsula",
+    "Well-maintained hiking trail suitable for fit beginners"
+  ],
+  "openingHours": "Trail accessible during daylight hours; not recommended after dark or in bad weather",
+  "openingHoursJa": "登山道は日中のみ通行可能。日没後・悪天候時は非推奨",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-06",
+    "sourceUrl": "https://www.ibusuki.or.jp/en/spot/mount-kaimon/",
+    "hoursNote": "Open hiking trail, not a managed facility — weather and daylight dependent"
+  },
+  "budgetMin": 2000,
+  "budgetRecommended": 5000,
+  "budgetMax": 10000,
+  "budgetBreakdown": {
+    "transport": 600,
+    "tickets": 0,
+    "food": 900,
+    "cafe": 200
+  },
+  "transportOptions": {
+    "bus": 300
+  },
+  "totalTripHours": 7,
+  "recommendedVisitHours": {
+    "min": 4,
+    "max": 6
+  },
+  "walkingMin": 10000,
+  "walkingIntensity": "high",
+  "walkingSunMin": 6000,
+  "walkingShadeMin": 2000,
+  "indoorPercent": 0,
+  "comfort": {
+    "heatTolerance": 5,
+    "rainFriendly": 2,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 8.5,
+    "couple": 8,
+    "summer": 7,
+    "winter": 7,
+    "rain": 3,
+    "food": 4,
+    "photography": 9,
+    "relaxation": 7,
+    "value": 9,
+    "uniqueness": 8.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 5,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 6,
+    "autumn": 9,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "weatherDependence": "high",
+  "reservation": "None required; submit a hiking plan at the trailhead box for safety",
+  "parking": "Free parking at the trailhead",
+  "notes": "The hike is weather-dependent — avoid in rain or summer heat; start early to return before dark.",
+  "notesJa": "雨天・酷暑期は避け、日没前帰還のために早朝出発が必須です。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-06",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.ibusuki.or.jp/en/spot/mount-kaimon/",
+        "title": "Mount Kaimon Official Website",
+        "accessedAt": "2026-08-06"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Kaimon",
+        "title": "Mount Kaimon",
+        "accessedAt": "2026-08-06"
+      }
+    ],
+    "checkedAt": "2026-08-06",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-06",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Mount Kaimon",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-06",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://www.ibusuki.or.jp/en/spot/mount-kaimon/",
+  "municipalityId": "Kagoshima:ibusuki"
+}
