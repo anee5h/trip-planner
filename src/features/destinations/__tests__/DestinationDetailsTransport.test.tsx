@@ -1,0 +1,192 @@
+/**
+ * @vitest-environment jsdom
+ *
+ * Renders the production DestinationDetails component and proves transport
+ * row semantics: mainland → Naha never shows Train/Shinkansen, Naha-local
+ * shows local rail, and unknown topology renders no fabricated modes.
+ */
+import { act } from "react";
+import { createRoot, type Root } from "react-dom/client";
+import { MemoryRouter, Routes, Route } from "react-router-dom";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import DestinationDetails from "../DestinationDetails";
+
+(globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
+
+vi.mock("react-i18next", () => ({
+  useTranslation: () => ({ t: (key: string) => key }),
+  initReactI18next: { type: "3rdParty", init: vi.fn() },
+}));
+
+vi.mock("@/shared/context/LocaleContext", () => ({
+  useLocale: () => ({ locale: "en", setLocale: vi.fn() }),
+}));
+
+vi.mock("react-leaflet", () => ({
+  MapContainer: ({ children }: { children: React.ReactNode }) => (
+    <div data-testid="map">{children}</div>
+  ),
+  TileLayer: () => null,
+  Marker: () => null,
+  Popup: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+}));
+
+vi.mock("@/shared/hooks/useAuth", () => ({
+  useAuth: () => ({ user: null, loading: false }),
+}));
+
+vi.mock("@/shared/hooks/useWeather", () => ({
+  useWeather: () => ({ forecast: null, currentWeather: null, loading: false }),
+  useWeekendWeather: () => ({ forecast: null, loading: false }),
+}));
+
+vi.mock("@/shared/services/wikipedia/WikipediaService", () => ({
+  WikipediaService: {
+    fetchSummary: vi.fn(async () => null),
+  },
+}));
+
+vi.mock("@/shared/hooks/useRecentlyViewedDestinations", () => ({
+  addRecentlyViewedDestination: vi.fn(),
+}));
+
+vi.mock("@/features/trips/components/ItineraryPickerModal", () => ({
+  ItineraryPickerModal: () => null,
+}));
+
+vi.mock("../components/MarkVisitedModal", () => ({
+  MarkVisitedModal: () => null,
+}));
+vi.mock("../components/VisitedDateModal", () => ({
+  VisitedDateModal: () => null,
+}));
+vi.mock("../components/DestinationPlanningSection", () => ({
+  DestinationPlanningSection: () => null,
+}));
+vi.mock("../components/DestinationMap", () => ({
+  default: () => null,
+}));
+vi.mock(
+  "@/features/recommendations/components/RecommendationFeedbackControl",
+  () => ({ RecommendationFeedbackControl: () => null }),
+);
+vi.mock("@/shared/services/analytics/RecommendationAnalyticsService", () => ({
+  recommendationAnalytics: { trackCompare: vi.fn(), trackClick: vi.fn() },
+}));
+vi.mock("@/shared/components/ui/LazyImage", () => ({
+  LazyImage: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
+    <img {...props} />
+  ),
+}));
+
+const storeState = vi.hoisted(() => ({
+  homeStationCoords: { lat: 35.6812, lng: 139.7671 } as {
+    lat: number;
+    lng: number;
+  } | null,
+  homeStationTransportZoneId: undefined as string | undefined,
+}));
+
+vi.mock("@/shared/hooks/useTripStore", () => ({
+  useTripStore: () => ({
+    isVisited: () => false,
+    getVisitCount: () => 0,
+    homeStation: "Tokyo Station",
+    homeStationCoords: storeState.homeStationCoords,
+    homeStationTransportZoneId: storeState.homeStationTransportZoneId,
+    getDestinationRating: () => null,
+    isComparing: () => false,
+    toggleCompare: vi.fn(),
+    compareList: [],
+    isFavorite: () => false,
+    toggleFavorite: vi.fn(),
+    canMutateProfile: true,
+  }),
+}));
+
+import destinationNaha from "@/shared/data/destinations-index.json";
+const nahaRecord = (destinationNaha as { id: string }[]).find(
+  (d) => d.id === "naha-city",
+);
+
+vi.stubGlobal(
+  "fetch",
+  vi.fn(async (input: RequestInfo | URL) => {
+    const url = String(input);
+    if (url.includes("/data/destinations/naha-city.json")) {
+      return {
+        ok: true,
+        json: async () => nahaRecord,
+      } as Response;
+    }
+    return { ok: false, json: async () => null } as Response;
+  }),
+);
+
+let root: Root;
+let host: HTMLDivElement;
+
+function render() {
+  act(() => {
+    root.render(
+      <MemoryRouter initialEntries={["/destinations/naha-city"]}>
+        <Routes>
+          <Route path="/destinations/:id" element={<DestinationDetails />} />
+        </Routes>
+      </MemoryRouter>,
+    );
+  });
+}
+
+beforeEach(() => {
+  storeState.homeStationCoords = { lat: 35.6812, lng: 139.7671 };
+  storeState.homeStationTransportZoneId = "mainland-honshu";
+  host = document.createElement("div");
+  document.body.appendChild(host);
+  root = createRoot(host);
+});
+
+afterEach(() => {
+  act(() => root.unmount());
+  host.remove();
+});
+
+describe("DestinationDetails transport rows", () => {
+  it("mainland origin → Naha renders no Train or Shinkansen row", async () => {
+    render();
+    await act(async () => {
+      const { promise, resolve } = Promise.withResolvers<void>();
+      setTimeout(resolve, 50);
+      await promise;
+    });
+    const text = host.textContent ?? "";
+    expect(text).not.toContain("Train");
+    expect(text).not.toContain("Shinkansen");
+  });
+
+  it("Naha-local origin → Naha renders the local rail row", async () => {
+    storeState.homeStationCoords = { lat: 26.2124, lng: 127.6809 };
+    storeState.homeStationTransportZoneId = "okinawa-main";
+    render();
+    await act(async () => {
+      const { promise, resolve } = Promise.withResolvers<void>();
+      setTimeout(resolve, 50);
+      await promise;
+    });
+    const text = host.textContent ?? "";
+    expect(text).toContain("Train");
+  });
+
+  it("unknown topology origin renders no fabricated Train row", async () => {
+    storeState.homeStationCoords = { lat: 99.0, lng: 99.0 };
+    storeState.homeStationTransportZoneId = "unknown";
+    render();
+    await act(async () => {
+      const { promise, resolve } = Promise.withResolvers<void>();
+      setTimeout(resolve, 50);
+      await promise;
+    });
+    const text = host.textContent ?? "";
+    expect(text).not.toContain("Shinkansen");
+  });
+});

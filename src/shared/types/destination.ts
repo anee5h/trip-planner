@@ -197,6 +197,8 @@ export interface Destination {
     my_car?: number;
     shinkansen?: number;
     bus?: number;
+    flight?: number;
+    ferry?: number;
   };
   /**
    * Optional: Explicit route fares for exact budget overrides.

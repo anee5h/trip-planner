@@ -15,6 +15,11 @@ import CollectionBadge from "@/shared/components/ui/CollectionBadge";
 import { getCollectionById } from "@/shared/data/collections";
 import { sortCollections } from "@/shared/utils/collections";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationService";
+import {
+  getEligibleOriginModes,
+  resolveDestinationTransportZone,
+  resolveOriginTransportZone,
+} from "@/shared/services/transport/TransportTopologyService";
 import { calculateScore } from "@/shared/services/recommendation/RecommendationScorer";
 import { createRecommendationMatch } from "@/shared/services/recommendation/RecommendationExplainability";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
@@ -68,6 +73,7 @@ import {
   TrainFront,
   Bus,
   Car,
+  Ship,
   CheckCircle2,
   Share2,
   ExternalLink,
@@ -259,6 +265,7 @@ export default function DestinationDetails() {
     getVisitCount,
     homeStation,
     homeStationCoords,
+    homeStationTransportZoneId,
     getDestinationRating,
     isComparing,
     toggleCompare,
@@ -297,7 +304,10 @@ export default function DestinationDetails() {
         return;
       }
       setDestination(
-        buildRecommendationCandidate(destObj, { homeStationCoords }),
+        buildRecommendationCandidate(destObj, {
+          homeStationCoords,
+          originZoneId: homeStationTransportZoneId,
+        }),
       );
       addRecentlyViewedDestination(destObj.id);
       setDestLoading(false);
@@ -306,7 +316,7 @@ export default function DestinationDetails() {
     return () => {
       cancelled = true;
     };
-  }, [id, homeStationCoords, locale]);
+  }, [id, homeStationCoords, homeStationTransportZoneId, locale]);
 
   const [wikiSummary, setWikiSummary] = useState<WikipediaSummary | null>(null);
   const [isWikiExpanded, setIsWikiExpanded] = useState(false);
@@ -382,12 +392,20 @@ export default function DestinationDetails() {
       visitedIds: [],
       currentWeather,
       homeStationCoords: homeStationCoords || { lat: 35.6812, lng: 139.7671 },
+      originZoneId: homeStationTransportZoneId,
     };
 
     const candidate = buildRecommendationCandidate(destination, context);
     const { score } = calculateScore(candidate, context);
     return createRecommendationMatch(candidate, context, score);
-  }, [destination, navState, user, forecast, homeStationCoords]);
+  }, [
+    destination,
+    navState,
+    user,
+    forecast,
+    homeStationCoords,
+    homeStationTransportZoneId,
+  ]);
 
   const flightEstimate = useMemo(() => {
     if (!destination) return null;
@@ -487,13 +505,38 @@ export default function DestinationDetails() {
     ? nearbyHubs
     : nearbyHubs.slice(0, 3);
 
+  const eligibleModes = useMemo(() => {
+    if (!destination || !homeStationCoords) return [] as string[];
+    const destinationZoneId = resolveDestinationTransportZone(destination);
+    const originZoneId = resolveOriginTransportZone({
+      coordinates: homeStationCoords,
+    });
+    if (originZoneId === "unknown" || destinationZoneId === "unknown")
+      return [] as string[];
+    const result = getEligibleOriginModes({
+      originZoneId,
+      destinationZoneId,
+      destination,
+    });
+    return originZoneId === destinationZoneId
+      ? result.localModes
+      : result.crossZoneModes;
+  }, [destination, homeStationCoords]);
+
   const activeModes = useMemo(() => {
     if (!destination) return null;
     if (
       navState &&
       (navState.carMode !== undefined || navState.publicModes !== undefined)
     ) {
-      return getValidModes(destination, navState.carMode, navState.publicModes);
+      return getValidModes(
+        destination,
+        navState.carMode,
+        navState.publicModes,
+        homeStationCoords || undefined,
+        undefined,
+        homeStationTransportZoneId,
+      );
     }
     const userPrefs = user?.user_metadata?.preferences;
     if (
@@ -504,10 +547,19 @@ export default function DestinationDetails() {
         destination,
         userPrefs.carMode,
         userPrefs.publicModes,
+        homeStationCoords || undefined,
+        undefined,
+        homeStationTransportZoneId,
       );
     }
     return null;
-  }, [destination, navState, user]);
+  }, [
+    destination,
+    navState,
+    user,
+    homeStationCoords,
+    homeStationTransportZoneId,
+  ]);
 
   const formatTravelTimeMinutes = (minutes: number | undefined): string => {
     if (minutes === undefined || minutes <= 0) return "N/A";
@@ -518,6 +570,10 @@ export default function DestinationDetails() {
   };
 
   const isModeVisible = (mode: string) => {
+    const allowedModes = new Set(eligibleModes);
+    if (allowedModes.size > 0 && !allowedModes.has(mode as never)) {
+      return false;
+    }
     if (mode === "flight") {
       return Boolean(flightEstimate);
     }
@@ -542,17 +598,21 @@ export default function DestinationDetails() {
       ) as [string, number][];
       for (const [mode] of allEntries) {
         if (!activeModes || activeModes.includes(mode)) {
-          modes.push(mode);
+          if (eligibleModes.length === 0 || eligibleModes.includes(mode)) {
+            modes.push(mode);
+          }
         }
       }
     }
     if (flightEstimate) {
       if (!activeModes || activeModes.includes("flight")) {
-        modes.push("flight");
+        if (eligibleModes.length === 0 || eligibleModes.includes("flight")) {
+          modes.push("flight");
+        }
       }
     }
     return modes;
-  }, [destination, activeModes, flightEstimate]);
+  }, [destination, activeModes, flightEstimate, eligibleModes]);
 
   const defaultMode = useMemo(() => {
     if (!destination?.transportOptions || availableModes.length === 0)
@@ -1216,6 +1276,21 @@ export default function DestinationDetails() {
                               </div>
                             </div>
                           )}
+                        {isModeVisible("ferry") && (
+                          <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
+                            <span className="text-slate-500 flex items-center">
+                              <Ship className="w-4 h-4 mr-1.5 text-sky-500" />{" "}
+                              {locale === "ja" ? "フェリー" : "Ferry"}
+                            </span>
+                            <div className="text-right">
+                              <div className="font-semibold text-slate-700 dark:text-slate-300">
+                                {formatTravelTimeMinutes(
+                                  destination.transportOptions?.ferry,
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                        )}
                         {flightEstimate && isModeVisible("flight") && (
                           <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
                             <span className="text-slate-500 flex items-center">

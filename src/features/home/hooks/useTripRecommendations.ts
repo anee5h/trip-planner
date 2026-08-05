@@ -5,6 +5,7 @@ import { useTripStore } from "@/shared/hooks/useTripStore";
 import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
 import { normalizeWeatherDescription } from "@/shared/services/recommendation/RecommendationContext";
 import type { BudgetTier } from "@/shared/types/planner";
+import type { TransportZoneId } from "@/shared/types/transportTopology";
 
 export type RouletteExpansion = "exact" | "duration" | "budget";
 
@@ -45,6 +46,7 @@ interface UseTripRecommendationsProps {
   budgetTier: BudgetTier;
   tripDuration: TripDuration;
   homeStationCoords: { lat: number; lng: number } | null;
+  homeStationTransportZoneId?: TransportZoneId;
   isVisited: (id: string) => boolean;
   rouletteConstraints?: Pick<
     UseTripRecommendationsProps,
@@ -69,6 +71,7 @@ export function useTripRecommendations({
   budgetTier,
   tripDuration,
   homeStationCoords,
+  homeStationTransportZoneId,
   isVisited,
   rouletteConstraints,
 }: UseTripRecommendationsProps) {
@@ -100,7 +103,7 @@ export function useTripRecommendations({
       },
       visitedIds,
       homeStationCoords: homeStationCoords || { lat: 35.6812, lng: 139.7671 },
-      userRatings: destinationRatings,
+      originZoneId: homeStationTransportZoneId,
       tripDuration,
     });
   }, [
@@ -151,6 +154,7 @@ export function useTripRecommendations({
               lat: 35.6812,
               lng: 139.7671,
             },
+            originZoneId: homeStationTransportZoneId,
             userRatings: destinationRatings,
             tripDuration: duration,
           }),

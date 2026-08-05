@@ -68,7 +68,8 @@ export default function Destinations() {
   const filtersInitializedRef = useRef(false);
   const skipNextPageResetRef = useRef(false);
   const [filtersReady, setFiltersReady] = useState(false);
-  const { homeStationCoords, destinationRatings } = useTripStore();
+  const { homeStationCoords, homeStationTransportZoneId, destinationRatings } =
+    useTripStore();
   const { locale } = useLocale();
   const allDestinations = (getDestinationList("en") as Destination[]).map(
     (destination) => getLocalizedPlace(destination, locale),
@@ -273,12 +274,14 @@ export default function Destinations() {
       currentWeather: null,
       visitedIds: [],
       homeStationCoords: homeStationCoords ?? null,
+      originZoneId: homeStationTransportZoneId,
       userRatings: destinationRatings,
       tripDuration,
     };
   }, [
     user,
     homeStationCoords,
+    homeStationTransportZoneId,
     destinationRatings,
     vibe,
     weather,
@@ -327,7 +330,7 @@ export default function Destinations() {
   // Filter and sort destinations
   const filteredAndSortedDestinations = useMemo(() => {
     let result = allDestinations.map((destination) =>
-      buildRecommendationCandidate(destination, { homeStationCoords }),
+      buildRecommendationCandidate(destination, catalogContext),
     );
 
     // 0. Filter by Curated Collections (OR Semantics)
@@ -491,6 +494,7 @@ export default function Destinations() {
           publicModes,
           homeStationCoords ?? undefined,
           budgetTier,
+          homeStationTransportZoneId,
         );
         return (
           modes.length > 0 &&
@@ -550,8 +554,9 @@ export default function Destinations() {
                 a,
                 carMode,
                 publicModes,
-                undefined,
+                homeStationCoords ?? undefined,
                 budgetTier,
+                homeStationTransportZoneId,
               ).map((m) => getAdjustedBudget(a, m, partySize)),
             ) -
             Math.min(
@@ -559,8 +564,9 @@ export default function Destinations() {
                 b,
                 carMode,
                 publicModes,
-                undefined,
+                homeStationCoords ?? undefined,
                 budgetTier,
+                homeStationTransportZoneId,
               ).map((m) => getAdjustedBudget(b, m, partySize)),
             )
           );
@@ -570,8 +576,9 @@ export default function Destinations() {
               dest,
               carMode,
               publicModes,
-              undefined,
+              homeStationCoords ?? undefined,
               budgetTier,
+              homeStationTransportZoneId,
             ).map(
               (m) =>
                 (dest.transportOptions?.[
@@ -631,6 +638,7 @@ export default function Destinations() {
     tripDuration,
     walkingIntensity,
     homeStationCoords,
+    homeStationTransportZoneId,
     catalogContext,
     selectedRegions,
     selectedPrefectures,
