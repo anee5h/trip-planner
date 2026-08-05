@@ -56,7 +56,7 @@
   "openingHours": "06:00–21:00 (last admission 20:30)",
   "openingHoursJa": "06:00～21:00（最終受付20:30）",
   "openingHoursMetadata": {
-    "verifiedAt": "2026-08-06",
+    "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.ibusuki.or.jp/en/spot/saraku/",
     "closedDays": "Open daily (occasional maintenance closures — check official site)"
   },
@@ -124,7 +124,7 @@
     "confidence": "medium"
   },
   "collections": [],
-  "addedAt": "2026-08-06",
+  "addedAt": "2026-08-05",
   "editorial": {
     "lifecycle": "published",
     "sources": [
@@ -132,27 +132,27 @@
         "type": "official",
         "url": "https://www.ibusuki.or.jp/en/spot/saraku/",
         "title": "Sand Bath Hall Saraku Official Website",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Ibusuki_Onsen",
         "title": "Ibusuki Onsen",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       }
     ],
-    "checkedAt": "2026-08-06",
+    "checkedAt": "2026-08-05",
     "freshness": "current",
     "changeSummary": "Kyushu-to-100 expansion",
     "changes": [
       {
-        "changedAt": "2026-08-06",
+        "changedAt": "2026-08-05",
         "changedBy": "Kyushu-to-100 Editorial Batch",
         "summary": "Added bilingual curated POI: Sand Bath Hall Saraku",
         "method": "assisted"
       }
     ],
-    "reviewedAt": "2026-08-06",
+    "reviewedAt": "2026-08-05",
     "reviewedBy": "Kyushu-to-100 Editorial Batch"
   },
   "officialWebsite": "https://www.ibusuki.or.jp/en/spot/saraku/",

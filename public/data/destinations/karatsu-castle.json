@@ -56,7 +56,7 @@
   "openingHours": "09:00–17:00 (last admission 16:40)",
   "openingHoursJa": "09:00～17:00（最終入館16:40）",
   "openingHoursMetadata": {
-    "verifiedAt": "2026-08-06",
+    "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.karatsu-kankou.jp/en/spots/detail/1",
     "closedDays": "Open daily"
   },
@@ -124,7 +124,7 @@
     "confidence": "medium"
   },
   "collections": [],
-  "addedAt": "2026-08-06",
+  "addedAt": "2026-08-05",
   "editorial": {
     "lifecycle": "published",
     "sources": [
@@ -132,27 +132,27 @@
         "type": "official",
         "url": "https://www.karatsu-kankou.jp/en/spots/detail/1",
         "title": "Karatsu Castle Official Website",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Karatsu_Castle",
         "title": "Karatsu Castle",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       }
     ],
-    "checkedAt": "2026-08-06",
+    "checkedAt": "2026-08-05",
     "freshness": "current",
     "changeSummary": "Kyushu-to-100 expansion",
     "changes": [
       {
-        "changedAt": "2026-08-06",
+        "changedAt": "2026-08-05",
         "changedBy": "Kyushu-to-100 Editorial Batch",
         "summary": "Added bilingual curated POI: Karatsu Castle",
         "method": "assisted"
       }
     ],
-    "reviewedAt": "2026-08-06",
+    "reviewedAt": "2026-08-05",
     "reviewedBy": "Kyushu-to-100 Editorial Batch"
   },
   "officialWebsite": "https://www.karatsu-kankou.jp/en/spots/detail/1",

@@ -56,7 +56,7 @@
   "openingHours": "Accessible only during low tide (check local tide tables). Approximately 3–4 hours around low tide daily.",
   "openingHoursJa": "干潮時のみ渡島可能（現地の潮汐表を確認）。毎日干潮前後約3～4時間。",
   "openingHoursMetadata": {
-    "verifiedAt": "2026-08-06",
+    "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.ibusuki.or.jp/en/spot/chiringashima/",
     "hoursNote": "Sandbar accessible only at low tide — check Ibusuki tide tables before visiting"
   },
@@ -123,7 +123,7 @@
     "confidence": "medium"
   },
   "collections": [],
-  "addedAt": "2026-08-06",
+  "addedAt": "2026-08-05",
   "editorial": {
     "lifecycle": "published",
     "sources": [
@@ -131,27 +131,27 @@
         "type": "official",
         "url": "https://www.ibusuki.or.jp/en/spot/chiringashima/",
         "title": "Chiringashima Island Official Website",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Ibusuki,_Kagoshima",
         "title": "Ibusuki, Kagoshima",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       }
     ],
-    "checkedAt": "2026-08-06",
+    "checkedAt": "2026-08-05",
     "freshness": "current",
     "changeSummary": "Kyushu-to-100 expansion",
     "changes": [
       {
-        "changedAt": "2026-08-06",
+        "changedAt": "2026-08-05",
         "changedBy": "Kyushu-to-100 Editorial Batch",
         "summary": "Added bilingual curated POI: Chiringashima Island",
         "method": "assisted"
       }
     ],
-    "reviewedAt": "2026-08-06",
+    "reviewedAt": "2026-08-05",
     "reviewedBy": "Kyushu-to-100 Editorial Batch"
   },
   "officialWebsite": "https://www.ibusuki.or.jp/en/spot/chiringashima/",

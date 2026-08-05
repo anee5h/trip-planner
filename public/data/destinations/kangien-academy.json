@@ -56,7 +56,7 @@
   "openingHours": "09:00–17:00 (last admission 16:30). Closed Mondays.",
   "openingHoursJa": "09:00～17:00（最終入館16:30）。月曜休館。",
   "openingHoursMetadata": {
-    "verifiedAt": "2026-08-06",
+    "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.oidehita.com/en/spot/kangien/",
     "closedDays": "Mondays (or Tuesday if Monday is a public holiday)"
   },
@@ -123,7 +123,7 @@
     "confidence": "medium"
   },
   "collections": [],
-  "addedAt": "2026-08-06",
+  "addedAt": "2026-08-05",
   "editorial": {
     "lifecycle": "published",
     "sources": [
@@ -131,27 +131,27 @@
         "type": "official",
         "url": "https://www.oidehita.com/en/spot/kangien/",
         "title": "Kangien Academy Official Website",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Kangien",
         "title": "Kangien",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       }
     ],
-    "checkedAt": "2026-08-06",
+    "checkedAt": "2026-08-05",
     "freshness": "current",
     "changeSummary": "Kyushu-to-100 expansion",
     "changes": [
       {
-        "changedAt": "2026-08-06",
+        "changedAt": "2026-08-05",
         "changedBy": "Kyushu-to-100 Editorial Batch",
         "summary": "Added bilingual curated POI: Kangien Academy",
         "method": "assisted"
       }
     ],
-    "reviewedAt": "2026-08-06",
+    "reviewedAt": "2026-08-05",
     "reviewedBy": "Kyushu-to-100 Editorial Batch"
   },
   "officialWebsite": "https://www.oidehita.com/en/spot/kangien/",

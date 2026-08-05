@@ -102,36 +102,42 @@
   "editorial": {
     "lifecycle": "published",
     "freshness": "current",
-    "checkedAt": "2026-08-06",
-    "reviewedAt": "2026-08-06",
+    "checkedAt": "2026-08-05",
+    "reviewedAt": "2026-08-05",
     "reviewedBy": "Kyushu-to-100 Expansion",
     "sources": [
+      {
+        "type": "official",
+        "url": "https://www.sasebo99.com/en/",
+        "title": "Sasebo City Tourism Information",
+        "accessedAt": "2026-08-05"
+      },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Sasebo",
         "title": "Sasebo",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       }
     ]
   },
-  "openingHours": "No fixed opening hours (city area)",
-  "openingHoursJa": "営業時間の設定なし（市内エリア）",
+  "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules.",
+  "openingHoursJa": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。",
   "openingHoursMetadata": {
-    "verifiedAt": "2026-08-06",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:JRKyushi_Sasebo_Station_200110.jpg"
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.sasebo99.com/en/"
   },
   "content": {
     "en": {
       "name": "Sasebo City",
       "description": "Port city in Nagasaki Prefecture and gateway to the Kujukushima islands. Home to Huis Ten Bosch theme park, Kujukushima Pearl Sea Resort, and a historic naval port. Famous for Sasebo burgers and maritime culture.",
       "highlights": ["Explore Sasebo City", "Local Culture & Cuisine"],
-      "openingHours": "No fixed opening hours (city area)"
+      "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules."
     },
     "ja": {
       "name": "佐世保市",
       "description": "長崎県の港湾都市で、九十九島への玄関口。ハウステンボス、九十九島パールシーリゾート、歴史的な軍港で知られています。佐世保バーガーと海洋文化が有名です。",
       "highlights": ["佐世保市を探索", "地元の文化と料理"],
-      "openingHours": "営業時間の設定なし（市内エリア）"
+      "openingHours": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。"
     }
   }
 }

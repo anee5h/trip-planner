@@ -15,7 +15,7 @@
         "Life-size character statues for photo opportunities",
         "Exclusive Hita-location merchandise"
       ],
-      "openingHours": "09:00–17:00 (follows roadside station hours). Open daily."
+      "openingHours": "Weekdays 09:30–16:00; weekends and public holidays 09:30–17:00; irregular closures"
     },
     "ja": {
       "name": "進撃の巨人 in HITA ミュージアム",
@@ -25,7 +25,7 @@
         "等身大キャラクター像との写真撮影",
         "日田限定グッズの販売"
       ],
-      "openingHours": "09:00～17:00（道の駅の営業時間に準ずる）。年中無休。"
+      "openingHours": "平日09:30～16:00、土日祝09:30～17:00。不定休。"
     }
   },
   "prefecture": "Oita",
@@ -39,12 +39,12 @@
   "officialWebsiteRequirement": "optional",
   "categories": ["Museum & Art", "Leisure"],
   "tags": ["Museum", "Anime", "Attack on Titan", "Hita City"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Oyama_Dam_Attack_on_Titan_statues.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Attack_on_Titan_in_Hita_Museum.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
     "attribution": "そらみみ",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oyama_Dam_Attack_on_Titan_statues.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Attack_on_Titan_in_Hita_Museum.jpg"
   },
   "coordinates": {
     "lat": 33.3219,
@@ -56,18 +56,18 @@
     "Life-size character statues for photo opportunities",
     "Exclusive Hita-location merchandise"
   ],
-  "openingHours": "09:00–17:00 (follows roadside station hours). Open daily.",
-  "openingHoursJa": "09:00～17:00（道の駅の営業時間に準ずる）。年中無休。",
+  "openingHours": "Weekdays 09:30–16:00; weekends and public holidays 09:30–17:00; irregular closures",
+  "openingHoursJa": "平日09:30～16:00、土日祝09:30～17:00。不定休。",
   "openingHoursMetadata": {
-    "verifiedAt": "2026-08-06",
-    "sourceUrl": "https://www.oidehita.com/en/spot/aot/"
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://oidehita.com/archives/52002"
   },
   "budgetMin": 2000,
   "budgetRecommended": 5000,
   "budgetMax": 10000,
   "budgetBreakdown": {
     "transport": 600,
-    "tickets": 800,
+    "tickets": 500,
     "food": 900,
     "cafe": 200
   },
@@ -117,45 +117,45 @@
   "weatherDependence": "low",
   "reservation": "None required; busy on weekends and holidays",
   "parking": "Free roadside station parking available",
-  "notes": "The museum is inside the roadside station — the station itself is worth exploring for local snacks.",
-  "notesJa": "道の駅内に併設 — 駅自体も地元の軽食や特産品が充実していて見逃せません。",
+  "notes": "The museum is inside Roadside Station Mizubenosato Oyama — adult admission ¥500, free for under 18.",
+  "notesJa": "道の駅水辺の郷おおやま内に併設。大人500円、18歳未満無料。",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
     "confidence": "medium"
   },
   "collections": [],
-  "addedAt": "2026-08-06",
+  "addedAt": "2026-08-05",
   "editorial": {
     "lifecycle": "published",
     "sources": [
       {
         "type": "official",
-        "url": "https://www.oidehita.com/en/spot/aot/",
+        "url": "https://oidehita.com/archives/52002",
         "title": "Attack on Titan in HITA Museum Official Website",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Attack_on_Titan",
         "title": "Attack on Titan",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       }
     ],
-    "checkedAt": "2026-08-06",
+    "checkedAt": "2026-08-05",
     "freshness": "current",
     "changeSummary": "Kyushu-to-100 expansion",
     "changes": [
       {
-        "changedAt": "2026-08-06",
+        "changedAt": "2026-08-05",
         "changedBy": "Kyushu-to-100 Editorial Batch",
         "summary": "Added bilingual curated POI: Attack on Titan in HITA Museum",
         "method": "assisted"
       }
     ],
-    "reviewedAt": "2026-08-06",
+    "reviewedAt": "2026-08-05",
     "reviewedBy": "Kyushu-to-100 Editorial Batch"
   },
-  "officialWebsite": "https://www.oidehita.com/en/spot/aot/",
+  "officialWebsite": "https://oidehita.com/archives/52002",
   "municipalityId": "Oita:hita"
 }

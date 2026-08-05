@@ -56,7 +56,7 @@
   "openingHours": "Cruises depart daily 10:00–16:00 (approximately hourly). Closed during bad weather and certain base events.",
   "openingHoursJa": "毎日10:00～16:00発（約1時間毎）。荒天時・基地行事時は運休。",
   "openingHoursMetadata": {
-    "verifiedAt": "2026-08-06",
+    "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.sasebo99.com/en/spot/556",
     "hoursNote": "Cruises may be cancelled due to weather or naval base operations"
   },
@@ -123,7 +123,7 @@
     "confidence": "medium"
   },
   "collections": [],
-  "addedAt": "2026-08-06",
+  "addedAt": "2026-08-05",
   "editorial": {
     "lifecycle": "published",
     "sources": [
@@ -131,27 +131,27 @@
         "type": "official",
         "url": "https://www.sasebo99.com/en/spot/556",
         "title": "Sasebo Naval Port Cruise Official Website",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/United_States_Fleet_Activities_Sasebo",
         "title": "United States Fleet Activities Sasebo",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       }
     ],
-    "checkedAt": "2026-08-06",
+    "checkedAt": "2026-08-05",
     "freshness": "current",
     "changeSummary": "Kyushu-to-100 expansion",
     "changes": [
       {
-        "changedAt": "2026-08-06",
+        "changedAt": "2026-08-05",
         "changedBy": "Kyushu-to-100 Editorial Batch",
         "summary": "Added bilingual curated POI: Sasebo Naval Port Cruise",
         "method": "assisted"
       }
     ],
-    "reviewedAt": "2026-08-06",
+    "reviewedAt": "2026-08-05",
     "reviewedBy": "Kyushu-to-100 Editorial Batch"
   },
   "officialWebsite": "https://www.sasebo99.com/en/spot/556",

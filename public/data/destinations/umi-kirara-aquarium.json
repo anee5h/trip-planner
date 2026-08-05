@@ -36,12 +36,12 @@
   "officialWebsiteRequirement": "optional",
   "categories": ["Aquarium", "Leisure"],
   "tags": ["Aquarium", "Marine Life", "Family", "Sasebo City"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Port_of_Kujukushima_Pearl_Sea_Resort_2.JPG",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/89/Kujukushima_aquarium_Umi_Kirara.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
     "attribution": "そらみみ",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Port_of_Kujukushima_Pearl_Sea_Resort_2.JPG"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kujukushima_aquarium_Umi_Kirara.jpg"
   },
   "coordinates": {
     "lat": 33.1608,
@@ -56,7 +56,7 @@
   "openingHours": "09:00–18:00 (Mar–Oct), 09:00–17:00 (Nov–Feb)",
   "openingHoursJa": "09:00～18:00（3～10月）、09:00～17:00（11～2月）",
   "openingHoursMetadata": {
-    "verifiedAt": "2026-08-06",
+    "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.pearlsea.jp/en/aquarium/",
     "closedDays": "Open daily"
   },
@@ -123,7 +123,7 @@
     "confidence": "medium"
   },
   "collections": [],
-  "addedAt": "2026-08-06",
+  "addedAt": "2026-08-05",
   "editorial": {
     "lifecycle": "published",
     "sources": [
@@ -131,27 +131,27 @@
         "type": "official",
         "url": "https://www.pearlsea.jp/en/aquarium/",
         "title": "Umi Kirara Aquarium Official Website",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Kuj%C5%ABku_Islands",
         "title": "Kujūku Islands",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       }
     ],
-    "checkedAt": "2026-08-06",
+    "checkedAt": "2026-08-05",
     "freshness": "current",
     "changeSummary": "Kyushu-to-100 expansion",
     "changes": [
       {
-        "changedAt": "2026-08-06",
+        "changedAt": "2026-08-05",
         "changedBy": "Kyushu-to-100 Editorial Batch",
         "summary": "Added bilingual curated POI: Umi Kirara Aquarium",
         "method": "assisted"
       }
     ],
-    "reviewedAt": "2026-08-06",
+    "reviewedAt": "2026-08-05",
     "reviewedBy": "Kyushu-to-100 Editorial Batch"
   },
   "officialWebsite": "https://www.pearlsea.jp/en/aquarium/",

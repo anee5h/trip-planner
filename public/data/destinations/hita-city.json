@@ -102,36 +102,42 @@
   "editorial": {
     "lifecycle": "published",
     "freshness": "current",
-    "checkedAt": "2026-08-06",
-    "reviewedAt": "2026-08-06",
+    "checkedAt": "2026-08-05",
+    "reviewedAt": "2026-08-05",
     "reviewedBy": "Kyushu-to-100 Expansion",
     "sources": [
+      {
+        "type": "official",
+        "url": "https://www.oidehita.com/en/",
+        "title": "Hita City Tourism Information",
+        "accessedAt": "2026-08-05"
+      },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Hita,_%C5%8Cita",
         "title": "Hita, Ōita",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       }
     ]
   },
-  "openingHours": "No fixed opening hours (city area)",
-  "openingHoursJa": "営業時間の設定なし（市内エリア）",
+  "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules.",
+  "openingHoursJa": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。",
   "openingHoursMetadata": {
-    "verifiedAt": "2026-08-06",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mameda-machi,_Hita,_Oita_Prefecture.jpg"
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.oidehita.com/en/"
   },
   "content": {
     "en": {
       "name": "Hita City",
       "description": "Inland city in western Oita Prefecture known for the well-preserved Mameda historic merchant district, Kangien academy, and as a filming location for Attack on Titan. Famous for Hita geta sandals and clear-water rivers. A natural basin surrounded by mountains.",
       "highlights": ["Explore Hita City", "Local Culture & Cuisine"],
-      "openingHours": "No fixed opening hours (city area)"
+      "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules."
     },
     "ja": {
       "name": "日田市",
       "description": "大分県西部の内陸都市で、保存状態の良い豆田町の歴史的商家街、咸宜園、進撃の巨人のロケ地として知られています。日田下駄と清流が有名で、山々に囲まれた盆地の街です。",
       "highlights": ["日田市を探索", "地元の文化と料理"],
-      "openingHours": "営業時間の設定なし（市内エリア）"
+      "openingHours": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。"
     }
   }
 }

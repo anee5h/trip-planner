@@ -92109,36 +92109,42 @@
     "editorial": {
       "lifecycle": "published",
       "freshness": "current",
-      "checkedAt": "2026-08-06",
-      "reviewedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Expansion",
       "sources": [
+        {
+          "type": "official",
+          "url": "https://www.karatsu-kankou.jp/en/",
+          "title": "Karatsu City Tourism Information",
+          "accessedAt": "2026-08-05"
+        },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Karatsu,_Saga",
           "title": "Karatsu, Saga",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ]
     },
-    "openingHours": "No fixed opening hours (city area)",
-    "openingHoursJa": "営業時間の設定なし（市内エリア）",
+    "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules.",
+    "openingHoursJa": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Karatsujo.jpg"
+      "verifiedAt": "2026-08-05",
+      "sourceUrl": "https://www.karatsu-kankou.jp/en/"
     },
     "content": {
       "en": {
         "name": "Karatsu City",
         "description": "Coastal city in Saga Prefecture known for Karatsu Castle, the vibrant Yobuko morning market, the Nanatsugama sea caves, and the Nijinomatsubara pine grove. Famous for Karatsu-yaki pottery and the annual Karatsu Kunchi festival.",
         "highlights": ["Explore Karatsu City", "Local Culture & Cuisine"],
-        "openingHours": "No fixed opening hours (city area)"
+        "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules."
       },
       "ja": {
         "name": "唐津市",
         "description": "佐賀県の沿岸都市で、唐津城、活気あふれる呼子朝市、七ツ釜の海食洞、虹の松原で知られています。唐津焼と毎年開催される唐津くんちでも有名です。",
         "highlights": ["唐津市を探索", "地元の文化と料理"],
-        "openingHours": "営業時間の設定なし（市内エリア）"
+        "openingHours": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。"
       }
     }
   },
@@ -92200,7 +92206,7 @@
     "openingHours": "09:00–17:00 (last admission 16:40)",
     "openingHoursJa": "09:00～17:00（最終入館16:40）",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.karatsu-kankou.jp/en/spots/detail/1",
       "closedDays": "Open daily"
     },
@@ -92268,7 +92274,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -92276,27 +92282,27 @@
           "type": "official",
           "url": "https://www.karatsu-kankou.jp/en/spots/detail/1",
           "title": "Karatsu Castle Official Website",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Karatsu_Castle",
           "title": "Karatsu Castle",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Karatsu Castle",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": "https://www.karatsu-kankou.jp/en/spots/detail/1",
@@ -92360,7 +92366,7 @@
     "openingHours": "07:30–12:00 (daily, best from 08:00)",
     "openingHoursJa": "07:30～12:00（毎日、8時頃からが賑わいます）",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.karatsu-kankou.jp/en/spots/detail/8"
     },
     "budgetMin": 1500,
@@ -92426,7 +92432,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -92434,27 +92440,27 @@
           "type": "official",
           "url": "https://www.karatsu-kankou.jp/en/spots/detail/8",
           "title": "Yobuko Morning Market Official Website",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Yobuko",
           "title": "Yobuko",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Yobuko Morning Market",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": "https://www.karatsu-kankou.jp/en/spots/detail/8",
@@ -92518,7 +92524,7 @@
     "openingHours": "Open access (no fixed hours)",
     "openingHoursJa": "開放（時間制限なし）",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.karatsu-kankou.jp/en/spots/detail/4"
     },
     "budgetMin": 1000,
@@ -92585,7 +92591,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -92593,27 +92599,27 @@
           "type": "official",
           "url": "https://www.karatsu-kankou.jp/en/spots/detail/4",
           "title": "Nijinomatsubara Pine Grove Official Website",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Niji_no_Matsubara",
           "title": "Niji no Matsubara",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Nijinomatsubara Pine Grove",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": "https://www.karatsu-kankou.jp/en/spots/detail/4",
@@ -92677,7 +92683,7 @@
     "openingHours": "Cliff paths: open access (daylight hours recommended). Sightseeing cruise: 09:30–16:00 (hourly departures, weather permitting)",
     "openingHoursJa": "遊歩道：自由（日中推奨）。遊覧船：09:30～16:00（毎時運航、天候による）",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.karatsu-kankou.jp/en/spots/detail/9",
       "hoursNote": "Cruise departures are weather-dependent and may be cancelled in high waves"
     },
@@ -92744,7 +92750,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -92752,21 +92758,21 @@
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Nanatsugama",
           "title": "Nanatsugama",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Nanatsugama Sea Caves",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": null,
@@ -92833,7 +92839,7 @@
     "openingHours": "Castle ruins: open access (daylight hours). Museum: 09:00–17:00 (last admission 16:30, closed Mondays)",
     "openingHoursJa": "城跡：自由見学（日中推奨）。博物館：09:00～17:00（最終入館16:30、月曜休館）",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.karatsu-kankou.jp/en/spots/detail/7",
       "closedDays": "Museum closed on Mondays (or Tuesday if Monday is a public holiday)"
     },
@@ -92900,7 +92906,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -92908,21 +92914,21 @@
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Nagoya_Castle_(Hizen_Province)",
           "title": "Nagoya Castle (Hizen Province)",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Nagoya Castle Ruins & Museum",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": null,
@@ -93032,36 +93038,42 @@
     "editorial": {
       "lifecycle": "published",
       "freshness": "current",
-      "checkedAt": "2026-08-06",
-      "reviewedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Expansion",
       "sources": [
+        {
+          "type": "official",
+          "url": "https://www.sasebo99.com/en/",
+          "title": "Sasebo City Tourism Information",
+          "accessedAt": "2026-08-05"
+        },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Sasebo",
           "title": "Sasebo",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ]
     },
-    "openingHours": "No fixed opening hours (city area)",
-    "openingHoursJa": "営業時間の設定なし（市内エリア）",
+    "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules.",
+    "openingHoursJa": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:JRKyushi_Sasebo_Station_200110.jpg"
+      "verifiedAt": "2026-08-05",
+      "sourceUrl": "https://www.sasebo99.com/en/"
     },
     "content": {
       "en": {
         "name": "Sasebo City",
         "description": "Port city in Nagasaki Prefecture and gateway to the Kujukushima islands. Home to Huis Ten Bosch theme park, Kujukushima Pearl Sea Resort, and a historic naval port. Famous for Sasebo burgers and maritime culture.",
         "highlights": ["Explore Sasebo City", "Local Culture & Cuisine"],
-        "openingHours": "No fixed opening hours (city area)"
+        "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules."
       },
       "ja": {
         "name": "佐世保市",
         "description": "長崎県の港湾都市で、九十九島への玄関口。ハウステンボス、九十九島パールシーリゾート、歴史的な軍港で知られています。佐世保バーガーと海洋文化が有名です。",
         "highlights": ["佐世保市を探索", "地元の文化と料理"],
-        "openingHours": "営業時間の設定なし（市内エリア）"
+        "openingHours": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。"
       }
     }
   },
@@ -93079,7 +93091,7 @@
           "Canal cruises through Dutch-style scenery",
           "Seasonal flower gardens and windmill landscapes"
         ],
-        "openingHours": "09:00–22:00 (varies by date and season, check official site)"
+        "openingHours": "Varies by date; typically opens at 10:00. Check the official operating calendar."
       },
       "ja": {
         "name": "ハウステンボス",
@@ -93089,7 +93101,7 @@
           "運河クルーズでオランダ風景を満喫",
           "季節の花園と風車の風景"
         ],
-        "openingHours": "09:00～22:00（日付・季節により変動、公式サイトで確認）"
+        "openingHours": "日付により変動（通常10:00開園）。公式営業時間カレンダーを確認。"
       }
     },
     "prefecture": "Nagasaki",
@@ -93103,12 +93115,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Leisure", "Sightseeing"],
     "tags": ["Theme Park", "Dutch", "Illumination", "Sasebo City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Series783-R-HuisTenBosch.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/42/Huis_Ten_Bosch_Nagasaki_Japan.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "MaedaAkihiko",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Series783-R-HuisTenBosch.jpg"
+      "license": "CC BY-SA 3.0",
+      "attribution": "Kzaral",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Huis_Ten_Bosch_Nagasaki_Japan.jpg"
     },
     "coordinates": {
       "lat": 33.0856,
@@ -93120,11 +93132,11 @@
       "Canal cruises through Dutch-style scenery",
       "Seasonal flower gardens and windmill landscapes"
     ],
-    "openingHours": "09:00–22:00 (varies by date and season, check official site)",
-    "openingHoursJa": "09:00～22:00（日付・季節により変動、公式サイトで確認）",
+    "openingHours": "Varies by date; typically opens at 10:00. Check the official operating calendar.",
+    "openingHoursJa": "日付により変動（通常10:00開園）。公式営業時間カレンダーを確認。",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
-      "sourceUrl": "https://english.huistenbosch.co.jp/",
+      "verifiedAt": "2026-08-05",
+      "sourceUrl": "https://english.huistenbosch.co.jp/opentime/",
       "hoursNote": "Hours and ticket prices vary daily — always check the official calendar"
     },
     "budgetMin": 5000,
@@ -93183,15 +93195,15 @@
     "weatherDependence": "moderate",
     "reservation": "Advance online tickets recommended; group discounts available",
     "parking": "Paid parking available",
-    "notes": "Hours and ticket prices vary by date — always check the official online calendar before visiting.",
-    "notesJa": "営業時間と料金は日により変動 — 訪問前に必ず公式サイトのカレンダーを確認ください。",
+    "notes": "Opening hours and ticket prices vary daily — always check the official operating calendar.",
+    "notesJa": "営業時間と料金は日により変動 — 公式営業カレンダーを事前に確認ください。",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -93199,27 +93211,27 @@
           "type": "official",
           "url": "https://english.huistenbosch.co.jp/",
           "title": "Huis Ten Bosch Official Website",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Huis_Ten_Bosch_(theme_park)",
           "title": "Huis Ten Bosch (theme park)",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Huis Ten Bosch",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": "https://english.huistenbosch.co.jp/",
@@ -93283,7 +93295,7 @@
     "openingHours": "Resort complex: 09:00–17:00. Cruise schedules vary by season (typically 10:00–15:00 departures)",
     "openingHoursJa": "施設：09:00～17:00。遊覧船は季節により変動（通常10:00～15:00発）",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.pearlsea.jp/en/",
       "hoursNote": "Cruise operations subject to weather and sea conditions"
     },
@@ -93350,7 +93362,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -93358,27 +93370,27 @@
           "type": "official",
           "url": "https://www.pearlsea.jp/en/",
           "title": "Kujukushima Pearl Sea Resort Official Website",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Kuj%C5%ABku_Islands",
           "title": "Kujūku Islands",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Kujukushima Pearl Sea Resort",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": "https://www.pearlsea.jp/en/",
@@ -93422,12 +93434,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Aquarium", "Leisure"],
     "tags": ["Aquarium", "Marine Life", "Family", "Sasebo City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Port_of_Kujukushima_Pearl_Sea_Resort_2.JPG",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/89/Kujukushima_aquarium_Umi_Kirara.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Port_of_Kujukushima_Pearl_Sea_Resort_2.JPG"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kujukushima_aquarium_Umi_Kirara.jpg"
     },
     "coordinates": {
       "lat": 33.1608,
@@ -93442,7 +93454,7 @@
     "openingHours": "09:00–18:00 (Mar–Oct), 09:00–17:00 (Nov–Feb)",
     "openingHoursJa": "09:00～18:00（3～10月）、09:00～17:00（11～2月）",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.pearlsea.jp/en/aquarium/",
       "closedDays": "Open daily"
     },
@@ -93509,7 +93521,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -93517,27 +93529,27 @@
           "type": "official",
           "url": "https://www.pearlsea.jp/en/aquarium/",
           "title": "Umi Kirara Aquarium Official Website",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Kuj%C5%ABku_Islands",
           "title": "Kujūku Islands",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Umi Kirara Aquarium",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": "https://www.pearlsea.jp/en/aquarium/",
@@ -93601,7 +93613,7 @@
     "openingHours": "Open access (daylight hours recommended)",
     "openingHoursJa": "自由見学（日中推奨）",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.pearlsea.jp/en/observatory/"
     },
     "budgetMin": 1000,
@@ -93667,7 +93679,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -93675,21 +93687,21 @@
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Kuj%C5%ABku_Islands",
           "title": "Kujūku Islands",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Ishidake Observatory",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": null,
@@ -93753,7 +93765,7 @@
     "openingHours": "Cruises depart daily 10:00–16:00 (approximately hourly). Closed during bad weather and certain base events.",
     "openingHoursJa": "毎日10:00～16:00発（約1時間毎）。荒天時・基地行事時は運休。",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.sasebo99.com/en/spot/556",
       "hoursNote": "Cruises may be cancelled due to weather or naval base operations"
     },
@@ -93820,7 +93832,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -93828,27 +93840,27 @@
           "type": "official",
           "url": "https://www.sasebo99.com/en/spot/556",
           "title": "Sasebo Naval Port Cruise Official Website",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/United_States_Fleet_Activities_Sasebo",
           "title": "United States Fleet Activities Sasebo",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Sasebo Naval Port Cruise",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": "https://www.sasebo99.com/en/spot/556",
@@ -93958,36 +93970,42 @@
     "editorial": {
       "lifecycle": "published",
       "freshness": "current",
-      "checkedAt": "2026-08-06",
-      "reviewedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Expansion",
       "sources": [
+        {
+          "type": "official",
+          "url": "https://www.ibusuki.or.jp/en/",
+          "title": "Ibusuki City Tourism Information",
+          "accessedAt": "2026-08-05"
+        },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Ibusuki,_Kagoshima",
           "title": "Ibusuki, Kagoshima",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ]
     },
-    "openingHours": "No fixed opening hours (city area)",
-    "openingHoursJa": "営業時間の設定なし（市内エリア）",
+    "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules.",
+    "openingHoursJa": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ibusuki-STA.jpg"
+      "verifiedAt": "2026-08-05",
+      "sourceUrl": "https://www.ibusuki.or.jp/en/"
     },
     "content": {
       "en": {
         "name": "Ibusuki City",
         "description": "Southern Kyushu hot-spring resort city on the Satsuma Peninsula, famous for natural sand steam baths, Lake Ikeda, Mount Kaimon, and the tidal sandbar of Chiringashima Island. Known for subtropical flora and coastal scenery.",
         "highlights": ["Explore Ibusuki City", "Local Culture & Cuisine"],
-        "openingHours": "No fixed opening hours (city area)"
+        "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules."
       },
       "ja": {
         "name": "指宿市",
         "description": "薩摩半島に位置する南九州の温泉リゾート都市で、天然砂むし温泉、池田湖、開聞岳、知林ヶ島の砂州で知られています。亜熱帯植物と海岸景観が魅力です。",
         "highlights": ["指宿市を探索", "地元の文化と料理"],
-        "openingHours": "営業時間の設定なし（市内エリア）"
+        "openingHours": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。"
       }
     }
   },
@@ -94049,7 +94067,7 @@
     "openingHours": "06:00–21:00 (last admission 20:30)",
     "openingHoursJa": "06:00～21:00（最終受付20:30）",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.ibusuki.or.jp/en/spot/saraku/",
       "closedDays": "Open daily (occasional maintenance closures — check official site)"
     },
@@ -94117,7 +94135,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -94125,27 +94143,27 @@
           "type": "official",
           "url": "https://www.ibusuki.or.jp/en/spot/saraku/",
           "title": "Sand Bath Hall Saraku Official Website",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Ibusuki_Onsen",
           "title": "Ibusuki Onsen",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Sand Bath Hall Saraku",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": "https://www.ibusuki.or.jp/en/spot/saraku/",
@@ -94209,7 +94227,7 @@
     "openingHours": "Open access (lakeshore and paths). Visitor centre: 09:00–17:00",
     "openingHoursJa": "湖畔・遊歩道：自由見学。ビジターセンター：09:00～17:00",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.ibusuki.or.jp/en/spot/lake-ikeda/"
     },
     "budgetMin": 1000,
@@ -94275,7 +94293,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -94283,27 +94301,27 @@
           "type": "official",
           "url": "https://www.ibusuki.or.jp/en/spot/lake-ikeda/",
           "title": "Lake Ikeda Official Website",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Lake_Ikeda",
           "title": "Lake Ikeda",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Lake Ikeda",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": "https://www.ibusuki.or.jp/en/spot/lake-ikeda/",
@@ -94367,7 +94385,7 @@
     "openingHours": "Accessible only during low tide (check local tide tables). Approximately 3–4 hours around low tide daily.",
     "openingHoursJa": "干潮時のみ渡島可能（現地の潮汐表を確認）。毎日干潮前後約3～4時間。",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.ibusuki.or.jp/en/spot/chiringashima/",
       "hoursNote": "Sandbar accessible only at low tide — check Ibusuki tide tables before visiting"
     },
@@ -94434,7 +94452,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -94442,27 +94460,27 @@
           "type": "official",
           "url": "https://www.ibusuki.or.jp/en/spot/chiringashima/",
           "title": "Chiringashima Island Official Website",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Ibusuki,_Kagoshima",
           "title": "Ibusuki, Kagoshima",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Chiringashima Island",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": "https://www.ibusuki.or.jp/en/spot/chiringashima/",
@@ -94526,7 +94544,7 @@
     "openingHours": "Open access (daylight hours recommended)",
     "openingHoursJa": "自由見学（日中推奨）",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.ibusuki.or.jp/en/spot/nagasakibana/"
     },
     "budgetMin": 1000,
@@ -94592,7 +94610,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -94600,27 +94618,27 @@
           "type": "official",
           "url": "https://www.ibusuki.or.jp/en/spot/nagasakibana/",
           "title": "Cape Nagasakibana Official Website",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Ibusuki,_Kagoshima",
           "title": "Ibusuki, Kagoshima",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Cape Nagasakibana",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": "https://www.ibusuki.or.jp/en/spot/nagasakibana/",
@@ -94684,7 +94702,7 @@
     "openingHours": "Trail accessible during daylight hours; not recommended after dark or in bad weather",
     "openingHoursJa": "登山道は日中のみ通行可能。日没後・悪天候時は非推奨",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.ibusuki.or.jp/en/spot/mount-kaimon/",
       "hoursNote": "Open hiking trail, not a managed facility — weather and daylight dependent"
     },
@@ -94751,7 +94769,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -94759,27 +94777,27 @@
           "type": "official",
           "url": "https://www.ibusuki.or.jp/en/spot/mount-kaimon/",
           "title": "Mount Kaimon Official Website",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Mount_Kaimon",
           "title": "Mount Kaimon",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Mount Kaimon",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": "https://www.ibusuki.or.jp/en/spot/mount-kaimon/",
@@ -94889,36 +94907,42 @@
     "editorial": {
       "lifecycle": "published",
       "freshness": "current",
-      "checkedAt": "2026-08-06",
-      "reviewedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Expansion",
       "sources": [
+        {
+          "type": "official",
+          "url": "https://www.kankou-nichinan.jp/en/",
+          "title": "Nichinan City Tourism Information",
+          "accessedAt": "2026-08-05"
+        },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Nichinan,_Miyazaki",
           "title": "Nichinan, Miyazaki",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ]
     },
-    "openingHours": "No fixed opening hours (city area)",
-    "openingHoursJa": "営業時間の設定なし（市内エリア）",
+    "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules.",
+    "openingHoursJa": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obi_Castle_Otemon.jpg"
+      "verifiedAt": "2026-08-05",
+      "sourceUrl": "https://www.kankou-nichinan.jp/en/"
     },
     "content": {
       "en": {
         "name": "Nichinan City",
         "description": "Coastal city in southern Miyazaki Prefecture known for the historic Obi Castle Town, Udo Jingu shrine perched dramatically on coastal cliffs, and the Moai statues of Sun Messe Nichinan. Rich in nature, surfing culture, and subtropical scenery.",
         "highlights": ["Explore Nichinan City", "Local Culture & Cuisine"],
-        "openingHours": "No fixed opening hours (city area)"
+        "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules."
       },
       "ja": {
         "name": "日南市",
         "description": "宮崎県南部の沿岸都市で、歴史的な飫肥城下町、断崖絶壁に建つ鵜戸神宮、サンメッセ日南のモアイ像で知られています。豊かな自然、サーフィン文化、亜熱帯の景観が魅力です。",
         "highlights": ["日南市を探索", "地元の文化と料理"],
-        "openingHours": "営業時間の設定なし（市内エリア）"
+        "openingHours": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。"
       }
     }
   },
@@ -94980,7 +95004,7 @@
     "openingHours": "Public streets: open access. Obi Castle Museum and samurai residences: typically 09:00–17:00 (individual facilities may vary)",
     "openingHoursJa": "町並み：自由散策。飫肥城資料館・武家屋敷：通常09:00～17:00（施設により異なる）",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.kankou-nichinan.jp/en/spot/obi/",
       "hoursNote": "Public district with individual facility hours — check each museum and shop separately"
     },
@@ -95049,7 +95073,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -95057,27 +95081,27 @@
           "type": "official",
           "url": "https://www.kankou-nichinan.jp/en/spot/obi/",
           "title": "Obi Castle Town Official Website",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Obi,_Miyazaki",
           "title": "Obi, Miyazaki",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Obi Castle Town",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": "https://www.kankou-nichinan.jp/en/spot/obi/",
@@ -95141,7 +95165,7 @@
     "openingHours": "06:00–19:00 (Apr–Sep), 07:00–18:00 (Oct–Mar)",
     "openingHoursJa": "06:00～19:00（4～9月）、07:00～18:00（10～3月）",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.kankou-nichinan.jp/en/spot/udo-jingu/"
     },
     "budgetMin": 1500,
@@ -95207,7 +95231,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -95215,27 +95239,27 @@
           "type": "official",
           "url": "https://www.kankou-nichinan.jp/en/spot/udo-jingu/",
           "title": "Udo Jingu Official Website",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Udo-jing%C5%AB",
           "title": "Udo-jingū",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Udo Jingu",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": "https://www.kankou-nichinan.jp/en/spot/udo-jingu/",
@@ -95299,7 +95323,7 @@
     "openingHours": "09:30–17:00 (last admission 16:30). Closed Wednesdays (except holidays)",
     "openingHoursJa": "09:30～17:00（最終入園16:30）。水曜休園（祝日除く）",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.sun-messe.co.jp/en/",
       "closedDays": "Wednesdays (open if Wednesday is a public holiday)"
     },
@@ -95366,7 +95390,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -95374,27 +95398,27 @@
           "type": "official",
           "url": "https://www.sun-messe.co.jp/en/",
           "title": "Sun Messe Nichinan Official Website",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Sun_Messe_Nichinan",
           "title": "Sun Messe Nichinan",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Sun Messe Nichinan",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": "https://www.sun-messe.co.jp/en/",
@@ -95458,7 +95482,7 @@
     "openingHours": "Daylight access only. Trail may close after heavy rain. Not maintained as a managed park.",
     "openingHoursJa": "日中のみ通行可能。大雨後は通行止めあり。管理公園としては整備されていません。",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.kankou-nichinan.jp/en/spot/inohae/",
       "hoursNote": "Weather-dependent natural trail — not accessible after heavy rain or in poor conditions"
     },
@@ -95525,7 +95549,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -95533,27 +95557,27 @@
           "type": "official",
           "url": "https://www.kankou-nichinan.jp/en/spot/inohae/",
           "title": "Inohae Valley Official Website",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Nichinan,_Miyazaki",
           "title": "Nichinan, Miyazaki",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Inohae Valley",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": "https://www.kankou-nichinan.jp/en/spot/inohae/",
@@ -95663,36 +95687,42 @@
     "editorial": {
       "lifecycle": "published",
       "freshness": "current",
-      "checkedAt": "2026-08-06",
-      "reviewedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Expansion",
       "sources": [
+        {
+          "type": "official",
+          "url": "https://www.oidehita.com/en/",
+          "title": "Hita City Tourism Information",
+          "accessedAt": "2026-08-05"
+        },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Hita,_%C5%8Cita",
           "title": "Hita, Ōita",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ]
     },
-    "openingHours": "No fixed opening hours (city area)",
-    "openingHoursJa": "営業時間の設定なし（市内エリア）",
+    "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules.",
+    "openingHoursJa": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mameda-machi,_Hita,_Oita_Prefecture.jpg"
+      "verifiedAt": "2026-08-05",
+      "sourceUrl": "https://www.oidehita.com/en/"
     },
     "content": {
       "en": {
         "name": "Hita City",
         "description": "Inland city in western Oita Prefecture known for the well-preserved Mameda historic merchant district, Kangien academy, and as a filming location for Attack on Titan. Famous for Hita geta sandals and clear-water rivers. A natural basin surrounded by mountains.",
         "highlights": ["Explore Hita City", "Local Culture & Cuisine"],
-        "openingHours": "No fixed opening hours (city area)"
+        "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules."
       },
       "ja": {
         "name": "日田市",
         "description": "大分県西部の内陸都市で、保存状態の良い豆田町の歴史的商家街、咸宜園、進撃の巨人のロケ地として知られています。日田下駄と清流が有名で、山々に囲まれた盆地の街です。",
         "highlights": ["日田市を探索", "地元の文化と料理"],
-        "openingHours": "営業時間の設定なし（市内エリア）"
+        "openingHours": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。"
       }
     }
   },
@@ -95754,7 +95784,7 @@
     "openingHours": "Public streets: open access. Individual shops and museums: typically 09:00–17:00 (most close by early evening)",
     "openingHoursJa": "町並み：自由散策。各店舗・博物館：通常09:00～17:00（多くは夕方までに閉店）",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.oidehita.com/en/spot/mameda/",
       "hoursNote": "Public district — individual shops, museums and cafés set their own hours"
     },
@@ -95823,7 +95853,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -95831,27 +95861,27 @@
           "type": "official",
           "url": "https://www.oidehita.com/en/spot/mameda/",
           "title": "Mameda Historic District Official Website",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Hita,_%C5%8Cita",
           "title": "Hita, Ōita",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Mameda Historic District",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": "https://www.oidehita.com/en/spot/mameda/",
@@ -95915,7 +95945,7 @@
     "openingHours": "09:00–17:00 (last admission 16:30). Closed Mondays.",
     "openingHoursJa": "09:00～17:00（最終入館16:30）。月曜休館。",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.oidehita.com/en/spot/kangien/",
       "closedDays": "Mondays (or Tuesday if Monday is a public holiday)"
     },
@@ -95982,7 +96012,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -95990,27 +96020,27 @@
           "type": "official",
           "url": "https://www.oidehita.com/en/spot/kangien/",
           "title": "Kangien Academy Official Website",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Kangien",
           "title": "Kangien",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Kangien Academy",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": "https://www.oidehita.com/en/spot/kangien/",
@@ -96033,7 +96063,7 @@
           "Life-size character statues for photo opportunities",
           "Exclusive Hita-location merchandise"
         ],
-        "openingHours": "09:00–17:00 (follows roadside station hours). Open daily."
+        "openingHours": "Weekdays 09:30–16:00; weekends and public holidays 09:30–17:00; irregular closures"
       },
       "ja": {
         "name": "進撃の巨人 in HITA ミュージアム",
@@ -96043,7 +96073,7 @@
           "等身大キャラクター像との写真撮影",
           "日田限定グッズの販売"
         ],
-        "openingHours": "09:00～17:00（道の駅の営業時間に準ずる）。年中無休。"
+        "openingHours": "平日09:30～16:00、土日祝09:30～17:00。不定休。"
       }
     },
     "prefecture": "Oita",
@@ -96057,12 +96087,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Museum & Art", "Leisure"],
     "tags": ["Museum", "Anime", "Attack on Titan", "Hita City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Oyama_Dam_Attack_on_Titan_statues.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Attack_on_Titan_in_Hita_Museum.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oyama_Dam_Attack_on_Titan_statues.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Attack_on_Titan_in_Hita_Museum.jpg"
     },
     "coordinates": {
       "lat": 33.3219,
@@ -96074,18 +96104,18 @@
       "Life-size character statues for photo opportunities",
       "Exclusive Hita-location merchandise"
     ],
-    "openingHours": "09:00–17:00 (follows roadside station hours). Open daily.",
-    "openingHoursJa": "09:00～17:00（道の駅の営業時間に準ずる）。年中無休。",
+    "openingHours": "Weekdays 09:30–16:00; weekends and public holidays 09:30–17:00; irregular closures",
+    "openingHoursJa": "平日09:30～16:00、土日祝09:30～17:00。不定休。",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
-      "sourceUrl": "https://www.oidehita.com/en/spot/aot/"
+      "verifiedAt": "2026-08-05",
+      "sourceUrl": "https://oidehita.com/archives/52002"
     },
     "budgetMin": 2000,
     "budgetRecommended": 5000,
     "budgetMax": 10000,
     "budgetBreakdown": {
       "transport": 600,
-      "tickets": 800,
+      "tickets": 500,
       "food": 900,
       "cafe": 200
     },
@@ -96135,46 +96165,46 @@
     "weatherDependence": "low",
     "reservation": "None required; busy on weekends and holidays",
     "parking": "Free roadside station parking available",
-    "notes": "The museum is inside the roadside station — the station itself is worth exploring for local snacks.",
-    "notesJa": "道の駅内に併設 — 駅自体も地元の軽食や特産品が充実していて見逃せません。",
+    "notes": "The museum is inside Roadside Station Mizubenosato Oyama — adult admission ¥500, free for under 18.",
+    "notesJa": "道の駅水辺の郷おおやま内に併設。大人500円、18歳未満無料。",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
         {
           "type": "official",
-          "url": "https://www.oidehita.com/en/spot/aot/",
+          "url": "https://oidehita.com/archives/52002",
           "title": "Attack on Titan in HITA Museum Official Website",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Attack_on_Titan",
           "title": "Attack on Titan",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Attack on Titan in HITA Museum",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
-    "officialWebsite": "https://www.oidehita.com/en/spot/aot/",
+    "officialWebsite": "https://oidehita.com/archives/52002",
     "municipalityId": "Oita:hita"
   },
   {
@@ -96215,12 +96245,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Sightseeing", "Outdoor"],
     "tags": ["Anime", "Statues", "Outdoor", "Hita City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Oyama_Dam_Oita_2019.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Oyama_Dam_Attack_on_Titan_statues.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oyama_Dam_Oita_2019.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oyama_Dam_Attack_on_Titan_statues.jpg"
     },
     "coordinates": {
       "lat": 33.2858,
@@ -96235,7 +96265,7 @@
     "openingHours": "Open access (daylight hours recommended). Outdoor site — unlit after dark.",
     "openingHoursJa": "自由見学（日中推奨）。屋外のため日没後は非推奨。",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.oidehita.com/en/spot/aot-dam/",
       "hoursNote": "Outdoor public site, accessible during daylight hours"
     },
@@ -96302,7 +96332,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -96310,27 +96340,27 @@
           "type": "official",
           "url": "https://www.oidehita.com/en/spot/aot-dam/",
           "title": "Oyama Dam Attack on Titan Statues Official Website",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Attack_on_Titan",
           "title": "Attack on Titan",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Oyama Dam Attack on Titan Statues",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": "https://www.oidehita.com/en/spot/aot-dam/",
@@ -96394,7 +96424,7 @@
     "openingHours": "09:00–17:00 (last admission 16:30). Closed Tuesdays.",
     "openingHoursJa": "09:00～17:00（最終入館16:30）。火曜休館。",
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-06",
+      "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.oidehita.com/en/spot/yamahoko/",
       "closedDays": "Tuesdays (or Wednesday if Tuesday is a public holiday). Some floats may be absent around the July festival period."
     },
@@ -96461,7 +96491,7 @@
       "confidence": "medium"
     },
     "collections": [],
-    "addedAt": "2026-08-06",
+    "addedAt": "2026-08-05",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -96469,27 +96499,27 @@
           "type": "official",
           "url": "https://www.oidehita.com/en/spot/yamahoko/",
           "title": "Hita Gion Yamahoko Museum Official Website",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         },
         {
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Hita,_%C5%8Cita",
           "title": "Hita, Ōita",
-          "accessedAt": "2026-08-06"
+          "accessedAt": "2026-08-05"
         }
       ],
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "freshness": "current",
       "changeSummary": "Kyushu-to-100 expansion",
       "changes": [
         {
-          "changedAt": "2026-08-06",
+          "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Hita Gion Yamahoko Museum",
           "method": "assisted"
         }
       ],
-      "reviewedAt": "2026-08-06",
+      "reviewedAt": "2026-08-05",
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": "https://www.oidehita.com/en/spot/yamahoko/",

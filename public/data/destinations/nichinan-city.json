@@ -102,36 +102,42 @@
   "editorial": {
     "lifecycle": "published",
     "freshness": "current",
-    "checkedAt": "2026-08-06",
-    "reviewedAt": "2026-08-06",
+    "checkedAt": "2026-08-05",
+    "reviewedAt": "2026-08-05",
     "reviewedBy": "Kyushu-to-100 Expansion",
     "sources": [
+      {
+        "type": "official",
+        "url": "https://www.kankou-nichinan.jp/en/",
+        "title": "Nichinan City Tourism Information",
+        "accessedAt": "2026-08-05"
+      },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Nichinan,_Miyazaki",
         "title": "Nichinan, Miyazaki",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       }
     ]
   },
-  "openingHours": "No fixed opening hours (city area)",
-  "openingHoursJa": "営業時間の設定なし（市内エリア）",
+  "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules.",
+  "openingHoursJa": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。",
   "openingHoursMetadata": {
-    "verifiedAt": "2026-08-06",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obi_Castle_Otemon.jpg"
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.kankou-nichinan.jp/en/"
   },
   "content": {
     "en": {
       "name": "Nichinan City",
       "description": "Coastal city in southern Miyazaki Prefecture known for the historic Obi Castle Town, Udo Jingu shrine perched dramatically on coastal cliffs, and the Moai statues of Sun Messe Nichinan. Rich in nature, surfing culture, and subtropical scenery.",
       "highlights": ["Explore Nichinan City", "Local Culture & Cuisine"],
-      "openingHours": "No fixed opening hours (city area)"
+      "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules."
     },
     "ja": {
       "name": "日南市",
       "description": "宮崎県南部の沿岸都市で、歴史的な飫肥城下町、断崖絶壁に建つ鵜戸神宮、サンメッセ日南のモアイ像で知られています。豊かな自然、サーフィン文化、亜熱帯の景観が魅力です。",
       "highlights": ["日南市を探索", "地元の文化と料理"],
-      "openingHours": "営業時間の設定なし（市内エリア）"
+      "openingHours": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。"
     }
   }
 }

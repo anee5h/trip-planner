@@ -56,7 +56,7 @@
   "openingHours": "Cliff paths: open access (daylight hours recommended). Sightseeing cruise: 09:30–16:00 (hourly departures, weather permitting)",
   "openingHoursJa": "遊歩道：自由（日中推奨）。遊覧船：09:30～16:00（毎時運航、天候による）",
   "openingHoursMetadata": {
-    "verifiedAt": "2026-08-06",
+    "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.karatsu-kankou.jp/en/spots/detail/9",
     "hoursNote": "Cruise departures are weather-dependent and may be cancelled in high waves"
   },
@@ -123,7 +123,7 @@
     "confidence": "medium"
   },
   "collections": [],
-  "addedAt": "2026-08-06",
+  "addedAt": "2026-08-05",
   "editorial": {
     "lifecycle": "published",
     "sources": [
@@ -131,21 +131,21 @@
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Nanatsugama",
         "title": "Nanatsugama",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       }
     ],
-    "checkedAt": "2026-08-06",
+    "checkedAt": "2026-08-05",
     "freshness": "current",
     "changeSummary": "Kyushu-to-100 expansion",
     "changes": [
       {
-        "changedAt": "2026-08-06",
+        "changedAt": "2026-08-05",
         "changedBy": "Kyushu-to-100 Editorial Batch",
         "summary": "Added bilingual curated POI: Nanatsugama Sea Caves",
         "method": "assisted"
       }
     ],
-    "reviewedAt": "2026-08-06",
+    "reviewedAt": "2026-08-05",
     "reviewedBy": "Kyushu-to-100 Editorial Batch"
   },
   "officialWebsite": null,

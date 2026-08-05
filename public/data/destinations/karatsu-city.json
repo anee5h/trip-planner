@@ -102,36 +102,42 @@
   "editorial": {
     "lifecycle": "published",
     "freshness": "current",
-    "checkedAt": "2026-08-06",
-    "reviewedAt": "2026-08-06",
+    "checkedAt": "2026-08-05",
+    "reviewedAt": "2026-08-05",
     "reviewedBy": "Kyushu-to-100 Expansion",
     "sources": [
+      {
+        "type": "official",
+        "url": "https://www.karatsu-kankou.jp/en/",
+        "title": "Karatsu City Tourism Information",
+        "accessedAt": "2026-08-05"
+      },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Karatsu,_Saga",
         "title": "Karatsu, Saga",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       }
     ]
   },
-  "openingHours": "No fixed opening hours (city area)",
-  "openingHoursJa": "営業時間の設定なし（市内エリア）",
+  "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules.",
+  "openingHoursJa": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。",
   "openingHoursMetadata": {
-    "verifiedAt": "2026-08-06",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Karatsujo.jpg"
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.karatsu-kankou.jp/en/"
   },
   "content": {
     "en": {
       "name": "Karatsu City",
       "description": "Coastal city in Saga Prefecture known for Karatsu Castle, the vibrant Yobuko morning market, the Nanatsugama sea caves, and the Nijinomatsubara pine grove. Famous for Karatsu-yaki pottery and the annual Karatsu Kunchi festival.",
       "highlights": ["Explore Karatsu City", "Local Culture & Cuisine"],
-      "openingHours": "No fixed opening hours (city area)"
+      "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules."
     },
     "ja": {
       "name": "唐津市",
       "description": "佐賀県の沿岸都市で、唐津城、活気あふれる呼子朝市、七ツ釜の海食洞、虹の松原で知られています。唐津焼と毎年開催される唐津くんちでも有名です。",
       "highlights": ["唐津市を探索", "地元の文化と料理"],
-      "openingHours": "営業時間の設定なし（市内エリア）"
+      "openingHours": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。"
     }
   }
 }

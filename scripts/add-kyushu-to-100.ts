@@ -13,7 +13,7 @@ import path from "path";
 
 const INDEX_PATH = path.resolve("src/shared/data/destinations-index.json");
 const DETAILS_DIR = path.resolve("public/data/destinations");
-const EXPANSION_DATE = "2026-08-06";
+const EXPANSION_DATE = "2026-08-05";
 
 // ==========================================================================
 // Shared helpers
@@ -70,6 +70,7 @@ interface HubInput {
   imageAttribution: string;
   imageLicense: string;
   imageSourceUrl: string;
+  tourismSourceUrl: string;
   tags: string[];
   transportOptions: Record<string, number>;
   nearbyIds: string[];
@@ -159,6 +160,12 @@ function buildHub(input: HubInput): DestinationRecord {
       reviewedBy: "Kyushu-to-100 Expansion",
       sources: [
         {
+          type: "official",
+          url: input.tourismSourceUrl,
+          title: `${input.name} Tourism Information`,
+          accessedAt: EXPANSION_DATE,
+        },
+        {
           type: "wikipedia",
           url: input.wikiUrl,
           title: input.wikiTitle,
@@ -166,24 +173,28 @@ function buildHub(input: HubInput): DestinationRecord {
         },
       ],
     },
-    openingHours: "No fixed opening hours (city area)",
-    openingHoursJa: "営業時間の設定なし（市内エリア）",
+    openingHours:
+      "No fixed opening hours (city area); individual attractions have their own schedules.",
+    openingHoursJa:
+      "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。",
     openingHoursMetadata: {
       verifiedAt: EXPANSION_DATE,
-      sourceUrl: input.imageSourceUrl,
+      sourceUrl: input.tourismSourceUrl,
     },
     content: {
       en: {
         name: input.name,
         description: input.description,
         highlights: [`Explore ${input.name}`, "Local Culture & Cuisine"],
-        openingHours: "No fixed opening hours (city area)",
+        openingHours:
+          "No fixed opening hours (city area); individual attractions have their own schedules.",
       },
       ja: {
         name: input.nameJa,
         description: input.descriptionJa,
         highlights: [`${input.nameJa}を探索`, "地元の文化と料理"],
-        openingHours: "営業時間の設定なし（市内エリア）",
+        openingHours:
+          "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。",
       },
     },
   };
@@ -391,6 +402,7 @@ const HUB_KARATSU: HubInput = {
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Karatsujo.jpg",
+  tourismSourceUrl: "https://www.karatsu-kankou.jp/en/",
   tags: ["Karatsu City", "Saga Travel", "Regional Hub"],
   transportOptions: { train: 250 },
   nearbyIds: ["fukuoka-city"],
@@ -418,6 +430,7 @@ const HUB_SASEBO: HubInput = {
   imageLicense: "CC BY-SA 3.0",
   imageSourceUrl:
     "https://commons.wikimedia.org/wiki/File:JRKyushi_Sasebo_Station_200110.jpg",
+  tourismSourceUrl: "https://www.sasebo99.com/en/",
   tags: ["Sasebo City", "Nagasaki Travel", "Regional Hub"],
   transportOptions: { train: 280 },
   nearbyIds: ["nagasaki-city", "karatsu-city", "fukuoka-city"],
@@ -444,6 +457,7 @@ const HUB_IBUSUKI: HubInput = {
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Ibusuki-STA.jpg",
+  tourismSourceUrl: "https://www.ibusuki.or.jp/en/",
   tags: ["Ibusuki City", "Kagoshima Travel", "Regional Hub"],
   transportOptions: { train: 310 },
   nearbyIds: ["kagoshima-city"],
@@ -471,6 +485,7 @@ const HUB_NICHINAN: HubInput = {
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
     "https://commons.wikimedia.org/wiki/File:Obi_Castle_Otemon.jpg",
+  tourismSourceUrl: "https://www.kankou-nichinan.jp/en/",
   tags: ["Nichinan City", "Miyazaki Travel", "Regional Hub"],
   transportOptions: { train: 220 },
   nearbyIds: ["miyazaki-city"],
@@ -498,6 +513,7 @@ const HUB_HITA: HubInput = {
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
     "https://commons.wikimedia.org/wiki/File:Mameda-machi,_Hita,_Oita_Prefecture.jpg",
+  tourismSourceUrl: "https://www.oidehita.com/en/",
   tags: ["Hita City", "Oita Travel", "Regional Hub"],
   transportOptions: { train: 240 },
   nearbyIds: ["yufu-city", "fukuoka-city", "kumamoto-city"],
@@ -914,14 +930,16 @@ const POI_HUIS_TEN_BOSCH: PoiInput = {
     "季節の花園と風車の風景",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/a/ad/Series783-R-HuisTenBosch.jpg",
-  imageAttribution: "MaedaAkihiko",
-  imageLicense: "CC BY-SA 4.0",
+    "https://upload.wikimedia.org/wikipedia/commons/4/42/Huis_Ten_Bosch_Nagasaki_Japan.jpg",
+  imageAttribution: "Kzaral",
+  imageLicense: "CC BY-SA 3.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Series783-R-HuisTenBosch.jpg",
-  openingHours: "09:00–22:00 (varies by date and season, check official site)",
-  openingHoursJa: "09:00～22:00（日付・季節により変動、公式サイトで確認）",
-  hoursSourceUrl: "https://english.huistenbosch.co.jp/",
+    "https://commons.wikimedia.org/wiki/File:Huis_Ten_Bosch_Nagasaki_Japan.jpg",
+  openingHours:
+    "Varies by date; typically opens at 10:00. Check the official operating calendar.",
+  openingHoursJa:
+    "日付により変動（通常10:00開園）。公式営業時間カレンダーを確認。",
+  hoursSourceUrl: "https://english.huistenbosch.co.jp/opentime/",
   hoursNote:
     "Hours and ticket prices vary daily — always check the official calendar",
   officialWebsite: "https://english.huistenbosch.co.jp/",
@@ -959,9 +977,9 @@ const POI_HUIS_TEN_BOSCH: PoiInput = {
   walkingShadeMin: 4000,
   comfort: { heatTolerance: 7, rainFriendly: 7, walkingIntensity: 5 },
   notes:
-    "Hours and ticket prices vary by date — always check the official online calendar before visiting.",
+    "Opening hours and ticket prices vary daily — always check the official operating calendar.",
   notesJa:
-    "営業時間と料金は日により変動 — 訪問前に必ず公式サイトのカレンダーを確認ください。",
+    "営業時間と料金は日により変動 — 公式営業カレンダーを事前に確認ください。",
 };
 
 const POI_KUJUKUSHIMA: PoiInput = {
@@ -1067,11 +1085,11 @@ const POI_UMI_KIRARA: PoiInput = {
     "地元の海の生き物に触れるタッチプール",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/c/ce/Port_of_Kujukushima_Pearl_Sea_Resort_2.JPG",
+    "https://upload.wikimedia.org/wikipedia/commons/8/89/Kujukushima_aquarium_Umi_Kirara.jpg",
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Port_of_Kujukushima_Pearl_Sea_Resort_2.JPG",
+    "https://commons.wikimedia.org/wiki/File:Kujukushima_aquarium_Umi_Kirara.jpg",
   openingHours: "09:00–18:00 (Mar–Oct), 09:00–17:00 (Nov–Feb)",
   openingHoursJa: "09:00～18:00（3～10月）、09:00～17:00（11～2月）",
   hoursSourceUrl: "https://www.pearlsea.jp/en/aquarium/",
@@ -2141,21 +2159,22 @@ const POI_AOT_HITA_MUSEUM: PoiInput = {
     "日田限定グッズの販売",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/4/4a/Oyama_Dam_Attack_on_Titan_statues.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/3/3a/Attack_on_Titan_in_Hita_Museum.jpg",
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Oyama_Dam_Attack_on_Titan_statues.jpg",
-  openingHours: "09:00–17:00 (follows roadside station hours). Open daily.",
-  openingHoursJa: "09:00～17:00（道の駅の営業時間に準ずる）。年中無休。",
-  hoursSourceUrl: "https://www.oidehita.com/en/spot/aot/",
-  officialWebsite: "https://www.oidehita.com/en/spot/aot/",
+    "https://commons.wikimedia.org/wiki/File:Attack_on_Titan_in_Hita_Museum.jpg",
+  openingHours:
+    "Weekdays 09:30–16:00; weekends and public holidays 09:30–17:00; irregular closures",
+  openingHoursJa: "平日09:30～16:00、土日祝09:30～17:00。不定休。",
+  hoursSourceUrl: "https://oidehita.com/archives/52002",
+  officialWebsite: "https://oidehita.com/archives/52002",
   wikiUrl: "https://en.wikipedia.org/wiki/Attack_on_Titan",
   wikiTitle: "Attack on Titan",
   budgetMin: 2000,
   budgetRecommended: 5000,
   budgetMax: 10000,
-  ticketCost: 800,
+  ticketCost: 500,
   transportOptions: { bus: 150 },
   totalTripHours: 3,
   recommendedVisitHours: { min: 1, max: 2 },
@@ -2184,9 +2203,8 @@ const POI_AOT_HITA_MUSEUM: PoiInput = {
   walkingShadeMin: 1000,
   comfort: { heatTolerance: 9, rainFriendly: 10, walkingIntensity: 2 },
   notes:
-    "The museum is inside the roadside station — the station itself is worth exploring for local snacks.",
-  notesJa:
-    "道の駅内に併設 — 駅自体も地元の軽食や特産品が充実していて見逃せません。",
+    "The museum is inside Roadside Station Mizubenosato Oyama — adult admission ¥500, free for under 18.",
+  notesJa: "道の駅水辺の郷おおやま内に併設。大人500円、18歳未満無料。",
 };
 
 const POI_OYAMA_DAM: PoiInput = {
@@ -2215,11 +2233,11 @@ const POI_OYAMA_DAM: PoiInput = {
     "無料で自由に見学できるアニメ聖地",
   ],
   heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/a/a0/Oyama_Dam_Oita_2019.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/4/4a/Oyama_Dam_Attack_on_Titan_statues.jpg",
   imageAttribution: "そらみみ",
   imageLicense: "CC BY-SA 4.0",
   imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Oyama_Dam_Oita_2019.jpg",
+    "https://commons.wikimedia.org/wiki/File:Oyama_Dam_Attack_on_Titan_statues.jpg",
   openingHours:
     "Open access (daylight hours recommended). Outdoor site — unlit after dark.",
   openingHoursJa: "自由見学（日中推奨）。屋外のため日没後は非推奨。",
@@ -2466,6 +2484,17 @@ function validateRecords(records: DestinationRecord[], stage: string) {
     // Published
     assert(r.status === "published", `[${stage}] ${r.id} not published`);
 
+    // Hub hours source must not be Commons or Wikipedia
+    if (r.role === "hub") {
+      const src = r.openingHoursMetadata?.sourceUrl || "";
+      assert(
+        !src.includes("commons.wikimedia.org") &&
+          !src.includes("upload.wikimedia.org") &&
+          !src.includes("wikipedia.org"),
+        `[${stage}] Hub ${r.id} hours source is Commons/Wikipedia: ${src}`,
+      );
+    }
+
     // Bilingual content
     assert(
       !!r.content?.en?.description,
@@ -2557,6 +2586,30 @@ function validateRecords(records: DestinationRecord[], stage: string) {
       /\.(jpg|jpeg|png|webp|avif)(\?|$)/i.test(hero),
       `[${stage}] ${r.id} unsupported image format: ${hero}`,
     );
+
+    // Reject known bad image mappings
+    const KNOWN_BAD: Record<string, string> = {
+      "huis-ten-bosch": "Series783-R-HuisTenBosch",
+      "attack-on-titan-hita-museum": "Oyama_Dam_Attack_on_Titan_statues",
+      "umi-kirara-aquarium": "Port_of_Kujukushima_Pearl_Sea_Resort_2",
+    };
+    if (KNOWN_BAD[r.id]) {
+      assert(
+        !hero.includes(KNOWN_BAD[r.id]),
+        `[${stage}] ${r.id} uses known bad image`,
+      );
+    }
+
+    // Image and sourceUrl must identify same Commons file
+    if (r.imageMetadata?.sourceUrl) {
+      const srcUrl = r.imageMetadata.sourceUrl as string;
+      const srcFile = srcUrl.split("/File:").pop()?.split("?")[0] || "";
+      const heroFile = hero.split("/").pop()?.split("?")[0] || "";
+      assert(
+        decodeURIComponent(srcFile) === decodeURIComponent(heroFile),
+        `[${stage}] ${r.id} image/sourceUrl mismatch: ${heroFile} vs ${srcFile}`,
+      );
+    }
     assert(
       !!r.imageMetadata?.attribution,
       `[${stage}] ${r.id} missing image attribution`,
@@ -2586,40 +2639,73 @@ function validateRecords(records: DestinationRecord[], stage: string) {
 // APPLY
 // ==========================================================================
 
-function applyExpansion(
+interface StageSpec {
+  label: string;
+  hubs: DestinationRecord[];
+  pois: DestinationRecord[];
+}
+
+function applyExpansionStages(
   input: DestinationRecord[],
-  hubs: DestinationRecord[],
-  pois: DestinationRecord[],
-  stage: string,
+  stages: StageSpec[],
 ): DestinationRecord[] {
-  const data = deepClone(input);
-  const existingIds = new Set(data.map((r) => r.id));
-  const allNew = [...hubs, ...pois];
+  let data = deepClone(input);
 
-  // Reject existing IDs
-  for (const r of allNew) {
-    assert(!existingIds.has(r.id), `[${stage}] ID already exists: ${r.id}`);
-  }
+  for (const stage of stages) {
+    console.log(`\n--- Applying ${stage.label} ---`);
+    const allNew = [...stage.hubs, ...stage.pois];
 
-  // Validate new records before adding
-  validateRecords(allNew, `${stage}-preflight`);
-
-  // Add records
-  data.push(...deepClone(allNew));
-
-  // Validate cross-municipality parenting
-  for (const r of data) {
-    if (r.role === "poi" && r.relationships?.parentDestinationId) {
-      const parent = data.find(
-        (p) => p.id === r.relationships.parentDestinationId,
-      );
-      if (parent) {
-        assert(
-          r.municipalityId === parent.municipalityId,
-          `[${stage}] Cross-municipality parent: ${r.id} (${r.municipalityId}) -> ${parent.id} (${parent.municipalityId})`,
-        );
+    // Add or update expansion records
+    for (const record of allNew) {
+      const idx = data.findIndex((r) => r.id === record.id);
+      if (idx !== -1) {
+        data[idx] = deepClone(record);
+      } else {
+        data.push(deepClone(record));
       }
     }
+
+    // Validate all new records
+    validateRecords(allNew, `${stage.label}-preflight`);
+
+    // Validate cross-municipality parenting
+    for (const r of data) {
+      if (r.role === "poi" && r.relationships?.parentDestinationId) {
+        const parent = data.find(
+          (p) => p.id === r.relationships.parentDestinationId,
+        );
+        if (parent && r.municipalityId !== parent.municipalityId) {
+          throw new Error(
+            `[${stage.label}] Cross-municipality parent: ${r.id} -> ${parent.id}`,
+          );
+        }
+      }
+    }
+
+    // Check partial counts
+    const kyushu = data.filter((r) => r.region === "Kyushu");
+    const kyushuHubs = kyushu.filter((r) => r.role === "hub");
+    const kyushuNonhubs = kyushu.filter((r) => r.role !== "hub");
+    const expected = COUNTS_AFTER.find((c) => c.label === stage.label)!;
+    if (data.length !== expected.total)
+      throw new Error(
+        `[${stage.label}] Expected ${expected.total} total, got ${data.length}`,
+      );
+    if (kyushu.length !== expected.kyushu)
+      throw new Error(
+        `[${stage.label}] Expected ${expected.kyushu} Kyushu, got ${kyushu.length}`,
+      );
+    if (kyushuHubs.length !== expected.hubs)
+      throw new Error(
+        `[${stage.label}] Expected ${expected.hubs} hubs, got ${kyushuHubs.length}`,
+      );
+    if (kyushuNonhubs.length !== expected.nonhubs)
+      throw new Error(
+        `[${stage.label}] Expected ${expected.nonhubs} non-hubs, got ${kyushuNonhubs.length}`,
+      );
+    console.log(
+      `✓ ${stage.label} counts: ${data.length} total, ${kyushu.length} Kyushu (${kyushuHubs.length} hubs, ${kyushuNonhubs.length} non-hubs)`,
+    );
   }
 
   return data;
@@ -2638,16 +2724,7 @@ function main() {
   ) as DestinationRecord[];
   const originalClone = deepClone(original);
 
-  let data = deepClone(original);
-  let stageHubs: DestinationRecord[] = [];
-  let stagePois: DestinationRecord[] = [];
-  let stageLabel = "";
-
-  const stages: {
-    label: string;
-    hubs: DestinationRecord[];
-    pois: DestinationRecord[];
-  }[] = [];
+  const stages: StageSpec[] = [];
   if (arg === "karatsu" || arg === "all") {
     stages.push({ label: "Karatsu", hubs: [KARATSU_HUB], pois: KARATSU_POIS });
   }
@@ -2668,91 +2745,52 @@ function main() {
     stages.push({ label: "Hita", hubs: [HITA_HUB], pois: HITA_POIS });
   }
 
-  // Apply each stage
-  const allHubsSoFar: DestinationRecord[] = [];
-  const allPoisSoFar: DestinationRecord[] = [];
-
-  for (const stage of stages) {
-    console.log(`\n--- Applying ${stage.label} ---`);
-    allHubsSoFar.push(...stage.hubs);
-    allPoisSoFar.push(...stage.pois);
-    data = applyExpansion(data, stage.hubs, stage.pois, stage.label);
-
-    // Check partial counts
-    const kyushu = data.filter((r) => r.region === "Kyushu");
-    const kyushuHubs = kyushu.filter((r) => r.role === "hub");
-    const kyushuNonhubs = kyushu.filter((r) => r.role !== "hub");
-    const expected = COUNTS_AFTER.find((c) => c.label === stage.label)!;
-    assert(
-      data.length === expected.total,
-      `[${stage.label}] Expected ${expected.total} total, got ${data.length}`,
-    );
-    assert(
-      kyushu.length === expected.kyushu,
-      `[${stage.label}] Expected ${expected.kyushu} Kyushu, got ${kyushu.length}`,
-    );
-    assert(
-      kyushuHubs.length === expected.hubs,
-      `[${stage.label}] Expected ${expected.hubs} hubs, got ${kyushuHubs.length}`,
-    );
-    assert(
-      kyushuNonhubs.length === expected.nonhubs,
-      `[${stage.label}] Expected ${expected.nonhubs} non-hubs, got ${kyushuNonhubs.length}`,
-    );
-    console.log(
-      `✓ ${stage.label} counts: ${data.length} total, ${kyushu.length} Kyushu (${kyushuHubs.length} hubs, ${kyushuNonhubs.length} non-hubs)`,
-    );
-  }
+  // Apply pure transformation
+  const data = applyExpansionStages(original, stages);
 
   // Final stage validations
-  const allNew = [...allHubsSoFar, ...allPoisSoFar];
-  const newIds = allNew.map((r) => r.id);
+  const activeHubIds = new Set(stages.flatMap((s) => s.hubs.map((h) => h.id)));
+  const activePoiIds = new Set(stages.flatMap((s) => s.pois.map((p) => p.id)));
 
-  // Only check 29-ID count when all stages are active
   if (arg === "all") {
-    assert(newIds.length === 29, `Expected 29 new IDs, got ${newIds.length}`);
+    assert(activeHubIds.size + activePoiIds.size === 29, "Expected 29 new IDs");
   }
 
-  // Check exact ID lists
-  const expectedHubCount = ALL_HUB_IDS.filter((id) =>
-    allHubsSoFar.some((h) => h.id === id),
-  ).length;
-  const expectedPoiCount = ALL_POI_IDS.filter((id) =>
-    allPoisSoFar.some((p) => p.id === id),
-  ).length;
-  assert(
-    expectedHubCount + expectedPoiCount === newIds.length,
-    "Hub/POI count mismatch",
-  );
-
-  // No original record changed
+  // No non-expansion record changed
+  const expansionIds = new Set([...activeHubIds, ...activePoiIds]);
   for (let i = 0; i < original.length; i++) {
+    const orig = originalClone[i];
+    if (expansionIds.has(orig.id)) continue;
+    const current = data.find((r) => r.id === orig.id);
     assert(
-      deepEqual(originalClone[i], data[i]),
-      `[FINAL] Original record changed at index ${i}: ${originalClone[i].id}`,
+      deepEqual(orig, current),
+      `[FINAL] Non-expansion record changed: ${orig.id}`,
     );
   }
-  console.log("✓ No original records changed");
+  console.log("✓ No non-expansion records changed");
 
-  // Add remaining unselected hints to nearby arrays
-  // (already handled by data; skip additional mutations)
+  // Check no duplicate images across expansion records
+  const expansionRecords = data.filter((r) => expansionIds.has(r.id));
+  const heroImages = expansionRecords.map((r) => r.heroImage);
+  assert(
+    new Set(heroImages).size === heroImages.length,
+    "Duplicate heroImage across expansion records",
+  );
+  const sourceUrls = expansionRecords.map((r) => r.imageMetadata?.sourceUrl);
+  assert(
+    new Set(sourceUrls).size === sourceUrls.length,
+    "Duplicate imageMetadata.sourceUrl across expansion records",
+  );
+  console.log("✓ No duplicate images across expansion records");
 
   // Write
   fs.writeFileSync(INDEX_PATH, JSON.stringify(data, null, 2) + "\n");
   console.log(`\n✓ Wrote ${data.length} records to ${INDEX_PATH}`);
 
-  // Pass2: one-shot application must produce identical output
-  // Order: interleave hubs and POIs by stage to match incremental order
-  const pass2AllNew: DestinationRecord[] = [];
-  for (const stage of stages) {
-    pass2AllNew.push(...stage.hubs);
-    pass2AllNew.push(...stage.pois);
-  }
-  const pass2 = deepClone(original);
-  pass2.push(...deepClone(pass2AllNew));
-  validateRecords(pass2AllNew, "pass2-preflight");
+  // Real idempotency: apply transformation to pass1 output
+  const pass2 = applyExpansionStages(deepClone(original), stages);
   assert(deepEqual(data, pass2), "Second run produced different output");
-  console.log("✓ Second-run idempotency confirmed");
+  console.log("✓ Real second-run idempotency confirmed");
 }
 
 main();

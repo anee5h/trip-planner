@@ -56,7 +56,7 @@
   "openingHours": "Public streets: open access. Obi Castle Museum and samurai residences: typically 09:00–17:00 (individual facilities may vary)",
   "openingHoursJa": "町並み：自由散策。飫肥城資料館・武家屋敷：通常09:00～17:00（施設により異なる）",
   "openingHoursMetadata": {
-    "verifiedAt": "2026-08-06",
+    "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.kankou-nichinan.jp/en/spot/obi/",
     "hoursNote": "Public district with individual facility hours — check each museum and shop separately"
   },
@@ -125,7 +125,7 @@
     "confidence": "medium"
   },
   "collections": [],
-  "addedAt": "2026-08-06",
+  "addedAt": "2026-08-05",
   "editorial": {
     "lifecycle": "published",
     "sources": [
@@ -133,27 +133,27 @@
         "type": "official",
         "url": "https://www.kankou-nichinan.jp/en/spot/obi/",
         "title": "Obi Castle Town Official Website",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Obi,_Miyazaki",
         "title": "Obi, Miyazaki",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       }
     ],
-    "checkedAt": "2026-08-06",
+    "checkedAt": "2026-08-05",
     "freshness": "current",
     "changeSummary": "Kyushu-to-100 expansion",
     "changes": [
       {
-        "changedAt": "2026-08-06",
+        "changedAt": "2026-08-05",
         "changedBy": "Kyushu-to-100 Editorial Batch",
         "summary": "Added bilingual curated POI: Obi Castle Town",
         "method": "assisted"
       }
     ],
-    "reviewedAt": "2026-08-06",
+    "reviewedAt": "2026-08-05",
     "reviewedBy": "Kyushu-to-100 Editorial Batch"
   },
   "officialWebsite": "https://www.kankou-nichinan.jp/en/spot/obi/",

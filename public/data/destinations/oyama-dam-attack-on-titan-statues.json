@@ -36,12 +36,12 @@
   "officialWebsiteRequirement": "optional",
   "categories": ["Sightseeing", "Outdoor"],
   "tags": ["Anime", "Statues", "Outdoor", "Hita City"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Oyama_Dam_Oita_2019.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Oyama_Dam_Attack_on_Titan_statues.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
     "attribution": "そらみみ",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oyama_Dam_Oita_2019.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oyama_Dam_Attack_on_Titan_statues.jpg"
   },
   "coordinates": {
     "lat": 33.2858,
@@ -56,7 +56,7 @@
   "openingHours": "Open access (daylight hours recommended). Outdoor site — unlit after dark.",
   "openingHoursJa": "自由見学（日中推奨）。屋外のため日没後は非推奨。",
   "openingHoursMetadata": {
-    "verifiedAt": "2026-08-06",
+    "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.oidehita.com/en/spot/aot-dam/",
     "hoursNote": "Outdoor public site, accessible during daylight hours"
   },
@@ -123,7 +123,7 @@
     "confidence": "medium"
   },
   "collections": [],
-  "addedAt": "2026-08-06",
+  "addedAt": "2026-08-05",
   "editorial": {
     "lifecycle": "published",
     "sources": [
@@ -131,27 +131,27 @@
         "type": "official",
         "url": "https://www.oidehita.com/en/spot/aot-dam/",
         "title": "Oyama Dam Attack on Titan Statues Official Website",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Attack_on_Titan",
         "title": "Attack on Titan",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       }
     ],
-    "checkedAt": "2026-08-06",
+    "checkedAt": "2026-08-05",
     "freshness": "current",
     "changeSummary": "Kyushu-to-100 expansion",
     "changes": [
       {
-        "changedAt": "2026-08-06",
+        "changedAt": "2026-08-05",
         "changedBy": "Kyushu-to-100 Editorial Batch",
         "summary": "Added bilingual curated POI: Oyama Dam Attack on Titan Statues",
         "method": "assisted"
       }
     ],
-    "reviewedAt": "2026-08-06",
+    "reviewedAt": "2026-08-05",
     "reviewedBy": "Kyushu-to-100 Editorial Batch"
   },
   "officialWebsite": "https://www.oidehita.com/en/spot/aot-dam/",

@@ -56,7 +56,7 @@
   "openingHours": "Open access (daylight hours recommended)",
   "openingHoursJa": "自由見学（日中推奨）",
   "openingHoursMetadata": {
-    "verifiedAt": "2026-08-06",
+    "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.ibusuki.or.jp/en/spot/nagasakibana/"
   },
   "budgetMin": 1000,
@@ -122,7 +122,7 @@
     "confidence": "medium"
   },
   "collections": [],
-  "addedAt": "2026-08-06",
+  "addedAt": "2026-08-05",
   "editorial": {
     "lifecycle": "published",
     "sources": [
@@ -130,27 +130,27 @@
         "type": "official",
         "url": "https://www.ibusuki.or.jp/en/spot/nagasakibana/",
         "title": "Cape Nagasakibana Official Website",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       },
       {
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Ibusuki,_Kagoshima",
         "title": "Ibusuki, Kagoshima",
-        "accessedAt": "2026-08-06"
+        "accessedAt": "2026-08-05"
       }
     ],
-    "checkedAt": "2026-08-06",
+    "checkedAt": "2026-08-05",
     "freshness": "current",
     "changeSummary": "Kyushu-to-100 expansion",
     "changes": [
       {
-        "changedAt": "2026-08-06",
+        "changedAt": "2026-08-05",
         "changedBy": "Kyushu-to-100 Editorial Batch",
         "summary": "Added bilingual curated POI: Cape Nagasakibana",
         "method": "assisted"
       }
     ],
-    "reviewedAt": "2026-08-06",
+    "reviewedAt": "2026-08-05",
     "reviewedBy": "Kyushu-to-100 Editorial Batch"
   },
   "officialWebsite": "https://www.ibusuki.or.jp/en/spot/nagasakibana/",
