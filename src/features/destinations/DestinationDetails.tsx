@@ -43,6 +43,7 @@ import {
 import { DestinationDetailsSkeleton } from "@/shared/components/ui/Skeleton";
 import { BucketListButton } from "@/shared/components/ui/BucketListButton";
 import { useDelayedSkeleton } from "@/shared/hooks/useDelayedSkeleton";
+import { isValidWalkability } from "@/shared/utils/ratings";
 import {
   ArrowLeft,
   MapPin,
@@ -1460,14 +1461,13 @@ export default function DestinationDetails() {
                         label="Value"
                         value={destination.ratings.value}
                       />
-                      {destination.ratings.walkability !== undefined &&
-                        destination.ratings.walkability !== null && (
-                          <RatingItem
-                            icon={Footprints}
-                            label={t("ui.walkability")}
-                            value={destination.ratings.walkability}
-                          />
-                        )}
+                      {isValidWalkability(destination.ratings.walkability) && (
+                        <RatingItem
+                          icon={Footprints}
+                          label={t("ui.walkability")}
+                          value={destination.ratings.walkability}
+                        />
+                      )}
                       {destination.ratings.accessibility !== undefined && (
                         <RatingItem
                           icon={Train}
