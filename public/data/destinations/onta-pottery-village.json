@@ -1,0 +1,158 @@
+{
+  "id": "onta-pottery-village",
+  "name": "Onta Pottery Village",
+  "nameJa": "小鹿田焼の里",
+  "aliases": ["Onta Pottery Village", "小鹿田焼の里"],
+  "content": {
+    "en": {
+      "name": "Onta Pottery Village",
+      "description": "A small, secluded pottery village in the mountains of Hita where traditional Onta ware (Onta-yaki) has been produced for over 300 years using water-powered clay crushers. Designated as an Intangible Cultural Property.",
+      "highlights": [
+        "Hear the rhythmic sounds of water-powered clay crushers",
+        "Purchase handmade Onta ware directly from local kilns",
+        "Explore the preserved traditional mountain village atmosphere"
+      ],
+      "openingHours": "Open 24 hours (village access); Kiln shops generally open 09:00 - 17:00."
+    },
+    "ja": {
+      "name": "小鹿田焼の里",
+      "description": "日田市の山あいに位置する小さな陶芸の里。300年以上にわたり、川の水力を利用した唐臼で土を砕き、伝統的な小鹿田焼（おんたやき）を作り続けています。国の重要無形文化財に指定。",
+      "highlights": [
+        "川の水力を利用した唐臼の音色",
+        "窯元で直接手作りの小鹿田焼を購入",
+        "昔ながらの山村の風景を散策"
+      ],
+      "openingHours": "24時間開放（集落）。窯元の店舗は概ね09:00〜17:00。"
+    }
+  },
+  "prefecture": "Oita",
+  "region": "Kyushu",
+  "kind": "cultural",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "hita-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture & History", "Shopping"],
+  "tags": ["Pottery", "Traditional Craft", "Village", "Hita City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Onta_Pottery_Village_01.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "STA3816",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Onta_Pottery_Village_01.jpg"
+  },
+  "coordinates": {
+    "lat": 33.4072,
+    "lng": 130.9328
+  },
+  "description": "A small, secluded pottery village in the mountains of Hita where traditional Onta ware (Onta-yaki) has been produced for over 300 years using water-powered clay crushers. Designated as an Intangible Cultural Property.",
+  "highlights": [
+    "Hear the rhythmic sounds of water-powered clay crushers",
+    "Purchase handmade Onta ware directly from local kilns",
+    "Explore the preserved traditional mountain village atmosphere"
+  ],
+  "openingHours": "Open 24 hours (village access); Kiln shops generally open 09:00 - 17:00.",
+  "openingHoursJa": "24時間開放（集落）。窯元の店舗は概ね09:00〜17:00。",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://oidehita.com/archives/51821"
+  },
+  "budgetMin": 500,
+  "budgetRecommended": 3000,
+  "budgetMax": 10000,
+  "budgetBreakdown": {
+    "transport": 150,
+    "tickets": 0,
+    "food": 225,
+    "cafe": 50
+  },
+  "transportOptions": {
+    "bus": 500
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 5,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.5,
+    "couple": 8,
+    "summer": 7.5,
+    "winter": 7,
+    "rain": 6.5,
+    "food": 3,
+    "photography": 9,
+    "relaxation": 9,
+    "value": 8.5,
+    "uniqueness": 9.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "medium",
+  "reservation": "None required",
+  "parking": "Free public parking available near the village entrance",
+  "notes": "The village is small and quiet; please respect the privacy of the potters who live and work here.",
+  "notesJa": "静かな集落ですので、作業中の職人や住民のプライバシーにご配慮ください。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-05",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://oidehita.com/archives/51821",
+        "title": "Onta Pottery Village Official Website",
+        "accessedAt": "2026-08-05"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Onta_ware",
+        "title": "Onta ware",
+        "accessedAt": "2026-08-05"
+      }
+    ],
+    "checkedAt": "2026-08-05",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-05",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Onta Pottery Village",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-05",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://oidehita.com/archives/51821",
+  "municipalityId": "Oita:hita"
+}

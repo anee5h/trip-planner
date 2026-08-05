@@ -1,0 +1,158 @@
+{
+  "id": "cape-toi",
+  "name": "Cape Toi",
+  "nameJa": "都井岬",
+  "aliases": ["Cape Toi", "都井岬"],
+  "content": {
+    "en": {
+      "name": "Cape Toi",
+      "description": "A scenic cape at the southern tip of Miyazaki Prefecture known for its population of semi-wild Misaki horses, which have roamed freely here for over 300 years. Features a prominent white lighthouse and stunning ocean views.",
+      "highlights": [
+        "Observe the semi-wild Misaki horses grazing freely",
+        "Panoramic views of the Pacific Ocean from the cape",
+        "Visit the historic Cape Toi Lighthouse"
+      ],
+      "openingHours": "Open 24 hours. Lighthouse open 09:00 - 16:30."
+    },
+    "ja": {
+      "name": "都井岬",
+      "description": "宮崎県最南端に位置する景勝地。約300年前から野生馬（御崎馬）が生息していることで知られています。白亜の灯台や太平洋の絶景が楽しめます。",
+      "highlights": [
+        "野生の御崎馬が草を食む姿を観察",
+        "太平洋を見渡す絶景パノラマ",
+        "歴史ある都井岬灯台の見学"
+      ],
+      "openingHours": "24時間開放。灯台は09:00〜16:30。"
+    }
+  },
+  "prefecture": "Miyazaki",
+  "region": "Kyushu",
+  "kind": "natural",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "nichinan-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Nature", "Outdoor"],
+  "tags": ["Cape", "Wild Horses", "Lighthouse", "Nichinan City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/44/Toimisaki_Lighthouse_%288727895451%29.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "attribution": "hiroaki",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toimisaki_Lighthouse_(8727895451).jpg"
+  },
+  "coordinates": {
+    "lat": 31.3667,
+    "lng": 131.3333
+  },
+  "description": "A scenic cape at the southern tip of Miyazaki Prefecture known for its population of semi-wild Misaki horses, which have roamed freely here for over 300 years. Features a prominent white lighthouse and stunning ocean views.",
+  "highlights": [
+    "Observe the semi-wild Misaki horses grazing freely",
+    "Panoramic views of the Pacific Ocean from the cape",
+    "Visit the historic Cape Toi Lighthouse"
+  ],
+  "openingHours": "Open 24 hours. Lighthouse open 09:00 - 16:30.",
+  "openingHoursJa": "24時間開放。灯台は09:00〜16:30。",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://kushima-city.jp/toi/"
+  },
+  "budgetMin": 500,
+  "budgetRecommended": 1000,
+  "budgetMax": 2000,
+  "budgetBreakdown": {
+    "transport": 150,
+    "tickets": 0,
+    "food": 225,
+    "cafe": 50
+  },
+  "transportOptions": {
+    "bus": 400
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 500,
+  "indoorPercent": 5,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 2,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8,
+    "couple": 8.5,
+    "summer": 8.5,
+    "winter": 7,
+    "rain": 4,
+    "food": 5,
+    "photography": 9,
+    "relaxation": 8.5,
+    "value": 9,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Paid parking available at the cape entrance",
+  "notes": "A toll fee of 400 yen per car applies at the entrance gate.",
+  "notesJa": "入り口ゲートで車1台につき400円の協力金が必要です。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-05",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://kushima-city.jp/toi/",
+        "title": "Cape Toi Official Website",
+        "accessedAt": "2026-08-05"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Cape_Toi",
+        "title": "Cape Toi",
+        "accessedAt": "2026-08-05"
+      }
+    ],
+    "checkedAt": "2026-08-05",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-05",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Cape Toi",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-05",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://kushima-city.jp/toi/",
+  "municipalityId": "Miyazaki:nichinan"
+}

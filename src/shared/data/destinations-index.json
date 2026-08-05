@@ -93597,7 +93597,7 @@
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY 3.0",
-      "attribution": "Panoramio upload bot",
+      "attribution": "mahlervv",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E7%9F%B3%E5%B2%B3%E5%B1%95%E6%9C%9B%E5%8F%B0_-_panoramio.jpg"
     },
     "coordinates": {
@@ -95425,165 +95425,6 @@
     "municipalityId": "Miyazaki:nichinan"
   },
   {
-    "id": "inohae-valley",
-    "name": "Inohae Valley",
-    "nameJa": "猪八重渓谷",
-    "aliases": ["Inohae Valley", "猪八重渓谷"],
-    "content": {
-      "en": {
-        "name": "Inohae Valley",
-        "description": "A lush forested valley with walking trails following a clear mountain stream past several waterfalls, moss-covered rocks, and subtropical vegetation. The trail is unmaintained in sections and can be slippery. Access is weather-dependent; the valley is not recommended during or after heavy rain.",
-        "highlights": [
-          "Forested valley trail past waterfalls and mossy rocks",
-          "Subtropical flora and clear mountain streams",
-          "Quiet, uncrowded alternative to mainstream sights"
-        ],
-        "openingHours": "Daylight access only. Trail may close after heavy rain. Not maintained as a managed park."
-      },
-      "ja": {
-        "name": "猪八重渓谷",
-        "description": "清流沿いの遊歩道が滝や苔むす岩、亜熱帯植物の中を縫って続く緑豊かな渓谷。一部整備不十分な区間があり滑りやすくなっています。雨天時・大雨後は非推奨。気象条件に左右される自然エリアです。",
-        "highlights": [
-          "滝と苔むす岩が続く森林渓谷トレイル",
-          "亜熱帯植物と清流",
-          "混雑しない静かな穴場スポット"
-        ],
-        "openingHours": "日中のみ通行可能。大雨後は通行止めあり。管理公園としては整備されていません。"
-      }
-    },
-    "prefecture": "Miyazaki",
-    "region": "Kyushu",
-    "kind": "natural",
-    "role": "poi",
-    "placeType": "destination",
-    "relationships": {
-      "parentDestinationId": "nichinan-city"
-    },
-    "officialWebsiteRequirement": "optional",
-    "categories": ["Nature", "Outdoor"],
-    "tags": ["Valley", "Hiking", "Waterfalls", "Nichinan City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Nichinan_20200920151158_%2850855694133%29.jpg",
-    "imageMetadata": {
-      "source": "Wikimedia Commons",
-      "license": "CC BY 2.0",
-      "attribution": "Yacàwotçã",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nichinan_20200920151158_(50855694133).jpg"
-    },
-    "coordinates": {
-      "lat": 31.6806,
-      "lng": 131.3383
-    },
-    "description": "A lush forested valley with walking trails following a clear mountain stream past several waterfalls, moss-covered rocks, and subtropical vegetation. The trail is unmaintained in sections and can be slippery. Access is weather-dependent; the valley is not recommended during or after heavy rain.",
-    "highlights": [
-      "Forested valley trail past waterfalls and mossy rocks",
-      "Subtropical flora and clear mountain streams",
-      "Quiet, uncrowded alternative to mainstream sights"
-    ],
-    "openingHours": "Daylight access only. Trail may close after heavy rain. Not maintained as a managed park.",
-    "openingHoursJa": "日中のみ通行可能。大雨後は通行止めあり。管理公園としては整備されていません。",
-    "openingHoursMetadata": {
-      "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.kankou-nichinan.jp/en/spot/inohae/",
-      "hoursNote": "Weather-dependent natural trail — not accessible after heavy rain or in poor conditions"
-    },
-    "budgetMin": 1000,
-    "budgetRecommended": 3000,
-    "budgetMax": 6000,
-    "budgetBreakdown": {
-      "transport": 300,
-      "tickets": 0,
-      "food": 450,
-      "cafe": 100
-    },
-    "transportOptions": {
-      "bus": 300
-    },
-    "totalTripHours": 4,
-    "recommendedVisitHours": {
-      "min": 1.5,
-      "max": 3
-    },
-    "walkingMin": 5000,
-    "walkingIntensity": "high",
-    "walkingSunMin": 2500,
-    "walkingShadeMin": 2500,
-    "indoorPercent": 5,
-    "comfort": {
-      "heatTolerance": 6,
-      "rainFriendly": 2,
-      "walkingIntensity": 5
-    },
-    "ratings": {
-      "overall": 7.5,
-      "couple": 8,
-      "summer": 6.5,
-      "winter": 6.5,
-      "rain": 3,
-      "food": 4,
-      "photography": 8,
-      "relaxation": 8.5,
-      "value": 9,
-      "uniqueness": 7.5
-    },
-    "ratingsSchemaVersion": 2,
-    "crowd": {
-      "weekday": 1,
-      "weekend": 3,
-      "holiday": 4
-    },
-    "season": {
-      "spring": 9,
-      "summer": 6,
-      "autumn": 9,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 10, 11],
-    "weatherDependence": "high",
-    "reservation": "None required",
-    "parking": "Limited free parking at the trailhead",
-    "notes": "The trail can be slippery and unmaintained — avoid during or after rain and wear hiking boots.",
-    "notesJa": "滑りやすく未整備区間あり — 雨天時・雨上がりは避け登山靴で。",
-    "schemaVersion": 2,
-    "status": "published",
-    "travelEstimate": {
-      "confidence": "medium"
-    },
-    "collections": [],
-    "addedAt": "2026-08-05",
-    "editorial": {
-      "lifecycle": "published",
-      "sources": [
-        {
-          "type": "official",
-          "url": "https://www.kankou-nichinan.jp/en/spot/inohae/",
-          "title": "Inohae Valley Official Website",
-          "accessedAt": "2026-08-05"
-        },
-        {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Nichinan,_Miyazaki",
-          "title": "Nichinan, Miyazaki",
-          "accessedAt": "2026-08-05"
-        }
-      ],
-      "checkedAt": "2026-08-05",
-      "freshness": "current",
-      "changeSummary": "Kyushu-to-100 expansion",
-      "changes": [
-        {
-          "changedAt": "2026-08-05",
-          "changedBy": "Kyushu-to-100 Editorial Batch",
-          "summary": "Added bilingual curated POI: Inohae Valley",
-          "method": "assisted"
-        }
-      ],
-      "reviewedAt": "2026-08-05",
-      "reviewedBy": "Kyushu-to-100 Editorial Batch"
-    },
-    "officialWebsite": "https://www.kankou-nichinan.jp/en/spot/inohae/",
-    "municipalityId": "Miyazaki:nichinan"
-  },
-  {
     "id": "hita-city",
     "name": "Hita City",
     "nameJa": "日田市",
@@ -95768,7 +95609,7 @@
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 3.0",
-      "attribution": "MGA73bot2",
+      "attribution": "NY066",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mamedamachi-1_Hita_Oita.JPG"
     },
     "coordinates": {
@@ -96047,326 +95888,6 @@
     "municipalityId": "Oita:hita"
   },
   {
-    "id": "attack-on-titan-hita-museum",
-    "name": "Attack on Titan in HITA Museum",
-    "nameJa": "進撃の巨人 in HITA ミュージアム",
-    "aliases": [
-      "Attack on Titan in HITA Museum",
-      "進撃の巨人 in HITA ミュージアム"
-    ],
-    "content": {
-      "en": {
-        "name": "Attack on Titan in HITA Museum",
-        "description": "A museum dedicated to the Attack on Titan manga and anime, located in the Hita Roadside Station. Hita is the hometown of the series' creator, Hajime Isayama. Exhibits include original manuscript pages, life-size character statues, and exclusive merchandise. Follows the roadside station's operating hours.",
-        "highlights": [
-          "Original Attack on Titan manuscript pages on display",
-          "Life-size character statues for photo opportunities",
-          "Exclusive Hita-location merchandise"
-        ],
-        "openingHours": "Weekdays 09:30–16:00; weekends and public holidays 09:30–17:00; irregular closures"
-      },
-      "ja": {
-        "name": "進撃の巨人 in HITA ミュージアム",
-        "description": "日田市の道の駅内にある進撃の巨人のミュージアム。原作者・諫山創氏の故郷が日田市であることから設置されました。原画展示、等身大フィギュア、限定グッズを展示。道の駅の営業時間に準じます。",
-        "highlights": [
-          "進撃の巨人の原画展示",
-          "等身大キャラクター像との写真撮影",
-          "日田限定グッズの販売"
-        ],
-        "openingHours": "平日09:30～16:00、土日祝09:30～17:00。不定休。"
-      }
-    },
-    "prefecture": "Oita",
-    "region": "Kyushu",
-    "kind": "museum",
-    "role": "poi",
-    "placeType": "destination",
-    "relationships": {
-      "parentDestinationId": "hita-city"
-    },
-    "officialWebsiteRequirement": "optional",
-    "categories": ["Museum & Art", "Leisure"],
-    "tags": ["Museum", "Anime", "Attack on Titan", "Hita City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/42/Mameda_Branch_of_Hita_Shinkin_Bank.jpg",
-    "imageMetadata": {
-      "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mameda_Branch_of_Hita_Shinkin_Bank.jpg"
-    },
-    "coordinates": {
-      "lat": 33.3219,
-      "lng": 130.9333
-    },
-    "description": "A museum dedicated to the Attack on Titan manga and anime, located in the Hita Roadside Station. Hita is the hometown of the series' creator, Hajime Isayama. Exhibits include original manuscript pages, life-size character statues, and exclusive merchandise. Follows the roadside station's operating hours.",
-    "highlights": [
-      "Original Attack on Titan manuscript pages on display",
-      "Life-size character statues for photo opportunities",
-      "Exclusive Hita-location merchandise"
-    ],
-    "openingHours": "Weekdays 09:30–16:00; weekends and public holidays 09:30–17:00; irregular closures",
-    "openingHoursJa": "平日09:30～16:00、土日祝09:30～17:00。不定休。",
-    "openingHoursMetadata": {
-      "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://oidehita.com/archives/52002"
-    },
-    "budgetMin": 2000,
-    "budgetRecommended": 5000,
-    "budgetMax": 10000,
-    "budgetBreakdown": {
-      "transport": 600,
-      "tickets": 500,
-      "food": 900,
-      "cafe": 200
-    },
-    "transportOptions": {
-      "bus": 150
-    },
-    "totalTripHours": 3,
-    "recommendedVisitHours": {
-      "min": 1,
-      "max": 2
-    },
-    "walkingMin": 1500,
-    "walkingIntensity": "low",
-    "walkingSunMin": 200,
-    "walkingShadeMin": 1000,
-    "indoorPercent": 90,
-    "comfort": {
-      "heatTolerance": 9,
-      "rainFriendly": 10,
-      "walkingIntensity": 2
-    },
-    "ratings": {
-      "overall": 8.5,
-      "couple": 7.5,
-      "summer": 8.5,
-      "winter": 8.5,
-      "rain": 9.5,
-      "food": 6,
-      "photography": 8,
-      "relaxation": 7,
-      "value": 8,
-      "uniqueness": 9.5
-    },
-    "ratingsSchemaVersion": 2,
-    "crowd": {
-      "weekday": 3,
-      "weekend": 7,
-      "holiday": 8
-    },
-    "season": {
-      "spring": 9,
-      "summer": 9,
-      "autumn": 9,
-      "winter": 9
-    },
-    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-    "weatherDependence": "low",
-    "reservation": "None required; busy on weekends and holidays",
-    "parking": "Free roadside station parking available",
-    "notes": "The museum is inside Roadside Station Mizubenosato Oyama — adult admission ¥500, free for under 18.",
-    "notesJa": "道の駅水辺の郷おおやま内に併設。大人500円、18歳未満無料。",
-    "schemaVersion": 2,
-    "status": "published",
-    "travelEstimate": {
-      "confidence": "medium"
-    },
-    "collections": [],
-    "addedAt": "2026-08-05",
-    "editorial": {
-      "lifecycle": "published",
-      "sources": [
-        {
-          "type": "official",
-          "url": "https://oidehita.com/archives/52002",
-          "title": "Attack on Titan in HITA Museum Official Website",
-          "accessedAt": "2026-08-05"
-        },
-        {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Attack_on_Titan",
-          "title": "Attack on Titan",
-          "accessedAt": "2026-08-05"
-        }
-      ],
-      "checkedAt": "2026-08-05",
-      "freshness": "current",
-      "changeSummary": "Kyushu-to-100 expansion",
-      "changes": [
-        {
-          "changedAt": "2026-08-05",
-          "changedBy": "Kyushu-to-100 Editorial Batch",
-          "summary": "Added bilingual curated POI: Attack on Titan in HITA Museum",
-          "method": "assisted"
-        }
-      ],
-      "reviewedAt": "2026-08-05",
-      "reviewedBy": "Kyushu-to-100 Editorial Batch"
-    },
-    "officialWebsite": "https://oidehita.com/archives/52002",
-    "municipalityId": "Oita:hita"
-  },
-  {
-    "id": "oyama-dam-attack-on-titan-statues",
-    "name": "Oyama Dam Attack on Titan Statues",
-    "nameJa": "大山ダム 進撃の巨人像",
-    "aliases": ["Oyama Dam Attack on Titan Statues", "大山ダム 進撃の巨人像"],
-    "content": {
-      "en": {
-        "name": "Oyama Dam Attack on Titan Statues",
-        "description": "Outdoor site at Oyama Dam featuring life-size bronze statues of the three main characters from Attack on Titan — Eren, Mikasa, and Armin — as children overlooking the dam wall. The statues were erected as part of the Hita anime tourism project. An open-access outdoor site with no admission fee.",
-        "highlights": [
-          "Life-size bronze statues of Eren, Mikasa and Armin as children",
-          "Panoramic dam and mountain views from the statue site",
-          "Free open-access outdoor anime pilgrimage location"
-        ],
-        "openingHours": "Open access (daylight hours recommended). Outdoor site — unlit after dark."
-      },
-      "ja": {
-        "name": "大山ダム 進撃の巨人像",
-        "description": "大山ダムに設置された進撃の巨人の主要キャラクター（エレン、ミカサ、アルミン）の幼少期の等身大銅像。日田市のアニメツーリズム事業の一環として設置されました。無料で見学できる屋外スポットです。",
-        "highlights": [
-          "エレン・ミカサ・アルミン幼少期の等身大銅像",
-          "銅像広場から望むダムと山々のパノラマ",
-          "無料で自由に見学できるアニメ聖地"
-        ],
-        "openingHours": "自由見学（日中推奨）。屋外のため日没後は非推奨。"
-      }
-    },
-    "prefecture": "Oita",
-    "region": "Kyushu",
-    "kind": "outdoor",
-    "role": "poi",
-    "placeType": "destination",
-    "relationships": {
-      "parentDestinationId": "hita-city"
-    },
-    "officialWebsiteRequirement": "optional",
-    "categories": ["Sightseeing", "Outdoor"],
-    "tags": ["Anime", "Statues", "Outdoor", "Hita City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/86/Oyama_Dam.jpg",
-    "imageMetadata": {
-      "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "河川一等兵",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oyama_Dam.jpg"
-    },
-    "coordinates": {
-      "lat": 33.2858,
-      "lng": 130.9306
-    },
-    "description": "Outdoor site at Oyama Dam featuring life-size bronze statues of the three main characters from Attack on Titan — Eren, Mikasa, and Armin — as children overlooking the dam wall. The statues were erected as part of the Hita anime tourism project. An open-access outdoor site with no admission fee.",
-    "highlights": [
-      "Life-size bronze statues of Eren, Mikasa and Armin as children",
-      "Panoramic dam and mountain views from the statue site",
-      "Free open-access outdoor anime pilgrimage location"
-    ],
-    "openingHours": "Open access (daylight hours recommended). Outdoor site — unlit after dark.",
-    "openingHoursJa": "自由見学（日中推奨）。屋外のため日没後は非推奨。",
-    "openingHoursMetadata": {
-      "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.oidehita.com/en/spot/aot-dam/",
-      "hoursNote": "Outdoor public site, accessible during daylight hours"
-    },
-    "budgetMin": 1500,
-    "budgetRecommended": 3500,
-    "budgetMax": 6000,
-    "budgetBreakdown": {
-      "transport": 450,
-      "tickets": 0,
-      "food": 675,
-      "cafe": 150
-    },
-    "transportOptions": {
-      "bus": 200
-    },
-    "totalTripHours": 3,
-    "recommendedVisitHours": {
-      "min": 0.5,
-      "max": 1
-    },
-    "walkingMin": 1000,
-    "walkingIntensity": "low",
-    "walkingSunMin": 800,
-    "walkingShadeMin": 200,
-    "indoorPercent": 5,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 4,
-      "walkingIntensity": 2
-    },
-    "ratings": {
-      "overall": 7.5,
-      "couple": 7,
-      "summer": 7.5,
-      "winter": 6.5,
-      "rain": 5,
-      "food": 4,
-      "photography": 8.5,
-      "relaxation": 7,
-      "value": 9,
-      "uniqueness": 9.5
-    },
-    "ratingsSchemaVersion": 2,
-    "crowd": {
-      "weekday": 2,
-      "weekend": 5,
-      "holiday": 7
-    },
-    "season": {
-      "spring": 9,
-      "summer": 8,
-      "autumn": 9,
-      "winter": 7
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "weatherDependence": "high",
-    "reservation": "None required",
-    "parking": "Free parking at the dam",
-    "notes": "A car or taxi is the most practical way to reach the dam — limited public transport options.",
-    "notesJa": "公共交通の便が限られているため、車またはタクシーでのアクセスが現実的です。",
-    "schemaVersion": 2,
-    "status": "published",
-    "travelEstimate": {
-      "confidence": "medium"
-    },
-    "collections": [],
-    "addedAt": "2026-08-05",
-    "editorial": {
-      "lifecycle": "published",
-      "sources": [
-        {
-          "type": "official",
-          "url": "https://www.oidehita.com/en/spot/aot-dam/",
-          "title": "Oyama Dam Attack on Titan Statues Official Website",
-          "accessedAt": "2026-08-05"
-        },
-        {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Attack_on_Titan",
-          "title": "Attack on Titan",
-          "accessedAt": "2026-08-05"
-        }
-      ],
-      "checkedAt": "2026-08-05",
-      "freshness": "current",
-      "changeSummary": "Kyushu-to-100 expansion",
-      "changes": [
-        {
-          "changedAt": "2026-08-05",
-          "changedBy": "Kyushu-to-100 Editorial Batch",
-          "summary": "Added bilingual curated POI: Oyama Dam Attack on Titan Statues",
-          "method": "assisted"
-        }
-      ],
-      "reviewedAt": "2026-08-05",
-      "reviewedBy": "Kyushu-to-100 Editorial Batch"
-    },
-    "officialWebsite": "https://www.oidehita.com/en/spot/aot-dam/",
-    "municipalityId": "Oita:hita"
-  },
-  {
     "id": "hita-gion-yamahoko-museum",
     "name": "Hita Gion Yamahoko Museum",
     "nameJa": "日田祇園山鉾会館",
@@ -96523,6 +96044,480 @@
       "reviewedBy": "Kyushu-to-100 Editorial Batch"
     },
     "officialWebsite": "https://www.oidehita.com/en/spot/yamahoko/",
+    "municipalityId": "Oita:hita"
+  },
+  {
+    "id": "cape-toi",
+    "name": "Cape Toi",
+    "nameJa": "都井岬",
+    "aliases": ["Cape Toi", "都井岬"],
+    "content": {
+      "en": {
+        "name": "Cape Toi",
+        "description": "A scenic cape at the southern tip of Miyazaki Prefecture known for its population of semi-wild Misaki horses, which have roamed freely here for over 300 years. Features a prominent white lighthouse and stunning ocean views.",
+        "highlights": [
+          "Observe the semi-wild Misaki horses grazing freely",
+          "Panoramic views of the Pacific Ocean from the cape",
+          "Visit the historic Cape Toi Lighthouse"
+        ],
+        "openingHours": "Open 24 hours. Lighthouse open 09:00 - 16:30."
+      },
+      "ja": {
+        "name": "都井岬",
+        "description": "宮崎県最南端に位置する景勝地。約300年前から野生馬（御崎馬）が生息していることで知られています。白亜の灯台や太平洋の絶景が楽しめます。",
+        "highlights": [
+          "野生の御崎馬が草を食む姿を観察",
+          "太平洋を見渡す絶景パノラマ",
+          "歴史ある都井岬灯台の見学"
+        ],
+        "openingHours": "24時間開放。灯台は09:00〜16:30。"
+      }
+    },
+    "prefecture": "Miyazaki",
+    "region": "Kyushu",
+    "kind": "natural",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "nichinan-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Nature", "Outdoor"],
+    "tags": ["Cape", "Wild Horses", "Lighthouse", "Nichinan City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/44/Toimisaki_Lighthouse_%288727895451%29.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "hiroaki",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toimisaki_Lighthouse_(8727895451).jpg"
+    },
+    "coordinates": {
+      "lat": 31.3667,
+      "lng": 131.3333
+    },
+    "description": "A scenic cape at the southern tip of Miyazaki Prefecture known for its population of semi-wild Misaki horses, which have roamed freely here for over 300 years. Features a prominent white lighthouse and stunning ocean views.",
+    "highlights": [
+      "Observe the semi-wild Misaki horses grazing freely",
+      "Panoramic views of the Pacific Ocean from the cape",
+      "Visit the historic Cape Toi Lighthouse"
+    ],
+    "openingHours": "Open 24 hours. Lighthouse open 09:00 - 16:30.",
+    "openingHoursJa": "24時間開放。灯台は09:00〜16:30。",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-05",
+      "sourceUrl": "https://kushima-city.jp/toi/"
+    },
+    "budgetMin": 500,
+    "budgetRecommended": 1000,
+    "budgetMax": 2000,
+    "budgetBreakdown": {
+      "transport": 150,
+      "tickets": 0,
+      "food": 225,
+      "cafe": 50
+    },
+    "transportOptions": {
+      "bus": 400
+    },
+    "totalTripHours": 3,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 2000,
+    "walkingIntensity": "low",
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 500,
+    "indoorPercent": 5,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 2,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8,
+      "couple": 8.5,
+      "summer": 8.5,
+      "winter": 7,
+      "rain": 4,
+      "food": 5,
+      "photography": 9,
+      "relaxation": 8.5,
+      "value": 9,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 2,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "weatherDependence": "high",
+    "reservation": "None required",
+    "parking": "Paid parking available at the cape entrance",
+    "notes": "A toll fee of 400 yen per car applies at the entrance gate.",
+    "notesJa": "入り口ゲートで車1台につき400円の協力金が必要です。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-05",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://kushima-city.jp/toi/",
+          "title": "Cape Toi Official Website",
+          "accessedAt": "2026-08-05"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Cape_Toi",
+          "title": "Cape Toi",
+          "accessedAt": "2026-08-05"
+        }
+      ],
+      "checkedAt": "2026-08-05",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-05",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Cape Toi",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-05",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://kushima-city.jp/toi/",
+    "municipalityId": "Miyazaki:nichinan"
+  },
+  {
+    "id": "onta-pottery-village",
+    "name": "Onta Pottery Village",
+    "nameJa": "小鹿田焼の里",
+    "aliases": ["Onta Pottery Village", "小鹿田焼の里"],
+    "content": {
+      "en": {
+        "name": "Onta Pottery Village",
+        "description": "A small, secluded pottery village in the mountains of Hita where traditional Onta ware (Onta-yaki) has been produced for over 300 years using water-powered clay crushers. Designated as an Intangible Cultural Property.",
+        "highlights": [
+          "Hear the rhythmic sounds of water-powered clay crushers",
+          "Purchase handmade Onta ware directly from local kilns",
+          "Explore the preserved traditional mountain village atmosphere"
+        ],
+        "openingHours": "Open 24 hours (village access); Kiln shops generally open 09:00 - 17:00."
+      },
+      "ja": {
+        "name": "小鹿田焼の里",
+        "description": "日田市の山あいに位置する小さな陶芸の里。300年以上にわたり、川の水力を利用した唐臼で土を砕き、伝統的な小鹿田焼（おんたやき）を作り続けています。国の重要無形文化財に指定。",
+        "highlights": [
+          "川の水力を利用した唐臼の音色",
+          "窯元で直接手作りの小鹿田焼を購入",
+          "昔ながらの山村の風景を散策"
+        ],
+        "openingHours": "24時間開放（集落）。窯元の店舗は概ね09:00〜17:00。"
+      }
+    },
+    "prefecture": "Oita",
+    "region": "Kyushu",
+    "kind": "cultural",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "hita-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Culture & History", "Shopping"],
+    "tags": ["Pottery", "Traditional Craft", "Village", "Hita City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Onta_Pottery_Village_01.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "STA3816",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Onta_Pottery_Village_01.jpg"
+    },
+    "coordinates": {
+      "lat": 33.4072,
+      "lng": 130.9328
+    },
+    "description": "A small, secluded pottery village in the mountains of Hita where traditional Onta ware (Onta-yaki) has been produced for over 300 years using water-powered clay crushers. Designated as an Intangible Cultural Property.",
+    "highlights": [
+      "Hear the rhythmic sounds of water-powered clay crushers",
+      "Purchase handmade Onta ware directly from local kilns",
+      "Explore the preserved traditional mountain village atmosphere"
+    ],
+    "openingHours": "Open 24 hours (village access); Kiln shops generally open 09:00 - 17:00.",
+    "openingHoursJa": "24時間開放（集落）。窯元の店舗は概ね09:00〜17:00。",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-05",
+      "sourceUrl": "https://oidehita.com/archives/51821"
+    },
+    "budgetMin": 500,
+    "budgetRecommended": 3000,
+    "budgetMax": 10000,
+    "budgetBreakdown": {
+      "transport": 150,
+      "tickets": 0,
+      "food": 225,
+      "cafe": 50
+    },
+    "transportOptions": {
+      "bus": 500
+    },
+    "totalTripHours": 4,
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3
+    },
+    "walkingMin": 3000,
+    "walkingIntensity": "low",
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 1500,
+    "indoorPercent": 20,
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 5,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8.5,
+      "couple": 8,
+      "summer": 7.5,
+      "winter": 7,
+      "rain": 6.5,
+      "food": 3,
+      "photography": 9,
+      "relaxation": 9,
+      "value": 8.5,
+      "uniqueness": 9.5
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 2,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "weatherDependence": "medium",
+    "reservation": "None required",
+    "parking": "Free public parking available near the village entrance",
+    "notes": "The village is small and quiet; please respect the privacy of the potters who live and work here.",
+    "notesJa": "静かな集落ですので、作業中の職人や住民のプライバシーにご配慮ください。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-05",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://oidehita.com/archives/51821",
+          "title": "Onta Pottery Village Official Website",
+          "accessedAt": "2026-08-05"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Onta_ware",
+          "title": "Onta ware",
+          "accessedAt": "2026-08-05"
+        }
+      ],
+      "checkedAt": "2026-08-05",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-05",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Onta Pottery Village",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-05",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://oidehita.com/archives/51821",
+    "municipalityId": "Oita:hita"
+  },
+  {
+    "id": "hita-onsen",
+    "name": "Hita Onsen & Mikuma River",
+    "nameJa": "日田温泉・三隈川",
+    "aliases": ["Hita Onsen & Mikuma River", "日田温泉・三隈川"],
+    "content": {
+      "en": {
+        "name": "Hita Onsen & Mikuma River",
+        "description": "A historic hot spring resort situated along the serene Mikuma River. Famous for its summer houseboats (yakatabune) where visitors can enjoy dinner on the water while watching traditional cormorant fishing (ukai).",
+        "highlights": [
+          "Relax in soothing hot springs with river views",
+          "Experience traditional cormorant fishing from a houseboat (summer)",
+          "Enjoy scenic walks along the Mikuma River promenade"
+        ],
+        "openingHours": "Open 24 hours for riverside area; Onsen bath and ryokan hours vary."
+      },
+      "ja": {
+        "name": "日田温泉・三隈川",
+        "description": "三隈川沿いに旅館が立ち並ぶ歴史ある温泉地。夏場の屋形船が名物で、水上での食事や伝統的な鵜飼い見学が楽しめます。",
+        "highlights": [
+          "三隈川を望む温泉でリラックス",
+          "屋形船からの鵜飼い見学（夏季）",
+          "三隈川沿いの遊歩道を散策"
+        ],
+        "openingHours": "川沿いは24時間開放。各旅館・立ち寄り湯の営業時間は異なります。"
+      }
+    },
+    "prefecture": "Oita",
+    "region": "Kyushu",
+    "kind": "onsen",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "hita-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Onsen", "Leisure"],
+    "tags": ["Onsen", "Riverfront", "Houseboats", "Hita City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/65/Mikuma_River_and_Hita_Onsen.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "STA3816",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mikuma_River_and_Hita_Onsen.jpg"
+    },
+    "coordinates": {
+      "lat": 33.3155,
+      "lng": 130.9351
+    },
+    "description": "A historic hot spring resort situated along the serene Mikuma River. Famous for its summer houseboats (yakatabune) where visitors can enjoy dinner on the water while watching traditional cormorant fishing (ukai).",
+    "highlights": [
+      "Relax in soothing hot springs with river views",
+      "Experience traditional cormorant fishing from a houseboat (summer)",
+      "Enjoy scenic walks along the Mikuma River promenade"
+    ],
+    "openingHours": "Open 24 hours for riverside area; Onsen bath and ryokan hours vary.",
+    "openingHoursJa": "川沿いは24時間開放。各旅館・立ち寄り湯の営業時間は異なります。",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-05",
+      "sourceUrl": "https://oidehita.com/archives/51871"
+    },
+    "budgetMin": 500,
+    "budgetRecommended": 2000,
+    "budgetMax": 20000,
+    "budgetBreakdown": {
+      "transport": 150,
+      "tickets": 0,
+      "food": 225,
+      "cafe": 50
+    },
+    "transportOptions": {
+      "walk": 15
+    },
+    "totalTripHours": 3,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "walkingMin": 2000,
+    "walkingIntensity": "low",
+    "walkingSunMin": 1000,
+    "walkingShadeMin": 1000,
+    "indoorPercent": 50,
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 7,
+      "walkingIntensity": 2
+    },
+    "ratings": {
+      "overall": 8,
+      "couple": 8.5,
+      "summer": 9,
+      "winter": 8,
+      "rain": 6,
+      "food": 8,
+      "photography": 8,
+      "relaxation": 9.5,
+      "value": 8,
+      "uniqueness": 8.5
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 8,
+      "summer": 10,
+      "autumn": 8,
+      "winter": 7
+    },
+    "bestMonths": [5, 6, 7, 8, 9, 10],
+    "weatherDependence": "medium",
+    "reservation": "Recommended for houseboats and ryokan stays",
+    "parking": "Available at individual ryokans and some public lots",
+    "notes": "Cormorant fishing (ukai) season typically runs from late May to October.",
+    "notesJa": "鵜飼いのシーズンは通常5月下旬から10月末までです。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-05",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://oidehita.com/archives/51871",
+          "title": "Hita Onsen & Mikuma River Official Website",
+          "accessedAt": "2026-08-05"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://ja.wikipedia.org/wiki/%E6%97%A5%E7%94%B0%E6%B8%A9%E6%B3%89",
+          "title": "日田温泉",
+          "accessedAt": "2026-08-05"
+        }
+      ],
+      "checkedAt": "2026-08-05",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-05",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Hita Onsen & Mikuma River",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-05",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://oidehita.com/archives/51871",
     "municipalityId": "Oita:hita"
   }
 ]
