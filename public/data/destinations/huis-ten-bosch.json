@@ -1,0 +1,160 @@
+{
+  "id": "huis-ten-bosch",
+  "name": "Huis Ten Bosch",
+  "nameJa": "ハウステンボス",
+  "aliases": ["Huis Ten Bosch", "ハウステンボス"],
+  "content": {
+    "en": {
+      "name": "Huis Ten Bosch",
+      "description": "A Dutch-themed amusement park and resort spanning 152 hectares, one of Japan's largest theme parks. Features canals, windmills, replica Dutch buildings, seasonal flower gardens, museums, attractions, and spectacular illumination events. Hours and ticket prices vary by date and season.",
+      "highlights": [
+        "Spectacular seasonal illumination events",
+        "Canal cruises through Dutch-style scenery",
+        "Seasonal flower gardens and windmill landscapes"
+      ],
+      "openingHours": "Varies by date; typically opens at 10:00. Check the official operating calendar."
+    },
+    "ja": {
+      "name": "ハウステンボス",
+      "description": "152ヘクタールに広がるオランダをテーマにした日本最大級のテーマパーク。運河、風車、オランダ建築の再現、季節の花園、ミュージアム、アトラクション、壮大なイルミネーションが楽しめます。営業時間と料金は日付と季節により変動します。",
+      "highlights": [
+        "壮大な季節のイルミネーション",
+        "運河クルーズでオランダ風景を満喫",
+        "季節の花園と風車の風景"
+      ],
+      "openingHours": "日付により変動（通常10:00開園）。公式営業時間カレンダーを確認。"
+    }
+  },
+  "prefecture": "Nagasaki",
+  "region": "Kyushu",
+  "kind": "theme_park",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "sasebo-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Leisure", "Sightseeing"],
+  "tags": ["Theme Park", "Dutch", "Illumination", "Sasebo City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Huis_Ten_Bosch_Nagasaki.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "MarioR",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Huis_Ten_Bosch_Nagasaki.jpg"
+  },
+  "coordinates": {
+    "lat": 33.0856,
+    "lng": 129.7914
+  },
+  "description": "A Dutch-themed amusement park and resort spanning 152 hectares, one of Japan's largest theme parks. Features canals, windmills, replica Dutch buildings, seasonal flower gardens, museums, attractions, and spectacular illumination events. Hours and ticket prices vary by date and season.",
+  "highlights": [
+    "Spectacular seasonal illumination events",
+    "Canal cruises through Dutch-style scenery",
+    "Seasonal flower gardens and windmill landscapes"
+  ],
+  "openingHours": "Varies by date; typically opens at 10:00. Check the official operating calendar.",
+  "openingHoursJa": "日付により変動（通常10:00開園）。公式営業時間カレンダーを確認。",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://english.huistenbosch.co.jp/opentime/",
+    "hoursNote": "Hours and ticket prices vary daily — always check the official calendar"
+  },
+  "budgetMin": 5000,
+  "budgetRecommended": 15000,
+  "budgetMax": 30000,
+  "budgetBreakdown": {
+    "transport": 1500,
+    "tickets": 7000,
+    "food": 2250,
+    "cafe": 500
+  },
+  "transportOptions": {
+    "train": 280,
+    "bus": 200
+  },
+  "totalTripHours": 8,
+  "recommendedVisitHours": {
+    "min": 4,
+    "max": 8
+  },
+  "walkingMin": 8000,
+  "walkingIntensity": "high",
+  "walkingSunMin": 3000,
+  "walkingShadeMin": 4000,
+  "indoorPercent": 60,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9.5,
+    "summer": 8.5,
+    "winter": 8.5,
+    "rain": 7.5,
+    "food": 8,
+    "photography": 9.5,
+    "relaxation": 8,
+    "value": 7.5,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 9,
+    "holiday": 10
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 9
+  },
+  "bestMonths": [3, 4, 5, 7, 8, 11, 12],
+  "weatherDependence": "moderate",
+  "reservation": "Advance online tickets recommended; group discounts available",
+  "parking": "Paid parking available",
+  "notes": "Opening hours and ticket prices vary daily — always check the official operating calendar.",
+  "notesJa": "営業時間と料金は日により変動 — 公式営業カレンダーを事前に確認ください。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-05",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://english.huistenbosch.co.jp/",
+        "title": "Huis Ten Bosch Official Website",
+        "accessedAt": "2026-08-05"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Huis_Ten_Bosch_(theme_park)",
+        "title": "Huis Ten Bosch (theme park)",
+        "accessedAt": "2026-08-05"
+      }
+    ],
+    "checkedAt": "2026-08-05",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-05",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Huis Ten Bosch",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-05",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://english.huistenbosch.co.jp/",
+  "municipalityId": "Nagasaki:sasebo"
+}

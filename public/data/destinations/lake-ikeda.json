@@ -1,0 +1,158 @@
+{
+  "id": "lake-ikeda",
+  "name": "Lake Ikeda",
+  "nameJa": "池田湖",
+  "aliases": ["Lake Ikeda", "池田湖"],
+  "content": {
+    "en": {
+      "name": "Lake Ikeda",
+      "description": "The largest lake on Kyushu island, a caldera lake formed by volcanic activity. Known for its deep blue waters, the iconic view of Mount Kaimon reflected on the surface, and legends of giant eels. The lakeshore has walking paths, a visitor centre, and the Ikeda Lake Paradise amusement area.",
+      "highlights": [
+        "Kyushu's largest lake with Mount Kaimon backdrop",
+        "Legends of giant eels in the deep blue waters",
+        "Lakeshore walking paths and seasonal flowers"
+      ],
+      "openingHours": "Open access (lakeshore and paths). Visitor centre: 09:00–17:00"
+    },
+    "ja": {
+      "name": "池田湖",
+      "description": "九州最大のカルデラ湖で、火山活動によって形成されました。深い青の湖面に映る開聞岳の姿が象徴的で、巨大ウナギ伝説でも知られています。湖畔には遊歩道、ビジターセンター、池田湖パラダイスがあります。",
+      "highlights": [
+        "開聞岳を背景にした九州最大の湖",
+        "巨大ウナギ伝説が残る神秘の湖",
+        "湖畔の遊歩道と季節の花々"
+      ],
+      "openingHours": "湖畔・遊歩道：自由見学。ビジターセンター：09:00～17:00"
+    }
+  },
+  "prefecture": "Kagoshima",
+  "region": "Kyushu",
+  "kind": "natural",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "ibusuki-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Nature", "Sightseeing"],
+  "tags": ["Lake", "Nature", "Scenic", "Ibusuki City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Lake_Ikeda_and_Mount_Kaimon.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Ikeda_and_Mount_Kaimon.jpg"
+  },
+  "coordinates": {
+    "lat": 31.2386,
+    "lng": 130.5708
+  },
+  "description": "The largest lake on Kyushu island, a caldera lake formed by volcanic activity. Known for its deep blue waters, the iconic view of Mount Kaimon reflected on the surface, and legends of giant eels. The lakeshore has walking paths, a visitor centre, and the Ikeda Lake Paradise amusement area.",
+  "highlights": [
+    "Kyushu's largest lake with Mount Kaimon backdrop",
+    "Legends of giant eels in the deep blue waters",
+    "Lakeshore walking paths and seasonal flowers"
+  ],
+  "openingHours": "Open access (lakeshore and paths). Visitor centre: 09:00–17:00",
+  "openingHoursJa": "湖畔・遊歩道：自由見学。ビジターセンター：09:00～17:00",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.ibusuki.or.jp/en/spot/lake-ikeda/"
+  },
+  "budgetMin": 1000,
+  "budgetRecommended": 3000,
+  "budgetMax": 6000,
+  "budgetBreakdown": {
+    "transport": 300,
+    "tickets": 0,
+    "food": 450,
+    "cafe": 100
+  },
+  "transportOptions": {
+    "bus": 250
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2500,
+  "walkingIntensity": "low",
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 500,
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 5,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 7.5,
+    "couple": 8.5,
+    "summer": 7.5,
+    "winter": 7.5,
+    "rain": 5.5,
+    "food": 6,
+    "photography": 8.5,
+    "relaxation": 8.5,
+    "value": 9,
+    "uniqueness": 7
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 8,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10],
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free parking available",
+  "notes": "The best photo of Mount Kaimon reflected in the lake is from the south shore in the morning.",
+  "notesJa": "湖面に映る開聞岳の撮影は南岸から午前中がおすすめです。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-05",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.ibusuki.or.jp/en/spot/lake-ikeda/",
+        "title": "Lake Ikeda Official Website",
+        "accessedAt": "2026-08-05"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Lake_Ikeda",
+        "title": "Lake Ikeda",
+        "accessedAt": "2026-08-05"
+      }
+    ],
+    "checkedAt": "2026-08-05",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-05",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Lake Ikeda",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-05",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://www.ibusuki.or.jp/en/spot/lake-ikeda/",
+  "municipalityId": "Kagoshima:ibusuki"
+}

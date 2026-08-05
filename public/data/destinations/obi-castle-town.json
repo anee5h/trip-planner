@@ -1,0 +1,161 @@
+{
+  "id": "obi-castle-town",
+  "name": "Obi Castle Town",
+  "nameJa": "飫肥城下町",
+  "aliases": ["Obi Castle Town", "飫肥城下町"],
+  "content": {
+    "en": {
+      "name": "Obi Castle Town",
+      "description": "A beautifully preserved Edo-period castle town known as the 'Little Kyoto of Kyushu'. Features samurai residences, the restored Obi Castle gate, a historic school, mossy stone walls, and streets lined with Obi cedar. Individual museums, shops and cafés each have separate hours and admission fees.",
+      "highlights": [
+        "Well-preserved Edo-period samurai district",
+        "Restored Obi Castle gate and mossy stone walls",
+        "Historic merchant streets lined with Obi cedar"
+      ],
+      "openingHours": "Public streets: open access. Obi Castle Museum and samurai residences: typically 09:00–17:00 (individual facilities may vary)"
+    },
+    "ja": {
+      "name": "飫肥城下町",
+      "description": "「九州の小京都」と呼ばれる江戸時代の城下町。武家屋敷、復元された飫肥城大手門、歴史的な学校跡、苔むす石垣、飫肥杉に囲まれた通りが美しい町並みを形成しています。各博物館、店舗、カフェは個別の営業時間と入場料が設定されています。",
+      "highlights": [
+        "江戸時代の武家屋敷が残る保存地区",
+        "復元された飫肥城大手門と苔むす石垣",
+        "飫肥杉に囲まれた歴史的な商家の町並み"
+      ],
+      "openingHours": "町並み：自由散策。飫肥城資料館・武家屋敷：通常09:00～17:00（施設により異なる）"
+    }
+  },
+  "prefecture": "Miyazaki",
+  "region": "Kyushu",
+  "kind": "historic",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "nichinan-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Historic", "Sightseeing"],
+  "tags": ["Historic District", "Samurai", "Castle Town", "Nichinan City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/42/Obi%2C_Nichinan%2C_Yokobaba_Street_03.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Naokijp",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obi%2C_Nichinan%2C_Yokobaba_Street_03.jpg"
+  },
+  "coordinates": {
+    "lat": 31.6289,
+    "lng": 131.355
+  },
+  "description": "A beautifully preserved Edo-period castle town known as the 'Little Kyoto of Kyushu'. Features samurai residences, the restored Obi Castle gate, a historic school, mossy stone walls, and streets lined with Obi cedar. Individual museums, shops and cafés each have separate hours and admission fees.",
+  "highlights": [
+    "Well-preserved Edo-period samurai district",
+    "Restored Obi Castle gate and mossy stone walls",
+    "Historic merchant streets lined with Obi cedar"
+  ],
+  "openingHours": "Public streets: open access. Obi Castle Museum and samurai residences: typically 09:00–17:00 (individual facilities may vary)",
+  "openingHoursJa": "町並み：自由散策。飫肥城資料館・武家屋敷：通常09:00～17:00（施設により異なる）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.kankou-nichinan.jp/en/spot/obi/",
+    "hoursNote": "Public district with individual facility hours — check each museum and shop separately"
+  },
+  "budgetMin": 2000,
+  "budgetRecommended": 6000,
+  "budgetMax": 12000,
+  "budgetBreakdown": {
+    "transport": 600,
+    "tickets": 700,
+    "food": 900,
+    "cafe": 200
+  },
+  "transportOptions": {
+    "train": 220,
+    "bus": 200
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 5000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 2000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 30,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 7.5,
+    "winter": 7.5,
+    "rain": 7,
+    "food": 8,
+    "photography": 9.5,
+    "relaxation": 8.5,
+    "value": 8.5,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "None required for public areas; individual museums may charge admission",
+  "reservationJa": "町並み散策は自由。各博物館は別途入館料あり。",
+  "parking": "Paid parking available near the castle town entrance",
+  "notes": "Purchase a combined admission ticket at the Obi Castle Museum for best value across multiple sites.",
+  "notesJa": "飫肥城資料館で販売の共通入場券で複数施設をお得に巡れます。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-05",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.kankou-nichinan.jp/en/spot/obi/",
+        "title": "Obi Castle Town Official Website",
+        "accessedAt": "2026-08-05"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Obi,_Miyazaki",
+        "title": "Obi, Miyazaki",
+        "accessedAt": "2026-08-05"
+      }
+    ],
+    "checkedAt": "2026-08-05",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-05",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Obi Castle Town",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-05",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://www.kankou-nichinan.jp/en/spot/obi/",
+  "municipalityId": "Miyazaki:nichinan"
+}

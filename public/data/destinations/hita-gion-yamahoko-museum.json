@@ -1,0 +1,159 @@
+{
+  "id": "hita-gion-yamahoko-museum",
+  "name": "Hita Gion Yamahoko Museum",
+  "nameJa": "日田祇園山鉾会館",
+  "aliases": ["Hita Gion Yamahoko Museum", "日田祇園山鉾会館"],
+  "content": {
+    "en": {
+      "name": "Hita Gion Yamahoko Museum",
+      "description": "Museum displaying the elaborate floats (yamahoko) used in the Hita Gion Festival, a 300-year-old tradition held each July. The multi-storey floats, up to 10 metres tall, feature intricate carvings, tapestries and mechanical dolls. Some floats may be absent around the festival period when they are in active use.",
+      "highlights": [
+        "Elaborate multi-storey festival floats up to 10 m tall",
+        "Intricate mechanical dolls, carvings and tapestries",
+        "300-year-old Hita Gion Festival traditions"
+      ],
+      "openingHours": "09:00–17:00 (last admission 16:30). Closed Tuesdays."
+    },
+    "ja": {
+      "name": "日田祇園山鉾会館",
+      "description": "300年の伝統を持つ日田祇園祭（毎年7月）で使用される豪華な山鉾を展示する博物館。高さ最大10mの多層式の山鉾には精巧な彫刻、綴織、からくり人形が施されています。祭り前後は山鉾が実際の運用で不在となることがあります。",
+      "highlights": [
+        "高さ最大10mの豪華な多層式山鉾",
+        "精巧なからくり人形・彫刻・綴織",
+        "300年の伝統を誇る日田祇園祭"
+      ],
+      "openingHours": "09:00～17:00（最終入館16:30）。火曜休館。"
+    }
+  },
+  "prefecture": "Oita",
+  "region": "Kyushu",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "hita-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Museum & Art", "Culture"],
+  "tags": ["Museum", "Festival", "Float", "Hita City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Hita_Gion_Museum.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "水だらけのプール",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hita_Gion_Museum.jpg"
+  },
+  "coordinates": {
+    "lat": 33.3231,
+    "lng": 130.9367
+  },
+  "description": "Museum displaying the elaborate floats (yamahoko) used in the Hita Gion Festival, a 300-year-old tradition held each July. The multi-storey floats, up to 10 metres tall, feature intricate carvings, tapestries and mechanical dolls. Some floats may be absent around the festival period when they are in active use.",
+  "highlights": [
+    "Elaborate multi-storey festival floats up to 10 m tall",
+    "Intricate mechanical dolls, carvings and tapestries",
+    "300-year-old Hita Gion Festival traditions"
+  ],
+  "openingHours": "09:00–17:00 (last admission 16:30). Closed Tuesdays.",
+  "openingHoursJa": "09:00～17:00（最終入館16:30）。火曜休館。",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.oidehita.com/en/spot/yamahoko/",
+    "closedDays": "Tuesdays (or Wednesday if Tuesday is a public holiday). Some floats may be absent around the July festival period."
+  },
+  "budgetMin": 1500,
+  "budgetRecommended": 3500,
+  "budgetMax": 6000,
+  "budgetBreakdown": {
+    "transport": 450,
+    "tickets": 400,
+    "food": 675,
+    "cafe": 150
+  },
+  "transportOptions": {
+    "bus": 150
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 1.5
+  },
+  "walkingMin": 1500,
+  "walkingIntensity": "low",
+  "walkingSunMin": 300,
+  "walkingShadeMin": 1000,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 10,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 8,
+    "couple": 7.5,
+    "summer": 8.5,
+    "winter": 7.5,
+    "rain": 9,
+    "food": 5,
+    "photography": 8,
+    "relaxation": 7,
+    "value": 8.5,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 4,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 6, 7, 10, 11],
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "Paid parking nearby",
+  "notes": "Some floats may be absent during the July festival period when they are in active use.",
+  "notesJa": "7月の祇園祭前後は山鉾が実際の運行で不在となることがあります。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-05",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.oidehita.com/en/spot/yamahoko/",
+        "title": "Hita Gion Yamahoko Museum Official Website",
+        "accessedAt": "2026-08-05"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Hita,_%C5%8Cita",
+        "title": "Hita, Ōita",
+        "accessedAt": "2026-08-05"
+      }
+    ],
+    "checkedAt": "2026-08-05",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-05",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Hita Gion Yamahoko Museum",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-05",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://www.oidehita.com/en/spot/yamahoko/",
+  "municipalityId": "Oita:hita"
+}

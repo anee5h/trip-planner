@@ -1,0 +1,159 @@
+{
+  "id": "kangien-academy",
+  "name": "Kangien Academy",
+  "nameJa": "咸宜園",
+  "aliases": ["Kangien Academy", "咸宜園"],
+  "content": {
+    "en": {
+      "name": "Kangien Academy",
+      "description": "A nationally designated historic site, this Edo-period private academy was founded in 1805 by scholar Hirose Tanso. It educated over 4,000 students from across Japan regardless of social status, a remarkably progressive model. The site includes a small museum displaying the academy's history, teaching materials and original buildings.",
+      "highlights": [
+        "Nationally designated historic private academy site",
+        "Founded 1805, educated 4,000+ students regardless of class",
+        "Small museum with original teaching materials and buildings"
+      ],
+      "openingHours": "09:00–17:00 (last admission 16:30). Closed Mondays."
+    },
+    "ja": {
+      "name": "咸宜園",
+      "description": "国指定史跡。1805年に儒学者・広瀬淡窓が開いた江戸時代の私塾で、身分に関わらず全国から4,000人以上の門人を受け入れた先進的な学校です。現在は資料館があり、咸宜園の歴史、教育資料、往時の建物を見学できます。",
+      "highlights": [
+        "国指定史跡の江戸時代の私塾",
+        "1805年開塾、身分を問わず4,000人以上が学んだ",
+        "当時の教材と建物を展示する資料館"
+      ],
+      "openingHours": "09:00～17:00（最終入館16:30）。月曜休館。"
+    }
+  },
+  "prefecture": "Oita",
+  "region": "Kyushu",
+  "kind": "historic",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "hita-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Historic", "Culture"],
+  "tags": ["Historic", "Education", "Museum", "Hita City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/17/Kangien_Education_and_Research_Center_20161231.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kangien_Education_and_Research_Center_20161231.jpg"
+  },
+  "coordinates": {
+    "lat": 33.3228,
+    "lng": 130.9381
+  },
+  "description": "A nationally designated historic site, this Edo-period private academy was founded in 1805 by scholar Hirose Tanso. It educated over 4,000 students from across Japan regardless of social status, a remarkably progressive model. The site includes a small museum displaying the academy's history, teaching materials and original buildings.",
+  "highlights": [
+    "Nationally designated historic private academy site",
+    "Founded 1805, educated 4,000+ students regardless of class",
+    "Small museum with original teaching materials and buildings"
+  ],
+  "openingHours": "09:00–17:00 (last admission 16:30). Closed Mondays.",
+  "openingHoursJa": "09:00～17:00（最終入館16:30）。月曜休館。",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.oidehita.com/en/spot/kangien/",
+    "closedDays": "Mondays (or Tuesday if Monday is a public holiday)"
+  },
+  "budgetMin": 1500,
+  "budgetRecommended": 3500,
+  "budgetMax": 6000,
+  "budgetBreakdown": {
+    "transport": 450,
+    "tickets": 300,
+    "food": 675,
+    "cafe": 150
+  },
+  "transportOptions": {
+    "bus": 150
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 1.5
+  },
+  "walkingMin": 1500,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 1000,
+  "indoorPercent": 70,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 9,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 8,
+    "couple": 7.5,
+    "summer": 8,
+    "winter": 7.5,
+    "rain": 8.5,
+    "food": 5,
+    "photography": 7.5,
+    "relaxation": 7,
+    "value": 8.5,
+    "uniqueness": 8.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "Free parking available",
+  "notes": "Closed on Mondays — the museum is compact and pairs well with a morning stroll through Mameda.",
+  "notesJa": "月曜休館。小規模な博物館なので豆田町散策と合わせて午前中にどうぞ。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-05",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.oidehita.com/en/spot/kangien/",
+        "title": "Kangien Academy Official Website",
+        "accessedAt": "2026-08-05"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kangien",
+        "title": "Kangien",
+        "accessedAt": "2026-08-05"
+      }
+    ],
+    "checkedAt": "2026-08-05",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-05",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Kangien Academy",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-05",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://www.oidehita.com/en/spot/kangien/",
+  "municipalityId": "Oita:hita"
+}

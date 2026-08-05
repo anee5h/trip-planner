@@ -1,0 +1,143 @@
+{
+  "id": "nichinan-city",
+  "name": "Nichinan City",
+  "nameJa": "日南市",
+  "kind": "city",
+  "role": "hub",
+  "importance": "notable",
+  "prefecture": "Miyazaki",
+  "region": "Kyushu",
+  "categories": ["Travel Hub", "City Hub"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/74/Obi_Castle_Otemon.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/7/74/Obi_Castle_Otemon.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obi_Castle_Otemon.jpg"
+  },
+  "description": "Coastal city in southern Miyazaki Prefecture known for the historic Obi Castle Town, Udo Jingu shrine perched dramatically on coastal cliffs, and the Moai statues of Sun Messe Nichinan. Rich in nature, surfing culture, and subtropical scenery.",
+  "descriptionJa": "宮崎県南部の沿岸都市で、歴史的な飫肥城下町、断崖絶壁に建つ鵜戸神宮、サンメッセ日南のモアイ像で知られています。豊かな自然、サーフィン文化、亜熱帯の景観が魅力です。",
+  "highlights": ["Explore Nichinan City", "Local Culture & Cuisine"],
+  "highlightsJa": ["日南市を探索", "地元の文化と料理"],
+  "totalTripHours": 6,
+  "budgetMin": 3500,
+  "budgetRecommended": 14250,
+  "budgetMax": 25000,
+  "budgetBreakdown": {
+    "transport": 3563,
+    "tickets": 1781,
+    "food": 5789,
+    "cafe": 3117
+  },
+  "walkingMin": 4000,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 50,
+  "ratings": {
+    "overall": 9.5,
+    "couple": 9.3,
+    "summer": 9,
+    "winter": 9.1,
+    "rain": 9.2,
+    "food": 9.6,
+    "photography": 9.5,
+    "relaxation": 9.2,
+    "value": 9.4,
+    "uniqueness": 9.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "tags": ["Nichinan City", "Miyazaki Travel", "Regional Hub"],
+  "coordinates": {
+    "lat": 31.6019,
+    "lng": 131.3789
+  },
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 8,
+    "walkingIntensity": 3
+  },
+  "transportOptions": {
+    "train": 220
+  },
+  "reservation": "None required",
+  "parking": "Public parking available",
+  "notes": "Nichinan City travel hub in Miyazaki Prefecture, home to Obi Castle Town and Udo Jingu.",
+  "notesJa": "宮崎県日南市のトラベルハブ、飫肥城下町と鵜戸神宮で知られています。",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [
+    {
+      "collectionId": "core-cities-japan",
+      "confirmed": true
+    }
+  ],
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": ["miyazaki-city"]
+  },
+  "walkingIntensity": "low",
+  "recommendedVisitHours": {
+    "min": 6,
+    "max": 12
+  },
+  "municipalityId": "Miyazaki:nichinan",
+  "aliases": ["Nichinan City", "日南市"],
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-05",
+    "reviewedAt": "2026-08-05",
+    "reviewedBy": "Kyushu-to-100 Expansion",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.kankou-nichinan.jp/en/",
+        "title": "Nichinan City Tourism Information",
+        "accessedAt": "2026-08-05"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Nichinan,_Miyazaki",
+        "title": "Nichinan, Miyazaki",
+        "accessedAt": "2026-08-05"
+      }
+    ]
+  },
+  "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules.",
+  "openingHoursJa": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.kankou-nichinan.jp/en/"
+  },
+  "content": {
+    "en": {
+      "name": "Nichinan City",
+      "description": "Coastal city in southern Miyazaki Prefecture known for the historic Obi Castle Town, Udo Jingu shrine perched dramatically on coastal cliffs, and the Moai statues of Sun Messe Nichinan. Rich in nature, surfing culture, and subtropical scenery.",
+      "highlights": ["Explore Nichinan City", "Local Culture & Cuisine"],
+      "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules."
+    },
+    "ja": {
+      "name": "日南市",
+      "description": "宮崎県南部の沿岸都市で、歴史的な飫肥城下町、断崖絶壁に建つ鵜戸神宮、サンメッセ日南のモアイ像で知られています。豊かな自然、サーフィン文化、亜熱帯の景観が魅力です。",
+      "highlights": ["日南市を探索", "地元の文化と料理"],
+      "openingHours": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。"
+    }
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "id": "karatsu-city",
+  "name": "Karatsu City",
+  "nameJa": "唐津市",
+  "kind": "city",
+  "role": "hub",
+  "importance": "notable",
+  "prefecture": "Saga",
+  "region": "Kyushu",
+  "categories": ["Travel Hub", "City Hub"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/02/Karatsujo.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/0/02/Karatsujo.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Karatsujo.jpg"
+  },
+  "description": "Coastal city in Saga Prefecture known for Karatsu Castle, the vibrant Yobuko morning market, the Nanatsugama sea caves, and the Nijinomatsubara pine grove. Famous for Karatsu-yaki pottery and the annual Karatsu Kunchi festival.",
+  "descriptionJa": "佐賀県の沿岸都市で、唐津城、活気あふれる呼子朝市、七ツ釜の海食洞、虹の松原で知られています。唐津焼と毎年開催される唐津くんちでも有名です。",
+  "highlights": ["Explore Karatsu City", "Local Culture & Cuisine"],
+  "highlightsJa": ["唐津市を探索", "地元の文化と料理"],
+  "totalTripHours": 6,
+  "budgetMin": 3500,
+  "budgetRecommended": 14250,
+  "budgetMax": 25000,
+  "budgetBreakdown": {
+    "transport": 3563,
+    "tickets": 1781,
+    "food": 5789,
+    "cafe": 3117
+  },
+  "walkingMin": 4000,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 50,
+  "ratings": {
+    "overall": 9.5,
+    "couple": 9.3,
+    "summer": 9,
+    "winter": 9.1,
+    "rain": 9.2,
+    "food": 9.6,
+    "photography": 9.5,
+    "relaxation": 9.2,
+    "value": 9.4,
+    "uniqueness": 9.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "tags": ["Karatsu City", "Saga Travel", "Regional Hub"],
+  "coordinates": {
+    "lat": 33.4502,
+    "lng": 129.9681
+  },
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 8,
+    "walkingIntensity": 3
+  },
+  "transportOptions": {
+    "train": 250
+  },
+  "reservation": "None required",
+  "parking": "Public parking available",
+  "notes": "Karatsu City travel hub in Saga Prefecture, gateway to the Karatsu Peninsula.",
+  "notesJa": "佐賀県唐津市のトラベルハブ、唐津半島への玄関口です。",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [
+    {
+      "collectionId": "core-cities-japan",
+      "confirmed": true
+    }
+  ],
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": ["fukuoka-city"]
+  },
+  "walkingIntensity": "low",
+  "recommendedVisitHours": {
+    "min": 6,
+    "max": 12
+  },
+  "municipalityId": "Saga:karatsu",
+  "aliases": ["Karatsu City", "唐津市"],
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-05",
+    "reviewedAt": "2026-08-05",
+    "reviewedBy": "Kyushu-to-100 Expansion",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.karatsu-kankou.jp/en/",
+        "title": "Karatsu City Tourism Information",
+        "accessedAt": "2026-08-05"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Karatsu,_Saga",
+        "title": "Karatsu, Saga",
+        "accessedAt": "2026-08-05"
+      }
+    ]
+  },
+  "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules.",
+  "openingHoursJa": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.karatsu-kankou.jp/en/"
+  },
+  "content": {
+    "en": {
+      "name": "Karatsu City",
+      "description": "Coastal city in Saga Prefecture known for Karatsu Castle, the vibrant Yobuko morning market, the Nanatsugama sea caves, and the Nijinomatsubara pine grove. Famous for Karatsu-yaki pottery and the annual Karatsu Kunchi festival.",
+      "highlights": ["Explore Karatsu City", "Local Culture & Cuisine"],
+      "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules."
+    },
+    "ja": {
+      "name": "唐津市",
+      "description": "佐賀県の沿岸都市で、唐津城、活気あふれる呼子朝市、七ツ釜の海食洞、虹の松原で知られています。唐津焼と毎年開催される唐津くんちでも有名です。",
+      "highlights": ["唐津市を探索", "地元の文化と料理"],
+      "openingHours": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。"
+    }
+  }
+}

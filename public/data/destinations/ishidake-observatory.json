@@ -1,0 +1,152 @@
+{
+  "id": "ishidake-observatory",
+  "name": "Ishidake Observatory",
+  "nameJa": "石岳展望台",
+  "aliases": ["Ishidake Observatory", "石岳展望台"],
+  "content": {
+    "en": {
+      "name": "Ishidake Observatory",
+      "description": "The most famous observation point overlooking the Kujukushima archipelago. From this elevated viewpoint, the panorama of 208 pine-covered islands scattered across the blue waters has been featured in countless travel posters and films. Free access with a short uphill walk from the parking area.",
+      "highlights": [
+        "Most iconic panoramic view of Kujukushima",
+        "Featured in travel posters and films",
+        "Free access with short walk from parking"
+      ],
+      "openingHours": "Open access (daylight hours recommended)"
+    },
+    "ja": {
+      "name": "石岳展望台",
+      "description": "九十九島の展望スポットとして最も有名な石岳展望台。この高台からは、208の松に覆われた島々が青い海に点在するパノラマが広がり、数多くの観光ポスターや映画に登場しています。駐車場から少し坂を上がれば無料で絶景が楽しめます。",
+      "highlights": [
+        "九十九島を象徴する最も有名なパノラマ",
+        "観光ポスターや映画のロケ地",
+        "駐車場から徒歩すぐ、無料で絶景を楽しめる"
+      ],
+      "openingHours": "自由見学（日中推奨）"
+    }
+  },
+  "prefecture": "Nagasaki",
+  "region": "Kyushu",
+  "kind": "viewpoint",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "sasebo-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Sightseeing", "Nature"],
+  "tags": ["Viewpoint", "Islands", "Photography", "Sasebo City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/bf/%E7%9F%B3%E5%B2%B3%E5%B1%95%E6%9C%9B%E5%8F%B0_-_panoramio.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "mahlervv",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E7%9F%B3%E5%B2%B3%E5%B1%95%E6%9C%9B%E5%8F%B0_-_panoramio.jpg"
+  },
+  "coordinates": {
+    "lat": 33.1522,
+    "lng": 129.6914
+  },
+  "description": "The most famous observation point overlooking the Kujukushima archipelago. From this elevated viewpoint, the panorama of 208 pine-covered islands scattered across the blue waters has been featured in countless travel posters and films. Free access with a short uphill walk from the parking area.",
+  "highlights": [
+    "Most iconic panoramic view of Kujukushima",
+    "Featured in travel posters and films",
+    "Free access with short walk from parking"
+  ],
+  "openingHours": "Open access (daylight hours recommended)",
+  "openingHoursJa": "自由見学（日中推奨）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.pearlsea.jp/en/observatory/"
+  },
+  "budgetMin": 1000,
+  "budgetRecommended": 3000,
+  "budgetMax": 6000,
+  "budgetBreakdown": {
+    "transport": 300,
+    "tickets": 0,
+    "food": 450,
+    "cafe": 100
+  },
+  "transportOptions": {
+    "bus": 250
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  },
+  "walkingMin": 1500,
+  "walkingIntensity": "low",
+  "walkingSunMin": 800,
+  "walkingShadeMin": 300,
+  "indoorPercent": 5,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 4,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 8.5,
+    "couple": 9,
+    "summer": 8.5,
+    "winter": 7.5,
+    "rain": 5,
+    "food": 4,
+    "photography": 9.5,
+    "relaxation": 8.5,
+    "value": 9.5,
+    "uniqueness": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Free parking available",
+  "notes": "Visit on a clear day — the view is best in the morning light when the islands cast long shadows.",
+  "notesJa": "晴れた日の午前中が最も美しく、島影が長く伸びる絶好の撮影タイミングです。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-05",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kuj%C5%ABku_Islands",
+        "title": "Kujūku Islands",
+        "accessedAt": "2026-08-05"
+      }
+    ],
+    "checkedAt": "2026-08-05",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-05",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Ishidake Observatory",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-05",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": null,
+  "municipalityId": "Nagasaki:sasebo"
+}

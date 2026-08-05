@@ -1,0 +1,159 @@
+{
+  "id": "chiringashima-island",
+  "name": "Chiringashima Island",
+  "nameJa": "知林ヶ島",
+  "aliases": ["Chiringashima Island", "知林ヶ島"],
+  "content": {
+    "en": {
+      "name": "Chiringashima Island",
+      "description": "An uninhabited island connected to the Ibusuki mainland by a 800-metre sandbar that emerges only at low tide. Accessible for a few hours each day when the sandbar is exposed, offering a unique walking-on-water experience. Check local tide tables before visiting; the sandbar is submerged at high tide.",
+      "highlights": [
+        "Walk the 800 m sandbar that appears only at low tide",
+        "Explore the uninhabited island's walking trails",
+        "Unique 'walking on water' photography"
+      ],
+      "openingHours": "Accessible only during low tide (check local tide tables). Approximately 3–4 hours around low tide daily."
+    },
+    "ja": {
+      "name": "知林ヶ島",
+      "description": "指宿本土と干潮時のみ現れる全長約800mの砂州で結ばれる無人島。1日に数時間だけ砂の道が現れ、海上を歩くような不思議な体験ができます。訪問前に地元の潮汐表を確認してください。満潮時は砂州が水没します。",
+      "highlights": [
+        "干潮時のみ現れる800mの砂州歩き",
+        "無人島の探検と遊歩道",
+        "海上を歩くようなユニークな写真が撮れる"
+      ],
+      "openingHours": "干潮時のみ渡島可能（現地の潮汐表を確認）。毎日干潮前後約3～4時間。"
+    }
+  },
+  "prefecture": "Kagoshima",
+  "region": "Kyushu",
+  "kind": "natural",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "ibusuki-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Nature", "Sightseeing"],
+  "tags": ["Island", "Sandbar", "Tidal", "Ibusuki City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Chiringashima_island.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Tam0031",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chiringashima_island.jpg"
+  },
+  "coordinates": {
+    "lat": 31.2117,
+    "lng": 130.5933
+  },
+  "description": "An uninhabited island connected to the Ibusuki mainland by a 800-metre sandbar that emerges only at low tide. Accessible for a few hours each day when the sandbar is exposed, offering a unique walking-on-water experience. Check local tide tables before visiting; the sandbar is submerged at high tide.",
+  "highlights": [
+    "Walk the 800 m sandbar that appears only at low tide",
+    "Explore the uninhabited island's walking trails",
+    "Unique 'walking on water' photography"
+  ],
+  "openingHours": "Accessible only during low tide (check local tide tables). Approximately 3–4 hours around low tide daily.",
+  "openingHoursJa": "干潮時のみ渡島可能（現地の潮汐表を確認）。毎日干潮前後約3～4時間。",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.ibusuki.or.jp/en/spot/chiringashima/",
+    "hoursNote": "Sandbar accessible only at low tide — check Ibusuki tide tables before visiting"
+  },
+  "budgetMin": 1000,
+  "budgetRecommended": 3000,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 300,
+    "tickets": 0,
+    "food": 450,
+    "cafe": 100
+  },
+  "transportOptions": {
+    "bus": 200
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 3
+  },
+  "walkingMin": 4000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 3000,
+  "walkingShadeMin": 500,
+  "indoorPercent": 5,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 3,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8,
+    "couple": 8.5,
+    "summer": 8.5,
+    "winter": 7,
+    "rain": 4,
+    "food": 4,
+    "photography": 9,
+    "relaxation": 8,
+    "value": 9,
+    "uniqueness": 9.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 5,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 6, 7, 8, 9, 10],
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Free parking at the trailhead",
+  "notes": "Access depends entirely on the tide — check Ibusuki tide tables and plan your visit around low tide.",
+  "notesJa": "渡島は完全に潮汐次第。指宿の潮汐表を確認し干潮時間に合わせて計画を。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-05",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.ibusuki.or.jp/en/spot/chiringashima/",
+        "title": "Chiringashima Island Official Website",
+        "accessedAt": "2026-08-05"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Ibusuki,_Kagoshima",
+        "title": "Ibusuki, Kagoshima",
+        "accessedAt": "2026-08-05"
+      }
+    ],
+    "checkedAt": "2026-08-05",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-05",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Chiringashima Island",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-05",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://www.ibusuki.or.jp/en/spot/chiringashima/",
+  "municipalityId": "Kagoshima:ibusuki"
+}

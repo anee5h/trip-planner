@@ -1,0 +1,159 @@
+{
+  "id": "kujukushima-pearl-sea-resort",
+  "name": "Kujukushima Pearl Sea Resort",
+  "nameJa": "九十九島パールシーリゾート",
+  "aliases": ["Kujukushima Pearl Sea Resort", "九十九島パールシーリゾート"],
+  "content": {
+    "en": {
+      "name": "Kujukushima Pearl Sea Resort",
+      "description": "Resort offering sightseeing cruises through the 208 islands of Kujukushima, plus the Kujukushima Aquarium (Umi Kirara). The Pearl Queen and pirate-themed Mirai cruise ships depart regularly. The complex includes an observation deck overlooking the island-dotted bay.",
+      "highlights": [
+        "Scenic cruises through 208 pine-clad islands",
+        "Kujukushima Aquarium with local marine life",
+        "Panoramic observation deck over the island-dotted bay"
+      ],
+      "openingHours": "Resort complex: 09:00–17:00. Cruise schedules vary by season (typically 10:00–15:00 departures)"
+    },
+    "ja": {
+      "name": "九十九島パールシーリゾート",
+      "description": "九十九島の208の島々を巡る遊覧船と九十九島水族館（海きらら）を中心としたリゾート施設。パールクイーン号と海賊船型のミライ号が定期運航。島々が点在する湾を見渡す展望台も併設されています。",
+      "highlights": [
+        "208の島々を巡る遊覧クルーズ",
+        "地元の海洋生物を展示する九十九島水族館",
+        "島が点在する湾を一望する展望台"
+      ],
+      "openingHours": "施設：09:00～17:00。遊覧船は季節により変動（通常10:00～15:00発）"
+    }
+  },
+  "prefecture": "Nagasaki",
+  "region": "Kyushu",
+  "kind": "mixed",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "sasebo-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Sightseeing", "Leisure"],
+  "tags": ["Islands", "Cruise", "Aquarium", "Sasebo City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/49/200320_Kujukushima_Pearl_Sea_Resort_Sasebo_Nagasaki_pref_Japan10s3.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:200320_Kujukushima_Pearl_Sea_Resort_Sasebo_Nagasaki_pref_Japan10s3.jpg"
+  },
+  "coordinates": {
+    "lat": 33.1592,
+    "lng": 129.6842
+  },
+  "description": "Resort offering sightseeing cruises through the 208 islands of Kujukushima, plus the Kujukushima Aquarium (Umi Kirara). The Pearl Queen and pirate-themed Mirai cruise ships depart regularly. The complex includes an observation deck overlooking the island-dotted bay.",
+  "highlights": [
+    "Scenic cruises through 208 pine-clad islands",
+    "Kujukushima Aquarium with local marine life",
+    "Panoramic observation deck over the island-dotted bay"
+  ],
+  "openingHours": "Resort complex: 09:00–17:00. Cruise schedules vary by season (typically 10:00–15:00 departures)",
+  "openingHoursJa": "施設：09:00～17:00。遊覧船は季節により変動（通常10:00～15:00発）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.pearlsea.jp/en/",
+    "hoursNote": "Cruise operations subject to weather and sea conditions"
+  },
+  "budgetMin": 2500,
+  "budgetRecommended": 8000,
+  "budgetMax": 15000,
+  "budgetBreakdown": {
+    "transport": 750,
+    "tickets": 1800,
+    "food": 1125,
+    "cafe": 250
+  },
+  "transportOptions": {
+    "bus": 250
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1000,
+  "indoorPercent": 40,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 5,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.5,
+    "winter": 7,
+    "rain": 6,
+    "food": 7,
+    "photography": 9.5,
+    "relaxation": 8.5,
+    "value": 8,
+    "uniqueness": 9.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "high",
+  "reservation": "Cruise tickets at the terminal; online booking available for peak season",
+  "parking": "Paid parking available",
+  "notes": "Cruise departures are weather-dependent — check conditions at the terminal on the day.",
+  "notesJa": "遊覧船は天候次第で運航 — 当日ターミナルで運航状況を確認ください。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-05",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.pearlsea.jp/en/",
+        "title": "Kujukushima Pearl Sea Resort Official Website",
+        "accessedAt": "2026-08-05"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kuj%C5%ABku_Islands",
+        "title": "Kujūku Islands",
+        "accessedAt": "2026-08-05"
+      }
+    ],
+    "checkedAt": "2026-08-05",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-05",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Kujukushima Pearl Sea Resort",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-05",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://www.pearlsea.jp/en/",
+  "municipalityId": "Nagasaki:sasebo"
+}

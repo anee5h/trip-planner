@@ -1,0 +1,159 @@
+{
+  "id": "umi-kirara-aquarium",
+  "name": "Umi Kirara Aquarium",
+  "nameJa": "九十九島水族館 海きらら",
+  "aliases": ["Umi Kirara Aquarium", "九十九島水族館 海きらら"],
+  "content": {
+    "en": {
+      "name": "Umi Kirara Aquarium",
+      "description": "Aquarium within the Kujukushima Pearl Sea Resort showcasing the marine life of the Kujukushima waters. Features a large jellyfish tunnel, dolphin shows, interactive touch pools, and displays of local fish species. One of western Japan's leading jellyfish exhibits.",
+      "highlights": [
+        "Spectacular jellyfish tunnel and collection",
+        "Dolphin show with Kujukushima island backdrop",
+        "Interactive touch pools with local sea creatures"
+      ],
+      "openingHours": "09:00–18:00 (Mar–Oct), 09:00–17:00 (Nov–Feb)"
+    },
+    "ja": {
+      "name": "九十九島水族館 海きらら",
+      "description": "九十九島パールシーリゾート内にある九十九島の海洋生物を展示する水族館。クラゲのトンネル、イルカショー、ふれあいタッチプール、地元の魚類展示が見どころです。西日本屈指のクラゲ展示で知られています。",
+      "highlights": [
+        "幻想的なクラゲトンネルとコレクション",
+        "九十九島を背景にしたイルカショー",
+        "地元の海の生き物に触れるタッチプール"
+      ],
+      "openingHours": "09:00～18:00（3～10月）、09:00～17:00（11～2月）"
+    }
+  },
+  "prefecture": "Nagasaki",
+  "region": "Kyushu",
+  "kind": "aquarium",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "sasebo-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Aquarium", "Leisure"],
+  "tags": ["Aquarium", "Marine Life", "Family", "Sasebo City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/72/Saikai_Pearlsea_Umikirara.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Atsasebo",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saikai_Pearlsea_Umikirara.jpg"
+  },
+  "coordinates": {
+    "lat": 33.1608,
+    "lng": 129.6819
+  },
+  "description": "Aquarium within the Kujukushima Pearl Sea Resort showcasing the marine life of the Kujukushima waters. Features a large jellyfish tunnel, dolphin shows, interactive touch pools, and displays of local fish species. One of western Japan's leading jellyfish exhibits.",
+  "highlights": [
+    "Spectacular jellyfish tunnel and collection",
+    "Dolphin show with Kujukushima island backdrop",
+    "Interactive touch pools with local sea creatures"
+  ],
+  "openingHours": "09:00–18:00 (Mar–Oct), 09:00–17:00 (Nov–Feb)",
+  "openingHoursJa": "09:00～18:00（3～10月）、09:00～17:00（11～2月）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.pearlsea.jp/en/aquarium/",
+    "closedDays": "Open daily"
+  },
+  "budgetMin": 2000,
+  "budgetRecommended": 5000,
+  "budgetMax": 10000,
+  "budgetBreakdown": {
+    "transport": 600,
+    "tickets": 1470,
+    "food": 900,
+    "cafe": 200
+  },
+  "transportOptions": {
+    "bus": 250
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3
+  },
+  "walkingMin": 2500,
+  "walkingIntensity": "low",
+  "walkingSunMin": 300,
+  "walkingShadeMin": 2000,
+  "indoorPercent": 85,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 10,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 8.5,
+    "couple": 8,
+    "summer": 8.5,
+    "winter": 8,
+    "rain": 9,
+    "food": 7,
+    "photography": 8.5,
+    "relaxation": 7.5,
+    "value": 8,
+    "uniqueness": 8.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 8,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 7, 8, 10],
+  "weatherDependence": "low",
+  "reservation": "None required; group rates available",
+  "parking": "Shared paid parking with Pearl Sea Resort",
+  "notes": "The jellyfish tunnel is one of the largest in western Japan — a highlight for all ages.",
+  "notesJa": "クラゲトンネルは西日本最大級で、年齢問わず楽しめる最大の見どころです。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-05",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.pearlsea.jp/en/aquarium/",
+        "title": "Umi Kirara Aquarium Official Website",
+        "accessedAt": "2026-08-05"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kuj%C5%ABku_Islands",
+        "title": "Kujūku Islands",
+        "accessedAt": "2026-08-05"
+      }
+    ],
+    "checkedAt": "2026-08-05",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-05",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Umi Kirara Aquarium",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-05",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://www.pearlsea.jp/en/aquarium/",
+  "municipalityId": "Nagasaki:sasebo"
+}

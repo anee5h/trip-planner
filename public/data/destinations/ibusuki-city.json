@@ -1,0 +1,143 @@
+{
+  "id": "ibusuki-city",
+  "name": "Ibusuki City",
+  "nameJa": "指宿市",
+  "kind": "city",
+  "role": "hub",
+  "importance": "notable",
+  "prefecture": "Kagoshima",
+  "region": "Kyushu",
+  "categories": ["Travel Hub", "City Hub"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/43/Ibusuki-STA.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/4/43/Ibusuki-STA.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ibusuki-STA.jpg"
+  },
+  "description": "Southern Kyushu hot-spring resort city on the Satsuma Peninsula, famous for natural sand steam baths, Lake Ikeda, Mount Kaimon, and the tidal sandbar of Chiringashima Island. Known for subtropical flora and coastal scenery.",
+  "descriptionJa": "薩摩半島に位置する南九州の温泉リゾート都市で、天然砂むし温泉、池田湖、開聞岳、知林ヶ島の砂州で知られています。亜熱帯植物と海岸景観が魅力です。",
+  "highlights": ["Explore Ibusuki City", "Local Culture & Cuisine"],
+  "highlightsJa": ["指宿市を探索", "地元の文化と料理"],
+  "totalTripHours": 6,
+  "budgetMin": 3500,
+  "budgetRecommended": 14250,
+  "budgetMax": 25000,
+  "budgetBreakdown": {
+    "transport": 3563,
+    "tickets": 1781,
+    "food": 5789,
+    "cafe": 3117
+  },
+  "walkingMin": 4000,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 50,
+  "ratings": {
+    "overall": 9.5,
+    "couple": 9.3,
+    "summer": 9,
+    "winter": 9.1,
+    "rain": 9.2,
+    "food": 9.6,
+    "photography": 9.5,
+    "relaxation": 9.2,
+    "value": 9.4,
+    "uniqueness": 9.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "tags": ["Ibusuki City", "Kagoshima Travel", "Regional Hub"],
+  "coordinates": {
+    "lat": 31.2528,
+    "lng": 130.6331
+  },
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 8,
+    "walkingIntensity": 3
+  },
+  "transportOptions": {
+    "train": 310
+  },
+  "reservation": "None required",
+  "parking": "Public parking available",
+  "notes": "Ibusuki City travel hub in Kagoshima Prefecture, famous for sand steam baths.",
+  "notesJa": "鹿児島県指宿市のトラベルハブ、砂むし温泉で有名です。",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [
+    {
+      "collectionId": "core-cities-japan",
+      "confirmed": true
+    }
+  ],
+  "relationships": {
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": ["kagoshima-city"]
+  },
+  "walkingIntensity": "low",
+  "recommendedVisitHours": {
+    "min": 6,
+    "max": 12
+  },
+  "municipalityId": "Kagoshima:ibusuki",
+  "aliases": ["Ibusuki City", "指宿市"],
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-05",
+    "reviewedAt": "2026-08-05",
+    "reviewedBy": "Kyushu-to-100 Expansion",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.ibusuki.or.jp/en/",
+        "title": "Ibusuki City Tourism Information",
+        "accessedAt": "2026-08-05"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Ibusuki,_Kagoshima",
+        "title": "Ibusuki, Kagoshima",
+        "accessedAt": "2026-08-05"
+      }
+    ]
+  },
+  "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules.",
+  "openingHoursJa": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.ibusuki.or.jp/en/"
+  },
+  "content": {
+    "en": {
+      "name": "Ibusuki City",
+      "description": "Southern Kyushu hot-spring resort city on the Satsuma Peninsula, famous for natural sand steam baths, Lake Ikeda, Mount Kaimon, and the tidal sandbar of Chiringashima Island. Known for subtropical flora and coastal scenery.",
+      "highlights": ["Explore Ibusuki City", "Local Culture & Cuisine"],
+      "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules."
+    },
+    "ja": {
+      "name": "指宿市",
+      "description": "薩摩半島に位置する南九州の温泉リゾート都市で、天然砂むし温泉、池田湖、開聞岳、知林ヶ島の砂州で知られています。亜熱帯植物と海岸景観が魅力です。",
+      "highlights": ["指宿市を探索", "地元の文化と料理"],
+      "openingHours": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。"
+    }
+  }
+}

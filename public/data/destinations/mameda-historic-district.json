@@ -1,0 +1,161 @@
+{
+  "id": "mameda-historic-district",
+  "name": "Mameda Historic District",
+  "nameJa": "豆田町 歴史的街並み",
+  "aliases": ["Mameda Historic District", "豆田町 歴史的街並み"],
+  "content": {
+    "en": {
+      "name": "Mameda Historic District",
+      "description": "A well-preserved Edo-period merchant district along the Mikuma River, lined with white-walled storehouses, lattice-fronted shops, traditional sake breweries, and historic merchant homes. Often called the 'Little Kyoto of Kyushu'. Individual shops, museums and cafés operate separate business hours and many close by early evening.",
+      "highlights": [
+        "Edo-period merchant streets with white-walled storehouses",
+        "Traditional sake breweries open for tasting",
+        "Hita geta (wooden sandals) craft shops"
+      ],
+      "openingHours": "Public streets: open access. Individual shops and museums: typically 09:00–17:00 (most close by early evening)"
+    },
+    "ja": {
+      "name": "豆田町 歴史的街並み",
+      "description": "三隈川沿いに江戸時代の商家が立ち並ぶ保存地区で、白壁の土蔵、格子造りの店舗、伝統的な酒蔵、歴史的な商家が軒を連ねます。「九州の小京都」とも呼ばれています。各店舗・博物館・カフェは個別の営業時間で、多くは夕方前に閉まります。",
+      "highlights": [
+        "白壁の土蔵と商家が連なる江戸時代の町並み",
+        "試飲ができる伝統的な酒蔵",
+        "日田下駄の工房と専門店"
+      ],
+      "openingHours": "町並み：自由散策。各店舗・博物館：通常09:00～17:00（多くは夕方までに閉店）"
+    }
+  },
+  "prefecture": "Oita",
+  "region": "Kyushu",
+  "kind": "historic",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "hita-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Historic", "Sightseeing"],
+  "tags": ["Historic District", "Merchant", "Preserved Streets", "Hita City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/62/Mamedamachi-1_Hita_Oita.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "NY066",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mamedamachi-1_Hita_Oita.JPG"
+  },
+  "coordinates": {
+    "lat": 33.3214,
+    "lng": 130.9358
+  },
+  "description": "A well-preserved Edo-period merchant district along the Mikuma River, lined with white-walled storehouses, lattice-fronted shops, traditional sake breweries, and historic merchant homes. Often called the 'Little Kyoto of Kyushu'. Individual shops, museums and cafés operate separate business hours and many close by early evening.",
+  "highlights": [
+    "Edo-period merchant streets with white-walled storehouses",
+    "Traditional sake breweries open for tasting",
+    "Hita geta (wooden sandals) craft shops"
+  ],
+  "openingHours": "Public streets: open access. Individual shops and museums: typically 09:00–17:00 (most close by early evening)",
+  "openingHoursJa": "町並み：自由散策。各店舗・博物館：通常09:00～17:00（多くは夕方までに閉店）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.oidehita.com/en/spot/mameda/",
+    "hoursNote": "Public district — individual shops, museums and cafés set their own hours"
+  },
+  "budgetMin": 2000,
+  "budgetRecommended": 6000,
+  "budgetMax": 12000,
+  "budgetBreakdown": {
+    "transport": 600,
+    "tickets": 0,
+    "food": 900,
+    "cafe": 200
+  },
+  "transportOptions": {
+    "train": 240,
+    "bus": 150
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 4000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 2000,
+  "walkingShadeMin": 2000,
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8,
+    "winter": 7.5,
+    "rain": 7.5,
+    "food": 9,
+    "photography": 9,
+    "relaxation": 8.5,
+    "value": 9,
+    "uniqueness": 8.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "None required for public streets; individual shops and museums set their own policies",
+  "reservationJa": "町並み散策は自由。各店舗・博物館は独自の入場ポリシーあり。",
+  "parking": "Paid parking available at designated lots near the district",
+  "notes": "Most shops and museums close by 17:00 — visit in the morning for the best experience.",
+  "notesJa": "多くの店舗と博物館は17時までに閉店 — 午前中の訪問がおすすめです。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-05",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.oidehita.com/en/spot/mameda/",
+        "title": "Mameda Historic District Official Website",
+        "accessedAt": "2026-08-05"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Hita,_%C5%8Cita",
+        "title": "Hita, Ōita",
+        "accessedAt": "2026-08-05"
+      }
+    ],
+    "checkedAt": "2026-08-05",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-05",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Mameda Historic District",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-05",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://www.oidehita.com/en/spot/mameda/",
+  "municipalityId": "Oita:hita"
+}

@@ -1,0 +1,159 @@
+{
+  "id": "horikawa-canal-nichinan",
+  "name": "Horikawa Canal",
+  "nameJa": "堀川運河",
+  "aliases": ["Horikawa Canal", "堀川運河"],
+  "content": {
+    "en": {
+      "name": "Horikawa Canal",
+      "description": "A historic canal built in the Edo period (1686) by the Obi Domain to transport timber. Today, its stone walls, traditional arched bridge (Horikawa Bridge), and nostalgic atmosphere make it a scenic spot in the Aburatsu area of Nichinan.",
+      "highlights": [
+        "Walk across the historic arched stone Horikawa Bridge",
+        "Admire the Edo-period stone walls lining the canal",
+        "Enjoy the nostalgic atmosphere of the Aburatsu district"
+      ],
+      "openingHours": "Open access (no fixed hours; daylight recommended)"
+    },
+    "ja": {
+      "name": "堀川運河",
+      "description": "江戸時代（1686年）に飫肥藩によって木材運搬のために開削された歴史ある運河。美しい石垣やアーチ型の堀川橋など、ノスタルジックな風景が広がる日南市油津の景勝地です。",
+      "highlights": [
+        "アーチ型の石橋「堀川橋」を渡る",
+        "江戸時代から残る運河の石垣を見学",
+        "油津地区のノスタルジックな雰囲気を楽しむ"
+      ],
+      "openingHours": "自由見学（時間制限なし、日中推奨）"
+    }
+  },
+  "prefecture": "Miyazaki",
+  "region": "Kyushu",
+  "kind": "historic",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "nichinan-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture & History", "Leisure"],
+  "tags": ["Canal", "Historic", "Nichinan City", "Architecture"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Horikawa_canal_horikawa_bridge.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Sanjo",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Horikawa_canal_horikawa_bridge.jpg"
+  },
+  "coordinates": {
+    "lat": 31.5791,
+    "lng": 131.4018
+  },
+  "description": "A historic canal built in the Edo period (1686) by the Obi Domain to transport timber. Today, its stone walls, traditional arched bridge (Horikawa Bridge), and nostalgic atmosphere make it a scenic spot in the Aburatsu area of Nichinan.",
+  "highlights": [
+    "Walk across the historic arched stone Horikawa Bridge",
+    "Admire the Edo-period stone walls lining the canal",
+    "Enjoy the nostalgic atmosphere of the Aburatsu district"
+  ],
+  "openingHours": "Open access (no fixed hours; daylight recommended)",
+  "openingHoursJa": "自由見学（時間制限なし、日中推奨）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.kankou-nichinan.jp/tourisms/316/",
+    "hoursNote": "Public outdoor canal; the official tourism page does not publish facility hours."
+  },
+  "budgetMin": 500,
+  "budgetRecommended": 500,
+  "budgetMax": 1000,
+  "budgetBreakdown": {
+    "transport": 150,
+    "tickets": 0,
+    "food": 225,
+    "cafe": 50
+  },
+  "transportOptions": {
+    "walk": 10
+  },
+  "totalTripHours": 1.5,
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  },
+  "walkingMin": 1000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 1000,
+  "walkingShadeMin": 0,
+  "indoorPercent": 0,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 3,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 7.5,
+    "couple": 8,
+    "summer": 7,
+    "winter": 7,
+    "rain": 5,
+    "food": 6,
+    "photography": 8.5,
+    "relaxation": 8,
+    "value": 9,
+    "uniqueness": 7.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 8,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "medium",
+  "reservation": "None required",
+  "parking": "Public parking available nearby in Aburatsu",
+  "notes": "About 10 minutes on foot from Aburatsu Station.",
+  "notesJa": "油津駅から徒歩約10分。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-05",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.kankou-nichinan.jp/tourisms/316/",
+        "title": "Horikawa Canal Official Website",
+        "accessedAt": "2026-08-05"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://ja.wikipedia.org/wiki/%E5%A0%80%E5%B7%9D%E9%81%8B%E6%B2%B3_%28%E5%AE%AE%E5%B4%8E%E7%9C%8C%29",
+        "title": "堀川運河 (宮崎県)",
+        "accessedAt": "2026-08-05"
+      }
+    ],
+    "checkedAt": "2026-08-05",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-05",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Horikawa Canal",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-05",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://www.kankou-nichinan.jp/tourisms/316/",
+  "municipalityId": "Miyazaki:nichinan"
+}
