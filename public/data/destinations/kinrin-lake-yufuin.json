@@ -109,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Nearby paid parking",
-  "notes": "Free public access. Arrive before sunrise to catch the magical morning mist — this is the signature view. The walk around the lake takes about 20 minutes.",
+  "notes": "Arrive before sunrise to catch the magical morning mist over the lake.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -149,5 +149,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "無料で見学可能。名物の朝霧を見るには夜明け前の到着が必須。湖畔一周は徒歩約20分。"
+  "notesJa": "名物の朝霧を見るには夜明け前の到着が必須です。"
 }

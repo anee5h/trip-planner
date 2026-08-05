@@ -109,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required; trail may be slippery after rain",
   "parking": "Trailhead parking available (¥500/day)",
-  "notes": "Admission ¥500 donation. Choose from 1-hour, 3-hour, or 5-hour trails. The mossy forest inspired Studio Ghibli's Princess Mononoke. Trail can be slippery — hiking boots essential. Bus from Miyanoura Port takes ~40 min.",
+  "notes": "The mossy forest that inspired Studio Ghibli's Princess Mononoke.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -149,5 +149,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.kagoshima-kankou.com/for/attractions/51079"
   },
-  "notesJa": "協力金500円。1時間・3時間・5時間の3コースから選択。苔むす森はジブリ『もののけ姫』のインスピレーション源。滑りやすいので登山靴必須。宮之浦港からバス約40分。"
+  "notesJa": "苔むす森はジブリ『もののけ姫』のインスピレーション源です。"
 }

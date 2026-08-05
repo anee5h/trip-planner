@@ -109,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Nearby public parking",
-  "notes": "Admission ¥620 for adults. The garden is on a hillside — wear comfortable shoes. The panoramic view of Nagasaki Harbour from the upper garden is spectacular. Combine with a visit to nearby Oura Church.",
+  "notes": "Wear comfortable shoes — the garden is on a hillside with slopes and steps.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -155,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://glover-garden.jp/"
   },
-  "notesJa": "入園料620円。坂の多い庭園なので歩きやすい靴で。上部庭園からの長崎港パノラマは必見。隣接する大浦天主堂と合わせての見学がおすすめ。"
+  "notesJa": "坂や階段が多いため歩きやすい靴で訪れましょう。"
 }

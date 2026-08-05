@@ -109,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "District parking available",
-  "notes": "Free to walk the district. Individual museums charge separate admission (combination tickets available for Mojiko Retro Observation Room, Railway Museum, and former Customs Building). The illuminated buildings at dusk are stunning.",
+  "notes": "The historic buildings are beautifully illuminated at dusk.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -155,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.gururich-kitaq.com/en/spot/mojiko-retro-area"
   },
-  "notesJa": "地区散策は無料。各博物館は別途入館料（門司港レトロ展望室・鉄道記念館・旧門司税関など共通券あり）。夕暮れ時の建物ライトアップが美しい。"
+  "notesJa": "夕暮れ時には歴史的建造物のライトアップが美しいです。"
 }

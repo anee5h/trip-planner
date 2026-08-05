@@ -112,7 +112,7 @@
   "weatherDependence": "low",
   "reservation": "Required for game days",
   "parking": "Dome parking and nearby lots",
-  "notes": "Home of the Fukuoka SoftBank Hawks. Even on non-game days, the dome tour (¥1,500) takes you onto the field and into the bullpen. Adjacent BOSS E-ZO complex has entertainment facilities and food halls.",
+  "notes": "Dome tours run on non-game days and take you onto the field and into the bullpen.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -158,5 +158,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.softbankhawks.co.jp/global/english/"
   },
-  "notesJa": "福岡ソフトバンクホークスの本拠地。試合がない日でもドームツアー（1,500円）でフィールドやブルペンを見学できます。隣接のBOSS E-ZOにはアミューズメントやフードホールが充実。"
+  "notesJa": "試合がない日はフィールドを見学できるドームツアーがおすすめです。"
 }

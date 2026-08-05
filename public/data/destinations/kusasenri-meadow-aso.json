@@ -109,7 +109,7 @@
   "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Grassland parking available",
-  "notes": "Free access. The rolling grasslands with grazing horses offer iconic Aso scenery. Volcanic activity updates are posted at the visitor centre. Horse riding available (extra fee). The pond in the centre is a volcanic crater.",
+  "notes": "Horse riding is available on the rolling grasslands in warmer months.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -149,5 +149,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "入場無料。放牧馬が草を食む広大な草原は阿蘇の象徴的風景。火山活動情報はビジターセンターで確認。乗馬体験あり（別料金）。中央の池は火山火口跡。"
+  "notesJa": "暖かい季節には草原での乗馬体験が楽しめます。"
 }

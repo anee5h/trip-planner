@@ -112,7 +112,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Museum parking available",
-  "notes": "Admission ¥200 for the Atomic Bomb Museum; Peace Park is free. Allow 2 hours minimum. The museum is emotionally intense — the nearby Hypocenter Park and Urakami Cathedral add important context.",
+  "notes": "Allow at least two hours to visit both the Peace Park and Atomic Bomb Museum.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -158,5 +158,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "原爆資料館は200円、平和公園は無料。最低2時間は確保を。資料館は内容が重いため、爆心地公園や浦上天主堂と合わせて訪問すると理解が深まります。"
+  "notesJa": "平和公園と原爆資料館を合わせて最低2時間は確保しましょう。"
 }

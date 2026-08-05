@@ -69,7 +69,7 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "notes": "The Sakurajima Ferry runs 24/7 (¥200 one-way, 15 min). The island loop bus (¥500 day pass) stops at all major viewpoints. Ashfall is common — wear a hat and avoid light-coloured clothing on active days.",
+  "notes": "Ashfall is common — wear a hat and dark clothing on active days.",
   "status": "published",
   "relationships": {
     "featuredDestinationIds": [],
@@ -122,5 +122,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "桜島フェリー24時間運航（片道200円、15分）。島内周遊バス（1日500円）で各展望所へ。降灰は日常的 — 帽子と濃い色の服装を推奨。"
+  "notesJa": "降灰が多いので帽子と濃い色の服装がおすすめです。"
 }

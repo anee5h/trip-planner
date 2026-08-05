@@ -109,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Nearby coin parking",
-  "notes": "Admission ¥520. The reconstructed island offers a fascinating look at Japan's only window to the West during the isolation period. English audio guides available. Plan ~1.5 hours.",
+  "notes": "English audio guides are available to explore the reconstructed historical settlement.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -155,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://nagasakidejima.jp/en/"
   },
-  "notesJa": "入場料520円。江戸時代に日本で唯一西欧に開かれた窓口を復元した歴史地区。英語音声ガイドあり。所要約1.5時間。"
+  "notesJa": "復元された歴史地区を詳しく知るなら英語音声ガイドが便利です。"
 }

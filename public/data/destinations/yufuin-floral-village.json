@@ -109,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Nearby paid parking",
-  "notes": "The main street from Yufuin Station to the lake is lined with cafés and boutiques. Most ryokan offer day-use bathing (typically ¥500–1,000). Book popular ryokan well in advance.",
+  "notes": "Many ryokan offer day-use bathing — book popular ones well in advance.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -155,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "由布院駅から金鱗湖までのメインストリートにはカフェや雑貨店が並ぶ。多くの旅館で日帰り入浴可（500～1,000円程度）。人気旅館は早めの予約を。"
+  "notesJa": "多くの旅館で日帰り入浴が可能。人気旅館は早めの予約を。"
 }

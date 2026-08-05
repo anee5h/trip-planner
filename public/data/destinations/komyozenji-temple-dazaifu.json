@@ -109,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Nearby coin parking",
-  "notes": "Admission ¥200. A small, quiet Zen temple just steps from the busy Tenmangu approach. Renowned for its two karesansui gardens. Best in autumn (late Nov) when the maple garden is at its peak. No indoor photography.",
+  "notes": "Best visited in late November when the maple garden is at its peak.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -149,5 +149,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.crossroadfukuoka.jp/en/spots/detail/4000000000108"
   },
-  "notesJa": "拝観料200円。天満宮参道の喧騒から徒歩すぐの静かな禅寺。二つの枯山水庭園で有名。秋（11月下旬）の紅葉が名高い。堂内撮影禁止。"
+  "notesJa": "紅葉の名所で11月下旬が見頃です。"
 }

@@ -109,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Shrine parking available",
-  "notes": "Free grounds access. A serene forest shrine dedicated to Emperor Jimmu. Best during the Grand Festival in late October or cherry blossom season in late March. The long gravel approach is shaded by ancient cedars.",
+  "notes": "The long gravel approach is shaded by ancient cedars — cool even in summer.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -155,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://miyazakijingu.or.jp/"
   },
-  "notesJa": "境内無料。初代天皇・神武天皇を祀る静かな森の神社。10月下旬の大祭か3月下旬の桜シーズンが特におすすめ。長い玉砂利の参道は古木に覆われている。"
+  "notesJa": "長い玉砂利の参道は古木に覆われ夏でも涼しく歩けます。"
 }

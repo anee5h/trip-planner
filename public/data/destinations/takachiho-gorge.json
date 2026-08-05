@@ -109,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "Boat rental available on site first-come-first-served",
   "parking": "Gorge parking available",
-  "notes": "Free to walk the gorge path; boat rental ¥3,000 per 30 min. Boats cannot be reserved — arrive early or expect a long queue on weekends. The gorge path may close after heavy rain.",
+  "notes": "Boats cannot be reserved — arrive early on weekends to avoid long queues.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -155,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://takachiho-kanko.info/en/"
   },
-  "notesJa": "渓谷遊歩道は無料、貸しボートは30分3,000円。ボートは予約不可 — 週末は早朝到着が必須。大雨後は遊歩道閉鎖あり。"
+  "notesJa": "ボートは予約不可のため週末は早朝の到着がおすすめです。"
 }

@@ -109,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Nearby public parking",
-  "notes": "Admission ¥800. Built in 1957, it's one of Japan's oldest TV towers. The 360° observation deck has views of Beppu Bay and Mount Tsurumi. Night illumination is spectacular.",
+  "notes": "One of Japan's oldest TV towers with a 360° observation deck.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -155,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://bepputower.co.jp/"
   },
-  "notesJa": "展望料800円。1957年完成の日本最古級テレビ塔。360度の展望台から別府湾と鶴見岳を一望。夜景も見事。"
+  "notesJa": "日本最古級のテレビ塔で360度の展望を楽しめます。"
 }

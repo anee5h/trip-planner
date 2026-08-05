@@ -57,7 +57,7 @@
   ],
   "reservation": "Not required",
   "parking": "Available nearby",
-  "notes": "Okinoshima Island itself is closed to the public (no landing allowed except for shrine priests). Visitors can explore the Munakata Taisha shrine complex on the mainland and the Shinpokan museum which displays excavated treasures.",
+  "notes": "The island itself is off-limits to visitors; explore the mainland Munakata Taisha shrine and treasure museum instead.",
   "coordinates": {
     "lat": 33.8042,
     "lng": 130.5147
@@ -137,5 +137,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.okinoshima-heritage.jp/en/"
   },
-  "notesJa": "沖ノ島自体は一般の上陸が禁止されています（神職以外立入不可）。本土の宗像大社（辺津宮）と出土品を展示する神宝館を見学できます。"
+  "notesJa": "沖ノ島は立入禁止。本土の宗像大社と神宝館を訪れましょう。"
 }

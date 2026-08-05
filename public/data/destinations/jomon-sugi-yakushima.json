@@ -109,7 +109,7 @@
   "weatherDependence": "high",
   "reservation": "Guided tours recommended; trail may close in heavy rain",
   "parking": "Trailhead parking at Arakawa Dam",
-  "notes": "A full-day round-trip hike (8–10 hours) from the Arakawa trailhead. Start before 5am to return before dark. Mountain hut available but no supplies — carry all food and water. Guide recommended for first-timers.",
+  "notes": "A full-day round-trip hike — start before 5 am and carry all food and water.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -155,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "荒川登山口から往復8～10時間の本格登山。日没前帰還のために午前5時前に出発を。山小屋ありだが補給不可 — 食料と水は全量携行。初めての方はガイド推奨。"
+  "notesJa": "往復8～10時間の本格登山。食料と水は全量携行し早朝出発を。"
 }

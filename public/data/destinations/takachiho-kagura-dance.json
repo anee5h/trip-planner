@@ -109,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "Recommended; evening performances sell out",
   "parking": "Nearby public parking",
-  "notes": "Admission ¥1,000. Nightly performances 20:00–21:00 at Takachiho Shrine. No photography or video during the dance. Arrive by 19:30 for good seats. English pamphlet explains the four dance stories performed each night.",
+  "notes": "No photography or video is permitted during the nightly dance performance.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -155,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://takachiho-kanko.info/en/"
   },
-  "notesJa": "拝観料1,000円。高千穂神社で毎夜20:00～21:00に公演。演舞中の写真・ビデオ撮影は禁止。良い席のため19:30頃の到着推奨。英語解説パンフレットあり。"
+  "notesJa": "毎夜の演舞中は写真・ビデオ撮影が禁止されています。"
 }

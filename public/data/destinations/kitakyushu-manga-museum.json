@@ -109,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required; special exhibitions may require advance booking",
   "parking": "ARUARU CITY building parking",
-  "notes": "Admission ¥480. A hands-on museum where you can read thousands of manga, draw your own, and learn about manga history. Great rainy-day activity. All ages welcome.",
+  "notes": "A hands-on museum where you can read and draw your own manga.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -155,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.ktqmm.jp/english"
   },
-  "notesJa": "入館料480円。数千冊の漫画を読める体験型博物館。自分で漫画を描けるコーナーも。雨の日のアクティビティに最適。全年齢歓迎。"
+  "notesJa": "漫画を読むだけでなく自分で描ける体験型博物館です。"
 }

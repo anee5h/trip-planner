@@ -109,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required; special exhibitions may require advance booking",
   "parking": "Museum parking available",
-  "notes": "Admission ¥700 for the cultural exchange exhibition. A striking modern building adjacent to Dazaifu Tenmangu. The museum focuses on Japan's historical connections with Asia.",
+  "notes": "A striking modern building next to Dazaifu Tenmangu exploring Japan's Asian connections.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -155,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.kyuhaku.jp/en/"
   },
-  "notesJa": "文化交流展700円。太宰府天満宮に隣接する印象的な現代建築。日本とアジアの文化交流史をテーマにした展示。"
+  "notesJa": "太宰府天満宮に隣接する印象的な現代建築でアジア交流史を展示。"
 }

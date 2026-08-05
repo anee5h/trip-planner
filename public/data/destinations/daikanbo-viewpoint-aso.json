@@ -109,7 +109,7 @@
   "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Viewpoint parking available",
-  "notes": "Free access 24/7. The best panoramic view of the Aso caldera — arrive at sunrise or sunset for the most dramatic light. Parking is free; road access may close in heavy snow or ice.",
+  "notes": "Sunrise and sunset offer the most dramatic caldera panoramas.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -149,5 +149,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "無料・24時間見学可能。阿蘇カルデラのベストパノラマ — 朝日か夕暮れが最も幻想的。駐車場無料。大雪・凍結時は道路通行止めあり。"
+  "notesJa": "カルデラを眺めるなら朝日か夕暮れが最も幻想的です。"
 }

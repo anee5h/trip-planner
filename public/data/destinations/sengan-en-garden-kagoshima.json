@@ -109,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Garden parking available",
-  "notes": "Admission ¥1,300 (includes garden, villa, and museum). The garden frames an iconic view of Sakurajima across the bay. A guided villa tour is included in the ticket.",
+  "notes": "The garden frames an iconic view of Sakurajima volcano across the bay.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -155,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.senganen.jp/en/"
   },
-  "notesJa": "入園料1,300円（庭園・御殿・博物館含む）。庭園越しに桜島を望む絶景がシンボル。御殿内部ガイドツアー付き。"
+  "notesJa": "庭園越しに桜島を望む借景が見どころです。"
 }

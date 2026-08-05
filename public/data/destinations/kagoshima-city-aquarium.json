@@ -109,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Aquarium parking available",
-  "notes": "Admission ¥1,500 for adults. The Kuroshio Tank is one of Japan's largest, with whale sharks and manta rays. Feeding shows run several times daily — check the schedule at entry.",
+  "notes": "Feeding shows in the giant Kuroshio Tank run several times daily.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -155,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://ioworld.jp/english"
   },
-  "notesJa": "入館料1,500円。ジンベエザメやマンタが泳ぐ巨大な黒潮水槽が見どころ。給餌ショーは1日数回、入口でスケジュール確認を。"
+  "notesJa": "巨大な黒潮水槽の給餌ショーは1日数回開催されます。"
 }

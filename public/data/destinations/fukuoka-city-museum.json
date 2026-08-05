@@ -109,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Museum parking available",
-  "notes": "Permanent exhibition is ¥200; special exhibitions cost extra. The National Treasure gold seal is the highlight. Museum is in a park complex near Fukuoka Tower — combine both in one trip.",
+  "notes": "The National Treasure gold seal is the highlight of the permanent collection.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -155,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "常設展は200円、企画展は別料金。国宝「金印」が必見です。福岡タワーと同じエリアにあるので、博物館・タワーをセットで巡るのがおすすめ。"
+  "notesJa": "国宝「金印」が常設展示の最大の見どころです。"
 }

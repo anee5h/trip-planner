@@ -109,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Nearby public parking",
-  "notes": "Admission ¥300 for the regular bath, ¥800 for sand bath. The distinctive blue-glass Meiji-era façade is a photo spot. Bring your own towel or rent one on-site.",
+  "notes": "The Meiji-era blue-glass façade is a striking photo even from outside.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -149,5 +149,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.city.beppu.oita.jp/sisetu/shieionsen/detail4.html"
   },
-  "notesJa": "普通浴300円、砂湯800円。明治期の青ガラス外観が目を引く写真スポット。タオルは持参または現地レンタル可。"
+  "notesJa": "明治期の青ガラス外観は外から見るだけでも印象的な写真スポットです。"
 }

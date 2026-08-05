@@ -109,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Local parking available",
-  "notes": "The historical heart of Beppu's hot spring culture. Walk between public bathhouses in a yukata. Try jigoku-mushi (hell-steamed) cooking available at several shops. The Kannawa Steam Building is a free foot bath spot.",
+  "notes": "Walk between public bathhouses in a yukata for the full hot-spring-town feel.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -149,5 +149,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/kannawa-onsen-district/"
   },
-  "notesJa": "別府温泉文化の発祥地。浴衣で共同浴場を巡るのが定番スタイル。地獄蒸し料理を提供する店も点在。鉄輪むし湯は無料の足湯スポット。"
+  "notesJa": "浴衣で共同浴場を巡るのがこの温泉地の定番スタイルです。"
 }

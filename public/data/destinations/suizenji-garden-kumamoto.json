@@ -109,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Garden parking available",
-  "notes": "Admission ¥400. A beautiful strolling garden representing the 53 stations of the Tokaido, with miniature Mount Fuji. Best viewed in the morning when pond reflections are clearest.",
+  "notes": "Morning visits offer the clearest pond reflections.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -155,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "入園料400円。東海道五十三次を模し、ミニ富士山もある回遊式庭園。池の反射が最も美しい午前中の訪問がおすすめ。"
+  "notesJa": "池の反射が最も美しい午前中の訪問がおすすめです。"
 }

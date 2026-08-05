@@ -72,7 +72,7 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "notes": "Combined ticket for all 7 hells is ¥2,200; individual hells ¥450 each. Allow 2–3 hours to see them all. Umi-Jigoku (Sea Hell) and Chinoike-Jigoku (Blood Pond Hell) are the most striking. Parking is free at each site.",
+  "notes": "Allow a few hours to visit all seven hells.",
   "status": "published",
   "relationships": {
     "featuredDestinationIds": [],
@@ -124,5 +124,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "7地獄共通券2,200円、単独券各450円。全地獄見学に2～3時間。海地獄と血の池地獄が特に印象的。各所に無料駐車場あり。"
+  "notesJa": "7つの地獄を巡るなら数時間みておきましょう。"
 }

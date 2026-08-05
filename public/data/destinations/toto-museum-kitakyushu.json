@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "TOTO Museum",
-      "description": "The TOTO Museum celebrates the centennial of the renowned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene.",
+      "description": "The TOTO Museum celebrates the centennial of the renowned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene. About 10 minutes on foot from Kawaraguchi Mihagino Station or 15 minutes by bus from JR Kokura Station.",
       "highlights": [
         "Evolution of Japanese toilets and sanitary ware",
         "Futuristic architectural design",
@@ -47,7 +47,7 @@
     "lat": 33.8711,
     "lng": 130.8803
   },
-  "description": "The TOTO Museum celebrates the centennial of the renowned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene.",
+  "description": "The TOTO Museum celebrates the centennial of the renowned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene. About 10 minutes on foot from Kawaraguchi Mihagino Station or 15 minutes by bus from JR Kokura Station.",
   "highlights": [
     "Evolution of Japanese toilets and sanitary ware",
     "Futuristic architectural design",
@@ -114,9 +114,9 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "low",
-  "reservation": "Individual visitors: no reservation needed. Groups of 10+: advance reservation required. Free guided tours in Japanese (English audio guide available) — check official site for tour schedule.",
+  "reservation": "Self-guided individual visits: no reservation needed. Guided visits and groups of 20 or more require advance reservation.",
   "parking": "Free parking available",
-  "notes": "Free admission. Closed Mondays (or Tuesday if Monday is a public holiday), summer holidays, and year-end/New Year holidays. Last admission at 16:30. English pamphlet available at reception. The museum is a 10-minute walk from JR Space World Station.",
+  "notes": "Guided visits and groups of 20 or more require advance reservation.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -156,5 +156,6 @@
   },
   "officialWebsite": "https://jp.toto.com/knowledge/visit/en_museum/",
   "municipalityId": "Fukuoka:kitakyushu",
-  "notesJa": "入館無料。休館日は月曜日（祝日の場合は翌平日）、夏季休暇、年末年始。最終入館は16:30。受付で英語パンフレットあり。JRスペースワールド駅から徒歩10分。写真撮影可（一部展示除く）。"
+  "notesJa": "ガイド付き見学と20名以上の団体は事前予約が必要です。",
+  "reservationJa": "個人での自由見学は予約不要。ガイド付き見学と20名以上の団体は事前予約が必要です。"
 }

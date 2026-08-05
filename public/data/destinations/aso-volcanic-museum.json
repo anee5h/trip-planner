@@ -109,7 +109,7 @@
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Museum parking available",
-  "notes": "Admission ¥1,100. The museum explains Aso's volcanic activity with live crater-camera feeds. An excellent first stop before heading to Nakadake Crater — check current conditions and gas levels here.",
+  "notes": "A useful first stop for checking current crater and volcanic conditions.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -155,5 +155,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.asomuseum.jp/en/"
   },
-  "notesJa": "入館料1,100円。阿蘇の火山活動をライブカメラ映像で解説。中岳火口へ向かう前の最初の立ち寄り先として最適 — 現地の状況とガス濃度を確認できます。"
+  "notesJa": "火口へ向かう前の火山状況確認に便利です。"
 }

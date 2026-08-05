@@ -109,7 +109,7 @@
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Island parking available",
-  "notes": "Free access across the pedestrian bridge. The 'Devil's Washboard' rock formation is best viewed at low tide. Combine with a visit to the subtropical Aoshima Shrine and the Aoshima Subtropical Botanical Garden nearby.",
+  "notes": "Visit near low tide to see the Devil's Washboard rock formations clearly.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -149,5 +149,5 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "島へは歩道橋で無料アクセス。「鬼の洗濯板」は干潮時に最もよく見えます。青島神社と青島亜熱帯植物園を合わせて散策。"
+  "notesJa": "鬼の洗濯板を見るなら干潮前後がおすすめです。"
 }

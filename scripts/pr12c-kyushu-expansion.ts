@@ -507,9 +507,8 @@ const jaBackfill: Record<
     wikiTitle:
       "Sacred Island of Okinoshima and Associated Sites in the Munakata Region",
     notesEn:
-      "Okinoshima Island itself is closed to the public (no landing allowed except for shrine priests). Visitors can explore the Munakata Taisha shrine complex on the mainland and the Shinpokan museum which displays excavated treasures.",
-    notesJa:
-      "沖ノ島自体は一般の上陸が禁止されています（神職以外立入不可）。本土の宗像大社（辺津宮）と出土品を展示する神宝館を見学できます。",
+      "The island itself is off-limits to visitors; explore the mainland Munakata Taisha shrine and treasure museum instead.",
+    notesJa: "沖ノ島は立入禁止。本土の宗像大社と神宝館を訪れましょう。",
   },
   "gunkanjima-hashima-nagasaki": {
     description:
@@ -522,9 +521,8 @@ const jaBackfill: Record<
     wikiUrl: "https://en.wikipedia.org/wiki/Hashima_Island",
     wikiTitle: "Hashima Island",
     notesEn:
-      "Landing tours run from Nagasaki Port (¥4,200–5,400). Weather-dependent — tours may be cancelled in high waves. The landing platform is small and can be hot; bring water in summer. Booking 1–2 days ahead is recommended.",
-    notesJa:
-      "軍艦島上陸ツアーは長崎港発（4,200～5,400円）。天候次第で高波時に欠航あり。上陸桟橋は狭く夏は高温、水分補給を。1～2日前の予約推奨。",
+      "Landing tours are weather-dependent and may be cancelled in high waves.",
+    notesJa: "上陸ツアーは天候次第で高波時に欠航することがあります。",
   },
   "mount-inasa-nagasaki": {
     description:
@@ -537,9 +535,8 @@ const jaBackfill: Record<
     wikiUrl: "https://en.wikipedia.org/wiki/Mount_Inasa",
     wikiTitle: "Mount Inasa",
     notesEn:
-      "The ropeway runs until 22:00. The summit observation deck is free; the ropeway round trip is ¥1,250. On clear days you can see as far as the Goto Islands. Bring a jacket — it's windy and cooler at the top.",
-    notesJa:
-      "ロープウェイは22:00まで。山頂展望台は無料、ロープウェイ往復1,250円。晴天時は五島列島まで見渡せます。山頂は風が強く冷えるため上着を持参。",
+      "Bring a jacket — it can be windy and cool at the summit even in summer.",
+    notesJa: "山頂は風が強く冷えるため上着を持参ください。",
   },
   "oura-church-nagasaki": {
     description:
@@ -551,10 +548,8 @@ const jaBackfill: Record<
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/%C5%8Cura_Church",
     wikiTitle: "Ōura Church",
-    notesEn:
-      "Admission ¥1,000 (includes museum and former seminary). The church is a short uphill walk from Glover Garden. Sunday morning Mass is open to visitors but sightseeing during service is not permitted.",
-    notesJa:
-      "拝観料1,000円（旧羅典神学校・博物館含む）。グラバー園から坂を少し上がった場所。日曜朝のミサは見学可ですが、礼拝中の観光は控えてください。",
+    notesEn: "Sightseeing is not permitted during Sunday morning Mass.",
+    notesJa: "日曜朝のミサ中の観光はご遠慮ください。",
   },
   "kumamoto-castle": {
     description:
@@ -567,9 +562,8 @@ const jaBackfill: Record<
     wikiUrl: "https://en.wikipedia.org/wiki/Kumamoto_Castle",
     wikiTitle: "Kumamoto Castle",
     notesEn:
-      "Admission ¥800 for the castle keep. The castle restoration from the 2016 earthquake is partially complete. The Honmaru Goten palace interior is fully restored. Check the official website for current accessible areas.",
-    notesJa:
-      "天守閣入場800円。2016年熊本地震からの復旧は一部完了。本丸御殿は全面復旧済み。見学可能エリアは公式サイトで事前確認を。",
+      "Check the official website for currently accessible areas as restoration continues.",
+    notesJa: "復旧工事中のため見学可能エリアは公式サイトでご確認ください。",
   },
   "beppu-hells-oita": {
     description:
@@ -581,10 +575,8 @@ const jaBackfill: Record<
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Hells_of_Beppu",
     wikiTitle: "Hells of Beppu",
-    notesEn:
-      "Combined ticket for all 7 hells is ¥2,200; individual hells ¥450 each. Allow 2–3 hours to see them all. Umi-Jigoku (Sea Hell) and Chinoike-Jigoku (Blood Pond Hell) are the most striking. Parking is free at each site.",
-    notesJa:
-      "7地獄共通券2,200円、単独券各450円。全地獄見学に2～3時間。海地獄と血の池地獄が特に印象的。各所に無料駐車場あり。",
+    notesEn: "Allow a few hours to visit all seven hells.",
+    notesJa: "7つの地獄を巡るなら数時間みておきましょう。",
   },
   "sakurajima-volcano-kagoshima": {
     description:
@@ -596,10 +588,8 @@ const jaBackfill: Record<
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Sakurajima",
     wikiTitle: "Sakurajima",
-    notesEn:
-      "The Sakurajima Ferry runs 24/7 (¥200 one-way, 15 min). The island loop bus (¥500 day pass) stops at all major viewpoints. Ashfall is common — wear a hat and avoid light-coloured clothing on active days.",
-    notesJa:
-      "桜島フェリー24時間運航（片道200円、15分）。島内周遊バス（1日500円）で各展望所へ。降灰は日常的 — 帽子と濃い色の服装を推奨。",
+    notesEn: "Ashfall is common — wear a hat and dark clothing on active days.",
+    notesJa: "降灰が多いので帽子と濃い色の服装がおすすめです。",
   },
   "mount-aso-kumamoto": {
     description:
@@ -612,9 +602,8 @@ const jaBackfill: Record<
     wikiUrl: "https://en.wikipedia.org/wiki/Mount_Aso",
     wikiTitle: "Mount Aso",
     notesEn:
-      "Crater access depends on volcanic gas levels — check conditions before departing. The Aso Volcano Museum near the ropeway station provides live updates. The surrounding caldera grasslands (Kusasenri) are always accessible.",
-    notesJa:
-      "火口見学は火山ガス濃度により規制あり — 出発前に状況確認を。ロープウェイ駅近くの阿蘇火山博物館で最新情報を入手。カルデラ内の草千里は常時見学可能。",
+      "Crater access depends on volcanic gas levels — check conditions before departing.",
+    notesJa: "火口見学は火山ガス濃度次第。出発前に状況確認を。",
   },
   "amami-iriomote-natural-site": {
     description:
@@ -629,9 +618,8 @@ const jaBackfill: Record<
     wikiTitle:
       "Amami-Ōshima Island, Tokunoshima Island, Northern Okinawa Island, and Iriomote Island",
     notesEn:
-      "This is a UNESCO World Heritage gateway entry spanning multiple islands across Kagoshima and Okinawa prefectures. Access varies by island — Amami Oshima has regular flights, Iriomote requires a ferry from Ishigaki. Plan travel logistics carefully.",
-    notesJa:
-      "鹿児島県～沖縄県にまたがる世界自然遺産の玄関口エントリーです。島ごとにアクセスが異なり、奄美大島は空路、西表島は石垣島からフェリー。旅程計画は慎重に。",
+      "Access varies by island — plan transport logistics carefully before visiting.",
+    notesJa: "島ごとにアクセスが異なるため事前の旅程確認が必須です。",
   },
 };
 
@@ -674,6 +662,7 @@ interface NewPoiInput {
   season: { spring: number; summer: number; autumn: number; winter: number };
   weatherDependence: string;
   reservation: string;
+  reservationJa?: string;
   parking: string;
   walkingIntensity: string;
   walkingSunMin: number;
@@ -773,6 +762,7 @@ function buildPoi(poi: NewPoiInput): DestinationRecord {
     bestMonths: [3, 4, 5, 9, 10, 11],
     weatherDependence: poi.weatherDependence,
     reservation: poi.reservation,
+    ...(poi.reservationJa && { reservationJa: poi.reservationJa }),
     parking: poi.parking,
     notes: poi.notesEn,
     notesJa: poi.notesJa,
@@ -893,9 +883,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Hakata_Station",
     wikiTitle: "Hakata Station",
     notesEn:
-      "Hakata Station is directly connected to the subway, JR lines, and Kyushu Shinkansen. The 9th-floor rooftop garden is free and offers a great city view. AMU Plaza has a dedicated ramen floor (10F) popular with locals.",
-    notesJa:
-      "博多駅は地下鉄・JR・九州新幹線に直結。9階屋上庭園は無料で市内展望を楽しめます。アミュプラザ10階はラーメン好きに人気の「博多めん街道」。",
+      "The 9th-floor rooftop garden is free and offers a great view of the city.",
+    notesJa: "9階の屋上庭園は無料で市内の展望が楽しめます。",
   },
   {
     id: "fukuoka-city-museum",
@@ -961,9 +950,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Fukuoka_City_Museum",
     wikiTitle: "Fukuoka City Museum",
     notesEn:
-      "Permanent exhibition is ¥200; special exhibitions cost extra. The National Treasure gold seal is the highlight. Museum is in a park complex near Fukuoka Tower — combine both in one trip.",
-    notesJa:
-      "常設展は200円、企画展は別料金。国宝「金印」が必見です。福岡タワーと同じエリアにあるので、博物館・タワーをセットで巡るのがおすすめ。",
+      "The National Treasure gold seal is the highlight of the permanent collection.",
+    notesJa: "国宝「金印」が常設展示の最大の見どころです。",
   },
   {
     id: "fukuoka-paypay-dome",
@@ -1029,9 +1017,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Fukuoka_PayPay_Dome",
     wikiTitle: "Fukuoka PayPay Dome",
     notesEn:
-      "Home of the Fukuoka SoftBank Hawks. Even on non-game days, the dome tour (¥1,500) takes you onto the field and into the bullpen. Adjacent BOSS E-ZO complex has entertainment facilities and food halls.",
-    notesJa:
-      "福岡ソフトバンクホークスの本拠地。試合がない日でもドームツアー（1,500円）でフィールドやブルペンを見学できます。隣接のBOSS E-ZOにはアミューズメントやフードホールが充実。",
+      "Dome tours run on non-game days and take you onto the field and into the bullpen.",
+    notesJa: "試合がない日はフィールドを見学できるドームツアーがおすすめです。",
   },
 
   // ---- NAGASAKI CITY (+5) ----
@@ -1099,9 +1086,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Nagasaki_Peace_Park",
     wikiTitle: "Nagasaki Peace Park",
     notesEn:
-      "Admission ¥200 for the Atomic Bomb Museum; Peace Park is free. Allow 2 hours minimum. The museum is emotionally intense — the nearby Hypocenter Park and Urakami Cathedral add important context.",
-    notesJa:
-      "原爆資料館は200円、平和公園は無料。最低2時間は確保を。資料館は内容が重いため、爆心地公園や浦上天主堂と合わせて訪問すると理解が深まります。",
+      "Allow at least two hours to visit both the Peace Park and Atomic Bomb Museum.",
+    notesJa: "平和公園と原爆資料館を合わせて最低2時間は確保しましょう。",
   },
   {
     id: "glover-garden-nagasaki",
@@ -1167,9 +1153,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Glover_Garden",
     wikiTitle: "Glover Garden",
     notesEn:
-      "Admission ¥620 for adults. The garden is on a hillside — wear comfortable shoes. The panoramic view of Nagasaki Harbour from the upper garden is spectacular. Combine with a visit to nearby Oura Church.",
-    notesJa:
-      "入園料620円。坂の多い庭園なので歩きやすい靴で。上部庭園からの長崎港パノラマは必見。隣接する大浦天主堂と合わせての見学がおすすめ。",
+      "Wear comfortable shoes — the garden is on a hillside with slopes and steps.",
+    notesJa: "坂や階段が多いため歩きやすい靴で訪れましょう。",
   },
   {
     id: "dejima-nagasaki",
@@ -1235,9 +1220,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Dejima",
     wikiTitle: "Dejima",
     notesEn:
-      "Admission ¥520. The reconstructed island offers a fascinating look at Japan's only window to the West during the isolation period. English audio guides available. Plan ~1.5 hours.",
-    notesJa:
-      "入場料520円。江戸時代に日本で唯一西欧に開かれた窓口を復元した歴史地区。英語音声ガイドあり。所要約1.5時間。",
+      "English audio guides are available to explore the reconstructed historical settlement.",
+    notesJa: "復元された歴史地区を詳しく知るなら英語音声ガイドが便利です。",
   },
   {
     id: "chinatown-nagasaki",
@@ -1303,9 +1287,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Nagasaki_Shinchi_Chinatown",
     wikiTitle: "Nagasaki Shinchi Chinatown",
     notesEn:
-      "One of Japan's three great Chinatowns. Best visited during the Nagasaki Lantern Festival (late Jan–Feb). Champon and sara-udon are the local specialities — try them at a street stall.",
-    notesJa:
-      "日本三大中華街の一つ。長崎ランタンフェスティバル（1月下旬～2月）の時期が特におすすめ。ちゃんぽん・皿うどんは長崎名物、屋台でぜひ。",
+      "Best visited during the Nagasaki Lantern Festival in late January and February.",
+    notesJa: "1月下旬から2月の長崎ランタンフェスティバル時期がおすすめです。",
   },
   {
     id: "meganebashi-bridge-nagasaki",
@@ -1371,9 +1354,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Meganebashi",
     wikiTitle: "Meganebashi",
     notesEn:
-      "Free public access 24/7. The stone bridge is especially photogenic in the late afternoon light when the reflection forms a full circle. Best combined with a stroll along Nakashima River.",
-    notesJa:
-      "無料・24時間見学可能。午後の光で川面に映る橋と影が円を描く時間帯が絶好の写真スポット。中島川沿いの散策とセットで。",
+      "The reflection forms a perfect circle in the late afternoon light.",
+    notesJa: "午後の光で水面に映る影が円を描く時間が絶好の撮影タイミングです。",
   },
 
   // ---- KUMAMOTO CITY (+2) ----
@@ -1440,10 +1422,8 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Suizen-ji_J%C5%8Dju-en",
     wikiTitle: "Suizen-ji Jōju-en",
-    notesEn:
-      "Admission ¥400. A beautiful strolling garden representing the 53 stations of the Tokaido, with miniature Mount Fuji. Best viewed in the morning when pond reflections are clearest.",
-    notesJa:
-      "入園料400円。東海道五十三次を模し、ミニ富士山もある回遊式庭園。池の反射が最も美しい午前中の訪問がおすすめ。",
+    notesEn: "Morning visits offer the clearest pond reflections.",
+    notesJa: "池の反射が最も美しい午前中の訪問がおすすめです。",
   },
   {
     id: "kumamoto-prefectural-art-museum",
@@ -1509,9 +1489,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Kumamoto_Prefectural_Museum_of_Art",
     wikiTitle: "Kumamoto Prefectural Museum of Art",
     notesEn:
-      "Admission ¥270 for the permanent collection. A short walk from Kumamoto Castle. Focuses on local Kyushu artists and decorative arts. Renovated branch of the main Prefectural Museum.",
-    notesJa:
-      "常設展270円。熊本城から徒歩圏内。九州ゆかりの作家と工芸品を中心に展示。県立美術館の分館としてリニューアルされた施設。",
+      "A short walk from Kumamoto Castle, with a focus on local Kyushu artists.",
+    notesJa: "熊本城から徒歩圏内で九州ゆかりの作家を中心に展示しています。",
   },
 
   // ---- BEPPU CITY (+3) ----
@@ -1579,9 +1558,9 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Takegawara_Onsen",
     wikiTitle: "Takegawara Onsen",
     notesEn:
-      "Admission ¥300 for the regular bath, ¥800 for sand bath. The distinctive blue-glass Meiji-era façade is a photo spot. Bring your own towel or rent one on-site.",
+      "The Meiji-era blue-glass façade is a striking photo even from outside.",
     notesJa:
-      "普通浴300円、砂湯800円。明治期の青ガラス外観が目を引く写真スポット。タオルは持参または現地レンタル可。",
+      "明治期の青ガラス外観は外から見るだけでも印象的な写真スポットです。",
   },
   {
     id: "kannawa-onsen-district",
@@ -1647,9 +1626,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Beppu_Onsen",
     wikiTitle: "Beppu Onsen",
     notesEn:
-      "The historical heart of Beppu's hot spring culture. Walk between public bathhouses in a yukata. Try jigoku-mushi (hell-steamed) cooking available at several shops. The Kannawa Steam Building is a free foot bath spot.",
-    notesJa:
-      "別府温泉文化の発祥地。浴衣で共同浴場を巡るのが定番スタイル。地獄蒸し料理を提供する店も点在。鉄輪むし湯は無料の足湯スポット。",
+      "Walk between public bathhouses in a yukata for the full hot-spring-town feel.",
+    notesJa: "浴衣で共同浴場を巡るのがこの温泉地の定番スタイルです。",
   },
   {
     id: "beppu-tower",
@@ -1714,10 +1692,8 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Beppu_Tower",
     wikiTitle: "Beppu Tower",
-    notesEn:
-      "Admission ¥800. Built in 1957, it's one of Japan's oldest TV towers. The 360° observation deck has views of Beppu Bay and Mount Tsurumi. Night illumination is spectacular.",
-    notesJa:
-      "展望料800円。1957年完成の日本最古級テレビ塔。360度の展望台から別府湾と鶴見岳を一望。夜景も見事。",
+    notesEn: "One of Japan's oldest TV towers with a 360° observation deck.",
+    notesJa: "日本最古級のテレビ塔で360度の展望を楽しめます。",
   },
 
   // ---- YUFU CITY (+3) ----
@@ -1785,9 +1761,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Kinrin_Lake",
     wikiTitle: "Kinrin Lake",
     notesEn:
-      "Free public access. Arrive before sunrise to catch the magical morning mist — this is the signature view. The walk around the lake takes about 20 minutes.",
-    notesJa:
-      "無料で見学可能。名物の朝霧を見るには夜明け前の到着が必須。湖畔一周は徒歩約20分。",
+      "Arrive before sunrise to catch the magical morning mist over the lake.",
+    notesJa: "名物の朝霧を見るには夜明け前の到着が必須です。",
   },
   {
     id: "yufuin-floral-village",
@@ -1853,9 +1828,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Yufuin_Onsen",
     wikiTitle: "Yufuin Onsen",
     notesEn:
-      "The main street from Yufuin Station to the lake is lined with cafés and boutiques. Most ryokan offer day-use bathing (typically ¥500–1,000). Book popular ryokan well in advance.",
-    notesJa:
-      "由布院駅から金鱗湖までのメインストリートにはカフェや雑貨店が並ぶ。多くの旅館で日帰り入浴可（500～1,000円程度）。人気旅館は早めの予約を。",
+      "Many ryokan offer day-use bathing — book popular ones well in advance.",
+    notesJa: "多くの旅館で日帰り入浴が可能。人気旅館は早めの予約を。",
   },
   {
     id: "yufuin-onsen-ryokan-district",
@@ -1921,9 +1895,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Yufuin_Onsen",
     wikiTitle: "Yufuin Onsen",
     notesEn:
-      "Free entry to the shopping complex. A whimsical British-cottage-style village with petting zoos, owl forest, and artisan shops. Popular with families and couples. Can be crowded on weekends — visit on a weekday if possible.",
-    notesJa:
-      "入場無料。英国コッツウォルズ風の可愛らしい複合施設。ふれあい動物園やフクロウの森も併設。週末は混雑するため平日推奨。",
+      "Free entry to a British-cottage-style shopping complex popular with families.",
+    notesJa: "入場無料の英国風ショッピング施設で家族連れに人気です。",
   },
 
   // ---- DAZAIFU CITY (+3) ----
@@ -1991,9 +1964,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Dazaifu_Tenman-g%C5%AB",
     wikiTitle: "Dazaifu Tenman-gū",
     notesEn:
-      "Free grounds access; treasure hall ¥500. The head shrine of Tenmangu dedicated to the god of learning. Try the local umegae-mochi (grilled sweet bean rice cake) sold fresh on the approach road.",
-    notesJa:
-      "境内無料、宝物殿500円。学問の神様を祀る天満宮の総本社。参道の名物「梅ヶ枝餅」は焼き立てをぜひ。",
+      "Try freshly grilled umegae-mochi rice cakes from the approach-road stalls.",
+    notesJa: "参道で焼きたての名物「梅ヶ枝餅」をぜひお試しください。",
   },
   {
     id: "kyushu-national-museum",
@@ -2060,9 +2032,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Kyushu_National_Museum",
     wikiTitle: "Kyushu National Museum",
     notesEn:
-      "Admission ¥700 for the cultural exchange exhibition. A striking modern building adjacent to Dazaifu Tenmangu. The museum focuses on Japan's historical connections with Asia.",
-    notesJa:
-      "文化交流展700円。太宰府天満宮に隣接する印象的な現代建築。日本とアジアの文化交流史をテーマにした展示。",
+      "A striking modern building next to Dazaifu Tenmangu exploring Japan's Asian connections.",
+    notesJa: "太宰府天満宮に隣接する印象的な現代建築でアジア交流史を展示。",
   },
   {
     id: "komyozenji-temple-dazaifu",
@@ -2128,9 +2099,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Dazaifu,_Fukuoka",
     wikiTitle: "Dazaifu, Fukuoka",
     notesEn:
-      "Admission ¥200. A small, quiet Zen temple just steps from the busy Tenmangu approach. Renowned for its two karesansui gardens. Best in autumn (late Nov) when the maple garden is at its peak. No indoor photography.",
-    notesJa:
-      "拝観料200円。天満宮参道の喧騒から徒歩すぐの静かな禅寺。二つの枯山水庭園で有名。秋（11月下旬）の紅葉が名高い。堂内撮影禁止。",
+      "Best visited in late November when the maple garden is at its peak.",
+    notesJa: "紅葉の名所で11月下旬が見頃です。",
   },
 
   // ---- KAGOSHIMA CITY (+2) ----
@@ -2197,9 +2167,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Sengan-en",
     wikiTitle: "Sengan-en",
     notesEn:
-      "Admission ¥1,300 (includes garden, villa, and museum). The garden frames an iconic view of Sakurajima across the bay. A guided villa tour is included in the ticket.",
-    notesJa:
-      "入園料1,300円（庭園・御殿・博物館含む）。庭園越しに桜島を望む絶景がシンボル。御殿内部ガイドツアー付き。",
+      "The garden frames an iconic view of Sakurajima volcano across the bay.",
+    notesJa: "庭園越しに桜島を望む借景が見どころです。",
   },
   {
     id: "kagoshima-city-aquarium",
@@ -2265,9 +2234,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Kagoshima_City_Aquarium",
     wikiTitle: "Kagoshima City Aquarium",
     notesEn:
-      "Admission ¥1,500 for adults. The Kuroshio Tank is one of Japan's largest, with whale sharks and manta rays. Feeding shows run several times daily — check the schedule at entry.",
-    notesJa:
-      "入館料1,500円。ジンベエザメやマンタが泳ぐ巨大な黒潮水槽が見どころ。給餌ショーは1日数回、入口でスケジュール確認を。",
+      "Feeding shows in the giant Kuroshio Tank run several times daily.",
+    notesJa: "巨大な黒潮水槽の給餌ショーは1日数回開催されます。",
   },
 
   // ---- ASO CITY (+4) ----
@@ -2336,9 +2304,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Mount_Aso",
     wikiTitle: "Mount Aso",
     notesEn:
-      "Crater access depends on volcanic gas levels — check the Aso Volcano Observatory website before going. The ropeway may close without warning. Bring a mask if you have respiratory sensitivity. Parking at the crater costs ¥800.",
-    notesJa:
-      "火口見学の可否は火山ガス濃度次第 — 事前に阿蘇火山博物館ウェブサイトで確認を。ロープウェイは突然運休あり。呼吸器が弱い方はマスク持参。火口駐車場は800円。",
+      "Crater access may close at short notice depending on volcanic gas levels.",
+    notesJa: "火山ガス濃度により火口見学が突然中止になることがあります。",
   },
   {
     id: "kusasenri-meadow-aso",
@@ -2404,9 +2371,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Mount_Aso",
     wikiTitle: "Mount Aso",
     notesEn:
-      "Free access. The rolling grasslands with grazing horses offer iconic Aso scenery. Volcanic activity updates are posted at the visitor centre. Horse riding available (extra fee). The pond in the centre is a volcanic crater.",
-    notesJa:
-      "入場無料。放牧馬が草を食む広大な草原は阿蘇の象徴的風景。火山活動情報はビジターセンターで確認。乗馬体験あり（別料金）。中央の池は火山火口跡。",
+      "Horse riding is available on the rolling grasslands in warmer months.",
+    notesJa: "暖かい季節には草原での乗馬体験が楽しめます。",
   },
   {
     id: "daikanbo-viewpoint-aso",
@@ -2471,10 +2437,8 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Mount_Aso",
     wikiTitle: "Mount Aso",
-    notesEn:
-      "Free access 24/7. The best panoramic view of the Aso caldera — arrive at sunrise or sunset for the most dramatic light. Parking is free; road access may close in heavy snow or ice.",
-    notesJa:
-      "無料・24時間見学可能。阿蘇カルデラのベストパノラマ — 朝日か夕暮れが最も幻想的。駐車場無料。大雪・凍結時は道路通行止めあり。",
+    notesEn: "Sunrise and sunset offer the most dramatic caldera panoramas.",
+    notesJa: "カルデラを眺めるなら朝日か夕暮れが最も幻想的です。",
   },
   {
     id: "aso-volcanic-museum",
@@ -2540,9 +2504,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Mount_Aso",
     wikiTitle: "Mount Aso",
     notesEn:
-      "Admission ¥1,100. The museum explains Aso's volcanic activity with live crater-camera feeds. An excellent first stop before heading to Nakadake Crater — check current conditions and gas levels here.",
-    notesJa:
-      "入館料1,100円。阿蘇の火山活動をライブカメラ映像で解説。中岳火口へ向かう前の最初の立ち寄り先として最適 — 現地の状況とガス濃度を確認できます。",
+      "A useful first stop for checking current crater and volcanic conditions.",
+    notesJa: "火口へ向かう前の火山状況確認に便利です。",
   },
 
   // ---- MIYAZAKI CITY (+3) ----
@@ -2610,9 +2573,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Aoshima,_Miyazaki",
     wikiTitle: "Aoshima, Miyazaki",
     notesEn:
-      "Free access across the pedestrian bridge. The 'Devil's Washboard' rock formation is best viewed at low tide. Combine with a visit to the subtropical Aoshima Shrine and the Aoshima Subtropical Botanical Garden nearby.",
-    notesJa:
-      "島へは歩道橋で無料アクセス。「鬼の洗濯板」は干潮時に最もよく見えます。青島神社と青島亜熱帯植物園を合わせて散策。",
+      "Visit near low tide to see the Devil's Washboard rock formations clearly.",
+    notesJa: "鬼の洗濯板を見るなら干潮前後がおすすめです。",
   },
   {
     id: "heiwadai-park-miyazaki",
@@ -2677,10 +2639,8 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Heiwadai_Park",
     wikiTitle: "Heiwadai Park",
-    notesEn:
-      "Free entry to the park. The 37-metre Peace Tower is the symbol of Miyazaki. The adjacent Haniwa Garden displays replica ancient clay figures. Pleasant stroll in spring cherry blossom season.",
-    notesJa:
-      "入園無料。高さ37mの平和の塔が宮崎のシンボル。隣接するはにわ園には古代埴輪のレプリカ展示。春は桜の名所。",
+    notesEn: "The park is a popular cherry blossom spot in late March.",
+    notesJa: "3月下旬の桜の名所として知られています。",
   },
   {
     id: "miyazaki-jingu-shrine",
@@ -2746,9 +2706,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Miyazaki-jing%C5%AB",
     wikiTitle: "Miyazaki-jingū",
     notesEn:
-      "Free grounds access. A serene forest shrine dedicated to Emperor Jimmu. Best during the Grand Festival in late October or cherry blossom season in late March. The long gravel approach is shaded by ancient cedars.",
-    notesJa:
-      "境内無料。初代天皇・神武天皇を祀る静かな森の神社。10月下旬の大祭か3月下旬の桜シーズンが特におすすめ。長い玉砂利の参道は古木に覆われている。",
+      "The long gravel approach is shaded by ancient cedars — cool even in summer.",
+    notesJa: "長い玉砂利の参道は古木に覆われ夏でも涼しく歩けます。",
   },
 
   // ---- TAKACHIHO TOWN (+3) ----
@@ -2816,9 +2775,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Takachiho_Gorge",
     wikiTitle: "Takachiho Gorge",
     notesEn:
-      "Free to walk the gorge path; boat rental ¥3,000 per 30 min. Boats cannot be reserved — arrive early or expect a long queue on weekends. The gorge path may close after heavy rain.",
-    notesJa:
-      "渓谷遊歩道は無料、貸しボートは30分3,000円。ボートは予約不可 — 週末は早朝到着が必須。大雨後は遊歩道閉鎖あり。",
+      "Boats cannot be reserved — arrive early on weekends to avoid long queues.",
+    notesJa: "ボートは予約不可のため週末は早朝の到着がおすすめです。",
   },
   {
     id: "amanoiwato-shrine",
@@ -2884,9 +2842,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Amanoiwato-jinja",
     wikiTitle: "Amanoiwato-jinja",
     notesEn:
-      "Free entry. The shrine honours the cave where the sun goddess Amaterasu hid, plunging the world into darkness. A short walk behind the main hall leads to the sacred cave viewing point across the river. Quiet and deeply atmospheric.",
-    notesJa:
-      "参拝無料。天照大神が隠れた天岩戸を祀る神社。本殿裏手の小道を進むと、川の対岸に洞窟拝観所がある。静かで神秘的な雰囲気。",
+      "The sacred cave is viewed from across the river with shrine staff guidance.",
+    notesJa: "天岩戸は神職の案内で川の対岸から拝観します。",
   },
   {
     id: "takachiho-kagura-dance",
@@ -2952,9 +2909,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Takachiho,_Miyazaki",
     wikiTitle: "Takachiho, Miyazaki",
     notesEn:
-      "Admission ¥1,000. Nightly performances 20:00–21:00 at Takachiho Shrine. No photography or video during the dance. Arrive by 19:30 for good seats. English pamphlet explains the four dance stories performed each night.",
-    notesJa:
-      "拝観料1,000円。高千穂神社で毎夜20:00～21:00に公演。演舞中の写真・ビデオ撮影は禁止。良い席のため19:30頃の到着推奨。英語解説パンフレットあり。",
+      "No photography or video is permitted during the nightly dance performance.",
+    notesJa: "毎夜の演舞中は写真・ビデオ撮影が禁止されています。",
   },
 
   // ---- YAKUSHIMA TOWN (+3) ----
@@ -3022,9 +2978,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/J%C5%8Dmon_Sugi",
     wikiTitle: "Jōmon Sugi",
     notesEn:
-      "A full-day round-trip hike (8–10 hours) from the Arakawa trailhead. Start before 5am to return before dark. Mountain hut available but no supplies — carry all food and water. Guide recommended for first-timers.",
-    notesJa:
-      "荒川登山口から往復8～10時間の本格登山。日没前帰還のために午前5時前に出発を。山小屋ありだが補給不可 — 食料と水は全量携行。初めての方はガイド推奨。",
+      "A full-day round-trip hike — start before 5 am and carry all food and water.",
+    notesJa: "往復8～10時間の本格登山。食料と水は全量携行し早朝出発を。",
   },
   {
     id: "shiratani-unsuikyo-ravine",
@@ -3090,9 +3045,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Yakushima",
     wikiTitle: "Yakushima",
     notesEn:
-      "Admission ¥500 donation. Choose from 1-hour, 3-hour, or 5-hour trails. The mossy forest inspired Studio Ghibli's Princess Mononoke. Trail can be slippery — hiking boots essential. Bus from Miyanoura Port takes ~40 min.",
-    notesJa:
-      "協力金500円。1時間・3時間・5時間の3コースから選択。苔むす森はジブリ『もののけ姫』のインスピレーション源。滑りやすいので登山靴必須。宮之浦港からバス約40分。",
+      "The mossy forest that inspired Studio Ghibli's Princess Mononoke.",
+    notesJa: "苔むす森はジブリ『もののけ姫』のインスピレーション源です。",
   },
   {
     id: "yakusugi-land-yakushima",
@@ -3158,9 +3112,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/Yakushima",
     wikiTitle: "Yakushima",
     notesEn:
-      "Admission ¥500 donation. Easier trails than Jomon Sugi or Shiratani, suitable for families. Several courses from 30 min to 2.5 hours with well-maintained boardwalks. Still wear hiking shoes. Accessible by bus from Anbo.",
-    notesJa:
-      "協力金500円。縄文杉や白谷より易しいトレイルで家族連れに最適。30分～2.5時間の複数コースあり。木道整備あり。それでも登山靴推奨。安房からバスでアクセス可。",
+      "Easier trails than Jomon Sugi, with boardwalks suitable for families.",
+    notesJa: "縄文杉より易しく木道も整備された家族向けトレイルです。",
   },
 
   // ---- KITAKYUSHU CITY (+3) ----
@@ -3227,10 +3180,8 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Mojiko_Retro",
     wikiTitle: "Mojiko Retro",
-    notesEn:
-      "Free to walk the district. Individual museums charge separate admission (combination tickets available for Mojiko Retro Observation Room, Railway Museum, and former Customs Building). The illuminated buildings at dusk are stunning.",
-    notesJa:
-      "地区散策は無料。各博物館は別途入館料（門司港レトロ展望室・鉄道記念館・旧門司税関など共通券あり）。夕暮れ時の建物ライトアップが美しい。",
+    notesEn: "The historic buildings are beautifully illuminated at dusk.",
+    notesJa: "夕暮れ時には歴史的建造物のライトアップが美しいです。",
   },
   {
     id: "kitakyushu-manga-museum",
@@ -3296,10 +3247,8 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Kitakyushu_Manga_Museum",
     wikiTitle: "Kitakyushu Manga Museum",
-    notesEn:
-      "Admission ¥480. A hands-on museum where you can read thousands of manga, draw your own, and learn about manga history. Great rainy-day activity. All ages welcome.",
-    notesJa:
-      "入館料480円。数千冊の漫画を読める体験型博物館。自分で漫画を描けるコーナーも。雨の日のアクティビティに最適。全年齢歓迎。",
+    notesEn: "A hands-on museum where you can read and draw your own manga.",
+    notesJa: "漫画を読むだけでなく自分で描ける体験型博物館です。",
   },
   {
     id: "kawachi-wisteria-garden",
@@ -3365,10 +3314,8 @@ const newPois: NewPoiInput[] = [
     ],
     wikiUrl: "https://en.wikipedia.org/wiki/Kawachi_Wisteria_Garden",
     wikiTitle: "Kawachi Wisteria Garden",
-    notesEn:
-      "Only open during wisteria season (late Apr–early May) and autumn colours (mid-Nov–early Dec). Advance reservation required during peak season. The twin wisteria tunnels are the most photographed spot.",
-    notesJa:
-      "藤シーズン（4月下旬～5月上旬）と紅葉期（11月中旬～12月上旬）のみ開園。ピーク時は事前予約必須。二本の藤トンネルが最も有名なフォトスポット。",
+    notesEn: "Open only during the wisteria and autumn-colour seasons.",
+    notesJa: "藤と紅葉のシーズンのみ開園します。",
   },
   {
     id: "toto-museum-kitakyushu",
@@ -3411,7 +3358,9 @@ const newPois: NewPoiInput[] = [
     season: { spring: 8, summer: 9, autumn: 8, winter: 9 },
     weatherDependence: "low",
     reservation:
-      "Individual visitors: no reservation needed. Groups of 10+: advance reservation required. Free guided tours in Japanese (English audio guide available) — check official site for tour schedule.",
+      "Self-guided individual visits: no reservation needed. Guided visits and groups of 20 or more require advance reservation.",
+    reservationJa:
+      "個人での自由見学は予約不要。ガイド付き見学と20名以上の団体は事前予約が必要です。",
     parking: "Free parking available",
     walkingIntensity: "low",
     walkingSunMin: 500,
@@ -3419,7 +3368,7 @@ const newPois: NewPoiInput[] = [
     comfort: { heatTolerance: 9, rainFriendly: 10, walkingIntensity: 3 },
     officialWebsite: "https://jp.toto.com/knowledge/visit/en_museum/",
     enDescription:
-      "The TOTO Museum celebrates the centennial of the renowned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene.",
+      "The TOTO Museum celebrates the centennial of the renowned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene. About 10 minutes on foot from Kawaraguchi Mihagino Station or 15 minutes by bus from JR Kokura Station.",
     enHighlights: [
       "Evolution of Japanese toilets and sanitary ware",
       "Futuristic architectural design",
@@ -3435,9 +3384,8 @@ const newPois: NewPoiInput[] = [
     wikiUrl: "https://en.wikipedia.org/wiki/TOTO_(company)",
     wikiTitle: "TOTO (company)",
     notesEn:
-      "Free admission. Closed Mondays (or Tuesday if Monday is a public holiday), summer holidays, and year-end/New Year holidays. Last admission at 16:30. English pamphlet available at reception. The museum is a 10-minute walk from JR Space World Station.",
-    notesJa:
-      "入館無料。休館日は月曜日（祝日の場合は翌平日）、夏季休暇、年末年始。最終入館は16:30。受付で英語パンフレットあり。JRスペースワールド駅から徒歩10分。写真撮影可（一部展示除く）。",
+      "Guided visits and groups of 20 or more require advance reservation.",
+    notesJa: "ガイド付き見学と20名以上の団体は事前予約が必要です。",
   },
 ];
 
@@ -4034,6 +3982,35 @@ for (const r of pass1) {
     throw new Error(`Boilerplate Japanese notes found in record ${r.id}`);
 }
 console.log("✓ No boilerplate notes detected");
+
+// Harden: enforce note length limits (EN ≤ 140 chars, JA ≤ 70 chars) for all Kyushu records
+const MODIFIED_KYUSHU_IDS = new Set([
+  ...EXPECTED_NEW_POI_IDS,
+  ...Object.keys(jaBackfill),
+]);
+for (const r of pass1) {
+  if (!MODIFIED_KYUSHU_IDS.has(r.id)) continue;
+  if (r.notes && r.notes.length > 140)
+    throw new Error(
+      `English note too long (${r.notes.length} chars) in record ${r.id}`,
+    );
+  if (r.notesJa && r.notesJa.length > 70)
+    throw new Error(
+      `Japanese note too long (${r.notesJa.length} chars) in record ${r.id}`,
+    );
+  // Reject multi-sentence English notes (more than one terminal punctuation cluster)
+  if (r.notes) {
+    const sentences = r.notes
+      .replace(/[.?!]+/g, ".")
+      .split(".")
+      .filter((s: string) => s.trim().length > 0);
+    if (sentences.length > 1)
+      throw new Error(
+        `English note has ${sentences.length} sentences in record ${r.id}`,
+      );
+  }
+}
+console.log("✓ Note length and sentence limits validated on modified records");
 
 // Harden: reject unsupported placeholder facility hours
 const PLACEHOLDER_HOURS_PATTERNS = [
