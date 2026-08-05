@@ -13,6 +13,7 @@ export interface TripDurationEstimate {
   representativeHours: number;
   band: TripDuration;
   mode?: string;
+  bestTravelMinutes?: number;
   isImpossible?: boolean;
   isBorderline?: boolean;
   warningMessage?: {
@@ -61,6 +62,51 @@ export function formatTripDurationLabel(
   }
 }
 
+/**
+ * Returns the shortest one-way travel time (in minutes) for a destination
+ * across all authorised transport modes. Returns `undefined` when no
+ * estimable route exists or when transport data is unavailable.
+ */
+export function getBestOneWayTravelMinutes(
+  destination: Destination,
+  context: TripDurationContext | RecommendationContext,
+  modes: string[],
+): number | undefined {
+  let bestTravelMinutes: number | undefined;
+  for (const mode of modes) {
+    let minutes =
+      destination.transportOptions?.[
+        mode as keyof typeof destination.transportOptions
+      ];
+    if (mode === "flight") {
+      const estimate = getFlightTransportEstimate(
+        destination,
+        context.homeStationCoords || undefined,
+      );
+      minutes = estimate
+        ? (estimate.timeRange[0] + estimate.timeRange[1]) / 2
+        : undefined;
+    }
+    if (mode === "ferry") {
+      const estimate = getFerryTransportEstimate(
+        destination,
+        context.homeStationCoords || undefined,
+        context.ferryTemporal,
+      );
+      minutes = estimate
+        ? (estimate.timeRange[0] + estimate.timeRange[1]) / 2
+        : undefined;
+    }
+    if (
+      minutes !== undefined &&
+      (bestTravelMinutes === undefined || minutes < bestTravelMinutes)
+    ) {
+      bestTravelMinutes = minutes;
+    }
+  }
+  return bestTravelMinutes;
+}
+
 export function estimateTripDuration(
   destination: Destination,
   context: TripDurationContext | RecommendationContext,
@@ -76,12 +122,16 @@ export function estimateTripDuration(
   let totalRangeHours: [number, number];
   let representativeHours: number;
   let bestMode: string | undefined;
+  let bestTravelMinutes: number | undefined;
 
   if (!context.homeStationCoords) {
     totalRangeHours = visitRange;
     representativeHours = (visitRange[0] + visitRange[1]) / 2;
   } else {
-    let bestTravelMinutes: number | undefined;
+    bestTravelMinutes = getBestOneWayTravelMinutes(destination, context, modes);
+
+    if (bestTravelMinutes === undefined) return null;
+    // Resolve bestMode for the estimate (same loop as getBestOneWayTravelMinutes)
     for (const mode of modes) {
       let minutes =
         destination.transportOptions?.[
@@ -106,16 +156,11 @@ export function estimateTripDuration(
           ? (estimate.timeRange[0] + estimate.timeRange[1]) / 2
           : undefined;
       }
-      if (
-        minutes !== undefined &&
-        (bestTravelMinutes === undefined || minutes < bestTravelMinutes)
-      ) {
-        bestTravelMinutes = minutes;
+      if (minutes !== undefined && minutes === bestTravelMinutes) {
         bestMode = mode;
+        break;
       }
     }
-
-    if (bestTravelMinutes === undefined) return null;
     const bufferHours =
       ((destination.travelBuffers?.transferMinutes ?? 0) +
         (destination.travelBuffers?.ferryMinutes ?? 0)) /
@@ -161,6 +206,7 @@ export function estimateTripDuration(
     representativeHours,
     band: getBand(representativeHours),
     mode: bestMode,
+    bestTravelMinutes,
     isImpossible,
     isBorderline,
     warningMessage,

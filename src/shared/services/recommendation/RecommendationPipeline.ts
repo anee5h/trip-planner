@@ -13,6 +13,8 @@ import {
   getValidModes,
 } from "./RecommendationScorer";
 import type { PipelineRecommendation } from "./RecommendationTypes";
+import { evaluateWeekendCandidate } from "./WeekendPolicy";
+import type { WeekendCandidateEvaluation } from "./WeekendPolicy";
 
 function coordinatesWithinOneKm(
   a: PipelineRecommendation,
@@ -126,9 +128,16 @@ export function runRecommendationPipeline(
   destinations: Destination[],
   context: RecommendationContext,
 ): PipelineRecommendation[] {
+  const tripMode = context.tripMode ?? "day_trip";
+  const isWeekend = tripMode === "weekend_2d1n";
+
   const candidates = destinations.map((destination) =>
     buildRecommendationCandidate(destination, context),
   );
+
+  // Cache weekend evaluations keyed by destination id
+  const weekendEvalCache = new Map<string, WeekendCandidateEvaluation>();
+
   const eligible = candidates.filter((destination) => {
     if (!destination.id || context.visitedIds.includes(destination.id))
       return false;
@@ -142,9 +151,23 @@ export function runRecommendationPipeline(
       context.ferryTemporal,
     );
     if (modes.length === 0) return false;
-    const durationEst = estimateTripDuration(destination, context, modes);
-    if (!matchesTripDurationEstimate(durationEst, context.tripDuration))
-      return false;
+
+    // Weekend mode: skip duration-band match; use evaluateWeekendCandidate.
+    // Day-trip mode keeps the existing duration-band estimate unchanged.
+    let durationEst = estimateTripDuration(destination, context, modes);
+    if (isWeekend) {
+      const eval_ = evaluateWeekendCandidate(
+        destination,
+        context,
+        candidates,
+        modes,
+      );
+      weekendEvalCache.set(destination.id, eval_);
+      if (!eval_.eligible) return false;
+    } else {
+      if (!matchesTripDurationEstimate(durationEst, context.tripDuration))
+        return false;
+    }
 
     if (context.budgetTier === "luxury") return true;
 
@@ -179,11 +202,15 @@ export function runRecommendationPipeline(
 
   const scored = eligible.map((candidate) => {
     const scoreResult = calculateScore(candidate, context);
-    const match = createRecommendationMatch(
-      candidate,
-      context,
-      scoreResult.score,
-    );
+    const weekend = isWeekend ? weekendEvalCache.get(candidate.id) : undefined;
+    const totalScore = scoreResult.score + (weekend?.scoreDelta ?? 0);
+    const match = createRecommendationMatch(candidate, context, totalScore);
+
+    // Append weekend reasons
+    if (weekend) {
+      match.reasons.push(...weekend.reasons);
+    }
+
     const durationEstimate = estimateTripDuration(
       candidate,
       context,
@@ -209,24 +236,52 @@ export function runRecommendationPipeline(
     const estimatedCostRange = budgetResult.range;
     const estimatedCostTransportIncluded = budgetResult.transportIncluded;
 
+    // Append weekendTransportExcluded reason if applicable
+    if (weekend && !budgetResult.transportIncluded) {
+      match.reasons.push({
+        type: "Transport",
+        code: "weekendTransportExcluded",
+        title: "Transport Excluded",
+        description:
+          "Transport cost unavailable; total excludes origin transport",
+      });
+    }
+
+    // Build scoreContributions
+    const scoreContributions: Record<string, number> = {
+      total: totalScore,
+      transport: scoreResult.bestModeScore,
+    };
+    if (weekend) {
+      scoreContributions["weekendTravel"] = weekend.travelScore;
+      scoreContributions["weekendCapacity"] = weekend.capacityScore;
+      scoreContributions["weekendWeather"] = weekend.weatherScore;
+    }
+
     return {
       ...candidate,
-      score: scoreResult.score,
+      score: totalScore,
       match,
       bestTransportMode: scoreResult.bestMode,
       estimatedCostRange,
       estimatedCostTransportIncluded,
+      weekend: weekend
+        ? {
+            travelFit: weekend.travelFit,
+            capacity: weekend.capacity,
+            weatherDays: weekend.weatherDays,
+            accommodationAllowance: context.accommodationAllowance,
+            estimatedCostTransportIncluded,
+          }
+        : undefined,
       pipeline: {
         eligible: true,
         estimatedCost: estimatedCostRange[0],
         estimatedCostRange,
         estimatedCostTransportIncluded,
         bestTransportMode: scoreResult.bestMode,
-        scoreContributions: {
-          total: scoreResult.score,
-          transport: scoreResult.bestModeScore,
-        },
-        confidence: calculateConfidence(scoreResult.score),
+        scoreContributions,
+        confidence: calculateConfidence(totalScore),
         reasons: match.reasons,
       },
     } as PipelineRecommendation;

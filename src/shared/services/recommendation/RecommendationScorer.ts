@@ -347,51 +347,54 @@ export function calculateScore(
       break;
   }
 
-  // Environmental Logic
-  const isRaining =
-    actual?.condition === "rainy" || actual?.condition === "stormy";
-  const isHot = actual?.temperatureC !== undefined && actual.temperatureC >= 30;
-  const isCold =
-    actual?.temperatureC !== undefined && actual.temperatureC <= 10;
+  // Environmental Logic — only applies to day trips; weekend weather is handled separately
+  if (context.tripMode !== "weekend_2d1n") {
+    const isRaining =
+      actual?.condition === "rainy" || actual?.condition === "stormy";
+    const isHot =
+      actual?.temperatureC !== undefined && actual.temperatureC >= 30;
+    const isCold =
+      actual?.temperatureC !== undefined && actual.temperatureC <= 10;
 
-  if (isRaining) {
-    const indoor = dest.indoorPercent || 0;
-    score += (indoor / 100) * SCORING_WEIGHTS.ENV_RAIN_INDOOR_MULTIPLIER;
-    if (indoor < 30) score -= SCORING_WEIGHTS.ENV_RAIN_POOR_INDOOR_PENALTY;
-  }
-  if (isHot) {
-    score += ratingScore(
-      (ratings.summer - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER,
-    );
-    if (ratings.summer <= 4)
-      score -= ratingScore(SCORING_WEIGHTS.ENV_TEMP_PENALTY);
-  }
-  if (isCold) {
-    score += ratingScore(
-      (ratings.winter - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER,
-    );
-    if (ratings.winter <= 4)
-      score -= ratingScore(SCORING_WEIGHTS.ENV_TEMP_PENALTY);
-  }
+    if (isRaining) {
+      const indoor = dest.indoorPercent || 0;
+      score += (indoor / 100) * SCORING_WEIGHTS.ENV_RAIN_INDOOR_MULTIPLIER;
+      if (indoor < 30) score -= SCORING_WEIGHTS.ENV_RAIN_POOR_INDOOR_PENALTY;
+    }
+    if (isHot) {
+      score += ratingScore(
+        (ratings.summer - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER,
+      );
+      if (ratings.summer <= 4)
+        score -= ratingScore(SCORING_WEIGHTS.ENV_TEMP_PENALTY);
+    }
+    if (isCold) {
+      score += ratingScore(
+        (ratings.winter - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER,
+      );
+      if (ratings.winter <= 4)
+        score -= ratingScore(SCORING_WEIGHTS.ENV_TEMP_PENALTY);
+    }
 
-  if (preferred === "rainy") {
-    const indoor = dest.indoorPercent || 0;
-    score += (indoor / 100) * SCORING_WEIGHTS.ENV_RAIN_INDOOR_MULTIPLIER;
-    if (indoor < 30) score -= SCORING_WEIGHTS.ENV_RAIN_POOR_INDOOR_PENALTY;
-  }
-  if (preferred === "hot") {
-    score += ratingScore(
-      (ratings.summer - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER,
-    );
-    if (ratings.summer <= 4)
-      score -= ratingScore(SCORING_WEIGHTS.ENV_TEMP_PENALTY);
-  }
-  if (preferred === "cold") {
-    score += ratingScore(
-      (ratings.winter - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER,
-    );
-    if (ratings.winter <= 4)
-      score -= ratingScore(SCORING_WEIGHTS.ENV_TEMP_PENALTY);
+    if (preferred === "rainy") {
+      const indoor = dest.indoorPercent || 0;
+      score += (indoor / 100) * SCORING_WEIGHTS.ENV_RAIN_INDOOR_MULTIPLIER;
+      if (indoor < 30) score -= SCORING_WEIGHTS.ENV_RAIN_POOR_INDOOR_PENALTY;
+    }
+    if (preferred === "hot") {
+      score += ratingScore(
+        (ratings.summer - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER,
+      );
+      if (ratings.summer <= 4)
+        score -= ratingScore(SCORING_WEIGHTS.ENV_TEMP_PENALTY);
+    }
+    if (preferred === "cold") {
+      score += ratingScore(
+        (ratings.winter - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER,
+      );
+      if (ratings.winter <= 4)
+        score -= ratingScore(SCORING_WEIGHTS.ENV_TEMP_PENALTY);
+    }
   }
 
   // Calendar Season Scoring

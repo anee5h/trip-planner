@@ -1,3 +1,4 @@
+import type { ActualWeatherCondition } from "./RecommendationContext";
 import type { Destination } from "@/shared/types/destination";
 import type { PriceRange } from "@/shared/types/planner";
 
@@ -10,7 +11,8 @@ export type MatchReasonType =
   | "Distance"
   | "Interest"
   | "Editorial"
-  | "General";
+  | "General"
+  | "Weekend";
 
 export type RecommendationReasonCode =
   | "budgetGreatValue"
@@ -31,7 +33,17 @@ export type RecommendationReasonCode =
   | "weatherWinterComfort"
   | "editorialReviewPending"
   | "generalHighlyRated"
-  | "generalSolidMatch";
+  | "generalSolidMatch"
+  | "weekendTripReady"
+  | "weekendCapacityStrong"
+  | "weekendTravelStrong"
+  | "weekendTravelAcceptable"
+  | "weekendTravelWeak"
+  | "weekendWeatherGood"
+  | "weekendWeatherDayRain"
+  | "weekendWeatherPoorOutdoor"
+  | "weekendStayAllowance"
+  | "weekendTransportExcluded";
 
 export interface MatchReason {
   type: MatchReasonType;
@@ -49,12 +61,25 @@ export interface RecommendationMatch {
   summary?: string;
 }
 
+export interface WeekendRecommendationMetadata {
+  travelFit: import("./WeekendPolicy").WeekendTravelFit;
+  capacity: import("./WeekendPolicy").WeekendCapacityResult;
+  weatherDays: {
+    date: string;
+    condition: ActualWeatherCondition;
+    temperatureC?: number;
+  }[];
+  accommodationAllowance?: number;
+  estimatedCostTransportIncluded: boolean;
+}
+
 export interface ScoredDestination extends Destination {
   score: number;
   match: RecommendationMatch;
   bestTransportMode?: string;
   estimatedCostRange?: PriceRange;
   estimatedCostTransportIncluded?: boolean;
+  weekend?: WeekendRecommendationMetadata;
 }
 
 export interface RecommendationStageResult {
