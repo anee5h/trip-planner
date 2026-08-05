@@ -87,7 +87,8 @@
     "photography": 9.8,
     "relaxation": 9.8,
     "value": 8.5,
-    "uniqueness": 9
+    "uniqueness": 9,
+    "walkability": 7
   },
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -119,9 +120,9 @@
   },
   "notes": "One of Japan's top beaches — the shallow water extends far out, ideal for wading and families.",
   "totalTripHours": 4,
-  "walkingMin": 3000,
-  "walkingSunMin": 2500,
-  "walkingShadeMin": 300,
+  "walkingMin": 30,
+  "walkingSunMin": 25,
+  "walkingShadeMin": 3,
   "indoorPercent": 5,
   "reservation": "None required",
   "parking": "Free parking available",

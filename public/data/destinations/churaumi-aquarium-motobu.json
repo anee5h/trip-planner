@@ -87,7 +87,8 @@
     "photography": 9.5,
     "relaxation": 8.5,
     "value": 8.5,
-    "uniqueness": 9.8
+    "uniqueness": 9.8,
+    "walkability": 9
   },
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -119,9 +120,9 @@
   },
   "notes": "Home to whale sharks — arrive early to avoid the heaviest crowds at the Kuroshio tank.",
   "totalTripHours": 5,
-  "walkingMin": 4000,
-  "walkingSunMin": 500,
-  "walkingShadeMin": 3500,
+  "walkingMin": 60,
+  "walkingSunMin": 5,
+  "walkingShadeMin": 50,
   "indoorPercent": 80,
   "reservation": "Online tickets recommended during peak season",
   "parking": "Free parking available",

@@ -30581,14 +30581,15 @@
       "photography": 9.5,
       "relaxation": 8.5,
       "value": 8.5,
-      "uniqueness": 9
+      "uniqueness": 9,
+      "walkability": 6
     },
     "highlights": [
       "Explore Kouri Island & Heart Rock",
       "Local Culture & Scenery"
     ],
     "totalTripHours": 4,
-    "walkingMin": 3000,
+    "walkingMin": 35,
     "indoorPercent": 30,
     "crowd": {
       "weekday": 4,
@@ -30618,8 +30619,8 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Heart-shaped_rocks_at_Kouri_Island_202006.jpg/1920px-Heart-shaped_rocks_at_Kouri_Island_202006.jpg",
     "walkingIntensity": "low",
-    "walkingSunMin": 1800,
-    "walkingShadeMin": 1200,
+    "walkingSunMin": 25,
+    "walkingShadeMin": 5,
     "role": "destination",
     "placeType": "destination",
     "recommendedVisitHours": {
@@ -57810,7 +57811,8 @@
       "photography": 9.5,
       "relaxation": 8.5,
       "value": 8.5,
-      "uniqueness": 9
+      "uniqueness": 9,
+      "walkability": 6
     },
     "crowd": {
       "weekday": 3,
@@ -84759,7 +84761,8 @@
       "photography": 9,
       "relaxation": 8.5,
       "value": 8.5,
-      "uniqueness": 9
+      "uniqueness": 9,
+      "walkability": 10
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -84791,9 +84794,9 @@
     },
     "notes": "Naha's main shopping street — great for Okinawan souvenirs and street food.",
     "totalTripHours": 3,
-    "walkingMin": 3000,
-    "walkingSunMin": 500,
-    "walkingShadeMin": 2500,
+    "walkingMin": 60,
+    "walkingSunMin": 10,
+    "walkingShadeMin": 45,
     "indoorPercent": 30,
     "reservation": "None required",
     "parking": "Nearby paid parking available",
@@ -84891,7 +84894,8 @@
       "photography": 9,
       "relaxation": 8.5,
       "value": 8.5,
-      "uniqueness": 8.5
+      "uniqueness": 8.5,
+      "walkability": 7
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -84923,9 +84927,9 @@
     },
     "notes": "The only major Shinto shrine in Okinawa, perched on a clifftop overlooking Naminoue Beach.",
     "totalTripHours": 2,
-    "walkingMin": 2000,
-    "walkingSunMin": 800,
-    "walkingShadeMin": 800,
+    "walkingMin": 25,
+    "walkingSunMin": 10,
+    "walkingShadeMin": 10,
     "indoorPercent": 10,
     "reservation": "None required",
     "parking": "Free parking available",
@@ -85023,7 +85027,8 @@
       "photography": 9,
       "relaxation": 9,
       "value": 8.5,
-      "uniqueness": 9
+      "uniqueness": 9,
+      "walkability": 9
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -85055,9 +85060,9 @@
     },
     "notes": "A tranquil Chinese garden near the city centre — a quiet escape from busy Kokusai Dori.",
     "totalTripHours": 2,
-    "walkingMin": 1500,
-    "walkingSunMin": 500,
-    "walkingShadeMin": 800,
+    "walkingMin": 20,
+    "walkingSunMin": 5,
+    "walkingShadeMin": 10,
     "indoorPercent": 10,
     "reservation": "None required",
     "parking": "Nearby paid parking",
@@ -85155,7 +85160,8 @@
       "photography": 9,
       "relaxation": 8,
       "value": 8.5,
-      "uniqueness": 9
+      "uniqueness": 9,
+      "walkability": 8
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -85187,9 +85193,9 @@
     },
     "notes": "A whimsical pineapple-themed park — great for families and pineapple lovers.",
     "totalTripHours": 4,
-    "walkingMin": 3000,
-    "walkingSunMin": 1500,
-    "walkingShadeMin": 1000,
+    "walkingMin": 45,
+    "walkingSunMin": 20,
+    "walkingShadeMin": 15,
     "indoorPercent": 40,
     "reservation": "None required",
     "parking": "Free parking available",
@@ -85287,7 +85293,8 @@
       "photography": 9,
       "relaxation": 9,
       "value": 8.5,
-      "uniqueness": 9
+      "uniqueness": 9,
+      "walkability": 7
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -85319,9 +85326,9 @@
     },
     "notes": "The underwater observation tower offers excellent views of coral and tropical fish without getting wet.",
     "totalTripHours": 3,
-    "walkingMin": 2000,
-    "walkingSunMin": 1000,
-    "walkingShadeMin": 500,
+    "walkingMin": 30,
+    "walkingSunMin": 15,
+    "walkingShadeMin": 10,
     "indoorPercent": 30,
     "reservation": "None required",
     "parking": "Paid parking available",
@@ -85419,7 +85426,8 @@
       "photography": 9.5,
       "relaxation": 8.5,
       "value": 8.5,
-      "uniqueness": 9.8
+      "uniqueness": 9.8,
+      "walkability": 9
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -85451,9 +85459,9 @@
     },
     "notes": "Home to whale sharks — arrive early to avoid the heaviest crowds at the Kuroshio tank.",
     "totalTripHours": 5,
-    "walkingMin": 4000,
-    "walkingSunMin": 500,
-    "walkingShadeMin": 3500,
+    "walkingMin": 60,
+    "walkingSunMin": 5,
+    "walkingShadeMin": 50,
     "indoorPercent": 80,
     "reservation": "Online tickets recommended during peak season",
     "parking": "Free parking available",
@@ -85551,7 +85559,8 @@
       "photography": 9,
       "relaxation": 9.5,
       "value": 8.5,
-      "uniqueness": 9
+      "uniqueness": 9,
+      "walkability": 9
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -85583,9 +85592,9 @@
     },
     "notes": "A peaceful tree-lined lane near Churaumi — walk or rent a bicycle for the full experience.",
     "totalTripHours": 2,
-    "walkingMin": 2500,
-    "walkingSunMin": 1000,
-    "walkingShadeMin": 1500,
+    "walkingMin": 25,
+    "walkingSunMin": 10,
+    "walkingShadeMin": 15,
     "indoorPercent": 5,
     "reservation": "None required",
     "parking": "Nearby paid parking",
@@ -85688,7 +85697,8 @@
       "photography": 9.5,
       "relaxation": 8.5,
       "value": 8.5,
-      "uniqueness": 9
+      "uniqueness": 9,
+      "walkability": 5
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -85720,9 +85730,9 @@
     },
     "notes": "One of nine Gusuku sites — visit in late January for Okinawa's earliest cherry blossoms.",
     "totalTripHours": 3,
-    "walkingMin": 3500,
-    "walkingSunMin": 2000,
-    "walkingShadeMin": 500,
+    "walkingMin": 45,
+    "walkingSunMin": 30,
+    "walkingShadeMin": 5,
     "indoorPercent": 5,
     "reservation": "None required",
     "parking": "Free parking available",
@@ -85819,7 +85829,8 @@
       "photography": 9.8,
       "relaxation": 8.5,
       "value": 8.5,
-      "uniqueness": 9
+      "uniqueness": 9,
+      "walkability": 6
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -85851,9 +85862,9 @@
     },
     "notes": "Swimming is not allowed in the bay — take a glass-bottom boat to see the coral and pearls.",
     "totalTripHours": 2,
-    "walkingMin": 1500,
-    "walkingSunMin": 1000,
-    "walkingShadeMin": 200,
+    "walkingMin": 15,
+    "walkingSunMin": 10,
+    "walkingShadeMin": 2,
     "indoorPercent": 5,
     "reservation": "Glass-bottom boat tickets at the pier",
     "parking": "Free parking available",
@@ -85949,7 +85960,8 @@
       "photography": 9.5,
       "relaxation": 9,
       "value": 8.5,
-      "uniqueness": 9
+      "uniqueness": 9,
+      "walkability": 5
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -85981,9 +85993,9 @@
     },
     "notes": "Free observation point with views of the Hirakubo Peninsula — best in clear morning light.",
     "totalTripHours": 1,
-    "walkingMin": 1000,
-    "walkingSunMin": 800,
-    "walkingShadeMin": 100,
+    "walkingMin": 10,
+    "walkingSunMin": 8,
+    "walkingShadeMin": 1,
     "indoorPercent": 5,
     "reservation": "None required",
     "parking": "Free parking available",
@@ -86079,7 +86091,8 @@
       "photography": 9,
       "relaxation": 9,
       "value": 8.5,
-      "uniqueness": 9
+      "uniqueness": 9,
+      "walkability": 6
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -86111,9 +86124,9 @@
     },
     "notes": "Bring your own snorkel gear — the coral starts just metres from the shore at low tide.",
     "totalTripHours": 3,
-    "walkingMin": 2000,
-    "walkingSunMin": 1500,
-    "walkingShadeMin": 500,
+    "walkingMin": 20,
+    "walkingSunMin": 15,
+    "walkingShadeMin": 5,
     "indoorPercent": 5,
     "reservation": "None required",
     "parking": "Free parking available",
@@ -86211,7 +86224,8 @@
       "photography": 9.8,
       "relaxation": 9.8,
       "value": 8.5,
-      "uniqueness": 9
+      "uniqueness": 9,
+      "walkability": 7
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -86243,9 +86257,9 @@
     },
     "notes": "One of Japan's top beaches — the shallow water extends far out, ideal for wading and families.",
     "totalTripHours": 4,
-    "walkingMin": 3000,
-    "walkingSunMin": 2500,
-    "walkingShadeMin": 300,
+    "walkingMin": 30,
+    "walkingSunMin": 25,
+    "walkingShadeMin": 3,
     "indoorPercent": 5,
     "reservation": "None required",
     "parking": "Free parking available",
@@ -86343,7 +86357,8 @@
       "photography": 9.8,
       "relaxation": 8.5,
       "value": 8.5,
-      "uniqueness": 9
+      "uniqueness": 9,
+      "walkability": 4
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -86375,9 +86390,9 @@
     },
     "notes": "Japan's longest toll-free bridge — stop at the roadside station for panoramic photos.",
     "totalTripHours": 2,
-    "walkingMin": 1000,
-    "walkingSunMin": 800,
-    "walkingShadeMin": 100,
+    "walkingMin": 10,
+    "walkingSunMin": 8,
+    "walkingShadeMin": 1,
     "indoorPercent": 5,
     "reservation": "None required",
     "parking": "Free parking at roadside station",
@@ -86475,7 +86490,8 @@
       "photography": 9.5,
       "relaxation": 8.5,
       "value": 8.5,
-      "uniqueness": 9
+      "uniqueness": 9,
+      "walkability": 5
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -86507,9 +86523,9 @@
     },
     "notes": "A dramatic cape where two seas meet — arrive early for sunrise at the easternmost point.",
     "totalTripHours": 2,
-    "walkingMin": 2000,
-    "walkingSunMin": 1500,
-    "walkingShadeMin": 200,
+    "walkingMin": 20,
+    "walkingSunMin": 15,
+    "walkingShadeMin": 2,
     "indoorPercent": 5,
     "reservation": "None required",
     "parking": "Free parking available",

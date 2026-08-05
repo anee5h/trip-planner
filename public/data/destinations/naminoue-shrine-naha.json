@@ -87,7 +87,8 @@
     "photography": 9,
     "relaxation": 8.5,
     "value": 8.5,
-    "uniqueness": 8.5
+    "uniqueness": 8.5,
+    "walkability": 7
   },
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -119,9 +120,9 @@
   },
   "notes": "The only major Shinto shrine in Okinawa, perched on a clifftop overlooking Naminoue Beach.",
   "totalTripHours": 2,
-  "walkingMin": 2000,
-  "walkingSunMin": 800,
-  "walkingShadeMin": 800,
+  "walkingMin": 25,
+  "walkingSunMin": 10,
+  "walkingShadeMin": 10,
   "indoorPercent": 10,
   "reservation": "None required",
   "parking": "Free parking available",

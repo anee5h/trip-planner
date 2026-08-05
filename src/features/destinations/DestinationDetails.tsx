@@ -44,6 +44,10 @@ import { DestinationDetailsSkeleton } from "@/shared/components/ui/Skeleton";
 import { BucketListButton } from "@/shared/components/ui/BucketListButton";
 import { useDelayedSkeleton } from "@/shared/hooks/useDelayedSkeleton";
 import {
+  WalkingIntensityRow,
+  WalkabilityRatingItem,
+} from "./components/DestinationWalkingRatings";
+import {
   ArrowLeft,
   MapPin,
   Clock,
@@ -85,7 +89,6 @@ import {
   Timer,
   CalendarDays,
   Building2,
-  Footprints,
 } from "lucide-react";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
@@ -1407,16 +1410,7 @@ export default function DestinationDetails() {
                             const walkScore =
                               destination.comfort?.walkingIntensity;
                             return (
-                              <div className="flex justify-between items-center text-sm">
-                                <span className="text-slate-500">
-                                  🚶 {t("ui.walkability")}
-                                </span>
-                                <span className="font-semibold text-slate-700 dark:text-slate-300">
-                                  {walkScore !== undefined
-                                    ? `${walkScore}/10`
-                                    : "—"}
-                                </span>
-                              </div>
+                              <WalkingIntensityRow intensity={walkScore} />
                             );
                           })()}
                         </div>
@@ -1461,14 +1455,8 @@ export default function DestinationDetails() {
                         label="Value"
                         value={destination.ratings.value}
                       />
-                      <RatingItem
-                        icon={Footprints}
-                        label={t("ui.walkability")}
-                        value={
-                          destination.ratings.walkability ??
-                          destination.comfort?.walkingIntensity ??
-                          0
-                        }
+                      <WalkabilityRatingItem
+                        walkability={destination.ratings.walkability}
                       />
                       {destination.ratings.accessibility !== undefined && (
                         <RatingItem

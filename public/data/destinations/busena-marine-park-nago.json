@@ -87,7 +87,8 @@
     "photography": 9,
     "relaxation": 9,
     "value": 8.5,
-    "uniqueness": 9
+    "uniqueness": 9,
+    "walkability": 7
   },
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -119,9 +120,9 @@
   },
   "notes": "The underwater observation tower offers excellent views of coral and tropical fish without getting wet.",
   "totalTripHours": 3,
-  "walkingMin": 2000,
-  "walkingSunMin": 1000,
-  "walkingShadeMin": 500,
+  "walkingMin": 30,
+  "walkingSunMin": 15,
+  "walkingShadeMin": 10,
   "indoorPercent": 30,
   "reservation": "None required",
   "parking": "Paid parking available",

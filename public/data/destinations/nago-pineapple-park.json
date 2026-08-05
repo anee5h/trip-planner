@@ -87,7 +87,8 @@
     "photography": 9,
     "relaxation": 8,
     "value": 8.5,
-    "uniqueness": 9
+    "uniqueness": 9,
+    "walkability": 8
   },
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -119,9 +120,9 @@
   },
   "notes": "A whimsical pineapple-themed park — great for families and pineapple lovers.",
   "totalTripHours": 4,
-  "walkingMin": 3000,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 1000,
+  "walkingMin": 45,
+  "walkingSunMin": 20,
+  "walkingShadeMin": 15,
   "indoorPercent": 40,
   "reservation": "None required",
   "parking": "Free parking available",

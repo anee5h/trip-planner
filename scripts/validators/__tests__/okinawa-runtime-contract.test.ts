@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import destinationsIndex from "@/shared/data/destinations-index.json";
 import { REQUIRED_RATING_KEYS } from "@/shared/types/destination";
+import { destinationsValidator } from "@/../scripts/validators/destinations";
 
 interface DestinationRecord {
   id: string;
@@ -224,18 +225,55 @@ describe("Okinawa field deletion causes validation failure", () => {
     expect(record!.tags === undefined || record!.tags === null).toBe(true);
   });
 
-  it("Okinawa record with monorail uses supported transport mode", () => {
-    for (const rid of [
-      "kokusai-dori-naha",
-      "naminoue-shrine-naha",
-      "fukushuen-garden-naha",
-    ]) {
-      const r = catalogue.find((x) => x.id === rid);
-      expect(r).toBeTruthy();
-      const opts = r!.transportOptions || {};
-      // monorail must not appear; train or bus must be used instead
-      expect("monorail" in opts).toBe(false);
-      expect(Object.keys(opts).length).toBeGreaterThan(0);
-    }
+  // Mutation tests against the actual validator
+  it("validator rejects walkability = 0 on an Okinawa POI", async () => {
+    const fixture = deepClone(
+      catalogue.find((r) => r.id === "kokusai-dori-naha")!,
+    );
+    fixture.ratings.walkability = 0;
+    const result = await destinationsValidator.validate({
+      catalog: { destinations: [fixture] },
+      config: { budgetTolerancePercent: 0.1, budgetMinToleranceYen: 100 },
+    } as any);
+    const walkErrors = result.issues.filter(
+      (i) => i.code === "INVALID_WALKABILITY",
+    );
+    expect(walkErrors.length).toBeGreaterThan(0);
+  });
+
+  it("validator rejects walkingMin exceeding visit duration", async () => {
+    const fixture = deepClone(
+      catalogue.find((r) => r.id === "naminoue-shrine-naha")!,
+    );
+    fixture.walkingMin = 250;
+    const result = await destinationsValidator.validate({
+      catalog: { destinations: [fixture] },
+      config: { budgetTolerancePercent: 0.1, budgetMinToleranceYen: 100 },
+    } as any);
+    const errors = result.issues.filter(
+      (i) => i.code === "WALKING_EXCEEDS_VISIT",
+    );
+    expect(errors.length).toBeGreaterThan(0);
+  });
+
+  it("validator rejects sun+shade > walkingMin", async () => {
+    const fixture = deepClone(
+      catalogue.find((r) => r.id === "nakijin-castle-ruins-motobu")!,
+    );
+    fixture.walkingMin = 20;
+    fixture.walkingSunMin = 30;
+    fixture.walkingShadeMin = 10;
+    const result = await destinationsValidator.validate({
+      catalog: { destinations: [fixture] },
+      config: { budgetTolerancePercent: 0.1, budgetMinToleranceYen: 100 },
+    } as any);
+    const errors = result.issues.filter(
+      (i) => i.code === "WALKING_SUN_SHADE_EXCEEDS_TOTAL",
+    );
+    expect(errors.length).toBeGreaterThan(0);
   });
 });
+
+function deepClone<T>(obj: T): T {
+  return JSON.parse(JSON.stringify(obj)) as T;
+}

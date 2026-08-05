@@ -375,6 +375,43 @@ export const destinationsValidator: ValidatorModule = {
             targetId: dest.id,
           });
         }
+
+        // Walkability must be a finite 1–10 value
+        const w = dest.ratings?.walkability;
+        if (typeof w !== "number" || !Number.isFinite(w) || w < 1 || w > 10) {
+          issues.push({
+            severity: "error",
+            code: "INVALID_WALKABILITY",
+            message: `Published destination '${dest.id}' has invalid walkability: ${w}.`,
+            targetId: dest.id,
+          });
+        }
+
+        // Walking-minute invariants
+        const wm = dest.walkingMin;
+        const ws = dest.walkingSunMin;
+        const wh = dest.walkingShadeMin;
+        if (ws + wh > wm) {
+          issues.push({
+            severity: "error",
+            code: "WALKING_SUN_SHADE_EXCEEDS_TOTAL",
+            message: `Published destination '${dest.id}': sun+shade (${ws}+${wh}) > walkingMin (${wm}).`,
+            targetId: dest.id,
+          });
+        }
+        const maxVisitMin = dest.recommendedVisitHours?.max
+          ? dest.recommendedVisitHours.max * 60
+          : dest.totalTripHours
+            ? dest.totalTripHours * 60
+            : null;
+        if (maxVisitMin !== null && wm > maxVisitMin) {
+          issues.push({
+            severity: "error",
+            code: "WALKING_EXCEEDS_VISIT",
+            message: `Published destination '${dest.id}': walkingMin (${wm}) > visit max (${maxVisitMin}).`,
+            targetId: dest.id,
+          });
+        }
       }
     }
 

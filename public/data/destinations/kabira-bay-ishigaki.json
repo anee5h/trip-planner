@@ -86,7 +86,8 @@
     "photography": 9.8,
     "relaxation": 8.5,
     "value": 8.5,
-    "uniqueness": 9
+    "uniqueness": 9,
+    "walkability": 6
   },
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -118,9 +119,9 @@
   },
   "notes": "Swimming is not allowed in the bay — take a glass-bottom boat to see the coral and pearls.",
   "totalTripHours": 2,
-  "walkingMin": 1500,
-  "walkingSunMin": 1000,
-  "walkingShadeMin": 200,
+  "walkingMin": 15,
+  "walkingSunMin": 10,
+  "walkingShadeMin": 2,
   "indoorPercent": 5,
   "reservation": "Glass-bottom boat tickets at the pier",
   "parking": "Free parking available",

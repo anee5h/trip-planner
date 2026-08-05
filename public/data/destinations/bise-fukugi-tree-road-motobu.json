@@ -87,7 +87,8 @@
     "photography": 9,
     "relaxation": 9.5,
     "value": 8.5,
-    "uniqueness": 9
+    "uniqueness": 9,
+    "walkability": 9
   },
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -119,9 +120,9 @@
   },
   "notes": "A peaceful tree-lined lane near Churaumi — walk or rent a bicycle for the full experience.",
   "totalTripHours": 2,
-  "walkingMin": 2500,
-  "walkingSunMin": 1000,
-  "walkingShadeMin": 1500,
+  "walkingMin": 25,
+  "walkingSunMin": 10,
+  "walkingShadeMin": 15,
   "indoorPercent": 5,
   "reservation": "None required",
   "parking": "Nearby paid parking",
