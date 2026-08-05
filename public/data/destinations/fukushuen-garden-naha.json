@@ -87,7 +87,8 @@
     "photography": 9,
     "relaxation": 9,
     "value": 8.5,
-    "uniqueness": 9
+    "uniqueness": 9,
+    "walkability": 9
   },
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -115,13 +116,13 @@
   },
   "bestMonths": [1, 2, 3, 4, 10, 11, 12],
   "transportOptions": {
-    "train": 200
+    "train": 10
   },
   "notes": "A tranquil Chinese garden near the city centre — a quiet escape from busy Kokusai Dori.",
   "totalTripHours": 2,
-  "walkingMin": 1500,
-  "walkingSunMin": 500,
-  "walkingShadeMin": 800,
+  "walkingMin": 20,
+  "walkingSunMin": 5,
+  "walkingShadeMin": 10,
   "indoorPercent": 10,
   "reservation": "None required",
   "parking": "Nearby paid parking",

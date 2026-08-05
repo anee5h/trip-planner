@@ -375,6 +375,64 @@ export const destinationsValidator: ValidatorModule = {
             targetId: dest.id,
           });
         }
+
+        // Walkability must be a finite 1–10 value
+        const w = dest.ratings?.walkability;
+        if (typeof w !== "number" || !Number.isFinite(w) || w < 1 || w > 10) {
+          issues.push({
+            severity: "error",
+            code: "INVALID_WALKABILITY",
+            message: `Published destination '${dest.id}' has invalid walkability: ${w}.`,
+            targetId: dest.id,
+          });
+        }
+
+        // Walking-minute invariants
+        const wm = dest.walkingMin;
+        const ws = dest.walkingSunMin;
+        const wh = dest.walkingShadeMin;
+        if (ws + wh > wm) {
+          issues.push({
+            severity: "error",
+            code: "WALKING_SUN_SHADE_EXCEEDS_TOTAL",
+            message: `Published destination '${dest.id}': sun+shade (${ws}+${wh}) > walkingMin (${wm}).`,
+            targetId: dest.id,
+          });
+        }
+        const maxVisitMin = dest.recommendedVisitHours?.max
+          ? dest.recommendedVisitHours.max * 60
+          : dest.totalTripHours
+            ? dest.totalTripHours * 60
+            : null;
+        if (maxVisitMin !== null && wm > maxVisitMin) {
+          issues.push({
+            severity: "error",
+            code: "WALKING_EXCEEDS_VISIT",
+            message: `Published destination '${dest.id}': walkingMin (${wm}) > visit max (${maxVisitMin}).`,
+            targetId: dest.id,
+          });
+        }
+
+        // Transport options must use supported keys with finite positive minute values
+        const to = dest.transportOptions || {};
+        for (const [mode, val] of Object.entries(to)) {
+          if (!["train", "bus", "car", "shinkansen", "my_car"].includes(mode)) {
+            issues.push({
+              severity: "error",
+              code: "UNSUPPORTED_TRANSPORT_KEY",
+              message: `Published destination '${dest.id}' uses unsupported transport key '${mode}'.`,
+              targetId: dest.id,
+            });
+          }
+          if (typeof val !== "number" || !Number.isFinite(val) || val <= 0) {
+            issues.push({
+              severity: "error",
+              code: "INVALID_TRANSPORT_VALUE",
+              message: `Published destination '${dest.id}' has invalid transport ${mode}=${val}.`,
+              targetId: dest.id,
+            });
+          }
+        }
       }
     }
 

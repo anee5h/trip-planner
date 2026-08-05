@@ -87,7 +87,8 @@
     "photography": 9.5,
     "relaxation": 8.5,
     "value": 8.5,
-    "uniqueness": 9
+    "uniqueness": 9,
+    "walkability": 5
   },
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -115,13 +116,13 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "transportOptions": {
-    "bus": 300
+    "bus": 40
   },
   "notes": "A dramatic cape where two seas meet — arrive early for sunrise at the easternmost point.",
   "totalTripHours": 2,
-  "walkingMin": 2000,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 200,
+  "walkingMin": 20,
+  "walkingSunMin": 15,
+  "walkingShadeMin": 2,
   "indoorPercent": 5,
   "reservation": "None required",
   "parking": "Free parking available",

@@ -85,7 +85,8 @@
     "photography": 9,
     "relaxation": 9,
     "value": 8.5,
-    "uniqueness": 9
+    "uniqueness": 9,
+    "walkability": 6
   },
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -113,13 +114,13 @@
   },
   "bestMonths": [4, 5, 6, 7, 8, 9, 10],
   "transportOptions": {
-    "bus": 300
+    "bus": 30
   },
   "notes": "Bring your own snorkel gear — the coral starts just metres from the shore at low tide.",
   "totalTripHours": 3,
-  "walkingMin": 2000,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 500,
+  "walkingMin": 20,
+  "walkingSunMin": 15,
+  "walkingShadeMin": 5,
   "indoorPercent": 5,
   "reservation": "None required",
   "parking": "Free parking available",

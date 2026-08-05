@@ -34,7 +34,7 @@
   "budgetMax": 2000,
   "budgetRecommended": 1000,
   "transportOptions": {
-    "train": 180
+    "bus": 60
   },
   "ratings": {
     "overall": 9,
@@ -46,14 +46,15 @@
     "photography": 9.5,
     "relaxation": 8.5,
     "value": 8.5,
-    "uniqueness": 9
+    "uniqueness": 9,
+    "walkability": 6
   },
   "highlights": [
     "Explore Kouri Island & Heart Rock",
     "Local Culture & Scenery"
   ],
   "totalTripHours": 4,
-  "walkingMin": 3000,
+  "walkingMin": 35,
   "indoorPercent": 30,
   "crowd": {
     "weekday": 4,
@@ -83,8 +84,8 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Heart-shaped_rocks_at_Kouri_Island_202006.jpg/1920px-Heart-shaped_rocks_at_Kouri_Island_202006.jpg",
   "walkingIntensity": "low",
-  "walkingSunMin": 1800,
-  "walkingShadeMin": 1200,
+  "walkingSunMin": 25,
+  "walkingShadeMin": 5,
   "role": "destination",
   "placeType": "destination",
   "recommendedVisitHours": {

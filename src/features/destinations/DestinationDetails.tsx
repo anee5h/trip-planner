@@ -1406,15 +1406,14 @@ export default function DestinationDetails() {
                           {(() => {
                             const walkScore =
                               destination.comfort?.walkingIntensity;
+                            if (walkScore === undefined) return null;
                             return (
                               <div className="flex justify-between items-center text-sm">
                                 <span className="text-slate-500">
-                                  🚶 {t("ui.walkability")}
+                                  🚶 {t("ui.walkingIntensity")}
                                 </span>
                                 <span className="font-semibold text-slate-700 dark:text-slate-300">
-                                  {walkScore !== undefined
-                                    ? `${walkScore}/10`
-                                    : "—"}
+                                  {`${walkScore}/10`}
                                 </span>
                               </div>
                             );
@@ -1461,15 +1460,14 @@ export default function DestinationDetails() {
                         label="Value"
                         value={destination.ratings.value}
                       />
-                      <RatingItem
-                        icon={Footprints}
-                        label={t("ui.walkability")}
-                        value={
-                          destination.ratings.walkability ??
-                          destination.comfort?.walkingIntensity ??
-                          0
-                        }
-                      />
+                      {destination.ratings.walkability !== undefined &&
+                        destination.ratings.walkability !== null && (
+                          <RatingItem
+                            icon={Footprints}
+                            label={t("ui.walkability")}
+                            value={destination.ratings.walkability}
+                          />
+                        )}
                       {destination.ratings.accessibility !== undefined && (
                         <RatingItem
                           icon={Train}

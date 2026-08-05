@@ -356,6 +356,7 @@
     "heatTolerance": "暑さへの強さ",
     "rainFriendly": "雨の日向き",
     "walkability": "歩きやすさ",
+    "walkingIntensity": "歩行負荷",
     "share": "共有",
     "shareDestination": "目的地を共有",
     "copyLink": "リンクをコピー",

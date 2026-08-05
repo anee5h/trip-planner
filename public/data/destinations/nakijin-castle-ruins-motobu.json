@@ -92,7 +92,8 @@
     "photography": 9.5,
     "relaxation": 8.5,
     "value": 8.5,
-    "uniqueness": 9
+    "uniqueness": 9,
+    "walkability": 5
   },
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -120,13 +121,13 @@
   },
   "bestMonths": [1, 2, 3, 10, 11, 12],
   "transportOptions": {
-    "bus": 400
+    "bus": 60
   },
   "notes": "One of nine Gusuku sites — visit in late January for Okinawa's earliest cherry blossoms.",
   "totalTripHours": 3,
-  "walkingMin": 3500,
-  "walkingSunMin": 2000,
-  "walkingShadeMin": 500,
+  "walkingMin": 45,
+  "walkingSunMin": 30,
+  "walkingShadeMin": 5,
   "indoorPercent": 5,
   "reservation": "None required",
   "parking": "Free parking available",

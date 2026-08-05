@@ -34,7 +34,8 @@
     "photography": 9.5,
     "relaxation": 8.5,
     "value": 8.5,
-    "uniqueness": 9
+    "uniqueness": 9,
+    "walkability": 6
   },
   "crowd": {
     "weekday": 3,
