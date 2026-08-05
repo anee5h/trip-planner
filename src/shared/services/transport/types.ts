@@ -25,7 +25,18 @@ export interface FlightRoute {
   from: string;
   to: string;
   flightTime: [number, number];
-  fare: [number, number];
+  /**
+   * null = no verified fare data. fareStatus must be "unverified" then, and
+   * budget/UI must not present a fabricated flight cost.
+   */
+  fare: [number, number] | null;
+  fareStatus?: "verified" | "unverified";
+  /** Supports route existence. */
+  sourceUrl?: string;
+  /** Supports the fare range specifically, when fares are verified. */
+  fareSourceUrl?: string;
+  /** Applies to the specific fact asserted (route or fare). */
+  checkedAt?: string;
 }
 
 export interface TransportEstimate {
@@ -35,6 +46,8 @@ export interface TransportEstimate {
   recommended: boolean;
   timeRange: [number, number]; // [min, max] in minutes
   costRange: [number, number]; // [min, max] in JPY
+  /** True when no verified fare exists; costRange is then meaningless. */
+  costUnavailable?: boolean;
   source: "calculated" | "dataset";
   details?: {
     departureAirportCode?: string;

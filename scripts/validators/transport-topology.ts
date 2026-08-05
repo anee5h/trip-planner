@@ -26,7 +26,15 @@ const VALID_RAIL_ROAD_BUS = new Set([
 
 const flightRoutes = (
   flightRoutesData as unknown as {
-    routes: Array<{ from: string; to: string }>;
+    routes: Array<{
+      from: string;
+      to: string;
+      fare?: [number, number] | null;
+      fareStatus?: "verified" | "unverified";
+      sourceUrl?: string;
+      fareSourceUrl?: string;
+      checkedAt?: string;
+    }>;
   }
 ).routes;
 const airports = (
@@ -198,6 +206,67 @@ export const transportTopologyValidator: ValidatorModule = {
           severity: "error",
           code: "invalid_route_checked_at",
           message: `Flight route ${route.from}→${route.to} has an invalid checkedAt`,
+        });
+      }
+      // Fare provenance: an unverified fare must be null; a numeric fare
+      // must be verified. Unverified routes must not present prices.
+      if (route.fare === null && route.fareStatus !== "unverified") {
+        issues.push({
+          severity: "error",
+          code: "unverified_fare_without_status",
+          message: `Flight route ${route.from}→${route.to} has null fare but fareStatus is not "unverified"`,
+        });
+      }
+      if (route.fare !== null && route.fareStatus === "unverified") {
+        issues.push({
+          severity: "error",
+          code: "unverified_fare_with_price",
+          message: `Flight route ${route.from}→${route.to} carries a fare with fareStatus "unverified"`,
+        });
+      }
+      if (route.fare !== null && Array.isArray(route.fare)) {
+        if (
+          typeof route.fare[0] !== "number" ||
+          typeof route.fare[1] !== "number" ||
+          route.fare[0] < 0 ||
+          route.fare[1] < route.fare[0]
+        ) {
+          issues.push({
+            severity: "error",
+            code: "invalid_fare_range",
+            message: `Flight route ${route.from}→${route.to} has an invalid fare range`,
+          });
+        }
+      }
+      // Routes with fare metadata must carry existence provenance.
+      if ("fareStatus" in route || route.fare === null) {
+        if (
+          typeof route.sourceUrl !== "string" ||
+          !/^https?:\/\//.test(route.sourceUrl)
+        ) {
+          issues.push({
+            severity: "error",
+            code: "missing_route_source",
+            message: `Flight route ${route.from}→${route.to} requires a sourceUrl supporting route existence`,
+          });
+        }
+        if (typeof route.checkedAt !== "string" || !route.checkedAt) {
+          issues.push({
+            severity: "error",
+            code: "missing_route_checked_at",
+            message: `Flight route ${route.from}→${route.to} requires checkedAt`,
+          });
+        }
+      }
+      if (
+        "fareSourceUrl" in route &&
+        route.fareSourceUrl !== undefined &&
+        !/^https?:\/\//.test(route.fareSourceUrl)
+      ) {
+        issues.push({
+          severity: "error",
+          code: "invalid_fare_source",
+          message: `Flight route ${route.from}→${route.to} has an invalid fareSourceUrl`,
         });
       }
     }

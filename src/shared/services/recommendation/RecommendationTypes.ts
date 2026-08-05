@@ -53,18 +53,19 @@ export interface ScoredDestination extends Destination {
   match: RecommendationMatch;
   bestTransportMode?: string;
   estimatedCostRange?: PriceRange;
+  estimatedCostTransportIncluded?: boolean;
 }
 
 export interface RecommendationStageResult {
   eligible: boolean;
   estimatedCost?: number;
   estimatedCostRange?: PriceRange;
+  estimatedCostTransportIncluded?: boolean;
   bestTransportMode?: string;
   scoreContributions: Record<string, number>;
   confidence: number;
   reasons: MatchReason[];
 }
-
 export interface PipelineRecommendation extends ScoredDestination {
   pipeline: RecommendationStageResult;
 }

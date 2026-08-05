@@ -215,7 +215,7 @@ export function calculateScore(
 
     let adjustedBudget = 999999;
     if (dest.budgetRecommended) {
-      const estimatedRange = getEstimatedBudgetRange(
+      const estimatedResult = getEstimatedBudgetRange(
         dest,
         mode,
         partySize,
@@ -223,16 +223,20 @@ export function calculateScore(
         dest.totalTripHours,
         context.homeStationCoords || undefined,
       );
-      adjustedBudget = (estimatedRange[0] + estimatedRange[1]) / 2;
-      if (adjustedBudget > budget) {
-        modeScore -=
-          ((adjustedBudget - budget) / SCORING_WEIGHTS.BUDGET_OVER_DIVISOR) *
-          SCORING_WEIGHTS.BUDGET_OVER_PENALTY_MULTIPLIER;
-      } else {
-        modeScore += Math.min(
-          SCORING_WEIGHTS.BUDGET_UNDER_BONUS_MAX,
-          (budget - adjustedBudget) / SCORING_WEIGHTS.BUDGET_UNDER_DIVISOR,
-        );
+      adjustedBudget =
+        (estimatedResult.range[0] + estimatedResult.range[1]) / 2;
+      // Skip budget bonus or penalty when the required origin transport fare is unavailable
+      if (estimatedResult.transportIncluded) {
+        if (adjustedBudget > budget) {
+          modeScore -=
+            ((adjustedBudget - budget) / SCORING_WEIGHTS.BUDGET_OVER_DIVISOR) *
+            SCORING_WEIGHTS.BUDGET_OVER_PENALTY_MULTIPLIER;
+        } else {
+          modeScore += Math.min(
+            SCORING_WEIGHTS.BUDGET_UNDER_BONUS_MAX,
+            (budget - adjustedBudget) / SCORING_WEIGHTS.BUDGET_UNDER_DIVISOR,
+          );
+        }
       }
     }
 

@@ -43,7 +43,7 @@ export function createRecommendationMatch(
   for (const mode of validModesForDest) {
     let estimatedBudget: PriceRange | undefined;
     if (dest.budgetRecommended) {
-      estimatedBudget = getEstimatedBudgetRange(
+      const budgetEst = getEstimatedBudgetRange(
         dest,
         mode,
         partySize,
@@ -51,6 +51,9 @@ export function createRecommendationMatch(
         dest.totalTripHours,
         context.homeStationCoords || undefined,
       );
+      if (budgetEst.transportIncluded) {
+        estimatedBudget = budgetEst.range;
+      }
     }
 
     if (

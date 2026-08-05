@@ -74,6 +74,11 @@ export function getDiningFoodRange(
   ];
 }
 
+export interface EstimatedBudgetRangeResult {
+  range: PriceRange;
+  transportIncluded: boolean;
+}
+
 export function getEstimatedBudgetRange(
   dest: Destination,
   mode: string,
@@ -81,10 +86,12 @@ export function getEstimatedBudgetRange(
   budgetTier: BudgetTier = "standard",
   totalTripHours: number = dest.totalTripHours,
   homeCoords?: { lat: number; lng: number },
-): PriceRange {
+): EstimatedBudgetRangeResult {
   const breakdown = getEffectiveBudgetBreakdown(dest);
   const scale = partySize / 2;
-  const transport = getTransportCost(dest, mode, partySize, homeCoords);
+  const rawTransport = getTransportCost(dest, mode, partySize, homeCoords);
+  const transportIncluded = rawTransport !== null;
+  const transport = rawTransport ?? 0;
   const food = getDiningFoodRange(budgetTier, totalTripHours, partySize);
   const transfers: Record<BudgetTier, PriceRange> = {
     economy: [0, 600],
@@ -95,10 +102,13 @@ export function getEstimatedBudgetRange(
   const transfer = transfers[budgetTier];
   const tickets = breakdown.tickets * scale;
   const cafe = breakdown.cafe * scale;
-  return [
-    Math.round((transport + tickets + food[0] + cafe + transfer[0]) * 1.05),
-    Math.round((transport + tickets + food[1] + cafe + transfer[1]) * 1.05),
-  ];
+  return {
+    range: [
+      Math.round((transport + tickets + food[0] + cafe + transfer[0]) * 1.05),
+      Math.round((transport + tickets + food[1] + cafe + transfer[1]) * 1.05),
+    ],
+    transportIncluded,
+  };
 }
 
 export const TRANSPORT_PRICING_CONFIG = {
@@ -143,7 +153,8 @@ function getRentalBaseFee(tripDurationHours: number): number {
 }
 
 /**
- * Returns the round-trip transport cost for the given party size.
+ * Returns the round-trip transport cost for the given party size, or null if
+ * no cost could be computed (e.g. unverified flight fare, missing option).
  * Checks explicit route fares (dest.transportFares) first, falling back to
  * configurable duration-based pricing (TRANSPORT_PRICING_CONFIG).
  */
@@ -152,7 +163,7 @@ export function getTransportCost(
   mode: string,
   partySize: number = 2,
   homeCoords?: { lat: number; lng: number },
-): number {
+): number | null {
   // 1. Explicit Route Fare Precedence (if specified in destination JSON)
   const explicitFare =
     dest.transportFares?.[mode as keyof typeof dest.transportFares];
@@ -174,12 +185,13 @@ export function getTransportCost(
 
   if (mode === "flight") {
     const flightEst = getFlightTransportEstimate(dest, homeCoords);
-    if (flightEst) {
+    if (flightEst && !flightEst.costUnavailable) {
       const avgOneWayPerPerson = Math.round(
         (flightEst.costRange[0] + flightEst.costRange[1]) / 2,
       );
       return Math.floor(avgOneWayPerPerson * 2 * partySize);
     }
+    return null;
   }
 
   if (
@@ -251,7 +263,7 @@ export function getTransportCost(
     return Math.floor(oneWayPerPerson * 2 * partySize);
   }
 
-  return ((dest.budgetBreakdown?.transport || 3000) / 2) * partySize;
+  return null;
 }
 
 /**
@@ -313,13 +325,13 @@ export function getAdjustedBudget(
 
   const transportCost =
     mode === undefined
-      ? ((dest.budgetBreakdown?.transport || 3000) / 2) * partySize
+      ? null
       : getTransportCost(dest, mode, partySize, homeCoords);
   const recBudget = dest.budgetRecommended || dest.budgetMin || 5000;
   const otherCostsCouple =
     recBudget - (dest.budgetBreakdown?.transport || 3000);
   const otherCosts = Math.max(0, (otherCostsCouple / 2) * partySize);
-  return otherCosts + transportCost;
+  return otherCosts + (transportCost ?? 0);
 }
 
 export function getEffectiveBudgetBreakdown(dest: Destination): {

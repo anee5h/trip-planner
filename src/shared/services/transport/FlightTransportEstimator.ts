@@ -168,6 +168,7 @@ export function getFlightTransportEstimate(
     destAccess: TransportEstimate;
     totalTimeRange: [number, number];
     totalCostRange: [number, number];
+    costUnavailable: boolean;
   } | null = null;
 
   for (const depAirport of candidateDepAirports) {
@@ -199,10 +200,15 @@ export function getFlightTransportEstimate(
       route.flightTime[1] +
       destAccess.timeRange[1];
 
-    const minCost =
-      originAccess.costRange[0] + route.fare[0] + destAccess.costRange[0];
-    const maxCost =
-      originAccess.costRange[1] + route.fare[1] + destAccess.costRange[1];
+    // No verified fare: never fabricate a flight cost. Access-leg costs are
+    // not a flight price either, so the total cost is marked unavailable.
+    const costUnavailable = route.fare === null;
+    const minCost = costUnavailable
+      ? 0
+      : originAccess.costRange[0] + route.fare![0] + destAccess.costRange[0];
+    const maxCost = costUnavailable
+      ? 0
+      : originAccess.costRange[1] + route.fare![1] + destAccess.costRange[1];
 
     if (!bestOption || minTime < bestOption.totalTimeRange[0]) {
       bestOption = {
@@ -212,6 +218,7 @@ export function getFlightTransportEstimate(
         destAccess,
         totalTimeRange: [minTime, maxTime],
         totalCostRange: [minCost, maxCost],
+        costUnavailable,
       };
     }
   }
@@ -231,6 +238,7 @@ export function getFlightTransportEstimate(
     available: true,
     recommended: bestOption.totalTimeRange[0] < groundEstimate.timeRange[0],
     timeRange: bestOption.totalTimeRange,
+    costUnavailable: bestOption.costUnavailable,
     costRange: bestOption.totalCostRange,
     source: "dataset",
     details: {

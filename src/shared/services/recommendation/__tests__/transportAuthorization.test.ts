@@ -1,14 +1,21 @@
 import { describe, expect, it } from "vitest";
-import { getValidModes } from "../RecommendationScorer";
+import { calculateScore, getValidModes } from "../RecommendationScorer";
 import { estimateTripDuration } from "../TripDurationService";
+import { runRecommendationPipeline } from "../RecommendationPipeline";
 import {
   hasFerryRoute,
   resolveDestinationTransportZone,
   resolveOriginTransportZone,
 } from "@/shared/services/transport/TransportTopologyService";
-import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
+import {
+  findNearestAirports,
+  getFlightRoute,
+  getFlightTransportEstimate,
+} from "@/shared/services/transport/FlightTransportEstimator";
 import {
   calculateItemizedTripCost,
+  getAdjustedBudget,
+  getEstimatedBudgetRange,
   getTransportCost,
 } from "@/shared/services/budget/BudgetService";
 import { calculateGeneratedPlanCost } from "@/shared/services/budget/GeneratedPlanCostService";
@@ -147,6 +154,281 @@ describe("flight registry authorization", () => {
   });
 });
 
+describe("flight registry expansion (PR #102)", () => {
+  const TAKAMATSU = { lat: 34.34, lng: 134.05 };
+  const KAGOSHIMA = { lat: 31.5966, lng: 130.5571 };
+  const OSAKA = { lat: 34.6937, lng: 135.5023 };
+
+  it("Takamatsu → Naha includes Flight", () => {
+    const { selection, zone } = publicSelection(TAKAMATSU);
+    const modes = getValidModes(
+      byId.get("naha-city")!,
+      selection.carMode,
+      selection.publicModes,
+      TAKAMATSU,
+      undefined,
+      zone,
+    );
+    expect(modes).toContain("flight");
+  });
+
+  it("Fukuoka → Ishigaki includes Flight", () => {
+    const { selection, zone } = publicSelection(FUKUOKA);
+    const modes = getValidModes(
+      byId.get("ishigaki-city")!,
+      selection.carMode,
+      selection.publicModes,
+      FUKUOKA,
+      undefined,
+      zone,
+    );
+    expect(modes).toContain("flight");
+  });
+
+  it("Sapporo ↔ Naha includes Flight in both directions", () => {
+    const SAPPORO = { lat: 43.0618, lng: 141.3545 };
+    const { selection: selS } = publicSelection(SAPPORO);
+    const { selection: selN } = publicSelection(NAHA);
+    const toNaha = getValidModes(
+      byId.get("naha-city")!,
+      selS.carMode,
+      selS.publicModes,
+      SAPPORO,
+      undefined,
+      "hokkaido",
+    );
+    const toSapporo = getValidModes(
+      byId.get("sapporo-city")!,
+      selN.carMode,
+      selN.publicModes,
+      NAHA,
+      undefined,
+      "okinawa-main",
+    );
+    expect(toNaha).toContain("flight");
+    expect(toSapporo).toContain("flight");
+  });
+
+  it("Fukuoka → Tsushima includes Flight (no catalogue record; production fixture)", () => {
+    const tsushimaDest = {
+      id: "tsushima-fixture",
+      name: "Tsushima",
+      prefecture: "Nagasaki",
+      transportZoneId: "tsushima",
+      coordinates: { lat: 34.33, lng: 129.31 },
+      transportOptions: {},
+    } as Destination;
+    const { selection, zone } = publicSelection(FUKUOKA);
+    const modes = getValidModes(
+      tsushimaDest,
+      selection.carMode,
+      selection.publicModes,
+      FUKUOKA,
+      undefined,
+      zone,
+    );
+    expect(modes).toContain("flight");
+  });
+
+  it("Kagoshima, Osaka and Fukuoka → Yakushima select KUM", () => {
+    const dest = byId.get("yakushima-town")!;
+    for (const origin of [KAGOSHIMA, OSAKA, FUKUOKA]) {
+      const estimate = getFlightTransportEstimate(dest, origin);
+      expect(estimate?.details?.arrivalAirportCode).toBe("KUM");
+    }
+  });
+
+  it("Sado has SDO in the airport registry but still returns no Flight", () => {
+    const sadoAirports = findNearestAirports(
+      { lat: 38.0333, lng: 138.3833 },
+      1,
+    );
+    expect(sadoAirports[0]?.code).toBe("SDO");
+    const modes = getValidModes(
+      byId.get("sado-island")!,
+      "none",
+      ["flight"],
+      TOKYO,
+      undefined,
+      "mainland-honshu",
+    );
+    expect(modes).not.toContain("flight");
+  });
+
+  it("every added route resolves in reverse (bidirectional registry)", () => {
+    for (const [a, b] of [
+      ["TAK", "OKA"],
+      ["FUK", "ISG"],
+      ["FUK", "TSJ"],
+      ["CTS", "OKA"],
+      ["KOJ", "ASJ"],
+      ["KOJ", "KUM"],
+      ["ITM", "KUM"],
+      ["FUK", "KUM"],
+    ] as const) {
+      expect(getFlightRoute(a, b)).not.toBeNull();
+      expect(getFlightRoute(b, a)).not.toBeNull();
+    }
+  });
+
+  it("unverified fare routes return null transport cost and exclude transport from adjusted budget", () => {
+    const dest = byId.get("ishigaki-city")!;
+    const estimate = getFlightTransportEstimate(dest, FUKUOKA);
+    expect(estimate?.costUnavailable).toBe(true);
+
+    const flightCost = getTransportCost(dest, "flight", 2, FUKUOKA);
+    expect(flightCost).toBeNull();
+
+    const genericFallback = ((dest.budgetBreakdown?.transport || 3000) / 2) * 2;
+    expect(flightCost).not.toBe(genericFallback);
+
+    const adjustedBudget = getAdjustedBudget(
+      dest,
+      "flight",
+      2,
+      FUKUOKA,
+      "mainland-kyushu",
+    );
+    const recBudget = dest.budgetRecommended || dest.budgetMin || 5000;
+    const expectedOnsiteBudget = Math.max(
+      0,
+      ((recBudget - (dest.budgetBreakdown?.transport || 3000)) / 2) * 2,
+    );
+    expect(adjustedBudget).toBe(expectedOnsiteBudget);
+  });
+
+  it("Fukuoka → Ishigaki is not scored as a zero-cost Flight and budget is transport-excluded", () => {
+    const dest = byId.get("ishigaki-city")!;
+    const budgetEst = getEstimatedBudgetRange(
+      dest,
+      "flight",
+      2,
+      "standard",
+      dest.totalTripHours,
+      FUKUOKA,
+    );
+    expect(budgetEst.transportIncluded).toBe(false);
+
+    // Score for unverified flight cost must not receive a BUDGET_UNDER_BONUS
+    const lowBudgetContext = {
+      vibe: "any",
+      budget: 100000,
+      carMode: "none",
+      publicModes: ["flight"],
+      partySize: 2,
+      visitedIds: [],
+      homeStationCoords: FUKUOKA,
+      originZoneId: "mainland-kyushu" as const,
+    };
+    const scoreResult = calculateScore(dest, lowBudgetContext);
+    expect(scoreResult.bestModeScore).toBe(0);
+  });
+
+  it("existing routes with verified numeric fares return the correct flight cost and receive normal budget scoring", () => {
+    const dest = byId.get("ishigaki-city")!;
+    // Tokyo -> Ishigaki (HND->ISG) has a verified fare in flight-estimates.json
+    const estimate = getFlightTransportEstimate(dest, TOKYO);
+    expect(estimate?.costUnavailable).toBeFalsy();
+
+    const flightCost = getTransportCost(dest, "flight", 2, TOKYO);
+    expect(flightCost).not.toBeNull();
+    expect(flightCost).toBeGreaterThan(0);
+
+    const avgOneWay = Math.round(
+      (estimate!.costRange[0] + estimate!.costRange[1]) / 2,
+    );
+    const expectedCost = Math.floor(avgOneWay * 2 * 2);
+    expect(flightCost).toBe(expectedCost);
+
+    const budgetEst = getEstimatedBudgetRange(
+      dest,
+      "flight",
+      2,
+      "standard",
+      dest.totalTripHours,
+      TOKYO,
+    );
+    expect(budgetEst.transportIncluded).toBe(true);
+
+    const highBudgetContext = {
+      vibe: "any",
+      budget: 200000,
+      carMode: "none",
+      publicModes: ["flight"],
+      partySize: 2,
+      visitedIds: [],
+      homeStationCoords: TOKYO,
+      originZoneId: "mainland-honshu" as const,
+    };
+    const scoreResult = calculateScore(dest, highBudgetContext);
+    expect(scoreResult.bestModeScore).toBeGreaterThan(0);
+  });
+});
+
+describe("pipeline-level budget filtering and metadata", () => {
+  it("Fukuoka → Ishigaki is retained as affordability-unknown with transportIncluded=false", () => {
+    const dest = byId.get("ishigaki-city")!;
+    const results = runRecommendationPipeline([dest], {
+      vibe: "any",
+      budget: 5000,
+      carMode: "none",
+      publicModes: ["flight"],
+      partySize: 2,
+      visitedIds: [],
+      homeStationCoords: FUKUOKA,
+      originZoneId: "mainland-kyushu",
+    });
+
+    expect(results.length).toBe(1);
+    const candidate = results[0];
+    expect(candidate.id).toBe("ishigaki-city");
+    expect(candidate.estimatedCostTransportIncluded).toBe(false);
+    expect(candidate.pipeline.estimatedCostTransportIncluded).toBe(false);
+
+    // Verify downstream explainability creates NO full-trip budget reasons
+    const match = candidate.match;
+    expect(
+      match.reasons.some(
+        (r) => r.code === "budgetGreatValue" || r.code === "budgetWithin",
+      ),
+    ).toBe(false);
+  });
+
+  it("HND → Ishigaki with verified fare continues through hard budget filter and stores transportIncluded=true", () => {
+    const dest = byId.get("ishigaki-city")!;
+    // Budget 20,000 is below Tokyo -> Ishigaki verified cost (~106,000), so it MUST be filtered out
+    const lowResults = runRecommendationPipeline([dest], {
+      vibe: "any",
+      budget: 20000,
+      carMode: "none",
+      publicModes: ["flight"],
+      partySize: 2,
+      visitedIds: [],
+      homeStationCoords: TOKYO,
+      originZoneId: "mainland-honshu",
+    });
+    expect(lowResults.length).toBe(0);
+
+    // Budget 200,000 is above verified cost, so it IS admitted and stores transportIncluded=true
+    const highResults = runRecommendationPipeline([dest], {
+      vibe: "any",
+      budget: 200000,
+      carMode: "none",
+      publicModes: ["flight"],
+      partySize: 2,
+      visitedIds: [],
+      homeStationCoords: TOKYO,
+      originZoneId: "mainland-honshu",
+    });
+    expect(highResults.length).toBe(1);
+    expect(highResults[0].estimatedCostTransportIncluded).toBe(true);
+    expect(highResults[0].pipeline.estimatedCostTransportIncluded).toBe(true);
+  });
+  it("ASJ→OKA is absent (Yoron multi-stop service is not a nonstop)", () => {
+    expect(getFlightRoute("ASJ", "OKA")).toBeNull();
+    expect(getFlightRoute("OKA", "ASJ")).toBeNull();
+  });
+});
 describe("conservative failure", () => {
   it("unknown origin → Naha returns no Train, Shinkansen, Bus or Car", () => {
     const modes = getValidModes(byId.get("naha-city")!, "none", ALL_MODES, {
