@@ -1,0 +1,159 @@
+{
+  "id": "inohae-valley",
+  "name": "Inohae Valley",
+  "nameJa": "猪八重渓谷",
+  "aliases": ["Inohae Valley", "猪八重渓谷"],
+  "content": {
+    "en": {
+      "name": "Inohae Valley",
+      "description": "A lush forested valley with walking trails following a clear mountain stream past several waterfalls, moss-covered rocks, and subtropical vegetation. The trail is unmaintained in sections and can be slippery. Access is weather-dependent; the valley is not recommended during or after heavy rain.",
+      "highlights": [
+        "Forested valley trail past waterfalls and mossy rocks",
+        "Subtropical flora and clear mountain streams",
+        "Quiet, uncrowded alternative to mainstream sights"
+      ],
+      "openingHours": "Daylight access only. Trail may close after heavy rain. Not maintained as a managed park."
+    },
+    "ja": {
+      "name": "猪八重渓谷",
+      "description": "清流沿いの遊歩道が滝や苔むす岩、亜熱帯植物の中を縫って続く緑豊かな渓谷。一部整備不十分な区間があり滑りやすくなっています。雨天時・大雨後は非推奨。気象条件に左右される自然エリアです。",
+      "highlights": [
+        "滝と苔むす岩が続く森林渓谷トレイル",
+        "亜熱帯植物と清流",
+        "混雑しない静かな穴場スポット"
+      ],
+      "openingHours": "日中のみ通行可能。大雨後は通行止めあり。管理公園としては整備されていません。"
+    }
+  },
+  "prefecture": "Miyazaki",
+  "region": "Kyushu",
+  "kind": "natural",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "nichinan-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Nature", "Outdoor"],
+  "tags": ["Valley", "Hiking", "Waterfalls", "Nichinan City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/16/Inohae_Valley_Miyazaki.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Inohae_Valley_Miyazaki.jpg"
+  },
+  "coordinates": {
+    "lat": 31.6806,
+    "lng": 131.3383
+  },
+  "description": "A lush forested valley with walking trails following a clear mountain stream past several waterfalls, moss-covered rocks, and subtropical vegetation. The trail is unmaintained in sections and can be slippery. Access is weather-dependent; the valley is not recommended during or after heavy rain.",
+  "highlights": [
+    "Forested valley trail past waterfalls and mossy rocks",
+    "Subtropical flora and clear mountain streams",
+    "Quiet, uncrowded alternative to mainstream sights"
+  ],
+  "openingHours": "Daylight access only. Trail may close after heavy rain. Not maintained as a managed park.",
+  "openingHoursJa": "日中のみ通行可能。大雨後は通行止めあり。管理公園としては整備されていません。",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-06",
+    "sourceUrl": "https://www.kankou-nichinan.jp/en/spot/inohae/",
+    "hoursNote": "Weather-dependent natural trail — not accessible after heavy rain or in poor conditions"
+  },
+  "budgetMin": 1000,
+  "budgetRecommended": 3000,
+  "budgetMax": 6000,
+  "budgetBreakdown": {
+    "transport": 300,
+    "tickets": 0,
+    "food": 450,
+    "cafe": 100
+  },
+  "transportOptions": {
+    "bus": 300
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3
+  },
+  "walkingMin": 5000,
+  "walkingIntensity": "high",
+  "walkingSunMin": 2500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 5,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 2,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 7.5,
+    "couple": 8,
+    "summer": 6.5,
+    "winter": 6.5,
+    "rain": 3,
+    "food": 4,
+    "photography": 8,
+    "relaxation": 8.5,
+    "value": 9,
+    "uniqueness": 7.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 1,
+    "weekend": 3,
+    "holiday": 4
+  },
+  "season": {
+    "spring": 9,
+    "summer": 6,
+    "autumn": 9,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Limited free parking at the trailhead",
+  "notes": "The trail can be slippery and unmaintained — avoid during or after rain and wear hiking boots.",
+  "notesJa": "滑りやすく未整備区間あり — 雨天時・雨上がりは避け登山靴で。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-06",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.kankou-nichinan.jp/en/spot/inohae/",
+        "title": "Inohae Valley Official Website",
+        "accessedAt": "2026-08-06"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Nichinan,_Miyazaki",
+        "title": "Nichinan, Miyazaki",
+        "accessedAt": "2026-08-06"
+      }
+    ],
+    "checkedAt": "2026-08-06",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-06",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Inohae Valley",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-06",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://www.kankou-nichinan.jp/en/spot/inohae/",
+  "municipalityId": "Miyazaki:nichinan"
+}

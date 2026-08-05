@@ -1,0 +1,159 @@
+{
+  "id": "sun-messe-nichinan",
+  "name": "Sun Messe Nichinan",
+  "nameJa": "サンメッセ日南",
+  "aliases": ["Sun Messe Nichinan", "サンメッセ日南"],
+  "content": {
+    "en": {
+      "name": "Sun Messe Nichinan",
+      "description": "A coastal theme park famous for its seven authentic replica Easter Island Moai statues, the only officially authorised Moai replicas outside Chile. Features sweeping ocean views, a butterfly garden, a world insect exhibition, and rolling green hills. A managed paid attraction with regular facility hours.",
+      "highlights": [
+        "Seven officially authorised Moai replicas overlooking the Pacific",
+        "Butterfly garden and world insect exhibition",
+        "Rolling green hills with ocean panoramas"
+      ],
+      "openingHours": "09:30–17:00 (last admission 16:30). Closed Wednesdays (except holidays)"
+    },
+    "ja": {
+      "name": "サンメッセ日南",
+      "description": "チリ国外で唯一公式に認められた7体のモアイ像があることで有名な海岸テーマパーク。広大なオーシャンビュー、蝶の楽園、世界の昆虫展、なだらかな緑の丘が広がります。管理された有料施設です。",
+      "highlights": [
+        "太平洋を望む公式認定の7体のモアイ像",
+        "蝶の楽園と世界の昆虫展",
+        "海を背景にした緑の丘のパノラマ"
+      ],
+      "openingHours": "09:30～17:00（最終入園16:30）。水曜休園（祝日除く）"
+    }
+  },
+  "prefecture": "Miyazaki",
+  "region": "Kyushu",
+  "kind": "mixed",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "nichinan-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Leisure", "Sightseeing"],
+  "tags": ["Park", "Moai", "Coastal", "Nichinan City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Sun_Messe_Nichinan_Moai.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sun_Messe_Nichinan_Moai.jpg"
+  },
+  "coordinates": {
+    "lat": 31.4333,
+    "lng": 131.48
+  },
+  "description": "A coastal theme park famous for its seven authentic replica Easter Island Moai statues, the only officially authorised Moai replicas outside Chile. Features sweeping ocean views, a butterfly garden, a world insect exhibition, and rolling green hills. A managed paid attraction with regular facility hours.",
+  "highlights": [
+    "Seven officially authorised Moai replicas overlooking the Pacific",
+    "Butterfly garden and world insect exhibition",
+    "Rolling green hills with ocean panoramas"
+  ],
+  "openingHours": "09:30–17:00 (last admission 16:30). Closed Wednesdays (except holidays)",
+  "openingHoursJa": "09:30～17:00（最終入園16:30）。水曜休園（祝日除く）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-06",
+    "sourceUrl": "https://www.sun-messe.co.jp/en/",
+    "closedDays": "Wednesdays (open if Wednesday is a public holiday)"
+  },
+  "budgetMin": 2500,
+  "budgetRecommended": 6000,
+  "budgetMax": 12000,
+  "budgetBreakdown": {
+    "transport": 750,
+    "tickets": 800,
+    "food": 1125,
+    "cafe": 250
+  },
+  "transportOptions": {
+    "bus": 350
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3
+  },
+  "walkingMin": 3500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 2000,
+  "walkingShadeMin": 1000,
+  "indoorPercent": 30,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 5,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8,
+    "couple": 8.5,
+    "summer": 8.5,
+    "winter": 7.5,
+    "rain": 6,
+    "food": 6.5,
+    "photography": 9,
+    "relaxation": 7.5,
+    "value": 8,
+    "uniqueness": 9.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 7, 8, 9, 10],
+  "weatherDependence": "moderate",
+  "reservation": "None required; group rates available for 20+",
+  "parking": "Free parking available",
+  "notes": "Closed on Wednesdays — the park gates shut at 16:30, so arrive by early afternoon.",
+  "notesJa": "水曜休園。最終入園16:30のため遅くとも昼過ぎには到着を。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-06",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.sun-messe.co.jp/en/",
+        "title": "Sun Messe Nichinan Official Website",
+        "accessedAt": "2026-08-06"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Sun_Messe_Nichinan",
+        "title": "Sun Messe Nichinan",
+        "accessedAt": "2026-08-06"
+      }
+    ],
+    "checkedAt": "2026-08-06",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-06",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Sun Messe Nichinan",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-06",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://www.sun-messe.co.jp/en/",
+  "municipalityId": "Miyazaki:nichinan"
+}

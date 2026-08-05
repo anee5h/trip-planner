@@ -94784,5 +94784,779 @@
     },
     "officialWebsite": "https://www.ibusuki.or.jp/en/spot/mount-kaimon/",
     "municipalityId": "Kagoshima:ibusuki"
+  },
+  {
+    "id": "nichinan-city",
+    "name": "Nichinan City",
+    "nameJa": "日南市",
+    "kind": "city",
+    "role": "hub",
+    "importance": "notable",
+    "prefecture": "Miyazaki",
+    "region": "Kyushu",
+    "categories": ["Travel Hub", "City Hub"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Obi_Castle_Town_Street.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Obi_Castle_Town_Street.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obi_Castle_Town_Street.jpg"
+    },
+    "description": "Coastal city in southern Miyazaki Prefecture known for the historic Obi Castle Town, Udo Jingu shrine perched dramatically on coastal cliffs, and the Moai statues of Sun Messe Nichinan. Rich in nature, surfing culture, and subtropical scenery.",
+    "descriptionJa": "宮崎県南部の沿岸都市で、歴史的な飫肥城下町、断崖絶壁に建つ鵜戸神宮、サンメッセ日南のモアイ像で知られています。豊かな自然、サーフィン文化、亜熱帯の景観が魅力です。",
+    "highlights": ["Explore Nichinan City", "Local Culture & Cuisine"],
+    "highlightsJa": ["日南市を探索", "地元の文化と料理"],
+    "totalTripHours": 6,
+    "budgetMin": 3500,
+    "budgetRecommended": 14250,
+    "budgetMax": 25000,
+    "budgetBreakdown": {
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
+    },
+    "walkingMin": 4000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 2500,
+    "indoorPercent": 50,
+    "ratings": {
+      "overall": 9.5,
+      "couple": 9.3,
+      "summer": 9,
+      "winter": 9.1,
+      "rain": 9.2,
+      "food": 9.6,
+      "photography": 9.5,
+      "relaxation": 9.2,
+      "value": 9.4,
+      "uniqueness": 9.4
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 5,
+      "weekend": 8,
+      "holiday": 9
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "tags": ["Nichinan City", "Miyazaki Travel", "Regional Hub"],
+    "coordinates": {
+      "lat": 31.6019,
+      "lng": 131.3789
+    },
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "transportOptions": {
+      "train": 220
+    },
+    "reservation": "None required",
+    "parking": "Public parking available",
+    "notes": "Nichinan City travel hub in Miyazaki Prefecture, home to Obi Castle Town and Udo Jingu.",
+    "notesJa": "宮崎県日南市のトラベルハブ、飫肥城下町と鵜戸神宮で知られています。",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [
+      {
+        "collectionId": "core-cities-japan",
+        "confirmed": true
+      }
+    ],
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["miyazaki-city"]
+    },
+    "walkingIntensity": "low",
+    "recommendedVisitHours": {
+      "min": 6,
+      "max": 12
+    },
+    "municipalityId": "Miyazaki:nichinan",
+    "aliases": ["Nichinan City", "日南市"],
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-06",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Expansion",
+      "sources": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Nichinan,_Miyazaki",
+          "title": "Nichinan, Miyazaki",
+          "accessedAt": "2026-08-06"
+        }
+      ]
+    },
+    "openingHours": "No fixed opening hours (city area)",
+    "openingHoursJa": "営業時間の設定なし（市内エリア）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nichinan,_Miyazaki"
+    },
+    "content": {
+      "en": {
+        "name": "Nichinan City",
+        "description": "Coastal city in southern Miyazaki Prefecture known for the historic Obi Castle Town, Udo Jingu shrine perched dramatically on coastal cliffs, and the Moai statues of Sun Messe Nichinan. Rich in nature, surfing culture, and subtropical scenery.",
+        "highlights": ["Explore Nichinan City", "Local Culture & Cuisine"],
+        "openingHours": "No fixed opening hours (city area)"
+      },
+      "ja": {
+        "name": "日南市",
+        "description": "宮崎県南部の沿岸都市で、歴史的な飫肥城下町、断崖絶壁に建つ鵜戸神宮、サンメッセ日南のモアイ像で知られています。豊かな自然、サーフィン文化、亜熱帯の景観が魅力です。",
+        "highlights": ["日南市を探索", "地元の文化と料理"],
+        "openingHours": "営業時間の設定なし（市内エリア）"
+      }
+    }
+  },
+  {
+    "id": "obi-castle-town",
+    "name": "Obi Castle Town",
+    "nameJa": "飫肥城下町",
+    "aliases": ["Obi Castle Town", "飫肥城下町"],
+    "content": {
+      "en": {
+        "name": "Obi Castle Town",
+        "description": "A beautifully preserved Edo-period castle town known as the 'Little Kyoto of Kyushu'. Features samurai residences, the restored Obi Castle gate, a historic school, mossy stone walls, and streets lined with Obi cedar. Individual museums, shops and cafés each have separate hours and admission fees.",
+        "highlights": [
+          "Well-preserved Edo-period samurai district",
+          "Restored Obi Castle gate and mossy stone walls",
+          "Historic merchant streets lined with Obi cedar"
+        ],
+        "openingHours": "Public streets: open access. Obi Castle Museum and samurai residences: typically 09:00–17:00 (individual facilities may vary)"
+      },
+      "ja": {
+        "name": "飫肥城下町",
+        "description": "「九州の小京都」と呼ばれる江戸時代の城下町。武家屋敷、復元された飫肥城大手門、歴史的な学校跡、苔むす石垣、飫肥杉に囲まれた通りが美しい町並みを形成しています。各博物館、店舗、カフェは個別の営業時間と入場料が設定されています。",
+        "highlights": [
+          "江戸時代の武家屋敷が残る保存地区",
+          "復元された飫肥城大手門と苔むす石垣",
+          "飫肥杉に囲まれた歴史的な商家の町並み"
+        ],
+        "openingHours": "町並み：自由散策。飫肥城資料館・武家屋敷：通常09:00～17:00（施設により異なる）"
+      }
+    },
+    "prefecture": "Miyazaki",
+    "region": "Kyushu",
+    "kind": "historic",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "nichinan-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Historic", "Sightseeing"],
+    "tags": ["Historic District", "Samurai", "Castle Town", "Nichinan City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Obi_Castle_Town_Street.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obi_Castle_Town_Street.jpg"
+    },
+    "coordinates": {
+      "lat": 31.6289,
+      "lng": 131.355
+    },
+    "description": "A beautifully preserved Edo-period castle town known as the 'Little Kyoto of Kyushu'. Features samurai residences, the restored Obi Castle gate, a historic school, mossy stone walls, and streets lined with Obi cedar. Individual museums, shops and cafés each have separate hours and admission fees.",
+    "highlights": [
+      "Well-preserved Edo-period samurai district",
+      "Restored Obi Castle gate and mossy stone walls",
+      "Historic merchant streets lined with Obi cedar"
+    ],
+    "openingHours": "Public streets: open access. Obi Castle Museum and samurai residences: typically 09:00–17:00 (individual facilities may vary)",
+    "openingHoursJa": "町並み：自由散策。飫肥城資料館・武家屋敷：通常09:00～17:00（施設により異なる）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.kankou-nichinan.jp/en/spot/obi/",
+      "hoursNote": "Public district with individual facility hours — check each museum and shop separately"
+    },
+    "budgetMin": 2000,
+    "budgetRecommended": 6000,
+    "budgetMax": 12000,
+    "budgetBreakdown": {
+      "transport": 600,
+      "tickets": 700,
+      "food": 900,
+      "cafe": 200
+    },
+    "transportOptions": {
+      "train": 220,
+      "bus": 200
+    },
+    "totalTripHours": 5,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "walkingMin": 5000,
+    "walkingIntensity": "medium",
+    "walkingSunMin": 2000,
+    "walkingShadeMin": 2500,
+    "indoorPercent": 30,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 6,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 7.5,
+      "winter": 7.5,
+      "rain": 7,
+      "food": 8,
+      "photography": 9.5,
+      "relaxation": 8.5,
+      "value": 8.5,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 6,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 7,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 10, 11],
+    "weatherDependence": "moderate",
+    "reservation": "None required for public areas; individual museums may charge admission",
+    "reservationJa": "町並み散策は自由。各博物館は別途入館料あり。",
+    "parking": "Paid parking available near the castle town entrance",
+    "notes": "Purchase a combined admission ticket at the Obi Castle Museum for best value across multiple sites.",
+    "notesJa": "飫肥城資料館で販売の共通入場券で複数施設をお得に巡れます。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.kankou-nichinan.jp/en/spot/obi/",
+          "title": "Obi Castle Town Official Website",
+          "accessedAt": "2026-08-06"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Obi,_Miyazaki",
+          "title": "Obi, Miyazaki",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Obi Castle Town",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://www.kankou-nichinan.jp/en/spot/obi/",
+    "municipalityId": "Miyazaki:nichinan"
+  },
+  {
+    "id": "udo-jingu",
+    "name": "Udo Jingu",
+    "nameJa": "鵜戸神宮",
+    "aliases": ["Udo Jingu", "鵜戸神宮"],
+    "content": {
+      "en": {
+        "name": "Udo Jingu",
+        "description": "A dramatic Shinto shrine built into a sea cave on the Nichinan coast, dedicated to the father of Emperor Jimmu. The vivid vermilion main hall contrasts with the deep blue ocean. Visitors toss ceramic undama (lucky balls) into a target below for good fortune. A coastal path with steep stairs leads to the cave shrine.",
+        "highlights": [
+          "Shrine built dramatically into a coastal sea cave",
+          "Throw ceramic undama (lucky balls) for good fortune",
+          "Vermilion architecture against the Pacific Ocean backdrop"
+        ],
+        "openingHours": "06:00–19:00 (Apr–Sep), 07:00–18:00 (Oct–Mar)"
+      },
+      "ja": {
+        "name": "鵜戸神宮",
+        "description": "日南海岸の海食洞に建てられた劇的な神社で、神武天皇の父を祀ります。鮮やかな朱塗りの本殿と青い海のコントラストが印象的。参拝者は崖下の的に向かって運玉を投げて開運祈願をします。洞窟神社へは急な階段のある海岸遊歩道を進みます。",
+        "highlights": [
+          "海食洞に建つ劇的な神社建築",
+          "開運を願って運玉を投げる体験",
+          "太平洋を背景にした朱塗りの社殿"
+        ],
+        "openingHours": "06:00～19:00（4～9月）、07:00～18:00（10～3月）"
+      }
+    },
+    "prefecture": "Miyazaki",
+    "region": "Kyushu",
+    "kind": "shrine",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "nichinan-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Shrine", "Culture"],
+    "tags": ["Shrine", "Coastal", "Mythology", "Nichinan City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/85/Udo-jingu_shrine_Miyazaki.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Udo-jingu_shrine_Miyazaki.jpg"
+    },
+    "coordinates": {
+      "lat": 31.4381,
+      "lng": 131.4139
+    },
+    "description": "A dramatic Shinto shrine built into a sea cave on the Nichinan coast, dedicated to the father of Emperor Jimmu. The vivid vermilion main hall contrasts with the deep blue ocean. Visitors toss ceramic undama (lucky balls) into a target below for good fortune. A coastal path with steep stairs leads to the cave shrine.",
+    "highlights": [
+      "Shrine built dramatically into a coastal sea cave",
+      "Throw ceramic undama (lucky balls) for good fortune",
+      "Vermilion architecture against the Pacific Ocean backdrop"
+    ],
+    "openingHours": "06:00–19:00 (Apr–Sep), 07:00–18:00 (Oct–Mar)",
+    "openingHoursJa": "06:00～19:00（4～9月）、07:00～18:00（10～3月）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.kankou-nichinan.jp/en/spot/udo-jingu/"
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 4500,
+    "budgetMax": 8000,
+    "budgetBreakdown": {
+      "transport": 450,
+      "tickets": 0,
+      "food": 675,
+      "cafe": 150
+    },
+    "transportOptions": {
+      "bus": 350
+    },
+    "totalTripHours": 4,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 3000,
+    "walkingIntensity": "medium",
+    "walkingSunMin": 1000,
+    "walkingShadeMin": 1000,
+    "indoorPercent": 10,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 4,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8,
+      "winter": 7.5,
+      "rain": 6,
+      "food": 6,
+      "photography": 9.5,
+      "relaxation": 7.5,
+      "value": 9,
+      "uniqueness": 9.5
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 6,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 10, 11],
+    "weatherDependence": "high",
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "notes": "The coastal path to the cave shrine has steep stairs — wear sturdy shoes and watch your step in wet weather.",
+    "notesJa": "洞窟までの参道は急な階段あり — 雨の日は足元注意、歩きやすい靴で。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.kankou-nichinan.jp/en/spot/udo-jingu/",
+          "title": "Udo Jingu Official Website",
+          "accessedAt": "2026-08-06"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Udo-jing%C5%AB",
+          "title": "Udo-jingū",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Udo Jingu",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://www.kankou-nichinan.jp/en/spot/udo-jingu/",
+    "municipalityId": "Miyazaki:nichinan"
+  },
+  {
+    "id": "sun-messe-nichinan",
+    "name": "Sun Messe Nichinan",
+    "nameJa": "サンメッセ日南",
+    "aliases": ["Sun Messe Nichinan", "サンメッセ日南"],
+    "content": {
+      "en": {
+        "name": "Sun Messe Nichinan",
+        "description": "A coastal theme park famous for its seven authentic replica Easter Island Moai statues, the only officially authorised Moai replicas outside Chile. Features sweeping ocean views, a butterfly garden, a world insect exhibition, and rolling green hills. A managed paid attraction with regular facility hours.",
+        "highlights": [
+          "Seven officially authorised Moai replicas overlooking the Pacific",
+          "Butterfly garden and world insect exhibition",
+          "Rolling green hills with ocean panoramas"
+        ],
+        "openingHours": "09:30–17:00 (last admission 16:30). Closed Wednesdays (except holidays)"
+      },
+      "ja": {
+        "name": "サンメッセ日南",
+        "description": "チリ国外で唯一公式に認められた7体のモアイ像があることで有名な海岸テーマパーク。広大なオーシャンビュー、蝶の楽園、世界の昆虫展、なだらかな緑の丘が広がります。管理された有料施設です。",
+        "highlights": [
+          "太平洋を望む公式認定の7体のモアイ像",
+          "蝶の楽園と世界の昆虫展",
+          "海を背景にした緑の丘のパノラマ"
+        ],
+        "openingHours": "09:30～17:00（最終入園16:30）。水曜休園（祝日除く）"
+      }
+    },
+    "prefecture": "Miyazaki",
+    "region": "Kyushu",
+    "kind": "mixed",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "nichinan-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Leisure", "Sightseeing"],
+    "tags": ["Park", "Moai", "Coastal", "Nichinan City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Sun_Messe_Nichinan_Moai.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sun_Messe_Nichinan_Moai.jpg"
+    },
+    "coordinates": {
+      "lat": 31.4333,
+      "lng": 131.48
+    },
+    "description": "A coastal theme park famous for its seven authentic replica Easter Island Moai statues, the only officially authorised Moai replicas outside Chile. Features sweeping ocean views, a butterfly garden, a world insect exhibition, and rolling green hills. A managed paid attraction with regular facility hours.",
+    "highlights": [
+      "Seven officially authorised Moai replicas overlooking the Pacific",
+      "Butterfly garden and world insect exhibition",
+      "Rolling green hills with ocean panoramas"
+    ],
+    "openingHours": "09:30–17:00 (last admission 16:30). Closed Wednesdays (except holidays)",
+    "openingHoursJa": "09:30～17:00（最終入園16:30）。水曜休園（祝日除く）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.sun-messe.co.jp/en/",
+      "closedDays": "Wednesdays (open if Wednesday is a public holiday)"
+    },
+    "budgetMin": 2500,
+    "budgetRecommended": 6000,
+    "budgetMax": 12000,
+    "budgetBreakdown": {
+      "transport": 750,
+      "tickets": 800,
+      "food": 1125,
+      "cafe": 250
+    },
+    "transportOptions": {
+      "bus": 350
+    },
+    "totalTripHours": 4,
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3
+    },
+    "walkingMin": 3500,
+    "walkingIntensity": "medium",
+    "walkingSunMin": 2000,
+    "walkingShadeMin": 1000,
+    "indoorPercent": 30,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 5,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8,
+      "couple": 8.5,
+      "summer": 8.5,
+      "winter": 7.5,
+      "rain": 6,
+      "food": 6.5,
+      "photography": 9,
+      "relaxation": 7.5,
+      "value": 8,
+      "uniqueness": 9.5
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 6,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 9,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 7, 8, 9, 10],
+    "weatherDependence": "moderate",
+    "reservation": "None required; group rates available for 20+",
+    "parking": "Free parking available",
+    "notes": "Closed on Wednesdays — the park gates shut at 16:30, so arrive by early afternoon.",
+    "notesJa": "水曜休園。最終入園16:30のため遅くとも昼過ぎには到着を。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.sun-messe.co.jp/en/",
+          "title": "Sun Messe Nichinan Official Website",
+          "accessedAt": "2026-08-06"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sun_Messe_Nichinan",
+          "title": "Sun Messe Nichinan",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Sun Messe Nichinan",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://www.sun-messe.co.jp/en/",
+    "municipalityId": "Miyazaki:nichinan"
+  },
+  {
+    "id": "inohae-valley",
+    "name": "Inohae Valley",
+    "nameJa": "猪八重渓谷",
+    "aliases": ["Inohae Valley", "猪八重渓谷"],
+    "content": {
+      "en": {
+        "name": "Inohae Valley",
+        "description": "A lush forested valley with walking trails following a clear mountain stream past several waterfalls, moss-covered rocks, and subtropical vegetation. The trail is unmaintained in sections and can be slippery. Access is weather-dependent; the valley is not recommended during or after heavy rain.",
+        "highlights": [
+          "Forested valley trail past waterfalls and mossy rocks",
+          "Subtropical flora and clear mountain streams",
+          "Quiet, uncrowded alternative to mainstream sights"
+        ],
+        "openingHours": "Daylight access only. Trail may close after heavy rain. Not maintained as a managed park."
+      },
+      "ja": {
+        "name": "猪八重渓谷",
+        "description": "清流沿いの遊歩道が滝や苔むす岩、亜熱帯植物の中を縫って続く緑豊かな渓谷。一部整備不十分な区間があり滑りやすくなっています。雨天時・大雨後は非推奨。気象条件に左右される自然エリアです。",
+        "highlights": [
+          "滝と苔むす岩が続く森林渓谷トレイル",
+          "亜熱帯植物と清流",
+          "混雑しない静かな穴場スポット"
+        ],
+        "openingHours": "日中のみ通行可能。大雨後は通行止めあり。管理公園としては整備されていません。"
+      }
+    },
+    "prefecture": "Miyazaki",
+    "region": "Kyushu",
+    "kind": "natural",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "nichinan-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Nature", "Outdoor"],
+    "tags": ["Valley", "Hiking", "Waterfalls", "Nichinan City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/16/Inohae_Valley_Miyazaki.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Inohae_Valley_Miyazaki.jpg"
+    },
+    "coordinates": {
+      "lat": 31.6806,
+      "lng": 131.3383
+    },
+    "description": "A lush forested valley with walking trails following a clear mountain stream past several waterfalls, moss-covered rocks, and subtropical vegetation. The trail is unmaintained in sections and can be slippery. Access is weather-dependent; the valley is not recommended during or after heavy rain.",
+    "highlights": [
+      "Forested valley trail past waterfalls and mossy rocks",
+      "Subtropical flora and clear mountain streams",
+      "Quiet, uncrowded alternative to mainstream sights"
+    ],
+    "openingHours": "Daylight access only. Trail may close after heavy rain. Not maintained as a managed park.",
+    "openingHoursJa": "日中のみ通行可能。大雨後は通行止めあり。管理公園としては整備されていません。",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.kankou-nichinan.jp/en/spot/inohae/",
+      "hoursNote": "Weather-dependent natural trail — not accessible after heavy rain or in poor conditions"
+    },
+    "budgetMin": 1000,
+    "budgetRecommended": 3000,
+    "budgetMax": 6000,
+    "budgetBreakdown": {
+      "transport": 300,
+      "tickets": 0,
+      "food": 450,
+      "cafe": 100
+    },
+    "transportOptions": {
+      "bus": 300
+    },
+    "totalTripHours": 4,
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3
+    },
+    "walkingMin": 5000,
+    "walkingIntensity": "high",
+    "walkingSunMin": 2500,
+    "walkingShadeMin": 2500,
+    "indoorPercent": 5,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 2,
+      "walkingIntensity": 5
+    },
+    "ratings": {
+      "overall": 7.5,
+      "couple": 8,
+      "summer": 6.5,
+      "winter": 6.5,
+      "rain": 3,
+      "food": 4,
+      "photography": 8,
+      "relaxation": 8.5,
+      "value": 9,
+      "uniqueness": 7.5
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 1,
+      "weekend": 3,
+      "holiday": 4
+    },
+    "season": {
+      "spring": 9,
+      "summer": 6,
+      "autumn": 9,
+      "winter": 6
+    },
+    "bestMonths": [3, 4, 5, 10, 11],
+    "weatherDependence": "high",
+    "reservation": "None required",
+    "parking": "Limited free parking at the trailhead",
+    "notes": "The trail can be slippery and unmaintained — avoid during or after rain and wear hiking boots.",
+    "notesJa": "滑りやすく未整備区間あり — 雨天時・雨上がりは避け登山靴で。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.kankou-nichinan.jp/en/spot/inohae/",
+          "title": "Inohae Valley Official Website",
+          "accessedAt": "2026-08-06"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Nichinan,_Miyazaki",
+          "title": "Nichinan, Miyazaki",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Inohae Valley",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://www.kankou-nichinan.jp/en/spot/inohae/",
+    "municipalityId": "Miyazaki:nichinan"
   }
 ]

@@ -1,0 +1,158 @@
+{
+  "id": "udo-jingu",
+  "name": "Udo Jingu",
+  "nameJa": "鵜戸神宮",
+  "aliases": ["Udo Jingu", "鵜戸神宮"],
+  "content": {
+    "en": {
+      "name": "Udo Jingu",
+      "description": "A dramatic Shinto shrine built into a sea cave on the Nichinan coast, dedicated to the father of Emperor Jimmu. The vivid vermilion main hall contrasts with the deep blue ocean. Visitors toss ceramic undama (lucky balls) into a target below for good fortune. A coastal path with steep stairs leads to the cave shrine.",
+      "highlights": [
+        "Shrine built dramatically into a coastal sea cave",
+        "Throw ceramic undama (lucky balls) for good fortune",
+        "Vermilion architecture against the Pacific Ocean backdrop"
+      ],
+      "openingHours": "06:00–19:00 (Apr–Sep), 07:00–18:00 (Oct–Mar)"
+    },
+    "ja": {
+      "name": "鵜戸神宮",
+      "description": "日南海岸の海食洞に建てられた劇的な神社で、神武天皇の父を祀ります。鮮やかな朱塗りの本殿と青い海のコントラストが印象的。参拝者は崖下の的に向かって運玉を投げて開運祈願をします。洞窟神社へは急な階段のある海岸遊歩道を進みます。",
+      "highlights": [
+        "海食洞に建つ劇的な神社建築",
+        "開運を願って運玉を投げる体験",
+        "太平洋を背景にした朱塗りの社殿"
+      ],
+      "openingHours": "06:00～19:00（4～9月）、07:00～18:00（10～3月）"
+    }
+  },
+  "prefecture": "Miyazaki",
+  "region": "Kyushu",
+  "kind": "shrine",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "nichinan-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Shrine", "Culture"],
+  "tags": ["Shrine", "Coastal", "Mythology", "Nichinan City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/85/Udo-jingu_shrine_Miyazaki.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Udo-jingu_shrine_Miyazaki.jpg"
+  },
+  "coordinates": {
+    "lat": 31.4381,
+    "lng": 131.4139
+  },
+  "description": "A dramatic Shinto shrine built into a sea cave on the Nichinan coast, dedicated to the father of Emperor Jimmu. The vivid vermilion main hall contrasts with the deep blue ocean. Visitors toss ceramic undama (lucky balls) into a target below for good fortune. A coastal path with steep stairs leads to the cave shrine.",
+  "highlights": [
+    "Shrine built dramatically into a coastal sea cave",
+    "Throw ceramic undama (lucky balls) for good fortune",
+    "Vermilion architecture against the Pacific Ocean backdrop"
+  ],
+  "openingHours": "06:00–19:00 (Apr–Sep), 07:00–18:00 (Oct–Mar)",
+  "openingHoursJa": "06:00～19:00（4～9月）、07:00～18:00（10～3月）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-06",
+    "sourceUrl": "https://www.kankou-nichinan.jp/en/spot/udo-jingu/"
+  },
+  "budgetMin": 1500,
+  "budgetRecommended": 4500,
+  "budgetMax": 8000,
+  "budgetBreakdown": {
+    "transport": 450,
+    "tickets": 0,
+    "food": 675,
+    "cafe": 150
+  },
+  "transportOptions": {
+    "bus": 350
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 1000,
+  "walkingShadeMin": 1000,
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 4,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8,
+    "winter": 7.5,
+    "rain": 6,
+    "food": 6,
+    "photography": 9.5,
+    "relaxation": 7.5,
+    "value": 9,
+    "uniqueness": 9.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Free parking available",
+  "notes": "The coastal path to the cave shrine has steep stairs — wear sturdy shoes and watch your step in wet weather.",
+  "notesJa": "洞窟までの参道は急な階段あり — 雨の日は足元注意、歩きやすい靴で。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-06",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.kankou-nichinan.jp/en/spot/udo-jingu/",
+        "title": "Udo Jingu Official Website",
+        "accessedAt": "2026-08-06"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Udo-jing%C5%AB",
+        "title": "Udo-jingū",
+        "accessedAt": "2026-08-06"
+      }
+    ],
+    "checkedAt": "2026-08-06",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-06",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Udo Jingu",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-06",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://www.kankou-nichinan.jp/en/spot/udo-jingu/",
+  "municipalityId": "Miyazaki:nichinan"
+}
