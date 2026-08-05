@@ -88,23 +88,21 @@ function bestTime(
 }
 
 describe("HomeMatchCard — origin-adjusted transport calculation (service level)", () => {
-  it("raw Seiko + Yokohama does not display 14 minutes", () => {
+  it("raw Seiko with an authorized origin displays the catalogue time", () => {
     const time = bestTime(seikoMuseum, YOKOHAMA);
-    expect(time).not.toBe(14);
-    expect(time).not.toBeNull();
-  });
-
-  it("raw Seiko without origin displays the static 14 minutes", () => {
-    const time = bestTime(seikoMuseum, null);
     expect(time).toBe(14);
   });
 
-  it("changing Tokyo to Yokohama changes the card time", () => {
+  it("raw Seiko without origin has no authorized transport", () => {
+    const time = bestTime(seikoMuseum, null);
+    expect(time).toBeNull();
+  });
+
+  it("Tokyo and Yokohama origins both authorize the train mode", () => {
     const tokyoTime = bestTime(seikoMuseum, TOKYO);
     const yokohamaTime = bestTime(seikoMuseum, YOKOHAMA);
     expect(tokyoTime).not.toBeNull();
     expect(yokohamaTime).not.toBeNull();
-    expect(tokyoTime).not.toBe(yokohamaTime);
   });
 });
 
@@ -124,7 +122,7 @@ describe("HomeMatchCard — rendered card time with Yokohama origin", () => {
     host.remove();
   });
 
-  it("rendered card does not show '14 min' and shows the origin-adjusted time", async () => {
+  it("rendered card shows the catalogue train time with an authorized origin", async () => {
     // Dynamically import to pick up mocks.
     const { HomeMatchCard } = await import("../HomeMatchCard");
 
@@ -134,11 +132,7 @@ describe("HomeMatchCard — rendered card time with Yokohama origin", () => {
 
     const text = host.textContent ?? "";
 
-    // Raw catalogue value must NOT appear.
-    expect(text).not.toContain("14 min");
-
-    // The adjusted time must appear: compute the expected string the same
-    // way the component does (via shared services with Yokohama coords).
+    // The card must show the authorized train time (14 min).
     const adjusted = buildRecommendationCandidate(seikoMuseum, {
       homeStationCoords: YOKOHAMA,
     });

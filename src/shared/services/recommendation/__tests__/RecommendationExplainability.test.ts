@@ -50,6 +50,7 @@ describe("RecommendationExplainability Unit Tests", () => {
       partySize: 1,
       currentWeatherCondition: "any",
       visitedIds: [],
+      homeStationCoords: { lat: 35.6812, lng: 139.7671 },
     };
     const match = createRecommendationMatch(baseDest, context, 85);
     expect(match.confidence).toBe(71);

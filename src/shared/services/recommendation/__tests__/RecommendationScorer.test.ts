@@ -65,6 +65,7 @@ describe("RecommendationScorer Unit Tests", () => {
       partySize: 1,
       currentWeatherCondition: "any",
       visitedIds: [],
+      homeStationCoords: { lat: 35.6812, lng: 139.7671 },
     };
     const res = calculateScore(mockDest, context);
     expect(res.score).toBeGreaterThan(0);
@@ -173,18 +174,33 @@ describe("RecommendationScorer Unit Tests", () => {
     };
 
     expect(
-      getValidModes(carDestination, "rental", [], undefined, "standard"),
+      getValidModes(
+        carDestination,
+        "rental",
+        [],
+        { lat: 35.6812, lng: 139.7671 },
+        "standard",
+        "mainland-honshu",
+      ),
     ).toEqual(["car"]);
     expect(
-      getValidModes(carDestination, "my_car", [], undefined, "economy"),
+      getValidModes(
+        carDestination,
+        "my_car",
+        [],
+        { lat: 35.6812, lng: 139.7671 },
+        "economy",
+        "mainland-honshu",
+      ),
     ).toEqual(["my_car"]);
     expect(
       getValidModes(
         carDestination,
         "rental",
         ["train", "flight"],
-        undefined,
+        { lat: 35.6812, lng: 139.7671 },
         "standard",
+        "mainland-honshu",
       ),
     ).toEqual(["car", "train"]);
   });
@@ -478,7 +494,7 @@ describe("getValidModes topology authorization", () => {
     expect(modes).toContain("ferry");
   });
 
-  it("no topology filtering when originZoneId is unknown", () => {
+  it("unknown origin conservatively returns no modes", () => {
     const modes = getValidModes(
       nahaDest,
       "none",
@@ -487,8 +503,7 @@ describe("getValidModes topology authorization", () => {
       undefined,
       "unknown",
     );
-    // Falls back to transportOptions-based validation only
-    expect(modes).toContain("train");
+    expect(modes).toEqual([]);
   });
 
   it("static fallback does not expose train to Ogasawara", () => {

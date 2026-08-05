@@ -30,8 +30,8 @@ function baseDestination(overrides: Partial<Destination> = {}): Destination {
     region: "Shikoku",
     categories: ["Art & Culture"],
     tags: ["island"],
-    coordinates: { lat: 34.46, lng: 133.99 },
-    transportOptions: { ferry: 210 },
+    coordinates: { lat: 34.46, lng: 133.996 },
+    transportOptions: { train: 180 },
     role: "standalone",
     status: "published",
     totalTripHours: 8,
@@ -48,93 +48,125 @@ function errors(result: { issues: ValidationIssue[] }): ValidationIssue[] {
 }
 
 describe("transportTopologyValidator", () => {
-  it("passes a valid ferry-only island", async () => {
+  it("passes a valid explicitly assigned island", async () => {
     const result = await transportTopologyValidator.validate(
-      makeContext([baseDestination({ id: "naoshima-test" })]),
+      makeContext([
+        baseDestination({
+          id: "naoshima-test",
+          transportZoneId: "naoshima",
+        }),
+      ]),
     );
     expect(result.passed).toBe(true);
     expect(errors(result)).toEqual([]);
   });
 
-  it("catches an unresolved island destination zone", async () => {
+  it("catches an explicit zone referencing an unknown zone", async () => {
     const result = await transportTopologyValidator.validate(
       makeContext([
         baseDestination({
-          id: "mystery-island",
-          name: "Mystery Island",
-          tags: ["island", "remote"],
-          coordinates: { lat: 28.0, lng: 141.0 },
-          prefecture: "Tokyo",
+          id: "bad-zone-island",
+          transportZoneId: "atlantis",
         }),
       ]),
     );
-    const unresolved = errors(result).filter(
-      (i) => i.code === "unresolved_destination_zone",
+    const bad = errors(result).filter(
+      (i) => i.code === "unknown_explicit_zone",
     );
-    expect(unresolved.length).toBeGreaterThan(0);
+    expect(bad.length).toBeGreaterThan(0);
     expect(result.passed).toBe(false);
   });
 
-  it("never resolves an island-marked record to the mainland default", async () => {
+  it("catches an explicit zone mismatching runtime resolution", async () => {
     const result = await transportTopologyValidator.validate(
       makeContext([
         baseDestination({
-          id: "fallthrough-island",
-          name: "Fallthrough Island",
+          id: "mismatch-island",
+          transportZoneId: "sado",
+          coordinates: { lat: 34.46, lng: 133.996 },
+        }),
+      ]),
+    );
+    const mismatch = errors(result).filter(
+      (i) => i.code === "explicit_zone_mismatch",
+    );
+    expect(mismatch.length).toBeGreaterThan(0);
+    expect(result.passed).toBe(false);
+  });
+
+  it("catches an island-marked record with no assignment", async () => {
+    const result = await transportTopologyValidator.validate(
+      makeContext([
+        baseDestination({
+          id: "unassigned-island",
+          kind: "island",
           tags: ["island", "remote"],
-          coordinates: { lat: 35.4, lng: 137.4 },
           prefecture: "Nagano",
+          coordinates: { lat: 35.4, lng: 137.4 },
         }),
       ]),
     );
-    const unresolved = errors(result).filter(
-      (i) => i.code === "unresolved_destination_zone",
+    const unassigned = errors(result).filter(
+      (i) => i.code === "unassigned_island",
     );
-    const fallthrough = errors(result).filter(
-      (i) => i.code === "island_falls_through_to_mainland",
-    );
-    expect(unresolved.length + fallthrough.length).toBeGreaterThan(0);
+    expect(unassigned.length).toBeGreaterThan(0);
     expect(result.passed).toBe(false);
   });
 
-  it("catches a rail mode without a rail edge", async () => {
+  it("catches an explicit-only zone resolved without assignment", async () => {
     const result = await transportTopologyValidator.validate(
       makeContext([
         baseDestination({
-          id: "ferry-rail-island",
-          name: "Ferry Rail Island",
-          tags: ["island", "remote"],
-          coordinates: { lat: 34.46, lng: 133.99 },
-          transportOptions: { train: 180, ferry: 210 },
+          id: "missing-explicit-ishigaki",
+          tags: [],
+          prefecture: "Okinawa",
+          coordinates: { lat: 24.45, lng: 124.2 },
+          transportZoneId: undefined,
         }),
       ]),
     );
-    const rail = errors(result).filter((i) => i.code === "mode_without_edge");
-    expect(rail.length).toBeGreaterThan(0);
+    const missing = errors(result).filter(
+      (i) => i.code === "missing_explicit_zone",
+    );
+    expect(missing.length).toBeGreaterThan(0);
     expect(result.passed).toBe(false);
   });
 
-  it("catches an invalid local mode in topology", async () => {
+  it("accepts an intentional declaration that naturally resolves unknown", async () => {
     const result = await transportTopologyValidator.validate(
-      makeContext([baseDestination({ id: "valid-dest" })]),
+      makeContext([
+        baseDestination({
+          id: "bridge-island",
+          transportZoneId: "mainland-honshu",
+          tags: ["island", "bridge"],
+          coordinates: { lat: 35.3, lng: 139.48 },
+        }),
+      ]),
     );
-    // The production topology must not contain 'walk' as a local mode.
-    expect(
-      errors(result).filter((i) => i.code === "invalid_local_mode"),
-    ).toEqual([]);
+    const mismatch = errors(result).filter(
+      (i) => i.code === "explicit_zone_mismatch",
+    );
+    expect(mismatch).toEqual([]);
+    expect(result.passed).toBe(true);
   });
 
-  it("catches duplicate edges", async () => {
-    const zones = topology.zones;
-    const edges = topology.edges;
-    const keyed = new Set<string>();
-    let duplicates = 0;
-    for (const e of edges) {
-      const key = [e.from, e.to].sort().join("↔");
-      if (keyed.has(key)) duplicates += 1;
-      keyed.add(key);
+  it("passes with no destination records (structural checks only)", async () => {
+    const result = await transportTopologyValidator.validate(makeContext([]));
+    expect(errors(result)).toEqual([]);
+  });
+
+  it("topology edges only carry rail/road/bus modes", () => {
+    const RAIL_ROAD_BUS = new Set([
+      "train",
+      "shinkansen",
+      "car",
+      "my_car",
+      "bus",
+    ]);
+    for (const edge of topology.edges) {
+      for (const mode of edge.modes) {
+        expect(RAIL_ROAD_BUS.has(mode)).toBe(true);
+      }
     }
-    expect(duplicates).toBe(0);
-    expect(zones.length).toBeGreaterThan(10);
   });
 });

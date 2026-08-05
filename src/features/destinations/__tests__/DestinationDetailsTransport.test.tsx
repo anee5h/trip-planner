@@ -3,7 +3,8 @@
  *
  * Renders the production DestinationDetails component and proves transport
  * row semantics: mainland → Naha never shows Train/Shinkansen, Naha-local
- * shows local rail, and unknown topology renders no fabricated modes.
+ * shows local rail, and unavailable routes render the localized unavailable
+ * state with no train-derived budget.
  */
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
@@ -12,6 +13,10 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import DestinationDetails from "../DestinationDetails";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
+
+function flush(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({ t: (key: string) => key }),
@@ -63,9 +68,7 @@ vi.mock("../components/VisitedDateModal", () => ({
 vi.mock("../components/DestinationPlanningSection", () => ({
   DestinationPlanningSection: () => null,
 }));
-vi.mock("../components/DestinationMap", () => ({
-  default: () => null,
-}));
+vi.mock("../components/DestinationMap", () => ({ default: () => null }));
 vi.mock(
   "@/features/recommendations/components/RecommendationFeedbackControl",
   () => ({ RecommendationFeedbackControl: () => null }),
@@ -78,6 +81,23 @@ vi.mock("@/shared/components/ui/LazyImage", () => ({
     <img {...props} />
   ),
 }));
+
+import destinationIndex from "@/shared/data/destinations-index.json";
+const records = new Map(
+  (destinationIndex as { id: string }[]).map((d) => [d.id, d]),
+);
+
+vi.stubGlobal(
+  "fetch",
+  vi.fn(async (input: RequestInfo | URL) => {
+    const url = String(input);
+    const match = url.match(/\/data\/destinations\/([^/]+)\.json$/);
+    if (match && records.has(match[1])) {
+      return { ok: true, json: async () => records.get(match[1]) } as Response;
+    }
+    return { ok: false, json: async () => null } as Response;
+  }),
+);
 
 const storeState = vi.hoisted(() => ({
   homeStationCoords: { lat: 35.6812, lng: 139.7671 } as {
@@ -104,32 +124,13 @@ vi.mock("@/shared/hooks/useTripStore", () => ({
   }),
 }));
 
-import destinationNaha from "@/shared/data/destinations-index.json";
-const nahaRecord = (destinationNaha as { id: string }[]).find(
-  (d) => d.id === "naha-city",
-);
-
-vi.stubGlobal(
-  "fetch",
-  vi.fn(async (input: RequestInfo | URL) => {
-    const url = String(input);
-    if (url.includes("/data/destinations/naha-city.json")) {
-      return {
-        ok: true,
-        json: async () => nahaRecord,
-      } as Response;
-    }
-    return { ok: false, json: async () => null } as Response;
-  }),
-);
-
 let root: Root;
 let host: HTMLDivElement;
 
-function render() {
+function render(path = "/destinations/naha-city") {
   act(() => {
     root.render(
-      <MemoryRouter initialEntries={["/destinations/naha-city"]}>
+      <MemoryRouter initialEntries={[path]}>
         <Routes>
           <Route path="/destinations/:id" element={<DestinationDetails />} />
         </Routes>
@@ -155,9 +156,7 @@ describe("DestinationDetails transport rows", () => {
   it("mainland origin → Naha renders no Train or Shinkansen row", async () => {
     render();
     await act(async () => {
-      const { promise, resolve } = Promise.withResolvers<void>();
-      setTimeout(resolve, 50);
-      await promise;
+      await flush(80);
     });
     const text = host.textContent ?? "";
     expect(text).not.toContain("Train");
@@ -169,24 +168,44 @@ describe("DestinationDetails transport rows", () => {
     storeState.homeStationTransportZoneId = "okinawa-main";
     render();
     await act(async () => {
-      const { promise, resolve } = Promise.withResolvers<void>();
-      setTimeout(resolve, 50);
-      await promise;
+      await flush(80);
     });
     const text = host.textContent ?? "";
     expect(text).toContain("Train");
   });
 
-  it("unknown topology origin renders no fabricated Train row", async () => {
+  it("unknown topology origin asserts no Train, no train-derived budget, and unavailable copy", async () => {
     storeState.homeStationCoords = { lat: 99.0, lng: 99.0 };
     storeState.homeStationTransportZoneId = "unknown";
     render();
     await act(async () => {
-      const { promise, resolve } = Promise.withResolvers<void>();
-      setTimeout(resolve, 50);
-      await promise;
+      await flush(80);
     });
     const text = host.textContent ?? "";
+    expect(text).not.toContain("Train");
+    expect(text).not.toContain("Shinkansen");
+    expect(text).toContain("Transport estimate unavailable");
+  });
+
+  it("no-route destination (Fukuoka → Ogasawara) renders unavailable copy", async () => {
+    storeState.homeStationCoords = { lat: 33.5902, lng: 130.4017 };
+    storeState.homeStationTransportZoneId = "mainland-kyushu";
+    render("/destinations/ogasawara-islands-tokyo");
+    await act(async () => {
+      await flush(80);
+    });
+    const text = host.textContent ?? "";
+    expect(text).not.toContain("Train");
+    expect(text).toContain("Transport estimate unavailable");
+  });
+
+  it("Ogasawara from Tokyo (ferry route) renders no Train or flight row", async () => {
+    render("/destinations/ogasawara-islands-tokyo");
+    await act(async () => {
+      await flush(80);
+    });
+    const text = host.textContent ?? "";
+    expect(text).not.toContain("Train");
     expect(text).not.toContain("Shinkansen");
   });
 });

@@ -243,7 +243,7 @@ describe("RecommendationService Unit Tests", () => {
       currentWeatherCondition: "any",
       visitedIds: [],
       currentWeather: null,
-      homeStationCoords: null,
+      homeStationCoords: homeCoords,
       tripDuration: "halfDay",
     });
 
@@ -257,18 +257,33 @@ describe("RecommendationService Unit Tests", () => {
 
   it("correctly identifies valid transport modes with getValidModes", () => {
     const dest = mockDestinations[2]; // Mount Fuji (bus & shinkansen)
-    const validModes = getValidModes(dest, "none", ["shinkansen"]);
+    const validModes = getValidModes(
+      dest,
+      "none",
+      ["shinkansen"],
+      homeCoords,
+      undefined,
+      "mainland-honshu",
+    );
     expect(validModes).toEqual(["shinkansen"]);
 
-    const invalidModes = getValidModes(dest, "none", ["train"]);
+    const invalidModes = getValidModes(
+      dest,
+      "none",
+      ["train"],
+      homeCoords,
+      undefined,
+      "mainland-honshu",
+    );
     expect(invalidModes).toEqual([]);
 
     const economyModes = getValidModes(
       dest,
       "none",
       ["bus", "shinkansen"],
-      undefined,
+      homeCoords,
       "economy",
+      "mainland-honshu",
     );
     expect(economyModes).toEqual(["bus"]);
   });
