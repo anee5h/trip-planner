@@ -415,3 +415,93 @@ describe("RecommendationScorer Unit Tests", () => {
     expect(topThreeIds).toContain("top-match");
   });
 });
+
+describe("getValidModes topology authorization", () => {
+  const nahaDest = {
+    ...mockDest,
+    id: "naha-test",
+    name: "Naha",
+    prefecture: "Okinawa",
+    municipalityId: "naha-city",
+    coordinates: { lat: 26.2124, lng: 127.6809 },
+    transportOptions: { train: 30, bus: 45, flight: 150 },
+    tags: ["island", "remote"],
+  } as unknown as Destination;
+
+  const ogasawaraDest = {
+    ...mockDest,
+    id: "ogasawara-test",
+    name: "Ogasawara",
+    prefecture: "Tokyo",
+    municipalityId: "ogasawara",
+    coordinates: { lat: 27.0946, lng: 142.1916 },
+    transportOptions: { bus: 20, ferry: 1440 },
+    tags: ["island", "remote", "ferry"],
+  } as unknown as Destination;
+
+  it("filters train from Tokyo → Naha (cross-zone, no rail edge)", () => {
+    const modes = getValidModes(
+      nahaDest,
+      "none",
+      ["train", "flight", "bus"],
+      { lat: 35.6812, lng: 139.7671 }, // Tokyo Station
+      undefined,
+      "mainland-honshu",
+    );
+    expect(modes).not.toContain("train");
+    expect(modes).toContain("flight");
+  });
+
+  it("allows train for Naha → Naha (same-zone, local modes)", () => {
+    const modes = getValidModes(
+      nahaDest,
+      "none",
+      ["train", "bus"],
+      { lat: 26.2124, lng: 127.6809 }, // Naha coords
+      undefined,
+      "okinawa-main",
+    );
+    expect(modes).toContain("train");
+  });
+
+  it("filters all land modes from Tokyo → Ogasawara (ferry-only edge)", () => {
+    const modes = getValidModes(
+      ogasawaraDest,
+      "none",
+      ["train", "bus", "ferry", "flight"],
+      { lat: 35.6812, lng: 139.7671 },
+      undefined,
+      "mainland-honshu",
+    );
+    expect(modes).not.toContain("train");
+    expect(modes).not.toContain("flight");
+    expect(modes).toContain("ferry");
+  });
+
+  it("no topology filtering when originZoneId is unknown", () => {
+    const modes = getValidModes(
+      nahaDest,
+      "none",
+      ["train"],
+      undefined,
+      undefined,
+      "unknown",
+    );
+    // Falls back to transportOptions-based validation only
+    expect(modes).toContain("train");
+  });
+
+  it("static fallback does not expose train to Ogasawara", () => {
+    // Simulates the fallback path: no carMode, no publicModes → fallback to transportOptions/["train"]
+    const modes = getValidModes(
+      ogasawaraDest,
+      "none",
+      [],
+      { lat: 35.6812, lng: 139.7671 },
+      undefined,
+      "mainland-honshu",
+    );
+    // Transport zone intersection must prevent the "train" default
+    expect(modes).not.toContain("train");
+  });
+});

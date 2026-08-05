@@ -1,5 +1,10 @@
 import type { Destination } from "@/shared/types/destination";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
+import {
+  getEligibleOriginModes,
+  resolveDestinationTransportZone,
+  resolveOriginTransportZone,
+} from "@/shared/services/transport/TransportTopologyService";
 import type { BudgetTier, PriceRange } from "@/shared/types/planner";
 import { MEAL_PRICE_RANGES } from "@/shared/types/planner";
 
@@ -273,8 +278,29 @@ export function getAdjustedBudget(
     const entries = Object.entries(dest.transportOptions || {}).filter(
       ([_, v]) => v !== undefined,
     ) as [string, number][];
-    if (entries.length > 0) {
-      mode = entries.reduce((min, curr) => (curr[1] < min[1] ? curr : min))[0];
+    const eligible = homeCoords
+      ? getEligibleOriginModes({
+          originZoneId: resolveOriginTransportZone({
+            coordinates: homeCoords,
+          }),
+          destinationZoneId: resolveDestinationTransportZone(dest),
+          destination: dest,
+        })
+      : null;
+    const eligibleKeys = eligible
+      ? new Set([
+          ...(eligible.originZoneId === eligible.destinationZoneId
+            ? eligible.localModes
+            : eligible.crossZoneModes),
+        ])
+      : null;
+    const candidates = eligibleKeys
+      ? entries.filter(([m]) => eligibleKeys.has(m as never))
+      : entries;
+    if (candidates.length > 0) {
+      mode = candidates.reduce((min, curr) =>
+        curr[1] < min[1] ? curr : min,
+      )[0];
     }
   }
 

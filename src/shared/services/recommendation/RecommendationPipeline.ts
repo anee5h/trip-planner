@@ -106,9 +106,14 @@ export function diversifyRecommendations(
   ];
 }
 
+export interface CandidateContext {
+  homeStationCoords?: { lat: number; lng: number } | null;
+  originZoneId?: RecommendationContext["originZoneId"];
+}
+
 export function buildRecommendationCandidate(
   destination: Destination,
-  context: Pick<RecommendationContext, "homeStationCoords">,
+  context: CandidateContext,
 ): Destination {
   if (!context.homeStationCoords || !destination.coordinates) {
     return destination;
@@ -162,6 +167,7 @@ export function runRecommendationPipeline(
       context.publicModes,
       context.homeStationCoords || undefined,
       context.budgetTier,
+      context.originZoneId,
     );
     if (modes.length === 0) return false;
     if (
@@ -204,6 +210,7 @@ export function runRecommendationPipeline(
         context.publicModes,
         context.homeStationCoords || undefined,
         context.budgetTier,
+        context.originZoneId,
       ),
     );
     const estimatedCostRange = getEstimatedBudgetRange(

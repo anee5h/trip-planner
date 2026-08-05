@@ -31,6 +31,7 @@ export function createRecommendationMatch(
     publicModes,
     context.homeStationCoords || undefined,
     context.budgetTier,
+    context.originZoneId,
   );
 
   // 1. Budget and Transport Explainability

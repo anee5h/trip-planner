@@ -1,4 +1,10 @@
+import {
+  getEligibleOriginModes,
+  resolveDestinationTransportZone,
+  resolveOriginTransportZone,
+} from "@/shared/services/transport/TransportTopologyService";
 import type { Destination } from "@/shared/types/destination";
+import type { TransportZoneId } from "@/shared/types/transportTopology";
 import {
   resolveRecommendationWeather,
   type RecommendationContext,
@@ -75,6 +81,7 @@ export function getValidModes(
   publicModes: string[] = [],
   homeCoords?: { lat: number; lng: number },
   budgetTier?: import("@/shared/types/planner").BudgetTier,
+  originZoneId?: TransportZoneId,
 ): string[] {
   let validModes: string[] = [];
   if (carMode === "rental" && dest.transportOptions?.car !== undefined)
@@ -84,6 +91,24 @@ export function getValidModes(
 
   for (const m of publicModes) {
     if (m === "flight") {
+      const effectiveZoneId =
+        originZoneId ??
+        (homeCoords
+          ? resolveOriginTransportZone({ coordinates: homeCoords })
+          : undefined);
+      if (effectiveZoneId && effectiveZoneId !== "unknown") {
+        const destinationZoneId = resolveDestinationTransportZone(dest);
+        const topologyModes = getEligibleOriginModes({
+          originZoneId: effectiveZoneId,
+          destinationZoneId,
+          destination: dest,
+        });
+        const edgeAllowsFlight =
+          effectiveZoneId === destinationZoneId
+            ? topologyModes.localModes.includes("flight")
+            : topologyModes.crossZoneModes.includes("flight");
+        if (!edgeAllowsFlight) continue;
+      }
       const flightEst = getFlightTransportEstimate(dest, homeCoords);
       if (flightEst) {
         validModes.push("flight");
@@ -134,6 +159,28 @@ export function getValidModes(
     else validModes = ["train"];
   }
 
+  const effectiveZoneId =
+    originZoneId ??
+    (homeCoords
+      ? resolveOriginTransportZone({ coordinates: homeCoords })
+      : undefined);
+  if (effectiveZoneId && effectiveZoneId !== "unknown" && dest.coordinates) {
+    const destinationZoneId = resolveDestinationTransportZone(dest);
+    const topologyModes = getEligibleOriginModes({
+      originZoneId: effectiveZoneId,
+      destinationZoneId,
+      destination: dest,
+    });
+    // For cross-zone trips only cross-zone edge modes are eligible as
+    // primary transport; same-zone uses the destination's local modes.
+    const allowed = new Set(
+      effectiveZoneId === destinationZoneId
+        ? topologyModes.localModes
+        : topologyModes.crossZoneModes,
+    );
+    validModes = validModes.filter((mode) => allowed.has(mode as never));
+  }
+
   return validModes;
 }
 
@@ -170,6 +217,7 @@ export function calculateScore(
     publicModes,
     context.homeStationCoords || undefined,
     context.budgetTier,
+    context.originZoneId,
   );
 
   // Budget and Transport Logic
