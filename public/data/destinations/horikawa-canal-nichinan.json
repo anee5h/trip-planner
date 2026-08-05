@@ -12,7 +12,7 @@
         "Admire the Edo-period stone walls lining the canal",
         "Enjoy the nostalgic atmosphere of the Aburatsu district"
       ],
-      "openingHours": "Open 24 hours."
+      "openingHours": "Open access (no fixed hours; daylight recommended)"
     },
     "ja": {
       "name": "堀川運河",
@@ -22,12 +22,12 @@
         "江戸時代から残る運河の石垣を見学",
         "油津地区のノスタルジックな雰囲気を楽しむ"
       ],
-      "openingHours": "24時間開放。"
+      "openingHours": "自由見学（時間制限なし、日中推奨）"
     }
   },
   "prefecture": "Miyazaki",
   "region": "Kyushu",
-  "kind": "historical",
+  "kind": "historic",
   "role": "poi",
   "placeType": "destination",
   "relationships": {
@@ -53,11 +53,12 @@
     "Admire the Edo-period stone walls lining the canal",
     "Enjoy the nostalgic atmosphere of the Aburatsu district"
   ],
-  "openingHours": "Open 24 hours.",
-  "openingHoursJa": "24時間開放。",
+  "openingHours": "Open access (no fixed hours; daylight recommended)",
+  "openingHoursJa": "自由見学（時間制限なし、日中推奨）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.kankou-nichinan.jp/tourisms/564/"
+    "sourceUrl": "https://www.kankou-nichinan.jp/tourisms/316/",
+    "hoursNote": "Public outdoor canal; the official tourism page does not publish facility hours."
   },
   "budgetMin": 500,
   "budgetRecommended": 500,
@@ -114,8 +115,8 @@
   "weatherDependence": "medium",
   "reservation": "None required",
   "parking": "Public parking available nearby in Aburatsu",
-  "notes": "Located near Aburatsu Station.",
-  "notesJa": "油津駅から徒歩圏内です。",
+  "notes": "About 10 minutes on foot from Aburatsu Station.",
+  "notesJa": "油津駅から徒歩約10分。",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -128,12 +129,14 @@
     "sources": [
       {
         "type": "official",
-        "url": "https://www.kankou-nichinan.jp/tourisms/564/",
+        "url": "https://www.kankou-nichinan.jp/tourisms/316/",
         "title": "Horikawa Canal Official Website",
         "accessedAt": "2026-08-05"
       },
       {
         "type": "wikipedia",
+        "url": "https://ja.wikipedia.org/wiki/%E5%A0%80%E5%B7%9D%E9%81%8B%E6%B2%B3_%28%E5%AE%AE%E5%B4%8E%E7%9C%8C%29",
+        "title": "堀川運河 (宮崎県)",
         "accessedAt": "2026-08-05"
       }
     ],
@@ -151,6 +154,6 @@
     "reviewedAt": "2026-08-05",
     "reviewedBy": "Kyushu-to-100 Editorial Batch"
   },
-  "officialWebsite": "https://www.kankou-nichinan.jp/tourisms/564/",
+  "officialWebsite": "https://www.kankou-nichinan.jp/tourisms/316/",
   "municipalityId": "Miyazaki:nichinan"
 }

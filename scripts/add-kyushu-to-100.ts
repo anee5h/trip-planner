@@ -1905,7 +1905,7 @@ const POI_HORIKAWA_CANAL: PoiInput = {
   parentId: "nichinan-city",
   prefecture: "Miyazaki",
   municipalityId: "Miyazaki:nichinan",
-  kind: "historical",
+  kind: "historic",
   categories: ["Culture & History", "Leisure"],
   tags: ["Canal", "Historic", "Nichinan City", "Architecture"],
   coordinates: { lat: 31.5791, lng: 131.4018 },
@@ -1929,10 +1929,15 @@ const POI_HORIKAWA_CANAL: PoiInput = {
   imageLicense: "Public domain",
   imageSourceUrl:
     "https://commons.wikimedia.org/wiki/File:Horikawa_canal_horikawa_bridge.jpg",
-  openingHours: "Open 24 hours.",
-  openingHoursJa: "24時間開放。",
-  hoursSourceUrl: "https://www.kankou-nichinan.jp/tourisms/564/",
-  officialWebsite: "https://www.kankou-nichinan.jp/tourisms/564/",
+  openingHours: "Open access (no fixed hours; daylight recommended)",
+  openingHoursJa: "自由見学（時間制限なし、日中推奨）",
+  hoursNote:
+    "Public outdoor canal; the official tourism page does not publish facility hours.",
+  hoursSourceUrl: "https://www.kankou-nichinan.jp/tourisms/316/",
+  officialWebsite: "https://www.kankou-nichinan.jp/tourisms/316/",
+  wikiUrl:
+    "https://ja.wikipedia.org/wiki/%E5%A0%80%E5%B7%9D%E9%81%8B%E6%B2%B3_%28%E5%AE%AE%E5%B4%8E%E7%9C%8C%29",
+  wikiTitle: "堀川運河 (宮崎県)",
   budgetMin: 500,
   budgetRecommended: 500,
   budgetMax: 1000,
@@ -1964,8 +1969,8 @@ const POI_HORIKAWA_CANAL: PoiInput = {
   walkingSunMin: 1000,
   walkingShadeMin: 0,
   comfort: { heatTolerance: 6, rainFriendly: 3, walkingIntensity: 2 },
-  notes: "Located near Aburatsu Station.",
-  notesJa: "油津駅から徒歩圏内です。",
+  notes: "About 10 minutes on foot from Aburatsu Station.",
+  notesJa: "油津駅から徒歩約10分。",
 };
 
 // ==========================================================================
