@@ -1,0 +1,159 @@
+{
+  "id": "yufuin-floral-village",
+  "name": "Yufuin Floral Village",
+  "nameJa": "由布院フローラルヴィレッジ",
+  "aliases": ["Yufuin Floral Village", "由布院フローラルヴィレッジ"],
+  "content": {
+    "en": {
+      "name": "Yufuin Floral Village",
+      "description": "Yufuin Floral Village is a whimsical shopping complex designed like a storybook English countryside village, complete with cobblestone paths and quaint cottages. It features boutique shops, cafés, and gift stores, and is famously featured in the Studio Ghibli-inspired atmosphere of Yufuin.",
+      "highlights": [
+        "Storybook English village aesthetic",
+        "Cobblestone paths & quaint boutique shops",
+        "Studio Ghibli-inspired gift & craft shops"
+      ],
+      "openingHours": "09:30–17:30"
+    },
+    "ja": {
+      "name": "由布院フローラルヴィレッジ",
+      "description": "由布院フローラルヴィレッジはイギリスの田舎町を模したメルヘンチックな商業施設で、石畳の小道と小さなコテージが並びます。ジブリの世界観を思わせる雑貨店やカフェが点在し、由布院の散策スポットとして人気です。",
+      "highlights": [
+        "絵本のようなイギリス風コテージ群",
+        "石畳の小道と小さなショップ巡り",
+        "ジブリ風雑貨店とフォトジェニックな街並み"
+      ],
+      "openingHours": "09:30～17:30"
+    }
+  },
+  "prefecture": "Oita",
+  "region": "Kyushu",
+  "kind": "mixed",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "yufu-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Shopping", "Sightseeing"],
+  "tags": ["Shopping", "Photography", "European Style", "Yufuin"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Yufuin_Floral_Village.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Bpcon98",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yufuin_Floral_Village.jpg"
+  },
+  "coordinates": {
+    "lat": 33.2642,
+    "lng": 131.3547
+  },
+  "description": "Yufuin Floral Village is a whimsical shopping complex designed like a storybook English countryside village, complete with cobblestone paths and quaint cottages. It features boutique shops, cafés, and gift stores, and is famously featured in the Studio Ghibli-inspired atmosphere of Yufuin.",
+  "highlights": [
+    "Storybook English village aesthetic",
+    "Cobblestone paths & quaint boutique shops",
+    "Studio Ghibli-inspired gift & craft shops"
+  ],
+  "budgetMin": 2000,
+  "budgetRecommended": 6000,
+  "budgetMax": 12000,
+  "budgetBreakdown": {
+    "transport": 700,
+    "tickets": 0,
+    "food": 800,
+    "cafe": 200
+  },
+  "transportOptions": {
+    "train": 300,
+    "shinkansen": 410
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2.5
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1500,
+  "indoorPercent": 40,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8,
+    "couple": 9,
+    "summer": 8.3,
+    "winter": 8,
+    "rain": 7.8,
+    "food": 8,
+    "photography": 9.3,
+    "relaxation": 8,
+    "value": 7.8,
+    "uniqueness": 8.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Nearby paid parking",
+  "notes": "Many ryokan offer day-use bathing — book popular ones well in advance.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://floral-village.com/",
+        "title": "Yufuin Floral Village Official Website",
+        "accessedAt": "2026-08-04"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Yufuin_Onsen",
+        "title": "Yufuin Onsen",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Yufuin Floral Village",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://floral-village.com/",
+  "municipalityId": "Oita:yufu",
+  "openingHours": "09:30–17:30",
+  "openingHoursJa": "09:30～17:30",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  },
+  "notesJa": "多くの旅館で日帰り入浴が可能。人気旅館は早めの予約を。"
+}

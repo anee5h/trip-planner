@@ -1,0 +1,153 @@
+{
+  "id": "heiwadai-park-miyazaki",
+  "name": "Heiwadai Park & Haniwa Garden",
+  "nameJa": "平和台公園・はにわ園",
+  "aliases": ["Heiwadai Park & Haniwa Garden", "平和台公園・はにわ園"],
+  "content": {
+    "en": {
+      "name": "Heiwadai Park & Haniwa Garden",
+      "description": "Heiwadai Park is a hilltop park built to commemorate the 2,600th anniversary of the legendary Emperor Jimmu's enthronement. Its centerpiece is the 37-meter Peace Tower, and the adjacent Haniwa Garden displays hundreds of replica ancient clay figures (haniwa) excavated from local burial mounds, offering a unique glimpse into Japan's Kofun period.",
+      "highlights": [
+        "37m Peace Tower monument",
+        "Hundreds of replica haniwa clay figures",
+        "Panoramic hilltop views of Miyazaki"
+      ],
+      "openingHours": "Open 24 hours"
+    },
+    "ja": {
+      "name": "平和台公園・はにわ園",
+      "description": "平和台公園は神武天皇即位2600年を記念して造られた丘陵公園で、中心にそびえる高さ37mの平和の塔が象徴的です。隣接するはにわ園には宮崎県内の古墳から出土した埴輪のレプリカ数百体が展示され、古代のロマンを感じさせます。",
+      "highlights": [
+        "高さ37mの平和の塔",
+        "数百体の埴輪レプリカ展示",
+        "丘の上からの宮崎市街パノラマ"
+      ],
+      "openingHours": "24時間営業"
+    }
+  },
+  "prefecture": "Miyazaki",
+  "region": "Kyushu",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "miyazaki-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Sightseeing", "History"],
+  "tags": ["Park", "Peace Tower", "Haniwa", "Miyazaki City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/ec/View_of_Tower_of_Peace_in_Heiwadai_Park_4.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Tower_of_Peace_in_Heiwadai_Park_4.jpg"
+  },
+  "coordinates": {
+    "lat": 31.95,
+    "lng": 131.4153
+  },
+  "description": "Heiwadai Park is a hilltop park built to commemorate the 2,600th anniversary of the legendary Emperor Jimmu's enthronement. Its centerpiece is the 37-meter Peace Tower, and the adjacent Haniwa Garden displays hundreds of replica ancient clay figures (haniwa) excavated from local burial mounds, offering a unique glimpse into Japan's Kofun period.",
+  "highlights": [
+    "37m Peace Tower monument",
+    "Hundreds of replica haniwa clay figures",
+    "Panoramic hilltop views of Miyazaki"
+  ],
+  "budgetMin": 1000,
+  "budgetRecommended": 3000,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 350,
+    "tickets": 0,
+    "food": 400,
+    "cafe": 100
+  },
+  "transportOptions": {
+    "train": 335,
+    "shinkansen": 445
+  },
+  "totalTripHours": 2,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 3500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 2000,
+  "walkingShadeMin": 1500,
+  "indoorPercent": 5,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8,
+    "couple": 8,
+    "summer": 8.3,
+    "winter": 8,
+    "rain": 7.3,
+    "food": 7,
+    "photography": 8.5,
+    "relaxation": 8.3,
+    "value": 9,
+    "uniqueness": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8,
+    "summer": 8,
+    "autumn": 8,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Park parking available",
+  "notes": "The park is a popular cherry blossom spot in late March.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Heiwadai_Park",
+        "title": "Heiwadai Park",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Heiwadai Park & Haniwa Garden",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": null,
+  "municipalityId": "Miyazaki:miyazaki",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  },
+  "notesJa": "3月下旬の桜の名所として知られています。"
+}

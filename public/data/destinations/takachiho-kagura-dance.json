@@ -1,0 +1,159 @@
+{
+  "id": "takachiho-kagura-dance",
+  "name": "Takachiho Kagura Night Dance",
+  "nameJa": "高千穂神楽・夜神楽",
+  "aliases": ["Takachiho Kagura Night Dance", "高千穂神楽・夜神楽"],
+  "content": {
+    "en": {
+      "name": "Takachiho Kagura Night Dance",
+      "description": "Takachiho Kagura is an ancient Shinto ritual dance performed nightly at Takachiho Shrine, retelling the myth of Amaterasu hiding in the cave through mesmerizing masked performances. The full 33-dance cycle lasts all night at the annual Yokagura festival, but a condensed 1-hour highlight version is presented year-round to visitors.",
+      "highlights": [
+        "Nightly Shinto ritual masked dance",
+        "Amaterasu mythology performed live",
+        "UNESCO Intangible Cultural Heritage"
+      ],
+      "openingHours": "20:00–21:00 (Nightly performances)"
+    },
+    "ja": {
+      "name": "高千穂神楽・夜神楽",
+      "description": "高千穂神楽は高千穂神社で毎夜奉納される古来の神楽で、天岩戸神話を題材にした面をつけた舞が幻想的です。11月〜2月の夜神楽シーズンには全33番の神楽が一晩かけて舞われますが、通年で1時間のハイライト版を観覧できます。",
+      "highlights": [
+        "毎夜奉納の神楽・面舞",
+        "天照大神伝説を再現する舞台",
+        "ユネスコ無形文化遺産の伝統芸能"
+      ],
+      "openingHours": "20:00～21:00（毎晩公演）"
+    }
+  },
+  "prefecture": "Miyazaki",
+  "region": "Kyushu",
+  "kind": "event",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "takachiho-town"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture", "Entertainment"],
+  "tags": ["Culture", "Dance", "Shinto", "Takachiho"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Yokagura_Sacred_Dance_%2831561847845%29.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "attribution": "publichall",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yokagura_Sacred_Dance_(31561847845).jpg"
+  },
+  "coordinates": {
+    "lat": 32.7136,
+    "lng": 131.3078
+  },
+  "description": "Takachiho Kagura is an ancient Shinto ritual dance performed nightly at Takachiho Shrine, retelling the myth of Amaterasu hiding in the cave through mesmerizing masked performances. The full 33-dance cycle lasts all night at the annual Yokagura festival, but a condensed 1-hour highlight version is presented year-round to visitors.",
+  "highlights": [
+    "Nightly Shinto ritual masked dance",
+    "Amaterasu mythology performed live",
+    "UNESCO Intangible Cultural Heritage"
+  ],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 525,
+    "tickets": 700,
+    "food": 600,
+    "cafe": 150
+  },
+  "transportOptions": {
+    "train": 355,
+    "shinkansen": 465
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 1500,
+  "indoorPercent": 80,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 9,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 8.8,
+    "summer": 8.5,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 7.5,
+    "photography": 8.8,
+    "relaxation": 8,
+    "value": 8.5,
+    "uniqueness": 9.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 9
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "low",
+  "reservation": "Recommended; evening performances sell out",
+  "parking": "Nearby public parking",
+  "notes": "No photography or video is permitted during the nightly dance performance.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://takachiho-kanko.info/kagura/",
+        "title": "Takachiho Kagura Night Dance Official Website",
+        "accessedAt": "2026-08-04"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Takachiho,_Miyazaki",
+        "title": "Takachiho, Miyazaki",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Takachiho Kagura Night Dance",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://takachiho-kanko.info/kagura/",
+  "municipalityId": "Miyazaki:takachiho",
+  "openingHours": "20:00–21:00 (Nightly performances)",
+  "openingHoursJa": "20:00～21:00（毎晩公演）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://takachiho-kanko.info/en/"
+  },
+  "notesJa": "毎夜の演舞中は写真・ビデオ撮影が禁止されています。"
+}

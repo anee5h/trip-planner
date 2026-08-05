@@ -1,0 +1,162 @@
+{
+  "id": "nagasaki-peace-park",
+  "name": "Nagasaki Peace Park & Atomic Bomb Museum",
+  "nameJa": "長崎平和公園・原爆資料館",
+  "aliases": [
+    "Nagasaki Peace Park & Atomic Bomb Museum",
+    "長崎平和公園・原爆資料館"
+  ],
+  "content": {
+    "en": {
+      "name": "Nagasaki Peace Park & Atomic Bomb Museum",
+      "description": "Nagasaki Peace Park and the adjacent Atomic Bomb Museum commemorate the events of August 9, 1945 and promote a message of peace. The park features the iconic Peace Statue and monuments donated from around the world, while the museum documents the history with powerful exhibits.",
+      "highlights": [
+        "Iconic Peace Statue by Seibo Kitamura",
+        "International peace monuments",
+        "Atomic Bomb Museum historical exhibits"
+      ],
+      "openingHours": "Open 24 hours"
+    },
+    "ja": {
+      "name": "長崎平和公園・原爆資料館",
+      "description": "長崎平和公園と隣接する長崎原爆資料館は、1945年8月9日の原爆投下を記憶し平和を発信する場所です。公園には北村西望作の平和祈念像がそびえ、世界各国から寄贈された平和モニュメントが点在。資料館では被爆の実相を伝える展示が行われています。",
+      "highlights": [
+        "北村西望作の巨大平和祈念像",
+        "世界各国からの平和モニュメント",
+        "原爆資料館の被爆遺物と歴史展示"
+      ],
+      "openingHours": "24時間営業"
+    }
+  },
+  "prefecture": "Nagasaki",
+  "region": "Kyushu",
+  "kind": "memorial",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "nagasaki-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History", "Culture"],
+  "tags": ["History", "Peace", "Memorial", "Nagasaki City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f5/20190202_Nagasaki_Peace_Park_Statue_of_Peace-2.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Balon Greyjoy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:20190202_Nagasaki_Peace_Park_Statue_of_Peace-2.jpg"
+  },
+  "coordinates": {
+    "lat": 32.7763,
+    "lng": 129.8631
+  },
+  "description": "Nagasaki Peace Park and the adjacent Atomic Bomb Museum commemorate the events of August 9, 1945 and promote a message of peace. The park features the iconic Peace Statue and monuments donated from around the world, while the museum documents the history with powerful exhibits.",
+  "highlights": [
+    "Iconic Peace Statue by Seibo Kitamura",
+    "International peace monuments",
+    "Atomic Bomb Museum historical exhibits"
+  ],
+  "budgetMin": 2000,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budgetBreakdown": {
+    "transport": 700,
+    "tickets": 200,
+    "food": 800,
+    "cafe": 200
+  },
+  "transportOptions": {
+    "train": 270,
+    "shinkansen": 370
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 5000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 2000,
+  "walkingShadeMin": 3000,
+  "indoorPercent": 40,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 9.3,
+    "couple": 8.5,
+    "summer": 8.2,
+    "winter": 8.8,
+    "rain": 8.5,
+    "food": 7.2,
+    "photography": 9,
+    "relaxation": 7.5,
+    "value": 9.5,
+    "uniqueness": 9.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "Museum parking available",
+  "notes": "Allow at least two hours to visit both the Peace Park and Atomic Bomb Museum.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://nagasakipeace.jp/",
+        "title": "Nagasaki Peace Park & Atomic Bomb Museum Official Website",
+        "accessedAt": "2026-08-04"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Nagasaki_Peace_Park",
+        "title": "Nagasaki Peace Park",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Nagasaki Peace Park & Atomic Bomb Museum",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://nagasakipeace.jp/",
+  "municipalityId": "Nagasaki:nagasaki",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  },
+  "notesJa": "平和公園と原爆資料館を合わせて最低2時間は確保しましょう。"
+}

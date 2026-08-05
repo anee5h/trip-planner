@@ -7,12 +7,14 @@
     "en": {
       "name": "Maizuru Park",
       "description": "Maizuru Park is a visitor destination in Fukuoka City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
-      "highlights": ["Nature"]
+      "highlights": ["Nature"],
+      "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "舞鶴公園",
       "description": "舞鶴公園はFukuoka Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["自然"]
+      "highlights": ["自然"],
+      "openingHours": "24時間営業"
     }
   },
   "prefecture": "Fukuoka",
@@ -101,14 +103,14 @@
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
   "schemaVersion": 2,
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "medium"
   },
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "in_review",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "wikipedia",
@@ -123,8 +125,8 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due",
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
     "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
@@ -157,13 +159,20 @@
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       }
-    ]
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "ratingMetadata": {
     "rubricVersion": 1,
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "Open access",
-  "municipalityId": "Fukuoka:fukuoka"
+  "municipalityId": "Fukuoka:fukuoka",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  }
 }

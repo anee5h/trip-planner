@@ -62,7 +62,7 @@
   "reservation": "None required",
   "parking": "Public parking available",
   "notes": "Fukuoka City travel hub in Fukuoka Prefecture.",
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -100,7 +100,29 @@
     "min": 6,
     "max": 12
   },
-  "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Fukuoka:fukuoka"
+  "municipalityId": "Fukuoka:fukuoka",
+  "nameJa": "福岡市",
+  "aliases": ["Fukuoka City", "福岡市"],
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-04",
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Fukuoka_City",
+        "title": "Fukuoka City",
+        "accessedAt": "2026-08-04"
+      }
+    ]
+  },
+  "openingHours": "No fixed opening hours (city area)",
+  "openingHoursJa": "営業時間の設定なし（市内エリア）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/fukuoka-city/"
+  }
 }

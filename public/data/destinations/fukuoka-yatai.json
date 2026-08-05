@@ -7,12 +7,14 @@
     "en": {
       "name": "Fukuoka Yatai",
       "description": "Fukuoka Yatai is a visitor destination in Fukuoka City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
-      "highlights": ["Food", "Market"]
+      "highlights": ["Food", "Market"],
+      "openingHours": "Typically 18:00–02:00"
     },
     "ja": {
       "name": "福岡の屋台",
       "description": "福岡の屋台はFukuoka Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["グルメ", "市場"]
+      "highlights": ["グルメ", "市場"],
+      "openingHours": "通常 18:00～02:00"
     }
   },
   "prefecture": "Fukuoka",
@@ -101,14 +103,14 @@
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
   "schemaVersion": 2,
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "medium"
   },
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "in_review",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "tourism_board",
@@ -123,8 +125,8 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due",
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
     "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
@@ -157,13 +159,20 @@
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       }
-    ]
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "ratingMetadata": {
     "rubricVersion": 1,
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "09:30 - 17:00 (Closed Mondays)",
-  "municipalityId": "Fukuoka:fukuoka"
+  "municipalityId": "Fukuoka:fukuoka",
+  "openingHours": "Typically 18:00–02:00",
+  "openingHoursJa": "通常 18:00～02:00",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://yokanavi.com/en/yatai/"
+  }
 }

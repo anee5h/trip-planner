@@ -1,0 +1,153 @@
+{
+  "id": "yufuin-onsen-ryokan-district",
+  "name": "Yufuin Onsen District",
+  "nameJa": "由布院温泉郷",
+  "aliases": ["Yufuin Onsen District", "由布院温泉郷"],
+  "content": {
+    "en": {
+      "name": "Yufuin Onsen District",
+      "description": "Yufuin Onsen is one of Japan's most beloved hot spring towns, nestled at the base of Mount Yufu (Yufudake). Unlike Beppu's dramatic hells, Yufuin charms with its serene countryside atmosphere, upscale ryokan with open-air baths overlooking rice paddies, and a walkable main street lined with cafés and artisan shops.",
+      "highlights": [
+        "Open-air rotenburo with Mount Yufu views",
+        "Charming ryokan & boutique inns",
+        "Lake Kinrin morning mist & café street"
+      ],
+      "openingHours": "No fixed opening hours (district area)"
+    },
+    "ja": {
+      "name": "由布院温泉郷",
+      "description": "由布院温泉は由布岳の麓に広がる全国有数の温泉地で、別府のような派手さはなく、田園風景に溶け込む露天風呂付きの高級旅館と洗練されたカフェや工芸品店が続く湯の坪街道が魅力です。湖畔の朝霧と合わせて、のんびりした湯治体験が楽しめます。",
+      "highlights": [
+        "由布岳を望む露天風呂付き旅館",
+        "湯の坪街道のカフェと工芸品店巡り",
+        "金鱗湖の朝霧と温泉情緒"
+      ],
+      "openingHours": "営業時間の設定なし（地区エリア）"
+    }
+  },
+  "prefecture": "Oita",
+  "region": "Kyushu",
+  "kind": "onsen",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "yufu-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Hot Springs & Wellness", "Sightseeing"],
+  "tags": ["Onsen", "Ryokan", "Yufuin", "Wellness"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Yufuin_Onsen_-Mus%C5%8Den_02.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "attribution": "Yasuhiro from Tokyo, Japan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yufuin_Onsen_-Mus%C5%8Den_02.jpg"
+  },
+  "coordinates": {
+    "lat": 33.2633,
+    "lng": 131.3556
+  },
+  "description": "Yufuin Onsen is one of Japan's most beloved hot spring towns, nestled at the base of Mount Yufu (Yufudake). Unlike Beppu's dramatic hells, Yufuin charms with its serene countryside atmosphere, upscale ryokan with open-air baths overlooking rice paddies, and a walkable main street lined with cafés and artisan shops.",
+  "highlights": [
+    "Open-air rotenburo with Mount Yufu views",
+    "Charming ryokan & boutique inns",
+    "Lake Kinrin morning mist & café street"
+  ],
+  "budgetMin": 3000,
+  "budgetRecommended": 10000,
+  "budgetMax": 25000,
+  "budgetBreakdown": {
+    "transport": 1050,
+    "tickets": 0,
+    "food": 1200,
+    "cafe": 300
+  },
+  "transportOptions": {
+    "train": 300,
+    "shinkansen": 410
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 6
+  },
+  "walkingMin": 5000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 2500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 50,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 9,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9.3,
+    "couple": 9.5,
+    "summer": 8.5,
+    "winter": 9.3,
+    "rain": 8.8,
+    "food": 9.3,
+    "photography": 9,
+    "relaxation": 9.5,
+    "value": 8,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 9
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "low",
+  "reservation": "Recommended for ryokan stays",
+  "parking": "Ryokan parking available",
+  "notes": "Free entry to a British-cottage-style shopping complex popular with families.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Yufuin_Onsen",
+        "title": "Yufuin Onsen",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Yufuin Onsen District",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": null,
+  "municipalityId": "Oita:yufu",
+  "openingHours": "No fixed opening hours (district area)",
+  "openingHoursJa": "営業時間の設定なし（地区エリア）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/yufuin-onsen-ryokan-district/"
+  },
+  "notesJa": "入場無料の英国風ショッピング施設で家族連れに人気です。"
+}

@@ -1,0 +1,159 @@
+{
+  "id": "nakadake-crater-aso",
+  "name": "Nakadake Crater",
+  "nameJa": "阿蘇中岳火口",
+  "aliases": ["Nakadake Crater", "阿蘇中岳火口"],
+  "content": {
+    "en": {
+      "name": "Nakadake Crater",
+      "description": "Nakadake Crater is the active volcanic crater at the heart of Mount Aso, Japan's largest active volcano. Visitors can walk to the rim and peer into the churning turquoise crater lake — one of the most accessible active volcanic vents in the world. The crater may close during high volcanic activity; check conditions before visiting.",
+      "highlights": [
+        "Active volcanic crater with turquoise lake",
+        "One of the world's most accessible craters",
+        "Dramatic volcanic landscape & gas plumes"
+      ],
+      "openingHours": "09:00–17:00 (Crater access varies by volcanic activity)"
+    },
+    "ja": {
+      "name": "阿蘇中岳火口",
+      "description": "阿蘇中岳火口は日本最大の活火山・阿蘇山の中心に位置する活発な火口で、遊歩道で火口縁まで近づきエメラルドグリーンの火口湖を間近に眺められます。火山活動状況により立入規制があるため、訪問前に最新情報を確認してください。",
+      "highlights": [
+        "エメラルドグリーンの火口湖を間近に",
+        "世界有数のアクセス可能な活火口",
+        "迫力の噴煙と火山ガスの景観"
+      ],
+      "openingHours": "09:00～17:00（火口見学は火山活動により変動あり）"
+    }
+  },
+  "prefecture": "Kumamoto",
+  "region": "Kyushu",
+  "kind": "nature",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "aso-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Nature & Outdoors", "Sightseeing"],
+  "tags": ["Volcano", "Crater", "Hiking", "Aso"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Mt.Aso_and_caldera01.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Miya.m",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt.Aso_and_caldera01.jpg"
+  },
+  "coordinates": {
+    "lat": 32.8844,
+    "lng": 131.1039
+  },
+  "description": "Nakadake Crater is the active volcanic crater at the heart of Mount Aso, Japan's largest active volcano. Visitors can walk to the rim and peer into the churning turquoise crater lake — one of the most accessible active volcanic vents in the world. The crater may close during high volcanic activity; check conditions before visiting.",
+  "highlights": [
+    "Active volcanic crater with turquoise lake",
+    "One of the world's most accessible craters",
+    "Dramatic volcanic landscape & gas plumes"
+  ],
+  "budgetMin": 2000,
+  "budgetRecommended": 5000,
+  "budgetMax": 8000,
+  "budgetBreakdown": {
+    "transport": 700,
+    "tickets": 0,
+    "food": 800,
+    "cafe": 200
+  },
+  "transportOptions": {
+    "train": 320,
+    "shinkansen": 430
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 6000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 3000,
+  "walkingShadeMin": 3000,
+  "indoorPercent": 0,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 9.3,
+    "couple": 8.8,
+    "summer": 9,
+    "winter": 8,
+    "rain": 6.5,
+    "food": 7.5,
+    "photography": 9.5,
+    "relaxation": 7.5,
+    "value": 9.3,
+    "uniqueness": 9.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "high",
+  "reservation": "None required; check volcanic activity alerts before visiting",
+  "parking": "Crater parking available",
+  "notes": "Crater access may close at short notice depending on volcanic gas levels.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.aso.ne.jp/",
+        "title": "Nakadake Crater Official Website",
+        "accessedAt": "2026-08-04"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Aso",
+        "title": "Mount Aso",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Nakadake Crater",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://www.aso.ne.jp/",
+  "municipalityId": "Kumamoto:aso",
+  "openingHours": "09:00–17:00 (Crater access varies by volcanic activity)",
+  "openingHoursJa": "09:00～17:00（火口見学は火山活動により変動あり）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.aso-volcano.jp/eng/"
+  },
+  "notesJa": "火山ガス濃度により火口見学が突然中止になることがあります。"
+}

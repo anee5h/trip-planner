@@ -1,0 +1,161 @@
+{
+  "id": "toto-museum-kitakyushu",
+  "name": "TOTO Museum",
+  "nameJa": "TOTOミュージアム",
+  "aliases": ["TOTO Museum", "TOTOミュージアム"],
+  "content": {
+    "en": {
+      "name": "TOTO Museum",
+      "description": "The TOTO Museum celebrates the centennial of the renowned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene. About 10 minutes on foot from Kawaraguchi Mihagino Station or 15 minutes by bus from JR Kokura Station.",
+      "highlights": [
+        "Evolution of Japanese toilets and sanitary ware",
+        "Futuristic architectural design",
+        "Historical artifacts from TOTO's founding"
+      ],
+      "openingHours": "10:00–17:00 (last admission 16:30)"
+    },
+    "ja": {
+      "name": "TOTOミュージアム",
+      "description": "TOTOミュージアムは、北九州市に位置するTOTO創立100周年記念施設です。日本の水まわり文化の変遷や、衛生陶器・ウォシュレットの技術進化を実物展示とともに学べる、世界的にも珍しい博物館です。",
+      "highlights": [
+        "衛生陶器と水まわり製品の歴史展示",
+        "目を引く斬新な建築デザイン",
+        "TOTOの歴史的な製品群"
+      ],
+      "openingHours": "10:00～17:00（最終入館16:30）"
+    }
+  },
+  "prefecture": "Fukuoka",
+  "region": "Kyushu",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "kitakyushu-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Museum & Art", "Culture"],
+  "tags": ["Museum", "Industrial", "Architecture", "Kitakyushu City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Kitakyushu_%28%E5%8C%97%E4%B9%9D%E5%B7%9E%29%2C_Fukuoka_Prefecture%2C_Japan_February_2026_-_TOTO_Museum.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "Sharon Hahn Darlin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kitakyushu_(%E5%8C%97%E4%B9%9D%E5%B7%9E),_Fukuoka_Prefecture,_Japan_February_2026_-_TOTO_Museum.jpg"
+  },
+  "coordinates": {
+    "lat": 33.8711,
+    "lng": 130.8803
+  },
+  "description": "The TOTO Museum celebrates the centennial of the renowned sanitary ware manufacturer. Located in Kitakyushu, the museum showcases the evolution of plumbing technology, innovative toilet designs, and cultural changes in Japanese bathing and hygiene. About 10 minutes on foot from Kawaraguchi Mihagino Station or 15 minutes by bus from JR Kokura Station.",
+  "highlights": [
+    "Evolution of Japanese toilets and sanitary ware",
+    "Futuristic architectural design",
+    "Historical artifacts from TOTO's founding"
+  ],
+  "openingHours": "10:00–17:00 (last admission 16:30)",
+  "openingHoursJa": "10:00～17:00（最終入館16:30）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://jp.toto.com/knowledge/visit/museum/",
+    "lastAdmission": "16:30",
+    "closedDays": "Mondays (including public holiday Mondays), summer holidays, and year-end/New Year holidays"
+  },
+  "budgetMin": 500,
+  "budgetRecommended": 1500,
+  "budgetMax": 3000,
+  "budgetBreakdown": {
+    "transport": 175,
+    "tickets": 0,
+    "food": 200,
+    "cafe": 50
+  },
+  "transportOptions": {
+    "train": 200
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3
+  },
+  "walkingMin": 2000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 1500,
+  "indoorPercent": 95,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 10,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.5,
+    "couple": 7.5,
+    "summer": 9,
+    "winter": 9,
+    "rain": 9.5,
+    "food": 6,
+    "photography": 8,
+    "relaxation": 7.5,
+    "value": 9.5,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 8,
+    "summer": 9,
+    "autumn": 8,
+    "winter": 9
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "low",
+  "reservation": "Self-guided individual visits: no reservation needed. Guided visits and groups of 20 or more require advance reservation.",
+  "parking": "Free parking available",
+  "notes": "Guided visits and groups of 20 or more require advance reservation.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://jp.toto.com/knowledge/visit/en_museum/",
+        "title": "TOTO Museum Official Website",
+        "accessedAt": "2026-08-04"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/TOTO_(company)",
+        "title": "TOTO (company)",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: TOTO Museum",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://jp.toto.com/knowledge/visit/en_museum/",
+  "municipalityId": "Fukuoka:kitakyushu",
+  "notesJa": "ガイド付き見学と20名以上の団体は事前予約が必要です。",
+  "reservationJa": "個人での自由見学は予約不要。ガイド付き見学と20名以上の団体は事前予約が必要です。"
+}

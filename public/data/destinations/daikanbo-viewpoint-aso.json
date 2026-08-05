@@ -1,0 +1,153 @@
+{
+  "id": "daikanbo-viewpoint-aso",
+  "name": "Daikanbo Viewpoint",
+  "nameJa": "大観峰",
+  "aliases": ["Daikanbo Viewpoint", "大観峰"],
+  "content": {
+    "en": {
+      "name": "Daikanbo Viewpoint",
+      "description": "Daikanbo is the premier panoramic viewpoint of the Aso caldera at 936 meters elevation, offering a breathtaking 360-degree view of the five peaks of Mount Aso, the vast caldera floor, and on clear days as far as the Kuju mountain range. The sea of clouds phenomenon at sunrise is particularly spectacular.",
+      "highlights": [
+        "360° caldera panorama at 936m",
+        "Five peaks of Mount Aso in one view",
+        "Spectacular sunrise sea of clouds"
+      ],
+      "openingHours": "Open 24 hours"
+    },
+    "ja": {
+      "name": "大観峰",
+      "description": "大観峰（標高936m）は阿蘇カルデラを一望できる最高の展望スポットで、阿蘇五岳と広大なカルデラの底、晴れた日には九重連山まで360度の大パノラマが広がります。早朝の雲海が特に神秘的で、阿蘇観光のハイライトです。",
+      "highlights": [
+        "936mの絶景360度カルデラパノラマ",
+        "阿蘇五岳の全容を一望",
+        "早朝に現れる神秘的な雲海"
+      ],
+      "openingHours": "24時間営業"
+    }
+  },
+  "prefecture": "Kumamoto",
+  "region": "Kyushu",
+  "kind": "nature",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "aso-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Sightseeing", "Nature & Outdoors"],
+  "tags": ["Viewpoint", "Caldera", "Panorama", "Aso"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Daikanb%C5%8D_Lookout%2C_Yamada%2C_Aso%2C_Kumamoto_-_Jul_9%2C_2011.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "attribution": "t-mizo",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Daikanbō_Lookout,_Yamada,_Aso,_Kumamoto_-_Jul_9,_2011.jpg"
+  },
+  "coordinates": {
+    "lat": 32.9983,
+    "lng": 131.0744
+  },
+  "description": "Daikanbo is the premier panoramic viewpoint of the Aso caldera at 936 meters elevation, offering a breathtaking 360-degree view of the five peaks of Mount Aso, the vast caldera floor, and on clear days as far as the Kuju mountain range. The sea of clouds phenomenon at sunrise is particularly spectacular.",
+  "highlights": [
+    "360° caldera panorama at 936m",
+    "Five peaks of Mount Aso in one view",
+    "Spectacular sunrise sea of clouds"
+  ],
+  "budgetMin": 1000,
+  "budgetRecommended": 3000,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 350,
+    "tickets": 0,
+    "food": 400,
+    "cafe": 100
+  },
+  "transportOptions": {
+    "train": 325,
+    "shinkansen": 435
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  },
+  "walkingMin": 2000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 1000,
+  "walkingShadeMin": 1000,
+  "indoorPercent": 0,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 4,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9.3,
+    "summer": 9,
+    "winter": 8.5,
+    "rain": 6,
+    "food": 7,
+    "photography": 9.5,
+    "relaxation": 9,
+    "value": 9.5,
+    "uniqueness": 9.3
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Viewpoint parking available",
+  "notes": "Sunrise and sunset offer the most dramatic caldera panoramas.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Aso",
+        "title": "Mount Aso",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Daikanbo Viewpoint",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": null,
+  "municipalityId": "Kumamoto:aso",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  },
+  "notesJa": "カルデラを眺めるなら朝日か夕暮れが最も幻想的です。"
+}

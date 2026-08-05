@@ -69,8 +69,8 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "notes": "Mount Aso Active Caldera located in Kumamoto Prefecture.",
-  "status": "beta",
+  "notes": "Crater access depends on volcanic gas levels — check conditions before departing.",
+  "status": "published",
   "relationships": {
     "featuredDestinationIds": [],
     "nearbyDestinationIds": [],
@@ -80,14 +80,47 @@
   "walkingIntensity": "low",
   "walkingSunMin": 1800,
   "walkingShadeMin": 1200,
-  "role": "standalone",
+  "role": "poi",
   "placeType": "destination",
   "recommendedVisitHours": {
     "min": 3,
     "max": 5
   },
   "officialWebsite": "https://www.aso-kankou.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Kumamoto:aso"
+  "municipalityId": "Kumamoto:aso",
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-04",
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Aso",
+        "title": "Mount Aso",
+        "accessedAt": "2026-08-04"
+      }
+    ]
+  },
+  "content": {
+    "ja": {
+      "name": "阿蘇山",
+      "description": "阿蘇山は世界最大級のカルデラを持つ活火山で、中岳火口を間近に見学できる日本屈指の火山観光スポットです。周囲約120kmのカルデラ内には草原や温泉が広がり、壮大なジオパーク景観が楽しめます。",
+      "highlights": [
+        "世界最大級のカルデラ地形",
+        "中岳火口の迫力ある噴煙",
+        "広大な草千里ヶ浜の草原景観"
+      ],
+      "openingHours": "24時間営業"
+    }
+  },
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  },
+  "notesJa": "火口見学は火山ガス濃度次第。出発前に状況確認を。"
 }

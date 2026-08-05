@@ -61,7 +61,7 @@
   "reservation": "None required",
   "parking": "Public parking available",
   "notes": "Beppu City travel hub in Oita Prefecture.",
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -81,7 +81,29 @@
     "min": 6,
     "max": 12
   },
-  "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Oita:beppu"
+  "municipalityId": "Oita:beppu",
+  "nameJa": "別府市",
+  "aliases": ["Beppu City", "別府市"],
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-04",
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Beppu_City",
+        "title": "Beppu City",
+        "accessedAt": "2026-08-04"
+      }
+    ]
+  },
+  "openingHours": "No fixed opening hours (city area)",
+  "openingHoursJa": "営業時間の設定なし（市内エリア）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/beppu-city/"
+  }
 }

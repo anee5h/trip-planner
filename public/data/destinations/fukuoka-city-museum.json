@@ -1,0 +1,159 @@
+{
+  "id": "fukuoka-city-museum",
+  "name": "Fukuoka City Museum",
+  "nameJa": "福岡市博物館",
+  "aliases": ["Fukuoka City Museum", "福岡市博物館"],
+  "content": {
+    "en": {
+      "name": "Fukuoka City Museum",
+      "description": "The Fukuoka City Museum showcases the history and culture of Fukuoka from ancient times to the present. Its most famous exhibit is the solid gold seal 'King of Na of Wa' (a National Treasure) discovered on Shikanoshima Island, dating from the 1st century AD.",
+      "highlights": [
+        "National Treasure gold seal of 'King of Na'",
+        "Fukuoka history from ancient to modern",
+        "Special exhibitions and cultural events"
+      ],
+      "openingHours": "09:30–17:30"
+    },
+    "ja": {
+      "name": "福岡市博物館",
+      "description": "福岡市博物館は古代から現代までの福岡の歴史と文化を紹介する総合博物館です。最大の見どころは志賀島で発見された国宝「金印」（漢委奴国王印）で、1世紀の日本と大陸との交流を物語る貴重な文化財です。",
+      "highlights": [
+        "国宝『金印』（漢委奴国王印）の常設展示",
+        "福岡の歴史とアジア交流の展示",
+        "企画展と市民文化イベント"
+      ],
+      "openingHours": "09:30～17:30"
+    }
+  },
+  "prefecture": "Fukuoka",
+  "region": "Kyushu",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "fukuoka-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Museum & Art", "Culture"],
+  "tags": ["Museum", "History", "Fukuoka City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4e/FukuokaCity_Museum_2018.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Nkmr844",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:FukuokaCity_Museum_2018.jpg"
+  },
+  "coordinates": {
+    "lat": 33.5881,
+    "lng": 130.3531
+  },
+  "description": "The Fukuoka City Museum showcases the history and culture of Fukuoka from ancient times to the present. Its most famous exhibit is the solid gold seal 'King of Na of Wa' (a National Treasure) discovered on Shikanoshima Island, dating from the 1st century AD.",
+  "highlights": [
+    "National Treasure gold seal of 'King of Na'",
+    "Fukuoka history from ancient to modern",
+    "Special exhibitions and cultural events"
+  ],
+  "budgetMin": 2000,
+  "budgetRecommended": 5000,
+  "budgetMax": 8000,
+  "budgetBreakdown": {
+    "transport": 700,
+    "tickets": 200,
+    "food": 800,
+    "cafe": 200
+  },
+  "transportOptions": {
+    "train": 210,
+    "shinkansen": 310
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3
+  },
+  "walkingMin": 3500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 3000,
+  "indoorPercent": 80,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 9,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.6,
+    "rain": 9.2,
+    "food": 7.5,
+    "photography": 8.3,
+    "relaxation": 7.8,
+    "value": 9,
+    "uniqueness": 9.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "Museum parking available",
+  "notes": "The National Treasure gold seal is the highlight of the permanent collection.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://museum.city.fukuoka.jp/",
+        "title": "Fukuoka City Museum Official Website",
+        "accessedAt": "2026-08-04"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Fukuoka_City_Museum",
+        "title": "Fukuoka City Museum",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Fukuoka City Museum",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://museum.city.fukuoka.jp/",
+  "municipalityId": "Fukuoka:fukuoka",
+  "openingHours": "09:30–17:30",
+  "openingHoursJa": "09:30～17:30",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  },
+  "notesJa": "国宝「金印」が常設展示の最大の見どころです。"
+}

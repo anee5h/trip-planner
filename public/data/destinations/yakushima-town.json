@@ -61,7 +61,7 @@
   "reservation": "None required",
   "parking": "Public parking available",
   "notes": "Yakushima Town travel hub in Kagoshima Prefecture.",
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -92,7 +92,27 @@
     "min": 6,
     "max": 12
   },
-  "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Kagoshima:yakushima"
+  "municipalityId": "Kagoshima:yakushima",
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-04",
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Yakushima_Town",
+        "title": "Yakushima Town",
+        "accessedAt": "2026-08-04"
+      }
+    ]
+  },
+  "openingHours": "No fixed opening hours (town area)",
+  "openingHoursJa": "営業時間の設定なし（町内エリア）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/yakushima-town/"
+  }
 }

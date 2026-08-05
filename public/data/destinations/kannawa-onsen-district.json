@@ -1,0 +1,153 @@
+{
+  "id": "kannawa-onsen-district",
+  "name": "Kannawa Onsen Steam District",
+  "nameJa": "鉄輪温泉湯けむり街",
+  "aliases": ["Kannawa Onsen Steam District", "鉄輪温泉湯けむり街"],
+  "content": {
+    "en": {
+      "name": "Kannawa Onsen Steam District",
+      "description": "The Kannawa district is the spiritual heart of Beppu's onsen culture, where plumes of steam rise from every alleyway. Visitors can cook eggs and vegetables in the natural steam vents (jigoku-mushi), soak in dozens of local bathhouses, and experience the enigmatic 'Steam Bathing' tradition.",
+      "highlights": [
+        "Steam cooking (jigoku-mushi) experience",
+        "Dozens of local bathhouses & foot onsens",
+        "Atmospheric steam vents in every alley"
+      ],
+      "openingHours": "No fixed opening hours (district area)"
+    },
+    "ja": {
+      "name": "鉄輪温泉湯けむり街",
+      "description": "鉄輪温泉は別府の湯けむり文化の中心地で、路地のあちこちから湯けむりが立ちのぼる情緒あふれる温泉街です。地獄蒸し料理を体験できる共同調理場や点在する共同浴場、足湯が散策の楽しみを広げます。",
+      "highlights": [
+        "地獄蒸し料理体験ができる共同調理場",
+        "点在する共同浴場と足湯めぐり",
+        "路地の湯けむり景観散策"
+      ],
+      "openingHours": "営業時間の設定なし（地区エリア）"
+    }
+  },
+  "prefecture": "Oita",
+  "region": "Kyushu",
+  "kind": "onsen",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "beppu-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Hot Springs & Wellness", "Sightseeing"],
+  "tags": ["Onsen", "Steam", "Hell", "Beppu"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/cd/2020-02-24_Kannawa_Onsen_%E9%89%84%E8%BC%AA%E6%B8%A9%E6%B3%89%E5%85%A8%E6%99%AF_DSCF8631.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "松岡明芳",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2020-02-24_Kannawa_Onsen_%E9%89%84%E8%BC%AA%E6%B8%A9%E6%B3%89%E5%85%A8%E6%99%AF_DSCF8631.jpg"
+  },
+  "coordinates": {
+    "lat": 33.2856,
+    "lng": 131.4742
+  },
+  "description": "The Kannawa district is the spiritual heart of Beppu's onsen culture, where plumes of steam rise from every alleyway. Visitors can cook eggs and vegetables in the natural steam vents (jigoku-mushi), soak in dozens of local bathhouses, and experience the enigmatic 'Steam Bathing' tradition.",
+  "highlights": [
+    "Steam cooking (jigoku-mushi) experience",
+    "Dozens of local bathhouses & foot onsens",
+    "Atmospheric steam vents in every alley"
+  ],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budgetBreakdown": {
+    "transport": 525,
+    "tickets": 0,
+    "food": 600,
+    "cafe": 150
+  },
+  "transportOptions": {
+    "train": 295,
+    "shinkansen": 405
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 4000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 40,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 8,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.5,
+    "summer": 7.8,
+    "winter": 9,
+    "rain": 8.5,
+    "food": 8.5,
+    "photography": 9,
+    "relaxation": 8.8,
+    "value": 8.5,
+    "uniqueness": 9.3
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 8,
+    "summer": 7,
+    "autumn": 9,
+    "winter": 9
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "Local parking available",
+  "notes": "Walk between public bathhouses in a yukata for the full hot-spring-town feel.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Beppu_Onsen",
+        "title": "Beppu Onsen",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Kannawa Onsen Steam District",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": null,
+  "municipalityId": "Oita:beppu",
+  "openingHours": "No fixed opening hours (district area)",
+  "openingHoursJa": "営業時間の設定なし（地区エリア）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/kannawa-onsen-district/"
+  },
+  "notesJa": "浴衣で共同浴場を巡るのがこの温泉地の定番スタイルです。"
+}

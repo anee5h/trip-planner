@@ -1,0 +1,159 @@
+{
+  "id": "dejima-nagasaki",
+  "name": "Dejima",
+  "nameJa": "出島",
+  "aliases": ["Dejima", "出島"],
+  "content": {
+    "en": {
+      "name": "Dejima",
+      "description": "Dejima was a fan-shaped artificial island built in 1636 that served as Japan's only window to the Western world during the isolation period (1641–1859). Today, meticulously restored warehouses, residences, and exhibits recreate the Dutch trading post where East met West.",
+      "highlights": [
+        "Reconstructed Dutch trading post buildings",
+        "Japan's Edo-era window to the West",
+        "Interactive exhibits on trade history"
+      ],
+      "openingHours": "08:00–21:00"
+    },
+    "ja": {
+      "name": "出島",
+      "description": "出島は1636年に築造された扇形の人工島で、鎖国時代（1641年〜1859年）に西洋に開かれた日本唯一の窓口でした。現在は復元された倉庫や住居、展示施設が当時のオランダ商館の様子を再現し、東西交流の歴史を伝えています。",
+      "highlights": [
+        "復元されたオランダ商館建造物群",
+        "鎖国時代唯一の西洋交易拠点",
+        "貿易史を伝える体験型展示"
+      ],
+      "openingHours": "08:00～21:00"
+    }
+  },
+  "prefecture": "Nagasaki",
+  "region": "Kyushu",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "nagasaki-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History", "Culture"],
+  "tags": ["History", "Museum", "Dutch Trading", "Nagasaki City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1a/View_of_the_Former_Dutch_Trading_Post_on_Dejima_from_Tamae_Bridge%2C_Nagasaki%2C_20240815_1501_3720.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "Jakub Hałun",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_the_Former_Dutch_Trading_Post_on_Dejima_from_Tamae_Bridge,_Nagasaki,_20240815_1501_3720.jpg"
+  },
+  "coordinates": {
+    "lat": 32.7435,
+    "lng": 129.8724
+  },
+  "description": "Dejima was a fan-shaped artificial island built in 1636 that served as Japan's only window to the Western world during the isolation period (1641–1859). Today, meticulously restored warehouses, residences, and exhibits recreate the Dutch trading post where East met West.",
+  "highlights": [
+    "Reconstructed Dutch trading post buildings",
+    "Japan's Edo-era window to the West",
+    "Interactive exhibits on trade history"
+  ],
+  "budgetMin": 2000,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 700,
+    "tickets": 520,
+    "food": 800,
+    "cafe": 200
+  },
+  "transportOptions": {
+    "train": 270,
+    "shinkansen": 370
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3
+  },
+  "walkingMin": 4000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 40,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 8,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.3,
+    "summer": 8,
+    "winter": 8.5,
+    "rain": 8.5,
+    "food": 7.3,
+    "photography": 8.5,
+    "relaxation": 7.5,
+    "value": 8.8,
+    "uniqueness": 9.3
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "Nearby coin parking",
+  "notes": "English audio guides are available to explore the reconstructed historical settlement.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://nagasakidejima.jp/",
+        "title": "Dejima Official Website",
+        "accessedAt": "2026-08-04"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Dejima",
+        "title": "Dejima",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Dejima",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://nagasakidejima.jp/",
+  "municipalityId": "Nagasaki:nagasaki",
+  "openingHours": "08:00–21:00",
+  "openingHoursJa": "08:00～21:00",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://nagasakidejima.jp/en/"
+  },
+  "notesJa": "復元された歴史地区を詳しく知るなら英語音声ガイドが便利です。"
+}

@@ -1,0 +1,153 @@
+{
+  "id": "takegawara-onsen-beppu",
+  "name": "Takegawara Onsen",
+  "nameJa": "竹瓦温泉",
+  "aliases": ["Takegawara Onsen", "竹瓦温泉"],
+  "content": {
+    "en": {
+      "name": "Takegawara Onsen",
+      "description": "Takegawara Onsen is a historic public bathhouse built in 1879, famous for its striking Meiji-era tiled façade and traditional sand bath (sunaburo) where guests are buried in naturally heated volcanic sand. It's one of Beppu's most iconic onsen landmarks.",
+      "highlights": [
+        "Historic 1879 Meiji-era bathhouse",
+        "Traditional sand bath (sunaburo)",
+        "Iconic tiled façade & retro interior"
+      ],
+      "openingHours": "06:30–22:30"
+    },
+    "ja": {
+      "name": "竹瓦温泉",
+      "description": "竹瓦温泉は1879年に建てられた歴史ある公衆浴場で、唐破風の屋根とタイル張りのファサードが特徴です。名物の砂湯（砂風呂）は火山性の温熱砂に全身を埋めて汗をかく伝統的な入浴法で、別府の象徴的温泉施設の一つです。",
+      "highlights": [
+        "1879年創業の明治レトロ浴場",
+        "名物砂湯（砂風呂）体験",
+        "唐破風のタイル張りファサード"
+      ],
+      "openingHours": "06:30～22:30"
+    }
+  },
+  "prefecture": "Oita",
+  "region": "Kyushu",
+  "kind": "onsen",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "beppu-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Hot Springs & Wellness", "History"],
+  "tags": ["Onsen", "Sentō", "History", "Beppu"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/15/Beppu_Takegawara_Onsen_1.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "大分帰省中",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beppu_Takegawara_Onsen_1.jpg"
+  },
+  "coordinates": {
+    "lat": 33.2788,
+    "lng": 131.5025
+  },
+  "description": "Takegawara Onsen is a historic public bathhouse built in 1879, famous for its striking Meiji-era tiled façade and traditional sand bath (sunaburo) where guests are buried in naturally heated volcanic sand. It's one of Beppu's most iconic onsen landmarks.",
+  "highlights": [
+    "Historic 1879 Meiji-era bathhouse",
+    "Traditional sand bath (sunaburo)",
+    "Iconic tiled façade & retro interior"
+  ],
+  "budgetMin": 1000,
+  "budgetRecommended": 3500,
+  "budgetMax": 6000,
+  "budgetBreakdown": {
+    "transport": 350,
+    "tickets": 100,
+    "food": 400,
+    "cafe": 100
+  },
+  "transportOptions": {
+    "train": 290,
+    "shinkansen": 400
+  },
+  "totalTripHours": 2,
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  },
+  "walkingMin": 1500,
+  "walkingIntensity": "low",
+  "walkingSunMin": 300,
+  "walkingShadeMin": 1200,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 9,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 8.5,
+    "couple": 8.3,
+    "summer": 7.8,
+    "winter": 8.8,
+    "rain": 9,
+    "food": 7.3,
+    "photography": 8,
+    "relaxation": 9.3,
+    "value": 9,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 8,
+    "summer": 7,
+    "autumn": 9,
+    "winter": 9
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "Nearby public parking",
+  "notes": "The Meiji-era blue-glass façade is a striking photo even from outside.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Takegawara_Onsen",
+        "title": "Takegawara Onsen",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Takegawara Onsen",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": null,
+  "municipalityId": "Oita:beppu",
+  "openingHours": "06:30–22:30",
+  "openingHoursJa": "06:30～22:30",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.city.beppu.oita.jp/sisetu/shieionsen/detail4.html"
+  },
+  "notesJa": "明治期の青ガラス外観は外から見るだけでも印象的な写真スポットです。"
+}

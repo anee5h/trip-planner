@@ -57,7 +57,7 @@
   ],
   "reservation": "Not required",
   "parking": "Available nearby",
-  "notes": "Official UNESCO World Heritage Site.",
+  "notes": "The island itself is off-limits to visitors; explore the mainland Munakata Taisha shrine and treasure museum instead.",
   "coordinates": {
     "lat": 33.8042,
     "lng": 130.5147
@@ -69,7 +69,7 @@
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Sacred Island of Okinoshima and Associated Sites in Munakata via Wikipedia/Wikimedia Commons"
   },
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "high"
   },
@@ -95,7 +95,7 @@
     "walkingIntensity": 3
   },
   "walkingIntensity": "low",
-  "role": "standalone",
+  "role": "poi",
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -103,6 +103,39 @@
     "max": 7
   },
   "officialWebsite": "https://www.okinoshima-heritage.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Fukuoka:fukuoka"
+  "municipalityId": "Fukuoka:fukuoka",
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-04",
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Sacred_Island_of_Okinoshima_and_Associated_Sites_in_the_Munakata_Region",
+        "title": "Sacred Island of Okinoshima and Associated Sites in the Munakata Region",
+        "accessedAt": "2026-08-04"
+      }
+    ]
+  },
+  "content": {
+    "ja": {
+      "name": "「神宿る島」宗像・沖ノ島と関連遺産群",
+      "description": "「神宿る島」宗像・沖ノ島と関連遺産群は、福岡県宗像市沖に位置するユネスコ世界遺産です。沖ノ島は今も女人禁制の伝統が守られ、巨大な岩の祭祀遺跡と数万点の出土品が日本の古代信仰を物語ります。",
+      "highlights": [
+        "世界遺産の沖ノ島祭祀遺跡群",
+        "宗像大社辺津宮・中津宮・沖津宮",
+        "宗像大社神宝館の国宝展示"
+      ],
+      "openingHours": "一般の立ち入り禁止"
+    }
+  },
+  "openingHours": "No public access allowed",
+  "openingHoursJa": "一般の立ち入り禁止",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.okinoshima-heritage.jp/en/"
+  },
+  "notesJa": "沖ノ島は立入禁止。本土の宗像大社と神宝館を訪れましょう。"
 }

@@ -1,0 +1,159 @@
+{
+  "id": "jomon-sugi-yakushima",
+  "name": "Jomon Sugi Cedar",
+  "nameJa": "縄文杉",
+  "aliases": ["Jomon Sugi Cedar", "縄文杉"],
+  "content": {
+    "en": {
+      "name": "Jomon Sugi Cedar",
+      "description": "Jomon Sugi is the oldest and most famous cedar tree on Yakushima, estimated at 2,170–7,200 years old, and considered a symbol of the island's UNESCO World Heritage ancient forest. Reaching it requires an 8–10 hour round-trip hike through the mystical moss-covered forest that inspired Studio Ghibli's Princess Mononoke.",
+      "highlights": [
+        "~7,200-year-old ancient cedar tree",
+        "Epic 8-10h hike through UNESCO forest",
+        "Inspiration for Princess Mononoke landscape"
+      ],
+      "openingHours": "Open 24 hours"
+    },
+    "ja": {
+      "name": "縄文杉",
+      "description": "縄文杉は屋久島を代表する最大最古の屋久杉で、推定樹齢2,170〜7,200年とされ、ユネスコ世界遺産の古代森林のシンボルです。スタジオジブリ『もののけ姫』の舞台にもなった苔むす神秘的な森の中を往復8〜10時間かけて訪ねるトレッキングは一生の思い出になります。",
+      "highlights": [
+        "推定樹齢7,000年の古代屋久杉",
+        "往復8〜10時間のUNESCO森林トレッキング",
+        "『もののけ姫』の舞台となった苔の森"
+      ],
+      "openingHours": "24時間営業"
+    }
+  },
+  "prefecture": "Kagoshima",
+  "region": "Kyushu",
+  "kind": "nature",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "yakushima-town"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Nature & Outdoors", "Sightseeing"],
+  "tags": ["Hiking", "UNESCO", "Forest", "Yakushima"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Jhomonsugi_in_Yaku_Island_Japan_001.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Yosemite",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jhomonsugi_in_Yaku_Island_Japan_001.JPG"
+  },
+  "coordinates": {
+    "lat": 30.3586,
+    "lng": 130.5283
+  },
+  "description": "Jomon Sugi is the oldest and most famous cedar tree on Yakushima, estimated at 2,170–7,200 years old, and considered a symbol of the island's UNESCO World Heritage ancient forest. Reaching it requires an 8–10 hour round-trip hike through the mystical moss-covered forest that inspired Studio Ghibli's Princess Mononoke.",
+  "highlights": [
+    "~7,200-year-old ancient cedar tree",
+    "Epic 8-10h hike through UNESCO forest",
+    "Inspiration for Princess Mononoke landscape"
+  ],
+  "budgetMin": 3000,
+  "budgetRecommended": 8000,
+  "budgetMax": 15000,
+  "budgetBreakdown": {
+    "transport": 1050,
+    "tickets": 0,
+    "food": 1200,
+    "cafe": 300
+  },
+  "transportOptions": {
+    "train": 400,
+    "shinkansen": 510
+  },
+  "totalTripHours": 10,
+  "recommendedVisitHours": {
+    "min": 8,
+    "max": 12
+  },
+  "walkingMin": 30000,
+  "walkingIntensity": "high",
+  "walkingSunMin": 15000,
+  "walkingShadeMin": 15000,
+  "indoorPercent": 0,
+  "comfort": {
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 9
+  },
+  "ratings": {
+    "overall": 9.5,
+    "couple": 9,
+    "summer": 9,
+    "winter": 8,
+    "rain": 7,
+    "food": 7,
+    "photography": 9.8,
+    "relaxation": 8,
+    "value": 9,
+    "uniqueness": 9.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "high",
+  "reservation": "Guided tours recommended; trail may close in heavy rain",
+  "parking": "Trailhead parking at Arakawa Dam",
+  "notes": "A full-day round-trip hike — start before 5 am and carry all food and water.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.yakushima.or.jp/",
+        "title": "Jomon Sugi Cedar Official Website",
+        "accessedAt": "2026-08-04"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/J%C5%8Dmon_Sugi",
+        "title": "Jōmon Sugi",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Jomon Sugi Cedar",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://www.yakushima.or.jp/",
+  "municipalityId": "Kagoshima:yakushima",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  },
+  "notesJa": "往復8～10時間の本格登山。食料と水は全量携行し早朝出発を。"
+}

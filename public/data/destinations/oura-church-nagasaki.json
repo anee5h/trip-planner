@@ -57,7 +57,7 @@
   ],
   "reservation": "Not required",
   "parking": "Available nearby",
-  "notes": "Official UNESCO World Heritage Site.",
+  "notes": "Sightseeing is not permitted during Sunday morning Mass.",
   "coordinates": {
     "lat": 32.7342,
     "lng": 129.8703
@@ -69,7 +69,7 @@
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Hidden Christian Sites in the Nagasaki Region via Wikipedia/Wikimedia Commons"
   },
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "high"
   },
@@ -95,7 +95,7 @@
     "walkingIntensity": 3
   },
   "walkingIntensity": "low",
-  "role": "standalone",
+  "role": "poi",
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -103,6 +103,39 @@
     "max": 7
   },
   "officialWebsite": "https://nagasaki-oura-church.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Nagasaki:nagasaki"
+  "municipalityId": "Nagasaki:nagasaki",
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-04",
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/%C5%8Cura_Church",
+        "title": "Ōura Church",
+        "accessedAt": "2026-08-04"
+      }
+    ]
+  },
+  "content": {
+    "ja": {
+      "name": "長崎と天草地方の潜伏キリシタン関連遺産",
+      "description": "大浦天主堂は1864年に建立された日本最古の現存するキリスト教教会で、国宝に指定されています。「長崎と天草地方の潜伏キリシタン関連遺産」の構成資産として世界遺産にも登録されています。",
+      "highlights": [
+        "国宝・日本最古のゴシック教会建築",
+        "潜伏キリシタン関連の世界遺産",
+        "隣接する旧羅典神学校とキリシタン資料館"
+      ],
+      "openingHours": "08:30～18:00"
+    }
+  },
+  "openingHours": "08:30–18:00",
+  "openingHoursJa": "08:30～18:00",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://nagasaki-oura-church.jp/en"
+  },
+  "notesJa": "日曜朝のミサ中の観光はご遠慮ください。"
 }

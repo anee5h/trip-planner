@@ -1,0 +1,159 @@
+{
+  "id": "kawachi-wisteria-garden",
+  "name": "Kawachi Wisteria Garden",
+  "nameJa": "河内藤園",
+  "aliases": ["Kawachi Wisteria Garden", "河内藤園"],
+  "content": {
+    "en": {
+      "name": "Kawachi Wisteria Garden",
+      "description": "Kawachi Wisteria Garden is a private hillside garden famous for its spectacular 80m and 110m long tunnels of cascading wisteria blossoms in shades of purple, pink, and white. The garden is open only during wisteria season (late April to mid-May) and autumn foliage season. Reservations are essential during peak bloom.",
+      "highlights": [
+        "110m & 80m wisteria flower tunnels",
+        "Spectacular April–May bloom season",
+        "Hilltop panoramic views over the garden"
+      ],
+      "openingHours": "08:00–18:00 (Only open late Apr-early May and mid-Nov-early Dec)"
+    },
+    "ja": {
+      "name": "河内藤園",
+      "description": "河内藤園は丘陵地に広がるプライベートガーデンで、全長80mと110mの藤のトンネルが圧巻です。紫、ピンク、白の藤が咲き乱れる4月下旬〜5月中旬の藤シーズンと秋の紅葉シーズンのみ開園。ピーク時は事前予約制です。",
+      "highlights": [
+        "全長110mと80mの藤の花トンネル",
+        "4月下旬〜5月中旬の絶景フラワーシーズン",
+        "丘の上の藤棚とパノラマ展望"
+      ],
+      "openingHours": "08:00～18:00（4月下旬～5月上旬、11月中旬～12月上旬のみ開園）"
+    }
+  },
+  "prefecture": "Fukuoka",
+  "region": "Kyushu",
+  "kind": "garden",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "kitakyushu-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Gardens", "Sightseeing"],
+  "tags": ["Garden", "Flowers", "Photography", "Kitakyushu City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Wisteria_Tunnel_in_Kawachi_Wisteria_Garden_20150509-2.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ (Soramimi)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wisteria_Tunnel_in_Kawachi_Wisteria_Garden_20150509-2.jpg"
+  },
+  "coordinates": {
+    "lat": 33.8722,
+    "lng": 130.8297
+  },
+  "description": "Kawachi Wisteria Garden is a private hillside garden famous for its spectacular 80m and 110m long tunnels of cascading wisteria blossoms in shades of purple, pink, and white. The garden is open only during wisteria season (late April to mid-May) and autumn foliage season. Reservations are essential during peak bloom.",
+  "highlights": [
+    "110m & 80m wisteria flower tunnels",
+    "Spectacular April–May bloom season",
+    "Hilltop panoramic views over the garden"
+  ],
+  "budgetMin": 2000,
+  "budgetRecommended": 5000,
+  "budgetMax": 8000,
+  "budgetBreakdown": {
+    "transport": 700,
+    "tickets": 500,
+    "food": 800,
+    "cafe": 200
+  },
+  "transportOptions": {
+    "train": 230,
+    "shinkansen": 330
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2.5
+  },
+  "walkingMin": 4000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 2500,
+  "walkingShadeMin": 1500,
+  "indoorPercent": 5,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 5,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9.3,
+    "couple": 9.5,
+    "summer": 8.5,
+    "winter": 7,
+    "rain": 6.5,
+    "food": 7.3,
+    "photography": 9.8,
+    "relaxation": 9,
+    "value": 8.5,
+    "uniqueness": 9.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 6,
+    "weekend": 9,
+    "holiday": 10
+  },
+  "season": {
+    "spring": 10,
+    "summer": 6,
+    "autumn": 6,
+    "winter": 4
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "Advance tickets required during peak bloom (late April–early May)",
+  "parking": "Garden parking available",
+  "notes": "Open only during the wisteria and autumn-colour seasons.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://kawachi-fujien.com/",
+        "title": "Kawachi Wisteria Garden Official Website",
+        "accessedAt": "2026-08-04"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kawachi_Wisteria_Garden",
+        "title": "Kawachi Wisteria Garden",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Kawachi Wisteria Garden",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://kawachi-fujien.com/",
+  "municipalityId": "Fukuoka:kitakyushu",
+  "openingHours": "08:00–18:00 (Only open late Apr-early May and mid-Nov-early Dec)",
+  "openingHoursJa": "08:00～18:00（4月下旬～5月上旬、11月中旬～12月上旬のみ開園）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://kawachi-fujien.com/"
+  },
+  "notesJa": "藤と紅葉のシーズンのみ開園します。"
+}

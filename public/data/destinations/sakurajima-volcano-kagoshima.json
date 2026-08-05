@@ -69,8 +69,8 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "notes": "Sakurajima Stratovolcano located in Kagoshima Prefecture.",
-  "status": "beta",
+  "notes": "Ashfall is common — wear a hat and dark clothing on active days.",
+  "status": "published",
   "relationships": {
     "featuredDestinationIds": [],
     "nearbyDestinationIds": [],
@@ -80,14 +80,47 @@
   "walkingIntensity": "low",
   "walkingSunMin": 1800,
   "walkingShadeMin": 1200,
-  "role": "standalone",
+  "role": "poi",
   "placeType": "destination",
   "recommendedVisitHours": {
     "min": 3,
     "max": 5
   },
   "officialWebsite": "https://www.sakurajima.gr.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Kagoshima:kagoshima"
+  "municipalityId": "Kagoshima:kagoshima",
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-04",
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Sakurajima",
+        "title": "Sakurajima",
+        "accessedAt": "2026-08-04"
+      }
+    ]
+  },
+  "content": {
+    "ja": {
+      "name": "桜島",
+      "description": "桜島は鹿児島湾にそびえる活火山で、現在も活発な噴火活動を続ける日本有数の火山島です。フェリーで約15分、島内には展望台が点在し、溶岩なぎさ遊歩道では火山の造形美を間近に感じられます。",
+      "highlights": [
+        "活火山の噴煙を望む溶岩遊歩道",
+        "有村溶岩展望所からの絶景",
+        "桜島フェリーと錦江湾クルーズ"
+      ],
+      "openingHours": "24時間営業"
+    }
+  },
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  },
+  "notesJa": "降灰が多いので帽子と濃い色の服装がおすすめです。"
 }

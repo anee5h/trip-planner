@@ -1,0 +1,162 @@
+{
+  "id": "fukuoka-paypay-dome",
+  "name": "Fukuoka PayPay Dome & BOSS E-ZO",
+  "nameJa": "福岡ペイペイドーム・BOSS E-ZO FUKUOKA",
+  "aliases": [
+    "Fukuoka PayPay Dome & BOSS E-ZO",
+    "福岡ペイペイドーム・BOSS E-ZO FUKUOKA"
+  ],
+  "content": {
+    "en": {
+      "name": "Fukuoka PayPay Dome & BOSS E-ZO",
+      "description": "Fukuoka PayPay Dome is home to the SoftBank Hawks baseball team and one of Japan's most modern indoor stadiums. Adjacent BOSS E-ZO FUKUOKA is a multi-floor entertainment complex featuring VR attractions, the Oh Sadaharu Baseball Museum Supported by MIZUNO, live concert venues, and restaurants with panoramic bay views.",
+      "highlights": [
+        "SoftBank Hawks home games at PayPay Dome",
+        "Oh Sadaharu Baseball Museum",
+        "BOSS E-ZO entertainment complex & bay views"
+      ],
+      "openingHours": "Event times vary (Tours 10:00–17:00)"
+    },
+    "ja": {
+      "name": "福岡ペイペイドーム・BOSS E-ZO FUKUOKA",
+      "description": "福岡ペイペイドームはソフトバンクホークスの本拠地として知られる日本最大級の全天候型スタジアムです。隣接するBOSS E-ZO FUKUOKAは王貞治ベースボールミュージアムやVRアトラクション、ライブ会場、レストランを擁する複合エンターテインメント施設で、博多湾を一望するロケーションが魅力です。",
+      "highlights": [
+        "ソフトバンクホークスのホームゲーム観戦",
+        "王貞治ベースボールミュージアム",
+        "BOSS E-ZO FUKUOKA の体験型アトラクション"
+      ],
+      "openingHours": "イベントにより異なる（ツアーは10:00～17:00）"
+    }
+  },
+  "prefecture": "Fukuoka",
+  "region": "Kyushu",
+  "kind": "entertainment",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "fukuoka-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Entertainment", "Sports"],
+  "tags": ["Baseball", "Sports", "Entertainment", "Fukuoka City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/06/Mizuho_PayPay_dome_Fukuoka_2025.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Keeteria",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mizuho_PayPay_dome_Fukuoka_2025.jpg"
+  },
+  "coordinates": {
+    "lat": 33.5903,
+    "lng": 130.3701
+  },
+  "description": "Fukuoka PayPay Dome is home to the SoftBank Hawks baseball team and one of Japan's most modern indoor stadiums. Adjacent BOSS E-ZO FUKUOKA is a multi-floor entertainment complex featuring VR attractions, the Oh Sadaharu Baseball Museum Supported by MIZUNO, live concert venues, and restaurants with panoramic bay views.",
+  "highlights": [
+    "SoftBank Hawks home games at PayPay Dome",
+    "Oh Sadaharu Baseball Museum",
+    "BOSS E-ZO entertainment complex & bay views"
+  ],
+  "budgetMin": 2000,
+  "budgetRecommended": 7000,
+  "budgetMax": 15000,
+  "budgetBreakdown": {
+    "transport": 700,
+    "tickets": 0,
+    "food": 800,
+    "cafe": 200
+  },
+  "transportOptions": {
+    "train": 215,
+    "shinkansen": 315
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 1000,
+  "walkingShadeMin": 2000,
+  "indoorPercent": 70,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 9,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.3,
+    "couple": 8,
+    "summer": 8.5,
+    "winter": 8.2,
+    "rain": 8.5,
+    "food": 8.5,
+    "photography": 8,
+    "relaxation": 7.5,
+    "value": 8,
+    "uniqueness": 8.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8,
+    "summer": 8,
+    "autumn": 8,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "low",
+  "reservation": "Required for game days",
+  "parking": "Dome parking and nearby lots",
+  "notes": "Dome tours run on non-game days and take you onto the field and into the bullpen.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://e-zo.jp/",
+        "title": "Fukuoka PayPay Dome & BOSS E-ZO Official Website",
+        "accessedAt": "2026-08-04"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Fukuoka_PayPay_Dome",
+        "title": "Fukuoka PayPay Dome",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Fukuoka PayPay Dome & BOSS E-ZO",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://e-zo.jp/",
+  "municipalityId": "Fukuoka:fukuoka",
+  "openingHours": "Event times vary (Tours 10:00–17:00)",
+  "openingHoursJa": "イベントにより異なる（ツアーは10:00～17:00）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.softbankhawks.co.jp/global/english/"
+  },
+  "notesJa": "試合がない日はフィールドを見学できるドームツアーがおすすめです。"
+}

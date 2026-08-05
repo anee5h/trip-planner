@@ -1,0 +1,159 @@
+{
+  "id": "takachiho-gorge",
+  "name": "Takachiho Gorge",
+  "nameJa": "高千穂峡",
+  "aliases": ["Takachiho Gorge", "高千穂峡"],
+  "content": {
+    "en": {
+      "name": "Takachiho Gorge",
+      "description": "Takachiho Gorge is a stunning volcanic basalt ravine carved by the Gokase River, with sheer 80-meter cliffs draped in moss and ferns. The iconic Manai Waterfall cascades into the emerald waters below, and visitors can rent rowboats to glide past the falls. The area is steeped in Japanese mythology as the setting of the sun goddess Amaterasu's hiding cave legend.",
+      "highlights": [
+        "Manai Waterfall & emerald gorge rowboats",
+        "80m moss-covered basalt cliffs",
+        "Mythological setting of Amaterasu legend"
+      ],
+      "openingHours": "08:30–17:00 (Boat rentals)"
+    },
+    "ja": {
+      "name": "高千穂峡",
+      "description": "高千穂峡は五ヶ瀬川が溶岩を浸食してできた柱状節理の渓谷で、高さ80mの断崖が苔とシダに覆われ、真名井の滝がエメラルドグリーンの水面に落ちる絶景が広がります。貸しボートで滝の真下まで漕ぎ寄せる体験が人気で、天照大神の天岩戸神話の舞台としても知られています。",
+      "highlights": [
+        "真名井の滝とエメラルド渓谷のボート",
+        "高さ80mの苔むす柱状節理の断崖",
+        "天照大神・天岩戸神話ゆかりの地"
+      ],
+      "openingHours": "08:30～17:00（貸しボート）"
+    }
+  },
+  "prefecture": "Miyazaki",
+  "region": "Kyushu",
+  "kind": "nature",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "takachiho-town"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Nature & Outdoors", "Sightseeing"],
+  "tags": ["Gorge", "Waterfall", "Mythology", "Takachiho"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Takachiho-gorge.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "Takasunrise0921",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Takachiho-gorge.jpg"
+  },
+  "coordinates": {
+    "lat": 32.7122,
+    "lng": 131.3056
+  },
+  "description": "Takachiho Gorge is a stunning volcanic basalt ravine carved by the Gokase River, with sheer 80-meter cliffs draped in moss and ferns. The iconic Manai Waterfall cascades into the emerald waters below, and visitors can rent rowboats to glide past the falls. The area is steeped in Japanese mythology as the setting of the sun goddess Amaterasu's hiding cave legend.",
+  "highlights": [
+    "Manai Waterfall & emerald gorge rowboats",
+    "80m moss-covered basalt cliffs",
+    "Mythological setting of Amaterasu legend"
+  ],
+  "budgetMin": 2500,
+  "budgetRecommended": 5000,
+  "budgetMax": 8000,
+  "budgetBreakdown": {
+    "transport": 875,
+    "tickets": 0,
+    "food": 1000,
+    "cafe": 250
+  },
+  "transportOptions": {
+    "train": 355,
+    "shinkansen": 465
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3
+  },
+  "walkingMin": 5000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 2500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 0,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9.5,
+    "couple": 9.5,
+    "summer": 9,
+    "winter": 8.5,
+    "rain": 7.5,
+    "food": 7.8,
+    "photography": 9.8,
+    "relaxation": 9,
+    "value": 9,
+    "uniqueness": 9.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "Boat rental available on site first-come-first-served",
+  "parking": "Gorge parking available",
+  "notes": "Boats cannot be reserved — arrive early on weekends to avoid long queues.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://takachiho-kanko.info/",
+        "title": "Takachiho Gorge Official Website",
+        "accessedAt": "2026-08-04"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Takachiho_Gorge",
+        "title": "Takachiho Gorge",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Takachiho Gorge",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://takachiho-kanko.info/",
+  "municipalityId": "Miyazaki:takachiho",
+  "openingHours": "08:30–17:00 (Boat rentals)",
+  "openingHoursJa": "08:30～17:00（貸しボート）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://takachiho-kanko.info/en/"
+  },
+  "notesJa": "ボートは予約不可のため週末は早朝の到着がおすすめです。"
+}

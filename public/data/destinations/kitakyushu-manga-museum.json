@@ -1,0 +1,159 @@
+{
+  "id": "kitakyushu-manga-museum",
+  "name": "Kitakyushu Manga Museum",
+  "nameJa": "北九州市漫画ミュージアム",
+  "aliases": ["Kitakyushu Manga Museum", "北九州市漫画ミュージアム"],
+  "content": {
+    "en": {
+      "name": "Kitakyushu Manga Museum",
+      "description": "The Kitakyushu Manga Museum celebrates the region's rich manga heritage, honoring artists like Leiji Matsumoto (Galaxy Express 999) and other creators born in Kitakyushu. Located in the ARUARU CITY entertainment complex, the museum features original artwork, interactive drawing stations, and a reading library of 50,000+ manga volumes.",
+      "highlights": [
+        "Leiji Matsumoto & local manga artist exhibits",
+        "50,000+ volume manga reading library",
+        "Interactive drawing & creation stations"
+      ],
+      "openingHours": "11:00–19:00"
+    },
+    "ja": {
+      "name": "北九州市漫画ミュージアム",
+      "description": "北九州市漫画ミュージアムは松本零士（『銀河鉄道999』）をはじめ北九州市ゆかりの漫画家の功績を紹介する文化施設です。ARUARU CITY内にあり、原画展示や体験型の作画コーナー、5万冊以上の漫画が読めるライブラリーを備えています。",
+      "highlights": [
+        "松本零士と北九州ゆかりの漫画家展示",
+        "5万冊以上の漫画ライブラリー",
+        "体験型作画コーナーと企画展"
+      ],
+      "openingHours": "11:00～19:00"
+    }
+  },
+  "prefecture": "Fukuoka",
+  "region": "Kyushu",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "kitakyushu-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Museum & Art", "Entertainment"],
+  "tags": ["Museum", "Manga", "Culture", "Kitakyushu City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/11/Kitakyushu_Manga_Museum_entrance.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "Bmazerolles",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kitakyushu_Manga_Museum_entrance.jpg"
+  },
+  "coordinates": {
+    "lat": 33.8831,
+    "lng": 130.8833
+  },
+  "description": "The Kitakyushu Manga Museum celebrates the region's rich manga heritage, honoring artists like Leiji Matsumoto (Galaxy Express 999) and other creators born in Kitakyushu. Located in the ARUARU CITY entertainment complex, the museum features original artwork, interactive drawing stations, and a reading library of 50,000+ manga volumes.",
+  "highlights": [
+    "Leiji Matsumoto & local manga artist exhibits",
+    "50,000+ volume manga reading library",
+    "Interactive drawing & creation stations"
+  ],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 525,
+    "tickets": 500,
+    "food": 600,
+    "cafe": 150
+  },
+  "transportOptions": {
+    "train": 220,
+    "shinkansen": 320
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2.5
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 85,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.3,
+    "couple": 8,
+    "summer": 8.5,
+    "winter": 8.3,
+    "rain": 8.8,
+    "food": 7.3,
+    "photography": 8,
+    "relaxation": 7.8,
+    "value": 8.5,
+    "uniqueness": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8,
+    "summer": 8,
+    "autumn": 8,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "low",
+  "reservation": "None required; special exhibitions may require advance booking",
+  "parking": "ARUARU CITY building parking",
+  "notes": "A hands-on museum where you can read and draw your own manga.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.ktqmm.jp/",
+        "title": "Kitakyushu Manga Museum Official Website",
+        "accessedAt": "2026-08-04"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kitakyushu_Manga_Museum",
+        "title": "Kitakyushu Manga Museum",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Kitakyushu Manga Museum",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://www.ktqmm.jp/",
+  "municipalityId": "Fukuoka:kitakyushu",
+  "openingHours": "11:00–19:00",
+  "openingHoursJa": "11:00～19:00",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.ktqmm.jp/english"
+  },
+  "notesJa": "漫画を読むだけでなく自分で描ける体験型博物館です。"
+}

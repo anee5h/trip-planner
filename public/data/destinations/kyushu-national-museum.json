@@ -1,0 +1,159 @@
+{
+  "id": "kyushu-national-museum",
+  "name": "Kyushu National Museum",
+  "nameJa": "九州国立博物館",
+  "aliases": ["Kyushu National Museum", "九州国立博物館"],
+  "content": {
+    "en": {
+      "name": "Kyushu National Museum",
+      "description": "The Kyushu National Museum is Japan's fourth national museum, opened in 2005, and the first to focus on the formation of Japanese culture through the lens of Asian exchange. Its innovative exhibits trace cultural connections from prehistoric times through the Silk Road, using cutting-edge display technology.",
+      "highlights": [
+        "Japan's only Asia-focused national museum",
+        "Cutting-edge cultural exchange exhibits",
+        "Silk Road & Asian trade history displays"
+      ],
+      "openingHours": "09:30–17:00 (Fri/Sat until 20:00)"
+    },
+    "ja": {
+      "name": "九州国立博物館",
+      "description": "九州国立博物館は2005年に開館した日本で4番目の国立博物館で、アジアとの文化交流を通じた日本文化の形成をテーマにした初の国立博物館です。先史時代からシルクロードに至る文化交流の歴史を最新の展示技術で紹介しています。",
+      "highlights": [
+        "アジア交流をテーマにした唯一の国立博物館",
+        "最新展示技術による文化交流展示",
+        "シルクロードとアジア交易史"
+      ],
+      "openingHours": "09:30～17:00（金・土は20:00まで）"
+    }
+  },
+  "prefecture": "Fukuoka",
+  "region": "Kyushu",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "dazaifu-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Museum & Art", "Culture"],
+  "tags": ["Museum", "National Museum", "Asia", "Dazaifu"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/14/Kyushu_National_Museum_20170225.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Suicasmo",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kyushu_National_Museum_20170225.jpg"
+  },
+  "coordinates": {
+    "lat": 33.5183,
+    "lng": 130.5383
+  },
+  "description": "The Kyushu National Museum is Japan's fourth national museum, opened in 2005, and the first to focus on the formation of Japanese culture through the lens of Asian exchange. Its innovative exhibits trace cultural connections from prehistoric times through the Silk Road, using cutting-edge display technology.",
+  "highlights": [
+    "Japan's only Asia-focused national museum",
+    "Cutting-edge cultural exchange exhibits",
+    "Silk Road & Asian trade history displays"
+  ],
+  "budgetMin": 2000,
+  "budgetRecommended": 5000,
+  "budgetMax": 8000,
+  "budgetBreakdown": {
+    "transport": 700,
+    "tickets": 700,
+    "food": 800,
+    "cafe": 200
+  },
+  "transportOptions": {
+    "train": 220,
+    "shinkansen": 320
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 4000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 3500,
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 8.5,
+    "summer": 9,
+    "winter": 8.8,
+    "rain": 9.3,
+    "food": 7.8,
+    "photography": 8.3,
+    "relaxation": 8,
+    "value": 8.8,
+    "uniqueness": 9.3
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "low",
+  "reservation": "None required; special exhibitions may require advance booking",
+  "parking": "Museum parking available",
+  "notes": "A striking modern building next to Dazaifu Tenmangu exploring Japan's Asian connections.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.kyuhaku.jp/",
+        "title": "Kyushu National Museum Official Website",
+        "accessedAt": "2026-08-04"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kyushu_National_Museum",
+        "title": "Kyushu National Museum",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Kyushu National Museum",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://www.kyuhaku.jp/",
+  "municipalityId": "Fukuoka:dazaifu",
+  "openingHours": "09:30–17:00 (Fri/Sat until 20:00)",
+  "openingHoursJa": "09:30～17:00（金・土は20:00まで）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.kyuhaku.jp/en/"
+  },
+  "notesJa": "太宰府天満宮に隣接する印象的な現代建築でアジア交流史を展示。"
+}

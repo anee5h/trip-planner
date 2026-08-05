@@ -1,0 +1,159 @@
+{
+  "id": "aso-volcanic-museum",
+  "name": "Aso Volcano Museum",
+  "nameJa": "阿蘇火山博物館",
+  "aliases": ["Aso Volcano Museum", "阿蘇火山博物館"],
+  "content": {
+    "en": {
+      "name": "Aso Volcano Museum",
+      "description": "The Aso Volcano Museum sits at the foot of Nakadake Crater and offers a fascinating introduction to the geology and history of Mount Aso. Live camera feeds from inside the crater, 3D volcano models, and exhibits on the 1990s eruption make it an essential stop before or after visiting the crater itself.",
+      "highlights": [
+        "Live crater camera feeds & volcano science",
+        "3D models of Mount Aso's geology",
+        "Interactive eruption history exhibits"
+      ],
+      "openingHours": "09:00–17:00"
+    },
+    "ja": {
+      "name": "阿蘇火山博物館",
+      "description": "阿蘇火山博物館は中岳火口の麓に位置し、阿蘇山の地質と噴火の歴史をわかりやすく紹介する博物館です。火口内部のライブカメラ映像、3D火山模型、1990年代の噴火に関する展示があり、火口見学の前後に立ち寄るのに最適です。",
+      "highlights": [
+        "火口ライブカメラと火山の科学展示",
+        "阿蘇山の3D地質模型",
+        "噴火の歴史と体験型展示"
+      ],
+      "openingHours": "09:00～17:00"
+    }
+  },
+  "prefecture": "Kumamoto",
+  "region": "Kyushu",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "aso-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Museum & Art", "Nature & Outdoors"],
+  "tags": ["Museum", "Volcano", "Science", "Aso"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Aso_Volcano_Museum.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "STA3816",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aso_Volcano_Museum.jpg"
+  },
+  "coordinates": {
+    "lat": 32.8853,
+    "lng": 131.0914
+  },
+  "description": "The Aso Volcano Museum sits at the foot of Nakadake Crater and offers a fascinating introduction to the geology and history of Mount Aso. Live camera feeds from inside the crater, 3D volcano models, and exhibits on the 1990s eruption make it an essential stop before or after visiting the crater itself.",
+  "highlights": [
+    "Live crater camera feeds & volcano science",
+    "3D models of Mount Aso's geology",
+    "Interactive eruption history exhibits"
+  ],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 6000,
+  "budgetBreakdown": {
+    "transport": 525,
+    "tickets": 600,
+    "food": 600,
+    "cafe": 150
+  },
+  "transportOptions": {
+    "train": 320,
+    "shinkansen": 430
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2500,
+  "walkingIntensity": "low",
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2000,
+  "indoorPercent": 85,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.3,
+    "couple": 8,
+    "summer": 8.5,
+    "winter": 8.3,
+    "rain": 8.8,
+    "food": 7.3,
+    "photography": 7.8,
+    "relaxation": 7.5,
+    "value": 8.5,
+    "uniqueness": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8,
+    "summer": 8,
+    "autumn": 8,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "Museum parking available",
+  "notes": "A useful first stop for checking current crater and volcanic conditions.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.asomuse.jp/",
+        "title": "Aso Volcano Museum Official Website",
+        "accessedAt": "2026-08-04"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Aso",
+        "title": "Mount Aso",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Aso Volcano Museum",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://www.asomuse.jp/",
+  "municipalityId": "Kumamoto:aso",
+  "openingHours": "09:00–17:00",
+  "openingHoursJa": "09:00～17:00",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.asomuseum.jp/en/"
+  },
+  "notesJa": "火口へ向かう前の火山状況確認に便利です。"
+}

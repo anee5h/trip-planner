@@ -32,7 +32,7 @@
   "categories": ["sightseeing", "nature", "romance"],
   "budgetMin": 3000,
   "budgetMax": 10000,
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -55,7 +55,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/1280px-Mt.Inasa_2010.jpg",
   "description": "Mount Inasa in Nagasaki is designated as one of the World's New Three Great Night Views, offering a 360° illuminated bowl view of Nagasaki harbor and surrounding hills.",
-  "notes": "The Juhyo (snow monsters) are formed when supercooled water droplets from clouds freeze instantly on fir trees, building thick ice cocoons. Best viewed Jan 15–Feb 20. Zao Onsen village at the base has excellent hot springs.",
+  "notes": "Bring a jacket — it can be windy and cool at the summit even in summer.",
   "budgetRecommended": 6500,
   "crowd": {
     "weekday": 3,
@@ -98,7 +98,7 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "role": "standalone",
+  "role": "poi",
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -106,6 +106,39 @@
     "max": 5
   },
   "officialWebsite": "https://www.inasayama.com/",
-  "businessHours": "Open access",
-  "municipalityId": "Nagasaki:nagasaki"
+  "municipalityId": "Nagasaki:nagasaki",
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-04",
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Inasa",
+        "title": "Mount Inasa",
+        "accessedAt": "2026-08-04"
+      }
+    ]
+  },
+  "content": {
+    "ja": {
+      "name": "稲佐山",
+      "description": "稲佐山（標高333m）は長崎市街を一望できる夜景スポットで、「世界新三大夜景」の一つに認定されています。山頂まではロープウェイで約5分、到着後は360度のパノラマが楽しめます。",
+      "highlights": [
+        "世界新三大夜景の長崎夜景",
+        "展望台からの360度パノラマ",
+        "稲佐山ロープウェイの空中散歩"
+      ],
+      "openingHours": "09:00～22:00（ロープウェイ）"
+    }
+  },
+  "openingHours": "09:00–22:00 (Ropeway)",
+  "openingHoursJa": "09:00～22:00（ロープウェイ）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.inasayama.com/english/"
+  },
+  "notesJa": "山頂は風が強く冷えるため上着を持参ください。"
 }

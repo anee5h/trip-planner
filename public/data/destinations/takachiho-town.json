@@ -61,7 +61,7 @@
   "reservation": "None required",
   "parking": "Public parking available",
   "notes": "Takachiho Town travel hub in Miyazaki Prefecture.",
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -86,7 +86,29 @@
     "min": 6,
     "max": 12
   },
-  "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Miyazaki:takachiho"
+  "municipalityId": "Miyazaki:takachiho",
+  "nameJa": "高千穂町",
+  "aliases": ["Takachiho Town", "高千穂町"],
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-04",
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Takachiho_Town",
+        "title": "Takachiho Town",
+        "accessedAt": "2026-08-04"
+      }
+    ]
+  },
+  "openingHours": "No fixed opening hours (town area)",
+  "openingHoursJa": "営業時間の設定なし（町内エリア）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/takachiho-town/"
+  }
 }

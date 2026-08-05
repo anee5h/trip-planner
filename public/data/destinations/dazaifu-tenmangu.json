@@ -1,0 +1,159 @@
+{
+  "id": "dazaifu-tenmangu",
+  "name": "Dazaifu Tenmangu Shrine",
+  "nameJa": "太宰府天満宮",
+  "aliases": ["Dazaifu Tenmangu Shrine", "太宰府天満宮"],
+  "content": {
+    "en": {
+      "name": "Dazaifu Tenmangu Shrine",
+      "description": "Dazaifu Tenmangu is one of Japan's most important Shinto shrines, dedicated to Sugawara no Michizane, the deity of learning and scholarship. Built over his grave in 919, the shrine is famous for its 6,000 plum trees that bloom spectacularly in February–March. Students from across Japan come to pray for exam success.",
+      "highlights": [
+        "6,000 plum trees blooming in early spring",
+        "One of Japan's top three Tenmangu shrines",
+        "Prayers for academic success & exam luck"
+      ],
+      "openingHours": "06:30–18:30 (varies by season)"
+    },
+    "ja": {
+      "name": "太宰府天満宮",
+      "description": "太宰府天満宮は学問の神様・菅原道真公を祀る日本有数の神社で、919年に道真公の墓所に創建されました。境内には約6,000本の梅が植えられ、2月〜3月の梅まつりは見事です。受験シーズンには全国から合格祈願の参拝者が訪れます。",
+      "highlights": [
+        "約6,000本の梅と梅まつり（2〜3月）",
+        "学問の神様・菅原道真公の御神徳",
+        "日本三天神の一社と合格祈願"
+      ],
+      "openingHours": "06:30～18:30（季節により変動あり）"
+    }
+  },
+  "prefecture": "Fukuoka",
+  "region": "Kyushu",
+  "kind": "shrine",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "dazaifu-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History", "Culture"],
+  "tags": ["Shrine", "Plum", "Learning", "Dazaifu"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8b/20100719_Dazaifu_Tenmangu_Shrine_3328.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Jakub Hałun",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:20100719_Dazaifu_Tenmangu_Shrine_3328.jpg"
+  },
+  "coordinates": {
+    "lat": 33.5211,
+    "lng": 130.5353
+  },
+  "description": "Dazaifu Tenmangu is one of Japan's most important Shinto shrines, dedicated to Sugawara no Michizane, the deity of learning and scholarship. Built over his grave in 919, the shrine is famous for its 6,000 plum trees that bloom spectacularly in February–March. Students from across Japan come to pray for exam success.",
+  "highlights": [
+    "6,000 plum trees blooming in early spring",
+    "One of Japan's top three Tenmangu shrines",
+    "Prayers for academic success & exam luck"
+  ],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 525,
+    "tickets": 0,
+    "food": 600,
+    "cafe": 150
+  },
+  "transportOptions": {
+    "train": 220,
+    "shinkansen": 320
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 4000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 2000,
+  "walkingShadeMin": 2000,
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9.3,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 9,
+    "rain": 8.3,
+    "food": 8.8,
+    "photography": 9.3,
+    "relaxation": 8.5,
+    "value": 9.3,
+    "uniqueness": 9.3
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 6,
+    "weekend": 9,
+    "holiday": 10
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 9
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Shrine parking available",
+  "notes": "Try freshly grilled umegae-mochi rice cakes from the approach-road stalls.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.dazaifutenmangu.or.jp/",
+        "title": "Dazaifu Tenmangu Shrine Official Website",
+        "accessedAt": "2026-08-04"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Dazaifu_Tenman-g%C5%AB",
+        "title": "Dazaifu Tenman-gū",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Dazaifu Tenmangu Shrine",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://www.dazaifutenmangu.or.jp/",
+  "municipalityId": "Fukuoka:dazaifu",
+  "openingHours": "06:30–18:30 (varies by season)",
+  "openingHoursJa": "06:30～18:30（季節により変動あり）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.dazaifutenmangu.or.jp/en/"
+  },
+  "notesJa": "参道で焼きたての名物「梅ヶ枝餅」をぜひお試しください。"
+}

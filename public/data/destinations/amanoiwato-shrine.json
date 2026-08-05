@@ -1,0 +1,153 @@
+{
+  "id": "amanoiwato-shrine",
+  "name": "Amanoiwato Shrine",
+  "nameJa": "天岩戸神社",
+  "aliases": ["Amanoiwato Shrine", "天岩戸神社"],
+  "content": {
+    "en": {
+      "name": "Amanoiwato Shrine",
+      "description": "Amanoiwato Shrine venerates the sacred cave where, according to Japanese mythology, the sun goddess Amaterasu hid herself, plunging the world into darkness until lured out by the other gods. The cave itself is across the river and can be viewed with shrine staff escort. The shrine's peaceful forest setting exudes a profound spiritual atmosphere.",
+      "highlights": [
+        "Sacred cave of the Amaterasu legend",
+        "Profound Shinto mythological site",
+        "Peaceful mountain shrine & forest setting"
+      ],
+      "openingHours": "08:30–17:00"
+    },
+    "ja": {
+      "name": "天岩戸神社",
+      "description": "天岩戸神社は日本神話で天照大神が天岩戸に隠れ、世界が暗闇に包まれた伝説の洞窟を祀る神社です。洞窟は川向かいにあり神職の案内で拝観できます。静かな山中の境内は神話の世界に想いを馳せる神聖な空気に満ちています。",
+      "highlights": [
+        "天照大神伝説の天岩戸洞窟",
+        "日本神話の聖地を訪ねる",
+        "山中の静寂な神社と神域の森"
+      ],
+      "openingHours": "08:30～17:00"
+    }
+  },
+  "prefecture": "Miyazaki",
+  "region": "Kyushu",
+  "kind": "shrine",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "takachiho-town"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["History", "Culture"],
+  "tags": ["Shrine", "Mythology", "Cave", "Takachiho"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Amanoiwato_Shrine_%2830722535953%29.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "attribution": "David Stanley",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amanoiwato_Shrine_(30722535953).jpg"
+  },
+  "coordinates": {
+    "lat": 32.7339,
+    "lng": 131.3522
+  },
+  "description": "Amanoiwato Shrine venerates the sacred cave where, according to Japanese mythology, the sun goddess Amaterasu hid herself, plunging the world into darkness until lured out by the other gods. The cave itself is across the river and can be viewed with shrine staff escort. The shrine's peaceful forest setting exudes a profound spiritual atmosphere.",
+  "highlights": [
+    "Sacred cave of the Amaterasu legend",
+    "Profound Shinto mythological site",
+    "Peaceful mountain shrine & forest setting"
+  ],
+  "budgetMin": 1000,
+  "budgetRecommended": 3000,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 350,
+    "tickets": 0,
+    "food": 400,
+    "cafe": 100
+  },
+  "transportOptions": {
+    "train": 360,
+    "shinkansen": 470
+  },
+  "totalTripHours": 2,
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  },
+  "walkingMin": 2500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1000,
+  "indoorPercent": 5,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.5,
+    "summer": 8.3,
+    "winter": 8.5,
+    "rain": 7.8,
+    "food": 7,
+    "photography": 8.3,
+    "relaxation": 9,
+    "value": 9,
+    "uniqueness": 9.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "None required; cave viewing requires shrine staff escort",
+  "parking": "Shrine parking available",
+  "notes": "The sacred cave is viewed from across the river with shrine staff guidance.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Amanoiwato-jinja",
+        "title": "Amanoiwato-jinja",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Amanoiwato Shrine",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": null,
+  "municipalityId": "Miyazaki:takachiho",
+  "openingHours": "08:30–17:00",
+  "openingHoursJa": "08:30～17:00",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://amanoiwato-jinja.jp/"
+  },
+  "notesJa": "天岩戸は神職の案内で川の対岸から拝観します。"
+}

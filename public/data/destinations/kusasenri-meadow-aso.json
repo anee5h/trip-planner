@@ -1,0 +1,153 @@
+{
+  "id": "kusasenri-meadow-aso",
+  "name": "Kusasenri Grassland",
+  "nameJa": "草千里ヶ浜",
+  "aliases": ["Kusasenri Grassland", "草千里ヶ浜"],
+  "content": {
+    "en": {
+      "name": "Kusasenri Grassland",
+      "description": "Kusasenri is a vast grassland inside the Aso caldera, with a small pond at its center and grazing horses dotting the landscape. The sweeping views of Mount Aso's smoking crater against the green expanse are iconic. Horse riding is available in the meadow, making it a highlight of any Aso visit.",
+      "highlights": [
+        "Vast caldera grassland with grazing horses",
+        "Smoking crater backdrop views",
+        "Horse riding experience in the meadow"
+      ],
+      "openingHours": "Open 24 hours"
+    },
+    "ja": {
+      "name": "草千里ヶ浜",
+      "description": "草千里ヶ浜は阿蘇カルデラ内に広がる広大な草原で、中央の池と放牧された馬の群れが牧歌的な風景を作り出します。阿蘇中岳の噴煙を背景に広がる緑の草原は阿蘇を代表する景観で、乗馬体験も楽しめます。",
+      "highlights": [
+        "広大なカルデラ草原と放牧馬",
+        "中岳火口噴煙を背景にした絶景",
+        "草原での乗馬体験"
+      ],
+      "openingHours": "24時間営業"
+    }
+  },
+  "prefecture": "Kumamoto",
+  "region": "Kyushu",
+  "kind": "nature",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "aso-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Nature & Outdoors", "Sightseeing"],
+  "tags": ["Grassland", "Horses", "Caldera", "Aso"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Kusasenrigahama_in_Aso_City_2007_0811_03.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Project Kei",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kusasenrigahama_in_Aso_City_2007_0811_03.jpg"
+  },
+  "coordinates": {
+    "lat": 32.8847,
+    "lng": 131.0947
+  },
+  "description": "Kusasenri is a vast grassland inside the Aso caldera, with a small pond at its center and grazing horses dotting the landscape. The sweeping views of Mount Aso's smoking crater against the green expanse are iconic. Horse riding is available in the meadow, making it a highlight of any Aso visit.",
+  "highlights": [
+    "Vast caldera grassland with grazing horses",
+    "Smoking crater backdrop views",
+    "Horse riding experience in the meadow"
+  ],
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 525,
+    "tickets": 0,
+    "food": 600,
+    "cafe": 150
+  },
+  "transportOptions": {
+    "train": 320,
+    "shinkansen": 430
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2.5
+  },
+  "walkingMin": 5000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 3000,
+  "walkingShadeMin": 2000,
+  "indoorPercent": 0,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 4,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9.3,
+    "summer": 9,
+    "winter": 8,
+    "rain": 6.5,
+    "food": 7.8,
+    "photography": 9.5,
+    "relaxation": 9,
+    "value": 9,
+    "uniqueness": 9.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Grassland parking available",
+  "notes": "Horse riding is available on the rolling grasslands in warmer months.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Mount_Aso",
+        "title": "Mount Aso",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Kusasenri Grassland",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": null,
+  "municipalityId": "Kumamoto:aso",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  },
+  "notesJa": "暖かい季節には草原での乗馬体験が楽しめます。"
+}

@@ -1,0 +1,159 @@
+{
+  "id": "yakusugi-land-yakushima",
+  "name": "Yakusugi Land",
+  "nameJa": "ヤクスギランド",
+  "aliases": ["Yakusugi Land", "ヤクスギランド"],
+  "content": {
+    "en": {
+      "name": "Yakusugi Land",
+      "description": "Yakusugi Land is a managed nature park on Yakushima featuring well-maintained boardwalk trails through groves of thousand-year-old yakusugi cedars. With trails ranging from 30 minutes to 2.5 hours, it's the most accessible way to experience the island's ancient forest without the full-day Jomon Sugi commitment. Several massive named cedar trees are highlights along the paths.",
+      "highlights": [
+        "Boardwalk trails through ancient cedar groves",
+        "Several named 1,000+ year-old cedars",
+        "Range of trails from 30min to 2.5h"
+      ],
+      "openingHours": "Open 24 hours"
+    },
+    "ja": {
+      "name": "ヤクスギランド",
+      "description": "ヤクスギランドは屋久島の自然公園で、よく整備された遊歩道を歩きながら樹齢1,000年を超える屋久杉の巨木群を気軽に観賞できます。30分から2.5時間の多様なコースがあり、縄文杉ほどの体力がなくても屋久島の原生林の魅力を存分に味わえます。",
+      "highlights": [
+        "樹齢千年超の屋久杉を巡る遊歩道",
+        "複数の銘木と原生林の散策",
+        "30分〜2.5時間の選べるコース"
+      ],
+      "openingHours": "24時間営業"
+    }
+  },
+  "prefecture": "Kagoshima",
+  "region": "Kyushu",
+  "kind": "nature",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "yakushima-town"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Nature & Outdoors", "Sightseeing"],
+  "tags": ["Hiking", "Forest", "Cedar", "Yakushima"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Suspension_footbridge_in_Yakusugi_Land.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Grendelkhan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Suspension_footbridge_in_Yakusugi_Land.jpg"
+  },
+  "coordinates": {
+    "lat": 30.2922,
+    "lng": 130.5747
+  },
+  "description": "Yakusugi Land is a managed nature park on Yakushima featuring well-maintained boardwalk trails through groves of thousand-year-old yakusugi cedars. With trails ranging from 30 minutes to 2.5 hours, it's the most accessible way to experience the island's ancient forest without the full-day Jomon Sugi commitment. Several massive named cedar trees are highlights along the paths.",
+  "highlights": [
+    "Boardwalk trails through ancient cedar groves",
+    "Several named 1,000+ year-old cedars",
+    "Range of trails from 30min to 2.5h"
+  ],
+  "budgetMin": 2000,
+  "budgetRecommended": 5000,
+  "budgetMax": 8000,
+  "budgetBreakdown": {
+    "transport": 700,
+    "tickets": 500,
+    "food": 800,
+    "cafe": 200
+  },
+  "transportOptions": {
+    "train": 400,
+    "shinkansen": 510
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 4
+  },
+  "walkingMin": 12000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 6000,
+  "walkingShadeMin": 6000,
+  "indoorPercent": 0,
+  "comfort": {
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 7
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 8.8,
+    "summer": 8.8,
+    "winter": 8.3,
+    "rain": 7.3,
+    "food": 7,
+    "photography": 9.3,
+    "relaxation": 9,
+    "value": 9.3,
+    "uniqueness": 9.3
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Trailhead parking available",
+  "notes": "Easier trails than Jomon Sugi, with boardwalks suitable for families.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.yakushima.or.jp/",
+        "title": "Yakusugi Land Official Website",
+        "accessedAt": "2026-08-04"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Yakushima",
+        "title": "Yakushima",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Yakusugi Land",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": "https://www.yakushima.or.jp/",
+  "municipalityId": "Kagoshima:yakushima",
+  "openingHours": "Open 24 hours",
+  "openingHoursJa": "24時間営業",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  },
+  "notesJa": "縄文杉より易しく木道も整備された家族向けトレイルです。"
+}

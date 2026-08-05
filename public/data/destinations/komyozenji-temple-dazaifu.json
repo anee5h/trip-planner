@@ -1,0 +1,153 @@
+{
+  "id": "komyozenji-temple-dazaifu",
+  "name": "Komyozenji Temple",
+  "nameJa": "光明禅寺",
+  "aliases": ["Komyozenji Temple", "光明禅寺"],
+  "content": {
+    "en": {
+      "name": "Komyozenji Temple",
+      "description": "Komyozenji is a serene Rinzai Zen temple founded in 1273, located just a short walk from Dazaifu Tenmangu. It is renowned for its two exquisite dry landscape gardens (karesansui): one featuring moss and maple representing the word 'light', the other using stones and sand to depict a dragon. Best visited in autumn for spectacular maple colors.",
+      "highlights": [
+        "Two exquisite Zen karesansui gardens",
+        "Moss & maple 'light' garden",
+        "Peaceful autumn foliage away from crowds"
+      ],
+      "openingHours": "08:00–17:00"
+    },
+    "ja": {
+      "name": "光明禅寺",
+      "description": "光明禅寺は1273年創建の臨済宗の禅寺で、太宰府天満宮から徒歩すぐの静かな場所にあります。二つの枯山水庭園があり、苔と紅葉で「光」を表す庭と石と砂で龍を描く庭が特徴です。秋の紅葉の名所として知られ、観光客の喧騒から離れた静寂が魅力です。",
+      "highlights": [
+        "苔と紅葉の枯山水「光」の庭",
+        "石と砂の龍の枯山水庭園",
+        "秋の紅葉と禅の静寂"
+      ],
+      "openingHours": "08:00～17:00"
+    }
+  },
+  "prefecture": "Fukuoka",
+  "region": "Kyushu",
+  "kind": "temple",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "dazaifu-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Culture", "Sightseeing"],
+  "tags": ["Temple", "Garden", "Zen", "Dazaifu"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Komyozenji_Temple_02.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "STA3816",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Komyozenji_Temple_02.jpg"
+  },
+  "coordinates": {
+    "lat": 33.52,
+    "lng": 130.5334
+  },
+  "description": "Komyozenji is a serene Rinzai Zen temple founded in 1273, located just a short walk from Dazaifu Tenmangu. It is renowned for its two exquisite dry landscape gardens (karesansui): one featuring moss and maple representing the word 'light', the other using stones and sand to depict a dragon. Best visited in autumn for spectacular maple colors.",
+  "highlights": [
+    "Two exquisite Zen karesansui gardens",
+    "Moss & maple 'light' garden",
+    "Peaceful autumn foliage away from crowds"
+  ],
+  "budgetMin": 1000,
+  "budgetRecommended": 3000,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 350,
+    "tickets": 200,
+    "food": 400,
+    "cafe": 100
+  },
+  "transportOptions": {
+    "train": 220,
+    "shinkansen": 320
+  },
+  "totalTripHours": 2,
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  },
+  "walkingMin": 2500,
+  "walkingIntensity": "low",
+  "walkingSunMin": 1000,
+  "walkingShadeMin": 1500,
+  "indoorPercent": 5,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 7,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 8.5,
+    "couple": 8.8,
+    "summer": 8.5,
+    "winter": 8.3,
+    "rain": 8,
+    "food": 7,
+    "photography": 9,
+    "relaxation": 9.3,
+    "value": 8.8,
+    "uniqueness": 8.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Nearby coin parking",
+  "notes": "Best visited in late November when the maple garden is at its peak.",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-04",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Dazaifu,_Fukuoka",
+        "title": "Dazaifu, Fukuoka",
+        "accessedAt": "2026-08-04"
+      }
+    ],
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
+    "changeSummary": "PR 12C Kyushu Regional Expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-04",
+        "changedBy": "Kyushu Regional Editorial Batch",
+        "summary": "Added bilingual curated POI: Komyozenji Temple",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
+  },
+  "officialWebsite": null,
+  "municipalityId": "Fukuoka:dazaifu",
+  "openingHours": "08:00–17:00",
+  "openingHoursJa": "08:00～17:00",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.crossroadfukuoka.jp/en/spots/detail/4000000000108"
+  },
+  "notesJa": "紅葉の名所で11月下旬が見頃です。"
+}

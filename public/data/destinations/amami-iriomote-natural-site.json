@@ -57,7 +57,7 @@
   ],
   "reservation": "Not required",
   "parking": "Available nearby",
-  "notes": "Official UNESCO World Heritage Site.",
+  "notes": "Access varies by island — plan transport logistics carefully before visiting.",
   "coordinates": {
     "lat": 28.2711,
     "lng": 129.3364
@@ -69,7 +69,7 @@
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Amami-Oshima, Tokunoshima, Northern Okinawa & Iriomote via Wikipedia/Wikimedia Commons"
   },
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "high"
   },
@@ -107,5 +107,38 @@
     "max": 7
   },
   "officialWebsite": "https://www.env.go.jp/park/iriomote/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "content": {
+    "ja": {
+      "name": "奄美大島、徳之島、沖縄島北部及び西表島",
+      "description": "奄美大島、徳之島、沖縄島北部及び西表島は、生物多様性に富むユネスコ世界自然遺産です。固有種のアマミノクロウサギやヤンバルクイナ、イリオモテヤマネコが生息し、亜熱帯照葉樹林が豊かな生態系を育んでいます。",
+      "highlights": [
+        "世界自然遺産の生物多様性",
+        "奄美大島の原生林ハイキング",
+        "西表島のマングローブカヌー体験"
+      ],
+      "openingHours": "営業時間の設定なし（自然エリア）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "freshness": "current",
+    "checkedAt": "2026-08-04",
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Amami-%C5%8Cshima_Island,_Tokunoshima_Island,_Northern_Okinawa_Island,_and_Iriomote_Island",
+        "title": "Amami-Ōshima Island, Tokunoshima Island, Northern Okinawa Island, and Iriomote Island",
+        "accessedAt": "2026-08-04"
+      }
+    ]
+  },
+  "openingHours": "No fixed opening hours (natural site)",
+  "openingHoursJa": "営業時間の設定なし（自然エリア）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.japan.travel/en/world-heritage/amami-oshima-island-tokunoshima-island-northern-part-of-okinawa-island-and-iriomote-island/"
+  },
+  "notesJa": "島ごとにアクセスが異なるため事前の旅程確認が必須です。"
 }

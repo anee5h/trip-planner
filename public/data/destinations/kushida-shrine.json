@@ -7,12 +7,14 @@
     "en": {
       "name": "Kushida Shrine",
       "description": "Kushida Shrine is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
-      "highlights": ["History"]
+      "highlights": ["History"],
+      "openingHours": "04:00–22:00"
     },
     "ja": {
       "name": "櫛田神社 (福岡市)",
       "description": "櫛田神社 (福岡市)はFukuoka Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["歴史"]
+      "highlights": ["歴史"],
+      "openingHours": "04:00～22:00"
     }
   },
   "prefecture": "Fukuoka",
@@ -100,14 +102,14 @@
   "parking": "Check local parking and public transport guidance.",
   "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
   "schemaVersion": 2,
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "medium"
   },
   "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
-    "lifecycle": "in_review",
+    "lifecycle": "published",
     "sources": [
       {
         "type": "wikipedia",
@@ -122,8 +124,8 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due",
+    "checkedAt": "2026-08-04",
+    "freshness": "current",
     "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
     "fieldSources": {
       "ratings": [
@@ -164,7 +166,9 @@
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
       }
-    ]
+    ],
+    "reviewedAt": "2026-08-04",
+    "reviewedBy": "Kyushu Regional Editorial Batch"
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -172,6 +176,11 @@
     "confidence": "low"
   },
   "officialWebsite": "https://yokanavi.com/spot/26906/",
-  "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
-  "municipalityId": "Fukuoka:fukuoka"
+  "municipalityId": "Fukuoka:fukuoka",
+  "openingHours": "04:00–22:00",
+  "openingHoursJa": "04:00～22:00",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://yokanavi.com/en/spot/26906/"
+  }
 }
