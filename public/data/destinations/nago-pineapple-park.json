@@ -117,5 +117,16 @@
   "transportOptions": {
     "bus": 300
   },
-  "notes": "A whimsical pineapple-themed park — great for families and pineapple lovers."
+  "notes": "A whimsical pineapple-themed park — great for families and pineapple lovers.",
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1000,
+  "indoorPercent": 40,
+  "reservation": "None required",
+  "parking": "Free parking available",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "notesJa": "家族連れに人気のパイナップルテーマパーク。試食も楽しめます。"
 }

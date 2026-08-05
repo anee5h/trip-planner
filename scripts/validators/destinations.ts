@@ -272,6 +272,103 @@ export const destinationsValidator: ValidatorModule = {
             targetId: dest.id,
           });
         }
+        if (
+          typeof dest.totalTripHours !== "number" ||
+          !Number.isFinite(dest.totalTripHours) ||
+          dest.totalTripHours <= 0
+        ) {
+          issues.push({
+            severity: "error",
+            code: "INVALID_TOTAL_TRIP_HOURS",
+            message: `Published destination '${dest.id}' has invalid totalTripHours: ${dest.totalTripHours}.`,
+            targetId: dest.id,
+          });
+        }
+        if (
+          typeof dest.walkingMin !== "number" ||
+          !Number.isFinite(dest.walkingMin) ||
+          dest.walkingMin < 0
+        ) {
+          issues.push({
+            severity: "error",
+            code: "INVALID_WALKING_MIN",
+            message: `Published destination '${dest.id}' has invalid walkingMin: ${dest.walkingMin}.`,
+            targetId: dest.id,
+          });
+        }
+        if (
+          typeof dest.walkingSunMin !== "number" ||
+          !Number.isFinite(dest.walkingSunMin) ||
+          dest.walkingSunMin < 0
+        ) {
+          issues.push({
+            severity: "error",
+            code: "INVALID_WALKING_SUN_MIN",
+            message: `Published destination '${dest.id}' has invalid walkingSunMin: ${dest.walkingSunMin}.`,
+            targetId: dest.id,
+          });
+        }
+        if (
+          typeof dest.walkingShadeMin !== "number" ||
+          !Number.isFinite(dest.walkingShadeMin) ||
+          dest.walkingShadeMin < 0
+        ) {
+          issues.push({
+            severity: "error",
+            code: "INVALID_WALKING_SHADE_MIN",
+            message: `Published destination '${dest.id}' has invalid walkingShadeMin: ${dest.walkingShadeMin}.`,
+            targetId: dest.id,
+          });
+        }
+        if (
+          typeof dest.indoorPercent !== "number" ||
+          !Number.isFinite(dest.indoorPercent) ||
+          dest.indoorPercent < 0 ||
+          dest.indoorPercent > 100
+        ) {
+          issues.push({
+            severity: "error",
+            code: "INVALID_INDOOR_PERCENT",
+            message: `Published destination '${dest.id}' has invalid indoorPercent: ${dest.indoorPercent}.`,
+            targetId: dest.id,
+          });
+        }
+        if (!dest.reservation || dest.reservation.trim() === "") {
+          issues.push({
+            severity: "error",
+            code: "MISSING_RESERVATION",
+            message: `Published destination '${dest.id}' has empty or missing 'reservation'.`,
+            targetId: dest.id,
+          });
+        }
+        if (!dest.parking || dest.parking.trim() === "") {
+          issues.push({
+            severity: "error",
+            code: "MISSING_PARKING",
+            message: `Published destination '${dest.id}' has empty or missing 'parking'.`,
+            targetId: dest.id,
+          });
+        }
+        if (
+          !dest.travelEstimate ||
+          typeof dest.travelEstimate !== "object" ||
+          !dest.travelEstimate.confidence
+        ) {
+          issues.push({
+            severity: "error",
+            code: "MISSING_TRAVEL_ESTIMATE",
+            message: `Published destination '${dest.id}' has missing or invalid 'travelEstimate'.`,
+            targetId: dest.id,
+          });
+        }
+        if (!dest.content?.en?.name || !dest.content.en.description) {
+          issues.push({
+            severity: "error",
+            code: "MISSING_ENGLISH_CONTENT",
+            message: `Published destination '${dest.id}' has missing English content.`,
+            targetId: dest.id,
+          });
+        }
       }
     }
 

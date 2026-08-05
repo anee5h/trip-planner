@@ -115,5 +115,16 @@
   "transportOptions": {
     "bus": 350
   },
-  "notes": "Free observation point with views of the Hirakubo Peninsula — best in clear morning light."
+  "notes": "Free observation point with views of the Hirakubo Peninsula — best in clear morning light.",
+  "totalTripHours": 1,
+  "walkingMin": 1000,
+  "walkingSunMin": 800,
+  "walkingShadeMin": 100,
+  "indoorPercent": 5,
+  "reservation": "None required",
+  "parking": "Free parking available",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "notesJa": "無料の展望台から平久保半島の絶景パノラマ。晴れた午前中がおすすめ。"
 }

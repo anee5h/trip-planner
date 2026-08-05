@@ -17,6 +17,23 @@ const OKINAWA_IDS = catalogue
   .filter((r) => r.prefecture === "Okinawa")
   .map((r) => r.id);
 
+const AFFECTED_POI_IDS = [
+  "kokusai-dori-naha",
+  "naminoue-shrine-naha",
+  "fukushuen-garden-naha",
+  "nago-pineapple-park",
+  "busena-marine-park-nago",
+  "churaumi-aquarium-motobu",
+  "bise-fukugi-tree-road-motobu",
+  "nakijin-castle-ruins-motobu",
+  "kabira-bay-ishigaki",
+  "tamatorizaki-viewpoint-ishigaki",
+  "yonehara-beach-coral-ishigaki",
+  "yonaha-maehama-beach-miyako",
+  "irabu-bridge-irabujima-miyako",
+  "higashi-hennazaki-cape-miyako",
+];
+
 describe("Okinawa destination runtime contract", () => {
   it("has Okinawa records to test", () => {
     expect(OKINAWA_IDS.length).toBeGreaterThan(0);
@@ -74,5 +91,123 @@ describe("Okinawa destination runtime contract", () => {
     it(`${r.id}: has notes`, () => {
       expect(r.notes).toBeTruthy();
     });
+
+    it(`${r.id}: has valid totalTripHours`, () => {
+      expect(typeof r.totalTripHours).toBe("number");
+      expect(Number.isFinite(r.totalTripHours)).toBe(true);
+      expect(r.totalTripHours).toBeGreaterThan(0);
+    });
+
+    it(`${r.id}: has valid walkingMin`, () => {
+      expect(typeof r.walkingMin).toBe("number");
+      expect(Number.isFinite(r.walkingMin)).toBe(true);
+      expect(r.walkingMin).toBeGreaterThanOrEqual(0);
+    });
+
+    it(`${r.id}: has valid walkingSunMin`, () => {
+      expect(typeof r.walkingSunMin).toBe("number");
+      expect(Number.isFinite(r.walkingSunMin)).toBe(true);
+      expect(r.walkingSunMin).toBeGreaterThanOrEqual(0);
+    });
+
+    it(`${r.id}: has valid walkingShadeMin`, () => {
+      expect(typeof r.walkingShadeMin).toBe("number");
+      expect(Number.isFinite(r.walkingShadeMin)).toBe(true);
+      expect(r.walkingShadeMin).toBeGreaterThanOrEqual(0);
+    });
+
+    it(`${r.id}: has valid indoorPercent`, () => {
+      expect(typeof r.indoorPercent).toBe("number");
+      expect(Number.isFinite(r.indoorPercent)).toBe(true);
+      expect(r.indoorPercent).toBeGreaterThanOrEqual(0);
+      expect(r.indoorPercent).toBeLessThanOrEqual(100);
+    });
+
+    it(`${r.id}: has reservation`, () => {
+      expect(r.reservation).toBeTruthy();
+      expect(typeof r.reservation).toBe("string");
+    });
+
+    it(`${r.id}: has parking`, () => {
+      expect(r.parking).toBeTruthy();
+      expect(typeof r.parking).toBe("string");
+    });
+
+    it(`${r.id}: has travelEstimate`, () => {
+      expect(r.travelEstimate).toBeDefined();
+      expect(typeof r.travelEstimate).toBe("object");
+      expect(r.travelEstimate.confidence).toBeTruthy();
+    });
+
+    it(`${r.id}: has English content`, () => {
+      expect(r.content?.en?.name).toBeTruthy();
+      expect(r.content?.en?.description).toBeTruthy();
+    });
   }
+});
+
+// Negative tests: confirm validator catches missing fields
+describe("Okinawa field deletion causes validation failure", () => {
+  const fieldsToDelete = [
+    "totalTripHours",
+    "walkingMin",
+    "indoorPercent",
+    "reservation",
+    "parking",
+    "travelEstimate",
+  ];
+
+  for (const field of fieldsToDelete) {
+    it(`deleting ${field} from kokusai-dori-naha makes it fail contract`, () => {
+      const record = catalogue.find((r) => r.id === "kokusai-dori-naha")!;
+      const mutated = { ...record };
+      delete (mutated as any)[field];
+
+      if (field === "totalTripHours") {
+        expect(
+          typeof mutated.totalTripHours !== "number" ||
+            !Number.isFinite(mutated.totalTripHours) ||
+            mutated.totalTripHours <= 0,
+        ).toBe(true);
+      } else if (field === "walkingMin") {
+        expect(
+          typeof mutated.walkingMin !== "number" ||
+            !Number.isFinite(mutated.walkingMin) ||
+            mutated.walkingMin < 0,
+        ).toBe(true);
+      } else if (field === "indoorPercent") {
+        expect(
+          typeof mutated.indoorPercent !== "number" ||
+            mutated.indoorPercent < 0 ||
+            mutated.indoorPercent > 100,
+        ).toBe(true);
+      } else if (field === "reservation") {
+        expect(!mutated.reservation).toBe(true);
+      } else if (field === "parking") {
+        expect(!mutated.parking).toBe(true);
+      } else if (field === "travelEstimate") {
+        expect(!mutated.travelEstimate?.confidence).toBe(true);
+      }
+    });
+  }
+
+  it("deleting content.en from kokusai-dori-naha makes it fail", () => {
+    const record = catalogue.find((r) => r.id === "kokusai-dori-naha")!;
+    const mutated = { ...record, content: { ...record.content } };
+    delete (mutated.content as any).en;
+    expect(mutated.content?.en?.name).toBeFalsy();
+  });
+
+  it("all affected POIs have destination-appropriate reservation values", () => {
+    const records = catalogue.filter((r) => AFFECTED_POI_IDS.includes(r.id));
+    const reservations = new Set(records.map((r) => r.reservation));
+    // Values may legitimately share "None required" but should not be all identical
+    expect(reservations.size).toBeGreaterThan(1);
+  });
+
+  it("all affected POIs have destination-appropriate parking values", () => {
+    const records = catalogue.filter((r) => AFFECTED_POI_IDS.includes(r.id));
+    const parkings = new Set(records.map((r) => r.parking));
+    expect(parkings.size).toBeGreaterThan(1);
+  });
 });

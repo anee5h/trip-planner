@@ -122,5 +122,16 @@
   "transportOptions": {
     "bus": 400
   },
-  "notes": "One of nine Gusuku sites — visit in late January for Okinawa's earliest cherry blossoms."
+  "notes": "One of nine Gusuku sites — visit in late January for Okinawa's earliest cherry blossoms.",
+  "totalTripHours": 3,
+  "walkingMin": 3500,
+  "walkingSunMin": 2000,
+  "walkingShadeMin": 500,
+  "indoorPercent": 5,
+  "reservation": "None required",
+  "parking": "Free parking available",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "notesJa": "世界遺産の城跡。1月下旬には沖縄で最も早い桜が見られます。"
 }

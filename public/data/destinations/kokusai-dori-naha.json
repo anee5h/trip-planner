@@ -117,5 +117,16 @@
   "transportOptions": {
     "monorail": 200
   },
-  "notes": "Naha's main shopping street — great for Okinawan souvenirs and street food."
+  "notes": "Naha's main shopping street — great for Okinawan souvenirs and street food.",
+  "totalTripHours": 3,
+  "walkingMin": 3000,
+  "walkingSunMin": 500,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 30,
+  "reservation": "None required",
+  "parking": "Nearby paid parking available",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "notesJa": "那覇のメインストリート。沖縄土産やストリートフードが楽しめる国際通り。"
 }

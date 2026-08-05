@@ -117,5 +117,16 @@
   "transportOptions": {
     "bus": 300
   },
-  "notes": "A peaceful tree-lined lane near Churaumi — walk or rent a bicycle for the full experience."
+  "notes": "A peaceful tree-lined lane near Churaumi — walk or rent a bicycle for the full experience.",
+  "totalTripHours": 2,
+  "walkingMin": 2500,
+  "walkingSunMin": 1000,
+  "walkingShadeMin": 1500,
+  "indoorPercent": 5,
+  "reservation": "None required",
+  "parking": "Nearby paid parking",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "notesJa": "古木のフクギ並木が続く静かな小道。レンタサイクルでの散策がおすすめ。"
 }

@@ -117,5 +117,16 @@
   "transportOptions": {
     "bus": 250
   },
-  "notes": "Japan's longest toll-free bridge — stop at the roadside station for panoramic photos."
+  "notes": "Japan's longest toll-free bridge — stop at the roadside station for panoramic photos.",
+  "totalTripHours": 2,
+  "walkingMin": 1000,
+  "walkingSunMin": 800,
+  "walkingShadeMin": 100,
+  "indoorPercent": 5,
+  "reservation": "None required",
+  "parking": "Free parking at roadside station",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "notesJa": "日本最長の無料橋。道の駅からのパノラマが絶好の写真スポット。"
 }

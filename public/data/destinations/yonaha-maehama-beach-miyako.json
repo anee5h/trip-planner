@@ -117,5 +117,16 @@
   "transportOptions": {
     "bus": 300
   },
-  "notes": "One of Japan's top beaches — the shallow water extends far out, ideal for wading and families."
+  "notes": "One of Japan's top beaches — the shallow water extends far out, ideal for wading and families.",
+  "totalTripHours": 4,
+  "walkingMin": 3000,
+  "walkingSunMin": 2500,
+  "walkingShadeMin": 300,
+  "indoorPercent": 5,
+  "reservation": "None required",
+  "parking": "Free parking available",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "notesJa": "日本のベストビーチの一つ。遠浅で家族連れにも安心の白砂海岸。"
 }

@@ -117,5 +117,16 @@
   "transportOptions": {
     "bus": 350
   },
-  "notes": "The underwater observation tower offers excellent views of coral and tropical fish without getting wet."
+  "notes": "The underwater observation tower offers excellent views of coral and tropical fish without getting wet.",
+  "totalTripHours": 3,
+  "walkingMin": 2000,
+  "walkingSunMin": 1000,
+  "walkingShadeMin": 500,
+  "indoorPercent": 30,
+  "reservation": "None required",
+  "parking": "Paid parking available",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "notesJa": "海中展望塔からサンゴと熱帯魚を眺められます。グラスボートも。"
 }

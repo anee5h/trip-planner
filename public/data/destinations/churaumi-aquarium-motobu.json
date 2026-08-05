@@ -117,5 +117,16 @@
   "transportOptions": {
     "bus": 400
   },
-  "notes": "Home to whale sharks — arrive early to avoid the heaviest crowds at the Kuroshio tank."
+  "notes": "Home to whale sharks — arrive early to avoid the heaviest crowds at the Kuroshio tank.",
+  "totalTripHours": 5,
+  "walkingMin": 4000,
+  "walkingSunMin": 500,
+  "walkingShadeMin": 3500,
+  "indoorPercent": 80,
+  "reservation": "Online tickets recommended during peak season",
+  "parking": "Free parking available",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "notesJa": "ジンベエザメが見られる世界有数の大水槽。混雑を避けるなら午前中の到着がおすすめ。"
 }

@@ -84789,7 +84789,18 @@
     "transportOptions": {
       "monorail": 200
     },
-    "notes": "Naha's main shopping street — great for Okinawan souvenirs and street food."
+    "notes": "Naha's main shopping street — great for Okinawan souvenirs and street food.",
+    "totalTripHours": 3,
+    "walkingMin": 3000,
+    "walkingSunMin": 500,
+    "walkingShadeMin": 2500,
+    "indoorPercent": 30,
+    "reservation": "None required",
+    "parking": "Nearby paid parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "那覇のメインストリート。沖縄土産やストリートフードが楽しめる国際通り。"
   },
   {
     "id": "naminoue-shrine-naha",
@@ -84910,7 +84921,18 @@
     "transportOptions": {
       "monorail": 200
     },
-    "notes": "The only major Shinto shrine in Okinawa, perched on a clifftop overlooking Naminoue Beach."
+    "notes": "The only major Shinto shrine in Okinawa, perched on a clifftop overlooking Naminoue Beach.",
+    "totalTripHours": 2,
+    "walkingMin": 2000,
+    "walkingSunMin": 800,
+    "walkingShadeMin": 800,
+    "indoorPercent": 10,
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "波の上ビーチを見下ろす崖の上に立つ、沖縄随一の神社。"
   },
   {
     "id": "fukushuen-garden-naha",
@@ -85031,7 +85053,18 @@
     "transportOptions": {
       "monorail": 200
     },
-    "notes": "A tranquil Chinese garden near the city centre — a quiet escape from busy Kokusai Dori."
+    "notes": "A tranquil Chinese garden near the city centre — a quiet escape from busy Kokusai Dori.",
+    "totalTripHours": 2,
+    "walkingMin": 1500,
+    "walkingSunMin": 500,
+    "walkingShadeMin": 800,
+    "indoorPercent": 10,
+    "reservation": "None required",
+    "parking": "Nearby paid parking",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "那覇の中心部近くにある静かな中国式庭園。福州との姉妹都市提携記念。"
   },
   {
     "id": "nago-pineapple-park",
@@ -85152,7 +85185,18 @@
     "transportOptions": {
       "bus": 300
     },
-    "notes": "A whimsical pineapple-themed park — great for families and pineapple lovers."
+    "notes": "A whimsical pineapple-themed park — great for families and pineapple lovers.",
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 1000,
+    "indoorPercent": 40,
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "家族連れに人気のパイナップルテーマパーク。試食も楽しめます。"
   },
   {
     "id": "busena-marine-park-nago",
@@ -85273,7 +85317,18 @@
     "transportOptions": {
       "bus": 350
     },
-    "notes": "The underwater observation tower offers excellent views of coral and tropical fish without getting wet."
+    "notes": "The underwater observation tower offers excellent views of coral and tropical fish without getting wet.",
+    "totalTripHours": 3,
+    "walkingMin": 2000,
+    "walkingSunMin": 1000,
+    "walkingShadeMin": 500,
+    "indoorPercent": 30,
+    "reservation": "None required",
+    "parking": "Paid parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "海中展望塔からサンゴと熱帯魚を眺められます。グラスボートも。"
   },
   {
     "id": "churaumi-aquarium-motobu",
@@ -85394,7 +85449,18 @@
     "transportOptions": {
       "bus": 400
     },
-    "notes": "Home to whale sharks — arrive early to avoid the heaviest crowds at the Kuroshio tank."
+    "notes": "Home to whale sharks — arrive early to avoid the heaviest crowds at the Kuroshio tank.",
+    "totalTripHours": 5,
+    "walkingMin": 4000,
+    "walkingSunMin": 500,
+    "walkingShadeMin": 3500,
+    "indoorPercent": 80,
+    "reservation": "Online tickets recommended during peak season",
+    "parking": "Free parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "ジンベエザメが見られる世界有数の大水槽。混雑を避けるなら午前中の到着がおすすめ。"
   },
   {
     "id": "bise-fukugi-tree-road-motobu",
@@ -85515,7 +85581,18 @@
     "transportOptions": {
       "bus": 300
     },
-    "notes": "A peaceful tree-lined lane near Churaumi — walk or rent a bicycle for the full experience."
+    "notes": "A peaceful tree-lined lane near Churaumi — walk or rent a bicycle for the full experience.",
+    "totalTripHours": 2,
+    "walkingMin": 2500,
+    "walkingSunMin": 1000,
+    "walkingShadeMin": 1500,
+    "indoorPercent": 5,
+    "reservation": "None required",
+    "parking": "Nearby paid parking",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "古木のフクギ並木が続く静かな小道。レンタサイクルでの散策がおすすめ。"
   },
   {
     "id": "nakijin-castle-ruins-motobu",
@@ -85641,7 +85718,18 @@
     "transportOptions": {
       "bus": 400
     },
-    "notes": "One of nine Gusuku sites — visit in late January for Okinawa's earliest cherry blossoms."
+    "notes": "One of nine Gusuku sites — visit in late January for Okinawa's earliest cherry blossoms.",
+    "totalTripHours": 3,
+    "walkingMin": 3500,
+    "walkingSunMin": 2000,
+    "walkingShadeMin": 500,
+    "indoorPercent": 5,
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "世界遺産の城跡。1月下旬には沖縄で最も早い桜が見られます。"
   },
   {
     "id": "kabira-bay-ishigaki",
@@ -85761,7 +85849,18 @@
     "transportOptions": {
       "bus": 300
     },
-    "notes": "Swimming is not allowed in the bay — take a glass-bottom boat to see the coral and pearls."
+    "notes": "Swimming is not allowed in the bay — take a glass-bottom boat to see the coral and pearls.",
+    "totalTripHours": 2,
+    "walkingMin": 1500,
+    "walkingSunMin": 1000,
+    "walkingShadeMin": 200,
+    "indoorPercent": 5,
+    "reservation": "Glass-bottom boat tickets at the pier",
+    "parking": "Free parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "遊泳禁止の美しい湾。グラスボートでサンゴ礁と真珠養殖を見学できます。"
   },
   {
     "id": "tamatorizaki-viewpoint-ishigaki",
@@ -85880,7 +85979,18 @@
     "transportOptions": {
       "bus": 350
     },
-    "notes": "Free observation point with views of the Hirakubo Peninsula — best in clear morning light."
+    "notes": "Free observation point with views of the Hirakubo Peninsula — best in clear morning light.",
+    "totalTripHours": 1,
+    "walkingMin": 1000,
+    "walkingSunMin": 800,
+    "walkingShadeMin": 100,
+    "indoorPercent": 5,
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "無料の展望台から平久保半島の絶景パノラマ。晴れた午前中がおすすめ。"
   },
   {
     "id": "yonehara-beach-coral-ishigaki",
@@ -85999,7 +86109,18 @@
     "transportOptions": {
       "bus": 300
     },
-    "notes": "Bring your own snorkel gear — the coral starts just metres from the shore at low tide."
+    "notes": "Bring your own snorkel gear — the coral starts just metres from the shore at low tide.",
+    "totalTripHours": 3,
+    "walkingMin": 2000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 500,
+    "indoorPercent": 5,
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "海岸からすぐのサンゴ礁でシュノーケリング。干潮時がねらい目。"
   },
   {
     "id": "yonaha-maehama-beach-miyako",
@@ -86120,7 +86241,18 @@
     "transportOptions": {
       "bus": 300
     },
-    "notes": "One of Japan's top beaches — the shallow water extends far out, ideal for wading and families."
+    "notes": "One of Japan's top beaches — the shallow water extends far out, ideal for wading and families.",
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "walkingSunMin": 2500,
+    "walkingShadeMin": 300,
+    "indoorPercent": 5,
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "日本のベストビーチの一つ。遠浅で家族連れにも安心の白砂海岸。"
   },
   {
     "id": "irabu-bridge-irabujima-miyako",
@@ -86241,7 +86373,18 @@
     "transportOptions": {
       "bus": 250
     },
-    "notes": "Japan's longest toll-free bridge — stop at the roadside station for panoramic photos."
+    "notes": "Japan's longest toll-free bridge — stop at the roadside station for panoramic photos.",
+    "totalTripHours": 2,
+    "walkingMin": 1000,
+    "walkingSunMin": 800,
+    "walkingShadeMin": 100,
+    "indoorPercent": 5,
+    "reservation": "None required",
+    "parking": "Free parking at roadside station",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "日本最長の無料橋。道の駅からのパノラマが絶好の写真スポット。"
   },
   {
     "id": "higashi-hennazaki-cape-miyako",
@@ -86362,7 +86505,18 @@
     "transportOptions": {
       "bus": 300
     },
-    "notes": "A dramatic cape where two seas meet — arrive early for sunrise at the easternmost point."
+    "notes": "A dramatic cape where two seas meet — arrive early for sunrise at the easternmost point.",
+    "totalTripHours": 2,
+    "walkingMin": 2000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 200,
+    "indoorPercent": 5,
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "宮古島最東端の岬。太平洋と東シナ海が出会う景勝地。"
   },
   {
     "id": "hakata-station-area",

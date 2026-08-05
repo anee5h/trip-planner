@@ -117,5 +117,16 @@
   "transportOptions": {
     "monorail": 200
   },
-  "notes": "The only major Shinto shrine in Okinawa, perched on a clifftop overlooking Naminoue Beach."
+  "notes": "The only major Shinto shrine in Okinawa, perched on a clifftop overlooking Naminoue Beach.",
+  "totalTripHours": 2,
+  "walkingMin": 2000,
+  "walkingSunMin": 800,
+  "walkingShadeMin": 800,
+  "indoorPercent": 10,
+  "reservation": "None required",
+  "parking": "Free parking available",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "notesJa": "波の上ビーチを見下ろす崖の上に立つ、沖縄随一の神社。"
 }

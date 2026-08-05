@@ -117,5 +117,16 @@
   "transportOptions": {
     "monorail": 200
   },
-  "notes": "A tranquil Chinese garden near the city centre — a quiet escape from busy Kokusai Dori."
+  "notes": "A tranquil Chinese garden near the city centre — a quiet escape from busy Kokusai Dori.",
+  "totalTripHours": 2,
+  "walkingMin": 1500,
+  "walkingSunMin": 500,
+  "walkingShadeMin": 800,
+  "indoorPercent": 10,
+  "reservation": "None required",
+  "parking": "Nearby paid parking",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "notesJa": "那覇の中心部近くにある静かな中国式庭園。福州との姉妹都市提携記念。"
 }

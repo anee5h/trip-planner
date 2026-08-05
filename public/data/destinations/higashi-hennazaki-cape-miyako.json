@@ -117,5 +117,16 @@
   "transportOptions": {
     "bus": 300
   },
-  "notes": "A dramatic cape where two seas meet — arrive early for sunrise at the easternmost point."
+  "notes": "A dramatic cape where two seas meet — arrive early for sunrise at the easternmost point.",
+  "totalTripHours": 2,
+  "walkingMin": 2000,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 200,
+  "indoorPercent": 5,
+  "reservation": "None required",
+  "parking": "Free parking available",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "notesJa": "宮古島最東端の岬。太平洋と東シナ海が出会う景勝地。"
 }
