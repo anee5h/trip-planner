@@ -45,13 +45,18 @@ export function hasRestrictedTransportSelection(
   carMode: string,
   publicModes: string[],
 ) {
-  return carMode !== "none" || publicModes.length > 0;
+  const defaults = DEFAULT_DESTINATION_EXPLORER_STATE;
+  return (
+    carMode !== defaults.carMode ||
+    publicModes.length !== defaults.publicModes.length ||
+    defaults.publicModes.some((mode) => !publicModes.includes(mode))
+  );
 }
 
 const parseNumber = (value: string | null, fallback: number) => {
   if (value === null) return fallback;
   const parsed = Number(value);
-  return Number.isFinite(parsed) ? Math.round(parsed) : fallback;
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
 };
 
 export function parseDestinationSearchParams(

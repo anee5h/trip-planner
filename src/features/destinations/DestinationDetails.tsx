@@ -258,11 +258,16 @@ export default function DestinationDetails() {
     budget?: number;
     /** Planned travel date (ISO) forwarded from the planner. */
     travelDate?: string;
+    tripMode?: "day_trip" | "weekend_2d1n";
+    accommodationAllowance?: number;
   } | null;
-
   const { user } = useAuth();
   const partySize =
     navState?.partySize || user?.user_metadata?.preferences?.partySize || 2;
+  const accommodationAllowance =
+    navState?.tripMode === "weekend_2d1n"
+      ? navState?.accommodationAllowance
+      : undefined;
   const budgetLabel =
     locale === "ja"
       ? partySize === 1
@@ -2051,6 +2056,7 @@ export default function DestinationDetails() {
                 partySize={partySize}
                 selectedTransport={selectedTransport}
                 ferryTemporal={ferryTemporal}
+                accommodationAllowance={accommodationAllowance}
                 onPlanGenerated={setGeneratedPlan}
                 onSaveToItinerary={(plan) => {
                   if (plan) {

@@ -5,6 +5,7 @@ import { useTripStore } from "@/shared/hooks/useTripStore";
 import type {
   TripDuration,
   TripMode,
+  RecommendationWeatherDay,
 } from "@/shared/services/recommendation/RecommendationContext";
 import { normalizeWeatherDescription } from "@/shared/services/recommendation/RecommendationContext";
 import type { BudgetTier } from "@/shared/types/planner";
@@ -65,6 +66,7 @@ interface UseTripRecommendationsProps {
     | "tripMode"
     | "accommodationAllowance"
   >;
+  weatherDays?: RecommendationWeatherDay[];
   tripMode: TripMode;
   accommodationAllowance: number;
 }
@@ -87,6 +89,7 @@ export function useTripRecommendations({
   rouletteConstraints,
   tripMode,
   accommodationAllowance,
+  weatherDays,
 }: UseTripRecommendationsProps) {
   const { destinationRatings } = useTripStore();
   const visitedIds = useMemo(
@@ -113,6 +116,7 @@ export function useTripRecommendations({
             }
           : undefined,
         preferred: preferredWeather,
+        days: tripMode === "weekend_2d1n" ? weatherDays : undefined,
       },
       visitedIds,
       homeStationCoords: homeStationCoords || { lat: 35.6812, lng: 139.7671 },
@@ -140,6 +144,7 @@ export function useTripRecommendations({
     visitedIds,
     tripMode,
     accommodationAllowance,
+    weatherDays,
   ]);
 
   const roulette = useMemo(() => {

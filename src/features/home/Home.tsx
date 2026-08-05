@@ -11,7 +11,12 @@ import { getDestinationList } from "@/shared/services/destination/DestinationSer
 import type { Destination } from "@/shared/types/destination";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
-import { getTabWeatherSummary } from "@/shared/services/weather/WeatherTabService";
+import {
+  getTabWeatherSummary,
+  getNextCalendarDate,
+  getForecastDaysForRange,
+} from "@/shared/services/weather/WeatherTabService";
+import { normalizeWeatherDescription } from "@/shared/services/recommendation/RecommendationContext";
 import RouletteModal from "@/features/home/components/RouletteModal";
 
 import { useTripPlannerState } from "@/features/home/hooks/useTripPlannerState";
@@ -94,6 +99,10 @@ export default function Home() {
     setBudgetTier,
     transportPreference,
     setTransportPreference,
+    tripMode,
+    setTripMode,
+    accommodationAllowance,
+    setAccommodationAllowance,
     resolvedDraft,
     resolvedApplied,
     hasUserApplied,
@@ -122,6 +131,22 @@ export default function Home() {
             ? Cloud
             : Sun;
 
+  // Weekend weather forecast days derivation
+  const weatherDays = useMemo(() => {
+    if (resolvedApplied.tripMode !== "weekend_2d1n") return undefined;
+    if (!weatherContext) return undefined;
+    const day1Iso =
+      customDate ?? currentTab?.dates?.[0] ?? weatherContext.minDate;
+    if (!day1Iso) return undefined;
+    return getForecastDaysForRange(weatherContext.forecastMap, day1Iso, 2).map(
+      (d) => ({
+        date: d.date,
+        condition: normalizeWeatherDescription(d.desc),
+        temperatureC: d.maxTemp,
+      }),
+    );
+  }, [resolvedApplied.tripMode, customDate, currentTab, weatherContext]);
+
   // Recommendation engine consumes applied state + live weather context
   const { recommendedDestinations, rouletteCandidates, rouletteExpansion } =
     useTripRecommendations({
@@ -141,6 +166,9 @@ export default function Home() {
       ferryTemporal,
       isVisited,
       rouletteConstraints: resolvedDraft,
+      tripMode: resolvedApplied.tripMode,
+      accommodationAllowance: resolvedApplied.accommodationAllowance,
+      weatherDays,
     });
 
   const [rouletteOpen, setRouletteOpen] = useState(false);
@@ -161,18 +189,6 @@ export default function Home() {
 
   const selectedDate =
     customDate || currentTab?.dates?.[0] || weatherContext?.minDate;
-  const selectedDateLabel = useMemo(() => {
-    if (activeTabId === "today" || activeTabId === "tomorrow") {
-      return t("home.moreDates");
-    }
-    if (!selectedDate) return t("home.moreDates");
-    const [year, month, day] = selectedDate.split("-").map(Number);
-    return new Intl.DateTimeFormat(i18n.language === "ja" ? "ja-JP" : "en-US", {
-      weekday: "short",
-      month: "short",
-      day: "numeric",
-    }).format(new Date(year, month - 1, day));
-  }, [activeTabId, i18n.language, selectedDate, t]);
 
   const formatForecastDate = useCallback(
     (date: string) => {
@@ -184,6 +200,32 @@ export default function Home() {
     },
     [i18n.language],
   );
+  const selectedDateLabel = useMemo(() => {
+    if (resolvedApplied.tripMode === "weekend_2d1n" && selectedDate) {
+      const day2 = getNextCalendarDate(selectedDate);
+      return t("home.weekendDates", {
+        day1: formatForecastDate(selectedDate),
+        day2: formatForecastDate(day2),
+      });
+    }
+    if (activeTabId === "today" || activeTabId === "tomorrow") {
+      return t("home.moreDates");
+    }
+    if (!selectedDate) return t("home.moreDates");
+    const [year, month, day] = selectedDate.split("-").map(Number);
+    return new Intl.DateTimeFormat(i18n.language === "ja" ? "ja-JP" : "en-US", {
+      weekday: "short",
+      month: "short",
+      day: "numeric",
+    }).format(new Date(year, month - 1, day));
+  }, [
+    activeTabId,
+    i18n.language,
+    selectedDate,
+    t,
+    resolvedApplied.tripMode,
+    formatForecastDate,
+  ]);
 
   const handleApplyAndScroll = useCallback(() => {
     applyPlannerState();
@@ -360,6 +402,10 @@ export default function Home() {
             onBudgetTierChange={setBudgetTier}
             transportPreference={transportPreference}
             onTransportPreferenceChange={setTransportPreference}
+            tripMode={tripMode}
+            onTripModeChange={setTripMode}
+            accommodationAllowance={accommodationAllowance}
+            onAccommodationAllowanceChange={setAccommodationAllowance}
             hasUserApplied={hasUserApplied}
             isDirty={isDirty}
             onApplyMatches={handleApplyAndScroll}

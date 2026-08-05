@@ -15,6 +15,7 @@ interface DestinationPlanningSectionProps {
   selectedTransport: string | null;
   /** Planned travel date for ferry availability. */
   ferryTemporal?: FerryTemporalContext;
+  accommodationAllowance?: number;
   onSaveToItinerary: (plan?: DayPlan) => void;
   onPlanGenerated?: (plan: DayPlan | null) => void;
 }
@@ -25,6 +26,7 @@ export function DestinationPlanningSection({
   partySize,
   selectedTransport,
   ferryTemporal,
+  accommodationAllowance,
   onSaveToItinerary,
   onPlanGenerated,
 }: DestinationPlanningSectionProps) {
@@ -107,6 +109,7 @@ export function DestinationPlanningSection({
         partySize={activePartySize}
         activeTransportMode={selectedTransport}
         ferryTemporal={ferryTemporal}
+        accommodationAllowance={accommodationAllowance}
         hasGeneratedPlan={hasValidGeneratedPlan}
         planCostBreakdown={costBreakdown}
       />

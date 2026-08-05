@@ -32,6 +32,12 @@ import type { BudgetTier } from "@/shared/types/planner";
 import type { HomepageTripDuration } from "../services/PlannerBudgetPolicy";
 import type { TransportPreference } from "../services/TransportResolver";
 import { useTranslation } from "react-i18next";
+import type { TripMode } from "@/shared/services/recommendation/RecommendationContext";
+import {
+  ACCOMMODATION_ALLOWANCE_PRESETS,
+  MAX_ACCOMMODATION_ALLOWANCE,
+  isValidAccommodationAllowance,
+} from "@/shared/services/budget/BudgetService";
 
 interface HomePlannerProps {
   vibe: string;
@@ -48,6 +54,11 @@ interface HomePlannerProps {
 
   transportPreference: TransportPreference;
   onTransportPreferenceChange: (pref: TransportPreference) => void;
+
+  tripMode: TripMode;
+  onTripModeChange: (mode: TripMode) => void;
+  accommodationAllowance: number;
+  onAccommodationAllowanceChange: (value: number) => void;
 
   hasUserApplied: boolean;
   isDirty: boolean;
@@ -211,11 +222,15 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
   onBudgetTierChange,
   transportPreference,
   onTransportPreferenceChange,
+  tripMode,
+  onTripModeChange,
+  accommodationAllowance,
+  onAccommodationAllowanceChange,
   hasUserApplied,
   isDirty,
   onApplyMatches,
   onSurpriseMe,
-}) => {
+}: HomePlannerProps) => {
   const { t } = useTranslation();
   const [mobileField, setMobileField] = React.useState<
     "vibe" | "duration" | "budget" | "transport" | null
@@ -261,8 +276,141 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
     })),
   };
 
+  const isWeekend = tripMode === "weekend_2d1n";
+  const accommodationPresetValue = (() => {
+    if (!isWeekend) return undefined;
+    for (const [key, amount] of Object.entries(
+      ACCOMMODATION_ALLOWANCE_PRESETS,
+    )) {
+      if (amount === accommodationAllowance) return key;
+    }
+    return "custom";
+  })();
+
+  const handleCustomAllowanceBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const raw = parseInt(e.target.value, 10);
+    if (isNaN(raw)) {
+      onAccommodationAllowanceChange(ACCOMMODATION_ALLOWANCE_PRESETS.standard);
+      return;
+    }
+    const clamped = Math.max(0, Math.min(MAX_ACCOMMODATION_ALLOWANCE, raw));
+    onAccommodationAllowanceChange(clamped);
+  };
+
   return (
     <div className="w-full">
+      {/* Trip Type Toggle — always visible above the filter bar */}
+      <div className="mb-4 flex flex-wrap items-center gap-3">
+        <div
+          role="group"
+          aria-label={t("home.tripMode")}
+          className="inline-flex rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-1 shadow-sm"
+        >
+          <button
+            type="button"
+            role="radio"
+            aria-checked={tripMode === "day_trip"}
+            onClick={() => onTripModeChange("day_trip")}
+            className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold transition-all ${
+              tripMode === "day_trip"
+                ? "bg-emerald-600 text-white shadow-sm"
+                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+            }`}
+          >
+            {t("home.tripModes.day_trip")}
+          </button>
+          <button
+            type="button"
+            role="radio"
+            aria-checked={tripMode === "weekend_2d1n"}
+            onClick={() => onTripModeChange("weekend_2d1n")}
+            className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold transition-all ${
+              tripMode === "weekend_2d1n"
+                ? "bg-emerald-600 text-white shadow-sm"
+                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+            }`}
+          >
+            {t("home.tripModes.weekend_2d1n")}
+          </button>
+        </div>
+
+        {isWeekend && (
+          <div className="flex items-center gap-2">
+            <label className="text-xs font-bold text-slate-600 dark:text-slate-400">
+              {t("home.accommodation")}
+            </label>
+            <Select
+              value={accommodationPresetValue ?? ""}
+              onValueChange={(val: string | null) => {
+                if (!val || val === "custom") return;
+                const amount =
+                  ACCOMMODATION_ALLOWANCE_PRESETS[
+                    val as keyof typeof ACCOMMODATION_ALLOWANCE_PRESETS
+                  ];
+                if (amount !== undefined)
+                  onAccommodationAllowanceChange(amount);
+              }}
+            >
+              <SelectTrigger
+                className="h-8 min-w-[160px] rounded-lg border-slate-200 text-xs font-bold"
+                aria-describedby="accommodation-help"
+              >
+                {(() => {
+                  const presetKey = accommodationPresetValue as
+                    keyof typeof ACCOMMODATION_ALLOWANCE_PRESETS | "custom";
+                  if (presetKey === "custom")
+                    return t("home.accommodationPresets.custom");
+                  return translate(`home.accommodationPresets.${presetKey}`);
+                })()}
+              </SelectTrigger>
+              <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
+                {Object.entries(ACCOMMODATION_ALLOWANCE_PRESETS).map(
+                  ([key]) => (
+                    <SelectItem
+                      key={key}
+                      value={key}
+                      className="py-2.5 px-3 cursor-pointer text-xs font-semibold"
+                    >
+                      {translate(`home.accommodationPresets.${key}`)}
+                    </SelectItem>
+                  ),
+                )}
+                <SelectItem
+                  value="custom"
+                  className="py-2.5 px-3 cursor-pointer text-xs font-semibold"
+                >
+                  {translate("home.accommodationPresets.custom")}
+                </SelectItem>
+              </SelectContent>
+            </Select>
+            {accommodationPresetValue === "custom" && (
+              <input
+                type="number"
+                min={0}
+                max={MAX_ACCOMMODATION_ALLOWANCE}
+                step={1000}
+                value={accommodationAllowance}
+                onChange={(e) => {
+                  const val = parseInt(e.target.value, 10);
+                  if (isValidAccommodationAllowance(val)) {
+                    onAccommodationAllowanceChange(val);
+                  }
+                }}
+                onBlur={handleCustomAllowanceBlur}
+                aria-label={t("home.customStayAllowance")}
+                className="h-8 w-28 rounded-lg border border-slate-200 px-2 text-xs font-bold dark:border-slate-800 dark:bg-slate-900"
+              />
+            )}
+            <span
+              id="accommodation-help"
+              className="text-[10px] text-slate-400 hidden sm:inline"
+            >
+              {t("home.accommodationHelp")}
+            </span>
+          </div>
+        )}
+      </div>
+
       {/* DESKTOP VIEW: Skyscanner-Style Full-Width Horizontal Bar (lg:flex) */}
       <div className="hidden lg:flex flex-col items-center w-full max-w-6xl mx-auto">
         {/* Row 1: Filter Bar (5 Equal Segments) */}
@@ -311,41 +459,48 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
           <div className="w-px h-8 bg-slate-200 dark:bg-slate-800 shrink-0" />
 
           {/* Segment 2: Duration (20%) */}
-          <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-850 transition-colors flex flex-col justify-center relative cursor-pointer">
+          <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-850 transition-colors flex flex-col justify-center">
             <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-0.5">
               {t("home.duration")}
             </span>
-            <Select
-              value={tripDuration}
-              onValueChange={(val: string | null) => {
-                if (val) onTripDurationChange(val as HomepageTripDuration);
-              }}
-            >
-              <SelectTrigger className="w-full border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs sm:text-sm text-slate-900 dark:text-white flex items-center justify-between">
-                <div className="flex items-center gap-2 truncate">
-                  <Clock className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span className="truncate">
-                    {translate(`home.durations.${tripDuration}`)}
-                  </span>
-                </div>
-              </SelectTrigger>
-              <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
-                {Object.entries(DURATION_LABELS).map(([key, item]) => (
-                  <SelectItem
-                    key={key}
-                    value={key}
-                    className="cursor-pointer py-2.5 pl-3 pr-8"
-                  >
-                    <div className="flex w-full items-center justify-between gap-2 text-xs font-semibold">
-                      <span>{translate(`home.durations.${key}`)}</span>
-                      <span className="shrink-0 whitespace-nowrap text-[10px] text-slate-400">
-                        {item.hint}
-                      </span>
-                    </div>
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            {isWeekend ? (
+              <div className="flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-white">
+                <Clock className="w-4 h-4 text-emerald-500 shrink-0" />
+                <span>{t("home.weekendBadge")}</span>
+              </div>
+            ) : (
+              <Select
+                value={tripDuration}
+                onValueChange={(val: string | null) => {
+                  if (val) onTripDurationChange(val as HomepageTripDuration);
+                }}
+              >
+                <SelectTrigger className="w-full border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs sm:text-sm text-slate-900 dark:text-white flex items-center justify-between">
+                  <div className="flex items-center gap-2 truncate">
+                    <Clock className="w-4 h-4 text-emerald-500 shrink-0" />
+                    <span className="truncate">
+                      {translate(`home.durations.${tripDuration}`)}
+                    </span>
+                  </div>
+                </SelectTrigger>
+                <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
+                  {Object.entries(DURATION_LABELS).map(([key, item]) => (
+                    <SelectItem
+                      key={key}
+                      value={key}
+                      className="cursor-pointer py-2.5 pl-3 pr-8"
+                    >
+                      <div className="flex w-full items-center justify-between gap-2 text-xs font-semibold">
+                        <span>{translate(`home.durations.${key}`)}</span>
+                        <span className="shrink-0 whitespace-nowrap text-[10px] text-slate-400">
+                          {item.hint}
+                        </span>
+                      </div>
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            )}
           </div>
 
           <div className="w-px h-8 bg-slate-200 dark:bg-slate-800 shrink-0" />
@@ -501,52 +656,53 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             </span>
           </div>
           <div className="space-y-2">
-            {[
-              {
-                field: "vibe" as const,
-                label: t("home.vibe"),
-                value: translate(`home.vibes.${vibe}`),
-                icon: VibeIcon,
-              },
-              {
-                field: "duration" as const,
-                label: t("home.duration"),
-                value: translate(`home.durations.${tripDuration}`),
-                icon: Clock,
-              },
-              {
-                field: "budget" as const,
-                label: t("home.budget"),
-                value: translate(`home.budgets.${budgetTier}`),
-                icon: Wallet,
-              },
-              {
-                field: "transport" as const,
-                label: t("home.transport"),
-                value: translate(
-                  `home.transportOptions.${transportPreference}`,
-                ),
-                icon: TransportIcon,
-              },
-            ]
-              .slice(0, 2)
-              .map(({ field, label, value, icon: Icon }) => (
-                <button
-                  key={field}
-                  type="button"
-                  onClick={() => setMobileField(field)}
-                  className="flex h-14 w-full items-center justify-between rounded-[14px] border border-slate-200 px-3 text-left dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-raised))]"
-                >
-                  <span className="text-xs font-bold text-slate-600 dark:text-[hsl(var(--text-secondary))]">
-                    {label}
+            {/* Vibe row — always clickable */}
+            <button
+              type="button"
+              onClick={() => setMobileField("vibe")}
+              className="flex h-14 w-full items-center justify-between rounded-[14px] border border-slate-200 px-3 text-left dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-raised))]"
+            >
+              <span className="text-xs font-bold text-slate-600 dark:text-[hsl(var(--text-secondary))]">
+                {t("home.vibe")}
+              </span>
+              <span className="flex min-w-0 items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-[hsl(var(--text-primary))]">
+                <VibeIcon className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
+                <span className="truncate">
+                  {translate(`home.vibes.${vibe}`)}
+                </span>
+                <ChevronRight className="h-4 w-4 shrink-0 text-slate-400" />
+              </span>
+            </button>
+
+            {/* Duration row — static when weekend, clickable when day trip */}
+            {isWeekend ? (
+              <div className="flex h-14 w-full items-center justify-between rounded-[14px] border border-slate-200 px-3 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-raised))]">
+                <span className="text-xs font-bold text-slate-600 dark:text-[hsl(var(--text-secondary))]">
+                  {t("home.duration")}
+                </span>
+                <span className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-[hsl(var(--text-primary))]">
+                  <Clock className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
+                  <span>{t("home.weekendBadge")}</span>
+                </span>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setMobileField("duration")}
+                className="flex h-14 w-full items-center justify-between rounded-[14px] border border-slate-200 px-3 text-left dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-raised))]"
+              >
+                <span className="text-xs font-bold text-slate-600 dark:text-[hsl(var(--text-secondary))]">
+                  {t("home.duration")}
+                </span>
+                <span className="flex min-w-0 items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-[hsl(var(--text-primary))]">
+                  <Clock className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
+                  <span className="truncate">
+                    {translate(`home.durations.${tripDuration}`)}
                   </span>
-                  <span className="flex min-w-0 items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-[hsl(var(--text-primary))]">
-                    <Icon className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
-                    <span className="truncate">{value}</span>
-                    <ChevronRight className="h-4 w-4 shrink-0 text-slate-400" />
-                  </span>
-                </button>
-              ))}
+                  <ChevronRight className="h-4 w-4 shrink-0 text-slate-400" />
+                </span>
+              </button>
+            )}
             <div className="flex h-14 items-center justify-between rounded-[14px] border border-slate-200 px-3 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-raised))]">
               <span className="text-xs font-bold text-slate-600 dark:text-[hsl(var(--text-secondary))]">
                 {t("home.party")}

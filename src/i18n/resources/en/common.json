@@ -162,6 +162,46 @@
       "transportFerry": {
         "title": "Scenic Ferry Route",
         "description": "Accessible by ferry ({{operator}})"
+      },
+      "weekendTripReady": {
+        "title": "2-Day Trip Ready",
+        "description": "Enough published places for a full weekend"
+      },
+      "weekendCapacityStrong": {
+        "title": "Plenty to Do",
+        "description": "Enough places for a full weekend"
+      },
+      "weekendTravelStrong": {
+        "title": "Good for a Longer Journey",
+        "description": "Travel time works well for an overnight trip"
+      },
+      "weekendTravelAcceptable": {
+        "title": "Manageable Journey",
+        "description": "Travel time is manageable for an overnight trip"
+      },
+      "weekendTravelWeak": {
+        "title": "Long Journey",
+        "description": "Travel takes most of a day \u2014 plan time carefully"
+      },
+      "weekendWeatherGood": {
+        "title": "Good Weather Across Both Days",
+        "description": "Favorable weather for both days of your trip"
+      },
+      "weekendWeatherDayRain": {
+        "title": "Indoor Options Available",
+        "description": "Rain likely on Day {{day}}; indoor options available"
+      },
+      "weekendWeatherPoorOutdoor": {
+        "title": "Poor Outdoor Weather",
+        "description": "Poor weather expected for most outdoor activities"
+      },
+      "weekendStayAllowance": {
+        "title": "Stay Allowance Included",
+        "description": "Estimated total includes \u00a5{{amount}} stay allowance"
+      },
+      "weekendTransportExcluded": {
+        "title": "Transport Excluded",
+        "description": "Transport cost unavailable; total excludes origin transport"
       }
     }
   },
@@ -171,7 +211,9 @@
       "label": "Max Budget",
       "scope": "for the whole party",
       "explanation": "Estimated budget for the whole party"
-    }
+    },
+    "stayAllowanceRow": "Stay allowance (1 night)",
+    "stayAllowanceNote": "User allowance \u2014 not a live hotel quote"
   },
   "origin": {
     "from": "From",
@@ -335,7 +377,29 @@
       "empty": "No candidates available to spin.",
       "expanded": "Expanded the search slightly to give you more variety.",
       "reason": "Selected because it fits your {{duration}} plan, budget, and transport preference."
-    }
+    },
+    "tripMode": "Trip type",
+    "tripModes": {
+      "day_trip": "Day trip",
+      "weekend_2d1n": "Weekend \u00b7 2 days / 1 night"
+    },
+    "weekendBadge": "2 days / 1 night",
+    "weekendDates": "{{day1}} \u2013 {{day2}}",
+    "accommodation": "Stay allowance (1 night)",
+    "accommodationHelp": "Total one-night allowance for the whole party \u2014 a planning estimate, not a live hotel quote.",
+    "accommodationPresets": {
+      "economy": "Economy \u00b7 \u00a58,000",
+      "standard": "Standard \u00b7 \u00a515,000",
+      "comfortable": "Comfortable \u00b7 \u00a525,000",
+      "custom": "Custom"
+    },
+    "customStayAllowance": "Custom stay allowance",
+    "weekendMatches": "Weekend getaways",
+    "weekendYourMatches": "Your best weekend getaways",
+    "weekendNoResultsTitle": "No weekend-ready destinations found",
+    "weekendNoResultsBody": "No destination met the two-day travel, content, weather and budget constraints. Try widening your budget or transport, or switch back to Day trip.",
+    "day1Label": "Day 1",
+    "day2Label": "Day 2"
   },
   "ui": {
     "back": "Back",

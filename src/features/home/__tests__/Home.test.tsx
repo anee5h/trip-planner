@@ -37,7 +37,29 @@ vi.mock("@/shared/services/weather/WeatherTabService", () => ({
     temp: 28,
     desc: "Sunny",
   }),
+  getNextCalendarDate: (iso: string) => {
+    const [y, m, d] = iso.split("-").map(Number);
+    return `${y}-${String(m).padStart(2, "0")}-${String(d + 1).padStart(2, "0")}`;
+  },
+  getForecastDaysForRange: () => [
+    { date: "2026-08-01", desc: "Sunny", maxTemp: 30 },
+    { date: "2026-08-02", desc: "Cloudy", maxTemp: 28 },
+  ],
 }));
+
+vi.mock(
+  "@/shared/services/recommendation/RecommendationContext",
+  async (importOriginal) => {
+    const actual = (await importOriginal()) as Record<string, unknown>;
+    return {
+      ...actual,
+      normalizeWeatherDescription: (desc: string) =>
+        desc.toLowerCase() === "sunny"
+          ? ("clear" as const)
+          : ("cloudy" as const),
+    };
+  },
+);
 
 vi.mock("@/shared/hooks/useTripStore", () => ({
   useTripStore: () => ({
@@ -81,6 +103,14 @@ vi.mock("react-i18next", () => ({
         "home.dateTabs.this_weekend": "This Weekend",
         "home.weatherConditions.sunny": "Sunny",
         "origin.cancel": "Cancel",
+        "home.tripModes.day_trip": "Day trip",
+        "home.tripModes.weekend_2d1n": "Weekend · 2 days / 1 night",
+        "home.weekendMatches": "Weekend getaways",
+        "home.weekendYourMatches": "Your best weekend getaways",
+        "home.weekendDates": "{{day1}} – {{day2}}",
+        "home.weekendNoResultsTitle": "No weekend-ready destinations found",
+        "home.accommodationPresets.custom": "Custom",
+        "home.weekendBadge": "2 days / 1 night",
       })[key] ?? key,
     i18n: { language: "en" },
   }),
@@ -217,5 +247,38 @@ describe("Home Integration Tests", () => {
 
     // Heading should still say "Top matches for today" because applyPlannerState was not called
     expect(container.textContent).toContain("home.topMatches");
+  });
+
+  it("weekend mode: toggling to Weekend changes heading after apply", () => {
+    const container = renderHome();
+
+    // Find and click the weekend toggle button
+    const weekendToggle = Array.from(container.querySelectorAll("button")).find(
+      (btn) =>
+        btn.textContent?.includes("Weekend") &&
+        btn.getAttribute("role") === "radio",
+    );
+    expect(weekendToggle).toBeDefined();
+
+    act(() => {
+      weekendToggle?.click();
+    });
+
+    // The toggle should now show weekend mode
+    // Default heading should still be day-trip since we haven't applied yet
+    expect(container.textContent).toContain("home.topMatches");
+
+    // Click Find/Apply to see if weekend heading appears
+    const applyBtn = Array.from(container.querySelectorAll("button")).find(
+      (b) =>
+        b.textContent?.includes("home.find") ||
+        b.textContent?.includes("home.view") ||
+        b.textContent?.includes("home.update"),
+    );
+    act(() => {
+      applyBtn?.click();
+    });
+    // After applying, the heading should show weekend user matches
+    expect(container.textContent).toContain("Your best weekend getaways");
   });
 });

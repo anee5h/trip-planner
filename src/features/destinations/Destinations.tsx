@@ -25,7 +25,10 @@ import {
   getValidModes,
   scoreForCatalog,
 } from "@/shared/services/recommendation/RecommendationService";
-import type { RecommendationContext } from "@/shared/services/recommendation/RecommendationContext";
+import type {
+  RecommendationContext,
+  TripMode,
+} from "@/shared/services/recommendation/RecommendationContext";
 import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
 import {
   BUDGET_TIER_LIMITS,
@@ -35,7 +38,12 @@ import {
 import {
   estimateTripDuration,
   matchesTripDurationEstimate,
+  getBestOneWayTravelMinutes,
 } from "@/shared/services/recommendation/TripDurationService";
+import {
+  evaluateWeekendTravelFit,
+  evaluateWeekendCapacity,
+} from "@/shared/services/recommendation/WeekendPolicy";
 import {
   tokenizeQuery,
   matchesDestination,
@@ -92,6 +100,12 @@ export default function Destinations() {
   const [weather, setWeather] = useState(initialExplorerState.weather);
   const [tripDuration, setTripDuration] = useState<TripDuration>(
     initialExplorerState.tripDuration,
+  );
+  const [tripMode, setTripMode] = useState<TripMode>(
+    initialExplorerState.tripMode,
+  );
+  const [accommodationAllowance, setAccommodationAllowance] = useState<number>(
+    initialExplorerState.accommodationAllowance,
   );
   const [walkingIntensity, setWalkingIntensity] = useState(
     initialExplorerState.walkingIntensity,
@@ -179,6 +193,8 @@ export default function Destinations() {
     setVibe(restored.vibe);
     setWeather(restored.weather);
     setTripDuration(restored.tripDuration);
+    setTripMode(restored.tripMode);
+    setAccommodationAllowance(restored.accommodationAllowance);
     setWalkingIntensity(restored.walkingIntensity);
     setSuitabilities(restored.suitabilities);
     setInterests(restored.interests);
@@ -210,6 +226,8 @@ export default function Destinations() {
       vibe,
       weather,
       tripDuration,
+      tripMode,
+      accommodationAllowance,
       walkingIntensity,
       suitabilities,
       interests,
@@ -239,6 +257,8 @@ export default function Destinations() {
     vibe,
     weather,
     tripDuration,
+    tripMode,
+    accommodationAllowance,
     walkingIntensity,
     suitabilities,
     interests,
@@ -322,6 +342,7 @@ export default function Destinations() {
     vibe,
     weather,
     tripDuration,
+    tripMode,
     walkingIntensity,
     suitabilities,
     interests,
@@ -483,7 +504,25 @@ export default function Destinations() {
 
     // Budget tiers are ranking preferences. Neutral transport and duration
     // settings must keep the complete catalogue browsable.
-    if (
+    // Weekend mode uses its own eligibility gate instead of duration bands.
+    if (tripMode === "weekend_2d1n") {
+      result = result.filter((dest) => {
+        const modes = getValidModes(
+          dest,
+          carMode,
+          publicModes,
+          homeStationCoords ?? undefined,
+          budgetTier,
+          homeStationTransportZoneId,
+        );
+        if (modes.length === 0) return false;
+        const fit = evaluateWeekendTravelFit(
+          getBestOneWayTravelMinutes(dest, catalogContext, modes),
+        );
+        if (!fit.eligible) return false;
+        return evaluateWeekendCapacity(dest, allDestinations).eligible;
+      });
+    } else if (
       tripDuration !== "any" ||
       hasRestrictedTransportSelection(carMode, publicModes)
     ) {
@@ -652,6 +691,7 @@ export default function Destinations() {
     partySize,
     budgetTier,
     tripDuration,
+    tripMode,
     walkingIntensity,
     homeStationCoords,
     homeStationTransportZoneId,
