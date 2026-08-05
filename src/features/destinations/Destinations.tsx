@@ -525,10 +525,13 @@ export default function Destinations() {
       tripDuration !== "any" ||
       hasRestrictedTransportSelection(carMode, publicModes)
     ) {
+      const hasOrigin = homeStationCoords || homeStationTransportZoneId;
       result = result.filter((dest) => {
         // Time at destination: use pure visit-duration matching.
-        // Origin travel is evaluated separately for reachability.
+        // Origin travel is evaluated separately for reachability;
+        // when no origin is set, browsing stays neutral (no mode gate).
         if (!matchesVisitDuration(dest, tripDuration)) return false;
+        if (!hasOrigin) return true;
         const modes = getValidModes(
           dest,
           carMode,

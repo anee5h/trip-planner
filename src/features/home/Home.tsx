@@ -438,15 +438,18 @@ export default function Home() {
         travelDate={travelDateIso}
       />
 
-      {/* Unexplored Nearby Rail — nearest unvisited destinations from home origin */}
-      <UnexploredNearbyRail
-        destinations={allDestinations}
-        homeStationCoords={homeStationCoords}
-        isVisited={isVisited}
-        partySize={resolvedApplied.partySize}
-        carMode={resolvedApplied.carMode}
-        publicModes={resolvedApplied.publicModes}
-      />
+      {/* Unexplored Nearby Rail — nearest unvisited destinations from home origin.
+          Only shown for day trips; weekend mode has its own recommendation rail. */}
+      {resolvedApplied.tripMode !== "weekend_2d1n" && (
+        <UnexploredNearbyRail
+          destinations={allDestinations}
+          homeStationCoords={homeStationCoords}
+          isVisited={isVisited}
+          partySize={resolvedApplied.partySize}
+          carMode={resolvedApplied.carMode}
+          publicModes={resolvedApplied.publicModes}
+        />
+      )}
 
       {/* Conditional Placement: Bucket List Rail near top ONLY if user has saved items */}
       {hasSavedItems && (
