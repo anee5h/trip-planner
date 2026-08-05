@@ -95558,5 +95558,941 @@
     },
     "officialWebsite": "https://www.kankou-nichinan.jp/en/spot/inohae/",
     "municipalityId": "Miyazaki:nichinan"
+  },
+  {
+    "id": "hita-city",
+    "name": "Hita City",
+    "nameJa": "日田市",
+    "kind": "city",
+    "role": "hub",
+    "importance": "notable",
+    "prefecture": "Oita",
+    "region": "Kyushu",
+    "categories": ["Travel Hub", "City Hub"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Mameda-machi%2C_Hita%2C_Oita_Prefecture.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Mameda-machi%2C_Hita%2C_Oita_Prefecture.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Muyo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mameda-machi,_Hita,_Oita_Prefecture.jpg"
+    },
+    "description": "Inland city in western Oita Prefecture known for the well-preserved Mameda historic merchant district, Kangien academy, and as a filming location for Attack on Titan. Famous for Hita geta sandals and clear-water rivers. A natural basin surrounded by mountains.",
+    "descriptionJa": "大分県西部の内陸都市で、保存状態の良い豆田町の歴史的商家街、咸宜園、進撃の巨人のロケ地として知られています。日田下駄と清流が有名で、山々に囲まれた盆地の街です。",
+    "highlights": ["Explore Hita City", "Local Culture & Cuisine"],
+    "highlightsJa": ["日田市を探索", "地元の文化と料理"],
+    "totalTripHours": 6,
+    "budgetMin": 3500,
+    "budgetRecommended": 14250,
+    "budgetMax": 25000,
+    "budgetBreakdown": {
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
+    },
+    "walkingMin": 4000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 2500,
+    "indoorPercent": 50,
+    "ratings": {
+      "overall": 9.5,
+      "couple": 9.3,
+      "summer": 9,
+      "winter": 9.1,
+      "rain": 9.2,
+      "food": 9.6,
+      "photography": 9.5,
+      "relaxation": 9.2,
+      "value": 9.4,
+      "uniqueness": 9.4
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 5,
+      "weekend": 8,
+      "holiday": 9
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "tags": ["Hita City", "Oita Travel", "Regional Hub"],
+    "coordinates": {
+      "lat": 33.3214,
+      "lng": 130.9414
+    },
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "transportOptions": {
+      "train": 240
+    },
+    "reservation": "None required",
+    "parking": "Public parking available",
+    "notes": "Hita City travel hub in Oita Prefecture, famous for Mameda historic district.",
+    "notesJa": "大分県日田市のトラベルハブ、豆田町の歴史的街並みで有名です。",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [
+      {
+        "collectionId": "core-cities-japan",
+        "confirmed": true
+      }
+    ],
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["yufu-city", "fukuoka-city", "kumamoto-city"]
+    },
+    "walkingIntensity": "low",
+    "recommendedVisitHours": {
+      "min": 6,
+      "max": 12
+    },
+    "municipalityId": "Oita:hita",
+    "aliases": ["Hita City", "日田市"],
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-06",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Expansion",
+      "sources": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Hita,_%C5%8Cita",
+          "title": "Hita, Ōita",
+          "accessedAt": "2026-08-06"
+        }
+      ]
+    },
+    "openingHours": "No fixed opening hours (city area)",
+    "openingHoursJa": "営業時間の設定なし（市内エリア）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Hita,_%C5%8Cita"
+    },
+    "content": {
+      "en": {
+        "name": "Hita City",
+        "description": "Inland city in western Oita Prefecture known for the well-preserved Mameda historic merchant district, Kangien academy, and as a filming location for Attack on Titan. Famous for Hita geta sandals and clear-water rivers. A natural basin surrounded by mountains.",
+        "highlights": ["Explore Hita City", "Local Culture & Cuisine"],
+        "openingHours": "No fixed opening hours (city area)"
+      },
+      "ja": {
+        "name": "日田市",
+        "description": "大分県西部の内陸都市で、保存状態の良い豆田町の歴史的商家街、咸宜園、進撃の巨人のロケ地として知られています。日田下駄と清流が有名で、山々に囲まれた盆地の街です。",
+        "highlights": ["日田市を探索", "地元の文化と料理"],
+        "openingHours": "営業時間の設定なし（市内エリア）"
+      }
+    }
+  },
+  {
+    "id": "mameda-historic-district",
+    "name": "Mameda Historic District",
+    "nameJa": "豆田町 歴史的街並み",
+    "aliases": ["Mameda Historic District", "豆田町 歴史的街並み"],
+    "content": {
+      "en": {
+        "name": "Mameda Historic District",
+        "description": "A well-preserved Edo-period merchant district along the Mikuma River, lined with white-walled storehouses, lattice-fronted shops, traditional sake breweries, and historic merchant homes. Often called the 'Little Kyoto of Kyushu'. Individual shops, museums and cafés operate separate business hours and many close by early evening.",
+        "highlights": [
+          "Edo-period merchant streets with white-walled storehouses",
+          "Traditional sake breweries open for tasting",
+          "Hita geta (wooden sandals) craft shops"
+        ],
+        "openingHours": "Public streets: open access. Individual shops and museums: typically 09:00–17:00 (most close by early evening)"
+      },
+      "ja": {
+        "name": "豆田町 歴史的街並み",
+        "description": "三隈川沿いに江戸時代の商家が立ち並ぶ保存地区で、白壁の土蔵、格子造りの店舗、伝統的な酒蔵、歴史的な商家が軒を連ねます。「九州の小京都」とも呼ばれています。各店舗・博物館・カフェは個別の営業時間で、多くは夕方前に閉まります。",
+        "highlights": [
+          "白壁の土蔵と商家が連なる江戸時代の町並み",
+          "試飲ができる伝統的な酒蔵",
+          "日田下駄の工房と専門店"
+        ],
+        "openingHours": "町並み：自由散策。各店舗・博物館：通常09:00～17:00（多くは夕方までに閉店）"
+      }
+    },
+    "prefecture": "Oita",
+    "region": "Kyushu",
+    "kind": "historic",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "hita-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Historic", "Sightseeing"],
+    "tags": ["Historic District", "Merchant", "Preserved Streets", "Hita City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Mameda-machi%2C_Hita%2C_Oita_Prefecture.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Muyo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mameda-machi,_Hita,_Oita_Prefecture.jpg"
+    },
+    "coordinates": {
+      "lat": 33.3214,
+      "lng": 130.9358
+    },
+    "description": "A well-preserved Edo-period merchant district along the Mikuma River, lined with white-walled storehouses, lattice-fronted shops, traditional sake breweries, and historic merchant homes. Often called the 'Little Kyoto of Kyushu'. Individual shops, museums and cafés operate separate business hours and many close by early evening.",
+    "highlights": [
+      "Edo-period merchant streets with white-walled storehouses",
+      "Traditional sake breweries open for tasting",
+      "Hita geta (wooden sandals) craft shops"
+    ],
+    "openingHours": "Public streets: open access. Individual shops and museums: typically 09:00–17:00 (most close by early evening)",
+    "openingHoursJa": "町並み：自由散策。各店舗・博物館：通常09:00～17:00（多くは夕方までに閉店）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.oidehita.com/en/spot/mameda/",
+      "hoursNote": "Public district — individual shops, museums and cafés set their own hours"
+    },
+    "budgetMin": 2000,
+    "budgetRecommended": 6000,
+    "budgetMax": 12000,
+    "budgetBreakdown": {
+      "transport": 600,
+      "tickets": 0,
+      "food": 900,
+      "cafe": 200
+    },
+    "transportOptions": {
+      "train": 240,
+      "bus": 150
+    },
+    "totalTripHours": 4,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "walkingMin": 4000,
+    "walkingIntensity": "low",
+    "walkingSunMin": 2000,
+    "walkingShadeMin": 2000,
+    "indoorPercent": 25,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 2
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8,
+      "winter": 7.5,
+      "rain": 7.5,
+      "food": 9,
+      "photography": 9,
+      "relaxation": 8.5,
+      "value": 9,
+      "uniqueness": 8.5
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 7,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 10, 11],
+    "weatherDependence": "moderate",
+    "reservation": "None required for public streets; individual shops and museums set their own policies",
+    "reservationJa": "町並み散策は自由。各店舗・博物館は独自の入場ポリシーあり。",
+    "parking": "Paid parking available at designated lots near the district",
+    "notes": "Most shops and museums close by 17:00 — visit in the morning for the best experience.",
+    "notesJa": "多くの店舗と博物館は17時までに閉店 — 午前中の訪問がおすすめです。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.oidehita.com/en/spot/mameda/",
+          "title": "Mameda Historic District Official Website",
+          "accessedAt": "2026-08-06"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Hita,_%C5%8Cita",
+          "title": "Hita, Ōita",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Mameda Historic District",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://www.oidehita.com/en/spot/mameda/",
+    "municipalityId": "Oita:hita"
+  },
+  {
+    "id": "kangien-academy",
+    "name": "Kangien Academy",
+    "nameJa": "咸宜園",
+    "aliases": ["Kangien Academy", "咸宜園"],
+    "content": {
+      "en": {
+        "name": "Kangien Academy",
+        "description": "A nationally designated historic site, this Edo-period private academy was founded in 1805 by scholar Hirose Tanso. It educated over 4,000 students from across Japan regardless of social status, a remarkably progressive model. The site includes a small museum displaying the academy's history, teaching materials and original buildings.",
+        "highlights": [
+          "Nationally designated historic private academy site",
+          "Founded 1805, educated 4,000+ students regardless of class",
+          "Small museum with original teaching materials and buildings"
+        ],
+        "openingHours": "09:00–17:00 (last admission 16:30). Closed Mondays."
+      },
+      "ja": {
+        "name": "咸宜園",
+        "description": "国指定史跡。1805年に儒学者・広瀬淡窓が開いた江戸時代の私塾で、身分に関わらず全国から4,000人以上の門人を受け入れた先進的な学校です。現在は資料館があり、咸宜園の歴史、教育資料、往時の建物を見学できます。",
+        "highlights": [
+          "国指定史跡の江戸時代の私塾",
+          "1805年開塾、身分を問わず4,000人以上が学んだ",
+          "当時の教材と建物を展示する資料館"
+        ],
+        "openingHours": "09:00～17:00（最終入館16:30）。月曜休館。"
+      }
+    },
+    "prefecture": "Oita",
+    "region": "Kyushu",
+    "kind": "historic",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "hita-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Historic", "Culture"],
+    "tags": ["Historic", "Education", "Museum", "Hita City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/14/Kangien_Hita_Oita.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kangien_Hita_Oita.jpg"
+    },
+    "coordinates": {
+      "lat": 33.3228,
+      "lng": 130.9381
+    },
+    "description": "A nationally designated historic site, this Edo-period private academy was founded in 1805 by scholar Hirose Tanso. It educated over 4,000 students from across Japan regardless of social status, a remarkably progressive model. The site includes a small museum displaying the academy's history, teaching materials and original buildings.",
+    "highlights": [
+      "Nationally designated historic private academy site",
+      "Founded 1805, educated 4,000+ students regardless of class",
+      "Small museum with original teaching materials and buildings"
+    ],
+    "openingHours": "09:00–17:00 (last admission 16:30). Closed Mondays.",
+    "openingHoursJa": "09:00～17:00（最終入館16:30）。月曜休館。",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.oidehita.com/en/spot/kangien/",
+      "closedDays": "Mondays (or Tuesday if Monday is a public holiday)"
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 3500,
+    "budgetMax": 6000,
+    "budgetBreakdown": {
+      "transport": 450,
+      "tickets": 300,
+      "food": 675,
+      "cafe": 150
+    },
+    "transportOptions": {
+      "bus": 150
+    },
+    "totalTripHours": 3,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 1.5
+    },
+    "walkingMin": 1500,
+    "walkingIntensity": "low",
+    "walkingSunMin": 500,
+    "walkingShadeMin": 1000,
+    "indoorPercent": 70,
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 9,
+      "walkingIntensity": 2
+    },
+    "ratings": {
+      "overall": 8,
+      "couple": 7.5,
+      "summer": 8,
+      "winter": 7.5,
+      "rain": 8.5,
+      "food": 5,
+      "photography": 7.5,
+      "relaxation": 7,
+      "value": 8.5,
+      "uniqueness": 8.5
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 2,
+      "weekend": 4,
+      "holiday": 5
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 10, 11],
+    "weatherDependence": "low",
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "notes": "Closed on Mondays — the museum is compact and pairs well with a morning stroll through Mameda.",
+    "notesJa": "月曜休館。小規模な博物館なので豆田町散策と合わせて午前中にどうぞ。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.oidehita.com/en/spot/kangien/",
+          "title": "Kangien Academy Official Website",
+          "accessedAt": "2026-08-06"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kangien",
+          "title": "Kangien",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Kangien Academy",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://www.oidehita.com/en/spot/kangien/",
+    "municipalityId": "Oita:hita"
+  },
+  {
+    "id": "attack-on-titan-hita-museum",
+    "name": "Attack on Titan in HITA Museum",
+    "nameJa": "進撃の巨人 in HITA ミュージアム",
+    "aliases": [
+      "Attack on Titan in HITA Museum",
+      "進撃の巨人 in HITA ミュージアム"
+    ],
+    "content": {
+      "en": {
+        "name": "Attack on Titan in HITA Museum",
+        "description": "A museum dedicated to the Attack on Titan manga and anime, located in the Hita Roadside Station. Hita is the hometown of the series' creator, Hajime Isayama. Exhibits include original manuscript pages, life-size character statues, and exclusive merchandise. Follows the roadside station's operating hours.",
+        "highlights": [
+          "Original Attack on Titan manuscript pages on display",
+          "Life-size character statues for photo opportunities",
+          "Exclusive Hita-location merchandise"
+        ],
+        "openingHours": "09:00–17:00 (follows roadside station hours). Open daily."
+      },
+      "ja": {
+        "name": "進撃の巨人 in HITA ミュージアム",
+        "description": "日田市の道の駅内にある進撃の巨人のミュージアム。原作者・諫山創氏の故郷が日田市であることから設置されました。原画展示、等身大フィギュア、限定グッズを展示。道の駅の営業時間に準じます。",
+        "highlights": [
+          "進撃の巨人の原画展示",
+          "等身大キャラクター像との写真撮影",
+          "日田限定グッズの販売"
+        ],
+        "openingHours": "09:00～17:00（道の駅の営業時間に準ずる）。年中無休。"
+      }
+    },
+    "prefecture": "Oita",
+    "region": "Kyushu",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "hita-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Museum & Art", "Leisure"],
+    "tags": ["Museum", "Anime", "Attack on Titan", "Hita City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Attack_on_Titan_in_Hita_Museum.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Attack_on_Titan_in_Hita_Museum.jpg"
+    },
+    "coordinates": {
+      "lat": 33.3219,
+      "lng": 130.9333
+    },
+    "description": "A museum dedicated to the Attack on Titan manga and anime, located in the Hita Roadside Station. Hita is the hometown of the series' creator, Hajime Isayama. Exhibits include original manuscript pages, life-size character statues, and exclusive merchandise. Follows the roadside station's operating hours.",
+    "highlights": [
+      "Original Attack on Titan manuscript pages on display",
+      "Life-size character statues for photo opportunities",
+      "Exclusive Hita-location merchandise"
+    ],
+    "openingHours": "09:00–17:00 (follows roadside station hours). Open daily.",
+    "openingHoursJa": "09:00～17:00（道の駅の営業時間に準ずる）。年中無休。",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.oidehita.com/en/spot/aot/"
+    },
+    "budgetMin": 2000,
+    "budgetRecommended": 5000,
+    "budgetMax": 10000,
+    "budgetBreakdown": {
+      "transport": 600,
+      "tickets": 800,
+      "food": 900,
+      "cafe": 200
+    },
+    "transportOptions": {
+      "bus": 150
+    },
+    "totalTripHours": 3,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 1500,
+    "walkingIntensity": "low",
+    "walkingSunMin": 200,
+    "walkingShadeMin": 1000,
+    "indoorPercent": 90,
+    "comfort": {
+      "heatTolerance": 9,
+      "rainFriendly": 10,
+      "walkingIntensity": 2
+    },
+    "ratings": {
+      "overall": 8.5,
+      "couple": 7.5,
+      "summer": 8.5,
+      "winter": 8.5,
+      "rain": 9.5,
+      "food": 6,
+      "photography": 8,
+      "relaxation": 7,
+      "value": 8,
+      "uniqueness": 9.5
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 9,
+      "autumn": 9,
+      "winter": 9
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "weatherDependence": "low",
+    "reservation": "None required; busy on weekends and holidays",
+    "parking": "Free roadside station parking available",
+    "notes": "The museum is inside the roadside station — the station itself is worth exploring for local snacks.",
+    "notesJa": "道の駅内に併設 — 駅自体も地元の軽食や特産品が充実していて見逃せません。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.oidehita.com/en/spot/aot/",
+          "title": "Attack on Titan in HITA Museum Official Website",
+          "accessedAt": "2026-08-06"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Attack_on_Titan",
+          "title": "Attack on Titan",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Attack on Titan in HITA Museum",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://www.oidehita.com/en/spot/aot/",
+    "municipalityId": "Oita:hita"
+  },
+  {
+    "id": "oyama-dam-attack-on-titan-statues",
+    "name": "Oyama Dam Attack on Titan Statues",
+    "nameJa": "大山ダム 進撃の巨人像",
+    "aliases": ["Oyama Dam Attack on Titan Statues", "大山ダム 進撃の巨人像"],
+    "content": {
+      "en": {
+        "name": "Oyama Dam Attack on Titan Statues",
+        "description": "Outdoor site at Oyama Dam featuring life-size bronze statues of the three main characters from Attack on Titan — Eren, Mikasa, and Armin — as children overlooking the dam wall. The statues were erected as part of the Hita anime tourism project. An open-access outdoor site with no admission fee.",
+        "highlights": [
+          "Life-size bronze statues of Eren, Mikasa and Armin as children",
+          "Panoramic dam and mountain views from the statue site",
+          "Free open-access outdoor anime pilgrimage location"
+        ],
+        "openingHours": "Open access (daylight hours recommended). Outdoor site — unlit after dark."
+      },
+      "ja": {
+        "name": "大山ダム 進撃の巨人像",
+        "description": "大山ダムに設置された進撃の巨人の主要キャラクター（エレン、ミカサ、アルミン）の幼少期の等身大銅像。日田市のアニメツーリズム事業の一環として設置されました。無料で見学できる屋外スポットです。",
+        "highlights": [
+          "エレン・ミカサ・アルミン幼少期の等身大銅像",
+          "銅像広場から望むダムと山々のパノラマ",
+          "無料で自由に見学できるアニメ聖地"
+        ],
+        "openingHours": "自由見学（日中推奨）。屋外のため日没後は非推奨。"
+      }
+    },
+    "prefecture": "Oita",
+    "region": "Kyushu",
+    "kind": "outdoor",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "hita-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Sightseeing", "Outdoor"],
+    "tags": ["Anime", "Statues", "Outdoor", "Hita City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Oyama_Dam_Attack_on_Titan_statues.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oyama_Dam_Attack_on_Titan_statues.jpg"
+    },
+    "coordinates": {
+      "lat": 33.2858,
+      "lng": 130.9306
+    },
+    "description": "Outdoor site at Oyama Dam featuring life-size bronze statues of the three main characters from Attack on Titan — Eren, Mikasa, and Armin — as children overlooking the dam wall. The statues were erected as part of the Hita anime tourism project. An open-access outdoor site with no admission fee.",
+    "highlights": [
+      "Life-size bronze statues of Eren, Mikasa and Armin as children",
+      "Panoramic dam and mountain views from the statue site",
+      "Free open-access outdoor anime pilgrimage location"
+    ],
+    "openingHours": "Open access (daylight hours recommended). Outdoor site — unlit after dark.",
+    "openingHoursJa": "自由見学（日中推奨）。屋外のため日没後は非推奨。",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.oidehita.com/en/spot/aot-dam/",
+      "hoursNote": "Outdoor public site, accessible during daylight hours"
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 3500,
+    "budgetMax": 6000,
+    "budgetBreakdown": {
+      "transport": 450,
+      "tickets": 0,
+      "food": 675,
+      "cafe": 150
+    },
+    "transportOptions": {
+      "bus": 200
+    },
+    "totalTripHours": 3,
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1
+    },
+    "walkingMin": 1000,
+    "walkingIntensity": "low",
+    "walkingSunMin": 800,
+    "walkingShadeMin": 200,
+    "indoorPercent": 5,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 4,
+      "walkingIntensity": 2
+    },
+    "ratings": {
+      "overall": 7.5,
+      "couple": 7,
+      "summer": 7.5,
+      "winter": 6.5,
+      "rain": 5,
+      "food": 4,
+      "photography": 8.5,
+      "relaxation": 7,
+      "value": 9,
+      "uniqueness": 9.5
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 2,
+      "weekend": 5,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "weatherDependence": "high",
+    "reservation": "None required",
+    "parking": "Free parking at the dam",
+    "notes": "A car or taxi is the most practical way to reach the dam — limited public transport options.",
+    "notesJa": "公共交通の便が限られているため、車またはタクシーでのアクセスが現実的です。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.oidehita.com/en/spot/aot-dam/",
+          "title": "Oyama Dam Attack on Titan Statues Official Website",
+          "accessedAt": "2026-08-06"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Attack_on_Titan",
+          "title": "Attack on Titan",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Oyama Dam Attack on Titan Statues",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://www.oidehita.com/en/spot/aot-dam/",
+    "municipalityId": "Oita:hita"
+  },
+  {
+    "id": "hita-gion-yamahoko-museum",
+    "name": "Hita Gion Yamahoko Museum",
+    "nameJa": "日田祇園山鉾会館",
+    "aliases": ["Hita Gion Yamahoko Museum", "日田祇園山鉾会館"],
+    "content": {
+      "en": {
+        "name": "Hita Gion Yamahoko Museum",
+        "description": "Museum displaying the elaborate floats (yamahoko) used in the Hita Gion Festival, a 300-year-old tradition held each July. The multi-storey floats, up to 10 metres tall, feature intricate carvings, tapestries and mechanical dolls. Some floats may be absent around the festival period when they are in active use.",
+        "highlights": [
+          "Elaborate multi-storey festival floats up to 10 m tall",
+          "Intricate mechanical dolls, carvings and tapestries",
+          "300-year-old Hita Gion Festival traditions"
+        ],
+        "openingHours": "09:00–17:00 (last admission 16:30). Closed Tuesdays."
+      },
+      "ja": {
+        "name": "日田祇園山鉾会館",
+        "description": "300年の伝統を持つ日田祇園祭（毎年7月）で使用される豪華な山鉾を展示する博物館。高さ最大10mの多層式の山鉾には精巧な彫刻、綴織、からくり人形が施されています。祭り前後は山鉾が実際の運用で不在となることがあります。",
+        "highlights": [
+          "高さ最大10mの豪華な多層式山鉾",
+          "精巧なからくり人形・彫刻・綴織",
+          "300年の伝統を誇る日田祇園祭"
+        ],
+        "openingHours": "09:00～17:00（最終入館16:30）。火曜休館。"
+      }
+    },
+    "prefecture": "Oita",
+    "region": "Kyushu",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "hita-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Museum & Art", "Culture"],
+    "tags": ["Museum", "Festival", "Float", "Hita City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/47/Hita_Gion_Yamahoko_Museum.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hita_Gion_Yamahoko_Museum.jpg"
+    },
+    "coordinates": {
+      "lat": 33.3231,
+      "lng": 130.9367
+    },
+    "description": "Museum displaying the elaborate floats (yamahoko) used in the Hita Gion Festival, a 300-year-old tradition held each July. The multi-storey floats, up to 10 metres tall, feature intricate carvings, tapestries and mechanical dolls. Some floats may be absent around the festival period when they are in active use.",
+    "highlights": [
+      "Elaborate multi-storey festival floats up to 10 m tall",
+      "Intricate mechanical dolls, carvings and tapestries",
+      "300-year-old Hita Gion Festival traditions"
+    ],
+    "openingHours": "09:00–17:00 (last admission 16:30). Closed Tuesdays.",
+    "openingHoursJa": "09:00～17:00（最終入館16:30）。火曜休館。",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.oidehita.com/en/spot/yamahoko/",
+      "closedDays": "Tuesdays (or Wednesday if Tuesday is a public holiday). Some floats may be absent around the July festival period."
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 3500,
+    "budgetMax": 6000,
+    "budgetBreakdown": {
+      "transport": 450,
+      "tickets": 400,
+      "food": 675,
+      "cafe": 150
+    },
+    "transportOptions": {
+      "bus": 150
+    },
+    "totalTripHours": 3,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 1.5
+    },
+    "walkingMin": 1500,
+    "walkingIntensity": "low",
+    "walkingSunMin": 300,
+    "walkingShadeMin": 1000,
+    "indoorPercent": 90,
+    "comfort": {
+      "heatTolerance": 9,
+      "rainFriendly": 10,
+      "walkingIntensity": 2
+    },
+    "ratings": {
+      "overall": 8,
+      "couple": 7.5,
+      "summer": 8.5,
+      "winter": 7.5,
+      "rain": 9,
+      "food": 5,
+      "photography": 8,
+      "relaxation": 7,
+      "value": 8.5,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 2,
+      "weekend": 4,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 9,
+      "summer": 9,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 6, 7, 10, 11],
+    "weatherDependence": "low",
+    "reservation": "None required",
+    "parking": "Paid parking nearby",
+    "notes": "Some floats may be absent during the July festival period when they are in active use.",
+    "notesJa": "7月の祇園祭前後は山鉾が実際の運行で不在となることがあります。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.oidehita.com/en/spot/yamahoko/",
+          "title": "Hita Gion Yamahoko Museum Official Website",
+          "accessedAt": "2026-08-06"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Hita,_%C5%8Cita",
+          "title": "Hita, Ōita",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Hita Gion Yamahoko Museum",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://www.oidehita.com/en/spot/yamahoko/",
+    "municipalityId": "Oita:hita"
   }
 ]

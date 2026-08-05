@@ -2744,8 +2744,16 @@ function main() {
   fs.writeFileSync(INDEX_PATH, JSON.stringify(data, null, 2) + "\n");
   console.log(`\n✓ Wrote ${data.length} records to ${INDEX_PATH}`);
 
-  // Second-run idempotency check
-  const pass2 = applyExpansion(original, allHubsSoFar, allPoisSoFar, "pass2");
+  // Pass2: one-shot application must produce identical output
+  // Order: interleave hubs and POIs by stage to match incremental order
+  const pass2AllNew: DestinationRecord[] = [];
+  for (const stage of stages) {
+    pass2AllNew.push(...stage.hubs);
+    pass2AllNew.push(...stage.pois);
+  }
+  const pass2 = deepClone(original);
+  pass2.push(...deepClone(pass2AllNew));
+  validateRecords(pass2AllNew, "pass2-preflight");
   assert(deepEqual(data, pass2), "Second run produced different output");
   console.log("✓ Second-run idempotency confirmed");
 }
