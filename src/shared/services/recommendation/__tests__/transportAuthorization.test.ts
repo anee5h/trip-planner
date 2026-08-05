@@ -491,9 +491,10 @@ describe("ferry connectivity is not estimability", () => {
     ).toBe(true);
   });
 
-  it("Tokyo → Ogasawara is route-known but unestimated", () => {
+  it("Tokyo → Ogasawara ferry is now estimable", () => {
     const { selection, zone } = publicSelection(TOKYO);
     const dest = byId.get("ogasawara-islands-tokyo")!;
+    // public selection includes "ferry" in ALL_PUBLIC_MODES now
     const modes = getValidModes(
       dest,
       selection.carMode,
@@ -502,18 +503,19 @@ describe("ferry connectivity is not estimability", () => {
       undefined,
       zone,
     );
-    expect(modes).toEqual([]);
+    expect(modes).toEqual(["ferry"]);
     expect(hasFerryRoute("mainland-honshu", "ogasawara")).toBe(true);
-    // No trip-duration estimate without an estimable mode.
+    // Trip-duration estimation works with an estimable mode.
     const estimate = estimateTripDuration(
       dest,
-      { homeStationCoords: TOKYO },
+      { homeStationCoords: TOKYO, tripDuration: "fullDay" },
       modes,
     );
-    expect(estimate).toBeNull();
+    expect(estimate).not.toBeNull();
   });
 
   it("Ogasawara never returns flight or land modes from any selection", () => {
+    // When ferry is not in the selection, no modes are returned.
     const modes = getValidModes(
       byId.get("ogasawara-islands-tokyo")!,
       "none",

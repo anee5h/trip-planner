@@ -3,6 +3,7 @@ import type { TransportZoneId } from "@/shared/types/transportTopology";
 import { getAdjustedBudget } from "@/shared/services/budget/BudgetService";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
 import { getFlightTransportEstimate } from "./FlightTransportEstimator";
+import { getFerryTransportEstimate } from "./FerryTransportEstimator";
 
 export interface PreferredTransport {
   mode: string;
@@ -36,15 +37,17 @@ export function getFastestPreferredTransport(
       const timeRange =
         mode === "flight"
           ? getFlightTransportEstimate(destination, homeCoords)?.timeRange
-          : (() => {
-              const minutes =
-                destination.transportOptions?.[
-                  mode as keyof typeof destination.transportOptions
-                ];
-              return minutes === undefined
-                ? undefined
-                : ([minutes, minutes] as [number, number]);
-            })();
+          : mode === "ferry"
+            ? getFerryTransportEstimate(destination, homeCoords)?.timeRange
+            : (() => {
+                const minutes =
+                  destination.transportOptions?.[
+                    mode as keyof typeof destination.transportOptions
+                  ];
+                return minutes === undefined
+                  ? undefined
+                  : ([minutes, minutes] as [number, number]);
+              })();
 
       if (!timeRange) return null;
       return {

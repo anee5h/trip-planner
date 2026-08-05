@@ -1,5 +1,6 @@
 import type { Destination } from "../../types/destination";
 import { getFlightTransportEstimate } from "./FlightTransportEstimator";
+import { getFerryTransportEstimate } from "./FerryTransportEstimator";
 import type { Location, TransportEstimate, TransportMode } from "./types";
 
 export function getDistanceKm(
@@ -146,6 +147,15 @@ export function getTransportEstimates(
   );
   if (flightEstimate && flightEstimate.available) {
     results.push(flightEstimate);
+  }
+
+  // 4. Ferry estimate (if applicable)
+  const ferryEstimate = getFerryTransportEstimate(
+    destination,
+    homeLocation.coordinates,
+  );
+  if (ferryEstimate && ferryEstimate.available) {
+    results.push(ferryEstimate);
   }
 
   // Sort by minimum travel time

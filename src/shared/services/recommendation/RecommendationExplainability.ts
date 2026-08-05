@@ -9,6 +9,7 @@ import {
   formatJPYRange,
   getEstimatedBudgetRange,
 } from "@/shared/services/budget/BudgetService";
+import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
 import type { PriceRange } from "@/shared/types/planner";
 
 export function createRecommendationMatch(
@@ -136,6 +137,21 @@ export function createRecommendationMatch(
       title: "Shinkansen Connected",
       description: `Quick shinkansen access (${dest.transportOptions?.shinkansen}m)`,
     });
+  }
+  if (bestMode === "ferry") {
+    const ferryEst = getFerryTransportEstimate(
+      dest,
+      context.homeStationCoords || undefined,
+    );
+    if (ferryEst) {
+      reasons.push({
+        type: "Transport",
+        code: "transportFerry",
+        params: { minutes: ferryEst.timeRange[0] },
+        title: "Scenic Ferry Route",
+        description: `Accessible by ferry (${ferryEst.details?.operator ?? "passenger ferry"})`,
+      });
+    }
   }
 
   // 2. Trip Type Explainability

@@ -1,5 +1,6 @@
 import type { Destination } from "@/shared/types/destination";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
+import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
 import {
   getEligibleOriginModes,
   resolveDestinationTransportZone,
@@ -188,6 +189,17 @@ export function getTransportCost(
     if (flightEst && !flightEst.costUnavailable) {
       const avgOneWayPerPerson = Math.round(
         (flightEst.costRange[0] + flightEst.costRange[1]) / 2,
+      );
+      return Math.floor(avgOneWayPerPerson * 2 * partySize);
+    }
+    return null;
+  }
+
+  if (mode === "ferry") {
+    const ferryEst = getFerryTransportEstimate(dest, homeCoords);
+    if (ferryEst && !ferryEst.costUnavailable) {
+      const avgOneWayPerPerson = Math.round(
+        (ferryEst.costRange[0] + ferryEst.costRange[1]) / 2,
       );
       return Math.floor(avgOneWayPerPerson * 2 * partySize);
     }

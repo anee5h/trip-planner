@@ -18,6 +18,7 @@ export type RecommendationReasonCode =
   | "transportFastTrain"
   | "transportEasyDrive"
   | "transportShinkansen"
+  | "transportFerry"
   | "interestFood"
   | "interestNature"
   | "interestHistory"

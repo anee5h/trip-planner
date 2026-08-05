@@ -202,22 +202,18 @@ describe("DestinationDetails transport rows", () => {
     expect(text).toContain("Transport estimate unavailable");
   });
 
-  it("Ogasawara from Tokyo shows route-known ferry note, no flight, no generic origin transport cost", async () => {
+  it("Ogasawara from Tokyo shows ferry estimate, no train/flight", async () => {
     render("/destinations/ogasawara-islands-tokyo");
     await act(async () => {
       await flush(80);
     });
     const text = host.textContent ?? "";
-    expect(text).toContain("Ferry route available");
+    expect(text).toContain("Ferry");
     expect(text).not.toContain("Train");
     expect(text).not.toContain("Shinkansen");
     expect(text).not.toContain("Flight");
-    // No flight cost estimate may be rendered.
-    expect(text).not.toContain("Flight (Air & Access)");
-    // No selectable transport mode exists and no origin transport is
-    // claimed: the budget card is the on-site budget.
-    expect(text).toContain("On-site budget (transport excluded)");
-    expect(text).not.toContain("Local transport");
+    // Ferry is now estimable: budget no longer says transport-excluded.
+    expect(text).not.toContain("On-site budget (transport excluded)");
   });
 
   it("Ogasawara from Fukuoka shows no ferry note, unavailable copy, and on-site budget", async () => {
@@ -234,25 +230,25 @@ describe("DestinationDetails transport rows", () => {
     expect(text).not.toContain("Local transport");
   });
 
-  it("Ogasawara from Tokyo never claims the total includes transport", async () => {
+  it("Ogasawara from Tokyo no longer shows on-site-only budget (ferry estimable)", async () => {
     render("/destinations/ogasawara-islands-tokyo");
     await act(async () => {
       await flush(80);
     });
     const text = host.textContent ?? "";
-    expect(text).not.toContain("including transport");
-    expect(text).not.toContain("交通・チケット・食事を含む");
+    // Transport is now included because ferry is estimable.
+    expect(text).not.toContain("On-site budget (transport excluded)");
   });
 
-  it("Japanese locale also excludes transport from the budget copy", async () => {
+  it("Japanese locale no longer shows on-site-only budget when ferry estimable", async () => {
     localeState.locale = "ja";
     render("/destinations/ogasawara-islands-tokyo");
     await act(async () => {
       await flush(80);
     });
     const text = host.textContent ?? "";
-    expect(text).toContain("現地予算（往復交通費を除く）");
-    expect(text).not.toContain("含む予想合計");
+    // Ferry is estimable: transport-excluded copy is gone.
+    expect(text).not.toContain("現地予算（往復交通費を除く）");
   });
 
   it("Kouri from Naha never displays Train and shows local-access copy", async () => {

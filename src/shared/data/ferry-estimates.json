@@ -1,0 +1,233 @@
+{
+  "transportVersion": 1,
+  "ports": [
+    {
+      "id": "TYO-TAKESHIBA",
+      "name": "Takeshiba Passenger Terminal",
+      "nameJa": "竹芝客船ターミナル",
+      "city": "Tokyo",
+      "prefecture": "Tokyo",
+      "zoneId": "mainland-honshu",
+      "coordinates": { "lat": 35.6546, "lng": 139.7594 }
+    },
+    {
+      "id": "NIIGATA",
+      "name": "Niigata Port",
+      "nameJa": "新潟港",
+      "city": "Niigata",
+      "prefecture": "Niigata",
+      "zoneId": "mainland-honshu",
+      "coordinates": { "lat": 37.9133, "lng": 139.0485 }
+    },
+    {
+      "id": "UNO",
+      "name": "Uno Port",
+      "nameJa": "宇野港",
+      "city": "Tamano",
+      "prefecture": "Okayama",
+      "zoneId": "mainland-honshu",
+      "coordinates": { "lat": 34.4922, "lng": 133.9521 }
+    },
+    {
+      "id": "TAKAMATSU",
+      "name": "Takamatsu Port",
+      "nameJa": "高松港",
+      "city": "Takamatsu",
+      "prefecture": "Kagawa",
+      "zoneId": "mainland-shikoku",
+      "coordinates": { "lat": 34.3515, "lng": 134.0485 }
+    },
+    {
+      "id": "KADA",
+      "name": "Kada Port",
+      "nameJa": "加太港",
+      "city": "Wakayama",
+      "prefecture": "Wakayama",
+      "zoneId": "mainland-honshu",
+      "coordinates": { "lat": 34.2833, "lng": 135.0667 }
+    },
+    {
+      "id": "KAGOSHIMA",
+      "name": "Kagoshima Port",
+      "nameJa": "鹿児島港",
+      "city": "Kagoshima",
+      "prefecture": "Kagoshima",
+      "zoneId": "mainland-kyushu",
+      "coordinates": { "lat": 31.5968, "lng": 130.5608 }
+    },
+    {
+      "id": "HAKATA",
+      "name": "Hakata Port",
+      "nameJa": "博多港",
+      "city": "Fukuoka",
+      "prefecture": "Fukuoka",
+      "zoneId": "mainland-kyushu",
+      "coordinates": { "lat": 33.6031, "lng": 130.3997 }
+    },
+    {
+      "id": "CHICHIJIMA",
+      "name": "Chichijima (Ogasawara)",
+      "nameJa": "父島（小笠原）",
+      "city": "Ogasawara",
+      "prefecture": "Tokyo",
+      "zoneId": "ogasawara",
+      "coordinates": { "lat": 27.0943, "lng": 142.1943 }
+    },
+    {
+      "id": "RYOTSU-SADO",
+      "name": "Ryotsu Port (Sado)",
+      "nameJa": "両津港（佐渡）",
+      "city": "Sado",
+      "prefecture": "Niigata",
+      "zoneId": "sado",
+      "coordinates": { "lat": 38.0872, "lng": 138.435 }
+    },
+    {
+      "id": "MIYANOURA-NAOSHIMA",
+      "name": "Miyanoura Port (Naoshima)",
+      "nameJa": "宮浦港（直島）",
+      "city": "Naoshima",
+      "prefecture": "Kagawa",
+      "zoneId": "naoshima",
+      "coordinates": { "lat": 34.4583, "lng": 133.9722 }
+    },
+    {
+      "id": "IEURA-TESHIMA",
+      "name": "Ieura Port (Teshima)",
+      "nameJa": "家浦港（豊島）",
+      "city": "Tonosho",
+      "prefecture": "Kagawa",
+      "zoneId": "teshima",
+      "coordinates": { "lat": 34.4833, "lng": 134.0694 }
+    },
+    {
+      "id": "TOMOGASHIMA",
+      "name": "Tomogashima Port",
+      "nameJa": "友ヶ島港",
+      "city": "Wakayama",
+      "prefecture": "Wakayama",
+      "zoneId": "tomogashima",
+      "coordinates": { "lat": 34.2833, "lng": 135.0167 }
+    },
+    {
+      "id": "SAKURAJIMA",
+      "name": "Sakurajima Port",
+      "nameJa": "桜島港",
+      "city": "Kagoshima",
+      "prefecture": "Kagoshima",
+      "zoneId": "mainland-kyushu",
+      "coordinates": { "lat": 31.5833, "lng": 130.5833 }
+    },
+    {
+      "id": "IZUHARA-TSUSHIMA",
+      "name": "Izuhara Port (Tsushima)",
+      "nameJa": "厳原港（対馬）",
+      "city": "Tsushima",
+      "prefecture": "Nagasaki",
+      "zoneId": "tsushima",
+      "coordinates": { "lat": 34.2017, "lng": 129.2869 }
+    }
+  ],
+  "routes": [
+    {
+      "fromPort": "TYO-TAKESHIBA",
+      "toPort": "CHICHIJIMA",
+      "operator": "Ogasawara Kaiun",
+      "passengerService": true,
+      "durationMinutes": [1440, 1440],
+      "fare": [25100, 57820],
+      "sourceUrl": "https://www.ogasawarakaiun.co.jp/english/service/",
+      "fareSourceUrl": "https://www.ogasawarakaiun.co.jp/english/fare/",
+      "checkedAt": "2026-08-05",
+      "notes": "One sailing every 6 days. One-way ~24h. Fare varies by class (2nd class to deluxe). Seasonal surcharges apply in Golden Week, Obon, and New Year."
+    },
+    {
+      "fromPort": "NIIGATA",
+      "toPort": "RYOTSU-SADO",
+      "operator": "Sado Kisen",
+      "passengerService": true,
+      "durationMinutes": [60, 150],
+      "fare": [3090, 10240],
+      "sourceUrl": "https://www.sadokisen.co.jp/en/",
+      "fareSourceUrl": "https://www.sadokisen.co.jp/en/fare/",
+      "checkedAt": "2026-08-05",
+      "notes": "Jet foil (60 min) and car ferry (150 min). Jet foil fare ~¥6,520 one way; car ferry ¥3,090. Multiple sailings daily."
+    },
+    {
+      "fromPort": "UNO",
+      "toPort": "MIYANOURA-NAOSHIMA",
+      "operator": "Uno Port Ferry / Benesse",
+      "passengerService": true,
+      "durationMinutes": [15, 20],
+      "fare": [300, 300],
+      "sourceUrl": "https://benesse-artsite.jp/en/access/",
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "fromPort": "TAKAMATSU",
+      "toPort": "MIYANOURA-NAOSHIMA",
+      "operator": "Shikoku Kisen / Benesse",
+      "passengerService": true,
+      "durationMinutes": [25, 60],
+      "fare": [530, 530],
+      "sourceUrl": "https://benesse-artsite.jp/en/access/",
+      "checkedAt": "2026-08-05",
+      "notes": "High-speed boat ~25 min (¥1,200) also available. Standard ferry ¥530. Multiple sailings daily."
+    },
+    {
+      "fromPort": "UNO",
+      "toPort": "IEURA-TESHIMA",
+      "operator": "Uno Port Ferry / Benesse",
+      "passengerService": true,
+      "durationMinutes": [25, 40],
+      "fare": [780, 780],
+      "sourceUrl": "https://benesse-artsite.jp/en/access/",
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "fromPort": "TAKAMATSU",
+      "toPort": "IEURA-TESHIMA",
+      "operator": "Takamatsu Ferry",
+      "passengerService": true,
+      "durationMinutes": [35, 50],
+      "fare": [1350, 1350],
+      "sourceUrl": "https://benesse-artsite.jp/en/access/",
+      "checkedAt": "2026-08-05",
+      "notes": "High-speed boat. Standard ferry also available (~¥780)."
+    },
+    {
+      "fromPort": "KADA",
+      "toPort": "TOMOGASHIMA",
+      "operator": "Tomogashima Kisen",
+      "passengerService": true,
+      "durationMinutes": [20, 25],
+      "fare": [2000, 2200],
+      "sourceUrl": "https://www.city.wakayama.wakayama.jp/kankou/kankouspot/1027585/1027593.html",
+      "checkedAt": "2026-08-05",
+      "notes": "Round-trip fare. Seasonal service; suspended in winter (December–February) and during rough weather."
+    },
+    {
+      "fromPort": "KAGOSHIMA",
+      "toPort": "SAKURAJIMA",
+      "operator": "Sakurajima Ferry",
+      "passengerService": true,
+      "durationMinutes": [15, 15],
+      "fare": [200, 200],
+      "sourceUrl": "https://www.city.kagoshima.lg.jp/sakurajima-ferry/",
+      "checkedAt": "2026-08-05",
+      "notes": "24-hour service. Frequent departures (every 15–30 min). Fare collected at Sakurajima side only."
+    },
+    {
+      "fromPort": "HAKATA",
+      "toPort": "IZUHARA-TSUSHIMA",
+      "operator": "Kyusyu Yusen",
+      "passengerService": true,
+      "durationMinutes": [140, 290],
+      "fare": [6250, 18000],
+      "sourceUrl": "https://www.kyu-you.co.jp/en/",
+      "fareSourceUrl": "https://www.kyu-you.co.jp/en/fare/",
+      "checkedAt": "2026-08-05",
+      "notes": "Jet foil (Izuhara ~2h20m, ¥13,000–18,000) and car ferry (~4h50m, ¥6,250+). Hitakatsu port also served by some sailings. Booking recommended in peak seasons."
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import type { Destination } from "@/shared/types/destination";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
+import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
 import type {
   RecommendationContext,
   TripDuration,
@@ -88,6 +89,15 @@ export function estimateTripDuration(
         ];
       if (mode === "flight") {
         const estimate = getFlightTransportEstimate(
+          destination,
+          context.homeStationCoords || undefined,
+        );
+        minutes = estimate
+          ? (estimate.timeRange[0] + estimate.timeRange[1]) / 2
+          : undefined;
+      }
+      if (mode === "ferry") {
+        const estimate = getFerryTransportEstimate(
           destination,
           context.homeStationCoords || undefined,
         );

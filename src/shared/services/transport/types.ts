@@ -39,6 +39,31 @@ export interface FlightRoute {
   checkedAt?: string;
 }
 
+export interface FerryPort {
+  id: string;
+  name: string;
+  nameJa?: string;
+  city: string;
+  prefecture: string;
+  zoneId: string;
+  coordinates: { lat: number; lng: number };
+}
+
+export interface FerryRoute {
+  fromPort: string;
+  toPort: string;
+  operator: string;
+  passengerService: boolean;
+  durationMinutes: [number, number];
+  /** null = no verified fare data. */
+  fare: [number, number] | null;
+  fareStatus?: "verified" | "unverified";
+  sourceUrl?: string;
+  fareSourceUrl?: string;
+  checkedAt?: string;
+  notes?: string;
+}
+
 export interface TransportEstimate {
   mode: TransportMode;
   label: string;
@@ -56,5 +81,9 @@ export interface TransportEstimate {
     arrivalAirportName?: string;
     originAccessTimeRange?: [number, number];
     destAccessTimeRange?: [number, number];
+    departurePortName?: string;
+    arrivalPortName?: string;
+    operator?: string;
+    ferryNotes?: string;
   };
 }
