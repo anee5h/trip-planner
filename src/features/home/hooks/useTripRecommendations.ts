@@ -237,6 +237,8 @@ export function useTripRecommendations({
     publicModes,
     rouletteConstraints,
     tripDuration,
+    tripMode,
+    accommodationAllowance,
     visitedIds,
   ]);
 
