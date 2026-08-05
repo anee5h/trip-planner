@@ -162,6 +162,78 @@
       "fare": [7000, 14000],
       "sourceUrl": "https://visitokinawajapan.com/plan-your-trip/getting-around-okinawa/flights-between-islands/",
       "checkedAt": "2026-08-05"
+    },
+    {
+      "from": "TAK",
+      "to": "OKA",
+      "flightTime": [60, 75],
+      "fare": [10000, 20000],
+      "sourceUrl": "https://www.ana.co.jp/en-jp/flights-from-takamatsu-to-okinawa-naha",
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "from": "FUK",
+      "to": "ISG",
+      "flightTime": [115, 140],
+      "fare": [13000, 26000],
+      "sourceUrl": "https://visitokinawajapan.com/plan-your-trip/getting-to-okinawa/domestic-flights/",
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "from": "FUK",
+      "to": "TSJ",
+      "flightTime": [35, 50],
+      "fare": [8000, 15000],
+      "sourceUrl": "https://www.ana.co.jp/en-jp/flights-from-fukuoka-to-tsushima",
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "from": "CTS",
+      "to": "OKA",
+      "flightTime": [180, 210],
+      "fare": [10000, 22000],
+      "sourceUrl": "https://www.ana.co.jp/en/jp/guide/plan/airinfo/",
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "from": "KOJ",
+      "to": "ASJ",
+      "flightTime": [40, 55],
+      "fare": [9000, 16000],
+      "sourceUrl": "https://amami-airport.co.jp/en/top",
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "from": "ASJ",
+      "to": "OKA",
+      "flightTime": [55, 70],
+      "fare": [9000, 16000],
+      "sourceUrl": "https://amami-airport.co.jp/en/top",
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "from": "KOJ",
+      "to": "KUM",
+      "flightTime": [35, 50],
+      "fare": [9000, 16000],
+      "sourceUrl": "https://www.town.yakushima.kagoshima.jp/kanko/English/2379.html",
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "from": "ITM",
+      "to": "KUM",
+      "flightTime": [90, 110],
+      "fare": [11000, 20000],
+      "sourceUrl": "https://www.town.yakushima.kagoshima.jp/kanko/English/2379.html",
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "from": "FUK",
+      "to": "KUM",
+      "flightTime": [70, 90],
+      "fare": [10000, 18000],
+      "sourceUrl": "https://www.town.yakushima.kagoshima.jp/kanko/English/2379.html",
+      "checkedAt": "2026-08-05"
     }
   ]
 }

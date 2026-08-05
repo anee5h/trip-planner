@@ -7,7 +7,10 @@
       "name": "Haneda Airport",
       "city": "Tokyo",
       "prefecture": "Tokyo",
-      "coordinates": { "lat": 35.5494, "lng": 139.7798 }
+      "coordinates": {
+        "lat": 35.5494,
+        "lng": 139.7798
+      }
     },
     {
       "id": "NRT",
@@ -15,7 +18,10 @@
       "name": "Narita Airport",
       "city": "Narita",
       "prefecture": "Chiba",
-      "coordinates": { "lat": 35.772, "lng": 140.3929 }
+      "coordinates": {
+        "lat": 35.772,
+        "lng": 140.3929
+      }
     },
     {
       "id": "CTS",
@@ -23,7 +29,10 @@
       "name": "New Chitose Airport",
       "city": "Sapporo",
       "prefecture": "Hokkaido",
-      "coordinates": { "lat": 42.7752, "lng": 141.6923 }
+      "coordinates": {
+        "lat": 42.7752,
+        "lng": 141.6923
+      }
     },
     {
       "id": "ITM",
@@ -31,7 +40,10 @@
       "name": "Itami Airport",
       "city": "Osaka",
       "prefecture": "Osaka",
-      "coordinates": { "lat": 34.7855, "lng": 135.4382 }
+      "coordinates": {
+        "lat": 34.7855,
+        "lng": 135.4382
+      }
     },
     {
       "id": "KIX",
@@ -39,7 +51,10 @@
       "name": "Kansai International Airport",
       "city": "Osaka",
       "prefecture": "Osaka",
-      "coordinates": { "lat": 34.432, "lng": 135.2304 }
+      "coordinates": {
+        "lat": 34.432,
+        "lng": 135.2304
+      }
     },
     {
       "id": "NGO",
@@ -47,7 +62,10 @@
       "name": "Chubu Centrair Airport",
       "city": "Nagoya",
       "prefecture": "Aichi",
-      "coordinates": { "lat": 34.8584, "lng": 136.8054 }
+      "coordinates": {
+        "lat": 34.8584,
+        "lng": 136.8054
+      }
     },
     {
       "id": "FUK",
@@ -55,7 +73,10 @@
       "name": "Fukuoka Airport",
       "city": "Fukuoka",
       "prefecture": "Fukuoka",
-      "coordinates": { "lat": 33.5859, "lng": 130.4507 }
+      "coordinates": {
+        "lat": 33.5859,
+        "lng": 130.4507
+      }
     },
     {
       "id": "KMJ",
@@ -63,7 +84,10 @@
       "name": "Kumamoto Airport",
       "city": "Kumamoto",
       "prefecture": "Kumamoto",
-      "coordinates": { "lat": 32.8372, "lng": 130.855 }
+      "coordinates": {
+        "lat": 32.8372,
+        "lng": 130.855
+      }
     },
     {
       "id": "KOJ",
@@ -71,7 +95,10 @@
       "name": "Kagoshima Airport",
       "city": "Kagoshima",
       "prefecture": "Kagoshima",
-      "coordinates": { "lat": 31.8034, "lng": 130.7194 }
+      "coordinates": {
+        "lat": 31.8034,
+        "lng": 130.7194
+      }
     },
     {
       "id": "OKA",
@@ -79,7 +106,10 @@
       "name": "Naha Airport",
       "city": "Naha",
       "prefecture": "Okinawa",
-      "coordinates": { "lat": 26.1958, "lng": 127.6458 }
+      "coordinates": {
+        "lat": 26.1958,
+        "lng": 127.6458
+      }
     },
     {
       "id": "ISG",
@@ -87,7 +117,10 @@
       "name": "New Ishigaki Airport",
       "city": "Ishigaki",
       "prefecture": "Okinawa",
-      "coordinates": { "lat": 24.3964, "lng": 124.245 }
+      "coordinates": {
+        "lat": 24.3964,
+        "lng": 124.245
+      }
     },
     {
       "id": "MMY",
@@ -95,7 +128,10 @@
       "name": "Miyako Airport",
       "city": "Miyakojima",
       "prefecture": "Okinawa",
-      "coordinates": { "lat": 24.7828, "lng": 125.295 }
+      "coordinates": {
+        "lat": 24.7828,
+        "lng": 125.295
+      }
     },
     {
       "id": "HKD",
@@ -103,7 +139,10 @@
       "name": "Hakodate Airport",
       "city": "Hakodate",
       "prefecture": "Hokkaido",
-      "coordinates": { "lat": 41.77, "lng": 140.8219 }
+      "coordinates": {
+        "lat": 41.77,
+        "lng": 140.8219
+      }
     },
     {
       "id": "AKJ",
@@ -111,7 +150,10 @@
       "name": "Asahikawa Airport",
       "city": "Asahikawa",
       "prefecture": "Hokkaido",
-      "coordinates": { "lat": 43.6708, "lng": 142.4475 }
+      "coordinates": {
+        "lat": 43.6708,
+        "lng": 142.4475
+      }
     },
     {
       "id": "MYJ",
@@ -119,7 +161,10 @@
       "name": "Matsuyama Airport",
       "city": "Matsuyama",
       "prefecture": "Ehime",
-      "coordinates": { "lat": 33.8272, "lng": 132.6997 }
+      "coordinates": {
+        "lat": 33.8272,
+        "lng": 132.6997
+      }
     },
     {
       "id": "TAK",
@@ -127,7 +172,10 @@
       "name": "Takamatsu Airport",
       "city": "Takamatsu",
       "prefecture": "Kagawa",
-      "coordinates": { "lat": 34.2142, "lng": 134.0156 }
+      "coordinates": {
+        "lat": 34.2142,
+        "lng": 134.0156
+      }
     },
     {
       "id": "HIJ",
@@ -135,7 +183,54 @@
       "name": "Hiroshima Airport",
       "city": "Hiroshima",
       "prefecture": "Hiroshima",
-      "coordinates": { "lat": 34.4361, "lng": 132.9194 }
+      "coordinates": {
+        "lat": 34.4361,
+        "lng": 132.9194
+      }
+    },
+    {
+      "id": "TSJ",
+      "code": "TSJ",
+      "name": "Tsushima Airport",
+      "city": "Tsushima",
+      "prefecture": "Nagasaki",
+      "coordinates": {
+        "lat": 34.2847,
+        "lng": 129.3306
+      }
+    },
+    {
+      "id": "ASJ",
+      "code": "ASJ",
+      "name": "Amami Airport",
+      "city": "Amami",
+      "prefecture": "Kagoshima",
+      "coordinates": {
+        "lat": 28.4306,
+        "lng": 129.7125
+      }
+    },
+    {
+      "id": "KUM",
+      "code": "KUM",
+      "name": "Yakushima Airport",
+      "city": "Yakushima",
+      "prefecture": "Kagoshima",
+      "coordinates": {
+        "lat": 30.3856,
+        "lng": 130.6592
+      }
+    },
+    {
+      "id": "SDO",
+      "code": "SDO",
+      "name": "Sado Airport",
+      "city": "Sado",
+      "prefecture": "Niigata",
+      "coordinates": {
+        "lat": 38.0602,
+        "lng": 138.4141
+      }
     }
   ]
 }

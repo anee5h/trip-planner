@@ -16,6 +16,10 @@
     "TAK": "mainland-shikoku",
     "OKA": "okinawa-main",
     "ISG": "ishigaki",
-    "MMY": "miyako"
+    "MMY": "miyako",
+    "TSJ": "tsushima",
+    "ASJ": "amami",
+    "KUM": "yakushima",
+    "SDO": "sado"
   }
 }

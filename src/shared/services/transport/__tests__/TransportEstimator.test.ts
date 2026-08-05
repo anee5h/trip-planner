@@ -63,10 +63,19 @@ describe("TransportEstimator", () => {
 
   it("returns no departure airports for an origin without a local gateway", () => {
     const candidateAirports = findNearestAirports(
-      { lat: 38.0333, lng: 138.3833 }, // Sado Island
+      { lat: 27.095, lng: 142.1925 }, // Ogasawara Islands (no registry airport)
       3,
     );
     expect(candidateAirports.length).toBe(0);
+  });
+
+  it("finds the newly registered island airports within their catchment", () => {
+    const sado = findNearestAirports({ lat: 38.0333, lng: 138.3833 }, 1);
+    expect(sado[0]?.code).toBe("SDO");
+    const yakushima = findNearestAirports({ lat: 30.3444, lng: 130.5126 }, 1);
+    expect(yakushima[0]?.code).toBe("KUM");
+    const amami = findNearestAirports({ lat: 28.2711, lng: 129.3364 }, 1);
+    expect(amami[0]?.code).toBe("ASJ");
   });
 
   it("finds destination arrival airport for Sapporo", () => {
