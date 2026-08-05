@@ -164,6 +164,7 @@ export function getTransportCost(
   mode: string,
   partySize: number = 2,
   homeCoords?: { lat: number; lng: number },
+  refDate?: Date,
 ): number | null {
   // 1. Explicit Route Fare Precedence (if specified in destination JSON)
   const explicitFare =
@@ -196,12 +197,16 @@ export function getTransportCost(
   }
 
   if (mode === "ferry") {
-    const ferryEst = getFerryTransportEstimate(dest, homeCoords);
+    const ferryEst = getFerryTransportEstimate(dest, homeCoords, refDate);
     if (ferryEst && !ferryEst.costUnavailable) {
-      const avgOneWayPerPerson = Math.round(
+      const avgRoundTripPerPerson = Math.round(
         (ferryEst.costRange[0] + ferryEst.costRange[1]) / 2,
       );
-      return Math.floor(avgOneWayPerPerson * 2 * partySize);
+      // One-way fares are doubled for the return trip; round-trip fares
+      // already include it and must not be doubled again.
+      const multiplier =
+        ferryEst.details?.ferryFareBasis === "round-trip" ? 1 : 2;
+      return Math.floor(avgRoundTripPerPerson * multiplier * partySize);
     }
     return null;
   }

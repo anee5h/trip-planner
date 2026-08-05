@@ -49,19 +49,39 @@ export interface FerryPort {
   coordinates: { lat: number; lng: number };
 }
 
-export interface FerryRoute {
+export type FerryFareBasis = "one-way" | "round-trip";
+
+export interface FerryOperatingPeriod {
+  /** Month-day (MM-DD) inclusive; may wrap a year boundary. */
+  from: string;
+  to: string;
+}
+
+export interface FerryService {
+  id: string;
   fromPort: string;
   toPort: string;
   operator: string;
+  serviceName?: string;
+  vesselType: "ferry" | "jetfoil" | "highspeed";
   passengerService: boolean;
+  /** True when the published service runs the reverse direction too. */
+  bidirectional: boolean;
   durationMinutes: [number, number];
-  /** null = no verified fare data. */
+  /** null = no verified fare data. fareStatus must be "unverified" then. */
   fare: [number, number] | null;
+  fareBasis: FerryFareBasis;
   fareStatus?: "verified" | "unverified";
+  /** Supports route existence. */
   sourceUrl?: string;
+  /** Supports the fare range specifically, when fares are verified. */
   fareSourceUrl?: string;
+  /** Applies to the specific fact asserted (route or fare). */
   checkedAt?: string;
+  /** Seasonal or reservation notes. */
   notes?: string;
+  /** Annual operating periods; absent means year-round. */
+  operatingPeriods?: FerryOperatingPeriod[];
 }
 
 export interface TransportEstimate {
@@ -84,6 +104,9 @@ export interface TransportEstimate {
     departurePortName?: string;
     arrivalPortName?: string;
     operator?: string;
+    serviceName?: string;
+    /** one-way: costRange is one-way; round-trip: costRange is round-trip. */
+    ferryFareBasis?: FerryFareBasis;
     ferryNotes?: string;
   };
 }

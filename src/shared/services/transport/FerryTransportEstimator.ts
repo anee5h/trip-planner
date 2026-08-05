@@ -6,69 +6,112 @@ import {
 } from "./TransportTopologyService";
 import type { Destination } from "../../types/destination";
 import type {
+  FerryOperatingPeriod,
   FerryPort,
-  FerryRoute,
+  FerryService,
   Location,
   TransportEstimate,
 } from "./types";
 
 const ports: FerryPort[] = ferryData.ports;
 // JSON arrays are inferred as number[], cast to tuple explicitly.
-const routes: FerryRoute[] = (
-  ferryData.routes as Array<{
-    fromPort: string;
-    toPort: string;
-    operator: string;
-    passengerService: boolean;
-    durationMinutes: [number, number];
-    fare: [number, number] | null;
-    fareStatus?: string;
-    sourceUrl?: string;
-    fareSourceUrl?: string;
-    checkedAt?: string;
-    notes?: string;
-  }>
-).map((r) => ({
-  ...r,
-  fare: r.fare as [number, number] | null,
-})) as FerryRoute[];
-
-/** Maximum km from an origin to a candidate departure port. */
-const ORIGIN_PORT_CATCHMENT_KM = 300;
+const services: FerryService[] = (
+  ferryData.services as unknown as Array<
+    Omit<FerryService, "durationMinutes" | "fare"> & {
+      durationMinutes: number[];
+      fare: number[] | null;
+    }
+  >
+).map((s) => ({
+  ...s,
+  durationMinutes: [s.durationMinutes[0], s.durationMinutes[1]] as [
+    number,
+    number,
+  ],
+  fare: s.fare === null ? null : ([s.fare[0], s.fare[1]] as [number, number]),
+})) as FerryService[];
 
 const portById = new Map<string, FerryPort>();
 for (const p of ports) portById.set(p.id, p);
 
+/** Maximum km from an origin to a candidate departure port. */
+const ORIGIN_PORT_CATCHMENT_KM = 300;
+
+/** Buffer for check-in, boarding, and unloading at both ports. */
+const FERRY_BUFFER_MINUTES = 30;
+
 /**
- * Finds candidate departure ports within catchment of the origin.
- * Only returns ports in the same transport zone as the origin.
+ * Directional match: a service serves from→to directly, and additionally
+ * to→from only when the published service supports the reverse direction.
  */
-export function findNearestFerryPort(
-  coords: { lat: number; lng: number },
-  originZoneId: string,
-): FerryPort | null {
-  let best: { port: FerryPort; distKm: number } | null = null;
-
-  for (const port of ports) {
-    if (port.zoneId !== originZoneId) continue;
-    const distKm = getDistanceKm(
-      coords.lat,
-      coords.lng,
-      port.coordinates.lat,
-      port.coordinates.lng,
-    );
-    if (distKm > ORIGIN_PORT_CATCHMENT_KM) continue;
-    if (!best || distKm < best.distKm) {
-      best = { port, distKm };
-    }
+export function serviceMatchesDirection(
+  service: FerryService,
+  fromPortId: string,
+  toPortId: string,
+): boolean {
+  if (service.fromPort === fromPortId && service.toPort === toPortId) {
+    return true;
   }
+  return (
+    service.bidirectional === true &&
+    service.fromPort === toPortId &&
+    service.toPort === fromPortId
+  );
+}
 
-  return best?.port ?? null;
+function monthDay(date: Date): number {
+  return (date.getMonth() + 1) * 100 + date.getDate();
+}
+
+function parseMonthDay(value: string): number {
+  const [month, day] = value.split("-").map((part) => Number(part));
+  return month * 100 + day;
+}
+
+function periodContains(period: FerryOperatingPeriod, md: number): boolean {
+  const from = parseMonthDay(period.from);
+  const to = parseMonthDay(period.to);
+  if (from <= to) return md >= from && md <= to;
+  // Period wraps a year boundary (e.g. 11-01 → 03-31).
+  return md >= from || md <= to;
 }
 
 /**
- * Finds the arrival port for a destination.
- * The arrival port must be in the destination's transport zone.
+ * True when the service runs passengers and the reference date falls inside
+ * one of its operating periods (absent periods = year-round).
+ */
+export function isServiceActive(service: FerryService, refDate: Date): boolean {
+  if (service.passengerService !== true) return false;
+  if (!service.operatingPeriods || service.operatingPeriods.length === 0) {
+    return true;
+  }
+  const md = monthDay(refDate);
+  return service.operatingPeriods.some((period) => periodContains(period, md));
+}
+
+/**
+ * All verified passenger services between two ports on a given date,
+ * respecting directionality and operating periods.
+ */
+export function getFerryServices(
+  fromPortId: string,
+  toPortId: string,
+  refDate: Date = new Date(),
+): FerryService[] {
+  return services.filter(
+    (service) =>
+      serviceMatchesDirection(service, fromPortId, toPortId) &&
+      isServiceActive(service, refDate),
+  );
+}
+
+export function findPortById(portId: string): FerryPort | null {
+  return portById.get(portId) ?? null;
+}
+
+/**
+ * The destination's arrival port: the nearest port in the destination's
+ * transport zone.
  */
 export function findArrivalFerryPort(dest: Destination): FerryPort | null {
   if (!dest.coordinates) return null;
@@ -76,7 +119,6 @@ export function findArrivalFerryPort(dest: Destination): FerryPort | null {
   if (destinationZoneId === "unknown") return null;
 
   let best: { port: FerryPort; distKm: number } | null = null;
-
   for (const port of ports) {
     if (port.zoneId !== destinationZoneId) continue;
     const distKm = getDistanceKm(
@@ -89,62 +131,23 @@ export function findArrivalFerryPort(dest: Destination): FerryPort | null {
       best = { port, distKm };
     }
   }
-
   return best?.port ?? null;
 }
 
-/**
- * Bidirectional ferry route lookup.
- */
-export function getFerryRoute(
-  fromPortId: string,
-  toPortId: string,
-): FerryRoute | null {
-  const match = routes.find(
-    (r) =>
-      r.passengerService === true &&
-      ((r.fromPort === fromPortId && r.toPort === toPortId) ||
-        (r.fromPort === toPortId && r.toPort === fromPortId)),
-  );
-  return match || null;
-}
-
-/**
- * Calculates door-to-door ferry estimate for a destination.
- * Returns null when no verified passenger ferry route connects the origin
- * and destination zones, or when duration/fare are both unavailable.
- */
-export function getFerryTransportEstimate(
+function buildFerryEstimate(
   dest: Destination,
-  homeCoords?: { lat: number; lng: number },
-): TransportEstimate | null {
-  if (!dest.coordinates || !homeCoords) return null;
-
-  // Resolve origin zone from coords
-  const originZoneId = resolveOriginTransportZone({ coordinates: homeCoords });
-  if (originZoneId === "unknown") return null;
-
-  const destinationZoneId = resolveDestinationTransportZone(dest);
-  if (destinationZoneId === "unknown") return null;
-
-  // Same zone — no ferry needed
-  if (originZoneId === destinationZoneId) return null;
-
-  // Find arrival port in destination's zone
-  const arrPort = findArrivalFerryPort(dest);
-  if (!arrPort) return null;
-
-  // Find the nearest departure port in the origin's zone
-  const depPort = findNearestFerryPort(homeCoords, originZoneId);
-  if (!depPort) return null;
-
-  // Look up a verified passenger route between those ports
-  const route = getFerryRoute(depPort.id, arrPort.id);
-  if (!route) return null;
-
-  // Must have at least duration to be selectable
-  if (!route.durationMinutes) return null;
-
+  homeCoords: { lat: number; lng: number },
+  depPort: FerryPort,
+  arrPort: FerryPort,
+  service: FerryService,
+): TransportEstimate {
+  const homeLoc: Location = { coordinates: homeCoords };
+  // Guarded by getFerryTransportEstimate before any call.
+  const destCoords = dest.coordinates!;
+  const destLoc: Location = {
+    name: dest.name,
+    coordinates: { lat: destCoords.lat, lng: destCoords.lng },
+  };
   const depLoc: Location = {
     name: depPort.name,
     coordinates: depPort.coordinates,
@@ -153,45 +156,43 @@ export function getFerryTransportEstimate(
     name: arrPort.name,
     coordinates: arrPort.coordinates,
   };
-  const homeLoc: Location = { coordinates: homeCoords };
-  const destLoc: Location = {
-    name: dest.name,
-    coordinates: { lat: dest.coordinates.lat, lng: dest.coordinates.lng },
-  };
 
   const originAccess = getBestEstimateBetween(homeLoc, depLoc);
   const destAccess = getBestEstimateBetween(arrLoc, destLoc);
 
-  // Buffer for check-in, boarding, unloading: 30 min for ferries
-  const FERRY_BUFFER_MINUTES = 30;
-
   const minTime =
     originAccess.timeRange[0] +
     FERRY_BUFFER_MINUTES +
-    route.durationMinutes[0] +
+    service.durationMinutes[0] +
     destAccess.timeRange[0];
   const maxTime =
     originAccess.timeRange[1] +
     FERRY_BUFFER_MINUTES +
-    route.durationMinutes[1] +
+    service.durationMinutes[1] +
     destAccess.timeRange[1];
 
-  const costUnavailable = route.fare === null;
+  // fareBasis shapes the cost semantics: a one-way fare is doubled for the
+  // return trip; a round-trip fare is already the return journey.
+  const roundTripBasis = service.fareBasis === "round-trip";
+  const costUnavailable = service.fare === null;
   const minCost = costUnavailable
     ? 0
-    : originAccess.costRange[0] + route.fare![0] + destAccess.costRange[0];
+    : roundTripBasis
+      ? (originAccess.costRange[0] + destAccess.costRange[0]) * 2 +
+        service.fare![0]
+      : originAccess.costRange[0] + service.fare![0] + destAccess.costRange[0];
   const maxCost = costUnavailable
     ? 0
-    : originAccess.costRange[1] + route.fare![1] + destAccess.costRange[1];
-
-  // Compare with ground (if any) for recommended flag
-  const groundEstimate = getBestEstimateBetween(homeLoc, destLoc);
+    : roundTripBasis
+      ? (originAccess.costRange[1] + destAccess.costRange[1]) * 2 +
+        service.fare![1]
+      : originAccess.costRange[1] + service.fare![1] + destAccess.costRange[1];
 
   return {
     mode: "ferry",
     label: "Ferry",
     available: true,
-    recommended: minTime < groundEstimate.timeRange[0],
+    recommended: false,
     timeRange: [minTime, maxTime],
     costUnavailable,
     costRange: [minCost, maxCost],
@@ -199,10 +200,90 @@ export function getFerryTransportEstimate(
     details: {
       departurePortName: depPort.name,
       arrivalPortName: arrPort.name,
-      operator: route.operator,
+      operator: service.operator,
+      serviceName: service.serviceName ?? service.operator,
+      ferryFareBasis: service.fareBasis,
       originAccessTimeRange: originAccess.timeRange,
       destAccessTimeRange: destAccess.timeRange,
-      ferryNotes: route.notes,
+      ferryNotes: service.notes,
     },
+  };
+}
+
+/**
+ * Door-to-door ferry estimate for a destination.
+ *
+ * Selection: every origin-zone port inside the catchment is a candidate;
+ * only candidates with a verified, active passenger service to the arrival
+ * port survive, each complete service option is evaluated, and the fastest
+ * valid candidate wins (ties broken by lower cost). A nearer port with no
+ * route never blocks a farther port with one.
+ *
+ * Returns null when no verified passenger route connects the origin and
+ * destination zones on the reference date.
+ */
+export function getFerryTransportEstimate(
+  dest: Destination,
+  homeCoords?: { lat: number; lng: number },
+  refDate: Date = new Date(),
+): TransportEstimate | null {
+  if (!dest.coordinates || !homeCoords) return null;
+
+  const originZoneId = resolveOriginTransportZone({ coordinates: homeCoords });
+  if (originZoneId === "unknown") return null;
+  const destinationZoneId = resolveDestinationTransportZone(dest);
+  if (destinationZoneId === "unknown") return null;
+
+  const arrPort = findArrivalFerryPort(dest);
+  if (!arrPort) return null;
+
+  // Candidate departure ports: every origin-zone port inside the catchment.
+  // Route existence authorizes the ferry — including same-zone routes such
+  // as Kagoshima → Sakurajima, where both gateways share a zone.
+  const candidateDepPorts = ports.filter(
+    (port) =>
+      port.zoneId === originZoneId &&
+      getDistanceKm(
+        homeCoords.lat,
+        homeCoords.lng,
+        port.coordinates.lat,
+        port.coordinates.lng,
+      ) <= ORIGIN_PORT_CATCHMENT_KM,
+  );
+
+  let best: TransportEstimate | null = null;
+  for (const depPort of candidateDepPorts) {
+    const depServices = getFerryServices(depPort.id, arrPort.id, refDate);
+    for (const service of depServices) {
+      const estimate = buildFerryEstimate(
+        dest,
+        homeCoords,
+        depPort,
+        arrPort,
+        service,
+      );
+      if (
+        !best ||
+        estimate.timeRange[0] < best.timeRange[0] ||
+        (estimate.timeRange[0] === best.timeRange[0] &&
+          estimate.costRange[0] < best.costRange[0])
+      ) {
+        best = estimate;
+      }
+    }
+  }
+  if (!best) return null;
+
+  // Route existence and gateways already proved connectivity; distance is
+  // used only to compare door-to-door times for the `recommended` flag.
+  const homeLoc: Location = { coordinates: homeCoords };
+  const destLoc: Location = {
+    name: dest.name,
+    coordinates: { lat: dest.coordinates.lat, lng: dest.coordinates.lng },
+  };
+  const groundEstimate = getBestEstimateBetween(homeLoc, destLoc);
+  return {
+    ...best,
+    recommended: best.timeRange[0] < groundEstimate.timeRange[0],
   };
 }

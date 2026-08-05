@@ -15,6 +15,7 @@ import flightRoutesData from "../../src/shared/data/flight-estimates.json";
 import airportsData from "../../src/shared/data/airports.json";
 import airportZonesData from "../../src/shared/data/airport-zones.json";
 import ferryRoutesData from "../../src/shared/data/ferry-routes.json";
+import ferryEstimatesData from "../../src/shared/data/ferry-estimates.json";
 
 const VALID_RAIL_ROAD_BUS = new Set([
   "train",
@@ -51,6 +52,40 @@ const ferryRoutes = (
     }>;
   }
 ).routes;
+const ferryServices = (
+  ferryEstimatesData as unknown as {
+    ports: Array<{
+      id: string;
+      zoneId: string;
+      coordinates: { lat: number; lng: number };
+    }>;
+    services: Array<{
+      id: string;
+      fromPort: string;
+      toPort: string;
+      operator: string;
+      vesselType: string;
+      passengerService: boolean;
+      bidirectional: boolean;
+      durationMinutes: [number, number];
+      fare: [number, number] | null;
+      fareBasis: "one-way" | "round-trip";
+      sourceUrl?: string;
+      checkedAt?: string;
+      operatingPeriods?: Array<{ from: string; to: string }>;
+    }>;
+  }
+).services;
+const ferryPortIds = new Set(
+  (
+    ferryEstimatesData as unknown as {
+      ports: Array<{ id: string }>;
+    }
+  ).ports.map((p) => p.id),
+);
+const VALID_FERRY_VESSELS = new Set(["ferry", "jetfoil", "highspeed"]);
+const VALID_FARE_BASIS = new Set(["one-way", "round-trip"]);
+const MONTH_DAY_RE = /^(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
 const airportZones = (
   airportZonesData as unknown as { airports: Record<string, string> }
 ).airports;
@@ -340,6 +375,131 @@ export const transportTopologyValidator: ValidatorModule = {
           code: "missing_ferry_passenger_service",
           message: `Ferry route ${route.from}→${route.to} requires passengerService`,
         });
+      }
+    }
+
+    for (const port of (
+      ferryEstimatesData as unknown as {
+        ports: Array<{ id: string; zoneId: string }>;
+      }
+    ).ports) {
+      if (!zoneIds.has(port.zoneId as TransportZoneId)) {
+        issues.push({
+          severity: "error",
+          code: "invalid_ferry_port_zone",
+          message: `Ferry port '${port.id}' references unknown zone '${port.zoneId}'`,
+        });
+      }
+    }
+
+    for (const service of ferryServices) {
+      if (!ferryPortIds.has(service.fromPort)) {
+        issues.push({
+          severity: "error",
+          code: "unknown_ferry_departure_port",
+          message: `Ferry service '${service.id}' references unknown port '${service.fromPort}'`,
+        });
+      }
+      if (!ferryPortIds.has(service.toPort)) {
+        issues.push({
+          severity: "error",
+          code: "unknown_ferry_arrival_port",
+          message: `Ferry service '${service.id}' references unknown port '${service.toPort}'`,
+        });
+      }
+      if (service.fromPort === service.toPort) {
+        issues.push({
+          severity: "error",
+          code: "self_ferry_service",
+          message: `Ferry service '${service.id}' connects ${service.fromPort} to itself`,
+        });
+      }
+      if (!VALID_FERRY_VESSELS.has(service.vesselType)) {
+        issues.push({
+          severity: "error",
+          code: "invalid_ferry_vessel",
+          message: `Ferry service '${service.id}' has unknown vesselType '${service.vesselType}'`,
+        });
+      }
+      if (typeof service.passengerService !== "boolean") {
+        issues.push({
+          severity: "error",
+          code: "missing_ferry_passenger_flag",
+          message: `Ferry service '${service.id}' requires passengerService`,
+        });
+      }
+      if (typeof service.bidirectional !== "boolean") {
+        issues.push({
+          severity: "error",
+          code: "missing_ferry_direction",
+          message: `Ferry service '${service.id}' requires bidirectional`,
+        });
+      }
+      if (
+        !Array.isArray(service.durationMinutes) ||
+        service.durationMinutes.length !== 2 ||
+        service.durationMinutes[0] < 0 ||
+        service.durationMinutes[1] < service.durationMinutes[0]
+      ) {
+        issues.push({
+          severity: "error",
+          code: "invalid_ferry_duration",
+          message: `Ferry service '${service.id}' has an invalid durationMinutes range`,
+        });
+      }
+      if (!VALID_FARE_BASIS.has(service.fareBasis)) {
+        issues.push({
+          severity: "error",
+          code: "invalid_fare_basis",
+          message: `Ferry service '${service.id}' has invalid fareBasis '${service.fareBasis}'`,
+        });
+      }
+      if (service.fare !== null) {
+        if (
+          !Array.isArray(service.fare) ||
+          service.fare.length !== 2 ||
+          service.fare[0] < 0 ||
+          service.fare[1] < service.fare[0]
+        ) {
+          issues.push({
+            severity: "error",
+            code: "invalid_ferry_fare",
+            message: `Ferry service '${service.id}' has an invalid fare range`,
+          });
+        }
+      }
+      if (service.fare === null && service.fareBasis !== "one-way") {
+        issues.push({
+          severity: "error",
+          code: "null_fare_round_trip",
+          message: `Ferry service '${service.id}' has null fare with fareBasis '${service.fareBasis}'`,
+        });
+      }
+      if (
+        typeof service.sourceUrl !== "string" ||
+        !/^https?:\/\//.test(service.sourceUrl)
+      ) {
+        issues.push({
+          severity: "error",
+          code: "missing_ferry_service_source",
+          message: `Ferry service '${service.id}' requires a sourceUrl supporting route existence`,
+        });
+      }
+      if (typeof service.checkedAt !== "string" || !service.checkedAt) {
+        issues.push({
+          severity: "error",
+          code: "missing_ferry_service_checked_at",
+          message: `Ferry service '${service.id}' requires checkedAt`,
+        });
+      }
+      for (const period of service.operatingPeriods ?? []) {
+        if (!MONTH_DAY_RE.test(period.from) || !MONTH_DAY_RE.test(period.to)) {
+          issues.push({
+            severity: "error",
+            code: "invalid_ferry_operating_period",
+            message: `Ferry service '${service.id}' has invalid operatingPeriod '${period.from}–${period.to}'`,
+          });
+        }
       }
     }
 

@@ -144,12 +144,13 @@ export function createRecommendationMatch(
       context.homeStationCoords || undefined,
     );
     if (ferryEst) {
+      const operator = ferryEst.details?.operator ?? "passenger ferry";
       reasons.push({
         type: "Transport",
         code: "transportFerry",
-        params: { minutes: ferryEst.timeRange[0] },
+        params: { operator },
         title: "Scenic Ferry Route",
-        description: `Accessible by ferry (${ferryEst.details?.operator ?? "passenger ferry"})`,
+        description: `Accessible by ferry (${operator})`,
       });
     }
   }
