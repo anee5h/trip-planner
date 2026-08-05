@@ -2693,15 +2693,7 @@ function applyExpansionStages(
 // MAIN
 // ==========================================================================
 
-function main() {
-  const arg = process.argv[2] || "all";
-  console.log(`Mode: ${arg}`);
-
-  const original = JSON.parse(
-    fs.readFileSync(INDEX_PATH, "utf-8"),
-  ) as DestinationRecord[];
-  const originalClone = deepClone(original);
-
+function getStages(arg: string = "all"): StageSpec[] {
   const stages: StageSpec[] = [];
   if (arg === "karatsu" || arg === "all") {
     stages.push({ label: "Karatsu", hubs: [KARATSU_HUB], pois: KARATSU_POIS });
@@ -2722,6 +2714,19 @@ function main() {
   if (arg === "hita" || arg === "all") {
     stages.push({ label: "Hita", hubs: [HITA_HUB], pois: HITA_POIS });
   }
+  return stages;
+}
+
+function main() {
+  const arg = process.argv[2] || "all";
+  console.log(`Mode: ${arg}`);
+
+  const original = JSON.parse(
+    fs.readFileSync(INDEX_PATH, "utf-8"),
+  ) as DestinationRecord[];
+  const originalClone = deepClone(original);
+
+  const stages = getStages(arg);
 
   // Apply pure transformation
   const data = applyExpansionStages(original, stages);
@@ -2790,7 +2795,7 @@ function main() {
 }
 
 // Export for testing
-export { applyExpansionStages };
+export { applyExpansionStages, getStages };
 export type { StageSpec };
 export { ALL_NEW_IDS, ALL_HUB_IDS, ALL_POI_IDS };
 

@@ -198,7 +198,7 @@ export const imagesValidator: ValidatorModule = {
 
       if (!dest.heroImage && !dest.image) {
         issues.push({
-          severity: "warning",
+          severity: "error",
           code: "MISSING_DESTINATION_IMAGES",
           message: `Destination '${dest.id}' has no heroImage or image photos.`,
           targetId: dest.id,

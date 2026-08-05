@@ -4,6 +4,7 @@ import {
   ALL_NEW_IDS,
   ALL_HUB_IDS,
   ALL_POI_IDS,
+  getStages,
 } from "../add-kyushu-to-100";
 import destinationsIndex from "@/shared/data/destinations-index.json";
 
@@ -17,73 +18,6 @@ type StageSpec = {
   hubs: DestinationRecord[];
   pois: DestinationRecord[];
 };
-
-// Reconstruct stages arrays from the expanded catalogue
-function buildStagesFromCatalogue(): StageSpec[] {
-  const idToRecord = new Map(
-    (destinationsIndex as DestinationRecord[]).map((r) => [r.id, r]),
-  );
-
-  const hubOrder = [
-    "karatsu-city",
-    "sasebo-city",
-    "ibusuki-city",
-    "nichinan-city",
-    "hita-city",
-  ];
-
-  const childMap: Record<string, string[]> = {
-    "karatsu-city": [
-      "karatsu-castle",
-      "yobuko-morning-market",
-      "nijinomatsubara-pine-grove",
-      "nanatsugama-sea-caves",
-      "nagoya-castle-ruins-museum",
-    ],
-    "sasebo-city": [
-      "huis-ten-bosch",
-      "kujukushima-pearl-sea-resort",
-      "umi-kirara-aquarium",
-      "ishidake-observatory",
-      "sasebo-naval-port-cruise",
-    ],
-    "ibusuki-city": [
-      "sunamushi-onsen-saraku",
-      "lake-ikeda",
-      "chiringashima-island",
-      "cape-nagasakibana",
-      "mount-kaimon",
-    ],
-    "nichinan-city": [
-      "obi-castle-town",
-      "udo-jingu",
-      "sun-messe-nichinan",
-      "inohae-valley",
-    ],
-    "hita-city": [
-      "mameda-historic-district",
-      "kangien-academy",
-      "attack-on-titan-hita-museum",
-      "oyama-dam-attack-on-titan-statues",
-      "hita-gion-yamahoko-museum",
-    ],
-  };
-
-  return hubOrder.map((hubId) => ({
-    label:
-      hubId === "karatsu-city"
-        ? "Karatsu"
-        : hubId === "sasebo-city"
-          ? "Sasebo"
-          : hubId === "ibusuki-city"
-            ? "Ibusuki"
-            : hubId === "nichinan-city"
-              ? "Nichinan"
-              : "Hita",
-    hubs: [idToRecord.get(hubId)!],
-    pois: childMap[hubId].map((cid) => idToRecord.get(cid)!),
-  }));
-}
 
 function deepClone<T>(obj: T): T {
   return JSON.parse(JSON.stringify(obj)) as T;
@@ -110,7 +44,7 @@ function deepEqual(a: any, b: any): boolean {
 
 describe("add-kyushu-to-100 generator", () => {
   const catalogue = destinationsIndex as DestinationRecord[];
-  const stages = buildStagesFromCatalogue();
+  const stages = getStages("all");
 
   // Build a base-like fixture by removing the 29 expansion IDs
   const expansionIdSet = new Set([
