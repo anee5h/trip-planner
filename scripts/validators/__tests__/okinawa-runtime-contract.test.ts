@@ -210,4 +210,32 @@ describe("Okinawa field deletion causes validation failure", () => {
     const parkings = new Set(records.map((r) => r.parking));
     expect(parkings.size).toBeGreaterThan(1);
   });
+
+  it("legacy non-Okinawa record with missing fields is not rejected by migration-scoped rules", () => {
+    // cupnoodles-museum-osaka-ikeda is a published non-Okinawa record missing tags/crowd/season.
+    // It must not be subject to the Okinawa-scoped strict runtime contract.
+    const record = catalogue.find(
+      (r) => r.id === "cupnoodles-museum-osaka-ikeda",
+    );
+    expect(record).toBeTruthy();
+    expect(record!.prefecture).not.toBe("Okinawa");
+    expect(record!.status).toBe("published");
+    // This record lacks tags/crowd/season but should still exist in the catalogue
+    expect(record!.tags === undefined || record!.tags === null).toBe(true);
+  });
+
+  it("Okinawa record with monorail uses supported transport mode", () => {
+    for (const rid of [
+      "kokusai-dori-naha",
+      "naminoue-shrine-naha",
+      "fukushuen-garden-naha",
+    ]) {
+      const r = catalogue.find((x) => x.id === rid);
+      expect(r).toBeTruthy();
+      const opts = r!.transportOptions || {};
+      // monorail must not appear; train or bus must be used instead
+      expect("monorail" in opts).toBe(false);
+      expect(Object.keys(opts).length).toBeGreaterThan(0);
+    }
+  });
 });

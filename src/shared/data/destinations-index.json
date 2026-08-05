@@ -84787,7 +84787,7 @@
     },
     "bestMonths": [3, 4, 5, 10, 11],
     "transportOptions": {
-      "monorail": 200
+      "train": 200
     },
     "notes": "Naha's main shopping street — great for Okinawan souvenirs and street food.",
     "totalTripHours": 3,
@@ -84919,7 +84919,7 @@
     },
     "bestMonths": [1, 3, 4, 5, 10, 11],
     "transportOptions": {
-      "monorail": 200
+      "train": 200
     },
     "notes": "The only major Shinto shrine in Okinawa, perched on a clifftop overlooking Naminoue Beach.",
     "totalTripHours": 2,
@@ -85051,7 +85051,7 @@
     },
     "bestMonths": [1, 2, 3, 4, 10, 11, 12],
     "transportOptions": {
-      "monorail": 200
+      "train": 200
     },
     "notes": "A tranquil Chinese garden near the city centre — a quiet escape from busy Kokusai Dori.",
     "totalTripHours": 2,
