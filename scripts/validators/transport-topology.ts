@@ -72,6 +72,8 @@ const ferryServices = (
       fareBasis: "one-way" | "round-trip";
       sourceUrl?: string;
       checkedAt?: string;
+      fareValidFrom?: string;
+      fareValidTo?: string;
       operatingPeriods?: Array<{ from: string; to: string }>;
     }>;
   }
@@ -86,6 +88,13 @@ const ferryPortIds = new Set(
 const VALID_FERRY_VESSELS = new Set(["ferry", "jetfoil", "highspeed"]);
 const VALID_FARE_BASIS = new Set(["one-way", "round-trip"]);
 const MONTH_DAY_RE = /^(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
+const ISO_DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+/**
+ * Canonical "today" for provenance checks (Japan local date at last
+ * verification round). checkedAt must never be in the future relative to
+ * this reference.
+ */
+const REFERENCE_TODAY = "2026-08-05";
 const airportZones = (
   airportZonesData as unknown as { airports: Record<string, string> }
 ).airports;
@@ -491,6 +500,54 @@ export const transportTopologyValidator: ValidatorModule = {
           code: "missing_ferry_service_checked_at",
           message: `Ferry service '${service.id}' requires checkedAt`,
         });
+      } else if (!ISO_DATE_RE.test(service.checkedAt)) {
+        issues.push({
+          severity: "error",
+          code: "invalid_ferry_checked_at",
+          message: `Ferry service '${service.id}' has non-ISO checkedAt '${service.checkedAt}'`,
+        });
+      } else if (service.checkedAt > REFERENCE_TODAY) {
+        issues.push({
+          severity: "error",
+          code: "future_ferry_checked_at",
+          message: `Ferry service '${service.id}' has future checkedAt '${service.checkedAt}' (today is ${REFERENCE_TODAY})`,
+        });
+      }
+      const hasFareFrom =
+        "fareValidFrom" in service && service.fareValidFrom !== undefined;
+      const hasFareTo =
+        "fareValidTo" in service && service.fareValidTo !== undefined;
+      if (hasFareFrom !== hasFareTo) {
+        issues.push({
+          severity: "error",
+          code: "partial_fare_validity",
+          message: `Ferry service '${service.id}' must set both fareValidFrom and fareValidTo or neither`,
+        });
+      }
+      if (hasFareFrom) {
+        if (
+          !ISO_DATE_RE.test(service.fareValidFrom!) ||
+          !ISO_DATE_RE.test(service.fareValidTo!)
+        ) {
+          issues.push({
+            severity: "error",
+            code: "invalid_fare_validity_date",
+            message: `Ferry service '${service.id}' has non-ISO fare validity dates`,
+          });
+        } else if (service.fareValidFrom! > service.fareValidTo!) {
+          issues.push({
+            severity: "error",
+            code: "fare_validity_reversed",
+            message: `Ferry service '${service.id}' has fareValidFrom after fareValidTo`,
+          });
+        }
+        if (service.fare === null) {
+          issues.push({
+            severity: "error",
+            code: "null_fare_with_validity",
+            message: `Ferry service '${service.id}' declares a fare validity window but has no verified fare`,
+          });
+        }
       }
       for (const period of service.operatingPeriods ?? []) {
         if (!MONTH_DAY_RE.test(period.from) || !MONTH_DAY_RE.test(period.to)) {

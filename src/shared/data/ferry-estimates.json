@@ -8,7 +8,10 @@
       "city": "Tokyo",
       "prefecture": "Tokyo",
       "zoneId": "mainland-honshu",
-      "coordinates": { "lat": 35.6546, "lng": 139.7594 }
+      "coordinates": {
+        "lat": 35.6546,
+        "lng": 139.7594
+      }
     },
     {
       "id": "NIIGATA",
@@ -17,7 +20,10 @@
       "city": "Niigata",
       "prefecture": "Niigata",
       "zoneId": "mainland-honshu",
-      "coordinates": { "lat": 37.9133, "lng": 139.0485 }
+      "coordinates": {
+        "lat": 37.9133,
+        "lng": 139.0485
+      }
     },
     {
       "id": "UNO",
@@ -26,7 +32,10 @@
       "city": "Tamano",
       "prefecture": "Okayama",
       "zoneId": "mainland-honshu",
-      "coordinates": { "lat": 34.4922, "lng": 133.9521 }
+      "coordinates": {
+        "lat": 34.4922,
+        "lng": 133.9521
+      }
     },
     {
       "id": "TAKAMATSU",
@@ -35,7 +44,10 @@
       "city": "Takamatsu",
       "prefecture": "Kagawa",
       "zoneId": "mainland-shikoku",
-      "coordinates": { "lat": 34.3515, "lng": 134.0485 }
+      "coordinates": {
+        "lat": 34.3515,
+        "lng": 134.0485
+      }
     },
     {
       "id": "KADA",
@@ -44,7 +56,10 @@
       "city": "Wakayama",
       "prefecture": "Wakayama",
       "zoneId": "mainland-honshu",
-      "coordinates": { "lat": 34.2833, "lng": 135.0667 }
+      "coordinates": {
+        "lat": 34.2833,
+        "lng": 135.0667
+      }
     },
     {
       "id": "KAGOSHIMA",
@@ -53,7 +68,10 @@
       "city": "Kagoshima",
       "prefecture": "Kagoshima",
       "zoneId": "mainland-kyushu",
-      "coordinates": { "lat": 31.5968, "lng": 130.5608 }
+      "coordinates": {
+        "lat": 31.5968,
+        "lng": 130.5608
+      }
     },
     {
       "id": "HAKATA",
@@ -62,7 +80,10 @@
       "city": "Fukuoka",
       "prefecture": "Fukuoka",
       "zoneId": "mainland-kyushu",
-      "coordinates": { "lat": 33.6031, "lng": 130.3997 }
+      "coordinates": {
+        "lat": 33.6031,
+        "lng": 130.3997
+      }
     },
     {
       "id": "CHICHIJIMA",
@@ -71,7 +92,10 @@
       "city": "Ogasawara",
       "prefecture": "Tokyo",
       "zoneId": "ogasawara",
-      "coordinates": { "lat": 27.0943, "lng": 142.1943 }
+      "coordinates": {
+        "lat": 27.0943,
+        "lng": 142.1943
+      }
     },
     {
       "id": "RYOTSU-SADO",
@@ -80,7 +104,10 @@
       "city": "Sado",
       "prefecture": "Niigata",
       "zoneId": "sado",
-      "coordinates": { "lat": 38.0872, "lng": 138.435 }
+      "coordinates": {
+        "lat": 38.0872,
+        "lng": 138.435
+      }
     },
     {
       "id": "MIYANOURA-NAOSHIMA",
@@ -89,7 +116,10 @@
       "city": "Naoshima",
       "prefecture": "Kagawa",
       "zoneId": "naoshima",
-      "coordinates": { "lat": 34.4583, "lng": 133.9722 }
+      "coordinates": {
+        "lat": 34.4583,
+        "lng": 133.9722
+      }
     },
     {
       "id": "IEURA-TESHIMA",
@@ -98,7 +128,10 @@
       "city": "Tonosho",
       "prefecture": "Kagawa",
       "zoneId": "teshima",
-      "coordinates": { "lat": 34.4833, "lng": 134.0694 }
+      "coordinates": {
+        "lat": 34.4833,
+        "lng": 134.0694
+      }
     },
     {
       "id": "TOMOGASHIMA",
@@ -107,7 +140,10 @@
       "city": "Wakayama",
       "prefecture": "Wakayama",
       "zoneId": "tomogashima",
-      "coordinates": { "lat": 34.2833, "lng": 135.0167 }
+      "coordinates": {
+        "lat": 34.2833,
+        "lng": 135.0167
+      }
     },
     {
       "id": "SAKURAJIMA",
@@ -116,7 +152,10 @@
       "city": "Kagoshima",
       "prefecture": "Kagoshima",
       "zoneId": "mainland-kyushu",
-      "coordinates": { "lat": 31.5833, "lng": 130.5833 }
+      "coordinates": {
+        "lat": 31.5833,
+        "lng": 130.5833
+      }
     },
     {
       "id": "IZUHARA-TSUSHIMA",
@@ -125,7 +164,10 @@
       "city": "Tsushima",
       "prefecture": "Nagasaki",
       "zoneId": "tsushima",
-      "coordinates": { "lat": 34.2017, "lng": 129.2869 }
+      "coordinates": {
+        "lat": 34.2017,
+        "lng": 129.2869
+      }
     }
   ],
   "services": [
@@ -143,8 +185,10 @@
       "fareBasis": "one-way",
       "sourceUrl": "https://www.ogasawarakaiun.co.jp/english/service/index.html",
       "fareSourceUrl": "https://www.ogasawarakaiun.co.jp/english/service/index.html",
-      "checkedAt": "2026-08-06",
-      "notes": "August 2026 one-way adult fares, Economy ¥35,760 to Suite ¥106,550, fuel surcharge included. One sailing roughly every 6 days; ~24h crossing."
+      "checkedAt": "2026-08-05",
+      "notes": "August 2026 one-way adult fares, Economy ¥35,760 to Suite ¥106,550, fuel surcharge included. One sailing roughly every 6 days; ~24h crossing.",
+      "fareValidFrom": "2026-08-01",
+      "fareValidTo": "2026-08-31"
     },
     {
       "id": "sado-kisen-jetfoil",
@@ -160,8 +204,10 @@
       "fareBasis": "one-way",
       "sourceUrl": "https://www.sadokisen.co.jp/en/faretables/",
       "fareSourceUrl": "https://www.sadokisen.co.jp/en/faretables/niigata_jetfoil?ym=202608",
-      "checkedAt": "2026-08-06",
-      "notes": "Jul 1–Sep 30 2026 regular adult one-way fare ¥8,250 (reserved seat included). ~60–65 min crossing."
+      "checkedAt": "2026-08-05",
+      "notes": "Jul 1–Sep 30 2026 regular adult one-way fare ¥8,250 (reserved seat included). ~60–65 min crossing.",
+      "fareValidFrom": "2026-07-01",
+      "fareValidTo": "2026-09-30"
     },
     {
       "id": "sado-kisen-car-ferry",
@@ -177,8 +223,10 @@
       "fareBasis": "one-way",
       "sourceUrl": "https://www.sadokisen.co.jp/en/faretables/",
       "fareSourceUrl": "https://www.sadokisen.co.jp/en/faretables/",
-      "checkedAt": "2026-08-06",
-      "notes": "Jul 1–Sep 30 2026 adult one-way fares: 2nd-class cabin ¥3,570, 1st-class ¥6,010, suite ¥18,930. ~2h30m crossing."
+      "checkedAt": "2026-08-05",
+      "notes": "Jul 1–Sep 30 2026 adult one-way fares: 2nd-class cabin ¥3,570, 1st-class ¥6,010, suite ¥18,930. ~2h30m crossing.",
+      "fareValidFrom": "2026-07-01",
+      "fareValidTo": "2026-09-30"
     },
     {
       "id": "shikoku-kisen-uno-naoshima",
@@ -193,7 +241,7 @@
       "fare": [370, 370],
       "fareBasis": "one-way",
       "sourceUrl": "https://benesse-artsite.jp/en/access/",
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "notes": "Adult one-way ¥370 (ferry and high-speed boat); night boat ¥730. Frequent sailings."
     },
     {
@@ -209,7 +257,7 @@
       "fare": [680, 680],
       "fareBasis": "one-way",
       "sourceUrl": "https://benesse-artsite.jp/en/access/",
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "notes": "Adult one-way ¥680. Approx 50–60 min."
     },
     {
@@ -225,7 +273,7 @@
       "fare": [1590, 1590],
       "fareBasis": "one-way",
       "sourceUrl": "https://benesse-artsite.jp/en/access/",
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "notes": "Adult one-way ¥1,590. Approx 25–30 min. Departs from a different pier than the ferry."
     },
     {
@@ -241,7 +289,7 @@
       "fare": [780, 780],
       "fareBasis": "one-way",
       "sourceUrl": "https://benesse-artsite.jp/en/access/",
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "notes": "Adult one-way ¥780. Uno→Ieura leg of the Uno–Ieura–Karato–Tonosho ferry; ~10–40 min depending on sailing."
     },
     {
@@ -257,7 +305,7 @@
       "fare": [1450, 1450],
       "fareBasis": "one-way",
       "sourceUrl": "https://benesse-artsite.jp/en/access/",
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "notes": "Adult one-way ¥1,450. Approx 35 min direct."
     },
     {
@@ -273,9 +321,14 @@
       "fare": [2000, 2000],
       "fareBasis": "round-trip",
       "sourceUrl": "https://www.city.wakayama.wakayama.jp/kankou/kankouspot/1027585/1027593.html",
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "notes": "Adult round-trip ¥2,000 (one-way ¥1,000). Service suspended December–February and during rough weather.",
-      "operatingPeriods": [{ "from": "03-01", "to": "11-30" }]
+      "operatingPeriods": [
+        {
+          "from": "03-01",
+          "to": "11-30"
+        }
+      ]
     },
     {
       "id": "sakurajima-ferry",
@@ -290,7 +343,7 @@
       "fare": [200, 200],
       "fareBasis": "one-way",
       "sourceUrl": "https://www.city.kagoshima.lg.jp/sakurajima-ferry/",
-      "checkedAt": "2026-08-06",
+      "checkedAt": "2026-08-05",
       "notes": "Adult ¥200 one-way, collected on the Sakurajima side only. 24h service every 15–30 min."
     },
     {
@@ -306,8 +359,10 @@
       "fare": [10870, 10870],
       "fareBasis": "one-way",
       "sourceUrl": "https://www.kyu-you.co.jp/en/price/index.html",
-      "checkedAt": "2026-08-06",
-      "notes": "Apr 1–Oct 31 2026 adult one-way fare ¥10,870. ~2h15m. Some sailings also call at Hitakatsu."
+      "checkedAt": "2026-08-05",
+      "notes": "Apr 1–Oct 31 2026 adult one-way fare ¥10,870. ~2h15m. Some sailings also call at Hitakatsu.",
+      "fareValidFrom": "2026-04-01",
+      "fareValidTo": "2026-10-31"
     },
     {
       "id": "kyusyu-yusen-ferry",
@@ -322,8 +377,10 @@
       "fare": [6280, 9100],
       "fareBasis": "one-way",
       "sourceUrl": "https://www.kyu-you.co.jp/en/price/index.html",
-      "checkedAt": "2026-08-06",
-      "notes": "Apr 1–Oct 31 2026 adult one-way fares: 2nd class ¥6,280, 1st class ¥9,100. ~4h50m. Some sailings also call at Hitakatsu."
+      "checkedAt": "2026-08-05",
+      "notes": "Apr 1–Oct 31 2026 adult one-way fares: 2nd class ¥6,280, 1st class ¥9,100. ~4h50m. Some sailings also call at Hitakatsu.",
+      "fareValidFrom": "2026-04-01",
+      "fareValidTo": "2026-10-31"
     }
   ]
 }
