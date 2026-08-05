@@ -93115,12 +93115,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Leisure", "Sightseeing"],
     "tags": ["Theme Park", "Dutch", "Illumination", "Sasebo City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/42/Huis_Ten_Bosch_Nagasaki_Japan.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Huis_Ten_Bosch_Nagasaki.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 3.0",
-      "attribution": "Kzaral",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Huis_Ten_Bosch_Nagasaki_Japan.jpg"
+      "attribution": "MarioR",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Huis_Ten_Bosch_Nagasaki.jpg"
     },
     "coordinates": {
       "lat": 33.0856,
@@ -93434,12 +93434,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Aquarium", "Leisure"],
     "tags": ["Aquarium", "Marine Life", "Family", "Sasebo City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/89/Kujukushima_aquarium_Umi_Kirara.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/72/Saikai_Pearlsea_Umikirara.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
-      "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kujukushima_aquarium_Umi_Kirara.jpg"
+      "attribution": "Atsasebo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saikai_Pearlsea_Umikirara.jpg"
     },
     "coordinates": {
       "lat": 33.1608,
@@ -93593,12 +93593,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Sightseeing", "Nature"],
     "tags": ["Viewpoint", "Islands", "Photography", "Sasebo City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ishidake_Observatory_2020.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/bf/%E7%9F%B3%E5%B2%B3%E5%B1%95%E6%9C%9B%E5%8F%B0_-_panoramio.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ishidake_Observatory_2020.jpg"
+      "license": "CC BY 3.0",
+      "attribution": "Panoramio upload bot",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E7%9F%B3%E5%B2%B3%E5%B1%95%E6%9C%9B%E5%8F%B0_-_panoramio.jpg"
     },
     "coordinates": {
       "lat": 33.1522,
@@ -94365,12 +94365,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature", "Sightseeing"],
     "tags": ["Island", "Sandbar", "Tidal", "Ibusuki City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/76/Chiringashima_sandbar_2019.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Chiringashima_island.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chiringashima_sandbar_2019.jpg"
+      "license": "CC BY-SA 3.0",
+      "attribution": "Tam0031",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chiringashima_island.jpg"
     },
     "coordinates": {
       "lat": 31.2117,
@@ -94524,12 +94524,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature", "Sightseeing"],
     "tags": ["Cape", "Coastal", "Scenic", "Ibusuki City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/36/Nagasakibana_Lighthouse.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/85/Kagoshima-nagasakibana.JPG",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagasakibana_Lighthouse.jpg"
+      "license": "Public domain",
+      "attribution": "Taka-0905",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kagoshima-nagasakibana.JPG"
     },
     "coordinates": {
       "lat": 31.2183,
@@ -94682,12 +94682,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature", "Outdoor"],
     "tags": ["Mountain", "Hiking", "Volcano", "Ibusuki City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/90/Mount_Kaimon_from_Lake_Ikeda.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Mount_Kaimon_from_Kaimon_Sanroku_Fureai_Park_-_May_5,_2023.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Kaimon_from_Lake_Ikeda.jpg"
+      "license": "CC BY 2.0",
+      "attribution": "Krorokeroro",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Kaimon_from_Kaimon_Sanroku_Fureai_Park_-_May_5,_2023.jpg"
     },
     "coordinates": {
       "lat": 31.1806,
@@ -94984,12 +94984,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Historic", "Sightseeing"],
     "tags": ["Historic District", "Samurai", "Castle Town", "Nichinan City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/17/Obi_Castle_Town_Street_2019.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/42/Obi%2C_Nichinan%2C_Yokobaba_Street_03.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
-      "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obi_Castle_Town_Street_2019.jpg"
+      "attribution": "Naokijp",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obi%2C_Nichinan%2C_Yokobaba_Street_03.jpg"
     },
     "coordinates": {
       "lat": 31.6289,
@@ -95145,12 +95145,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Shrine", "Culture"],
     "tags": ["Shrine", "Coastal", "Mythology", "Nichinan City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Udo_Jingu_Honden_2019.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Udo-jingu_Main_hall_001.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
-      "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Udo_Jingu_Honden_2019.jpg"
+      "attribution": "Naokijp",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Udo-jingu_Main_hall_001.jpg"
     },
     "coordinates": {
       "lat": 31.4381,
@@ -95303,12 +95303,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Leisure", "Sightseeing"],
     "tags": ["Park", "Moai", "Coastal", "Nichinan City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Sun_Messe_Nichinan_Moai_statues_2019.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c2/%E6%97%A5%E5%8D%97%E5%A4%AA%E9%98%B3%E8%8A%B1%E5%9B%AD%E6%91%A9%E8%89%BE%E7%9F%B3%E5%83%8F.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sun_Messe_Nichinan_Moai_statues_2019.jpg"
+      "license": "CC0",
+      "attribution": "Cukieiris",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:日南太阳花园摩艾石像.jpg"
     },
     "coordinates": {
       "lat": 31.4333,
@@ -95462,12 +95462,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature", "Outdoor"],
     "tags": ["Valley", "Hiking", "Waterfalls", "Nichinan City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/14/Inohae_Valley_waterfall_2019.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Nichinan_20200920151158_%2850855694133%29.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Inohae_Valley_waterfall_2019.jpg"
+      "license": "CC BY 2.0",
+      "attribution": "Yacàwotçã",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nichinan_20200920151158_(50855694133).jpg"
     },
     "coordinates": {
       "lat": 31.6806,
@@ -95593,13 +95593,13 @@
     "prefecture": "Oita",
     "region": "Kyushu",
     "categories": ["Travel Hub", "City Hub"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/90/Mameda-machi%2C_Hita%2C_Oita_Prefecture.jpg",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/9/90/Mameda-machi%2C_Hita%2C_Oita_Prefecture.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/83/Mamedamachi_ac.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/83/Mamedamachi_ac.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
-      "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mameda-machi,_Hita,_Oita_Prefecture.jpg"
+      "attribution": "Asturio Cantabrio",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mamedamachi_ac.jpg"
     },
     "description": "Inland city in western Oita Prefecture known for the well-preserved Mameda historic merchant district, Kangien academy, and as a filming location for Attack on Titan. Famous for Hita geta sandals and clear-water rivers. A natural basin surrounded by mountains.",
     "descriptionJa": "大分県西部の内陸都市で、保存状態の良い豆田町の歴史的商家街、咸宜園、進撃の巨人のロケ地として知られています。日田下駄と清流が有名で、山々に囲まれた盆地の街です。",
@@ -95764,12 +95764,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Historic", "Sightseeing"],
     "tags": ["Historic District", "Merchant", "Preserved Streets", "Hita City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/56/Mameda-machi_street_Hita_2019.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/62/Mamedamachi-1_Hita_Oita.JPG",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mameda-machi_street_Hita_2019.jpg"
+      "license": "CC BY-SA 3.0",
+      "attribution": "MGA73bot2",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mamedamachi-1_Hita_Oita.JPG"
     },
     "coordinates": {
       "lat": 33.3214,
@@ -95925,12 +95925,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Historic", "Culture"],
     "tags": ["Historic", "Education", "Museum", "Hita City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Kangien_Hita_Oita.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/17/Kangien_Education_and_Research_Center_20161231.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kangien_Hita_Oita.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kangien_Education_and_Research_Center_20161231.jpg"
     },
     "coordinates": {
       "lat": 33.3228,
@@ -96087,12 +96087,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Museum & Art", "Leisure"],
     "tags": ["Museum", "Anime", "Attack on Titan", "Hita City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Attack_on_Titan_in_Hita_Museum.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/42/Mameda_Branch_of_Hita_Shinkin_Bank.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Attack_on_Titan_in_Hita_Museum.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mameda_Branch_of_Hita_Shinkin_Bank.jpg"
     },
     "coordinates": {
       "lat": 33.3219,
@@ -96245,12 +96245,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Sightseeing", "Outdoor"],
     "tags": ["Anime", "Statues", "Outdoor", "Hita City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Oyama_Dam_Attack_on_Titan_statues.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/86/Oyama_Dam.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
-      "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oyama_Dam_Attack_on_Titan_statues.jpg"
+      "attribution": "河川一等兵",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oyama_Dam.jpg"
     },
     "coordinates": {
       "lat": 33.2858,
@@ -96404,12 +96404,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Museum & Art", "Culture"],
     "tags": ["Museum", "Festival", "Float", "Hita City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/61/Hita_Gion_Yamahoko_Kaikan.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Hita_Gion_Museum.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hita_Gion_Yamahoko_Kaikan.jpg"
+      "license": "CC0",
+      "attribution": "水だらけのプール",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hita_Gion_Museum.jpg"
     },
     "coordinates": {
       "lat": 33.3231,

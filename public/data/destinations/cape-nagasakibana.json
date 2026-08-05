@@ -36,12 +36,12 @@
   "officialWebsiteRequirement": "optional",
   "categories": ["Nature", "Sightseeing"],
   "tags": ["Cape", "Coastal", "Scenic", "Ibusuki City"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/36/Nagasakibana_Lighthouse.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/85/Kagoshima-nagasakibana.JPG",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "そらみみ",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagasakibana_Lighthouse.jpg"
+    "license": "Public domain",
+    "attribution": "Taka-0905",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kagoshima-nagasakibana.JPG"
   },
   "coordinates": {
     "lat": 31.2183,

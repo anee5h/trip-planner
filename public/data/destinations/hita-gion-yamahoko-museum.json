@@ -36,12 +36,12 @@
   "officialWebsiteRequirement": "optional",
   "categories": ["Museum & Art", "Culture"],
   "tags": ["Museum", "Festival", "Float", "Hita City"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/61/Hita_Gion_Yamahoko_Kaikan.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Hita_Gion_Museum.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "そらみみ",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hita_Gion_Yamahoko_Kaikan.jpg"
+    "license": "CC0",
+    "attribution": "水だらけのプール",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hita_Gion_Museum.jpg"
   },
   "coordinates": {
     "lat": 33.3231,

@@ -36,12 +36,12 @@
   "officialWebsiteRequirement": "optional",
   "categories": ["Leisure", "Sightseeing"],
   "tags": ["Theme Park", "Dutch", "Illumination", "Sasebo City"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/42/Huis_Ten_Bosch_Nagasaki_Japan.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Huis_Ten_Bosch_Nagasaki.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 3.0",
-    "attribution": "Kzaral",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Huis_Ten_Bosch_Nagasaki_Japan.jpg"
+    "attribution": "MarioR",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Huis_Ten_Bosch_Nagasaki.jpg"
   },
   "coordinates": {
     "lat": 33.0856,

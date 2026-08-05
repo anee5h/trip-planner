@@ -36,12 +36,12 @@
   "officialWebsiteRequirement": "optional",
   "categories": ["Sightseeing", "Outdoor"],
   "tags": ["Anime", "Statues", "Outdoor", "Hita City"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Oyama_Dam_Attack_on_Titan_statues.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/86/Oyama_Dam.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
-    "attribution": "そらみみ",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oyama_Dam_Attack_on_Titan_statues.jpg"
+    "attribution": "河川一等兵",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oyama_Dam.jpg"
   },
   "coordinates": {
     "lat": 33.2858,
