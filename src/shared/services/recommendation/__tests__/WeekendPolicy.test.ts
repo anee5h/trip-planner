@@ -56,12 +56,14 @@ function context(
 // ── Travel Fit Tests ─────────────────────────────────────────────────────────
 
 describe("evaluateWeekendTravelFit", () => {
-  it("0 and 180 minutes → strong, eligible", () => {
+  it("0 minutes → too local, ineligible", () => {
     expect(evaluateWeekendTravelFit(0)).toEqual({
-      eligible: true,
+      eligible: false,
       band: "strong",
       oneWayMinutes: 0,
     });
+  });
+  it("180 minutes → strong, eligible", () => {
     expect(evaluateWeekendTravelFit(180)).toEqual({
       eligible: true,
       band: "strong",
@@ -109,9 +111,9 @@ describe("evaluateWeekendTravelFit", () => {
     });
   });
 
-  it("undefined → unknown, eligible, no oneWayMinutes", () => {
+  it("undefined → unknown, ineligible (no route)", () => {
     expect(evaluateWeekendTravelFit(undefined)).toEqual({
-      eligible: true,
+      eligible: false,
       band: "unknown",
     });
   });

@@ -10,6 +10,8 @@ import { getBestOneWayTravelMinutes } from "./TripDurationService";
 // ── Travel Policy ────────────────────────────────────────────────────────────
 
 export const WEEKEND_TRAVEL_POLICY = {
+  /** Destinations closer than this are too local for a weekend getaway. */
+  LOCAL_MAX_MINUTES: 30,
   STRONG_MAX_MINUTES: 180,
   ACCEPTABLE_MAX_MINUTES: 300,
   WEAK_MAX_MINUTES: 420,
@@ -27,7 +29,10 @@ export function evaluateWeekendTravelFit(
   oneWayMinutes: number | undefined,
 ): WeekendTravelFit {
   if (oneWayMinutes === undefined) {
-    return { eligible: true, band: "unknown" };
+    return { eligible: false, band: "unknown" };
+  }
+  if (oneWayMinutes <= WEEKEND_TRAVEL_POLICY.LOCAL_MAX_MINUTES) {
+    return { eligible: false, band: "strong", oneWayMinutes };
   }
   if (oneWayMinutes <= WEEKEND_TRAVEL_POLICY.STRONG_MAX_MINUTES) {
     return { eligible: true, band: "strong", oneWayMinutes };

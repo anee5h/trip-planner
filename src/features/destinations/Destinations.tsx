@@ -505,7 +505,9 @@ export default function Destinations() {
     // settings must keep the complete catalogue browsable.
     // Weekend mode uses its own eligibility gate instead of duration bands.
     if (tripMode === "weekend_2d1n") {
+      const hasOrigin = homeStationCoords || homeStationTransportZoneId;
       result = result.filter((dest) => {
+        if (!hasOrigin) return true; // neutral browsing without origin
         const modes = getValidModes(
           dest,
           carMode,
