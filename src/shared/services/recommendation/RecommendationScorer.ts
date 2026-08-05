@@ -1,4 +1,11 @@
+import {
+  getEligibleOriginModes,
+  resolveDestinationTransportZone,
+  resolveOriginTransportZone,
+} from "@/shared/services/transport/TransportTopologyService";
 import type { Destination } from "@/shared/types/destination";
+import type { TransportZoneId } from "@/shared/types/transportTopology";
+import type { TransportMode } from "@/shared/services/transport/types";
 import {
   resolveRecommendationWeather,
   type RecommendationContext,
@@ -75,27 +82,67 @@ export function getValidModes(
   publicModes: string[] = [],
   homeCoords?: { lat: number; lng: number },
   budgetTier?: import("@/shared/types/planner").BudgetTier,
+  originZoneId?: TransportZoneId,
 ): string[] {
-  let validModes: string[] = [];
-  if (carMode === "rental" && dest.transportOptions?.car !== undefined)
-    validModes.push("car");
-  if (carMode === "my_car" && dest.transportOptions?.my_car !== undefined)
-    validModes.push("my_car");
-
-  for (const m of publicModes) {
-    if (m === "flight") {
-      const flightEst = getFlightTransportEstimate(dest, homeCoords);
-      if (flightEst) {
-        validModes.push("flight");
-      }
-    } else if (
-      dest.transportOptions?.[m as keyof typeof dest.transportOptions] !==
-      undefined
-    ) {
-      validModes.push(m);
-    }
+  // a. Resolve origin and destination zones.
+  const effectiveOriginZoneId =
+    originZoneId ??
+    (homeCoords
+      ? resolveOriginTransportZone({ coordinates: homeCoords })
+      : undefined);
+  if (!effectiveOriginZoneId || effectiveOriginZoneId === "unknown") {
+    return [];
+  }
+  const destinationZoneId = resolveDestinationTransportZone(dest);
+  if (destinationZoneId === "unknown") {
+    return [];
   }
 
+  // b. Authorize modes from independent sources:
+  //    - rail/road/bus: explicit topology connections (edges or same-zone
+  //      local policy)
+  //    - flight: verified airport route from flight-estimates.json
+  //    Ferry connectivity (ferry-routes.json) is NOT an estimable
+  //    recommendation mode until FerryTransportEstimator exists; it is
+  //    surfaced separately for display only.
+  const topologyModes = getEligibleOriginModes({
+    originZoneId: effectiveOriginZoneId,
+    destinationZoneId,
+    destination: dest,
+  });
+  const authorized = new Set<TransportMode>(
+    effectiveOriginZoneId === destinationZoneId
+      ? topologyModes.localModes
+      : topologyModes.crossZoneModes,
+  );
+  const flightEstimate = getFlightTransportEstimate(dest, homeCoords);
+  if (flightEstimate) authorized.add("flight");
+
+  // c. Conservative failure: no authorized route → no modes.
+  if (authorized.size === 0) return [];
+
+  // d. Intersect with user-selected modes and destination support.
+  const supported = (mode: string): boolean => {
+    if (mode === "flight") return Boolean(flightEstimate);
+    return (
+      dest.transportOptions?.[mode as keyof typeof dest.transportOptions] !==
+      undefined
+    );
+  };
+  const selected = new Set<string>(publicModes);
+  if (carMode === "rental") selected.add("car");
+  if (carMode === "my_car") selected.add("my_car");
+
+  let validModes: string[] = [];
+  for (const mode of authorized) {
+    if (mode === "car" || mode === "my_car") {
+      if (selected.has(mode) && supported(mode)) validModes.push(mode);
+      continue;
+    }
+    if (selected.has(mode) && supported(mode)) validModes.push(mode);
+  }
+
+  // e. Budget-tier preference applied last.
   if (budgetTier) {
     const carModes = validModes.filter(
       (mode) => mode === "car" || mode === "my_car",
@@ -117,21 +164,6 @@ export function getValidModes(
             ? choose(["shinkansen", "train", "bus"], ["flight"])
             : choose(["shinkansen", "flight", "train", "bus"], []);
     validModes = [...carModes, ...preferredPublicModes];
-  }
-
-  if (
-    validModes.length === 0 &&
-    (carMode !== "none" || publicModes.length > 0)
-  ) {
-    return [];
-  }
-
-  if (validModes.length === 0) {
-    const entries = Object.entries(dest.transportOptions || {}).filter(
-      ([_, v]) => v !== undefined,
-    );
-    if (entries.length > 0) validModes = entries.map((e) => e[0]);
-    else validModes = ["train"];
   }
 
   return validModes;
@@ -170,6 +202,7 @@ export function calculateScore(
     publicModes,
     context.homeStationCoords || undefined,
     context.budgetTier,
+    context.originZoneId,
   );
 
   // Budget and Transport Logic

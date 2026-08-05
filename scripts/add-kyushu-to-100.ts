@@ -228,6 +228,7 @@ interface PoiInput {
   hoursSourceUrl: string;
   hoursNote?: string;
   closedDays?: string;
+  transportZoneId?: string;
   officialWebsite: string | null;
   wikiUrl: string;
   wikiTitle: string;
@@ -317,6 +318,7 @@ function buildPoi(input: PoiInput): DestinationRecord {
       cafe: Math.round(input.budgetMin * 0.1),
     },
     transportOptions: input.transportOptions,
+    ...(input.transportZoneId && { transportZoneId: input.transportZoneId }),
     totalTripHours: input.totalTripHours,
     recommendedVisitHours: input.recommendedVisitHours,
     walkingMin: input.walkingMin,
@@ -1473,6 +1475,7 @@ const POI_CHIRINGASHIMA: PoiInput = {
     "Accessible only during low tide (check local tide tables). Approximately 3–4 hours around low tide daily.",
   openingHoursJa:
     "干潮時のみ渡島可能（現地の潮汐表を確認）。毎日干潮前後約3～4時間。",
+  transportZoneId: "mainland-kyushu",
   hoursSourceUrl: "https://www.ibusuki.or.jp/en/spot/chiringashima/",
   hoursNote:
     "Sandbar accessible only at low tide — check Ibusuki tide tables before visiting",

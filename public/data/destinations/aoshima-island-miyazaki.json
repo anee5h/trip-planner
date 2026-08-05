@@ -1,5 +1,8 @@
 {
   "id": "aoshima-island-miyazaki",
+  "localAccessModes": ["train", "car", "my_car", "bus"],
+  "localAccessUnestimated": true,
+  "transportZoneId": "mainland-kyushu",
   "name": "Aoshima Island & Devil's Washboard",
   "nameJa": "青島・鬼の洗濯板",
   "aliases": ["Aoshima Island & Devil's Washboard", "青島・鬼の洗濯板"],

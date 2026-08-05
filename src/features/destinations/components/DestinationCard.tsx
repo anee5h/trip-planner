@@ -88,6 +88,7 @@ export default function DestinationCard({
     toggleCompare,
     compareList,
     homeStationCoords,
+    homeStationTransportZoneId,
     canMutateProfile,
   } = useTripStore();
   const visited = isVisited(destination.id);
@@ -149,6 +150,7 @@ export default function DestinationCard({
     publicModes,
     partySize,
     homeStationCoords ?? undefined,
+    homeStationTransportZoneId,
   );
   const preferredModes = [
     ...(carMode && carMode !== "none" ? [carMode] : []),

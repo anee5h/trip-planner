@@ -314,6 +314,7 @@
       "shinkansen": "Shinkansen",
       "bus": "Bus",
       "flight": "Flight",
+      "ferry": "Ferry",
       "car": "Rental car",
       "my_car": "Personal car",
       "travel": "Travel"

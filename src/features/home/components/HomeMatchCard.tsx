@@ -50,7 +50,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
 }) => {
   const { locale } = useLocale();
   const { t } = useTranslation();
-  const { homeStationCoords } = useTripStore();
+  const { homeStationCoords, homeStationTransportZoneId } = useTripStore();
   const localized = getLocalizedPlace(destination, locale);
   const { title, subtitle } = parseCleanTitle(localized.name);
   const areaAndCategory = [
@@ -65,6 +65,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   // for the selected origin before picking the fastest mode.
   const adjustedDestination = buildRecommendationCandidate(destination, {
     homeStationCoords,
+    originZoneId: homeStationTransportZoneId,
   });
   const bestTransport = getFastestPreferredTransport(
     adjustedDestination,
@@ -72,6 +73,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
     publicModes,
     partySize,
     homeStationCoords ?? undefined,
+    homeStationTransportZoneId,
   );
 
   const travelTimeText = bestTransport

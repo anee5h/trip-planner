@@ -1,4 +1,5 @@
 import type { CollectionMembership } from "./collection";
+import type { TransportMode } from "../services/transport/types";
 
 export interface ItineraryStep {
   time: string;
@@ -197,7 +198,32 @@ export interface Destination {
     my_car?: number;
     shinkansen?: number;
     bus?: number;
+    flight?: number;
+    ferry?: number;
   };
+  /**
+   * Canonical transport zone for island destinations. Mainland destinations
+   * derive their zone from prefecture metadata; island records must carry an
+   * explicit assignment instead of relying on runtime name matching. The
+   * literal "unknown" declares the record non-routable (e.g. a multi-island
+   * aggregate with no single routable location).
+   */
+  transportZoneId?: string;
+  /**
+   * Destination-level local access constraint. Zone localModes means "this
+   * mode exists somewhere in the zone"; when a destination is not reachable
+   * by every zone-local mode (e.g. an island with no rail inside a rail
+   * zone), localAccessModes narrows same-zone authorization to the modes
+   * that actually reach this destination.
+   */
+  localAccessModes?: TransportMode[];
+  /**
+   * True when localAccessModes are route-known but their times/costs are
+   * not estimated (no estimator or static transport option). Such modes are
+   * never selectable; the UI shows "route known — time and cost
+   * unavailable".
+   */
+  localAccessUnestimated?: boolean;
   /**
    * Optional: Explicit route fares for exact budget overrides.
    * - train, bus, shinkansen: One-way ticket fare per person (JPY).

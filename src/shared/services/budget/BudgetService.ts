@@ -1,6 +1,12 @@
 import type { Destination } from "@/shared/types/destination";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
+import {
+  getEligibleOriginModes,
+  resolveDestinationTransportZone,
+  resolveOriginTransportZone,
+} from "@/shared/services/transport/TransportTopologyService";
 import type { BudgetTier, PriceRange } from "@/shared/types/planner";
+import type { TransportZoneId } from "@/shared/types/transportTopology";
 import { MEAL_PRICE_RANGES } from "@/shared/types/planner";
 
 function formatSingleJPYValue(val: number, locale: "en" | "ja" = "en"): string {
@@ -249,16 +255,29 @@ export function getTransportCost(
 }
 
 /**
- * Returns the total estimated budget for the party size, substituting the cheapest
- * available transport if activeMode is "all" or "any".
+ * Returns the total estimated budget for the party size, substituting the
+ * cheapest authorized transport if activeMode is "all" or "any".
+ *
+ * Authorization uses the same sources as the recommendation pipeline:
+ * explicit topology edges for rail/road/bus, the flight-route registry for
+ * flight, and the ferry route registry for ferry. When no authorized mode
+ * exists the generic breakdown fallback is returned — never a Train cost.
  */
 export function getAdjustedBudget(
   dest: Destination,
   activeMode: string,
   partySize: number = 2,
   homeCoords?: { lat: number; lng: number },
+  originZoneId?: TransportZoneId,
 ): number {
-  let mode = "train";
+  let mode: string | undefined;
+
+  const effectiveOriginZoneId =
+    originZoneId ??
+    (homeCoords
+      ? resolveOriginTransportZone({ coordinates: homeCoords })
+      : undefined);
+  const destinationZoneId = resolveDestinationTransportZone(dest);
 
   if (
     activeMode !== "all" &&
@@ -266,19 +285,36 @@ export function getAdjustedBudget(
     (dest.transportOptions?.[
       activeMode as keyof typeof dest.transportOptions
     ] !== undefined ||
-      activeMode === "flight")
+      activeMode === "flight" ||
+      activeMode === "ferry")
   ) {
     mode = activeMode;
-  } else {
+  } else if (effectiveOriginZoneId && destinationZoneId !== "unknown") {
+    const topologyModes = getEligibleOriginModes({
+      originZoneId: effectiveOriginZoneId,
+      destinationZoneId,
+      destination: dest,
+    });
+    const authorized = new Set<string>(
+      effectiveOriginZoneId === destinationZoneId
+        ? topologyModes.localModes
+        : topologyModes.crossZoneModes,
+    );
     const entries = Object.entries(dest.transportOptions || {}).filter(
       ([_, v]) => v !== undefined,
     ) as [string, number][];
-    if (entries.length > 0) {
-      mode = entries.reduce((min, curr) => (curr[1] < min[1] ? curr : min))[0];
+    const candidates = entries.filter(([m]) => authorized.has(m));
+    if (candidates.length > 0) {
+      mode = candidates.reduce((min, curr) =>
+        curr[1] < min[1] ? curr : min,
+      )[0];
     }
   }
 
-  const transportCost = getTransportCost(dest, mode, partySize, homeCoords);
+  const transportCost =
+    mode === undefined
+      ? ((dest.budgetBreakdown?.transport || 3000) / 2) * partySize
+      : getTransportCost(dest, mode, partySize, homeCoords);
   const recBudget = dest.budgetRecommended || dest.budgetMin || 5000;
   const otherCostsCouple =
     recBudget - (dest.budgetBreakdown?.transport || 3000);
@@ -343,7 +379,7 @@ export interface ItemizedCostBreakdown {
 export function calculateItemizedTripCost(
   dest: Destination,
   options: {
-    activeMode?: string;
+    activeMode?: string | null;
     partySize?: number;
     budgetTier?: BudgetTier;
     totalTripHours?: number;
@@ -351,19 +387,19 @@ export function calculateItemizedTripCost(
   } = {},
 ): ItemizedCostBreakdown {
   const partySize = options.partySize ?? 2;
-  const mode = options.activeMode ?? "train";
+  // null means no estimable origin route: origin transport is excluded
+  // from the total, never defaulted to Train.
+  const mode = options.activeMode ?? null;
   const budgetTier = options.budgetTier ?? "standard";
   const totalTripHours = options.totalTripHours ?? dest.totalTripHours ?? 6;
 
   const isFreeTicket = isFreeDestination(dest);
   const breakdown = getEffectiveBudgetBreakdown(dest);
 
-  const rawTransport = getTransportCost(
-    dest,
-    mode,
-    partySize,
-    options.homeCoords,
-  );
+  const rawTransport =
+    mode === null
+      ? 0
+      : getTransportCost(dest, mode, partySize, options.homeCoords);
   const transport =
     Number.isNaN(rawTransport) || !rawTransport ? 0 : rawTransport;
   const tickets = isFreeTicket ? 0 : (breakdown.tickets || 0) * partySize;

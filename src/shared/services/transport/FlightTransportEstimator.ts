@@ -3,6 +3,11 @@ import flightRoutesData from "../../data/flight-estimates.json";
 import { TRANSPORT_CONFIG } from "../../config/transportConfig";
 import type { Destination } from "../../types/destination";
 import { getBestEstimateBetween, getDistanceKm } from "./TransportEstimator";
+import {
+  getAirportZone,
+  resolveDestinationTransportZone,
+  resolveOriginTransportZone,
+} from "./TransportTopologyService";
 import type {
   Airport,
   FlightRoute,
@@ -19,6 +24,13 @@ const candidateCache = new Map<string, Airport[]>();
 /**
  * Finds nearest candidate departure airports based on geodesic distance.
  */
+/**
+ * Maximum distance from an origin to a candidate departure airport. Beyond
+ * this the airport is not the origin's gateway: island origins without a
+ * local airport must not gain a flight via a far-away airport fallback.
+ */
+const ORIGIN_AIRPORT_CATCHMENT_KM = 250;
+
 export function findNearestAirports(
   coords: { lat: number; lng: number },
   limit: number = TRANSPORT_CONFIG.candidateAirportLimit,
@@ -28,23 +40,20 @@ export function findNearestAirports(
     return candidateCache.get(cacheKey)!;
   }
 
-  const sorted = [...airports].sort((a, b) => {
-    const distA = getDistanceKm(
-      coords.lat,
-      coords.lng,
-      a.coordinates.lat,
-      a.coordinates.lng,
-    );
-    const distB = getDistanceKm(
-      coords.lat,
-      coords.lng,
-      b.coordinates.lat,
-      b.coordinates.lng,
-    );
-    return distA - distB;
-  });
+  const withinCatchment = airports
+    .map((airport) => ({
+      airport,
+      distanceKm: getDistanceKm(
+        coords.lat,
+        coords.lng,
+        airport.coordinates.lat,
+        airport.coordinates.lng,
+      ),
+    }))
+    .filter((candidate) => candidate.distanceKm <= ORIGIN_AIRPORT_CATCHMENT_KM)
+    .sort((a, b) => a.distanceKm - b.distanceKm);
 
-  const result = sorted.slice(0, limit);
+  const result = withinCatchment.slice(0, limit).map((c) => c.airport);
   candidateCache.set(cacheKey, result);
   return result;
 }
@@ -118,9 +127,32 @@ export function getFlightTransportEstimate(
     return null;
   }
 
+  // Destination access must use an airport in the destination's transport
+  // zone. An airport in another zone (e.g. Takamatsu for Naoshima) would
+  // require an explicitly modelled ferry access leg; without one the flight
+  // is not a complete route.
+  const destinationZoneId = resolveDestinationTransportZone(dest);
+  const arrivalZoneId = getAirportZone(arrAirport.code);
+  if (
+    destinationZoneId === "unknown" ||
+    !arrivalZoneId ||
+    arrivalZoneId !== destinationZoneId
+  ) {
+    return null;
+  }
+
+  // Origin access must use an airport in the origin's transport zone. A
+  // departure airport in another zone (e.g. Osaka for Naoshima) would
+  // require a modelled access leg; without one the generic straight-line
+  // origin access would cross water.
+  const originZoneId = resolveOriginTransportZone({ coordinates: homeCoords });
   const candidateDepAirports = findNearestAirports(
     homeCoords,
     TRANSPORT_CONFIG.candidateAirportLimit,
+  ).filter(
+    (airport) =>
+      originZoneId !== "unknown" &&
+      getAirportZone(airport.code) === originZoneId,
   );
 
   const homeLoc: Location = { coordinates: homeCoords };
@@ -188,32 +220,16 @@ export function getFlightTransportEstimate(
     return null;
   }
 
-  // Filter out flight mode if train travel is short (< 240 min) AND destination is not air-primary/island
-  const isIslandOrFar =
-    dest.prefecture === "Okinawa" ||
-    dest.prefecture === "Hokkaido" ||
-    getDistanceKm(
-      homeCoords.lat,
-      homeCoords.lng,
-      dest.coordinates.lat,
-      dest.coordinates.lng,
-    ) > 500;
-
+  // Route existence and zone gateway already proved connectivity. Distance
+  // is used only after connectivity: to compare door-to-door times for the
+  // `recommended` flag, never to authorize or suppress the route.
   const groundEstimate = getBestEstimateBetween(homeLoc, destLoc);
-  if (
-    !isIslandOrFar &&
-    groundEstimate.timeRange[0] < TRANSPORT_CONFIG.flightThresholdMinutes
-  ) {
-    return null;
-  }
 
   return {
     mode: "flight",
     label: "Flight",
     available: true,
-    recommended:
-      isIslandOrFar ||
-      bestOption.totalTimeRange[0] < groundEstimate.timeRange[0],
+    recommended: bestOption.totalTimeRange[0] < groundEstimate.timeRange[0],
     timeRange: bestOption.totalTimeRange,
     costRange: bestOption.totalCostRange,
     source: "dataset",

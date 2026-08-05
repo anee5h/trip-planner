@@ -25,7 +25,7 @@ export interface GeneratedPlanCostResult {
 
 export function estimateLocalTransitFare(
   leg: RouteLeg,
-  transportMode: "car" | "train" = "train",
+  transportMode: "car" | "train" | null = null,
 ): CostComponent {
   if (leg.curatedFare) {
     return {
@@ -34,6 +34,12 @@ export function estimateLocalTransitFare(
       source: "curated",
       applicable: true,
     };
+  }
+
+  // null = local transit mode unknown: never default to Train fare
+  // assumptions.
+  if (transportMode === null) {
+    return { min: 0, max: 0, source: "unknown", applicable: false };
   }
 
   if (transportMode === "car") {
@@ -82,7 +88,7 @@ export function estimateOriginTransportFare(
 export function calculateGeneratedPlanCost(
   plan: DayPlan,
   partySize: number = 1,
-  transportMode: "car" | "train" = "train",
+  transportMode: "car" | "train" | null = null,
   hasOriginInfo: boolean = false,
 ): GeneratedPlanCostResult {
   const safeParty = Math.max(1, partySize);
@@ -150,8 +156,10 @@ export function calculateGeneratedPlanCost(
       fareComponents.length > 0 &&
       fareComponents.every((c) => c.source === "curated")
         ? "curated"
-        : "estimated",
-    applicable: legs.length > 0,
+        : fareComponents.some((c) => c.applicable)
+          ? "estimated"
+          : "unknown",
+    applicable: fareComponents.some((c) => c.applicable),
   };
 
   // 3. Origin Transport

@@ -2,6 +2,7 @@ import type {
   ImplicitUserProfile,
   PersonalizationSettings,
 } from "./PersonalizationService";
+import type { TransportZoneId } from "@/shared/types/transportTopology";
 
 export type TripDuration =
   "any" | "shortOuting" | "halfDay" | "fullDay" | "weekend";
@@ -58,6 +59,7 @@ export interface RecommendationContext {
   /** @deprecated Use weather.actual. */
   currentWeather?: { temp: number; desc: string } | null;
   homeStationCoords?: { lat: number; lng: number } | null;
+  originZoneId?: TransportZoneId;
   userRatings?: Record<string, "up" | "down">;
   tripDuration?: TripDuration;
   availableTimeHours?: number;

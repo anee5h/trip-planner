@@ -54,11 +54,19 @@ describe("TransportEstimator", () => {
     expect(formatTransportCost([1500, 1500])).toBe("¥1,500");
   });
 
-  it("finds nearest candidate departure airports for Tokyo Station", () => {
+  it("finds nearest candidate departure airports within the catchment for Tokyo Station", () => {
     const candidateAirports = findNearestAirports(TOKYO_STATION_COORDS, 3);
-    expect(candidateAirports.length).toBe(3);
+    expect(candidateAirports.length).toBe(2);
     expect(candidateAirports[0].code).toBe("HND");
     expect(candidateAirports[1].code).toBe("NRT");
+  });
+
+  it("returns no departure airports for an origin without a local gateway", () => {
+    const candidateAirports = findNearestAirports(
+      { lat: 38.0333, lng: 138.3833 }, // Sado Island
+      3,
+    );
+    expect(candidateAirports.length).toBe(0);
   });
 
   it("finds destination arrival airport for Sapporo", () => {

@@ -138,6 +138,30 @@
       "to": "FUK",
       "flightTime": [85, 100],
       "fare": [9000, 17000]
+    },
+    {
+      "from": "FUK",
+      "to": "OKA",
+      "flightTime": [100, 120],
+      "fare": [8000, 25000],
+      "sourceUrl": "https://www.ana.co.jp/en-jp/flights-from-fukuoka-to-okinawa-naha",
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "from": "OKA",
+      "to": "ISG",
+      "flightTime": [55, 65],
+      "fare": [8000, 15000],
+      "sourceUrl": "https://www.ana.co.jp/en-jp/flights-from-okinawa-naha-to-ishigaki",
+      "checkedAt": "2026-08-05"
+    },
+    {
+      "from": "OKA",
+      "to": "MMY",
+      "flightTime": [50, 60],
+      "fare": [7000, 14000],
+      "sourceUrl": "https://visitokinawajapan.com/plan-your-trip/getting-around-okinawa/flights-between-islands/",
+      "checkedAt": "2026-08-05"
     }
   ]
 }

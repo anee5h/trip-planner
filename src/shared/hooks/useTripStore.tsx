@@ -12,6 +12,8 @@ import destinationsIndex from "@/shared/data/destinations-meta.json";
 import type { Trip, TripStop } from "@/shared/types/trip";
 import * as TripService from "@/shared/services/trips/TripService";
 import { generateUUID } from "@/shared/utils/uuid";
+import type { TransportZoneId } from "@/shared/types/transportTopology";
+import { resolveOriginTransportZone } from "@/shared/services/transport/TransportTopologyService";
 
 /**
  * Formats a prefecture name into the exact SVG key required by @react-map/japan@1.0.10.
@@ -27,6 +29,7 @@ export type OriginLocation = {
   label: string;
   coordinates: { lat: number; lng: number };
   source: "station" | "postal_code" | "default";
+  transportZoneId?: TransportZoneId;
 };
 
 interface TripStoreContextType {
@@ -52,7 +55,7 @@ interface TripStoreContextType {
 
   homeStation: string;
   homeStationCoords: { lat: number; lng: number };
-
+  homeStationTransportZoneId?: TransportZoneId;
   setOriginLocation: (origin: OriginLocation) => void;
 
   compareList: string[];
@@ -148,7 +151,16 @@ function loadGuestOrigin(): OriginLocation {
     const saved = window.localStorage.getItem(GUEST_ORIGIN_KEY);
     if (saved) {
       const parsed = JSON.parse(saved);
-      if (isValidOriginLocation(parsed)) return parsed;
+      if (isValidOriginLocation(parsed)) {
+        if (!parsed.transportZoneId) {
+          parsed.transportZoneId = resolveOriginTransportZone({
+            coordinates: parsed.coordinates,
+            label: parsed.label,
+          });
+          window.localStorage.setItem(GUEST_ORIGIN_KEY, JSON.stringify(parsed));
+        }
+        return parsed;
+      }
     }
   } catch {
     // corrupt storage
@@ -179,6 +191,10 @@ function migrateLegacyOrigin(): OriginLocation | null {
       label,
       coordinates,
       source: label.includes(", ") ? "station" : "postal_code",
+      transportZoneId: resolveOriginTransportZone({
+        coordinates,
+        label,
+      }),
     };
 
     window.localStorage.setItem(GUEST_ORIGIN_KEY, JSON.stringify(origin));
@@ -674,6 +690,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
         clearCompare,
         homeStation: activeOrigin.label,
         homeStationCoords: activeOrigin.coordinates,
+        homeStationTransportZoneId: activeOrigin.transportZoneId,
         setOriginLocation,
         lastSyncedDate,
         setLastSyncedDate,

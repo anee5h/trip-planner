@@ -30,7 +30,12 @@ export default function Home() {
   const { t, i18n } = useTranslation();
   const allDestinations = getDestinationList() as Destination[];
 
-  const { isVisited, favorites, homeStationCoords } = useTripStore();
+  const {
+    isVisited,
+    favorites,
+    homeStationCoords,
+    homeStationTransportZoneId,
+  } = useTripStore();
   const { user } = useAuth();
 
   const {
@@ -104,6 +109,7 @@ export default function Home() {
       budgetTier: resolvedApplied.budgetTier,
       tripDuration: resolvedApplied.tripDuration,
       homeStationCoords,
+      homeStationTransportZoneId,
       isVisited,
       rouletteConstraints: resolvedDraft,
     });

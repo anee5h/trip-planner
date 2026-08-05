@@ -74,6 +74,7 @@ const nakayamaOrigin: OriginLocation = {
   label: "Nakayama Station, Kanagawa",
   coordinates: { lat: 35.5147, lng: 139.5393 },
   source: "station",
+  transportZoneId: "mainland-honshu",
 };
 
 beforeEach(() => {

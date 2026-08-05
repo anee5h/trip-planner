@@ -1,0 +1,21 @@
+{
+  "airports": {
+    "HND": "mainland-honshu",
+    "NRT": "mainland-honshu",
+    "ITM": "mainland-honshu",
+    "KIX": "mainland-honshu",
+    "NGO": "mainland-honshu",
+    "HIJ": "mainland-honshu",
+    "CTS": "hokkaido",
+    "HKD": "hokkaido",
+    "AKJ": "hokkaido",
+    "FUK": "mainland-kyushu",
+    "KMJ": "mainland-kyushu",
+    "KOJ": "mainland-kyushu",
+    "MYJ": "mainland-shikoku",
+    "TAK": "mainland-shikoku",
+    "OKA": "okinawa-main",
+    "ISG": "ishigaki",
+    "MMY": "miyako"
+  }
+}

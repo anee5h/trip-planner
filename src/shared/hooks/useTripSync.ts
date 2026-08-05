@@ -9,6 +9,7 @@ import destinationsIndex from "@/shared/data/destinations-index.json";
 import type { Destination } from "@/shared/types/destination";
 import { formatPrefectureId } from "@/shared/hooks/useTripStore";
 import type { OriginLocation } from "@/shared/hooks/useTripStore";
+import { resolveOriginTransportZone } from "@/shared/services/transport/TransportTopologyService";
 
 type VisitDates = Record<string, string[] | string>;
 type DestinationRatings = Record<string, "up" | "down">;
@@ -464,6 +465,10 @@ export function useTripSync({
               label: "Tokyo Station",
               coordinates: DEFAULT_TOKYO_COORDS,
               source: "default",
+              transportZoneId: resolveOriginTransportZone({
+                coordinates: DEFAULT_TOKYO_COORDS,
+                label: "Tokyo Station",
+              }),
             };
 
         const defaultPayload = {
@@ -560,6 +565,10 @@ export function useTripSync({
             label: "Tokyo Station",
             coordinates: DEFAULT_TOKYO_COORDS,
             source: "default",
+            transportZoneId: resolveOriginTransportZone({
+              coordinates: DEFAULT_TOKYO_COORDS,
+              label: "Tokyo Station",
+            }),
           });
           // Store the user id so persistCorrectedOrigin can target it.
           pendingOriginRepairUserIdRef.current = userId;
@@ -576,6 +585,10 @@ export function useTripSync({
           label: loadedHomeStation,
           coordinates: { lat, lng },
           source: stationSource,
+          transportZoneId: resolveOriginTransportZone({
+            coordinates: { lat, lng },
+            label: loadedHomeStation,
+          }),
         });
       } else {
         if (isCurrentHydration()) {
@@ -583,6 +596,10 @@ export function useTripSync({
             label: "Tokyo Station",
             coordinates: DEFAULT_TOKYO_COORDS,
             source: "default",
+            transportZoneId: resolveOriginTransportZone({
+              coordinates: DEFAULT_TOKYO_COORDS,
+              label: "Tokyo Station",
+            }),
           });
         }
       }

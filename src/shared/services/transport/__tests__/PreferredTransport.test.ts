@@ -5,6 +5,8 @@ import { getFastestPreferredTransport } from "../PreferredTransport";
 const destination = {
   id: "test-destination",
   name: "Test Destination",
+  prefecture: "Kanagawa",
+  coordinates: { lat: 35.4, lng: 139.5 },
   transportOptions: { train: 95, bus: 130, car: 70, my_car: 65 },
   budgetRecommended: 12000,
   budgetMin: 8000,
@@ -13,6 +15,8 @@ const destination = {
   totalTripHours: 8,
 } as Destination;
 
+const TOKYO = { lat: 35.6812, lng: 139.7671 };
+
 describe("getFastestPreferredTransport", () => {
   it("chooses the fastest enabled mode and pairs its estimate with that mode", () => {
     const preferred = getFastestPreferredTransport(
@@ -20,6 +24,8 @@ describe("getFastestPreferredTransport", () => {
       "rental",
       ["train", "bus"],
       2,
+      TOKYO,
+      "mainland-honshu",
     );
 
     expect(preferred).toMatchObject({
@@ -30,12 +36,28 @@ describe("getFastestPreferredTransport", () => {
   });
 
   it("does not select a faster mode that the traveller has disabled", () => {
-    const preferred = getFastestPreferredTransport(destination, "none", [
-      "train",
-      "bus",
-    ]);
+    const preferred = getFastestPreferredTransport(
+      destination,
+      "none",
+      ["train", "bus"],
+      2,
+      TOKYO,
+      "mainland-honshu",
+    );
 
     expect(preferred?.mode).toBe("train");
     expect(preferred?.timeRange).toEqual([95, 95]);
+  });
+
+  it("returns null when no authorized mode exists", () => {
+    const preferred = getFastestPreferredTransport(
+      destination,
+      "none",
+      ["train", "bus"],
+      2,
+      TOKYO,
+      "unknown",
+    );
+    expect(preferred).toBeNull();
   });
 });

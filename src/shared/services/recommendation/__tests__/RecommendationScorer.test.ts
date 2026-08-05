@@ -65,6 +65,7 @@ describe("RecommendationScorer Unit Tests", () => {
       partySize: 1,
       currentWeatherCondition: "any",
       visitedIds: [],
+      homeStationCoords: { lat: 35.6812, lng: 139.7671 },
     };
     const res = calculateScore(mockDest, context);
     expect(res.score).toBeGreaterThan(0);
@@ -173,18 +174,33 @@ describe("RecommendationScorer Unit Tests", () => {
     };
 
     expect(
-      getValidModes(carDestination, "rental", [], undefined, "standard"),
+      getValidModes(
+        carDestination,
+        "rental",
+        [],
+        { lat: 35.6812, lng: 139.7671 },
+        "standard",
+        "mainland-honshu",
+      ),
     ).toEqual(["car"]);
     expect(
-      getValidModes(carDestination, "my_car", [], undefined, "economy"),
+      getValidModes(
+        carDestination,
+        "my_car",
+        [],
+        { lat: 35.6812, lng: 139.7671 },
+        "economy",
+        "mainland-honshu",
+      ),
     ).toEqual(["my_car"]);
     expect(
       getValidModes(
         carDestination,
         "rental",
         ["train", "flight"],
-        undefined,
+        { lat: 35.6812, lng: 139.7671 },
         "standard",
+        "mainland-honshu",
       ),
     ).toEqual(["car", "train"]);
   });
@@ -413,5 +429,92 @@ describe("RecommendationScorer Unit Tests", () => {
     const topThreeIds = results.slice(0, 3).map((r) => r.id);
     // Strongest match must survive diversification pressure into the top 3
     expect(topThreeIds).toContain("top-match");
+  });
+});
+
+describe("getValidModes topology authorization", () => {
+  const nahaDest = {
+    ...mockDest,
+    id: "naha-test",
+    name: "Naha",
+    prefecture: "Okinawa",
+    municipalityId: "naha-city",
+    coordinates: { lat: 26.2124, lng: 127.6809 },
+    transportOptions: { train: 30, bus: 45, flight: 150 },
+    tags: ["island", "remote"],
+  } as unknown as Destination;
+
+  const ogasawaraDest = {
+    ...mockDest,
+    id: "ogasawara-test",
+    name: "Ogasawara",
+    prefecture: "Tokyo",
+    municipalityId: "ogasawara",
+    coordinates: { lat: 27.0946, lng: 142.1916 },
+    transportOptions: { bus: 20, ferry: 1440 },
+    tags: ["island", "remote", "ferry"],
+  } as unknown as Destination;
+
+  it("filters train from Tokyo → Naha (cross-zone, no rail edge)", () => {
+    const modes = getValidModes(
+      nahaDest,
+      "none",
+      ["train", "flight", "bus"],
+      { lat: 35.6812, lng: 139.7671 }, // Tokyo Station
+      undefined,
+      "mainland-honshu",
+    );
+    expect(modes).not.toContain("train");
+    expect(modes).toContain("flight");
+  });
+
+  it("allows train for Naha → Naha (same-zone, local modes)", () => {
+    const modes = getValidModes(
+      nahaDest,
+      "none",
+      ["train", "bus"],
+      { lat: 26.2124, lng: 127.6809 }, // Naha coords
+      undefined,
+      "okinawa-main",
+    );
+    expect(modes).toContain("train");
+  });
+
+  it("returns no estimable modes from Tokyo → Ogasawara (ferry-only, unestimated)", () => {
+    const modes = getValidModes(
+      ogasawaraDest,
+      "none",
+      ["train", "bus", "ferry", "flight"],
+      { lat: 35.6812, lng: 139.7671 },
+      undefined,
+      "mainland-honshu",
+    );
+    expect(modes).toEqual([]);
+  });
+
+  it("unknown origin conservatively returns no modes", () => {
+    const modes = getValidModes(
+      nahaDest,
+      "none",
+      ["train"],
+      undefined,
+      undefined,
+      "unknown",
+    );
+    expect(modes).toEqual([]);
+  });
+
+  it("static fallback does not expose train to Ogasawara", () => {
+    // Simulates the fallback path: no carMode, no publicModes → fallback to transportOptions/["train"]
+    const modes = getValidModes(
+      ogasawaraDest,
+      "none",
+      [],
+      { lat: 35.6812, lng: 139.7671 },
+      undefined,
+      "mainland-honshu",
+    );
+    // Transport zone intersection must prevent the "train" default
+    expect(modes).not.toContain("train");
   });
 });
