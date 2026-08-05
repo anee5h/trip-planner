@@ -379,6 +379,8 @@
       "expanded": "候補を増やすため、検索条件を少し広げました。",
       "reason": "{{duration}}の予定、予算、移動手段に合うため選ばれました。"
     },
+    "tripLength": "\u65c5\u884c\u9577",
+    "timeAtDestination": "\u73fe\u5730\u6e3b\u5728\u6642\u9593",
     "tripMode": "\u65c5\u884c\u30bf\u30a4\u30d7",
     "tripModes": {
       "day_trip": "\u65e5\u5e30\u308a",

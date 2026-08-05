@@ -232,6 +232,7 @@ describe("RecommendationService Unit Tests", () => {
       ...mockDestinations[0],
       id: "short-trip",
       totalTripHours: 4,
+      recommendedVisitHours: { min: 3, max: 5 },
     };
     const destinations = [...mockDestinations, shortTrip];
     const results = getRecommendations(destinations, {

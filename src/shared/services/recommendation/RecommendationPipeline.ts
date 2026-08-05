@@ -4,7 +4,7 @@ import { getDistance } from "@/shared/utils/distance";
 import type { RecommendationContext } from "./RecommendationContext";
 import {
   estimateTripDuration,
-  matchesTripDurationEstimate,
+  matchesVisitDuration,
 } from "./TripDurationService";
 import { createRecommendationMatch } from "./RecommendationExplainability";
 import {
@@ -152,12 +152,11 @@ export function runRecommendationPipeline(
     );
     if (modes.length === 0) return false;
 
+    const durationEst = estimateTripDuration(destination, context, modes);
+
     // Weekend mode: skip duration-band match; use evaluateWeekendCandidate.
-    // Day-trip mode keeps the existing duration-band estimate unchanged.
-    // estimateTripDuration here feeds representativeHours into the budget
-    // filter for BOTH modes (deterministic; cheap JSON lookups). The expensive
-    // weekend evaluation itself is cached in weekendEvalCache by destination id.
-    let durationEst = estimateTripDuration(destination, context, modes);
+    // Day-trip mode uses pure visit-duration matching (origin must not change
+    // the time-at-destination classification).
     if (isWeekend) {
       const eval_ = evaluateWeekendCandidate(
         destination,
@@ -168,7 +167,7 @@ export function runRecommendationPipeline(
       weekendEvalCache.set(destination.id, eval_);
       if (!eval_.eligible) return false;
     } else {
-      if (!matchesTripDurationEstimate(durationEst, context.tripDuration))
+      if (!matchesVisitDuration(destination, context.tripDuration ?? "any"))
         return false;
     }
 

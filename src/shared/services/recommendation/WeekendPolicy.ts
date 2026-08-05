@@ -150,7 +150,7 @@ export function evaluateWeekendCandidate(
   pool: readonly Destination[],
   modes: string[],
 ): WeekendCandidateEvaluation {
-  const weatherDays = context.weather?.days ?? [];
+  const weatherDays = (context.weather?.days ?? []).slice(0, 2);
 
   const oneWayMinutes = getBestOneWayTravelMinutes(destination, context, modes);
   const travelFit = evaluateWeekendTravelFit(oneWayMinutes);

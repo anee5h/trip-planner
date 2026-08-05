@@ -29,6 +29,33 @@ export function getBand(hours: number): TripDuration {
   return "weekend";
 }
 
+/**
+ * Pure visit-duration band using only published recommendedVisitHours.
+ * Changing origin must not change the result.
+ */
+export type VisitDuration = Exclude<TripDuration, "weekend">;
+
+export function getVisitBand(destination: Destination): VisitDuration | null {
+  if (!destination.recommendedVisitHours) return null;
+  const hours =
+    (destination.recommendedVisitHours.min +
+      destination.recommendedVisitHours.max) /
+    2;
+  if (hours < 2.5) return "shortOuting";
+  if (hours < 5) return "halfDay";
+  return "fullDay";
+}
+
+export function matchesVisitDuration(
+  destination: Destination,
+  requested: TripDuration,
+): boolean {
+  if (requested === "any") return true;
+  if (requested === "weekend") return true; // trip-mode gate handles this
+  const band = getVisitBand(destination);
+  return band === requested;
+}
+
 export function formatTripDurationLabel(
   estimate: TripDurationEstimate,
   locale: "en" | "ja",

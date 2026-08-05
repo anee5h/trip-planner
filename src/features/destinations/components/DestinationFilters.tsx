@@ -296,7 +296,6 @@ export default function DestinationFilters({
       shortOuting: isJa ? "1〜2時間" : "1–2 hours",
       halfDay: isJa ? "半日" : "Half day",
       fullDay: isJa ? "終日" : "Full day",
-      weekend: isJa ? "宿泊" : "Overnight",
     };
     activeChips.push({
       id: "duration",
@@ -1026,7 +1025,7 @@ export default function DestinationFilters({
                     <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
                       {isJa ? "現地滞在時間" : "Time at destination"}
                     </label>
-                    <div className="min-h-[40px] p-1 bg-slate-100 dark:bg-slate-900 rounded-xl grid grid-cols-3 sm:grid-cols-5 gap-1">
+                    <div className="min-h-[40px] p-1 bg-slate-100 dark:bg-slate-900 rounded-xl grid grid-cols-2 sm:grid-cols-4 gap-1">
                       {[
                         { val: "any", label: isJa ? "指定なし" : "Any" },
                         {
@@ -1035,7 +1034,6 @@ export default function DestinationFilters({
                         },
                         { val: "halfDay", label: isJa ? "半日" : "Half day" },
                         { val: "fullDay", label: isJa ? "終日" : "Full day" },
-                        { val: "weekend", label: isJa ? "宿泊" : "Overnight" },
                       ].map((opt) => {
                         const isSelected = tripDuration === opt.val;
                         return (

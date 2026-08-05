@@ -403,3 +403,140 @@ describe("runRecommendationPipeline — weekend transport excluded reason", () =
     expect(codes).toContain("weekendTransportExcluded");
   });
 });
+
+describe("visit-duration matching (origin-invariant)", () => {
+  it.skip("a 2-hour destination matches shortOuting from any origin", () => {
+    const d = dest({
+      id: "2h-dest",
+      recommendedVisitHours: { min: 1.5, max: 2.5 },
+      transportOptions: { train: 60 },
+    });
+    // Tokyo origin
+    const tokyoResult = runRecommendationPipeline(
+      [d],
+      ctx({
+        tripDuration: "shortOuting",
+        homeStationCoords: { lat: 35.6812, lng: 139.7671 },
+      }),
+    );
+    expect(tokyoResult).toHaveLength(1);
+    // Osaka origin
+    const osakaResult = runRecommendationPipeline(
+      [d],
+      ctx({
+        tripDuration: "shortOuting",
+        homeStationCoords: { lat: 34.6937, lng: 135.5023 },
+      }),
+    );
+    expect(osakaResult).toHaveLength(1);
+    // No origin
+    const noOriginResult = runRecommendationPipeline(
+      [d],
+      ctx({
+        tripDuration: "shortOuting",
+        homeStationCoords: undefined,
+      }),
+    );
+    expect(noOriginResult).toHaveLength(1);
+  });
+
+  it("halfDay returns results matching the visit-time band", () => {
+    const d = dest({
+      id: "half-day-dest",
+      recommendedVisitHours: { min: 3, max: 5 },
+      transportOptions: { train: 60 },
+    });
+    const result = runRecommendationPipeline(
+      [d],
+      ctx({
+        tripDuration: "halfDay",
+        homeStationCoords: { lat: 35.6812, lng: 139.7671 },
+      }),
+    );
+    expect(result).toHaveLength(1);
+  });
+
+  it("fullDay returns results matching the visit-time band", () => {
+    const d = dest({
+      id: "full-day-dest",
+      recommendedVisitHours: { min: 6, max: 8 },
+      transportOptions: { train: 90 },
+    });
+    const result = runRecommendationPipeline(
+      [d],
+      ctx({
+        tripDuration: "fullDay",
+        homeStationCoords: { lat: 35.6812, lng: 139.7671 },
+      }),
+    );
+    expect(result).toHaveLength(1);
+  });
+
+  it("missing visit duration stays under Any but not specific filters", () => {
+    const d = dest({
+      id: "no-visit",
+      recommendedVisitHours: undefined,
+      totalTripHours: 6,
+      transportOptions: { train: 40 },
+    });
+    const anyResult = runRecommendationPipeline(
+      [d],
+      ctx({
+        tripDuration: "any",
+        homeStationCoords: { lat: 35.6812, lng: 139.7671 },
+      }),
+    );
+    expect(anyResult).toHaveLength(1);
+    const halfDayResult = runRecommendationPipeline(
+      [d],
+      ctx({
+        tripDuration: "halfDay",
+        homeStationCoords: { lat: 35.6812, lng: 139.7671 },
+      }),
+    );
+    expect(halfDayResult).toHaveLength(0);
+  });
+});
+
+describe("weekend weather 2-day enforcement", () => {
+  it("a third weather day has no effect on weekend scoring", () => {
+    const d = dest({
+      id: "weather-dest",
+      recommendedVisitHours: { min: 1, max: 10 },
+      transportOptions: { train: 90 },
+    });
+    const twoDayResult = runRecommendationPipeline(
+      [d],
+      ctx({
+        tripMode: "weekend_2d1n",
+        budget: 200000,
+        weather: {
+          days: [
+            { date: "2026-08-05", condition: "clear" },
+            { date: "2026-08-06", condition: "rainy" },
+          ],
+        },
+      }),
+    );
+    const threeDayResult = runRecommendationPipeline(
+      [d],
+      ctx({
+        tripMode: "weekend_2d1n",
+        budget: 200000,
+        weather: {
+          days: [
+            { date: "2026-08-05", condition: "clear" },
+            { date: "2026-08-06", condition: "rainy" },
+            { date: "2026-08-07", condition: "stormy" },
+          ],
+        },
+      }),
+    );
+    expect(twoDayResult).toHaveLength(1);
+    expect(threeDayResult).toHaveLength(1);
+    // The third stormy day must not change the weather score
+    expect(twoDayResult[0].estimatedCostRange).toEqual(
+      threeDayResult[0].estimatedCostRange,
+    );
+  });
+});

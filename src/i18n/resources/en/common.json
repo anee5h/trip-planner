@@ -379,6 +379,8 @@
       "expanded": "Expanded the search slightly to give you more variety.",
       "reason": "Selected because it fits your {{duration}} plan, budget, and transport preference."
     },
+    "tripLength": "Trip length",
+    "timeAtDestination": "Time at destination",
     "tripMode": "Trip type",
     "tripModes": {
       "day_trip": "Day trip",

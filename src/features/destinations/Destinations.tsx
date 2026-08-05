@@ -36,9 +36,8 @@ import {
   type BudgetTier,
 } from "@/shared/types/planner";
 import {
-  estimateTripDuration,
-  matchesTripDurationEstimate,
   getBestOneWayTravelMinutes,
+  matchesVisitDuration,
 } from "@/shared/services/recommendation/TripDurationService";
 import {
   evaluateWeekendTravelFit,
@@ -527,6 +526,9 @@ export default function Destinations() {
       hasRestrictedTransportSelection(carMode, publicModes)
     ) {
       result = result.filter((dest) => {
+        // Time at destination: use pure visit-duration matching.
+        // Origin travel is evaluated separately for reachability.
+        if (!matchesVisitDuration(dest, tripDuration)) return false;
         const modes = getValidModes(
           dest,
           carMode,
@@ -535,13 +537,7 @@ export default function Destinations() {
           budgetTier,
           homeStationTransportZoneId,
         );
-        return (
-          modes.length > 0 &&
-          matchesTripDurationEstimate(
-            estimateTripDuration(dest, catalogContext, modes),
-            tripDuration,
-          )
-        );
+        return modes.length > 0;
       });
     }
 

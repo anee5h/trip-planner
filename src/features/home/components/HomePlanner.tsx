@@ -9,6 +9,7 @@ import {
   Landmark,
   Snowflake,
   Clock,
+  CalendarDays,
   Car,
   Train,
   Shuffle,
@@ -461,11 +462,11 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
           {/* Segment 2: Duration (20%) */}
           <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-850 transition-colors flex flex-col justify-center">
             <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-0.5">
-              {t("home.duration")}
+              {t("home.timeAtDestination")}
             </span>
             {isWeekend ? (
               <div className="flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-white">
-                <Clock className="w-4 h-4 text-emerald-500 shrink-0" />
+                <CalendarDays className="w-4 h-4 text-emerald-500 shrink-0" />
                 <span>{t("home.weekendBadge")}</span>
               </div>
             ) : (
