@@ -33,6 +33,7 @@ export function createRecommendationMatch(
     context.homeStationCoords || undefined,
     context.budgetTier,
     context.originZoneId,
+    context.ferryTemporal,
   );
 
   // 1. Budget and Transport Explainability
@@ -51,6 +52,7 @@ export function createRecommendationMatch(
         context.budgetTier,
         dest.totalTripHours,
         context.homeStationCoords || undefined,
+        context.ferryTemporal,
       );
       if (budgetEst.transportIncluded) {
         estimatedBudget = budgetEst.range;
@@ -142,6 +144,7 @@ export function createRecommendationMatch(
     const ferryEst = getFerryTransportEstimate(
       dest,
       context.homeStationCoords || undefined,
+      context.ferryTemporal,
     );
     if (ferryEst) {
       const operator = ferryEst.details?.operator ?? "passenger ferry";

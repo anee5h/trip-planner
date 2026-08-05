@@ -256,6 +256,8 @@ export default function DestinationDetails() {
     partySize?: number;
     tripType?: string;
     budget?: number;
+    /** Planned travel date (ISO) forwarded from the planner. */
+    travelDate?: string;
   } | null;
 
   const { user } = useAuth();
@@ -429,13 +431,24 @@ export default function DestinationDetails() {
     );
   }, [destination, homeStationCoords]);
 
+  /**
+   * Planned travel date from the planner (via link state). Ferry availability
+   * is evaluated against this — never the system clock.
+   */
+  const ferryTemporal = useMemo(() => {
+    const travelDate = navState?.travelDate;
+    if (!travelDate) return undefined;
+    return { travelDate: new Date(`${travelDate}T12:00:00`) };
+  }, [navState]);
+
   const ferryEstimate = useMemo(() => {
     if (!destination) return null;
     return getFerryTransportEstimate(
       destination,
       homeStationCoords || undefined,
+      ferryTemporal,
     );
-  }, [destination, homeStationCoords]);
+  }, [destination, homeStationCoords, ferryTemporal]);
 
   const parentDestination = useMemo(() => {
     if (!destination) return null;
@@ -603,6 +616,7 @@ export default function DestinationDetails() {
         homeStationCoords || undefined,
         undefined,
         homeStationTransportZoneId,
+        ferryTemporal,
       );
     }
     const userPrefs = user?.user_metadata?.preferences;
@@ -617,6 +631,7 @@ export default function DestinationDetails() {
         homeStationCoords || undefined,
         undefined,
         homeStationTransportZoneId,
+        ferryTemporal,
       );
     }
     return null;
@@ -626,6 +641,7 @@ export default function DestinationDetails() {
     user,
     homeStationCoords,
     homeStationTransportZoneId,
+    ferryTemporal,
   ]);
 
   const formatTravelTimeMinutes = (minutes: number | undefined): string => {
@@ -1373,6 +1389,7 @@ export default function DestinationDetails() {
                                   "ferry",
                                   partySize,
                                   homeStationCoords ?? undefined,
+                                  ferryTemporal,
                                 ) === null ? (
                                   copy.costUnavailable
                                 ) : (
@@ -1385,6 +1402,7 @@ export default function DestinationDetails() {
                                         "ferry",
                                         partySize,
                                         homeStationCoords ?? undefined,
+                                        ferryTemporal,
                                       ) ?? 0) / 1000
                                     ).toFixed(1)}
                                     k
@@ -1451,6 +1469,7 @@ export default function DestinationDetails() {
                                 selectedTransport,
                                 partySize,
                                 homeStationCoords ?? undefined,
+                                ferryTemporal,
                               ) === null;
                             const isTransportExcluded =
                               availableModes.length === 0 ||
@@ -1485,6 +1504,7 @@ export default function DestinationDetails() {
                                           partySize,
                                           homeStationCoords ?? undefined,
                                           homeStationTransportZoneId,
+                                          ferryTemporal,
                                         )
                                         .toLocaleString()}
                                 </div>
@@ -1579,6 +1599,7 @@ export default function DestinationDetails() {
                                     selectedTransport,
                                     partySize,
                                     homeStationCoords ?? undefined,
+                                    ferryTemporal,
                                   ) === null ? (
                                     copy.costUnavailable
                                   ) : (
@@ -1590,6 +1611,7 @@ export default function DestinationDetails() {
                                           selectedTransport,
                                           partySize,
                                           homeStationCoords ?? undefined,
+                                          ferryTemporal,
                                         )
                                         ?.toLocaleString()}
                                     </>
@@ -2028,6 +2050,7 @@ export default function DestinationDetails() {
                 locale={locale}
                 partySize={partySize}
                 selectedTransport={selectedTransport}
+                ferryTemporal={ferryTemporal}
                 onPlanGenerated={setGeneratedPlan}
                 onSaveToItinerary={(plan) => {
                   if (plan) {

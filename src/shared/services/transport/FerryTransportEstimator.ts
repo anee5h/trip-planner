@@ -5,10 +5,12 @@ import {
   resolveOriginTransportZone,
 } from "./TransportTopologyService";
 import type { Destination } from "../../types/destination";
+import type { Season } from "@/shared/utils/season";
 import type {
   FerryOperatingPeriod,
   FerryPort,
   FerryService,
+  FerryTemporalContext,
   Location,
   TransportEstimate,
 } from "./types";
@@ -39,6 +41,18 @@ const ORIGIN_PORT_CATCHMENT_KM = 300;
 
 /** Buffer for check-in, boarding, and unloading at both ports. */
 const FERRY_BUFFER_MINUTES = 30;
+
+/**
+ * Conservative annual intervals for season-only evaluation. A service is
+ * only claimed available for a season when the entire season falls inside
+ * its operating period / fare window.
+ */
+const SEASON_INTERVALS: Record<Season, { from: string; to: string }> = {
+  spring: { from: "03-01", to: "05-31" },
+  summer: { from: "06-01", to: "08-31" },
+  autumn: { from: "09-01", to: "11-30" },
+  winter: { from: "12-01", to: "02-28" },
+};
 
 /**
  * Directional match: a service serves from→to directly, and additionally
@@ -77,31 +91,100 @@ function periodContains(period: FerryOperatingPeriod, md: number): boolean {
 }
 
 /**
- * True when the service runs passengers and the reference date falls inside
- * one of its operating periods (absent periods = year-round).
+ * Operating availability against the canonical temporal input. Never reads
+ * the system clock: no travelDate/season means a seasonally restricted
+ * service cannot be verified and is treated as unavailable.
  */
-export function isServiceActive(service: FerryService, refDate: Date): boolean {
+export function isServiceActive(
+  service: FerryService,
+  temporal: FerryTemporalContext = {},
+): boolean {
   if (service.passengerService !== true) return false;
   if (!service.operatingPeriods || service.operatingPeriods.length === 0) {
     return true;
   }
-  const md = monthDay(refDate);
-  return service.operatingPeriods.some((period) => periodContains(period, md));
+  if (temporal.travelDate) {
+    const md = monthDay(temporal.travelDate);
+    return service.operatingPeriods.some((period) =>
+      periodContains(period, md),
+    );
+  }
+  if (temporal.season) {
+    const { from, to } = SEASON_INTERVALS[temporal.season];
+    // Conservative: the entire season must fall inside one operating period.
+    return service.operatingPeriods.some(
+      (period) =>
+        periodContains(period, parseMonthDay(from)) &&
+        periodContains(period, parseMonthDay(to)),
+    );
+  }
+  return false;
+}
+
+function parseIsoDate(iso: string): Date {
+  const [year, month, day] = iso.split("-").map(Number);
+  // Local noon avoids timezone drift on month/day comparisons.
+  return new Date(year, month - 1, day, 12, 0, 0);
+}
+
+function seasonStartDate(season: Season, year: number): Date {
+  if (season === "winter") {
+    // Winter spans Dec of the previous year through February of `year`.
+    return new Date(year - 1, 11, 1, 12);
+  }
+  const [month, day] = SEASON_INTERVALS[season].from.split("-").map(Number);
+  return new Date(year, month - 1, day, 12);
+}
+
+function seasonEndDate(season: Season, year: number): Date {
+  const [month, day] = SEASON_INTERVALS[season].to.split("-").map(Number);
+  return new Date(year, month - 1, day, 12);
 }
 
 /**
- * All verified passenger services between two ports on a given date,
- * respecting directionality and operating periods.
+ * Fare applicability against the canonical temporal input. A fare with a
+ * validity window is only applied when the travel date falls inside it (or,
+ * conservatively, when the whole planned season does). Outside the window —
+ * or with no temporal context at all — the fare is not reused: the route
+ * stays available but the cost is unavailable.
+ */
+export function isFareValid(
+  service: FerryService,
+  temporal: FerryTemporalContext = {},
+): boolean {
+  if (service.fare === null) return false;
+  if (!service.fareValidFrom || !service.fareValidTo) return true;
+  const from = parseIsoDate(service.fareValidFrom);
+  const to = parseIsoDate(service.fareValidTo);
+  if (temporal.travelDate) {
+    const travel = temporal.travelDate;
+    return travel >= from && travel <= to;
+  }
+  if (temporal.season) {
+    const year = from.getFullYear();
+    return (
+      seasonStartDate(temporal.season, year) >= from &&
+      seasonEndDate(temporal.season, year) <= to
+    );
+  }
+  return false;
+}
+
+/**
+ * All verified passenger services between two ports for a temporal context,
+ * respecting directionality and operating availability. Fare validity is not
+ * a selection filter: an expired fare keeps the route available (the
+ * estimate then carries costUnavailable).
  */
 export function getFerryServices(
   fromPortId: string,
   toPortId: string,
-  refDate: Date = new Date(),
+  temporal: FerryTemporalContext = {},
 ): FerryService[] {
   return services.filter(
     (service) =>
       serviceMatchesDirection(service, fromPortId, toPortId) &&
-      isServiceActive(service, refDate),
+      isServiceActive(service, temporal),
   );
 }
 
@@ -140,6 +223,7 @@ function buildFerryEstimate(
   depPort: FerryPort,
   arrPort: FerryPort,
   service: FerryService,
+  fareValid: boolean,
 ): TransportEstimate {
   const homeLoc: Location = { coordinates: homeCoords };
   // Guarded by getFerryTransportEstimate before any call.
@@ -172,9 +256,10 @@ function buildFerryEstimate(
     destAccess.timeRange[1];
 
   // fareBasis shapes the cost semantics: a one-way fare is doubled for the
-  // return trip; a round-trip fare is already the return journey.
+  // return trip; a round-trip fare is already the return journey. An
+  // expired or unverified fare is never reused: cost is unavailable.
   const roundTripBasis = service.fareBasis === "round-trip";
-  const costUnavailable = service.fare === null;
+  const costUnavailable = !fareValid;
   const minCost = costUnavailable
     ? 0
     : roundTripBasis
@@ -210,22 +295,37 @@ function buildFerryEstimate(
   };
 }
 
+/** Prefers faster, then cost-available, then cheaper. */
+function isBetterCandidate(
+  candidate: TransportEstimate,
+  best: TransportEstimate,
+): boolean {
+  if (candidate.timeRange[0] !== best.timeRange[0]) {
+    return candidate.timeRange[0] < best.timeRange[0];
+  }
+  if (candidate.costUnavailable !== best.costUnavailable) {
+    return !candidate.costUnavailable;
+  }
+  return candidate.costRange[0] < best.costRange[0];
+}
+
 /**
  * Door-to-door ferry estimate for a destination.
  *
  * Selection: every origin-zone port inside the catchment is a candidate;
- * only candidates with a verified, active passenger service to the arrival
- * port survive, each complete service option is evaluated, and the fastest
- * valid candidate wins (ties broken by lower cost). A nearer port with no
- * route never blocks a farther port with one.
+ * only candidates with a verified, operating passenger service to the
+ * arrival port survive, each complete service option is evaluated, and the
+ * fastest valid candidate wins (ties broken by cost availability, then
+ * cost). A nearer port with no route never blocks a farther port with one.
  *
  * Returns null when no verified passenger route connects the origin and
- * destination zones on the reference date.
+ * destination zones for the temporal context. An operating route whose fare
+ * is outside its validity window returns an estimate with costUnavailable.
  */
 export function getFerryTransportEstimate(
   dest: Destination,
   homeCoords?: { lat: number; lng: number },
-  refDate: Date = new Date(),
+  temporal: FerryTemporalContext = {},
 ): TransportEstimate | null {
   if (!dest.coordinates || !homeCoords) return null;
 
@@ -253,7 +353,7 @@ export function getFerryTransportEstimate(
 
   let best: TransportEstimate | null = null;
   for (const depPort of candidateDepPorts) {
-    const depServices = getFerryServices(depPort.id, arrPort.id, refDate);
+    const depServices = getFerryServices(depPort.id, arrPort.id, temporal);
     for (const service of depServices) {
       const estimate = buildFerryEstimate(
         dest,
@@ -261,13 +361,9 @@ export function getFerryTransportEstimate(
         depPort,
         arrPort,
         service,
+        isFareValid(service, temporal),
       );
-      if (
-        !best ||
-        estimate.timeRange[0] < best.timeRange[0] ||
-        (estimate.timeRange[0] === best.timeRange[0] &&
-          estimate.costRange[0] < best.costRange[0])
-      ) {
+      if (!best || isBetterCandidate(estimate, best)) {
         best = estimate;
       }
     }

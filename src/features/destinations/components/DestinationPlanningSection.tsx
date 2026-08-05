@@ -5,6 +5,7 @@ import { TripCostBreakdownWidget } from "./TripCostBreakdownWidget";
 import type { DayPlan } from "@/shared/services/recommendation/DayPlanGeneratorService";
 import { getPlanEligibility } from "@/shared/services/recommendation/DayPlanGeneratorService";
 import { calculateGeneratedPlanCost } from "@/shared/services/budget/GeneratedPlanCostService";
+import type { FerryTemporalContext } from "@/shared/services/transport/types";
 
 interface DestinationPlanningSectionProps {
   destination: Destination;
@@ -12,6 +13,8 @@ interface DestinationPlanningSectionProps {
   partySize: number;
   /** null = no estimable origin route; origin transport stays unavailable. */
   selectedTransport: string | null;
+  /** Planned travel date for ferry availability. */
+  ferryTemporal?: FerryTemporalContext;
   onSaveToItinerary: (plan?: DayPlan) => void;
   onPlanGenerated?: (plan: DayPlan | null) => void;
 }
@@ -21,6 +24,7 @@ export function DestinationPlanningSection({
   locale,
   partySize,
   selectedTransport,
+  ferryTemporal,
   onSaveToItinerary,
   onPlanGenerated,
 }: DestinationPlanningSectionProps) {
@@ -102,6 +106,7 @@ export function DestinationPlanningSection({
         locale={locale}
         partySize={activePartySize}
         activeTransportMode={selectedTransport}
+        ferryTemporal={ferryTemporal}
         hasGeneratedPlan={hasValidGeneratedPlan}
         planCostBreakdown={costBreakdown}
       />

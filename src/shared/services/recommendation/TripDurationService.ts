@@ -100,6 +100,7 @@ export function estimateTripDuration(
         const estimate = getFerryTransportEstimate(
           destination,
           context.homeStationCoords || undefined,
+          context.ferryTemporal,
         );
         minutes = estimate
           ? (estimate.timeRange[0] + estimate.timeRange[1]) / 2

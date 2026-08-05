@@ -139,6 +139,7 @@ export function runRecommendationPipeline(
       context.homeStationCoords || undefined,
       context.budgetTier,
       context.originZoneId,
+      context.ferryTemporal,
     );
     if (modes.length === 0) return false;
     const durationEst = estimateTripDuration(destination, context, modes);
@@ -156,6 +157,7 @@ export function runRecommendationPipeline(
         context.budgetTier,
         durationEst?.representativeHours,
         context.homeStationCoords || undefined,
+        context.ferryTemporal,
       ),
     );
 
@@ -192,6 +194,7 @@ export function runRecommendationPipeline(
         context.homeStationCoords || undefined,
         context.budgetTier,
         context.originZoneId,
+        context.ferryTemporal,
       ),
     );
     const budgetResult = getEstimatedBudgetRange(
@@ -201,6 +204,7 @@ export function runRecommendationPipeline(
       context.budgetTier,
       durationEstimate?.representativeHours,
       context.homeStationCoords || undefined,
+      context.ferryTemporal,
     );
     const estimatedCostRange = budgetResult.range;
     const estimatedCostTransportIncluded = budgetResult.transportIncluded;

@@ -14,6 +14,7 @@ import { getEstimatedBudgetRange } from "@/shared/services/budget/BudgetService"
 import { getFixedSeason } from "@/shared/utils/season";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
+import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import { personalizationService } from "./PersonalizationService";
 
 export const SCORING_WEIGHTS = {
@@ -85,6 +86,7 @@ export function getValidModes(
   homeCoords?: { lat: number; lng: number },
   budgetTier?: import("@/shared/types/planner").BudgetTier,
   originZoneId?: TransportZoneId,
+  ferryTemporal?: FerryTemporalContext,
 ): string[] {
   // a. Resolve origin and destination zones.
   const effectiveOriginZoneId =
@@ -117,7 +119,11 @@ export function getValidModes(
   );
   const flightEstimate = getFlightTransportEstimate(dest, homeCoords);
   if (flightEstimate) authorized.add("flight");
-  const ferryEstimate = getFerryTransportEstimate(dest, homeCoords);
+  const ferryEstimate = getFerryTransportEstimate(
+    dest,
+    homeCoords,
+    ferryTemporal,
+  );
   if (ferryEstimate) authorized.add("ferry");
 
   // c. Conservative failure: no authorized route → no modes.
@@ -206,6 +212,7 @@ export function calculateScore(
     context.homeStationCoords || undefined,
     context.budgetTier,
     context.originZoneId,
+    context.ferryTemporal,
   );
 
   // Budget and Transport Logic

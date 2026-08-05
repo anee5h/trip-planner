@@ -6,6 +6,7 @@ import type { TripDuration } from "@/shared/services/recommendation/Recommendati
 import { normalizeWeatherDescription } from "@/shared/services/recommendation/RecommendationContext";
 import type { BudgetTier } from "@/shared/types/planner";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
+import type { FerryTemporalContext } from "@/shared/services/transport/types";
 
 export type RouletteExpansion = "exact" | "duration" | "budget";
 
@@ -47,6 +48,8 @@ interface UseTripRecommendationsProps {
   tripDuration: TripDuration;
   homeStationCoords: { lat: number; lng: number } | null;
   homeStationTransportZoneId?: TransportZoneId;
+  /** Planned trip date/season for ferry availability. */
+  ferryTemporal?: FerryTemporalContext;
   isVisited: (id: string) => boolean;
   rouletteConstraints?: Pick<
     UseTripRecommendationsProps,
@@ -72,6 +75,7 @@ export function useTripRecommendations({
   tripDuration,
   homeStationCoords,
   homeStationTransportZoneId,
+  ferryTemporal,
   isVisited,
   rouletteConstraints,
 }: UseTripRecommendationsProps) {
@@ -105,6 +109,7 @@ export function useTripRecommendations({
       homeStationCoords: homeStationCoords || { lat: 35.6812, lng: 139.7671 },
       originZoneId: homeStationTransportZoneId,
       tripDuration,
+      ferryTemporal,
     });
   }, [
     allDestinations,
@@ -119,6 +124,7 @@ export function useTripRecommendations({
     tripDuration,
     homeStationCoords,
     homeStationTransportZoneId,
+    ferryTemporal,
     destinationRatings,
     visitedIds,
   ]);
@@ -158,6 +164,7 @@ export function useTripRecommendations({
             originZoneId: homeStationTransportZoneId,
             userRatings: destinationRatings,
             tripDuration: duration,
+            ferryTemporal,
           }),
         ),
       );
@@ -196,6 +203,7 @@ export function useTripRecommendations({
     budgetTier,
     carMode,
     destinationRatings,
+    ferryTemporal,
     homeStationCoords,
     homeStationTransportZoneId,
     partySize,

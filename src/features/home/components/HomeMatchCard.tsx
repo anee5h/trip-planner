@@ -23,6 +23,8 @@ interface HomeMatchCardProps {
   partySize?: number;
   carMode?: string;
   publicModes?: string[];
+  /** Planned travel date (ISO) forwarded to the destination details page. */
+  travelDate?: string;
 }
 
 /**
@@ -47,6 +49,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   partySize = 2,
   carMode = "none",
   publicModes = ["shinkansen", "limited_express", "local_train", "bus"],
+  travelDate,
 }) => {
   const { locale } = useLocale();
   const { t } = useTranslation();
@@ -74,6 +77,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
     partySize,
     homeStationCoords ?? undefined,
     homeStationTransportZoneId,
+    travelDate ? { travelDate: new Date(`${travelDate}T12:00:00`) } : undefined,
   );
 
   const travelTimeText = bestTransport
@@ -95,6 +99,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   return (
     <Link
       to={`/destinations/${destination.id}`}
+      state={travelDate ? { travelDate } : undefined}
       className="group relative flex h-full flex-1 cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-md transition-all duration-300 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900"
     >
       <div className="relative aspect-[4/3] sm:h-48 sm:aspect-auto w-full overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0">

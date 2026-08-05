@@ -11,12 +11,15 @@ interface TopMatchesSectionProps {
   recommendations: Destination[];
   hasUserApplied: boolean;
   appliedState: ResolvedPlannerState;
+  /** Planned travel date (ISO) passed through to destination links. */
+  travelDate?: string;
 }
 
 export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
   recommendations,
   hasUserApplied,
   appliedState,
+  travelDate,
 }) => {
   const { t } = useTranslation();
   const topFive = recommendations.slice(0, 5);
@@ -86,6 +89,7 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
                 partySize={appliedState.partySize}
                 carMode={appliedState.carMode}
                 publicModes={appliedState.publicModes}
+                travelDate={travelDate}
               />
             </div>
           ))}

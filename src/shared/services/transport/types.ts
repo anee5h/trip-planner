@@ -1,5 +1,19 @@
+import type { Season } from "@/shared/utils/season";
+
 export type TransportMode =
   "train" | "shinkansen" | "car" | "my_car" | "bus" | "flight" | "ferry";
+
+/**
+ * Canonical temporal input for ferry availability. Production code must
+ * never fall back to the system clock: an undefined context is evaluated
+ * conservatively (seasonal routes unavailable, period fares unverified).
+ */
+export interface FerryTemporalContext {
+  /** Exact planned travel date. */
+  travelDate?: Date;
+  /** Planned season fallback, evaluated conservatively. */
+  season?: Season;
+}
 
 export interface Location {
   name?: string;
@@ -78,6 +92,13 @@ export interface FerryService {
   fareSourceUrl?: string;
   /** Applies to the specific fact asserted (route or fare). */
   checkedAt?: string;
+  /**
+   * Inclusive ISO date window during which the fare is published. Absent =
+   * the fare is current until the next data refresh. Outside the window the
+   * route stays available but the fare is not applied (costUnavailable).
+   */
+  fareValidFrom?: string;
+  fareValidTo?: string;
   /** Seasonal or reservation notes. */
   notes?: string;
   /** Annual operating periods; absent means year-round. */

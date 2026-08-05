@@ -1,5 +1,6 @@
 import type { Destination } from "@/shared/types/destination";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
+import type { FerryTemporalContext } from "./types";
 import { getAdjustedBudget } from "@/shared/services/budget/BudgetService";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
 import { getFlightTransportEstimate } from "./FlightTransportEstimator";
@@ -24,6 +25,7 @@ export function getFastestPreferredTransport(
   partySize: number = 2,
   homeCoords?: { lat: number; lng: number },
   originZoneId?: TransportZoneId,
+  ferryTemporal?: FerryTemporalContext,
 ): PreferredTransport | null {
   const candidates = getValidModes(
     destination,
@@ -32,13 +34,15 @@ export function getFastestPreferredTransport(
     homeCoords,
     undefined,
     originZoneId,
+    ferryTemporal,
   )
     .map((mode) => {
       const timeRange =
         mode === "flight"
           ? getFlightTransportEstimate(destination, homeCoords)?.timeRange
           : mode === "ferry"
-            ? getFerryTransportEstimate(destination, homeCoords)?.timeRange
+            ? getFerryTransportEstimate(destination, homeCoords, ferryTemporal)
+                ?.timeRange
             : (() => {
                 const minutes =
                   destination.transportOptions?.[
@@ -59,6 +63,7 @@ export function getFastestPreferredTransport(
           partySize,
           homeCoords,
           originZoneId,
+          ferryTemporal,
         ),
       };
     })
