@@ -162,6 +162,117 @@ export const destinationsValidator: ValidatorModule = {
           });
         }
       }
+
+      // 7. Runtime contract for published destinations
+      // Error: fields whose absence causes render crashes
+      if (dest.status === "published") {
+        if (dest.categories === undefined || dest.categories === null) {
+          issues.push({
+            severity: "error",
+            code: "MISSING_CATEGORIES",
+            message: `Published destination '${dest.id}' has missing 'categories' field.`,
+            targetId: dest.id,
+          });
+        }
+        if (dest.tags === undefined || dest.tags === null) {
+          issues.push({
+            severity: "error",
+            code: "MISSING_TAGS",
+            message: `Published destination '${dest.id}' has missing 'tags' field.`,
+            targetId: dest.id,
+          });
+        }
+        if (dest.highlights === undefined || dest.highlights === null) {
+          issues.push({
+            severity: "error",
+            code: "MISSING_HIGHLIGHTS",
+            message: `Published destination '${dest.id}' has missing 'highlights' field.`,
+            targetId: dest.id,
+          });
+        }
+        if (dest.collections === undefined || dest.collections === null) {
+          issues.push({
+            severity: "error",
+            code: "MISSING_COLLECTIONS",
+            message: `Published destination '${dest.id}' has missing 'collections' field.`,
+            targetId: dest.id,
+          });
+        }
+        if (
+          !dest.transportOptions ||
+          typeof dest.transportOptions !== "object" ||
+          Object.keys(dest.transportOptions).length === 0
+        ) {
+          issues.push({
+            severity: "error",
+            code: "MISSING_TRANSPORT_OPTIONS",
+            message: `Published destination '${dest.id}' has empty or missing 'transportOptions'.`,
+            targetId: dest.id,
+          });
+        }
+        if (!dest.ratings || typeof dest.ratings !== "object") {
+          issues.push({
+            severity: "error",
+            code: "MISSING_RATINGS",
+            message: `Published destination '${dest.id}' has missing 'ratings' object.`,
+            targetId: dest.id,
+          });
+        } else {
+          for (const key of [
+            "overall",
+            "couple",
+            "summer",
+            "winter",
+            "rain",
+            "food",
+            "photography",
+            "relaxation",
+            "value",
+            "uniqueness",
+          ]) {
+            if (typeof dest.ratings[key] !== "number") {
+              issues.push({
+                severity: "error",
+                code: "MISSING_RATING_KEY",
+                message: `Published destination '${dest.id}' is missing required rating '${key}'.`,
+                targetId: dest.id,
+              });
+            }
+          }
+        }
+        if (!dest.crowd || typeof dest.crowd !== "object") {
+          issues.push({
+            severity: "error",
+            code: "MISSING_CROWD",
+            message: `Published destination '${dest.id}' has missing 'crowd' object.`,
+            targetId: dest.id,
+          });
+        }
+        if (!dest.season || typeof dest.season !== "object") {
+          issues.push({
+            severity: "error",
+            code: "MISSING_SEASON",
+            message: `Published destination '${dest.id}' has missing 'season' object.`,
+            targetId: dest.id,
+          });
+        }
+        if (dest.bestMonths === undefined || dest.bestMonths === null) {
+          issues.push({
+            severity: "error",
+            code: "MISSING_BEST_MONTHS",
+            message: `Published destination '${dest.id}' has missing 'bestMonths' field.`,
+            targetId: dest.id,
+          });
+        }
+        if (!dest.notes || dest.notes.trim() === "") {
+          issues.push({
+            severity: "warning",
+            code: "MISSING_NOTES",
+            message: `Published destination '${dest.id}' has empty or missing 'notes'.`,
+            targetId: dest.id,
+          });
+        }
+      }
     }
 
     const errorsCount = issues.filter((i) => i.severity === "error").length;

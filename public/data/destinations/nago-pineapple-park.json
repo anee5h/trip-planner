@@ -94,5 +94,28 @@
     "min": 1.5,
     "max": 2.5
   },
-  "municipalityId": "Okinawa:nago"
+  "municipalityId": "Okinawa:nago",
+  "categories": ["Leisure", "Food"],
+  "highlights": [
+    "Pineapple-themed amusement park",
+    "Ride through pineapple fields",
+    "Free pineapple tasting at the end"
+  ],
+  "collections": [],
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "transportOptions": {
+    "bus": 300
+  },
+  "notes": "A whimsical pineapple-themed park — great for families and pineapple lovers."
 }

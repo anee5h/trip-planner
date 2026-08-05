@@ -93,5 +93,28 @@
     "min": 1.5,
     "max": 3
   },
-  "municipalityId": "Okinawa:ishigaki"
+  "municipalityId": "Okinawa:ishigaki",
+  "categories": ["Nature", "Sightseeing"],
+  "highlights": [
+    "Stunning emerald-green bay",
+    "Famous for black pearl cultivation",
+    "Glass-bottom boat tours available"
+  ],
+  "collections": [],
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 6, 7, 8, 9, 10],
+  "transportOptions": {
+    "bus": 300
+  },
+  "notes": "Swimming is not allowed in the bay — take a glass-bottom boat to see the coral and pearls."
 }

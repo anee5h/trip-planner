@@ -37,7 +37,10 @@ export function toCanonicalPlace(destination: Destination): CanonicalPlace {
   const isReviewed = Boolean(pilot);
   return {
     ...destination,
+    categories: destination.categories || [],
     tags: destination.tags || [],
+    highlights: destination.highlights || [],
+    collections: destination.collections || [],
     placeType:
       destination.placeType ||
       (destination.role === "hub" ? "hub" : "destination"),

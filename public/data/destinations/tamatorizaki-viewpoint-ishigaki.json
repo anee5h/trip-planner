@@ -92,5 +92,28 @@
     "min": 1,
     "max": 1.5
   },
-  "municipalityId": "Okinawa:ishigaki"
+  "municipalityId": "Okinawa:ishigaki",
+  "categories": ["Sightseeing", "Nature"],
+  "highlights": [
+    "Panoramic view of the northern coastline",
+    "Two observation decks",
+    "Overlooks the coral-rich Hirakubo Peninsula"
+  ],
+  "collections": [],
+  "crowd": {
+    "weekday": 2,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "transportOptions": {
+    "bus": 350
+  },
+  "notes": "Free observation point with views of the Hirakubo Peninsula — best in clear morning light."
 }

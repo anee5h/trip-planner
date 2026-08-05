@@ -94,5 +94,28 @@
     "min": 1,
     "max": 2
   },
-  "municipalityId": "Okinawa:miyakojima"
+  "municipalityId": "Okinawa:miyakojima",
+  "categories": ["Sightseeing", "Nature"],
+  "highlights": [
+    "Scenic cape at Miyako's easternmost point",
+    "Contrast of Pacific Ocean and East China Sea",
+    "White lighthouse and coastal walking path"
+  ],
+  "collections": [],
+  "crowd": {
+    "weekday": 2,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "transportOptions": {
+    "bus": 300
+  },
+  "notes": "A dramatic cape where two seas meet — arrive early for sunrise at the easternmost point."
 }

@@ -94,5 +94,28 @@
     "min": 1.5,
     "max": 2.5
   },
-  "municipalityId": "Okinawa:nago"
+  "municipalityId": "Okinawa:nago",
+  "categories": ["Leisure", "Nature"],
+  "highlights": [
+    "Underwater observation tower",
+    "Glass-bottom boat rides",
+    "Views of the East China Sea"
+  ],
+  "collections": [],
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 6, 7, 8, 9, 10],
+  "transportOptions": {
+    "bus": 350
+  },
+  "notes": "The underwater observation tower offers excellent views of coral and tropical fish without getting wet."
 }

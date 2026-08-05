@@ -99,5 +99,28 @@
     "min": 1,
     "max": 2.5
   },
-  "municipalityId": "Okinawa:motobu"
+  "municipalityId": "Okinawa:motobu",
+  "categories": ["Historic", "Sightseeing"],
+  "highlights": [
+    "UNESCO World Heritage castle ruins",
+    "Cherry blossoms in late January",
+    "Panoramic views of the East China Sea"
+  ],
+  "collections": [],
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 9
+  },
+  "bestMonths": [1, 2, 3, 10, 11, 12],
+  "transportOptions": {
+    "bus": 400
+  },
+  "notes": "One of nine Gusuku sites — visit in late January for Okinawa's earliest cherry blossoms."
 }

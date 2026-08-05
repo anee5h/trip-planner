@@ -94,5 +94,28 @@
     "min": 2.5,
     "max": 4.5
   },
-  "municipalityId": "Okinawa:motobu"
+  "municipalityId": "Okinawa:motobu",
+  "categories": ["Aquarium", "Leisure"],
+  "highlights": [
+    "One of the world's largest aquarium tanks",
+    "Whale sharks and manta rays",
+    "Kuroshio Sea tank viewing"
+  ],
+  "collections": [],
+  "crowd": {
+    "weekday": 6,
+    "weekend": 9,
+    "holiday": 10
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "transportOptions": {
+    "bus": 400
+  },
+  "notes": "Home to whale sharks — arrive early to avoid the heaviest crowds at the Kuroshio tank."
 }

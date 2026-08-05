@@ -94,5 +94,28 @@
     "min": 2,
     "max": 4
   },
-  "municipalityId": "Okinawa:miyakojima"
+  "municipalityId": "Okinawa:miyakojima",
+  "categories": ["Beach", "Nature"],
+  "highlights": [
+    "7 km of white sand beach",
+    "Crystal-clear shallow water",
+    "Voted one of Japan's best beaches"
+  ],
+  "collections": [],
+  "crowd": {
+    "weekday": 3,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 10,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [4, 5, 6, 7, 8, 9, 10],
+  "transportOptions": {
+    "bus": 300
+  },
+  "notes": "One of Japan's top beaches — the shallow water extends far out, ideal for wading and families."
 }
