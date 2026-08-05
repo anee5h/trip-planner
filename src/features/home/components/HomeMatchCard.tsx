@@ -100,10 +100,21 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
 
   // Weekend metadata
   const weekend = (destination as ScoredDestination).weekend;
-  const weekendReason = weekend?.travelFit
-    ? (destination as ScoredDestination).match?.reasons?.find((r) =>
-        r.code.startsWith("weekend"),
-      )
+  // Prefer the most situation-specific weekend reason (weather > travel >
+  // capacity) over the generic "weekendTripReady" headline.
+  const weekendReason = weekend
+    ? ((destination as ScoredDestination).match?.reasons?.find((r) =>
+        r.code.startsWith("weekendWeather"),
+      ) ??
+      (destination as ScoredDestination).match?.reasons?.find((r) =>
+        r.code.startsWith("weekendTravel"),
+      ) ??
+      (destination as ScoredDestination).match?.reasons?.find((r) =>
+        r.code.startsWith("weekendCapacity"),
+      ) ??
+      (destination as ScoredDestination).match?.reasons?.find(
+        (r) => r.code === "weekendTripReady",
+      ))
     : undefined;
 
   const weatherIconForCondition = (condition: string): React.ElementType => {
@@ -146,22 +157,22 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
 
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/30" />
 
-        {/* Rank Badge - Show only when requested */}
-        {showRank && (
-          <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10 bg-slate-900/90 text-white font-black text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full border border-white/20 shadow-md flex items-center gap-1">
-            <span className="text-emerald-400 font-black">#{rank}</span>
-          </div>
-        )}
-        {/* Weekend Badge */}
-        {weekend && (
-          <div
-            className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10 bg-emerald-600/90 text-white font-bold text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full shadow-md"
-            style={{ marginTop: showRank ? "1.75rem" : "0" }}
-            aria-label={t("home.weekendBadge")}
-          >
-            {t("home.weekendBadge")}
-          </div>
-        )}
+        {/* Rank + Weekend Badges - stacked in one flex column */}
+        <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10 flex flex-col items-start gap-1">
+          {showRank && (
+            <div className="bg-slate-900/90 text-white font-black text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full border border-white/20 shadow-md flex items-center gap-1">
+              <span className="text-emerald-400 font-black">#{rank}</span>
+            </div>
+          )}
+          {weekend && (
+            <div
+              className="bg-emerald-600/90 text-white font-bold text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full shadow-md"
+              aria-label={t("home.weekendBadge")}
+            >
+              {t("home.weekendBadge")}
+            </div>
+          )}
+        </div>
 
         {/* Bucket List Action - Stops Propagation */}
         <div

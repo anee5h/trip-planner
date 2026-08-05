@@ -275,12 +275,20 @@ export function getNextCalendarDate(isoDate: string): string {
   const year = parseInt(m[1], 10);
   const month = parseInt(m[2], 10);
   const day = parseInt(m[3], 10);
-  // Validate month/day ranges to catch e.g. 2026-13-01
+  // Validate month/day ranges to catch e.g. 2026-13-01 and 2026-02-30
+  // (Date would silently roll over; reject instead).
   if (month < 1 || month > 12 || day < 1 || day > 31) {
     throw new Error(`Invalid ISO date: ${isoDate}`);
   }
-  // Local calendar arithmetic — no UTC shift
   const d = new Date(year, month - 1, day);
+  if (
+    d.getFullYear() !== year ||
+    d.getMonth() !== month - 1 ||
+    d.getDate() !== day
+  ) {
+    throw new Error(`Invalid ISO date: ${isoDate}`);
+  }
+  // Local calendar arithmetic — no UTC shift
   d.setDate(d.getDate() + 1);
   return formatDateISO(d);
 }

@@ -197,4 +197,96 @@ describe("HomePlanner", () => {
     act(() => dayTripBtn?.click());
     expect(onTripModeChange).toHaveBeenCalledWith("day_trip");
   });
+
+  describe("keyboard accessibility", () => {
+    it("toggle buttons have role=radio and correct aria-checked state", () => {
+      const container = renderHomePlanner();
+
+      const dayTripBtn = Array.from(container.querySelectorAll("button")).find(
+        (btn) => btn.textContent === "Day trip",
+      );
+      expect(dayTripBtn?.getAttribute("role")).toBe("radio");
+      expect(dayTripBtn?.getAttribute("aria-checked")).toBe("true");
+
+      const weekendBtn = Array.from(container.querySelectorAll("button")).find(
+        (btn) => btn.textContent?.includes("Weekend"),
+      );
+      expect(weekendBtn?.getAttribute("role")).toBe("radio");
+      expect(weekendBtn?.getAttribute("aria-checked")).toBe("false");
+    });
+
+    it("both toggle buttons are in natural tab order as native buttons", () => {
+      const container = renderHomePlanner();
+
+      const dayTripBtn = Array.from(container.querySelectorAll("button")).find(
+        (btn) => btn.textContent === "Day trip",
+      ) as HTMLButtonElement | undefined;
+      const weekendBtn = Array.from(container.querySelectorAll("button")).find(
+        (btn) => btn.textContent?.includes("Weekend"),
+      ) as HTMLButtonElement | undefined;
+
+      // Native buttons without tabIndex="-1" are focusable in natural tab order
+      expect(dayTripBtn).toBeDefined();
+      expect(dayTripBtn?.tagName).toBe("BUTTON");
+      expect(dayTripBtn?.getAttribute("tabIndex")).toBeNull();
+
+      expect(weekendBtn).toBeDefined();
+      expect(weekendBtn?.tagName).toBe("BUTTON");
+      expect(weekendBtn?.getAttribute("tabIndex")).toBeNull();
+    });
+
+    it("click on focused weekend button fires onTripModeChange (keyboard activation proxy)", () => {
+      // In real browsers, Enter/Space on a focused <button> fires click.
+      // jsdom does not synthesize click from keydown, so we use click()
+      // as a faithful proxy for keyboard activation of native buttons.
+      const onTripModeChange = vi.fn();
+      const container = renderHomePlanner({ onTripModeChange });
+
+      const weekendBtn = Array.from(container.querySelectorAll("button")).find(
+        (btn) => btn.textContent?.includes("Weekend"),
+      ) as HTMLButtonElement | undefined;
+
+      act(() => {
+        weekendBtn?.focus();
+        weekendBtn?.click();
+      });
+      expect(onTripModeChange).toHaveBeenCalledWith("weekend_2d1n");
+      expect(document.activeElement).toBe(weekendBtn);
+    });
+
+    it("click on focused day trip button fires onTripModeChange (keyboard activation proxy)", () => {
+      const onTripModeChange = vi.fn();
+      const container = renderHomePlanner({
+        tripMode: "weekend_2d1n",
+        onTripModeChange,
+      });
+
+      const dayTripBtn = Array.from(container.querySelectorAll("button")).find(
+        (btn) => btn.textContent === "Day trip",
+      ) as HTMLButtonElement | undefined;
+
+      act(() => {
+        dayTripBtn?.focus();
+        dayTripBtn?.click();
+      });
+      expect(onTripModeChange).toHaveBeenCalledWith("day_trip");
+      expect(document.activeElement).toBe(dayTripBtn);
+    });
+  });
+
+  describe("aria state reflects tripMode", () => {
+    it("weekend button is aria-checked=true when tripMode is weekend_2d1n", () => {
+      const container = renderHomePlanner({ tripMode: "weekend_2d1n" });
+
+      const dayTripBtn = Array.from(container.querySelectorAll("button")).find(
+        (btn) => btn.textContent === "Day trip",
+      );
+      expect(dayTripBtn?.getAttribute("aria-checked")).toBe("false");
+
+      const weekendBtn = Array.from(container.querySelectorAll("button")).find(
+        (btn) => btn.textContent?.includes("Weekend"),
+      );
+      expect(weekendBtn?.getAttribute("aria-checked")).toBe("true");
+    });
+  });
 });

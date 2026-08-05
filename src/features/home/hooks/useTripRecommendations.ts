@@ -175,6 +175,7 @@ export function useTripRecommendations({
                     temperatureC: actualWeather.temperatureC,
                   }
                 : undefined,
+              days: tripMode === "weekend_2d1n" ? weatherDays : undefined,
             },
             visitedIds,
             homeStationCoords: homeStationCoords || {

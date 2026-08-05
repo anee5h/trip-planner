@@ -386,7 +386,11 @@ export default function Home() {
               {t("home.headline")}
             </h1>
             <p className="mt-2 hidden text-sm font-medium leading-relaxed text-slate-500 dark:text-slate-400 sm:block md:text-base">
-              {t("home.subtitle")}
+              {t(
+                resolvedApplied.tripMode === "weekend_2d1n"
+                  ? "home.subtitleWeekend"
+                  : "home.subtitle",
+              )}
             </p>
           </div>
 

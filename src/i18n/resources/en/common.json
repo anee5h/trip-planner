@@ -234,6 +234,7 @@
   "home": {
     "headline": "Where will you go next?",
     "subtitle": "Personalized day-trip ideas based on your time, budget, and travel style.",
+    "subtitleWeekend": "Personalized 2-day / 1-night weekend ideas based on your time, budget, and travel style.",
     "change": "Change",
     "planner": "Trip Planner",
     "plannerHint": "Find your match in 30s",

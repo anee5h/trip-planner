@@ -154,6 +154,9 @@ export function runRecommendationPipeline(
 
     // Weekend mode: skip duration-band match; use evaluateWeekendCandidate.
     // Day-trip mode keeps the existing duration-band estimate unchanged.
+    // estimateTripDuration here feeds representativeHours into the budget
+    // filter for BOTH modes (deterministic; cheap JSON lookups). The expensive
+    // weekend evaluation itself is cached in weekendEvalCache by destination id.
     let durationEst = estimateTripDuration(destination, context, modes);
     if (isWeekend) {
       const eval_ = evaluateWeekendCandidate(

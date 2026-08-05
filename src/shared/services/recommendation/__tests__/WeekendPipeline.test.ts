@@ -1,7 +1,13 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect } from "vitest";
 import type { Destination } from "@/shared/types/destination";
 import { runRecommendationPipeline } from "../RecommendationPipeline";
+import { getEstimatedBudgetRange } from "@/shared/services/budget/BudgetService";
+import destinationsIndex from "@/shared/data/destinations-index.json";
 import type { RecommendationContext } from "../RecommendationContext";
+
+const byId = new Map(
+  (destinationsIndex as Destination[]).map((d) => [d.id, d]),
+);
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -280,39 +286,120 @@ describe("runRecommendationPipeline — weekend mode", () => {
     expect(contribs).toHaveProperty("weekendWeather");
     expect(contribs.total).toBeGreaterThan(0);
   });
+
+  it("ranks 2 good-weather days above 1 good + 1 stormy for the same destination", () => {
+    const d = dest({
+      id: "weather-compare",
+      transportOptions: { train: 90 },
+      indoorPercent: 30,
+      recommendedVisitHours: { min: 1, max: 10 },
+    });
+
+    const clearCtx = ctx({
+      tripMode: "weekend_2d1n",
+      weather: {
+        days: [
+          { date: "2026-08-05", condition: "clear" },
+          { date: "2026-08-06", condition: "cloudy" },
+        ],
+      },
+    });
+    const stormyCtx = ctx({
+      tripMode: "weekend_2d1n",
+      weather: {
+        days: [
+          { date: "2026-08-05", condition: "clear" },
+          { date: "2026-08-06", condition: "stormy" },
+        ],
+      },
+    });
+
+    const clearResults = runRecommendationPipeline([d], clearCtx);
+    const stormyResults = runRecommendationPipeline([d], stormyCtx);
+
+    expect(clearResults).toHaveLength(1);
+    expect(stormyResults).toHaveLength(1);
+
+    const clearScore = clearResults[0].score;
+    const stormyScore = stormyResults[0].score;
+    expect(clearScore).toBeGreaterThan(stormyScore);
+  });
+
+  it("indoor-heavy destination penalized less than outdoor-heavy for identical stormy weather", () => {
+    const indoorDest = dest({
+      id: "indoor-heavy",
+      transportOptions: { train: 90 },
+      indoorPercent: 85,
+      recommendedVisitHours: { min: 1, max: 10 },
+    });
+    const outdoorDest = dest({
+      id: "outdoor-heavy",
+      transportOptions: { train: 90 },
+      indoorPercent: 10,
+      recommendedVisitHours: { min: 1, max: 10 },
+    });
+
+    const stormyCtx = ctx({
+      tripMode: "weekend_2d1n",
+      weather: {
+        days: [
+          { date: "2026-08-05", condition: "stormy" },
+          { date: "2026-08-06", condition: "rainy" },
+        ],
+      },
+    });
+
+    const indoorResults = runRecommendationPipeline([indoorDest], stormyCtx);
+    const outdoorResults = runRecommendationPipeline([outdoorDest], stormyCtx);
+
+    expect(indoorResults).toHaveLength(1);
+    expect(outdoorResults).toHaveLength(1);
+
+    const indoorWeatherScore =
+      indoorResults[0].pipeline.scoreContributions.weekendWeather;
+    const outdoorWeatherScore =
+      outdoorResults[0].pipeline.scoreContributions.weekendWeather;
+    // Indoor-heavy should have a less negative weather contribution
+    expect(indoorWeatherScore).toBeGreaterThan(outdoorWeatherScore);
+  });
 });
 
 // ── Weekend transport-excluded reason ────────────────────────────────────────
 
 describe("runRecommendationPipeline — weekend transport excluded reason", () => {
-  beforeEach(() => {
-    vi.resetModules();
-  });
+  // Real production fixture: Ishigaki from Fukuoka has a verified flight route
+  // (FUK→ISG) whose fare is unverified (costUnavailable), so the pipeline must
+  // retain the candidate but mark transport excluded — never zero-cost.
+  it("appends weekendTransportExcluded when transport cost is genuinely unavailable", () => {
+    const ishigaki = byId.get("ishigaki-city")!;
+    const FUKUOKA = { lat: 33.5902, lng: 130.4017 };
+    const budgetEst = getEstimatedBudgetRange(
+      ishigaki,
+      "flight",
+      2,
+      "standard",
+      ishigaki.totalTripHours,
+      FUKUOKA,
+    );
+    expect(budgetEst.transportIncluded).toBe(false);
 
-  it("appends weekendTransportExcluded when budgetResult.transportIncluded is false", async () => {
-    // Use dynamic import so we can mock before the module loads
-    const budget = await import("@/shared/services/budget/BudgetService");
-    const spy = vi.spyOn(budget, "getEstimatedBudgetRange");
-    spy.mockReturnValue({
-      range: [5000, 8000],
-      transportIncluded: false,
+    const results = runRecommendationPipeline([ishigaki], {
+      vibe: "any",
+      budget: 500000,
+      carMode: "none",
+      publicModes: ["flight"],
+      partySize: 2,
+      visitedIds: [],
+      homeStationCoords: FUKUOKA,
+      originZoneId: "mainland-kyushu",
+      tripMode: "weekend_2d1n",
     });
 
-    // Re-import the pipeline to pick up the mock
-    const { runRecommendationPipeline: pipeline } =
-      await import("../RecommendationPipeline");
-
-    const d = dest({
-      id: "d",
-      recommendedVisitHours: { min: 1, max: 10 },
-      transportOptions: { train: 90 },
-    });
-
-    const results = pipeline([d], ctx({ tripMode: "weekend_2d1n" }));
-    expect(results).toHaveLength(1);
-    const codes = results[0].match.reasons.map((r) => r.code);
+    expect(results.map((r) => r.id)).toContain("ishigaki-city");
+    const result = results[0];
+    expect(result.estimatedCostTransportIncluded).toBe(false);
+    expect(result.weekend?.estimatedCostTransportIncluded).toBe(false);
+    const codes = result.match.reasons.map((r) => r.code);
     expect(codes).toContain("weekendTransportExcluded");
-
-    spy.mockRestore();
   });
 });
