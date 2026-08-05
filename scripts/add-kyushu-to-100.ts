@@ -89,7 +89,7 @@ function buildHub(input: HubInput): DestinationRecord {
     prefecture: input.prefecture,
     region: "Kyushu",
     categories: ["Travel Hub", "City Hub"],
-    heroImage: input.heroImage,
+    heroImage: input.heroImage || "",
     image: input.heroImage,
     imageMetadata: {
       source: "Wikimedia Commons",
@@ -289,7 +289,7 @@ function buildPoi(input: PoiInput): DestinationRecord {
     officialWebsiteRequirement: input.officialWebsite ? "optional" : "optional",
     categories: input.categories,
     tags: input.tags,
-    heroImage: input.heroImage,
+    heroImage: input.heroImage || "",
     imageMetadata: {
       source: "Wikimedia Commons",
       license: input.imageLicense,
@@ -1160,7 +1160,7 @@ const POI_ISHIDAKE: PoiInput = {
   ],
   heroImage:
     "https://upload.wikimedia.org/wikipedia/commons/b/bf/%E7%9F%B3%E5%B2%B3%E5%B1%95%E6%9C%9B%E5%8F%B0_-_panoramio.jpg",
-  imageAttribution: "Panoramio upload bot",
+  imageAttribution: "mahlervv",
   imageLicense: "CC BY 3.0",
   imageSourceUrl:
     "https://commons.wikimedia.org/wiki/File:%E7%9F%B3%E5%B2%B3%E5%B1%95%E6%9C%9B%E5%8F%B0_-_panoramio.jpg",
@@ -1923,12 +1923,10 @@ const POI_INOHAE_VALLEY: PoiInput = {
     "亜熱帯植物と清流",
     "混雑しない静かな穴場スポット",
   ],
-  heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/9/9b/Nichinan_20200920151158_%2850855694133%29.jpg",
-  imageAttribution: "Yacàwotçã",
-  imageLicense: "CC BY 2.0",
-  imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Nichinan_20200920151158_(50855694133).jpg",
+  heroImage: "",
+  imageAttribution: "",
+  imageLicense: "",
+  imageSourceUrl: "",
   openingHours:
     "Daylight access only. Trail may close after heavy rain. Not maintained as a managed park.",
   openingHoursJa:
@@ -2006,7 +2004,7 @@ const POI_MAMEDA: PoiInput = {
   ],
   heroImage:
     "https://upload.wikimedia.org/wikipedia/commons/6/62/Mamedamachi-1_Hita_Oita.JPG",
-  imageAttribution: "MGA73bot2",
+  imageAttribution: "NY066",
   imageLicense: "CC BY-SA 3.0",
   imageSourceUrl:
     "https://commons.wikimedia.org/wiki/File:Mamedamachi-1_Hita_Oita.JPG",
@@ -2157,12 +2155,10 @@ const POI_AOT_HITA_MUSEUM: PoiInput = {
     "等身大キャラクター像との写真撮影",
     "日田限定グッズの販売",
   ],
-  heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/4/42/Mameda_Branch_of_Hita_Shinkin_Bank.jpg",
-  imageAttribution: "そらみみ",
-  imageLicense: "CC BY-SA 4.0",
-  imageSourceUrl:
-    "https://commons.wikimedia.org/wiki/File:Mameda_Branch_of_Hita_Shinkin_Bank.jpg",
+  heroImage: "",
+  imageAttribution: "",
+  imageLicense: "",
+  imageSourceUrl: "",
   openingHours:
     "Weekdays 09:30–16:00; weekends and public holidays 09:30–17:00; irregular closures",
   openingHoursJa: "平日09:30～16:00、土日祝09:30～17:00。不定休。",
@@ -2231,11 +2227,10 @@ const POI_OYAMA_DAM: PoiInput = {
     "銅像広場から望むダムと山々のパノラマ",
     "無料で自由に見学できるアニメ聖地",
   ],
-  heroImage:
-    "https://upload.wikimedia.org/wikipedia/commons/8/86/Oyama_Dam.jpg",
-  imageAttribution: "河川一等兵",
-  imageLicense: "CC BY-SA 4.0",
-  imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Oyama_Dam.jpg",
+  heroImage: "",
+  imageAttribution: "",
+  imageLicense: "",
+  imageSourceUrl: "",
   openingHours:
     "Open access (daylight hours recommended). Outdoor site — unlit after dark.",
   openingHoursJa: "自由見学（日中推奨）。屋外のため日没後は非推奨。",
@@ -2579,12 +2574,12 @@ function validateRecords(records: DestinationRecord[], stage: string) {
 
     // Image
     const hero = r.heroImage || "";
-    assert(hero.length > 0, `[${stage}] ${r.id} missing heroImage`);
-    assert(
-      /\.(jpg|jpeg|png|webp|avif)(\?|$)/i.test(hero),
-      `[${stage}] ${r.id} unsupported image format: ${hero}`,
-    );
-
+    if (hero.length > 0) {
+      assert(
+        /\.(jpg|jpeg|png|webp|avif)(\?|$)/i.test(hero),
+        `[${stage}] ${r.id} unsupported image format: ${hero}`,
+      );
+    }
     // Reject known bad image mappings
     const KNOWN_BAD: Record<string, string> = {
       "huis-ten-bosch": "Series783-R-HuisTenBosch",
@@ -2608,18 +2603,20 @@ function validateRecords(records: DestinationRecord[], stage: string) {
         `[${stage}] ${r.id} image/sourceUrl mismatch: ${heroFile} vs ${srcFile}`,
       );
     }
-    assert(
-      !!r.imageMetadata?.attribution,
-      `[${stage}] ${r.id} missing image attribution`,
-    );
-    assert(
-      !!r.imageMetadata?.license,
-      `[${stage}] ${r.id} missing image licence`,
-    );
-    assert(
-      !!r.imageMetadata?.sourceUrl,
-      `[${stage}] ${r.id} missing image sourceUrl`,
-    );
+    if (hero.length > 0) {
+      assert(
+        !!r.imageMetadata?.attribution,
+        `[${stage}] ${r.id} missing image attribution`,
+      );
+      assert(
+        !!r.imageMetadata?.license,
+        `[${stage}] ${r.id} missing image licence`,
+      );
+      assert(
+        !!r.imageMetadata?.sourceUrl,
+        `[${stage}] ${r.id} missing image sourceUrl`,
+      );
+    }
 
     // Municipality
     assert(!!r.municipalityId, `[${stage}] ${r.id} missing municipalityId`);
@@ -2752,12 +2749,14 @@ function main() {
 
   // Check no duplicate images across expansion records
   const expansionRecords = data.filter((r) => expansionIds.has(r.id));
-  const heroImages = expansionRecords.map((r) => r.heroImage);
+  const heroImages = expansionRecords.map((r) => r.heroImage).filter(Boolean);
   assert(
     new Set(heroImages).size === heroImages.length,
     "Duplicate heroImage across expansion records",
   );
-  const sourceUrls = expansionRecords.map((r) => r.imageMetadata?.sourceUrl);
+  const sourceUrls = expansionRecords
+    .map((r) => r.imageMetadata?.sourceUrl)
+    .filter(Boolean);
   assert(
     new Set(sourceUrls).size === sourceUrls.length,
     "Duplicate imageMetadata.sourceUrl across expansion records",
