@@ -264,7 +264,7 @@ describe("DestinationDetails transport rows", () => {
     expect(text).toContain("Local access available");
   });
 
-  it("Sakurajima from Kagoshima never displays Train", async () => {
+  it("Sakurajima from Kagoshima shows Ferry, never Train", async () => {
     storeState.homeStationCoords = { lat: 31.5966, lng: 130.5571 };
     storeState.homeStationTransportZoneId = "mainland-kyushu";
     render("/destinations/sakurajima-volcano-kagoshima");
@@ -274,7 +274,8 @@ describe("DestinationDetails transport rows", () => {
     const text = host.textContent ?? "";
     expect(text).not.toContain("Train");
     expect(text).not.toContain("Shinkansen");
-    expect(text).toContain("Local access available");
+    // Same-zone ferry route (Kagoshima → Sakurajima) is now estimable.
+    expect(text).toContain("Ferry");
   });
 
   it("Fukuoka → Ishigaki rendered UI shows Flight, Cost unavailable, transport-excluded title, and no full-trip label in English", async () => {
