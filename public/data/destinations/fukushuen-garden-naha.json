@@ -116,7 +116,7 @@
   },
   "bestMonths": [1, 2, 3, 4, 10, 11, 12],
   "transportOptions": {
-    "train": 10
+    "train": 200
   },
   "notes": "A tranquil Chinese garden near the city centre — a quiet escape from busy Kokusai Dori.",
   "totalTripHours": 2,

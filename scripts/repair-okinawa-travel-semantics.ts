@@ -156,39 +156,6 @@ const walkingCorrections: Record<string, WalkingCorrection> = {
 };
 
 // ==========================================================================
-// Transport-minute corrections (fare-like → one-way minute estimates)
-//
-// Anchor: one-way minutes from the parent hub's central station/port using
-// the most common public transport mode for visitors.
-// Bus times estimated from published route schedules and typical Okinawa
-// traffic conditions. Monorail times from published Naha timetable.
-// ==========================================================================
-
-const transportCorrections: Record<string, Record<string, number>> = {
-  // Naha monorail — ~5-10 min ride + walking from station
-  "kokusai-dori-naha": { train: 8 }, // Makishi or Kencho-mae station
-  "naminoue-shrine-naha": { train: 12 }, // Asahibashi + walk
-  "fukushuen-garden-naha": { train: 10 }, // Kencho-mae + walk
-  // Nago bus from Nago Bus Terminal
-  "nago-pineapple-park": { bus: 25 }, // Nago BT → park
-  "busena-marine-park-nago": { bus: 20 }, // Nago BT → Busena
-  // Motobu bus from Nago or direct
-  "churaumi-aquarium-motobu": { bus: 50 }, // Nago → Churaumi (express)
-  "bise-fukugi-tree-road-motobu": { bus: 55 }, // Nago → Bise
-  "nakijin-castle-ruins-motobu": { bus: 60 }, // Nago → Nakijin
-  // Ishigaki — bus from Ishigaki Port
-  "kabira-bay-ishigaki": { bus: 35 }, // Port → Kabira
-  "tamatorizaki-viewpoint-ishigaki": { bus: 50 }, // Port → Tamatorizaki
-  "yonehara-beach-coral-ishigaki": { bus: 30 }, // Port → Yonehara
-  // Miyako — bus from Hirara
-  "yonaha-maehama-beach-miyako": { bus: 25 }, // Hirara → Maehama
-  "irabu-bridge-irabujima-miyako": { bus: 30 }, // Hirara → Irabu Bridge
-  "higashi-hennazaki-cape-miyako": { bus: 40 }, // Hirara → Higashi-Hennazaki
-  // Existing records with fare-like values
-  "kouri-island-okinawa": { bus: 60 }, // Nago → Kouri
-};
-
-// ==========================================================================
 // Walkability ratings (1–10) for all published Okinawa non-hub records
 //
 // Rubric:
@@ -243,13 +210,6 @@ function applyRepair(data: DestinationRecord[]): DestinationRecord[] {
     r.walkingMin = w.walkingMin;
     r.walkingSunMin = w.walkingSunMin;
     r.walkingShadeMin = w.walkingShadeMin;
-  }
-
-  // Apply transport corrections
-  for (const [id, t] of Object.entries(transportCorrections)) {
-    const r = result.find((x) => x.id === id);
-    if (!r) throw new Error(`Transport target not found: ${id}`);
-    r.transportOptions = { ...t };
   }
 
   // Apply walkability ratings to all published Okinawa non-hub records

@@ -34,7 +34,7 @@
   "budgetMax": 2000,
   "budgetRecommended": 1000,
   "transportOptions": {
-    "bus": 60
+    "train": 180
   },
   "ratings": {
     "overall": 9,

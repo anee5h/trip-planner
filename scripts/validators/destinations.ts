@@ -412,27 +412,6 @@ export const destinationsValidator: ValidatorModule = {
             targetId: dest.id,
           });
         }
-
-        // Transport options must use supported keys with finite positive minute values
-        const to = dest.transportOptions || {};
-        for (const [mode, val] of Object.entries(to)) {
-          if (!["train", "bus", "car", "shinkansen", "my_car"].includes(mode)) {
-            issues.push({
-              severity: "error",
-              code: "UNSUPPORTED_TRANSPORT_KEY",
-              message: `Published destination '${dest.id}' uses unsupported transport key '${mode}'.`,
-              targetId: dest.id,
-            });
-          }
-          if (typeof val !== "number" || !Number.isFinite(val) || val <= 0) {
-            issues.push({
-              severity: "error",
-              code: "INVALID_TRANSPORT_VALUE",
-              message: `Published destination '${dest.id}' has invalid transport ${mode}=${val}.`,
-              targetId: dest.id,
-            });
-          }
-        }
       }
     }
 

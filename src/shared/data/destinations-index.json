@@ -30569,7 +30569,7 @@
     "budgetMax": 2000,
     "budgetRecommended": 1000,
     "transportOptions": {
-      "bus": 60
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -84790,7 +84790,7 @@
     },
     "bestMonths": [3, 4, 5, 10, 11],
     "transportOptions": {
-      "train": 8
+      "train": 200
     },
     "notes": "Naha's main shopping street — great for Okinawan souvenirs and street food.",
     "totalTripHours": 3,
@@ -84923,7 +84923,7 @@
     },
     "bestMonths": [1, 3, 4, 5, 10, 11],
     "transportOptions": {
-      "train": 12
+      "train": 200
     },
     "notes": "The only major Shinto shrine in Okinawa, perched on a clifftop overlooking Naminoue Beach.",
     "totalTripHours": 2,
@@ -85056,7 +85056,7 @@
     },
     "bestMonths": [1, 2, 3, 4, 10, 11, 12],
     "transportOptions": {
-      "train": 10
+      "train": 200
     },
     "notes": "A tranquil Chinese garden near the city centre — a quiet escape from busy Kokusai Dori.",
     "totalTripHours": 2,
@@ -85189,7 +85189,7 @@
     },
     "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     "transportOptions": {
-      "bus": 25
+      "bus": 300
     },
     "notes": "A whimsical pineapple-themed park — great for families and pineapple lovers.",
     "totalTripHours": 4,
@@ -85322,7 +85322,7 @@
     },
     "bestMonths": [3, 4, 5, 6, 7, 8, 9, 10],
     "transportOptions": {
-      "bus": 20
+      "bus": 350
     },
     "notes": "The underwater observation tower offers excellent views of coral and tropical fish without getting wet.",
     "totalTripHours": 3,
@@ -85455,7 +85455,7 @@
     },
     "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     "transportOptions": {
-      "bus": 50
+      "bus": 400
     },
     "notes": "Home to whale sharks — arrive early to avoid the heaviest crowds at the Kuroshio tank.",
     "totalTripHours": 5,
@@ -85588,7 +85588,7 @@
     },
     "bestMonths": [3, 4, 5, 10, 11],
     "transportOptions": {
-      "bus": 55
+      "bus": 300
     },
     "notes": "A peaceful tree-lined lane near Churaumi — walk or rent a bicycle for the full experience.",
     "totalTripHours": 2,
@@ -85726,7 +85726,7 @@
     },
     "bestMonths": [1, 2, 3, 10, 11, 12],
     "transportOptions": {
-      "bus": 60
+      "bus": 400
     },
     "notes": "One of nine Gusuku sites — visit in late January for Okinawa's earliest cherry blossoms.",
     "totalTripHours": 3,
@@ -85858,7 +85858,7 @@
     },
     "bestMonths": [3, 4, 5, 6, 7, 8, 9, 10],
     "transportOptions": {
-      "bus": 35
+      "bus": 300
     },
     "notes": "Swimming is not allowed in the bay — take a glass-bottom boat to see the coral and pearls.",
     "totalTripHours": 2,
@@ -85989,7 +85989,7 @@
     },
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "transportOptions": {
-      "bus": 50
+      "bus": 350
     },
     "notes": "Free observation point with views of the Hirakubo Peninsula — best in clear morning light.",
     "totalTripHours": 1,
@@ -86120,7 +86120,7 @@
     },
     "bestMonths": [4, 5, 6, 7, 8, 9, 10],
     "transportOptions": {
-      "bus": 30
+      "bus": 300
     },
     "notes": "Bring your own snorkel gear — the coral starts just metres from the shore at low tide.",
     "totalTripHours": 3,
@@ -86253,7 +86253,7 @@
     },
     "bestMonths": [4, 5, 6, 7, 8, 9, 10],
     "transportOptions": {
-      "bus": 25
+      "bus": 300
     },
     "notes": "One of Japan's top beaches — the shallow water extends far out, ideal for wading and families.",
     "totalTripHours": 4,
@@ -86386,7 +86386,7 @@
     },
     "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     "transportOptions": {
-      "bus": 30
+      "bus": 250
     },
     "notes": "Japan's longest toll-free bridge — stop at the roadside station for panoramic photos.",
     "totalTripHours": 2,
@@ -86519,7 +86519,7 @@
     },
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "transportOptions": {
-      "bus": 40
+      "bus": 300
     },
     "notes": "A dramatic cape where two seas meet — arrive early for sunrise at the easternmost point.",
     "totalTripHours": 2,
