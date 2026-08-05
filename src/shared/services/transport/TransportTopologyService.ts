@@ -312,7 +312,7 @@ export function getEligibleOriginModes(params: {
     // Destination-level constraint: when a record declares localAccessModes,
     // only those modes reach the destination, even if the zone supports more.
     const effectiveLocalModes = params.destination.localAccessModes?.length
-      ? (params.destination.localAccessModes as TransportMode[])
+      ? params.destination.localAccessModes
       : localModes;
     return {
       originZoneId,

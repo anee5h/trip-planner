@@ -198,9 +198,13 @@ export function TripCostBreakdownWidget({
               )}
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              {locale === "ja"
-                ? `交通・チケット・食事を含む予想合計 (グループ: ${partySize}名)`
-                : `Est. total including transport, tickets & dining (${partySize} guests)`}
+              {!hasTransport
+                ? locale === "ja"
+                  ? `現地費用の概算（交通費を除く） (グループ: ${partySize}名)`
+                  : `Estimated on-site total — transport excluded (${partySize} guests)`
+                : locale === "ja"
+                  ? `交通・チケット・食事を含む予想合計 (グループ: ${partySize}名)`
+                  : `Est. total including transport, tickets & dining (${partySize} guests)`}
             </p>
           </div>
 
@@ -305,9 +309,9 @@ export function TripCostBreakdownWidget({
                       {activeTransportMode === "car" ||
                       activeTransportMode === "my_car" ? (
                         <Car className="w-4 h-4 text-sky-500 shrink-0" />
-                      ) : (
+                      ) : activeTransportMode ? (
                         <Train className="w-4 h-4 text-emerald-500 shrink-0" />
-                      )}
+                      ) : null}
                       {locale === "ja" ? "現地交通費" : "Local transport"}
                     </span>
                     <span className="text-slate-900 dark:text-white">

@@ -1,4 +1,5 @@
 import type { CollectionMembership } from "./collection";
+import type { TransportMode } from "../services/transport/types";
 
 export interface ItineraryStep {
   time: string;
@@ -215,7 +216,14 @@ export interface Destination {
    * zone), localAccessModes narrows same-zone authorization to the modes
    * that actually reach this destination.
    */
-  localAccessModes?: string[];
+  localAccessModes?: TransportMode[];
+  /**
+   * True when localAccessModes are route-known but their times/costs are
+   * not estimated (no estimator or static transport option). Such modes are
+   * never selectable; the UI shows "route known — time and cost
+   * unavailable".
+   */
+  localAccessUnestimated?: boolean;
   /**
    * Optional: Explicit route fares for exact budget overrides.
    * - train, bus, shinkansen: One-way ticket fare per person (JPY).

@@ -23,8 +23,10 @@ vi.mock("react-i18next", () => ({
   initReactI18next: { type: "3rdParty", init: vi.fn() },
 }));
 
+const localeState = vi.hoisted(() => ({ locale: "en" as "en" | "ja" }));
+
 vi.mock("@/shared/context/LocaleContext", () => ({
-  useLocale: () => ({ locale: "en", setLocale: vi.fn() }),
+  useLocale: () => ({ locale: localeState.locale, setLocale: vi.fn() }),
 }));
 
 vi.mock("react-leaflet", () => ({
@@ -142,6 +144,7 @@ function render(path = "/destinations/naha-city") {
 beforeEach(() => {
   storeState.homeStationCoords = { lat: 35.6812, lng: 139.7671 };
   storeState.homeStationTransportZoneId = "mainland-honshu";
+  localeState.locale = "en";
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
@@ -229,5 +232,64 @@ describe("DestinationDetails transport rows", () => {
     expect(text).not.toContain("Ferry route available");
     expect(text).toContain("On-site budget (transport excluded)");
     expect(text).not.toContain("Local transport");
+  });
+
+  it("Ogasawara from Tokyo never claims the total includes transport", async () => {
+    render("/destinations/ogasawara-islands-tokyo");
+    await act(async () => {
+      await flush(80);
+    });
+    const text = host.textContent ?? "";
+    expect(text).not.toContain("including transport");
+    expect(text).not.toContain("交通・チケット・食事を含む");
+  });
+
+  it("Japanese locale also excludes transport from the budget copy", async () => {
+    localeState.locale = "ja";
+    render("/destinations/ogasawara-islands-tokyo");
+    await act(async () => {
+      await flush(80);
+    });
+    const text = host.textContent ?? "";
+    expect(text).toContain("現地予算（往復交通費を除く）");
+    expect(text).not.toContain("含む予想合計");
+  });
+
+  it("Kouri from Naha never displays Train and shows local-access copy", async () => {
+    storeState.homeStationCoords = { lat: 26.2124, lng: 127.6809 };
+    storeState.homeStationTransportZoneId = "okinawa-main";
+    render("/destinations/kouri-island-okinawa");
+    await act(async () => {
+      await flush(80);
+    });
+    const text = host.textContent ?? "";
+    expect(text).not.toContain("Train");
+    expect(text).not.toContain("Shinkansen");
+    expect(text).toContain("Local access available");
+  });
+
+  it("Sakurajima from Kagoshima never displays Train", async () => {
+    storeState.homeStationCoords = { lat: 31.5966, lng: 130.5571 };
+    storeState.homeStationTransportZoneId = "mainland-kyushu";
+    render("/destinations/sakurajima-volcano-kagoshima");
+    await act(async () => {
+      await flush(80);
+    });
+    const text = host.textContent ?? "";
+    expect(text).not.toContain("Train");
+    expect(text).not.toContain("Shinkansen");
+    expect(text).toContain("Local access available");
+  });
+
+  it("Aoshima from Miyazaki retains legitimate Train access", async () => {
+    storeState.homeStationCoords = { lat: 31.9077, lng: 131.4202 };
+    storeState.homeStationTransportZoneId = "mainland-kyushu";
+    render("/destinations/aoshima-island-miyazaki");
+    await act(async () => {
+      await flush(80);
+    });
+    const text = host.textContent ?? "";
+    expect(text).toContain("Train");
+    expect(text).not.toContain("Shinkansen");
   });
 });

@@ -304,6 +304,38 @@ describe("no-route budget excludes origin transport", () => {
     expect(cost.originTransport.min).toBe(0);
     expect(cost.originTransport.applicable).toBe(false);
   });
+
+  it("generated plan with null transport uses no Train local-fare assumptions", () => {
+    const leg = {
+      destinationId: "test-dest",
+      durationMinutes: 30,
+      mode: "bus",
+    };
+    const plan = {
+      steps: [],
+      routeLegs: [leg],
+      isUnfeasible: false,
+      totalBudgetRange: [0, 0] as [number, number],
+    };
+    const nullCost = calculateGeneratedPlanCost(plan as never, 2, null);
+    expect(nullCost.localTransit.min).toBe(0);
+    expect(nullCost.localTransit.applicable).toBe(false);
+    // The train-mode estimate must differ: it prices on-site transit.
+    const trainCost = calculateGeneratedPlanCost(plan as never, 2, "train");
+    expect(trainCost.localTransit.min).toBeGreaterThan(0);
+    // A curated fare is real data and is still counted without a mode.
+    const curatedLeg = {
+      ...leg,
+      curatedFare: { min: 500, max: 800 },
+    };
+    const curatedCost = calculateGeneratedPlanCost(
+      { ...plan, routeLegs: [curatedLeg] } as never,
+      2,
+      null,
+    );
+    expect(curatedCost.localTransit.applicable).toBe(true);
+    expect(curatedCost.localTransit.min).toBe(500 * 2);
+  });
 });
 
 describe("destination-level local access", () => {
@@ -347,36 +379,52 @@ describe("destination-level local access", () => {
     expect(modes).not.toContain("shinkansen");
   });
 
-  it("Sakurajima allows only explicitly backed car/bus access", () => {
-    // The catalogue record carries train:180 only; with localAccessModes
-    // [car, my_car, bus], no mode is authorized by the zone alone.
+  it("Sakurajima production record returns no estimable modes, never Train", () => {
+    // The catalogue record backs train:180 only, but localAccessModes
+    // [car, my_car, bus] authorizes only non-rail access — which has no
+    // estimator or static option. The connection is route-known but
+    // unestimated (localAccessUnestimated), so nothing is selectable and
+    // Train is never authorized.
     const dest = byId.get("sakurajima-volcano-kagoshima")!;
     const modes = getValidModes(
       dest,
       "rental",
-      ["bus"],
+      ["bus", "train"],
       KAGOSHIMA,
       undefined,
       "mainland-kyushu",
     );
     expect(modes).toEqual([]);
-    expect(modes.some((m) => ["train", "shinkansen"].includes(m))).toBe(false);
+  });
 
-    // When the record backs a car option, car is authorized by the
-    // destination-level constraint.
-    const backed = {
-      ...dest,
-      transportOptions: { ...dest.transportOptions, car: 40 },
-    } as Destination;
-    const backedModes = getValidModes(
-      backed,
-      "rental",
-      ["bus"],
-      KAGOSHIMA,
+  it("Kouri production record returns no estimable modes, never Train", () => {
+    const dest = byId.get("kouri-island-okinawa")!;
+    const modes = getValidModes(
+      dest,
+      "none",
+      ["train", "shinkansen", "bus"],
+      NAHA,
+      undefined,
+      "okinawa-main",
+    );
+    expect(modes).toEqual([]);
+  });
+
+  it("Aoshima retains legitimate same-zone Train access and no Shinkansen", () => {
+    const MIYAZAKI = { lat: 31.9077, lng: 131.4202 };
+    const dest = byId.get("aoshima-island-miyazaki")!;
+    const modes = getValidModes(
+      dest,
+      "none",
+      ["train", "shinkansen", "bus"],
+      MIYAZAKI,
       undefined,
       "mainland-kyushu",
     );
-    expect(backedModes).toEqual(["car"]);
+    // JR Aoshima Station: train is backed by the catalogue record.
+    expect(modes).toContain("train");
+    // Shinkansen is not direct local access.
+    expect(modes).not.toContain("shinkansen");
   });
 });
 

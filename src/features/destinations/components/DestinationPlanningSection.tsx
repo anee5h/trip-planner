@@ -51,14 +51,16 @@ export function DestinationPlanningSection({
     generatedPlan && !generatedPlan.isUnfeasible,
   );
 
-  // Local transit on-site may still be estimated, but nothing converts a
-  // null (no origin route) or "all" selection into an origin Train cost:
-  // calculateGeneratedPlanCost only prices origin transport when
-  // hasOriginInfo is true, which is never set here.
-  const localTransitMode: "car" | "train" =
+  // Origin transport mode and local transit mode are separate concerns.
+  // Origin transport is never priced (hasOriginInfo is never set). Local
+  // transit is only estimated when an actual on-site mode is known: a null
+  // or flight/bus selection must not default to Train fare assumptions.
+  const localTransitMode: "car" | "train" | null =
     selectedTransport === "car" || selectedTransport === "my_car"
       ? "car"
-      : "train";
+      : selectedTransport === "train" || selectedTransport === "shinkansen"
+        ? "train"
+        : null;
   const costBreakdown =
     hasValidGeneratedPlan && generatedPlan
       ? calculateGeneratedPlanCost(

@@ -274,9 +274,70 @@ export const transportTopologyValidator: ValidatorModule = {
       }
     }
 
+    const LOCAL_MODE_SET = new Set([
+      "train",
+      "shinkansen",
+      "car",
+      "my_car",
+      "bus",
+    ]);
+
     const explicitZones = new Set<string>();
     for (const dest of destinations) {
       if (!dest.id) continue;
+
+      if (dest.localAccessModes?.length) {
+        const seen = new Set<string>();
+        for (const mode of dest.localAccessModes) {
+          if (!LOCAL_MODE_SET.has(mode)) {
+            issues.push({
+              severity: "error",
+              code: "invalid_local_access_mode",
+              message: `${dest.id} localAccessModes contains unsupported mode '${mode}' (flight/ferry are not local modes)`,
+              targetId: dest.id,
+            });
+          }
+          if (seen.has(mode)) {
+            issues.push({
+              severity: "error",
+              code: "duplicate_local_access_mode",
+              message: `${dest.id} localAccessModes contains duplicate '${mode}'`,
+              targetId: dest.id,
+            });
+          }
+          seen.add(mode);
+        }
+        const zone = resolveDestinationTransportZone(dest);
+        if (zone !== "unknown") {
+          const zoneData = zoneById.get(zone);
+          for (const mode of dest.localAccessModes) {
+            if (zoneData && !zoneData.localModes.includes(mode)) {
+              issues.push({
+                severity: "error",
+                code: "local_access_outside_zone",
+                message: `${dest.id} localAccessMode '${mode}' is not in zone ${zone} localModes`,
+                targetId: dest.id,
+              });
+            }
+          }
+        }
+        if (!dest.localAccessUnestimated) {
+          for (const mode of dest.localAccessModes) {
+            if (
+              dest.transportOptions?.[
+                mode as keyof typeof dest.transportOptions
+              ] === undefined
+            ) {
+              issues.push({
+                severity: "error",
+                code: "unbacked_local_access_mode",
+                message: `${dest.id} localAccessMode '${mode}' has no estimator or static transport option and is not marked localAccessUnestimated`,
+                targetId: dest.id,
+              });
+            }
+          }
+        }
+      }
 
       const tags = [...(dest.tags ?? []), ...(dest.categories ?? [])].map((t) =>
         t.toLowerCase(),

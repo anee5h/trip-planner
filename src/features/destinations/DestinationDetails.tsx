@@ -200,6 +200,8 @@ const DETAIL_COPY = {
     transportUnavailable: "Transport estimate unavailable",
     ferryRouteUnestimated: "Ferry route available — time and cost unavailable",
     onsiteBudget: "On-site budget (transport excluded)",
+    localAccessUnestimated:
+      "Local access available — time and cost unavailable",
   },
   ja: {
     notFound: "目的地が見つかりません",
@@ -235,6 +237,7 @@ const DETAIL_COPY = {
     transportUnavailable: "交通手段の見積もりが利用できません",
     ferryRouteUnestimated: "フェリー航路あり — 所要時間・料金は利用できません",
     onsiteBudget: "現地予算（往復交通費を除く）",
+    localAccessUnestimated: "現地アクセスあり — 所要時間・料金は利用できません",
   },
 } as const;
 
@@ -523,6 +526,12 @@ export default function DestinationDetails() {
 
   const destinationZoneIdForDisplay = useMemo(
     () => (destination ? resolveDestinationTransportZone(destination) : null),
+    [destination],
+  );
+
+  /** Destination declares local access modes that are not estimated. */
+  const localAccessKnown = useMemo(
+    () => Boolean(destination?.localAccessModes?.length),
     [destination],
   );
 
@@ -1172,7 +1181,9 @@ export default function DestinationDetails() {
                           <div className="text-sm text-slate-400 dark:text-slate-500 py-2">
                             {ferryRouteKnown
                               ? copy.ferryRouteUnestimated
-                              : copy.transportUnavailable}
+                              : localAccessKnown
+                                ? copy.localAccessUnestimated
+                                : copy.transportUnavailable}
                           </div>
                         )}
                         {isModeVisible("train") &&

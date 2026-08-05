@@ -1,6 +1,7 @@
 {
   "id": "okinoshima-munakata-fukuoka",
   "localAccessModes": ["car", "my_car", "bus"],
+  "localAccessUnestimated": true,
   "transportZoneId": "mainland-kyushu",
   "name": "Sacred Island of Okinoshima and Associated Sites in Munakata",
   "prefecture": "Fukuoka",
