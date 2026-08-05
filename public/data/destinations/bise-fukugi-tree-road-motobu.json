@@ -94,5 +94,39 @@
     "min": 1,
     "max": 2
   },
-  "municipalityId": "Okinawa:motobu"
+  "municipalityId": "Okinawa:motobu",
+  "categories": ["Nature", "Sightseeing"],
+  "highlights": [
+    "Avenue of ancient Fukugi trees",
+    "Traditional Okinawan rural scenery",
+    "Views across to Ie Island"
+  ],
+  "collections": [],
+  "crowd": {
+    "weekday": 2,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "transportOptions": {
+    "bus": 300
+  },
+  "notes": "A peaceful tree-lined lane near Churaumi — walk or rent a bicycle for the full experience.",
+  "totalTripHours": 2,
+  "walkingMin": 2500,
+  "walkingSunMin": 1000,
+  "walkingShadeMin": 1500,
+  "indoorPercent": 5,
+  "reservation": "None required",
+  "parking": "Nearby paid parking",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "notesJa": "古木のフクギ並木が続く静かな小道。レンタサイクルでの散策がおすすめ。"
 }

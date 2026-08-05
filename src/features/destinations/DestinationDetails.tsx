@@ -440,7 +440,7 @@ export default function DestinationDetails() {
     () =>
       childDestinations
         .filter((place) =>
-          [...place.categories, ...place.tags].some((label) =>
+          [...(place.categories ?? []), ...(place.tags ?? [])].some((label) =>
             /food|market|night|evening|shopping/i.test(label),
           ),
         )
@@ -737,7 +737,7 @@ export default function DestinationDetails() {
                 return null;
               })}
             {destination.categories
-              .filter((cat) => {
+              ?.filter((cat) => {
                 const lowerCat = cat.toLowerCase();
                 return (
                   lowerCat !== "national treasure" &&
@@ -1023,7 +1023,7 @@ export default function DestinationDetails() {
 
               <div className="flex flex-wrap gap-2">
                 {destination.tags
-                  .filter((tag) => tag !== "v1.9.2" && !tag.startsWith("v1."))
+                  ?.filter((tag) => tag !== "v1.9.2" && !tag.startsWith("v1."))
                   .map((tag) => (
                     <Badge
                       key={tag}

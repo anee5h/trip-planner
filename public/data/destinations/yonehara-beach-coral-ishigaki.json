@@ -92,5 +92,39 @@
     "min": 1.5,
     "max": 3
   },
-  "municipalityId": "Okinawa:ishigaki"
+  "municipalityId": "Okinawa:ishigaki",
+  "categories": ["Beach", "Nature"],
+  "highlights": [
+    "Natural coral reef close to shore",
+    "Excellent snorkelling spot",
+    "Palm-shaded white sand beach"
+  ],
+  "collections": [],
+  "crowd": {
+    "weekday": 3,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 10,
+    "autumn": 9,
+    "winter": 6
+  },
+  "bestMonths": [4, 5, 6, 7, 8, 9, 10],
+  "transportOptions": {
+    "bus": 300
+  },
+  "notes": "Bring your own snorkel gear — the coral starts just metres from the shore at low tide.",
+  "totalTripHours": 3,
+  "walkingMin": 2000,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 500,
+  "indoorPercent": 5,
+  "reservation": "None required",
+  "parking": "Free parking available",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "notesJa": "海岸からすぐのサンゴ礁でシュノーケリング。干潮時がねらい目。"
 }

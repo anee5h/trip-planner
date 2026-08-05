@@ -94,5 +94,39 @@
     "min": 1,
     "max": 2
   },
-  "municipalityId": "Okinawa:naha"
+  "municipalityId": "Okinawa:naha",
+  "categories": ["Garden", "Culture"],
+  "highlights": [
+    "Authentic Chinese-style garden in Naha",
+    "Koi pond and traditional pavilions",
+    "Gift from Fuzhou, Naha's sister city"
+  ],
+  "collections": [],
+  "crowd": {
+    "weekday": 2,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [1, 2, 3, 4, 10, 11, 12],
+  "transportOptions": {
+    "train": 200
+  },
+  "notes": "A tranquil Chinese garden near the city centre — a quiet escape from busy Kokusai Dori.",
+  "totalTripHours": 2,
+  "walkingMin": 1500,
+  "walkingSunMin": 500,
+  "walkingShadeMin": 800,
+  "indoorPercent": 10,
+  "reservation": "None required",
+  "parking": "Nearby paid parking",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "notesJa": "那覇の中心部近くにある静かな中国式庭園。福州との姉妹都市提携記念。"
 }

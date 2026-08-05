@@ -94,5 +94,39 @@
     "min": 1,
     "max": 2
   },
-  "municipalityId": "Okinawa:miyakojima"
+  "municipalityId": "Okinawa:miyakojima",
+  "categories": ["Sightseeing", "Nature"],
+  "highlights": [
+    "Scenic cape at Miyako's easternmost point",
+    "Contrast of Pacific Ocean and East China Sea",
+    "White lighthouse and coastal walking path"
+  ],
+  "collections": [],
+  "crowd": {
+    "weekday": 2,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "transportOptions": {
+    "bus": 300
+  },
+  "notes": "A dramatic cape where two seas meet — arrive early for sunrise at the easternmost point.",
+  "totalTripHours": 2,
+  "walkingMin": 2000,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 200,
+  "indoorPercent": 5,
+  "reservation": "None required",
+  "parking": "Free parking available",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "notesJa": "宮古島最東端の岬。太平洋と東シナ海が出会う景勝地。"
 }

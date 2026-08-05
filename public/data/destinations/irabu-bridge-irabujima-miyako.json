@@ -94,5 +94,39 @@
     "min": 1,
     "max": 2
   },
-  "municipalityId": "Okinawa:miyakojima"
+  "municipalityId": "Okinawa:miyakojima",
+  "categories": ["Sightseeing", "Nature"],
+  "highlights": [
+    "3,540-metre bridge connecting Miyako and Irabu islands",
+    "Spectacular turquoise water views",
+    "Free to cross — popular photo stop"
+  ],
+  "collections": [],
+  "crowd": {
+    "weekday": 2,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "transportOptions": {
+    "bus": 250
+  },
+  "notes": "Japan's longest toll-free bridge — stop at the roadside station for panoramic photos.",
+  "totalTripHours": 2,
+  "walkingMin": 1000,
+  "walkingSunMin": 800,
+  "walkingShadeMin": 100,
+  "indoorPercent": 5,
+  "reservation": "None required",
+  "parking": "Free parking at roadside station",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "notesJa": "日本最長の無料橋。道の駅からのパノラマが絶好の写真スポット。"
 }

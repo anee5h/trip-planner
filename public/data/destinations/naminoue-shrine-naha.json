@@ -94,5 +94,39 @@
     "min": 1,
     "max": 2
   },
-  "municipalityId": "Okinawa:naha"
+  "municipalityId": "Okinawa:naha",
+  "categories": ["Shrine", "Culture"],
+  "highlights": [
+    "Okinawa's most important Shinto shrine",
+    "Clifftop location overlooking the sea",
+    "Naminoue Beach below the shrine"
+  ],
+  "collections": [],
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [1, 3, 4, 5, 10, 11],
+  "transportOptions": {
+    "train": 200
+  },
+  "notes": "The only major Shinto shrine in Okinawa, perched on a clifftop overlooking Naminoue Beach.",
+  "totalTripHours": 2,
+  "walkingMin": 2000,
+  "walkingSunMin": 800,
+  "walkingShadeMin": 800,
+  "indoorPercent": 10,
+  "reservation": "None required",
+  "parking": "Free parking available",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "notesJa": "波の上ビーチを見下ろす崖の上に立つ、沖縄随一の神社。"
 }

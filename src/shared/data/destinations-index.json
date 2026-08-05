@@ -37706,7 +37706,12 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "core-cities-japan",
+        "confirmed": true
+      }
+    ],
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["naha-city", "nago-city", "ishigaki-city"]
@@ -40207,7 +40212,12 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "core-cities-japan",
+        "confirmed": true
+      }
+    ],
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["naha-city", "motobu-town", "ishigaki-city"]
@@ -40998,7 +41008,12 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "core-cities-japan",
+        "confirmed": true
+      }
+    ],
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["nago-city", "motobu-town", "ishigaki-city"]
@@ -84751,7 +84766,41 @@
       "min": 2,
       "max": 4
     },
-    "municipalityId": "Okinawa:naha"
+    "municipalityId": "Okinawa:naha",
+    "categories": ["Shopping", "Food"],
+    "highlights": [
+      "Naha's main shopping and entertainment street",
+      "Local Okinawan cuisine and souvenir shops",
+      "Covered arcade stretching 1.6 km"
+    ],
+    "collections": [],
+    "crowd": {
+      "weekday": 6,
+      "weekend": 9,
+      "holiday": 9
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 10, 11],
+    "transportOptions": {
+      "train": 200
+    },
+    "notes": "Naha's main shopping street — great for Okinawan souvenirs and street food.",
+    "totalTripHours": 3,
+    "walkingMin": 3000,
+    "walkingSunMin": 500,
+    "walkingShadeMin": 2500,
+    "indoorPercent": 30,
+    "reservation": "None required",
+    "parking": "Nearby paid parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "那覇のメインストリート。沖縄土産やストリートフードが楽しめる国際通り。"
   },
   {
     "id": "naminoue-shrine-naha",
@@ -84849,7 +84898,41 @@
       "min": 1,
       "max": 2
     },
-    "municipalityId": "Okinawa:naha"
+    "municipalityId": "Okinawa:naha",
+    "categories": ["Shrine", "Culture"],
+    "highlights": [
+      "Okinawa's most important Shinto shrine",
+      "Clifftop location overlooking the sea",
+      "Naminoue Beach below the shrine"
+    ],
+    "collections": [],
+    "crowd": {
+      "weekday": 3,
+      "weekend": 6,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [1, 3, 4, 5, 10, 11],
+    "transportOptions": {
+      "train": 200
+    },
+    "notes": "The only major Shinto shrine in Okinawa, perched on a clifftop overlooking Naminoue Beach.",
+    "totalTripHours": 2,
+    "walkingMin": 2000,
+    "walkingSunMin": 800,
+    "walkingShadeMin": 800,
+    "indoorPercent": 10,
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "波の上ビーチを見下ろす崖の上に立つ、沖縄随一の神社。"
   },
   {
     "id": "fukushuen-garden-naha",
@@ -84947,7 +85030,41 @@
       "min": 1,
       "max": 2
     },
-    "municipalityId": "Okinawa:naha"
+    "municipalityId": "Okinawa:naha",
+    "categories": ["Garden", "Culture"],
+    "highlights": [
+      "Authentic Chinese-style garden in Naha",
+      "Koi pond and traditional pavilions",
+      "Gift from Fuzhou, Naha's sister city"
+    ],
+    "collections": [],
+    "crowd": {
+      "weekday": 2,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 9,
+      "summer": 7,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [1, 2, 3, 4, 10, 11, 12],
+    "transportOptions": {
+      "train": 200
+    },
+    "notes": "A tranquil Chinese garden near the city centre — a quiet escape from busy Kokusai Dori.",
+    "totalTripHours": 2,
+    "walkingMin": 1500,
+    "walkingSunMin": 500,
+    "walkingShadeMin": 800,
+    "indoorPercent": 10,
+    "reservation": "None required",
+    "parking": "Nearby paid parking",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "那覇の中心部近くにある静かな中国式庭園。福州との姉妹都市提携記念。"
   },
   {
     "id": "nago-pineapple-park",
@@ -85045,7 +85162,41 @@
       "min": 1.5,
       "max": 2.5
     },
-    "municipalityId": "Okinawa:nago"
+    "municipalityId": "Okinawa:nago",
+    "categories": ["Leisure", "Food"],
+    "highlights": [
+      "Pineapple-themed amusement park",
+      "Ride through pineapple fields",
+      "Free pineapple tasting at the end"
+    ],
+    "collections": [],
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 9,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "transportOptions": {
+      "bus": 300
+    },
+    "notes": "A whimsical pineapple-themed park — great for families and pineapple lovers.",
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 1000,
+    "indoorPercent": 40,
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "家族連れに人気のパイナップルテーマパーク。試食も楽しめます。"
   },
   {
     "id": "busena-marine-park-nago",
@@ -85143,7 +85294,41 @@
       "min": 1.5,
       "max": 2.5
     },
-    "municipalityId": "Okinawa:nago"
+    "municipalityId": "Okinawa:nago",
+    "categories": ["Leisure", "Nature"],
+    "highlights": [
+      "Underwater observation tower",
+      "Glass-bottom boat rides",
+      "Views of the East China Sea"
+    ],
+    "collections": [],
+    "crowd": {
+      "weekday": 3,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 9,
+      "summer": 9,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 6, 7, 8, 9, 10],
+    "transportOptions": {
+      "bus": 350
+    },
+    "notes": "The underwater observation tower offers excellent views of coral and tropical fish without getting wet.",
+    "totalTripHours": 3,
+    "walkingMin": 2000,
+    "walkingSunMin": 1000,
+    "walkingShadeMin": 500,
+    "indoorPercent": 30,
+    "reservation": "None required",
+    "parking": "Paid parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "海中展望塔からサンゴと熱帯魚を眺められます。グラスボートも。"
   },
   {
     "id": "churaumi-aquarium-motobu",
@@ -85241,7 +85426,41 @@
       "min": 2.5,
       "max": 4.5
     },
-    "municipalityId": "Okinawa:motobu"
+    "municipalityId": "Okinawa:motobu",
+    "categories": ["Aquarium", "Leisure"],
+    "highlights": [
+      "One of the world's largest aquarium tanks",
+      "Whale sharks and manta rays",
+      "Kuroshio Sea tank viewing"
+    ],
+    "collections": [],
+    "crowd": {
+      "weekday": 6,
+      "weekend": 9,
+      "holiday": 10
+    },
+    "season": {
+      "spring": 9,
+      "summer": 9,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "transportOptions": {
+      "bus": 400
+    },
+    "notes": "Home to whale sharks — arrive early to avoid the heaviest crowds at the Kuroshio tank.",
+    "totalTripHours": 5,
+    "walkingMin": 4000,
+    "walkingSunMin": 500,
+    "walkingShadeMin": 3500,
+    "indoorPercent": 80,
+    "reservation": "Online tickets recommended during peak season",
+    "parking": "Free parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "ジンベエザメが見られる世界有数の大水槽。混雑を避けるなら午前中の到着がおすすめ。"
   },
   {
     "id": "bise-fukugi-tree-road-motobu",
@@ -85339,7 +85558,41 @@
       "min": 1,
       "max": 2
     },
-    "municipalityId": "Okinawa:motobu"
+    "municipalityId": "Okinawa:motobu",
+    "categories": ["Nature", "Sightseeing"],
+    "highlights": [
+      "Avenue of ancient Fukugi trees",
+      "Traditional Okinawan rural scenery",
+      "Views across to Ie Island"
+    ],
+    "collections": [],
+    "crowd": {
+      "weekday": 2,
+      "weekend": 4,
+      "holiday": 5
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 10, 11],
+    "transportOptions": {
+      "bus": 300
+    },
+    "notes": "A peaceful tree-lined lane near Churaumi — walk or rent a bicycle for the full experience.",
+    "totalTripHours": 2,
+    "walkingMin": 2500,
+    "walkingSunMin": 1000,
+    "walkingShadeMin": 1500,
+    "indoorPercent": 5,
+    "reservation": "None required",
+    "parking": "Nearby paid parking",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "古木のフクギ並木が続く静かな小道。レンタサイクルでの散策がおすすめ。"
   },
   {
     "id": "nakijin-castle-ruins-motobu",
@@ -85442,7 +85695,41 @@
       "min": 1,
       "max": 2.5
     },
-    "municipalityId": "Okinawa:motobu"
+    "municipalityId": "Okinawa:motobu",
+    "categories": ["Historic", "Sightseeing"],
+    "highlights": [
+      "UNESCO World Heritage castle ruins",
+      "Cherry blossoms in late January",
+      "Panoramic views of the East China Sea"
+    ],
+    "collections": [],
+    "crowd": {
+      "weekday": 3,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 9,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 9
+    },
+    "bestMonths": [1, 2, 3, 10, 11, 12],
+    "transportOptions": {
+      "bus": 400
+    },
+    "notes": "One of nine Gusuku sites — visit in late January for Okinawa's earliest cherry blossoms.",
+    "totalTripHours": 3,
+    "walkingMin": 3500,
+    "walkingSunMin": 2000,
+    "walkingShadeMin": 500,
+    "indoorPercent": 5,
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "世界遺産の城跡。1月下旬には沖縄で最も早い桜が見られます。"
   },
   {
     "id": "kabira-bay-ishigaki",
@@ -85539,7 +85826,41 @@
       "min": 1.5,
       "max": 3
     },
-    "municipalityId": "Okinawa:ishigaki"
+    "municipalityId": "Okinawa:ishigaki",
+    "categories": ["Nature", "Sightseeing"],
+    "highlights": [
+      "Stunning emerald-green bay",
+      "Famous for black pearl cultivation",
+      "Glass-bottom boat tours available"
+    ],
+    "collections": [],
+    "crowd": {
+      "weekday": 5,
+      "weekend": 8,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 9,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 6, 7, 8, 9, 10],
+    "transportOptions": {
+      "bus": 300
+    },
+    "notes": "Swimming is not allowed in the bay — take a glass-bottom boat to see the coral and pearls.",
+    "totalTripHours": 2,
+    "walkingMin": 1500,
+    "walkingSunMin": 1000,
+    "walkingShadeMin": 200,
+    "indoorPercent": 5,
+    "reservation": "Glass-bottom boat tickets at the pier",
+    "parking": "Free parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "遊泳禁止の美しい湾。グラスボートでサンゴ礁と真珠養殖を見学できます。"
   },
   {
     "id": "tamatorizaki-viewpoint-ishigaki",
@@ -85635,7 +85956,41 @@
       "min": 1,
       "max": 1.5
     },
-    "municipalityId": "Okinawa:ishigaki"
+    "municipalityId": "Okinawa:ishigaki",
+    "categories": ["Sightseeing", "Nature"],
+    "highlights": [
+      "Panoramic view of the northern coastline",
+      "Two observation decks",
+      "Overlooks the coral-rich Hirakubo Peninsula"
+    ],
+    "collections": [],
+    "crowd": {
+      "weekday": 2,
+      "weekend": 4,
+      "holiday": 5
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "transportOptions": {
+      "bus": 350
+    },
+    "notes": "Free observation point with views of the Hirakubo Peninsula — best in clear morning light.",
+    "totalTripHours": 1,
+    "walkingMin": 1000,
+    "walkingSunMin": 800,
+    "walkingShadeMin": 100,
+    "indoorPercent": 5,
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "無料の展望台から平久保半島の絶景パノラマ。晴れた午前中がおすすめ。"
   },
   {
     "id": "yonehara-beach-coral-ishigaki",
@@ -85731,7 +86086,41 @@
       "min": 1.5,
       "max": 3
     },
-    "municipalityId": "Okinawa:ishigaki"
+    "municipalityId": "Okinawa:ishigaki",
+    "categories": ["Beach", "Nature"],
+    "highlights": [
+      "Natural coral reef close to shore",
+      "Excellent snorkelling spot",
+      "Palm-shaded white sand beach"
+    ],
+    "collections": [],
+    "crowd": {
+      "weekday": 3,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 10,
+      "autumn": 9,
+      "winter": 6
+    },
+    "bestMonths": [4, 5, 6, 7, 8, 9, 10],
+    "transportOptions": {
+      "bus": 300
+    },
+    "notes": "Bring your own snorkel gear — the coral starts just metres from the shore at low tide.",
+    "totalTripHours": 3,
+    "walkingMin": 2000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 500,
+    "indoorPercent": 5,
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "海岸からすぐのサンゴ礁でシュノーケリング。干潮時がねらい目。"
   },
   {
     "id": "yonaha-maehama-beach-miyako",
@@ -85829,7 +86218,41 @@
       "min": 2,
       "max": 4
     },
-    "municipalityId": "Okinawa:miyakojima"
+    "municipalityId": "Okinawa:miyakojima",
+    "categories": ["Beach", "Nature"],
+    "highlights": [
+      "7 km of white sand beach",
+      "Crystal-clear shallow water",
+      "Voted one of Japan's best beaches"
+    ],
+    "collections": [],
+    "crowd": {
+      "weekday": 3,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 10,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [4, 5, 6, 7, 8, 9, 10],
+    "transportOptions": {
+      "bus": 300
+    },
+    "notes": "One of Japan's top beaches — the shallow water extends far out, ideal for wading and families.",
+    "totalTripHours": 4,
+    "walkingMin": 3000,
+    "walkingSunMin": 2500,
+    "walkingShadeMin": 300,
+    "indoorPercent": 5,
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "日本のベストビーチの一つ。遠浅で家族連れにも安心の白砂海岸。"
   },
   {
     "id": "irabu-bridge-irabujima-miyako",
@@ -85927,7 +86350,41 @@
       "min": 1,
       "max": 2
     },
-    "municipalityId": "Okinawa:miyakojima"
+    "municipalityId": "Okinawa:miyakojima",
+    "categories": ["Sightseeing", "Nature"],
+    "highlights": [
+      "3,540-metre bridge connecting Miyako and Irabu islands",
+      "Spectacular turquoise water views",
+      "Free to cross — popular photo stop"
+    ],
+    "collections": [],
+    "crowd": {
+      "weekday": 2,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 9,
+      "summer": 9,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "transportOptions": {
+      "bus": 250
+    },
+    "notes": "Japan's longest toll-free bridge — stop at the roadside station for panoramic photos.",
+    "totalTripHours": 2,
+    "walkingMin": 1000,
+    "walkingSunMin": 800,
+    "walkingShadeMin": 100,
+    "indoorPercent": 5,
+    "reservation": "None required",
+    "parking": "Free parking at roadside station",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "日本最長の無料橋。道の駅からのパノラマが絶好の写真スポット。"
   },
   {
     "id": "higashi-hennazaki-cape-miyako",
@@ -86025,7 +86482,41 @@
       "min": 1,
       "max": 2
     },
-    "municipalityId": "Okinawa:miyakojima"
+    "municipalityId": "Okinawa:miyakojima",
+    "categories": ["Sightseeing", "Nature"],
+    "highlights": [
+      "Scenic cape at Miyako's easternmost point",
+      "Contrast of Pacific Ocean and East China Sea",
+      "White lighthouse and coastal walking path"
+    ],
+    "collections": [],
+    "crowd": {
+      "weekday": 2,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 9,
+      "summer": 9,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "transportOptions": {
+      "bus": 300
+    },
+    "notes": "A dramatic cape where two seas meet — arrive early for sunrise at the easternmost point.",
+    "totalTripHours": 2,
+    "walkingMin": 2000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 200,
+    "indoorPercent": 5,
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "notesJa": "宮古島最東端の岬。太平洋と東シナ海が出会う景勝地。"
   },
   {
     "id": "hakata-station-area",
