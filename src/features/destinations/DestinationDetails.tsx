@@ -1205,11 +1205,12 @@ export default function DestinationDetails() {
                                   {copy.estimated}{" "}
                                   <JapaneseYen className="inline w-3 h-3" />
                                   {(
-                                    budgetService.getTransportCost(
+                                    (budgetService.getTransportCost(
                                       destination,
                                       "train",
                                       partySize,
-                                    ) / 1000
+                                      homeStationCoords ?? undefined,
+                                    ) ?? 0) / 1000
                                   ).toFixed(1)}
                                   k
                                 </div>
@@ -1233,11 +1234,12 @@ export default function DestinationDetails() {
                                   {copy.estimated}{" "}
                                   <JapaneseYen className="inline w-3 h-3" />
                                   {(
-                                    budgetService.getTransportCost(
+                                    (budgetService.getTransportCost(
                                       destination,
                                       "shinkansen",
                                       partySize,
-                                    ) / 1000
+                                      homeStationCoords ?? undefined,
+                                    ) ?? 0) / 1000
                                   ).toFixed(1)}
                                   k
                                 </div>
@@ -1261,11 +1263,12 @@ export default function DestinationDetails() {
                                   {copy.estimated}{" "}
                                   <JapaneseYen className="inline w-3 h-3" />
                                   {(
-                                    budgetService.getTransportCost(
+                                    (budgetService.getTransportCost(
                                       destination,
                                       "bus",
                                       partySize,
-                                    ) / 1000
+                                      homeStationCoords ?? undefined,
+                                    ) ?? 0) / 1000
                                   ).toFixed(1)}
                                   k
                                 </div>
@@ -1289,11 +1292,12 @@ export default function DestinationDetails() {
                                   {copy.estimated}{" "}
                                   <JapaneseYen className="inline w-3 h-3" />
                                   {(
-                                    budgetService.getTransportCost(
+                                    (budgetService.getTransportCost(
                                       destination,
                                       "car",
                                       partySize,
-                                    ) / 1000
+                                      homeStationCoords ?? undefined,
+                                    ) ?? 0) / 1000
                                   ).toFixed(1)}
                                   k
                                 </div>
@@ -1317,11 +1321,12 @@ export default function DestinationDetails() {
                                   {copy.estimated}{" "}
                                   <JapaneseYen className="inline w-3 h-3" />
                                   {(
-                                    budgetService.getTransportCost(
+                                    (budgetService.getTransportCost(
                                       destination,
                                       "my_car",
                                       partySize,
-                                    ) / 1000
+                                      homeStationCoords ?? undefined,
+                                    ) ?? 0) / 1000
                                   ).toFixed(1)}
                                   k
                                 </div>
@@ -1354,19 +1359,25 @@ export default function DestinationDetails() {
                                 {formatTransportTime(flightEstimate.timeRange)}
                               </div>
                               <div className="text-xs text-slate-400">
-                                {flightEstimate.costUnavailable ? (
+                                {flightEstimate.costUnavailable ||
+                                budgetService.getTransportCost(
+                                  destination,
+                                  "flight",
+                                  partySize,
+                                  homeStationCoords ?? undefined,
+                                ) === null ? (
                                   copy.costUnavailable
                                 ) : (
                                   <>
                                     {copy.estimated}{" "}
                                     <JapaneseYen className="inline w-3 h-3" />
                                     {(
-                                      budgetService.getTransportCost(
+                                      (budgetService.getTransportCost(
                                         destination,
                                         "flight",
                                         partySize,
                                         homeStationCoords ?? undefined,
-                                      ) / 1000
+                                      ) ?? 0) / 1000
                                     ).toFixed(1)}
                                     k
                                   </>
@@ -1503,14 +1514,26 @@ export default function DestinationDetails() {
                                   }
                                 </span>
                                 <span className="font-semibold text-slate-700 dark:text-slate-300">
-                                  <JapaneseYen className="inline w-3 h-3" />
-                                  {budgetService
-                                    .getTransportCost(
-                                      destination,
-                                      selectedTransport,
-                                      partySize,
-                                    )
-                                    .toLocaleString()}
+                                  {budgetService.getTransportCost(
+                                    destination,
+                                    selectedTransport,
+                                    partySize,
+                                    homeStationCoords ?? undefined,
+                                  ) === null ? (
+                                    copy.costUnavailable
+                                  ) : (
+                                    <>
+                                      <JapaneseYen className="inline w-3 h-3" />
+                                      {budgetService
+                                        .getTransportCost(
+                                          destination,
+                                          selectedTransport,
+                                          partySize,
+                                          homeStationCoords ?? undefined,
+                                        )
+                                        ?.toLocaleString()}
+                                    </>
+                                  )}
                                 </span>
                               </div>
 

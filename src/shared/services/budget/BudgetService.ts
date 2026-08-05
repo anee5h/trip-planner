@@ -84,7 +84,7 @@ export function getEstimatedBudgetRange(
 ): PriceRange {
   const breakdown = getEffectiveBudgetBreakdown(dest);
   const scale = partySize / 2;
-  const transport = getTransportCost(dest, mode, partySize, homeCoords);
+  const transport = getTransportCost(dest, mode, partySize, homeCoords) ?? 0;
   const food = getDiningFoodRange(budgetTier, totalTripHours, partySize);
   const transfers: Record<BudgetTier, PriceRange> = {
     economy: [0, 600],
@@ -143,7 +143,8 @@ function getRentalBaseFee(tripDurationHours: number): number {
 }
 
 /**
- * Returns the round-trip transport cost for the given party size.
+ * Returns the round-trip transport cost for the given party size, or null if
+ * no cost could be computed (e.g. unverified flight fare, missing option).
  * Checks explicit route fares (dest.transportFares) first, falling back to
  * configurable duration-based pricing (TRANSPORT_PRICING_CONFIG).
  */
@@ -152,7 +153,7 @@ export function getTransportCost(
   mode: string,
   partySize: number = 2,
   homeCoords?: { lat: number; lng: number },
-): number {
+): number | null {
   // 1. Explicit Route Fare Precedence (if specified in destination JSON)
   const explicitFare =
     dest.transportFares?.[mode as keyof typeof dest.transportFares];
@@ -180,8 +181,7 @@ export function getTransportCost(
       );
       return Math.floor(avgOneWayPerPerson * 2 * partySize);
     }
-    // Unverified fare: never fabricate a flight cost from the route. Fall
-    // through to the generic breakdown fallback below.
+    return null;
   }
 
   if (
@@ -253,7 +253,7 @@ export function getTransportCost(
     return Math.floor(oneWayPerPerson * 2 * partySize);
   }
 
-  return ((dest.budgetBreakdown?.transport || 3000) / 2) * partySize;
+  return null;
 }
 
 /**
@@ -315,13 +315,13 @@ export function getAdjustedBudget(
 
   const transportCost =
     mode === undefined
-      ? ((dest.budgetBreakdown?.transport || 3000) / 2) * partySize
+      ? null
       : getTransportCost(dest, mode, partySize, homeCoords);
   const recBudget = dest.budgetRecommended || dest.budgetMin || 5000;
   const otherCostsCouple =
     recBudget - (dest.budgetBreakdown?.transport || 3000);
   const otherCosts = Math.max(0, (otherCostsCouple / 2) * partySize);
-  return otherCosts + transportCost;
+  return otherCosts + (transportCost ?? 0);
 }
 
 export function getEffectiveBudgetBreakdown(dest: Destination): {

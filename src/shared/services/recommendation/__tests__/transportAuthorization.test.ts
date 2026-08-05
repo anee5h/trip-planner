@@ -13,6 +13,7 @@ import {
 } from "@/shared/services/transport/FlightTransportEstimator";
 import {
   calculateItemizedTripCost,
+  getAdjustedBudget,
   getTransportCost,
 } from "@/shared/services/budget/BudgetService";
 import { calculateGeneratedPlanCost } from "@/shared/services/budget/GeneratedPlanCostService";
@@ -268,12 +269,47 @@ describe("flight registry expansion (PR #102)", () => {
     }
   });
 
-  it("unverified fare routes never produce a fabricated flight budget", () => {
+  it("unverified fare routes return null transport cost and exclude transport from adjusted budget", () => {
     const dest = byId.get("ishigaki-city")!;
     const estimate = getFlightTransportEstimate(dest, FUKUOKA);
     expect(estimate?.costUnavailable).toBe(true);
-    const fallback = ((dest.budgetBreakdown?.transport || 3000) / 2) * 2;
-    expect(getTransportCost(dest, "flight", 2, FUKUOKA)).toBe(fallback);
+
+    const flightCost = getTransportCost(dest, "flight", 2, FUKUOKA);
+    expect(flightCost).toBeNull();
+
+    const genericFallback = ((dest.budgetBreakdown?.transport || 3000) / 2) * 2;
+    expect(flightCost).not.toBe(genericFallback);
+
+    const adjustedBudget = getAdjustedBudget(
+      dest,
+      "flight",
+      2,
+      FUKUOKA,
+      "mainland-kyushu",
+    );
+    const recBudget = dest.budgetRecommended || dest.budgetMin || 5000;
+    const expectedOnsiteBudget = Math.max(
+      0,
+      ((recBudget - (dest.budgetBreakdown?.transport || 3000)) / 2) * 2,
+    );
+    expect(adjustedBudget).toBe(expectedOnsiteBudget);
+  });
+
+  it("existing routes with verified numeric fares return the correct flight cost", () => {
+    const dest = byId.get("ishigaki-city")!;
+    // Tokyo -> Ishigaki (HND->ISG) has a verified fare in flight-estimates.json
+    const estimate = getFlightTransportEstimate(dest, TOKYO);
+    expect(estimate?.costUnavailable).toBeFalsy();
+
+    const flightCost = getTransportCost(dest, "flight", 2, TOKYO);
+    expect(flightCost).not.toBeNull();
+    expect(flightCost).toBeGreaterThan(0);
+
+    const avgOneWay = Math.round(
+      (estimate!.costRange[0] + estimate!.costRange[1]) / 2,
+    );
+    const expectedCost = Math.floor(avgOneWay * 2 * 2);
+    expect(flightCost).toBe(expectedCost);
   });
 
   it("ASJ→OKA is absent (Yoron multi-stop service is not a nonstop)", () => {
